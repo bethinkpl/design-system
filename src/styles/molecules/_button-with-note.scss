@@ -1,0 +1,15 @@
+.m-buttonWithNote {
+  display: inline-flex;
+  flex-direction: column;
+
+  .a-button {
+    margin-bottom: $space-s;
+  }
+
+  .m-buttonWithNote__note {
+    @include textMinus2;
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+  }
+}

@@ -1,0 +1,44 @@
+.m-formGroup {
+  &:not(:last-child):not(.-marginLess) {
+    margin-bottom: $space-s;
+  }
+
+  .a-label {
+    margin-bottom: $space-xxxs;
+  }
+
+  .a-error {
+    margin-top: $space-xxxxs;
+  }
+
+  .a-checkbox, .a-radio {
+    margin-right: $space-s;
+  }
+
+  &__inputWrapper {
+    position: relative;
+
+    .a-icon {
+      color: $color-storm-gray;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+
+  &.-checkbox {
+    align-items: center;
+    display: flex;
+
+    .a-label {
+      @include textBase;
+      margin-bottom: 0;
+    }
+  }
+
+  &.-withIcon {
+    .a-icon {
+      margin-left: 10px;
+    }
+  }
+}

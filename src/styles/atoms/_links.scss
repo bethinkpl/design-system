@@ -1,0 +1,19 @@
+.a-link {
+  cursor: pointer;
+  color: $color-blue-chill;
+
+  &:hover {
+    color: $color-blue-chill;
+  }
+}
+
+.a-linkInText {
+  cursor: pointer;
+  color: inherit;
+  text-decoration: underline;
+
+  &:hover {
+    // We need this override for the old styleguide
+    color: currentColor;
+  }
+}

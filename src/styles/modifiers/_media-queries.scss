@@ -1,0 +1,17 @@
+.-hiddenSAndUp {
+  @media #{$breakpoint-s} {
+    display: none !important;
+  }
+}
+
+.-hiddenMAndUp {
+  @media #{$breakpoint-m} {
+    display: none !important;
+  }
+}
+
+.-hiddenLAndUp {
+  @media #{$breakpoint-l} {
+    display: none !important;
+  }
+}

@@ -1,0 +1,36 @@
+.a-icon {
+  display: inline-block;
+  font: normal normal normal $icon-s/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+
+  &:before {
+    display: block;
+    margin: 0 auto;
+  }
+
+  &.-touchable {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    min-height: $min-touchable-size;
+    min-width: $min-touchable-size;
+  }
+
+  &.-x-large {
+    font-size: $icon-xl;
+  }
+
+  &.-large {
+    font-size: $icon-l;
+  }
+
+  &.-medium {
+    font-size: $icon-m;
+  }
+
+  &.-x-small {
+    font-size: $icon-xs;
+  }
+}

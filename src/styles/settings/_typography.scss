@@ -1,0 +1,95 @@
+$font-size-minus-3: 10px;
+$line-height-minus-3: 12px;
+
+$font-size-minus-2: 12px;
+$line-height-minus-2: 16px;
+
+$font-size-minus-1: 14px;
+$line-height-minus-1: 18px;
+
+$font-size-base: 16px;
+$line-height-base: 24px;
+
+$font-size-plus-1: 18px;
+$line-height-plus-1: 26px;
+
+$font-size-plus-2: 20px;
+$line-height-plus-2: 28px;
+
+$font-size-plus-3: 24px;
+$line-height-plus-3: 32px;
+
+$font-size-plus-4: 28px;
+$line-height-plus-4: 38px;
+
+$font-size-plus-5: 32px;
+$line-height-plus-5: 44px;
+
+$font-size-plus-6: 44px;
+$line-height-plus-6: 58px;
+
+$font-size-plus-7: 52px;
+$line-height-plus-7: 68px;
+
+$font-size-plus-8: 84px;
+$line-height-plus-8: 98px;
+
+@mixin textMinus3 {
+  font-size: $font-size-minus-3;
+  line-height: $line-height-minus-3;
+}
+
+@mixin textMinus2 {
+  font-size: $font-size-minus-2;
+  line-height: $line-height-minus-2;
+}
+
+@mixin textMinus1 {
+  font-size: $font-size-minus-1;
+  line-height: $line-height-minus-1;
+}
+
+@mixin textBase {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+}
+
+@mixin textPlus1 {
+  font-size: $font-size-plus-1;
+  line-height: $line-height-plus-1;
+}
+
+@mixin textPlus2 {
+  font-size: $font-size-plus-2;
+  line-height: $line-height-plus-2;
+}
+
+@mixin textPlus3 {
+  font-size: $font-size-plus-3;
+  line-height: $line-height-plus-3;
+}
+
+@mixin textPlus4 {
+  font-size: $font-size-plus-4;
+  line-height: $line-height-plus-4;
+}
+
+@mixin textPlus5 {
+  font-size: $font-size-plus-5;
+  line-height: $line-height-plus-5;
+}
+
+@mixin textPlus6 {
+  font-size: $font-size-plus-6;
+  line-height: $line-height-plus-6;
+}
+
+@mixin textPlus7 {
+  font-size: $font-size-plus-7;
+  line-height: $line-height-plus-7;
+}
+
+@mixin textPlus8 {
+  font-size: $font-size-plus-8;
+  line-height: $line-height-plus-8;
+}

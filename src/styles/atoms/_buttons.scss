@@ -1,0 +1,83 @@
+.a-button {
+  @include textMinus1;
+  background: $color-blue-chill;
+  border: 0;
+  border-radius: 100px;
+  color: $color-white;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 500;
+  outline: none;
+  padding: $space-s $space-m;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color ease-in-out .3s, border-color ease-in-out .3s, background-color ease-in-out .3s, box-shadow ease-in-out .3s;
+
+  &.-big {
+    width: 100%;
+
+    @media #{$breakpoint-s} {
+      width: auto;
+      padding: $space-s $space-m;
+      min-width: 300px;
+    }
+  }
+
+  &.-loading {
+    color: transparent;
+    pointer-events: none;
+
+    &:after {
+      animation: a-spinAround 500ms infinite linear;
+      border: 2px solid $color-white;
+      border-color: transparent transparent $color-white $color-white;
+      border-radius: 100%;
+      content: "";
+      display: block;
+      height: 1em;
+      left: calc(50% - (1em / 2));
+      position: absolute;
+      top: calc(50% - (1em / 2));
+      width: 1em;
+    }
+
+  }
+
+  &:disabled, &.-disabled {
+    background-color: $color-athens-grey;
+    color: $color-storm-gray;
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &:hover, &.-hovered {
+    background-color: $color-surfie-green;
+    color: $color-white;
+  }
+
+  &:focus, &.-focused {
+    background-color: $color-surfie-green;
+    box-shadow: inset 0 0 0 2px $color-surfie-green, inset 0 0 0 4px $color-white;
+  }
+
+  &.-secondary {
+    background-color: $color-white;
+    border: 2px solid $color-ebony-clay;
+    color: $color-ebony-clay;
+
+    &:hover, &.-hovered {
+      background-color: $color-white;
+    }
+
+    &:focus, &.-focus {
+      background-color: $color-white;
+      box-shadow: inset 0 0 0 2px $color-white, inset 0 0 0 4px $color-ebony-clay;
+    }
+
+    &:disabled, &.-disabled {
+      border-color: $color-cadet-blue;
+      color: $color-mischka;
+    }
+  }
+}

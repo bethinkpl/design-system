@@ -1,0 +1,21 @@
+.o-formGroups {
+  &:not(:last-child) {
+    margin-bottom: $space-xs;
+  }
+
+  @media #{$breakpoint-s} {
+    display: flex;
+
+    &:not(:last-child) {
+      margin-bottom: 0;
+    }
+
+    .m-formGroup {
+      flex: 1;
+
+      &:not(:last-child) {
+        margin-right: $space-m;
+      }
+    }
+  }
+}

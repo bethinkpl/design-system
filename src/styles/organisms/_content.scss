@@ -1,0 +1,35 @@
+// We reuse Bulma styles for now so the naming convetion isn't followed.
+// In future we should think about creating our own set of styles for content
+.content.-styleguide {
+  * {
+    font-family: "Lato", sans-serif;
+  }
+
+  h1, h2, h3 {
+    color: $color-ebony-clay;
+    font-weight: 700;
+  }
+
+  h1 {
+    @include textPlus3;
+    margin-bottom: $space-xl;
+  }
+
+  h2 {
+    @include textPlus1;
+    margin-bottom: $space-l;
+  }
+
+  p, h3, ul, ol, blockquote {
+    @include textBase;
+    margin-bottom: $space-m;
+  }
+
+  img {
+    margin: $space-s 0;
+  }
+
+  .a-icon {
+    font-family: "FontAwesome";
+  }
+}

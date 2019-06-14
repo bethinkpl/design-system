@@ -1,0 +1,38 @@
+.o-dropdown {
+  position: relative;
+  display: inline-flex;
+
+  &.-active {
+    .o-dropdown__menu {
+      display: initial;
+    }
+  }
+
+  .o-dropdown__menu {
+    display: none;
+    padding: $space-xxs $space-m;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 100;
+    background-color: $color-white;
+    min-width: 244px;
+  }
+
+  .o-dropdown__trigger {
+    cursor: pointer;
+    line-height: 0;
+  }
+
+  .o-dropdown__item {
+    cursor: pointer;
+    display: inline-block;
+    width: 100%;
+    padding: $space-xxxxs 0 $space-xxxxs $space-xxxs;
+
+    &:hover {
+      background-color: $color-alabaster;
+      color: $color-blue-chill;
+    }
+  }
+}

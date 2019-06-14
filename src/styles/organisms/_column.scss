@@ -1,0 +1,24 @@
+.o-column {
+  display: flex;
+  flex-direction: column;
+
+  .o-column__row {
+    margin-bottom: $space-s;
+
+    &.-divider {
+      width: 100%;
+
+      &:after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        background-color: $color-mischka;
+      }
+    }
+
+    &.-largeSpace {
+      margin-bottom: $space-l;
+    }
+  }
+}

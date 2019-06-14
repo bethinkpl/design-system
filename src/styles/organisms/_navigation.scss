@@ -1,0 +1,48 @@
+.o-navigation {
+  border-bottom: 1px solid $color-athens-grey;
+  padding: 0 $space-m;
+  display: flex;
+  align-items: center;
+  height: 55px;
+
+  @media #{$breakpoint-m} {
+    padding: 0 $space-xxxl;
+  }
+
+  &__right {
+    height: 100%;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__logo {
+    height: 24px;
+  }
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    height: 100%;
+    margin-right: $space-xxxxs;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__avatar {
+    padding: $space-xxs;
+
+    @media #{$breakpoint-m} {
+      padding: $space-xxxxs;
+
+      .a-avatar, .a-icon {
+        font-size: $icon-m;
+        height: $icon-m;
+        width: $icon-m;
+      }
+    }
+
+  }
+}
