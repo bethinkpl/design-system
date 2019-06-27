@@ -49,20 +49,20 @@
 	}
 
   &:disabled, &.-disabled {
-	background-color: $color-athens-grey;
-	color: $color-storm-gray;
-	cursor: not-allowed;
-	pointer-events: none;
+		background-color: $color-athens-grey;
+		color: $color-storm-gray;
+		cursor: not-allowed;
+		pointer-events: none;
   }
 
   &:hover, &.-hovered {
-	background-color: $color-surfie-green;
-	color: $color-white;
+		background-color: $color-surfie-green;
+		color: $color-white;
   }
 
   &:focus, &.-focused {
-	background-color: $color-surfie-green;
-	box-shadow: inset 0 0 0 2px $color-surfie-green, inset 0 0 0 4px $color-white;
+		background-color: $color-surfie-green;
+		box-shadow: inset 0 0 0 2px $color-surfie-green, inset 0 0 0 4px $color-white;
   }
 
 	&.-roundedCorners {
@@ -70,25 +70,46 @@
 		padding: $space-xxs $space-s;
 	}
 
-  &.-secondary {
-	background-color: $color-white;
-	border: 2px solid $color-storm-gray;
-	color: $color-ebony-clay;
-	padding: $space-xxxs $space-xs;
+	&.-secondary {
+		background-color: $color-white;
+		border: 2px solid $color-storm-gray;
+		color: $color-ebony-clay;
+		padding: $space-xxxs $space-xs;
 
-	&:hover, &.-hovered {
-	  background-color: $color-white;
-		border-color: $color-rhino;
+		&:hover, &.-hovered {
+			background-color: $color-white;
+			border-color: $color-rhino;
+		}
+
+		&:focus, &.-focus {
+			background-color: $color-white;
+			box-shadow: inset 0 0 0 2px $color-white, inset 0 0 0 4px $color-rhino;
+		}
+
+		&:disabled, &.-disabled {
+			border-color: $color-cadet-blue;
+			color: $color-mischka;
+		}
 	}
 
-	&:focus, &.-focus {
-	  background-color: $color-white;
-	  box-shadow: inset 0 0 0 2px $color-white, inset 0 0 0 4px $color-rhino;
-	}
+	&.-text {
+		background-color: transparent;
+		border: none;
+		border-radius: 0;
+		color: $color-blue-chill;
+		padding: $space-xxxs $space-xs;
 
-	&:disabled, &.-disabled {
-	  border-color: $color-cadet-blue;
-	  color: $color-mischka;
+		&:hover, &.-hovered {
+			color: $color-surfie-green;
+		}
+
+		&:focus, &.-focus {
+			background-color: $color-athens-grey;
+			box-shadow: none;
+		}
+
+		&:disabled, &.-disabled {
+			color: rgba($color-blue-chill, .6);
+		}
 	}
-  }
 }
