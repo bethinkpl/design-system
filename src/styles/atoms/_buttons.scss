@@ -65,7 +65,7 @@
   }
 
 	&.-roundedCorners {
-		border-radius: 4px;
+		border-radius: 6px;
 		padding: $space-xxs $space-s;
 	}
 
@@ -96,7 +96,7 @@
 		border: none;
 		border-radius: 0;
 		color: $color-blue-chill;
-		padding: $space-xxxs $space-xs;
+		padding: $space-xxs $space-s;
 
 		&:hover, &.-hovered {
 			color: $color-surfie-green;
