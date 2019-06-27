@@ -45,6 +45,15 @@
 
 	&.-buttonJungleGreen {
 		background-color: $color-jungle-green;
+
+		&:hover, &.-hovered {
+			background-color: $color-elf-green;
+		}
+
+		&:focus, &.-focused {
+			background-color: $color-jungle-green;
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-jungle-green, .6);
+		}
 	}
 
   &:disabled, &.-disabled {
