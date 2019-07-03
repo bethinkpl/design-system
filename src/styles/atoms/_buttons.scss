@@ -15,69 +15,109 @@
   transition: color ease-in-out .3s, border-color ease-in-out .3s, background-color ease-in-out .3s, box-shadow ease-in-out .3s;
 
   &.-big {
-    width: 100%;
+	width: 100%;
 
-    @media #{$breakpoint-s} {
-      width: auto;
-      padding: $space-s $space-m;
-      min-width: 300px;
-    }
+		@media #{$breakpoint-s} {
+			width: auto;
+			padding: $space-s $space-m;
+			min-width: 264px;
+		}
   }
 
   &.-loading {
-    color: transparent;
-    pointer-events: none;
+		color: transparent;
+		pointer-events: none;
 
-    &:after {
-      animation: a-spinAround 500ms infinite linear;
-      border: 2px solid $color-white;
-      border-color: transparent transparent $color-white $color-white;
-      border-radius: 100%;
-      content: "";
-      display: block;
-      height: 1em;
-      left: calc(50% - (1em / 2));
-      position: absolute;
-      top: calc(50% - (1em / 2));
-      width: 1em;
-    }
-
+		&:after {
+			animation: a-spinAround 500ms infinite linear;
+			border: 2px solid $color-white;
+			border-color: transparent transparent $color-white $color-white;
+			border-radius: 100%;
+			content: "";
+			display: block;
+			height: 1em;
+			left: calc(50% - (1em / 2));
+			position: absolute;
+			top: calc(50% - (1em / 2));
+			width: 1em;
+		}
   }
 
+	&.-buttonJungleGreen {
+		background-color: $color-jungle-green;
+
+		&:hover, &.-hovered {
+			background-color: $color-elf-green;
+		}
+
+		&:focus, &.-focused {
+			background-color: $color-jungle-green;
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-jungle-green, .6);
+		}
+	}
+
   &:disabled, &.-disabled {
-    background-color: $color-athens-grey;
-    color: $color-storm-gray;
-    cursor: not-allowed;
-    pointer-events: none;
+		background-color: $color-athens-grey;
+		color: $color-storm-gray;
+		cursor: not-allowed;
+		pointer-events: none;
   }
 
   &:hover, &.-hovered {
-    background-color: $color-surfie-green;
-    color: $color-white;
+		background-color: $color-surfie-green;
+		color: $color-white;
   }
 
   &:focus, &.-focused {
-    background-color: $color-surfie-green;
-    box-shadow: inset 0 0 0 2px $color-surfie-green, inset 0 0 0 4px $color-white;
+		background-color: $color-surfie-green;
+		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-blue-chill, .6);
   }
 
-  &.-secondary {
-    background-color: $color-white;
-    border: 2px solid $color-ebony-clay;
-    color: $color-ebony-clay;
+	&.-roundedCorners {
+		border-radius: 6px;
+		padding: $space-xxs $space-s;
+	}
 
-    &:hover, &.-hovered {
-      background-color: $color-white;
-    }
+	&.-secondary {
+		background-color: $color-white;
+		border: 2px solid $color-storm-gray;
+		color: $color-ebony-clay;
+		padding: $space-xxxs $space-xs;
 
-    &:focus, &.-focus {
-      background-color: $color-white;
-      box-shadow: inset 0 0 0 2px $color-white, inset 0 0 0 4px $color-ebony-clay;
-    }
+		&:hover, &.-hovered {
+			background-color: $color-white;
+			border-color: $color-rhino;
+		}
 
-    &:disabled, &.-disabled {
-      border-color: $color-cadet-blue;
-      color: $color-mischka;
-    }
-  }
+		&:focus, &.-focus {
+			background-color: $color-white;
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-gray, .6);
+		}
+
+		&:disabled, &.-disabled {
+			border-color: $color-cadet-blue;
+			color: $color-mischka;
+		}
+	}
+
+	&.-text {
+		background-color: transparent;
+		border: none;
+		border-radius: 0;
+		color: $color-blue-chill;
+		padding: $space-xxs $space-s;
+
+		&:hover, &.-hovered {
+			color: $color-surfie-green;
+		}
+
+		&:focus, &.-focus {
+			background-color: $color-athens-grey;
+			box-shadow: none;
+		}
+
+		&:disabled, &.-disabled {
+			color: rgba($color-blue-chill, .6);
+		}
+	}
 }
