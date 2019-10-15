@@ -93,3 +93,11 @@ $line-height-plus-8: 98px;
   font-size: $font-size-plus-8;
   line-height: $line-height-plus-8;
 }
+
+@mixin textMedium {
+	font-weight: 500;
+}
+
+@mixin textBold {
+	font-weight: 700;
+}
