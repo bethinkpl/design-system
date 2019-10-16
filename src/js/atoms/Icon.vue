@@ -1,5 +1,5 @@
 <template>
-	<span :class="faIconClass" class="a-icon"></span>
+	<i :class="faIconClass" class="a-icon"></i>
 </template>
 
 <style lang="scss" scoped>

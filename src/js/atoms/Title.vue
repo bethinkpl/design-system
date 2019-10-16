@@ -10,9 +10,13 @@
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
 	.a-title {
-		@include textBold;
+
+		&.-is3 {
+			@include textPlus3;
+		}
 
 		&.-is2 {
+			@include textBold;
 			@include textPlus6;
 		}
 	}
