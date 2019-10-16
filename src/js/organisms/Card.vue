@@ -2,7 +2,7 @@
 	<section class="o-card" :style="borderStyle">
 		<header class="m-cardHeader">
 			<wnl-title
-				:level="3"
+				:level="4"
 				:text="title"
 			/>
 			<div>

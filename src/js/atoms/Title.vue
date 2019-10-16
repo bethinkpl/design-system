@@ -11,13 +11,18 @@
 
 	.a-title {
 
-		&.-is3 {
-			@include textPlus3;
-		}
-
 		&.-is2 {
 			@include textBold;
 			@include textPlus6;
+		}
+
+		&.-is3 {
+			@include textBold;
+			@include textPlus5;
+		}
+
+		&.-is4 {
+			@include textPlus3;
 		}
 	}
 
