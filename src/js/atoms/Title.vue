@@ -30,7 +30,7 @@ export default {
 			type: Number,
 			default: 2,
 			validator: function (value) {
-				return [1,2,3,4,5,6].indexOf(value) !== -1;
+				return [1,2,3,4,5,6].includes(value);
 			}
 		},
 		text: {
