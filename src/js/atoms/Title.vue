@@ -29,6 +29,10 @@
 			@include textPlus2;
 		}
 
+		&.-level6 {
+			@include textMedium;
+		}
+
 		&.-textBold {
 			@include textBold;
 		}
