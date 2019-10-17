@@ -11,18 +11,26 @@
 
 	.a-title {
 
-		&.-is2 {
+		&.-level2 {
 			@include textBold;
 			@include textPlus6;
 		}
 
-		&.-is3 {
+		&.-level3 {
 			@include textBold;
 			@include textPlus5;
 		}
 
-		&.-is4 {
+		&.-level4 {
 			@include textPlus3;
+		}
+
+		&.-level5 {
+			@include textPlus2;
+		}
+
+		&.-textBold {
+			@include textBold;
 		}
 	}
 
@@ -48,7 +56,7 @@ export default {
 			return `h${this.level}`;
 		},
 		isClass() {
-			return `-is${this.level}`;
+			return `-level${this.level}`;
 		}
 	}
 };
