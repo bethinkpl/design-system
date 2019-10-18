@@ -21,5 +21,8 @@
 		&.-borderLightSkyBlue {
 			border-color: $color-light-sky-blue;
 		}
+		&.-backgroundLightSkyBlue {
+			background-color: $color-light-sky-blue;
+		}
 	}
 </style>
