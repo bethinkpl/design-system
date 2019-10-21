@@ -2,7 +2,7 @@
 	<div
 		class="a-pill"
 		:class="{'-hasNumber': !!number}"
-		:style="{backgroundColor}"
+		:style="style"
 	>
 		<span v-if="number" class="a-pill__number">{{number}}</span>
 		<slot />
@@ -50,11 +50,18 @@ export default {
 	props: {
 		backgroundColor: {
 			type: String,
-			required: true
+			default: null
 		},
 		number: {
 			type: [String, Number],
 			default: null,
+		}
+	},
+	computed: {
+		style() {
+			return {
+				...(this.backgroundColor && { backgroundColor: this.backgroundColor })
+			};
 		}
 	}
 };
