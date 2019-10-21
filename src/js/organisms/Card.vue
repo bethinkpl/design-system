@@ -25,10 +25,11 @@
 
 <style lang="scss" scoped>
 	@import 'resources/assets/styles/styleguide/settings/spacings';
+	@import 'resources/assets/styles/styleguide/settings/shadows';
 
 	.o-card {
 		border-radius: 6px;
-		box-shadow: 0 2px 6px rgba(89, 89, 89, 0.25);
+		box-shadow: $medium-shadow;
 		padding: $space-l;
 	}
 

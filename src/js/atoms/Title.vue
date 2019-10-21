@@ -1,7 +1,7 @@
 <template>
 	<component
 		:is="levelComponent"
-		:class="[isClass]"
+		:class="[levelClass]"
 		class="a-title"
 	>{{text}}</component>
 </template>
@@ -59,7 +59,7 @@ export default {
 		levelComponent() {
 			return `h${this.level}`;
 		},
-		isClass() {
+		levelClass() {
 			return `-level${this.level}`;
 		}
 	}
