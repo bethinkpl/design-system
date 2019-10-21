@@ -1,5 +1,9 @@
 <template>
-	<section class="o-card" :style="borderStyle">
+	<section
+		class="o-card"
+		:style="styles"
+		@click="e => collapsed && toggleCollapse(e)"
+	>
 		<header class="m-cardHeader">
 			<wnl-title
 				:level="4"
@@ -10,7 +14,7 @@
 				<wnl-icon
 					:fa-icon-class="collapseIconClass"
 					class="-cadetBlue"
-					@click.native="toggleCollapse"
+					@click.native.stop="toggleCollapse"
 				/>
 			</div>
 		</header>
@@ -75,18 +79,17 @@ export default {
 		collapseIconClass() {
 			return this.collapsed ? 'fa-angle-down' : 'fa-angle-up';
 		},
-		borderStyle() {
-			if (!this.borderColor) return {};
-
+		styles() {
 			return {
-				borderLeft: `${this.borderColor} 6px solid`
+				...(this.borderColor && { borderLeft: `6px solid ${this.borderColor}` }),
+				...(this.collapsed && { cursor: 'pointer' }),
 			};
 		}
 	},
 	methods: {
 		toggleCollapse() {
 			this.collapsed = !this.collapsed;
-		}
+		},
 	}
 };
 </script>
