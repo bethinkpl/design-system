@@ -1,6 +1,6 @@
 <template>
 	<component
-		:is="levelComponent"
+		:is="tagName"
 		:class="[levelClass]"
 		class="a-title"
 	>{{text}}</component>
@@ -56,7 +56,7 @@ export default {
 		}
 	},
 	computed: {
-		levelComponent() {
+		tagName() {
 			return `h${this.level}`;
 		},
 		levelClass() {
