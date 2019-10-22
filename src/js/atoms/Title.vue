@@ -32,10 +32,6 @@
 		&.-level6 {
 			@include textMedium;
 		}
-
-		&.-textBold {
-			@include textBold;
-		}
 	}
 
 </style>
