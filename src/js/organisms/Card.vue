@@ -5,11 +5,14 @@
 		@click="e => collapsed && toggleCollapse(e)"
 	>
 		<header class="m-cardHeader">
-			<wnl-title
-				:level="4"
-				:text="title"
-				class="-textBold"
-			/>
+			<slot name="header">
+				<wnl-title
+					v-if="title"
+					:level="4"
+					:text="title"
+					class="-textBold"
+				/>
+			</slot>
 			<div>
 				<wnl-icon fa-icon-class="fa-question-circle-o" class="-cadetBlue" />
 				<wnl-icon
@@ -65,7 +68,7 @@ export default {
 	props: {
 		title: {
 			type: String,
-			required: true
+			default: ''
 		},
 		borderColor: {
 			type: String,
