@@ -8,6 +8,7 @@
 			<wnl-title
 				:level="4"
 				:text="title"
+				class="-textBold"
 			/>
 			<div>
 				<wnl-icon fa-icon-class="fa-question-circle-o" class="-cadetBlue" />
