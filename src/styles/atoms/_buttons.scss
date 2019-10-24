@@ -24,6 +24,10 @@
 		}
   }
 
+	&.-small {
+		padding: $space-xxxs $space-s;
+	}
+
   &.-loading {
 		color: transparent;
 		pointer-events: none;
