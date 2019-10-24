@@ -24,7 +24,7 @@
 		</header>
 		<slot name="summary" />
 		<template v-if="!collapsed">
-			<slot v-if="!collapsed" name="content" />
+			<slot name="content" />
 			<slot name="footer" />
 		</template>
 	</section>
