@@ -29,7 +29,10 @@
 		>
 			<slot name="summary" />
 		</div>
-		<slot v-if="!collapsed" name="content" />
+		<template v-if="!collapsed">
+			<slot name="content" />
+			<slot name="footer" />
+		</template>
 	</section>
 </template>
 
