@@ -21,7 +21,13 @@
 				/>
 			</div>
 		</header>
-		<slot name="summary" />
+		<div
+			v-if="$slots.summary"
+			class="m-cardSummary"
+			:class="{'-collapsed': collapsed}"
+		>
+			<slot name="summary" />
+		</div>
 		<template v-if="!collapsed">
 			<slot name="content" />
 			<slot name="footer" />
@@ -54,6 +60,14 @@
 			&:last-of-type {
 				margin-right: 0;
 			}
+		}
+	}
+
+	.m-cardSummary {
+		margin-bottom: $space-l;
+
+		&.-collapsed {
+			margin-bottom: 0;
 		}
 	}
 </style>
