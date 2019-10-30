@@ -10,7 +10,6 @@
 					v-if="title"
 					:level="4"
 					:text="title"
-					class="-textBold"
 				/>
 			</slot>
 			<div>

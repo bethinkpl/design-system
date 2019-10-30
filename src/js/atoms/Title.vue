@@ -22,6 +22,7 @@
 		}
 
 		&.-level4 {
+			@include textBold;
 			@include textPlus3;
 		}
 
