@@ -1,4 +1,4 @@
- <template>
+<template>
 	<span class="a-button" :class="{'-text': text, '-small': small, '-loading': loading, '-roundedCorners': roundedCorners}">
 		<slot />
 	</span>
