@@ -13,7 +13,10 @@
 				/>
 			</slot>
 			<div>
-				<wnl-icon fa-icon-class="fa-question-circle-o" class="-cadetBlue" />
+				<clarification-pop-up
+					v-if="clarification"
+					:text="clarification"
+				/>
 				<wnl-icon
 					:fa-icon-class="collapseIconClass"
 					class="-cadetBlue"
@@ -75,14 +78,20 @@
 <script>
 import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import ClarificationPopUp from '../../../iwan/modules/components/ClarificationPopUp';
 
 export default {
 	components: {
 		WnlTitle,
-		WnlIcon
+		WnlIcon,
+		ClarificationPopUp
 	},
 	props: {
 		title: {
+			type: String,
+			default: ''
+		},
+		clarification: {
 			type: String,
 			default: ''
 		},
