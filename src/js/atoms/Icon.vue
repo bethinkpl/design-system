@@ -1,5 +1,5 @@
 <template>
-	<i :class="faIconClass" class="a-icon" />
+	<i :class="[faIconClass, sizeClassName]" class="a-icon" />
 </template>
 
 <script>
@@ -8,6 +8,18 @@ export default {
 		faIconClass: {
 			type: String,
 			required: true
+		},
+		size: {
+			type: String,
+			default: 'small',
+			validator: function (value) {
+				return ['x-large', 'large', 'medium', 'small', 'x-small'].includes(value);
+			},
+		}
+	},
+	computed: {
+		sizeClassName() {
+			return `-${this.size}`;
 		}
 	}
 };
