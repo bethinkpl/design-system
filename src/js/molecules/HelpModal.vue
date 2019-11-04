@@ -13,6 +13,7 @@
 
 <style lang="scss" scoped>
 	@import 'resources/assets/styles/styleguide/settings/spacings';
+	@import 'resources/assets/styles/styleguide/settings/typography';
 
 	.o-helpModal__icon {
 		cursor: pointer;
@@ -20,7 +21,9 @@
 	}
 
 	.o-helpModal__content /deep/ p {
+		font-size: $font-size-minus-1;
 		margin-bottom: $space-m;
+		text-transform: none;
 
 		&:last-child {
 			margin-bottom: 0;
