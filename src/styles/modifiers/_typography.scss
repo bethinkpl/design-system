@@ -1,47 +1,55 @@
 .-textLight {
-  font-weight: 300;
+	font-weight: 300;
 }
 
 .-textRegular {
-  font-weight: 400;
+	font-weight: 400;
 }
 
 .-textMedium {
-  font-weight: 500;
+	font-weight: 500;
 }
 
 .-textBold {
-  font-weight: 700;
+	font-weight: 700;
 }
 
 .-textUnderline {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 .-textUppercase {
-  text-transform: uppercase;
+	text-transform: uppercase;
 }
 
 .-textCenter {
-  text-align: center;
+	text-align: center;
+}
+
+.-textMinus3 {
+	@include textMinus3;
 }
 
 .-textMinus2 {
-  @include textMinus2;
+	@include textMinus2;
 }
 
 .-textMinus1 {
-  @include textMinus1;
+	@include textMinus1;
+}
+
+.-textBase {
+	@include textBase;
 }
 
 .-textPlus1 {
-  @include textPlus1;
+	@include textPlus1;
 }
 
 .-textPlus2 {
-  @include textPlus2;
+	@include textPlus2;
 }
 
 .-textPlus3 {
-  @include textPlus3;
+	@include textPlus3;
 }
