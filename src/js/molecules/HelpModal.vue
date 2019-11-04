@@ -6,7 +6,7 @@
 			@click.native.stop="open"
 		/>
 		<wnl-modal v-if="showModal" @closeModal="close">
-			<p>{{text}}</p>
+			<div class="o-helpModal__content" v-html="text" />
 		</wnl-modal>
 	</span>
 </template>
@@ -17,6 +17,14 @@
 	.o-helpModal__icon {
 		cursor: pointer;
 		margin-right: $space-xs;
+	}
+
+	.o-helpModal__content /deep/ p {
+		margin-bottom: $space-m;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 </style>
 
