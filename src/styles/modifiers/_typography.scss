@@ -26,6 +26,10 @@
 	text-align: center;
 }
 
+.-textMinus3 {
+	@include textMinus3;
+}
+
 .-textMinus2 {
 	@include textMinus2;
 }
