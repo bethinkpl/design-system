@@ -13,7 +13,7 @@
 				/>
 			</slot>
 			<div>
-				<wnl-clarification-modal
+				<wnl-help-modal
 					v-if="clarification"
 					:text="clarification"
 				/>
@@ -78,11 +78,11 @@
 <script>
 import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
-import WnlClarificationModal from 'js/components/iwan/modules/components/ClarificationModal.vue';
+import WnlHelpModal from 'js/components/global/styleguide/molecules/HelpModal.vue';
 
 export default {
 	components: {
-		WnlClarificationModal,
+		WnlHelpModal,
 		WnlIcon,
 		WnlTitle,
 	},
