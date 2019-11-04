@@ -13,7 +13,10 @@
 				/>
 			</slot>
 			<div>
-				<wnl-icon fa-icon-class="fa-question-circle-o" class="-cadetBlue" />
+				<wnl-help-modal
+					v-if="clarification"
+					:text="clarification"
+				/>
 				<wnl-icon
 					:fa-icon-class="collapseIconClass"
 					class="-cadetBlue"
@@ -75,14 +78,20 @@
 <script>
 import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlHelpModal from 'js/components/global/styleguide/molecules/HelpModal.vue';
 
 export default {
 	components: {
+		WnlHelpModal,
+		WnlIcon,
 		WnlTitle,
-		WnlIcon
 	},
 	props: {
 		title: {
+			type: String,
+			default: ''
+		},
+		clarification: {
 			type: String,
 			default: ''
 		},
