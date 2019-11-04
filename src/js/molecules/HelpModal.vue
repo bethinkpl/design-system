@@ -1,5 +1,5 @@
 <template>
-	<span>
+	<span class="o-helpModal">
 		<wnl-icon
 			fa-icon-class="fa-question-circle-o"
 			class="o-helpModal__icon -cadetBlue"
