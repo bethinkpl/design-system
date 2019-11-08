@@ -3,7 +3,7 @@
 		<wnl-icon
 			fa-icon-class="fa-question-circle-o"
 			class="o-helpModal__icon -cadetBlue"
-			@click.native="open"
+			@click.native.stop="open"
 		/>
 		<wnl-modal v-if="showModal" @closeModal="close">
 			<div class="o-helpModal__content" v-html="text" />
@@ -62,6 +62,7 @@ export default {
 	methods: {
 		open() {
 			this.showModal = true;
+			this.$emit('open');
 		},
 		close() {
 			this.showModal = false;
