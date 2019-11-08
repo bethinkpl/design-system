@@ -3,7 +3,7 @@
 		<wnl-icon
 			fa-icon-class="fa-question-circle-o"
 			class="o-helpModal__icon -cadetBlue"
-			@click.native.stop="open"
+			@click.native="open"
 		/>
 		<wnl-modal v-if="showModal" @closeModal="close">
 			<div class="o-helpModal__content" v-html="text" />
