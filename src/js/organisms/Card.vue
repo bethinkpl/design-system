@@ -113,7 +113,7 @@ export default {
 	methods: {
 		toggleCollapse() {
 			this.collapsed = !this.collapsed;
-			this.$emit('collapsed', this.collapsed);
+			this.$emit('toggleCollapsed', this.collapsed);
 		},
 	}
 };
