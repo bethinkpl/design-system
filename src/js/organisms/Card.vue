@@ -13,10 +13,6 @@
 				/>
 			</slot>
 			<div>
-				<wnl-help-modal
-					v-if="clarification"
-					:text="clarification"
-				/>
 				<wnl-icon
 					:fa-icon-class="collapseIconClass"
 					class="-cadetBlue"
@@ -78,11 +74,9 @@
 <script>
 import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
-import WnlHelpModal from 'js/components/global/styleguide/molecules/HelpModal.vue';
 
 export default {
 	components: {
-		WnlHelpModal,
 		WnlIcon,
 		WnlTitle,
 	},
@@ -119,6 +113,7 @@ export default {
 	methods: {
 		toggleCollapse() {
 			this.collapsed = !this.collapsed;
+			this.$emit('toggleCollapsed', this.collapsed);
 		},
 	}
 };

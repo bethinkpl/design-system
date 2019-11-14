@@ -62,6 +62,7 @@ export default {
 	methods: {
 		open() {
 			this.showModal = true;
+			this.$emit('open');
 		},
 		close() {
 			this.showModal = false;
