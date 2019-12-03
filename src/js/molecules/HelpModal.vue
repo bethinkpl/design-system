@@ -6,7 +6,7 @@
 			@click.native.stop="open"
 		/>
 		<wnl-modal v-if="showModal" @closeModal="close">
-			<div class="o-helpModal__content" v-html="text" />
+			<div class="o-helpModal__content content" v-html="text" />
 		</wnl-modal>
 	</span>
 </template>
