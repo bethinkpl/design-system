@@ -21,15 +21,18 @@
 		margin-right: $space-xs;
 	}
 
-	.o-helpModal__content /deep/ p {
-		font-size: $font-size-minus-1;
-		margin-bottom: $space-m;
-		text-transform: none;
+	.o-helpModal__content /deep/ {
+		p, ul, ol {
+			font-size: $font-size-minus-1;
+			margin-bottom: $space-m;
+			text-transform: none;
 
-		&:last-child {
-			margin-bottom: 0;
+			&:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
+
 
 	.o-helpModal__content /deep/ h3 {
 		color: $color-darkest-gray;
