@@ -12,7 +12,7 @@
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/colors';
+	@import 'resources/assets/styles/variables';
 	@import 'resources/assets/styles/styleguide/settings/spacings';
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
@@ -35,7 +35,7 @@
 
 
 	.o-helpModal__content /deep/ h3 {
-		color: $color-firefly;
+		color: $color-darkest-gray;
 		font-size: 1.75rem;
 		line-height: 1.5em;
 		text-transform: none;
