@@ -3,7 +3,11 @@
 		:is="tagName"
 		:class="[levelClass]"
 		class="a-title"
-	>{{text}}</component>
+	>
+		<slot>
+			{{text}}
+		</slot>
+	</component>
 </template>
 
 <style lang="scss" scoped>
@@ -49,7 +53,7 @@ export default {
 		},
 		text: {
 			type: String,
-			required: true
+			default: ''
 		}
 	},
 	computed: {
