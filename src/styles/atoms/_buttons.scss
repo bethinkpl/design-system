@@ -24,6 +24,10 @@
 		}
   }
 
+	&.-medium {
+		padding: $space-xxs $space-m;
+	}
+
 	&.-small {
 		padding: $space-xxxs $space-s;
 	}
