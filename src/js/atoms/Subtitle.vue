@@ -1,6 +1,6 @@
 <template functional>
 	<div class="a-subtitle">
-		<slot></slot>
+		<slot />
 	</div>
 </template>
 

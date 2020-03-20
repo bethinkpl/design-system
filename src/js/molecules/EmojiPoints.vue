@@ -6,7 +6,7 @@
 			class="m-emojiPoints__item"
 		>
 			<div class="m-emojiPoints__item__emoji">{{item.emoji}}</div>
-			<div class="m-emojiPoints__item__text" v-html="item.text"></div>
+			<div class="m-emojiPoints__item__text" v-html="item.text" />
 		</div>
 	</div>
 </template>
