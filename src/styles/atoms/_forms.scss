@@ -100,6 +100,12 @@
 		color: $color-blue-chill;
 		content: "*";
 	}
+
+	&__optionalText {
+		color: $color-green;
+		font-style: italic;
+		font-weight: normal;
+	}
 }
 
 .a-legend {
