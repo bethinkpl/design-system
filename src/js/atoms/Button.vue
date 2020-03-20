@@ -1,5 +1,15 @@
 <template>
-	<span class="a-button" :class="{'-text': text, '-small': small, '-medium': medium, '-loading': loading, '-roundedCorners': roundedCorners}">
+	<span
+		class="a-button"
+		:class="{
+			'-text': text,
+			'-small': small,
+			'-medium': medium,
+			'-loading': loading,
+			'-roundedCorners': roundedCorners,
+			'-disabled': disabled,
+		}"
+	>
 		<slot />
 	</span>
 </template>
@@ -24,6 +34,10 @@ export default {
 			default: false,
 		},
 		roundedCorners: {
+			type: Boolean,
+			default: false,
+		},
+		disabled: {
 			type: Boolean,
 			default: false,
 		},
