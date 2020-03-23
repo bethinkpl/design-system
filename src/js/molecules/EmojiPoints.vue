@@ -3,7 +3,7 @@
 		<div
 			v-for="(item, index) in items"
 			:key="index"
-			class="m-emojiPoints__item"
+			:class="['m-emojiPoints__item', textSizeClass]"
 		>
 			<div class="m-emojiPoints__item__emoji">{{item.emoji}}</div>
 			<div class="m-emojiPoints__item__text" v-html="item.text" />
@@ -29,10 +29,6 @@
 				margin-right: $space-xxs;
 				text-align: center;
 			}
-
-			&__text {
-				@include textMinus2;
-			}
 		}
 	}
 </style>
@@ -44,6 +40,10 @@ export default {
 			type: Array,
 			default: () => [],
 		},
+		textSizeClass: {
+			type: String,
+			default: '-textMinus1'
+		}
 	},
 };
 </script>
