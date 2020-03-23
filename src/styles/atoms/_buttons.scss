@@ -82,7 +82,7 @@
   }
 
 	&.-roundedCorners {
-		border-radius: 6px;
+		border-radius: $radius-m;
 		padding: $space-xxs $space-s;
 	}
 
