@@ -94,6 +94,10 @@ $line-height-plus-8: 98px;
   line-height: $line-height-plus-8;
 }
 
+@mixin textLight {
+	font-weight: 300;
+}
+
 @mixin textMedium {
 	font-weight: 500;
 }
