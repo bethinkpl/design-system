@@ -13,6 +13,10 @@
 	.m-inputWithIcon {
 		position: relative;
 
+		.a-input {
+			padding-right: $space-l;
+		}
+
 		&__icon {
 			@include textBase;
 			align-items: center;
