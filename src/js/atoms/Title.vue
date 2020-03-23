@@ -35,6 +35,7 @@
 		}
 
 		&.-level6 {
+			@include textBase;
 			@include textMedium;
 		}
 	}
