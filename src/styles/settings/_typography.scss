@@ -105,3 +105,8 @@ $line-height-plus-8: 98px;
 @mixin textBold {
 	font-weight: 700;
 }
+
+@mixin titleLevel4 {
+	@include textBold;
+	@include textPlus3;
+}

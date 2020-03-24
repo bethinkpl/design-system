@@ -27,8 +27,7 @@
 		}
 
 		&.-level4 {
-			@include textBold;
-			@include textPlus3;
+			@include titleLevel4
 		}
 
 		&.-level5 {

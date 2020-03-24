@@ -3,7 +3,7 @@
 		<div
 			v-for="(item, index) in items"
 			:key="index"
-			:class="['m-emojiPoints__item', textSizeClass]"
+			:class="['m-emojiPoints__item', sizeClass]"
 		>
 			<div class="m-emojiPoints__item__emoji">{{item.emoji}}</div>
 			<div class="m-emojiPoints__item__text" v-html="item.text" />
@@ -29,6 +29,18 @@
 				margin-right: $space-xxs;
 				text-align: center;
 			}
+
+			&.-medium {
+				@include textMinus1
+			}
+
+			&.-large {
+				@include titleLevel4;
+			}
+
+			&.-small {
+				@include textMinus2
+			}
 		}
 	}
 </style>
@@ -40,10 +52,33 @@ export default {
 			type: Array,
 			default: () => [],
 		},
-		textSizeClass: {
-			type: String,
-			default: '-textMinus1'
+		large: {
+			type: Boolean,
+			default: false,
+		},
+		small: {
+			type: Boolean,
+			default: false,
+		},
+		medium: {
+			type: Boolean,
+			default: true,
 		}
 	},
+	computed: {
+		sizeClass() {
+			if (!this.large && !this.small) {
+				return '-medium';
+			}
+
+			if (this.large) {
+				return '-large';
+			}
+
+			if (this.small) {
+				return '-small';
+			}
+		}
+	}
 };
 </script>
