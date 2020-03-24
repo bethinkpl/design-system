@@ -67,10 +67,6 @@ export default {
 	},
 	computed: {
 		sizeClass() {
-			if (!this.large && !this.small) {
-				return '-medium';
-			}
-
 			if (this.large) {
 				return '-large';
 			}
@@ -78,6 +74,8 @@ export default {
 			if (this.small) {
 				return '-small';
 			}
+
+			return '-medium';
 		}
 	}
 };
