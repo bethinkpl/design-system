@@ -5,7 +5,7 @@
 			'-text': text,
 			'-small': small,
 			'-medium': medium,
-			'-loading': loading,
+			'-loading': true,
 			'-roundedCorners': roundedCorners,
 			'-disabled': disabled,
 			'-secondary': secondary

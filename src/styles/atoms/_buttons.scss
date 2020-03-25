@@ -49,6 +49,14 @@
 			top: calc(50% - (1em / 2));
 			width: 1em;
 		}
+
+		&.-secondary {
+			color: transparent;
+			&:after {
+				border: 2px solid $color-rhino;
+				border-color: transparent transparent $color-rhino $color-rhino;
+			}
+		}
   }
 
 	&.-buttonJungleGreen {
