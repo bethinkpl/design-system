@@ -19,10 +19,10 @@
 		width: $size;
 
 		&.-borderLightSkyBlue {
-			border-color: $color-light-sky-blue;
+			border-color: $color-navy-blue;
 		}
 		&.-backgroundLightSkyBlue {
-			background-color: $color-light-sky-blue;
+			background-color: $color-navy-blue;
 		}
 	}
 </style>
