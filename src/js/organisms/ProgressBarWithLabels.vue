@@ -34,7 +34,6 @@
 					@include textMinus2;
 					color: $color-ebony-clay;
 					font-weight: bold;
-					vertical-align: middle;
 				}
 
 				&__progressData {
@@ -42,7 +41,6 @@
 					color: $color-storm-gray;
 					font-weight: bold;
 					text-align: right;
-					vertical-align: middle;
 				}
 			}
 		}
