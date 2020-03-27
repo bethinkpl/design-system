@@ -50,7 +50,7 @@
 
 export default {
 	props: {
-		is: {
+		index: {
 			type: Number,
 			default: 1,
 			validator: function (value) {
@@ -60,7 +60,7 @@ export default {
 	},
 	computed: {
 		colorClass() {
-			return `-is${this.is}`;
+			return `-is${this.index}`;
 		}
 	}
 };
