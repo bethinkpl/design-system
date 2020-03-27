@@ -1,5 +1,5 @@
 <template>
-	<div class="m-emojiPoints">
+	<div :class="['m-emojiPoints', vertical && '-vertical']">
 		<div
 			v-for="(item, index) in items"
 			:key="index"
@@ -12,6 +12,7 @@
 </template>
 
 <style lang="scss" scoped>
+	@import 'resources/assets/styles/styleguide/settings/media-queries';
 	@import 'resources/assets/styles/styleguide/settings/spacings';
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
@@ -42,6 +43,23 @@
 				@include textMinus2
 			}
 		}
+
+		&.-vertical {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+
+			.m-emojiPoints__item {
+				margin-left: $space-l;
+				width: 242px;
+
+				@media #{$breakpoint-s} {
+					flex: 1 1 auto;
+					max-width: 360px;
+					width: auto;
+				}
+			}
+		}
 	}
 </style>
 
@@ -63,6 +81,10 @@ export default {
 		medium: {
 			type: Boolean,
 			default: true,
+		},
+		vertical: {
+			type: Boolean,
+			default: false
 		}
 	},
 	computed: {
