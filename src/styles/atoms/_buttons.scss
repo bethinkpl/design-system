@@ -116,6 +116,10 @@
 		}
 	}
 
+	&.-danger {
+		background-color: $danger;
+	}
+
 	&.-text {
 		background-color: transparent;
 		border: none;
