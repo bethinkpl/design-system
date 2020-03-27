@@ -8,7 +8,8 @@
 			'-loading': loading,
 			'-roundedCorners': roundedCorners,
 			'-disabled': disabled,
-			'-secondary': secondary
+			'-secondary': secondary,
+			'-danger': danger,
 		}"
 	>
 		<slot />
@@ -45,7 +46,11 @@ export default {
 		secondary: {
 			type: Boolean,
 			default: false,
-		}
+		},
+		danger: {
+			type: Boolean,
+			default: false,
+		},
 	},
 };
 </script>

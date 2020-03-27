@@ -116,6 +116,10 @@
 		}
 	}
 
+	&.-danger {
+		background-color: $color-alizarin-crimson;
+	}
+
 	&.-text {
 		background-color: transparent;
 		border: none;
