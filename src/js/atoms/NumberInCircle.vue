@@ -1,5 +1,11 @@
 <template>
-	<div :class="['a-numberInCircle', colorClass]"><slot /></div>
+	<div
+		class="a-numberInCircle"
+		:class="{
+			'-medium': medium,
+			[colorClass]: true
+		}"
+	><slot /></div>
 </template>
 
 <style lang="scss" scoped>
@@ -43,6 +49,20 @@
 		&.-is4 {
 			color: $color-governor-bay;
 		}
+
+		&.-danger {
+			color: $color-alizarin-crimson;
+		}
+
+		&.-primary {
+			color: $color-blue-chill;
+		}
+
+		&.-medium {
+			height: $icon-m;
+			font-size: $font-size-minus-1;
+			min-width: $icon-m;
+		}
 	}
 
 </style>
@@ -53,13 +73,28 @@ export default {
 		index: {
 			type: Number,
 			default: 1,
-			validator: function (value) {
-				return [1,2,3,4,5].includes(value);
-			}
+		},
+		medium: {
+			type: Boolean,
+			default: false,
+		},
+		danger: {
+			type: Boolean,
+			default: false,
+		},
+		primary: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	computed: {
 		colorClass() {
+			if (this.danger) {
+				return '-danger';
+			}
+			if (this.primary) {
+				return '-primary';
+			}
 			return `-is${this.index}`;
 		}
 	}
