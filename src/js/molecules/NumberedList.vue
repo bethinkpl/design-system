@@ -64,10 +64,5 @@ export default {
 			default: false,
 		},
 	},
-	methods: {
-		listItemColorClass(index) {
-			return !this.colorAlizarinCrimson ? `-is${index}` : null;
-		}
-	},
 };
 </script>
