@@ -59,7 +59,7 @@
 		}
   }
 
-	&.-buttonJungleGreen {
+	&.-success {
 		background-color: $color-jungle-green;
 
 		&:hover, &.-hovered {
@@ -72,7 +72,7 @@
 		}
 	}
 
-	&.-buttonAlizarinCrimson {
+	&.-danger {
 		background-color: $color-alizarin-crimson;
 
 		&:hover, &.-hovered {

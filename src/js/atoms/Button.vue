@@ -9,7 +9,7 @@
 			'-roundedCorners': roundedCorners,
 			'-disabled': disabled,
 			'-secondary': secondary,
-			'-buttonAlizarinCrimson': colorAlizarinCrimson,
+			'-danger': danger,
 		}"
 	>
 		<slot />
@@ -47,7 +47,7 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		colorAlizarinCrimson: {
+		danger: {
 			type: Boolean,
 			default: false,
 		},
