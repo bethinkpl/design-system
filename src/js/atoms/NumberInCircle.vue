@@ -3,7 +3,6 @@
 		class="a-numberInCircle"
 		:class="{
 			'-medium': medium,
-			'-colorAlizarinCrimson': colorAlizarinCrimson,
 			[colorClass]: true
 		}"
 	><slot /></div>
@@ -51,7 +50,7 @@
 			color: $color-governor-bay;
 		}
 
-		&.-colorAlizarinCrimson {
+		&.-danger {
 			color: $color-alizarin-crimson;
 		}
 
@@ -78,14 +77,17 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		colorAlizarinCrimson: {
+		danger: {
 			type: Boolean,
 			default: false,
 		},
 	},
 	computed: {
 		colorClass() {
-			return this.index ? `-is${this.index}` : '';
+			if (this.danger) {
+				return '-danger';
+			}
+			return `-is${this.index}`;
 		}
 	}
 };

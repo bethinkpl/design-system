@@ -10,7 +10,7 @@
 			<wnl-number-in-circle
 				:index="colorAlizarinCrimson ? null : index"
 				:medium="mediumPoints"
-				:color-alizarin-crimson="colorAlizarinCrimson"
+				:danger="danger"
 			>{{index}}</wnl-number-in-circle>
 			<div class="m-numberedList__row__content">
 				<slot :name="`item${index}`" />
@@ -59,7 +59,7 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		colorAlizarinCrimson: {
+		danger: {
 			type: Boolean,
 			default: false,
 		},
