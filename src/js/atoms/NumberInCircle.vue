@@ -54,6 +54,10 @@
 			color: $color-alizarin-crimson;
 		}
 
+		&.-primary {
+			color: $color-blue-chill;
+		}
+
 		&.-medium {
 			height: $icon-m;
 			font-size: $font-size-minus-1;
@@ -78,11 +82,18 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		primary: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	computed: {
 		colorClass() {
 			if (this.danger) {
 				return '-danger';
+			}
+			if (this.primary) {
+				return '-primary';
 			}
 			return `-is${this.index}`;
 		}

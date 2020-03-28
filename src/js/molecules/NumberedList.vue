@@ -11,6 +11,7 @@
 				:index="index"
 				:medium="mediumPoints"
 				:danger="danger"
+				:primary="primary"
 			>{{index}}</wnl-number-in-circle>
 			<div class="m-numberedList__row__content">
 				<slot :name="`item${index}`" />
@@ -60,6 +61,10 @@ export default {
 			default: false,
 		},
 		danger: {
+			type: Boolean,
+			default: false,
+		},
+		primary: {
 			type: Boolean,
 			default: false,
 		},
