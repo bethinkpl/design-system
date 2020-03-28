@@ -1,5 +1,12 @@
 <template>
-	<div :class="['a-numberInCircle', colorClass]"><slot /></div>
+	<div
+		class="a-numberInCircle"
+		:class="{
+			'-medium': medium,
+			'-colorAlizarinCrimson': colorAlizarinCrimson,
+			[colorClass]: true
+		}"
+	><slot /></div>
 </template>
 
 <style lang="scss" scoped>
@@ -43,6 +50,16 @@
 		&.-is4 {
 			color: $color-governor-bay;
 		}
+
+		&.-colorAlizarinCrimson {
+			color: $color-alizarin-crimson;
+		}
+
+		&.-medium {
+			height: $icon-m;
+			font-size: $font-size-minus-1;
+			min-width: $icon-m;
+		}
 	}
 
 </style>
@@ -52,15 +69,23 @@ export default {
 	props: {
 		index: {
 			type: Number,
-			default: 1,
+			default: null,
 			validator: function (value) {
 				return [1,2,3,4].includes(value);
 			}
 		},
+		medium: {
+			type: Boolean,
+			default: false,
+		},
+		colorAlizarinCrimson: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	computed: {
 		colorClass() {
-			return `-is${this.index}`;
+			return this.index ? `-is${this.index}` : '';
 		}
 	}
 };

@@ -72,7 +72,21 @@
 		}
 	}
 
-  &:disabled, &.-disabled {
+	&.-buttonAlizarinCrimson {
+		background-color: $color-alizarin-crimson;
+
+		&:hover, &.-hovered {
+			background-color: $color-alizarin-crimson;
+		}
+
+		&:focus, &.-focused {
+			background-color: $color-alizarin-crimson;
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-alizarin-crimson, .6);
+		}
+	}
+
+
+	&:disabled, &.-disabled {
 		background-color: $color-athens-grey;
 		color: $color-storm-gray;
 		cursor: not-allowed;
@@ -114,10 +128,6 @@
 			border-color: $color-cadet-blue;
 			color: $color-mischka;
 		}
-	}
-
-	&.-danger {
-		background-color: $color-alizarin-crimson;
 	}
 
 	&.-text {
