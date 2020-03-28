@@ -54,7 +54,7 @@ export default {
 			type: Number,
 			default: 1,
 			validator: function (value) {
-				return [1,2,3,4].includes(value);
+				return [1,2,3,4,5].includes(value);
 			}
 		},
 	},
