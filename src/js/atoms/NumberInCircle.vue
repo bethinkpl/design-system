@@ -68,10 +68,7 @@ export default {
 	props: {
 		index: {
 			type: Number,
-			default: null,
-			validator: function (value) {
-				return [1,2,3,4].includes(value);
-			}
+			default: 1,
 		},
 		medium: {
 			type: Boolean,

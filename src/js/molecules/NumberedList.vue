@@ -8,7 +8,7 @@
 			class="m-numberedList__row"
 		>
 			<wnl-number-in-circle
-				:index="colorAlizarinCrimson ? null : index"
+				:index="index"
 				:medium="mediumPoints"
 				:danger="danger"
 			>{{index}}</wnl-number-in-circle>
@@ -46,7 +46,7 @@
 <script>
 import WnlNumberInCircle from 'js/components/global/styleguide/atoms/NumberInCircle';
 export default {
-	name: 'OnboardingNumberedList',
+	name: 'NumberedList',
 	components: {
 		WnlNumberInCircle
 	},
