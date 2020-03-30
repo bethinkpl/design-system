@@ -1,13 +1,18 @@
-.a-input {
+.a-input, .a-select {
   @include textBase;
   background-color: $color-white;
-  border: 2px solid $color-mischka;
-  border-radius: 2px;
-  color: $color-catalina-blue;
+  border: 1px solid $color-mischka;
+  border-radius: $radius-s;
+  box-shadow: inset 0 1px 2px rgba(10,10,10,.1);
+  color: $color-firefly;
   outline: none;
   padding: $space-xxxs $space-xs;
   transition: color ease-in-out .3s, border-color ease-in-out .3s;
   width: 100%;
+
+	&::placeholder {
+		color: $color-cadet-blue;
+	}
 
   &:hover, &.-hovered {
     border-color: $color-surfie-green;
@@ -27,70 +32,102 @@
   }
 }
 
+.a-select {
+	// We need to force select to set height - line-height is not enough
+	height: $line-height-base + 2 * $space-xxxs + 2px;
+
+	&:required:invalid {
+		color: $color-storm-gray;
+	}
+
+	option {
+		color: $color-firefly;
+
+		&:disabled {
+			display: none;
+		}
+	}
+}
 .a-checkbox, .a-radio {
-  background-color: $color-white;
-  border: 2px solid $color-cadet-blue;
-  cursor: pointer;
-  flex-shrink: 0;
-  height: 24px;
-  outline: none;
-  transition: background-color ease-in-out .3s;
-  width: 24px;
-  -webkit-appearance: none;
+	background-color: $color-white;
+	border: 2px solid $color-cadet-blue;
+	cursor: pointer;
+	flex-shrink: 0;
+	height: 24px;
+	outline: none;
+	transition: background-color ease-in-out .3s;
+	width: 24px;
+	-webkit-appearance: none;
 
-  &:checked {
-    background-color: $color-blue-chill;
-    border-width: 0;
-  }
+	&:checked {
+		background-color: $color-blue-chill;
+		border-width: 0;
+	}
 
-  &:hover {
-    background-color: $color-surfie-green;
-  }
+	&:hover {
+		background-color: $color-surfie-green;
+	}
 
-  &:disabled {
-    background-color: $color-white;
-    border-color: $color-athens-grey;
-    pointer-events: none;
-  }
+	&:disabled {
+		background-color: $color-white;
+		border-color: $color-athens-grey;
+		pointer-events: none;
+	}
+
+	&.-small {
+		@include textMinus2;
+		height: 16px;
+		width: 16px;
+	}
 }
 
 .a-checkbox {
-  border-radius: 2px;
-  font-size: $font-size-plus-3;
-  line-height: $line-height-base;
-  text-align: center;
+	border-radius: $radius-xs;
+	font-size: $font-size-plus-3;
+	line-height: $line-height-base;
+	text-align: center;
 
-  &:checked {
-    &:before {
-      color: $color-white;
-      content: "✔";
-    }
-  }
+	&:checked {
+		&:before {
+			color: $color-white;
+			content: "✔";
+		}
+	}
 }
 
 .a-radio {
-  border-radius: 100%;
+	border-radius: 100%;
 
-  &:checked {
-    box-shadow: inset 0 0 0 2px $color-blue-chill, inset 0 0 0 4px $color-white;
-  }
+	&:checked {
+		box-shadow: inset 0 0 0 2px $color-blue-chill, inset 0 0 0 4px $color-white;
+	}
 }
 
 .a-label {
-  @include textMinus1;
+	@include textMinus1;
 
-  color: $color-ebony-clay;
-  cursor: pointer;
-  display: inline-block;
+	color: $color-ebony-clay;
+	cursor: pointer;
+	display: inline-block;
 
-  &.-required::after {
-    color: $color-blue-chill;
-    content: "*";
-  }
+	&.-required::after {
+		color: $color-blue-chill;
+		content: "*";
+	}
+
+	&__optionalText {
+		color: $color-green;
+		font-style: italic;
+		font-weight: normal;
+	}
+}
+
+.a-legend {
+	@include textBase;
 }
 
 .a-error {
-  @include textMinus2;
+	@include textMinus2;
 
-  color: $color-alizarin-crimson;
+	color: $color-alizarin-crimson;
 }

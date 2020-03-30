@@ -33,3 +33,13 @@
     font-family: "FontAwesome";
   }
 }
+
+.a-paragraph {
+	@include textMinus1;
+
+	margin-bottom: $line-height-minus-1;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}

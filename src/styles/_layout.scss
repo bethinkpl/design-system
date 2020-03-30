@@ -1,7 +1,14 @@
+$fontFamiy: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+
 html, body {
   &.styleguide {
     @include textBase;
     color: $color-catalina-blue;
-    font-family: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Cantarell,Fira Sans,Droid Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-family: $fontFamiy;
+
+
+		button,input,select,textarea {
+			font-family: $fontFamiy;
+		}
   }
 }
