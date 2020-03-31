@@ -35,10 +35,6 @@
 .a-select {
 	// We need to force select to set height - line-height is not enough
 	height: $line-height-base + 2 * $space-xxxs + 2px;
-
-	option {
-		color: $color-firefly;
-	}
 }
 .a-checkbox, .a-radio {
 	background-color: $color-white;
