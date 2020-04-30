@@ -1,12 +1,17 @@
 <template>
 	<component
 		:is="tagName"
-		:class="[levelClass]"
+		:class="[levelClass, isLink && '-link']"
 		class="a-title"
-	>{{text}}</component>
+	>
+		<slot>
+			{{text}}
+		</slot>
+	</component>
 </template>
 
 <style lang="scss" scoped>
+	@import 'resources/assets/styles/variables';
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
 	.a-title {
@@ -22,8 +27,7 @@
 		}
 
 		&.-level4 {
-			@include textBold;
-			@include textPlus3;
+			@include titleLevel4
 		}
 
 		&.-level5 {
@@ -31,7 +35,13 @@
 		}
 
 		&.-level6 {
+			@include textBase;
 			@include textMedium;
+		}
+
+		&.-link {
+			cursor: pointer;
+			color: $color-ocean-blue;
 		}
 	}
 
@@ -49,7 +59,11 @@ export default {
 		},
 		text: {
 			type: String,
-			required: true
+			default: ''
+		},
+		isLink: {
+			type: Boolean,
+			default: false
 		}
 	},
 	computed: {

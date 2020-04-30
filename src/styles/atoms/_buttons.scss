@@ -24,6 +24,10 @@
 		}
   }
 
+	&.-medium {
+		padding: $space-xxs $space-m;
+	}
+
 	&.-small {
 		padding: $space-xxxs $space-s;
 	}
@@ -45,9 +49,17 @@
 			top: calc(50% - (1em / 2));
 			width: 1em;
 		}
+
+		&.-secondary {
+			color: transparent;
+			&:after {
+				border: 2px solid $color-rhino;
+				border-color: transparent transparent $color-rhino $color-rhino;
+			}
+		}
   }
 
-	&.-buttonJungleGreen {
+	&.-success {
 		background-color: $color-jungle-green;
 
 		&:hover, &.-hovered {
@@ -60,7 +72,21 @@
 		}
 	}
 
-  &:disabled, &.-disabled {
+	&.-danger {
+		background-color: $color-alizarin-crimson;
+
+		&:hover, &.-hovered {
+			background-color: $color-alizarin-crimson;
+		}
+
+		&:focus, &.-focused {
+			background-color: $color-alizarin-crimson;
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-alizarin-crimson, .6);
+		}
+	}
+
+
+	&:disabled, &.-disabled {
 		background-color: $color-athens-grey;
 		color: $color-storm-gray;
 		cursor: not-allowed;
@@ -78,7 +104,7 @@
   }
 
 	&.-roundedCorners {
-		border-radius: 6px;
+		border-radius: $radius-m;
 		padding: $space-xxs $space-s;
 	}
 

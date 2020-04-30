@@ -1,4 +1,6 @@
 .m-formGroup {
+	line-height: 1;
+
   &:not(:last-child):not(.-marginLess) {
     margin-bottom: $space-s;
   }

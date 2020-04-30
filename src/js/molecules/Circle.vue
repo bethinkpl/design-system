@@ -18,11 +18,11 @@
 		height: $size;
 		width: $size;
 
-		&.-borderLightSkyBlue {
-			border-color: $color-light-sky-blue;
+		&.-borderNavyBlue {
+			border-color: $color-navy-blue;
 		}
-		&.-backgroundLightSkyBlue {
-			background-color: $color-light-sky-blue;
+		&.-backgroundNavyBlue {
+			background-color: $color-navy-blue;
 		}
 	}
 </style>
