@@ -24,7 +24,7 @@
 
   &:disabled {
     border-color: $color-athens-grey;
-    color: $color-storm-gray;
+    color: $color-storm-grey;
   }
 
   &:focus:invalid, &.-error {
@@ -37,7 +37,7 @@
 	height: $line-height-base + 2 * $space-xxxs + 2px;
 
 	&:required:invalid {
-		color: $color-storm-gray;
+		color: $color-storm-grey;
 	}
 
 	option {
