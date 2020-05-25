@@ -21,7 +21,7 @@
 			@include textBase;
 			align-items: center;
 			bottom: 0;
-			color: $color-storm-gray;
+			color: $color-storm-grey;
 			display: flex;
 			padding: 0 $space-xs;
 			position: absolute;
