@@ -38,7 +38,7 @@
 
 				&__progressData {
 					@include textMinus1;
-					color: $color-storm-gray;
+					color: $color-storm-grey;
 					font-weight: bold;
 					text-align: right;
 				}
@@ -47,7 +47,7 @@
 
 		&__score {
 			@include textBase;
-			color: $color-storm-gray;
+			color: $color-storm-grey;
 			font-weight: bold;
 			margin-left: $space-m;
 			min-width: 40px;
