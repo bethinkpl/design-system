@@ -100,7 +100,7 @@
 
   &:focus, &.-focused {
 		background-color: $color-surfie-green;
-		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-blue-chill, .6);
+		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-blue-chill-rgb, .6);
   }
 
 	&.-roundedCorners {
@@ -147,7 +147,7 @@
 		}
 
 		&:disabled, &.-disabled {
-			color: rgba($color-blue-chill, .6);
+			color: rgba($color-blue-chill-rgb, .6);
 		}
 	}
 }
