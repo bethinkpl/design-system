@@ -88,7 +88,7 @@
 
 	&:disabled, &.-disabled {
 		background-color: $color-athens-grey;
-		color: $color-storm-gray;
+		color: $color-storm-grey;
 		cursor: not-allowed;
 		pointer-events: none;
   }
@@ -110,7 +110,7 @@
 
 	&.-secondary {
 		background-color: $color-white;
-		border: 2px solid $color-storm-gray;
+		border: 2px solid $color-storm-grey;
 		color: $color-ebony-clay;
 		padding: $space-xxxs $space-xs;
 
@@ -121,7 +121,7 @@
 
 		&:focus, &.-focus {
 			background-color: $color-white;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-gray, .6);
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-grey, .6);
 		}
 
 		&:disabled, &.-disabled {
