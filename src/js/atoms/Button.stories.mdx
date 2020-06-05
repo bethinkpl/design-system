@@ -1,0 +1,34 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlButton from './Button';
+
+<Meta title='Button' component={WnlButton} />
+
+# Button
+
+Some **markdown** description, or whatever you want.
+
+<Story name='basic'
+    args={{small: false, disabled: false}}
+    argTypes={{
+        slot: {control: { type: 'text' }, defaultValue: 'hello'},
+    }}>
+    {(args) => {
+        console.log(args);
+        // works on args change
+        return {
+            components: { WnlButton },
+            data() {
+                console.log('data', args);
+                // works only on page render
+                return args;
+            },
+            template: '<wnl-button :small="small" :disabled="disabled">{{slot}}</wnl-button>',
+        };
+    }}
+</Story>
+
+
+
+## Props
+
+<Props of={WnlButton} />
