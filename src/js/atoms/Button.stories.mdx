@@ -5,29 +5,31 @@ import WnlButton from 'js/components/global/styleguide/atoms/Button';
 
 # Button
 
-Some **markdown** description, or whatever you want.
+**Wspaniały** przycisk.
 
 <Story name='basic'
-    args={{small: false, disabled: false}}
+    args={{
+    danger: false,
+    disabled: false,
+    loading: false,
+    medium: false,
+    roundedCorners: true,
+    secondary: false,
+    small: false,
+    }}
     argTypes={{
         slot: {control: { type: 'text' }, defaultValue: 'hello'},
     }}>
     {(args) => {
-        console.log(args);
-        // works on args change
         return {
             components: { WnlButton },
             data() {
-                console.log('data', args);
-                // works only on page render
                 return args;
             },
-            template: '<wnl-button :small="small" :disabled="disabled">{{slot}}</wnl-button>',
+            template: '<wnl-button :danger="danger" :disabled="disabled" :loading="loading" :medium="medium" :roundedCorners="roundedCorners" :secondary="secondary" :small="small">{{slot}}</wnl-button>',
         };
     }}
 </Story>
-
-
 
 ## Props
 
