@@ -1,0 +1,30 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlNumberInCircle from 'js/components/global/styleguide/atoms/NumberInCircle';
+
+<Meta title='attoms/NumberInCircle' component={WnlNumberInCircle} />
+
+# Label
+
+<Story name='interactive'
+    args={{
+        slot: '1',
+        index: 1,
+        danger: false,
+        medium: false,
+        primary: false,
+    }}
+    >
+    {(args) => {
+        return {
+            components: { WnlNumberInCircle },
+            data() {
+                return args;
+            },
+            template: '<wnl-number-in-circle :index="index" :danger="danger" :medium="medium" :primary="primary" >{{slot}}</wnl-number-in-circle>',
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlNumberInCircle} />

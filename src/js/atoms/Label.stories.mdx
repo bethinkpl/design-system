@@ -1,0 +1,27 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlLabel from 'js/components/global/styleguide/atoms/Label';
+
+<Meta title='attoms/Label' component={WnlLabel} />
+
+# Label
+
+<Story name='interactive'
+    args={{
+        slot: 'Hello world',
+        isOptional: false,
+    }}
+    >
+    {(args) => {
+        return {
+            components: { WnlLabel },
+            data() {
+                return args;
+            },
+            template: '<wnl-label :is-optional="isOptional" >{{slot}}</wnl-label>',
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlLabel} />
