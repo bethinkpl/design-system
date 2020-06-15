@@ -1,0 +1,43 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlEmojiPoints from 'js/components/global/styleguide/molecules/EmojiPoints';
+
+<Meta title='molecules/EmojiPoints' component={WnlEmojiPoints} />
+
+# EmojiPoints
+
+<Story name='interactive'
+    args={{
+        items: [
+            {
+                emoji: '⏰',
+                text: 'Test 123'
+            },
+            {
+                emoji: '💡',
+                text: 'halo halo'
+            },
+            {
+                emoji: '📅',
+                text: 'to jeszcze ostatni punkt'
+            }
+        ],
+        large: false,
+        small: false,
+        medium: true,
+        vertical: false,
+    }}
+    >
+    {(args) => {
+        return {
+            components: { WnlEmojiPoints },
+            data() {
+                return args;
+            },
+            template: '<wnl-emoji-points :items="items" :large="large" :small="small" :medium="medium" :vertical="vertical" />',
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlEmojiPoints} />

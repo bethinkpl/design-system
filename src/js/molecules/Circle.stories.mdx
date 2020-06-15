@@ -1,0 +1,26 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlCircle from 'js/components/global/styleguide/molecules/Circle';
+
+<Meta title='molecules/Circle' component={WnlCircle} />
+
+# Circle
+
+<Story name='interactive'
+    args={{
+        slot: '<span class="-mischka">2</span>',
+    }}
+    >
+    {(args) => {
+        return {
+            components: { WnlCircle },
+            data() {
+                return args;
+            },
+            template: '<wnl-circle><span v-html="slot" /></wnl-circle>',
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlCircle} />
