@@ -1,0 +1,26 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+<Meta title='molecules/FormGroup' />
+
+# FormGroup
+
+<Story name='interactive'
+    args={{
+        label: 'Twój e-mail',
+        isError: false,
+        error: 'To pole jest polem wymaganym.',
+    }}
+    >
+    {(args) => {
+        return {
+            data() {
+                return args;
+            },
+            template: `<div class="m-formGroup">
+               <label for="email" class="a-label -required">{{label}}</label>
+               <input class="a-input" :class="{ '-error': isError }" required="required" name="email" type="email" value="" id="email">
+               <div v-if="isError" class="a-error">{{error}}</div>
+            </div>`,
+        };
+    }}
+</Story>

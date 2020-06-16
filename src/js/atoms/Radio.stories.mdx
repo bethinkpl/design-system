@@ -1,0 +1,22 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+<Meta title='atoms/Radio' />
+
+# Radio
+
+<Story name='interactive'
+    args={{
+        disabled: false,
+        checked: false,
+        small: false
+    }}
+    >
+    {(args) => {
+        return {
+            data() {
+                return args;
+            },
+            template: '<input type="radio" class="a-radio" :class="{ \'-small\': small }" :disabled="disabled" :checked="checked" />',
+        };
+    }}
+</Story>
