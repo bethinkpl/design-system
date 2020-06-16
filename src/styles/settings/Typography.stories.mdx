@@ -1,0 +1,51 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import WnlInputWithIcon from 'js/components/global/styleguide/molecules/InputWithIcon';
+import { COLORS } from 'js/consts/colors';
+
+<Meta title='settings' />
+
+# Typography
+
+Font: Lato
+
+Weights: 300(light), 400(regular), 700(bold)
+
+<Story name="Typography">{() => {
+    const sizes = [
+        { name: 'font-size-plus-8', fontSize: 84, lineHeight: 98 },
+        { name: 'font-size-plus-7', fontSize: 52, lineHeight: 68 },
+        { name: 'font-size-plus-6', fontSize: 44, lineHeight: 58 },
+        { name: 'font-size-plus-5', fontSize: 32, lineHeight: 44 },
+        { name: 'font-size-plus-4', fontSize: 28, lineHeight: 38 },
+        { name: 'font-size-plus-3', fontSize: 24, lineHeight: 32 },
+        { name: 'font-size-plus-2', fontSize: 20, lineHeight: 28 },
+        { name: 'font-size-plus-1', fontSize: 18, lineHeight: 26 },
+        { name: 'font-size-base', fontSize: 16, lineHeight: 24 },
+        { name: 'font-size-minus-1', fontSize: 14, lineHeight: 18 },
+        { name: 'font-size-minus-2', fontSize: 12, lineHeight: 16 },
+        { name: 'font-size-minus-3', fontSize: 10, lineHeight: 12 },
+    ];
+    return {
+        data() {
+            return { sizes };
+        },
+        methods: {
+            getStyles(size) {
+                return `font-size: ${size.fontSize}px; line-height: ${size.lineHeight}px;`;
+            },
+        },
+        template: `
+            <div>
+                <div v-for="size in sizes" style="margin-bottom: 40px;">
+                    <h2>{{size.name}}</h2>
+                    <code>
+                        \${{size.name}}<br>
+                        font-size: {{size.fontSize}}px; <br>
+                        line-height: {{size.lineHeight}}px;
+                    </code>
+                    <p :style="getStyles(size)">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+            </div>
+        `,
+    }
+}}</Story>
