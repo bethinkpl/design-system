@@ -1,0 +1,43 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlCard from 'js/components/global/styleguide/organisms/Card';
+import WnlTitle from 'js/components/global/styleguide/atoms/Title';
+
+<Meta title='organisms/Card' component={WnlCard} />
+
+# Card
+
+<Story name='interactive'
+    args={{
+        title: "Poziom wspierania retencji wiedzy",
+        borderColor: '#27AA5B',
+        contentProp: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
+        summaryProp: 'summary',
+        footerProp: 'footer',
+    }}
+>
+    {(args) => {
+        return {
+            components: { WnlCard, WnlTitle },
+            data() {
+                return args;
+            },
+            template: `<wnl-card
+                :border-color="borderColor"
+            >
+                <div slot="header" class="o-reportContent__title">
+                    <wnl-title
+                        :level="4"
+                        :text="title"
+                    />
+                </div>
+                <div slot="summary">{{summaryProp}}</div>
+                <div slot="content">{{contentProp}}</div>
+                <div slot="footer">{{footerProp}}</div>
+            </wnl-card>`,
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlCard} />

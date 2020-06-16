@@ -1,0 +1,36 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlProgressBarWithLabels from 'js/components/global/styleguide/organisms/ProgressBarWithLabels';
+
+<Meta title='organisms/ProgressBarWithLabels' component={WnlProgressBarWithLabels} />
+
+# ProgressBarWithLabels
+
+<Story name='interactive'
+    args={{
+        progressData: '10 / 25',
+        label: 'Upływ dni podejścia:',
+    }}
+    argTypes={{
+        color: {control: { type: 'color' }, defaultValue: null},
+        percentValue: {control: { type: 'number', min: 0, max: 100 }, defaultValue: 40},
+    }}
+>
+    {(args) => {
+        return {
+            components: { WnlProgressBarWithLabels },
+            data() {
+                return args;
+            },
+            template: `<wnl-progress-bar-with-labels
+                :label="label"
+                :progress-data="progressData"
+                :percent-value="percentValue"
+                :color="color"
+            />`,
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlProgressBarWithLabels} />

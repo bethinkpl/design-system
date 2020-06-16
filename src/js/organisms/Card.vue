@@ -46,6 +46,7 @@
 
 	.m-cardHeader {
 		display: flex;
+		justify-content: space-between;
 		margin-bottom: $space-l;
 
 		.a-title {
@@ -82,10 +83,6 @@ export default {
 	},
 	props: {
 		title: {
-			type: String,
-			default: ''
-		},
-		clarification: {
 			type: String,
 			default: ''
 		},
