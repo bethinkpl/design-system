@@ -1,0 +1,31 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+<Meta title='organisms/Navigation' />
+
+# Navigation
+
+<Story name='checkout'>
+    {(args) => {
+        return {
+            data() {
+                return args;
+            },
+            template: `<nav class="o-navigation">
+                <a class="o-navigation__item" href="https://wiecejnizlek.pl">
+                    <img src="https://lek.wiecejnizlek.pl/images/wnl-logo.svg" alt="Logo Więcej niż LEK" class="o-navigation__logo">
+                </a>
+                <div class="o-navigation__right -stormGrey">
+                    <i class="o-navigation__item -touchable fa-shopping-cart a-icon" id="cartIcon"></i>
+                    <div class="o-navigation__item o-dropdown" id="accountDropdown">
+                        <div class="o-dropdown__trigger o-navigation__avatar" id="accountDropdownTrigger">
+                            <img src="https://wnl-platform-production-storage.s3.eu-central-1.amazonaws.com/public/avatars/VLpl2r5hGWQ48x3oSEq1RpkRcYCvJsxJ.png" class="a-avatar">
+                        </div>
+                        <div class="o-dropdown__menu -shadowLarge">
+                            <span class="o-dropdown__item logout-link">Wyloguj</span>
+                        </div>
+                    </div>
+                </div>
+            </nav>`,
+        };
+    }}
+</Story>

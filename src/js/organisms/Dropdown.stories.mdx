@@ -1,0 +1,28 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+<Meta title='organisms/Dropdown' />
+
+# Dropdown
+
+<Story name='interactive'
+    args={{
+        active: false,
+    }}
+    >
+    {(args) => {
+        return {
+            data() {
+                return args;
+            },
+            template: `<div class="o-dropdown" :class="{ '-active': active }" style="float: right">
+                <div class="o-dropdown__trigger o-navigation__avatar">
+                    <img src="https://wnl-platform-production-storage.s3.eu-central-1.amazonaws.com/public/avatars/VLpl2r5hGWQ48x3oSEq1RpkRcYCvJsxJ.png" class="a-avatar">
+                </div>
+                <div class="o-dropdown__menu -shadowLarge">
+                    <span class="o-dropdown__item">Jakis sobie długi tekst tutaj jest. A może nawet i dłuższy</span>
+                    <span class="o-dropdown__item">Wyloguj</span>
+                </div>
+            </div>`,
+        };
+    }}
+</Story>

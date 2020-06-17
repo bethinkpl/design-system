@@ -1,0 +1,29 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+<Meta title='organisms/Footer' />
+
+# Footer
+
+<Story name='interactive'
+    args={{
+        html1: 'Bezpieczna transakcja realizowana przez Przelewy24',
+        html2: 'W razie problemów napisz do nas na Messengerze lub wyślij maila na adres: <a href="mailto:info@wiecejnizlek.pl" class="a-linkInText">info@wiecejnizlek.pl</a>',
+    }}
+    >
+    {(args) => {
+        return {
+            data() {
+                return args;
+            },
+            template: `<footer class="o-footer">
+                <p class="o-footer__block -first">
+                    <span v-html="html1" />
+                    <i class="fa-shield a-icon -medium -mischka"></i>
+                </p>
+                <p class="o-footer__block -last">
+                    <span v-html="html2" />
+                </p>
+            </footer>`,
+        };
+    }}
+</Story>

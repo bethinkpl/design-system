@@ -1,0 +1,20 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+<Meta title='organisms/Content' />
+
+# Content
+
+<Story name='interactive'
+    args={{
+        html: '<h1>Zaburzenia wentylacji typu restrykcyjnego</h1><h2>Rozpoznanie</h2><p>Podejrzenie:<strong style="color: rgb(98, 55, 141);"> ZMNIEJSZENIE VC</strong> (pojemności życiowej płuc) LUB <strong style="color: rgb(56, 148, 118);">ZMNIEJSZENIE FVC</strong> (natężonej pojemności życiowej płuc) w badaniu spirometrycznym.</p><p><strong>PEWNE ROZPOZNANIE:</strong> konieczne jest stwierdzenie <strong style="color: rgb(98, 55, 141);">ZMNIEJSZENIA TLC</strong> (całkowitej pojemności płuc) dla wieku, wzrostu i płci (&lt;5 centyla) - najlepiej <strong style="color: rgb(236, 160, 5);">metodą pletyzmograficzną</strong>:</p><ul><li>weryfikacja zmian wykrytych w spirometrii </li><li>LUB wykrycie zaburzeń objętościowych przy prawidłowej VC.</li></ul>',
+    }}
+    >
+    {(args) => {
+        return {
+            data() {
+                return args;
+            },
+            template: `<article class="content -styleguide" v-html="html" />`,
+        };
+    }}
+</Story>

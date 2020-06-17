@@ -1,6 +1,7 @@
 .o-footer {
   @include textMinus1;
   background-color: $color-catalina-blue;
+	color: $color-white;
   padding: 0 $space-xl;
   display: flex;
   flex-direction: column;
