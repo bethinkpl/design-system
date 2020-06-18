@@ -27,3 +27,18 @@
 }
 
 $font-family-rubik: 'Rubik';
+
+// Circular Pro
+@font-face {
+	font-family: 'Circular Pro';
+	font-style: normal;
+	font-weight: 400;
+	src: url(../../../fonts/circular-pro/circular-pro.otf) format('opentype');
+}
+
+@font-face {
+	font-family: 'Circular Pro';
+	font-style: normal;
+	font-weight: 700;
+	src: url(../../../fonts/circular-pro/circular-pro-700.otf) format('opentype');
+}
