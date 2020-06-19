@@ -1,5 +1,5 @@
-$color-blue-chill: #0D9EA0;
-$color-surfie-green: #0F8385;
+$color-blue-chill: var(--color-blue-chill);
+$color-surfie-green: var(--color-surfie-green);
 $color-jungle-green: #27AA5B;
 $color-elf-green: #239952;
 $color-fruit-salad: #43A047;
@@ -37,3 +37,4 @@ $color-alabaster-opacitied: #F2F2F2;
 $color-alabaster: #F7F7F7;
 $color-white: #FFFFFF;
 
+$color-blue-chill-rgb: var(--color-blue-chill-rgb);
