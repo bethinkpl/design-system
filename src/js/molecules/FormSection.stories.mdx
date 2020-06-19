@@ -1,0 +1,53 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlFormSection from 'js/components/global/styleguide/molecules/FormSection';
+import WnlLabel from 'js/components/global/styleguide/atoms/Label';
+
+<Meta title='molecules/FormSection' component={WnlFormSection} />
+
+# FormSection
+
+<Story name='interactive'
+    args={{
+        legend: 'Testowa legenda',
+    }}
+    >
+    {(args) => {
+        return {
+            components: { WnlFormSection, WnlLabel },
+            data() {
+                return {
+                    ...args,
+                    formData: {},
+                };
+            },
+            template: `<wnl-form-section :legend="legend">
+                <div class="m-formGroup">
+                    <wnl-label input-id="study_start">W którym roku rozpoczęły się Twoje studia?</wnl-label>
+                    <input
+                        id="study_start"
+                        v-model="formData.study_start"
+                        is-required
+                        class="a-input"
+                        type="number"
+                        placeholder="Wpisz rok"
+                        min="1990"
+                        max="2020"
+                    >
+                </div>
+                <div class="m-formGroup">
+                    <wnl-label input-id="other_question" :is-optional="true">Test?</wnl-label>
+                    <input
+                        id="other_question"
+                        v-model="formData.other_question"
+                        class="a-input"
+                        placeholder="Wpisz coś"
+                    >
+                </div>
+            </wnl-form-section>`,
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlFormSection} />

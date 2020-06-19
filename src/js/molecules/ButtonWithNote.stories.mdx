@@ -1,0 +1,24 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+<Meta title='molecules/ButtonWithNote' />
+
+# ButtonWithNote
+
+<Story name='interactive'
+    args={{
+        text: 'Załóż konto i aktywuj demo',
+        note: 'Poprzez kliknięcie akceptujesz Regulamin oraz Politykę Prywatności.',
+    }}
+    >
+    {(args) => {
+        return {
+            data() {
+                return args;
+            },
+            template: `<div class="m-buttonWithNote">
+                <button class="a-button -big">{{text}}</button>
+                <p class="m-buttonWithNote__note">{{note}}</p>
+            </div>`,
+        };
+    }}
+</Story>

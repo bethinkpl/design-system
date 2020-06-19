@@ -1,0 +1,36 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlInputWithIcon from 'js/components/global/styleguide/molecules/InputWithIcon';
+
+<Meta title='molecules/InputWithIcon' component={WnlInputWithIcon} />
+
+# InputWithIcon
+
+<Story name='interactive'
+    args={{
+        icon: '%',
+    }}
+    >
+    {(args) => {
+        return {
+            components: { WnlInputWithIcon },
+            data() {
+                return args;
+            },
+            template: `<wnl-input-with-icon :icon="icon">
+                <input
+                    v-model="testData"
+                    class="a-input"
+                    type="number"
+                    min="0"
+                    max="100"
+                    placeholder="Podaj wartość w procentach"
+                    step="0.01"
+                >
+            </wnl-input-with-icon>`,
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlInputWithIcon} />

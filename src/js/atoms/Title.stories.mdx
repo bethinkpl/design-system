@@ -1,0 +1,31 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlTitle from 'js/components/global/styleguide/atoms/Title';
+
+<Meta title='atoms/Title' component={WnlTitle} />
+
+# Title
+
+<Story name='interactive'
+    args={{
+        slot: 'Hello world',
+        level: 2,
+        isLink: false
+    }}
+    argTypes={{
+        level: {control: { type: 'range', min: 1, max: 6 }, defaultValue: 2},
+    }}
+    >
+    {(args) => {
+        return {
+            components: { WnlTitle },
+            data() {
+                return args;
+            },
+            template: '<wnl-title :level="level" :is-link="isLink">{{slot}}</wnl-title>',
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlTitle} />

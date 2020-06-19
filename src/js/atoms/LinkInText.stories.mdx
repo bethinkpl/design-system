@@ -1,0 +1,20 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+<Meta title='atoms/LinkInText' />
+
+# LinkInText
+
+<Story name='interactive'
+    args={{
+        text: "Politykę Prywatności",
+    }}
+    >
+    {(args) => {
+        return {
+            data() {
+                return args;
+            },
+            template: '<div>Poprzez kliknięcie akceptujesz <a class="a-linkInText -textMedium" href="http://google.com" target="_blank">{{text}}</a>.</div>',
+        };
+    }}
+</Story>

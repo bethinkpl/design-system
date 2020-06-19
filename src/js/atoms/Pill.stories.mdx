@@ -1,0 +1,30 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlPill from 'js/components/global/styleguide/atoms/Pill';
+
+<Meta title='atoms/Pill' component={WnlPill} />
+
+# Pill
+
+<Story name='interactive'
+    args={{
+        slot: 'Hello world',
+        number: 0,
+    }}
+    argTypes={{
+        backgroundColor: {control: { type: 'color' }, defaultValue: null},
+    }}
+    >
+    {(args) => {
+        return {
+            components: { WnlPill },
+            data() {
+                return args;
+            },
+            template: '<wnl-pill :background-color="backgroundColor" :number="number" >{{slot}}</wnl-label>',
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlPill} />

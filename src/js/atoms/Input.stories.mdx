@@ -1,0 +1,23 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+<Meta title='atoms/Input' />
+
+# Input
+
+<Story name='interactive'
+    args={{
+        placeholder: 'Wpisz tekst',
+        disabled: false,
+        value: "",
+        required: false
+    }}
+    >
+    {(args) => {
+        return {
+            data() {
+                return args;
+            },
+            template: '<input class="a-input" :placeholder="placeholder" :disabled="disabled" :required="required" :value="value" />',
+        };
+    }}
+</Story>

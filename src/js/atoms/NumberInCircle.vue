@@ -19,7 +19,7 @@
 		align-items: center;
 		border-radius: 50%;
 		border: 1px solid currentColor;
-		display: flex;
+		display: inline-flex;
 		font-size: $font-size-plus-2;
 		height: $icon-l;
 		justify-content: center;

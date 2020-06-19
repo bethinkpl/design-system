@@ -1,0 +1,47 @@
+import { Meta, Story} from '@storybook/addon-docs/blocks';
+
+<Meta title='settings' />
+
+# Spacings
+
+<Story name="Spacings">{() => {
+    const spacings = [
+        { name: 'space-xxxxl', value: 80},
+        { name: 'space-xxxl', value: 64},
+        { name: 'space-xxl', value: 56},
+        { name: 'space-xl', value: 40},
+        { name: 'space-l', value: 32},
+        { name: 'space-m', value: 24},
+        { name: 'space-s', value: 16},
+        { name: 'space-xs', value: 12},
+        { name: 'space-xxs', value: 8},
+        { name: 'space-xxxs', value: 6},
+        { name: 'space-xxxxs', value: 4},
+    ];
+    return {
+        data() {
+            return { spacings };
+        },
+        methods: {
+            getStyles(spacing) {
+                return `
+                    background-color: grey;
+                    margin-bottom: 30px;
+                    height: ${spacing.value}px;
+                    width: ${spacing.value}px;
+                `;
+            },
+        },
+        template: `
+            <div>
+                <div v-for="spacing in spacings">
+                    <h2>{{spacing.name}}</h2>
+                    <code>
+                        \${{spacing.name}}: {{spacing.value}}px
+                    </code>
+                    <div :style="getStyles(spacing)"></div>
+                </div>
+            </div>
+        `,
+    }
+}}</Story>

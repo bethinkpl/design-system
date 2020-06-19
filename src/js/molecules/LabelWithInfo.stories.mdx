@@ -1,0 +1,45 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlLabelWithInfo from 'js/components/global/styleguide/molecules/LabelWithInfo';
+import WnlLabel from 'js/components/global/styleguide/atoms/Label';
+import WnlTitle from 'js/components/global/styleguide/atoms/Title';
+import WnlButton from 'js/components/global/styleguide/atoms/Button';
+import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlModal from 'js/components/global/Modal';
+import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
+
+<Meta title='molecules/LabelWithInfo' component={WnlLabelWithInfo} />
+
+# WnlLabelWithInfo
+
+<Story name='interactive'>
+    {(args) => {
+        return {
+            components: { WnlLabelWithInfo, WnlLabel, WnlTitle, WnlButton, WnlIcon, WnlModal, WnlModalParagraph },
+            data() {
+                return {
+                    ...args,
+                    languageModalVisible: false,
+                };
+            },
+            template: `<wnl-label-with-info>
+                <wnl-label input-id="finished_studies">Czy studia masz już za sobą? W jakim języku?</wnl-label>
+                <template slot="info">
+                    <wnl-icon fa-icon-class="fa-question-circle-o" @click.native="languageModalVisible = true" />
+                    <wnl-modal v-if="languageModalVisible" @closeModal="languageModalVisible = false">
+                    		<wnl-title slot="header" :level="4">Dlaczego pytamy o język?</wnl-title>
+                    		<template>
+                    			<wnl-modal-paragraph>
+                    				Ukończenie studiów w języku polskim jest jednym z warunków skorzystania z Gwarancji Satysfakcji.
+                    			</wnl-modal-paragraph>
+                    		</template>
+                    		<wnl-button slot="footer" @click.native="languageModalVisible = false">Ok, Rozumiem</wnl-button>
+                    	</wnl-modal>
+                </template>
+            </wnl-label-with-info>`,
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlLabelWithInfo} />

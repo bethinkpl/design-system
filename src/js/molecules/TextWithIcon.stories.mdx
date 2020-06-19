@@ -1,0 +1,36 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlTextWithIcon from 'js/components/global/styleguide/molecules/TextWithIcon';
+import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+
+<Meta title='molecules/TextWithIcon' component={WnlTextWithIcon} />
+
+# TextWithIcon
+
+<Story name='interactive'
+    args={{
+        textProp: "super tekst tutaj jest",
+        icon: 'fa-eye',
+    }}
+>
+    {(args) => {
+        return {
+            components: { WnlTextWithIcon, WnlIcon },
+            data() {
+                return args;
+            },
+            template: `<wnl-text-with-icon class="o-dashboard__reportSummary__overallIndicator__name">
+                <wnl-icon
+                    slot="icon"
+                    :fa-icon-class="icon"
+                />
+                <span slot="text">
+                    {{textProp}}
+                </span>
+            </wnl-text-with-icon>`,
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlTextWithIcon} />

@@ -1,0 +1,29 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+
+<Meta title='atoms/Icon' component={WnlIcon} />
+
+# Icon
+
+<Story name='interactive'
+    args={{
+    size: 'small',
+    faIconClass: 'fa-trash'
+    }}
+    argTypes={{
+        size: {control: { type: 'select', options: ['x-large', 'large', 'medium', 'small', 'x-small'] }, defaultValue: 'small'},
+    }}>
+    {(args) => {
+        return {
+            components: { WnlIcon },
+            data() {
+                return args;
+            },
+            template: '<wnl-icon :fa-icon-class="faIconClass" :size="size" />',
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlIcon} />

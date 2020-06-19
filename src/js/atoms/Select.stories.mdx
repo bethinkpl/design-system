@@ -1,0 +1,30 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlSelect from 'js/components/global/styleguide/atoms/Select';
+
+<Meta title='atoms/Select' component={WnlSelect} />
+
+# Select
+
+**Wspaniały** przycisk.
+
+<Story name='interactive'
+    args={{
+        isRequired: false,
+        value: "other",
+        options: [{value: 1, text: 'jeden'}, {value: 2, text: 'dwa'}, {value: 'other', text: 'inna opcja do wybrania'}]
+    }}
+    >
+    {(args) => {
+        return {
+            components: { WnlSelect },
+            data() {
+                return args;
+            },
+            template: '<wnl-select :is-required="isRequired" :options="options" :value=value />',
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlSelect} />
