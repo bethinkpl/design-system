@@ -7,12 +7,10 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
 <Story name='checkout'>
     {(args) => {
         return {
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: `<nav class="o-navigation">
                 <a class="o-navigation__item" href="https://wiecejnizlek.pl">
-                    <img src="https://lek.wiecejnizlek.pl/images/wnl-logo.svg" alt="Logo Więcej niż LEK" class="o-navigation__logo">
+                    <img src="https://lek.wiecejnizlek.pl/images/lek/logo.svg" alt="Logo Więcej niż LEK" class="o-navigation__logo">
                 </a>
                 <div class="o-navigation__right -stormGrey">
                     <i class="o-navigation__item -touchable fa-shopping-cart a-icon" id="cartIcon"></i>

@@ -11,9 +11,7 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
     >
     {(args) => {
         return {
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: '<div>Poprzez kliknięcie akceptujesz <a class="a-linkInText -textMedium" href="http://google.com" target="_blank">{{text}}</a>.</div>',
         };
     }}

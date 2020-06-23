@@ -11,15 +11,14 @@ import WnlSelect from 'js/components/global/styleguide/atoms/Select';
     args={{
         isRequired: false,
         value: "other",
+//         TODO
         options: [{value: 1, text: 'jeden'}, {value: 2, text: 'dwa'}, {value: 'other', text: 'inna opcja do wybrania'}]
     }}
     >
     {(args) => {
         return {
             components: { WnlSelect },
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: '<wnl-select :is-required="isRequired" :options="options" :value=value />',
         };
     }}

@@ -12,9 +12,7 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
     >
     {(args) => {
         return {
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: `<footer class="o-footer">
                 <p class="o-footer__block -first">
                     <span v-html="html1" />

@@ -11,9 +11,7 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
     >
     {(args) => {
         return {
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: `<article class="content -styleguide" v-html="html" />`,
         };
     }}

@@ -14,9 +14,7 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
     >
     {(args) => {
         return {
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: '<input class="a-input" :placeholder="placeholder" :disabled="disabled" :required="required" :value="value" />',
         };
     }}
