@@ -16,6 +16,7 @@ import WnlButton from 'js/components/global/styleguide/atoms/Button';
     roundedCorners: true,
     secondary: false,
     small: false,
+    text: false,
     }}
     argTypes={{
         slotText: {control: { type: 'text' }, defaultValue: 'hello'},
@@ -24,7 +25,7 @@ import WnlButton from 'js/components/global/styleguide/atoms/Button';
         return {
             components: { WnlButton },
             props: Object.keys(args),
-            template: '<wnl-button :danger="danger" :disabled="disabled" :loading="loading" :medium="medium" :roundedCorners="roundedCorners" :secondary="secondary" :small="small">{{slotText}}</wnl-button>',
+            template: '<wnl-button :danger="danger" :disabled="disabled" :loading="loading" :medium="medium" :roundedCorners="roundedCorners" :secondary="secondary" :small="small" :text="text">{{slotText}}</wnl-button>',
         };
     }}
 </Story>
