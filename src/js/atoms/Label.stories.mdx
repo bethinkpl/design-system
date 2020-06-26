@@ -7,17 +7,15 @@ import WnlLabel from 'js/components/global/styleguide/atoms/Label';
 
 <Story name='interactive'
     args={{
-        slot: 'Hello world',
+        slotText: 'Hello world',
         isOptional: false,
     }}
     >
     {(args) => {
         return {
             components: { WnlLabel },
-            data() {
-                return args;
-            },
-            template: '<wnl-label :is-optional="isOptional" >{{slot}}</wnl-label>',
+            props: Object.keys(args),
+            template: '<wnl-label :is-optional="isOptional" >{{slotText}}</wnl-label>',
         };
     }}
 </Story>

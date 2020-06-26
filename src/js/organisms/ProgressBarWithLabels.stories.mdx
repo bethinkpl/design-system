@@ -7,8 +7,11 @@ import WnlProgressBarWithLabels from 'js/components/global/styleguide/organisms/
 
 <Story name='interactive'
     args={{
+//     TODO
         progressData: '10 / 25',
         label: 'Upływ dni podejścia:',
+        color: '#0277BD',
+        percentValue: 40,
     }}
     argTypes={{
         color: {control: { type: 'color' }, defaultValue: null},
@@ -18,9 +21,7 @@ import WnlProgressBarWithLabels from 'js/components/global/styleguide/organisms/
     {(args) => {
         return {
             components: { WnlProgressBarWithLabels },
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: `<wnl-progress-bar-with-labels
                 :label="label"
                 :progress-data="progressData"

@@ -12,9 +12,7 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
     >
     {(args) => {
         return {
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: `<div class="m-buttonWithNote">
                 <button class="a-button -big">{{text}}</button>
                 <p class="m-buttonWithNote__note">{{note}}</p>

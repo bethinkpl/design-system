@@ -15,9 +15,9 @@ import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
     {(args) => {
         return {
             components: { WnlLabelWithInfo, WnlLabel, WnlTitle, WnlButton, WnlIcon, WnlModal, WnlModalParagraph },
+            props: Object.keys(args),
             data() {
                 return {
-                    ...args,
                     languageModalVisible: false,
                 };
             },

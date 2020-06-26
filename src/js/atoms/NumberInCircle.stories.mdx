@@ -7,7 +7,7 @@ import WnlNumberInCircle from 'js/components/global/styleguide/atoms/NumberInCir
 
 <Story name='interactive'
     args={{
-        slot: '1',
+        slotText: '1',
         index: 1,
         danger: false,
         medium: false,
@@ -17,10 +17,8 @@ import WnlNumberInCircle from 'js/components/global/styleguide/atoms/NumberInCir
     {(args) => {
         return {
             components: { WnlNumberInCircle },
-            data() {
-                return args;
-            },
-            template: '<wnl-number-in-circle :index="index" :danger="danger" :medium="medium" :primary="primary" >{{slot}}</wnl-number-in-circle>',
+            props: Object.keys(args),
+            template: '<wnl-number-in-circle :index="index" :danger="danger" :medium="medium" :primary="primary" >{{slotText}}</wnl-number-in-circle>',
         };
     }}
 </Story>

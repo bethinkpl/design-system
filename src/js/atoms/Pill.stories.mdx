@@ -7,20 +7,19 @@ import WnlPill from 'js/components/global/styleguide/atoms/Pill';
 
 <Story name='interactive'
     args={{
-        slot: 'Hello world',
+        slotText: 'Hello world',
         number: 0,
+        backgroundColor: '#FDB72D',
     }}
     argTypes={{
-        backgroundColor: {control: { type: 'color' }, defaultValue: null},
+        backgroundColor: {control: { type: 'color' }},
     }}
     >
     {(args) => {
         return {
             components: { WnlPill },
-            data() {
-                return args;
-            },
-            template: '<wnl-pill :background-color="backgroundColor" :number="number" >{{slot}}</wnl-label>',
+            props: Object.keys(args),
+            template: '<wnl-pill :background-color="backgroundColor" :number="number" >{{slotText}}</wnl-pill>',
         };
     }}
 </Story>

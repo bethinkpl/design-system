@@ -8,15 +8,16 @@ import WnlLabel from 'js/components/global/styleguide/atoms/Label';
 
 <Story name='interactive'
     args={{
+    // TODO
         legend: 'Testowa legenda',
     }}
     >
     {(args) => {
         return {
             components: { WnlFormSection, WnlLabel },
+            props: Object.keys(args),
             data() {
                 return {
-                    ...args,
                     formData: {},
                 };
             },

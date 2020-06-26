@@ -7,16 +7,14 @@ import WnlCircle from 'js/components/global/styleguide/molecules/Circle';
 
 <Story name='interactive'
     args={{
-        slot: '<span class="-mischka">2</span>',
+        slotText: '<span class="-mischka">2</span>',
     }}
     >
     {(args) => {
         return {
             components: { WnlCircle },
-            data() {
-                return args;
-            },
-            template: '<wnl-circle><span v-html="slot" /></wnl-circle>',
+            props: Object.keys(args),
+            template: '<wnl-circle><span v-html="slotText" /></wnl-circle>',
         };
     }}
 </Story>

@@ -7,6 +7,7 @@ import WnlEmojiPoints from 'js/components/global/styleguide/molecules/EmojiPoint
 
 <Story name='interactive'
     args={{
+//     TODO
         items: [
             {
                 emoji: '⏰',
@@ -30,9 +31,7 @@ import WnlEmojiPoints from 'js/components/global/styleguide/molecules/EmojiPoint
     {(args) => {
         return {
             components: { WnlEmojiPoints },
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: '<wnl-emoji-points :items="items" :large="large" :small="small" :medium="medium" :vertical="vertical" />',
         };
     }}

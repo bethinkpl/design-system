@@ -15,9 +15,7 @@ import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
     {(args) => {
         return {
             components: { WnlTextWithIcon, WnlIcon },
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: `<wnl-text-with-icon class="o-dashboard__reportSummary__overallIndicator__name">
                 <wnl-icon
                     slot="icon"

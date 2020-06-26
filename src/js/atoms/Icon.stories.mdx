@@ -11,14 +11,13 @@ import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
     faIconClass: 'fa-trash'
     }}
     argTypes={{
+    // TODO
         size: {control: { type: 'select', options: ['x-large', 'large', 'medium', 'small', 'x-small'] }, defaultValue: 'small'},
     }}>
     {(args) => {
         return {
             components: { WnlIcon },
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: '<wnl-icon :fa-icon-class="faIconClass" :size="size" />',
         };
     }}

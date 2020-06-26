@@ -7,7 +7,7 @@ import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 
 <Story name='interactive'
     args={{
-        slot: 'Hello world',
+        slotText: 'Hello world',
         level: 2,
         isLink: false
     }}
@@ -18,10 +18,8 @@ import WnlTitle from 'js/components/global/styleguide/atoms/Title';
     {(args) => {
         return {
             components: { WnlTitle },
-            data() {
-                return args;
-            },
-            template: '<wnl-title :level="level" :is-link="isLink">{{slot}}</wnl-title>',
+            props: Object.keys(args),
+            template: '<wnl-title :level="level" :is-link="isLink">{{slotText}}</wnl-title>',
         };
     }}
 </Story>

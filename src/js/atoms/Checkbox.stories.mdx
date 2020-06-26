@@ -13,9 +13,7 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
     >
     {(args) => {
         return {
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: '<input type="checkbox" class="a-checkbox" :class="{ \'-small\': small }" :disabled="disabled" :checked="checked" />',
         };
     }}

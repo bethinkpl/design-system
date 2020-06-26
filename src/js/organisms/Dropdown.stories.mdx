@@ -11,9 +11,7 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
     >
     {(args) => {
         return {
-            data() {
-                return args;
-            },
+            props: Object.keys(args),
             template: `<div class="o-dropdown" :class="{ '-active': active }" style="float: right">
                 <div class="o-dropdown__trigger o-navigation__avatar">
                     <img src="https://wnl-platform-production-storage.s3.eu-central-1.amazonaws.com/public/avatars/VLpl2r5hGWQ48x3oSEq1RpkRcYCvJsxJ.png" class="a-avatar">
