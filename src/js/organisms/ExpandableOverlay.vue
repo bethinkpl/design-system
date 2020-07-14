@@ -28,24 +28,14 @@
 	@import 'resources/assets/styles/variables';
 
 	.o-expandableOverlay {
-		align-items: center;
-		background-color: #E6E8EE;
-		bottom: 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		left: 0;
-		position: fixed;
-		right: 0;
-		top: $navbar-height;
-		z-index: $z-index-overlay;
+		$bar-height: 56px;
 
 		&__bar {
 			display: flex;
 			flex: 0 57px;
 			width: 100%;
 			justify-content: flex-end;
-			height: 56px;
+			height: $bar-height;
 			background-color: #E6E8EE;
 			box-shadow: 0 8px 16px 0 rgba(12, 23, 38, 0.15);
 
@@ -77,6 +67,19 @@
 		}
 
 		&__screen {
+			align-items: center;
+			background-color: #E6E8EE;
+			bottom: 0;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			left: 0;
+			position: fixed;
+			right: 0;
+			top: $navbar-height + $bar-height;
+			// FIXME it covers top nav dropdowns
+			z-index: $z-index-overlay;
+
 			&__body {
 				height: 100%;
 				display: flex;
