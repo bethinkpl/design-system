@@ -1,12 +1,12 @@
 <template>
 	<div class="o-expandableOverlay">
-		<div class="o-expandableOverlay__bar">
+		<div class="o-expandableOverlay__bar" :class="{'o-expandableOverlay__fixed_bar': isExpanded}">
 			<div v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</div>
 			<div class="o-expandableOverlay__bar__showMore">
 				<a class="a-button -text" @click.prevent="toggleIsExpanded">
 					<span v-if="isExpanded">Zwiń</span>
 					<span v-else>Czytaj więcej</span>
-					<i class="wnl-icon fa fa-angle-down FIXME" />
+					<i class="wnl-icon fa" :class="{ 'fa-angle-up': !isExpanded, 'fa-angle-down': isExpanded }" />
 				</a>
 			</div>
 		</div>
@@ -17,7 +17,7 @@
 
 			<div class="o-expandableOverlay__screen__footer">
 				<div class="o-expandableOverlay__screen__footer__message">
-					W razie problemów napisz do nas na Messengerze <br> lub wyślij maila na adres <a>FIXME</a>
+					W razie problemów napisz do nas na Messengerze <br> lub wyślij maila na adres <a :href="mailtoContactEmail">{{contactEmail}}</a>
 				</div>
 			</div>
 		</div>
@@ -29,6 +29,7 @@
 
 	.o-expandableOverlay {
 		$bar-height: 56px;
+		z-index: $z-index-critical-info-overlay;
 
 		&__bar {
 			display: flex;
@@ -66,19 +67,25 @@
 			}
 		}
 
+		&__fixed_bar {
+			position: fixed;
+			top: $navbar-height;
+			bottom: 0;
+			left: 0;
+			right: 0;
+		}
+
 		&__screen {
 			align-items: center;
-			background-color: #E6E8EE;
-			bottom: 0;
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			left: 0;
+			background-color: #E6E8EE;
 			position: fixed;
-			right: 0;
 			top: $navbar-height + $bar-height;
-			// FIXME it covers top nav dropdowns
-			z-index: $z-index-overlay;
+			bottom: 0;
+			left: 0;
+			right: 0;
 
 			&__body {
 				height: 100%;
@@ -86,17 +93,19 @@
 				align-items: center;
 				justify-content: center;
 				text-align: center;
+
 			}
 
 			&__footer {
 				display: flex;
-				height: 57px;
-				width: 100%;
 				text-align: center;
 				justify-content: flex-end;
 				align-items: center;
+				height: 57px;
+				width: 100%;
 
 				&__message {
+					margin-left: 100px;
 					margin-right: 102px;
 					margin-bottom: 23px;
 				}
@@ -118,6 +127,8 @@ export default {
 	data() {
 		return {
 			isExpanded: true,
+			contactEmail: $wnl.contactInfo.email,
+			mailtoContactEmail: 'mailto:' + $wnl.contactInfo.email,
 		};
 	},
 	methods: {
