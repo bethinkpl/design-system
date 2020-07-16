@@ -1,14 +1,15 @@
 <template>
-	<div class="o-expandableOverlay">
+	<div class="o-expandableOverlay" :class="{'o-expandableOverlay__expanded': isExpanded}">
 		<div class="o-expandableOverlay__bar" :class="{'o-expandableOverlay__fixed_bar': isExpanded}">
-			<div v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</div>
-			<div class="o-expandableOverlay__bar__showMore">
-				<a class="a-button -text" @click.prevent="toggleIsExpanded">
+			<div></div>
+			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
+			<a class="a-button -text" @click.prevent="toggleIsExpanded">
+				<template v-if="isMobile">
 					<span v-if="isExpanded">Zwiń</span>
 					<span v-else>Czytaj więcej</span>
-					<i class="wnl-icon fa" :class="{ 'fa-angle-up': !isExpanded, 'fa-angle-down': isExpanded }" />
-				</a>
-			</div>
+				</template>
+				<i class="wnl-icon fa" :class="{ 'fa-angle-up': !isExpanded, 'fa-angle-down': isExpanded }" />
+			</a>
 		</div>
 		<div v-if="isExpanded" class="o-expandableOverlay__screen">
 			<div class="o-expandableOverlay__screen__body">
@@ -16,11 +17,11 @@
 			</div>
 
 			<div class="o-expandableOverlay__screen__footer">
-				<div class="o-expandableOverlay__screen__footer__message">
+				<div v-if="isMobile" class="o-expandableOverlay__screen__footer__message">
 					W razie problemów napisz do nas na Messengerze <br> lub wyślij maila na adres <a :href="mailtoContactEmail">{{contactEmail}}</a>
 				</div>
 				<img
-					class="o-expandableOverlay__screen__footer__messenger"
+					class="o-expandableOverlay__screen__footer__messenger margin vertical"
 					:src="messengerIconSrc"
 					alt="Messenger icon"
 				>
@@ -36,39 +37,28 @@
 		$bar-height: 56px;
 		z-index: $z-index-critical-info-overlay;
 
+		&__expanded {
+			height: 100%;
+		}
 		&__bar {
 			display: flex;
 			flex: 0 57px;
-			width: 100%;
-			justify-content: flex-end;
+			justify-content: space-between;
 			height: $bar-height;
 			background-color: #E6E8EE;
 			box-shadow: 0 8px 16px 0 rgba(12, 23, 38, 0.15);
+			align-items: center;
+			text-align: center;
+
 
 			&__message {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				width: 45%;
+				position: fixed;
+				width: 100%;
 				color: #0C1726;
 				font-family: Lato, monospace;
 				font-size: 16px;
 				letter-spacing: 0;
 				line-height: 24px;
-				text-align: center;
-			}
-
-			&__showMore {
-				width: 30%;
-				display: flex;
-				align-items: center;
-				justify-content: flex-end;
-
-				.a-button {
-					margin-right: 10%;
-					height: 32px;
-					width: 160px;
-				}
 			}
 		}
 
@@ -81,13 +71,13 @@
 		}
 
 		&__screen {
-			align-items: center;
 			display: flex;
+			align-items: center;
 			flex-direction: column;
-			justify-content: center;
+			justify-content: flex-end;
 			background-image: linear-gradient(#E6E8EE, white);
-			position: fixed;
-			top: $navbar-height + $bar-height;
+			position: relative;
+			top: $navbar-height;
 			bottom: 0;
 			left: 0;
 			right: 0;
@@ -116,8 +106,7 @@
 
 				&__messenger {
 					margin-left: 23px;
-					margin-bottom: 23px;
-					margin-right: 102px;
+					margin-right: 24px;
 					height: 46px;
 					width: 46px;
 				}
@@ -129,6 +118,7 @@
 
 <script>
 import { getSharedImageUrl } from 'js/utils/env';
+import { mapGetters } from 'vuex';
 
 export default {
 	name: 'ExpandableOverlay',
@@ -148,7 +138,8 @@ export default {
 	computed: {
 		messengerIconSrc() {
 			return this.getSharedImageUrl('messenger-icon.svg');
-		}
+		},
+		...mapGetters('ui', ['isMobile']),
 	},
 	methods: {
 		toggleIsExpanded() {
