@@ -80,7 +80,7 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: center;
-			background-color: #E6E8EE;
+			background-image: linear-gradient(#E6E8EE, white);
 			position: fixed;
 			top: $navbar-height + $bar-height;
 			bottom: 0;
