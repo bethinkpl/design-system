@@ -19,6 +19,11 @@
 				<div class="o-expandableOverlay__screen__footer__message">
 					W razie problemów napisz do nas na Messengerze <br> lub wyślij maila na adres <a :href="mailtoContactEmail">{{contactEmail}}</a>
 				</div>
+				<img
+					class="o-expandableOverlay__screen__footer__messenger"
+					:src="messengerIconSrc"
+					alt="Messenger icon"
+				>
 			</div>
 		</div>
 	</div>
@@ -106,8 +111,15 @@
 
 				&__message {
 					margin-left: 100px;
-					margin-right: 102px;
 					margin-bottom: 23px;
+				}
+
+				&__messenger {
+					margin-left: 23px;
+					margin-bottom: 23px;
+					margin-right: 102px;
+					height: 46px;
+					width: 46px;
 				}
 			}
 		}
@@ -116,6 +128,8 @@
 </style>
 
 <script>
+import { getSharedImageUrl } from 'js/utils/env';
+
 export default {
 	name: 'ExpandableOverlay',
 	props: {
@@ -131,10 +145,16 @@ export default {
 			mailtoContactEmail: 'mailto:' + $wnl.contactInfo.email,
 		};
 	},
+	computed: {
+		messengerIconSrc() {
+			return this.getSharedImageUrl('messenger-icon.svg');
+		}
+	},
 	methods: {
 		toggleIsExpanded() {
 			this.isExpanded = !this.isExpanded;
 		},
+		getSharedImageUrl,
 	}
 };
 </script>
