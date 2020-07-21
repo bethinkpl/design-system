@@ -1,5 +1,5 @@
 <template>
-	<div class="o-expandableOverlay" :class="{'o-expandableOverlay__expanded': isExpanded}">
+	<div class="o-expandableOverlay">
 		<div class="o-expandableOverlay__bar" :class="{'o-expandableOverlay__fixed_bar': isExpanded}">
 			<div></div>
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
@@ -52,7 +52,7 @@
 
 
 			&__message {
-				position: fixed;
+				position: relative;
 				width: 100%;
 				color: #0C1726;
 				font-family: Lato, monospace;
@@ -74,21 +74,21 @@
 			display: flex;
 			align-items: center;
 			flex-direction: column;
-			justify-content: flex-end;
+			justify-content: space-between;
 			background-image: linear-gradient(#E6E8EE, white);
-			position: relative;
-			top: $navbar-height;
+			position: fixed;
+			top: $navbar-height + $bar-height;
 			bottom: 0;
 			left: 0;
 			right: 0;
 
 			&__body {
-				height: 100%;
 				display: flex;
 				align-items: center;
 				justify-content: center;
 				text-align: center;
-
+				position: relative;
+				height: 100%;
 			}
 
 			&__footer {
