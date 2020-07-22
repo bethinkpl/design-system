@@ -3,7 +3,7 @@
 		<div
 			v-for="(item, index) in items"
 			:key="index"
-			:class="['m-emojiPoints__item', sizeClass]"
+			:class="['m-emojiPoints__item', sizeClass, separated && '-separated']"
 		>
 			<div class="m-emojiPoints__item__emoji">{{item.emoji}}</div>
 			<div class="m-emojiPoints__item__text" v-html="item.text" />
@@ -15,6 +15,7 @@
 	@import 'resources/assets/styles/styleguide/settings/media-queries';
 	@import 'resources/assets/styles/styleguide/settings/spacings';
 	@import 'resources/assets/styles/styleguide/settings/typography';
+	@import 'resources/assets/styles/styleguide/settings/colors';
 
 	.m-emojiPoints {
 		&__item {
@@ -41,6 +42,11 @@
 
 			&.-small {
 				@include textMinus2
+			}
+			&.-separated {
+				border-bottom:1px solid $color-mischka;
+				padding: $space-s 0;
+				margin-bottom:0;
 			}
 		}
 
@@ -83,6 +89,10 @@ export default {
 			default: true,
 		},
 		vertical: {
+			type: Boolean,
+			default: false
+		},
+		separated: {
 			type: Boolean,
 			default: false
 		}
