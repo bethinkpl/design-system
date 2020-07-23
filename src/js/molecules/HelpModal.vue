@@ -5,7 +5,7 @@
 			class="o-helpModal__icon -cadetBlue"
 			@click.native.stop="open"
 		/>
-		<wnl-modal v-if="showModal" @closeModal="close">
+		<wnl-modal v-if="showModal" @close-modal="close">
 			<div class="o-helpModal__content content" v-html="text" />
 		</wnl-modal>
 	</span>
