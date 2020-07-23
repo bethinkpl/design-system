@@ -30,11 +30,12 @@
 
 <style lang="scss" scoped>
 	@import 'resources/assets/styles/variables';
+	@import 'resources/assets/styles/styleguide/settings/colors';
 
 	.o-expandableOverlay {
 		$bar-height: 56px;
 		z-index: $z-index-critical-info-overlay;
-		background-color: #E6E8EE;
+		background-color: $color-athens-grey;
 
 		&__expanded {
 			overflow-x: scroll;
