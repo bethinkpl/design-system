@@ -11,7 +11,7 @@
 			</div>
 			<template v-if="isExpanded">
 				<div class="o-expandableOverlay__body">
-					<slot name="body" />
+					<slot name="body" :collapse="collapse" />
 				</div>
 				<div class="o-expandableOverlay__footer">
 					<slot name="footer" />
@@ -104,6 +104,9 @@ export default {
 		};
 	},
 	methods: {
+		collapse() {
+			this.isExpanded = false;
+		},
 		toggleIsExpanded() {
 			this.isExpanded = !this.isExpanded;
 		},
