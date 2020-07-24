@@ -18,7 +18,7 @@ import WnlExpandableOverlay from 'js/components/global/styleguide/organisms/Expa
         	components: { WnlExpandableOverlay },
             props: Object.keys(args),
             template: `<wnl-expandable-overlay :short-message="shortMessage">
-				<p>Twoje zamówienie zostało anulowane ze względu na brak płatności</p>
+				<p slot="body">Twoje zamówienie zostało anulowane ze względu na brak płatności</p>
             </wnl-expandable-overlay>`,
         };
     }}

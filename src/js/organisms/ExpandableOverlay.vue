@@ -11,17 +11,10 @@
 			</div>
 			<template v-if="isExpanded">
 				<div class="o-expandableOverlay__body">
-					<slot />
+					<slot name="body" />
 				</div>
-				<div class="m-footer-fb">
-					<p class="o-expandableOverlay__footer m-footer-fb-text">
-						W razie problemów napisz do nas na Messengerze <br> lub wyślij maila na adres <a :href="mailtoContactEmail">{{contactEmail}}</a>
-					</p>
-					<img
-						class="m-footer-fb-messenger"
-						:src="messengerIconSrc"
-						alt="Messenger icon"
-					>
+				<div class="o-expandableOverlay__footer">
+					<slot name="footer" />
 				</div>
 			</template>
 		</div>
@@ -90,40 +83,12 @@
 		}
 
 		&__footer {
-			@media all and (max-width: 640px) {
-				display: none;
-			}
-		}
-
-	}
-
-	.m-footer-fb {
-		display: flex;
-		text-align: center;
-		justify-content: flex-end;
-		align-items: center;
-		width: 100%;
-		padding: 20px 32px 20px;
-
-		&-text {
-			color: #6F7285;
-			font-family: Lato, sans-serif;
-			font-size: 14px;
-			letter-spacing: 0;
-			line-height: 20px;
-			text-align: right;
-		}
-
-		&-messenger {
-			margin-left: 24px;
-			height: 46px;
-			width: 46px;
+			width: 100%;
 		}
 	}
 </style>
 
 <script>
-import { getSharedImageUrl } from 'js/utils/env';
 
 export default {
 	name: 'ExpandableOverlay',
@@ -136,20 +101,12 @@ export default {
 	data() {
 		return {
 			isExpanded: true,
-			contactEmail: $wnl.contactInfo.email,
-			mailtoContactEmail: 'mailto:' + $wnl.contactInfo.email,
 		};
-	},
-	computed: {
-		messengerIconSrc() {
-			return this.getSharedImageUrl('messenger-icon.svg');
-		},
 	},
 	methods: {
 		toggleIsExpanded() {
 			this.isExpanded = !this.isExpanded;
 		},
-		getSharedImageUrl,
 	}
 };
 </script>
