@@ -5,7 +5,7 @@
 			<a class="a-button -text" @click.prevent="toggleIsExpanded">
 				<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
 				<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
-				<i class="wnl-icon fa" :class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'" />
+				<wnl-icon :fa-icon-class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'" />
 			</a>
 		</div>
 		<template v-if="isExpanded">
@@ -96,9 +96,13 @@
 </style>
 
 <script>
+import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 export default {
 	name: 'ExpandableOverlay',
+	components: {
+		WnlIcon,
+	},
 	props: {
 		shortMessage: {
 			type: String,
