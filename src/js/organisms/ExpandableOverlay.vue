@@ -49,7 +49,6 @@
 		&__bar {
 			align-items: center;
 			display: flex;
-			flex: 0 0 57px;
 			height: $bar-height;
 			justify-content: flex-end;
 			text-align: center;
