@@ -27,6 +27,7 @@
 	@import 'resources/assets/styles/variables';
 	@import 'resources/assets/styles/styleguide/settings/colors';
 	@import 'resources/assets/styles/styleguide/settings/spacings';
+	@import 'resources/assets/styles/styleguide/settings/typography';
 
 	.o-expandableOverlay {
 		$bar-height: 56px;
@@ -36,7 +37,7 @@
 		&__expanded {
 			overflow-x: scroll;
 			position: fixed;
-			background-image: linear-gradient(#E6E8EE, white);
+			background-image: linear-gradient($color-athens-grey, white);
 			top: $navbar-height;
 			left: 0;
 			right: 0;
@@ -69,11 +70,11 @@
 			&__message {
 				position: absolute;
 				width: 100%;
-				color: #0C1726;
-				font-family: Lato, monospace;
-				font-size: 16px;
+				color: $color-firefly;
+				font-family: $font-family-sans-serif;
+				font-size: $font-size-base;
 				letter-spacing: 0;
-				line-height: 24px;
+				line-height: $line-height-base;
 			}
 		}
 
