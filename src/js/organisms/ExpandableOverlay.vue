@@ -11,7 +11,9 @@
 			</div>
 			<template v-if="isExpanded">
 				<div class="o-expandableOverlay__body">
-					<slot name="body" :collapse="collapse" />
+					<div class="o-expandableOverlay__body__content">
+						<slot name="body" :collapse="collapse" />
+					</div>
 				</div>
 				<div class="o-expandableOverlay__footer">
 					<slot name="footer" />
@@ -24,6 +26,7 @@
 <style lang="scss" scoped>
 	@import 'resources/assets/styles/variables';
 	@import 'resources/assets/styles/styleguide/settings/colors';
+	@import 'resources/assets/styles/styleguide/settings/spacings';
 
 	.o-expandableOverlay {
 		$bar-height: 56px;
@@ -49,11 +52,11 @@
 		}
 
 		&__bar {
-			display: flex;
-			flex: 0 57px;
-			justify-content: flex-end;
-			height: $bar-height;
 			align-items: center;
+			display: flex;
+			flex: 0 0 57px;
+			height: $bar-height;
+			justify-content: flex-end;
 			text-align: center;
 			width: 100%;
 
@@ -75,14 +78,21 @@
 		}
 
 		&__body {
-			display: flex;
 			align-items: center;
+			display: flex;
 			justify-content: center;
+			overflow-y: auto;
 			text-align: center;
-			margin-bottom: 51px;
+			width: 100%;
+
+			&__content {
+				margin: auto;
+			}
 		}
 
 		&__footer {
+			flex-shrink: 0;
+			margin-top: $space-xl;
 			width: 100%;
 		}
 	}
