@@ -21,7 +21,7 @@
 	</div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 	@import 'resources/assets/styles/variables';
 	@import 'resources/assets/styles/styleguide/settings/colors';
 	@import 'resources/assets/styles/styleguide/settings/media-queries';
@@ -93,6 +93,59 @@
 			width: 100%;
 		}
 	}
+
+	.a-title-h-3 {
+		color: #0F9698;
+		font-size: $font-size-plus-5;
+		font-weight: bold;
+		line-height: 42px;
+		text-align: center;
+	}
+
+	.a-title-h-4 {
+		color: $color-firefly;
+		font-size: $font-size-plus-4;
+		line-height: $line-height-plus-4;
+		text-align: center;
+	}
+
+	.a-subtitle-h-6 {
+		color: $color-firefly;
+		font-size: $font-size-plus-2;
+		line-height: $line-height-plus-2;
+		text-align: center;
+	}
+
+	.a-text-m {
+		color: $color-storm-grey;
+		font-size: $font-size-base;
+		line-height: $line-height-base;
+		text-align: center;
+	}
+
+	.a-text-m-bold {
+		color: $color-storm-grey;
+		font-size: $font-size-base;
+		line-height: $line-height-base;
+		font-weight: bold;
+		text-align: center;
+	}
+
+	.a-text-s {
+		color: $color-storm-grey;
+		font-size: $font-size-minus-1;
+		line-height: 20px;
+		text-align: center;
+	}
+
+	.a-text-s-bold {
+		color: $color-storm-grey;
+		font-size: $font-size-minus-1;
+		line-height: 20px;
+		font-family: "Apple Color Emoji", sans-serif;
+		text-align: center;
+	}
+
 </style>
 
 <script>
