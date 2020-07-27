@@ -1,25 +1,23 @@
 <template>
-	<div class="o-expandableOverlay" :class="{'o-expandableOverlay__expanded': isExpanded}">
-		<div :class="{'o-expandableOverlay__container': isExpanded}">
-			<div class="o-expandableOverlay__bar">
-				<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
-				<a class="a-button -text" @click.prevent="toggleIsExpanded">
-					<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
-					<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
-					<i class="wnl-icon fa" :class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'" />
-				</a>
-			</div>
-			<template v-if="isExpanded">
-				<div class="o-expandableOverlay__body">
-					<div class="o-expandableOverlay__body__content">
-						<slot name="body" :collapse="collapse" />
-					</div>
-				</div>
-				<div class="o-expandableOverlay__footer">
-					<slot name="footer" />
-				</div>
-			</template>
+	<div class="o-expandableOverlay" :class="{'-expanded': isExpanded}">
+		<div class="o-expandableOverlay__bar">
+			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
+			<a class="a-button -text" @click.prevent="toggleIsExpanded">
+				<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
+				<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
+				<i class="wnl-icon fa" :class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'" />
+			</a>
 		</div>
+		<template v-if="isExpanded">
+			<div class="o-expandableOverlay__body">
+				<div class="o-expandableOverlay__body__content">
+					<slot name="body" :collapse="collapse" />
+				</div>
+			</div>
+			<div class="o-expandableOverlay__footer">
+				<slot name="footer" />
+			</div>
+		</template>
 	</div>
 </template>
 
@@ -34,22 +32,18 @@
 		z-index: $z-index-critical-info-overlay;
 		background-color: $color-athens-grey;
 
-		&__expanded {
-			overflow-x: scroll;
-			position: fixed;
-			background-image: linear-gradient($color-athens-grey, white);
-			top: $navbar-height;
-			left: 0;
-			right: 0;
-			bottom: 0;
-		}
-
-		&__container {
-			display: flex;
+		&.-expanded {
 			align-items: center;
+			background-image: linear-gradient($color-athens-grey, white);
+			bottom: 0;
+			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			height: 100%;
+			left: 0;
+			overflow-x: scroll;
+			position: fixed;
+			right: 0;
+			top: $navbar-height;
 		}
 
 		&__bar {
