@@ -1,5 +1,5 @@
 <template>
-	<div class="o-expandableOverlay" :class="{'-expanded': isExpanded}">
+	<div class="o-expandableOverlay" :class="{'-expanded': isExpanded, '-collapsed': !isExpanded}">
 		<div class="o-expandableOverlay__bar">
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
 			<a class="a-button -text" @click.prevent="toggleIsExpanded">
@@ -24,6 +24,7 @@
 <style lang="scss" scoped>
 	@import 'resources/assets/styles/variables';
 	@import 'resources/assets/styles/styleguide/settings/colors';
+	@import 'resources/assets/styles/styleguide/settings/media-queries';
 	@import 'resources/assets/styles/styleguide/settings/spacings';
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
@@ -54,9 +55,11 @@
 			text-align: center;
 			width: 100%;
 
-			&__text {
-				@media all and (max-width: 640px) {
-					display: none;
+			.-collapsed &__text {
+				display: none;
+
+				@media #{$breakpoint-s} {
+					display: initial;
 				}
 			}
 
