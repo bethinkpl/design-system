@@ -36,6 +36,7 @@
 	@import 'resources/assets/styles/variables';
 	@import 'resources/assets/styles/styleguide/settings/colors';
 	@import 'resources/assets/styles/styleguide/settings/media-queries';
+	@import "resources/assets/styles/styleguide/modifiers/media-queries";
 	@import 'resources/assets/styles/styleguide/settings/spacings';
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
@@ -99,6 +100,12 @@
 
 			&__content {
 				margin: auto;
+				&--margin {
+					margin: $space-s $space-m;
+				}
+				&--colored {
+					color: #0F9698;
+				}
 			}
 		}
 
