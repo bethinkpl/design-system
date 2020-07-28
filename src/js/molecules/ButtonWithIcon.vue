@@ -5,7 +5,9 @@
 		v-on="$listeners"
 	>
 		<slot name="text" />
-		<slot name="icon" class="m-buttonWithIcon__icon" />
+		<div class="m-buttonWithIcon__icon">
+			<slot name="icon" />
+		</div>
 	</wnl-button>
 </template>
 

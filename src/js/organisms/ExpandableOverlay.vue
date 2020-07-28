@@ -13,7 +13,6 @@
 				</template>
 				<template #icon>
 					<wnl-icon
-						class="m-buttonWithIcon__icon"
 						:fa-icon-class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'"
 						size="medium"
 					/>
