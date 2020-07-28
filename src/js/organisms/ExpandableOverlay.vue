@@ -1,5 +1,5 @@
 <template>
-	<div class="o-expandableOverlay" :class="{'-expanded': isExpanded, '-collapsed': !isExpanded}">
+	<div class="o-expandableOverlay" :class="{'-expanded': isExpanded}">
 		<div class="o-expandableOverlay__bar">
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
 			<wnl-button-with-icon
@@ -61,12 +61,11 @@
 
 		&__bar {
 			display: grid;
-			grid-template-columns: 25% 50% 25%;
-			grid-template-rows: 100%;
-			height: $bar-height;
+			grid-template-columns: 21% 58% 21%;
+			min-height: $bar-height;
 			width: 100%;
 
-			.-collapsed &__text {
+			&__text {
 				display: none;
 
 				@media #{$breakpoint-s} {
@@ -77,10 +76,12 @@
 			&__message {
 				grid-column: 2;
 				place-self: center;
+				text-align: center;
 				color: $color-firefly;
 				font-family: $font-family-sans-serif;
 				font-size: $font-size-base;
 				line-height: $line-height-base;
+				padding: 16px 0;
 			}
 
 			&__toggle {
