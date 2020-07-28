@@ -19,7 +19,7 @@
 		display: inline-flex;
 
 		&__icon {
-			margin-left: $space-s;
+			margin-left: $space-xxxxs;
 		}
 	}
 </style>
