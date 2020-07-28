@@ -32,7 +32,7 @@
 	</div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 	@import 'resources/assets/styles/variables';
 	@import 'resources/assets/styles/styleguide/settings/colors';
 	@import 'resources/assets/styles/styleguide/settings/media-queries';
@@ -100,30 +100,35 @@
 
 			&__content {
 				margin: auto;
+			}
 
-				&--margin {
-					margin: $space-s $space-m;
-				}
+			/deep/ &__image {
+				// TODO move styles specific to the overlay from CourseLogo.vue
+			}
 
-				&--colored {
-					color: #0F9698;
-				}
+			/deep/ &__level1 {
+				margin: $space-s 0;
+			}
 
-				&__text {
-					color: $color-storm-grey;
-					font-size: $font-size-base;
-					line-height: $line-height-base;
-					text-align: center;
+			/deep/ &__level2 {
+				margin: $space-s 0;
+			}
 
-					&--bold {
-						font-weight: bold;
-					}
+			/deep/ &__level3 {
+				@include textBase;
+				@include textBold;
+				color: $color-storm-grey;
+				margin: $space-s 0;
+			}
 
-					&--small {
-						font-size: $font-size-minus-1;
-						line-height: 20px;
-					}
-				}
+			/deep/ &__level4 {
+				@include textMinus1;
+				color: $color-storm-grey;
+				margin: $space-s 0;
+			}
+
+			/deep/ &__button {
+				margin: $space-xxs 0;
 			}
 		}
 
