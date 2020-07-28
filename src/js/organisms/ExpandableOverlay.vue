@@ -100,11 +100,33 @@
 
 			&__content {
 				margin: auto;
+
 				&--margin {
 					margin: $space-s $space-m;
 				}
+
 				&--colored {
 					color: #0F9698;
+				}
+
+				&__text {
+					color: $color-storm-grey;
+					font-size: $font-size-base;
+					line-height: $line-height-base;
+					text-align: center;
+
+					&--bold {
+						font-weight: bold;
+					}
+
+					&--small {
+						font-size: $font-size-minus-1;
+						line-height: 20px;
+					}
+
+					&--appleFont {
+						font-family: "Apple Color Emoji", sans-serif;
+					}
 				}
 			}
 		}
@@ -114,36 +136,6 @@
 			margin-top: $space-xl;
 			width: 100%;
 		}
-	}
-
-	.a-text-m {
-		color: $color-storm-grey;
-		font-size: $font-size-base;
-		line-height: $line-height-base;
-		text-align: center;
-	}
-
-	.a-text-m-bold {
-		color: $color-storm-grey;
-		font-size: $font-size-base;
-		line-height: $line-height-base;
-		font-weight: bold;
-		text-align: center;
-	}
-
-	.a-text-s {
-		color: $color-storm-grey;
-		font-size: $font-size-minus-1;
-		line-height: 20px;
-		text-align: center;
-	}
-
-	.a-text-s-bold {
-		color: $color-storm-grey;
-		font-size: $font-size-minus-1;
-		line-height: 20px;
-		font-family: "Apple Color Emoji", sans-serif;
-		text-align: center;
 	}
 </style>
 
