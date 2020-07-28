@@ -86,7 +86,7 @@
 
 			&__toggle {
 				grid-column: 3;
-				place-self: center end;
+				place-self: start end;
 			}
 		}
 
