@@ -109,28 +109,6 @@
 		}
 	}
 
-	.a-title-h-3 {
-		color: #0F9698;
-		font-size: $font-size-plus-5;
-		font-weight: bold;
-		line-height: 42px;
-		text-align: center;
-	}
-
-	.a-title-h-4 {
-		color: $color-firefly;
-		font-size: $font-size-plus-4;
-		line-height: $line-height-plus-4;
-		text-align: center;
-	}
-
-	.a-subtitle-h-6 {
-		color: $color-firefly;
-		font-size: $font-size-plus-2;
-		line-height: $line-height-plus-2;
-		text-align: center;
-	}
-
 	.a-text-m {
 		color: $color-storm-grey;
 		font-size: $font-size-base;
@@ -160,7 +138,6 @@
 		font-family: "Apple Color Emoji", sans-serif;
 		text-align: center;
 	}
-
 </style>
 
 <script>
