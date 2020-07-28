@@ -2,11 +2,21 @@
 	<div class="o-expandableOverlay" :class="{'-expanded': isExpanded, '-collapsed': !isExpanded}">
 		<div class="o-expandableOverlay__bar">
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
-			<a class="a-button -text o-expandableOverlay__bar__icon" @click.prevent="toggleIsExpanded">
-				<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
-				<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
-				<wnl-icon :fa-icon-class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'" />
-			</a>
+			<div class="o-expandableOverlay__bar__toggle m-buttonWithIcon">
+				<wnl-button
+					class="m-buttonWithIcon__button"
+					:text="true"
+					@click.native="toggleIsExpanded"
+				>
+					<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
+					<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
+					<wnl-icon
+						class="m-buttonWithIcon__icon"
+						:fa-icon-class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'"
+						size="medium"
+					/>
+				</wnl-button>
+			</div>
 		</div>
 		<template v-if="isExpanded">
 			<div class="o-expandableOverlay__body">
@@ -70,7 +80,8 @@
 				font-size: $font-size-base;
 				line-height: $line-height-base;
 			}
-			&__icon {
+
+			&__toggle {
 				grid-column: 3;
 				place-self: center end;
 			}
@@ -151,11 +162,13 @@
 </style>
 
 <script>
+import WnlButton from 'js/components/global/styleguide/atoms/Button';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 export default {
 	name: 'ExpandableOverlay',
 	components: {
+		WnlButton,
 		WnlIcon,
 	},
 	props: {

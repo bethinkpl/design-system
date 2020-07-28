@@ -1,0 +1,10 @@
+.m-buttonWithIcon {
+	&__button {
+		align-items: center;
+		display: inline-flex;
+	}
+
+	&__icon {
+		margin-left: 15px;
+	}
+}
