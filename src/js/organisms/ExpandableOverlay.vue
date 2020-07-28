@@ -123,10 +123,6 @@
 						font-size: $font-size-minus-1;
 						line-height: 20px;
 					}
-
-					&--appleFont {
-						font-family: "Apple Color Emoji", sans-serif;
-					}
 				}
 			}
 		}
