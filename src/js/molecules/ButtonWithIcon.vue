@@ -12,12 +12,14 @@
 </template>
 
 <style lang="scss" scoped>
+	@import 'resources/assets/styles/styleguide/settings/spacings';
+
 	.m-buttonWithIcon {
 		align-items: center;
 		display: inline-flex;
 
 		&__icon {
-			margin-left: 15px;
+			margin-left: $space-s;
 		}
 	}
 </style>
