@@ -1,0 +1,30 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlButtonWithIcon from 'js/components/global/styleguide/molecules/ButtonWithIcon';
+
+<Meta title='molecules/ButtonWithIcon' component={ WnlButtonWithIcon } />
+
+# ButtonWithIcon
+
+<Story name='interactive'>
+    {() => {
+        return {
+        	components: {
+				WnlButtonWithIcon,
+				WnlIcon,
+        	},
+            template:
+`<wnl-button-with-icon :medium="true">
+	<template #text>
+		Tekst przycisku
+	</template>
+	<template #icon>
+		<wnl-icon
+			fa-icon-class="fa-angle-up"
+			size="medium"
+		/>
+	</template>
+</wnl-button-with-icon>`,
+        };
+    }}
+</Story>
