@@ -2,21 +2,23 @@
 	<div class="o-expandableOverlay" :class="{'-expanded': isExpanded, '-collapsed': !isExpanded}">
 		<div class="o-expandableOverlay__bar">
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
-			<div class="o-expandableOverlay__bar__toggle m-buttonWithIcon">
-				<wnl-button
-					class="m-buttonWithIcon__button"
-					:text="true"
-					@click.native="toggleIsExpanded"
-				>
+			<wnl-button-with-icon
+				class="o-expandableOverlay__bar__toggle"
+				:text="true"
+				@click.native="toggleIsExpanded"
+			>
+				<template #text>
 					<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
 					<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
+				</template>
+				<template #icon>
 					<wnl-icon
 						class="m-buttonWithIcon__icon"
 						:fa-icon-class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'"
 						size="medium"
 					/>
-				</wnl-button>
-			</div>
+				</template>
+			</wnl-button-with-icon>
 		</div>
 		<template v-if="isExpanded">
 			<div class="o-expandableOverlay__body">
@@ -162,13 +164,13 @@
 </style>
 
 <script>
-import WnlButton from 'js/components/global/styleguide/atoms/Button';
+import WnlButtonWithIcon from 'js/components/global/styleguide/molecules/ButtonWithIcon';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 export default {
 	name: 'ExpandableOverlay',
 	components: {
-		WnlButton,
+		WnlButtonWithIcon,
 		WnlIcon,
 	},
 	props: {
