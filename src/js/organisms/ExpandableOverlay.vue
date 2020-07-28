@@ -2,7 +2,7 @@
 	<div class="o-expandableOverlay" :class="{'-expanded': isExpanded, '-collapsed': !isExpanded}">
 		<div class="o-expandableOverlay__bar">
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
-			<a class="a-button -text" @click.prevent="toggleIsExpanded">
+			<a class="a-button -text o-expandableOverlay__bar__icon" @click.prevent="toggleIsExpanded">
 				<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
 				<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
 				<wnl-icon :fa-icon-class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'" />
@@ -48,11 +48,10 @@
 		}
 
 		&__bar {
-			align-items: center;
-			display: flex;
+			display: grid;
+			grid-template-columns: 25% 50% 25%;
+			grid-template-rows: 100%;
 			height: $bar-height;
-			justify-content: flex-end;
-			text-align: center;
 			width: 100%;
 
 			.-collapsed &__text {
@@ -64,13 +63,16 @@
 			}
 
 			&__message {
-				position: absolute;
-				width: 100%;
+				grid-column: 2;
+				place-self: center;
 				color: $color-firefly;
 				font-family: $font-family-sans-serif;
 				font-size: $font-size-base;
-				letter-spacing: 0;
 				line-height: $line-height-base;
+			}
+			&__icon {
+				grid-column: 3;
+				place-self: center end;
 			}
 		}
 
