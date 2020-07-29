@@ -1,12 +1,8 @@
 <template>
 	<div class="o-expandableOverlay" :class="{'-expanded': isExpanded}">
-		<div class="o-expandableOverlay__bar">
+		<div class="o-expandableOverlay__bar" @click="toggleIsExpanded">
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
-			<wnl-button-with-icon
-				class="o-expandableOverlay__bar__toggle"
-				:text="true"
-				@click.native="toggleIsExpanded"
-			>
+			<wnl-button-with-icon class="o-expandableOverlay__bar__toggle" :text="true">
 				<template #text>
 					<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
 					<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
@@ -62,6 +58,7 @@
 		}
 
 		&__bar {
+			cursor: pointer;
 			display: grid;
 			grid-template-columns: 21% 58% 21%;
 			min-height: $bar-min-height;
