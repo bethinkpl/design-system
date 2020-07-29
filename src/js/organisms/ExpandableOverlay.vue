@@ -66,11 +66,10 @@
 			width: 100%;
 
 			&__text {
-				display: none;
-
 				@media #{$breakpoint-s} {
 					display: initial;
 				}
+				display: none;
 			}
 
 			&__message {
@@ -101,10 +100,6 @@
 
 			&__content {
 				margin: auto $space-m;
-			}
-
-			/deep/ &__image {
-				// TODO move styles specific to the overlay from CourseLogo.vue
 			}
 
 			/deep/ &__title {
