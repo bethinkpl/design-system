@@ -100,7 +100,7 @@
 			width: 100%;
 
 			&__content {
-				margin: auto;
+				margin: auto $space-m;
 			}
 
 			/deep/ &__image {
