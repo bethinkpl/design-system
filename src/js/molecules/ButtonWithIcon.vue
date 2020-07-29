@@ -1,7 +1,7 @@
 <template>
 	<wnl-button
-		v-bind="$attrs"
 		class="m-buttonWithIcon"
+		v-bind="$attrs"
 		v-on="$listeners"
 	>
 		<slot />
