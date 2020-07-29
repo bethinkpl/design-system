@@ -69,7 +69,6 @@
 			&__message {
 				@include textBase;
 				grid-column: 2;
-				place-self: center;
 				text-align: center;
 				color: $color-firefly;
 				padding: $space-s 0;
@@ -78,7 +77,7 @@
 			&__toggle {
 				grid-column: 3;
 				height: $bar-min-height;
-				place-self: start end;
+				justify-self: end;
 			}
 		}
 
