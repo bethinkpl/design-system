@@ -94,28 +94,39 @@
 			}
 
 			/deep/ &__title {
-				margin: $space-s 0;
+				margin-bottom: $space-s;
 			}
 
 			/deep/ &__subtitle {
-				margin: $space-s 0;
+				margin-bottom: $space-s;
 			}
 
 			/deep/ &__text {
 				@include textBase;
 				@include textBold;
 				color: $color-storm-grey;
-				margin: $space-s 0;
+				margin-bottom: $space-s;
 			}
 
 			/deep/ &__textSmall {
 				@include textMinus1;
 				color: $color-storm-grey;
-				margin: $space-s 0;
+				margin-bottom: $space-m;
 			}
 
 			/deep/ &__button {
-				margin: $space-xxs 0;
+				display: block;
+				margin-bottom: $space-m;
+			}
+
+			/deep/ &__title,
+			/deep/ &__subtitle,
+			/deep/ &__text,
+			/deep/ &__textSmall,
+			/deep/ &__button {
+				&:last-child {
+					margin-bottom: 0;
+				}
 			}
 		}
 
