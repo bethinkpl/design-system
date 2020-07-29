@@ -6,21 +6,30 @@ import WnlButtonWithIcon from 'js/components/global/styleguide/molecules/ButtonW
 
 # ButtonWithIcon
 
-<Story name='interactive'>
-    {() => {
+<Story name='interactive'
+	args={{
+		danger: false,
+		disabled: false,
+		loading: false,
+		medium: false,
+		roundedCorners: true,
+		secondary: true,
+		small: false,
+		text: false,
+	}}>
+    {(args) => {
         return {
         	components: {
 				WnlButtonWithIcon,
 				WnlIcon,
         	},
+        	props: Object.keys(args),
             template:
-`<wnl-button-with-icon :medium="true">
-	<template #text>
-		Tekst przycisku
-	</template>
+`<wnl-button-with-icon :danger="danger" :disabled="disabled" :loading="loading" :medium="medium" :roundedCorners="roundedCorners" :secondary="secondary" :small="small" :text="text">
+	Tekst przycisku
 	<template #icon>
 		<wnl-icon
-			fa-icon-class="fa-angle-up"
+			fa-icon-class="fa-angle-down"
 			size="medium"
 		/>
 	</template>
