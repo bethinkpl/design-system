@@ -41,7 +41,7 @@
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
 	.o-expandableOverlay {
-		$bar-height: 56px;
+		$bar-min-height: 56px;
 		z-index: $z-index-critical-info-overlay;
 		background-color: $color-athens-grey;
 
@@ -62,7 +62,7 @@
 		&__bar {
 			display: grid;
 			grid-template-columns: 21% 58% 21%;
-			min-height: $bar-height;
+			min-height: $bar-min-height;
 			width: 100%;
 
 			&__text {
@@ -81,7 +81,7 @@
 				font-family: $font-family-sans-serif;
 				font-size: $font-size-base;
 				line-height: $line-height-base;
-				padding: 16px 0;
+				padding: $space-s 0;
 			}
 
 			&__toggle {
