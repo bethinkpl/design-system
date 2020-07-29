@@ -86,6 +86,7 @@
 
 			&__toggle {
 				grid-column: 3;
+				height: $bar-min-height;
 				place-self: start end;
 			}
 		}
