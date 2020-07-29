@@ -124,9 +124,8 @@
 		}
 
 		&__footer {
+			@include textMinus1;
 			color: $color-storm-grey;
-			font-size: $font-size-minus-1;
-			line-height: 20px;
 			margin-top: $space-xl;
 			padding: $space-m $space-l $space-m $space-s;
 			text-align: right;
