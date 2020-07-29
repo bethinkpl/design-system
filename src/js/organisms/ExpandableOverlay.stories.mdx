@@ -1,5 +1,8 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import WnlExpandableOverlay from 'js/components/global/styleguide/organisms/ExpandableOverlay';
+import WnlButton from 'js/components/global/styleguide/atoms/Button';
+import WnlSubtitle from 'js/components/global/styleguide/atoms/Subtitle';
+import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 
 <Meta title='organisms/ExpandableOverlay' component={WnlExpandableOverlay} />
 
@@ -7,19 +10,36 @@ import WnlExpandableOverlay from 'js/components/global/styleguide/organisms/Expa
 
 <Story name='interactive'
     args={{
-        shortMessage: 'Twoje zamówienie zostało anulowane ze względu na brak płatności',
+        shortMessage: 'Twój dostęp do kursu wygasł',
+        title: 'Twój dostęp do kursu wygasł',
+        subtitle: 'Przedłuż dostęp, aby kontynuować naukę.',
+        text: '🎁 Otrzymujesz 50% zniżki na każdą kolejną edycję! 🎁',
+        textSmall: 'Zniżkę dodamy automatycznie do Twojego najbliższego zamówienia.',
+        button: 'Przedłuż dostęp do kursu',
     }}
-    argTypes={{
-		shortMessage: {control: { type: 'string' }},
-	}}
     >
     {(args) => {
         return {
-        	components: { WnlExpandableOverlay },
+        	components: {
+				WnlExpandableOverlay,
+				WnlButton,
+				WnlSubtitle,
+				WnlTitle,
+			},
             props: Object.keys(args),
-            template: `<wnl-expandable-overlay :short-message="shortMessage">
-				<p slot="body">Twoje zamówienie zostało anulowane ze względu na brak płatności</p>
-            </wnl-expandable-overlay>`,
+            template: `
+<wnl-expandable-overlay :short-message="shortMessage">
+	<template #body>
+		<wnl-title :level="4" class="o-expandableOverlay__body__title">{{title}}</wnl-title>
+		<wnl-subtitle class="o-expandableOverlay__body__subtitle">{{subtitle}}</wnl-subtitle>
+		<p class="o-expandableOverlay__body__text">{{text}}</p>
+		<p class="o-expandableOverlay__body__textSmall">{{textSmall}}</p>
+		<wnl-button class="o-expandableOverlay__body__button" small>{{button}}</wnl-button>
+	</template>
+	<template #footer>
+		W razie problemów daj znać
+	</template>
+</wnl-expandable-overlay>`,
         };
     }}
 </Story>
