@@ -4,7 +4,7 @@
 		class="m-buttonWithIcon"
 		v-on="$listeners"
 	>
-		<slot name="text" />
+		<slot />
 		<div class="m-buttonWithIcon__icon">
 			<slot name="icon" />
 		</div>

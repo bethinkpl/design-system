@@ -3,10 +3,8 @@
 		<div class="o-expandableOverlay__bar" @click="toggleIsExpanded">
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{shortMessage}}</span>
 			<wnl-button-with-icon class="o-expandableOverlay__bar__toggle" :text="true">
-				<template #text>
-					<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
-					<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
-				</template>
+				<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
+				<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
 				<template #icon>
 					<wnl-icon
 						:fa-icon-class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'"
