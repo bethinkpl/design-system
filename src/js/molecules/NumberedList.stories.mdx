@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlNumberedList from 'js/components/global/styleguide/molecules/NumberedList';
+import WnlNumberedList, { NUMBER_COLORS } from 'js/components/global/styleguide/molecules/NumberedList';
 
 <Meta title='molecules/NumberedList' component={WnlNumberedList} />
 
@@ -10,8 +10,11 @@ import WnlNumberedList from 'js/components/global/styleguide/molecules/NumberedL
 //     TODO
         listItemsCount: 4,
         mediumPoints: false,
-        danger: false,
-        primary: false,
+        color: NUMBER_COLORS.DEFAULT
+    }}
+    argTypes={{
+        // TODO
+        color: {control: { type: 'select', options: Object.values(NUMBER_COLORS) }, defaultValue: NUMBER_COLORS.DEFAULT},
     }}
 >
     {(args) => {
@@ -21,8 +24,7 @@ import WnlNumberedList from 'js/components/global/styleguide/molecules/NumberedL
             template: `<wnl-numbered-list
                 :list-items-count="listItemsCount"
                 :medium-points="mediumPoints"
-                :danger="danger"
-                :primary="primary"
+                :color="color"
             >
                 <template slot="item1">
                     Twoje dotychczasowe postępy w lekcjach, statystyki z bazy pytań i wyniki pytań otwartych oraz czas spędzony na platformie <span class="-textBold">zostaną zresetowane.</span>
