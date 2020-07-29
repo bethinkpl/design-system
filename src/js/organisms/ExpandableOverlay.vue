@@ -26,7 +26,9 @@
 				</div>
 			</div>
 			<div class="o-expandableOverlay__footer">
-				<slot name="footer" />
+				<p class="o-expandableOverlay__footer__text">
+					<slot name="footer" />
+				</p>
 			</div>
 		</template>
 	</div>
@@ -129,9 +131,20 @@
 		}
 
 		&__footer {
+			align-items: center;
+			display: flex;
 			flex-shrink: 0;
+			justify-content: flex-end;
 			margin-top: $space-xl;
+			padding: $space-m $space-l $space-m $space-s;
 			width: 100%;
+
+			&__text {
+				color: $color-storm-grey;
+				font-size: $font-size-minus-1;
+				line-height: 20px;
+				text-align: right;
+			}
 		}
 	}
 </style>
