@@ -20,9 +20,7 @@
 				</div>
 			</div>
 			<div class="o-expandableOverlay__footer">
-				<p class="o-expandableOverlay__footer__text">
-					<slot name="footer" />
-				</p>
+				<slot name="footer" />
 			</div>
 		</template>
 	</div>
@@ -126,20 +124,13 @@
 		}
 
 		&__footer {
-			align-items: center;
-			display: flex;
-			flex-shrink: 0;
-			justify-content: flex-end;
+			color: $color-storm-grey;
+			font-size: $font-size-minus-1;
+			line-height: 20px;
 			margin-top: $space-xl;
 			padding: $space-m $space-l $space-m $space-s;
+			text-align: right;
 			width: 100%;
-
-			&__text {
-				color: $color-storm-grey;
-				font-size: $font-size-minus-1;
-				line-height: 20px;
-				text-align: right;
-			}
 		}
 	}
 </style>
