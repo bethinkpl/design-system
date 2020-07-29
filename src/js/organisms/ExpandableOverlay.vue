@@ -106,22 +106,22 @@
 				// TODO move styles specific to the overlay from CourseLogo.vue
 			}
 
-			/deep/ &__level1 {
+			/deep/ &__title {
 				margin: $space-s 0;
 			}
 
-			/deep/ &__level2 {
+			/deep/ &__subtitle {
 				margin: $space-s 0;
 			}
 
-			/deep/ &__level3 {
+			/deep/ &__text {
 				@include textBase;
 				@include textBold;
 				color: $color-storm-grey;
 				margin: $space-s 0;
 			}
 
-			/deep/ &__level4 {
+			/deep/ &__textSmall {
 				@include textMinus1;
 				color: $color-storm-grey;
 				margin: $space-s 0;
