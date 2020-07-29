@@ -47,7 +47,6 @@
 			flex-direction: column;
 			justify-content: space-between;
 			left: 0;
-			overflow-x: scroll;
 			position: fixed;
 			right: 0;
 			top: $navbar-height;
