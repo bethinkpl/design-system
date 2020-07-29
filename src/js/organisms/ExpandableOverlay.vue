@@ -68,13 +68,11 @@
 			}
 
 			&__message {
+				@include textBase;
 				grid-column: 2;
 				place-self: center;
 				text-align: center;
 				color: $color-firefly;
-				font-family: $font-family-sans-serif;
-				font-size: $font-size-base;
-				line-height: $line-height-base;
 				padding: $space-s 0;
 			}
 
