@@ -8,7 +8,7 @@
 			<slot name="header">
 				<wnl-title
 					v-if="title"
-					:level="4"
+					:level="5"
 					:text="title"
 				/>
 			</slot>
