@@ -18,7 +18,7 @@
 		}
 
 		&__icon {
-			@include textBase;
+			@include textM;
 			align-items: center;
 			bottom: 0;
 			color: $color-storm-grey;

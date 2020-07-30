@@ -14,7 +14,7 @@
 		border: 0;
 
 		&__legend {
-			@include textBase;
+			@include textM;
 
 			border-bottom: 1px solid $color-athens-grey;
 			display: block;

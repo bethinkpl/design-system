@@ -2,7 +2,7 @@ $fontFamiy: BlinkMacSystemFont,-apple-system,Segoe UI,Roboto,Oxygen,Ubuntu,Canta
 
 html, body {
   &.styleguide {
-    @include textBase;
+    @include textM;
     color: $color-catalina-blue;
     font-family: $fontFamiy;
 

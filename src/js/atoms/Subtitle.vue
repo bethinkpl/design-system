@@ -8,7 +8,7 @@
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
 	.a-subtitle {
-		@include textPlus1;
+		@include textL;
 	}
 
 </style>

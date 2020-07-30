@@ -1,5 +1,5 @@
 .a-input, .a-select {
-  @include textBase;
+  @include textM;
   background-color: $color-white;
   border: 1px solid $color-mischka;
   border-radius: $radius-s;
@@ -34,7 +34,7 @@
 
 .a-select {
 	// We need to force select to set height - line-height is not enough
-	height: $line-height-base + 2 * $space-xxxs + 2px;
+	height: $line-height-text-m + 2 * $space-xxxs + 2px;
 
 	&:required:invalid {
 		color: $color-storm-grey;
@@ -75,7 +75,7 @@
 	}
 
 	&.-small {
-		@include textMinus2;
+		@include textXS;
 		height: 16px;
 		width: 16px;
 	}
@@ -83,8 +83,8 @@
 
 .a-checkbox {
 	border-radius: $radius-xs;
-	font-size: $font-size-plus-3;
-	line-height: $line-height-base;
+	font-size: $font-size-header-5;
+	line-height: $line-height-text-m;
 	text-align: center;
 
 	&:checked {
@@ -104,7 +104,7 @@
 }
 
 .a-label {
-	@include textMinus1;
+	@include textS;
 
 	color: $color-ebony-clay;
 	cursor: pointer;
@@ -123,11 +123,11 @@
 }
 
 .a-legend {
-	@include textBase;
+	@include textM;
 }
 
 .a-error {
-	@include textMinus2;
+	@include textXS;
 
 	color: $color-alizarin-crimson;
 }

@@ -23,7 +23,7 @@
 
 	.o-helpModal__content /deep/ {
 		p, ul, ol {
-			font-size: $font-size-minus-1;
+			font-size: $font-size-text-s;
 			margin-bottom: $space-m;
 			text-transform: none;
 

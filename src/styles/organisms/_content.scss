@@ -11,17 +11,17 @@
   }
 
   h1 {
-    @include textPlus3;
+    @include header5;
     margin-bottom: $space-xl;
   }
 
   h2 {
-    @include textPlus1;
+    @include textL;
     margin-bottom: $space-l;
   }
 
   p, h3, ul, ol, blockquote {
-    @include textBase;
+    @include textM;
     margin-bottom: $space-m;
   }
 
@@ -35,9 +35,9 @@
 }
 
 .a-paragraph {
-	@include textMinus1;
+	@include textS;
 
-	margin-bottom: $line-height-minus-1;
+	margin-bottom: $space-s;
 
 	&:last-child {
 		margin-bottom: 0;

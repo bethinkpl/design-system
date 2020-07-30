@@ -33,7 +33,7 @@
     display: flex;
 
     .a-label {
-      @include textBase;
+      @include textM;
       margin-bottom: 0;
     }
   }

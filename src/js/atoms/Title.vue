@@ -18,12 +18,12 @@
 
 		&.-level2 {
 			@include textBold;
-			@include textPlus6;
+			@include header2;
 		}
 
 		&.-level3 {
 			@include textBold;
-			@include textPlus5;
+			@include header3;
 		}
 
 		&.-level4 {
@@ -31,11 +31,11 @@
 		}
 
 		&.-level5 {
-			@include textPlus2;
+			@include header6;
 		}
 
 		&.-level6 {
-			@include textBase;
+			@include textM;
 			@include textMedium;
 		}
 
