@@ -13,7 +13,7 @@ export default {
 			type: String,
 			default: 'small',
 			validator: function (value) {
-				return ['x-large', 'large', 'medium', 'small', 'x-small'].includes(value);
+				return ['xx-large', 'x-large', 'large', 'medium', 'small', 'x-small'].includes(value);
 			},
 		}
 	},
