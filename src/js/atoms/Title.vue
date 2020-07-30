@@ -15,28 +15,30 @@
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
 	.a-title {
+		&.-level1 {
+			@include textLight;
+			@include header1;
+		}
 
 		&.-level2 {
-			@include textBold;
 			@include header2;
 		}
 
 		&.-level3 {
-			@include textBold;
 			@include header3;
 		}
 
 		&.-level4 {
-			@include titleLevel4
+			@include textBold;
+			@include header4;
 		}
 
 		&.-level5 {
-			@include header6;
+			@include header5;
 		}
 
 		&.-level6 {
-			@include textM;
-			@include textMedium;
+			@include header6;
 		}
 
 		&.-link {
