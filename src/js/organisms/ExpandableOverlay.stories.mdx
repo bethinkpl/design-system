@@ -1,0 +1,45 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlExpandableOverlay from 'js/components/global/styleguide/organisms/ExpandableOverlay';
+import WnlButton from 'js/components/global/styleguide/atoms/Button';
+import WnlTitle from 'js/components/global/styleguide/atoms/Title';
+
+<Meta title='organisms/ExpandableOverlay' component={WnlExpandableOverlay} />
+
+# ExpandableOverlay
+
+<Story name='interactive'
+    args={{
+        shortMessage: 'Twój dostęp do kursu wygasł',
+        title: 'Twój dostęp do kursu wygasł',
+        subtitle: 'Przedłuż dostęp, aby kontynuować naukę.',
+        text: '🎁 Otrzymujesz 50% zniżki na każdą kolejną edycję! 🎁',
+        textSmall: 'Zniżkę dodamy automatycznie do Twojego najbliższego zamówienia.',
+        button: 'Przedłuż dostęp do kursu',
+    }}
+    >
+    {(args) => {
+        return {
+        	components: {
+				WnlExpandableOverlay,
+				WnlButton,
+				WnlTitle,
+			},
+            props: Object.keys(args),
+            template: `
+<wnl-expandable-overlay :short-message="shortMessage">
+	<template #body>
+		<wnl-title :level="4" class="o-expandableOverlay__body__title">{{title}}</wnl-title>
+		<p class="o-expandableOverlay__body__subtitle">{{subtitle}}</p>
+		<p class="o-expandableOverlay__body__text">{{text}}</p>
+		<p class="o-expandableOverlay__body__textSmall">{{textSmall}}</p>
+		<a class="o-expandableOverlay__body__button">
+			<wnl-button small>{{button}}</wnl-button>
+		</a>
+	</template>
+	<template #footer>
+		W razie problemów daj znać
+	</template>
+</wnl-expandable-overlay>`,
+        };
+    }}
+</Story>
