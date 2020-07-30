@@ -1,12 +1,12 @@
 .a-button {
-  @include textS;
+  @include textSingleLineS;
   background: $color-blue-chill;
   border: 0;
   border-radius: 100px;
   color: $color-white;
   cursor: pointer;
   display: inline-block;
-  font-weight: 500;
+  font-weight: 700;
   outline: none;
   padding: $space-s $space-m;
   position: relative;
@@ -25,10 +25,12 @@
   }
 
 	&.-medium {
+		@include textSingleLineXS;
 		padding: $space-xxs $space-m;
 	}
 
 	&.-small {
+		@include textInfoM;
 		padding: $space-xxxs $space-s;
 	}
 
