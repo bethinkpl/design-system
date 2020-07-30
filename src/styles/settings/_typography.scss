@@ -1,17 +1,24 @@
-$font-size-text-xxs: 10px;
-$line-height-text-xxs: 12px;
+$font-size-info-s: 8px;
+$line-height-info-s: 12px;
+
+$font-size-info-m: 10px;
+$line-height-info-m: 12px;
 
 $font-size-text-xs: 12px;
 $line-height-text-xs: 16px;
+$line-height-text-single-line-xs: 16px;
 
 $font-size-text-s: 14px;
 $line-height-text-s: 18px;
+$line-height-text-single-line-s: 16px;
 
 $font-size-text-m: 16px;
 $line-height-text-m: 24px;
+$line-height-text-single-line-m: 20px;
 
 $font-size-text-l: 18px;
 $line-height-text-l: 26px;
+$line-height-text-single-line-l: 24px;
 
 $font-size-header-6: 20px;
 $line-height-header-6: 28px;
@@ -31,14 +38,24 @@ $line-height-header-2: 58px;
 $font-size-header-1: 52px;
 $line-height-header-1: 68px;
 
-@mixin textXXS {
-  font-size: $font-size-text-xxs;
-  line-height: $line-height-text-xxs;
+@mixin textInfoS {
+	font-size: $font-size-info-s;
+	line-height: $line-height-info-s;
+}
+
+@mixin textInfoM {
+	font-size: $font-size-info-m;
+	line-height: $line-height-info-m;
 }
 
 @mixin textXS {
-  font-size: $font-size-text-xs;
-  line-height: $line-height-text-xs;
+	font-size: $font-size-text-xs;
+	line-height: $line-height-text-xs;
+}
+
+@mixin textSingleLineXS {
+	font-size: $font-size-text-xs;
+	line-height: $line-height-text-single-line-xs;
 }
 
 @mixin textS {
@@ -46,14 +63,29 @@ $line-height-header-1: 68px;
   line-height: $line-height-text-s;
 }
 
+@mixin textSingleLineS {
+	font-size: $font-size-text-s;
+	line-height: $line-height-text-single-line-s;
+}
+
 @mixin textM {
   font-size: $font-size-text-m;
   line-height: $line-height-text-m;
 }
 
+@mixin textSingleLineM {
+	font-size: $font-size-text-m;
+	line-height: $line-height-text-single-line-m;
+}
+
 @mixin textL {
   font-size: $font-size-text-l;
   line-height: $line-height-text-l;
+}
+
+@mixin textSingleLineL {
+	font-size: $font-size-text-l;
+	line-height: $line-height-text-single-line-l;
 }
 
 @mixin header6 {
