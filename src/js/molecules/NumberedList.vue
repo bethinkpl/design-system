@@ -10,8 +10,7 @@
 			<wnl-number-in-circle
 				:index="index"
 				:medium="mediumPoints"
-				:danger="danger"
-				:primary="primary"
+				:color="color"
 			>{{index}}</wnl-number-in-circle>
 			<div class="m-numberedList__row__content">
 				<slot :name="`item${index}`" />
@@ -45,7 +44,10 @@
 </style>
 
 <script>
-import WnlNumberInCircle from 'js/components/global/styleguide/atoms/NumberInCircle';
+import WnlNumberInCircle, { COLORS } from 'js/components/global/styleguide/atoms/NumberInCircle';
+
+export const NUMBER_COLORS = COLORS;
+
 export default {
 	name: 'NumberedList',
 	components: {
@@ -60,13 +62,12 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		danger: {
-			type: Boolean,
-			default: false,
-		},
-		primary: {
-			type: Boolean,
-			default: false,
+		color: {
+			type: String,
+			default: NUMBER_COLORS.DEFAULT,
+			validator: function (value) {
+				return Object.values(NUMBER_COLORS).includes(value);
+			}
 		},
 	},
 };
