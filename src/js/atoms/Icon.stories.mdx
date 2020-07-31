@@ -8,17 +8,17 @@ import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 <Story name='interactive'
     args={{
     size: 'small',
-    faIconClass: 'fa-trash'
+    faIconClass: 'fa-trash',
+    touchable: false,
     }}
     argTypes={{
-    // TODO
         size: {control: { type: 'select', options: ['xx-large', 'x-large', 'large', 'medium', 'small', 'x-small'] }, defaultValue: 'small'},
     }}>
     {(args) => {
         return {
             components: { WnlIcon },
             props: Object.keys(args),
-            template: '<wnl-icon :fa-icon-class="faIconClass" :size="size" />',
+            template: '<div style="display: flex"><wnl-icon :fa-icon-class="faIconClass" :size="size" :touchable="touchable" /><div>',
         };
     }}
 </Story>
