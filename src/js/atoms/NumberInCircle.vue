@@ -57,6 +57,9 @@
 		&.-primary {
 			color: $color-blue-chill;
 		}
+		&.-secondary {
+			color: $color-storm-grey;
+		}
 
 		&.-medium {
 			height: $icon-m;
@@ -68,6 +71,13 @@
 </style>
 <script>
 
+export const COLORS = {
+	DEFAULT: 'DEFAULT',
+	PRIMARY: 'PRIMARY',
+	DANGER: 'DANGER',
+	SECONDARY: 'SECONDARY'
+};
+
 export default {
 	props: {
 		index: {
@@ -78,24 +88,23 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		danger: {
-			type: Boolean,
-			default: false,
-		},
-		primary: {
-			type: Boolean,
-			default: false,
+		color: {
+			type: String,
+			default: COLORS.DEFAULT,
+			validator: function (value) {
+				return Object.values(COLORS).includes(value);
+			}
 		},
 	},
 	computed: {
 		colorClass() {
-			if (this.danger) {
-				return '-danger';
-			}
-			if (this.primary) {
-				return '-primary';
-			}
-			return `-is${this.index}`;
+			const colorToClassMap = {
+				[COLORS.DEFAULT]: `-is${this.index}`,
+				[COLORS.PRIMARY]: '-primary',
+				[COLORS.DANGER]: '-danger',
+				[COLORS.SECONDARY]: '-secondary',
+			};
+			return colorToClassMap[this.color];
 		}
 	}
 };

@@ -18,6 +18,10 @@
     min-width: $min-touchable-size;
   }
 
+  &.-xx-large {
+    font-size: $icon-xxl;
+  }
+
   &.-x-large {
     font-size: $icon-xl;
   }
