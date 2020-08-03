@@ -1,97 +1,121 @@
-$font-size-minus-3: 10px;
-$line-height-minus-3: 12px;
+$font-size-info-s: 8px;
+$line-height-info-s: 12px;
 
-$font-size-minus-2: 12px;
-$line-height-minus-2: 16px;
+$font-size-info-m: 10px;
+$line-height-info-m: 12px;
 
-$font-size-minus-1: 14px;
-$line-height-minus-1: 18px;
+$font-size-text-xs: 12px;
+$line-height-text-xs: 16px;
+$line-height-text-single-line-xs: 16px;
 
-$font-size-base: 16px;
-$line-height-base: 24px;
+$font-size-text-s: 14px;
+$line-height-text-s: 18px;
+$line-height-text-single-line-s: 16px;
 
-$font-size-plus-1: 18px;
-$line-height-plus-1: 26px;
+$font-size-text-m: 16px;
+$line-height-text-m: 24px;
+$line-height-text-single-line-m: 20px;
 
-$font-size-plus-2: 20px;
-$line-height-plus-2: 28px;
+$font-size-text-l: 18px;
+$line-height-text-l: 26px;
+$line-height-text-single-line-l: 24px;
 
-$font-size-plus-3: 24px;
-$line-height-plus-3: 32px;
+$font-size-header-6: 20px;
+$line-height-header-6: 28px;
 
-$font-size-plus-4: 28px;
-$line-height-plus-4: 38px;
+$font-size-header-5: 24px;
+$line-height-header-5: 32px;
 
-$font-size-plus-5: 32px;
-$line-height-plus-5: 44px;
+$font-size-header-4: 28px;
+$line-height-header-4: 38px;
 
-$font-size-plus-6: 44px;
-$line-height-plus-6: 58px;
+$font-size-header-3: 32px;
+$line-height-header-3: 42px;
 
-$font-size-plus-7: 52px;
-$line-height-plus-7: 68px;
+$font-size-header-2: 44px;
+$line-height-header-2: 58px;
 
-$font-size-plus-8: 84px;
-$line-height-plus-8: 98px;
+$font-size-header-1: 52px;
+$line-height-header-1: 68px;
 
-@mixin textMinus3 {
-  font-size: $font-size-minus-3;
-  line-height: $line-height-minus-3;
+@mixin textInfoS {
+	font-size: $font-size-info-s;
+	line-height: $line-height-info-s;
 }
 
-@mixin textMinus2 {
-  font-size: $font-size-minus-2;
-  line-height: $line-height-minus-2;
+@mixin textInfoM {
+	font-size: $font-size-info-m;
+	line-height: $line-height-info-m;
 }
 
-@mixin textMinus1 {
-  font-size: $font-size-minus-1;
-  line-height: $line-height-minus-1;
+@mixin textXS {
+	font-size: $font-size-text-xs;
+	line-height: $line-height-text-xs;
 }
 
-@mixin textBase {
-  font-size: $font-size-base;
-  line-height: $line-height-base;
+@mixin textSingleLineXS {
+	font-size: $font-size-text-xs;
+	line-height: $line-height-text-single-line-xs;
 }
 
-@mixin textPlus1 {
-  font-size: $font-size-plus-1;
-  line-height: $line-height-plus-1;
+@mixin textS {
+  font-size: $font-size-text-s;
+  line-height: $line-height-text-s;
 }
 
-@mixin textPlus2 {
-  font-size: $font-size-plus-2;
-  line-height: $line-height-plus-2;
+@mixin textSingleLineS {
+	font-size: $font-size-text-s;
+	line-height: $line-height-text-single-line-s;
 }
 
-@mixin textPlus3 {
-  font-size: $font-size-plus-3;
-  line-height: $line-height-plus-3;
+@mixin textM {
+  font-size: $font-size-text-m;
+  line-height: $line-height-text-m;
 }
 
-@mixin textPlus4 {
-  font-size: $font-size-plus-4;
-  line-height: $line-height-plus-4;
+@mixin textSingleLineM {
+	font-size: $font-size-text-m;
+	line-height: $line-height-text-single-line-m;
 }
 
-@mixin textPlus5 {
-  font-size: $font-size-plus-5;
-  line-height: $line-height-plus-5;
+@mixin textL {
+  font-size: $font-size-text-l;
+  line-height: $line-height-text-l;
 }
 
-@mixin textPlus6 {
-  font-size: $font-size-plus-6;
-  line-height: $line-height-plus-6;
+@mixin textSingleLineL {
+	font-size: $font-size-text-l;
+	line-height: $line-height-text-single-line-l;
 }
 
-@mixin textPlus7 {
-  font-size: $font-size-plus-7;
-  line-height: $line-height-plus-7;
+@mixin header6 {
+  font-size: $font-size-header-6;
+  line-height: $line-height-header-6;
 }
 
-@mixin textPlus8 {
-  font-size: $font-size-plus-8;
-  line-height: $line-height-plus-8;
+@mixin header5 {
+  font-size: $font-size-header-5;
+  line-height: $line-height-header-5;
+}
+
+@mixin header4 {
+  font-size: $font-size-header-4;
+  line-height: $line-height-header-4;
+}
+
+@mixin header3 {
+  font-size: $font-size-header-3;
+  line-height: $line-height-header-3;
+}
+
+@mixin header2 {
+  font-size: $font-size-header-2;
+  line-height: $line-height-header-2;
+}
+
+@mixin header1 {
+  font-size: $font-size-header-1;
+  line-height: $line-height-header-1;
 }
 
 @mixin textLight {
@@ -108,5 +132,5 @@ $line-height-plus-8: 98px;
 
 @mixin titleLevel4 {
 	@include textBold;
-	@include textPlus3;
+	@include header5;
 }
