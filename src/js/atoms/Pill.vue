@@ -29,7 +29,7 @@
 		}
 
 		&__number {
-			@include textMinus1;
+			@include textS;
 			align-items: center;
 			background-color: $color-white;
 			border-radius: 50%;

@@ -67,7 +67,7 @@
 			}
 
 			&__message {
-				@include textBase;
+				@include textM;
 				grid-column: 2;
 				text-align: center;
 				color: $color-firefly;
@@ -98,18 +98,19 @@
 			}
 
 			/deep/ &__subtitle {
+				@include textL;
 				margin-bottom: $space-s;
 			}
 
 			/deep/ &__text {
-				@include textBase;
+				@include textM;
 				@include textBold;
 				color: $color-storm-grey;
 				margin-bottom: $space-s;
 			}
 
 			/deep/ &__textSmall {
-				@include textMinus1;
+				@include textS;
 				color: $color-storm-grey;
 				margin-bottom: $space-m;
 			}
@@ -131,7 +132,7 @@
 		}
 
 		&__footer {
-			@include textMinus1;
+			@include textS;
 			color: $color-storm-grey;
 			margin-top: $space-xl;
 			padding: $space-m $space-l $space-m $space-s;
