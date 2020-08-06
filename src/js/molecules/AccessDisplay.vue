@@ -44,6 +44,7 @@
 		&__table {
 			&__header {
 				@include textXS;
+
 				background-color: $color-alabaster;
 				border-bottom: 1px solid $color-mischka;
 				color: $color-storm-grey;
@@ -53,6 +54,7 @@
 
 			&__cell {
 				@include textS;
+
 				border-bottom: 1px solid $color-mischka;
 				padding: $space-xs;
 

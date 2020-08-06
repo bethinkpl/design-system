@@ -30,6 +30,7 @@
 
 	.m-accessDisplayDate {
 		$this: &;
+
 		align-items: center;
 		display: flex;
 
@@ -56,6 +57,7 @@
 
 		&__text {
 			@include textXS;
+			
 			text-transform: uppercase;
 
 			#{$this}.-large & {

@@ -34,6 +34,7 @@
 		&__text {
 			@include textS;
 			@include textBold;
+
 			text-transform: uppercase;
 		}
 	}
