@@ -1,7 +1,6 @@
 <template>
 	<wnl-button
 		class="m-arrowButton"
-		:disabled="disabled"
 	>
 		<wnl-icon
 			class="m-arrowButton__icon"
@@ -13,27 +12,27 @@
 
 <style lang="scss" scoped>
 	@import 'resources/assets/styles/styleguide/settings/colors';
+	@import 'resources/assets/styles/styleguide/settings/radiuses';
+	@import 'resources/assets/styles/styleguide/settings/spacings';
 
 	.m-arrowButton {
+		background-color: $color-white;
+		border: 1px solid $color-blue-chill;
+		border-radius: $radius-s;
 		box-sizing: border-box;
 		height: 32px;
+		padding: $space-xxxs;
 		width: 32px;
-		border: 1px solid $color-blue-chill;
-		border-radius: 4px;
-		background-color: $color-white;
-		padding: 7px;
 
 		&__icon {
-			height: 16px;
-			width: 16px;
 			color: $color-blue-chill;
 		}
 	}
 </style>
 
 <script>
-import WnlButton from '../atoms/Button';
-import WnlIcon from '../atoms/Icon';
+import WnlButton from 'js/components/global/styleguide/atoms/Button';
+import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 export default {
 	name: 'ArrowButton',
@@ -41,11 +40,5 @@ export default {
 		WnlButton,
 		WnlIcon
 	},
-	props: {
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-	}
 };
 </script>
