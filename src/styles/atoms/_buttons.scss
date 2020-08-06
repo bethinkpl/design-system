@@ -54,6 +54,7 @@
 
 		&.-secondary {
 			color: transparent;
+
 			&:after {
 				border: 2px solid $color-rhino;
 				border-color: transparent transparent $color-rhino $color-rhino;
@@ -87,7 +88,6 @@
 		}
 	}
 
-
 	&:disabled, &.-disabled {
 		background-color: $color-athens-grey;
 		color: $color-storm-grey;
@@ -106,15 +106,17 @@
   }
 
 	&.-roundedCorners {
+		@include textSingleLineXS;
 		border-radius: $radius-m;
-		padding: $space-xxs $space-s;
+		padding: $space-xxs $space-m;
 	}
 
 	&.-secondary {
+		@include textSingleLineXS;
 		background-color: $color-white;
 		border: 2px solid $color-storm-grey;
 		color: $color-ebony-clay;
-		padding: $space-xxxs $space-xs;
+		padding: $space-xxxs $space-m;
 
 		&:hover, &.-hovered {
 			background-color: $color-white;
