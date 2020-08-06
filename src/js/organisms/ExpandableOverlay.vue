@@ -61,11 +61,11 @@
 			width: 100%;
 
 			&__text {
+				display: none;
+
 				@media #{$breakpoint-s} {
 					display: initial;
 				}
-
-				display: none;
 			}
 
 			&__message {

@@ -1,30 +1,30 @@
 .o-footer {
 	@include textS;
 
-	@media #{$breakpoint-s} {
-		flex-direction: row;
-		padding: $space-xl 0;
-	}
-
 	background-color: $color-catalina-blue;
 	color: $color-white;
 	padding: 0 $space-xl;
 	display: flex;
 	flex-direction: column;
 
+	@media #{$breakpoint-s} {
+		flex-direction: row;
+		padding: $space-xl 0;
+	}
+
 	&__block {
 		$breakpoint-s-max-width: 348px;
+
+		padding: $space-m 0;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 
 		@media #{$breakpoint-s} {
 			flex: 0 1 auto;
 			padding: 0 0 0 $space-m;
 			max-width: $breakpoint-s-max-width;
 		}
-
-		padding: $space-m 0;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
 
 		.a-icon {
 			@media #{$breakpoint-s} {
@@ -34,20 +34,21 @@
 		}
 
 		&.-first {
+			border-bottom: 1px solid $color-cadet-blue;
+
 			@media #{$breakpoint-s} {
 				border-bottom: none;
 				border-right: 1px solid $color-cadet-blue;
 			}
-
-			border-bottom: 1px solid $color-cadet-blue;
 		}
 
 		&.-last {
+			// Make place for Messenger plugin
+			max-width: 280px;
+
 			@media #{$breakpoint-s} {
 				max-width: $breakpoint-s-max-width;
 			}
-			// Make place for Messenger plugin
-			max-width: 280px;
 		}
 	}
 }

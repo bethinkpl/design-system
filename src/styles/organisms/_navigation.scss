@@ -1,13 +1,13 @@
 .o-navigation {
-	@media #{$breakpoint-m} {
-		padding: 0 $space-xxxl;
-	}
-
 	border-bottom: 1px solid $color-athens-grey;
 	padding: 0 $space-m;
 	display: flex;
 	align-items: center;
 	height: 55px;
+
+	@media #{$breakpoint-m} {
+		padding: 0 $space-xxxl;
+	}
 
 	&__right {
 		height: 100%;
@@ -32,6 +32,8 @@
 	}
 
 	&__avatar {
+		padding: $space-xxs;
+
 		@media #{$breakpoint-m} {
 			padding: $space-xxxxs;
 
@@ -42,7 +44,5 @@
 				width: $icon-m;
 			}
 		}
-
-		padding: $space-xxs;
 	}
 }
