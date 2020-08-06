@@ -22,7 +22,9 @@
 	}
 
 	.o-helpModal__content /deep/ {
-		p, ul, ol {
+		p,
+		ul,
+		ol {
 			font-size: $font-size-text-s;
 			margin-bottom: $space-m;
 			text-transform: none;
@@ -32,7 +34,6 @@
 			}
 		}
 	}
-
 
 	.o-helpModal__content /deep/ h3 {
 		color: $color-firefly;

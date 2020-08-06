@@ -32,12 +32,14 @@
 
 				&__label {
 					@include textXS;
+
 					color: $color-ebony-clay;
 					font-weight: bold;
 				}
 
 				&__progressData {
 					@include textS;
+
 					color: $color-storm-grey;
 					font-weight: bold;
 					text-align: right;
@@ -47,6 +49,7 @@
 
 		&__score {
 			@include textM;
+
 			color: $color-storm-grey;
 			font-weight: bold;
 			margin-left: $space-m;

@@ -16,6 +16,12 @@
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
 	.a-numberInCircle {
+		@media #{$breakpoint-s} {
+			font-size: $font-size-header-4;
+			height: $icon-xl;
+			min-width: $icon-xl;
+		}
+
 		align-items: center;
 		border-radius: 50%;
 		border: 1px solid currentColor;
@@ -27,12 +33,6 @@
 		min-width: $icon-l;
 		padding: 0 $space-xxxs;
 		text-align: center;
-
-		@media #{$breakpoint-s} {
-			font-size: $font-size-header-4;
-			height: $icon-xl;
-			min-width: $icon-xl;
-		}
 
 		&.-is1 {
 			color: $color-blue-chill;
@@ -57,6 +57,7 @@
 		&.-primary {
 			color: $color-blue-chill;
 		}
+
 		&.-secondary {
 			color: $color-storm-grey;
 		}

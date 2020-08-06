@@ -36,6 +36,7 @@
 
 	.o-expandableOverlay {
 		$bar-min-height: 56px;
+
 		z-index: $z-index-critical-info-overlay;
 		background-color: $color-athens-grey;
 
@@ -63,11 +64,13 @@
 				@media #{$breakpoint-s} {
 					display: initial;
 				}
+
 				display: none;
 			}
 
 			&__message {
 				@include textM;
+
 				grid-column: 2;
 				text-align: center;
 				color: $color-firefly;
@@ -99,18 +102,21 @@
 
 			/deep/ &__subtitle {
 				@include textL;
+
 				margin-bottom: $space-s;
 			}
 
 			/deep/ &__text {
 				@include textM;
 				@include textBold;
+
 				color: $color-storm-grey;
 				margin-bottom: $space-s;
 			}
 
 			/deep/ &__textSmall {
 				@include textS;
+
 				color: $color-storm-grey;
 				margin-bottom: $space-m;
 			}
@@ -133,6 +139,7 @@
 
 		&__footer {
 			@include textS;
+
 			color: $color-storm-grey;
 			margin-top: $space-xl;
 			padding: $space-m $space-l $space-m $space-s;

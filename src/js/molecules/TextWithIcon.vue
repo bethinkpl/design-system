@@ -11,6 +11,7 @@
 
 <style lang="scss" scoped>
 	@import 'resources/assets/styles/styleguide/settings/spacings';
+
 	.m-textWithIcon {
 		align-items: center;
 		display: flex;
