@@ -4,7 +4,6 @@
 			size="x-small"
 			:fa-icon-class="iconName"
 			class="m-accessStatus__icon"
-			:class="iconClass"
 		/>
 		<span class="m-accessStatus__text">{{text}}</span>
 	</div>
