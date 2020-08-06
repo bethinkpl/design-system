@@ -1,37 +1,47 @@
 // We reuse Bulma styles for now so the naming convetion isn't followed.
 // In future we should think about creating our own set of styles for content
 .content.-styleguide {
-  * {
-    font-family: "Lato", sans-serif;
-  }
+	* {
+		font-family: "Lato", sans-serif;
+	}
 
-  h1, h2, h3 {
-    color: $color-ebony-clay;
-    font-weight: 700;
-  }
+	h1,
+	h2,
+	h3 {
+		color: $color-ebony-clay;
+		font-weight: 700;
+	}
 
-  h1 {
-    @include header5;
-    margin-bottom: $space-xl;
-  }
+	h1 {
+		@include header5;
 
-  h2 {
-    @include textL;
-    margin-bottom: $space-l;
-  }
+		margin-bottom: $space-xl;
+	}
 
-  p, h3, ul, ol, blockquote {
-    @include textM;
-    margin-bottom: $space-m;
-  }
+	h2 {
+		@include textL;
 
-  img {
-    margin: $space-s 0;
-  }
+		margin-bottom: $space-l;
+	}
 
-  .a-icon {
-    font-family: "FontAwesome";
-  }
+	p,
+	h3,
+	ul,
+	ol,
+	blockquote {
+		@include textM;
+
+		margin-bottom: $space-m;
+	}
+
+	img {
+		margin: $space-s 0;
+	}
+
+	.a-icon {
+		/* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
+		font-family: "FontAwesome";
+	}
 }
 
 .a-paragraph {
