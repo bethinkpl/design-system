@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="m-accessDisplayEntryPoint"
+		class="m-accessDisplayDate"
 		:class="{
 			'-touchable': touchable,
 			'-large': large,
@@ -9,14 +9,14 @@
 		<wnl-icon
 			:size="iconSize"
 			:fa-icon-class="iconName"
-			class="m-accessDisplayEntryPoint__icon"
+			class="m-accessDisplayDate__icon"
 			:class="iconClass"
 		/>
-		<span class="m-accessDisplayEntryPoint__text">Dostęp do kursu <strong class="m-accessDisplayEntryPoint__text__date" :class="dateClass">do {{localizedCourseAccessDisplayDate}}</strong></span>
+		<span class="m-accessDisplayDate__text">Dostęp do kursu <strong class="m-accessDisplayDate__text__date" :class="dateClass">do {{localizedCourseAccessDisplayDate}}</strong></span>
 		<wnl-icon
 			v-if="touchable"
 			:size="iconSize"
-			class="m-accessDisplayEntryPoint__help"
+			class="m-accessDisplayDate__help"
 			fa-icon-class="fa-question-circle-o"
 			touchable
 		/>
@@ -28,7 +28,7 @@
 	@import 'resources/assets/styles/styleguide/settings/spacings';
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
-	.m-accessDisplayEntryPoint {
+	.m-accessDisplayDate {
 		$this: &;
 		align-items: center;
 		display: flex;
