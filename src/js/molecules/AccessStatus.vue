@@ -15,7 +15,6 @@
 	@import 'resources/assets/styles/styleguide/settings/typography';
 
 	.m-accessStatus {
-		$this: &;
 		align-items: center;
 		color: $color-storm-grey;
 		display: flex;
