@@ -117,12 +117,14 @@
 
 	&.-roundedCorners {
 		@include textSingleLineXS;
+
 		border-radius: $radius-m;
 		padding: $space-xxs $space-m;
 	}
 
 	&.-secondary {
 		@include textSingleLineXS;
+
 		background-color: $color-white;
 		border: 2px solid $color-storm-grey;
 		color: $color-ebony-clay;
