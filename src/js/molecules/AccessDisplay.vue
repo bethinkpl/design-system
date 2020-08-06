@@ -11,12 +11,14 @@
 					<th class="m-accessDisplay__table__header">Start</th>
 					<th class="m-accessDisplay__table__header">Koniec</th>
 					<th class="m-accessDisplay__table__header">Data przyznania</th>
+					<th class="m-accessDisplay__table__header">Podstawa przyznania</th>
 				</tr>
 				<tr v-for="access in accesses" :key="access.id">
 					<td class="m-accessDisplay__table__cell"><wnl-access-status :status="access.status" /></td>
 					<td class="m-accessDisplay__table__cell -centered">{{formatDate(access.start_date)}}</td>
 					<td class="m-accessDisplay__table__cell -centered">{{formatDate(access.end_date)}}</td>
 					<td class="m-accessDisplay__table__cell -centered -small -alternative">{{formatDate(access.created_at)}}</td>
+					<td class="m-accessDisplay__table__cell -small">{{formatExtra(access)}}</td>
 				</tr>
 			</table>
 			<wnl-button
@@ -123,6 +125,15 @@ export default {
 				return;
 			}
 			return moment(date).format('L');
+		},
+		formatExtra(access) {
+			if (access.extra.role) {
+				return `Rola: ${access.extra.role}`;
+			}
+			if (access.order_id) {
+				return `Zamówienie nr: ${access.order_id}`;
+			}
+			return '';
 		}
 	},
 };
