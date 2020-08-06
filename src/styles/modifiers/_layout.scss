@@ -1,12 +1,12 @@
 .-centeredSpread {
-  @include centeredSpread;
+	@include centeredSpread;
 }
 
 .-layoutColumn {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 
 .-dNone {
-  display: none;
+	display: none;
 }

@@ -32,7 +32,7 @@
 			}
 
 			&.-medium {
-				@include textS
+				@include textS;
 			}
 
 			&.-large {
@@ -40,7 +40,7 @@
 			}
 
 			&.-small {
-				@include textXS
+				@include textXS;
 			}
 		}
 
@@ -50,14 +50,14 @@
 			justify-content: center;
 
 			.m-emojiPoints__item {
-				margin-left: $space-l;
-				width: 242px;
-
 				@media #{$breakpoint-s} {
 					flex: 1 1 auto;
 					max-width: 360px;
 					width: auto;
 				}
+
+				margin-left: $space-l;
+				width: 242px;
 			}
 		}
 	}

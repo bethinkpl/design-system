@@ -1,44 +1,47 @@
 .a-button {
-  @include textSingleLineS;
-  background: $color-blue-chill;
-  border: 0;
-  border-radius: 100px;
-  color: $color-white;
-  cursor: pointer;
-  display: inline-block;
-  font-weight: 700;
-  outline: none;
-  padding: $space-s $space-m;
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-  transition: color ease-in-out .3s, border-color ease-in-out .3s, background-color ease-in-out .3s, box-shadow ease-in-out .3s;
+	@include textSingleLineS;
 
-  &.-big {
-	width: 100%;
+	background: $color-blue-chill;
+	border: 0;
+	border-radius: 100px;
+	color: $color-white;
+	cursor: pointer;
+	display: inline-block;
+	font-weight: 700;
+	outline: none;
+	padding: $space-s $space-m;
+	position: relative;
+	text-align: center;
+	text-transform: uppercase;
+	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s, background-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s;
 
+	&.-big {
 		@media #{$breakpoint-s} {
 			width: auto;
 			padding: $space-s $space-m;
 			min-width: 264px;
 		}
-  }
+
+		width: 100%;
+	}
 
 	&.-medium {
 		@include textSingleLineXS;
+
 		padding: $space-xxs $space-m;
 	}
 
 	&.-small {
 		@include textInfoM;
+
 		padding: $space-xxxs $space-s;
 	}
 
-  &.-loading {
+	&.-loading {
 		color: transparent;
 		pointer-events: none;
 
-		&:after {
+		&::after {
 			animation: a-spinAround 500ms infinite linear;
 			border: 2px solid $color-white;
 			border-color: transparent transparent $color-white $color-white;
@@ -55,80 +58,92 @@
 		&.-secondary {
 			color: transparent;
 
-			&:after {
+			&::after {
 				border: 2px solid $color-rhino;
 				border-color: transparent transparent $color-rhino $color-rhino;
 			}
 		}
-  }
+	}
 
 	&.-success {
 		background-color: $color-jungle-green;
 
-		&:hover, &.-hovered {
+		&:hover,
+		&.-hovered {
 			background-color: $color-elf-green;
 		}
 
-		&:focus, &.-focused {
+		&:focus,
+		&.-focused {
 			background-color: $color-jungle-green;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-jungle-green, .6);
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-jungle-green, 0.6);
 		}
 	}
 
 	&.-danger {
 		background-color: $color-alizarin-crimson;
 
-		&:hover, &.-hovered {
+		&:hover,
+		&.-hovered {
 			background-color: $color-alizarin-crimson;
 		}
 
-		&:focus, &.-focused {
+		&:focus,
+		&.-focused {
 			background-color: $color-alizarin-crimson;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-alizarin-crimson, .6);
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-alizarin-crimson, 0.6);
 		}
 	}
 
-	&:disabled, &.-disabled {
+	&:disabled,
+	&.-disabled {
 		background-color: $color-athens-grey;
 		color: $color-storm-grey;
 		cursor: not-allowed;
 		pointer-events: none;
-  }
+	}
 
-  &:hover, &.-hovered {
+	&:hover,
+	&.-hovered {
 		background-color: $color-surfie-green;
 		color: $color-white;
-  }
+	}
 
-  &:focus, &.-focused {
+	&:focus,
+	&.-focused {
 		background-color: $color-surfie-green;
-		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-blue-chill-rgb, .6);
-  }
+		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-blue-chill-rgb, 0.6);
+	}
 
 	&.-roundedCorners {
 		@include textSingleLineXS;
+
 		border-radius: $radius-m;
 		padding: $space-xxs $space-m;
 	}
 
 	&.-secondary {
 		@include textSingleLineXS;
+
 		background-color: $color-white;
 		border: 2px solid $color-storm-grey;
 		color: $color-ebony-clay;
 		padding: $space-xxxs $space-m;
 
-		&:hover, &.-hovered {
+		&:hover,
+		&.-hovered {
 			background-color: $color-white;
 			border-color: $color-rhino;
 		}
 
-		&:focus, &.-focus {
+		&:focus,
+		&.-focus {
 			background-color: $color-white;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-grey, .6);
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-grey, 0.6);
 		}
 
-		&:disabled, &.-disabled {
+		&:disabled,
+		&.-disabled {
 			border-color: $color-cadet-blue;
 			color: $color-mischka;
 		}
@@ -141,17 +156,20 @@
 		color: $color-blue-chill;
 		padding: $space-xxs $space-s;
 
-		&:hover, &.-hovered {
+		&:hover,
+		&.-hovered {
 			color: $color-surfie-green;
 		}
 
-		&:focus, &.-focus {
+		&:focus,
+		&.-focus {
 			background-color: $color-athens-grey;
 			box-shadow: none;
 		}
 
-		&:disabled, &.-disabled {
-			color: rgba($color-blue-chill-rgb, .6);
+		&:disabled,
+		&.-disabled {
+			color: rgba($color-blue-chill-rgb, 0.6);
 		}
 	}
 }
