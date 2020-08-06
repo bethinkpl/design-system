@@ -13,7 +13,7 @@
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
-	transition: color ease-in-out .3s, border-color ease-in-out .3s, background-color ease-in-out .3s, box-shadow ease-in-out .3s;
+	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s, background-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s;
 
 	&.-big {
 		@media #{$breakpoint-s} {
@@ -76,7 +76,7 @@
 		&:focus,
 		&.-focused {
 			background-color: $color-jungle-green;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-jungle-green, .6);
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-jungle-green, 0.6);
 		}
 	}
 
@@ -91,7 +91,7 @@
 		&:focus,
 		&.-focused {
 			background-color: $color-alizarin-crimson;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-alizarin-crimson, .6);
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-alizarin-crimson, 0.6);
 		}
 	}
 
@@ -112,7 +112,7 @@
 	&:focus,
 	&.-focused {
 		background-color: $color-surfie-green;
-		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-blue-chill-rgb, .6);
+		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-blue-chill-rgb, 0.6);
 	}
 
 	&.-roundedCorners {
@@ -135,7 +135,7 @@
 		&:focus,
 		&.-focus {
 			background-color: $color-white;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-grey, .6);
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-grey, 0.6);
 		}
 
 		&:disabled,
@@ -165,7 +165,7 @@
 
 		&:disabled,
 		&.-disabled {
-			color: rgba($color-blue-chill-rgb, .6);
+			color: rgba($color-blue-chill-rgb, 0.6);
 		}
 	}
 }
