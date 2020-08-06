@@ -18,7 +18,7 @@
 					<td class="m-accessDisplay__table__cell -centered">{{formatDate(access.start_date)}}</td>
 					<td class="m-accessDisplay__table__cell -centered">{{formatDate(access.end_date)}}</td>
 					<td class="m-accessDisplay__table__cell -centered -small -alternative">{{formatDate(access.created_at)}}</td>
-					<td class="m-accessDisplay__table__cell -small">{{formatExtra(access)}}</td>
+					<td class="m-accessDisplay__table__cell -small"><wnl-access-display-extra :access="access" /></td>
 				</tr>
 			</table>
 			<wnl-button
@@ -80,7 +80,8 @@ import moment from 'moment';
 
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
 import WnlTitle from 'js/components/global/styleguide/atoms/Title';
-import WnlAccessDisplayDate from 'js/components/global/styleguide/molecules/AccessDisplayDate';
+import WnlAccessDisplayDate from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayDate';
+import WnlAccessDisplayExtra from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayExtra';
 import WnlAccessStatus from 'js/components/global/styleguide/molecules/AccessStatus';
 import WnlModal from 'js/components/global/Modal';
 import { getApiUrl } from 'js/utils/env';
@@ -92,6 +93,7 @@ export default {
 		WnlModal,
 		WnlTitle,
 		WnlAccessDisplayDate,
+		WnlAccessDisplayExtra,
 		WnlAccessStatus,
 	},
 	data() {
@@ -125,15 +127,6 @@ export default {
 				return;
 			}
 			return moment(date).format('L');
-		},
-		formatExtra(access) {
-			if (access.extra.role) {
-				return `Rola: ${access.extra.role}`;
-			}
-			if (access.order_id) {
-				return `Zamówienie nr: ${access.order_id}`;
-			}
-			return '';
 		}
 	},
 };
