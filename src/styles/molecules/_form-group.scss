@@ -1,46 +1,48 @@
 .m-formGroup {
 	line-height: 1;
 
-  &:not(:last-child):not(.-marginLess) {
-    margin-bottom: $space-s;
-  }
+	&:not(:last-child):not(.-marginLess) {
+		margin-bottom: $space-s;
+	}
 
-  .a-label {
-    margin-bottom: $space-xxxs;
-  }
+	.a-label {
+		margin-bottom: $space-xxxs;
+	}
 
-  .a-error {
-    margin-top: $space-xxxxs;
-  }
+	.a-error {
+		margin-top: $space-xxxxs;
+	}
 
-  .a-checkbox, .a-radio {
-    margin-right: $space-s;
-  }
+	.a-checkbox,
+	.a-radio {
+		margin-right: $space-s;
+	}
 
-  &__inputWrapper {
-    position: relative;
+	&__inputWrapper {
+		position: relative;
 
-    .a-icon {
-      color: $color-storm-grey;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-  }
+		.a-icon {
+			color: $color-storm-grey;
+			position: absolute;
+			top: 0;
+			right: 0;
+		}
+	}
 
-  &.-checkbox {
-    align-items: center;
-    display: flex;
+	&.-checkbox {
+		align-items: center;
+		display: flex;
 
-    .a-label {
-      @include textM;
-      margin-bottom: 0;
-    }
-  }
+		.a-label {
+			@include textM;
 
-  &.-withIcon {
-    .a-icon {
-      margin-left: 10px;
-    }
-  }
+			margin-bottom: 0;
+		}
+	}
+
+	&.-withIcon {
+		.a-icon {
+			margin-left: 10px;
+		}
+	}
 }
