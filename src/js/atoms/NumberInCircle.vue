@@ -57,6 +57,7 @@
 		&.-primary {
 			color: $color-blue-chill;
 		}
+
 		&.-secondary {
 			color: $color-storm-grey;
 		}

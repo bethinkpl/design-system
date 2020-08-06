@@ -19,6 +19,7 @@
 
 		&__icon {
 			@include textM;
+
 			align-items: center;
 			bottom: 0;
 			color: $color-storm-grey;

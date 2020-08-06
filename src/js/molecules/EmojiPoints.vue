@@ -32,7 +32,7 @@
 			}
 
 			&.-medium {
-				@include textS
+				@include textS;
 			}
 
 			&.-large {
@@ -40,7 +40,7 @@
 			}
 
 			&.-small {
-				@include textXS
+				@include textXS;
 			}
 		}
 
