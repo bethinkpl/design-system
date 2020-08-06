@@ -57,7 +57,7 @@
 
 		&__text {
 			@include textXS;
-			
+
 			text-transform: uppercase;
 
 			#{$this}.-large & {
