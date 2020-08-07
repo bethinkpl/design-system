@@ -4,7 +4,7 @@
 	>
 		<wnl-icon
 			class="m-arrowButton__icon"
-			fa-icon-class="fa-angle-left"
+			:fa-icon-class="icon"
 			size="x-small"
 		/>
 	</wnl-button>
@@ -19,11 +19,10 @@
 		background-color: $color-white;
 		border: 1px solid $color-blue-chill;
 		border-radius: $radius-s;
-		box-sizing: border-box;
-		height: 32px;
-		padding: $space-xxxs;
-		width: 32px;
-
+		padding: $space-xxxs $space-xs;
+		&:hover {
+			background-color:$color-alabaster;
+		}
 		&__icon {
 			color: $color-blue-chill;
 		}
@@ -39,6 +38,11 @@ export default {
 	components: {
 		WnlButton,
 		WnlIcon
+	},
+	data() {
+		return {
+			icon: 'fa-angle-left',
+		};
 	},
 };
 </script>
