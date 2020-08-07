@@ -30,6 +30,7 @@
 
 		&__number {
 			@include textS;
+
 			align-items: center;
 			background-color: $color-white;
 			border-radius: 50%;

@@ -1,15 +1,16 @@
 .m-buttonWithNote {
-  display: inline-flex;
-  flex-direction: column;
+	display: inline-flex;
+	flex-direction: column;
 
-  .a-button {
-    margin-bottom: $space-s;
-  }
+	.a-button {
+		margin-bottom: $space-s;
+	}
 
-  .m-buttonWithNote__note {
-    @include textXS;
-    max-width: 80%;
-    margin: 0 auto;
-    text-align: center;
-  }
+	.m-buttonWithNote__note {
+		@include textXS;
+
+		max-width: 80%;
+		margin: 0 auto;
+		text-align: center;
+	}
 }

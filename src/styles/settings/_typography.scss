@@ -59,8 +59,8 @@ $line-height-header-1: 68px;
 }
 
 @mixin textS {
-  font-size: $font-size-text-s;
-  line-height: $line-height-text-s;
+	font-size: $font-size-text-s;
+	line-height: $line-height-text-s;
 }
 
 @mixin textSingleLineS {
@@ -69,8 +69,8 @@ $line-height-header-1: 68px;
 }
 
 @mixin textM {
-  font-size: $font-size-text-m;
-  line-height: $line-height-text-m;
+	font-size: $font-size-text-m;
+	line-height: $line-height-text-m;
 }
 
 @mixin textSingleLineM {
@@ -79,8 +79,8 @@ $line-height-header-1: 68px;
 }
 
 @mixin textL {
-  font-size: $font-size-text-l;
-  line-height: $line-height-text-l;
+	font-size: $font-size-text-l;
+	line-height: $line-height-text-l;
 }
 
 @mixin textSingleLineL {
@@ -89,33 +89,33 @@ $line-height-header-1: 68px;
 }
 
 @mixin header6 {
-  font-size: $font-size-header-6;
-  line-height: $line-height-header-6;
+	font-size: $font-size-header-6;
+	line-height: $line-height-header-6;
 }
 
 @mixin header5 {
-  font-size: $font-size-header-5;
-  line-height: $line-height-header-5;
+	font-size: $font-size-header-5;
+	line-height: $line-height-header-5;
 }
 
 @mixin header4 {
-  font-size: $font-size-header-4;
-  line-height: $line-height-header-4;
+	font-size: $font-size-header-4;
+	line-height: $line-height-header-4;
 }
 
 @mixin header3 {
-  font-size: $font-size-header-3;
-  line-height: $line-height-header-3;
+	font-size: $font-size-header-3;
+	line-height: $line-height-header-3;
 }
 
 @mixin header2 {
-  font-size: $font-size-header-2;
-  line-height: $line-height-header-2;
+	font-size: $font-size-header-2;
+	line-height: $line-height-header-2;
 }
 
 @mixin header1 {
-  font-size: $font-size-header-1;
-  line-height: $line-height-header-1;
+	font-size: $font-size-header-1;
+	line-height: $line-height-header-1;
 }
 
 @mixin textLight {

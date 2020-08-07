@@ -33,7 +33,7 @@
 			}
 
 			&.-medium {
-				@include textS
+				@include textS;
 			}
 
 			&.-large {
@@ -41,7 +41,7 @@
 			}
 
 			&.-small {
-				@include textXS
+				@include textXS;
 			}
 			&.-separated {
 				border-bottom:1px solid $color-mischka;

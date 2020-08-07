@@ -21,6 +21,7 @@
 		&.-borderNavyBlue {
 			border-color: $color-navy-blue;
 		}
+
 		&.-backgroundNavyBlue {
 			background-color: $color-navy-blue;
 		}
