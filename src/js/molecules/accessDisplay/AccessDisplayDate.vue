@@ -14,15 +14,9 @@
 		/>
 		<span class="m-accessDisplayDate__text">Dostęp do kursu
 			<strong
-				v-if="isStatusSuspended"
 				class="m-accessDisplayDate__date"
 				:class="dateClass"
-			>Zablokowany</strong>
-			<strong
-				v-else
-				class="m-accessDisplayDate__date"
-				:class="dateClass"
-			>do {{courseAccessDisplayDate}}</strong>
+			>{{dateText}}</strong>
 		</span>
 		<wnl-icon
 			v-if="touchable"
@@ -134,7 +128,9 @@ export default {
 			return 'fa-lock';
 		},
 		dateClass() {
-			return this.courseAccessCurrent.status !== COURSE_ACCESS_STATUS.ACTIVE ? '-notActive' : '';
+			return [COURSE_ACCESS_STATUS.SUSPENDED, COURSE_ACCESS_STATUS.EXPIRED].includes(this.courseAccessCurrent.status)
+				? '-notActive'
+				: '';
 		},
 		iconClass() {
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.ACTIVE) {
@@ -148,8 +144,15 @@ export default {
 		iconSize() {
 			return this.large ? 'small' : 'x-small';
 		},
-		isStatusSuspended() {
-			return this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.SUSPENDED;
+		dateText() {
+			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.SUSPENDED) {
+				return 'Zablokowany';
+			}
+			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.AWAITING) {
+				return `od ${this.courseAccessDisplayDate}`;
+			}
+
+			return `do ${this.courseAccessDisplayDate}`;
 		}
 	},
 };
