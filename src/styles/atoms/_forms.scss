@@ -98,7 +98,7 @@
 	&:checked {
 		&::before {
 			color: $color-white;
-			content: "✔";
+			content: '✔';
 		}
 	}
 }
@@ -120,7 +120,7 @@
 
 	&.-required::after {
 		color: $color-blue-chill;
-		content: "*";
+		content: '*';
 	}
 
 	&__optionalText {
