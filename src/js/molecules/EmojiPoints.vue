@@ -43,10 +43,11 @@
 			&.-small {
 				@include textXS;
 			}
+
 			&.-separated {
-				border-bottom:1px solid $color-mischka;
+				border-bottom: 1px solid $color-mischka;
 				padding: $space-s 0;
-				margin-bottom:0;
+				margin-bottom: 0;
 			}
 		}
 
