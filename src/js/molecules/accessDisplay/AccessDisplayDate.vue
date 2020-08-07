@@ -12,7 +12,7 @@
 			class="m-accessDisplayDate__icon"
 			:class="iconClass"
 		/>
-		<span class="m-accessDisplayDate__text">Dostęp do kursu <strong class="m-accessDisplayDate__text__date" :class="dateClass">do {{localizedCourseAccessDisplayDate}}</strong></span>
+		<span class="m-accessDisplayDate__text">Dostęp do kursu <strong class="m-accessDisplayDate__date" :class="dateClass">do {{courseAccessDisplayDate}}</strong></span>
 		<wnl-icon
 			v-if="touchable"
 			:size="iconSize"
@@ -63,13 +63,13 @@
 			#{$this}.-large & {
 				@include textS;
 			}
+		}
 
-			&__date {
-				color: currentColor;
+		&__date {
+			color: currentColor;
 
-				&.-notActive {
-					color: $color-alizarin-crimson;
-				}
+			&.-notActive {
+				color: $color-alizarin-crimson;
 			}
 		}
 
@@ -106,8 +106,13 @@ export default {
 	computed: {
 		...mapGetters([
 			'courseAccessCurrent',
-			'localizedCourseAccessDisplayDate'
 		]),
+		courseAccessDisplayDate() {
+			const displayDate = this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.AWAITING
+				? this.courseAccessCurrent.future_start_date
+				: this.courseAccessCurrent.last_end_date;
+			return displayDate.format('LL');
+		},
 		iconName() {
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.ACTIVE) {
 				return 'fa-unlock-alt';

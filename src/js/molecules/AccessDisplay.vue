@@ -2,30 +2,33 @@
 	<div class="m-accessDisplay">
 		<wnl-access-display-date touchable @click.native="openModal" />
 		<wnl-modal v-if="isModalVisible" @close-modal="isModalVisible=false">
-			<wnl-title slot="header" :level="3">Twoje dostępy do kursu</wnl-title>
+			<template #header>
+				<wnl-title :level="3">Twoje dostępy do kursu</wnl-title>
+			</template>
 			<wnl-access-display-date class="m-accessDisplay__date" large />
 			<wnl-text-loader v-if="isLoading" />
 			<table v-else class="m-accessDisplay__table">
 				<tr>
-					<th class="m-accessDisplay__table__header" />
-					<th class="m-accessDisplay__table__header">Start</th>
-					<th class="m-accessDisplay__table__header">Koniec</th>
-					<th class="m-accessDisplay__table__header">Data przyznania</th>
-					<th class="m-accessDisplay__table__header">Podstawa przyznania</th>
+					<th class="m-accessDisplay__tableHeader" />
+					<th class="m-accessDisplay__tableHeader">Start</th>
+					<th class="m-accessDisplay__tableHeader">Koniec</th>
+					<th class="m-accessDisplay__tableHeader">Data przyznania</th>
+					<th class="m-accessDisplay__tableHeader">Podstawa przyznania</th>
 				</tr>
 				<tr v-for="access in accesses" :key="access.id">
-					<td class="m-accessDisplay__table__cell"><wnl-access-status :status="access.status" /></td>
-					<td class="m-accessDisplay__table__cell -centered">{{formatDate(access.start_date)}}</td>
-					<td class="m-accessDisplay__table__cell -centered">{{formatDate(access.end_date)}}</td>
-					<td class="m-accessDisplay__table__cell -centered -small -alternative">{{formatDate(access.created_at)}}</td>
-					<td class="m-accessDisplay__table__cell -small"><wnl-access-display-extra :access="access" /></td>
+					<td class="m-accessDisplay__tableCell"><wnl-access-status :status="access.status" /></td>
+					<td class="m-accessDisplay__tableCell -centered">{{formatDate(access.start_date)}}</td>
+					<td class="m-accessDisplay__tableCell -centered">{{formatDate(access.end_date)}}</td>
+					<td class="m-accessDisplay__tableCell -centered -small -alternative">{{formatDate(access.created_at)}}</td>
+					<td class="m-accessDisplay__tableCell -small"><wnl-access-display-extra :access="access" /></td>
 				</tr>
 			</table>
-			<wnl-button
-				slot="footer"
-				medium
-				@click.native="isModalVisible=false"
-			>Ok, rozumiem</wnl-button>
+			<template #footer>
+				<wnl-button
+					medium
+					@click.native="isModalVisible=false"
+				>Ok, rozumiem</wnl-button>
+			</template>
 		</wnl-modal>
 	</div>
 </template>
@@ -41,34 +44,32 @@
 			margin-bottom: $space-m;
 		}
 
-		&__table {
-			&__header {
-				@include textXS;
+		&__tableHeader {
+			@include textXS;
 
-				background-color: $color-alabaster;
-				border-bottom: 1px solid $color-mischka;
-				color: $color-storm-grey;
-				padding: $space-xs;
+			background-color: $color-alabaster;
+			border-bottom: 1px solid $color-mischka;
+			color: $color-storm-grey;
+			padding: $space-xs;
+			text-align: center;
+		}
+
+		&__tableCell {
+			@include textS;
+
+			border-bottom: 1px solid $color-mischka;
+			padding: $space-xs;
+
+			&.-centered {
 				text-align: center;
 			}
 
-			&__cell {
-				@include textS;
+			&.-small {
+				@include textXS;
+			}
 
-				border-bottom: 1px solid $color-mischka;
-				padding: $space-xs;
-
-				&.-centered {
-					text-align: center;
-				}
-
-				&.-small {
-					@include textXS;
-				}
-
-				&.-alternative {
-					color: $color-storm-grey;
-				}
+			&.-alternative {
+				color: $color-storm-grey;
 			}
 		}
 	}
@@ -111,7 +112,7 @@ export default {
 			this.isModalVisible = true;
 			this.isLoading = true;
 			try {
-				const { data: accesses } = await axios.get(getApiUrl('	users/current/user_course_accesses'));
+				const { data: accesses } = await axios.get(getApiUrl('users/current/user_course_accesses'));
 				this.accesses = accesses;
 			} catch (e) {
 				$wnl.logger.error(e);
