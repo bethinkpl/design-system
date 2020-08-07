@@ -12,7 +12,18 @@
 			class="m-accessDisplayDate__icon"
 			:class="iconClass"
 		/>
-		<span class="m-accessDisplayDate__text">Dostęp do kursu <strong class="m-accessDisplayDate__date" :class="dateClass">do {{courseAccessDisplayDate}}</strong></span>
+		<span class="m-accessDisplayDate__text">Dostęp do kursu
+			<strong
+				v-if="isStatusSuspended"
+				class="m-accessDisplayDate__date"
+				:class="dateClass"
+			>Zablokowany</strong>
+			<strong
+				v-else
+				class="m-accessDisplayDate__date"
+				:class="dateClass"
+			>do {{courseAccessDisplayDate}}</strong>
+		</span>
 		<wnl-icon
 			v-if="touchable"
 			:size="iconSize"
@@ -111,7 +122,7 @@ export default {
 			const displayDate = this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.AWAITING
 				? this.courseAccessCurrent.future_start_date
 				: this.courseAccessCurrent.last_end_date;
-			return displayDate.format('LL');
+			return displayDate?.format('LL');
 		},
 		iconName() {
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.ACTIVE) {
@@ -136,6 +147,9 @@ export default {
 		},
 		iconSize() {
 			return this.large ? 'small' : 'x-small';
+		},
+		isStatusSuspended() {
+			return this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.SUSPENDED;
 		}
 	},
 };

@@ -1,6 +1,6 @@
 <template>
-	<div class="m-accessDisplay">
-		<wnl-access-display-date touchable @click.native="openModal" />
+	<div v-if="!isCourseAccessCurrentStatusInactive" class="m-accessDisplay">
+		<wnl-access-display-date :touchable="!isCourseAccessCurrentStatusSuspended" @click.native="openModal" />
 		<wnl-modal v-if="isModalVisible" @close-modal="isModalVisible=false">
 			<template #header>
 				<wnl-title :level="3">Twoje dostępy do kursu</wnl-title>
@@ -77,7 +77,7 @@
 </style>
 
 <script>
-import { mapActions } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 import axios from 'axios';
 import moment from 'moment';
 
@@ -89,6 +89,7 @@ import WnlAccessStatus from 'js/components/global/styleguide/molecules/AccessSta
 import WnlModal from 'js/components/global/Modal';
 import { getApiUrl } from 'js/utils/env';
 import { ALERT_TYPES } from 'js/consts/alert';
+import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
 export default {
 	components: {
@@ -106,9 +107,24 @@ export default {
 			accesses: [],
 		};
 	},
+	computed: {
+		...mapGetters([
+			'courseAccessCurrent',
+		]),
+		isCourseAccessCurrentStatusInactive() {
+			return this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.INACTIVE;
+		},
+		isCourseAccessCurrentStatusSuspended() {
+			return this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.SUSPENDED;
+		}
+	},
 	methods: {
 		...mapActions(['addAutoDismissableAlert']),
 		async openModal() {
+			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.SUSPENDED) {
+				return;
+			}
+
 			this.isModalVisible = true;
 			this.isLoading = true;
 			try {
