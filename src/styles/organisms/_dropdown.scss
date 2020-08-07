@@ -2,12 +2,6 @@
 	position: relative;
 	display: inline-flex;
 
-	&.-active {
-		.o-dropdown__menu {
-			display: initial;
-		}
-	}
-
 	.o-dropdown__menu {
 		display: none;
 		padding: $space-xxs $space-m;
@@ -17,6 +11,12 @@
 		z-index: 100;
 		background-color: $color-white;
 		min-width: 244px;
+	}
+
+	&.-active {
+		.o-dropdown__menu {
+			display: initial;
+		}
 	}
 
 	.o-dropdown__trigger {
