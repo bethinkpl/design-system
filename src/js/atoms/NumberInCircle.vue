@@ -70,6 +70,7 @@
 	}
 
 </style>
+
 <script>
 
 export const COLORS = {
