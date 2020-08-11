@@ -4,29 +4,31 @@
 	>
 		<wnl-icon
 			class="m-arrowButton__icon"
-			:fa-icon-class="icon"
+			fa-icon-class="fa-angle-left"
 			size="x-small"
 		/>
 	</wnl-button>
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/colors';
-	@import 'resources/assets/styles/styleguide/settings/radiuses';
-	@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'resources/assets/styles/styleguide/settings/colors';
+@import 'resources/assets/styles/styleguide/settings/radiuses';
+@import 'resources/assets/styles/styleguide/settings/spacings';
 
-	.m-arrowButton {
-		background-color: $color-white;
-		border: 1px solid $color-blue-chill;
-		border-radius: $radius-s;
-		padding: $space-xxxs $space-xs;
-		&:hover {
-			background-color:$color-alabaster;
-		}
-		&__icon {
-			color: $color-blue-chill;
-		}
+.m-arrowButton {
+	background-color: $color-white;
+	border: 1px solid $color-blue-chill;
+	border-radius: $radius-s;
+	padding: $space-xxxs $space-xs;
+
+	&:hover {
+		background-color: $color-alabaster;
 	}
+
+	&__icon {
+		color: $color-blue-chill;
+	}
+}
 </style>
 
 <script>
@@ -37,12 +39,7 @@ export default {
 	name: 'ArrowButton',
 	components: {
 		WnlButton,
-		WnlIcon
-	},
-	data() {
-		return {
-			icon: 'fa-angle-left',
-		};
+		WnlIcon,
 	},
 };
 </script>
