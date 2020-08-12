@@ -20,9 +20,11 @@
 		border: 1px solid $color-blue-chill;
 		border-radius: $radius-s;
 		padding: $space-xxxs $space-xs;
+
 		&:hover {
 			background-color:$color-alabaster;
 		}
+
 		&__icon {
 			color: $color-blue-chill;
 		}
