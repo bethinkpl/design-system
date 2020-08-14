@@ -1,9 +1,9 @@
 <template>
 	<div class="o-expandableOverlay" :class="{ '-expanded': isExpanded }">
 		<div class="o-expandableOverlay__bar" @click="toggleIsExpanded">
-			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">{{
-				shortMessage
-			}}</span>
+			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">
+				{{ shortMessage }}
+			</span>
 			<wnl-button-with-icon class="o-expandableOverlay__bar__toggle" text>
 				<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
 				<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>

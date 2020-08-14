@@ -7,9 +7,9 @@
 		@input="$emit('input', $event.target.value)"
 	>
 		<option value="" disabled>Wybierz wartość</option>
-		<option v-for="option in options" :key="option.value" :value="option.value">{{
-			option.text
-		}}</option>
+		<option v-for="option in options" :key="option.value" :value="option.value">
+			{{ option.text }}
+		</option>
 	</select>
 </template>
 

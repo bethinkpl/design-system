@@ -1,9 +1,9 @@
 <template>
 	<div class="m-numberedList">
 		<div v-for="index in listItemsCount" :key="index" class="m-numberedList__row">
-			<wnl-number-in-circle :index="index" :medium="mediumPoints" :color="color">{{
-				index
-			}}</wnl-number-in-circle>
+			<wnl-number-in-circle :index="index" :medium="mediumPoints" :color="color">
+				{{ index }}
+			</wnl-number-in-circle>
 			<div class="m-numberedList__row__content">
 				<slot :name="`item${index}`" />
 			</div>

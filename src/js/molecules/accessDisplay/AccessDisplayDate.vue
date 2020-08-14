@@ -12,8 +12,8 @@
 			class="m-accessDisplayDate__icon"
 			:class="iconClass"
 		/>
-		<span class="m-accessDisplayDate__text"
-			>Dostęp do kursu
+		<span class="m-accessDisplayDate__text">
+			Dostęp do kursu
 			<strong class="m-accessDisplayDate__date" :class="dateClass">{{ dateText }}</strong>
 		</span>
 		<wnl-icon
