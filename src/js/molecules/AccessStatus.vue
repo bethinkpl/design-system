@@ -1,43 +1,39 @@
 <template>
 	<div class="m-accessStatus" :class="statusClass">
-		<wnl-icon
-			size="x-small"
-			:fa-icon-class="iconName"
-			class="m-accessStatus__icon"
-		/>
-		<span class="m-accessStatus__text">{{text}}</span>
+		<wnl-icon size="x-small" :fa-icon-class="iconName" class="m-accessStatus__icon" />
+		<span class="m-accessStatus__text">{{ text }}</span>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/colors';
-	@import 'resources/assets/styles/styleguide/settings/spacings';
-	@import 'resources/assets/styles/styleguide/settings/typography';
+@import 'resources/assets/styles/styleguide/settings/colors';
+@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'resources/assets/styles/styleguide/settings/typography';
 
-	.m-accessStatus {
-		align-items: center;
-		color: $color-storm-grey;
-		display: flex;
+.m-accessStatus {
+	align-items: center;
+	color: $color-storm-grey;
+	display: flex;
 
-		&.-active {
-			color: $color-ocean-green;
-		}
-
-		&.-notActive {
-			color: $color-alizarin-crimson;
-		}
-
-		&__icon {
-			margin-right: $space-xxxs;
-		}
-
-		&__text {
-			@include textS;
-			@include textBold;
-
-			text-transform: uppercase;
-		}
+	&.-active {
+		color: $color-ocean-green;
 	}
+
+	&.-notActive {
+		color: $color-alizarin-crimson;
+	}
+
+	&__icon {
+		margin-right: $space-xxxs;
+	}
+
+	&__text {
+		@include textS;
+		@include textBold;
+
+		text-transform: uppercase;
+	}
+}
 </style>
 
 <script>
@@ -81,7 +77,7 @@ export default {
 				return 'Oczekujący';
 			}
 			return 'Zakończony';
-		}
+		},
 	},
 };
 </script>

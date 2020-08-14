@@ -10,18 +10,18 @@
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'resources/assets/styles/styleguide/settings/spacings';
 
-	.m-textWithIcon {
-		align-items: center;
-		display: flex;
+.m-textWithIcon {
+	align-items: center;
+	display: flex;
 
-		&__icon {
-			margin-right: $space-s;
-		}
-
-		&__text {
-			white-space: nowrap;
-		}
+	&__icon {
+		margin-right: $space-s;
 	}
+
+	&__text {
+		white-space: nowrap;
+	}
+}
 </style>
