@@ -50,7 +50,7 @@ export default {
 		level: {
 			type: Number,
 			default: 2,
-			validator: function(value) {
+			validator: function (value) {
 				return [1, 2, 3, 4, 5, 6].includes(value);
 			},
 		},

@@ -1,5 +1,5 @@
 <template>
-	<section class="o-card" :style="styles" @click="e => collapsed && toggleCollapse(e)">
+	<section class="o-card" :style="styles" @click="(e) => collapsed && toggleCollapse(e)">
 		<header class="m-cardHeader">
 			<slot name="header">
 				<wnl-title v-if="title" :level="5" :text="title" />

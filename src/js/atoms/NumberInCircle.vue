@@ -93,7 +93,7 @@ export default {
 		color: {
 			type: String,
 			default: COLORS.DEFAULT,
-			validator: function(value) {
+			validator: function (value) {
 				return Object.values(COLORS).includes(value);
 			},
 		},
