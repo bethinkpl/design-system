@@ -1,16 +1,8 @@
 <template>
-	<section
-		class="o-card"
-		:style="styles"
-		@click="e => collapsed && toggleCollapse(e)"
-	>
+	<section class="o-card" :style="styles" @click="e => collapsed && toggleCollapse(e)">
 		<header class="m-cardHeader">
 			<slot name="header">
-				<wnl-title
-					v-if="title"
-					:level="5"
-					:text="title"
-				/>
+				<wnl-title v-if="title" :level="5" :text="title" />
 			</slot>
 			<div>
 				<wnl-icon
@@ -20,11 +12,7 @@
 				/>
 			</div>
 		</header>
-		<div
-			v-if="$slots.summary"
-			class="m-cardSummary"
-			:class="{'-collapsed': collapsed}"
-		>
+		<div v-if="$slots.summary" class="m-cardSummary" :class="{ '-collapsed': collapsed }">
 			<slot name="summary" />
 		</div>
 		<template v-if="!collapsed">
@@ -35,41 +23,41 @@
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/spacings';
-	@import 'resources/assets/styles/styleguide/settings/shadows';
+@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'resources/assets/styles/styleguide/settings/shadows';
 
-	.o-card {
-		border-radius: 6px;
-		box-shadow: $medium-shadow;
-		padding: $space-l;
+.o-card {
+	border-radius: 6px;
+	box-shadow: $medium-shadow;
+	padding: $space-l;
+}
+
+.m-cardHeader {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: $space-l;
+
+	.a-title {
+		flex-grow: 1;
 	}
 
-	.m-cardHeader {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: $space-l;
+	.a-icon {
+		cursor: pointer;
+		margin-right: $space-xs;
 
-		.a-title {
-			flex-grow: 1;
-		}
-
-		.a-icon {
-			cursor: pointer;
-			margin-right: $space-xs;
-
-			&:last-of-type {
-				margin-right: 0;
-			}
+		&:last-of-type {
+			margin-right: 0;
 		}
 	}
+}
 
-	.m-cardSummary {
-		margin-bottom: $space-l;
+.m-cardSummary {
+	margin-bottom: $space-l;
 
-		&.-collapsed {
-			margin-bottom: 0;
-		}
+	&.-collapsed {
+		margin-bottom: 0;
 	}
+}
 </style>
 
 <script>
@@ -84,16 +72,16 @@ export default {
 	props: {
 		title: {
 			type: String,
-			default: ''
+			default: '',
 		},
 		borderColor: {
 			type: String,
 			default: '',
-		}
+		},
 	},
 	data() {
 		return {
-			collapsed: true
+			collapsed: true,
 		};
 	},
 	computed: {
@@ -105,13 +93,13 @@ export default {
 				...(this.borderColor && { borderLeft: `6px solid ${this.borderColor}` }),
 				...(this.collapsed && { cursor: 'pointer' }),
 			};
-		}
+		},
 	},
 	methods: {
 		toggleCollapse() {
 			this.collapsed = !this.collapsed;
 			this.$emit('toggle-collapsed', this.collapsed);
 		},
-	}
+	},
 };
 </script>
