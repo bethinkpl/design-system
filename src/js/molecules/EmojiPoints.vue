@@ -1,9 +1,10 @@
 <template>
-	<div :class="['m-emojiPoints', vertical && '-vertical']">
+	<div class="m-emojiPoints" :class="{ '-vertical': vertical }">
 		<div
 			v-for="(item, index) in items"
 			:key="index"
-			:class="['m-emojiPoints__item', sizeClass, separated && '-separated']"
+			class="m-emojiPoints__item"
+			:class="{ '-separated': separated, sizeClass: true }"
 		>
 			<div class="m-emojiPoints__item__emoji">{{item.emoji}}</div>
 			<div class="m-emojiPoints__item__text" v-html="item.text" />
