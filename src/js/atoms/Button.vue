@@ -21,15 +21,15 @@ export default {
 	props: {
 		text: {
 			type: Boolean,
-			default: false
+			default: false,
 		},
 		small: {
 			type: Boolean,
-			default: false
+			default: false,
 		},
 		medium: {
 			type: Boolean,
-			default: false
+			default: false,
 		},
 		loading: {
 			type: Boolean,

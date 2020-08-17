@@ -12,11 +12,9 @@
 			class="m-accessDisplayDate__icon"
 			:class="iconClass"
 		/>
-		<span class="m-accessDisplayDate__text">Dostęp do kursu
-			<strong
-				class="m-accessDisplayDate__date"
-				:class="dateClass"
-			>{{dateText}}</strong>
+		<span class="m-accessDisplayDate__text">
+			Dostęp do kursu
+			<strong class="m-accessDisplayDate__date" :class="dateClass">{{ dateText }}</strong>
 		</span>
 		<wnl-icon
 			v-if="touchable"
@@ -29,64 +27,63 @@
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/colors';
-	@import 'resources/assets/styles/styleguide/settings/spacings';
-	@import 'resources/assets/styles/styleguide/settings/typography';
+@import 'resources/assets/styles/styleguide/settings/colors';
+@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'resources/assets/styles/styleguide/settings/typography';
 
-	.m-accessDisplayDate {
-		$this: &;
+.m-accessDisplayDate {
+	$this: &;
 
-		align-items: center;
-		display: flex;
+	align-items: center;
+	display: flex;
 
-		&.-touchable {
-			cursor: pointer;
+	&.-touchable {
+		cursor: pointer;
 
-			&:hover {
-				color: $color-blue-chill;
-			}
-		}
-
-		&__icon {
-			color: $color-storm-grey;
-			margin-right: $space-xxxs;
-
-			&.-active {
-				color: $color-ocean-green;
-			}
-
-			&.-notActive {
-				color: $color-alizarin-crimson;
-			}
-		}
-
-		&__text {
-			@include textXS;
-
-			text-transform: uppercase;
-
-			#{$this}.-large & {
-				@include textS;
-			}
-		}
-
-		&__date {
-			color: currentColor;
-
-			&.-notActive {
-				color: $color-alizarin-crimson;
-			}
-		}
-
-		&__help {
-			color: $color-storm-grey;
-
-			#{$this}:hover & {
-				color: $color-blue-chill;
-			}
+		&:hover {
+			color: $color-blue-chill;
 		}
 	}
 
+	&__icon {
+		color: $color-storm-grey;
+		margin-right: $space-xxxs;
+
+		&.-active {
+			color: $color-ocean-green;
+		}
+
+		&.-notActive {
+			color: $color-alizarin-crimson;
+		}
+	}
+
+	&__text {
+		@include textXS;
+
+		text-transform: uppercase;
+
+		#{$this}.-large & {
+			@include textS;
+		}
+	}
+
+	&__date {
+		color: currentColor;
+
+		&.-notActive {
+			color: $color-alizarin-crimson;
+		}
+	}
+
+	&__help {
+		color: $color-storm-grey;
+
+		#{$this}:hover & {
+			color: $color-blue-chill;
+		}
+	}
+}
 </style>
 
 <script>
@@ -106,16 +103,15 @@ export default {
 		touchable: {
 			type: Boolean,
 			default: false,
-		}
+		},
 	},
 	computed: {
-		...mapGetters([
-			'courseAccessCurrent',
-		]),
+		...mapGetters(['courseAccessCurrent']),
 		courseAccessDisplayDate() {
-			const displayDate = this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.AWAITING
-				? this.courseAccessCurrent.future_start_date
-				: this.courseAccessCurrent.last_end_date;
+			const displayDate =
+				this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.AWAITING
+					? this.courseAccessCurrent.future_start_date
+					: this.courseAccessCurrent.last_end_date;
 			return displayDate?.format('LL');
 		},
 		iconName() {
@@ -128,7 +124,9 @@ export default {
 			return 'fa-lock';
 		},
 		dateClass() {
-			return [COURSE_ACCESS_STATUS.SUSPENDED, COURSE_ACCESS_STATUS.EXPIRED].includes(this.courseAccessCurrent.status)
+			return [COURSE_ACCESS_STATUS.SUSPENDED, COURSE_ACCESS_STATUS.EXPIRED].includes(
+				this.courseAccessCurrent.status,
+			)
 				? '-notActive'
 				: '';
 		},
@@ -153,7 +151,7 @@ export default {
 			}
 
 			return `do ${this.courseAccessDisplayDate}`;
-		}
+		},
 	},
 };
 </script>

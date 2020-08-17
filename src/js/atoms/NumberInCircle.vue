@@ -3,81 +3,81 @@
 		class="a-numberInCircle"
 		:class="{
 			'-medium': medium,
-			[colorClass]: true
+			[colorClass]: true,
 		}"
-	><slot /></div>
+	>
+		<slot />
+	</div>
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/colors';
-	@import 'resources/assets/styles/styleguide/settings/icons';
-	@import 'resources/assets/styles/styleguide/settings/media-queries';
-	@import 'resources/assets/styles/styleguide/settings/spacings';
-	@import 'resources/assets/styles/styleguide/settings/typography';
+@import 'resources/assets/styles/styleguide/settings/colors';
+@import 'resources/assets/styles/styleguide/settings/icons';
+@import 'resources/assets/styles/styleguide/settings/media-queries';
+@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'resources/assets/styles/styleguide/settings/typography';
 
-	.a-numberInCircle {
-		align-items: center;
-		border-radius: 50%;
-		border: 1px solid currentColor;
-		display: inline-flex;
-		font-size: $font-size-header-6;
-		height: $icon-l;
-		justify-content: center;
-		line-height: 1;
-		min-width: $icon-l;
-		padding: 0 $space-xxxs;
-		text-align: center;
+.a-numberInCircle {
+	align-items: center;
+	border-radius: 50%;
+	border: 1px solid currentColor;
+	display: inline-flex;
+	font-size: $font-size-header-6;
+	height: $icon-l;
+	justify-content: center;
+	line-height: 1;
+	min-width: $icon-l;
+	padding: 0 $space-xxxs;
+	text-align: center;
 
-		@media #{$breakpoint-s} {
-			font-size: $font-size-header-4;
-			height: $icon-xl;
-			min-width: $icon-xl;
-		}
-
-		&.-is1 {
-			color: $color-blue-chill;
-		}
-
-		&.-is2 {
-			color: $color-ocean-green;
-		}
-
-		&.-is3 {
-			color: $color-deluge;
-		}
-
-		&.-is4 {
-			color: $color-governor-bay;
-		}
-
-		&.-danger {
-			color: $color-alizarin-crimson;
-		}
-
-		&.-primary {
-			color: $color-blue-chill;
-		}
-
-		&.-secondary {
-			color: $color-storm-grey;
-		}
-
-		&.-medium {
-			height: $icon-m;
-			font-size: $font-size-text-s;
-			min-width: $icon-m;
-		}
+	@media #{$breakpoint-s} {
+		font-size: $font-size-header-4;
+		height: $icon-xl;
+		min-width: $icon-xl;
 	}
 
+	&.-is1 {
+		color: $color-blue-chill;
+	}
+
+	&.-is2 {
+		color: $color-ocean-green;
+	}
+
+	&.-is3 {
+		color: $color-deluge;
+	}
+
+	&.-is4 {
+		color: $color-governor-bay;
+	}
+
+	&.-danger {
+		color: $color-alizarin-crimson;
+	}
+
+	&.-primary {
+		color: $color-blue-chill;
+	}
+
+	&.-secondary {
+		color: $color-storm-grey;
+	}
+
+	&.-medium {
+		height: $icon-m;
+		font-size: $font-size-text-s;
+		min-width: $icon-m;
+	}
+}
 </style>
 
 <script>
-
 export const COLORS = {
 	DEFAULT: 'DEFAULT',
 	PRIMARY: 'PRIMARY',
 	DANGER: 'DANGER',
-	SECONDARY: 'SECONDARY'
+	SECONDARY: 'SECONDARY',
 };
 
 export default {
@@ -95,7 +95,7 @@ export default {
 			default: COLORS.DEFAULT,
 			validator: function (value) {
 				return Object.values(COLORS).includes(value);
-			}
+			},
 		},
 	},
 	computed: {
@@ -107,7 +107,7 @@ export default {
 				[COLORS.SECONDARY]: '-secondary',
 			};
 			return colorToClassMap[this.color];
-		}
-	}
+		},
+	},
 };
 </script>
