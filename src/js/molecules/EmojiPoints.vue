@@ -6,69 +6,69 @@
 			class="m-emojiPoints__item"
 			:class="{ '-separated': separated, sizeClass: true }"
 		>
-			<div class="m-emojiPoints__item__emoji">{{item.emoji}}</div>
+			<div class="m-emojiPoints__item__emoji">{{ item.emoji }}</div>
 			<div class="m-emojiPoints__item__text" v-html="item.text" />
 		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/media-queries';
-	@import 'resources/assets/styles/styleguide/settings/spacings';
-	@import 'resources/assets/styles/styleguide/settings/typography';
-	@import 'resources/assets/styles/styleguide/settings/colors';
+@import 'resources/assets/styles/styleguide/settings/media-queries';
+@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'resources/assets/styles/styleguide/settings/typography';
+@import 'resources/assets/styles/styleguide/settings/colors';
 
-	.m-emojiPoints {
-		&__item {
-			display: flex;
-			margin-bottom: $space-s;
+.m-emojiPoints {
+	&__item {
+		display: flex;
+		margin-bottom: $space-s;
 
-			&:last-child {
-				margin-bottom: 0;
-			}
-
-			&__emoji {
-				width: 20px;
-				margin-right: $space-xxs;
-				text-align: center;
-			}
-
-			&.-medium {
-				@include textS;
-			}
-
-			&.-large {
-				@include titleLevel4;
-			}
-
-			&.-small {
-				@include textXS;
-			}
-
-			&.-separated {
-				border-bottom: 1px solid $color-mischka;
-				padding: $space-s 0;
-				margin-bottom: 0;
-			}
+		&:last-child {
+			margin-bottom: 0;
 		}
 
-		&.-vertical {
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
+		&__emoji {
+			width: 20px;
+			margin-right: $space-xxs;
+			text-align: center;
+		}
 
-			.m-emojiPoints__item {
-				margin-left: $space-l;
-				width: 242px;
+		&.-medium {
+			@include textS;
+		}
 
-				@media #{$breakpoint-s} {
-					flex: 1 1 auto;
-					max-width: 360px;
-					width: auto;
-				}
+		&.-large {
+			@include titleLevel4;
+		}
+
+		&.-small {
+			@include textXS;
+		}
+
+		&.-separated {
+			border-bottom: 1px solid $color-mischka;
+			padding: $space-s 0;
+			margin-bottom: 0;
+		}
+	}
+
+	&.-vertical {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		.m-emojiPoints__item {
+			margin-left: $space-l;
+			width: 242px;
+
+			@media #{$breakpoint-s} {
+				flex: 1 1 auto;
+				max-width: 360px;
+				width: auto;
 			}
 		}
 	}
+}
 </style>
 
 <script>
@@ -92,12 +92,12 @@ export default {
 		},
 		vertical: {
 			type: Boolean,
-			default: false
+			default: false,
 		},
 		separated: {
 			type: Boolean,
-			default: false
-		}
+			default: false,
+		},
 	},
 	computed: {
 		sizeClass() {
@@ -110,7 +110,7 @@ export default {
 			}
 
 			return '-medium';
-		}
-	}
+		},
+	},
 };
 </script>
