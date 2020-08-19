@@ -11,6 +11,12 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
         value: "",
         required: false
     }}
+    argTypes={{
+        placeholder: {control: { type: 'text' }},
+        disabled: {control: { type: 'boolean' }},
+        value: {control: { type: 'text' }},
+        required: {control: { type: 'boolean' }},
+    }}
     >
     {(args) => {
         return {

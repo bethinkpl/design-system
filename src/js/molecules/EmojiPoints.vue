@@ -4,7 +4,7 @@
 			v-for="(item, index) in items"
 			:key="index"
 			class="m-emojiPoints__item"
-			:class="{ '-separated': separated, sizeClass: true }"
+			:class="{ '-separated': separated, [sizeClass]: true }"
 		>
 			<div class="m-emojiPoints__item__emoji">{{ item.emoji }}</div>
 			<div class="m-emojiPoints__item__text" v-html="item.text" />

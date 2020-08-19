@@ -8,6 +8,9 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
     args={{
         active: false,
     }}
+    argTypes={{
+        active: {control: { type: 'boolean' }},
+    }}
     >
     {(args) => {
         return {

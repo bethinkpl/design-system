@@ -8,6 +8,9 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
     args={{
         text: "Politykę Prywatności",
     }}
+    argTypes={{
+        text: {control: { type: 'text' }},
+    }}
     >
     {(args) => {
         return {

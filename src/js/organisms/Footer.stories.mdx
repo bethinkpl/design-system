@@ -9,6 +9,10 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
         html1: 'Bezpieczna transakcja realizowana przez Przelewy24',
         html2: 'W razie problemów napisz do nas na Messengerze lub wyślij maila na adres: <a href="mailto:info@wiecejnizlek.pl" class="a-linkInText">info@wiecejnizlek.pl</a>',
     }}
+    argTypes={{
+        html1: {control: { type: 'text' }},
+        html2: {control: { type: 'text' }},
+    }}
     >
     {(args) => {
         return {
