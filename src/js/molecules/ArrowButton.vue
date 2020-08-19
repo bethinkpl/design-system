@@ -11,7 +11,7 @@
 
 .m-arrowButton {
 	background-color: $color-white;
-	border: 1px solid $color-blue-chill;
+	border: 1px solid $color-primary;
 	border-radius: $radius-s;
 	padding: $space-xxxs $space-xs;
 
@@ -20,7 +20,7 @@
 	}
 
 	&__icon {
-		color: $color-blue-chill;
+		color: $color-primary;
 	}
 }
 </style>

@@ -1,7 +1,7 @@
 .a-button {
 	@include textSingleLineS;
 
-	background: $color-blue-chill;
+	background: $color-primary;
 	border: 0;
 	border-radius: 100px;
 	color: $color-white;
@@ -106,14 +106,14 @@
 
 	&:hover,
 	&.-hovered {
-		background-color: $color-surfie-green;
+		background-color: $color-primary-dark;
 		color: $color-white;
 	}
 
 	&:focus,
 	&.-focused {
-		background-color: $color-surfie-green;
-		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-blue-chill-rgb, 0.6);
+		background-color: $color-primary-dark;
+		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-primary-rgb, 0.6);
 	}
 
 	&.-roundedCorners {
@@ -154,12 +154,12 @@
 		background-color: transparent;
 		border: none;
 		border-radius: 0;
-		color: $color-blue-chill;
+		color: $color-primary;
 		padding: $space-xxs $space-s;
 
 		&:hover,
 		&.-hovered {
-			color: $color-surfie-green;
+			color: $color-primary-dark;
 		}
 
 		&:focus,
@@ -170,7 +170,7 @@
 
 		&:disabled,
 		&.-disabled {
-			color: rgba($color-blue-chill-rgb, 0.6);
+			color: rgba($color-primary-rgb, 0.6);
 		}
 	}
 }

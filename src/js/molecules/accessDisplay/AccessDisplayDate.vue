@@ -41,7 +41,7 @@
 		cursor: pointer;
 
 		&:hover {
-			color: $color-blue-chill;
+			color: $color-primary;
 		}
 	}
 
@@ -80,7 +80,7 @@
 		color: $color-storm-grey;
 
 		#{$this}:hover & {
-			color: $color-blue-chill;
+			color: $color-primary;
 		}
 	}
 }

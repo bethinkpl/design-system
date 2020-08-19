@@ -18,12 +18,12 @@
 
 	&:hover,
 	&.-hovered {
-		border-color: $color-surfie-green;
+		border-color: $color-primary-dark;
 	}
 
 	&:focus,
 	&:active {
-		border-color: $color-blue-chill;
+		border-color: $color-primary;
 	}
 
 	&:disabled {
@@ -67,12 +67,12 @@
 	-webkit-appearance: none;
 
 	&:checked {
-		background-color: $color-blue-chill;
+		background-color: $color-primary;
 		border-width: 0;
 	}
 
 	&:hover {
-		background-color: $color-surfie-green;
+		background-color: $color-primary-dark;
 	}
 
 	&:disabled {
@@ -107,7 +107,7 @@
 	border-radius: 100%;
 
 	&:checked {
-		box-shadow: inset 0 0 0 2px $color-blue-chill, inset 0 0 0 4px $color-white;
+		box-shadow: inset 0 0 0 2px $color-primary, inset 0 0 0 4px $color-white;
 	}
 }
 
@@ -119,7 +119,7 @@
 	display: inline-block;
 
 	&.-required::after {
-		color: $color-blue-chill;
+		color: $color-primary;
 		content: '*';
 	}
 
