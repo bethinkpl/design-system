@@ -9,7 +9,11 @@ import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 <Story name='interactive'
     args={{
         textProp: "super tekst tutaj jest",
-        icon: 'fa-eye',
+        faIconClass: 'fa-eye',
+    }}
+    argTypes={{
+        textProp: {control: { type: 'text' }},
+        faIconClass: {control: { type: 'text' }},
     }}
 >
     {(args) => {
@@ -19,7 +23,7 @@ import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
             template: `<wnl-text-with-icon class="o-dashboard__reportSummary__overallIndicator__name">
                 <wnl-icon
                     slot="icon"
-                    :fa-icon-class="icon"
+                    :fa-icon-class="faIconClass"
                 />
                 <span slot="text">
                     {{textProp}}

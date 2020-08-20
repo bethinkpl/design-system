@@ -9,6 +9,10 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
         text: 'Załóż konto i aktywuj demo',
         note: 'Poprzez kliknięcie akceptujesz Regulamin oraz Politykę Prywatności.',
     }}
+    argTypes={{
+        text: {control: { type: 'text' }},
+        note: {control: { type: 'text' }},
+    }}
     >
     {(args) => {
         return {
