@@ -44,6 +44,8 @@ $color-white: #fff;
 
 $color-primary-rgb: var(--color-primary-rgb);
 $color-primary-less-opacity: rgba(var(--color-primary-rgb), 0.25);
+$color-white-opacity90: rgba(255, 255, 255, 0.9);
+$color-white-opacity50: rgba(255, 255, 255, 0.5);
 
 // theme colors
 $color-primary: var(--color-primary);
