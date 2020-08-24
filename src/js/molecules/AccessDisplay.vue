@@ -60,7 +60,7 @@
 
 		background-color: $color-alabaster;
 		border-bottom: 1px solid $color-mischka;
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 		padding: $space-xs;
 		text-align: center;
 	}
@@ -80,7 +80,7 @@
 		}
 
 		&.-alternative {
-			color: $color-storm-grey;
+			color: $color-storm-gray;
 		}
 	}
 }

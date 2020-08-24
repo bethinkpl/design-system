@@ -61,7 +61,7 @@
 	}
 
 	&.-secondary {
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 	}
 
 	&.-medium {

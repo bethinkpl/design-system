@@ -98,8 +98,8 @@
 
 	&:disabled,
 	&.-disabled {
-		background-color: $color-athens-grey;
-		color: $color-storm-grey;
+		background-color: $color-athens-gray;
+		color: $color-storm-gray;
 		cursor: not-allowed;
 		pointer-events: none;
 	}
@@ -127,7 +127,7 @@
 		@include textSingleLineXS;
 
 		background-color: $color-white;
-		border: 2px solid $color-storm-grey;
+		border: 2px solid $color-storm-gray;
 		color: $color-ebony-clay;
 		padding: $space-xxxs $space-m;
 
@@ -140,7 +140,7 @@
 		&:focus,
 		&.-focus {
 			background-color: $color-white;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-grey, 0.6);
+			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-gray, 0.6);
 		}
 
 		&:disabled,
@@ -164,7 +164,7 @@
 
 		&:focus,
 		&.-focus {
-			background-color: $color-athens-grey;
+			background-color: $color-athens-gray;
 			box-shadow: none;
 		}
 

@@ -27,8 +27,8 @@
 	}
 
 	&:disabled {
-		border-color: $color-athens-grey;
-		color: $color-storm-grey;
+		border-color: $color-athens-gray;
+		color: $color-storm-gray;
 	}
 
 	&:focus:invalid,
@@ -42,7 +42,7 @@
 	height: $line-height-text-m + 2 * $space-xxxs + 2px;
 
 	&:required:invalid {
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 	}
 
 	option {
@@ -77,7 +77,7 @@
 
 	&:disabled {
 		background-color: $color-white;
-		border-color: $color-athens-grey;
+		border-color: $color-athens-gray;
 		pointer-events: none;
 	}
 

@@ -40,11 +40,11 @@
 	$bar-min-height: 56px;
 
 	z-index: $z-index-critical-info-overlay;
-	background-color: $color-athens-grey;
+	background-color: $color-athens-gray;
 
 	&.-expanded {
 		align-items: center;
-		background-image: linear-gradient($color-athens-grey, white);
+		background-image: linear-gradient($color-athens-gray, white);
 		bottom: 0;
 		display: flex;
 		flex-direction: column;
@@ -112,14 +112,14 @@
 			@include textM;
 			@include textBold;
 
-			color: $color-storm-grey;
+			color: $color-storm-gray;
 			margin-bottom: $space-s;
 		}
 
 		/deep/ &__textSmall {
 			@include textS;
 
-			color: $color-storm-grey;
+			color: $color-storm-gray;
 			margin-bottom: $space-m;
 		}
 
@@ -142,7 +142,7 @@
 	&__footer {
 		@include textS;
 
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 		margin-top: $space-xl;
 		padding: $space-m $space-l $space-m $space-s;
 		text-align: right;

@@ -12,7 +12,7 @@
 
 .m-accessStatus {
 	align-items: center;
-	color: $color-storm-grey;
+	color: $color-storm-gray;
 	display: flex;
 
 	&.-active {

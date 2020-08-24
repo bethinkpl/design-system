@@ -46,7 +46,7 @@
 	}
 
 	&__icon {
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 		margin-right: $space-xxxs;
 
 		&.-active {
@@ -77,7 +77,7 @@
 	}
 
 	&__help {
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 
 		#{$this}:hover & {
 			color: $color-primary;
