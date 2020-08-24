@@ -43,6 +43,7 @@ $color-alabaster: #f6f6f8;
 $color-white: #fff;
 
 $color-primary-rgb: var(--color-primary-rgb);
+$color-primary-less-opacity: rgba(var(--color-primary-rgb), 0.25);
 
 // theme colors
 $color-primary: var(--color-primary);
