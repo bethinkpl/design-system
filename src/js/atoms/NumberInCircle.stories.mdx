@@ -14,6 +14,7 @@ import WnlNumberInCircle, { COLORS } from 'js/components/global/styleguide/atoms
     }}
     argTypes={{
         color: {control: { type: 'select', options: Object.values(COLORS) }, defaultValue: COLORS.DEFAULT},
+        slotText: {control: { type: 'text' } },
     }}
 >
     {(args) => {

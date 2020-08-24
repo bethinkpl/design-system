@@ -8,6 +8,9 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
     args={{
         text: "Załóż nowe konto",
     }}
+    argTypes={{
+        text: {control: { type: 'text' }},
+    }}
     >
     {(args) => {
         return {

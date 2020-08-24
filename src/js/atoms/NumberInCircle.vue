@@ -37,7 +37,7 @@
 	}
 
 	&.-is1 {
-		color: $color-blue-chill;
+		color: $color-primary;
 	}
 
 	&.-is2 {
@@ -57,7 +57,7 @@
 	}
 
 	&.-primary {
-		color: $color-blue-chill;
+		color: $color-primary;
 	}
 
 	&.-secondary {

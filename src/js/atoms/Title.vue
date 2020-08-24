@@ -39,7 +39,7 @@
 
 	&.-link {
 		cursor: pointer;
-		color: $color-ocean-blue;
+		color: $color-primary;
 	}
 }
 </style>

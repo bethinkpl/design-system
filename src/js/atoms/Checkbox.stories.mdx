@@ -10,6 +10,11 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
         checked: false,
         small: false
     }}
+    argTypes={{
+        disabled: {control: { type: 'boolean' }},
+        checked: {control: { type: 'boolean' }},
+        small: {control: { type: 'boolean' }},
+    }}
     >
     {(args) => {
         return {
