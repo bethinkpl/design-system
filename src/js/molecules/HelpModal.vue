@@ -36,7 +36,7 @@
 }
 
 .o-helpModal__content /deep/ h3 {
-	color: $color-firefly;
+	color: $color-firefly-black;
 	font-size: 1.75rem;
 	line-height: 1.5em;
 	text-transform: none;

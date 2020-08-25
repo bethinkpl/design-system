@@ -75,7 +75,7 @@
 
 			grid-column: 2;
 			text-align: center;
-			color: $color-firefly;
+			color: $color-firefly-black;
 			padding: $space-s 0;
 		}
 

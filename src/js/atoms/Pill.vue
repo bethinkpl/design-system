@@ -13,9 +13,9 @@
 
 .a-pill {
 	align-items: center;
-	background-color: $color-my-sin;
+	background-color: $color-goldfish-yellow;
 	border-radius: 1000px;
-	color: $color-white;
+	color: $color-total-white;
 	display: inline-flex;
 	font-weight: bold;
 	padding: $space-xxxs $space-s;
@@ -28,7 +28,7 @@
 		@include textS;
 
 		align-items: center;
-		background-color: $color-white;
+		background-color: $color-total-white;
 		border-radius: 50%;
 		color: $color-cadet-blue;
 		display: inline-flex;

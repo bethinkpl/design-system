@@ -10,13 +10,13 @@
 @import 'resources/assets/styles/styleguide/settings/spacings';
 
 .m-arrowButton {
-	background-color: $color-white;
+	background-color: $color-total-white;
 	border: 1px solid $color-primary;
 	border-radius: $radius-s;
 	padding: $space-xxxs $space-xs;
 
 	&:hover {
-		background-color: $color-alabaster;
+		background-color: $color-alabaster-gray;
 	}
 
 	&__icon {

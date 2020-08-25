@@ -53,7 +53,7 @@
 	}
 
 	&.-danger {
-		color: $color-alizarin-crimson;
+		color: $color-crimson-red;
 	}
 
 	&.-primary {

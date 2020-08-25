@@ -4,7 +4,7 @@
 	background: $color-primary;
 	border: 0;
 	border-radius: 100px;
-	color: $color-white;
+	color: $color-total-white;
 	cursor: pointer;
 	display: inline-block;
 	font-weight: 700;
@@ -44,8 +44,8 @@
 
 		&::after {
 			animation: a-spinAround 500ms infinite linear;
-			border: 2px solid $color-white;
-			border-color: transparent transparent $color-white $color-white;
+			border: 2px solid $color-total-white;
+			border-color: transparent transparent $color-total-white $color-total-white;
 			border-radius: 100%;
 			content: '';
 			display: block;
@@ -60,8 +60,8 @@
 			color: transparent;
 
 			&::after {
-				border: 2px solid $color-rhino;
-				border-color: transparent transparent $color-rhino $color-rhino;
+				border: 2px solid $color-rhino-gray;
+				border-color: transparent transparent $color-rhino-gray $color-rhino-gray;
 			}
 		}
 	}
@@ -77,22 +77,22 @@
 		&:focus,
 		&.-focused {
 			background-color: $color-jungle-green;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-jungle-green, 0.6);
+			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-jungle-green, 0.6);
 		}
 	}
 
 	&.-danger {
-		background-color: $color-alizarin-crimson;
+		background-color: $color-crimson-red;
 
 		&:hover,
 		&.-hovered {
-			background-color: $color-alizarin-crimson;
+			background-color: $color-crimson-red;
 		}
 
 		&:focus,
 		&.-focused {
-			background-color: $color-alizarin-crimson;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-alizarin-crimson, 0.6);
+			background-color: $color-crimson-red;
+			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-crimson-red, 0.6);
 		}
 	}
 
@@ -107,13 +107,13 @@
 	&:hover,
 	&.-hovered {
 		background-color: $color-primary-dark;
-		color: $color-white;
+		color: $color-total-white;
 	}
 
 	&:focus,
 	&.-focused {
 		background-color: $color-primary-dark;
-		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-primary-rgb, 0.6);
+		box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-primary-rgb, 0.6);
 	}
 
 	&.-roundedCorners {
@@ -126,27 +126,27 @@
 	&.-secondary {
 		@include textSingleLineXS;
 
-		background-color: $color-white;
+		background-color: $color-total-white;
 		border: 2px solid $color-storm-gray;
-		color: $color-firefly;
+		color: $color-firefly-black;
 		padding: $space-xxxs $space-m;
 
 		&:hover,
 		&.-hovered {
-			background-color: $color-white;
-			border-color: $color-rhino;
+			background-color: $color-total-white;
+			border-color: $color-rhino-gray;
 		}
 
 		&:focus,
 		&.-focus {
-			background-color: $color-white;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-gray, 0.6);
+			background-color: $color-total-white;
+			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-storm-gray, 0.6);
 		}
 
 		&:disabled,
 		&.-disabled {
 			border-color: $color-cadet-blue;
-			color: $color-mischka;
+			color: $color-mischka-gray;
 		}
 	}
 

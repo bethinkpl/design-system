@@ -54,7 +54,7 @@
 		}
 
 		&.-notActive {
-			color: $color-alizarin-crimson;
+			color: $color-crimson-red;
 		}
 	}
 
@@ -72,7 +72,7 @@
 		color: currentColor;
 
 		&.-notActive {
-			color: $color-alizarin-crimson;
+			color: $color-crimson-red;
 		}
 	}
 
