@@ -35,7 +35,7 @@
 			&__label {
 				@include textXS;
 
-				color: $color-ebony-clay;
+				color: $color-firefly;
 				font-weight: bold;
 			}
 
