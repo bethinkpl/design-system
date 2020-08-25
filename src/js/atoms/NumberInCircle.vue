@@ -45,7 +45,7 @@
 	}
 
 	&.-is3 {
-		color: $color-deluge;
+		color: $color-deluge-violet;
 	}
 
 	&.-is4 {
