@@ -66,6 +66,7 @@ import WnlProgressBar from 'js/components/global/ProgressBar';
 import { COLORS } from 'js/consts/colors';
 
 export default {
+	name: 'ProgressBarWithLabels',
 	components: {
 		WnlProgressBar,
 	},
