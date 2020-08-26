@@ -46,7 +46,7 @@
 	}
 
 	&__icon {
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 		margin-right: $space-xxxs;
 
 		&.-active {
@@ -54,7 +54,7 @@
 		}
 
 		&.-notActive {
-			color: $color-alizarin-crimson;
+			color: $color-crimson-red;
 		}
 	}
 
@@ -72,12 +72,12 @@
 		color: currentColor;
 
 		&.-notActive {
-			color: $color-alizarin-crimson;
+			color: $color-crimson-red;
 		}
 	}
 
 	&__help {
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 
 		#{$this}:hover & {
 			color: $color-primary;

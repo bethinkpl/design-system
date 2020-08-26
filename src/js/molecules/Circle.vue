@@ -11,7 +11,7 @@ $size: 24px;
 
 .m-circle {
 	align-items: center;
-	border: 2px solid $color-mischka;
+	border: 2px solid $color-mischka-gray;
 	border-radius: 50%;
 	display: flex;
 	justify-content: center;

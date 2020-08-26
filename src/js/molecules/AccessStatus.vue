@@ -12,7 +12,7 @@
 
 .m-accessStatus {
 	align-items: center;
-	color: $color-storm-grey;
+	color: $color-storm-gray;
 	display: flex;
 
 	&.-active {
@@ -20,7 +20,7 @@
 	}
 
 	&.-notActive {
-		color: $color-alizarin-crimson;
+		color: $color-crimson-red;
 	}
 
 	&__icon {

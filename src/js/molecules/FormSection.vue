@@ -16,7 +16,7 @@
 	&__legend {
 		@include textM;
 
-		border-bottom: 1px solid $color-athens-grey;
+		border-bottom: 1px solid $color-athens-gray;
 		display: block;
 		font-weight: bold;
 		margin-bottom: $space-m;

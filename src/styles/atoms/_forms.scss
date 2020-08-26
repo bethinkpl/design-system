@@ -2,18 +2,18 @@
 .a-select {
 	@include textM;
 
-	background-color: $color-white;
-	border: 1px solid $color-mischka;
+	background-color: $color-total-white;
+	border: 1px solid $color-mischka-gray;
 	border-radius: $radius-s;
 	box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-	color: $color-firefly;
+	color: $color-firefly-black;
 	outline: none;
 	padding: $space-xxxs $space-xs;
 	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s;
 	width: 100%;
 
 	&::placeholder {
-		color: $color-cadet-blue;
+		color: $color-cadet-gray;
 	}
 
 	&:hover,
@@ -27,13 +27,13 @@
 	}
 
 	&:disabled {
-		border-color: $color-athens-grey;
-		color: $color-storm-grey;
+		border-color: $color-athens-gray;
+		color: $color-storm-gray;
 	}
 
 	&:focus:invalid,
 	&.-error {
-		border-color: $color-alizarin-crimson;
+		border-color: $color-crimson-red;
 	}
 }
 
@@ -42,11 +42,11 @@
 	height: $line-height-text-m + 2 * $space-xxxs + 2px;
 
 	&:required:invalid {
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 	}
 
 	option {
-		color: $color-firefly;
+		color: $color-firefly-black;
 
 		&:disabled {
 			display: none;
@@ -56,8 +56,8 @@
 
 .a-checkbox,
 .a-radio {
-	background-color: $color-white;
-	border: 2px solid $color-cadet-blue;
+	background-color: $color-total-white;
+	border: 2px solid $color-cadet-gray;
 	cursor: pointer;
 	flex-shrink: 0;
 	height: 24px;
@@ -76,8 +76,8 @@
 	}
 
 	&:disabled {
-		background-color: $color-white;
-		border-color: $color-athens-grey;
+		background-color: $color-total-white;
+		border-color: $color-athens-gray;
 		pointer-events: none;
 	}
 
@@ -97,7 +97,7 @@
 
 	&:checked {
 		&::before {
-			color: $color-white;
+			color: $color-total-white;
 			content: '✔';
 		}
 	}
@@ -107,14 +107,14 @@
 	border-radius: 100%;
 
 	&:checked {
-		box-shadow: inset 0 0 0 2px $color-primary, inset 0 0 0 4px $color-white;
+		box-shadow: inset 0 0 0 2px $color-primary, inset 0 0 0 4px $color-total-white;
 	}
 }
 
 .a-label {
 	@include textS;
 
-	color: $color-ebony-clay;
+	color: $color-firefly-black;
 	cursor: pointer;
 	display: inline-block;
 
@@ -124,7 +124,7 @@
 	}
 
 	&__optionalText {
-		color: $color-green;
+		color: $color-ocean-green;
 		font-style: italic;
 		font-weight: normal;
 	}
@@ -137,5 +137,5 @@
 .a-error {
 	@include textXS;
 
-	color: $color-alizarin-crimson;
+	color: $color-crimson-red;
 }

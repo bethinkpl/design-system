@@ -22,7 +22,7 @@
 
 		align-items: center;
 		bottom: 0;
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 		display: flex;
 		padding: 0 $space-xs;
 		position: absolute;

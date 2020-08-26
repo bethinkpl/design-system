@@ -20,7 +20,7 @@
 	}
 
 	.a-icon {
-		color: $color-cadet-blue;
+		color: $color-cadet-gray;
 		cursor: pointer;
 	}
 }
