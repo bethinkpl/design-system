@@ -49,7 +49,7 @@
 	}
 
 	&.-is4 {
-		color: $color-governor-bay;
+		color: $color-cobalt-blue;
 	}
 
 	&.-danger {
