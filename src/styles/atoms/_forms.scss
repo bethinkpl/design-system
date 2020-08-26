@@ -13,7 +13,7 @@
 	width: 100%;
 
 	&::placeholder {
-		color: $color-cadet-blue;
+		color: $color-cadet-gray;
 	}
 
 	&:hover,
@@ -57,7 +57,7 @@
 .a-checkbox,
 .a-radio {
 	background-color: $color-total-white;
-	border: 2px solid $color-cadet-blue;
+	border: 2px solid $color-cadet-gray;
 	cursor: pointer;
 	flex-shrink: 0;
 	height: 24px;

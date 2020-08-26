@@ -30,7 +30,7 @@
 		align-items: center;
 		background-color: $color-total-white;
 		border-radius: 50%;
-		color: $color-cadet-blue;
+		color: $color-cadet-gray;
 		display: inline-flex;
 		flex-shrink: 0;
 		justify-content: center;

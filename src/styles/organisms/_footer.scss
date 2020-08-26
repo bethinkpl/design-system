@@ -34,11 +34,11 @@
 		}
 
 		&.-first {
-			border-bottom: 1px solid $color-cadet-blue;
+			border-bottom: 1px solid $color-cadet-gray;
 
 			@media #{$breakpoint-s} {
 				border-bottom: none;
-				border-right: 1px solid $color-cadet-blue;
+				border-right: 1px solid $color-cadet-gray;
 			}
 		}
 
