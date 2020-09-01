@@ -7,7 +7,7 @@
 			<div>
 				<wnl-icon
 					:fa-icon-class="collapseIconClass"
-					class="-cadetBlue"
+					class="-cadetGray"
 					@click.native.stop="toggleCollapse"
 				/>
 			</div>

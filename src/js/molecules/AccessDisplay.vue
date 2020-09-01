@@ -58,9 +58,9 @@
 	&__tableHeader {
 		@include textXS;
 
-		background-color: $color-alabaster;
-		border-bottom: 1px solid $color-mischka;
-		color: $color-storm-grey;
+		background-color: $color-alabaster-gray;
+		border-bottom: 1px solid $color-mischka-gray;
+		color: $color-storm-gray;
 		padding: $space-xs;
 		text-align: center;
 	}
@@ -68,7 +68,7 @@
 	&__tableCell {
 		@include textS;
 
-		border-bottom: 1px solid $color-mischka;
+		border-bottom: 1px solid $color-mischka-gray;
 		padding: $space-xs;
 
 		&.-centered {
@@ -80,7 +80,7 @@
 		}
 
 		&.-alternative {
-			color: $color-storm-grey;
+			color: $color-storm-gray;
 		}
 	}
 }

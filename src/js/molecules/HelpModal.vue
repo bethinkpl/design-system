@@ -2,7 +2,7 @@
 	<span class="o-helpModal">
 		<wnl-icon
 			fa-icon-class="fa-question-circle-o"
-			class="o-helpModal__icon -cadetBlue"
+			class="o-helpModal__icon -cadetGray"
 			@click.native.stop="open"
 		/>
 		<wnl-modal v-if="showModal" @close-modal="close">
@@ -36,7 +36,7 @@
 }
 
 .o-helpModal__content /deep/ h3 {
-	color: $color-firefly;
+	color: $color-firefly-black;
 	font-size: 1.75rem;
 	line-height: 1.5em;
 	text-transform: none;

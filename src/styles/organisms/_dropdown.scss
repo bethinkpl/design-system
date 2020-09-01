@@ -15,7 +15,7 @@
 		top: 100%;
 		right: 0;
 		z-index: 100;
-		background-color: $color-white;
+		background-color: $color-total-white;
 		min-width: 244px;
 	}
 
@@ -31,7 +31,7 @@
 		padding: $space-xxxxs 0 $space-xxxxs $space-xxxs;
 
 		&:hover {
-			background-color: $color-alabaster;
+			background-color: $color-alabaster-gray;
 			color: $color-primary;
 		}
 	}

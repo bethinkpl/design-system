@@ -7,7 +7,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/variables';
+@import 'resources/assets/styles/styleguide/settings/colors';
 @import 'resources/assets/styles/styleguide/settings/typography';
 
 .a-title {

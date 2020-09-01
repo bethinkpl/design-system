@@ -46,7 +46,7 @@
 		}
 
 		&.-separated {
-			border-bottom: 1px solid $color-mischka;
+			border-bottom: 1px solid $color-mischka-gray;
 			padding: $space-s 0;
 			margin-bottom: 0;
 		}

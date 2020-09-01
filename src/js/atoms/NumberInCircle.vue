@@ -45,15 +45,15 @@
 	}
 
 	&.-is3 {
-		color: $color-deluge;
+		color: $color-deluge-violet;
 	}
 
 	&.-is4 {
-		color: $color-governor-bay;
+		color: $color-cobalt-blue;
 	}
 
 	&.-danger {
-		color: $color-alizarin-crimson;
+		color: $color-crimson-red;
 	}
 
 	&.-primary {
@@ -61,7 +61,7 @@
 	}
 
 	&.-secondary {
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 	}
 
 	&.-medium {
