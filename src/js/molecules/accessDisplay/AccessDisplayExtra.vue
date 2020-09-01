@@ -6,6 +6,9 @@
 	<span v-else-if="access.order_id">
 		Zamówienie nr:
 		<router-link :to="{ name: 'my-orders' }">{{ access.order_id }}</router-link>
+		<span v-if="access.extra.comment">
+			{{ access.extra.comment }}
+		</span>
 	</span>
 </template>
 
