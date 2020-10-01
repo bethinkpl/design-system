@@ -34,7 +34,7 @@
 		}
 
 		&.-medium {
-			@include textS;
+			@include textM;
 		}
 
 		&.-large {
@@ -42,7 +42,7 @@
 		}
 
 		&.-small {
-			@include textXS;
+			@include textS;
 		}
 
 		&.-separated {

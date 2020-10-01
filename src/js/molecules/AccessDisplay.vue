@@ -56,7 +56,7 @@
 	}
 
 	&__tableHeader {
-		@include textXS;
+		@include textS;
 
 		background-color: $color-alabaster-gray;
 		border-bottom: 1px solid $color-mischka-gray;
@@ -66,7 +66,7 @@
 	}
 
 	&__tableCell {
-		@include textS;
+		@include textM;
 
 		border-bottom: 1px solid $color-mischka-gray;
 		padding: $space-xs;
@@ -76,7 +76,7 @@
 		}
 
 		&.-small {
-			@include textXS;
+			@include textS;
 		}
 
 		&.-alternative {

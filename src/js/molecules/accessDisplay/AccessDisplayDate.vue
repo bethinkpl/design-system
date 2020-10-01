@@ -59,12 +59,12 @@
 	}
 
 	&__text {
-		@include textXS;
+		@include textS;
 
 		text-transform: uppercase;
 
 		#{$this}.-large & {
-			@include textS;
+			@include textM;
 		}
 	}
 

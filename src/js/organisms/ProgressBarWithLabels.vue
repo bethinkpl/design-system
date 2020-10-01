@@ -33,14 +33,14 @@
 			margin-bottom: $space-xxxs;
 
 			&__label {
-				@include textXS;
+				@include textS;
 
 				color: $color-firefly-black;
 				font-weight: bold;
 			}
 
 			&__progressData {
-				@include textS;
+				@include textM;
 
 				color: $color-storm-gray;
 				font-weight: bold;
@@ -50,7 +50,7 @@
 	}
 
 	&__score {
-		@include textM;
+		@include textL;
 
 		color: $color-storm-gray;
 		font-weight: bold;

@@ -25,7 +25,7 @@
 	p,
 	ul,
 	ol {
-		font-size: $font-size-text-s;
+		font-size: $font-size-text-m;
 		margin-bottom: $space-m;
 		text-transform: none;
 

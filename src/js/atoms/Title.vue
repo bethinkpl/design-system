@@ -13,28 +13,28 @@
 .a-title {
 	&.-level1 {
 		@include textLight;
-		@include header1;
+		@include titleL;
 	}
 
 	&.-level2 {
-		@include header2;
+		@include titleM;
 	}
 
 	&.-level3 {
-		@include header3;
+		@include titleS;
 	}
 
 	&.-level4 {
 		@include textBold;
-		@include header4;
+		@include headlineXL;
 	}
 
 	&.-level5 {
-		@include header5;
+		@include headlineL;
 	}
 
 	&.-level6 {
-		@include header6;
+		@include headlineM;
 	}
 
 	&.-link {

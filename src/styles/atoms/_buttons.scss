@@ -1,5 +1,5 @@
 .a-button {
-	@include textSingleLineS;
+	@include headlineXS;
 
 	background: $color-primary;
 	border: 0;
@@ -27,7 +27,7 @@
 	}
 
 	&.-medium {
-		@include textSingleLineXS;
+		@include headlineXXS;
 
 		padding: $space-xxs $space-m;
 	}
@@ -117,14 +117,14 @@
 	}
 
 	&.-roundedCorners {
-		@include textSingleLineXS;
+		@include headlineXXS;
 
 		border-radius: $radius-m;
 		padding: $space-xxs $space-m;
 	}
 
 	&.-secondary {
-		@include textSingleLineXS;
+		@include headlineXXS;
 
 		background-color: $color-total-white;
 		border: 2px solid $color-storm-gray;

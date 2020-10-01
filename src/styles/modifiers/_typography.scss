@@ -30,10 +30,6 @@
 	@include textInfoM;
 }
 
-.-textXS {
-	@include textXS;
-}
-
 .-textS {
 	@include textS;
 }
@@ -46,10 +42,42 @@
 	@include textL;
 }
 
-.-header6 {
-	@include header6;
+.-textXL {
+	@include textXL;
 }
 
-.-header5 {
-	@include header5;
+.-headlineXXS {
+	@include headlineXXS;
+}
+
+.-headlineXS {
+	@include headlineXS;
+}
+
+.-headlineS {
+	@include headlineS;
+}
+
+.-headlineM {
+	@include headlineM;
+}
+
+.-headlineL {
+	@include headlineL;
+}
+
+.-headlineXL {
+	@include headlineXL;
+}
+
+.-titleS {
+	@include titleS;
+}
+
+.-titleM {
+	@include titleM;
+}
+
+.-titleL {
+	@include titleL;
 }

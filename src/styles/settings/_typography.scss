@@ -4,39 +4,44 @@ $line-height-info-s: 12px;
 $font-size-info-m: 10px;
 $line-height-info-m: 12px;
 
-$font-size-text-xs: 12px;
-$line-height-text-xs: 16px;
-$line-height-text-single-line-xs: 16px;
+$font-size-text-s: 12px;
+$line-height-text-s: 16px;
 
-$font-size-text-s: 14px;
-$line-height-text-s: 18px;
-$line-height-text-single-line-s: 16px;
+$font-size-text-m: 14px;
+$line-height-text-m: 18px;
 
-$font-size-text-m: 16px;
-$line-height-text-m: 24px;
-$line-height-text-single-line-m: 20px;
+$font-size-text-l: 16px;
+$line-height-text-l: 24px;
 
-$font-size-text-l: 18px;
-$line-height-text-l: 26px;
-$line-height-text-single-line-l: 24px;
+$font-size-text-xl: 18px;
+$line-height-text-xl: 26px;
 
-$font-size-header-6: 20px;
-$line-height-header-6: 28px;
+$font-size-headline-xxs: 12px;
+$line-height-headline-xxs: 16px;
 
-$font-size-header-5: 24px;
-$line-height-header-5: 32px;
+$font-size-headline-xs: 14px;
+$line-height-headline-xs: 16px;
 
-$font-size-header-4: 28px;
-$line-height-header-4: 38px;
+$font-size-headline-s: 16px;
+$line-height-headline-s: 20px;
 
-$font-size-header-3: 32px;
-$line-height-header-3: 42px;
+$font-size-headline-m: 20px;
+$line-height-headline-m: 28px;
 
-$font-size-header-2: 44px;
-$line-height-header-2: 58px;
+$font-size-headline-l: 24px;
+$line-height-headline-l: 32px;
 
-$font-size-header-1: 52px;
-$line-height-header-1: 68px;
+$font-size-headline-xl: 28px;
+$line-height-headline-xl: 38px;
+
+$font-size-title-s: 36px;
+$line-height-title-s: 52px;
+
+$font-size-title-m: 44px;
+$line-height-title-m: 58px;
+
+$font-size-title-l: 52px;
+$line-height-title-l: 68px;
 
 @mixin textInfoS {
 	font-size: $font-size-info-s;
@@ -48,24 +53,9 @@ $line-height-header-1: 68px;
 	line-height: $line-height-info-m;
 }
 
-@mixin textXS {
-	font-size: $font-size-text-xs;
-	line-height: $line-height-text-xs;
-}
-
-@mixin textSingleLineXS {
-	font-size: $font-size-text-xs;
-	line-height: $line-height-text-single-line-xs;
-}
-
 @mixin textS {
 	font-size: $font-size-text-s;
 	line-height: $line-height-text-s;
-}
-
-@mixin textSingleLineS {
-	font-size: $font-size-text-s;
-	line-height: $line-height-text-single-line-s;
 }
 
 @mixin textM {
@@ -73,49 +63,59 @@ $line-height-header-1: 68px;
 	line-height: $line-height-text-m;
 }
 
-@mixin textSingleLineM {
-	font-size: $font-size-text-m;
-	line-height: $line-height-text-single-line-m;
-}
-
 @mixin textL {
 	font-size: $font-size-text-l;
 	line-height: $line-height-text-l;
 }
 
-@mixin textSingleLineL {
-	font-size: $font-size-text-l;
-	line-height: $line-height-text-single-line-l;
+@mixin textXL {
+	font-size: $font-size-text-xl;
+	line-height: $line-height-text-xl;
 }
 
-@mixin header6 {
-	font-size: $font-size-header-6;
-	line-height: $line-height-header-6;
+@mixin headlineXXS {
+	font-size: $font-size-headline-xxs;
+	line-height: $line-height-headline-xxs;
 }
 
-@mixin header5 {
-	font-size: $font-size-header-5;
-	line-height: $line-height-header-5;
+@mixin headlineXS {
+	font-size: $font-size-headline-xs;
+	line-height: $line-height-headline-xs;
 }
 
-@mixin header4 {
-	font-size: $font-size-header-4;
-	line-height: $line-height-header-4;
+@mixin headlineS {
+	font-size: $font-size-headline-s;
+	line-height: $line-height-headline-s;
 }
 
-@mixin header3 {
-	font-size: $font-size-header-3;
-	line-height: $line-height-header-3;
+@mixin headlineM {
+	font-size: $font-size-headline-m;
+	line-height: $line-height-headline-m;
 }
 
-@mixin header2 {
-	font-size: $font-size-header-2;
-	line-height: $line-height-header-2;
+@mixin headlineL {
+	font-size: $font-size-headline-l;
+	line-height: $line-height-headline-l;
 }
 
-@mixin header1 {
-	font-size: $font-size-header-1;
-	line-height: $line-height-header-1;
+@mixin headlineXL {
+	font-size: $font-size-headline-xl;
+	line-height: $line-height-headline-xl;
+}
+
+@mixin titleS {
+	font-size: $font-size-title-s;
+	line-height: $line-height-title-s;
+}
+
+@mixin titleM {
+	font-size: $font-size-title-m;
+	line-height: $line-height-title-m;
+}
+
+@mixin titleL {
+	font-size: $font-size-title-l;
+	line-height: $line-height-title-l;
 }
 
 @mixin textLight {
@@ -132,5 +132,5 @@ $line-height-header-1: 68px;
 
 @mixin titleLevel4 {
 	@include textBold;
-	@include header5;
+	@include headlineL;
 }
