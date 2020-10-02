@@ -2,7 +2,7 @@
 	<section class="o-card" :style="styles" @click="(e) => collapsed && toggleCollapse(e)">
 		<header class="m-cardHeader">
 			<slot name="header">
-				<wnl-title v-if="title" :level="5" :text="title" />
+				<wnl-title v-if="title" :level="5">{{ title }}</wnl-title>
 			</slot>
 			<div>
 				<wnl-icon
