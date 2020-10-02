@@ -26,7 +26,7 @@ import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
                 <template slot="info">
                     <wnl-icon fa-icon-class="fa-question-circle-o" @click.native="languageModalVisible = true" />
                     <wnl-modal v-if="languageModalVisible" @close-modal="languageModalVisible = false">
-                    		<wnl-title slot="header" :level="4">Dlaczego pytamy o język?</wnl-title>
+                    		<h4 slot="header" class="-headlineXL">Dlaczego pytamy o język?</h4>
                     		<template>
                     			<wnl-modal-paragraph>
                     				Ukończenie studiów w języku polskim jest jednym z warunków skorzystania z Gwarancji Satysfakcji.
