@@ -61,13 +61,11 @@
 </style>
 
 <script>
-import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 export default {
 	components: {
 		WnlIcon,
-		WnlTitle,
 	},
 	props: {
 		title: {

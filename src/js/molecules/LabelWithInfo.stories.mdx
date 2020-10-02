@@ -1,7 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import WnlLabelWithInfo from 'js/components/global/styleguide/molecules/LabelWithInfo';
 import WnlLabel from 'js/components/global/styleguide/atoms/Label';
-import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 import WnlModal from 'js/components/global/Modal';
@@ -14,7 +13,7 @@ import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
 <Story name='interactive'>
     {(args) => {
         return {
-            components: { WnlLabelWithInfo, WnlLabel, WnlTitle, WnlButton, WnlIcon, WnlModal, WnlModalParagraph },
+            components: { WnlLabelWithInfo, WnlLabel, WnlButton, WnlIcon, WnlModal, WnlModalParagraph },
             props: Object.keys(args),
             data() {
                 return {

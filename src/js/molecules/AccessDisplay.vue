@@ -92,7 +92,6 @@ import axios from 'axios';
 import moment from 'moment';
 
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
-import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlAccessDisplayDate from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayDate';
 import WnlAccessDisplayExtra from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayExtra';
 import WnlAccessStatus from 'js/components/global/styleguide/molecules/AccessStatus';
@@ -105,7 +104,6 @@ export default {
 	components: {
 		WnlButton,
 		WnlModal,
-		WnlTitle,
 		WnlAccessDisplayDate,
 		WnlAccessDisplayExtra,
 		WnlAccessStatus,

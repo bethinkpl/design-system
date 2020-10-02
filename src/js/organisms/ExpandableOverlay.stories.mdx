@@ -1,8 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import WnlExpandableOverlay from 'js/components/global/styleguide/organisms/ExpandableOverlay';
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
-import WnlTitle from 'js/components/global/styleguide/atoms/Title';
-
 <Meta title='organisms/ExpandableOverlay' component={WnlExpandableOverlay} />
 
 # ExpandableOverlay
@@ -29,8 +27,7 @@ import WnlTitle from 'js/components/global/styleguide/atoms/Title';
         	components: {
 				WnlExpandableOverlay,
 				WnlButton,
-				WnlTitle,
-			},
+				},
             props: Object.keys(args),
             template: `
 <wnl-expandable-overlay :short-message="shortMessage">
