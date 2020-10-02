@@ -4,6 +4,9 @@ $line-height-info-s: 12px;
 $font-size-info-m: 10px;
 $line-height-info-m: 12px;
 
+$font-size-text-xs: 10px;
+$line-height-text-xs: 12px;
+
 $font-size-text-s: 12px;
 $line-height-text-s: 16px;
 
@@ -51,6 +54,11 @@ $line-height-title-l: 68px;
 @mixin textInfoM {
 	font-size: $font-size-info-m;
 	line-height: $line-height-info-m;
+}
+
+@mixin textXS {
+	font-size: $font-size-text-xs;
+	line-height: $line-height-text-xs;
 }
 
 @mixin textS {
