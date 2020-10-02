@@ -6,7 +6,7 @@
 		/>
 		<wnl-modal v-if="isModalVisible" @close-modal="isModalVisible = false">
 			<template #header>
-				<wnl-title :level="3">Twoje dostępy do kursu</wnl-title>
+				<h6 class="-headlineM">Twoje dostępy do kursu</h6>
 			</template>
 			<wnl-access-display-date class="m-accessDisplay__date" large />
 			<wnl-text-loader v-if="isLoading" />
