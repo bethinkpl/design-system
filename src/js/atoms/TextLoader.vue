@@ -1,7 +1,7 @@
 <template>
-	<div class="a-loader">
-		<span class="a-loader__icon"><i class="fa fa-spinner fa-spin" /></span>
-		<span class="a-loader__text"><slot>Momencik, ładuję dane...</slot></span>
+	<div class="a-textLoader">
+		<span class="a-textLoader__icon"><i class="fa fa-spinner fa-spin" /></span>
+		<span class="a-textLoader__text"><slot>Momencik, ładuję dane...</slot></span>
 	</div>
 </template>
 
@@ -11,7 +11,7 @@
 @import 'resources/assets/styles/styleguide/settings/spacings';
 @import 'resources/assets/styles/styleguide/settings/typography';
 
-.a-loader {
+.a-textLoader {
 	position: fixed;
 	bottom: 0;
 	left: 0;
