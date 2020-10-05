@@ -20,36 +20,14 @@ export const sizes = [
     { name: 'info-s', fontSize: 8, lineHeight: 12, cssClass: '-textInfoS' },
 ];
 
-<Meta title='settings' />
+<Meta title='basics/Typograpy' />
 
 # Typography
 
 Font: Lato
 
-Example:
-<Story name="Typography Interactive"
-    args={{
-        text: 'Wpisz coś i zobacz jak wyglądam',
-    }}
-    argTypes={{
-        text: { control: { type: 'text' } },
-        size: { control: { type: 'select', options: sizes.map(size => size.cssClass) }, defaultValue: '-titleL' },
-        fontWeight: { control: { type: 'select', options: ['-textLight', '-textRegular', '-textBold']  }, defaultValue: '-textRegular' },
-        fontStyle: { control: { type: 'check', options: ['-textItalic']  }, defaultValue: '[]' },
-    }}
->{(args) => {
-    return {
-        props: Object.keys(args),
-        template: `
-            <div :class="[...fontStyle, size, fontWeight]">
-                {{text}}
-            </div>
-        `,
-    }
-}}</Story>
 
-
-<Story name="Typography sizes">{() => {
+<Story name="font sizes">{() => {
     return {
         data() {
             return { sizes };
@@ -70,6 +48,28 @@ Example:
                     </code>
                     <p :style="getStyles(size)">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                 </div>
+            </div>
+        `,
+    }
+}}</Story>
+
+
+<Story name="interactive"
+       args={{
+           text: 'Wpisz coś i zobacz jak wyglądam',
+       }}
+       argTypes={{
+           text: { control: { type: 'text' } },
+           size: { control: { type: 'select', options: sizes.map(size => size.cssClass) }, defaultValue: '-titleL' },
+           fontWeight: { control: { type: 'select', options: ['-textLight', '-textRegular', '-textBold']  }, defaultValue: '-textRegular' },
+           fontStyle: { control: { type: 'check', options: ['-textItalic']  }, defaultValue: '[]' },
+       }}
+>{(args) => {
+    return {
+        props: Object.keys(args),
+        template: `
+            <div :class="[...fontStyle, size, fontWeight]">
+                {{text}}
             </div>
         `,
     }
