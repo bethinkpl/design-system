@@ -1,0 +1,23 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import TextLoader from 'js/components/global/styleguide/atoms/TextLoader';
+
+<Meta title='atoms/TextLoader' component={TextLoader} />
+
+# Title
+
+<Story name='interactive'
+    args={{
+        message: 'Some custom message',
+    }}
+    argTypes={{
+        message: {control: { type: 'text' } },
+    }}
+    >
+    {(args) => {
+        return {
+            components: { TextLoader },
+            props: Object.keys(args),
+            template: '<text-loader>{{message}}</text-loader>',
+        };
+    }}
+</Story>

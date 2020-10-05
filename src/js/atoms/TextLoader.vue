@@ -41,6 +41,6 @@
 
 <script>
 export default {
-	name: 'SpinnerLoader',
+	name: 'TextLoader',
 };
 </script>
