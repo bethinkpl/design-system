@@ -14,6 +14,10 @@
 	font-weight: 700;
 }
 
+.-textItalic {
+	font-style: italic;
+}
+
 .-textUnderline {
 	text-decoration: underline;
 }
@@ -24,6 +28,10 @@
 
 .-textCenter {
 	text-align: center;
+}
+
+.-textInfoS {
+	@include textInfoS;
 }
 
 .-textInfoM {
