@@ -26,10 +26,12 @@
 
 	&__text {
 		@include header6;
+
 		color: $color-primary;
 		text-align: center;
 		margin: $space-s;
 	}
+
 	&__icon {
 		color: $color-storm-gray;
 		font-size: $space-xxxl;
