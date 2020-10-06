@@ -2,7 +2,7 @@
 	<section class="o-card" :style="styles" @click="(e) => collapsed && toggleCollapse(e)">
 		<header class="m-cardHeader">
 			<slot name="header">
-				<wnl-title v-if="title" :level="5" :text="title" />
+				<h5 v-if="title" class="-headlineL">{{ title }}</h5>
 			</slot>
 			<div>
 				<wnl-icon
@@ -61,13 +61,11 @@
 </style>
 
 <script>
-import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 export default {
 	components: {
 		WnlIcon,
-		WnlTitle,
 	},
 	props: {
 		title: {

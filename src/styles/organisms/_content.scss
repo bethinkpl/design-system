@@ -13,13 +13,13 @@
 	}
 
 	h1 {
-		@include header5;
+		@include headlineL;
 
 		margin-bottom: $space-xl;
 	}
 
 	h2 {
-		@include textL;
+		@include textXL;
 
 		margin-bottom: $space-l;
 	}
@@ -29,7 +29,7 @@
 	ul,
 	ol,
 	blockquote {
-		@include textM;
+		@include textL;
 
 		margin-bottom: $space-m;
 	}
@@ -45,7 +45,7 @@
 }
 
 .a-paragraph {
-	@include textS;
+	@include textM;
 
 	margin-bottom: $space-s;
 

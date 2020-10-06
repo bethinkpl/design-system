@@ -28,7 +28,7 @@
 	}
 
 	&__text {
-		@include textS;
+		@include textM;
 		@include textBold;
 
 		text-transform: uppercase;

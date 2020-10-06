@@ -25,7 +25,7 @@
 	}
 
 	&__number {
-		@include textS;
+		@include textM;
 
 		align-items: center;
 		background-color: $color-total-white;
