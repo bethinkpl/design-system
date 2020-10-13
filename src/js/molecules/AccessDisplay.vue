@@ -96,6 +96,7 @@ import WnlAccessDisplayDate from 'js/components/global/styleguide/molecules/acce
 import WnlAccessDisplayExtra from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayExtra';
 import WnlAccessStatus from 'js/components/global/styleguide/molecules/AccessStatus';
 import WnlModal from 'js/components/global/Modal';
+import WnlTextLoader from 'js/components/global/TextLoader.vue';
 import { getApiUrl } from 'js/utils/env';
 import { ALERT_TYPES } from 'js/consts/alert';
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
@@ -107,6 +108,7 @@ export default {
 		WnlAccessDisplayDate,
 		WnlAccessDisplayExtra,
 		WnlAccessStatus,
+		WnlTextLoader,
 	},
 	data() {
 		return {
