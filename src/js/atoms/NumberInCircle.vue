@@ -22,7 +22,7 @@
 	border-radius: 50%;
 	border: 1px solid currentColor;
 	display: inline-flex;
-	font-size: $font-size-header-6;
+	font-size: $font-size-headline-m;
 	height: $icon-l;
 	justify-content: center;
 	line-height: 1;
@@ -31,7 +31,7 @@
 	text-align: center;
 
 	@media #{$breakpoint-s} {
-		font-size: $font-size-header-4;
+		font-size: $font-size-headline-xl;
 		height: $icon-xl;
 		min-width: $icon-xl;
 	}
@@ -66,7 +66,7 @@
 
 	&.-medium {
 		height: $icon-m;
-		font-size: $font-size-text-s;
+		font-size: $font-size-text-m;
 		min-width: $icon-m;
 	}
 }

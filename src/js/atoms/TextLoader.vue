@@ -25,7 +25,7 @@
 	z-index: $z-index-overlay;
 
 	&__text {
-		@include header6;
+		@include headlineM;
 
 		color: $color-primary;
 		text-align: center;

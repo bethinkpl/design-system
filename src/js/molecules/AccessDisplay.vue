@@ -6,7 +6,7 @@
 		/>
 		<wnl-modal v-if="isModalVisible" @close-modal="isModalVisible = false">
 			<template #header>
-				<wnl-title :level="3">Twoje dostępy do kursu</wnl-title>
+				<h3 class="-titleS">Twoje dostępy do kursu</h3>
 			</template>
 			<wnl-access-display-date class="m-accessDisplay__date" large />
 			<wnl-text-loader v-if="isLoading" />
@@ -56,7 +56,7 @@
 	}
 
 	&__tableHeader {
-		@include textXS;
+		@include textS;
 
 		background-color: $color-alabaster-gray;
 		border-bottom: 1px solid $color-mischka-gray;
@@ -66,7 +66,7 @@
 	}
 
 	&__tableCell {
-		@include textS;
+		@include textM;
 
 		border-bottom: 1px solid $color-mischka-gray;
 		padding: $space-xs;
@@ -76,7 +76,7 @@
 		}
 
 		&.-small {
-			@include textXS;
+			@include textS;
 		}
 
 		&.-alternative {
@@ -92,7 +92,6 @@ import axios from 'axios';
 import moment from 'moment';
 
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
-import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlAccessDisplayDate from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayDate';
 import WnlAccessDisplayExtra from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayExtra';
 import WnlAccessStatus from 'js/components/global/styleguide/molecules/AccessStatus';
@@ -105,7 +104,6 @@ export default {
 	components: {
 		WnlButton,
 		WnlModal,
-		WnlTitle,
 		WnlAccessDisplayDate,
 		WnlAccessDisplayExtra,
 		WnlAccessStatus,

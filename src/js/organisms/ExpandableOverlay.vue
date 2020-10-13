@@ -71,7 +71,7 @@
 		}
 
 		&__message {
-			@include textM;
+			@include textL;
 
 			grid-column: 2;
 			text-align: center;
@@ -103,13 +103,13 @@
 		}
 
 		/deep/ &__subtitle {
-			@include textL;
+			@include textXL;
 
 			margin-bottom: $space-s;
 		}
 
 		/deep/ &__text {
-			@include textM;
+			@include textL;
 			@include textBold;
 
 			color: $color-storm-gray;
@@ -117,7 +117,7 @@
 		}
 
 		/deep/ &__textSmall {
-			@include textS;
+			@include textM;
 
 			color: $color-storm-gray;
 			margin-bottom: $space-m;
@@ -140,7 +140,7 @@
 	}
 
 	&__footer {
-		@include textS;
+		@include textM;
 
 		color: $color-storm-gray;
 		margin-top: $space-xl;

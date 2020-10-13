@@ -18,7 +18,7 @@
 	}
 
 	&__icon {
-		@include textM;
+		@include textL;
 
 		align-items: center;
 		bottom: 0;
