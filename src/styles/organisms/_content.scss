@@ -2,24 +2,24 @@
 // In future we should think about creating our own set of styles for content
 .content.-styleguide {
 	* {
-		font-family: "Lato", sans-serif;
+		font-family: 'Lato', sans-serif;
 	}
 
 	h1,
 	h2,
 	h3 {
-		color: $color-ebony-clay;
+		color: $color-firefly-black;
 		font-weight: 700;
 	}
 
 	h1 {
-		@include header5;
+		@include headlineL;
 
 		margin-bottom: $space-xl;
 	}
 
 	h2 {
-		@include textL;
+		@include textXL;
 
 		margin-bottom: $space-l;
 	}
@@ -29,7 +29,7 @@
 	ul,
 	ol,
 	blockquote {
-		@include textM;
+		@include textL;
 
 		margin-bottom: $space-m;
 	}
@@ -40,12 +40,12 @@
 
 	.a-icon {
 		/* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-		font-family: "FontAwesome";
+		font-family: 'FontAwesome';
 	}
 }
 
 .a-paragraph {
-	@include textS;
+	@include textM;
 
 	margin-bottom: $space-s;
 

@@ -2,7 +2,7 @@
 	<span class="o-helpModal">
 		<wnl-icon
 			fa-icon-class="fa-question-circle-o"
-			class="o-helpModal__icon -cadetBlue"
+			class="o-helpModal__icon -cadetGray"
 			@click.native.stop="open"
 		/>
 		<wnl-modal v-if="showModal" @close-modal="close">
@@ -12,35 +12,35 @@
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/colors';
-	@import 'resources/assets/styles/styleguide/settings/spacings';
-	@import 'resources/assets/styles/styleguide/settings/typography';
+@import 'resources/assets/styles/styleguide/settings/colors';
+@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'resources/assets/styles/styleguide/settings/typography';
 
-	.o-helpModal__icon {
-		cursor: pointer;
-		margin-right: $space-xs;
-	}
+.o-helpModal__icon {
+	cursor: pointer;
+	margin-right: $space-xs;
+}
 
-	.o-helpModal__content /deep/ {
-		p,
-		ul,
-		ol {
-			font-size: $font-size-text-s;
-			margin-bottom: $space-m;
-			text-transform: none;
+.o-helpModal__content /deep/ {
+	p,
+	ul,
+	ol {
+		font-size: $font-size-text-m;
+		margin-bottom: $space-m;
+		text-transform: none;
 
-			&:last-child {
-				margin-bottom: 0;
-			}
+		&:last-child {
+			margin-bottom: 0;
 		}
 	}
+}
 
-	.o-helpModal__content /deep/ h3 {
-		color: $color-firefly;
-		font-size: 1.75rem;
-		line-height: 1.5em;
-		text-transform: none;
-	}
+.o-helpModal__content /deep/ h3 {
+	color: $color-firefly-black;
+	font-size: 1.75rem;
+	line-height: 1.5em;
+	text-transform: none;
+}
 </style>
 
 <script>
@@ -50,13 +50,13 @@ import WnlModal from 'js/components/global/Modal';
 export default {
 	components: {
 		WnlIcon,
-		WnlModal
+		WnlModal,
 	},
 	props: {
 		text: {
 			type: String,
-			required: true
-		}
+			required: true,
+		},
 	},
 	data() {
 		return {
@@ -70,7 +70,7 @@ export default {
 		},
 		close() {
 			this.showModal = false;
-		}
-	}
+		},
+	},
 };
 </script>

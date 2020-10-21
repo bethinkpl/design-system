@@ -1,10 +1,10 @@
 .a-button {
-	@include textSingleLineS;
+	@include headlineXS;
 
-	background: $color-blue-chill;
+	background: $color-primary;
 	border: 0;
 	border-radius: 100px;
-	color: $color-white;
+	color: $color-total-white;
 	cursor: pointer;
 	display: inline-block;
 	font-weight: 700;
@@ -13,7 +13,8 @@
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
-	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s, background-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s;
+	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s,
+		background-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s;
 
 	&.-big {
 		width: 100%;
@@ -26,7 +27,7 @@
 	}
 
 	&.-medium {
-		@include textSingleLineXS;
+		@include headlineXXS;
 
 		padding: $space-xxs $space-m;
 	}
@@ -43,10 +44,10 @@
 
 		&::after {
 			animation: a-spinAround 500ms infinite linear;
-			border: 2px solid $color-white;
-			border-color: transparent transparent $color-white $color-white;
+			border: 2px solid $color-total-white;
+			border-color: transparent transparent $color-total-white $color-total-white;
 			border-radius: 100%;
-			content: "";
+			content: '';
 			display: block;
 			height: 1em;
 			left: calc(50% - (1em / 2));
@@ -59,8 +60,8 @@
 			color: transparent;
 
 			&::after {
-				border: 2px solid $color-rhino;
-				border-color: transparent transparent $color-rhino $color-rhino;
+				border: 2px solid $color-rhino-gray;
+				border-color: transparent transparent $color-rhino-gray $color-rhino-gray;
 			}
 		}
 	}
@@ -76,76 +77,76 @@
 		&:focus,
 		&.-focused {
 			background-color: $color-jungle-green;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-jungle-green, 0.6);
+			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-jungle-green, 0.6);
 		}
 	}
 
 	&.-danger {
-		background-color: $color-alizarin-crimson;
+		background-color: $color-crimson-red;
 
 		&:hover,
 		&.-hovered {
-			background-color: $color-alizarin-crimson;
+			background-color: $color-crimson-red;
 		}
 
 		&:focus,
 		&.-focused {
-			background-color: $color-alizarin-crimson;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-alizarin-crimson, 0.6);
+			background-color: $color-crimson-red;
+			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-crimson-red, 0.6);
 		}
 	}
 
 	&:disabled,
 	&.-disabled {
-		background-color: $color-athens-grey;
-		color: $color-storm-grey;
+		background-color: $color-athens-gray;
+		color: $color-storm-gray;
 		cursor: not-allowed;
 		pointer-events: none;
 	}
 
 	&:hover,
 	&.-hovered {
-		background-color: $color-surfie-green;
-		color: $color-white;
+		background-color: $color-primary-dark;
+		color: $color-total-white;
 	}
 
 	&:focus,
 	&.-focused {
-		background-color: $color-surfie-green;
-		box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-blue-chill-rgb, 0.6);
+		background-color: $color-primary-dark;
+		box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-primary-rgb, 0.6);
 	}
 
 	&.-roundedCorners {
-		@include textSingleLineXS;
+		@include headlineXXS;
 
 		border-radius: $radius-m;
 		padding: $space-xxs $space-m;
 	}
 
 	&.-secondary {
-		@include textSingleLineXS;
+		@include headlineXXS;
 
-		background-color: $color-white;
-		border: 2px solid $color-storm-grey;
-		color: $color-ebony-clay;
+		background-color: $color-total-white;
+		border: 2px solid $color-storm-gray;
+		color: $color-firefly-black;
 		padding: $space-xxxs $space-m;
 
 		&:hover,
 		&.-hovered {
-			background-color: $color-white;
-			border-color: $color-rhino;
+			background-color: $color-total-white;
+			border-color: $color-rhino-gray;
 		}
 
 		&:focus,
 		&.-focus {
-			background-color: $color-white;
-			box-shadow: 0 0 0 2px $color-white, 0 0 0 4px rgba($color-storm-grey, 0.6);
+			background-color: $color-total-white;
+			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-storm-gray, 0.6);
 		}
 
 		&:disabled,
 		&.-disabled {
-			border-color: $color-cadet-blue;
-			color: $color-mischka;
+			border-color: $color-cadet-gray;
+			color: $color-mischka-gray;
 		}
 	}
 
@@ -153,23 +154,23 @@
 		background-color: transparent;
 		border: none;
 		border-radius: 0;
-		color: $color-blue-chill;
+		color: $color-primary;
 		padding: $space-xxs $space-s;
 
 		&:hover,
 		&.-hovered {
-			color: $color-surfie-green;
+			color: $color-primary-dark;
 		}
 
 		&:focus,
 		&.-focus {
-			background-color: $color-athens-grey;
+			background-color: $color-athens-gray;
 			box-shadow: none;
 		}
 
 		&:disabled,
 		&.-disabled {
-			color: rgba($color-blue-chill-rgb, 0.6);
+			color: rgba($color-primary-rgb, 0.6);
 		}
 	}
 }

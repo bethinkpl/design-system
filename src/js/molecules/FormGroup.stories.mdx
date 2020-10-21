@@ -10,6 +10,11 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
         isError: false,
         error: 'To pole jest polem wymaganym.',
     }}
+    argTypes={{
+        label: {control: { type: 'text' }},
+        isError: {control: { type: 'boolean' }},
+        error: {control: { type: 'text' }},
+    }}
     >
     {(args) => {
         return {

@@ -1,6 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import WnlCard from 'js/components/global/styleguide/organisms/Card';
-import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 
 <Meta title='organisms/Card' component={WnlCard} />
 
@@ -17,20 +16,20 @@ import WnlTitle from 'js/components/global/styleguide/atoms/Title';
     }}
     argTypes={{
         borderColor: {control: { type: 'color' }},
+        contentProp: {control: { type: 'text' }},
+        summaryProp: {control: { type: 'text' }},
+        footerProp: {control: { type: 'text' }},
     }}
 >
     {(args) => {
         return {
-            components: { WnlCard, WnlTitle },
+            components: { WnlCard, },
             props: Object.keys(args),
             template: `<wnl-card
                 :border-color="borderColor"
             >
                 <div slot="header" class="o-reportContent__title">
-                    <wnl-title
-                        :level="5"
-                        :text="title"
-                    />
+                    <h5 class="-headlineL">{{ title }}</h5>
                 </div>
                 <div slot="summary">{{summaryProp}}</div>
                 <div slot="content">{{contentProp}}</div>

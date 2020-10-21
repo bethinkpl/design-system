@@ -1,8 +1,5 @@
 <template>
-	<label
-		class="a-label"
-		:for="inputId"
-	>
+	<label class="a-label" :for="inputId">
 		<slot />
 		<span v-if="isOptional" class="a-label__optionalText">(opcjonalne)</span>
 	</label>
@@ -17,7 +14,7 @@ export default {
 		},
 		isOptional: {
 			type: Boolean,
-			default: false
+			default: false,
 		},
 	},
 };

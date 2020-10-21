@@ -16,7 +16,18 @@ import WnlButtonWithIcon from 'js/components/global/styleguide/molecules/ButtonW
 		secondary: true,
 		small: false,
 		text: false,
-	}}>
+	}}
+    argTypes={{
+        danger: {control: { type: 'boolean' }},
+        disabled: {control: { type: 'boolean' }},
+        loading: {control: { type: 'boolean' }},
+        medium: {control: { type: 'boolean' }},
+        roundedCorners: {control: { type: 'boolean' }},
+        secondary: {control: { type: 'boolean' }},
+        small: {control: { type: 'boolean' }},
+        text: {control: { type: 'boolean' }},
+    }}
+>
     {(args) => {
         return {
         	components: {

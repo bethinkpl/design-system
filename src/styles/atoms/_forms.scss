@@ -1,13 +1,52 @@
+.a-input,
+.a-select {
+	@include textL;
+
+	background-color: $color-total-white;
+	border: 1px solid $color-mischka-gray;
+	border-radius: $radius-s;
+	box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
+	color: $color-firefly-black;
+	outline: none;
+	padding: $space-xxxs $space-xs;
+	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s;
+	width: 100%;
+
+	&::placeholder {
+		color: $color-cadet-gray;
+	}
+
+	&:hover,
+	&.-hovered {
+		border-color: $color-primary-dark;
+	}
+
+	&:focus,
+	&:active {
+		border-color: $color-primary;
+	}
+
+	&:disabled {
+		border-color: $color-athens-gray;
+		color: $color-storm-gray;
+	}
+
+	&:focus:invalid,
+	&.-error {
+		border-color: $color-crimson-red;
+	}
+}
+
 .a-select {
 	// We need to force select to set height - line-height is not enough
-	height: $line-height-text-m + 2 * $space-xxxs + 2px;
+	height: $line-height-text-l + 2 * $space-xxxs + 2px;
 
 	&:required:invalid {
-		color: $color-storm-grey;
+		color: $color-storm-gray;
 	}
 
 	option {
-		color: $color-firefly;
+		color: $color-firefly-black;
 
 		&:disabled {
 			display: none;
@@ -15,57 +54,10 @@
 	}
 }
 
-.a-input,
-.a-select {
-	@include textM;
-
-	background-color: $color-white;
-	border: 1px solid $color-mischka;
-	border-radius: $radius-s;
-	box-shadow: inset 0 1px 2px rgba(10, 10, 10, 0.1);
-	color: $color-firefly;
-	outline: none;
-	padding: $space-xxxs $space-xs;
-	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s;
-	width: 100%;
-
-	&::placeholder {
-		color: $color-cadet-blue;
-	}
-
-	&:hover,
-	&.-hovered {
-		border-color: $color-surfie-green;
-	}
-
-	&:focus,
-	&:active {
-		border-color: $color-blue-chill;
-	}
-
-	&:disabled {
-		border-color: $color-athens-grey;
-		color: $color-storm-grey;
-	}
-
-	&:focus:invalid,
-	&.-error {
-		border-color: $color-alizarin-crimson;
-	}
-}
-
-.a-radio {
-	border-radius: 100%;
-
-	&:checked {
-		box-shadow: inset 0 0 0 2px $color-blue-chill, inset 0 0 0 4px $color-white;
-	}
-}
-
 .a-checkbox,
 .a-radio {
-	background-color: $color-white;
-	border: 2px solid $color-cadet-blue;
+	background-color: $color-total-white;
+	border: 2px solid $color-cadet-gray;
 	cursor: pointer;
 	flex-shrink: 0;
 	height: 24px;
@@ -75,22 +67,22 @@
 	-webkit-appearance: none;
 
 	&:checked {
-		background-color: $color-blue-chill;
+		background-color: $color-primary;
 		border-width: 0;
 	}
 
 	&:hover {
-		background-color: $color-surfie-green;
+		background-color: $color-primary-dark;
 	}
 
 	&:disabled {
-		background-color: $color-white;
-		border-color: $color-athens-grey;
+		background-color: $color-total-white;
+		border-color: $color-athens-gray;
 		pointer-events: none;
 	}
 
 	&.-small {
-		@include textXS;
+		@include textS;
 
 		height: 16px;
 		width: 16px;
@@ -99,43 +91,51 @@
 
 .a-checkbox {
 	border-radius: $radius-xs;
-	font-size: $font-size-header-5;
-	line-height: $line-height-text-m;
+	font-size: $font-size-headline-l;
+	line-height: $line-height-text-l;
 	text-align: center;
 
 	&:checked {
 		&::before {
-			color: $color-white;
-			content: "✔";
+			color: $color-total-white;
+			content: '✔';
 		}
 	}
 }
 
-.a-label {
-	@include textS;
+.a-radio {
+	border-radius: 100%;
 
-	color: $color-ebony-clay;
+	&:checked {
+		box-shadow: inset 0 0 0 2px $color-primary, inset 0 0 0 4px $color-total-white;
+	}
+}
+
+.a-label {
+	@include textM;
+
+	color: $color-firefly-black;
 	cursor: pointer;
 	display: inline-block;
 
 	&.-required::after {
-		color: $color-blue-chill;
-		content: "*";
+		color: $color-primary;
+		content: '*';
 	}
 
 	&__optionalText {
-		color: $color-green;
+		color: $color-ocean-green;
 		font-style: italic;
 		font-weight: normal;
 	}
 }
 
 .a-legend {
-	@include textM;
+	@include textL;
 }
 
 .a-error {
-	@include textXS;
+	@include textS;
 
-	color: $color-alizarin-crimson;
+	color: $color-crimson-red;
 }

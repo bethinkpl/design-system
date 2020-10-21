@@ -1,7 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import WnlLabelWithInfo from 'js/components/global/styleguide/molecules/LabelWithInfo';
 import WnlLabel from 'js/components/global/styleguide/atoms/Label';
-import WnlTitle from 'js/components/global/styleguide/atoms/Title';
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 import WnlModal from 'js/components/global/Modal';
@@ -14,7 +13,7 @@ import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
 <Story name='interactive'>
     {(args) => {
         return {
-            components: { WnlLabelWithInfo, WnlLabel, WnlTitle, WnlButton, WnlIcon, WnlModal, WnlModalParagraph },
+            components: { WnlLabelWithInfo, WnlLabel, WnlButton, WnlIcon, WnlModal, WnlModalParagraph },
             props: Object.keys(args),
             data() {
                 return {
@@ -26,7 +25,7 @@ import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
                 <template slot="info">
                     <wnl-icon fa-icon-class="fa-question-circle-o" @click.native="languageModalVisible = true" />
                     <wnl-modal v-if="languageModalVisible" @close-modal="languageModalVisible = false">
-                    		<wnl-title slot="header" :level="4">Dlaczego pytamy o język?</wnl-title>
+                    		<h4 slot="header" class="-headlineXL -textBold">Dlaczego pytamy o język?</h4>
                     		<template>
                     			<wnl-modal-paragraph>
                     				Ukończenie studiów w języku polskim jest jednym z warunków skorzystania z Gwarancji Satysfakcji.

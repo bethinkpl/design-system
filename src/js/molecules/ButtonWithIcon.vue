@@ -1,9 +1,5 @@
 <template>
-	<wnl-button
-		class="m-buttonWithIcon"
-		v-bind="$attrs"
-		v-on="$listeners"
-	>
+	<wnl-button class="m-buttonWithIcon" v-bind="$attrs" v-on="$listeners">
 		<slot />
 		<div class="m-buttonWithIcon__icon">
 			<slot name="icon" />
@@ -12,16 +8,16 @@
 </template>
 
 <style lang="scss" scoped>
-	@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'resources/assets/styles/styleguide/settings/spacings';
 
-	.m-buttonWithIcon {
-		align-items: center;
-		display: inline-flex;
+.m-buttonWithIcon {
+	align-items: center;
+	display: inline-flex;
 
-		&__icon {
-			margin-left: $space-xxxxs;
-		}
+	&__icon {
+		margin-left: $space-xxxxs;
 	}
+}
 </style>
 
 <script>

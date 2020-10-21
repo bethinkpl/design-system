@@ -7,7 +7,6 @@ import WnlEmojiPoints from 'js/components/global/styleguide/molecules/EmojiPoint
 
 <Story name='interactive'
     args={{
-//     TODO
         items: [
             {
                 emoji: '⏰',
@@ -22,17 +21,18 @@ import WnlEmojiPoints from 'js/components/global/styleguide/molecules/EmojiPoint
                 text: 'to jeszcze ostatni punkt'
             }
         ],
-        large: false,
+        large: true,
         small: false,
-        medium: true,
+        medium: false,
         vertical: false,
+        separated: false,
     }}
     >
     {(args) => {
         return {
             components: { WnlEmojiPoints },
             props: Object.keys(args),
-            template: '<wnl-emoji-points :items="items" :large="large" :small="small" :medium="medium" :vertical="vertical" />',
+            template: '<wnl-emoji-points :items="items" :large="large" :small="small" :medium="medium" :vertical="vertical" :separated="separated" />',
         };
     }}
 </Story>
