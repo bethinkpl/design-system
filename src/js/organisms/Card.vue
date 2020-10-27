@@ -2,7 +2,7 @@
 	<section class="o-card" :style="styles" @click="(e) => collapsed && toggleCollapse(e)">
 		<header class="m-cardHeader">
 			<slot name="header">
-				<h5 v-if="title" class="-headlineL">{{ title }}</h5>
+				<h5 v-if="title" class="m-cardHeader__title -headlineL">{{ title }}</h5>
 			</slot>
 			<div>
 				<wnl-icon
@@ -37,7 +37,7 @@
 	justify-content: space-between;
 	margin-bottom: $space-l;
 
-	.a-title {
+	&__title {
 		flex-grow: 1;
 	}
 
