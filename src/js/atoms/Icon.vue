@@ -9,7 +9,7 @@
 	/>
 </template>
 
-<script>
+<script lang="ts">
 export default {
 	props: {
 		faIconClass: {
@@ -19,11 +19,8 @@ export default {
 		size: {
 			type: String,
 			default: 'small',
-			validator: function (value) {
-				return ['xx-large', 'x-large', 'large', 'medium', 'small', 'x-small'].includes(
-					value,
-				);
-			},
+			validator: (value: string) =>
+				['xx-large', 'x-large', 'large', 'medium', 'small', 'x-small'].includes(value),
 		},
 		touchable: {
 			type: Boolean,
