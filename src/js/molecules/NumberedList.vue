@@ -57,7 +57,7 @@ export default {
 		color: {
 			type: String,
 			default: NUMBER_COLORS.DEFAULT,
-			validator (value) {
+			validator(value) {
 				return Object.values(NUMBER_COLORS).includes(value);
 			},
 		},
