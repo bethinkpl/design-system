@@ -145,14 +145,12 @@
 </style>
 
 <script>
-import WnlButtonWithIcon from 'js/components/global/styleguide/molecules/ButtonWithIcon';
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 export default {
 	name: 'ExpandableOverlay',
 	components: {
-		WnlButtonWithIcon,
 		WnlButton,
 		WnlIcon,
 	},
