@@ -65,7 +65,7 @@
 		&__text {
 			display: none;
 
-			@media #{$breakpoint-s} {
+			@media #{breakpoint-s} {
 				display: initial;
 			}
 		}

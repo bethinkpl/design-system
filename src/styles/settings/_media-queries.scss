@@ -1,9 +1,21 @@
-$breakpoint-s: (
-	min-width: 760px,
-);
-$breakpoint-m: (
-	min-width: 980px,
-);
-$breakpoint-l: (
-	min-width: 1280px,
-);
+//$breakpoint-s: (
+//	min-width: 760px,
+//);
+//$breakpoint-m: (
+//	min-width: 980px,
+//);
+//$breakpoint-l: (
+//	min-width: 1280px,
+//);
+
+@function breakpoint-s() {
+	@return '(min-width: 760px)';
+}
+
+@function breakpoint-s() {
+	@return '(min-width: 980px)';
+}
+
+@function breakpoint-l() {
+	@return '(min-width: 1280px)';
+}
