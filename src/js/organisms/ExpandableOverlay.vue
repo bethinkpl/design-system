@@ -98,17 +98,17 @@
 			margin: auto $space-m;
 		}
 
-		/deep/ &__title {
+		::v-deep &__title {
 			margin-bottom: $space-s;
 		}
 
-		/deep/ &__subtitle {
+		::v-deep &__subtitle {
 			@include textXL;
 
 			margin-bottom: $space-s;
 		}
 
-		/deep/ &__text {
+		::v-deep &__text {
 			@include textL;
 			@include textBold;
 
@@ -116,23 +116,23 @@
 			margin-bottom: $space-s;
 		}
 
-		/deep/ &__textSmall {
+		::v-deep &__textSmall {
 			@include textM;
 
 			color: $color-storm-gray;
 			margin-bottom: $space-m;
 		}
 
-		/deep/ &__button {
+		::v-deep &__button {
 			display: block;
 			margin-bottom: $space-m;
 		}
 
-		/deep/ &__title,
-		/deep/ &__subtitle,
-		/deep/ &__text,
-		/deep/ &__textSmall,
-		/deep/ &__button {
+		::v-deep &__title,
+		::v-deep &__subtitle,
+		::v-deep &__text,
+		::v-deep &__textSmall,
+		::v-deep &__button {
 			&:last-child {
 				margin-bottom: 0;
 			}
