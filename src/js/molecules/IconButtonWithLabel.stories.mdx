@@ -1,0 +1,25 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlIconButtonWithLabel from 'js/components/global/styleguide/molecules/IconButtonWithLabel';
+
+<Meta title='molecules/IconButtonWithLabel' component={WnlIconButtonWithLabel} />
+
+# IconButtonWithLabel
+
+<Story name='interactive'
+       args={{
+           label: 'Zamknij',
+           faIconClass: 'fa-times',
+       }}
+>
+    {(args) => {
+        return {
+            components: { WnlIconButtonWithLabel },
+            props: Object.keys(args),
+            template: `<wnl-icon-button-with-label :label="label" :fa-icon-class="faIconClass" />`,
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlIconButtonWithLabel} />
