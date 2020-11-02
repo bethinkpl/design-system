@@ -8,14 +8,14 @@ import WnlIconButtonWithLabel from 'js/components/global/styleguide/molecules/Ic
 <Story name='interactive'
        args={{
            label: 'Zamknij',
-           faIconName: 'fa-times',
+           faIconClass: 'fa-times',
        }}
 >
     {(args) => {
         return {
             components: { WnlIconButtonWithLabel },
             props: Object.keys(args),
-            template: `<wnl-icon-button-with-label :label="label" :fa-icon-name="faIconName" />`,
+            template: `<wnl-icon-button-with-label :label="label" :fa-icon-class="faIconClass" />`,
         };
     }}
 </Story>

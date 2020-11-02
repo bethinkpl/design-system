@@ -6,7 +6,7 @@
 			</span>
 			<div class="o-expandableOverlay__bar__toggle" >
 				<wnl-icon-button-with-label
-					:fa-icon-name="isExpanded ? 'fa-times' : 'fa-chevron-down'"
+					:fa-icon-class="isExpanded ? 'fa-times' : 'fa-chevron-down'"
 					:label="isExpanded ? 'Zamknij' : 'Pokaż więcej'" />
 			</div>
 		</div>
