@@ -20,6 +20,7 @@
 .m-iconButtonWithLabel {
 	align-items: center;
 	color: $color-primary;
+	cursor: pointer;
 	display: flex;
 
 	&:hover {
