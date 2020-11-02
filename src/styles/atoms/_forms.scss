@@ -1,3 +1,16 @@
+.a-select {
+	// We need to force select to set height - line-height is not enough
+	height: $line-height-text-l + 2 * $space-xxxs + 2px;
+
+	option {
+		color: $color-firefly-black;
+
+		&:disabled {
+			display: none;
+		}
+	}
+}
+
 .a-input,
 .a-select {
 	@include textL;
@@ -35,22 +48,9 @@
 	&.-error {
 		border-color: $color-crimson-red;
 	}
-}
-
-.a-select {
-	// We need to force select to set height - line-height is not enough
-	height: $line-height-text-l + 2 * $space-xxxs + 2px;
 
 	&:required:invalid {
 		color: $color-storm-gray;
-	}
-
-	option {
-		color: $color-firefly-black;
-
-		&:disabled {
-			display: none;
-		}
 	}
 }
 
@@ -66,21 +66,6 @@
 	width: 24px;
 	-webkit-appearance: none;
 
-	&:checked {
-		background-color: $color-primary;
-		border-width: 0;
-	}
-
-	&:hover {
-		background-color: $color-primary-dark;
-	}
-
-	&:disabled {
-		background-color: $color-total-white;
-		border-color: $color-athens-gray;
-		pointer-events: none;
-	}
-
 	&.-small {
 		@include textS;
 
@@ -95,7 +80,20 @@
 	line-height: $line-height-text-l;
 	text-align: center;
 
+	&:hover {
+		background-color: $color-primary-dark;
+	}
+
+	&:disabled {
+		background-color: $color-total-white;
+		border-color: $color-athens-gray;
+		pointer-events: none;
+	}
+
 	&:checked {
+		background-color: $color-primary;
+		border-width: 0;
+
 		&::before {
 			color: $color-total-white;
 			content: '✔';
@@ -106,8 +104,20 @@
 .a-radio {
 	border-radius: 100%;
 
+	&:hover {
+		background-color: $color-primary-dark;
+	}
+
+	&:disabled {
+		background-color: $color-total-white;
+		border-color: $color-athens-gray;
+		pointer-events: none;
+	}
+
 	&:checked {
 		box-shadow: inset 0 0 0 2px $color-primary, inset 0 0 0 4px $color-total-white;
+		background-color: $color-primary;
+		border-width: 0;
 	}
 }
 
