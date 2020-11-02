@@ -10,6 +10,7 @@
 			'-disabled': disabled,
 			'-secondary': secondary,
 			'-danger': danger,
+			'-hovered': hovered,
 		}"
 	>
 		<slot />
@@ -51,6 +52,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		hovered: {
+			type: Boolean,
+			default: false,
+		}
 	},
 };
 </script>

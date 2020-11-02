@@ -5,7 +5,9 @@
 				{{ shortMessage }}
 			</span>
 			<div class="o-expandableOverlay__bar__toggle" >
-				<wnl-button medium><wnl-icon fa-icon-class="fa-times" /></wnl-button>
+				<wnl-icon-button-with-label
+					:fa-icon-name="isExpanded ? 'fa-times' : 'fa-chevron-down'"
+					:label="isExpanded ? 'Zamknij' : 'Pokaż więcej'" />
 			</div>
 		</div>
 		<template v-if="isExpanded">
@@ -53,6 +55,7 @@
 		display: grid;
 		grid-template-columns: 21% 58% 21%;
 		min-height: $bar-min-height;
+		padding: 0 $space-s;
 		width: 100%;
 
 		&__text {
@@ -147,12 +150,14 @@
 <script>
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIconButtonWithLabel from 'js/components/global/styleguide/molecules/IconButtonWithLabel';
 
 export default {
 	name: 'ExpandableOverlay',
 	components: {
 		WnlButton,
 		WnlIcon,
+		WnlIconButtonWithLabel,
 	},
 	props: {
 		shortMessage: {
