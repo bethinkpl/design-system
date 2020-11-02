@@ -55,7 +55,7 @@ export default {
 		hovered: {
 			type: Boolean,
 			default: false,
-		}
+		},
 	},
 };
 </script>

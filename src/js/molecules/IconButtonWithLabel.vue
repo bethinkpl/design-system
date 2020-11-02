@@ -1,9 +1,5 @@
 <template>
-	<div
-		class="m-iconButtonWithLabel"
-		@mouseover="hovered = true"
-		@mouseleave="hovered = false"
-	>
+	<div class="m-iconButtonWithLabel" @mouseover="hovered = true" @mouseleave="hovered = false">
 		<span class="m-iconButtonWithLabel__label">{{ label }}</span>
 		<wnl-icon-button :fa-icon-class="faIconClass" :hovered="hovered" />
 	</div>
@@ -46,7 +42,7 @@ import WnlIconButton from 'js/components/global/styleguide/atoms/IconButton';
 
 export default {
 	components: {
-		WnlIconButton
+		WnlIconButton,
 	},
 	props: {
 		label: {
@@ -56,7 +52,7 @@ export default {
 		faIconClass: {
 			type: String,
 			required: true,
-		}
+		},
 	},
 	data() {
 		return {

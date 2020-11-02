@@ -4,10 +4,11 @@
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">
 				{{ shortMessage }}
 			</span>
-			<div class="o-expandableOverlay__bar__toggle" >
+			<div class="o-expandableOverlay__bar__toggle">
 				<wnl-icon-button-with-label
 					:fa-icon-class="isExpanded ? 'fa-times' : 'fa-chevron-down'"
-					:label="isExpanded ? 'Zamknij' : 'Pokaż więcej'" />
+					:label="isExpanded ? 'Zamknij' : 'Pokaż więcej'"
+				/>
 			</div>
 		</div>
 		<template v-if="isExpanded">
