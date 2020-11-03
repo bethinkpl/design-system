@@ -4,16 +4,12 @@
 			<span v-if="!isExpanded" class="o-expandableOverlay__bar__message">
 				{{ shortMessage }}
 			</span>
-			<wnl-button-with-icon class="o-expandableOverlay__bar__toggle" text>
-				<span v-if="isExpanded" class="o-expandableOverlay__bar__text">Zwiń</span>
-				<span v-else class="o-expandableOverlay__bar__text">Czytaj więcej</span>
-				<template #icon>
-					<wnl-icon
-						:fa-icon-class="isExpanded ? 'fa-angle-up' : 'fa-angle-down'"
-						size="medium"
-					/>
-				</template>
-			</wnl-button-with-icon>
+			<div class="o-expandableOverlay__bar__toggle">
+				<wnl-icon-button-with-label
+					:fa-icon-class="isExpanded ? 'fa-times' : 'fa-chevron-down'"
+					:label="isExpanded ? 'Zamknij' : 'Pokaż więcej'"
+				/>
+			</div>
 		</div>
 		<template v-if="isExpanded">
 			<div class="o-expandableOverlay__body">
@@ -37,7 +33,7 @@
 @import 'resources/assets/styles/styleguide/settings/typography';
 
 .o-expandableOverlay {
-	$bar-min-height: 56px;
+	$bar-min-height: 64px;
 
 	z-index: $z-index-critical-info-overlay;
 	background-color: $color-athens-gray;
@@ -60,6 +56,7 @@
 		display: grid;
 		grid-template-columns: 21% 58% 21%;
 		min-height: $bar-min-height;
+		padding: 0 $space-s;
 		width: 100%;
 
 		&__text {
@@ -80,6 +77,8 @@
 		}
 
 		&__toggle {
+			align-items: center;
+			display: flex;
 			grid-column: 3;
 			height: $bar-min-height;
 			justify-self: end;
@@ -103,8 +102,6 @@
 		}
 
 		/deep/ &__subtitle {
-			@include textXL;
-
 			margin-bottom: $space-s;
 		}
 
@@ -152,14 +149,12 @@
 </style>
 
 <script>
-import WnlButtonWithIcon from 'js/components/global/styleguide/molecules/ButtonWithIcon';
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIconButtonWithLabel from 'js/components/global/styleguide/molecules/IconButtonWithLabel';
 
 export default {
 	name: 'ExpandableOverlay',
 	components: {
-		WnlButtonWithIcon,
-		WnlIcon,
+		WnlIconButtonWithLabel,
 	},
 	props: {
 		shortMessage: {

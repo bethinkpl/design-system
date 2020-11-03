@@ -1,0 +1,24 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlIconButton from 'js/components/global/styleguide/atoms/IconButton';
+
+<Meta title='atoms/IconButton' component={WnlIconButton} />
+
+# IconButton
+
+<Story name='interactive'
+       args={{
+           faIconClass: 'fa-times',
+       }}
+>
+    {(args) => {
+        return {
+            components: { WnlIconButton },
+            props: Object.keys(args),
+            template: `<wnl-icon-button :fa-icon-class="faIconClass" />`,
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlIconButton} />
