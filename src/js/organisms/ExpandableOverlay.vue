@@ -70,10 +70,11 @@
 		&__message {
 			@include textL;
 
+			align-self: center;
 			grid-column: 2;
 			text-align: center;
 			color: $color-firefly-black;
-			padding: $space-s 0;
+			padding: $space-xxs 0;
 		}
 
 		&__toggle {
