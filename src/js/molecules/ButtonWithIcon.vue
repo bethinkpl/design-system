@@ -1,9 +1,9 @@
 <template>
 	<wnl-button class="m-buttonWithIcon" v-bind="$attrs" v-on="$listeners">
-		<slot />
 		<div class="m-buttonWithIcon__icon">
 			<slot name="icon" />
 		</div>
+		<slot />
 	</wnl-button>
 </template>
 
@@ -15,7 +15,7 @@
 	display: inline-flex;
 
 	&__icon {
-		margin-left: $space-xxxxs;
+		margin-right: $space-xxxxs;
 	}
 }
 </style>
