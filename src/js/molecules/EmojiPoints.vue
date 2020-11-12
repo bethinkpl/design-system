@@ -61,7 +61,7 @@
 			margin-left: $space-l;
 			width: 242px;
 
-			@media #{breakpoint-s} {
+			@media #{breakpoint-s()} {
 				flex: 1 1 auto;
 				max-width: 360px;
 				width: auto;

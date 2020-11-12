@@ -30,7 +30,7 @@
 		text-transform: uppercase;
 		transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s;
 
-		@media #{breakpoint-s} {
+		@media #{breakpoint-s()} {
 			display: initial;
 		}
 	}
