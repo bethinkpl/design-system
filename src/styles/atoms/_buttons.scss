@@ -19,7 +19,7 @@
 	&.-big {
 		width: 100%;
 
-		@media #{breakpoint-s} {
+		@media #{breakpoint-s()} {
 			width: auto;
 			padding: $space-s $space-m;
 			min-width: 264px;

@@ -30,7 +30,7 @@
 	padding: 0 $space-xxxs;
 	text-align: center;
 
-	@media #{breakpoint-s} {
+	@media #{breakpoint-s()} {
 		font-size: $font-size-headline-xl;
 		height: $icon-xl;
 		min-width: $icon-xl;
