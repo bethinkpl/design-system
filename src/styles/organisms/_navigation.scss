@@ -6,7 +6,7 @@
 	height: 55px;
 
 	@media #{breakpoint-m()} {
-		padding: 0 $space-xxxl;
+		padding: 0 $deprecated-space-xxxl;
 	}
 
 	&__right {
