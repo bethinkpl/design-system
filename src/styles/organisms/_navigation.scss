@@ -5,7 +5,7 @@
 	align-items: center;
 	height: 55px;
 
-	@media #{$breakpoint-m} {
+	@media #{breakpoint-m()} {
 		padding: 0 $space-xxxl;
 	}
 
@@ -34,7 +34,7 @@
 	&__avatar {
 		padding: $space-xxs;
 
-		@media #{$breakpoint-m} {
+		@media #{breakpoint-m()} {
 			padding: $space-xxxxs;
 
 			.a-avatar,

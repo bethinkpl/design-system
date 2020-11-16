@@ -1,5 +1,5 @@
 .o-formGroups {
-	@media #{$breakpoint-s} {
+	@media #{breakpoint-s()} {
 		display: flex;
 
 		&:not(:last-child) {
