@@ -21,7 +21,7 @@
 	margin-right: $space-xs;
 }
 
-.o-helpModal__content /deep/ {
+.o-helpModal__content ::v-deep {
 	p,
 	ul,
 	ol {
@@ -35,7 +35,7 @@
 	}
 }
 
-.o-helpModal__content /deep/ h3 {
+.o-helpModal__content ::v-deep h3 {
 	color: $color-firefly-black;
 	font-size: 1.75rem;
 	line-height: 1.5em;

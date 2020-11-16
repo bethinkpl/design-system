@@ -7,7 +7,7 @@
 	display: flex;
 	flex-direction: column;
 
-	@media #{$breakpoint-s} {
+	@media #{breakpoint-s()} {
 		flex-direction: row;
 		padding: $space-xl 0;
 	}
@@ -20,14 +20,14 @@
 		align-items: center;
 		justify-content: space-between;
 
-		@media #{$breakpoint-s} {
+		@media #{breakpoint-s()} {
 			flex: 0 1 auto;
 			padding: 0 0 0 $space-m;
 			max-width: $breakpoint-s-max-width;
 		}
 
 		.a-icon {
-			@media #{$breakpoint-s} {
+			@media #{breakpoint-s()} {
 				margin-left: $space-s;
 				margin-right: $space-m;
 			}
@@ -36,7 +36,7 @@
 		&.-first {
 			border-bottom: 1px solid $color-cadet-gray;
 
-			@media #{$breakpoint-s} {
+			@media #{breakpoint-s()} {
 				border-bottom: none;
 				border-right: 1px solid $color-cadet-gray;
 			}
@@ -46,7 +46,7 @@
 			// Make place for Messenger plugin
 			max-width: 280px;
 
-			@media #{$breakpoint-s} {
+			@media #{breakpoint-s()} {
 				max-width: $breakpoint-s-max-width;
 			}
 		}
