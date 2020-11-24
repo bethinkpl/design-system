@@ -1,8 +1,6 @@
 <template>
 	<div class="a-tabItem" :data-tooltip-text="tooltipText" :class="{ '-isActive': isActive }">
-		<div class="a-tabItem__icon">
-			<wnl-icon :fa-icon-class="faIconClass" size="x-small" />
-		</div>
+		<wnl-icon :fa-icon-class="faIconClass" size="x-small" />
 	</div>
 </template>
 
