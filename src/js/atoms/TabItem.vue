@@ -1,6 +1,8 @@
 <template>
 	<div class="a-tabItem" :data-tooltip-text="tooltipText" :class="{ '-isActive': isActive }">
-		<wnl-icon :fa-icon-class="faIconClass" size="x-small" />
+		<div class="a-tabItem__icon">
+			<wnl-icon :fa-icon-class="faIconClass" size="x-small" />
+		</div>
 	</div>
 </template>
 
@@ -11,12 +13,16 @@
 @import 'resources/assets/styles/styleguide/settings/typography';
 @import 'resources/assets/styles/styleguide/settings/spacings';
 
+$tab-item-width: (2 * $space-s) + $icon-xs;
+
 .a-tabItem {
+	display: flex;
+	justify-content: center;
 	color: $color-storm-gray;
 	cursor: pointer;
 	padding: $space-xxs $space-s;
 	border-bottom: 1px solid $color-storm-gray;
-	width: (2 * $space-s) + $icon-xs;
+	width: $tab-item-width;
 
 	&:hover {
 		color: $color-firefly-black;
@@ -43,15 +49,14 @@
 		color: #0c1726;
 		content: attr(data-tooltip-text);
 		font-size: 8px;
-		left: 0;
 		letter-spacing: 0;
 		line-height: 12px;
-		min-width: 50px;
+		min-width: $tab-item-width;
 		position: absolute;
 		text-align: center;
 		top: 120%;
 		width: auto;
-		word-wrap: break-word;
+		white-space: nowrap;
 		z-index: $z-index-tooltip;
 	}
 }
