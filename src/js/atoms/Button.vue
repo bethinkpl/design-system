@@ -39,10 +39,6 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		small: {
-			type: Boolean,
-			default: false,
-		},
 		medium: {
 			type: Boolean,
 			default: false,
