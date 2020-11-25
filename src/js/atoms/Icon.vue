@@ -11,6 +11,7 @@
 
 <script lang="ts">
 export default {
+	name: 'Icon',
 	props: {
 		faIconClass: {
 			type: String,
