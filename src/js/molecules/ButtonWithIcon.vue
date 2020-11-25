@@ -1,4 +1,5 @@
 <template>
+	<!-- TODO check how to migrate this -->
 	<wnl-button class="m-buttonWithIcon" v-bind="$attrs" v-on="$listeners">
 		<div class="m-buttonWithIcon__icon">
 			<slot name="icon" />

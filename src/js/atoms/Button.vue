@@ -18,9 +18,24 @@
 </template>
 
 <script>
+export const SIZES = {
+	SMALL: 'small',
+	MEDIUM: 'medium',
+	LARGE: 'large',
+};
+
 export default {
 	props: {
+		size: {
+			type: String,
+			default: SIZES.MEDIUM,
+			validator(value) {
+				return Object.values(SIZES).includes(value);
+			},
+		},
+
 		text: {
+			// TODO make sure size is ok
 			type: Boolean,
 			default: false,
 		},
@@ -45,6 +60,7 @@ export default {
 			default: false,
 		},
 		secondary: {
+			// TODO make sure size is ok
 			type: Boolean,
 			default: false,
 		},

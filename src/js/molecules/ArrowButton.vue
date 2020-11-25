@@ -1,4 +1,5 @@
 <template>
+	<!-- TODO check how to migrate this -->
 	<wnl-button class="m-arrowButton">
 		<wnl-icon class="m-arrowButton__icon" fa-icon-class="fa-angle-left" size="x-small" />
 	</wnl-button>
