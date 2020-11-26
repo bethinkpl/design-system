@@ -38,7 +38,7 @@
 			</table>
 
 			<template #footer>
-				<wnl-button medium @click.native="isModalVisible = false">Ok, rozumiem</wnl-button>
+				<wnl-button @click.native="isModalVisible = false">Ok, rozumiem</wnl-button>
 			</template>
 		</wnl-modal>
 	</div>

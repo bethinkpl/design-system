@@ -11,20 +11,16 @@ import WnlButtonWithIcon from 'js/components/global/styleguide/molecules/ButtonW
 		danger: false,
 		disabled: false,
 		loading: false,
-		medium: false,
 		roundedCorners: true,
 		secondary: true,
-		small: false,
 		text: false,
 	}}
     argTypes={{
         danger: {control: { type: 'boolean' }},
         disabled: {control: { type: 'boolean' }},
         loading: {control: { type: 'boolean' }},
-        medium: {control: { type: 'boolean' }},
         roundedCorners: {control: { type: 'boolean' }},
         secondary: {control: { type: 'boolean' }},
-        small: {control: { type: 'boolean' }},
         text: {control: { type: 'boolean' }},
     }}
 >
@@ -36,7 +32,7 @@ import WnlButtonWithIcon from 'js/components/global/styleguide/molecules/ButtonW
         	},
         	props: Object.keys(args),
             template:
-`<wnl-button-with-icon :danger="danger" :disabled="disabled" :loading="loading" :medium="medium" :roundedCorners="roundedCorners" :secondary="secondary" :small="small" :text="text">
+`<wnl-button-with-icon :danger="danger" :disabled="disabled" :loading="loading" :roundedCorners="roundedCorners" :secondary="secondary" :small="small" :text="text">
 	Tekst przycisku
 	<template #icon>
 		<wnl-icon
