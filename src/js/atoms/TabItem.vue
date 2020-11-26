@@ -24,7 +24,7 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 	color: $color-storm-gray;
 	cursor: pointer;
 	padding: $space-xxs $space-s;
-	border-bottom: 1px solid $color-storm-gray;
+	border-bottom: 1px solid $color-mischka-gray;
 	width: $tab-item-width;
 
 	&:hover {
