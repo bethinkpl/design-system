@@ -18,7 +18,7 @@ describe('TabItem', () => {
 			propsData: {
 				faIconClass: 'fa-calendar',
 				isActive,
-				tooltipText: 'wpłynąłem na suchego przestwór oceanu',
+				title: 'wpłynąłem na suchego przestwór oceanu',
 			},
 		});
 	};

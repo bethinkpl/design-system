@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="a-tabItem"
-		:data-tooltip-text="tooltipText"
+		:title="title"
 		:class="{ '-isActive': isActive }"
 		@click="$emit('click')"
 	>
@@ -37,32 +37,6 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 		border-bottom: 1px solid $color-primary;
 	}
 }
-
-[data-tooltip-text] {
-	&:hover {
-		position: relative;
-	}
-
-	&::after {
-		@include textInfoS();
-
-		background-color: #eff0f3;
-		border-radius: 2px;
-		box-shadow: 0 4px 8px 0 rgba(12, 23, 38, 0.12);
-		color: #0c1726;
-		content: attr(data-tooltip-text);
-		font-size: 8px;
-		letter-spacing: 0;
-		line-height: 12px;
-		min-width: $tab-item-width;
-		position: absolute;
-		text-align: center;
-		top: 120%;
-		width: auto;
-		white-space: nowrap;
-		z-index: $z-index-tooltip;
-	}
-}
 </style>
 
 <script lang="ts">
@@ -85,7 +59,7 @@ export default {
 			type: Boolean,
 			required: true,
 		},
-		tooltipText: {
+		title: {
 			type: String,
 			required: true,
 		},
