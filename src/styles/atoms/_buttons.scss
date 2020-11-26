@@ -1,5 +1,5 @@
 .a-button {
-	@include headlineXS;
+	@include headlineXXS;
 
 	background: $color-primary;
 	border: 0;
@@ -9,7 +9,7 @@
 	display: inline-block;
 	font-weight: 700;
 	outline: none;
-	padding: $space-s $space-m;
+	padding: $space-xxs $space-m;
 	position: relative;
 	text-align: center;
 	text-transform: uppercase;
@@ -21,15 +21,16 @@
 
 		@media #{breakpoint-s()} {
 			width: auto;
+			// TODO check this out
 			padding: $space-s $space-m;
 			min-width: 264px;
 		}
 	}
 
-	&.-medium {
-		@include headlineXXS;
+	&.-large {
+		@include headlineXS;
 
-		padding: $space-xxs $space-m;
+		padding: $space-s $space-m;
 	}
 
 	&.-small {
@@ -117,18 +118,14 @@
 	}
 
 	&.-roundedCorners {
-		@include headlineXXS;
-
 		border-radius: $radius-m;
-		padding: $space-xxs $space-m;
 	}
 
 	&.-secondary {
-		@include headlineXXS;
-
 		background-color: $color-total-white;
-		border: 2px solid $color-storm-gray;
+		border: 1px solid $color-storm-gray;
 		color: $color-firefly-black;
+		// TODO make sure padding don't change button size
 		padding: $space-xxxs $space-m;
 
 		&:hover,

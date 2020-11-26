@@ -3,8 +3,8 @@
 		class="a-button"
 		:class="{
 			'-text': text,
-			'-small': small,
-			'-medium': medium,
+			'-small': size === SIZES.SMALL,
+			'-large': size === SIZES.LARGE,
 			'-loading': loading,
 			'-roundedCorners': roundedCorners,
 			'-disabled': disabled,
@@ -39,10 +39,6 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		medium: {
-			type: Boolean,
-			default: false,
-		},
 		loading: {
 			type: Boolean,
 			default: false,
@@ -68,6 +64,9 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+	},
+	created() {
+		this.SIZES = SIZES;
 	},
 };
 </script>
