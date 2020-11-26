@@ -2,13 +2,13 @@
 	<span
 		class="a-button"
 		:class="{
-			'-text': text,
+			'-text': type === TYPES.TEXT,
 			'-small': size === SIZES.SMALL,
 			'-large': size === SIZES.LARGE,
 			'-loading': loading,
 			'-roundedCorners': roundedCorners,
 			'-disabled': disabled,
-			'-secondary': secondary,
+			'-outlined': type === TYPES.OUTLINED,
 			'-danger': danger,
 			'-hovered': hovered,
 		}"
@@ -23,6 +23,11 @@ export const SIZES = {
 	MEDIUM: 'medium',
 	LARGE: 'large',
 };
+export const TYPES = {
+	FILLED: 'filled',
+	OUTLINED: 'outlined',
+	TEXT: 'text',
+};
 
 export default {
 	props: {
@@ -31,6 +36,13 @@ export default {
 			default: SIZES.MEDIUM,
 			validator(value) {
 				return Object.values(SIZES).includes(value);
+			},
+		},
+		type: {
+			type: String,
+			default: TYPES.FILLED,
+			validator(value) {
+				return Object.values(TYPES).includes(value);
 			},
 		},
 
@@ -67,6 +79,7 @@ export default {
 	},
 	created() {
 		this.SIZES = SIZES;
+		this.TYPES = TYPES;
 	},
 };
 </script>

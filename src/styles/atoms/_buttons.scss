@@ -57,7 +57,7 @@
 			width: 1em;
 		}
 
-		&.-secondary {
+		&.-outlined {
 			color: transparent;
 
 			&::after {
@@ -121,7 +121,7 @@
 		border-radius: $radius-m;
 	}
 
-	&.-secondary {
+	&.-outlined {
 		background-color: $color-total-white;
 		border: 1px solid $color-storm-gray;
 		color: $color-firefly-black;
