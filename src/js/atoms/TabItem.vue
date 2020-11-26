@@ -1,5 +1,10 @@
 <template>
-	<div class="a-tabItem" :data-tooltip-text="tooltipText" :class="{ '-isActive': isActive }">
+	<div
+		class="a-tabItem"
+		:data-tooltip-text="tooltipText"
+		:class="{ '-isActive': isActive }"
+		@click="$emit('click')"
+	>
 		<wnl-icon :fa-icon-class="faIconClass" size="x-small" />
 	</div>
 </template>
