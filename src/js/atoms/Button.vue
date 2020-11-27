@@ -17,7 +17,7 @@
 	</span>
 </template>
 
-<script>
+<script lang="ts">
 export const SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
