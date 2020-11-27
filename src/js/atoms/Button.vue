@@ -2,13 +2,13 @@
 	<span
 		class="a-button"
 		:class="{
-			'-text': type === TYPES.TEXT,
+			'-text': type === BUTTON_TYPES.TEXT,
 			'-small': size === SIZES.SMALL,
 			'-large': size === SIZES.LARGE,
 			'-loading': loading,
 			'-roundedCorners': roundedCorners,
 			'-disabled': disabled,
-			'-outlined': type === TYPES.OUTLINED,
+			'-outlined': type === BUTTON_TYPES.OUTLINED,
 			'-danger': danger,
 			'-hovered': hovered,
 		}"
@@ -45,12 +45,6 @@ export default {
 				return Object.values(TYPES).includes(value);
 			},
 		},
-
-		text: {
-			// TODO make sure size is ok
-			type: Boolean,
-			default: false,
-		},
 		loading: {
 			type: Boolean,
 			default: false,
@@ -60,11 +54,6 @@ export default {
 			default: false,
 		},
 		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		secondary: {
-			// TODO make sure size is ok
 			type: Boolean,
 			default: false,
 		},
@@ -79,7 +68,7 @@ export default {
 	},
 	created() {
 		this.SIZES = SIZES;
-		this.TYPES = TYPES;
+		this.BUTTON_TYPES = TYPES;
 	},
 };
 </script>
