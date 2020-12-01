@@ -13,11 +13,15 @@
 			'-hovered': hovered,
 		}"
 	>
+		<wnl-icon v-if="iconLeft" :fa-icon-class="iconLeft" size="x-small" />
 		<slot />
+		<wnl-icon v-if="iconRight" :fa-icon-class="iconRight" size="x-small" />
 	</span>
 </template>
 
 <script lang="ts">
+import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+
 export const SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
@@ -40,6 +44,9 @@ export const RADIUSES = {
 };
 
 export default {
+	components: {
+		WnlIcon,
+	},
 	props: {
 		size: {
 			type: String,
@@ -69,6 +76,16 @@ export default {
 				return Object.values(RADIUSES).includes(value);
 			},
 		},
+		iconLeft: {
+			type: String,
+			default: null,
+		},
+		iconRight: {
+			type: String,
+			default: null,
+		},
+
+		// TODO rethink states
 		loading: {
 			type: Boolean,
 			default: false,
