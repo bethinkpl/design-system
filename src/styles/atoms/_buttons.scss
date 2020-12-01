@@ -1,6 +1,8 @@
 $buttonSmallMinHeight: 28px;
 $buttonMediumMinHeight: 32px;
 $buttonLargeMinHeight: 48px;
+// TODO fix colors on modal
+// TODO a:hover color
 
 @mixin outlinedColor($color) {
 	border-color: rgba($color, 1);
@@ -117,17 +119,6 @@ $buttonLargeMinHeight: 48px;
 			}
 		}
 	}
-
-	//&.-big {
-	//	width: 100%;
-	//
-	//	@media #{breakpoint-s()} {
-	//		width: auto;
-	//		// TODO check this out
-	//		padding: $space-s $space-m;
-	//		min-width: 264px;
-	//	}
-	//}
 
 	&.-large {
 		@include headlineXS;
