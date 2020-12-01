@@ -6,7 +6,7 @@
 			'-small': size === SIZES.SMALL,
 			'-large': size === SIZES.LARGE,
 			'-loading': loading,
-			'-roundedCorners': radius === RADIUSES.ROUNDED,
+			'-rounded': type !== BUTTON_TYPES.TEXT && radius === RADIUSES.ROUNDED,
 			'-disabled': disabled,
 			'-outlined': type === BUTTON_TYPES.OUTLINED,
 			'-danger': color === COLORS.DANGER,

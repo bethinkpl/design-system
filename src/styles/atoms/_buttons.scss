@@ -1,20 +1,31 @@
+$buttonSmallMinHieght: 28px;
+$buttonMediumMinHieght: 32px;
+$buttonLargeMinHieght: 48px;
+
 .a-button {
 	@include headlineXXS;
 
+	align-items: center;
 	background: $color-primary;
+	// TODO border
 	border: 0;
 	border-radius: 100px;
 	color: $color-total-white;
 	cursor: pointer;
-	display: inline-block;
+	display: inline-flex;
+	min-height: $buttonMediumMinHieght;
 	font-weight: 700;
+	justify-content: center;
 	outline: none;
-	padding: $space-xxs $space-m;
+	padding: $space-xxxxs $space-s;
 	position: relative;
-	text-align: center;
 	text-transform: uppercase;
 	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s,
 		background-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s;
+
+	&:not(.-text) {
+		min-width: 100px;
+	}
 
 	&.-big {
 		width: 100%;
@@ -30,13 +41,15 @@
 	&.-large {
 		@include headlineXS;
 
-		padding: $space-s $space-m;
+		min-height: $buttonLargeMinHieght;
+		padding-left: $space-m;
+		padding-right: $space-m;
 	}
 
 	&.-small {
 		@include textInfoM;
 
-		padding: $space-xxxs $space-s;
+		min-height: $buttonSmallMinHieght;
 	}
 
 	&.-loading {
@@ -117,16 +130,21 @@
 		box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-primary-rgb, 0.6);
 	}
 
-	&.-roundedCorners {
+	&.-rounded {
 		border-radius: $radius-m;
+		padding-left: $space-xs;
+		padding-right: $space-xs;
+
+		&.-large {
+			padding-left: $space-s;
+			padding-right: $space-s;
+		}
 	}
 
 	&.-outlined {
 		background-color: $color-total-white;
 		border: 1px solid $color-storm-gray;
 		color: $color-firefly-black;
-		// TODO make sure padding don't change button size
-		padding: $space-xxxs $space-m;
 
 		&:hover,
 		&.-hovered {
@@ -152,7 +170,8 @@
 		border: none;
 		border-radius: 0;
 		color: $color-primary;
-		padding: $space-xxs $space-s;
+		padding-left: 0;
+		padding-right: 0;
 
 		&:hover,
 		&.-hovered {
