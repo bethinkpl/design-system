@@ -43,6 +43,7 @@ $buttonLargeMinHeight: 48px;
 	@include headlineXXS;
 
 	align-items: center;
+	background-color: transparent; // override defaut <button> background color
 	// TODO border
 	border: 0;
 	border-radius: 100px;
