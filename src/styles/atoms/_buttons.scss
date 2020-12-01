@@ -2,11 +2,35 @@ $buttonSmallMinHeight: 28px;
 $buttonMediumMinHeight: 32px;
 $buttonLargeMinHeight: 48px;
 
+@mixin outlinedColor($color) {
+	border-color: $color;
+	color: $color;
+
+	&::before {
+		background-color: $color;
+	}
+}
+
+@mixin textColor($color) {
+	color: rgba($color, 1);
+
+	&:hover,
+	&.-hovered,
+	&:active,
+	&.-active {
+		color: rgba($color, 0.88);
+	}
+
+	&:focus,
+	&.-focus {
+		color: rgba($color, 0.76);
+	}
+}
+
 .a-button {
 	@include headlineXXS;
 
 	align-items: center;
-	background: $color-primary;
 	// TODO border
 	border: 0;
 	border-radius: 100px;
@@ -20,23 +44,76 @@ $buttonLargeMinHeight: 48px;
 	padding: $space-xxxxs $space-s;
 	position: relative;
 	text-transform: uppercase;
-	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s,
-		background-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s;
+	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s;
+
+	&:disabled,
+	&.-disabled {
+		cursor: not-allowed;
+		pointer-events: none;
+	}
 
 	&:not(.-text) {
 		min-width: 100px;
-	}
 
-	&.-big {
-		width: 100%;
-
-		@media #{breakpoint-s()} {
-			width: auto;
-			// TODO check this out
-			padding: $space-s $space-m;
-			min-width: 264px;
+		&::before,
+		&::after {
+			border-radius: inherit;
+			bottom: 0;
+			content: '';
+			left: 0;
+			pointer-events: none;
+			position: absolute;
+			transition: opacity ease-in-out 0.3s, background-color ease-in-out 0.3s;
+			right: 0;
+			top: 0;
 		}
+
+		&::before {
+			background-color: $color-firefly-black;
+			opacity: 0;
+			z-index: -1;
+		}
+
+		&::after {
+			background-color: $color-primary;
+			z-index: -2;
+		}
+
+		&:hover,
+		&.-hovered,
+		&:active,
+		&.-active {
+			&::before {
+				opacity: 0.12;
+			}
+		}
+
+		&:focus,
+		&.-focus {
+			&::before {
+				opacity: 0.24;
+			}
+		}
+
+		//&:disabled,
+		//&.-disabled {
+		//	&::before {
+		//		background-color: $color-total-white;
+		//		opacity: 0.6;
+		//	}
+		//}
 	}
+
+	//&.-big {
+	//	width: 100%;
+	//
+	//	@media #{breakpoint-s()} {
+	//		width: auto;
+	//		// TODO check this out
+	//		padding: $space-s $space-m;
+	//		min-width: 264px;
+	//	}
+	//}
 
 	&.-large {
 		@include headlineXS;
@@ -52,86 +129,53 @@ $buttonLargeMinHeight: 48px;
 		min-height: $buttonSmallMinHeight;
 	}
 
-	&.-loading {
-		color: transparent;
-		pointer-events: none;
+	//&.-loading {
+	//	// TODO
+	//	color: transparent;
+	//	pointer-events: none;
+	//
+	//	&::after {
+	//		animation: a-spinAround 500ms infinite linear;
+	//		border: 2px solid $color-total-white;
+	//		border-color: transparent transparent $color-total-white $color-total-white;
+	//		border-radius: 100%;
+	//		content: '';
+	//		display: block;
+	//		height: 1em;
+	//		left: calc(50% - (1em / 2));
+	//		position: absolute;
+	//		top: calc(50% - (1em / 2));
+	//		width: 1em;
+	//	}
+	//
+	//	&.-outlined {
+	//		color: transparent;
+	//
+	//		&::after {
+	//			border: 2px solid $color-rhino-gray;
+	//			border-color: transparent transparent $color-rhino-gray $color-rhino-gray;
+	//		}
+	//	}
+	//}
 
-		&::after {
-			animation: a-spinAround 500ms infinite linear;
-			border: 2px solid $color-total-white;
-			border-color: transparent transparent $color-total-white $color-total-white;
-			border-radius: 100%;
-			content: '';
-			display: block;
-			height: 1em;
-			left: calc(50% - (1em / 2));
-			position: absolute;
-			top: calc(50% - (1em / 2));
-			width: 1em;
-		}
-
-		&.-outlined {
-			color: transparent;
-
-			&::after {
-				border: 2px solid $color-rhino-gray;
-				border-color: transparent transparent $color-rhino-gray $color-rhino-gray;
-			}
-		}
+	&.-minor::after {
+		background-color: $color-minor;
 	}
 
-	&.-success {
-		background-color: $color-jungle-green;
-
-		&:hover,
-		&.-hovered {
-			background-color: $color-elf-green;
-		}
-
-		&:focus,
-		&.-focused {
-			background-color: $color-jungle-green;
-			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-jungle-green, 0.6);
-		}
+	&.-danger::after {
+		background-color: $color-danger;
 	}
 
-	&.-danger {
-		background-color: $color-crimson-red;
-
-		&:hover,
-		&.-hovered {
-			background-color: $color-crimson-red;
-		}
-
-		&:focus,
-		&.-focused {
-			background-color: $color-crimson-red;
-			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-crimson-red, 0.6);
-		}
+	&.-warning::after {
+		background-color: $color-warning;
 	}
 
-	&:disabled,
-	&.-disabled {
-		background-color: $color-athens-gray;
-		color: $color-storm-gray;
-		cursor: not-allowed;
-		pointer-events: none;
-	}
-
-	&:hover,
-	&.-hovered {
-		background-color: $color-primary-dark;
-		color: $color-total-white;
-	}
-
-	&:focus,
-	&.-focused {
-		background-color: $color-primary-dark;
-		box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-primary-rgb, 0.6);
+	&.-success::after {
+		background-color: $color-success;
 	}
 
 	&.-rounded {
-		border-radius: $radius-m;
+		border-radius: $radius-s;
 		padding-left: $space-xs;
 		padding-right: $space-xs;
 
@@ -142,51 +186,79 @@ $buttonLargeMinHeight: 48px;
 	}
 
 	&.-outlined {
-		background-color: $color-total-white;
-		border: 1px solid $color-storm-gray;
-		color: $color-firefly-black;
+		@include outlinedColor($color-primary);
 
-		&:hover,
-		&.-hovered {
+		border: 1px solid;
+
+		&::after {
 			background-color: $color-total-white;
-			border-color: $color-rhino-gray;
 		}
 
-		&:focus,
-		&.-focus {
-			background-color: $color-total-white;
-			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-storm-gray, 0.6);
+		&.-minor {
+			@include outlinedColor($color-minor);
 		}
 
-		&:disabled,
-		&.-disabled {
-			border-color: $color-cadet-gray;
-			color: $color-mischka-gray;
+		&.-danger {
+			@include outlinedColor($color-danger);
+		}
+
+		&.-warning {
+			@include outlinedColor($color-warning);
+		}
+
+		&.-success {
+			@include outlinedColor($color-success);
 		}
 	}
 
 	&.-text {
-		background-color: transparent;
+		@include textColor($color-primary-rgb);
+
 		border: none;
 		border-radius: 0;
-		color: $color-primary;
 		padding-left: 0;
 		padding-right: 0;
+		-webkit-background-clip: text;
+		background-color: $color-firefly-black;
 
-		&:hover,
-		&.-hovered {
-			color: $color-primary-dark;
+		&.-minor {
+			@include textColor($color-minor);
 		}
 
-		&:focus,
-		&.-focus {
-			background-color: $color-athens-gray;
-			box-shadow: none;
+		&.-danger {
+			@include textColor($color-danger);
 		}
+
+		&.-warning {
+			@include textColor($color-warning);
+		}
+
+		&.-success {
+			@include textColor($color-success);
+		}
+
+		//&:hover,
+		//&.-hovered {
+		//	color: $color-primary-dark;
+		//}
+		//
+		//&:focus,
+		//&.-focus {
+		//	background-color: $color-athens-gray;
+		//}
 
 		&:disabled,
 		&.-disabled {
 			color: rgba($color-primary-rgb, 0.6);
+		}
+	}
+
+	&__icon {
+		&.-left {
+			margin-right: $space-xxxxs;
+		}
+		&.-right {
+			margin-left: $space-xxxxs;
 		}
 	}
 
@@ -198,14 +270,5 @@ $buttonLargeMinHeight: 48px;
 		height: 40px;
 		padding: 0;
 		width: 40px;
-	}
-
-	&__icon {
-		&.-left {
-			margin-right: $space-xxxxs;
-		}
-		&.-right {
-			margin-left: $space-xxxxs;
-		}
 	}
 }

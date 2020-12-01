@@ -9,7 +9,10 @@
 			'-rounded': type !== BUTTON_TYPES.TEXT && radius === RADIUSES.ROUNDED,
 			'-disabled': disabled,
 			'-outlined': type === BUTTON_TYPES.OUTLINED,
+			'-minor': color === COLORS.MINOR,
 			'-danger': color === COLORS.DANGER,
+			'-warning': color === COLORS.WARNING,
+			'-success': color === COLORS.SUCCESS,
 			'-hovered': hovered,
 		}"
 	>
@@ -46,6 +49,7 @@ export const COLORS = {
 	PRIMARY: 'primary',
 	MINOR: 'minor',
 	DANGER: 'danger',
+	WARNING: 'warning',
 	SUCCESS: 'success',
 };
 export const RADIUSES = {

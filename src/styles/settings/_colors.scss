@@ -54,12 +54,13 @@ $color-secondary: var(--color-secondary);
 
 // functional colors
 $color-success: $color-ocean-green;
+$color-minor: $color-storm-gray;
 $color-warning: $color-goldfish-yellow;
-$color-error: $color-crimson-red;
-$color-error-light: $color-crimson-red-light;
-$color-error-dark: $color-crimson-red-dark;
+$color-danger: $color-crimson-red;
+$color-danger-light: $color-crimson-red-light;
+$color-danger-dark: $color-crimson-red-dark;
 $color-background: $color-alabaster-gray;
 
 $color-shadow: rgba($color-firefly-black, 0.35);
 $color-success-shadow: rgba($color-success, 0.7);
-$color-error-shadow: rgba($color-error, 0.7);
+$color-danger-shadow: rgba($color-danger, 0.7);
