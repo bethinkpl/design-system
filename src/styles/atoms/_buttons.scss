@@ -1,6 +1,6 @@
-$buttonSmallMinHieght: 28px;
-$buttonMediumMinHieght: 32px;
-$buttonLargeMinHieght: 48px;
+$buttonSmallMinHeight: 28px;
+$buttonMediumMinHeight: 32px;
+$buttonLargeMinHeight: 48px;
 
 .a-button {
 	@include headlineXXS;
@@ -13,7 +13,7 @@ $buttonLargeMinHieght: 48px;
 	color: $color-total-white;
 	cursor: pointer;
 	display: inline-flex;
-	min-height: $buttonMediumMinHieght;
+	min-height: $buttonMediumMinHeight;
 	font-weight: 700;
 	justify-content: center;
 	outline: none;
@@ -41,7 +41,7 @@ $buttonLargeMinHieght: 48px;
 	&.-large {
 		@include headlineXS;
 
-		min-height: $buttonLargeMinHieght;
+		min-height: $buttonLargeMinHeight;
 		padding-left: $space-m;
 		padding-right: $space-m;
 	}
@@ -49,7 +49,7 @@ $buttonLargeMinHieght: 48px;
 	&.-small {
 		@include textInfoM;
 
-		min-height: $buttonSmallMinHieght;
+		min-height: $buttonSmallMinHeight;
 	}
 
 	&.-loading {
@@ -191,11 +191,21 @@ $buttonLargeMinHieght: 48px;
 	}
 
 	&.-icon {
+		// TODO fix me
 		align-items: center;
 		display: flex;
 		justify-content: center;
 		height: 40px;
 		padding: 0;
 		width: 40px;
+	}
+
+	&__icon {
+		&.-left {
+			margin-right: $space-xxxxs;
+		}
+		&.-right {
+			margin-left: $space-xxxxs;
+		}
 	}
 }

@@ -13,9 +13,19 @@
 			'-hovered': hovered,
 		}"
 	>
-		<wnl-icon v-if="iconLeft" :fa-icon-class="iconLeft" size="x-small" />
+		<wnl-icon
+			v-if="iconLeft"
+			class="a-button__icon -left"
+			:fa-icon-class="iconLeft"
+			size="x-small"
+		/>
 		<slot />
-		<wnl-icon v-if="iconRight" :fa-icon-class="iconRight" size="x-small" />
+		<wnl-icon
+			v-if="iconRight"
+			class="a-button__icon -right"
+			:fa-icon-class="iconRight"
+			size="x-small"
+		/>
 	</span>
 </template>
 
