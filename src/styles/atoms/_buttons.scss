@@ -2,7 +2,6 @@ $buttonSmallMinHeight: 28px;
 $buttonMediumMinHeight: 32px;
 $buttonLargeMinHeight: 48px;
 // TODO fix colors on modal
-// TODO a:hover color
 
 @mixin outlinedColor($color) {
 	border-color: rgba($color, 1);
@@ -110,6 +109,13 @@ $buttonLargeMinHeight: 48px;
 		}
 
 		&:not(.-outlined) {
+			&:hover,
+			&.-hovered,
+			&:active,
+			&.-active {
+				color: $color-total-white; // override bulma a:hover
+			}
+
 			&:disabled,
 			&.-disabled {
 				&::before {
