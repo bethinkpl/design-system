@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlButton, { SIZES, TYPES, COLORS } from 'js/components/global/styleguide/atoms/Button';
+import WnlButton, { SIZES, TYPES, COLORS, RADIUSES } from 'js/components/global/styleguide/atoms/Button';
 
 <Meta title='atoms/Button' component={WnlButton} />
 
@@ -11,22 +11,23 @@ import WnlButton, { SIZES, TYPES, COLORS } from 'js/components/global/styleguide
     args={{
     disabled: false,
     loading: false,
-    roundedCorners: true,
     size: SIZES.MEDIUM,
     type: TYPES.FILLED,
     color: COLORS.PRIMARY,
+    radius: RADIUSES.CAPSULE,
     }}
     argTypes={{
         slotText: {control: { type: 'text' }, defaultValue: 'hello'},
         size: {control: { type: 'select', options: Object.values(SIZES) }, defaultValue: SIZES.MEDIUM},
         type: {control: { type: 'select', options: Object.values(TYPES) }, defaultValue: TYPES.FILLED},
         color: {control: { type: 'select', options: Object.values(COLORS) }, defaultValue: COLORS.PRIMARY},
+        radius: {control: { type: 'select', options: Object.values(RADIUSES) }, defaultValue: RADIUSES.CAPSULE},
     }}>
     {(args) => {
         return {
             components: { WnlButton },
             props: Object.keys(args),
-            template: '<wnl-button :size="size" :type="type" :disabled="disabled" :loading="loading" :roundedCorners="roundedCorners">{{slotText}}</wnl-button>',
+            template: '<wnl-button :size="size" :type="type" :disabled="disabled" :loading="loading" :radius="radius" :color="color">{{slotText}}</wnl-button>',
         };
     }}
 </Story>

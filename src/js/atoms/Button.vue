@@ -6,7 +6,7 @@
 			'-small': size === SIZES.SMALL,
 			'-large': size === SIZES.LARGE,
 			'-loading': loading,
-			'-roundedCorners': roundedCorners,
+			'-roundedCorners': radius === RADIUSES.ROUNDED,
 			'-disabled': disabled,
 			'-outlined': type === BUTTON_TYPES.OUTLINED,
 			'-danger': color === COLORS.DANGER,
@@ -34,6 +34,10 @@ export const COLORS = {
 	DANGER: 'danger',
 	SUCCESS: 'success',
 };
+export const RADIUSES = {
+	CAPSULE: 'capsule',
+	ROUNDED: 'rounded',
+};
 
 export default {
 	props: {
@@ -58,11 +62,14 @@ export default {
 				return Object.values(COLORS).includes(value);
 			},
 		},
-		loading: {
-			type: Boolean,
-			default: false,
+		radius: {
+			type: String,
+			default: RADIUSES.CAPSULE,
+			validator(value) {
+				return Object.values(RADIUSES).includes(value);
+			},
 		},
-		roundedCorners: {
+		loading: {
 			type: Boolean,
 			default: false,
 		},
@@ -78,6 +85,7 @@ export default {
 	created() {
 		this.BUTTON_TYPES = TYPES;
 		this.COLORS = COLORS;
+		this.RADIUSES = RADIUSES;
 		this.SIZES = SIZES;
 	},
 };
