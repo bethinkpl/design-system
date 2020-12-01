@@ -2,18 +2,23 @@
 	<span
 		class="a-button"
 		:class="{
+			'-outlined': type === BUTTON_TYPES.OUTLINED,
 			'-text': type === BUTTON_TYPES.TEXT,
+
 			'-small': size === SIZES.SMALL,
 			'-large': size === SIZES.LARGE,
-			'-loading': loading,
+
 			'-rounded': type !== BUTTON_TYPES.TEXT && radius === RADIUSES.ROUNDED,
-			'-disabled': disabled,
-			'-outlined': type === BUTTON_TYPES.OUTLINED,
+
+			'-hovered': state === STATES.HOVERED,
+			'-focused': state === STATES.FOCUSED,
+			'-loading': state === STATES.LOADING,
+			'-disabled': state === STATES.DISABLED,
+
 			'-minor': color === COLORS.MINOR,
 			'-danger': color === COLORS.DANGER,
 			'-warning': color === COLORS.WARNING,
 			'-success': color === COLORS.SUCCESS,
-			'-hovered': hovered,
 		}"
 	>
 		<wnl-icon
@@ -56,6 +61,13 @@ export const RADIUSES = {
 	CAPSULE: 'capsule',
 	ROUNDED: 'rounded',
 };
+export const STATES = {
+	DEFAULT: 'default',
+	HOVERED: 'hovered',
+	FOCUSED: 'focused',
+	DISABLED: 'disabled',
+	LOADING: 'loading',
+};
 
 export default {
 	components: {
@@ -90,6 +102,13 @@ export default {
 				return Object.values(RADIUSES).includes(value);
 			},
 		},
+		state: {
+			type: String,
+			default: STATES.DEFAULT,
+			validator(value) {
+				return Object.values(STATES).includes(value);
+			},
+		},
 		iconLeft: {
 			type: String,
 			default: null,
@@ -98,26 +117,13 @@ export default {
 			type: String,
 			default: null,
 		},
-
-		// TODO rethink states
-		loading: {
-			type: Boolean,
-			default: false,
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		hovered: {
-			type: Boolean,
-			default: false,
-		},
 	},
 	created() {
 		this.BUTTON_TYPES = TYPES;
 		this.COLORS = COLORS;
 		this.RADIUSES = RADIUSES;
 		this.SIZES = SIZES;
+		this.STATES = STATES;
 	},
 };
 </script>

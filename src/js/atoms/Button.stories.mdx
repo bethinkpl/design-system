@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlButton, { SIZES, TYPES, COLORS, RADIUSES } from 'js/components/global/styleguide/atoms/Button';
+import WnlButton, { SIZES, TYPES, COLORS, STATES, RADIUSES } from 'js/components/global/styleguide/atoms/Button';
 
 <Meta title='atoms/Button' component={WnlButton} />
 
@@ -15,6 +15,7 @@ import WnlButton, { SIZES, TYPES, COLORS, RADIUSES } from 'js/components/global/
     type: TYPES.FILLED,
     color: COLORS.PRIMARY,
     radius: RADIUSES.CAPSULE,
+    state: STATES.DEFAULT,
     iconLeft: 'fa-chevron-left',
     iconRight: '',
     }}
@@ -24,12 +25,13 @@ import WnlButton, { SIZES, TYPES, COLORS, RADIUSES } from 'js/components/global/
         type: {control: { type: 'select', options: Object.values(TYPES) }, defaultValue: TYPES.FILLED},
         color: {control: { type: 'select', options: Object.values(COLORS) }, defaultValue: COLORS.PRIMARY},
         radius: {control: { type: 'select', options: Object.values(RADIUSES) }, defaultValue: RADIUSES.CAPSULE},
+        state: {control: { type: 'select', options: Object.values(STATES) }, defaultValue: STATES.DEFAULT},
     }}>
     {(args) => {
         return {
             components: { WnlButton },
             props: Object.keys(args),
-            template: '<wnl-button :size="size" :type="type" :disabled="disabled" :loading="loading" :radius="radius" :color="color" :icon-left="iconLeft" :icon-right="iconRight">{{slotText}}</wnl-button>',
+            template: '<wnl-button :size="size" :type="type" :state="state" :radius="radius" :color="color" :icon-left="iconLeft" :icon-right="iconRight">{{slotText}}</wnl-button>',
         };
     }}
 </Story>

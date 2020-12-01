@@ -28,7 +28,7 @@ $buttonLargeMinHeight: 48px;
 	}
 
 	&:focus,
-	&.-focus {
+	&.-focused {
 		color: rgba($color, 0.76);
 	}
 
@@ -101,7 +101,7 @@ $buttonLargeMinHeight: 48px;
 		}
 
 		&:focus,
-		&.-focus {
+		&.-focused {
 			&::before {
 				opacity: 0.24;
 			}
