@@ -3,11 +3,17 @@ $buttonMediumMinHeight: 32px;
 $buttonLargeMinHeight: 48px;
 
 @mixin outlinedColor($color) {
-	border-color: $color;
-	color: $color;
+	border-color: rgba($color, 1);
+	color: rgba($color, 1);
 
 	&::before {
-		background-color: $color;
+		background-color: rgba($color, 1);
+	}
+
+	&:disabled,
+	&.-disabled {
+		border-color: rgba($color, 0.4);
+		color: rgba($color, 0.4);
 	}
 }
 
@@ -24,6 +30,11 @@ $buttonLargeMinHeight: 48px;
 	&:focus,
 	&.-focus {
 		color: rgba($color, 0.76);
+	}
+
+	&:disabled,
+	&.-disabled {
+		color: rgba($color, 0.4);
 	}
 }
 
@@ -44,7 +55,8 @@ $buttonLargeMinHeight: 48px;
 	padding: $space-xxxxs $space-s;
 	position: relative;
 	text-transform: uppercase;
-	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s;
+	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s,
+		background-color ease-in-out 0.3s;
 
 	&:disabled,
 	&.-disabled {
@@ -95,13 +107,15 @@ $buttonLargeMinHeight: 48px;
 			}
 		}
 
-		//&:disabled,
-		//&.-disabled {
-		//	&::before {
-		//		background-color: $color-total-white;
-		//		opacity: 0.6;
-		//	}
-		//}
+		&:not(.-outlined) {
+			&:disabled,
+			&.-disabled {
+				&::before {
+					background-color: $color-total-white;
+					opacity: 0.6;
+				}
+			}
+		}
 	}
 
 	//&.-big {
@@ -186,7 +200,7 @@ $buttonLargeMinHeight: 48px;
 	}
 
 	&.-outlined {
-		@include outlinedColor($color-primary);
+		@include outlinedColor($color-primary-rgb);
 
 		border: 1px solid;
 
@@ -221,6 +235,11 @@ $buttonLargeMinHeight: 48px;
 		-webkit-background-clip: text;
 		background-color: $color-firefly-black;
 
+		&:disabled,
+		&.-disabled {
+			background-color: $color-total-white;
+		}
+
 		&.-minor {
 			@include textColor($color-minor);
 		}
@@ -235,21 +254,6 @@ $buttonLargeMinHeight: 48px;
 
 		&.-success {
 			@include textColor($color-success);
-		}
-
-		//&:hover,
-		//&.-hovered {
-		//	color: $color-primary-dark;
-		//}
-		//
-		//&:focus,
-		//&.-focus {
-		//	background-color: $color-athens-gray;
-		//}
-
-		&:disabled,
-		&.-disabled {
-			color: rgba($color-primary-rgb, 0.6);
 		}
 	}
 
