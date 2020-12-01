@@ -9,17 +9,12 @@ import WnlButtonWithIcon from 'js/components/global/styleguide/molecules/ButtonW
 TODO migrate to Button
 <Story name='interactive'
 	args={{
-		danger: false,
 		disabled: false,
 		loading: false,
-		roundedCorners: true,
-		text: false,
 	}}
     argTypes={{
-        danger: {control: { type: 'boolean' }},
         disabled: {control: { type: 'boolean' }},
         loading: {control: { type: 'boolean' }},
-        roundedCorners: {control: { type: 'boolean' }},
     }}
 >
     {(args) => {
@@ -30,7 +25,7 @@ TODO migrate to Button
         	},
         	props: Object.keys(args),
             template:
-`<wnl-button-with-icon :danger="danger" :disabled="disabled" :loading="loading" :roundedCorners="roundedCorners" >
+`<wnl-button-with-icon :disabled="disabled" :loading="loading">
 	Tekst przycisku
 	<template #icon>
 		<wnl-icon

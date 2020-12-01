@@ -9,7 +9,7 @@
 			'-roundedCorners': roundedCorners,
 			'-disabled': disabled,
 			'-outlined': type === BUTTON_TYPES.OUTLINED,
-			'-danger': danger,
+			'-danger': color === COLORS.DANGER,
 			'-hovered': hovered,
 		}"
 	>
@@ -28,6 +28,12 @@ export const TYPES = {
 	OUTLINED: 'outlined',
 	TEXT: 'text',
 };
+export const COLORS = {
+	PRIMARY: 'primary',
+	MINOR: 'minor',
+	DANGER: 'danger',
+	SUCCESS: 'success',
+};
 
 export default {
 	props: {
@@ -45,6 +51,13 @@ export default {
 				return Object.values(TYPES).includes(value);
 			},
 		},
+		color: {
+			type: String,
+			default: COLORS.PRIMARY,
+			validator(value) {
+				return Object.values(COLORS).includes(value);
+			},
+		},
 		loading: {
 			type: Boolean,
 			default: false,
@@ -57,18 +70,15 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		danger: {
-			type: Boolean,
-			default: false,
-		},
 		hovered: {
 			type: Boolean,
 			default: false,
 		},
 	},
 	created() {
-		this.SIZES = SIZES;
 		this.BUTTON_TYPES = TYPES;
+		this.COLORS = COLORS;
+		this.SIZES = SIZES;
 	},
 };
 </script>
