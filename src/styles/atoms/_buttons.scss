@@ -57,6 +57,7 @@ $buttonLargeMinHeight: 48px;
 	padding: $space-xxxxs $space-s;
 	position: relative;
 	text-transform: uppercase;
+	transform-style: preserve-3d;
 	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s,
 		background-color ease-in-out 0.3s;
 
@@ -85,12 +86,12 @@ $buttonLargeMinHeight: 48px;
 		&::before {
 			background-color: $color-firefly-black;
 			opacity: 0;
-			z-index: -1;
+			transform: translateZ(-1px);
 		}
 
 		&::after {
 			background-color: $color-primary;
-			z-index: -2;
+			transform: translateZ(-2px);
 		}
 
 		&:hover,
