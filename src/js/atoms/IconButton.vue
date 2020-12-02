@@ -1,6 +1,6 @@
 <template>
 	<span
-		class="a-button -medium -icon"
+		class="a-button -icon"
 		:class="{
 			'-hovered': hovered,
 		}"
