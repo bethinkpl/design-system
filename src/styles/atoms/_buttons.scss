@@ -1,7 +1,6 @@
 $buttonSmallMinHeight: 28px;
 $buttonMediumMinHeight: 32px;
 $buttonLargeMinHeight: 48px;
-// TODO fix colors on modal
 
 @mixin outlinedColor($color) {
 	border-color: rgba($color, 1);
