@@ -16,6 +16,9 @@ export default {
 		faIconClass: {
 			type: String,
 			required: true,
+			validate(faIconClass: string) {
+				return faIconClass.startsWith('fa-');
+			},
 		},
 		size: {
 			type: String,
