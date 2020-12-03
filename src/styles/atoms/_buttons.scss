@@ -265,5 +265,10 @@ $buttonLargeMinHeight: 48px;
 		min-width: auto;
 		padding: 0;
 		width: 40px;
+
+		&.-small {
+			height: 32px;
+			width: 32px;
+		}
 	}
 }
