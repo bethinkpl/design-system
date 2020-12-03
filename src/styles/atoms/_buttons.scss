@@ -43,11 +43,11 @@ $buttonLargeMinHeight: 48px;
 }
 
 .a-button {
+	$self: &;
 	@include headlineXXS;
 
 	align-items: center;
 	background-color: transparent; // override defaut <button> background color
-	// TODO border
 	border: 0;
 	border-radius: 100px;
 	color: $color-total-white;
@@ -145,35 +145,6 @@ $buttonLargeMinHeight: 48px;
 		min-height: $buttonSmallMinHeight;
 	}
 
-	//&.-loading {
-	//	// TODO
-	//	color: transparent;
-	//	pointer-events: none;
-	//
-	//	&::after {
-	//		animation: a-spinAround 500ms infinite linear;
-	//		border: 2px solid $color-total-white;
-	//		border-color: transparent transparent $color-total-white $color-total-white;
-	//		border-radius: 100%;
-	//		content: '';
-	//		display: block;
-	//		height: 1em;
-	//		left: calc(50% - (1em / 2));
-	//		position: absolute;
-	//		top: calc(50% - (1em / 2));
-	//		width: 1em;
-	//	}
-	//
-	//	&.-outlined {
-	//		color: transparent;
-	//
-	//		&::after {
-	//			border: 2px solid $color-rhino-gray;
-	//			border-color: transparent transparent $color-rhino-gray $color-rhino-gray;
-	//		}
-	//	}
-	//}
-
 	&.-minor::after {
 		background-color: $color-minor;
 	}
@@ -257,6 +228,23 @@ $buttonLargeMinHeight: 48px;
 		&.-success {
 			@include textColor($color-success);
 		}
+	}
+
+	&.-loading {
+		pointer-events: none;
+
+		#{$self}__content {
+			opacity: 0;
+		}
+
+		#{$self}__loadingIcon {
+			animation: a-fadeIn 300ms ease-in-out 0s 1, a-spinAround 1500ms infinite linear;
+			position: absolute;
+		}
+	}
+
+	&__content {
+		transition: opacity ease-in-out 0.3s;
 	}
 
 	&__icon {
