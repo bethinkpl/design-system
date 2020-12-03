@@ -3,3 +3,6 @@
 $default-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 $medium-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
 $default-lighter-shadow: 0 4px 8px rgba($color-firefly-black, 0.12);
+$default-lighter-shadow-up: 0 -4px 8px rgba($color-firefly-black, 0.12);
+$default-lighter-shadow-top: inset 0 4px 8px rgba($color-firefly-black, 0.12);
+$default-lighter-shadow-bottom: inset 0 -4px 8px rgba($color-firefly-black, 0.12);
