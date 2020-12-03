@@ -15,6 +15,10 @@ $buttonLargeMinHeight: 48px;
 		border-color: rgba($color, 0.4);
 		color: rgba($color, 0.4);
 	}
+
+	.ripple {
+		background-color: rgba($color, 0.16) !important;
+	}
 }
 
 @mixin textColor($color) {
@@ -262,6 +266,10 @@ $buttonLargeMinHeight: 48px;
 		&.-right {
 			margin-left: $space-xxxxs;
 		}
+	}
+
+	.ripple {
+		background-color: rgba($color-total-white, 0.16) !important;
 	}
 
 	&.-icon {

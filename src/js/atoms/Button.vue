@@ -1,5 +1,6 @@
 <template>
 	<span
+		v-ripple
 		class="a-button"
 		:class="{
 			'-outlined': type === BUTTON_TYPES.OUTLINED,
