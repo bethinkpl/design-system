@@ -44,6 +44,7 @@ $buttonLargeMinHeight: 48px;
 
 .a-button {
 	$self: &;
+
 	@include headlineXXS;
 
 	align-items: center;
@@ -251,6 +252,7 @@ $buttonLargeMinHeight: 48px;
 		&.-left {
 			margin-right: $space-xxxxs;
 		}
+
 		&.-right {
 			margin-left: $space-xxxxs;
 		}
