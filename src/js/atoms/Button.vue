@@ -47,6 +47,8 @@
 </template>
 
 <script lang="ts">
+import Ripple from 'vue-ripple-directive';
+
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 export const SIZES = {
@@ -79,6 +81,9 @@ export const STATES = {
 };
 
 export default {
+	directives: {
+		ripple: Ripple,
+	},
 	components: {
 		WnlIcon,
 	},
