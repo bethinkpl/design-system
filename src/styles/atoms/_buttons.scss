@@ -245,6 +245,8 @@ $buttonLargeMinHeight: 48px;
 	}
 
 	&__content {
+		align-items: center;
+		display: inline-flex;
 		transition: opacity ease-in-out 0.3s;
 	}
 
