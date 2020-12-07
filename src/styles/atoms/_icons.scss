@@ -1,7 +1,7 @@
 .a-icon {
 	display: inline-block;
 	/* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-	font: normal normal normal $icon-s/1 FontAwesome;
+	font: normal normal normal $icon-m/1 FontAwesome;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 
@@ -31,11 +31,15 @@
 		font-size: $icon-l;
 	}
 
-	&.-medium {
-		font-size: $icon-m;
+	&.-small {
+		font-size: $icon-s;
 	}
 
 	&.-x-small {
 		font-size: $icon-xs;
+	}
+
+	&.-xx-small {
+		font-size: $icon-xxs;
 	}
 }

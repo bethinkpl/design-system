@@ -23,7 +23,9 @@ export default {
 			type: String,
 			default: 'small',
 			validator: (value: string) =>
-				['xx-large', 'x-large', 'large', 'medium', 'small', 'x-small'].includes(value),
+				['xx-large', 'x-large', 'large', 'medium', 'small', 'x-small', 'xx-small'].includes(
+					value,
+				),
 		},
 		touchable: {
 			type: Boolean,
