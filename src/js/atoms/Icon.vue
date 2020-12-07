@@ -31,7 +31,7 @@ export default {
 		},
 		size: {
 			type: String,
-			default: 'small',
+			default: SIZES.MEDIUM,
 			validator: (value: string) => Object.values(SIZES).includes(value),
 		},
 		touchable: {
