@@ -2,6 +2,13 @@ $buttonSmallMinHeight: 28px;
 $buttonMediumMinHeight: 32px;
 $buttonLargeMinHeight: 48px;
 
+$hover-alpha: 0.12;
+$focus-alpha: 0.24;
+$disabled-alpha: 0.6;
+$ripple-alpha: 0.16;
+
+$animation-time: 0.3s;
+
 @mixin outlinedColor($color) {
 	border-color: rgba($color, 1);
 	color: rgba($color, 1);
@@ -12,12 +19,12 @@ $buttonLargeMinHeight: 48px;
 
 	&:disabled,
 	&.-disabled {
-		border-color: rgba($color, 0.4);
-		color: rgba($color, 0.4);
+		border-color: rgba($color, 1 - $disabled-alpha);
+		color: rgba($color, 1 - $disabled-alpha);
 	}
 
 	.ripple {
-		background-color: rgba($color, 0.16) !important;
+		background-color: rgba($color, $ripple-alpha) !important;
 	}
 }
 
@@ -28,17 +35,17 @@ $buttonLargeMinHeight: 48px;
 	&.-hovered,
 	&:active,
 	&.-active {
-		color: rgba($color, 0.88);
+		color: rgba($color, 1 - $hover-alpha);
 	}
 
 	&:focus,
 	&.-focused {
-		color: rgba($color, 0.76);
+		color: rgba($color, 1 - $focus-alpha);
 	}
 
 	&:disabled,
 	&.-disabled {
-		color: rgba($color, 0.4);
+		color: rgba($color, 1 - $disabled-alpha);
 	}
 }
 
@@ -62,8 +69,8 @@ $buttonLargeMinHeight: 48px;
 	position: relative;
 	text-transform: uppercase;
 	transform-style: preserve-3d;
-	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s,
-		background-color ease-in-out 0.3s;
+	transition: color ease-in-out $animation-time, border-color ease-in-out $animation-time,
+		background-color ease-in-out $animation-time;
 
 	&:disabled,
 	&.-disabled {
@@ -82,7 +89,8 @@ $buttonLargeMinHeight: 48px;
 			left: 0;
 			pointer-events: none;
 			position: absolute;
-			transition: opacity ease-in-out 0.3s, background-color ease-in-out 0.3s;
+			transition: opacity ease-in-out $animation-time,
+				background-color ease-in-out $animation-time;
 			right: 0;
 			top: 0;
 		}
@@ -103,14 +111,14 @@ $buttonLargeMinHeight: 48px;
 		&:active,
 		&.-active {
 			&::before {
-				opacity: 0.12;
+				opacity: $hover-alpha;
 			}
 		}
 
 		&:focus,
 		&.-focused {
 			&::before {
-				opacity: 0.24;
+				opacity: $focus-alpha;
 			}
 		}
 
@@ -126,7 +134,7 @@ $buttonLargeMinHeight: 48px;
 			&.-disabled {
 				&::before {
 					background-color: $color-total-white;
-					opacity: 0.6;
+					opacity: $disabled-alpha;
 				}
 			}
 		}
@@ -247,7 +255,7 @@ $buttonLargeMinHeight: 48px;
 	&__content {
 		align-items: center;
 		display: inline-flex;
-		transition: opacity ease-in-out 0.3s;
+		transition: opacity ease-in-out $animation-time;
 	}
 
 	&__icon {
@@ -261,7 +269,7 @@ $buttonLargeMinHeight: 48px;
 	}
 
 	.ripple {
-		background-color: rgba($color-total-white, 0.16) !important;
+		background-color: rgba($color-total-white, $ripple-alpha) !important;
 	}
 
 	&.-icon {
