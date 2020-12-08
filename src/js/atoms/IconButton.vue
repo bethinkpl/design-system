@@ -7,13 +7,13 @@
 <script>
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 import WnlButton, {
-	STATES,
-	SIZES,
-	RADIUSES,
-	TYPES,
+	BUTTON_STATES,
+	BUTTON_SIZES,
+	BUTTON_RADIUSES,
+	BUTTON_TYPES,
 } from 'js/components/global/styleguide/atoms/Button';
 
-export { STATES, SIZES, RADIUSES, TYPES };
+export { BUTTON_STATES, BUTTON_SIZES, BUTTON_RADIUSES, BUTTON_TYPES };
 
 export default {
 	components: {
@@ -23,23 +23,23 @@ export default {
 	props: {
 		size: {
 			type: String,
-			default: SIZES.MEDIUM,
+			default: BUTTON_SIZES.MEDIUM,
 			validator(value) {
-				return Object.values(SIZES).includes(value);
+				return Object.values(BUTTON_SIZES).includes(value);
 			},
 		},
 		radius: {
 			type: String,
-			default: RADIUSES.CAPSULE,
+			default: BUTTON_RADIUSES.CAPSULE,
 			validator(value) {
-				return Object.values(RADIUSES).includes(value);
+				return Object.values(BUTTON_RADIUSES).includes(value);
 			},
 		},
 		type: {
 			type: String,
-			default: TYPES.FILLED,
+			default: BUTTON_TYPES.FILLED,
 			validator(value) {
-				return Object.values(TYPES).includes(value);
+				return Object.values(BUTTON_TYPES).includes(value);
 			},
 		},
 		faIconClass: {
@@ -48,9 +48,9 @@ export default {
 		},
 		state: {
 			type: String,
-			default: STATES.DEFAULT,
+			default: BUTTON_STATES.DEFAULT,
 			validator(value) {
-				return Object.values(STATES).includes(value);
+				return Object.values(BUTTON_STATES).includes(value);
 			},
 		},
 	},

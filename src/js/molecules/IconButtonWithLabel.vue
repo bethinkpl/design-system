@@ -41,9 +41,7 @@
 </style>
 
 <script>
-import WnlIconButton, {
-	STATES as BUTTON_STATES,
-} from 'js/components/global/styleguide/atoms/IconButton';
+import WnlIconButton, { BUTTON_STATES } from 'js/components/global/styleguide/atoms/IconButton';
 
 export default {
 	components: {
@@ -63,6 +61,9 @@ export default {
 		return {
 			hovered: false,
 		};
+	},
+	created() {
+		this.BUTTON_STATES = BUTTON_STATES;
 	},
 };
 </script>

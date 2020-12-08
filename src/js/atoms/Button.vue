@@ -51,34 +51,34 @@ import Ripple from 'vue-ripple-directive';
 
 import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
-export const SIZES = {
+export const BUTTON_SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
 	LARGE: 'large',
-};
-export const TYPES = {
+} as const;
+export const BUTTON_TYPES = {
 	FILLED: 'filled',
 	OUTLINED: 'outlined',
 	TEXT: 'text',
-};
-export const COLORS = {
+} as const;
+export const BUTTON_COLORS = {
 	PRIMARY: 'primary',
 	MINOR: 'minor',
 	DANGER: 'danger',
 	WARNING: 'warning',
 	SUCCESS: 'success',
-};
-export const RADIUSES = {
+} as const;
+export const BUTTON_RADIUSES = {
 	CAPSULE: 'capsule',
 	ROUNDED: 'rounded',
-};
-export const STATES = {
+} as const;
+export const BUTTON_STATES = {
 	DEFAULT: 'default',
 	HOVERED: 'hovered',
 	FOCUSED: 'focused',
 	DISABLED: 'disabled',
 	LOADING: 'loading',
-};
+} as const;
 
 export default {
 	directives: {
@@ -90,37 +90,37 @@ export default {
 	props: {
 		size: {
 			type: String,
-			default: SIZES.MEDIUM,
+			default: BUTTON_SIZES.MEDIUM,
 			validator(value) {
-				return Object.values(SIZES).includes(value);
+				return Object.values(BUTTON_SIZES).includes(value);
 			},
 		},
 		type: {
 			type: String,
-			default: TYPES.FILLED,
+			default: BUTTON_TYPES.FILLED,
 			validator(value) {
-				return Object.values(TYPES).includes(value);
+				return Object.values(BUTTON_TYPES).includes(value);
 			},
 		},
 		color: {
 			type: String,
-			default: COLORS.PRIMARY,
+			default: BUTTON_COLORS.PRIMARY,
 			validator(value) {
-				return Object.values(COLORS).includes(value);
+				return Object.values(BUTTON_COLORS).includes(value);
 			},
 		},
 		radius: {
 			type: String,
-			default: RADIUSES.CAPSULE,
+			default: BUTTON_RADIUSES.CAPSULE,
 			validator(value) {
-				return Object.values(RADIUSES).includes(value);
+				return Object.values(BUTTON_RADIUSES).includes(value);
 			},
 		},
 		state: {
 			type: String,
-			default: STATES.DEFAULT,
+			default: BUTTON_STATES.DEFAULT,
 			validator(value) {
-				return Object.values(STATES).includes(value);
+				return Object.values(BUTTON_STATES).includes(value);
 			},
 		},
 		iconLeft: {
@@ -133,11 +133,11 @@ export default {
 		},
 	},
 	created() {
-		this.BUTTON_TYPES = TYPES;
-		this.COLORS = COLORS;
-		this.RADIUSES = RADIUSES;
-		this.SIZES = SIZES;
-		this.STATES = STATES;
+		this.BUTTON_TYPES = BUTTON_TYPES;
+		this.COLORS = BUTTON_COLORS;
+		this.RADIUSES = BUTTON_RADIUSES;
+		this.SIZES = BUTTON_SIZES;
+		this.STATES = BUTTON_STATES;
 	},
 };
 </script>

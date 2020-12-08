@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlButton, { SIZES, TYPES, COLORS, STATES, RADIUSES } from 'js/components/global/styleguide/atoms/Button';
+import WnlButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_COLORS, BUTTON_STATES, BUTTON_RADIUSES } from 'js/components/global/styleguide/atoms/Button';
 
 <Meta title='atoms/Button' component={WnlButton} />
 
@@ -9,21 +9,21 @@ import WnlButton, { SIZES, TYPES, COLORS, STATES, RADIUSES } from 'js/components
 
 <Story name='interactive'
     args={{
-    size: SIZES.MEDIUM,
-    type: TYPES.FILLED,
-    color: COLORS.PRIMARY,
-    radius: RADIUSES.CAPSULE,
-    state: STATES.DEFAULT,
+    size: BUTTON_SIZES.MEDIUM,
+    type: BUTTON_TYPES.FILLED,
+    color: BUTTON_COLORS.PRIMARY,
+    radius: BUTTON_RADIUSES.CAPSULE,
+    state: BUTTON_STATES.DEFAULT,
     iconLeft: 'fa-chevron-left',
     iconRight: '',
     }}
     argTypes={{
         slotText: {control: { type: 'text' }, defaultValue: 'hello'},
-        size: {control: { type: 'select', options: Object.values(SIZES) }, defaultValue: SIZES.MEDIUM},
-        type: {control: { type: 'select', options: Object.values(TYPES) }, defaultValue: TYPES.FILLED},
-        color: {control: { type: 'select', options: Object.values(COLORS) }, defaultValue: COLORS.PRIMARY},
-        radius: {control: { type: 'select', options: Object.values(RADIUSES) }, defaultValue: RADIUSES.CAPSULE},
-        state: {control: { type: 'select', options: Object.values(STATES) }, defaultValue: STATES.DEFAULT},
+        size: {control: { type: 'select', options: Object.values(BUTTON_SIZES) }, defaultValue: BUTTON_SIZES.MEDIUM},
+        type: {control: { type: 'select', options: Object.values(BUTTON_TYPES) }, defaultValue: BUTTON_TYPES.FILLED},
+        color: {control: { type: 'select', options: Object.values(BUTTON_COLORS) }, defaultValue: BUTTON_COLORS.PRIMARY},
+        radius: {control: { type: 'select', options: Object.values(BUTTON_RADIUSES) }, defaultValue: BUTTON_RADIUSES.CAPSULE},
+        state: {control: { type: 'select', options: Object.values(BUTTON_STATES) }, defaultValue: BUTTON_STATES.DEFAULT},
     }}>
     {(args) => {
         return {
