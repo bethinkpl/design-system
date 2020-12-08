@@ -187,14 +187,13 @@ $animation-time: 0.3s;
 	}
 
 	&.-text {
-		color: rgba($color-firefly-black, 0);
-
+		background-color: $color-primary;
 		border: none;
 		border-radius: 0;
+		color: rgba($color-firefly-black, 0);
 		padding-left: 0;
 		padding-right: 0;
 		-webkit-background-clip: text;
-		background-color: $color-primary;
 
 		&:hover,
 		&.-hovered,
