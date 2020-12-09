@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, {SIZES} from 'js/components/global/styleguide/atoms/Icon';
 
 <Meta title='atoms/Icon' component={WnlIcon} />
 
@@ -7,12 +7,12 @@ import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 <Story name='interactive'
     args={{
-    size: 'small',
+    size: SIZES.MEDIUM,
     faIconClass: 'fa-trash',
     touchable: false,
     }}
     argTypes={{
-        size: {control: { type: 'select', options: ['xx-large', 'x-large', 'large', 'medium', 'small', 'x-small'] }, defaultValue: 'small'},
+        size: {control: { type: 'select', options: Object.values(SIZES) }, defaultValue: SIZES.MEDIUM},
     }}>
     {(args) => {
         return {

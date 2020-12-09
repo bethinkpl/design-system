@@ -23,17 +23,17 @@
 	border: 1px solid currentColor;
 	display: inline-flex;
 	font-size: $font-size-headline-m;
-	height: $icon-l;
+	height: $icon-xl;
 	justify-content: center;
 	line-height: 1;
-	min-width: $icon-l;
+	min-width: $icon-xl;
 	padding: 0 $space-xxxs;
 	text-align: center;
 
 	@media #{breakpoint-s()} {
 		font-size: $font-size-headline-xl;
-		height: $icon-xl;
-		min-width: $icon-xl;
+		height: $icon-xxl;
+		min-width: $icon-xxl;
 	}
 
 	&.-is1 {
@@ -65,9 +65,9 @@
 	}
 
 	&.-medium {
-		height: $icon-m;
+		height: $icon-l;
 		font-size: $font-size-text-m;
-		min-width: $icon-m;
+		min-width: $icon-l;
 	}
 }
 </style>
