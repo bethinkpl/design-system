@@ -50,6 +50,7 @@ $animation-time: 0.3s;
 	transform-style: preserve-3d;
 	transition: color ease-in-out $animation-time, border-color ease-in-out $animation-time,
 		background-color ease-in-out $animation-time;
+	user-select: none;
 
 	&:disabled,
 	&.-disabled {
