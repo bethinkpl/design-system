@@ -140,7 +140,7 @@ export default {
 			return '-notActive';
 		},
 		iconSize() {
-			return this.large ? 'small' : 'x-small';
+			return this.large ? 'medium' : 'x-small';
 		},
 		dateText() {
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.SUSPENDED) {

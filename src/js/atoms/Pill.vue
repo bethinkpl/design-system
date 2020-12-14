@@ -34,9 +34,9 @@
 		display: inline-flex;
 		flex-shrink: 0;
 		justify-content: center;
-		height: $icon-s;
+		height: $icon-m;
 		margin-right: $space-xxs;
-		width: $icon-s;
+		width: $icon-m;
 	}
 }
 </style>
