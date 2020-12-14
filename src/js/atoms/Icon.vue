@@ -21,6 +21,7 @@ export const SIZES = {
 };
 
 export default {
+	name: 'Icon',
 	props: {
 		faIconClass: {
 			type: String,
