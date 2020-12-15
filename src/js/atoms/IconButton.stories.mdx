@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlIconButton from 'js/components/global/styleguide/atoms/IconButton';
+import WnlIconButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUSES } from 'js/components/global/styleguide/atoms/IconButton';
 
 <Meta title='atoms/IconButton' component={WnlIconButton} />
 
@@ -8,13 +8,22 @@ import WnlIconButton from 'js/components/global/styleguide/atoms/IconButton';
 <Story name='interactive'
        args={{
            faIconClass: 'fa-times',
+           size: BUTTON_SIZES.MEDIUM,
+           type: BUTTON_TYPES.FILLED,
+           radius: BUTTON_RADIUSES.CAPSULE,
+           state: BUTTON_STATES.DEFAULT,
        }}
->
+       argTypes={{
+           size: {control: { type: 'select', options: Object.values(BUTTON_SIZES) }, defaultValue: BUTTON_SIZES.MEDIUM},
+           type: {control: { type: 'select', options: Object.values(BUTTON_TYPES) }, defaultValue: BUTTON_TYPES.FILLED},
+           radius: {control: { type: 'select', options: Object.values(BUTTON_RADIUSES) }, defaultValue: BUTTON_RADIUSES.CAPSULE},
+           state: {control: { type: 'select', options: Object.values(BUTTON_STATES) }, defaultValue: BUTTON_STATES.DEFAULT},
+       }}>
     {(args) => {
         return {
             components: { WnlIconButton },
             props: Object.keys(args),
-            template: `<wnl-icon-button :fa-icon-class="faIconClass" />`,
+            template: '<wnl-icon-button :fa-icon-class="faIconClass" :size="size" :type="type" :state="state" :radius="radius" />',
         };
     }}
 </Story>

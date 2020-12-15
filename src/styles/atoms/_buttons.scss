@@ -1,185 +1,277 @@
-.a-button {
-	@include headlineXS;
+$button-small-min-height: 28px;
+$button-medium-min-height: 32px;
+$button-large-min-height: 48px;
 
-	background: $color-primary;
+$hover-alpha: 0.12;
+$focus-alpha: 0.24;
+$disabled-alpha: 0.6;
+$ripple-alpha: 0.16;
+
+$animation-time: 0.3s;
+
+@mixin outlinedColor($color) {
+	border-color: rgba($color, 1);
+	color: rgba($color, 1);
+
+	&::before {
+		background-color: rgba($color, 1);
+	}
+
+	&:disabled,
+	&.-disabled {
+		border-color: rgba($color, 1 - $disabled-alpha);
+		color: rgba($color, 1 - $disabled-alpha);
+	}
+
+	.ripple {
+		background-color: rgba($color, $ripple-alpha) !important;
+	}
+}
+
+.a-button {
+	$self: &;
+
+	@include headlineXXS;
+
+	align-items: center;
+	background-color: transparent; // override defaut <button> background color
 	border: 0;
 	border-radius: 100px;
 	color: $color-total-white;
 	cursor: pointer;
-	display: inline-block;
+	display: inline-flex;
+	min-height: $button-medium-min-height;
 	font-weight: 700;
+	justify-content: center;
 	outline: none;
-	padding: $space-s $space-m;
+	padding: $space-xxxxs $space-s;
 	position: relative;
-	text-align: center;
 	text-transform: uppercase;
-	transition: color ease-in-out 0.3s, border-color ease-in-out 0.3s,
-		background-color ease-in-out 0.3s, box-shadow ease-in-out 0.3s;
+	transform-style: preserve-3d;
+	transition: color ease-in-out $animation-time, border-color ease-in-out $animation-time,
+		background-color ease-in-out $animation-time;
+	user-select: none;
 
-	&.-big {
-		width: 100%;
+	&:disabled,
+	&.-disabled {
+		cursor: not-allowed;
+		pointer-events: none;
+	}
 
-		@media #{breakpoint-s()} {
-			width: auto;
-			padding: $space-s $space-m;
-			min-width: 264px;
+	&:not(.-text) {
+		min-width: 100px;
+
+		&::before,
+		&::after {
+			border-radius: inherit;
+			bottom: 0;
+			content: '';
+			left: 0;
+			pointer-events: none;
+			position: absolute;
+			transition: opacity ease-in-out $animation-time,
+				background-color ease-in-out $animation-time;
+			right: 0;
+			top: 0;
+		}
+
+		&::before {
+			background-color: $color-firefly-black;
+			opacity: 0;
+			transform: translateZ(-1px);
+		}
+
+		&::after {
+			background-color: $color-primary;
+			transform: translateZ(-2px);
+		}
+
+		&:hover,
+		&.-hovered,
+		&:active,
+		&.-active {
+			&::before {
+				opacity: $hover-alpha;
+			}
+		}
+
+		&:focus,
+		&.-focused {
+			&::before {
+				opacity: $focus-alpha;
+			}
+		}
+
+		&:not(.-outlined) {
+			&:hover,
+			&.-hovered,
+			&:active,
+			&.-active {
+				color: $color-total-white; // override bulma a:hover
+			}
+
+			&:disabled,
+			&.-disabled {
+				&::before {
+					background-color: $color-total-white;
+					opacity: $disabled-alpha;
+				}
+			}
 		}
 	}
 
-	&.-medium {
-		@include headlineXXS;
+	&.-large {
+		@include headlineXS;
 
-		padding: $space-xxs $space-m;
+		min-height: $button-large-min-height;
+		padding-left: $space-m;
+		padding-right: $space-m;
 	}
 
 	&.-small {
 		@include textInfoM;
 
-		padding: $space-xxxs $space-s;
+		min-height: $button-small-min-height;
 	}
 
-	&.-loading {
-		color: transparent;
-		pointer-events: none;
+	&.-minor::after {
+		background-color: $color-minor;
+	}
+
+	&.-danger::after {
+		background-color: $color-danger;
+	}
+
+	&.-warning::after {
+		background-color: $color-warning;
+	}
+
+	&.-success::after {
+		background-color: $color-success;
+	}
+
+	&.-rounded {
+		border-radius: $radius-s;
+		padding-left: $space-xs;
+		padding-right: $space-xs;
+
+		&.-large {
+			padding-left: $space-s;
+			padding-right: $space-s;
+		}
+	}
+
+	&.-outlined {
+		@include outlinedColor($color-primary-rgb);
+
+		border: 1px solid;
 
 		&::after {
-			animation: a-spinAround 500ms infinite linear;
-			border: 2px solid $color-total-white;
-			border-color: transparent transparent $color-total-white $color-total-white;
-			border-radius: 100%;
-			content: '';
-			display: block;
-			height: 1em;
-			left: calc(50% - (1em / 2));
-			position: absolute;
-			top: calc(50% - (1em / 2));
-			width: 1em;
-		}
-
-		&.-secondary {
-			color: transparent;
-
-			&::after {
-				border: 2px solid $color-rhino-gray;
-				border-color: transparent transparent $color-rhino-gray $color-rhino-gray;
-			}
-		}
-	}
-
-	&.-success {
-		background-color: $color-jungle-green;
-
-		&:hover,
-		&.-hovered {
-			background-color: $color-elf-green;
-		}
-
-		&:focus,
-		&.-focused {
-			background-color: $color-jungle-green;
-			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-jungle-green, 0.6);
-		}
-	}
-
-	&.-danger {
-		background-color: $color-crimson-red;
-
-		&:hover,
-		&.-hovered {
-			background-color: $color-crimson-red;
-		}
-
-		&:focus,
-		&.-focused {
-			background-color: $color-crimson-red;
-			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-crimson-red, 0.6);
-		}
-	}
-
-	&:disabled,
-	&.-disabled {
-		background-color: $color-athens-gray;
-		color: $color-storm-gray;
-		cursor: not-allowed;
-		pointer-events: none;
-	}
-
-	&:hover,
-	&.-hovered {
-		background-color: $color-primary-dark;
-		color: $color-total-white;
-	}
-
-	&:focus,
-	&.-focused {
-		background-color: $color-primary-dark;
-		box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-primary-rgb, 0.6);
-	}
-
-	&.-roundedCorners {
-		@include headlineXXS;
-
-		border-radius: $radius-m;
-		padding: $space-xxs $space-m;
-	}
-
-	&.-secondary {
-		@include headlineXXS;
-
-		background-color: $color-total-white;
-		border: 2px solid $color-storm-gray;
-		color: $color-firefly-black;
-		padding: $space-xxxs $space-m;
-
-		&:hover,
-		&.-hovered {
 			background-color: $color-total-white;
-			border-color: $color-rhino-gray;
 		}
 
-		&:focus,
-		&.-focus {
-			background-color: $color-total-white;
-			box-shadow: 0 0 0 2px $color-total-white, 0 0 0 4px rgba($color-storm-gray, 0.6);
+		&.-minor {
+			@include outlinedColor($color-minor);
 		}
 
-		&:disabled,
-		&.-disabled {
-			border-color: $color-cadet-gray;
-			color: $color-mischka-gray;
+		&.-danger {
+			@include outlinedColor($color-danger);
+		}
+
+		&.-warning {
+			@include outlinedColor($color-warning);
+		}
+
+		&.-success {
+			@include outlinedColor($color-success);
 		}
 	}
 
 	&.-text {
-		background-color: transparent;
+		background-color: $color-primary;
 		border: none;
 		border-radius: 0;
-		color: $color-primary;
-		padding: $space-xxs $space-s;
+		color: rgba($color-firefly-black, 0);
+		padding-left: 0;
+		padding-right: 0;
+		-webkit-background-clip: text;
 
 		&:hover,
-		&.-hovered {
-			color: $color-primary-dark;
+		&.-hovered,
+		&:active,
+		&.-active {
+			color: rgba($color-firefly-black, $hover-alpha);
 		}
 
 		&:focus,
-		&.-focus {
-			background-color: $color-athens-gray;
-			box-shadow: none;
+		&.-focused {
+			color: rgba($color-firefly-black, $focus-alpha);
 		}
 
 		&:disabled,
 		&.-disabled {
-			color: rgba($color-primary-rgb, 0.6);
+			color: rgba($color-total-white, $disabled-alpha);
+		}
+
+		&.-minor {
+			background-color: $color-minor;
+		}
+
+		&.-danger {
+			background-color: $color-danger;
+		}
+
+		&.-warning {
+			background-color: $color-warning;
+		}
+
+		&.-success {
+			background-color: $color-success;
 		}
 	}
 
-	&.-icon {
+	&.-loading {
+		pointer-events: none;
+
+		#{$self}__content {
+			opacity: 0;
+		}
+
+		#{$self}__loadingIcon {
+			animation: a-fadeIn 300ms ease-in-out 0s 1, a-spinAround 1500ms infinite linear;
+			position: absolute;
+		}
+	}
+
+	&__content {
 		align-items: center;
-		display: flex;
-		justify-content: center;
+		display: inline-flex;
+		transition: opacity ease-in-out $animation-time;
+	}
+
+	&__icon {
+		&.-left {
+			margin-right: $space-xxxxs;
+		}
+
+		&.-right {
+			margin-left: $space-xxxxs;
+		}
+	}
+
+	.ripple {
+		background-color: rgba($color-total-white, $ripple-alpha) !important;
+	}
+
+	&.-icon {
 		height: 40px;
+		min-width: auto;
 		padding: 0;
 		width: 40px;
+
+		&.-small {
+			height: 32px;
+			width: 32px;
+		}
 	}
 }
