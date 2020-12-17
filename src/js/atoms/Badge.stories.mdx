@@ -1,0 +1,31 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+import Badge, { BADGE_COLORS} from './Badge';
+
+<Meta title='atoms/Badge' component={Badge} />
+
+# Badge
+
+<Story name='interactive'
+	   args={{
+		   text: '42%',
+		   color: BADGE_COLORS.SUCCESS,
+	   }}
+	   argTypes={{
+		   text: { control: { type: 'text' } },
+		   color: {
+			   control: { type: 'select', options: Object.values(BADGE_COLORS) }
+		   }
+	   }}>
+	{(args) => {
+		return {
+			components: { Badge },
+			props: Object.keys(args),
+			template: '<badge :color="color" :text="text" />',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={Badge} />
