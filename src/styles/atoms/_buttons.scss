@@ -28,6 +28,27 @@ $animation-time: 0.3s;
 	}
 }
 
+@mixin textColor($color) {
+	color: $color;
+
+	&:hover,
+	&.-hovered,
+	&:active,
+	&.-active {
+		color: mix($color, $color-firefly-black, (1- $hover-alpha) * 100%);
+	}
+
+	&:focus,
+	&.-focused {
+		color: mix($color, $color-firefly-black, (1- $focus-alpha) * 100%);
+	}
+
+	&:disabled,
+	&.-disabled {
+		color: mix($color, $color-total-white, (1- $disabled-alpha) * 100%);
+	}
+}
+
 .a-button {
 	$self: &;
 
@@ -188,45 +209,44 @@ $animation-time: 0.3s;
 	}
 
 	&.-text {
-		background-color: $color-primary;
+		background-color: transparent;
 		border: none;
 		border-radius: 0;
-		color: rgba($color-firefly-black, 0);
+		color: $color-primary;
 		padding-left: 0;
 		padding-right: 0;
-		-webkit-background-clip: text;
 
 		&:hover,
 		&.-hovered,
 		&:active,
 		&.-active {
-			color: rgba($color-firefly-black, $hover-alpha);
+			color: $color-primary-hovered;
 		}
 
 		&:focus,
 		&.-focused {
-			color: rgba($color-firefly-black, $focus-alpha);
+			color: $color-primary-focused;
 		}
 
 		&:disabled,
 		&.-disabled {
-			color: rgba($color-total-white, $disabled-alpha);
+			color: $color-primary-disabled;
 		}
 
 		&.-minor {
-			background-color: $color-minor;
+			@include textColor($color-minor);
 		}
 
 		&.-danger {
-			background-color: $color-danger;
+			@include textColor($color-danger);
 		}
 
 		&.-warning {
-			background-color: $color-warning;
+			@include textColor($color-warning);
 		}
 
 		&.-success {
-			background-color: $color-success;
+			@include textColor($color-success);
 		}
 	}
 
