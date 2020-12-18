@@ -45,7 +45,7 @@
 <script lang="ts">
 export const BADGE_COLORS = {
 	SUCCESS: 'success',
-	WARNING: 'waring',
+	WARNING: 'warning',
 	DANGER: 'danger',
 } as const;
 
