@@ -16,14 +16,18 @@
 @import 'resources/assets/styles/styleguide/settings/typography';
 @import 'resources/assets/styles/styleguide/settings/colors';
 
+$badge-score-width: 74px;
+
 .a-badgeScore {
 	@include textBold();
 	@include headlineL();
 
-	display: inline-block;
 	border-radius: 4px;
 	border: 2px solid currentColor;
-	padding: $space-xxs $space-xs;
+	display: inline-block;
+	min-width: $badge-score-width;
+	padding: $space-xxxs $space-xxxxs;
+	text-align: center;
 
 	&.-success {
 		color: $color-success;

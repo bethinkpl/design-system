@@ -1,10 +1,10 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 
-import Badge, { BADGE_SCORE_COLORS} from './Badge';
+import BadgeScore, { BADGE_SCORE_COLORS} from './BadgeScore.vue';
 
-<Meta title='atoms/Badge' component={Badge} />
+<Meta title='atoms/BadgeScore' component={BadgeScore} />
 
-# Badge
+# BadgeScore
 
 <Story name='interactive'
 	   args={{
@@ -19,13 +19,13 @@ import Badge, { BADGE_SCORE_COLORS} from './Badge';
 	   }}>
 	{(args) => {
 		return {
-			components: { Badge },
+			components: { BadgeScore },
 			props: Object.keys(args),
-			template: '<badge :color="color" :text="text" />',
+			template: '<badge-score :color="color" :text="text" />',
 		};
 	}}
 </Story>
 
 ## Props
 
-<Props of={Badge} />
+<Props of={BadgeScore} />
