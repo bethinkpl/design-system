@@ -1,6 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 
-import Badge, { BADGE_COLORS} from './Badge';
+import Badge, { BADGE_SCORE_COLORS} from './Badge';
 
 <Meta title='atoms/Badge' component={Badge} />
 
@@ -9,12 +9,12 @@ import Badge, { BADGE_COLORS} from './Badge';
 <Story name='interactive'
 	   args={{
 		   text: '42%',
-		   color: BADGE_COLORS.SUCCESS,
+		   color: BADGE_SCORE_COLORS.SUCCESS,
 	   }}
 	   argTypes={{
 		   text: { control: { type: 'text' } },
 		   color: {
-			   control: { type: 'select', options: Object.values(BADGE_COLORS) }
+			   control: { type: 'select', options: Object.values(BADGE_SCORE_COLORS) }
 		   }
 	   }}>
 	{(args) => {
