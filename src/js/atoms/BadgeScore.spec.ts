@@ -2,7 +2,7 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import BadgeScore, { BADGE_SCORE_COLORS } from './BadgeScore.vue';
 
-describe('Badge', () => {
+describe('BadgeScore', () => {
 	const createComponent = ({ text = '', color = BADGE_SCORE_COLORS.SUCCESS } = {}) => {
 		const localVue = createLocalVue();
 
