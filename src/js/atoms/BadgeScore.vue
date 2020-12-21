@@ -60,7 +60,7 @@ export default {
 		color: {
 			type: String,
 			required: true,
-			validate(color: any) {
+			validate(color) {
 				Object.values(BADGE_SCORE_COLORS).includes(color);
 			},
 		},
