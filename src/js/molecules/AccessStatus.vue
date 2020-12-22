@@ -53,12 +53,12 @@ export default {
 	computed: {
 		iconName() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return 'fa-unlock-alt';
+				return 'unlock-alt';
 			}
 			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return 'fa-hourglass-start';
+				return 'hourglass-start';
 			}
-			return 'fa-lock';
+			return 'lock';
 		},
 		statusClass() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {

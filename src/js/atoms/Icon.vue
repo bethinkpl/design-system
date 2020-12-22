@@ -1,15 +1,22 @@
 <template>
-	<i
+	<div
+		class="a-icon"
 		:class="{
-			'a-icon': true,
-			[faIconClass]: true,
-			[sizeClassName]: true,
 			'-touchable': touchable,
 		}"
-	/>
+	>
+		<font-awesome-icon
+			:class="{
+				[sizeClassName]: true,
+			}"
+			:icon="[iconSet, faIconClass]"
+		/>
+	</div>
 </template>
 
 <script lang="ts">
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
 export const SIZES = {
 	XX_SMALL: 'xx-small',
 	X_SMALL: 'x-small',
@@ -22,13 +29,23 @@ export const SIZES = {
 
 export default {
 	name: 'Icon',
+	components: {
+		FontAwesomeIcon,
+	},
 	props: {
 		faIconClass: {
+			// TODO rename
 			type: String,
 			required: true,
 			validate(faIconClass: string) {
+				// TODO check list of allowed icons
 				return faIconClass.startsWith('fa-');
 			},
+		},
+		iconSet: {
+			type: String,
+			default: 'fas',
+			// TODO validator
 		},
 		size: {
 			type: String,

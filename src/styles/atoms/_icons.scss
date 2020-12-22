@@ -1,14 +1,5 @@
 .a-icon {
-	display: inline-block;
-	/* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-	font: normal normal normal #{$icon-m}/ 1 FontAwesome;
-	text-rendering: auto;
-	-webkit-font-smoothing: antialiased;
-
-	&::before {
-		display: block;
-		margin: 0 auto;
-	}
+	display: inline-flex;
 
 	&.-touchable {
 		align-items: center;
@@ -19,27 +10,38 @@
 		min-width: $min-touchable-size;
 	}
 
-	&.-xx-large {
-		font-size: $icon-xxl;
+	.-xx-large {
+		height: $icon-xxl;
+		width: $icon-xxl;
 	}
 
-	&.-x-large {
-		font-size: $icon-xl;
+	.-x-large {
+		height: $icon-xl;
+		width: $icon-xl;
 	}
 
-	&.-large {
-		font-size: $icon-l;
+	.-large {
+		height: $icon-l;
+		width: $icon-l;
 	}
 
-	&.-small {
-		font-size: $icon-s;
+	.-medium {
+		height: $icon-m;
+		width: $icon-m;
 	}
 
-	&.-x-small {
-		font-size: $icon-xs;
+	.-small {
+		height: $icon-s;
+		width: $icon-s;
 	}
 
-	&.-xx-small {
-		font-size: $icon-xxs;
+	.-x-small {
+		height: $icon-xs;
+		width: $icon-xs;
+	}
+
+	.-xx-small {
+		height: $icon-xxs;
+		width: $icon-xxs;
 	}
 }

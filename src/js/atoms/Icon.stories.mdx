@@ -8,7 +8,8 @@ import WnlIcon, {SIZES} from 'js/components/global/styleguide/atoms/Icon';
 <Story name='interactive'
     args={{
     size: SIZES.MEDIUM,
-    faIconClass: 'fa-trash',
+    faIconClass: 'trash-alt',
+    iconSet: 'fas',
     touchable: false,
     }}
     argTypes={{
@@ -18,7 +19,7 @@ import WnlIcon, {SIZES} from 'js/components/global/styleguide/atoms/Icon';
         return {
             components: { WnlIcon },
             props: Object.keys(args),
-            template: '<div style="display: flex"><wnl-icon :fa-icon-class="faIconClass" :size="size" :touchable="touchable" /></div>',
+            template: '<div style="display: flex"><wnl-icon :fa-icon-class="faIconClass" :icon-set="iconSet" :size="size" :touchable="touchable" /></div>',
         };
     }}
 </Story>
