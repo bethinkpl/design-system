@@ -10,6 +10,11 @@
 		min-width: $min-touchable-size;
 	}
 
+	.svg-inline--fa {
+		height: $icon-m;
+		width: $icon-m;
+	}
+
 	.-xx-large {
 		height: $icon-xxl;
 		width: $icon-xxl;
@@ -23,11 +28,6 @@
 	.-large {
 		height: $icon-l;
 		width: $icon-l;
-	}
-
-	.-medium {
-		height: $icon-m;
-		width: $icon-m;
 	}
 
 	.-small {
