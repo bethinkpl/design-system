@@ -5,7 +5,15 @@
 			'-touchable': touchable,
 		}"
 	>
+		<component
+			:is="bethinkIconComponent"
+			v-if="iconSet === 'b'"
+			:class="{
+				[sizeClassName]: true,
+			}"
+		/>
 		<font-awesome-icon
+			v-else
 			:class="{
 				[sizeClassName]: true,
 			}"
@@ -16,6 +24,7 @@
 
 <script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import FileVerifiedSvg from 'images/icons/file-verified.svg';
 
 export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',
@@ -25,6 +34,10 @@ export const ICON_SIZES = {
 	LARGE: 'large',
 	X_LARGE: 'x-large',
 	XX_LARGE: 'xx-large',
+};
+
+const BETHINK_ICONS = {
+	'file-verified': FileVerifiedSvg,
 };
 
 export default {
@@ -60,6 +73,9 @@ export default {
 	computed: {
 		sizeClassName() {
 			return `-${this.size}`;
+		},
+		bethinkIconComponent() {
+			return BETHINK_ICONS[this.faIconClass];
 		},
 	},
 };
