@@ -17,7 +17,7 @@
 <script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-export const SIZES = {
+export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',
 	X_SMALL: 'x-small',
 	SMALL: 'small',
@@ -49,8 +49,8 @@ export default {
 		},
 		size: {
 			type: String,
-			default: SIZES.MEDIUM,
-			validator: (value: string) => Object.values(SIZES).includes(value),
+			default: ICON_SIZES.MEDIUM,
+			validator: (value: string) => Object.values(ICON_SIZES).includes(value),
 		},
 		touchable: {
 			type: Boolean,
