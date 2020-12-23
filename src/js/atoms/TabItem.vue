@@ -19,22 +19,22 @@
 $tab-item-width: (2 * $space-s) + $icon-xs;
 
 .a-tabItem {
-	display: flex;
-	justify-content: center;
+	border-bottom: 1px solid $color-mischka-gray;
 	color: $color-storm-gray;
 	cursor: pointer;
+	display: flex;
+	justify-content: center;
 	padding: $space-xxs $space-s;
-	border-bottom: 1px solid $color-mischka-gray;
 	width: $tab-item-width;
 
 	&:hover {
+		border-bottom-color: $color-firefly-black;
 		color: $color-firefly-black;
-		border-bottom: 1px solid $color-firefly-black;
 	}
 
 	&.-isActive {
+		border-bottom-color: $color-primary;
 		color: $color-primary;
-		border-bottom: 1px solid $color-primary;
 	}
 }
 </style>
