@@ -28,8 +28,7 @@ export default {
 			type: Array,
 			required: true,
 			validate: (option: { text: string; value: any }) =>
-				typeof option.text === 'string' &&
-				Object.prototype.hasOwnProperty.call(option, 'value'),
+				typeof option.text === 'string' && 'value' in option,
 		},
 		value: {
 			type: [Number, String],
