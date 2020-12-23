@@ -5,6 +5,8 @@
 			'-success': color === BADGE_SCORE_COLORS.SUCCESS,
 			'-warning': color === BADGE_SCORE_COLORS.WARNING,
 			'-danger': color === BADGE_SCORE_COLORS.DANGER,
+			'-small': size === BADGE_SCORE_SIZES.SMALL,
+			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
 		}"
 	>
 		{{ text }}
@@ -17,6 +19,8 @@
 @import 'resources/assets/styles/styleguide/settings/colors';
 
 $badge-score-width: 74px;
+$small-badge-score-width: 48px;
+$xsmall-badge-score-width: 36px;
 
 .a-badgeScore {
 	@include textBold();
@@ -40,6 +44,20 @@ $badge-score-width: 74px;
 	&.-warning {
 		color: $color-warning;
 	}
+
+	&.-small {
+		@include headlineS();
+
+		min-width: $small-badge-score-width;
+	}
+
+	&.-xsmall {
+		@include headlineXS();
+
+		min-width: $xsmall-badge-score-width;
+		border: 1px solid currentColor;
+		padding: $space-xxxxs;
+	}
 }
 </style>
 
@@ -48,6 +66,12 @@ export const BADGE_SCORE_COLORS = {
 	SUCCESS: 'success',
 	WARNING: 'warning',
 	DANGER: 'danger',
+} as const;
+
+export const BADGE_SCORE_SIZES = {
+	MEDIUM: 'medium',
+	SMALL: 'small',
+	XSMALL: 'extra small',
 } as const;
 
 export default {
@@ -64,9 +88,17 @@ export default {
 				Object.values(BADGE_SCORE_COLORS).includes(color);
 			},
 		},
+		size: {
+			type: String,
+			default: BADGE_SCORE_SIZES.MEDIUM,
+			validate(color) {
+				Object.values(BADGE_SCORE_SIZES).includes(color);
+			},
+		},
 	},
 	created() {
 		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
+		this.BADGE_SCORE_SIZES = BADGE_SCORE_SIZES;
 	},
 };
 </script>
