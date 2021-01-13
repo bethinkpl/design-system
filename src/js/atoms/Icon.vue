@@ -25,6 +25,7 @@
 <script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import FileVerifiedSvg from 'images/icons/file-verified.svg';
+import HeadWithQuestionMark from 'images/icons/head-with-question-mark.svg';
 
 export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',
@@ -38,6 +39,7 @@ export const ICON_SIZES = {
 
 const BETHINK_ICONS = {
 	'file-verified': FileVerifiedSvg,
+	'head-with-question-mark': HeadWithQuestionMark,
 };
 
 export default {
