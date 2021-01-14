@@ -5,19 +5,19 @@
 			'-touchable': touchable,
 		}"
 	>
-		<component
-			:is="bethinkIconComponent"
-			v-if="iconSet === 'b'"
+		<font-awesome-icon
+			v-if="isFontawesomeIcon"
 			:class="{
 				[sizeClassName]: true,
 			}"
+			:icon="icon"
 		/>
-		<font-awesome-icon
+		<component
+			:is="icon"
 			v-else
 			:class="{
 				[sizeClassName]: true,
 			}"
-			:icon="[iconSet, faIconClass]"
 		/>
 	</div>
 </template>
@@ -28,6 +28,7 @@ import FileVerifiedSvg from 'images/icons/file-verified.svg';
 import HeadWithQuestionMark from 'images/icons/head-with-question-mark.svg';
 import SendMessage from 'images/icons/send-message.svg';
 import Ribbon from 'images/icons/ribbon.svg';
+import { FONTAWESOME_ICONS } from 'js/icons/fontawesome';
 
 export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',
@@ -40,10 +41,15 @@ export const ICON_SIZES = {
 };
 
 const BETHINK_ICONS = {
-	'file-verified': FileVerifiedSvg,
-	'head-with-question-mark': HeadWithQuestionMark,
-	'send-message': SendMessage,
-	ribbon: Ribbon,
+	FILE_VERIFIED: FileVerifiedSvg,
+	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
+	SEND_MESSAGE: SendMessage,
+	RIBBON: Ribbon,
+} as const;
+
+export const ICONS = {
+	...FONTAWESOME_ICONS,
+	...BETHINK_ICONS,
 };
 
 export default {
@@ -52,19 +58,13 @@ export default {
 		FontAwesomeIcon,
 	},
 	props: {
-		faIconClass: {
-			// TODO rename
-			type: String,
+		icon: {
+			type: Object,
 			required: true,
-			validate(faIconClass: string) {
-				// TODO check list of allowed icons
-				return faIconClass.startsWith('fa-');
+			validate(icon: object) {
+				// TODO fix me
+				// return Object.values(ICONS).includes(icon);
 			},
-		},
-		iconSet: {
-			type: String,
-			default: 'fas',
-			// TODO validator
 		},
 		size: {
 			type: String,
@@ -80,8 +80,8 @@ export default {
 		sizeClassName() {
 			return `-${this.size}`;
 		},
-		bethinkIconComponent() {
-			return BETHINK_ICONS[this.faIconClass];
+		isFontawesomeIcon() {
+			return 'iconName' in this.icon;
 		},
 	},
 };
