@@ -10,6 +10,18 @@
 		min-width: $min-touchable-size;
 	}
 
+	&.-rotate90 {
+		transform: rotate(90deg);
+	}
+
+	&.-rotate180 {
+		transform: rotate(180deg);
+	}
+
+	&.-rotate270 {
+		transform: rotate(270deg);
+	}
+
 	.svg-inline--fa {
 		height: $icon-m;
 		width: $icon-m;

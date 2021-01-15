@@ -3,6 +3,7 @@
 		class="a-icon"
 		:class="{
 			'-touchable': touchable,
+			[rotationClass]: rotationClass,
 		}"
 	>
 		<font-awesome-icon
@@ -71,6 +72,13 @@ export default {
 			default: ICON_SIZES.MEDIUM,
 			validator: (value: string) => Object.values(ICON_SIZES).includes(value),
 		},
+		rotation: {
+			type: [Number],
+			default: null,
+			validator: function validator(value) {
+				return [90, 180, 270].includes(value);
+			},
+		},
 		touchable: {
 			type: Boolean,
 			default: false,
@@ -82,6 +90,13 @@ export default {
 		},
 		isFontawesomeIcon() {
 			return 'iconName' in this.icon;
+		},
+		rotationClass() {
+			if (this.rotation === null) {
+				return null;
+			}
+
+			return `-rotate${this.rotation}`;
 		},
 	},
 };
