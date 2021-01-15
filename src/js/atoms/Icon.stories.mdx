@@ -6,15 +6,15 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'js/components/global/styleguide/atoms/
 # Icon
 
 <Story name='interactive'
-    args={{
-    size: ICON_SIZES.MEDIUM,
-    icon: 'FILE_VERIFIED',
-    touchable: false,
-    }}
-    argTypes={{
-        size: {control: { type: 'select', options: Object.values(ICON_SIZES) }, defaultValue: ICON_SIZES.MEDIUM},
-        icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
-    }}>
+       args={{
+           size: ICON_SIZES.MEDIUM,
+           icon: 'FILE_VERIFIED',
+           touchable: false,
+       }}
+       argTypes={{
+           size: {control: { type: 'select', options: Object.values(ICON_SIZES) }, defaultValue: ICON_SIZES.MEDIUM},
+           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+       }}>
     {(args) => {
         return {
             components: { WnlIcon },
@@ -23,6 +23,23 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'js/components/global/styleguide/atoms/
                 this.ICONS = ICONS
             },
             template: '<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" /></div>',
+        };
+    }}
+</Story>
+
+<Story name='all icons'>
+    {() => {
+        return {
+            components: { WnlIcon },
+            created() {
+                this.ICONS = ICONS
+            },
+            template: '<div style="display: flex; flex-wrap: wrap">' +
+                '<div v-for="(icon, iconName) in ICONS" :key="iconName" style="display: flex; flex-direction: column; align-items: center; padding: 10px">'+
+                  '<wnl-icon :icon="icon" />' +
+                  '<div>{{iconName}}</div>' +
+                '</div>' +
+            '</div>',
         };
     }}
 </Story>
