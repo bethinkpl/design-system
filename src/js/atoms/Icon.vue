@@ -24,11 +24,12 @@
 
 <script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-import FileVerifiedSvg from 'images/icons/file-verified.svg';
+import FileVerified from 'images/icons/file-verified.svg';
 import HeadWithQuestionMark from 'images/icons/head-with-question-mark.svg';
 import SendMessage from 'images/icons/send-message.svg';
 import Ribbon from 'images/icons/ribbon.svg';
 import { FONTAWESOME_ICONS } from 'js/icons/fontawesome';
+import { VueConstructor } from 'vue';
 
 export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',
@@ -40,17 +41,17 @@ export const ICON_SIZES = {
 	XX_LARGE: 'xx-large',
 };
 
-const BETHINK_ICONS = {
-	FILE_VERIFIED: FileVerifiedSvg,
+const BETHINK_ICONS: { [key: string]: object } = {
+	FILE_VERIFIED: FileVerified,
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
 	SEND_MESSAGE: SendMessage,
 	RIBBON: Ribbon,
 } as const;
 
-export const ICONS = {
+export const ICONS: { [key: string]: VueConstructor | object } = {
 	...FONTAWESOME_ICONS,
 	...BETHINK_ICONS,
-};
+} as const;
 
 export default {
 	name: 'Icon',
@@ -62,8 +63,7 @@ export default {
 			type: Object,
 			required: true,
 			validate(icon: object) {
-				// TODO fix me
-				// return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(icon);
 			},
 		},
 		size: {
