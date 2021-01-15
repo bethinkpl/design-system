@@ -41,14 +41,14 @@ export const ICON_SIZES = {
 	XX_LARGE: 'xx-large',
 };
 
-const BETHINK_ICONS: { [key: string]: object } = {
+const BETHINK_ICONS = {
 	FILE_VERIFIED: FileVerified,
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
 	SEND_MESSAGE: SendMessage,
 	RIBBON: Ribbon,
 } as const;
 
-export const ICONS: { [key: string]: VueConstructor | object } = {
+export const ICONS = {
 	...FONTAWESOME_ICONS,
 	...BETHINK_ICONS,
 } as const;
@@ -62,7 +62,7 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validate(icon: object) {
+			validate(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
