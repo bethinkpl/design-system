@@ -20,8 +20,7 @@
 			v-if="touchable"
 			:size="iconSize"
 			class="m-accessDisplayDate__help"
-			fa-icon-class="question-circle"
-			icon-set="far"
+			:icon="ICONS.QUESTION_CIRCLE"
 			touchable
 		/>
 	</div>
@@ -88,7 +87,7 @@
 </style>
 
 <script>
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 import { mapGetters } from 'vuex';
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
@@ -153,6 +152,9 @@ export default {
 
 			return `do ${this.courseAccessDisplayDate}`;
 		},
+	},
+	created() {
+		this.ICONS = ICONS;
 	},
 };
 </script>
