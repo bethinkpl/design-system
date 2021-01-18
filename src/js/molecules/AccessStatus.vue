@@ -37,7 +37,8 @@
 </style>
 
 <script>
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
+
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
 export default {

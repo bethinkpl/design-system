@@ -41,6 +41,7 @@
 </style>
 
 <script>
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 import WnlIconButton, { BUTTON_STATES } from 'js/components/global/styleguide/atoms/IconButton';
 
 export default {

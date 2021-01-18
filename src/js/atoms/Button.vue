@@ -47,9 +47,8 @@
 </template>
 
 <script lang="ts">
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 import Ripple from 'vue-ripple-directive';
-
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
 
 export const BUTTON_SIZES = {
 	SMALL: 'small',

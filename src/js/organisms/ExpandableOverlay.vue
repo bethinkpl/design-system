@@ -150,6 +150,7 @@
 </style>
 
 <script>
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 import WnlIconButtonWithLabel from 'js/components/global/styleguide/molecules/IconButtonWithLabel';
 
 export default {

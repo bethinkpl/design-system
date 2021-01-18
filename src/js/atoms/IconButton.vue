@@ -5,7 +5,8 @@
 </template>
 
 <script>
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
+
 import WnlButton, {
 	BUTTON_STATES,
 	BUTTON_SIZES,
