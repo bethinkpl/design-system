@@ -3,8 +3,8 @@
 		<wnl-icon
 			fa-icon-class="fa-question-circle-o"
 			class="o-helpModal__icon -cadetGray"
-			@click.native.stop="open"
 			:size="ICON_SIZES.SMALL"
+			@click.native.stop="open"
 		/>
 		<wnl-modal v-if="showModal" @close-modal="close">
 			<div class="o-helpModal__content content" v-html="text" />

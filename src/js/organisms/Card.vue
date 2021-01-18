@@ -8,8 +8,8 @@
 				<wnl-icon
 					:fa-icon-class="collapseIconClass"
 					class="-cadetGray"
-					@click.native.stop="toggleCollapse"
 					:size="ICON_SIZES.SMALL"
+					@click.native.stop="toggleCollapse"
 				/>
 			</div>
 		</header>
