@@ -9,6 +9,7 @@
 					:fa-icon-class="collapseIconClass"
 					class="-cadetGray"
 					@click.native.stop="toggleCollapse"
+					:size="ICON_SIZES.SMALL"
 				/>
 			</div>
 		</header>
