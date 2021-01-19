@@ -65,6 +65,9 @@ export default {
 			showModal: false,
 		};
 	},
+	created() {
+		this.ICONS = ICONS;
+	},
 	methods: {
 		open() {
 			this.showModal = true;

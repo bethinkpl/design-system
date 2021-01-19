@@ -169,6 +169,9 @@ export default {
 			isExpanded: true,
 		};
 	},
+	created() {
+		this.ICONS = ICONS;
+	},
 	methods: {
 		collapse() {
 			this.isExpanded = false;

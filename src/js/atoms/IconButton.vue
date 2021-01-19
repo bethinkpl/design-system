@@ -55,5 +55,8 @@ export default {
 			},
 		},
 	},
+	created() {
+		this.ICONS = ICONS;
+	},
 };
 </script>

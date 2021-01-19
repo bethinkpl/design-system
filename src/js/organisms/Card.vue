@@ -95,6 +95,9 @@ export default {
 			};
 		},
 	},
+	created() {
+		this.ICONS = ICONS;
+	},
 	methods: {
 		toggleCollapse() {
 			this.collapsed = !this.collapsed;

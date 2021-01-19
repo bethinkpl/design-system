@@ -80,5 +80,8 @@ export default {
 			return 'Zakończony';
 		},
 	},
+	created() {
+		this.ICONS = ICONS;
+	},
 };
 </script>
