@@ -45,7 +45,7 @@
 </style>
 
 <script>
-import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon';
 
 import WnlModal from 'js/components/global/Modal';
 
@@ -67,6 +67,7 @@ export default {
 	},
 	created() {
 		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
 		open() {

@@ -62,7 +62,7 @@
 </style>
 
 <script>
-import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon';
 
 export default {
 	name: 'Card',
@@ -97,6 +97,7 @@ export default {
 	},
 	created() {
 		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
 		toggleCollapse() {
