@@ -27,7 +27,6 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import FileVerified from 'images/icons/file-verified.svg';
 import HeadWithQuestionMark from 'images/icons/head-with-question-mark.svg';
-import SendMessage from 'images/icons/send-message.svg';
 import Ribbon from 'images/icons/ribbon.svg';
 import { FONTAWESOME_ICONS } from 'js/icons/fontawesome';
 import { VueConstructor } from 'vue';
@@ -45,7 +44,6 @@ export const ICON_SIZES = {
 const BETHINK_ICONS = {
 	FILE_VERIFIED: FileVerified,
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
-	SEND_MESSAGE: SendMessage,
 	RIBBON: Ribbon,
 } as const;
 
