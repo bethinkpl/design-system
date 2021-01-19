@@ -4,22 +4,11 @@
 		:class="{
 			'-touchable': touchable,
 			[rotationClass]: rotationClass,
+			[sizeClassName]: true,
 		}"
 	>
-		<font-awesome-icon
-			v-if="isFontawesomeIcon"
-			:class="{
-				[sizeClassName]: true,
-			}"
-			:icon="icon"
-		/>
-		<component
-			:is="icon"
-			v-else
-			:class="{
-				[sizeClassName]: true,
-			}"
-		/>
+		<font-awesome-icon v-if="isFontawesomeIcon" :icon="icon" />
+		<component :is="icon" v-else />
 	</div>
 </template>
 

@@ -1,4 +1,5 @@
 .a-icon {
+	$self: &;
 	display: inline-flex;
 
 	&.-touchable {
@@ -22,42 +23,51 @@
 		transform: rotate(270deg);
 	}
 
+	svg,
+	// We need this class to override FontAwesome styles
 	.svg-inline--fa {
 		height: $icon-m;
 		width: $icon-m;
 	}
 
-	.-xx-large {
+	&.-xx-large svg,
+	&.-xx-large .svg-inline--fa {
 		height: $icon-xxl;
 		width: $icon-xxl;
 	}
 
-	.-x-large {
+	&.-x-large svg,
+	&.-x-large .svg-inline--fa {
 		height: $icon-xl;
 		width: $icon-xl;
 	}
 
-	.-large {
+	&.-large svg,
+	&.-large .svg-inline--fa {
 		height: $icon-l;
 		width: $icon-l;
 	}
 
-	.-medium {
+	&.-medium svg,
+	&.-medium .svg-inline--fa {
 		height: $icon-m;
 		width: $icon-m;
 	}
 
-	.-small {
+	&.-small svg,
+	&.-small .svg-inline--fa {
 		height: $icon-s;
 		width: $icon-s;
 	}
 
-	.-x-small {
+	&.-x-small svg,
+	&.-x-small .svg-inline--fa {
 		height: $icon-xs;
 		width: $icon-xs;
 	}
 
-	.-xx-small {
+	&.-xx-small svg,
+	&.-xx-small .svg-inline--fa {
 		height: $icon-xxs;
 		width: $icon-xxs;
 	}
