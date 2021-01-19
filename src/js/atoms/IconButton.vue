@@ -1,10 +1,10 @@
 <template>
 	<wnl-button class="-icon" :radius="radius" :size="size" :type="type" :state="state">
-		<wnl-icon :fa-icon-class="faIconClass" size="x-small" />
+		<wnl-icon :icon="icon" size="x-small" />
 	</wnl-button>
 </template>
 
-<script>
+<script lang="ts">
 import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 
 import WnlButton, {
@@ -13,8 +13,9 @@ import WnlButton, {
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
 } from 'js/components/global/styleguide/atoms/Button';
+import { VueConstructor } from 'vue';
 
-export { BUTTON_STATES, BUTTON_SIZES, BUTTON_RADIUSES, BUTTON_TYPES };
+export { BUTTON_STATES, BUTTON_SIZES, BUTTON_RADIUSES, BUTTON_TYPES, ICONS };
 
 export default {
 	components: {
@@ -43,9 +44,12 @@ export default {
 				return Object.values(BUTTON_TYPES).includes(value);
 			},
 		},
-		faIconClass: {
-			type: String,
+		icon: {
+			type: Object,
 			required: true,
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
 		},
 		state: {
 			type: String,

@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlIconButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUSES } from 'js/components/global/styleguide/atoms/IconButton';
+import WnlIconButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUSES, ICONS } from 'js/components/global/styleguide/atoms/IconButton';
 
 <Meta title='atoms/IconButton' component={WnlIconButton} />
 
@@ -7,7 +7,6 @@ import WnlIconButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUS
 
 <Story name='interactive'
        args={{
-           faIconClass: 'fa-times',
            size: BUTTON_SIZES.MEDIUM,
            type: BUTTON_TYPES.FILLED,
            radius: BUTTON_RADIUSES.CAPSULE,
@@ -23,7 +22,10 @@ import WnlIconButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUS
         return {
             components: { WnlIconButton },
             props: Object.keys(args),
-            template: '<wnl-icon-button :fa-icon-class="faIconClass" :size="size" :type="type" :state="state" :radius="radius" />',
+            template: '<wnl-icon-button :icon="ICONS.TIMES" :size="size" :type="type" :state="state" :radius="radius" />',
+            created() {
+                this.ICONS = ICONS;
+            }
         };
     }}
 </Story>

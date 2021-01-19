@@ -6,7 +6,7 @@
 			</span>
 			<div class="o-expandableOverlay__bar__toggle">
 				<wnl-icon-button-with-label
-					:fa-icon-class="isExpanded ? 'fa-times' : 'fa-chevron-down'"
+					:icon="isExpanded ? ICONS.TIMES : ICONS.CHEVRON_DOWN"
 					:label="isExpanded ? 'Zamknij' : 'Pokaż więcej'"
 				/>
 			</div>
@@ -150,8 +150,9 @@
 </style>
 
 <script>
-import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
-import WnlIconButtonWithLabel from 'js/components/global/styleguide/molecules/IconButtonWithLabel';
+import WnlIconButtonWithLabel, {
+	ICONS,
+} from 'js/components/global/styleguide/molecules/IconButtonWithLabel';
 
 export default {
 	name: 'ExpandableOverlay',

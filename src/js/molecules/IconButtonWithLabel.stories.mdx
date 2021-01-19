@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlIconButtonWithLabel from 'js/components/global/styleguide/molecules/IconButtonWithLabel';
+import WnlIconButtonWithLabel, { ICONS } from 'js/components/global/styleguide/molecules/IconButtonWithLabel';
 
 <Meta title='molecules/IconButtonWithLabel' component={WnlIconButtonWithLabel} />
 
@@ -8,14 +8,17 @@ import WnlIconButtonWithLabel from 'js/components/global/styleguide/molecules/Ic
 <Story name='interactive'
        args={{
            label: 'Zamknij',
-           faIconClass: 'fa-times',
        }}
 >
     {(args) => {
+        // TODO IT-3260 | Fix storybook icons
         return {
             components: { WnlIconButtonWithLabel },
             props: Object.keys(args),
-            template: `<wnl-icon-button-with-label :label="label" :fa-icon-class="faIconClass" />`,
+            template: `<wnl-icon-button-with-label :label="label" :icon="ICONS.TIMES" />`,
+            created() {
+                this.ICONS = ICONS;
+            }
         };
     }}
 </Story>
