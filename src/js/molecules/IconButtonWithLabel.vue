@@ -64,6 +64,7 @@ export default {
 		};
 	},
 	created() {
+		this.ICONS = ICONS;
 		this.BUTTON_STATES = BUTTON_STATES;
 	},
 };

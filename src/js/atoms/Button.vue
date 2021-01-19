@@ -132,6 +132,7 @@ export default {
 		},
 	},
 	created() {
+		this.ICONS = ICONS;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.COLORS = BUTTON_COLORS;
 		this.RADIUSES = BUTTON_RADIUSES;
