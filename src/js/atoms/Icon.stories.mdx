@@ -20,7 +20,6 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'js/components/global/styleguide/atoms/
             components: { WnlIcon },
             props: Object.keys(args),
             created() {
- this.ICONS = ICONS;
                 this.ICONS = ICONS
             },
             template: '<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" /></div>',
@@ -33,7 +32,6 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'js/components/global/styleguide/atoms/
         return {
             components: { WnlIcon },
             created() {
- this.ICONS = ICONS;
                 this.ICONS = ICONS
             },
             template: '<div style="display: flex; flex-wrap: wrap">' +

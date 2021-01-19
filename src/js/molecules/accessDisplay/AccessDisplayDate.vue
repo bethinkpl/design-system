@@ -155,7 +155,6 @@ export default {
 	},
 	created() {
 		this.ICONS = ICONS;
-		this.ICONS = ICONS;
 	},
 };
 </script>
