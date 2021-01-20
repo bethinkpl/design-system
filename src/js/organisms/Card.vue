@@ -6,7 +6,7 @@
 			</slot>
 			<div>
 				<wnl-icon
-					:fa-icon-class="collapseIconClass"
+					:icon="collapseIcon"
 					class="-cadetGray"
 					:size="ICON_SIZES.SMALL"
 					@click.native.stop="toggleCollapse"
@@ -85,8 +85,8 @@ export default {
 		};
 	},
 	computed: {
-		collapseIconClass() {
-			return this.collapsed ? 'fa-angle-down' : 'fa-angle-up';
+		collapseIcon() {
+			return this.collapsed ? ICONS.ANGLE_DOWN : ICONS.ANGLE_UP;
 		},
 		styles() {
 			return {

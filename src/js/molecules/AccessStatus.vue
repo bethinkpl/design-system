@@ -1,6 +1,6 @@
 <template>
 	<div class="m-accessStatus" :class="statusClass">
-		<wnl-icon size="x-small" :fa-icon-class="iconName" class="m-accessStatus__icon" />
+		<wnl-icon size="x-small" :icon="icon" class="m-accessStatus__icon" />
 		<span class="m-accessStatus__text">{{ text }}</span>
 	</div>
 </template>
@@ -52,14 +52,14 @@ export default {
 		},
 	},
 	computed: {
-		iconName() {
+		icon() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return 'unlock-alt';
+				return ICONS.UNLOCK;
 			}
 			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return 'hourglass-start';
+				return ICONS.HOURGLASS_START;
 			}
-			return 'lock';
+			return ICONS.LOCK;
 		},
 		statusClass() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {

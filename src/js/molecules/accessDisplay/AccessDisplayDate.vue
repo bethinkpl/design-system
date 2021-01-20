@@ -8,7 +8,7 @@
 	>
 		<wnl-icon
 			:size="iconSize"
-			:fa-icon-class="iconName"
+			:icon="iconName"
 			class="m-accessDisplayDate__icon"
 			:class="iconClass"
 		/>
@@ -116,12 +116,12 @@ export default {
 		},
 		iconName() {
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return 'unlock-alt';
+				return ICONS.UNLOCK;
 			}
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return 'hourglass-start';
+				return ICONS.HOURGLASS_START;
 			}
-			return 'lock';
+			return ICONS.LOCK;
 		},
 		dateClass() {
 			return [COURSE_ACCESS_STATUS.SUSPENDED, COURSE_ACCESS_STATUS.EXPIRED].includes(
