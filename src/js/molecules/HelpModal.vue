@@ -1,7 +1,7 @@
 <template>
 	<span class="o-helpModal">
 		<wnl-icon
-			fa-icon-class="fa-question-circle-o"
+			:icon="ICONS.QUESTION_CIRCLE"
 			class="o-helpModal__icon -cadetGray"
 			:size="ICON_SIZES.SMALL"
 			@click.native.stop="open"
