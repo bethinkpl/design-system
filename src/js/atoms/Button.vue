@@ -26,14 +26,14 @@
 			<wnl-icon
 				v-if="iconLeft"
 				class="a-button__icon -left"
-				:fa-icon-class="iconLeft"
+				:icon="iconLeft"
 				size="x-small"
 			/>
 			<slot />
 			<wnl-icon
 				v-if="iconRight"
 				class="a-button__icon -right"
-				:fa-icon-class="iconRight"
+				:icon="iconRight"
 				size="x-small"
 			/>
 		</span>
@@ -49,6 +49,7 @@
 <script lang="ts">
 import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 import Ripple from 'vue-ripple-directive';
+import { VueConstructor } from 'vue';
 
 export const BUTTON_SIZES = {
 	SMALL: 'small',
@@ -78,6 +79,8 @@ export const BUTTON_STATES = {
 	DISABLED: 'disabled',
 	LOADING: 'loading',
 } as const;
+
+export { ICONS };
 
 export default {
 	directives: {
@@ -123,12 +126,18 @@ export default {
 			},
 		},
 		iconLeft: {
-			type: String,
+			type: Object,
 			default: null,
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
 		},
 		iconRight: {
-			type: String,
+			type: Object,
 			default: null,
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
 		},
 	},
 	created() {
