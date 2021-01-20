@@ -23,6 +23,10 @@
 		transform: rotate(270deg);
 	}
 
+	&.-spin {
+		animation: a-spinAround 2s infinite linear;
+	}
+
 	svg,
 	// We need this class to override FontAwesome styles
 	.svg-inline--fa {

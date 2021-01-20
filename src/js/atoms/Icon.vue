@@ -3,6 +3,7 @@
 		class="a-icon"
 		:class="{
 			'-touchable': touchable,
+			'-spin': spinning,
 			[rotationClass]: rotationClass,
 			[sizeClassName]: true,
 		}"
@@ -67,6 +68,10 @@ export default {
 			},
 		},
 		touchable: {
+			type: Boolean,
+			default: false,
+		},
+		spinning: {
 			type: Boolean,
 			default: false,
 		},
