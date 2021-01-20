@@ -13,7 +13,7 @@
 	</select>
 </template>
 
-<script>
+<script lang="ts">
 export default {
 	props: {
 		id: {
@@ -27,6 +27,8 @@ export default {
 		options: {
 			type: Array,
 			required: true,
+			validate: (option: { text: string; value: any }) =>
+				typeof option.text === 'string' && 'value' in option,
 		},
 		value: {
 			type: [Number, String],
