@@ -141,7 +141,7 @@ export default {
 				);
 				this.accesses = accesses;
 			} catch (e) {
-				$wnl.logger.error(e);
+				$wnl.logger.capture(e);
 				this.addAutoDismissableAlert({
 					text: this.$t('ui.error.tryAgainOrReport'),
 					type: ALERT_TYPES.ERROR,
