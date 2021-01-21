@@ -20,7 +20,7 @@
 
 $badge-score-width: 74px;
 $small-badge-score-width: 48px;
-$xsmall-badge-score-width: 36px;
+$x-small-badge-score-width: 36px;
 
 .a-badgeScore {
 	@include textBold();
@@ -54,8 +54,8 @@ $xsmall-badge-score-width: 36px;
 	&.-xsmall {
 		@include headlineXS();
 
-		min-width: $xsmall-badge-score-width;
-		border: 1px solid currentColor;
+		min-width: $x-small-badge-score-width;
+		border-width: 1px;
 		padding: $space-xxxxs;
 	}
 }
@@ -91,8 +91,8 @@ export default {
 		size: {
 			type: String,
 			default: BADGE_SCORE_SIZES.MEDIUM,
-			validate(color) {
-				Object.values(BADGE_SCORE_SIZES).includes(color);
+			validate(size) {
+				Object.values(BADGE_SCORE_SIZES).includes(size);
 			},
 		},
 	},
