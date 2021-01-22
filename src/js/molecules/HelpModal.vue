@@ -17,6 +17,10 @@
 @import 'resources/assets/styles/styleguide/settings/spacings';
 @import 'resources/assets/styles/styleguide/settings/typography';
 
+.o-helpModal {
+	line-height: 1;
+}
+
 .o-helpModal__icon {
 	cursor: pointer;
 	margin-right: $space-xs;
