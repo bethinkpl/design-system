@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_COLORS, BUTTON_STATES, BUTTON_RADIUSES } from 'js/components/global/styleguide/atoms/Button';
+import WnlButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_COLORS, BUTTON_STATES, BUTTON_RADIUSES, ICONS } from 'js/components/global/styleguide/atoms/Button';
 
 <Meta title='atoms/Button' component={WnlButton} />
 
@@ -14,8 +14,6 @@ import WnlButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_COLORS, BUTTON_STATES, BU
     color: BUTTON_COLORS.PRIMARY,
     radius: BUTTON_RADIUSES.CAPSULE,
     state: BUTTON_STATES.DEFAULT,
-    iconLeft: 'fa-chevron-left',
-    iconRight: '',
     }}
     argTypes={{
         slotText: {control: { type: 'text' }, defaultValue: 'hello'},
@@ -24,12 +22,17 @@ import WnlButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_COLORS, BUTTON_STATES, BU
         color: {control: { type: 'select', options: Object.values(BUTTON_COLORS) }, defaultValue: BUTTON_COLORS.PRIMARY},
         radius: {control: { type: 'select', options: Object.values(BUTTON_RADIUSES) }, defaultValue: BUTTON_RADIUSES.CAPSULE},
         state: {control: { type: 'select', options: Object.values(BUTTON_STATES) }, defaultValue: BUTTON_STATES.DEFAULT},
+        iconLeft: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'CHEVRON_LEFT' },
+        iconRight: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: null },
     }}>
     {(args) => {
         return {
             components: { WnlButton },
             props: Object.keys(args),
-            template: '<wnl-button :size="size" :type="type" :state="state" :radius="radius" :color="color" :icon-left="iconLeft" :icon-right="iconRight">{{slotText}}</wnl-button>',
+            template: '<wnl-button :size="size" :type="type" :state="state" :radius="radius" :color="color" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]">{{slotText}}</wnl-button>',
+            created() {
+                this.ICONS = ICONS;
+            }
         };
     }}
 </Story>

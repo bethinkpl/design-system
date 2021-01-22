@@ -2,6 +2,7 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import WnlLabelWithInfo from 'js/components/global/styleguide/molecules/LabelWithInfo';
 import WnlLabel from 'js/components/global/styleguide/atoms/Label';
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 
 import WnlModal from 'js/components/global/Modal';
 import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
@@ -35,6 +36,9 @@ import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
                     	</wnl-modal>
                 </template>
             </wnl-label-with-info>`,
+            created() {
+                this.ICONS = ICONS;
+            },
         };
     }}
 </Story>

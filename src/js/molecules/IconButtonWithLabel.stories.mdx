@@ -9,13 +9,15 @@ import WnlIconButtonWithLabel, { ICONS } from 'js/components/global/styleguide/m
        args={{
            label: 'Zamknij',
        }}
+       argTypes={{
+           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'TIMES' },
+       }}>
 >
     {(args) => {
-        // TODO IT-3260 | Fix storybook icons
         return {
             components: { WnlIconButtonWithLabel },
             props: Object.keys(args),
-            template: `<wnl-icon-button-with-label :label="label" :icon="ICONS.TIMES" />`,
+            template: `<wnl-icon-button-with-label :label="label" :icon="ICONS[icon]" />`,
             created() {
                 this.ICONS = ICONS;
             }

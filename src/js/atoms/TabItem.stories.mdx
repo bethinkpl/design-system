@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import TabItem from 'js/components/global/styleguide/atoms/TabItem';
+import TabItem, { ICONS } from 'js/components/global/styleguide/atoms/TabItem';
 
 <Meta title='atoms/TabItem' component={TabItem} />
 
@@ -9,17 +9,22 @@ import TabItem from 'js/components/global/styleguide/atoms/TabItem';
 
 <Story name='interactive'
 	   args={{
-		   faIconClass: 'fa-calendar',
 		   isActive: false,
-		   tooltipText: 'Wpłynąłem na suchego przestówr oceanu'
+           title: 'Wpłynąłem na suchego przestówr oceanu'
 	   }}
+       argTypes={{
+           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'CALENDAR' },
+       }}>
 >
 	{(args) => {
 		return {
 			components: { TabItem },
 			props: Object.keys(args),
-			template: '<tab-item :fa-icon-class="faIconClass" :is-active="isActive" :tooltip-text="tooltipText" />',
-		};
+			template: '<tab-item :icon="ICONS[icon]" :is-active="isActive" :title="title" />',
+            created() {
+                this.ICONS = ICONS;
+            }
+        };
 	}}
 </Story>
 

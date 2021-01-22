@@ -1,5 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import WnlTextWithIcon from 'js/components/global/styleguide/molecules/TextWithIcon';
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 
 
 <Meta title='molecules/TextWithIcon' component={WnlTextWithIcon} />
@@ -9,11 +10,10 @@ import WnlTextWithIcon from 'js/components/global/styleguide/molecules/TextWithI
 <Story name='interactive'
     args={{
         textProp: "super tekst tutaj jest",
-        faIconClass: 'fa-eye',
     }}
     argTypes={{
         textProp: {control: { type: 'text' }},
-        faIconClass: {control: { type: 'text' }},
+        icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'EYE' },
     }}
 >
     {(args) => {
@@ -23,12 +23,15 @@ import WnlTextWithIcon from 'js/components/global/styleguide/molecules/TextWithI
             template: `<wnl-text-with-icon class="o-dashboard__reportSummary__overallIndicator__name">
                 <wnl-icon
                     slot="icon"
-                    :fa-icon-class="faIconClass"
+                    :icon="ICONS[icon]"
                 />
                 <span slot="text">
                     {{textProp}}
                 </span>
             </wnl-text-with-icon>`,
+            created() {
+                this.ICONS = ICONS;
+            },
         };
     }}
 </Story>
