@@ -6,6 +6,7 @@ import Button, {
 	BUTTON_COLORS,
 	BUTTON_RADIUSES,
 	BUTTON_STATES,
+	ICONS,
 } from './Button.vue';
 
 describe('Button', () => {
@@ -48,12 +49,12 @@ describe('Button', () => {
 	});
 
 	it('should render icon', () => {
-		const leftIcon = createComponent({ 'icon-left': 'fa-times' });
+		const leftIcon = createComponent({ 'icon-left': ICONS.TIMES });
 		expect(leftIcon.find('.a-button__icon.-left').exists()).toBe(true);
-		expect(leftIcon.find('.a-button__icon.-left').props().faIconClass).toBe('fa-times');
+		expect(leftIcon.find('.a-button__icon.-left').props().icon).toBe(ICONS.TIMES);
 
-		const rightIcon = createComponent({ 'icon-right': 'fa-clock' });
+		const rightIcon = createComponent({ 'icon-right': ICONS.CLOCK });
 		expect(rightIcon.find('.a-button__icon.-right').exists()).toBe(true);
-		expect(rightIcon.find('.a-button__icon.-right').props().faIconClass).toBe('fa-clock');
+		expect(rightIcon.find('.a-button__icon.-right').props().icon).toBe(ICONS.CLOCK);
 	});
 });

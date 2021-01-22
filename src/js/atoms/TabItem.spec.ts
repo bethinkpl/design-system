@@ -1,7 +1,7 @@
 import Vuex, { Store } from 'vuex';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
-import TabItem from './TabItem.vue';
+import TabItem, { ICONS } from './TabItem.vue';
 
 describe('TabItem', () => {
 	const createComponent = ({ isActive = false } = {}) => {
@@ -16,7 +16,7 @@ describe('TabItem', () => {
 			store,
 			mocks: {},
 			propsData: {
-				faIconClass: 'fa-calendar',
+				icon: ICONS.CALENDAR,
 				isActive,
 				title: 'wpłynąłem na suchego przestwór oceanu',
 			},
