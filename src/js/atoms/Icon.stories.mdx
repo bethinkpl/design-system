@@ -9,11 +9,14 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'js/components/global/styleguide/atoms/
        args={{
            size: ICON_SIZES.MEDIUM,
            icon: 'FILE_VERIFIED',
+           spinning: false,
            touchable: false,
+           rotation: null
        }}
        argTypes={{
            size: {control: { type: 'select', options: Object.values(ICON_SIZES) }, defaultValue: ICON_SIZES.MEDIUM},
            icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+           rotation: {control: { type: 'select', options: [null, 90, 180, 270] }, defaultValue: null},
        }}>
     {(args) => {
         return {
@@ -22,7 +25,7 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'js/components/global/styleguide/atoms/
             created() {
                 this.ICONS = ICONS
             },
-            template: '<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" /></div>',
+            template: '<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" /></div>',
         };
     }}
 </Story>
