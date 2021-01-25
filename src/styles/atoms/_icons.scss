@@ -1,6 +1,7 @@
 .a-icon {
 	align-items: center;
 	display: inline-flex;
+	transition: transform 0.15s;
 
 	&.-touchable {
 		align-items: center;
