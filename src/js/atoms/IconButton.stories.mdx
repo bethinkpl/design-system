@@ -17,7 +17,7 @@ import WnlIconButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUS
            type: {control: { type: 'select', options: Object.values(BUTTON_TYPES) }, defaultValue: BUTTON_TYPES.FILLED},
            radius: {control: { type: 'select', options: Object.values(BUTTON_RADIUSES) }, defaultValue: BUTTON_RADIUSES.CAPSULE},
            state: {control: { type: 'select', options: Object.values(BUTTON_STATES) }, defaultValue: BUTTON_STATES.DEFAULT},
-           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'TIMES' },
+           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES' },
        }}>
     {(args) => {
         return {

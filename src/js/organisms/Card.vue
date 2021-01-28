@@ -86,7 +86,7 @@ export default {
 	},
 	computed: {
 		collapseIcon() {
-			return this.collapsed ? ICONS.ANGLE_DOWN : ICONS.ANGLE_UP;
+			return this.collapsed ? ICONS.FA_ANGLE_DOWN : ICONS.FA_ANGLE_UP;
 		},
 		styles() {
 			return {

@@ -16,7 +16,7 @@ describe('TabItem', () => {
 			store,
 			mocks: {},
 			propsData: {
-				icon: ICONS.CALENDAR,
+				icon: ICONS.FA_CALENDAR_ALT,
 				isActive,
 				title: 'wpłynąłem na suchego przestwór oceanu',
 			},

@@ -20,7 +20,7 @@
 			v-if="touchable"
 			:size="iconSize"
 			class="m-accessDisplayDate__help"
-			:icon="ICONS.QUESTION_CIRCLE"
+			:icon="ICONS.FA_QUESTION_CIRCLE"
 			touchable
 		/>
 	</div>
@@ -116,12 +116,12 @@ export default {
 		},
 		iconName() {
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return ICONS.UNLOCK;
+				return ICONS.FA_UNLOCK_ALT;
 			}
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return ICONS.HOURGLASS_START;
+				return ICONS.FA_HOURGLASS_START;
 			}
-			return ICONS.LOCK;
+			return ICONS.FA_LOCK_ALT;
 		},
 		dateClass() {
 			return [COURSE_ACCESS_STATUS.SUSPENDED, COURSE_ACCESS_STATUS.EXPIRED].includes(

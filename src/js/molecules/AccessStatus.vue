@@ -54,12 +54,12 @@ export default {
 	computed: {
 		icon() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return ICONS.UNLOCK;
+				return ICONS.FA_UNLOCK_ALT;
 			}
 			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return ICONS.HOURGLASS_START;
+				return ICONS.FA_HOURGLASS_START;
 			}
-			return ICONS.LOCK;
+			return ICONS.FA_LOCK_ALT;
 		},
 		statusClass() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {

@@ -24,7 +24,7 @@ import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
             template: `<wnl-label-with-info>
                 <wnl-label input-id="finished_studies">Czy studia masz już za sobą? W jakim języku?</wnl-label>
                 <template slot="info">
-                    <wnl-icon :icon="ICONS.QUESTION_CIRCLE" @click.native="languageModalVisible = true" />
+                    <wnl-icon :icon="ICONS.FA_QUESTION_CIRCLE" @click.native="languageModalVisible = true" />
                     <wnl-modal v-if="languageModalVisible" @close-modal="languageModalVisible = false">
                     		<h4 slot="header" class="-headlineXL -textBold">Dlaczego pytamy o język?</h4>
                     		<template>
