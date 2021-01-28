@@ -37,8 +37,8 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'js/components/global/styleguide/atoms/
             created() {
                 this.ICONS = ICONS
             },
-            template: '<div style="display: flex; flex-wrap: wrap">' +
-                '<div v-for="(icon, iconName) in ICONS" :key="iconName" style="display: flex; flex-direction: column; align-items: center; padding: 10px; width: 100px; word-break: break-word; text-align: center">'+
+            template: '<div style="display: flex; flex-wrap: wrap; font-size: 10px">' +
+                '<div v-for="(icon, iconName) in ICONS" :key="iconName" style="display: flex; flex-direction: column; align-items: center; padding: 10px; width: 150px; word-break: break-word; text-align: center">'+
                   '<wnl-icon :icon="icon" />' +
                   '<div>{{iconName}}</div>' +
                 '</div>' +
