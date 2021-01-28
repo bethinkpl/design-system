@@ -1,6 +1,6 @@
 <template>
 	<wnl-button class="-icon" :radius="radius" :size="size" :type="type" :state="state">
-		<wnl-icon :icon="icon" size="x-small" />
+		<wnl-icon :icon="icon" :size="ICON_SIZES.X_SMALL" />
 	</wnl-button>
 </template>
 
@@ -14,6 +14,7 @@ import WnlButton, {
 	BUTTON_TYPES,
 } from 'js/components/global/styleguide/atoms/Button';
 import { VueConstructor } from 'vue';
+import { ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon.vue';
 
 export { BUTTON_STATES, BUTTON_SIZES, BUTTON_RADIUSES, BUTTON_TYPES, ICONS };
 
@@ -61,6 +62,7 @@ export default {
 	},
 	created() {
 		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 	},
 };
 </script>

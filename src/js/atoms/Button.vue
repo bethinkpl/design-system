@@ -27,21 +27,21 @@
 				v-if="iconLeft"
 				class="a-button__icon -left"
 				:icon="iconLeft"
-				size="x-small"
+				:size="ICON_SIZES.X_SMALL"
 			/>
 			<slot />
 			<wnl-icon
 				v-if="iconRight"
 				class="a-button__icon -right"
 				:icon="iconRight"
-				size="x-small"
+				:size="ICON_SIZES.X_SMALL"
 			/>
 		</span>
 		<wnl-icon
 			v-if="state === STATES.LOADING"
 			class="a-button__loadingIcon"
 			:icon="ICONS.FA_SYNC"
-			size="x-small"
+			:size="ICON_SIZES.X_SMALL"
 		/>
 	</span>
 </template>
@@ -50,6 +50,7 @@
 import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 import Ripple from 'vue-ripple-directive';
 import { VueConstructor } from 'vue';
+import { ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon.vue';
 
 export const BUTTON_SIZES = {
 	SMALL: 'small',
@@ -142,6 +143,7 @@ export default {
 	},
 	created() {
 		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.COLORS = BUTTON_COLORS;
 		this.RADIUSES = BUTTON_RADIUSES;

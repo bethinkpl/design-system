@@ -5,7 +5,7 @@
 		:class="{ '-isActive': isActive }"
 		@click="$emit('click')"
 	>
-		<wnl-icon :icon="icon" size="x-small" />
+		<wnl-icon :icon="icon" :size="ICON_SIZES.X_SMALL" />
 	</div>
 </template>
 
@@ -40,7 +40,7 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon.vue';
+import WnlIcon, { ICON_SIZES, ICONS } from 'js/components/global/styleguide/atoms/Icon.vue';
 import { VueConstructor } from 'vue';
 
 export { ICONS };
@@ -66,6 +66,9 @@ export default {
 			type: String,
 			required: true,
 		},
+	},
+	created() {
+		this.ICON_SIZES = ICON_SIZES;
 	},
 };
 </script>

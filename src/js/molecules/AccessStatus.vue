@@ -1,6 +1,6 @@
 <template>
 	<div class="m-accessStatus" :class="statusClass">
-		<wnl-icon size="x-small" :icon="icon" class="m-accessStatus__icon" />
+		<wnl-icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="m-accessStatus__icon" />
 		<span class="m-accessStatus__text">{{ text }}</span>
 	</div>
 </template>
@@ -37,7 +37,7 @@
 </style>
 
 <script>
-import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICON_SIZES, ICONS } from 'js/components/global/styleguide/atoms/Icon';
 
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
@@ -82,6 +82,7 @@ export default {
 	},
 	created() {
 		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 	},
 };
 </script>
