@@ -81,6 +81,7 @@ export const BUTTON_STATES = {
 } as const;
 
 export default {
+	name: 'Button',
 	directives: {
 		ripple: Ripple,
 	},

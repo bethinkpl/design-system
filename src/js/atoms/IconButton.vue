@@ -16,6 +16,7 @@ import WnlButton, {
 export { BUTTON_STATES, BUTTON_SIZES, BUTTON_RADIUSES, BUTTON_TYPES };
 
 export default {
+	name: 'IconButton',
 	components: {
 		WnlIcon,
 		WnlButton,

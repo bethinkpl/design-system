@@ -81,6 +81,7 @@ export const COLORS = {
 };
 
 export default {
+	name: 'NumberInCircle',
 	props: {
 		index: {
 			type: Number,

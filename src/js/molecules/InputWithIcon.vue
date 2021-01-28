@@ -34,6 +34,7 @@
 
 <script>
 export default {
+	name: 'InputWithIcon',
 	props: {
 		icon: {
 			type: String,
