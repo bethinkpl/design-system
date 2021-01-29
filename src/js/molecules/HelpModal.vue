@@ -54,6 +54,7 @@ import WnlIcon, { ICONS, ICON_SIZES } from 'js/components/global/styleguide/atom
 import WnlModal from 'js/components/global/Modal';
 
 export default {
+	name: 'HelpModal',
 	components: {
 		WnlIcon,
 		WnlModal,

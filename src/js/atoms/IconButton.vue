@@ -19,6 +19,7 @@ import { ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon.vue';
 export { BUTTON_STATES, BUTTON_SIZES, BUTTON_RADIUSES, BUTTON_TYPES, ICONS };
 
 export default {
+	name: 'IconButton',
 	components: {
 		WnlIcon,
 		WnlButton,

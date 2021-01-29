@@ -92,6 +92,7 @@ import { mapGetters } from 'vuex';
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
 export default {
+	name: 'AccessDisplayDate',
 	components: {
 		WnlIcon,
 	},

@@ -42,6 +42,7 @@ import WnlIcon, { ICON_SIZES, ICONS } from 'js/components/global/styleguide/atom
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
 export default {
+	name: 'AccessStatus',
 	components: {
 		WnlIcon,
 	},

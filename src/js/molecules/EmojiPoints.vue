@@ -73,6 +73,7 @@
 
 <script>
 export default {
+	name: 'EmojiPoints',
 	props: {
 		items: {
 			type: Array,

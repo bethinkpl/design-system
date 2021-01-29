@@ -50,6 +50,7 @@ import WnlIconButton, {
 export { ICONS };
 
 export default {
+	name: 'IconButtonWithLabel',
 	components: {
 		WnlIconButton,
 	},
