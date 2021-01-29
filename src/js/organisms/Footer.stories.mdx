@@ -1,5 +1,7 @@
 import { Meta, Story } from '@storybook/addon-docs/blocks';
 
+import WnlIcon, { ICONS, ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon';
+
 <Meta title='organisms/Footer' />
 
 # Footer
@@ -16,16 +18,23 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
     >
     {(args) => {
         return {
+            components: {
+                WnlIcon,
+            },
             props: Object.keys(args),
             template: `<footer class="o-footer">
                 <p class="o-footer__block -first">
                     <span v-html="html1" />
-                    <i class="fa-shield a-icon -large -mischkaGray"></i>
+                    <wnl-icon :size="ICON_SIZES.LARGE" :icon="ICONS.FA_SHIELD_ALT" class="-mischkaGray" />
                 </p>
                 <p class="o-footer__block -last">
                     <span v-html="html2" />
                 </p>
             </footer>`,
+            created() {
+                this.ICONS = ICONS;
+                this.ICON_SIZES = ICON_SIZES;
+            }
         };
     }}
 </Story>

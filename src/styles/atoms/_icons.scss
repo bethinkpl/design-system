@@ -1,14 +1,7 @@
 .a-icon {
-	display: inline-block;
-	/* stylelint-disable-next-line font-family-no-missing-generic-family-keyword */
-	font: normal normal normal #{$icon-m}/ 1 FontAwesome;
-	text-rendering: auto;
-	-webkit-font-smoothing: antialiased;
-
-	&::before {
-		display: block;
-		margin: 0 auto;
-	}
+	align-items: center;
+	display: inline-flex;
+	transition: transform 0.15s;
 
 	&.-touchable {
 		align-items: center;
@@ -19,27 +12,68 @@
 		min-width: $min-touchable-size;
 	}
 
-	&.-xx-large {
-		font-size: $icon-xxl;
+	&.-rotate90 {
+		transform: rotate(90deg);
 	}
 
-	&.-x-large {
-		font-size: $icon-xl;
+	&.-rotate180 {
+		transform: rotate(180deg);
 	}
 
-	&.-large {
-		font-size: $icon-l;
+	&.-rotate270 {
+		transform: rotate(270deg);
 	}
 
-	&.-small {
-		font-size: $icon-s;
+	&.-spin {
+		animation: a-spinAround 2s infinite linear;
 	}
 
-	&.-x-small {
-		font-size: $icon-xs;
+	svg,
+	// We need this class to override FontAwesome styles
+	.svg-inline--fa {
+		height: $icon-m;
+		width: $icon-m;
 	}
 
-	&.-xx-small {
-		font-size: $icon-xxs;
+	&.-xx-large svg,
+	&.-xx-large .svg-inline--fa {
+		height: $icon-xxl;
+		width: $icon-xxl;
+	}
+
+	&.-x-large svg,
+	&.-x-large .svg-inline--fa {
+		height: $icon-xl;
+		width: $icon-xl;
+	}
+
+	&.-large svg,
+	&.-large .svg-inline--fa {
+		height: $icon-l;
+		width: $icon-l;
+	}
+
+	&.-medium svg,
+	&.-medium .svg-inline--fa {
+		height: $icon-m;
+		width: $icon-m;
+	}
+
+	&.-small svg,
+	&.-small .svg-inline--fa {
+		height: $icon-s;
+		width: $icon-s;
+	}
+
+	&.-x-small svg,
+	&.-x-small .svg-inline--fa {
+		height: $icon-xs;
+		width: $icon-xs;
+	}
+
+	&.-xx-small svg,
+	&.-xx-small .svg-inline--fa {
+		height: $icon-xxs;
+		width: $icon-xxs;
 	}
 }

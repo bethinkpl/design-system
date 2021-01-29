@@ -1,16 +1,27 @@
 <template>
-	<i
+	<div
+		class="a-icon"
 		:class="{
-			'a-icon': true,
-			[faIconClass]: true,
-			[sizeClassName]: true,
 			'-touchable': touchable,
+			'-spin': spinning,
+			[rotationClass]: rotationClass,
+			[sizeClassName]: true,
 		}"
-	/>
+	>
+		<font-awesome-icon v-if="isFontawesomeIcon" :icon="icon" />
+		<component :is="icon" v-else />
+	</div>
 </template>
 
 <script lang="ts">
-export const SIZES = {
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import FileVerified from 'images/icons/file-verified.svg';
+import HeadWithQuestionMark from 'images/icons/head-with-question-mark.svg';
+import Ribbon from 'images/icons/ribbon.svg';
+import { FONTAWESOME_ICONS } from 'js/icons/fontawesome';
+import { VueConstructor } from 'vue';
+
+export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',
 	X_SMALL: 'x-small',
 	SMALL: 'small',
@@ -20,22 +31,47 @@ export const SIZES = {
 	XX_LARGE: 'xx-large',
 };
 
+const BETHINK_ICONS = {
+	FILE_VERIFIED: FileVerified,
+	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
+	RIBBON: Ribbon,
+} as const;
+
+export const ICONS = {
+	...FONTAWESOME_ICONS,
+	...BETHINK_ICONS,
+} as const;
+
 export default {
 	name: 'Icon',
+	components: {
+		FontAwesomeIcon,
+	},
 	props: {
-		faIconClass: {
-			type: String,
+		icon: {
+			type: Object,
 			required: true,
-			validate(faIconClass: string) {
-				return faIconClass.startsWith('fa-');
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
 			},
 		},
 		size: {
 			type: String,
-			default: SIZES.MEDIUM,
-			validator: (value: string) => Object.values(SIZES).includes(value),
+			default: ICON_SIZES.MEDIUM,
+			validator: (value: string) => Object.values(ICON_SIZES).includes(value),
+		},
+		rotation: {
+			type: [Number],
+			default: null,
+			validator: function validator(value) {
+				return [90, 180, 270].includes(value);
+			},
 		},
 		touchable: {
+			type: Boolean,
+			default: false,
+		},
+		spinning: {
 			type: Boolean,
 			default: false,
 		},
@@ -43,6 +79,16 @@ export default {
 	computed: {
 		sizeClassName() {
 			return `-${this.size}`;
+		},
+		isFontawesomeIcon() {
+			return 'iconName' in this.icon;
+		},
+		rotationClass() {
+			if (this.rotation === null) {
+				return null;
+			}
+
+			return `-rotate${this.rotation}`;
 		},
 	},
 };

@@ -5,7 +5,7 @@
 		:class="{ '-isActive': isActive }"
 		@click="$emit('click')"
 	>
-		<wnl-icon :fa-icon-class="faIconClass" size="x-small" />
+		<wnl-icon :icon="icon" :size="ICON_SIZES.X_SMALL" />
 	</div>
 </template>
 
@@ -40,7 +40,10 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 </style>
 
 <script lang="ts">
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon.vue';
+import WnlIcon, { ICON_SIZES, ICONS } from 'js/components/global/styleguide/atoms/Icon.vue';
+import { VueConstructor } from 'vue';
+
+export { ICONS };
 
 export default {
 	name: 'TabItem',
@@ -48,11 +51,11 @@ export default {
 		WnlIcon,
 	},
 	props: {
-		faIconClass: {
-			type: String,
+		icon: {
+			type: Object,
 			required: true,
-			validate(faIconClass: string) {
-				return faIconClass.startsWith('fa-');
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
 			},
 		},
 		isActive: {
@@ -63,6 +66,9 @@ export default {
 			type: String,
 			required: true,
 		},
+	},
+	created() {
+		this.ICON_SIZES = ICON_SIZES;
 	},
 };
 </script>

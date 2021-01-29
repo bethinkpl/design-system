@@ -6,8 +6,9 @@
 			</slot>
 			<div>
 				<wnl-icon
-					:fa-icon-class="collapseIconClass"
+					:icon="collapseIcon"
 					class="-cadetGray"
+					:size="ICON_SIZES.SMALL"
 					@click.native.stop="toggleCollapse"
 				/>
 			</div>
@@ -61,7 +62,7 @@
 </style>
 
 <script>
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon';
 
 export default {
 	name: 'Card',
@@ -84,8 +85,8 @@ export default {
 		};
 	},
 	computed: {
-		collapseIconClass() {
-			return this.collapsed ? 'fa-angle-down' : 'fa-angle-up';
+		collapseIcon() {
+			return this.collapsed ? ICONS.FA_ANGLE_DOWN : ICONS.FA_ANGLE_UP;
 		},
 		styles() {
 			return {
@@ -93,6 +94,10 @@ export default {
 				...(this.collapsed && { cursor: 'pointer' }),
 			};
 		},
+	},
+	created() {
+		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
 		toggleCollapse() {
