@@ -24,6 +24,10 @@
 		transform: rotate(270deg);
 	}
 
+	&.-no-transtition {
+		transition: initial;
+	}
+
 	&.-spin {
 		animation: a-spinAround 2s infinite linear;
 	}
