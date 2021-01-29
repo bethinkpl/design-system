@@ -2,7 +2,7 @@
 	<div class="m-iconButtonWithLabel" @mouseover="hovered = true" @mouseleave="hovered = false">
 		<span class="m-iconButtonWithLabel__label">{{ label }}</span>
 		<wnl-icon-button
-			:fa-icon-class="faIconClass"
+			:icon="icon"
 			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
 		/>
 	</div>
@@ -40,8 +40,14 @@
 }
 </style>
 
-<script>
-import WnlIconButton, { BUTTON_STATES } from 'js/components/global/styleguide/atoms/IconButton';
+<script lang="ts">
+import { VueConstructor } from 'vue';
+import WnlIconButton, {
+	BUTTON_STATES,
+	ICONS,
+} from 'js/components/global/styleguide/atoms/IconButton';
+
+export { ICONS };
 
 export default {
 	name: 'IconButtonWithLabel',
@@ -53,9 +59,12 @@ export default {
 			type: String,
 			required: true,
 		},
-		faIconClass: {
-			type: String,
+		icon: {
+			type: Object,
 			required: true,
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
 		},
 	},
 	data() {

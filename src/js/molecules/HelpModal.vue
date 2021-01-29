@@ -1,8 +1,9 @@
 <template>
 	<span class="o-helpModal">
 		<wnl-icon
-			fa-icon-class="fa-question-circle-o"
+			:icon="ICONS.FA_QUESTION_CIRCLE"
 			class="o-helpModal__icon -cadetGray"
+			:size="ICON_SIZES.SMALL"
 			@click.native.stop="open"
 		/>
 		<wnl-modal v-if="showModal" @close-modal="close">
@@ -15,6 +16,10 @@
 @import 'resources/assets/styles/styleguide/settings/colors';
 @import 'resources/assets/styles/styleguide/settings/spacings';
 @import 'resources/assets/styles/styleguide/settings/typography';
+
+.o-helpModal {
+	line-height: 1;
+}
 
 .o-helpModal__icon {
 	cursor: pointer;
@@ -44,7 +49,8 @@
 </style>
 
 <script>
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon';
+
 import WnlModal from 'js/components/global/Modal';
 
 export default {
@@ -63,6 +69,10 @@ export default {
 		return {
 			showModal: false,
 		};
+	},
+	created() {
+		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
 		open() {

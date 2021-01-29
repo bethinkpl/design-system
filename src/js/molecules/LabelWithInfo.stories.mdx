@@ -2,7 +2,8 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 import WnlLabelWithInfo from 'js/components/global/styleguide/molecules/LabelWithInfo';
 import WnlLabel from 'js/components/global/styleguide/atoms/Label';
 import WnlButton from 'js/components/global/styleguide/atoms/Button';
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
+
 import WnlModal from 'js/components/global/Modal';
 import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
 
@@ -23,7 +24,7 @@ import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
             template: `<wnl-label-with-info>
                 <wnl-label input-id="finished_studies">Czy studia masz już za sobą? W jakim języku?</wnl-label>
                 <template slot="info">
-                    <wnl-icon fa-icon-class="fa-question-circle-o" @click.native="languageModalVisible = true" />
+                    <wnl-icon :icon="ICONS.FA_QUESTION_CIRCLE" @click.native="languageModalVisible = true" />
                     <wnl-modal v-if="languageModalVisible" @close-modal="languageModalVisible = false">
                     		<h4 slot="header" class="-headlineXL -textBold">Dlaczego pytamy o język?</h4>
                     		<template>
@@ -35,6 +36,9 @@ import WnlModalParagraph from 'js/components/global/modals/content/Paragraph';
                     	</wnl-modal>
                 </template>
             </wnl-label-with-info>`,
+            created() {
+                this.ICONS = ICONS;
+            },
         };
     }}
 </Story>

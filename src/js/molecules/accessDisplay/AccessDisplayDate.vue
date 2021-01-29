@@ -8,7 +8,7 @@
 	>
 		<wnl-icon
 			:size="iconSize"
-			:fa-icon-class="iconName"
+			:icon="iconName"
 			class="m-accessDisplayDate__icon"
 			:class="iconClass"
 		/>
@@ -20,7 +20,7 @@
 			v-if="touchable"
 			:size="iconSize"
 			class="m-accessDisplayDate__help"
-			fa-icon-class="fa-question-circle-o"
+			:icon="ICONS.FA_QUESTION_CIRCLE"
 			touchable
 		/>
 	</div>
@@ -87,7 +87,7 @@
 </style>
 
 <script>
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 import { mapGetters } from 'vuex';
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
@@ -117,12 +117,12 @@ export default {
 		},
 		iconName() {
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return 'fa-unlock-alt';
+				return ICONS.FA_UNLOCK_ALT;
 			}
 			if (this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return 'fa-hourglass-start';
+				return ICONS.FA_HOURGLASS_START;
 			}
-			return 'fa-lock';
+			return ICONS.FA_LOCK_ALT;
 		},
 		dateClass() {
 			return [COURSE_ACCESS_STATUS.SUSPENDED, COURSE_ACCESS_STATUS.EXPIRED].includes(
@@ -153,6 +153,9 @@ export default {
 
 			return `do ${this.courseAccessDisplayDate}`;
 		},
+	},
+	created() {
+		this.ICONS = ICONS;
 	},
 };
 </script>

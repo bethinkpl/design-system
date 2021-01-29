@@ -1,6 +1,6 @@
 <template>
 	<div class="m-accessStatus" :class="statusClass">
-		<wnl-icon size="x-small" :fa-icon-class="iconName" class="m-accessStatus__icon" />
+		<wnl-icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="m-accessStatus__icon" />
 		<span class="m-accessStatus__text">{{ text }}</span>
 	</div>
 </template>
@@ -37,7 +37,8 @@
 </style>
 
 <script>
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICON_SIZES, ICONS } from 'js/components/global/styleguide/atoms/Icon';
+
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
 export default {
@@ -52,14 +53,14 @@ export default {
 		},
 	},
 	computed: {
-		iconName() {
+		icon() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return 'fa-unlock-alt';
+				return ICONS.FA_UNLOCK_ALT;
 			}
 			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return 'fa-hourglass-start';
+				return ICONS.FA_HOURGLASS_START;
 			}
-			return 'fa-lock';
+			return ICONS.FA_LOCK_ALT;
 		},
 		statusClass() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
@@ -79,6 +80,10 @@ export default {
 			}
 			return 'Zakończony';
 		},
+	},
+	created() {
+		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 	},
 };
 </script>

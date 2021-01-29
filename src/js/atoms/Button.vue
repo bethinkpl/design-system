@@ -26,30 +26,31 @@
 			<wnl-icon
 				v-if="iconLeft"
 				class="a-button__icon -left"
-				:fa-icon-class="iconLeft"
-				size="x-small"
+				:icon="iconLeft"
+				:size="ICON_SIZES.X_SMALL"
 			/>
 			<slot />
 			<wnl-icon
 				v-if="iconRight"
 				class="a-button__icon -right"
-				:fa-icon-class="iconRight"
-				size="x-small"
+				:icon="iconRight"
+				:size="ICON_SIZES.X_SMALL"
 			/>
 		</span>
 		<wnl-icon
 			v-if="state === STATES.LOADING"
 			class="a-button__loadingIcon"
-			fa-icon-class="fa-refresh"
-			size="x-small"
+			:icon="ICONS.FA_SYNC"
+			:size="ICON_SIZES.X_SMALL"
 		/>
 	</span>
 </template>
 
 <script lang="ts">
+import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
 import Ripple from 'vue-ripple-directive';
-
-import WnlIcon from 'js/components/global/styleguide/atoms/Icon';
+import { VueConstructor } from 'vue';
+import { ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon.vue';
 
 export const BUTTON_SIZES = {
 	SMALL: 'small',
@@ -79,6 +80,8 @@ export const BUTTON_STATES = {
 	DISABLED: 'disabled',
 	LOADING: 'loading',
 } as const;
+
+export { ICONS };
 
 export default {
 	name: 'Button',
@@ -125,15 +128,23 @@ export default {
 			},
 		},
 		iconLeft: {
-			type: String,
+			type: Object,
 			default: null,
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
 		},
 		iconRight: {
-			type: String,
+			type: Object,
 			default: null,
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
 		},
 	},
 	created() {
+		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.COLORS = BUTTON_COLORS;
 		this.RADIUSES = BUTTON_RADIUSES;
