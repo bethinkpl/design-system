@@ -28,6 +28,7 @@
 
 <script>
 export default {
+	name: 'FormSection',
 	props: {
 		legend: {
 			type: String,

@@ -102,6 +102,7 @@ import { ALERT_TYPES } from 'js/consts/alert';
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
 export default {
+	name: 'AccessDisplay',
 	components: {
 		WnlButton,
 		WnlModal,

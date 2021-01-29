@@ -44,6 +44,7 @@
 import WnlIconButton, { BUTTON_STATES } from 'js/components/global/styleguide/atoms/IconButton';
 
 export default {
+	name: 'IconButtonWithLabel',
 	components: {
 		WnlIconButton,
 	},
