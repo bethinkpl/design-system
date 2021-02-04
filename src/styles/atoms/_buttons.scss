@@ -124,13 +124,6 @@ $animation-time: 0.3s;
 		}
 
 		&:not(.-outlined) {
-			&:hover,
-			&.-hovered,
-			&:active,
-			&.-active {
-				color: $color-total-white; // override bulma a:hover
-			}
-
 			&:disabled,
 			&.-disabled {
 				&::before {
