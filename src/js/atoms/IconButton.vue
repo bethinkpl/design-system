@@ -12,7 +12,7 @@
 	>
 		<div class="a-iconButton__label"><slot /></div>
 		<wnl-button class="a-iconButton__button" :radius="radius" :type="type" :state="state">
-			<wnl-icon :icon="icon" :size="ICON_SIZES.X_SMALL" />
+			<wnl-icon :icon="icon" :size="computedIconSize" />
 		</wnl-button>
 	</div>
 </template>
@@ -106,12 +106,26 @@ const ICON_BUTTON_SIZES = {
 	LARGE: 'large',
 } as const;
 
+const ICON_BUTTON_ICON_SIZES = {
+	XX_SMALL: ICON_SIZES.XX_SMALL,
+	X_SMALL: ICON_SIZES.X_SMALL,
+	SMALL: ICON_SIZES.SMALL,
+	MEDIUM: ICON_SIZES.MEDIUM,
+};
 const LABEL_POSITIONS = {
 	LEFT: 'left',
 	RIGHT: 'right',
 } as const;
 
-export { BUTTON_STATES, ICON_BUTTON_SIZES, BUTTON_RADIUSES, BUTTON_TYPES, ICONS, LABEL_POSITIONS };
+export {
+	BUTTON_STATES,
+	ICON_BUTTON_SIZES,
+	ICON_BUTTON_ICON_SIZES,
+	BUTTON_RADIUSES,
+	BUTTON_TYPES,
+	ICONS,
+	LABEL_POSITIONS,
+};
 
 export default {
 	name: 'IconButton',
@@ -148,6 +162,13 @@ export default {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
+		iconSize: {
+			type: String,
+			default: ICON_BUTTON_ICON_SIZES.X_SMALL,
+			validate(value): boolean {
+				return Object.values(ICON_BUTTON_ICON_SIZES).includes(value);
+			},
+		},
 		labelPosition: {
 			type: String,
 			default: LABEL_POSITIONS.LEFT,
@@ -161,6 +182,12 @@ export default {
 			validator(value) {
 				return Object.values(BUTTON_STATES).includes(value);
 			},
+		},
+	},
+	computed: {
+		computedIconSize() {
+			// TODO iconOnly
+			return this.iconSize;
 		},
 	},
 	created() {

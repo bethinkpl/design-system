@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlIconButton, { ICON_BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUSES, ICONS, LABEL_POSITIONS } from 'js/components/global/styleguide/atoms/IconButton';
+import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_ICON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUSES, ICONS, LABEL_POSITIONS } from 'js/components/global/styleguide/atoms/IconButton';
 
 <Meta title='atoms/IconButton' component={WnlIconButton} />
 
@@ -8,6 +8,7 @@ import WnlIconButton, { ICON_BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_R
 <Story name='interactive'
        args={{
            size: ICON_BUTTON_SIZES.MEDIUM,
+           iconSize: ICON_BUTTON_ICON_SIZES.X_SMALL,
            type: BUTTON_TYPES.FILLED,
            radius: BUTTON_RADIUSES.CAPSULE,
            state: BUTTON_STATES.DEFAULT,
@@ -20,12 +21,21 @@ import WnlIconButton, { ICON_BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_R
            state: {control: { type: 'select', options: Object.values(BUTTON_STATES) }, defaultValue: BUTTON_STATES.DEFAULT},
            labelPosition: {control: { type: 'select', options: Object.values(LABEL_POSITIONS) }, defaultValue: LABEL_POSITIONS.LEFT},
            icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES' },
+           iconSize: {control: { type: 'select', options: Object.values(ICON_BUTTON_ICON_SIZES) }, defaultValue: ICON_BUTTON_ICON_SIZES.X_SMALL },
        }}>
     {(args) => {
         return {
             components: { WnlIconButton },
             props: Object.keys(args),
-            template: '<wnl-icon-button :icon="ICONS[icon]" :size="size" :type="type" :state="state" :radius="radius" :label-position="labelPosition">{{label}}</wnl-icon-button>',
+            template: `<wnl-icon-button
+              :icon="ICONS[icon]"
+              :size="size"
+              :type="type"
+              :state="state"
+              :radius="radius"
+              :label-position="labelPosition"
+              :icon-size="iconSize"
+            >{{label}}</wnl-icon-button>`,
             created() {
                 this.ICONS = ICONS;
             }
