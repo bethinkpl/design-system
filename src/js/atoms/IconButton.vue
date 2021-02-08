@@ -41,7 +41,7 @@ $icon-button-large-size: 40px;
 	}
 
 	&__label {
-		@include headlineXXS;
+		@include buttonM;
 
 		color: $color-primary;
 		font-weight: bold;
@@ -56,7 +56,7 @@ $icon-button-large-size: 40px;
 		}
 
 		#{$self}__label {
-			@include textInfoS;
+			@include buttonXS;
 		}
 	}
 
@@ -67,7 +67,7 @@ $icon-button-large-size: 40px;
 		}
 
 		#{$self}__label {
-			@include textInfoM;
+			@include buttonS;
 		}
 	}
 

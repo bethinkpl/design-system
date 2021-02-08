@@ -46,6 +46,18 @@ $line-height-title-m: 58px;
 $font-size-title-l: 52px;
 $line-height-title-l: 68px;
 
+$font-size-button-xs: 8px;
+$line-height-button-xs: 10px;
+
+$font-size-button-s: 10px;
+$line-height-button-s: 12px;
+
+$font-size-button-m: 12px;
+$line-height-button-m: 16px;
+
+$font-size-button-l: 14px;
+$line-height-button-l: 16px;
+
 @mixin textInfoS {
 	font-size: $font-size-info-s;
 	line-height: $line-height-info-s;
@@ -124,6 +136,26 @@ $line-height-title-l: 68px;
 @mixin titleL {
 	font-size: $font-size-title-l;
 	line-height: $line-height-title-l;
+}
+
+@mixin buttonXS {
+	font-size: $font-size-button-xs;
+	line-height: $line-height-button-xs;
+}
+
+@mixin buttonS {
+	font-size: $font-size-button-s;
+	line-height: $line-height-button-s;
+}
+
+@mixin buttonM {
+	font-size: $font-size-button-m;
+	line-height: $line-height-button-m;
+}
+
+@mixin buttonL {
+	font-size: $font-size-button-l;
+	line-height: $line-height-button-l;
 }
 
 @mixin textLight {

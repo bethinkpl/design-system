@@ -52,7 +52,7 @@ $animation-time: 0.3s;
 .a-button {
 	$self: &;
 
-	@include headlineXXS;
+	@include buttonM;
 
 	align-items: center;
 	background-color: transparent; // override defaut <button> background color
@@ -142,7 +142,7 @@ $animation-time: 0.3s;
 	}
 
 	&.-large {
-		@include headlineXS;
+		@include buttonL;
 
 		min-height: $button-large-min-height;
 		padding-left: $space-m;
@@ -150,7 +150,7 @@ $animation-time: 0.3s;
 	}
 
 	&.-small {
-		@include textInfoM;
+		@include buttonS;
 
 		min-height: $button-small-min-height;
 	}
