@@ -28,6 +28,7 @@
 
 <style lang="scss" scoped>
 @import 'resources/assets/styles/styleguide/settings/colors';
+@import 'resources/assets/styles/styleguide/settings/media-queries';
 @import 'resources/assets/styles/styleguide/settings/spacings';
 @import 'resources/assets/styles/styleguide/settings/typography';
 
@@ -53,12 +54,17 @@ $icon-button-large-size: 40px;
 		@include buttonM;
 
 		color: $color-primary;
+		display: none;
 		font-weight: bold;
 		margin-right: $space-xs;
 		text-transform: uppercase;
 
 		&.-minor {
 			color: $color-minor;
+		}
+
+		@media #{breakpoint-s()} {
+			display: initial;
 		}
 	}
 
