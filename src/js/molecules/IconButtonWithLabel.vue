@@ -47,6 +47,7 @@ import WnlIconButton, {
 	ICONS,
 } from 'js/components/global/styleguide/atoms/IconButton';
 
+// todo REMOVE THIS COMPONENT
 export { ICONS };
 
 export default {

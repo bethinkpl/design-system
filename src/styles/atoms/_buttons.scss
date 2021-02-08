@@ -281,16 +281,4 @@ $animation-time: 0.3s;
 	.ripple {
 		background-color: rgba($color-total-white, $ripple-alpha) !important;
 	}
-
-	&.-icon {
-		height: 40px;
-		min-width: auto;
-		padding: 0;
-		width: 40px;
-
-		&.-small {
-			height: 32px;
-			width: 32px;
-		}
-	}
 }

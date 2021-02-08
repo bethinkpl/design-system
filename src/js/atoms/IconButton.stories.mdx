@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlIconButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUSES, ICONS } from 'js/components/global/styleguide/atoms/IconButton';
+import WnlIconButton, { ICON_BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUSES, ICONS, LABEL_POSITIONS } from 'js/components/global/styleguide/atoms/IconButton';
 
 <Meta title='atoms/IconButton' component={WnlIconButton} />
 
@@ -7,23 +7,25 @@ import WnlIconButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUS
 
 <Story name='interactive'
        args={{
-           size: BUTTON_SIZES.MEDIUM,
+           size: ICON_BUTTON_SIZES.MEDIUM,
            type: BUTTON_TYPES.FILLED,
            radius: BUTTON_RADIUSES.CAPSULE,
            state: BUTTON_STATES.DEFAULT,
+           label: 'Zamknij'
        }}
        argTypes={{
-           size: {control: { type: 'select', options: Object.values(BUTTON_SIZES) }, defaultValue: BUTTON_SIZES.MEDIUM},
+           size: {control: { type: 'select', options: Object.values(ICON_BUTTON_SIZES) }, defaultValue: ICON_BUTTON_SIZES.MEDIUM},
            type: {control: { type: 'select', options: Object.values(BUTTON_TYPES) }, defaultValue: BUTTON_TYPES.FILLED},
            radius: {control: { type: 'select', options: Object.values(BUTTON_RADIUSES) }, defaultValue: BUTTON_RADIUSES.CAPSULE},
            state: {control: { type: 'select', options: Object.values(BUTTON_STATES) }, defaultValue: BUTTON_STATES.DEFAULT},
+           labelPosition: {control: { type: 'select', options: Object.values(LABEL_POSITIONS) }, defaultValue: LABEL_POSITIONS.LEFT},
            icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES' },
        }}>
     {(args) => {
         return {
             components: { WnlIconButton },
             props: Object.keys(args),
-            template: '<wnl-icon-button :icon="ICONS[icon]" :size="size" :type="type" :state="state" :radius="radius" />',
+            template: '<wnl-icon-button :icon="ICONS[icon]" :size="size" :type="type" :state="state" :radius="radius" :label-position="labelPosition">{{label}}</wnl-icon-button>',
             created() {
                 this.ICONS = ICONS;
             }
