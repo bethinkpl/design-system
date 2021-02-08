@@ -10,9 +10,18 @@
 			'-large': size === ICON_BUTTON_SIZES.LARGE,
 		}"
 	>
-		<div class="a-iconButton__label"><slot /></div>
+		<div
+			class="a-iconButton__label"
+			:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_LABEL }"
+			><slot
+		/></div>
 		<wnl-button class="a-iconButton__button" :radius="radius" :type="type" :state="state">
-			<wnl-icon :icon="icon" :size="computedIconSize" />
+			<wnl-icon
+				class="a-iconButton__icon"
+				:icon="icon"
+				:size="computedIconSize"
+				:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON }"
+			/>
 		</wnl-button>
 	</div>
 </template>
@@ -47,6 +56,16 @@ $icon-button-large-size: 40px;
 		font-weight: bold;
 		margin-right: $space-xs;
 		text-transform: uppercase;
+
+		&.-minor {
+			color: $color-minor;
+		}
+	}
+
+	&__icon {
+		&.-minor {
+			color: $color-minor;
+		}
 	}
 
 	&.-x-small {
@@ -111,7 +130,14 @@ const ICON_BUTTON_ICON_SIZES = {
 	X_SMALL: ICON_SIZES.X_SMALL,
 	SMALL: ICON_SIZES.SMALL,
 	MEDIUM: ICON_SIZES.MEDIUM,
-};
+} as const;
+
+const ICON_BUTTON_COLOR_SCHEMES = {
+	ALL_IN_COLOR: 'all-in-color',
+	MINOR_ICON: 'minor-icon',
+	MINOR_LABEL: 'minor-label',
+} as const;
+
 const LABEL_POSITIONS = {
 	LEFT: 'left',
 	RIGHT: 'right',
@@ -121,6 +147,7 @@ export {
 	BUTTON_STATES,
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_ICON_SIZES,
+	ICON_BUTTON_COLOR_SCHEMES,
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
 	ICONS,
@@ -176,6 +203,13 @@ export default {
 				return Object.values(LABEL_POSITIONS).includes(value);
 			},
 		},
+		colorScheme: {
+			type: String,
+			default: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
+			validator(value): boolean {
+				return Object.values(ICON_BUTTON_COLOR_SCHEMES).includes(value);
+			},
+		},
 		state: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
@@ -194,6 +228,7 @@ export default {
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
 		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+		this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
 		this.LABEL_POSITIONS = LABEL_POSITIONS;
 	},
 };

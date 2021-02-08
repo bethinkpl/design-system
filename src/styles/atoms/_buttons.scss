@@ -188,7 +188,7 @@ $animation-time: 0.3s;
 		border: 1px solid;
 
 		&::after {
-			background-color: $color-total-white;
+			background-color: transparent;
 		}
 
 		&.-minor {

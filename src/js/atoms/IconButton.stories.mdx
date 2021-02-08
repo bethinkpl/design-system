@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_ICON_SIZES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUSES, ICONS, LABEL_POSITIONS } from 'js/components/global/styleguide/atoms/IconButton';
+import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_ICON_SIZES, ICON_BUTTON_COLOR_SCHEMES, BUTTON_TYPES, BUTTON_STATES, BUTTON_RADIUSES, ICONS, LABEL_POSITIONS } from 'js/components/global/styleguide/atoms/IconButton';
 
 <Meta title='atoms/IconButton' component={WnlIconButton} />
 
@@ -12,7 +12,8 @@ import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_ICON_SIZES, BUTTON_TYPES,
            type: BUTTON_TYPES.FILLED,
            radius: BUTTON_RADIUSES.CAPSULE,
            state: BUTTON_STATES.DEFAULT,
-           label: 'Zamknij'
+           label: 'Zamknij',
+           colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR
        }}
        argTypes={{
            size: {control: { type: 'select', options: Object.values(ICON_BUTTON_SIZES) }, defaultValue: ICON_BUTTON_SIZES.MEDIUM},
@@ -22,6 +23,7 @@ import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_ICON_SIZES, BUTTON_TYPES,
            labelPosition: {control: { type: 'select', options: Object.values(LABEL_POSITIONS) }, defaultValue: LABEL_POSITIONS.LEFT},
            icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES' },
            iconSize: {control: { type: 'select', options: Object.values(ICON_BUTTON_ICON_SIZES) }, defaultValue: ICON_BUTTON_ICON_SIZES.X_SMALL },
+           colorScheme: {control: { type: 'select', options: Object.values(ICON_BUTTON_COLOR_SCHEMES) }, defaultValue: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR },
        }}>
     {(args) => {
         return {
@@ -35,6 +37,7 @@ import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_ICON_SIZES, BUTTON_TYPES,
               :radius="radius"
               :label-position="labelPosition"
               :icon-size="iconSize"
+              :color-scheme="colorScheme"
             >{{label}}</wnl-icon-button>`,
             created() {
                 this.ICONS = ICONS;
