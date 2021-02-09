@@ -15,6 +15,8 @@ import WnlButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_COLORS, BUTTON_STATES, BU
         radius: BUTTON_RADIUSES.CAPSULE,
         state: BUTTON_STATES.DEFAULT,
         elevation: BUTTON_ELEVATIONS.NONE,
+        iconLeft: 'FA_CHEVRON_LEFT_SOLID',
+        iconRight: null
     }}
     argTypes={{
         slotText: {control: { type: 'text' }, defaultValue: 'hello'},
@@ -24,8 +26,8 @@ import WnlButton, { BUTTON_SIZES, BUTTON_TYPES, BUTTON_COLORS, BUTTON_STATES, BU
         radius: {control: { type: 'select', options: Object.values(BUTTON_RADIUSES) }, defaultValue: BUTTON_RADIUSES.CAPSULE},
         state: {control: { type: 'select', options: Object.values(BUTTON_STATES) }, defaultValue: BUTTON_STATES.DEFAULT},
         elevation: {control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) }, defaultValue: BUTTON_ELEVATIONS.NONE},
-        iconLeft: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_CHEVRON_LEFT_SOLID' },
-        iconRight: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: null },
+        iconLeft: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CHEVRON_LEFT_SOLID' },
+        iconRight: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: null },
     }}>
     {(args) => {
         return {
