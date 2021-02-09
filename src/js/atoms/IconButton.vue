@@ -6,8 +6,14 @@
 			'-small': size === ICON_BUTTON_SIZES.SMALL,
 			'-large': size === ICON_BUTTON_SIZES.LARGE,
 
+			'-minor': color === BUTTON_COLORS.MINOR,
+			'-danger': color === BUTTON_COLORS.DANGER,
+			'-warning': color === BUTTON_COLORS.WARNING,
+			'-success': color === BUTTON_COLORS.SUCCESS,
+
 			'-touchable': touchable,
 		}"
+		:style="{ color: computedColor }"
 		@mouseover="hovered = true"
 		@mouseleave="hovered = false"
 	>
@@ -25,7 +31,7 @@
 			:type="buttonType"
 			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
 			:elevation="elevation"
-			:color="color"
+			:color="isThemeColor ? color : null"
 		>
 			<wnl-icon
 				class="a-iconButton__icon"
@@ -44,10 +50,20 @@
 @import 'resources/assets/styles/styleguide/settings/spacings';
 @import 'resources/assets/styles/styleguide/settings/typography';
 
+$hover-alpha: 0.12;
 $icon-button-x-small-size: 20px;
 $icon-button-small-size: 28px;
 $icon-button-medium-size: 32px;
 $icon-button-large-size: 40px;
+
+@mixin iconButtonColor($color) {
+	color: $color;
+
+	&:hover,
+	&:active {
+		color: mix($color, $color-firefly-black, (1 - $hover-alpha) * 100%);
+	}
+}
 
 .a-iconButton {
 	$self: &;
@@ -58,10 +74,11 @@ $icon-button-large-size: 40px;
 	transition: color ease-in-out 0.3s;
 
 	&:hover {
-		color: $color-primary-dark;
+		color: $color-primary-hovered;
 	}
 
 	&__button {
+		color: currentColor;
 		height: $icon-button-medium-size;
 		min-height: auto;
 		min-width: auto;
@@ -82,7 +99,7 @@ $icon-button-large-size: 40px;
 		text-transform: uppercase;
 
 		&.-minor {
-			color: $color-minor;
+			@include iconButtonColor($color-minor);
 		}
 
 		@media #{breakpoint-s()} {
@@ -94,6 +111,22 @@ $icon-button-large-size: 40px;
 		&.-minor {
 			color: $color-minor;
 		}
+	}
+
+	&.-minor {
+		@include iconButtonColor($color-minor);
+	}
+
+	&.-danger {
+		@include iconButtonColor($color-danger);
+	}
+
+	&.-warning {
+		@include iconButtonColor($color-warning);
+	}
+
+	&.-success {
+		@include iconButtonColor($color-success);
 	}
 
 	&.-x-small {
@@ -146,6 +179,7 @@ import WnlButton, {
 } from 'js/components/global/styleguide/atoms/Button';
 import { VueConstructor } from 'vue';
 import { ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon.vue';
+import { COLORS } from 'js/consts/colors';
 
 const ICON_BUTTON_SIZES = {
 	X_SMALL: 'x-small',
@@ -166,11 +200,16 @@ const ICON_BUTTON_COLOR_SCHEMES = {
 	MINOR_LABEL: 'minor-label',
 } as const;
 
+const ICON_BUTTON_COLORS = {
+	...COLORS,
+	...BUTTON_COLORS,
+};
+
 export {
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_COLOR_SCHEMES,
 	ICON_BUTTON_TYPES,
-	BUTTON_COLORS,
+	ICON_BUTTON_COLORS,
 	BUTTON_RADIUSES,
 	BUTTON_ELEVATIONS,
 	ICONS,
@@ -222,7 +261,7 @@ export default {
 			type: String,
 			default: BUTTON_COLORS.PRIMARY,
 			validator(value): boolean {
-				return Object.values(BUTTON_COLORS).includes(value);
+				return Object.values(ICON_BUTTON_COLORS).includes(value);
 			},
 		},
 		colorScheme: {
@@ -267,6 +306,18 @@ export default {
 			}
 			return this.type;
 		},
+		computedColor(): string | null {
+			if (this.isThemeColor) {
+				return null;
+			}
+			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
+				return this.color;
+			}
+			throw new Error('Colors out of theme colors are supported only type: icon-only');
+		},
+		isThemeColor(): boolean {
+			return Object.values(BUTTON_COLORS).includes(this.color);
+		},
 	},
 	created() {
 		this.ICONS = ICONS;
@@ -275,6 +326,7 @@ export default {
 		this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
 		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
 		this.BUTTON_STATES = BUTTON_STATES;
+		this.BUTTON_COLORS = BUTTON_COLORS;
 	},
 };
 </script>

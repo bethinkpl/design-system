@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_COLOR_SCHEMES, ICON_BUTTON_TYPES, BUTTON_ELEVATIONS, BUTTON_RADIUSES, BUTTON_COLORS, ICONS } from 'js/components/global/styleguide/atoms/IconButton';
+import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_COLOR_SCHEMES, ICON_BUTTON_TYPES, ICON_BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_RADIUSES, ICONS } from 'js/components/global/styleguide/atoms/IconButton';
 
 <Meta title='atoms/IconButton' component={WnlIconButton} />
 
@@ -14,14 +14,14 @@ import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_COLOR_SCHEMES, ICON_BUTTO
            colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
            touchable: true,
            elevation: BUTTON_ELEVATIONS.NONE,
-           color: BUTTON_COLORS.PRIMARY,
+           color: 'PRIMARY',
        }}
        argTypes={{
            size: {control: { type: 'select', options: Object.values(ICON_BUTTON_SIZES) }, defaultValue: ICON_BUTTON_SIZES.MEDIUM},
            type: {control: { type: 'select', options: Object.values(ICON_BUTTON_TYPES) }, defaultValue: ICON_BUTTON_TYPES.FILLED},
            radius: {control: { type: 'select', options: Object.values(BUTTON_RADIUSES) }, defaultValue: BUTTON_RADIUSES.CAPSULE},
            icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES' },
-           color: {control: { type: 'select', options: Object.values(BUTTON_COLORS) }, defaultValue: BUTTON_COLORS.PRIMARY },
+           color: {control: { type: 'select', options: Object.keys(ICON_BUTTON_COLORS) }, defaultValue: 'PRIMARY' },
            colorScheme: {control: { type: 'select', options: Object.values(ICON_BUTTON_COLOR_SCHEMES) }, defaultValue: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR },
            elevation: {control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) }, defaultValue: BUTTON_ELEVATIONS.NONE },
        }}>
@@ -37,10 +37,11 @@ import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_COLOR_SCHEMES, ICON_BUTTO
               :color-scheme="colorScheme"
               :touchable="touchable"
               :elevation="elevation"
-              :color="color"
+              :color="ICON_BUTTON_COLORS[color]"
             ><span v-if="label !== ''">{{label}}</span></wnl-icon-button>`,
             created() {
                 this.ICONS = ICONS;
+                this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
             }
         };
     }}
