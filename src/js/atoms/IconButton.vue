@@ -11,6 +11,8 @@
 
 			'-touchable': touchable,
 		}"
+		@mouseover="hovered = true"
+		@mouseleave="hovered = false"
 	>
 		<div
 			v-if="$slots.default"
@@ -18,7 +20,12 @@
 			:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_LABEL }"
 			><slot
 		/></div>
-		<wnl-button class="a-iconButton__button" :radius="radius" :type="type" :state="state">
+		<wnl-button
+			class="a-iconButton__button"
+			:radius="radius"
+			:type="type"
+			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
+		>
 			<wnl-icon
 				class="a-iconButton__icon"
 				:icon="icon"
@@ -44,7 +51,14 @@ $icon-button-large-size: 40px;
 .a-iconButton {
 	$self: &;
 	align-items: center;
+	color: $color-primary;
+	cursor: pointer;
 	display: inline-flex;
+	transition: color ease-in-out 0.3s;
+
+	&:hover {
+		color: $color-primary-dark;
+	}
 
 	&__button {
 		height: $icon-button-medium-size;
@@ -57,7 +71,6 @@ $icon-button-large-size: 40px;
 	&__label {
 		@include buttonM;
 
-		color: $color-primary;
 		display: none;
 		font-weight: bold;
 		margin-right: $space-xs;
@@ -227,17 +240,15 @@ export default {
 				return Object.values(ICON_BUTTON_COLOR_SCHEMES).includes(value);
 			},
 		},
-		state: {
-			type: String,
-			default: BUTTON_STATES.DEFAULT,
-			validator(value) {
-				return Object.values(BUTTON_STATES).includes(value);
-			},
-		},
 		touchable: {
 			type: Boolean,
 			default: true,
 		},
+	},
+	data() {
+		return {
+			hovered: false,
+		};
 	},
 	computed: {
 		computedIconSize() {
@@ -251,6 +262,7 @@ export default {
 		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
 		this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
 		this.LABEL_POSITIONS = LABEL_POSITIONS;
+		this.BUTTON_STATES = BUTTON_STATES;
 	},
 };
 </script>
