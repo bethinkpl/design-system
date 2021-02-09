@@ -13,7 +13,8 @@ import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_ICON_SIZES, ICON_BUTTON_C
            radius: BUTTON_RADIUSES.CAPSULE,
            state: BUTTON_STATES.DEFAULT,
            label: 'Zamknij',
-           colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR
+           colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
+           touchable: true,
        }}
        argTypes={{
            size: {control: { type: 'select', options: Object.values(ICON_BUTTON_SIZES) }, defaultValue: ICON_BUTTON_SIZES.MEDIUM},
@@ -38,7 +39,8 @@ import WnlIconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_ICON_SIZES, ICON_BUTTON_C
               :label-position="labelPosition"
               :icon-size="iconSize"
               :color-scheme="colorScheme"
-            >{{label}}</wnl-icon-button>`,
+              :touchable="touchable"
+            ><span v-if="label !== ''">{{label}}</span></wnl-icon-button>`,
             created() {
                 this.ICONS = ICONS;
             }

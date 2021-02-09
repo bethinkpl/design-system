@@ -8,9 +8,12 @@
 			'-x-small': size === ICON_BUTTON_SIZES.X_SMALL,
 			'-small': size === ICON_BUTTON_SIZES.SMALL,
 			'-large': size === ICON_BUTTON_SIZES.LARGE,
+
+			'-touchable': touchable,
 		}"
 	>
 		<div
+			v-if="$slots.default"
 			class="a-iconButton__label"
 			:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_LABEL }"
 			><slot
@@ -28,6 +31,7 @@
 
 <style lang="scss" scoped>
 @import 'resources/assets/styles/styleguide/settings/colors';
+@import 'resources/assets/styles/styleguide/settings/icons';
 @import 'resources/assets/styles/styleguide/settings/media-queries';
 @import 'resources/assets/styles/styleguide/settings/spacings';
 @import 'resources/assets/styles/styleguide/settings/typography';
@@ -109,6 +113,13 @@ $icon-button-large-size: 40px;
 		.a-iconButton__label {
 			margin: 0 0 0 $space-xs;
 		}
+	}
+
+	&.-touchable {
+		align-items: center;
+		justify-content: center;
+		min-height: $min-touchable-size;
+		min-width: $min-touchable-size;
 	}
 }
 </style>
@@ -222,6 +233,10 @@ export default {
 			validator(value) {
 				return Object.values(BUTTON_STATES).includes(value);
 			},
+		},
+		touchable: {
+			type: Boolean,
+			default: true,
 		},
 	},
 	computed: {
