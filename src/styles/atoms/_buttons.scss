@@ -10,21 +10,11 @@ $ripple-alpha: 0.16;
 $animation-time: 0.3s;
 
 @mixin outlinedColor($color) {
-	border-color: rgba($color, 1);
 	color: rgba($color, 1);
-
-	&::before {
-		background-color: rgba($color, 1);
-	}
 
 	&:disabled,
 	&.-disabled {
-		border-color: rgba($color, 1 - $disabled-alpha);
 		color: rgba($color, 1 - $disabled-alpha);
-	}
-
-	.ripple {
-		background-color: rgba($color, $ripple-alpha) !important;
 	}
 }
 
@@ -185,7 +175,11 @@ $animation-time: 0.3s;
 	&.-outlined {
 		@include outlinedColor($color-primary-rgb);
 
-		border: 1px solid;
+		border: 1px solid currentColor;
+
+		&::before {
+			background-color: currentColor;
+		}
 
 		&::after {
 			background-color: transparent;
@@ -196,6 +190,11 @@ $animation-time: 0.3s;
 			&::after {
 				background-color: $color-total-white;
 			}
+		}
+
+		.ripple {
+			background-color: currentColor !important;
+			opacity: $ripple-alpha;
 		}
 
 		&.-minor {

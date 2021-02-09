@@ -25,6 +25,7 @@
 			:type="buttonType"
 			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
 			:elevation="elevation"
+			:color="color"
 		>
 			<wnl-icon
 				class="a-iconButton__icon"
@@ -141,6 +142,7 @@ import WnlButton, {
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
 	BUTTON_ELEVATIONS,
+	BUTTON_COLORS,
 } from 'js/components/global/styleguide/atoms/Button';
 import { VueConstructor } from 'vue';
 import { ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon.vue';
@@ -168,6 +170,7 @@ export {
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_COLOR_SCHEMES,
 	ICON_BUTTON_TYPES,
+	BUTTON_COLORS,
 	BUTTON_RADIUSES,
 	BUTTON_ELEVATIONS,
 	ICONS,
@@ -213,6 +216,13 @@ export default {
 			required: true,
 			validate(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
+			},
+		},
+		color: {
+			type: String,
+			default: BUTTON_COLORS.PRIMARY,
+			validator(value): boolean {
+				return Object.values(BUTTON_COLORS).includes(value);
 			},
 		},
 		colorScheme: {
