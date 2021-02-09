@@ -191,6 +191,13 @@ $animation-time: 0.3s;
 			background-color: transparent;
 		}
 
+		&.-elevation-x-small,
+		&.-elevation-small {
+			&::after {
+				background-color: $color-total-white;
+			}
+		}
+
 		&.-minor {
 			@include outlinedColor($color-minor);
 		}
@@ -260,6 +267,10 @@ $animation-time: 0.3s;
 			animation: a-fadeIn 300ms ease-in-out 0s 1, a-spinAround 1500ms infinite linear;
 			position: absolute;
 		}
+	}
+
+	&.-elevation-small {
+		box-shadow: $default-shadow;
 	}
 
 	&__content {

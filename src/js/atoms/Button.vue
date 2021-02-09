@@ -20,6 +20,9 @@
 			'-danger': color === COLORS.DANGER,
 			'-warning': color === COLORS.WARNING,
 			'-success': color === COLORS.SUCCESS,
+
+			'-elevation-x-small': elevation === ELEVATIONS.X_SMALL,
+			'-elevation-small': elevation === ELEVATIONS.SMALL,
 		}"
 	>
 		<span class="a-button__content">
@@ -79,6 +82,12 @@ export const BUTTON_STATES = {
 	FOCUSED: 'focused',
 	DISABLED: 'disabled',
 	LOADING: 'loading',
+} as const;
+
+export const BUTTON_ELEVATIONS = {
+	NONE: 'none',
+	X_SMALL: 'x-small',
+	SMALL: 'small',
 } as const;
 
 export { ICONS };
@@ -141,6 +150,13 @@ export default {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
+		elevation: {
+			type: String,
+			default: BUTTON_ELEVATIONS.NONE,
+			validator(value) {
+				return Object.values(BUTTON_ELEVATIONS).includes(value);
+			},
+		},
 	},
 	created() {
 		this.ICONS = ICONS;
@@ -150,6 +166,7 @@ export default {
 		this.RADIUSES = BUTTON_RADIUSES;
 		this.SIZES = BUTTON_SIZES;
 		this.STATES = BUTTON_STATES;
+		this.ELEVATIONS = BUTTON_ELEVATIONS;
 	},
 };
 </script>

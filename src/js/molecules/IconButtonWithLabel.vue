@@ -1,10 +1,7 @@
 <template>
 	<div class="m-iconButtonWithLabel" @mouseover="hovered = true" @mouseleave="hovered = false">
 		<span class="m-iconButtonWithLabel__label">{{ label }}</span>
-		<wnl-icon-button
-			:icon="icon"
-			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
-		/>
+		<wnl-icon-button :icon="icon" />
 	</div>
 </template>
 
@@ -42,10 +39,7 @@
 
 <script lang="ts">
 import { VueConstructor } from 'vue';
-import WnlIconButton, {
-	BUTTON_STATES,
-	ICONS,
-} from 'js/components/global/styleguide/atoms/IconButton';
+import WnlIconButton, { ICONS } from 'js/components/global/styleguide/atoms/IconButton';
 
 // todo REMOVE THIS COMPONENT
 export { ICONS };
@@ -73,8 +67,6 @@ export default {
 			hovered: false,
 		};
 	},
-	created() {
-		this.BUTTON_STATES = BUTTON_STATES;
-	},
+	created() {},
 };
 </script>

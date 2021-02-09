@@ -25,6 +25,7 @@
 			:radius="radius"
 			:type="type"
 			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
+			:elevation="elevation"
 		>
 			<wnl-icon
 				class="a-iconButton__icon"
@@ -144,6 +145,7 @@ import WnlButton, {
 	BUTTON_STATES,
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
+	BUTTON_ELEVATIONS,
 } from 'js/components/global/styleguide/atoms/Button';
 import { VueConstructor } from 'vue';
 import { ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon.vue';
@@ -174,12 +176,12 @@ const LABEL_POSITIONS = {
 } as const;
 
 export {
-	BUTTON_STATES,
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_ICON_SIZES,
 	ICON_BUTTON_COLOR_SCHEMES,
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
+	BUTTON_ELEVATIONS,
 	ICONS,
 	LABEL_POSITIONS,
 };
@@ -238,6 +240,13 @@ export default {
 			default: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
 			validator(value): boolean {
 				return Object.values(ICON_BUTTON_COLOR_SCHEMES).includes(value);
+			},
+		},
+		elevation: {
+			type: String,
+			default: BUTTON_ELEVATIONS.NONE,
+			validator(value) {
+				return Object.values(BUTTON_ELEVATIONS).includes(value);
 			},
 		},
 		touchable: {
