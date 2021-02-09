@@ -78,7 +78,6 @@ $icon-button-large-size: 40px;
 	}
 
 	&__button {
-		color: currentColor;
 		height: $icon-button-medium-size;
 		min-height: auto;
 		min-width: auto;
@@ -87,6 +86,7 @@ $icon-button-large-size: 40px;
 
 		&.-iconOnly {
 			border: none;
+			color: currentColor;
 		}
 	}
 
