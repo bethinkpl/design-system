@@ -2,9 +2,6 @@
 	<div
 		class="a-iconButton"
 		:class="{
-			'-label-left': labelPosition === LABEL_POSITIONS.LEFT,
-			'-label-right': labelPosition === LABEL_POSITIONS.RIGHT,
-
 			'-x-small': size === ICON_BUTTON_SIZES.X_SMALL,
 			'-small': size === ICON_BUTTON_SIZES.SMALL,
 			'-large': size === ICON_BUTTON_SIZES.LARGE,
@@ -20,17 +17,19 @@
 			:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_LABEL }"
 			><slot
 		/></div>
+		<!--			TODO ripple effect when pressing label-->
 		<wnl-button
 			class="a-iconButton__button"
+			:class="{ '-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY }"
 			:radius="radius"
-			:type="type"
+			:type="buttonType"
 			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
 			:elevation="elevation"
 		>
 			<wnl-icon
 				class="a-iconButton__icon"
 				:icon="icon"
-				:size="computedIconSize"
+				:size="iconSize"
 				:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON }"
 			/>
 		</wnl-button>
@@ -67,6 +66,10 @@ $icon-button-large-size: 40px;
 		min-width: auto;
 		padding: 0;
 		width: $icon-button-medium-size;
+
+		&.-iconOnly {
+			border: none;
+		}
 	}
 
 	&__label {
@@ -121,14 +124,6 @@ $icon-button-large-size: 40px;
 		}
 	}
 
-	&.-label-right {
-		flex-direction: row-reverse;
-
-		.a-iconButton__label {
-			margin: 0 0 0 $space-xs;
-		}
-	}
-
 	&.-touchable {
 		align-items: center;
 		justify-content: center;
@@ -157,11 +152,10 @@ const ICON_BUTTON_SIZES = {
 	LARGE: 'large',
 } as const;
 
-const ICON_BUTTON_ICON_SIZES = {
-	XX_SMALL: ICON_SIZES.XX_SMALL,
-	X_SMALL: ICON_SIZES.X_SMALL,
-	SMALL: ICON_SIZES.SMALL,
-	MEDIUM: ICON_SIZES.MEDIUM,
+const ICON_BUTTON_TYPES = {
+	FILLED: BUTTON_TYPES.FILLED,
+	OUTLINED: BUTTON_TYPES.OUTLINED,
+	ICON_ONLY: 'icon-only',
 } as const;
 
 const ICON_BUTTON_COLOR_SCHEMES = {
@@ -170,21 +164,21 @@ const ICON_BUTTON_COLOR_SCHEMES = {
 	MINOR_LABEL: 'minor-label',
 } as const;
 
-const LABEL_POSITIONS = {
-	LEFT: 'left',
-	RIGHT: 'right',
-} as const;
-
 export {
 	ICON_BUTTON_SIZES,
-	ICON_BUTTON_ICON_SIZES,
 	ICON_BUTTON_COLOR_SCHEMES,
+	ICON_BUTTON_TYPES,
 	BUTTON_RADIUSES,
-	BUTTON_TYPES,
 	BUTTON_ELEVATIONS,
 	ICONS,
-	LABEL_POSITIONS,
 };
+
+const ICON_ONLY_ICON_SIZES_MAP = {
+	[ICON_BUTTON_SIZES.X_SMALL]: ICON_SIZES.XX_SMALL,
+	[ICON_BUTTON_SIZES.SMALL]: ICON_SIZES.X_SMALL,
+	[ICON_BUTTON_SIZES.MEDIUM]: ICON_SIZES.SMALL,
+	[ICON_BUTTON_SIZES.LARGE]: ICON_SIZES.MEDIUM,
+} as const;
 
 export default {
 	name: 'IconButton',
@@ -209,9 +203,9 @@ export default {
 		},
 		type: {
 			type: String,
-			default: BUTTON_TYPES.FILLED,
+			default: ICON_BUTTON_TYPES.FILLED,
 			validator(value) {
-				return Object.values(BUTTON_TYPES).includes(value);
+				return Object.values(ICON_BUTTON_TYPES).includes(value);
 			},
 		},
 		icon: {
@@ -219,20 +213,6 @@ export default {
 			required: true,
 			validate(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
-			},
-		},
-		iconSize: {
-			type: String,
-			default: ICON_BUTTON_ICON_SIZES.X_SMALL,
-			validate(value): boolean {
-				return Object.values(ICON_BUTTON_ICON_SIZES).includes(value);
-			},
-		},
-		labelPosition: {
-			type: String,
-			default: LABEL_POSITIONS.LEFT,
-			validator(value) {
-				return Object.values(LABEL_POSITIONS).includes(value);
 			},
 		},
 		colorScheme: {
@@ -260,9 +240,22 @@ export default {
 		};
 	},
 	computed: {
-		computedIconSize() {
-			// TODO iconOnly
-			return this.iconSize;
+		iconSize(): string {
+			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
+				return ICON_ONLY_ICON_SIZES_MAP[this.size];
+			}
+
+			if (this.size === ICON_BUTTON_SIZES.X_SMALL) {
+				return ICON_SIZES.XX_SMALL;
+			}
+
+			return ICON_SIZES.X_SMALL;
+		},
+		buttonType(): string {
+			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
+				return BUTTON_TYPES.OUTLINED;
+			}
+			return this.type;
 		},
 	},
 	created() {
@@ -270,7 +263,7 @@ export default {
 		this.ICON_SIZES = ICON_SIZES;
 		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
 		this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
-		this.LABEL_POSITIONS = LABEL_POSITIONS;
+		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
 		this.BUTTON_STATES = BUTTON_STATES;
 	},
 };
