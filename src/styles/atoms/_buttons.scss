@@ -8,16 +8,19 @@
 }
 
 @mixin textColor($color, $hover-color: '', $focus-color: '', $disabled-color: '') {
-	color: $color;
 	@if $hover-color == '' {
 		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
 	}
+
 	@if $focus-color == '' {
 		$focus-color: mix($color, $color-firefly-black, (1 - $button-focus-alpha) * 100%);
 	}
+
 	@if $disabled-color == '' {
 		$disabled-color: mix($color, $color-total-white, (1 - $button-disabled-alpha) * 100%);
 	}
+
+	color: $color;
 
 	&:hover,
 	&.-hovered,
@@ -69,6 +72,18 @@
 	}
 
 	&:not(.-text) {
+		@each $color-name, $color-map in $theme-calculated-colors {
+			&.-color-#{$color-name}:after {
+				background-color: map-get($color-map, 'color');
+			}
+		}
+
+		@each $color-name, $color in $regular-colors {
+			&.-color-#{$color-name}:after {
+				background-color: $color;
+			}
+		}
+
 		min-width: 100px;
 
 		&::before,
@@ -137,18 +152,6 @@
 		min-height: $button-small-min-height;
 	}
 
-	@each $color-name, $color-map in $theme-calculated-colors {
-		&.-color-#{$color-name}:after {
-			background-color: map-get($color-map, 'color');
-		}
-	}
-
-	@each $color-name, $color in $regular-colors {
-		&.-color-#{$color-name}:after {
-			background-color: $color;
-		}
-	}
-
 	&.-rounded {
 		border-radius: $radius-s;
 		padding-left: $space-xs;
@@ -160,8 +163,24 @@
 		}
 	}
 
+	.ripple {
+		background-color: rgba($color-total-white, $button-ripple-alpha) !important;
+	}
+
 	&.-outlined {
 		@include outlinedColor($color-primary-rgb);
+
+		@each $color-name, $color-map in $theme-calculated-colors {
+			&.-color-#{$color-name} {
+				@include outlinedColor(map-get($color-map, 'rgb'));
+			}
+		}
+
+		@each $color-name, $color in $regular-colors {
+			&.-color-#{$color-name} {
+				@include outlinedColor($color);
+			}
+		}
 
 		border: 1px solid currentColor;
 
@@ -184,18 +203,6 @@
 			background-color: currentColor !important;
 			opacity: $button-ripple-alpha;
 		}
-
-		@each $color-name, $color-map in $theme-calculated-colors {
-			&.-color-#{$color-name} {
-				@include outlinedColor(map-get($color-map, 'rgb'));
-			}
-		}
-
-		@each $color-name, $color in $regular-colors {
-			&.-color-#{$color-name} {
-				@include outlinedColor($color);
-			}
-		}
 	}
 
 	&.-text {
@@ -205,10 +212,6 @@
 			$color-primary-focused,
 			$color-primary-disabled
 		);
-		border: none;
-		border-radius: 0;
-		padding-left: 0;
-		padding-right: 0;
 
 		@each $color-name, $color-map in $theme-calculated-colors {
 			&.-color-#{$color-name} {
@@ -226,6 +229,11 @@
 				@include textColor($color);
 			}
 		}
+
+		border: none;
+		border-radius: 0;
+		padding-left: 0;
+		padding-right: 0;
 	}
 
 	&.-loading {
@@ -259,9 +267,5 @@
 		&.-right {
 			margin-left: $space-xxxxs;
 		}
-	}
-
-	.ripple {
-		background-color: rgba($color-total-white, $button-ripple-alpha) !important;
 	}
 }

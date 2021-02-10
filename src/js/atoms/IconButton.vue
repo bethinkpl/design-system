@@ -53,11 +53,11 @@ $icon-button-medium-size: 32px;
 $icon-button-large-size: 40px;
 
 @mixin iconButtonColor($color, $hover-color: '') {
-	color: $color;
-
 	@if $hover-color == '' {
 		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
 	}
+
+	color: $color;
 
 	&:hover,
 	&:active {
@@ -67,6 +67,19 @@ $icon-button-large-size: 40px;
 
 .a-iconButton {
 	$self: &;
+
+	@each $color-name, $color-map in $theme-calculated-colors {
+		&.-color-#{$color-name} {
+			@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
+		}
+	}
+
+	@each $color-name, $color in $regular-colors {
+		&.-color-#{$color-name} {
+			@include iconButtonColor($color);
+		}
+	}
+
 	align-items: center;
 	color: $color-primary;
 	cursor: pointer;
@@ -98,30 +111,18 @@ $icon-button-large-size: 40px;
 		margin-right: $space-xs;
 		text-transform: uppercase;
 
-		&.-minor {
-			@include iconButtonColor($color-minor);
-		}
-
 		@media #{breakpoint-s()} {
 			display: initial;
+		}
+
+		&.-minor {
+			@include iconButtonColor($color-minor);
 		}
 	}
 
 	&__icon {
 		&.-minor {
 			color: $color-minor;
-		}
-	}
-
-	@each $color-name, $color-map in $theme-calculated-colors {
-		&.-color-#{$color-name} {
-			@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
-		}
-	}
-
-	@each $color-name, $color in $regular-colors {
-		&.-color-#{$color-name} {
-			@include iconButtonColor($color);
 		}
 	}
 
