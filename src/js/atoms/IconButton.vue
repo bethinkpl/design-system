@@ -18,7 +18,7 @@
 		@mouseleave="hovered = false"
 	>
 		<div
-			v-if="$slots.default"
+			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
 			class="a-iconButton__label"
 			:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_LABEL }"
 			><slot
