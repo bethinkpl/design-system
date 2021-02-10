@@ -16,12 +16,7 @@
 			'-loading': state === STATES.LOADING,
 			'-disabled': state === STATES.DISABLED,
 
-			'-secondary': color === COLORS.SECONDARY,
-			'-content': color === COLORS.CONTENT,
-			'-minor': color === COLORS.MINOR,
-			'-danger': color === COLORS.DANGER,
-			'-warning': color === COLORS.WARNING,
-			'-success': color === COLORS.SUCCESS,
+			[colorClassName]: true,
 
 			'-elevation-x-small': elevation === ELEVATIONS.X_SMALL,
 			'-elevation-small': elevation === ELEVATIONS.SMALL,
@@ -68,12 +63,15 @@ export const BUTTON_TYPES = {
 	TEXT: 'text',
 } as const;
 export const BUTTON_COLORS = {
-	// keep in sync with styles in IconButton
 	PRIMARY: 'primary',
+	PRIMARY_SUPPORTING: 'primary-supporting',
 	SECONDARY: 'secondary',
+	SECONDARY_SUPPORTING: 'secondary-supporting',
 	CONTENT: 'content',
 	MINOR: 'minor',
+	MINOR_SUPPORTING: 'minor-supporting',
 	DANGER: 'danger',
+	DANGER_SUPPORTING: 'danger-supporting',
 	WARNING: 'warning',
 	SUCCESS: 'success',
 } as const;
@@ -161,6 +159,11 @@ export default {
 			validator(value) {
 				return Object.values(BUTTON_ELEVATIONS).includes(value);
 			},
+		},
+	},
+	computed: {
+		colorClassName() {
+			return `-color-${this.color}`;
 		},
 	},
 	created() {

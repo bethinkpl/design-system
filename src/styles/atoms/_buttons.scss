@@ -1,33 +1,22 @@
-$button-small-min-height: 28px;
-$button-medium-min-height: 32px;
-$button-large-min-height: 48px;
-
-$hover-alpha: 0.12;
-$focus-alpha: 0.24;
-$disabled-alpha: 0.6;
-$ripple-alpha: 0.16;
-
-$animation-time: 0.3s;
-
 @mixin outlinedColor($color) {
 	color: rgba($color, 1);
 
 	&:disabled,
 	&.-disabled {
-		color: rgba($color, 1 - $disabled-alpha);
+		color: rgba($color, 1 - $button-disabled-alpha);
 	}
 }
 
 @mixin textColor($color, $hover-color: '', $focus-color: '', $disabled-color: '') {
 	color: $color;
 	@if $hover-color == '' {
-		$hover-color: mix($color, $color-firefly-black, (1 - $hover-alpha) * 100%);
+		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
 	}
 	@if $focus-color == '' {
-		$focus-color: mix($color, $color-firefly-black, (1 - $focus-alpha) * 100%);
+		$focus-color: mix($color, $color-firefly-black, (1 - $button-focus-alpha) * 100%);
 	}
 	@if $disabled-color == '' {
-		$disabled-color: mix($color, $color-total-white, (1 - $disabled-alpha) * 100%);
+		$disabled-color: mix($color, $color-total-white, (1 - $button-disabled-alpha) * 100%);
 	}
 
 	&:hover,
@@ -68,8 +57,9 @@ $animation-time: 0.3s;
 	position: relative;
 	text-transform: uppercase;
 	transform-style: preserve-3d;
-	transition: color ease-in-out $animation-time, border-color ease-in-out $animation-time,
-		background-color ease-in-out $animation-time;
+	transition: color ease-in-out $button-animation-time,
+		border-color ease-in-out $button-animation-time,
+		background-color ease-in-out $button-animation-time;
 	user-select: none;
 
 	&:disabled,
@@ -89,8 +79,8 @@ $animation-time: 0.3s;
 			left: 0;
 			pointer-events: none;
 			position: absolute;
-			transition: opacity ease-in-out $animation-time,
-				background-color ease-in-out $animation-time;
+			transition: opacity ease-in-out $button-animation-time,
+				background-color ease-in-out $button-animation-time;
 			right: 0;
 			top: 0;
 		}
@@ -111,14 +101,14 @@ $animation-time: 0.3s;
 		&:active,
 		&.-active {
 			&::before {
-				opacity: $hover-alpha;
+				opacity: $button-hover-alpha;
 			}
 		}
 
 		&:focus,
 		&.-focused {
 			&::before {
-				opacity: $focus-alpha;
+				opacity: $button-focus-alpha;
 			}
 		}
 
@@ -127,7 +117,7 @@ $animation-time: 0.3s;
 			&.-disabled {
 				&::before {
 					background-color: $color-total-white;
-					opacity: $disabled-alpha;
+					opacity: $button-disabled-alpha;
 				}
 			}
 		}
@@ -147,28 +137,16 @@ $animation-time: 0.3s;
 		min-height: $button-small-min-height;
 	}
 
-	&.-secondary::after {
-		background-color: $color-secondary;
+	@each $color-name, $color-map in $theme-calculated-colors {
+		&.-color-#{$color-name}:after {
+			background-color: map-get($color-map, 'color');
+		}
 	}
 
-	&.-content::after {
-		background-color: $color-content;
-	}
-
-	&.-minor::after {
-		background-color: $color-minor;
-	}
-
-	&.-danger::after {
-		background-color: $color-danger;
-	}
-
-	&.-warning::after {
-		background-color: $color-warning;
-	}
-
-	&.-success::after {
-		background-color: $color-success;
+	@each $color-name, $color in $regular-colors {
+		&.-color-#{$color-name}:after {
+			background-color: $color;
+		}
 	}
 
 	&.-rounded {
@@ -204,31 +182,19 @@ $animation-time: 0.3s;
 
 		.ripple {
 			background-color: currentColor !important;
-			opacity: $ripple-alpha;
+			opacity: $button-ripple-alpha;
 		}
 
-		&.-secondary {
-			@include outlinedColor($color-secondary-rgb);
+		@each $color-name, $color-map in $theme-calculated-colors {
+			&.-color-#{$color-name} {
+				@include outlinedColor(map-get($color-map, 'rgb'));
+			}
 		}
 
-		&.-content {
-			@include outlinedColor($color-content);
-		}
-
-		&.-minor {
-			@include outlinedColor($color-minor);
-		}
-
-		&.-danger {
-			@include outlinedColor($color-danger);
-		}
-
-		&.-warning {
-			@include outlinedColor($color-warning);
-		}
-
-		&.-success {
-			@include outlinedColor($color-success);
+		@each $color-name, $color in $regular-colors {
+			&.-color-#{$color-name} {
+				@include outlinedColor($color);
+			}
 		}
 	}
 
@@ -244,33 +210,21 @@ $animation-time: 0.3s;
 		padding-left: 0;
 		padding-right: 0;
 
-		&.-secondary {
-			@include textColor(
-				$color-secondary,
-				$color-secondary-hovered,
-				$color-secondary-focused,
-				$color-secondary-disabled
-			);
+		@each $color-name, $color-map in $theme-calculated-colors {
+			&.-color-#{$color-name} {
+				@include textColor(
+					map-get($color-map, 'color'),
+					map-get($color-map, 'hovered'),
+					map-get($color-map, 'focused'),
+					map-get($color-map, 'disabled')
+				);
+			}
 		}
 
-		&.-content {
-			@include textColor($color-content);
-		}
-
-		&.-minor {
-			@include textColor($color-minor);
-		}
-
-		&.-danger {
-			@include textColor($color-danger);
-		}
-
-		&.-warning {
-			@include textColor($color-warning);
-		}
-
-		&.-success {
-			@include textColor($color-success);
+		@each $color-name, $color in $regular-colors {
+			&.-color-#{$color-name} {
+				@include textColor($color);
+			}
 		}
 	}
 
@@ -294,7 +248,7 @@ $animation-time: 0.3s;
 	&__content {
 		align-items: center;
 		display: inline-flex;
-		transition: opacity ease-in-out $animation-time;
+		transition: opacity ease-in-out $button-animation-time;
 	}
 
 	&__icon {
@@ -308,6 +262,6 @@ $animation-time: 0.3s;
 	}
 
 	.ripple {
-		background-color: rgba($color-total-white, $ripple-alpha) !important;
+		background-color: rgba($color-total-white, $button-ripple-alpha) !important;
 	}
 }

@@ -42,26 +42,35 @@ $color-alabaster-gray: #f6f6f8;
 $color-total-white: #fff;
 
 $color-primary-rgb: var(--color-primary-rgb);
+$color-primary-supporting-rgb: var(--color-primary-supporting-rgb);
 $color-primary-opacity25: rgba(var(--color-primary-rgb), 0.25);
 $color-secondary-rgb: var(--color-secondary-rgb);
+$color-secondary-supporting-rgb: var(--color-secondary-supporting-rgb);
 $color-total-white-opacity90: rgba(255, 255, 255, 0.9);
 $color-total-white-opacity50: rgba(255, 255, 255, 0.5);
 
 // theme colors
 $color-primary: var(--color-primary);
-$color-primary-supporting: var(--color-primary-supporting);
-$DEPRECATED-color-primary-dark: var(--color-primary-dark);
 $color-primary-hovered: var(--color-primary-hovered);
 $color-primary-focused: var(--color-primary-focused);
 $color-primary-disabled: var(--color-primary-disabled);
+$color-primary-supporting: var(--color-primary-supporting);
+$color-primary-supporting-hovered: var(--color-primary-supporting-hovered);
+$color-primary-supporting-focused: var(--color-primary-supporting-focused);
+$color-primary-supporting-disabled: var(--color-primary-supporting-disabled);
 $color-secondary: var(--color-secondary);
 $color-secondary-hovered: var(--color-secondary-hovered);
 $color-secondary-focused: var(--color-secondary-focused);
 $color-secondary-disabled: var(--color-secondary-disabled);
+$color-secondary-supporting: var(--color-secondary-supporting);
+$color-secondary-supporting-hovered: var(--color-secondary-supporting-hovered);
+$color-secondary-supporting-focused: var(--color-secondary-supporting-focused);
+$color-secondary-supporting-disabled: var(--color-secondary-supporting-disabled);
 $color-content: $color-firefly-black;
 $color-content-inverted: $color-total-white;
 $color-background: $color-total-white;
 $color-background-secondary: $color-alabaster-gray;
+$DEPRECATED-color-primary-dark: var(--color-primary-dark);
 
 // functional colors
 $color-success: $color-ocean-green;

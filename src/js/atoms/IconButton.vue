@@ -6,12 +6,7 @@
 			'-small': size === ICON_BUTTON_SIZES.SMALL,
 			'-large': size === ICON_BUTTON_SIZES.LARGE,
 
-			'-secondary': color === BUTTON_COLORS.SECONDARY,
-			'-content': color === BUTTON_COLORS.CONTENT,
-			'-minor': color === BUTTON_COLORS.MINOR,
-			'-danger': color === BUTTON_COLORS.DANGER,
-			'-warning': color === BUTTON_COLORS.WARNING,
-			'-success': color === BUTTON_COLORS.SUCCESS,
+			[colorClassName]: isButtonColor,
 
 			'-touchable': touchable,
 		}"
@@ -25,7 +20,6 @@
 			:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_LABEL }"
 			><slot
 		/></div>
-		<!--			TODO ripple effect when pressing label-->
 		<wnl-button
 			class="a-iconButton__button"
 			:class="{ '-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY }"
@@ -33,7 +27,7 @@
 			:type="buttonType"
 			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
 			:elevation="elevation"
-			:color="isThemeColor ? color : null"
+			:color="isButtonColor ? color : null"
 		>
 			<wnl-icon
 				class="a-iconButton__icon"
@@ -46,13 +40,13 @@
 </template>
 
 <style lang="scss" scoped>
+@import 'resources/assets/styles/styleguide/settings/buttons';
 @import 'resources/assets/styles/styleguide/settings/colors';
 @import 'resources/assets/styles/styleguide/settings/icons';
 @import 'resources/assets/styles/styleguide/settings/media-queries';
 @import 'resources/assets/styles/styleguide/settings/spacings';
 @import 'resources/assets/styles/styleguide/settings/typography';
 
-$hover-alpha: 0.12;
 $icon-button-x-small-size: 20px;
 $icon-button-small-size: 28px;
 $icon-button-medium-size: 32px;
@@ -62,7 +56,7 @@ $icon-button-large-size: 40px;
 	color: $color;
 
 	@if $hover-color == '' {
-		$hover-color: mix($color, $color-firefly-black, (1 - $hover-alpha) * 100%);
+		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
 	}
 
 	&:hover,
@@ -77,7 +71,7 @@ $icon-button-large-size: 40px;
 	color: $color-primary;
 	cursor: pointer;
 	display: inline-flex;
-	transition: color ease-in-out 0.3s;
+	transition: color ease-in-out $button-animation-time;
 
 	&:hover {
 		color: $color-primary-hovered;
@@ -119,28 +113,16 @@ $icon-button-large-size: 40px;
 		}
 	}
 
-	&.-secondary {
-		@include iconButtonColor($color-secondary, $color-secondary-hovered);
+	@each $color-name, $color-map in $theme-calculated-colors {
+		&.-color-#{$color-name} {
+			@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
+		}
 	}
 
-	&.-content {
-		@include iconButtonColor($color-content);
-	}
-
-	&.-minor {
-		@include iconButtonColor($color-minor);
-	}
-
-	&.-danger {
-		@include iconButtonColor($color-danger);
-	}
-
-	&.-warning {
-		@include iconButtonColor($color-warning);
-	}
-
-	&.-success {
-		@include iconButtonColor($color-success);
+	@each $color-name, $color in $regular-colors {
+		&.-color-#{$color-name} {
+			@include iconButtonColor($color);
+		}
 	}
 
 	&.-x-small {
@@ -321,7 +303,7 @@ export default {
 			return this.type;
 		},
 		computedColor(): string | null {
-			if (this.isThemeColor) {
+			if (this.isButtonColor) {
 				return null;
 			}
 			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
@@ -329,8 +311,11 @@ export default {
 			}
 			throw new Error(`Color: ${this.color} is supported only in type: "icon-only"`);
 		},
-		isThemeColor(): boolean {
+		isButtonColor(): boolean {
 			return Object.values(BUTTON_COLORS).includes(this.color);
+		},
+		colorClassName() {
+			return `-color-${this.color}`;
 		},
 	},
 	created() {
