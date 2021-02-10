@@ -199,7 +199,7 @@ const ICON_BUTTON_COLOR_SCHEMES = {
 const ICON_BUTTON_COLORS = {
 	...COLORS,
 	...BUTTON_COLORS,
-};
+} as const;
 
 export {
 	ICON_BUTTON_SIZES,
@@ -314,7 +314,7 @@ export default {
 		isButtonColor(): boolean {
 			return Object.values(BUTTON_COLORS).includes(this.color);
 		},
-		colorClassName() {
+		colorClassName(): string {
 			return `-color-${this.color}`;
 		},
 	},

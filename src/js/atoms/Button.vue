@@ -162,7 +162,7 @@ export default {
 		},
 	},
 	computed: {
-		colorClassName() {
+		colorClassName(): string {
 			return `-color-${this.color}`;
 		},
 	},
