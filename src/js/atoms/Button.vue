@@ -68,6 +68,7 @@ export const BUTTON_TYPES = {
 	TEXT: 'text',
 } as const;
 export const BUTTON_COLORS = {
+	// keep in sync with styles in IconButton
 	PRIMARY: 'primary',
 	SECONDARY: 'secondary',
 	CONTENT: 'content',
