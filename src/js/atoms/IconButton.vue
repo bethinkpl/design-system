@@ -231,7 +231,7 @@ export default {
 	props: {
 		size: {
 			type: String,
-			default: ICON_BUTTON_SIZES.MEDIUM,
+			default: ICON_BUTTON_SIZES.LARGE,
 			validator(value) {
 				return Object.values(ICON_BUTTON_SIZES).includes(value);
 			},
@@ -245,7 +245,7 @@ export default {
 		},
 		type: {
 			type: String,
-			default: ICON_BUTTON_TYPES.FILLED,
+			default: ICON_BUTTON_TYPES.ICON_ONLY,
 			validator(value) {
 				return Object.values(ICON_BUTTON_TYPES).includes(value);
 			},

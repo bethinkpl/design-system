@@ -6,8 +6,8 @@
 			</span>
 			<div class="o-expandableOverlay__bar__toggle">
 				<wnl-icon-button
-					:size="ICON_BUTTON_SIZES.LARGE"
 					:icon="isExpanded ? ICONS.FA_TIMES : ICONS.FA_CHEVRON_DOWN_SOLID"
+					:type="ICON_BUTTON_TYPES.FILLED"
 					>{{ isExpanded ? 'Zamknij' : 'Pokaż więcej' }}</wnl-icon-button
 				>
 			</div>
@@ -153,7 +153,7 @@
 <script>
 import WnlIconButton, {
 	ICONS,
-	ICON_BUTTON_SIZES,
+	ICON_BUTTON_TYPES,
 } from 'js/components/global/styleguide/atoms/IconButton';
 
 export default {
@@ -174,7 +174,7 @@ export default {
 	},
 	created() {
 		this.ICONS = ICONS;
-		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
 	},
 	methods: {
 		collapse() {
