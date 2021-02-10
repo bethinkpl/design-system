@@ -16,6 +16,8 @@
 			'-loading': state === STATES.LOADING,
 			'-disabled': state === STATES.DISABLED,
 
+			'-secondary': color === COLORS.SECONDARY,
+			'-content': color === COLORS.CONTENT,
 			'-minor': color === COLORS.MINOR,
 			'-danger': color === COLORS.DANGER,
 			'-warning': color === COLORS.WARNING,
@@ -67,6 +69,8 @@ export const BUTTON_TYPES = {
 } as const;
 export const BUTTON_COLORS = {
 	PRIMARY: 'primary',
+	SECONDARY: 'secondary',
+	CONTENT: 'content',
 	MINOR: 'minor',
 	DANGER: 'danger',
 	WARNING: 'warning',

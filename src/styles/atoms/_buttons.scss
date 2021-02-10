@@ -18,24 +18,33 @@ $animation-time: 0.3s;
 	}
 }
 
-@mixin textColor($color) {
+@mixin textColor($color, $hover-color: '', $focus-color: '', $disabled-color: '') {
 	color: $color;
+	@if $hover-color == '' {
+		$hover-color: mix($color, $color-firefly-black, (1 - $hover-alpha) * 100%);
+	}
+	@if $focus-color == '' {
+		$focus-color: mix($color, $color-firefly-black, (1 - $focus-alpha) * 100%);
+	}
+	@if $disabled-color == '' {
+		$disabled-color: mix($color, $color-total-white, (1 - $disabled-alpha) * 100%);
+	}
 
 	&:hover,
 	&.-hovered,
 	&:active,
 	&.-active {
-		color: mix($color, $color-firefly-black, (1 - $hover-alpha) * 100%);
+		color: $hover-color;
 	}
 
 	&:focus,
 	&.-focused {
-		color: mix($color, $color-firefly-black, (1 - $focus-alpha) * 100%);
+		color: $focus-color;
 	}
 
 	&:disabled,
 	&.-disabled {
-		color: mix($color, $color-total-white, (1 - $disabled-alpha) * 100%);
+		color: $disabled-color;
 	}
 }
 
@@ -138,6 +147,14 @@ $animation-time: 0.3s;
 		min-height: $button-small-min-height;
 	}
 
+	&.-secondary::after {
+		background-color: $color-secondary;
+	}
+
+	&.-content::after {
+		background-color: $color-content;
+	}
+
 	&.-minor::after {
 		background-color: $color-minor;
 	}
@@ -190,6 +207,14 @@ $animation-time: 0.3s;
 			opacity: $ripple-alpha;
 		}
 
+		&.-secondary {
+			@include outlinedColor($color-secondary-rgb);
+		}
+
+		&.-content {
+			@include outlinedColor($color-content);
+		}
+
 		&.-minor {
 			@include outlinedColor($color-minor);
 		}
@@ -208,27 +233,28 @@ $animation-time: 0.3s;
 	}
 
 	&.-text {
+		@include textColor(
+			$color-primary,
+			$color-primary-hovered,
+			$color-primary-focused,
+			$color-primary-disabled
+		);
 		border: none;
 		border-radius: 0;
-		color: $color-primary;
 		padding-left: 0;
 		padding-right: 0;
 
-		&:hover,
-		&.-hovered,
-		&:active,
-		&.-active {
-			color: $color-primary-hovered;
+		&.-secondary {
+			@include textColor(
+				$color-secondary,
+				$color-secondary-hovered,
+				$color-secondary-focused,
+				$color-secondary-disabled
+			);
 		}
 
-		&:focus,
-		&.-focused {
-			color: $color-primary-focused;
-		}
-
-		&:disabled,
-		&.-disabled {
-			color: $color-primary-disabled;
+		&.-content {
+			@include textColor($color-content);
 		}
 
 		&.-minor {

@@ -10,7 +10,6 @@ $color-wasabi-green: #aed581;
 $color-crimson-red: #de2f1b;
 $color-french-red: #e55066;
 $color-crimson-red-light: #ee978d;
-$color-crimson-red-dark: #be2a1c;
 
 $color-cobalt-blue: #2f4999;
 $color-navy-blue: #0277bd;
@@ -44,26 +43,33 @@ $color-total-white: #fff;
 
 $color-primary-rgb: var(--color-primary-rgb);
 $color-primary-opacity25: rgba(var(--color-primary-rgb), 0.25);
+$color-secondary-rgb: var(--color-secondary-rgb);
 $color-total-white-opacity90: rgba(255, 255, 255, 0.9);
 $color-total-white-opacity50: rgba(255, 255, 255, 0.5);
 
 // theme colors
 $color-primary: var(--color-primary);
-$color-primary-light: var(--color-primary-light);
-$color-primary-dark: var(--color-primary-dark);
+$color-primary-supporting: var(--color-primary-supporting);
+$DEPRECATED-color-primary-dark: var(--color-primary-dark);
 $color-primary-hovered: var(--color-primary-hovered);
 $color-primary-focused: var(--color-primary-focused);
 $color-primary-disabled: var(--color-primary-disabled);
 $color-secondary: var(--color-secondary);
+$color-secondary-hovered: var(--color-secondary-hovered);
+$color-secondary-focused: var(--color-secondary-focused);
+$color-secondary-disabled: var(--color-secondary-disabled);
+$color-content: $color-firefly-black;
+$color-content-inverted: $color-total-white;
+$color-background: $color-total-white;
+$color-background-secondary: $color-alabaster-gray;
 
 // functional colors
 $color-success: $color-ocean-green;
 $color-minor: $color-storm-gray;
+$color-minor-supporting: $color-cadet-gray;
 $color-warning: $color-goldfish-yellow;
 $color-danger: $color-crimson-red;
-$color-danger-light: $color-crimson-red-light;
-$color-danger-dark: $color-crimson-red-dark;
-$color-background: $color-alabaster-gray;
+$color-danger-supporting: $color-crimson-red-light;
 
 $color-shadow: rgba($color-firefly-black, 0.35);
 $color-success-shadow: rgba($color-success, 0.7);

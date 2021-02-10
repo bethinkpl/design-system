@@ -6,6 +6,8 @@
 			'-small': size === ICON_BUTTON_SIZES.SMALL,
 			'-large': size === ICON_BUTTON_SIZES.LARGE,
 
+			'-secondary': color === BUTTON_COLORS.SECONDARY,
+			'-content': color === BUTTON_COLORS.CONTENT,
 			'-minor': color === BUTTON_COLORS.MINOR,
 			'-danger': color === BUTTON_COLORS.DANGER,
 			'-warning': color === BUTTON_COLORS.WARNING,
@@ -56,12 +58,16 @@ $icon-button-small-size: 28px;
 $icon-button-medium-size: 32px;
 $icon-button-large-size: 40px;
 
-@mixin iconButtonColor($color) {
+@mixin iconButtonColor($color, $hover-color: '') {
 	color: $color;
+
+	@if $hover-color == '' {
+		$hover-color: mix($color, $color-firefly-black, (1 - $hover-alpha) * 100%);
+	}
 
 	&:hover,
 	&:active {
-		color: mix($color, $color-firefly-black, (1 - $hover-alpha) * 100%);
+		color: $hover-color;
 	}
 }
 
@@ -111,6 +117,14 @@ $icon-button-large-size: 40px;
 		&.-minor {
 			color: $color-minor;
 		}
+	}
+
+	&.-secondary {
+		@include iconButtonColor($color-secondary, $color-secondary-hovered);
+	}
+
+	&.-content {
+		@include iconButtonColor($color-content);
 	}
 
 	&.-minor {
@@ -313,7 +327,7 @@ export default {
 			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
 				return this.color;
 			}
-			throw new Error('Colors out of theme colors are supported only type: icon-only');
+			throw new Error(`Color: ${this.color} is supported only in type: "icon-only"`);
 		},
 		isThemeColor(): boolean {
 			return Object.values(BUTTON_COLORS).includes(this.color);
