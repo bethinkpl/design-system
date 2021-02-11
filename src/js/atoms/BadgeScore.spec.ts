@@ -43,6 +43,8 @@ describe('BadgeScore', () => {
 		expect(component.find('.-success').exists()).toBe(true);
 		expect(component.find('.-warning').exists()).toBe(false);
 		expect(component.find('.-danger').exists()).toBe(false);
+		expect(component.find('.-minor').exists()).toBe(false);
+		expect(component.find('.-inverted').exists()).toBe(false);
 	});
 
 	it(`when color is set as ${BADGE_SCORE_COLORS.WARNING} should render -warning class`, () => {
@@ -51,6 +53,8 @@ describe('BadgeScore', () => {
 		expect(component.find('.-success').exists()).toBe(false);
 		expect(component.find('.-warning').exists()).toBe(true);
 		expect(component.find('.-danger').exists()).toBe(false);
+		expect(component.find('.-minor').exists()).toBe(false);
+		expect(component.find('.-inverted').exists()).toBe(false);
 	});
 
 	it(`when color is set as ${BADGE_SCORE_COLORS.DANGER} should render -danger class`, () => {
@@ -59,6 +63,28 @@ describe('BadgeScore', () => {
 		expect(component.find('.-success').exists()).toBe(false);
 		expect(component.find('.-warning').exists()).toBe(false);
 		expect(component.find('.-danger').exists()).toBe(true);
+		expect(component.find('.-minor').exists()).toBe(false);
+		expect(component.find('.-inverted').exists()).toBe(false);
+	});
+
+	it(`when color is set as ${BADGE_SCORE_COLORS.INVERTED} should render -danger class`, () => {
+		const component = createComponent({ color: BADGE_SCORE_COLORS.INVERTED });
+
+		expect(component.find('.-success').exists()).toBe(false);
+		expect(component.find('.-warning').exists()).toBe(false);
+		expect(component.find('.-danger').exists()).toBe(false);
+		expect(component.find('.-minor').exists()).toBe(false);
+		expect(component.find('.-inverted').exists()).toBe(true);
+	});
+
+	it(`when color is set as ${BADGE_SCORE_COLORS.MINOR} should render -danger class`, () => {
+		const component = createComponent({ color: BADGE_SCORE_COLORS.MINOR });
+
+		expect(component.find('.-success').exists()).toBe(false);
+		expect(component.find('.-warning').exists()).toBe(false);
+		expect(component.find('.-danger').exists()).toBe(false);
+		expect(component.find('.-minor').exists()).toBe(true);
+		expect(component.find('.-inverted').exists()).toBe(false);
 	});
 
 	it(`when size is set as ${BADGE_SCORE_SIZES.SMALL} should render -small class`, () => {
