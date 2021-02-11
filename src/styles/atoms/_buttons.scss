@@ -71,7 +71,7 @@
 		pointer-events: none;
 	}
 
-	&:not(.-text) {
+	&:not(.-outlined) {
 		@each $color-name, $color-map in $theme-calculated-colors {
 			&.-color-#{$color-name}:after {
 				background-color: map-get($color-map, 'color');
@@ -83,7 +83,9 @@
 				background-color: $color;
 			}
 		}
+	}
 
+	&:not(.-text) {
 		min-width: 100px;
 
 		&::before,
