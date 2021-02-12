@@ -13,12 +13,12 @@
 		:style="{ color: computedColor }"
 		@mouseover="hovered = true"
 		@mouseleave="hovered = false"
+		@click="onClick"
 	>
 		<div
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
 			class="a-iconButton__label"
 			:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_LABEL }"
-			@click="onLabelClick"
 			><slot
 		/></div>
 		<wnl-button
@@ -331,7 +331,12 @@ export default {
 		this.BUTTON_COLORS = BUTTON_COLORS;
 	},
 	methods: {
-		onLabelClick() {
+		onClick(evt): void {
+			if (evt.target.closest('.a-iconButton__button')) {
+				// click on button, ripple effect was triggered by component
+				return;
+			}
+
 			// trigger ripple effect
 			this.$refs.button.$el.dispatchEvent(new MouseEvent('mousedown'));
 			this.$refs.button.$el.dispatchEvent(new MouseEvent('mouseup'));
