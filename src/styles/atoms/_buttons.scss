@@ -1,58 +1,49 @@
-$button-small-min-height: 28px;
-$button-medium-min-height: 32px;
-$button-large-min-height: 48px;
-
-$hover-alpha: 0.12;
-$focus-alpha: 0.24;
-$disabled-alpha: 0.6;
-$ripple-alpha: 0.16;
-
-$animation-time: 0.3s;
-
 @mixin outlinedColor($color) {
-	border-color: rgba($color, 1);
 	color: rgba($color, 1);
-
-	&::before {
-		background-color: rgba($color, 1);
-	}
 
 	&:disabled,
 	&.-disabled {
-		border-color: rgba($color, 1 - $disabled-alpha);
-		color: rgba($color, 1 - $disabled-alpha);
-	}
-
-	.ripple {
-		background-color: rgba($color, $ripple-alpha) !important;
+		color: rgba($color, 1 - $button-disabled-alpha);
 	}
 }
 
-@mixin textColor($color) {
+@mixin textColor($color, $hover-color: '', $focus-color: '', $disabled-color: '') {
+	@if $hover-color == '' {
+		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
+	}
+
+	@if $focus-color == '' {
+		$focus-color: mix($color, $color-firefly-black, (1 - $button-focus-alpha) * 100%);
+	}
+
+	@if $disabled-color == '' {
+		$disabled-color: mix($color, $color-total-white, (1 - $button-disabled-alpha) * 100%);
+	}
+
 	color: $color;
 
 	&:hover,
 	&.-hovered,
 	&:active,
 	&.-active {
-		color: mix($color, $color-firefly-black, (1 - $hover-alpha) * 100%);
+		color: $hover-color;
 	}
 
 	&:focus,
 	&.-focused {
-		color: mix($color, $color-firefly-black, (1 - $focus-alpha) * 100%);
+		color: $focus-color;
 	}
 
 	&:disabled,
 	&.-disabled {
-		color: mix($color, $color-total-white, (1 - $disabled-alpha) * 100%);
+		color: $disabled-color;
 	}
 }
 
 .a-button {
 	$self: &;
 
-	@include headlineXXS;
+	@include buttonM;
 
 	align-items: center;
 	background-color: transparent; // override defaut <button> background color
@@ -69,14 +60,29 @@ $animation-time: 0.3s;
 	position: relative;
 	text-transform: uppercase;
 	transform-style: preserve-3d;
-	transition: color ease-in-out $animation-time, border-color ease-in-out $animation-time,
-		background-color ease-in-out $animation-time;
+	transition: color ease-in-out $button-animation-time,
+		border-color ease-in-out $button-animation-time,
+		background-color ease-in-out $button-animation-time;
 	user-select: none;
 
 	&:disabled,
 	&.-disabled {
 		cursor: not-allowed;
 		pointer-events: none;
+	}
+
+	&:not(.-outlined) {
+		@each $color-name, $color-map in $theme-calculated-colors {
+			&.-color-#{$color-name}:after {
+				background-color: map-get($color-map, 'color');
+			}
+		}
+
+		@each $color-name, $color in $regular-colors {
+			&.-color-#{$color-name}:after {
+				background-color: $color;
+			}
+		}
 	}
 
 	&:not(.-text) {
@@ -90,8 +96,8 @@ $animation-time: 0.3s;
 			left: 0;
 			pointer-events: none;
 			position: absolute;
-			transition: opacity ease-in-out $animation-time,
-				background-color ease-in-out $animation-time;
+			transition: opacity ease-in-out $button-animation-time,
+				background-color ease-in-out $button-animation-time;
 			right: 0;
 			top: 0;
 		}
@@ -112,14 +118,14 @@ $animation-time: 0.3s;
 		&:active,
 		&.-active {
 			&::before {
-				opacity: $hover-alpha;
+				opacity: $button-hover-alpha;
 			}
 		}
 
 		&:focus,
 		&.-focused {
 			&::before {
-				opacity: $focus-alpha;
+				opacity: $button-focus-alpha;
 			}
 		}
 
@@ -128,14 +134,14 @@ $animation-time: 0.3s;
 			&.-disabled {
 				&::before {
 					background-color: $color-total-white;
-					opacity: $disabled-alpha;
+					opacity: $button-disabled-alpha;
 				}
 			}
 		}
 	}
 
 	&.-large {
-		@include headlineXS;
+		@include buttonL;
 
 		min-height: $button-large-min-height;
 		padding-left: $space-m;
@@ -143,25 +149,9 @@ $animation-time: 0.3s;
 	}
 
 	&.-small {
-		@include textInfoM;
+		@include buttonS;
 
 		min-height: $button-small-min-height;
-	}
-
-	&.-minor::after {
-		background-color: $color-minor;
-	}
-
-	&.-danger::after {
-		background-color: $color-danger;
-	}
-
-	&.-warning::after {
-		background-color: $color-warning;
-	}
-
-	&.-success::after {
-		background-color: $color-success;
 	}
 
 	&.-rounded {
@@ -175,71 +165,77 @@ $animation-time: 0.3s;
 		}
 	}
 
+	.ripple {
+		background-color: rgba($color-total-white, $button-ripple-alpha) !important;
+	}
+
 	&.-outlined {
 		@include outlinedColor($color-primary-rgb);
 
-		border: 1px solid;
+		@each $color-name, $color-map in $theme-calculated-colors {
+			&.-color-#{$color-name} {
+				@include outlinedColor(map-get($color-map, 'rgb'));
+			}
+		}
+
+		@each $color-name, $color in $regular-colors {
+			&.-color-#{$color-name} {
+				@include outlinedColor($color);
+			}
+		}
+
+		border: 1px solid currentColor;
+
+		&::before {
+			background-color: currentColor;
+		}
 
 		&::after {
-			background-color: $color-total-white;
+			background-color: transparent;
 		}
 
-		&.-minor {
-			@include outlinedColor($color-minor);
+		&.-elevation-x-small,
+		&.-elevation-small {
+			&::after {
+				background-color: $color-total-white;
+			}
 		}
 
-		&.-danger {
-			@include outlinedColor($color-danger);
-		}
-
-		&.-warning {
-			@include outlinedColor($color-warning);
-		}
-
-		&.-success {
-			@include outlinedColor($color-success);
+		.ripple {
+			background-color: currentColor !important;
+			opacity: $button-ripple-alpha;
 		}
 	}
 
 	&.-text {
+		@include textColor(
+			$color-primary,
+			$color-primary-hovered,
+			$color-primary-focused,
+			$color-primary-disabled
+		);
+
+		@each $color-name, $color-map in $theme-calculated-colors {
+			&.-color-#{$color-name} {
+				@include textColor(
+					map-get($color-map, 'color'),
+					map-get($color-map, 'hovered'),
+					map-get($color-map, 'focused'),
+					map-get($color-map, 'disabled')
+				);
+			}
+		}
+
+		@each $color-name, $color in $regular-colors {
+			&.-color-#{$color-name} {
+				@include textColor($color);
+			}
+		}
+
 		border: none;
 		border-radius: 0;
-		color: $color-primary;
 		padding-left: 0;
 		padding-right: 0;
-
-		&:hover,
-		&.-hovered,
-		&:active,
-		&.-active {
-			color: $color-primary-hovered;
-		}
-
-		&:focus,
-		&.-focused {
-			color: $color-primary-focused;
-		}
-
-		&:disabled,
-		&.-disabled {
-			color: $color-primary-disabled;
-		}
-
-		&.-minor {
-			@include textColor($color-minor);
-		}
-
-		&.-danger {
-			@include textColor($color-danger);
-		}
-
-		&.-warning {
-			@include textColor($color-warning);
-		}
-
-		&.-success {
-			@include textColor($color-success);
-		}
 	}
 
 	&.-loading {
@@ -255,10 +251,14 @@ $animation-time: 0.3s;
 		}
 	}
 
+	&.-elevation-small {
+		box-shadow: $default-lighter-shadow;
+	}
+
 	&__content {
 		align-items: center;
 		display: inline-flex;
-		transition: opacity ease-in-out $animation-time;
+		transition: opacity ease-in-out $button-animation-time;
 	}
 
 	&__icon {
@@ -268,22 +268,6 @@ $animation-time: 0.3s;
 
 		&.-right {
 			margin-left: $space-xxxxs;
-		}
-	}
-
-	.ripple {
-		background-color: rgba($color-total-white, $ripple-alpha) !important;
-	}
-
-	&.-icon {
-		height: 40px;
-		min-width: auto;
-		padding: 0;
-		width: 40px;
-
-		&.-small {
-			height: 32px;
-			width: 32px;
 		}
 	}
 }
