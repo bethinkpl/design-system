@@ -52,7 +52,7 @@ $x-small-badge-score-width: 36px;
 	}
 
 	&.-minor {
-		color: $color-minor;
+		color: $color-minor-supporting;
 	}
 
 	&.-small {
@@ -62,7 +62,7 @@ $x-small-badge-score-width: 36px;
 	}
 
 	&.-xsmall {
-		@include headlineXS();
+		@include textInfoM();
 
 		min-width: $x-small-badge-score-width;
 		border-width: 1px;
