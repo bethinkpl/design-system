@@ -1,4 +1,7 @@
-.a-select {
+// IT-3433 Styles in this file are deprecated
+// Going forward we're going to use Vuetify in our forms
+
+.a-selectDeprecated {
 	// We need to force select to set height - line-height is not enough
 	height: $line-height-text-l + 2 * $space-xxxs + 2px;
 
@@ -11,8 +14,8 @@
 	}
 }
 
-.a-input,
-.a-select {
+.a-inputDeprecated,
+.a-selectDeprecated {
 	@include textL;
 
 	background-color: $color-total-white;
@@ -54,8 +57,8 @@
 	}
 }
 
-.a-checkbox,
-.a-radio {
+.a-checkboxDeprecated,
+.a-radioDeprecated {
 	background-color: $color-total-white;
 	border: 2px solid $color-cadet-gray;
 	cursor: pointer;
@@ -74,7 +77,7 @@
 	}
 }
 
-.a-checkbox {
+.a-checkboxDeprecated {
 	border-radius: $radius-xs;
 	font-size: $font-size-headline-l;
 	line-height: $line-height-text-l;
@@ -101,7 +104,7 @@
 	}
 }
 
-.a-radio {
+.a-radioDeprecated {
 	border-radius: 100%;
 
 	&:hover {

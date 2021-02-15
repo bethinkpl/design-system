@@ -2,7 +2,7 @@
 	<select
 		:id="id"
 		:value="value"
-		class="a-select"
+		class="a-selectDeprecated"
 		:required="isRequired"
 		@input="$emit('input', $event.target.value)"
 	>

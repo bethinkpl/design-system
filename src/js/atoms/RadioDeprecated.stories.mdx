@@ -1,8 +1,8 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 
-<Meta title='atoms/Checkbox' />
+<Meta title='atoms/RadioDeprecated' />
 
-# Checkbox
+# Radio
 
 <Story name='interactive'
     args={{
@@ -19,7 +19,7 @@ import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
     {(args) => {
         return {
             props: Object.keys(args),
-            template: '<input type="checkbox" class="a-checkbox" :class="{ \'-small\': small }" :disabled="disabled" :checked="checked" />',
+            template: '<input type="radio" class="a-radioDeprecated" :class="{ \'-small\': small }" :disabled="disabled" :checked="checked" />',
         };
     }}
 </Story>
