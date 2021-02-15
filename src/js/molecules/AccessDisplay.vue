@@ -7,6 +7,7 @@
 		<wnl-button
 			v-if="exposeBuyButton && showBuyButton"
 			:radius="BUTTON_RADIUSES.ROUNDED"
+			:icon-right="ICONS.FA_SHOPPING_CART"
 			data-test-selector="buy-button-exposed"
 			@click.native="onBuyButtonClicked"
 		>
@@ -21,6 +22,7 @@
 				<wnl-button
 					v-if="showBuyButton"
 					:radius="BUTTON_RADIUSES.ROUNDED"
+					:icon-right="ICONS.FA_SHOPPING_CART"
 					data-test-selector="buy-button-in-modal"
 					@click.native="onBuyButtonClicked"
 				>
@@ -56,7 +58,12 @@
 			</table>
 
 			<template #footer>
-				<wnl-button @click.native="isModalVisible = false">Ok, rozumiem</wnl-button>
+				<wnl-button
+					:type="BUTTON_TYPES.OUTLINED"
+					@click.native="isModalVisible = false"
+				>
+					Ok, rozumiem
+				</wnl-button>
 			</template>
 		</wnl-modal>
 	</div>
@@ -111,12 +118,16 @@ import { mapActions, mapGetters } from 'vuex';
 import axios from 'axios';
 import moment from 'moment';
 
-import WnlButton, { BUTTON_RADIUSES } from 'js/components/global/styleguide/atoms/Button';
+import WnlButton, {
+	BUTTON_RADIUSES,
+	BUTTON_TYPES,
+} from 'js/components/global/styleguide/atoms/Button';
 import WnlAccessDisplayDate from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayDate';
 import WnlAccessDisplayExtra from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayExtra';
 import WnlAccessStatus from 'js/components/global/styleguide/molecules/AccessStatus';
 import WnlModal from 'js/components/global/Modal';
 import WnlTextLoader from 'js/components/global/TextLoader.vue';
+import { ICONS } from 'js/components/global/styleguide/atoms/Icon.vue';
 import { getApiUrl, getUrl } from 'js/utils/env';
 import { ALERT_TYPES } from 'js/consts/alert';
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
@@ -158,7 +169,9 @@ export default {
 		},
 	},
 	created() {
+		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.BUTTON_RADIUSES = BUTTON_RADIUSES;
+		this.ICONS = ICONS;
 	},
 	methods: {
 		...mapActions(['addAutoDismissableAlert']),
