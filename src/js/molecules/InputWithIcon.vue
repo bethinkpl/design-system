@@ -13,7 +13,7 @@
 .m-inputWithIcon {
 	position: relative;
 
-	.a-input {
+	.a-inputDeprecated {
 		padding-right: $space-l;
 	}
 
