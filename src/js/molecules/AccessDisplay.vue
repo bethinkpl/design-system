@@ -58,10 +58,7 @@
 			</table>
 
 			<template #footer>
-				<wnl-button
-					:type="BUTTON_TYPES.OUTLINED"
-					@click.native="isModalVisible = false"
-				>
+				<wnl-button :type="BUTTON_TYPES.OUTLINED" @click.native="isModalVisible = false">
 					Ok, rozumiem
 				</wnl-button>
 			</template>
