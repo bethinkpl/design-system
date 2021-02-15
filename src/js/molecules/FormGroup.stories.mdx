@@ -21,7 +21,7 @@ import { Meta, Story } from '@storybook/addon-docs/blocks';
             props: Object.keys(args),
             template: `<div class="m-formGroup">
                <label for="email" class="a-label -required">{{label}}</label>
-               <input class="a-input" :class="{ '-error': isError }" required="required" name="email" type="email" value="" id="email">
+               <input class="a-inputDeprecated" :class="{ '-error': isError }" required="required" name="email" type="email" value="" id="email">
                <div v-if="isError" class="a-error">{{error}}</div>
             </div>`,
         };
