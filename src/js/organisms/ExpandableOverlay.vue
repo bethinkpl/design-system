@@ -5,10 +5,11 @@
 				{{ shortMessage }}
 			</span>
 			<div class="o-expandableOverlay__bar__toggle">
-				<wnl-icon-button-with-label
+				<wnl-icon-button
 					:icon="isExpanded ? ICONS.FA_TIMES : ICONS.FA_CHEVRON_DOWN_SOLID"
-					:label="isExpanded ? 'Zamknij' : 'Pokaż więcej'"
-				/>
+					:type="ICON_BUTTON_TYPES.FILLED"
+					>{{ isExpanded ? 'Zamknij' : 'Pokaż więcej' }}</wnl-icon-button
+				>
 			</div>
 		</div>
 		<template v-if="isExpanded">
@@ -150,14 +151,15 @@
 </style>
 
 <script>
-import WnlIconButtonWithLabel, {
+import WnlIconButton, {
 	ICONS,
-} from 'js/components/global/styleguide/molecules/IconButtonWithLabel';
+	ICON_BUTTON_TYPES,
+} from 'js/components/global/styleguide/atoms/IconButton';
 
 export default {
 	name: 'ExpandableOverlay',
 	components: {
-		WnlIconButtonWithLabel,
+		WnlIconButton,
 	},
 	props: {
 		shortMessage: {
@@ -172,6 +174,7 @@ export default {
 	},
 	created() {
 		this.ICONS = ICONS;
+		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
 	},
 	methods: {
 		collapse() {

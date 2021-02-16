@@ -29,7 +29,7 @@
 
 .o-card {
 	border-radius: 6px;
-	box-shadow: $medium-shadow;
+	box-shadow: $small-shadow;
 	padding: $space-l;
 }
 

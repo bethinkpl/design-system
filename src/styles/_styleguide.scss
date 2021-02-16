@@ -1,4 +1,5 @@
 // Settings
+@import 'settings/buttons';
 @import 'settings/colors';
 @import 'settings/fonts';
 @import 'settings/icons';
@@ -15,7 +16,7 @@
 @import 'atoms/animations';
 @import 'atoms/buttons';
 @import 'atoms/icons';
-@import 'atoms/forms';
+@import 'atoms/formsDeprecated';
 @import 'atoms/links';
 
 // Molecules

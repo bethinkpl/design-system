@@ -4,11 +4,31 @@
 			:touchable="!isCourseAccessCurrentStatusSuspended"
 			@click.native="openModal"
 		/>
+		<wnl-button
+			v-if="exposeBuyButton && showBuyButton"
+			:radius="BUTTON_RADIUSES.ROUNDED"
+			:icon-right="ICONS.FA_SHOPPING_CART"
+			data-test-selector="buy-button-exposed"
+			@click.native="onBuyButtonClicked"
+		>
+			Przedłuż dostęp
+		</wnl-button>
 		<wnl-modal v-if="isModalVisible" @close-modal="isModalVisible = false">
 			<template #header>
 				<h3 class="-titleS">Twoje dostępy do kursu</h3>
 			</template>
-			<wnl-access-display-date class="m-accessDisplay__date" large />
+			<div class="m-accessDisplay__subheader">
+				<wnl-access-display-date large />
+				<wnl-button
+					v-if="showBuyButton"
+					:radius="BUTTON_RADIUSES.ROUNDED"
+					:icon-right="ICONS.FA_SHOPPING_CART"
+					data-test-selector="buy-button-in-modal"
+					@click.native="onBuyButtonClicked"
+				>
+					Przedłuż dostęp
+				</wnl-button>
+			</div>
 			<wnl-text-loader v-if="isLoading" />
 			<table v-else class="m-accessDisplay__table">
 				<tr>
@@ -38,20 +58,24 @@
 			</table>
 
 			<template #footer>
-				<wnl-button @click.native="isModalVisible = false">Ok, rozumiem</wnl-button>
+				<wnl-button :type="BUTTON_TYPES.OUTLINED" @click.native="isModalVisible = false">
+					Ok, rozumiem
+				</wnl-button>
 			</template>
 		</wnl-modal>
 	</div>
 </template>
 
 <style lang="scss" scoped>
+@import 'resources/assets/styles/styleguide/mixins/layout';
 @import 'resources/assets/styles/styleguide/settings/colors';
 @import 'resources/assets/styles/styleguide/settings/spacings';
 @import 'resources/assets/styles/styleguide/settings/typography';
 
 .m-accessDisplay {
-	&__date {
-		justify-content: center;
+	&__subheader {
+		@include centeredSpread;
+
 		margin-bottom: $space-m;
 	}
 
@@ -91,13 +115,17 @@ import { mapActions, mapGetters } from 'vuex';
 import axios from 'axios';
 import moment from 'moment';
 
-import WnlButton from 'js/components/global/styleguide/atoms/Button';
+import WnlButton, {
+	BUTTON_RADIUSES,
+	BUTTON_TYPES,
+} from 'js/components/global/styleguide/atoms/Button';
 import WnlAccessDisplayDate from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayDate';
 import WnlAccessDisplayExtra from 'js/components/global/styleguide/molecules/accessDisplay/AccessDisplayExtra';
 import WnlAccessStatus from 'js/components/global/styleguide/molecules/AccessStatus';
 import WnlModal from 'js/components/global/Modal';
 import WnlTextLoader from 'js/components/global/TextLoader.vue';
-import { getApiUrl } from 'js/utils/env';
+import { ICONS } from 'js/components/global/styleguide/atoms/Icon.vue';
+import { getApiUrl, getUrl } from 'js/utils/env';
 import { ALERT_TYPES } from 'js/consts/alert';
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
@@ -111,6 +139,12 @@ export default {
 		WnlAccessStatus,
 		WnlTextLoader,
 	},
+	props: {
+		exposeBuyButton: {
+			type: Boolean,
+			default: false,
+		},
+	},
 	data() {
 		return {
 			isModalVisible: false,
@@ -120,12 +154,21 @@ export default {
 	},
 	computed: {
 		...mapGetters(['courseAccessCurrent']),
+		...mapGetters('products', ['getCurrentCourseProductSignupsOpen']),
 		isCourseAccessCurrentStatusInactive() {
 			return this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.INACTIVE;
 		},
 		isCourseAccessCurrentStatusSuspended() {
 			return this.courseAccessCurrent.status === COURSE_ACCESS_STATUS.SUSPENDED;
 		},
+		showBuyButton() {
+			return this.getCurrentCourseProductSignupsOpen;
+		},
+	},
+	created() {
+		this.BUTTON_TYPES = BUTTON_TYPES;
+		this.BUTTON_RADIUSES = BUTTON_RADIUSES;
+		this.ICONS = ICONS;
 	},
 	methods: {
 		...mapActions(['addAutoDismissableAlert']),
@@ -157,6 +200,9 @@ export default {
 				return;
 			}
 			return moment(date).format('L');
+		},
+		onBuyButtonClicked() {
+			window.open(getUrl('payment/account'));
 		},
 	},
 };
