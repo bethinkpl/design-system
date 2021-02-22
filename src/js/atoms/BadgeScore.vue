@@ -62,7 +62,7 @@ $x-small-badge-score-width: 36px;
 	}
 
 	&.-xsmall {
-		@include textInfoM();
+		@include textXS();
 
 		min-width: $x-small-badge-score-width;
 		border-width: 1px;
