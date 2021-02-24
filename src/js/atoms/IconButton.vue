@@ -180,31 +180,39 @@ import { VueConstructor } from 'vue';
 import { ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon.vue';
 import { COLORS } from 'js/consts/colors';
 
-export const ICON_BUTTON_SIZES = {
+const ICON_BUTTON_SIZES = {
 	X_SMALL: 'x-small',
 	SMALL: 'small',
 	MEDIUM: 'medium',
 	LARGE: 'large',
 } as const;
 
-export const ICON_BUTTON_TYPES = {
+const ICON_BUTTON_TYPES = {
 	FILLED: BUTTON_TYPES.FILLED,
 	OUTLINED: BUTTON_TYPES.OUTLINED,
 	ICON_ONLY: 'icon-only',
 } as const;
 
-export const ICON_BUTTON_COLOR_SCHEMES = {
+const ICON_BUTTON_COLOR_SCHEMES = {
 	ALL_IN_COLOR: 'all-in-color',
 	MINOR_ICON: 'minor-icon',
 	MINOR_LABEL: 'minor-label',
 } as const;
 
-export const ICON_BUTTON_COLORS = {
+const ICON_BUTTON_COLORS = {
 	...COLORS,
 	...BUTTON_COLORS,
 } as const;
 
-export { BUTTON_RADIUSES, BUTTON_ELEVATIONS, ICONS };
+export {
+	ICON_BUTTON_SIZES,
+	ICON_BUTTON_COLOR_SCHEMES,
+	ICON_BUTTON_TYPES,
+	ICON_BUTTON_COLORS,
+	BUTTON_RADIUSES,
+	BUTTON_ELEVATIONS,
+	ICONS,
+};
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.X_SMALL]: ICON_SIZES.XX_SMALL,
