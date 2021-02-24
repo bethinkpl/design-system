@@ -57,11 +57,13 @@ export const BUTTON_SIZES = {
 	MEDIUM: 'medium',
 	LARGE: 'large',
 } as const;
+
 export const BUTTON_TYPES = {
 	FILLED: 'filled',
 	OUTLINED: 'outlined',
 	TEXT: 'text',
 } as const;
+
 export const BUTTON_COLORS = {
 	PRIMARY: 'primary',
 	PRIMARY_SUPPORTING: 'primary-supporting',
@@ -75,10 +77,12 @@ export const BUTTON_COLORS = {
 	WARNING: 'warning',
 	SUCCESS: 'success',
 } as const;
+
 export const BUTTON_RADIUSES = {
 	CAPSULE: 'capsule',
 	ROUNDED: 'rounded',
 } as const;
+
 export const BUTTON_STATES = {
 	DEFAULT: 'default',
 	HOVERED: 'hovered',
