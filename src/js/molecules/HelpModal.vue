@@ -22,6 +22,7 @@
 	// We need to reset some of the styles coming from these places
 	font-weight: initial;
 	line-height: 1;
+	text-transform: initial;
 	white-space: initial;
 }
 
