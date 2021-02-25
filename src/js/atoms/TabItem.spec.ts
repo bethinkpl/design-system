@@ -1,4 +1,4 @@
-import Vuex, { Store } from 'vuex';
+import Vuex from 'vuex';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import TabItem, { ICONS } from './TabItem.vue';
@@ -7,7 +7,7 @@ describe('TabItem', () => {
 	const createComponent = ({ isActive = false } = {}) => {
 		const localVue = createLocalVue();
 		localVue.use(Vuex);
-		const store = new Store({
+		const store = new Vuex.Store({
 			modules: {},
 		});
 
