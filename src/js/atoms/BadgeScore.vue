@@ -5,6 +5,8 @@
 			'-success': color === BADGE_SCORE_COLORS.SUCCESS,
 			'-warning': color === BADGE_SCORE_COLORS.WARNING,
 			'-danger': color === BADGE_SCORE_COLORS.DANGER,
+			'-inverted': color === BADGE_SCORE_COLORS.INVERTED,
+			'-minor': color === BADGE_SCORE_COLORS.MINOR,
 			'-small': size === BADGE_SCORE_SIZES.SMALL,
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
 		}"
@@ -45,6 +47,14 @@ $x-small-badge-score-width: 36px;
 		color: $color-warning;
 	}
 
+	&.-inverted {
+		color: $color-total-white;
+	}
+
+	&.-minor {
+		color: $color-minor-supporting;
+	}
+
 	&.-small {
 		@include headlineS();
 
@@ -52,7 +62,7 @@ $x-small-badge-score-width: 36px;
 	}
 
 	&.-xsmall {
-		@include headlineXS();
+		@include textXS();
 
 		min-width: $x-small-badge-score-width;
 		border-width: 1px;
@@ -66,6 +76,8 @@ export const BADGE_SCORE_COLORS = {
 	SUCCESS: 'success',
 	WARNING: 'warning',
 	DANGER: 'danger',
+	INVERTED: 'inverted',
+	MINOR: 'minor',
 } as const;
 
 export const BADGE_SCORE_SIZES = {

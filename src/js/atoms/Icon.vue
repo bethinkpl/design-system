@@ -14,12 +14,13 @@
 </template>
 
 <script lang="ts">
+import { VueConstructor } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+
 import FileVerified from 'images/icons/file-verified.svg';
 import HeadWithQuestionMark from 'images/icons/head-with-question-mark.svg';
 import Ribbon from 'images/icons/ribbon.svg';
 import { FONTAWESOME_ICONS } from 'js/icons/fontawesome';
-import { VueConstructor } from 'vue';
 
 export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',
@@ -61,7 +62,7 @@ export default {
 			validator: (value: string) => Object.values(ICON_SIZES).includes(value),
 		},
 		rotation: {
-			type: [Number],
+			type: Number,
 			default: null,
 			validator: function validator(value) {
 				return [90, 180, 270].includes(value);
