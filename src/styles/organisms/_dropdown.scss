@@ -3,8 +3,11 @@
 	display: inline-flex;
 
 	.o-dropdown__menu {
+		@include shadow();
+
+		border-bottom-left-radius: $radius-s;
+		border-bottom-right-radius: $radius-s;
 		display: none;
-		padding: $space-xxs $space-m;
 		position: absolute;
 		top: 100%;
 		right: 0;
@@ -28,11 +31,27 @@
 		cursor: pointer;
 		display: inline-block;
 		width: 100%;
-		padding: $space-xxxxs 0 $space-xxxxs $space-xxxs;
+		padding: $space-xs;
+
+		&.-small {
+			@include headlineXS();
+		}
+
+		&.-medium {
+			@include headlineS();
+		}
+
+		&:last-child {
+			border-bottom-left-radius: $radius-s;
+			border-bottom-right-radius: $radius-s;
+		}
 
 		&:hover {
-			background-color: $color-alabaster-gray;
-			color: $color-primary;
+			background-color: rgba($color-firefly-black, 0.08);
+		}
+
+		&:focus {
+			background-color: rgba($color-firefly-black, 0.16);
 		}
 	}
 }
