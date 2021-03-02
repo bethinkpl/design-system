@@ -18,7 +18,12 @@
 @import 'resources/assets/styles/styleguide/settings/typography';
 
 .o-helpModal {
+	// Because we have the trigger icon and modal in the same component, it's being put in various places
+	// We need to reset some of the styles coming from these places
+	font-weight: initial;
 	line-height: 1;
+	text-transform: initial;
+	white-space: initial;
 }
 
 .o-helpModal__icon {
