@@ -28,6 +28,7 @@
 		}
 
 		&__content {
+			align-self: center;
 			flex: 1 1 auto;
 			padding-left: $space-s;
 		}
