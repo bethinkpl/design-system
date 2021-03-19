@@ -1,10 +1,11 @@
-export default {
+module.exports = {
 	verbose: true,
 	preset: '@vue/cli-plugin-unit-jest/presets/typescript',
 	testEnvironment: 'jsdom',
 	moduleNameMapper: {
 		'^js/(.*)$': '<rootDir>/src/js/$1',
 		'^styles/(.*)$': '<rootDir>/src/styles/$1',
+		'vue-ripple-directive': '<rootDir>/src/js/tests/emptyModule.ts',
 	},
 	testMatch: ['<rootDir>/src/js/**/*.spec.ts'],
 	transform: {
@@ -15,7 +16,7 @@ export default {
 	},
 	moduleFileExtensions: ['js', 'vue', 'json', 'ts'],
 	setupFilesAfterEnv: [
-		// '<rootDir>/src/js/typings.d.ts',
+		'<rootDir>/src/js/typings.d.ts',
 		'<rootDir>/src/js/tests/globals.ts',
 	],
 	globals: {

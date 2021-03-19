@@ -47,10 +47,10 @@
 </template>
 
 <script lang="ts">
-import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
-import Ripple from 'vue-ripple-directive';
 import { VueConstructor } from 'vue';
-import { ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon.vue';
+import Ripple from 'vue-ripple-directive';
+
+import WnlIcon, { ICONS, ICON_SIZES } from './Icon.vue';
 
 export const BUTTON_SIZES = {
 	SMALL: 'small',
