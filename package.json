@@ -1,0 +1,12 @@
+{
+  "name": "design-system",
+  "version": "1.0.0",
+  "description": "Bethink univers design-system",
+  "repository": "git@github.com:bethinkpl/design-system.git",
+  "author": "nerdy@bethink.pl",
+  "license": "None",
+  "private": true,
+  "peerDependencies": {
+    "vue": "^2.6.11"
+  }
+}
