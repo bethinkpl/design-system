@@ -1,5 +1,5 @@
 export default {
-	verbose:true,
+	verbose: true,
 	preset: '@vue/cli-plugin-unit-jest/presets/typescript',
 	testEnvironment: 'jsdom',
 	moduleNameMapper: {
