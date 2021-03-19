@@ -1,11 +1,6 @@
 {
   "files": [
-    "typings.d.ts",
-    "app.ts",
-    "payment.ts",
-    "guest.ts",
-    "notSupportedBrowserModal.ts",
-    "admin/admin.ts"
+    "src/js/typings.d.ts"
   ],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
@@ -21,6 +16,10 @@
     "strictFunctionTypes": true,
     "target": "es2019"
   },
+  "include": [
+    "src/js/**/*.vue",
+    "src/js/**/*.ts"
+  ],
   "exclude": [
     "node_modules",
     "public"

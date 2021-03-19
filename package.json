@@ -13,7 +13,11 @@
     "lint:styles:fix": "stylelint 'src/**/*.{vue,scss}' --fix",
     "format:check": "prettier --check 'src/js/**/*.{js,ts,vue,scss}' && prettier --check ./*.js",
     "format:fix": "prettier --write 'src/js/**/*.{js,ts,vue,scss}' && prettier --write ./*.js",
-    "test": "jest"
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook -c .storybook -o public/storybook",
+    "test": "jest",
+    "ts:check": "tsc --noEmit"
+
   },
   "devDependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.2.0",
