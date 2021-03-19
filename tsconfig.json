@@ -1,0 +1,32 @@
+{
+  "files": [
+    "typings.d.ts",
+    "app.ts",
+    "payment.ts",
+    "guest.ts",
+    "notSupportedBrowserModal.ts",
+    "admin/admin.ts"
+  ],
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./src/js",
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "target": "es2019"
+  },
+  "exclude": [
+    "node_modules",
+    "public"
+  ],
+  "typeRoots": [
+    "node_modules/@types"
+  ]
+}
+

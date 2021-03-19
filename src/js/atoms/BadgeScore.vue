@@ -16,9 +16,9 @@
 </template>
 
 <style scoped lang="scss">
-@import 'resources/assets/styles/styleguide/settings/spacings';
-@import 'resources/assets/styles/styleguide/settings/typography';
-@import 'resources/assets/styles/styleguide/settings/colors';
+@import 'styles/settings/spacings';
+@import 'styles/settings/typography';
+@import 'styles/settings/colors';
 
 $badge-score-width: 74px;
 $small-badge-score-width: 48px;

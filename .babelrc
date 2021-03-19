@@ -1,0 +1,29 @@
+{
+  "plugins": [
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-transform-runtime",
+    "@babel/plugin-proposal-optional-chaining",
+    "lodash"
+  ],
+  "presets": [
+    ["@babel/preset-env", {
+      "modules": false,
+      "useBuiltIns": "entry",
+      "corejs": { "version": 3 }
+    }]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        ["@babel/preset-env", {
+          "useBuiltIns": "entry",
+          "corejs": { "version": 3 }
+        }]
+      ],
+      "plugins": [
+        "@babel/plugin-transform-runtime",
+        ["dynamic-import-node", { "noInterop": true }]
+      ]
+    }
+  }
+}
