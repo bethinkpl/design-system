@@ -11,7 +11,7 @@ module.exports = {
 	},
 	testMatch: ['<rootDir>/src/js/**/*.spec.ts'],
 	transform: {
-		'^.+\\.js$': 'babel-jest',
+		// '^.+\\.js$': 'babel-jest',
 		'^.+\\.ts$': 'ts-jest',
 		'.*\\.(vue)$': 'vue-jest',
 		'^.+\\.scss': '<rootDir>/src/js/tests/emptyTransformer.ts',
