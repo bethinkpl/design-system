@@ -5,7 +5,7 @@ declare module '*.vue' {
 	export default Vue;
 	// vue-jest doesn't understand import many from Vue component in a test.
 	// This is only szpachla for this.
-	// We don't want to suport all extra vue exports here, however we don't know yet how to fix it.
+	// We don't want to support all extra vue exports here, however we don't know yet how to fix it.
 	export const BUTTON_TYPES;
 	export const BUTTON_SIZES;
 	export const BUTTON_COLORS;

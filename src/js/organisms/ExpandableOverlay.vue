@@ -151,10 +151,7 @@
 </style>
 
 <script>
-import WnlIconButton, {
-	ICONS,
-	ICON_BUTTON_TYPES,
-} from 'src/js/atoms/IconButton.vue';
+import WnlIconButton, { ICONS, ICON_BUTTON_TYPES } from 'src/js/atoms/IconButton.vue';
 
 export default {
 	name: 'ExpandableOverlay',
