@@ -1,0 +1,62 @@
+const path = require('path');
+
+module.exports = {
+	stories: ['../src/**/*.stories.@(js|mdx)'],
+	addons: [
+		'@storybook/addon-docs',
+		'@storybook/addon-controls',
+		'@storybook/addon-storysource',
+		'@storybook/addon-viewport',
+	],
+	webpackFinal: async (config, { configType }) => {
+		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
+		// You can change the configuration based on that.
+		// 'PRODUCTION' is used when building the static version of storybook.
+
+		// // Storybook provides file-loader rule for svg. We have to disable it to make vue-svg-loader working
+		let fileLoaderRule = config.module.rules.find(
+			(r) =>
+				// it can be another rule with file loader
+				// we should get only svg related
+				r.test &&
+				r.test.toString().includes('svg') &&
+				// file-loader might be resolved to js file path so "endsWith" is not reliable enough
+				r.loader &&
+				r.loader.includes('file-loader'),
+		);
+		fileLoaderRule.test = new RegExp(
+			fileLoaderRule.test.source.replace('svg|', ''),
+			fileLoaderRule.test.flags,
+		);
+
+		// Make whatever fine-grained changes you need
+		config.module.rules.push(
+			{
+				test: /\.scss$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					{
+						loader: 'sass-loader',
+						options: {
+							implementation: require('sass'),
+						},
+					},
+				],
+				include: path.resolve(__dirname, '../'),
+			},
+			{
+				test: /\.svg$/,
+				use: ['babel-loader', 'vue-svg-loader'],
+			},
+		);
+
+		// config.resolve.alias.fonts = path.resolve(__dirname, '../src/js/fonts');
+		config.resolve.alias.images = path.resolve(__dirname, '../src/images');
+		config.resolve.alias.src = path.resolve(__dirname, '../src');
+		config.resolve.alias.modules = path.resolve(__dirname, '../node_modules');
+
+		// Return the altered config
+		return config;
+	},
+};
