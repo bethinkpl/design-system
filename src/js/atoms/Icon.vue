@@ -20,7 +20,7 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import FileVerified from 'images/icons/file-verified.svg';
 import HeadWithQuestionMark from 'images/icons/head-with-question-mark.svg';
 import Ribbon from 'images/icons/ribbon.svg';
-import { FONTAWESOME_ICONS } from 'js/icons/fontawesome';
+import { FONTAWESOME_ICONS } from 'src/js/icons/fontawesome';
 
 export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',

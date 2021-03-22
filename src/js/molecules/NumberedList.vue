@@ -12,7 +12,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'src/styles/settings/spacings';
 
 .m-numberedList {
 	display: flex;
@@ -37,7 +37,7 @@
 </style>
 
 <script>
-import WnlNumberInCircle, { COLORS } from 'js/components/global/styleguide/atoms/NumberInCircle';
+import WnlNumberInCircle, { COLORS } from 'src/js/atoms/NumberInCircle';
 
 export const NUMBER_COLORS = COLORS;
 

@@ -27,9 +27,9 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/styleguide/settings/colors';
-@import 'resources/assets/styles/styleguide/settings/spacings';
-@import 'resources/assets/styles/styleguide/settings/typography';
+@import 'src/styles/settings/colors';
+@import 'src/styles/settings/spacings';
+@import 'src/styles/settings/typography';
 
 .m-accessDisplayDate {
 	$this: &;
@@ -87,7 +87,7 @@
 </style>
 
 <script>
-import WnlIcon, { ICONS } from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS } from 'src/js/atoms/Icon';
 import { mapGetters } from 'vuex';
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 

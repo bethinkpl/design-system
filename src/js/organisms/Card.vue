@@ -24,8 +24,8 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/styleguide/settings/spacings';
-@import 'resources/assets/styles/styleguide/settings/shadows';
+@import 'src/styles/settings/spacings';
+@import 'src/styles/settings/shadows';
 
 .o-card {
 	border-radius: 6px;
@@ -62,7 +62,7 @@
 </style>
 
 <script>
-import WnlIcon, { ICONS, ICON_SIZES } from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from 'src/js/atoms/Icon.vue';
 
 export default {
 	name: 'Card',

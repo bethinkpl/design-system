@@ -10,11 +10,11 @@
 </template>
 
 <style scoped lang="scss">
-@import 'resources/assets/styles/variables';
-@import 'resources/assets/styles/styleguide/settings/colors';
-@import 'resources/assets/styles/styleguide/settings/icons';
-@import 'resources/assets/styles/styleguide/settings/typography';
-@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'src/styles/variables';
+@import 'src/styles/settings/colors';
+@import 'src/styles/settings/icons';
+@import 'src/styles/settings/typography';
+@import 'src/styles/settings/spacings';
 
 $tab-item-width: (2 * $space-s) + $icon-xs;
 
@@ -40,7 +40,7 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICON_SIZES, ICONS } from 'js/components/global/styleguide/atoms/Icon.vue';
+import WnlIcon, { ICON_SIZES, ICONS } from 'src/js/atoms/Icon.vue';
 import { VueConstructor } from 'vue';
 
 export { ICONS };

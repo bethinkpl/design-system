@@ -1,4 +1,3 @@
-import Vuex from 'vuex';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import TabItem, { ICONS } from './TabItem.vue';
@@ -6,14 +5,9 @@ import TabItem, { ICONS } from './TabItem.vue';
 describe('TabItem', () => {
 	const createComponent = ({ isActive = false } = {}) => {
 		const localVue = createLocalVue();
-		localVue.use(Vuex);
-		const store = new Vuex.Store({
-			modules: {},
-		});
 
 		return shallowMount<TabItem>(TabItem, {
 			localVue,
-			store,
 			mocks: {},
 			propsData: {
 				icon: ICONS.FA_CALENDAR_ALT,

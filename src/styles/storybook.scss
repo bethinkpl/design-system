@@ -1,0 +1,36 @@
+@import "settings/typography";
+@import "settings/colors";
+
+$fontFamiy: 'BlinkMacSystemFont', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+
+html,
+body {
+  -webkit-text-size-adjust: 100%;
+  font-family: "Lato", sans-serif;
+
+  &.styleguide {
+    @include textL;
+
+    color: $color-catalina-blue;
+    font-family: $fontFamiy;
+
+    button,
+    input,
+    select,
+    textarea {
+      font-family: $fontFamiy;
+    }
+  }
+}
+
+* {
+  box-sizing: inherit;
+}
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  box-sizing: border-box;
+}

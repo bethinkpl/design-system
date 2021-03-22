@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/styleguide/settings/colors';
+@import 'src/styles/settings/colors';
 
 $size: 24px;
 

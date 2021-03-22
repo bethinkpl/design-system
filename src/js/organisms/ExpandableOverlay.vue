@@ -26,12 +26,12 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/variables';
-@import 'resources/assets/styles/styleguide/settings/colors';
-@import 'resources/assets/styles/styleguide/settings/media-queries';
-@import 'resources/assets/styles/styleguide/modifiers/media-queries';
-@import 'resources/assets/styles/styleguide/settings/spacings';
-@import 'resources/assets/styles/styleguide/settings/typography';
+@import 'src/styles/variables';
+@import 'src/styles/settings/colors';
+@import 'src/styles/settings/media-queries';
+@import 'src/styles/modifiers/media-queries';
+@import 'src/styles/settings/spacings';
+@import 'src/styles/settings/typography';
 
 .o-expandableOverlay {
 	$bar-min-height: 64px;
@@ -154,7 +154,7 @@
 import WnlIconButton, {
 	ICONS,
 	ICON_BUTTON_TYPES,
-} from 'js/components/global/styleguide/atoms/IconButton';
+} from 'src/js/atoms/IconButton.vue';
 
 export default {
 	name: 'ExpandableOverlay',

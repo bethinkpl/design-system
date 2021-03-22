@@ -6,10 +6,10 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/styleguide/settings/colors';
-@import 'resources/assets/styles/styleguide/settings/icons';
-@import 'resources/assets/styles/styleguide/settings/spacings';
-@import 'resources/assets/styles/styleguide/settings/typography';
+@import 'src/styles/settings/colors';
+@import 'src/styles/settings/icons';
+@import 'src/styles/settings/spacings';
+@import 'src/styles/settings/typography';
 
 .a-pill {
 	align-items: center;

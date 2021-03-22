@@ -10,7 +10,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/styleguide/settings/spacings';
+@import 'src/styles/settings/spacings';
 
 .m-textWithIcon {
 	align-items: center;

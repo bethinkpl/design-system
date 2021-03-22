@@ -6,9 +6,9 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/styleguide/settings/colors';
-@import 'resources/assets/styles/styleguide/settings/spacings';
-@import 'resources/assets/styles/styleguide/settings/typography';
+@import 'src/styles/settings/colors';
+@import 'src/styles/settings/spacings';
+@import 'src/styles/settings/typography';
 
 .m-accessStatus {
 	align-items: center;
@@ -37,7 +37,7 @@
 </style>
 
 <script>
-import WnlIcon, { ICON_SIZES, ICONS } from 'js/components/global/styleguide/atoms/Icon';
+import WnlIcon, { ICON_SIZES, ICONS } from 'src/js/atoms/Icon';
 
 import { COURSE_ACCESS_STATUS } from 'js/consts/user';
 
