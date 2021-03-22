@@ -25,14 +25,8 @@ global['$wnl'] = {
 	}),
 };
 
-global['Echo'] = {
-	join: () => global['Echo'],
-	here: () => global['Echo'],
-	joining: () => global['Echo'],
-	leaving: () => global['Echo'],
-};
 
 // Jest swallows console errors which causes false positives
-global.console.error = (error) => {
+global.console.error = (error: any) => {
 	throw new Error(error);
 };

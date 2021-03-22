@@ -14,6 +14,7 @@ declare module '*.vue' {
 	export const BADGE_SCORE_COLORS;
 	export const BADGE_SCORE_SIZES;
 	export const ICONS;
+	export const ICON_SIZES;
 	export const QUIZ_QUESTION_UNCERTAIN_STATE;
 	export const QUIZ_QUESTION_MARKED_STATE;
 }

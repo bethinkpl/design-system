@@ -36,10 +36,10 @@
 }
 </style>
 
-<script>
-import WnlIcon, { ICON_SIZES, ICONS } from 'src/js/atoms/Icon';
+<script lang='ts'>
+import WnlIcon, { ICON_SIZES, ICONS } from 'src/js/atoms/Icon.vue';
 
-import { COURSE_ACCESS_STATUS } from 'js/consts/user';
+import { COURSE_ACCESS_STATUS } from 'src/js/consts/user';
 
 export default {
 	name: 'AccessStatus',

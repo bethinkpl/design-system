@@ -13,8 +13,12 @@
     "noUnusedLocals": true,
     "skipLibCheck": true,
     "strictBindCallApply": true,
+    "noUnusedParameters": true,
     "strictFunctionTypes": true,
-    "target": "es2019"
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "target": "es2019",
+    "strictNullChecks": true
   },
   "include": [
     "src/js/**/*.vue",

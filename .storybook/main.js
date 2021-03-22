@@ -8,7 +8,7 @@ module.exports = {
 		'@storybook/addon-storysource',
 		'@storybook/addon-viewport',
 	],
-	webpackFinal: async (config, { configType }) => {
+	webpackFinal: async (config) => {
 		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
 		// You can change the configuration based on that.
 		// 'PRODUCTION' is used when building the static version of storybook.
@@ -47,16 +47,12 @@ module.exports = {
 			},
 			{
 				test: /\.svg$/,
-				use: ['babel-loader', 'vue-svg-loader'],
+				use: ['vue-svg-loader'],
 			},
 		);
 
-		// config.resolve.alias.fonts = path.resolve(__dirname, '../src/js/fonts');
-		config.resolve.alias.images = path.resolve(__dirname, '../src/images');
 		config.resolve.alias.src = path.resolve(__dirname, '../src');
-		config.resolve.alias.modules = path.resolve(__dirname, '../node_modules');
 
-		// Return the altered config
 		return config;
 	},
 };
