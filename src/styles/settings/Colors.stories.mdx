@@ -1,0 +1,74 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+import { COLORS, THEME_COLORS, FUNCTIONAL_COLORS } from 'src/js/consts/colors';
+
+<Meta title='basics/Colors' />
+
+# Colors
+## Names
+Color names generator can be found here: https://www.color-blindness.com/color-name-hue/
+
+
+## Theme colors
+<ColorPalette>
+  <ColorItem title="Primary" colors={[THEME_COLORS.PRIMARY]} />
+  <ColorItem title="Primary Supporting" colors={[THEME_COLORS.PRIMARY_SUPPORTING]} />
+  <ColorItem title="Secondary" colors={[THEME_COLORS.SECONDARY]} />
+  <ColorItem title="Secondary Supporting" colors={[THEME_COLORS.SECONDARY_SUPPORTING]} />
+  <ColorItem title="Content" subtitle="Firefly Black" colors={[THEME_COLORS.CONTENT]} />
+  <ColorItem title="Content Inverted" subtitle="Total White" colors={[THEME_COLORS.CONTENT_INVERTED]} />
+  <ColorItem title="Background" subtitle="Total White" colors={[THEME_COLORS.BACKGROUND]} />
+  <ColorItem title="Background Secondary" subtitle="Alabaster Gray" colors={[THEME_COLORS.BACKGROUND_SECONDARY]} />
+</ColorPalette>
+
+## Functional colors
+<ColorPalette>
+  <ColorItem title="Minor" subtitle="Storm Gray" colors={[FUNCTIONAL_COLORS.MINOR]} />
+  <ColorItem title="Minor Supporting" subtitle="Cadet Gray" colors={[FUNCTIONAL_COLORS.MINOR_SUPPORTING]} />
+  <ColorItem title="Success" subtitle="Ocean Green" colors={[FUNCTIONAL_COLORS.SUCCESS]} />
+  <ColorItem title="Warning" subtitle="Goldfish Yellow" colors={[FUNCTIONAL_COLORS.WARNING]} />
+  <ColorItem title="Danger" subtitle="Crimson Red" colors={[FUNCTIONAL_COLORS.DANGER]} />
+  <ColorItem title="Danger Supporting" subtitle="Crimson Red Light" colors={[FUNCTIONAL_COLORS.DANGER_SUPPORTING]} />
+</ColorPalette>
+
+## Raw colors
+<ColorPalette>
+  <ColorItem title="Jungle Green" colors={[COLORS.JUNGLE_GREEN]} />
+  <ColorItem title="Elf Green" colors={[COLORS.ELF_GREEN]} />
+  <ColorItem title="Salad Green" colors={[COLORS.SALAD_GREEN]} />
+  <ColorItem title="Ocean Green" colors={[COLORS.OCEAN_GREEN]} />
+  <ColorItem title="Garder Green" colors={[COLORS.GARDEN_GREEN]} />
+  <ColorItem title="Mantis Green" colors={[COLORS.MANTIS_GREEN]} />
+  <ColorItem title="Wasabi Green" colors={[COLORS.WASABI_GREEN]} />
+
+  <ColorItem title="Crimson Red" colors={[COLORS.CRIMSON_RED]} />
+  <ColorItem title="French Red" colors={[COLORS.FRENCH_RED]} />
+  <ColorItem title="Crimson Red Light" colors={[COLORS.CRIMSON_RED_LIGHT]} />
+
+  <ColorItem title="Cobalt Blue" colors={[COLORS.COBALT_BLUE]} />
+  <ColorItem title="Navy Blue" colors={[COLORS.NAVY_BLUE]} />
+  <ColorItem title="Opal Blue" colors={[COLORS.OPAL_BLUE]} />
+  <ColorItem title="Baby Blue" colors={[COLORS.BABY_BLUE]} />
+
+  <ColorItem title="Lemon Yellow" colors={[COLORS.LEMON_YELLOW]} />
+  <ColorItem title="Gorse Yellow" colors={[COLORS.GORSE_YELLOW]} />
+  <ColorItem title="Mustard Yellow" colors={[COLORS.MUSTARD_YELLOW]} />
+  <ColorItem title="Amber Yellow" colors={[COLORS.AMBER_YELLOW]} />
+  <ColorItem title="Goldfish Yellow" colors={[COLORS.GOLDFISH_YELLOW]} />
+  <ColorItem title="California Yellow" colors={[COLORS.CALIFORNIA_YELLOW]} />
+  <ColorItem title="Melon Orange" colors={[COLORS.MELON_ORANGE]} />
+  <ColorItem title="Outrageous Orange" colors={[COLORS.OUTRAGEOUS_ORANGE]} />
+  <ColorItem title="Satin Orange" colors={[COLORS.SATIN_ORANGE]} />
+
+  <ColorItem title="Gigas Violet" colors={[COLORS.GIGAS_VIOLET]} />
+  <ColorItem title="Deluge Violet" colors={[COLORS.DELUGE_VIOLET]} />
+
+  <ColorItem title="Firefly Black" colors={[COLORS.FIREFLY_BLACK]} />
+  <ColorItem title="Catalina Blue" colors={[COLORS.CATALINA_BLUE]} />
+  <ColorItem title="Rhino Gray" colors={[COLORS.RHINO_GRAY]} />
+  <ColorItem title="Storm Gray" colors={[COLORS.STORM_GRAY]} />
+  <ColorItem title="Cadet Gray" colors={[COLORS.CADET_GRAY]} />
+  <ColorItem title="Mischka Gray" colors={[COLORS.MISCHKA_GRAY]} />
+  <ColorItem title="Athens Gray" colors={[COLORS.ATHENS_GRAY]} />
+  <ColorItem title="Alabaster Gray" colors={[COLORS.ALABASTER_GRAY]} />
+  <ColorItem title="Total White" colors={[COLORS.TOTAL_WHITE]} />
+</ColorPalette>
