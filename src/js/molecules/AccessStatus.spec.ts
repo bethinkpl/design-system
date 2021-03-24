@@ -10,7 +10,7 @@ describe('AccessStatus', () => {
 			localVue,
 			mocks: {},
 			propsData: {
-				status: ''
+				status: '',
 			},
 			stubs: {},
 		});
@@ -21,5 +21,4 @@ describe('AccessStatus', () => {
 
 		expect(component.exists()).toBe(true);
 	});
-
 });
