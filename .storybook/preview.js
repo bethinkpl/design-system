@@ -1,10 +1,10 @@
-import '../src/styles/_normalize.scss';
-import '../src/styles/fonts.scss';
-import '../src/styles/settings/_typography.scss';
-import '../src/styles/storybook.scss';
-import '../src/styles/theme-varaibles.scss';
-import '../src/styles/atoms/_buttons.scss';
-import '../src/styles/atoms/_icons.scss';
+import 'src/styles/_normalize.scss';
+import 'src/styles/fonts.scss';
+import 'src/styles/settings/_typography.scss';
+import 'src/styles/storybook.scss';
+import 'src/styles/theme-varaibles.scss';
+import 'src/styles/atoms/_buttons.scss';
+import 'src/styles/atoms/_icons.scss';
 
 import { initialize } from 'src/js/icons/fontawesome';
 
