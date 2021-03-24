@@ -14,10 +14,10 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/cache@v2
-        with:
-          path: '**/node_modules'
-          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+      - name: Insert auth font awesome auth token
+        run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
+
+
       - uses: actions/setup-node@v2-beta
         with:
           node-version: '14.15'
@@ -33,5 +33,5 @@ jobs:
         run: yarn lint:styles
       - name: Prettier check
         run: yarn format:check
-      -name: Build storybook
+      - name: Build storybook
         run: yarn storybook:build
