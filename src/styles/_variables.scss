@@ -1,131 +1,131 @@
-//Feature colors
-$autocomplete-box-shadow: 1px 0 2px 0 rgba(132, 102, 102, 0.15);
-$autocomplete-box-border: solid 1px #d6d9e1;
-
-// Typography
-$font-family-sans-serif: 'Lato', sans-serif;
-
-$font-size-minus-4: 0.55rem;
-$font-size-minus-3: 0.675rem;
-$font-size-minus-2: 0.75rem;
-$font-size-minus-1: 0.875rem;
-$font-size-base: 14px;
-$font-size-base-mobile: 16px;
-$font-size-plus-1: 1.125rem;
-$font-size-plus-2: 1.5rem;
-$font-size-plus-3: 1.75rem;
-$font-size-plus-4: 2.25rem;
-$font-size-plus-5: 2.5rem;
-$font-size-plus-6: 3rem;
-$font-size-plus-7: 3.375rem;
-$font-size-plus-8: 6em;
-
-$line-height-none: 1em;
-$line-height-minus: 1.25em;
-$line-height-base: 1.5em;
-$line-height-plus: 1.75em;
-
-$font-weight-light: 300;
-$font-weight-regular: 400;
-$font-weight-bold: 700;
-$font-weight-black: 900;
-
-// Borders
-$border-light-gray: 1px solid #eff0f3;
-$border-thick: 3px;
-
-// Buttons
-$border-radius-small: 5px;
-$border-radius-full: 100px;
-
-// Square buttons
-$rounded-square-sizes: (
-	small: 20px,
-	medium: 30px,
-	large: 40px,
-	extralarge: 90px,
-	extraextralarge: 138px,
-);
-
-// Spacing
-// Deprecated
-$DEPRECATED-margin-tiny: 2px;
-$DEPRECATED-margin-small-minus: 6px;
-$DEPRECATED-margin-small: 7px;
-$DEPRECATED-margin-medium: 10px;
-$DEPRECATED-margin-base: 15px;
-$DEPRECATED-margin-big: 30px;
-$DEPRECATED-margin-huge: 45px;
-$DEPRECATED-margin-humongous: 80px;
-
-// Slideshow
-$fixed-elements-padding: 10px;
-$slideshow-controls-background: rgba(250, 250, 250, 0.75);
-
-// ConversationSnippet
-$min-height: 62px;
-
-// Animations
-$transition-length-base: 0.15s;
-$transition-length-long: 0.35s;
-$transition-length-longest: 0.5s;
-
-// Layout
-$full-height: 100vh;
-$navbar-height: 55px;
-$search-input-height: 27.2px;
-
-$column-padding: $DEPRECATED-margin-base;
-
-$main-nav-size: 7vw;
-$main-nav-max-size: 80px;
-$main-nav-min-size: 55px;
-
-$sidenav-min-width: 150px;
-$sidenav-max-width: 250px;
-$sidenav-for-messages: 300px;
-$sidenav-width: 23%;
-
-$course-content-max-width: 900px;
-$course-content-flex: 1;
-
-$course-chat-max-width: 600px;
-$course-chat-min-width: 250px;
-$course-chat-width: 29%;
-
-// Overwrite Bulma variables
-// When this file is imported in themes/*/app.scss $primary has to be set or Bulma compilation will fail
-// When this file is imported from other places (mostly .vue files) the default for $primary will be used
-$primary: var(--color-primary) !default;
-$success: #44b490;
-$warning: #eca005;
-$danger: #e53d2c;
-$info: #2f4999;
-
-$text: #0c1726;
-
-// z-index positioning
-// hardcoded
-$z-index-reveal-controls: 1;
-$z-index-active-filters: 40;
-$z-index-navbar: 50;
-$z-index-modal: 16777271; // The highest possible value in Safari
-
-// calculated
-$z-index-critical-info-overlay: $z-index-navbar - 1;
-$z-index-sidenav-slot: $z-index-navbar - 1;
-$z-index-toast-notifications: $z-index-navbar;
-$z-index-overlay: $z-index-navbar + 1;
-$z-index-autocomplete: $z-index-navbar + 1;
-
-$z-index-fullscren: $z-index-modal - 2;
-$z-index-fullscren-close: $z-index-modal - 1;
-$z-index-alerts: $z-index-modal - 1;
-
-@function media-query-tablet() {
-	@return '(min-width: 760px)';
-}
-
-$mobile: 759px;
-
-$sidebar-filters-header-height: 64px;
+////Feature colors
+//$autocomplete-box-shadow: 1px 0 2px 0 rgba(132, 102, 102, 0.15);
+//$autocomplete-box-border: solid 1px #d6d9e1;
+//
+//// Typography
+//$font-family-sans-serif: 'Lato', sans-serif;
+//
+//$font-size-minus-4: 0.55rem;
+//$font-size-minus-3: 0.675rem;
+//$font-size-minus-2: 0.75rem;
+//$font-size-minus-1: 0.875rem;
+//$font-size-base: 14px;
+//$font-size-base-mobile: 16px;
+//$font-size-plus-1: 1.125rem;
+//$font-size-plus-2: 1.5rem;
+//$font-size-plus-3: 1.75rem;
+//$font-size-plus-4: 2.25rem;
+//$font-size-plus-5: 2.5rem;
+//$font-size-plus-6: 3rem;
+//$font-size-plus-7: 3.375rem;
+//$font-size-plus-8: 6em;
+//
+//$line-height-none: 1em;
+//$line-height-minus: 1.25em;
+//$line-height-base: 1.5em;
+//$line-height-plus: 1.75em;
+//
+//$font-weight-light: 300;
+//$font-weight-regular: 400;
+//$font-weight-bold: 700;
+//$font-weight-black: 900;
+//
+//// Borders
+//$border-light-gray: 1px solid #eff0f3;
+//$border-thick: 3px;
+//
+//// Buttons
+//$border-radius-small: 5px;
+//$border-radius-full: 100px;
+//
+//// Square buttons
+//$rounded-square-sizes: (
+//	small: 20px,
+//	medium: 30px,
+//	large: 40px,
+//	extralarge: 90px,
+//	extraextralarge: 138px,
+//);
+//
+//// Spacing
+//// Deprecated
+//$DEPRECATED-margin-tiny: 2px;
+//$DEPRECATED-margin-small-minus: 6px;
+//$DEPRECATED-margin-small: 7px;
+//$DEPRECATED-margin-medium: 10px;
+//$DEPRECATED-margin-base: 15px;
+//$DEPRECATED-margin-big: 30px;
+//$DEPRECATED-margin-huge: 45px;
+//$DEPRECATED-margin-humongous: 80px;
+//
+//// Slideshow
+//$fixed-elements-padding: 10px;
+//$slideshow-controls-background: rgba(250, 250, 250, 0.75);
+//
+//// ConversationSnippet
+//$min-height: 62px;
+//
+//// Animations
+//$transition-length-base: 0.15s;
+//$transition-length-long: 0.35s;
+//$transition-length-longest: 0.5s;
+//
+//// Layout
+//$full-height: 100vh;
+//$navbar-height: 55px;
+//$search-input-height: 27.2px;
+//
+//$column-padding: $DEPRECATED-margin-base;
+//
+//$main-nav-size: 7vw;
+//$main-nav-max-size: 80px;
+//$main-nav-min-size: 55px;
+//
+//$sidenav-min-width: 150px;
+//$sidenav-max-width: 250px;
+//$sidenav-for-messages: 300px;
+//$sidenav-width: 23%;
+//
+//$course-content-max-width: 900px;
+//$course-content-flex: 1;
+//
+//$course-chat-max-width: 600px;
+//$course-chat-min-width: 250px;
+//$course-chat-width: 29%;
+//
+//// Overwrite Bulma variables
+//// When this file is imported in themes/*/app.scss $primary has to be set or Bulma compilation will fail
+//// When this file is imported from other places (mostly .vue files) the default for $primary will be used
+//$primary: var(--color-primary) !default;
+//$success: #44b490;
+//$warning: #eca005;
+//$danger: #e53d2c;
+//$info: #2f4999;
+//
+//$text: #0c1726;
+//
+//// z-index positioning
+//// hardcoded
+//$z-index-reveal-controls: 1;
+//$z-index-active-filters: 40;
+//$z-index-navbar: 50;
+//$z-index-modal: 16777271; // The highest possible value in Safari
+//
+//// calculated
+//$z-index-critical-info-overlay: $z-index-navbar - 1;
+//$z-index-sidenav-slot: $z-index-navbar - 1;
+//$z-index-toast-notifications: $z-index-navbar;
+//$z-index-overlay: $z-index-navbar + 1;
+//$z-index-autocomplete: $z-index-navbar + 1;
+//
+//$z-index-fullscren: $z-index-modal - 2;
+//$z-index-fullscren-close: $z-index-modal - 1;
+//$z-index-alerts: $z-index-modal - 1;
+//
+//@function media-query-tablet() {
+//	@return '(min-width: 760px)';
+//}
+//
+//$mobile: 759px;
+//
+//$sidebar-filters-header-height: 64px;

@@ -24,21 +24,3 @@ declare module '*.svg' {
 	const content: VueConstructor<Vue>;
 	export default content;
 }
-
-declare global {
-	// eslint-disable-next-line no-redeclare
-	var $wnl: any;
-	var jQuery: any;
-	// eslint-disable-next-line no-redeclare
-	var $: any;
-	// eslint-disable-next-line no-redeclare
-	var ga: any;
-	// eslint-disable-next-line no-redeclare
-	var fbq: any;
-	// eslint-disable-next-line no-redeclare
-	var Echo: any;
-	var axios: any;
-	var io: any;
-	var Laravel: any;
-	var quill: any;
-}

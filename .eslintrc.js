@@ -112,11 +112,5 @@ module.exports = {
 			},
 		],
 	},
-	globals: {
-		$: true,
-		$wnl: true,
-		Echo: true,
-		fbq: true,
-		ga: true,
-	},
 };
+
