@@ -1,10 +1,10 @@
 {
   "files": [
-    "src/js/typings.d.ts"
+    "lib/js/typings.d.ts"
   ],
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src/js",
+    "baseUrl": "./lib/js",
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
@@ -21,8 +21,8 @@
     "strictNullChecks": true
   },
   "include": [
-    "src/js/**/*.vue",
-    "src/js/**/*.ts"
+    "lib/js/**/*.vue",
+    "lib/js/**/*.ts"
   ],
   "exclude": [
     "node_modules",

@@ -11,11 +11,11 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'src/styles/settings/colors';
-@import 'src/styles/settings/icons';
-@import 'src/styles/settings/media-queries';
-@import 'src/styles/settings/spacings';
-@import 'src/styles/settings/typography';
+@import 'lib/styles/settings/colors';
+@import 'lib/styles/settings/icons';
+@import 'lib/styles/settings/media-queries';
+@import 'lib/styles/settings/spacings';
+@import 'lib/styles/settings/typography';
 
 .a-numberInCircle {
 	align-items: center;

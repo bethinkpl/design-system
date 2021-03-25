@@ -6,9 +6,9 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'src/styles/settings/colors';
-@import 'src/styles/settings/spacings';
-@import 'src/styles/settings/typography';
+@import 'lib/styles/settings/colors';
+@import 'lib/styles/settings/spacings';
+@import 'lib/styles/settings/typography';
 
 .m-accessStatus {
 	align-items: center;
@@ -37,9 +37,9 @@
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICON_SIZES, ICONS } from 'src/js/atoms/Icon.vue';
+import WnlIcon, { ICON_SIZES, ICONS } from 'lib/js/atoms/Icon.vue';
 
-import { COURSE_ACCESS_STATUS } from 'src/js/consts/user';
+import { COURSE_ACCESS_STATUS } from 'lib/js/consts/user';
 
 export default {
 	name: 'AccessStatus',

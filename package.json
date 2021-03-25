@@ -11,12 +11,12 @@
   },
   "scripts": {
     "lint": "yarn lint:scripts && yarn lint:styles",
-    "lint:scripts": "eslint --max-warnings 0 --cache 'src/js/**/*.{js,vue,ts}'",
-    "lint:scripts:fix": "eslint 'src/js/**/*.{js,vue,ts}' --fix --cache",
-    "lint:styles": "stylelint 'src/**/*.{vue,scss}' --cache",
-    "lint:styles:fix": "stylelint 'src/**/*.{vue,scss}' --fix",
-    "format:check": "prettier --check 'src/**/*.{js,ts,vue,scss}' && prettier --check ./*.js",
-    "format:fix": "prettier --write 'src/**/*.{js,ts,vue,scss}' && prettier --write ./*.js",
+    "lint:scripts": "eslint --max-warnings 0 --cache 'lib/js/**/*.{js,vue,ts}'",
+    "lint:scripts:fix": "eslint 'lib/js/**/*.{js,vue,ts}' --fix --cache",
+    "lint:styles": "stylelint 'lib/**/*.{vue,scss}' --cache",
+    "lint:styles:fix": "stylelint 'lib/**/*.{vue,scss}' --fix",
+    "format:check": "prettier --check 'lib/**/*.{js,ts,vue,scss}' && prettier --check ./*.js",
+    "format:fix": "prettier --write 'lib/**/*.{js,ts,vue,scss}' && prettier --write ./*.js",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook -c .storybook -o public/storybook",
     "test": "jest",
@@ -60,11 +60,13 @@
     "@fortawesome/pro-regular-svg-icons": "^5.15.3",
     "@fortawesome/pro-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^2.0.2",
+    "design-system": "git+ssh://git@github.com/bethinkpl/design-system#IT-3548_config_dev_dependecies",
     "vue": "^2.6.11",
     "vue-ripple-directive": "^2.0.1"
   },
   "exports": {
-    "js": "./src/js/",
-    "styles": "./src/styles/"
+    "design-system": {
+      "import": "."
+    }
   }
 }

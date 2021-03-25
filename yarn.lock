@@ -5155,6 +5155,18 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
+"design-system@git+ssh://git@github.com/bethinkpl/design-system#IT-3548_config_dev_dependecies":
+  version "1.0.0"
+  resolved "git+ssh://git@github.com/bethinkpl/design-system#97befdcf1cce80ffe33ad09ae6e6d5af9bf0772c"
+  dependencies:
+    "@fortawesome/fontawesome-svg-core" "^1.2.35"
+    "@fortawesome/pro-light-svg-icons" "^5.15.3"
+    "@fortawesome/pro-regular-svg-icons" "^5.15.3"
+    "@fortawesome/pro-solid-svg-icons" "^5.15.3"
+    "@fortawesome/vue-fontawesome" "^2.0.2"
+    vue "^2.6.11"
+    vue-ripple-directive "^2.0.1"
+
 destroy@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"

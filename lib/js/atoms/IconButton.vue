@@ -42,12 +42,12 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'src/styles/settings/buttons';
-@import 'src/styles/settings/colors';
-@import 'src/styles/settings/icons';
-@import 'src/styles/settings/media-queries';
-@import 'src/styles/settings/spacings';
-@import 'src/styles/settings/typography';
+@import 'lib/styles/settings/buttons';
+@import 'lib/styles/settings/colors';
+@import 'lib/styles/settings/icons';
+@import 'lib/styles/settings/media-queries';
+@import 'lib/styles/settings/spacings';
+@import 'lib/styles/settings/typography';
 
 $icon-button-x-small-size: 20px;
 $icon-button-small-size: 28px;
@@ -167,7 +167,7 @@ $icon-button-large-size: 40px;
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICONS, ICON_SIZES } from 'src/js/atoms/Icon.vue';
+import WnlIcon, { ICONS, ICON_SIZES } from 'lib/js/atoms/Icon.vue';
 import { VueConstructor } from 'vue';
 
 import WnlButton, {
@@ -176,8 +176,8 @@ import WnlButton, {
 	BUTTON_TYPES,
 	BUTTON_ELEVATIONS,
 	BUTTON_COLORS,
-} from 'src/js/atoms/Button.vue';
-import { COLORS } from 'src/js/consts/colors';
+} from 'lib/js/atoms/Button.vue';
+import { COLORS } from 'lib/js/consts/colors';
 
 export const ICON_BUTTON_SIZES = {
 	X_SMALL: 'x-small',

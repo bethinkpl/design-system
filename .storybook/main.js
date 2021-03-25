@@ -1,7 +1,7 @@
 const path = require('path');
 
 module.exports = {
-	stories: ['../src/**/*.stories.@(js|mdx)'],
+	stories: ['../lib/**/*.stories.@(js|mdx)'],
 	addons: [
 		'@storybook/addon-docs',
 		'@storybook/addon-controls',
@@ -51,7 +51,7 @@ module.exports = {
 			},
 		);
 
-		config.resolve.alias.src = path.resolve(__dirname, '../src');
+		config.resolve.alias.lib = path.resolve(__dirname, '../lib');
 
 		return config;
 	},
