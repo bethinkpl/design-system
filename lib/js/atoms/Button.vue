@@ -46,6 +46,10 @@
 	</span>
 </template>
 
+<style lang='scss'>
+@import "~design-system/lib/styles/atoms/buttons";
+</style>
+
 <script lang="ts">
 import { VueConstructor } from 'vue';
 import Ripple from 'vue-ripple-directive';

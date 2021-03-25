@@ -43,7 +43,7 @@ module.exports = {
 						},
 					},
 				],
-				include: path.resolve(__dirname, '../'),
+				include: path.resolve(__dirname, '../../'),
 			},
 			{
 				test: /\.svg$/,
@@ -51,8 +51,8 @@ module.exports = {
 			},
 		);
 
-		config.resolve.alias['design-system'] = path.resolve(__dirname, '../');
-		config.resolve.alias.lib = path.resolve(__dirname, '../lib');
+		// config.resolve.alias.lib = path.resolve(__dirname, '../lib');
+		config.resolve.alias['design-system'] = path.resolve(__dirname, '..');
 
 		return config;
 	},

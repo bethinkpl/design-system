@@ -1,7 +1,7 @@
-@import 'lib/styles/settings/colors';
-@import 'lib/styles/settings/spacings';
-@import 'lib/styles/settings/radiuses';
-@import 'lib/styles/settings/typography';
+@import '../settings/colors';
+@import '../settings/spacings';
+@import '../settings/radiuses';
+@import '../settings/typography';
 
 $default-lighter-shadow: 0 4px 12px rgba($color-firefly-black, 0.35);
 

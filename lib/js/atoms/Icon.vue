@@ -13,11 +13,16 @@
 	</div>
 </template>
 
+<style lang='scss'>
+@import "~design-system/lib/styles/atoms/icons";
+</style>
+
+
 <script lang="ts">
 import { VueConstructor } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import { FONTAWESOME_ICONS } from 'design-system/lib/js/icons/fontawesome';
+import { FONTAWESOME_ICONS } from '../icons/fontawesome';
 
 import FileVerified from '../../images/icons/file-verified.svg';
 import HeadWithQuestionMark from '../../images/icons/head-with-question-mark.svg';
