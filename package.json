@@ -62,7 +62,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "design-system": "git+ssh://git@github.com/bethinkpl/design-system#IT-3548_config_dev_dependecies",
     "vue": "^2.6.11",
-    "vue-ripple-directive": "^2.0.1"
+    "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2"
   },
   "exports": {
     "design-system": {
