@@ -167,17 +167,17 @@ $icon-button-large-size: 40px;
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICONS, ICON_SIZES } from 'lib/js/atoms/Icon.vue';
 import { VueConstructor } from 'vue';
 
+import WnlIcon, { ICONS, ICON_SIZES } from 'design-system/lib/js/atoms/Icon.vue';
 import WnlButton, {
 	BUTTON_STATES,
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
 	BUTTON_ELEVATIONS,
 	BUTTON_COLORS,
-} from 'lib/js/atoms/Button.vue';
-import { COLORS } from 'lib/js/consts/colors';
+} from 'design-system/lib/js/atoms/Button.vue';
+import { COLORS } from 'design-system/lib/js/consts/colors';
 
 export const ICON_BUTTON_SIZES = {
 	X_SMALL: 'x-small',

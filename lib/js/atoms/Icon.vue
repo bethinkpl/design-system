@@ -17,11 +17,11 @@
 import { VueConstructor } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import { FONTAWESOME_ICONS } from 'lib/js/icons/fontawesome';
+import { FONTAWESOME_ICONS } from 'design-system/lib/js/icons/fontawesome';
 
-import FileVerified from 'lib/images/icons/file-verified.svg';
-import HeadWithQuestionMark from 'lib/images/icons/head-with-question-mark.svg';
-import Ribbon from 'lib/images/icons/ribbon.svg';
+import FileVerified from '../../images/icons/file-verified.svg';
+import HeadWithQuestionMark from '../../images/icons/head-with-question-mark.svg';
+import Ribbon from '../../images/icons/ribbon.svg';
 
 export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',

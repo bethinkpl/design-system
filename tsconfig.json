@@ -18,7 +18,10 @@
     "noImplicitAny": true,
     "noImplicitThis": true,
     "target": "es2019",
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "paths": {
+      "design-system/lib/*": ["lib/*"]
+    }
   },
   "include": [
     "lib/js/**/*.vue",

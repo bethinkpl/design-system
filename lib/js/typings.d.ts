@@ -17,6 +17,9 @@ declare module '*.vue' {
 	export const ICON_SIZES;
 	export const QUIZ_QUESTION_UNCERTAIN_STATE;
 	export const QUIZ_QUESTION_MARKED_STATE;
+	export const ICON_BUTTON_SIZES;
+	export const ICON_BUTTON_COLORS;
+	export const ICON_BUTTON_TYPES;
 }
 
 declare module '*.svg' {

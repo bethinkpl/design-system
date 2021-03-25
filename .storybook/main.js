@@ -51,6 +51,7 @@ module.exports = {
 			},
 		);
 
+		config.resolve.alias['design-system'] = path.resolve(__dirname, '../');
 		config.resolve.alias.lib = path.resolve(__dirname, '../lib');
 
 		return config;
