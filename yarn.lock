@@ -5155,18 +5155,6 @@ des.js@^1.0.0:
     inherits "^2.0.1"
     minimalistic-assert "^1.0.0"
 
-"design-system@git+ssh://git@github.com/bethinkpl/design-system#IT-3548_config_dev_dependecies":
-  version "1.0.0"
-  resolved "git+ssh://git@github.com/bethinkpl/design-system#97befdcf1cce80ffe33ad09ae6e6d5af9bf0772c"
-  dependencies:
-    "@fortawesome/fontawesome-svg-core" "^1.2.35"
-    "@fortawesome/pro-light-svg-icons" "^5.15.3"
-    "@fortawesome/pro-regular-svg-icons" "^5.15.3"
-    "@fortawesome/pro-solid-svg-icons" "^5.15.3"
-    "@fortawesome/vue-fontawesome" "^2.0.2"
-    vue "^2.6.11"
-    vue-ripple-directive "^2.0.1"
-
 destroy@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/destroy/-/destroy-1.0.4.tgz#978857442c44749e4206613e37946205826abd80"
@@ -13564,13 +13552,6 @@ vue-loader@^15.9.6:
     loader-utils "^1.1.0"
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
-
-vue-ripple-directive@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/vue-ripple-directive/-/vue-ripple-directive-2.0.1.tgz#817ae4bc2874cbf01d8a018c8e8d97c8cadb6355"
-  integrity sha512-jXZEX6uZpo89wxmdcw02uFpsMBpm1pxjQ60uqghNLQ8H8ju9eon2vE0+vvSWJ1WGCOTEfxGDR4InabJJu5f1GA==
-  dependencies:
-    vue "^2.2.1"
 
 vue-ripple-directive@bethinkpl/vue-ripple-directive#2.0.2:
   version "2.0.2"

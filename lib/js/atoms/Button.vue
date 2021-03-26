@@ -47,7 +47,7 @@
 </template>
 
 <style lang='scss'>
-@import "~design-system/lib/styles/atoms/buttons";
+@import "../../styles/atoms/buttons";
 </style>
 
 <script lang="ts">

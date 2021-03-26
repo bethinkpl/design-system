@@ -14,7 +14,7 @@
 </template>
 
 <style lang='scss'>
-@import "~design-system/lib/styles/atoms/icons";
+@import "../../styles/atoms/icons";
 </style>
 
 
