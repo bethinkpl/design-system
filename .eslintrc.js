@@ -45,12 +45,6 @@ module.exports = {
 		'no-void': 'error',
 		// @typescript-eslint/parser doesn't work well with import/no-relative-parent-imports
 		// https://github.com/benmosher/eslint-plugin-import/issues/1610
-		'no-restricted-imports': [
-			'error',
-			{
-				patterns: ['../*'],
-			},
-		],
 		'no-else-return': ['error', { allowElseIf: false }],
 
 		// typescript
@@ -66,7 +60,8 @@ module.exports = {
 		'@typescript-eslint/no-non-null-assertion': 'error',
 
 		// Plugins
-		'import/no-relative-parent-imports': 'error',
+		'import/no-restricted-imports': 0,
+		'import/no-relative-parent-imports': 0,
 		'vue/component-name-in-template-casing': ['error', 'kebab-case'],
 		'vue/attributes-order': ['error'],
 		'vue/component-tags-order': [

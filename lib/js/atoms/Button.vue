@@ -46,8 +46,8 @@
 	</span>
 </template>
 
-<style lang='scss'>
-@import "../../styles/atoms/buttons";
+<style lang="scss">
+@import '../../styles/atoms/buttons';
 </style>
 
 <script lang="ts">

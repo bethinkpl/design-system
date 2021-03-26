@@ -13,10 +13,9 @@
 	</div>
 </template>
 
-<style lang='scss'>
-@import "../../styles/atoms/icons";
+<style lang="scss">
+@import '../../styles/atoms/icons';
 </style>
-
 
 <script lang="ts">
 import { VueConstructor } from 'vue';
