@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+jobs:
+  test-frontend:
+    name: Frontend tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Insert auth font awesome auth token
+        run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
+      - uses: actions/setup-node@v2-beta
+        with:
+          node-version: '14.15'
+      - name: Install dependencies
+        run: yarn install --pure-lockfile
+      - name: TypeScript check
+        run: yarn ts:check
+      - name: Run unit tests
+        run: yarn test
+      - name: Lint TS/JS/Vue files
+        run: yarn lint:scripts
+      - name: Lint styles
+        run: yarn lint:styles
+      - name: Prettier check
+        run: yarn format:check
+      - name: Build storybook
+        run: yarn storybook:build

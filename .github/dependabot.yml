@@ -1,0 +1,9 @@
+# This file configures dependabot that tries to keep our dependencies secure and up-to-date
+# https://help.github.com/github/administering-a-repository/configuration-options-for-dependency-updates
+version: 2
+updates:
+  # Maintain JavaScript dependencies
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "daily"

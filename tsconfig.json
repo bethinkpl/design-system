@@ -1,0 +1,38 @@
+{
+  "files": [
+    "lib/js/typings.d.ts"
+  ],
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": "./lib/js",
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "noImplicitReturns": true,
+    "resolveJsonModule": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "strictBindCallApply": true,
+    "noUnusedParameters": true,
+    "strictFunctionTypes": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "target": "es2019",
+    "strictNullChecks": true,
+    "paths": {
+      "design-system/lib/*": ["lib/*"]
+    }
+  },
+  "include": [
+    "lib/js/**/*.vue",
+    "lib/js/**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "public"
+  ],
+  "typeRoots": [
+    "node_modules/@types"
+  ]
+}
+
