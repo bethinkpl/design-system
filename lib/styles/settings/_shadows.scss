@@ -1,5 +1,14 @@
-@import 'design-system/lib/styles/settings/colors';
+@import 'colors';
 
+$shadow-xs-top: 0 -4px 8px 0 rgba(12, 23, 38, 0.12);
+$shadow-xs: 0 4px 8px 0 rgba(12, 23, 38, 0.12);
+$shadow-s: 0 1px 6px 0 rgba(12, 23, 38, 0.3);
+$shadow-m: 0 1px 12px 0 rgba(12, 23, 38, 0.2);
+$shadow-l: 0 4px 12px 0 rgba(12, 23, 38, 0.3);
+$shadow-xl: 0 1px 12px 0 rgba(12, 23, 38, 0.3);
+$shadow-xxl: 0 0 24px 0 rgba(12, 23, 38, 0.2);
+
+// deprecated
 $default-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 $default-lighter-shadow: 0 4px 12px rgba($color-firefly-black, 0.35);
 $small-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);

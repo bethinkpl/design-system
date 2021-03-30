@@ -1,10 +1,7 @@
 import 'design-system/lib/styles/_normalize.scss';
-import 'design-system/lib/styles/fonts.scss';
+import 'design-system/lib/styles/design-system.scss';
 import 'design-system/lib/styles/storybook.scss';
-// import 'lib/styles/settings/_typography.scss';
 import 'design-system/lib/styles/theme-varaibles.scss';
-// import 'lib/styles/atoms/_buttons.scss';
-// import 'lib/styles/atoms/_icons.scss';
 
 import { initialize } from 'design-system/lib/js/icons/fontawesome';
 
