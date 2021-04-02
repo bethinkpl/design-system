@@ -25,11 +25,10 @@
 @import 'modifiers/shadows';
 @import 'modifiers/typography';
 
-
 html,
 body {
-  // TODO add font-size when wnl-platform is ready
-  color: $color-firefly-black;
+	// TODO add font-size when wnl-platform is ready
+	color: $color-firefly-black;
 }
 
 html,
@@ -38,14 +37,15 @@ button,
 input,
 select,
 textarea {
-  font-family: $font-family;
+	font-family: $font-family;
 }
 
 html {
-  box-sizing:border-box;
+	box-sizing: border-box;
 }
 
 *,
-:after,:before {
-  box-sizing:inherit
+::after,
+::before {
+	box-sizing: inherit;
 }
