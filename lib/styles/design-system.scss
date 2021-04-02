@@ -24,3 +24,28 @@
 @import 'modifiers/media-queries';
 @import 'modifiers/shadows';
 @import 'modifiers/typography';
+
+
+html,
+body {
+  // TODO add font-size when wnl-platform is ready
+  color: $color-firefly-black;
+}
+
+html,
+body,
+button,
+input,
+select,
+textarea {
+  font-family: $font-family;
+}
+
+html {
+  box-sizing:border-box;
+}
+
+*,
+:after,:before {
+  box-sizing:inherit
+}
