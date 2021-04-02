@@ -1,7 +1,7 @@
 {
   "name": "design-system",
-  "version": "1.0.3",
-  "description": "Bethink univers design-system",
+  "version": "1.0.4",
+  "description": "Bethink universe design-system",
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
   "private": true,
