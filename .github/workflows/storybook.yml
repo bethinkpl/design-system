@@ -8,11 +8,14 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
+      - name: Insert auth font awesome auth token
+        run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
+      - uses: actions/setup-node@v2-beta
         with:
-          persist-credentials: false
+          node-version: '14.15'
       - name: Install and Build 🔧
         run: | # Install npm packages and build the Storybook files
-          yarn
+          yarn install --pure-lockfile
           yarn build-storybook
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.1
