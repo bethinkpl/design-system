@@ -54,6 +54,8 @@
 import { VueConstructor } from 'vue';
 import Ripple from 'vue-ripple-directive';
 
+import { Value } from '../utils/type.utils';
+
 import WnlIcon, { ICONS, ICON_SIZES } from './Icon.vue';
 
 export const BUTTON_SIZES = {
@@ -115,35 +117,35 @@ export default {
 		size: {
 			type: String,
 			default: BUTTON_SIZES.MEDIUM,
-			validator(value) {
+			validator(value: Value<typeof BUTTON_SIZES>) {
 				return Object.values(BUTTON_SIZES).includes(value);
 			},
 		},
 		type: {
 			type: String,
 			default: BUTTON_TYPES.FILLED,
-			validator(value) {
+			validator(value: Value<typeof BUTTON_TYPES>) {
 				return Object.values(BUTTON_TYPES).includes(value);
 			},
 		},
 		color: {
 			type: String,
 			default: BUTTON_COLORS.PRIMARY,
-			validator(value) {
+			validator(value: Value<typeof BUTTON_COLORS>) {
 				return Object.values(BUTTON_COLORS).includes(value);
 			},
 		},
 		radius: {
 			type: String,
 			default: BUTTON_RADIUSES.CAPSULE,
-			validator(value) {
+			validator(value: Value<typeof BUTTON_RADIUSES>) {
 				return Object.values(BUTTON_RADIUSES).includes(value);
 			},
 		},
 		state: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
-			validator(value) {
+			validator(value: Value<typeof BUTTON_STATES>) {
 				return Object.values(BUTTON_STATES).includes(value);
 			},
 		},
@@ -164,7 +166,7 @@ export default {
 		elevation: {
 			type: String,
 			default: BUTTON_ELEVATIONS.NONE,
-			validator(value) {
+			validator(value: Value<typeof BUTTON_ELEVATIONS>) {
 				return Object.values(BUTTON_ELEVATIONS).includes(value);
 			},
 		},

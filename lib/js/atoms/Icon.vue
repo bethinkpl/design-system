@@ -69,7 +69,7 @@ export default {
 		rotation: {
 			type: Number,
 			default: null,
-			validator: function validator(value) {
+			validator(value: number) {
 				return [90, 180, 270].includes(value);
 			},
 		},

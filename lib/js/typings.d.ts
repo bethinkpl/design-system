@@ -27,3 +27,8 @@ declare module '*.svg' {
 	const content: VueConstructor<Vue>;
 	export default content;
 }
+
+declare module 'vue-ripple-directive' {
+	import { DirectiveFunction } from 'vue/types/options';
+	export default DirectiveFunction;
+}
