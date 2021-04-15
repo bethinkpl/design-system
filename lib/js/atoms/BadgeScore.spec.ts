@@ -1,6 +1,10 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
+import Vue from 'vue';
+import Vuetify from 'vuetify';
 
 import BadgeScore, { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.vue';
+
+Vue.use(Vuetify);
 
 describe('BadgeScore', () => {
 	const createComponent = ({
