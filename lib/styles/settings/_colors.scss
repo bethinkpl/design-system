@@ -1,19 +1,19 @@
 // regular colors
-$color-jungle-green: #27aa5b;
 $color-elf-green: #239952;
-$color-salad-green: #43a047;
-$color-ocean-green: #44b490;
-$color-garden-green: #81c784;
+$color-garden-green: #98d293;
+$color-ice-green: #e2f2e3;
+$color-jungle-green: #27aa5b;
 $color-mantis-green: #8bc34a;
+$color-ocean-green: #44b490;
+$color-salad-green: #4ab24f;
 $color-wasabi-green: #aed581;
 
 $color-crimson-red: #de2f1b;
 $color-french-red: #e55066;
-$color-crimson-red-light: #ee978d;
+$color-brush-red: #ee978d;
 
 $color-cobalt-blue: #2f4999;
 $color-navy-blue: #0277bd;
-$color-opal-blue: #87cacb;
 $color-baby-blue: #81d4fa;
 
 $color-ice-yellow: #fef3dd;
@@ -23,9 +23,11 @@ $color-mustard-yellow: #ffd54f;
 $color-amber-yellow: #ffc107;
 $color-goldfish-yellow: #fdb72d;
 $color-california-yellow: #eca005;
+
 $color-melon-orange: #ff8a65;
 $color-outrageous-orange: #ff5722;
 $color-satin-orange: #cc3e17;
+$color-ice-orange: #ffe6ca;
 
 $color-gigas-violet: #62378d;
 $color-deluge-violet: #7b569f;
@@ -33,6 +35,9 @@ $color-deluge-violet: #7b569f;
 $color-total-black: #000;
 $color-firefly-black: #0c1726;
 $color-catalina-blue: #25335a;
+
+$color-powder-pink: #fadeda;
+
 $color-rhino-gray: #434a5a;
 $color-storm-gray: #6f7285;
 $color-cadet-gray: #a7acbd;
@@ -40,6 +45,7 @@ $color-mischka-gray: #cdd0da;
 $color-athens-gray: #e6e8ee;
 $color-ice-gray: #eff0f3;
 $color-alabaster-gray: #f6f6f8;
+
 $color-total-white: #fff;
 
 $color-primary-rgb: var(--color-primary-rgb);
@@ -74,14 +80,25 @@ $color-background-secondary: $color-alabaster-gray;
 $DEPRECATED-color-primary-dark: var(--color-primary-hovered);
 
 // functional colors
-$color-success: $color-ocean-green;
+$color-success: $color-salad-green;
+$color-success-supporting: $color-garden-green;
+$color-success-background: $color-ice-green;
+
 $color-minor: $color-storm-gray;
 $color-minor-supporting: $color-cadet-gray;
+$color-minor-background: $color-athens-gray;
+
 $color-warning: $color-goldfish-yellow;
-$color-warning-background: $color-ice-yellow;
 $color-warning-supporting: $color-mustard-yellow;
+$color-warning-background: $color-ice-yellow;
+
 $color-danger: $color-crimson-red;
-$color-danger-supporting: $color-crimson-red-light;
+$color-danger-supporting: $color-brush-red;
+$color-danger-background: $color-powder-pink;
+
+$color-fail: $color-outrageous-orange;
+$color-fail-supporting: $color-melon-orange;
+$color-fail-background: $color-ice-orange;
 
 $color-shadow: rgba($color-firefly-black, 0.35);
 $color-success-shadow: rgba($color-success, 0.7);
