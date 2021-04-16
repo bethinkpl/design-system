@@ -23,7 +23,8 @@
 		}"
 	>
 		<span class="a-button__content">
-      <v-btn></v-btn>
+			<!--      remove it-->
+			<v-btn></v-btn>
 			<wnl-icon
 				v-if="iconLeft"
 				class="a-button__icon -left"
@@ -53,6 +54,7 @@
 
 <script lang="ts">
 import { VueConstructor } from 'vue';
+import { VBtn } from 'vuetify/lib';
 import Ripple from 'vue-ripple-directive';
 
 import { Value } from '../utils/type.utils';
@@ -112,6 +114,7 @@ export default {
 		ripple: Ripple,
 	},
 	components: {
+		VBtn,
 		WnlIcon,
 	},
 	props: {

@@ -19,7 +19,6 @@ module.exports = {
 	moduleFileExtensions: ['js', 'vue', 'json', 'ts'],
 	transformIgnorePatterns: ['node_modules/(?!vuetify/.*)'],
 
-
 	setupFilesAfterEnv: ['<rootDir>/lib/js/typings.d.ts', '<rootDir>/lib/js/tests/globals.ts'],
 	globals: {
 		'ts-jest': {

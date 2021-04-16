@@ -1,11 +1,6 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
-import Vue from 'vue';
-import Vuetify from 'vuetify';
-
 import TabItem, { ICONS } from './TabItem.vue';
-
-Vue.use(Vuetify);
 
 describe('TabItem', () => {
 	const createComponent = ({ isActive = false } = {}) => {
