@@ -16,7 +16,7 @@
 	display: flex;
 
 	&.-active {
-		color: $color-ocean-green;
+		color: $color-salad-green;
 	}
 
 	&.-notActive {
