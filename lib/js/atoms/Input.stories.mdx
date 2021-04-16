@@ -1,0 +1,57 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+import DSInput from 'design-system/lib/js/atoms/DSInput';
+import { ICONS } from 'design-system/lib/js/atoms/IconButton';
+
+<Meta title='atoms/DSInput' component={DSInput} />
+
+# Button
+
+**Wspaniały** przycisk.
+
+<Story name='with icon'
+    args={{
+     label: 'Label',
+     value: 'Value',
+     helpMessage: 'Help message',
+     labelAddition: '(Label addition)',
+    }}
+    argTypes={{
+               icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES' },
+    }}>
+    {(args) => {
+        return {
+            components: { DSInput },
+            props: Object.keys(args),
+            template: `<d-s-input :label="label" :value="value" :help-message="helpMessage" :labelAddition="labelAddition" :leftIcon="ICONS[icon]" :rightIcon="ICONS[icon]"/>`,
+            created() {
+                this.ICONS = ICONS;
+            }
+        };
+    }}
+</Story>
+
+<Story name='without icon'
+    args={{
+     label: 'Label',
+     value: 'Value',
+     helpMessage: 'Help message',
+     labelAddition: '(Label addition)',
+    }}
+    argTypes={{
+    }}>
+    {(args) => {
+        return {
+            components: { DSInput },
+            props: Object.keys(args),
+            template: `<d-s-input :label="label" :value="value" :help-message="helpMessage" :labelAddition="labelAddition" />`,
+            created() {
+                this.ICONS = ICONS;
+            }
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={DSInput} />
