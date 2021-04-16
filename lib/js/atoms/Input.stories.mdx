@@ -1,9 +1,9 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 
-import DSInput from 'design-system/lib/js/atoms/DSInput';
+import Input from 'design-system/lib/js/atoms/Input';
 import { ICONS } from 'design-system/lib/js/atoms/IconButton';
 
-<Meta title='atoms/DSInput' component={DSInput} />
+<Meta title='atoms/Input' component={Input} />
 
 # Button
 
@@ -21,9 +21,16 @@ import { ICONS } from 'design-system/lib/js/atoms/IconButton';
     }}>
     {(args) => {
         return {
-            components: { DSInput },
+            components: { WnlInput: Input },
             props: Object.keys(args),
-            template: `<d-s-input :label="label" :value="value" :help-message="helpMessage" :labelAddition="labelAddition" :leftIcon="ICONS[icon]" :rightIcon="ICONS[icon]"/>`,
+            template: `<wnl-input
+                :label="label"
+                :value="value"
+                :help-message="helpMessage"
+                :labelAddition="labelAddition"
+                :leftIcon="ICONS[icon]"
+                :rightIcon="ICONS[icon]"
+            />`,
             created() {
                 this.ICONS = ICONS;
             }
@@ -42,9 +49,14 @@ import { ICONS } from 'design-system/lib/js/atoms/IconButton';
     }}>
     {(args) => {
         return {
-            components: { DSInput },
+            components: { WnlInput: Input },
             props: Object.keys(args),
-            template: `<d-s-input :label="label" :value="value" :help-message="helpMessage" :labelAddition="labelAddition" />`,
+            template: `<wnl-input
+                :label="label"
+                :value="value"
+                :help-message="helpMessage"
+                :labelAddition="labelAddition"
+            />`,
             created() {
                 this.ICONS = ICONS;
             }
@@ -54,4 +66,4 @@ import { ICONS } from 'design-system/lib/js/atoms/IconButton';
 
 ## Props
 
-<Props of={DSInput} />
+<Props of={Input} />
