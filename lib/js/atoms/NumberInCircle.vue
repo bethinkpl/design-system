@@ -41,7 +41,7 @@
 	}
 
 	&.-is2 {
-		color: $color-ocean-green;
+		color: $color-salad-green;
 	}
 
 	&.-is3 {
