@@ -23,6 +23,7 @@
     "ts:check": "tsc --noEmit"
   },
   "devDependencies": {
+    "@socheatsok78/storybook-addon-vuetify": "^0.1.8",
     "@storybook/addon-controls": "^6.0.28",
     "@storybook/addon-docs": "^6.0.28",
     "@storybook/addon-storysource": "^6.0.28",
@@ -52,7 +53,8 @@
     "vue-jest": "^3.0.5",
     "vue-loader": "^15.9.6",
     "vue-svg-loader": "^0.16.0",
-    "vue-template-compiler": "^2.6.12"
+    "vue-template-compiler": "^2.6.12",
+    "vuetify": "^2.4.9"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.35",

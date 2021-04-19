@@ -1,0 +1,28 @@
+import { Meta, Story } from '@storybook/addon-docs/blocks';
+
+import SnackbarTest from './SnackbarTest';
+
+<Meta title='molecules/SnackbarTest' component={SnackbarTest} />
+
+# AccessStatus
+
+<Story name='interactive'
+	   args={{
+		   visible: true,
+		   secondsLeft: 60,
+	   }}
+	   argTypes={{
+		   visible: { type: 'boolean', defaultValue: true },
+		   secondsLeft: { type: 'number', defaultValue: 60 },
+	   }}
+>
+	{(args) => {
+		return {
+			components: {
+				SnackbarTest,
+			},
+			props: Object.keys(args),
+			template: `<snackbar-test :visible='visible' :seconds-left='secondsLeft'/>`,
+		};
+	}}
+</Story>

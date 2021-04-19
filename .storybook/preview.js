@@ -4,6 +4,7 @@ import 'design-system/lib/styles/storybook.scss';
 import 'design-system/lib/styles/theme-varaibles.scss';
 
 import { initialize } from 'design-system/lib/js/icons/fontawesome';
+import { withVuetify, withThemeProvider } from '@socheatsok78/storybook-addon-vuetify/dist/decorators';
 
 const customViewports = {
 	mobile: {
@@ -75,5 +76,17 @@ const customViewports = {
 export const parameters = {
 	viewport: { viewports: customViewports },
 };
+
+export const globalTypes = {
+	theme: {
+		name: 'Bethink',
+		defaultValue: 'light',
+	},
+};
+
+export const decorators = [
+	withThemeProvider,
+	withVuetify,
+];
 
 initialize();

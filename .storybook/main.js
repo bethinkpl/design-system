@@ -7,6 +7,7 @@ module.exports = {
 		'@storybook/addon-controls',
 		'@storybook/addon-storysource',
 		'@storybook/addon-viewport',
+		'@socheatsok78/storybook-addon-vuetify',
 	],
 	webpackFinal: async (config) => {
 		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
@@ -32,8 +33,9 @@ module.exports = {
 		// Make whatever fine-grained changes you need
 		config.module.rules.push(
 			{
-				test: /\.scss$/,
+				test: /\.s(c|a)ss$/,
 				use: [
+					'vue-style-loader',
 					'style-loader',
 					'css-loader',
 					{
@@ -53,6 +55,14 @@ module.exports = {
 
 		// config.resolve.alias.lib = path.resolve(__dirname, '../lib');
 		config.resolve.alias['design-system'] = path.resolve(__dirname, '..');
+		// config.resolve.alias['~storybook'] = path.resolve(__dirname);
+		config.resolve.alias['@'] = path.resolve(__dirname);
+
+		// config.module.rules.push({
+		// 	resourceQuery: /blockType=story/,
+		// 	loader: 'vue-storybook',
+		// });
+
 
 		return config;
 	},

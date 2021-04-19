@@ -32,3 +32,11 @@ body {
 html {
 	box-sizing: border-box;
 }
+
+.v-application {
+	font-family: 'Lato', sans-serif !important;
+
+	[class*='text-'] {
+		font-family: 'Lato', sans-serif !important;
+	}
+}
