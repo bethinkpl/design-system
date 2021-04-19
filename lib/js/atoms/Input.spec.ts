@@ -3,21 +3,21 @@ import Vuetify from 'vuetify';
 // @ts-ignore
 import VTextField from 'vuetify/lib/components/VTextField';
 
-import Input  from './Input.vue';
-import { ICONS }  from './Icon.vue';
+import Input from './Input.vue';
+import { ICONS } from './Icon.vue';
 
 describe('Input', () => {
 	const text = 'Wpłynąłem na suchego przestwór oceanu';
 	const createComponent = ({
-								 error = false,
+		error = false,
 		errorMessage = '',
-								 helpMessage = '',
-								 label = '',
-								 labelAddition = '',
-								 leftIcon = undefined,
-								 rightIcon = undefined,
-								 success = false,
-							 } = {}) => {
+		helpMessage = '',
+		label = '',
+		labelAddition = '',
+		leftIcon = undefined,
+		rightIcon = undefined,
+		success = false,
+	} = {}) => {
 		const localVue = createLocalVue();
 		localVue.use(Vuetify);
 
@@ -59,7 +59,6 @@ describe('Input', () => {
 	});
 
 	it('should render text from label prop', () => {
-
 		const label = text;
 		const component = createComponent({ label });
 
@@ -74,10 +73,8 @@ describe('Input', () => {
 	});
 
 	it('should render text from helpMessage prop', () => {
-
 		const helpMessage = text;
 		const component = createComponent({ helpMessage });
-
 
 		expect(component.find('.v-messages__message').text()).toContain(helpMessage);
 	});
@@ -99,7 +96,6 @@ describe('Input', () => {
 	});
 
 	describe('icons', () => {
-
 		it('should render icon from leftIcon prop', () => {
 			const leftIcon = ICONS.FA_CHART_BAR;
 			const component = createComponent({ leftIcon });
@@ -114,23 +110,31 @@ describe('Input', () => {
 			expect(component.find('icon-stub').props().icon).toEqual(rightIcon);
 		});
 
-		it.each([ICONS.FA_CHART_BAR, undefined])('when component is in error state component should render FA_EXCLAMATION_CIRCLE as rightIcon', (rightIcon) => {
-			const component = createComponent({ rightIcon, error: true });
+		it.each([ICONS.FA_CHART_BAR, undefined])(
+			'when component is in error state component should render FA_EXCLAMATION_CIRCLE as rightIcon',
+			(rightIcon) => {
+				const component = createComponent({ rightIcon, error: true });
 
-			expect(component.find('icon-stub').props().icon).toEqual(ICONS.FA_EXCLAMATION_CIRCLE);
-		});
+				expect(component.find('icon-stub').props().icon).toEqual(
+					ICONS.FA_EXCLAMATION_CIRCLE,
+				);
+			},
+		);
 
-		it.each([ICONS.FA_CHART_BAR, undefined])('when component is in error state component should render FA_EXCLAMATION_CIRCLE as rightIcon', (rightIcon) => {
-			const component = createComponent({ rightIcon, success: true });
+		it.each([ICONS.FA_CHART_BAR, undefined])(
+			'when component is in error state component should render FA_EXCLAMATION_CIRCLE as rightIcon',
+			(rightIcon) => {
+				const component = createComponent({ rightIcon, success: true });
 
-			expect(component.find('icon-stub').props().icon).toEqual(ICONS.FA_CHECK_CIRCLE);
-		});
+				expect(component.find('icon-stub').props().icon).toEqual(ICONS.FA_CHECK_CIRCLE);
+			},
+		);
 	});
 
 	describe('errorMessage', () => {
 		it('should render text from errorMessage prop', () => {
 			const errorMessage = text;
-			const component = createComponent({ errorMessage});
+			const component = createComponent({ errorMessage });
 
 			expect(component.find('.v-messages__message').text()).toContain(text);
 		});
@@ -152,5 +156,5 @@ describe('Input', () => {
 			expect(component.find('.v-messages__message').text()).toContain(text);
 			expect(component.find('.v-messages__message').text()).not.toContain(helpMessage);
 		});
-	})
+	});
 });

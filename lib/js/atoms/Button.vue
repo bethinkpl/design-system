@@ -54,7 +54,6 @@
 
 <script lang="ts">
 import { VueConstructor } from 'vue';
-import { VBtn } from 'vuetify/lib';
 import Ripple from 'vue-ripple-directive';
 
 import { Value } from '../utils/type.utils';

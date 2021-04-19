@@ -1,68 +1,57 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import 'vuetify/dist/vuetify.min.css';
 
 import Input from 'design-system/lib/js/atoms/Input';
 import { ICONS } from 'design-system/lib/js/atoms/IconButton';
 
+import Vue, { VueConstructor } from 'vue';
+import Vuetify from 'vuetify';
+
+Vue.use(Vuetify);
+
 <Meta title='atoms/Input' component={Input} />
 
-# Button
+# Input
 
 **Wspaniały** przycisk.
 
-<Story name='with icon'
-    args={{
-     label: 'Label',
-     value: 'Value',
-     helpMessage: 'Help message',
-     labelAddition: '(Label addition)',
-    }}
-    argTypes={{
-               icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES' },
-    }}>
-    {(args) => {
-        return {
-            components: { WnlInput: Input },
-            props: Object.keys(args),
-            template: `<wnl-input
-                :label="label"
-                :value="value"
-                :help-message="helpMessage"
-                :labelAddition="labelAddition"
-                :leftIcon="ICONS[icon]"
-                :rightIcon="ICONS[icon]"
-            />`,
-            created() {
-                this.ICONS = ICONS;
-            }
-        };
-    }}
+<Story name='without an icon'
+	   args={{
+		   label: 'Label',
+		   value: 'Value',
+		   helpMessage: 'Help message',
+		   errorMessage: '',
+		   labelAddition: '(Label addition)',
+		   error: false,
+		   disabled: false,
+		   autofocus: false,
+		   success: false,
+		   readonly: false,
+	   }}
+	   argTypes={{}}>
+	{(args) => {
+		return {
+			components: { WnlInput: Input },
+			props: Object.keys(args),
+			template: `<wnl-input
+				:error="error"
+				:success="success"
+				:readonly="readonly"
+				:disabled="disabled"
+				:label="label"
+				:value="value"
+				:help-message="helpMessage"
+				:labelAddition="labelAddition"
+				:errorMessage="errorMessage"
+				:autofocus="autofocus"
+			/>`,
+			created() {
+				this.ICONS = ICONS;
+			}
+		};
+	}}
 </Story>
 
-<Story name='without icon'
-    args={{
-     label: 'Label',
-     value: 'Value',
-     helpMessage: 'Help message',
-     labelAddition: '(Label addition)',
-    }}
-    argTypes={{
-    }}>
-    {(args) => {
-        return {
-            components: { WnlInput: Input },
-            props: Object.keys(args),
-            template: `<wnl-input
-                :label="label"
-                :value="value"
-                :help-message="helpMessage"
-                :labelAddition="labelAddition"
-            />`,
-            created() {
-                this.ICONS = ICONS;
-            }
-        };
-    }}
-</Story>
 
 ## Props
 
