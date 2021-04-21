@@ -32,7 +32,7 @@ module.exports = {
 		// Make whatever fine-grained changes you need
 		config.module.rules.push(
 			{
-				test: /\.scss$/,
+				test: /\.s(c|a)ss$/,
 				use: [
 					'style-loader',
 					'css-loader',

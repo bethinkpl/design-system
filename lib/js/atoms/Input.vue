@@ -115,10 +115,9 @@
 </style>
 
 <script lang="ts">
-import 'vuetify/dist/vuetify.min.css';
 import Vue, { VueConstructor } from 'vue';
 import { Prop } from 'vue/types/options';
-import Vuetify from 'vuetify';
+import Vuetify, { VTextField, VApp } from 'vuetify/lib';
 
 import { THEME_COLORS } from '../consts/colors';
 import Icon, { ICON_SIZES } from './Icon.vue';
@@ -131,6 +130,8 @@ export default {
 	vuetify: new Vuetify({}), // TODO: remove it
 	components: {
 		Icon,
+		VTextField,
+		VApp
 	},
 	props: {
 		label: {
