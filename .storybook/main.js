@@ -32,6 +32,21 @@ module.exports = {
 		// Make whatever fine-grained changes you need
 		config.module.rules.push(
 			{
+				test: /\.sass$/,
+				use: [
+					'style-loader',
+					'css-loader',
+					{
+						loader: 'sass-loader',
+						options: {
+							implementation: require('sass'),
+							data: "@import 'design-system/lib/styles/variables.scss'"
+						},
+					},
+				],
+				include: path.resolve(__dirname, '../../'),
+			},
+			{
 				test: /\.scss$/,
 				use: [
 					'style-loader',
@@ -40,6 +55,7 @@ module.exports = {
 						loader: 'sass-loader',
 						options: {
 							implementation: require('sass'),
+							data: "@import 'design-system/lib/styles/variables.scss';"
 						},
 					},
 				],
