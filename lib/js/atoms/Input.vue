@@ -4,7 +4,6 @@
 			<v-text-field
 				:id="id"
 				:autofocus="autofocus"
-				:color="COLOR"
 				:disabled="disabled"
 				:error-messages="errorMessage"
 				:error="error"
@@ -56,6 +55,13 @@
 			color: $color-danger;
 		}
 	}
+
+  &.-success {
+    .a-input__labelAddition {
+      color: $color-success;
+    }
+
+  }
 }
 </style>
 
@@ -66,7 +72,6 @@
 .a-input {
 	.v-input__slot {
 		margin-bottom: $space-xxxxs !important;
-		min-height: 54px !important;
 		background: rgba($color-firefly-black, 0.06) !important;
 	}
 
@@ -82,35 +87,23 @@
 		background: $color-success-background !important;
 	}
 
-	.v-input__prepend-inner,
-	.v-input__append-inner {
-		margin-top: 19px !important; // total height is 54px, size od XS icon is 16 so (54-16) / 2 = 19
-		padding-right: $space-xxs !important;
-	}
-
 	.v-input--is-disabled .v-input__slot::before {
 		border-image: none !important;
 	}
 
-	.v-label--active {
-		//margin-left: -19px;
-	}
+  &.-success {
+    .v-input__prepend-inner {
+      fill: $color-success;
+    }
+  }
 
-	.v-text-field--filled .v-label--active,
-	.v-text-field--full-width .v-label--active {
-		transform: translateY(-10px) scale(0.75);
-	}
+  &.-error {
+    .v-input__prepend-inner {
+      fill: $color-danger;
+    }
+  }
 
-	.v-input__slot input {
-		//padding-bottom: 4px;
-		padding-top: 2px;
-	}
 
-	.v-input.error--text .v-label,
-	v-messages__message {
-		color: $color-danger !important;
-		caret-color: $color-danger !important;
-	}
 }
 </style>
 
@@ -118,19 +111,23 @@
 import 'vuetify/dist/vuetify.min.css';
 import Vue, { VueConstructor } from 'vue';
 import { Prop } from 'vue/types/options';
-import Vuetify from 'vuetify';
+import Vuetify ,  { VTextField, VApp } from 'vuetify/lib';
 
-import { THEME_COLORS } from '../consts/colors';
 import Icon, { ICON_SIZES } from './Icon.vue';
 import { ICONS } from './Icon.vue';
+import { VUETIFY_THEME } from '../consts/vuetifyTheme.const';
 
-Vue.use(Vuetify);
 
+
+
+Vue.use(Vuetify, { theme: VUETIFY_THEME });
 export default {
 	name: 'Input',
-	vuetify: new Vuetify({}), // TODO: remove it
+	vuetify: new Vuetify({ theme: VUETIFY_THEME }), // TODO: remove it
 	components: {
 		Icon,
+    VTextField,
+    VApp,
 	},
 	props: {
 		label: {
@@ -204,7 +201,6 @@ export default {
 		},
 	},
 	created() {
-		this.COLOR = THEME_COLORS.PRIMARY;
 		this.ICON_SIZES = ICON_SIZES;
 	},
 };
