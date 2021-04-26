@@ -23,8 +23,6 @@
 		}"
 	>
 		<span class="a-button__content">
-			<!--      remove it-->
-			<v-btn></v-btn>
 			<wnl-icon
 				v-if="iconLeft"
 				class="a-button__icon -left"
