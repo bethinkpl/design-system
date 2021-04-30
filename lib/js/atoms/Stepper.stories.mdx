@@ -1,0 +1,25 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+import Stepper from 'design-system/lib/js/atoms/Stepper';
+
+<Meta title='atoms/Stepper' component={Stepper} />
+
+# Stepper
+<Story name='interactive'
+	   args={{
+		  
+	   }}
+	   argTypes={{
+		    
+	   }}>
+	{(args) => {
+		return {
+			components: { Stepper },
+			props: Object.keys(args),
+			template: `<stepper :steps="[{ label: 'asds', iconKey: 'FA_ARROW_LEFT_SOLID', isActive: true}, { label: 'asds', iconKey: 'FA_ARROW_LEFT_SOLID', isActive: false}]" />`,
+		};
+	}}
+</Story>
+
+## Props
+<Props of={Stepper} />
