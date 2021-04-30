@@ -1,6 +1,7 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
-import Stepper, { Step } from './Stepper.vue';
+import Stepper from './Stepper.vue';
+import { Step } from './Stepper.types';
 
 describe('Stepper', () => {
 	const createComponent = ({ steps = [] as Array<Step> } = {}) => {

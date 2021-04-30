@@ -1,13 +1,17 @@
 <template>
 	<div class="stepper">
-		<div v-for="(step, index) in steps" class="stepper__item">
+		<div v-for="(step, index) in steps" :key="index" class="stepper__item">
+			<div
+				v-if="index !== 0"
+				class="stepper__separator"
+				:class="{ '-active': step.isActive }"
+			></div>
 			<div class="stepper__icon" :class="{ '-active': step.isActive }">
 				<icon :icon="ICONS[step.iconKey]" :size="ICON_SIZES.X_SMALL"></icon>
 			</div>
 			<div class="stepper__label" :class="{ '-active': step.isActive }">
 				{{ step.label }}
 			</div>
-			<div v-if="index + 1 !== steps.length" class="stepper__separator"></div>
 		</div>
 	</div>
 </template>
@@ -31,7 +35,7 @@
 		@include textInfoM();
 		@include textBold();
 
-		color: #6f7285;
+		color: $color-minor;
 
 		&.-active {
 			color: $color-primary;
@@ -48,9 +52,10 @@
 		justify-content: center;
 		margin-right: $space-xxs;
 		width: 32px;
+		transition: background-color 0.33s;
 
 		&.-active {
-			background-color: #d8eeee; // TODO: var
+			background-color: #d8eeee; // TODO: replace with primary-background
 			color: $color-primary;
 		}
 	}
@@ -61,9 +66,14 @@
 		border-radius: 2.5px;
 		background-color: #e6e8ee;
 		margin: 0 $space-xs;
+		transition: background-color 0.33s;
 
 		@media #{breakpoint-s()} {
 			width: 151px;
+		}
+
+		&.-active {
+			background-color: $color-primary;
 		}
 	}
 }
@@ -71,14 +81,9 @@
 
 <script lang="ts">
 import { Prop } from 'vue/types/options';
-import Icon from './Icon.vue';
-import { ICONS, ICON_SIZES } from './Icon.vue';
 
-export interface Step {
-	label: string;
-	iconKey: string;
-	isActive: boolean;
-}
+import Icon, { ICON_SIZES, ICONS } from './Icon.vue';
+import { Step } from './Stepper.types';
 
 export default {
 	name: 'Stepper',

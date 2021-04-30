@@ -1,22 +1,30 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 
 import Stepper from 'design-system/lib/js/atoms/Stepper';
+import { ICONS } from 'design-system/lib/js/atoms/Icon';
 
 <Meta title='atoms/Stepper' component={Stepper} />
 
 # Stepper
 <Story name='interactive'
 	   args={{
-		  
+		   label1: 'Koszyk',
+		   label2: 'Dostawa',
+		   label3: 'Potwierdzenie',
+		   isActive1: false,
+		   isActive2: false,
+		   isActive3: false,
 	   }}
 	   argTypes={{
-		    
+		   iconKey1: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_SHOPPING_CART' },
+		   iconKey2: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TRUCK' },
+		   iconKey3: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_CLIPBOARD_LIST' },
 	   }}>
 	{(args) => {
 		return {
 			components: { Stepper },
 			props: Object.keys(args),
-			template: `<stepper :steps="[{ label: 'asds', iconKey: 'FA_ARROW_LEFT_SOLID', isActive: true}, { label: 'asds', iconKey: 'FA_ARROW_LEFT_SOLID', isActive: false}]" />`,
+			template: `<stepper :steps="[{ label: label1, iconKey: iconKey1, isActive: isActive1}, { label: label2, iconKey: iconKey2, isActive: isActive2}, { label: label3, iconKey: iconKey3, isActive: isActive3}]" />`,
 		};
 	}}
 </Story>
