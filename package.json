@@ -42,7 +42,7 @@
     "jsdom-global": "^3.0.2",
     "prettier": "^2.0.5",
     "sass": "^1.28.0",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "10.1.1",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.1.0",
@@ -60,7 +60,9 @@
     "@fortawesome/pro-regular-svg-icons": "^5.15.3",
     "@fortawesome/pro-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^2.0.2",
+    "@vue/composition-api": "^1.0.0-rc.8",
     "vue": "^2.6.11",
+    "vue-material-adapter-legacy": "^0.17.3",
     "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2"
   },
   "exports": {
