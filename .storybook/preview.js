@@ -78,9 +78,7 @@ export const parameters = {
 
 initialize();
 
-import VueMaterialAdapter from 'vue-material-adapter-legacy'
 import VueCompositionAPI from '@vue/composition-api'
 import Vue from 'vue';
 
 Vue.use(VueCompositionAPI)
-Vue.use(VueMaterialAdapter)
