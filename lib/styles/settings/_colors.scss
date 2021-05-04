@@ -64,6 +64,8 @@ $color-primary-supporting: var(--color-primary-supporting);
 $color-primary-supporting-hovered: var(--color-primary-supporting-hovered);
 $color-primary-supporting-focused: var(--color-primary-supporting-focused);
 $color-primary-supporting-disabled: var(--color-primary-supporting-disabled);
+$color-primary-background: var(--color-primary-background);
+
 $color-secondary: var(--color-secondary);
 $color-secondary-hovered: var(--color-secondary-hovered);
 $color-secondary-focused: var(--color-secondary-focused);
@@ -76,6 +78,7 @@ $color-content: $color-firefly-black;
 $color-content-inverted: $color-total-white;
 $color-background: $color-total-white;
 $color-background-secondary: $color-alabaster-gray;
+
 $DEPRECATED-color-primary-dark: var(--color-primary-hovered);
 
 // functional colors
