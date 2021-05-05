@@ -26,8 +26,8 @@
 	display: flex;
 
 	&__item {
-		display: flex;
 		align-items: center;
+		display: flex;
 		justify-content: center;
 	}
 
@@ -61,12 +61,12 @@
 	}
 
 	&__separator {
-		height: 2px;
-		width: 32px;
-		border-radius: 2.5px;
 		background-color: #e6e8ee;
+		border-radius: 2.5px;
+		height: 2px;
 		margin: 0 $space-xs;
 		transition: background-color 0.33s;
+		width: 32px;
 
 		@media #{breakpoint-s()} {
 			width: 151px;
