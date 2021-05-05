@@ -103,7 +103,7 @@ module.exports = {
 		'vue/no-unregistered-components': [
 			'error',
 			{
-				ignorePatterns: ['router-link', 'router-view'],
+				ignorePatterns: ['router-link', 'router-view', 'mcw-'],
 			},
 		],
 	},
