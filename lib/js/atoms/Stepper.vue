@@ -55,7 +55,7 @@
 		transition: background-color 0.33s;
 
 		&.-active {
-			background-color: #d8eeee; // TODO: replace with primary-background
+			background-color: $color-primary-background;
 			color: $color-primary;
 		}
 	}
