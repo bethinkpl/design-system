@@ -6,9 +6,7 @@
 				class="stepper__separator"
 				:class="{ '-active': step.isActive }"
 			></div>
-			<div class="stepper__icon" :class="{ '-active': step.isActive }">
-				<icon :icon="ICONS[step.iconKey]" :size="ICON_SIZES.X_SMALL"></icon>
-			</div>
+      <icon class="stepper__icon" :class="{ '-active': step.isActive }" :icon="ICONS[step.iconKey]" :size="ICON_SIZES.X_SMALL"></icon>
 			<div class="stepper__label" :class="{ '-active': step.isActive }">
 				{{ step.label }}
 			</div>
@@ -61,7 +59,7 @@
 	}
 
 	&__separator {
-		background-color: #e6e8ee;
+		background-color: $color-primary-background;
 		border-radius: 2.5px;
 		height: 2px;
 		margin: 0 $space-xs;
