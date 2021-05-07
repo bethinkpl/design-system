@@ -1,5 +1,5 @@
 <template>
-	<mcw-textfield v-model="text" label="Hint text" :valid='false' />
+	<mcw-textfield v-model="text" label="Hint text" />
 </template>
 
 <style lang="scss">
