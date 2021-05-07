@@ -22,7 +22,7 @@
 							: ICONS[step.iconKey]
 					"
 					:size="ICON_SIZES.X_SMALL"
-					@click="$emit('click', step.name)"
+					@click.native="onStepClick(step.name)"
 				></icon>
 			</ripple-wrapper>
 			<div class="stepper__label" :class="{ '-filled': step.isFilled }">
@@ -166,6 +166,11 @@ export default {
 	computed: {
 		activeStepIndex(): number {
 			return this.steps.findIndex((_, index, arr) => !arr[index + 1]?.isFilled);
+		},
+	},
+	methods: {
+		onStepClick(name: string) {
+			this.$emit('click', name);
 		},
 	},
 };

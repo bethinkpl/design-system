@@ -1,5 +1,8 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
+import RippleWrapper from 'design-system/lib/js/utils/RippleWrapper.vue';
+import Icon from 'design-system/lib/js/atoms/Icon.vue';
+
 import Stepper from './Stepper.vue';
 import { Step } from './Stepper.types';
 
@@ -14,7 +17,10 @@ describe('Stepper', () => {
 				steps,
 				disableNotFilledSteps: false,
 			},
-			stubs: {},
+			stubs: {
+				Icon,
+				RippleWrapper,
+			},
 		});
 	};
 
@@ -83,4 +89,24 @@ describe('Stepper', () => {
 
 		expect(component.findAll('.stepper__separator').length).toBe(size - 1);
 	});
+
+	it.each([0, 1, 2])(
+		'after click on step component should emit click event with proper name step.name',
+		async (n) => {
+			const steps = Array(3)
+				.fill(null)
+				.map((_, index) => ({
+					label: '',
+					isFilled: false,
+					name: `${index}`,
+					iconKey: 'FA_ARROW_LEFT_SOLID',
+				}));
+
+			const component = createComponent({ steps });
+			const step = component.find(`.stepper__item:nth-of-type(${n + 1}) .stepper__icon`);
+			await step.trigger('click');
+
+			expect(component.emitted().click[0]).toEqual([`${n}`]);
+		},
+	);
 });
