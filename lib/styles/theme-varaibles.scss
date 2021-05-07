@@ -22,6 +22,10 @@
 				'#{$color-name}-background',
 				mix($color, $color-total-white, 16%)
 			);
+			@include exportCssVariables(
+				'#{$color-name}-background-hovered',
+				mix(mix($color, $color-total-white, 16%), $color-firefly-black, 88%)
+			);
 			@include exportCssVariables('#{$color-name}-supporting', $color-supporting);
 			@include exportCssVariables(
 				'#{$color-name}-supporting-hovered',

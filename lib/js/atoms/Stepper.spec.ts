@@ -12,6 +12,7 @@ describe('Stepper', () => {
 			mocks: {},
 			propsData: {
 				steps,
+				disableNotFilledSteps: false,
 			},
 			stubs: {},
 		});
@@ -29,8 +30,9 @@ describe('Stepper', () => {
 			steps: [
 				{
 					label,
-					isActive: false,
+					isFilled: false,
 					iconKey: 'FA_ARROW_LEFT_SOLID',
+					name: '',
 				},
 			],
 		});
@@ -41,8 +43,9 @@ describe('Stepper', () => {
 	it.each([3, 4, 42])('should render each element from steps prop', (size) => {
 		const steps = Array(size).fill({
 			label: '',
-			isActive: false,
+			isFilled: false,
 			iconKey: 'FA_ARROW_LEFT_SOLID',
+			name: '',
 		});
 
 		const component = createComponent({ steps });
@@ -51,26 +54,28 @@ describe('Stepper', () => {
 	});
 
 	it.each([true, false])(
-		'when isActive flag is true component should render -isActive class',
-		(isActive) => {
+		'when isFilled flag is true component should render -isFilled class',
+		(isFilled) => {
 			const component = createComponent({
 				steps: [
 					{
 						label: 'Wpłynąłem na suchego przestwór oceanu',
-						isActive,
+						isFilled,
 						iconKey: 'FA_ARROW_LEFT_SOLID',
+						name: '',
 					},
 				],
 			});
 
-			expect(component.find('.-active').exists()).toBe(isActive);
+			expect(component.find('.-filled').exists()).toBe(isFilled);
 		},
 	);
 
 	it.each([3, 4, 42])('should render separator between eash step', (size) => {
 		const steps = Array(size).fill({
 			label: '',
-			isActive: false,
+			isFilled: false,
+			name: '',
 			iconKey: 'FA_ARROW_LEFT_SOLID',
 		});
 
