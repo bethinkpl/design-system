@@ -159,14 +159,14 @@ export default {
 			},
 		},
 	},
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
-	},
 	computed: {
 		activeStepIndex(): number {
 			return this.steps.findIndex((_, index, arr) => !arr[index + 1]?.isFilled);
 		},
+	},
+	created() {
+		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
 		onStepClick(name: string) {

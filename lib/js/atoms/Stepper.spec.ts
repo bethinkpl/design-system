@@ -106,7 +106,7 @@ describe('Stepper', () => {
 			const step = component.find(`.stepper__item:nth-of-type(${n + 1}) .stepper__icon`);
 			await step.trigger('click');
 
-			expect(component.emitted().click[0]).toEqual([`${n}`]);
+			expect(component.emitted().click?.[0]).toEqual([`${n}`]);
 		},
 	);
 });
