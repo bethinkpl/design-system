@@ -36,6 +36,13 @@
 						</span>
 					</template>
 				</template>
+
+				<template v-slot:message="data">
+					<template>
+						<icon :icon="ICONS.FA_ANGLE_DOWN" :size="ICON_SIZES.X_SMALL"></icon>
+						<span>{{data.message}}</span>
+					</template>
+				</template>
 			</v-text-field>
 		</div>
 	</v-app>
@@ -108,7 +115,6 @@
 </style>
 
 <script lang="ts">
-import 'vuetify/dist/vuetify.min.css';
 import Vue, { VueConstructor } from 'vue';
 import { Prop } from 'vue/types/options';
 import Vuetify ,  { VTextField, VApp } from 'vuetify/lib';
@@ -202,6 +208,7 @@ export default {
 	},
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
+		this.ICONS = ICONS;
 	},
 };
 </script>

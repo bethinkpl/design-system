@@ -37,12 +37,29 @@ module.exports = {
 					'style-loader',
 					'css-loader',
 					{
+						loader: require.resolve('postcss-loader'),
+						options: {
+							plugins: () => [
+								require('postcss-prefix-selector')({
+									prefix: '.enabled-vuetify-global-styling',
+									transform: function (prefix, selector, prefixedSelector) {
+										if (selector.startsWith('.v-application') && !selector.startsWith('.v-application--')) {
+											return prefixedSelector;
+										}
+
+										return selector;
+									}
+								}),
+							]
+						}
+					},
+					{
 						loader: 'sass-loader',
 						options: {
 							implementation: require('sass'),
 							data: "@import 'design-system/lib/styles/variables.scss'"
 						},
-					},
+					}
 				],
 				include: path.resolve(__dirname, '../../'),
 			},
@@ -55,7 +72,6 @@ module.exports = {
 						loader: 'sass-loader',
 						options: {
 							implementation: require('sass'),
-							data: "@import 'design-system/lib/styles/variables.scss';"
 						},
 					},
 				],
