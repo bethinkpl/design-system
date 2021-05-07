@@ -1,1 +1,3 @@
-$mdc-theme-primary: red;
+@import 'colors';
+
+$mdc-theme-error: $color-danger;

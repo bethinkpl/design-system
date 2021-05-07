@@ -1,10 +1,15 @@
 <template>
-	<mcw-textfield v-model="text" label="Hint text" />
+	<mcw-textfield v-model="text" label="Hint text" :valid='false' />
 </template>
 
 <style lang="scss">
 @import '../../styles/settings/material-theme';
 @import '@material/textfield/mdc-text-field';
+
+/* MDC textfield floating label */
+.mdc-text-field--focused:not(.mdc-text-field--disabled) .mdc-floating-label {
+	color: var(--mdc-theme-primary);
+}
 </style>
 
 <script lang="ts">

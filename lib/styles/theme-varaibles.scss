@@ -2,6 +2,8 @@
 
 @mixin exportCssVariablesColors($colors) {
 	:root {
+		--mdc-theme-primary: #{map-get($colors, 'color-primary')};
+
 		@each $color-name, $color in $colors {
 			$color-supporting: scale-color($color, $lightness: 49%, $saturation: -51%);
 
