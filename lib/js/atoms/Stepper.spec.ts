@@ -38,7 +38,8 @@ describe('Stepper', () => {
 					label,
 					isFilled: false,
 					iconKey: 'FA_ARROW_LEFT_SOLID',
-					name: '',
+					route: '',
+					isClickable: true,
 				},
 			],
 		});
@@ -51,7 +52,8 @@ describe('Stepper', () => {
 			label: '',
 			isFilled: false,
 			iconKey: 'FA_ARROW_LEFT_SOLID',
-			name: '',
+			isClickable: true,
+			route: '',
 		});
 
 		const component = createComponent({ steps });
@@ -68,7 +70,8 @@ describe('Stepper', () => {
 						label: 'Wpłynąłem na suchego przestwór oceanu',
 						isFilled,
 						iconKey: 'FA_ARROW_LEFT_SOLID',
-						name: '',
+						isClickable: true,
+						route: '',
 					},
 				],
 			});
@@ -81,8 +84,9 @@ describe('Stepper', () => {
 		const steps = Array(size).fill({
 			label: '',
 			isFilled: false,
-			name: '',
+			route: '',
 			iconKey: 'FA_ARROW_LEFT_SOLID',
+			isClickable: true,
 		});
 
 		const component = createComponent({ steps });
@@ -91,14 +95,15 @@ describe('Stepper', () => {
 	});
 
 	it.each([0, 1, 2])(
-		'after click on step component should emit click event with proper name step.name',
+		'after click on step component should emit click event with proper name step.route',
 		async (n) => {
 			const steps = Array(3)
 				.fill(null)
 				.map((_, index) => ({
 					label: '',
 					isFilled: false,
-					name: `${index}`,
+					route: `${index}`,
+					isClickable: true,
 					iconKey: 'FA_ARROW_LEFT_SOLID',
 				}));
 
@@ -107,6 +112,27 @@ describe('Stepper', () => {
 			await step.trigger('click');
 
 			expect(component.emitted().click?.[0]).toEqual([`${n}`]);
+		},
+	);
+
+	it.each([true, false])(
+		'after click on step component with isClickable prop set to false should NOT emit click event with proper name step.route',
+		async (isClickable) => {
+			const steps = [
+				{
+					label: '',
+					isFilled: false,
+					route: '',
+					iconKey: 'FA_ARROW_LEFT_SOLID',
+					isClickable,
+				},
+			];
+
+			const component = createComponent({ steps });
+			const step = component.find('.stepper__item .stepper__icon');
+			await step.trigger('click');
+
+			expect(!!component.emitted().click?.length).toBe(isClickable);
 		},
 	);
 });

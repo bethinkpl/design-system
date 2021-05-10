@@ -2,5 +2,6 @@ export interface Step {
 	label: string;
 	iconKey: string;
 	isFilled: boolean;
-	name: string;
+	route: string;
+	isClickable: boolean;
 }

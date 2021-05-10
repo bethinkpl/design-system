@@ -6,23 +6,16 @@
 				class="stepper__separator"
 				:class="{ '-filled': step.isFilled }"
 			></div>
-			<ripple-wrapper
-				class="stepper__ripple"
-				:disable="!step.isFilled && disableNotFilledSteps"
-			>
+			<ripple-wrapper class="stepper__ripple" :disable="!step.isClickable">
 				<icon
 					class="stepper__icon"
 					:class="{
 						'-filled': step.isFilled,
-						'-disabled': !step.isFilled && disableNotFilledSteps,
+						'-disabled': !step.isClickable,
 					}"
-					:icon="
-						step.isFilled && activeStepIndex !== index
-							? ICONS.FA_CHECK_SOLID
-							: ICONS[step.iconKey]
-					"
+					:icon="ICONS[step.iconKey]"
 					:size="ICON_SIZES.X_SMALL"
-					@click.native="onStepClick(step.name)"
+					@click.native="onStepClick(step)"
 				></icon>
 			</ripple-wrapper>
 			<div class="stepper__label" :class="{ '-filled': step.isFilled }">
@@ -124,9 +117,11 @@ $step-icon-size: 32px;
 import { Prop } from 'vue/types/options';
 import Ripple from 'vue-ripple-directive';
 
+import RippleWrapper from '../utils/RippleWrapper.vue';
+import { arrayOfObjectValidator } from '../utils/validatior.utils';
+
 import Icon, { ICON_SIZES, ICONS } from './Icon.vue';
 import { Step } from './Stepper.types';
-import RippleWrapper from '../utils/RippleWrapper.vue';
 
 export default {
 	name: 'Stepper',
@@ -135,42 +130,27 @@ export default {
 		Ripple,
 	},
 	props: {
-		disableNotFilledSteps: {
-			type: Boolean,
-			required: true,
-		},
 		steps: {
 			type: Array as Prop<Array<Step>>,
 			required: true,
-			validate: (steps: Array<Step>) => {
-				return steps.every((step) => {
-					if (typeof step.label !== 'string') {
-						return false;
-					}
-					if (typeof step.iconKey !== 'string') {
-						return false;
-					}
-					if (typeof step.isFilled !== 'boolean') {
-						return false;
-					}
-
-					return true;
-				});
-			},
+			validate: arrayOfObjectValidator,
 		},
 	},
-	computed: {
-		activeStepIndex(): number {
-			return this.steps.findIndex((_, index, arr) => !arr[index + 1]?.isFilled);
-		},
-	},
+	// computed: {
+	// 	activeStepIndex(): number {
+	// 		return this.steps.findIndex((_, index, arr) => !arr[index + 1]?.isFilled);
+	// 	},
+	// },
 	created() {
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
-		onStepClick(name: string) {
-			this.$emit('click', name);
+		onStepClick(step: Step) {
+			if (!step.isClickable) {
+				return;
+			}
+			this.$emit('click', step.route);
 		},
 	},
 };

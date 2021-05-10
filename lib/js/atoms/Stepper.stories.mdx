@@ -14,7 +14,9 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon';
 		   isFilled1: false,
 		   isFilled2: false,
 		   isFilled3: false,
-		   disableNotFilledSteps: false,
+		   isClickable1: false,
+		   isClickable2: false,
+		   isClickable3: false,
 	   }}
 	   argTypes={{
 		   iconKey1: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_SHOPPING_CART' },
@@ -25,7 +27,11 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon';
 		return {
 			components: { Stepper },
 			props: Object.keys(args),
-			template: `<stepper :disable-not-filled-steps="disableNotFilledSteps" :steps="[{ label: label1, iconKey: iconKey1, isFilled: isFilled1}, { label: label2, iconKey: iconKey2, isFilled: isFilled2}, { label: label3, iconKey: iconKey3, isFilled: isFilled3}]" />`,
+			template: `<stepper :steps="[
+    	{ label: label1, iconKey: iconKey1, isFilled: isFilled1, isClickable: isClickable1},
+    	{ label: label2, iconKey: iconKey2, isFilled: isFilled2, isClickable: isClickable2},
+    	{ label: label3, iconKey: iconKey3, isFilled: isFilled3, isClickable: isClickable3}
+    ]" />`,
 		};
 	}}
 </Story>
