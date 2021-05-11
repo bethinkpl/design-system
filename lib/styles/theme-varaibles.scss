@@ -18,6 +18,10 @@
 				'#{$color-name}-disabled',
 				mix($color, $color-total-white, 40%)
 			);
+			@include exportCssVariables(
+				'#{$color-name}-background',
+				mix($color, $color-total-white, 16%)
+			);
 			@include exportCssVariables('#{$color-name}-supporting', $color-supporting);
 			@include exportCssVariables(
 				'#{$color-name}-supporting-hovered',
