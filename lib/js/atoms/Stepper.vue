@@ -80,7 +80,7 @@ $step-icon-size: 32px;
 		}
 
 		&:hover {
-			background-color: mix($color-minor-background, rgba($color-firefly-black, 0.12));
+			background-color: rgba($color-firefly-black, 0.12);
 		}
 	}
 
