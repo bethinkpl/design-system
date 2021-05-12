@@ -38,7 +38,7 @@ describe('Stepper', () => {
 					label,
 					isFilled: false,
 					iconKey: 'FA_ARROW_LEFT_SOLID',
-					route: '',
+					name: '',
 					isClickable: true,
 				},
 			],
@@ -53,7 +53,7 @@ describe('Stepper', () => {
 			isFilled: false,
 			iconKey: 'FA_ARROW_LEFT_SOLID',
 			isClickable: true,
-			route: '',
+			name: '',
 		});
 
 		const component = createComponent({ steps });
@@ -71,7 +71,7 @@ describe('Stepper', () => {
 						isFilled,
 						iconKey: 'FA_ARROW_LEFT_SOLID',
 						isClickable: true,
-						route: '',
+						name: '',
 					},
 				],
 			});
@@ -84,7 +84,7 @@ describe('Stepper', () => {
 		const steps = Array(size).fill({
 			label: '',
 			isFilled: false,
-			route: '',
+			name: '',
 			iconKey: 'FA_ARROW_LEFT_SOLID',
 			isClickable: true,
 		});
@@ -95,14 +95,14 @@ describe('Stepper', () => {
 	});
 
 	it.each([0, 1, 2])(
-		'after click on step component should emit click event with proper name step.route',
+		'after click on step component should emit click event with proper name step.name',
 		async (n) => {
 			const steps = Array(3)
 				.fill(null)
 				.map((_, index) => ({
 					label: '',
 					isFilled: false,
-					route: `${index}`,
+					name: `${index}`,
 					isClickable: true,
 					iconKey: 'FA_ARROW_LEFT_SOLID',
 				}));
@@ -116,13 +116,13 @@ describe('Stepper', () => {
 	);
 
 	it.each([true, false])(
-		'after click on step component with isClickable prop set to false should NOT emit click event with proper name step.route',
+		'after click on step component with isClickable prop set to false should NOT emit click event with proper name step.name',
 		async (isClickable) => {
 			const steps = [
 				{
 					label: '',
 					isFilled: false,
-					route: '',
+					name: '',
 					iconKey: 'FA_ARROW_LEFT_SOLID',
 					isClickable,
 				},

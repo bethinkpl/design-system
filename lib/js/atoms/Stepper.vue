@@ -70,17 +70,21 @@ $step-icon-size: 32px;
 			background-color: $color-primary-background;
 			color: $color-primary;
 
-			&:hover {
+			&:hover:not(.-disabled) {
 				background-color: $color-primary-background-hovered;
 			}
 		}
 
 		&:not(.-disabled) {
 			cursor: pointer;
-		}
 
-		&:hover {
-			background-color: rgba($color-firefly-black, 0.12);
+			&:hover:not(.-filled) {
+				background-color: mix(
+					$color-minor-background,
+					$color-firefly-black,
+					(1 - $button-hover-alpha) * 100%
+				);
+			}
 		}
 	}
 
@@ -115,7 +119,6 @@ $step-icon-size: 32px;
 
 <script lang="ts">
 import { Prop } from 'vue/types/options';
-import Ripple from 'vue-ripple-directive';
 
 import RippleWrapper from '../utils/RippleWrapper.vue';
 import { arrayOfObjectValidator } from '../utils/validatior.utils';
@@ -126,9 +129,6 @@ import { Step } from './Stepper.types';
 export default {
 	name: 'Stepper',
 	components: { RippleWrapper, Icon },
-	directives: {
-		Ripple,
-	},
 	props: {
 		steps: {
 			type: Array as Prop<Array<Step>>,
@@ -136,11 +136,6 @@ export default {
 			validate: arrayOfObjectValidator,
 		},
 	},
-	// computed: {
-	// 	activeStepIndex(): number {
-	// 		return this.steps.findIndex((_, index, arr) => !arr[index + 1]?.isFilled);
-	// 	},
-	// },
 	created() {
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
@@ -150,7 +145,7 @@ export default {
 			if (!step.isClickable) {
 				return;
 			}
-			this.$emit('click', step.route);
+			this.$emit('click', step.name);
 		},
 	},
 };
