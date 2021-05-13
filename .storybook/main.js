@@ -43,7 +43,7 @@ module.exports = {
 								require('postcss-prefix-selector')({
 									prefix: '.enabled-vuetify-global-styling',
 									transform: function (prefix, selector, prefixedSelector) {
-										if (selector.startsWith('.v-application') && !selector.startsWith('.v-application--')) {
+										if (selector.startsWith('.v-application') && !selector.startsWith('.v-application--is')) {
 											return prefixedSelector;
 										}
 
