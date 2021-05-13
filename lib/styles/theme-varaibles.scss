@@ -3,8 +3,6 @@
 @mixin exportCssVariablesColors($colors) {
 	:root {
 		@each $color-name, $color in $colors {
-			$color-supporting: scale-color($color, $lightness: 49%, $saturation: -51%);
-
 			@include exportCssVariables($color-name, $color);
 			@include exportCssVariables(
 				'#{$color-name}-hovered',
@@ -18,27 +16,6 @@
 				'#{$color-name}-disabled',
 				mix($color, $color-total-white, 40%)
 			);
-			@include exportCssVariables(
-				'#{$color-name}-background',
-				mix($color, $color-total-white, 16%)
-			);
-			@include exportCssVariables(
-				'#{$color-name}-background-hovered',
-				mix(mix($color, $color-total-white, 16%), $color-firefly-black, 88%)
-			);
-			@include exportCssVariables('#{$color-name}-supporting', $color-supporting);
-			@include exportCssVariables(
-				'#{$color-name}-supporting-hovered',
-				mix($color-supporting, $color-firefly-black, 88%)
-			);
-			@include exportCssVariables(
-				'#{$color-name}-supporting-focused',
-				mix($color-supporting, $color-firefly-black, 76%)
-			);
-			@include exportCssVariables(
-				'#{$color-name}-supporting-disabled',
-				mix($color-supporting, $color-total-white, 40%)
-			);
 		}
 	}
 }
@@ -50,7 +27,11 @@
 
 $theme-colors: (
 	'color-primary': #0f9698,
+	'color-primary-supporting': #87cacb,
+	'color-primary-background': #d8eeee,
 	'color-secondary': #11afb2,
+	'color-secondary-supporting': #8ececf,
+	'color-secondary-background': #11afb2,
 );
 
 @include exportCssVariablesColors($theme-colors);

@@ -49,6 +49,7 @@ $step-icon-size: 32px;
 		@include flex-center();
 
 		flex-direction: column;
+		margin: 0 $space-xs;
 
 		@media #{breakpoint-s()} {
 			flex-direction: row;
@@ -61,6 +62,7 @@ $step-icon-size: 32px;
 
 		color: $color-minor;
 		margin-top: $space-xxxxs;
+		max-width: $step-icon-size + 2 * $space-s;
 
 		@media #{breakpoint-s()} {
 			margin-left: $space-xxs;
@@ -109,12 +111,13 @@ $step-icon-size: 32px;
 		background-color: $color-athens-gray;
 		border-radius: $radius-xs;
 		height: 2px;
-		margin: 0 $space-xs;
+		margin-bottom: $space-xs;
 		transition: background-color $basic-transition-time;
 		width: 32px;
 
 		@media #{breakpoint-s()} {
 			width: 151px;
+			margin-bottom: 0;
 		}
 
 		&.-filled {
@@ -162,7 +165,7 @@ export default {
 			if (!step.isClickable) {
 				return;
 			}
-			this.$emit('click', step.name);
+			this.$emit('stepClick', step.name);
 		},
 	},
 };
