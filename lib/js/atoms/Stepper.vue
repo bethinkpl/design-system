@@ -89,7 +89,7 @@ $step-icon-size: 32px;
 	}
 
 	&__separator {
-		background-color: $color-primary-background;
+		background-color: $color-athens-gray;
 		border-radius: $radius-xs;
 		height: 2px;
 		margin: 0 $space-xs;
