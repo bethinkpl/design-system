@@ -5,8 +5,11 @@ import Icon from 'design-system/lib/js/atoms/Icon.vue';
 
 import Stepper from './Stepper.vue';
 import { Step } from './Stepper.types';
+import { ICONS } from './Icon.vue';
 
 describe('Stepper', () => {
+	const icon = ICONS.FA_ARROW_LEFT_SOLID;
+
 	const createComponent = ({ steps = [] as Array<Step> } = {}) => {
 		const localVue = createLocalVue();
 
@@ -37,7 +40,7 @@ describe('Stepper', () => {
 				{
 					label,
 					isFilled: false,
-					iconKey: 'FA_ARROW_LEFT_SOLID',
+					icon,
 					name: '',
 					isClickable: true,
 				},
@@ -51,7 +54,7 @@ describe('Stepper', () => {
 		const steps = Array(size).fill({
 			label: '',
 			isFilled: false,
-			iconKey: 'FA_ARROW_LEFT_SOLID',
+			icon,
 			isClickable: true,
 			name: '',
 		});
@@ -69,7 +72,7 @@ describe('Stepper', () => {
 					{
 						label: 'Wpłynąłem na suchego przestwór oceanu',
 						isFilled,
-						iconKey: 'FA_ARROW_LEFT_SOLID',
+						icon,
 						isClickable: true,
 						name: '',
 					},
@@ -85,7 +88,7 @@ describe('Stepper', () => {
 			label: '',
 			isFilled: false,
 			name: '',
-			iconKey: 'FA_ARROW_LEFT_SOLID',
+			icon,
 			isClickable: true,
 		});
 
@@ -104,7 +107,7 @@ describe('Stepper', () => {
 					isFilled: false,
 					name: `${index}`,
 					isClickable: true,
-					iconKey: 'FA_ARROW_LEFT_SOLID',
+					icon,
 				}));
 
 			const component = createComponent({ steps });
@@ -123,7 +126,7 @@ describe('Stepper', () => {
 					label: '',
 					isFilled: false,
 					name: '',
-					iconKey: 'FA_ARROW_LEFT_SOLID',
+					icon,
 					isClickable,
 				},
 			];

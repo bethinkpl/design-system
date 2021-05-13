@@ -28,10 +28,13 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon';
 			components: { Stepper },
 			props: Object.keys(args),
 			template: `<stepper :steps="[
-    	{ label: label1, iconKey: iconKey1, isFilled: isFilled1, isClickable: isClickable1},
-    	{ label: label2, iconKey: iconKey2, isFilled: isFilled2, isClickable: isClickable2},
-    	{ label: label3, iconKey: iconKey3, isFilled: isFilled3, isClickable: isClickable3}
+    	{ label: label1, icon: ICONS[iconKey1], isFilled: isFilled1, isClickable: isClickable1},
+    	{ label: label2, icon: ICONS[iconKey2], isFilled: isFilled2, isClickable: isClickable2},
+    	{ label: label3, icon: ICONS[iconKey3], isFilled: isFilled3, isClickable: isClickable3}
     ]" />`,
+			created() {
+				this.ICONS = ICONS;
+			},
 		};
 	}}
 </Story>

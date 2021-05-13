@@ -14,7 +14,7 @@
 							'-filled': step.isFilled,
 							'-disabled': !step.isClickable,
 						}"
-						:icon="ICONS[step.iconKey]"
+						:icon="step.icon"
 						:size="ICON_SIZES.X_SMALL"
 						@click.native="onStepClick(step)"
 					></icon>
