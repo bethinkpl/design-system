@@ -6,20 +6,22 @@
 				class="stepper__separator"
 				:class="{ '-filled': step.isFilled }"
 			></div>
-			<ripple-wrapper class="stepper__ripple" :disable="!step.isClickable">
-				<icon
-					class="stepper__icon"
-					:class="{
-						'-filled': step.isFilled,
-						'-disabled': !step.isClickable,
-					}"
-					:icon="ICONS[step.iconKey]"
-					:size="ICON_SIZES.X_SMALL"
-					@click.native="onStepClick(step)"
-				></icon>
-			</ripple-wrapper>
-			<div class="stepper__label" :class="{ '-filled': step.isFilled }">
-				{{ step.label }}
+			<div class="stepper__step">
+				<ripple-wrapper class="stepper__ripple" :disable="!step.isClickable">
+					<icon
+						class="stepper__icon"
+						:class="{
+							'-filled': step.isFilled,
+							'-disabled': !step.isClickable,
+						}"
+						:icon="ICONS[step.iconKey]"
+						:size="ICON_SIZES.X_SMALL"
+						@click.native="onStepClick(step)"
+					></icon>
+				</ripple-wrapper>
+				<div class="stepper__label" :class="{ '-filled': step.isFilled }">
+					{{ step.label }}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -43,12 +45,27 @@ $step-icon-size: 32px;
 		@include flex-center();
 	}
 
+	&__step {
+		@include flex-center();
+
+		flex-direction: column;
+
+		@media #{breakpoint-s()} {
+			flex-direction: row;
+		}
+	}
+
 	&__label {
 		@include textInfoM();
 		@include textBold();
 
 		color: $color-minor;
-		margin-left: $space-xxs;
+		margin-top: $space-xxxxs;
+
+		@media #{breakpoint-s()} {
+			margin-left: $space-xxs;
+			margin-top: 0;
+		}
 
 		&.-filled {
 			color: $color-primary;
