@@ -4,7 +4,7 @@ import Vuetify from 'vuetify';
 import VTextField from 'vuetify/lib/components/VTextField';
 
 import Input from './Input.vue';
-import { ICONS } from './Icon.vue';
+import { IconItem, ICONS } from '../Icon/Icon.consts';
 
 describe('Input', () => {
 	const text = 'Wpłynąłem na suchego przestwór oceanu';
@@ -14,14 +14,14 @@ describe('Input', () => {
 		helpMessage = '',
 		label = '',
 		labelAddition = '',
-		leftIcon = undefined,
-		rightIcon = undefined,
+		leftIcon = undefined as  IconItem | undefined,
+		rightIcon = undefined as IconItem | undefined,
 		success = false,
 	} = {}) => {
 		const localVue = createLocalVue();
 		localVue.use(Vuetify);
 
-		return shallowMount<Input>(Input, {
+		return shallowMount(Input, {
 			localVue,
 			mocks: {},
 			propsData: {

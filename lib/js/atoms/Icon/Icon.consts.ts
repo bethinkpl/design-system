@@ -23,3 +23,6 @@ export const ICONS = {
 	...FONTAWESOME_ICONS,
 	...BETHINK_ICONS,
 } as const;
+
+export type IconKey = keyof typeof ICONS;
+export type IconItem = (typeof ICONS)[IconKey];

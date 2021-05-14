@@ -1,5 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
-import WnlNumberInCircle, { COLORS } from 'design-system/lib/js/atoms/NumberInCircle.vue';
+import WnlNumberInCircle  from 'design-system/lib/js/atoms/NumberInCircle';
+import { NUMBER_IN_CIRCLE_COLORS } from 'design-system/lib/js/atoms/NumberInCircle/NumberInCircle.consts'
 
 <Meta title='atoms/NumberInCircle' component={WnlNumberInCircle} />
 
@@ -9,11 +10,11 @@ import WnlNumberInCircle, { COLORS } from 'design-system/lib/js/atoms/NumberInCi
     args={{
         slotText: '1',
         index: 1,
-        color: COLORS.DEFAULT,
+        color: NUMBER_IN_CIRCLE_COLORS.DEFAULT,
         medium: false,
     }}
     argTypes={{
-        color: {control: { type: 'select', options: Object.values(COLORS) }, defaultValue: COLORS.DEFAULT},
+        color: {control: { type: 'select', options: Object.values(NUMBER_IN_CIRCLE_COLORS) }, defaultValue: NUMBER_IN_CIRCLE_COLORS.DEFAULT},
         slotText: {control: { type: 'text' } },
     }}
 >

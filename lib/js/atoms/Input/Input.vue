@@ -42,8 +42,8 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../styles/settings/colors';
-@import '../../styles/settings/typography';
+@import '../../../styles/settings/colors';
+@import '../../../styles/settings/typography';
 
 .a-input {
 	&__labelAddition {
@@ -66,8 +66,8 @@
 </style>
 
 <style lang="scss">
-@import '../../styles/settings/colors';
-@import '../../styles/settings/spacings';
+@import '../../../styles/settings/colors';
+@import '../../../styles/settings/spacings';
 
 .a-input {
 	.v-input__slot {
@@ -113,11 +113,9 @@ import Vue, { VueConstructor } from 'vue';
 import { Prop } from 'vue/types/options';
 import Vuetify ,  { VTextField, VApp } from 'vuetify/lib';
 
-import Icon, { ICON_SIZES } from './Icon.vue';
-import { ICONS } from './Icon.vue';
-import { VUETIFY_THEME } from '../consts/vuetifyTheme.const';
-
-
+import Icon from '../Icon';
+import { VUETIFY_THEME } from '../../consts/vuetifyTheme.const';
+import { ICON_SIZES, ICONS } from '../Icon/Icon.consts';
 
 
 Vue.use(Vuetify, { theme: VUETIFY_THEME });

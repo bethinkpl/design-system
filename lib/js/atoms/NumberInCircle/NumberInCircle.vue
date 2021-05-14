@@ -73,12 +73,8 @@
 </style>
 
 <script>
-export const COLORS = {
-	DEFAULT: 'DEFAULT',
-	PRIMARY: 'PRIMARY',
-	DANGER: 'DANGER',
-	SECONDARY: 'SECONDARY',
-};
+
+import { NUMBER_IN_CIRCLE_COLORS } from './NumberInCircle.consts';
 
 export default {
 	name: 'NumberInCircle',
@@ -93,19 +89,19 @@ export default {
 		},
 		color: {
 			type: String,
-			default: COLORS.DEFAULT,
+			default: NUMBER_IN_CIRCLE_COLORS.DEFAULT,
 			validator(value) {
-				return Object.values(COLORS).includes(value);
+				return Object.values(NUMBER_IN_CIRCLE_COLORS).includes(value);
 			},
 		},
 	},
 	computed: {
 		colorClass() {
 			const colorToClassMap = {
-				[COLORS.DEFAULT]: `-is${this.index}`,
-				[COLORS.PRIMARY]: '-primary',
-				[COLORS.DANGER]: '-danger',
-				[COLORS.SECONDARY]: '-secondary',
+				[NUMBER_IN_CIRCLE_COLORS.DEFAULT]: `-is${this.index}`,
+				[NUMBER_IN_CIRCLE_COLORS.PRIMARY]: '-primary',
+				[NUMBER_IN_CIRCLE_COLORS.DANGER]: '-danger',
+				[NUMBER_IN_CIRCLE_COLORS.SECONDARY]: '-secondary',
 			};
 			return colorToClassMap[this.color];
 		},
