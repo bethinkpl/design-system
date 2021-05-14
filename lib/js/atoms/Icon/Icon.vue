@@ -14,39 +14,14 @@
 </template>
 
 <style lang="scss">
-@import '../../styles/atoms/icons';
+@import '../../../styles/atoms/icons';
 </style>
 
 <script lang="ts">
 import { VueConstructor } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import { FONTAWESOME_ICONS } from '../icons/fontawesome';
-
-import FileVerified from '../../images/icons/file-verified.svg';
-import HeadWithQuestionMark from '../../images/icons/head-with-question-mark.svg';
-import Ribbon from '../../images/icons/ribbon.svg';
-
-export const ICON_SIZES = {
-	XX_SMALL: 'xx-small',
-	X_SMALL: 'x-small',
-	SMALL: 'small',
-	MEDIUM: 'medium',
-	LARGE: 'large',
-	X_LARGE: 'x-large',
-	XX_LARGE: 'xx-large',
-};
-
-const BETHINK_ICONS = {
-	FILE_VERIFIED: FileVerified,
-	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
-	RIBBON: Ribbon,
-} as const;
-
-export const ICONS = {
-	...FONTAWESOME_ICONS,
-	...BETHINK_ICONS,
-} as const;
+import { ICON_SIZES, ICONS } from './Icon.consts';
 
 export default {
 	name: 'Icon',

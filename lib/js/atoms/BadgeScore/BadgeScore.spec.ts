@@ -1,16 +1,17 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
-import BadgeScore, { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.vue';
+import BadgeScore from './BadgeScore.vue';
+import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 
 describe('BadgeScore', () => {
 	const createComponent = ({
 		text = '',
-		color = BADGE_SCORE_COLORS.SUCCESS,
-		size = BADGE_SCORE_SIZES.MEDIUM,
+		color = BADGE_SCORE_COLORS.SUCCESS as string,
+		size = BADGE_SCORE_SIZES.MEDIUM as string,
 	} = {}) => {
 		const localVue = createLocalVue();
 
-		return shallowMount<BadgeScore>(BadgeScore, {
+		return shallowMount(BadgeScore, {
 			localVue,
 			mocks: {},
 			propsData: {

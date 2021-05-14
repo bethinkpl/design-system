@@ -1,17 +1,12 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Button, {
-	BUTTON_TYPES,
-	BUTTON_SIZES,
-	BUTTON_COLORS,
-	BUTTON_RADIUSES,
-	BUTTON_STATES,
-	ICONS,
-} from './Button.vue';
+import Button from './Button.vue';
+import { BUTTON_COLORS, BUTTON_RADIUSES, BUTTON_SIZES, BUTTON_STATES, BUTTON_TYPES } from './Button.consts';
+import { ICONS } from '../Icon';
 
 describe('Button', () => {
 	const createComponent = (props = {}) => {
-		return shallowMount<Button>(Button, {
+		return shallowMount(Button, {
 			propsData: props,
 		});
 	};

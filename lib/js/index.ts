@@ -1,3 +1,6 @@
-import Button, { BUTTON_SIZES, BUTTON_TYPES } from 'design-system/lib/js/atoms/Button.vue';
-
-export { Button, BUTTON_SIZES, BUTTON_TYPES };
+export { default as BadgeScore } from './atoms/BadgeScore';
+export { default as Button } from './atoms/Button';
+export { default as Icon } from './atoms/Icon';
+export { default as IconButton } from './atoms/IconButton';
+export { default as NumberInCircle } from './atoms/NumberInCircle';
+export { default as TabItem } from './atoms/TabItem';

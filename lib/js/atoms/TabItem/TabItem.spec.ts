@@ -1,12 +1,13 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
-import TabItem, { ICONS } from './TabItem.vue';
+import TabItem from './TabItem.vue';
+import { ICONS } from '../Icon';
 
 describe('TabItem', () => {
 	const createComponent = ({ isActive = false } = {}) => {
 		const localVue = createLocalVue();
 
-		return shallowMount<TabItem>(TabItem, {
+		return shallowMount(TabItem, {
 			localVue,
 			mocks: {},
 			propsData: {

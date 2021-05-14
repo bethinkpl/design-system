@@ -15,8 +15,6 @@
     "strictBindCallApply": true,
     "noUnusedParameters": true,
     "strictFunctionTypes": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
     "target": "es2019",
     "strictNullChecks": true,
     "paths": {

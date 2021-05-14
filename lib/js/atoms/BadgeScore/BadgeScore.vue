@@ -16,9 +16,9 @@
 </template>
 
 <style scoped lang="scss">
-@import '../../styles/settings/spacings';
-@import '../../styles/settings/typography';
-@import '../../styles/settings/colors';
+@import '../../../styles/settings/spacings';
+@import '../../../styles/settings/typography';
+@import '../../../styles/settings/colors';
 
 $badge-score-width: 74px;
 $small-badge-score-width: 48px;
@@ -72,19 +72,8 @@ $x-small-badge-score-width: 36px;
 </style>
 
 <script lang="ts">
-export const BADGE_SCORE_COLORS = {
-	SUCCESS: 'success',
-	WARNING: 'warning',
-	DANGER: 'danger',
-	INVERTED: 'inverted',
-	MINOR: 'minor',
-} as const;
 
-export const BADGE_SCORE_SIZES = {
-	MEDIUM: 'medium',
-	SMALL: 'small',
-	XSMALL: 'extra small',
-} as const;
+import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 
 export default {
 	name: 'BadgeScore',

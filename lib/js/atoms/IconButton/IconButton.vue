@@ -42,12 +42,12 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../styles/settings/buttons';
-@import '../../styles/settings/colors';
-@import '../../styles/settings/icons';
-@import '../../styles/settings/media-queries';
-@import '../../styles/settings/spacings';
-@import '../../styles/settings/typography';
+@import '../../../styles/settings/buttons';
+@import '../../../styles/settings/colors';
+@import '../../../styles/settings/icons';
+@import '../../../styles/settings/media-queries';
+@import '../../../styles/settings/spacings';
+@import '../../../styles/settings/typography';
 
 $icon-button-x-small-size: 20px;
 $icon-button-small-size: 28px;
@@ -169,41 +169,20 @@ $icon-button-large-size: 40px;
 <script lang="ts">
 import { VueConstructor } from 'vue';
 
-import WnlIcon, { ICONS, ICON_SIZES } from './Icon.vue';
-import WnlButton, {
-	BUTTON_STATES,
-	BUTTON_RADIUSES,
-	BUTTON_TYPES,
-	BUTTON_ELEVATIONS,
-	BUTTON_COLORS,
-} from './Button.vue';
-import { COLORS } from '../consts/colors';
-
-export const ICON_BUTTON_SIZES = {
-	X_SMALL: 'x-small',
-	SMALL: 'small',
-	MEDIUM: 'medium',
-	LARGE: 'large',
-} as const;
-
-export const ICON_BUTTON_TYPES = {
-	FILLED: BUTTON_TYPES.FILLED,
-	OUTLINED: BUTTON_TYPES.OUTLINED,
-	ICON_ONLY: 'icon-only',
-} as const;
-
-export const ICON_BUTTON_COLOR_SCHEMES = {
-	ALL_IN_COLOR: 'all-in-color',
-	MINOR_ICON: 'minor-icon',
-	MINOR_LABEL: 'minor-label',
-} as const;
-
-export const ICON_BUTTON_COLORS = {
-	...COLORS,
-	...BUTTON_COLORS,
-} as const;
-
-export { BUTTON_RADIUSES, BUTTON_ELEVATIONS, ICONS };
+import WnlIcon, { ICONS, ICON_SIZES } from '../Icon';
+import WnlButton from '../Button';
+import {
+  ICON_BUTTON_COLOR_SCHEMES, ICON_BUTTON_COLORS,
+  ICON_BUTTON_SIZES,
+  ICON_BUTTON_TYPES,
+} from './IconButton.consts';
+import {
+  BUTTON_COLORS,
+  BUTTON_ELEVATIONS,
+  BUTTON_RADIUSES,
+  BUTTON_STATES,
+  BUTTON_TYPES,
+} from '../Button/Button.consts';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.X_SMALL]: ICON_SIZES.XX_SMALL,

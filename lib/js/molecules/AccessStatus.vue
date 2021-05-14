@@ -37,7 +37,8 @@
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICON_SIZES, ICONS } from '../atoms/Icon.vue';
+import WnlIcon from '../atoms/Icon.vue';
+import { ICONS, ICON_SIZES } from '../atoms/Icon/Icon.consts'
 
 import { COURSE_ACCESS_STATUS } from '../consts/user';
 

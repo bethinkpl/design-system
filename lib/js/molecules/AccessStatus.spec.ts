@@ -6,7 +6,7 @@ describe('AccessStatus', () => {
 	const createComponent = () => {
 		const localVue = createLocalVue();
 
-		return shallowMount<AccessStatus>(AccessStatus, {
+		return shallowMount(AccessStatus, {
 			localVue,
 			mocks: {},
 			propsData: {
