@@ -1,0 +1,180 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import 'vuetify/dist/vuetify.min.css';
+
+import Input from 'design-system/lib/js/atoms/Input';
+import { ICONS } from 'design-system/lib/js/atoms/Icon';
+
+<Meta title='atoms/Input' component={Input} />
+
+# Input
+
+**Wspaniały** przycisk.
+
+<Story name='without any icons'
+	   args={{
+		   label: 'Label',
+		   value: 'Value',
+		   helpMessage: 'Help message',
+		   errorMessage: '',
+		   labelAddition: '(Label addition)',
+		   error: false,
+		   disabled: false,
+		   autofocus: false,
+		   success: false,
+		   readonly: false,
+	   }}
+	   argTypes={{}}>
+	{(args) => {
+		return {
+			components: { WnlInput: Input },
+			props: Object.keys(args),
+			template: `<wnl-input
+				:error="error"
+				:success="success"
+				:readonly="readonly"
+				:disabled="disabled"
+				:label="label"
+				:value="value"
+				:help-message="helpMessage"
+				:labelAddition="labelAddition"
+				:errorMessage="errorMessage"
+				:autofocus="autofocus"
+			/>`,
+			created() {
+				this.ICONS = ICONS;
+			}
+		};
+	}}
+</Story>
+
+<Story name='with icon on left'
+	   args={{
+		   label: 'Label',
+		   value: 'Value',
+		   helpMessage: 'Help message',
+		   icon: 'FILE_VERIFIED',
+		   errorMessage: '',
+		   labelAddition: '(Label addition)',
+		   error: false,
+		   disabled: false,
+		   autofocus: false,
+		   success: false,
+		   readonly: false,
+	   }}
+	   argTypes={{
+		   icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+	   }}>
+	{(args) => {
+		return {
+			components: { WnlInput: Input },
+			props: Object.keys(args),
+			template: `<wnl-input
+				:error="error"
+				:success="success"
+				:readonly="readonly"
+				:disabled="disabled"
+				:label="label"
+				:value="value"
+				:help-message="helpMessage"
+				:labelAddition="labelAddition"
+				:errorMessage="errorMessage"
+				:autofocus="autofocus"
+				:leftIcon="ICONS[icon]"
+			/>`,
+			created() {
+				this.ICONS = ICONS;
+			}
+		};
+	}}
+</Story>
+
+
+<Story name='with icon on right'
+	   args={{
+		   label: 'Label',
+		   value: 'Value',
+		   helpMessage: 'Help message',
+		   icon: 'FILE_VERIFIED',
+		   errorMessage: '',
+		   labelAddition: '(Label addition)',
+		   error: false,
+		   disabled: false,
+		   autofocus: false,
+		   success: false,
+		   readonly: false,
+	   }}
+	   argTypes={{
+		   icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+	   }}>
+	{(args) => {
+		return {
+			components: { WnlInput: Input },
+			props: Object.keys(args),
+			template: `<wnl-input
+				:error="error"
+				:success="success"
+				:readonly="readonly"
+				:disabled="disabled"
+				:label="label"
+				:value="value"
+				:help-message="helpMessage"
+				:labelAddition="labelAddition"
+				:errorMessage="errorMessage"
+				:autofocus="autofocus"
+				:rightIcon="ICONS[icon]"
+			/>`,
+			created() {
+				this.ICONS = ICONS;
+			}
+		};
+	}}
+</Story>
+
+
+<Story name='with icon on both sides'
+	   args={{
+		   label: 'Label',
+		   value: 'Value',
+		   helpMessage: 'Help message',
+		   iconLeft: 'FILE_VERIFIED',
+		   iconRight: 'FILE_VERIFIED',
+		   errorMessage: '',
+		   labelAddition: '(Label addition)',
+		   error: false,
+		   disabled: false,
+		   autofocus: false,
+		   success: false,
+		   readonly: false,
+	   }}
+	   argTypes={{
+		   iconLeft: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+		   iconRight: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+	   }}>
+	{(args) => {
+		return {
+			components: { WnlInput: Input },
+			props: Object.keys(args),
+			template: `<wnl-input
+				:error="error"
+				:success="success"
+				:readonly="readonly"
+				:disabled="disabled"
+				:label="label"
+				:value="value"
+				:help-message="helpMessage"
+				:labelAddition="labelAddition"
+				:errorMessage="errorMessage"
+				:autofocus="autofocus"
+				:leftIcon="ICONS[iconLeft]"
+				:rightIcon="ICONS[iconRight]"
+			/>`,
+			created() {
+				this.ICONS = ICONS;
+			}
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={Input} />

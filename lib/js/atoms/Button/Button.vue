@@ -72,6 +72,7 @@ export default {
 		ripple: Ripple,
 	},
 	components: {
+		VBtn,
 		WnlIcon,
 	},
 	props: {
