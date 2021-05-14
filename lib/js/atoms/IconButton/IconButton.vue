@@ -172,16 +172,17 @@ import { VueConstructor } from 'vue';
 import WnlIcon, { ICONS, ICON_SIZES } from '../Icon';
 import WnlButton from '../Button';
 import {
-  ICON_BUTTON_COLOR_SCHEMES, ICON_BUTTON_COLORS,
-  ICON_BUTTON_SIZES,
-  ICON_BUTTON_TYPES,
+	ICON_BUTTON_COLOR_SCHEMES,
+	ICON_BUTTON_COLORS,
+	ICON_BUTTON_SIZES,
+	ICON_BUTTON_TYPES,
 } from './IconButton.consts';
 import {
-  BUTTON_COLORS,
-  BUTTON_ELEVATIONS,
-  BUTTON_RADIUSES,
-  BUTTON_STATES,
-  BUTTON_TYPES,
+	BUTTON_COLORS,
+	BUTTON_ELEVATIONS,
+	BUTTON_RADIUSES,
+	BUTTON_STATES,
+	BUTTON_TYPES,
 } from '../Button/Button.consts';
 
 const ICON_ONLY_ICON_SIZES_MAP = {

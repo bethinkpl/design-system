@@ -38,14 +38,14 @@
 
 <script lang="ts">
 import Icon from '../atoms/Icon';
-import { ICONS, ICON_SIZES } from '../atoms/Icon/Icon.consts'
+import { ICONS, ICON_SIZES } from '../atoms/Icon/Icon.consts';
 
 import { COURSE_ACCESS_STATUS } from '../consts/user';
 
 export default {
 	name: 'AccessStatus',
 	components: {
-    Icon,
+		Icon,
 	},
 	props: {
 		status: {

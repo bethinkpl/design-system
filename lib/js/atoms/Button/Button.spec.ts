@@ -1,7 +1,13 @@
 import { shallowMount } from '@vue/test-utils';
 
 import Button from './Button.vue';
-import { BUTTON_COLORS, BUTTON_RADIUSES, BUTTON_SIZES, BUTTON_STATES, BUTTON_TYPES } from './Button.consts';
+import {
+	BUTTON_COLORS,
+	BUTTON_RADIUSES,
+	BUTTON_SIZES,
+	BUTTON_STATES,
+	BUTTON_TYPES,
+} from './Button.consts';
 import { ICONS } from '../Icon';
 
 describe('Button', () => {

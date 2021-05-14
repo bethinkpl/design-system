@@ -1,3 +1,3 @@
-import TabItem from './TabItem.vue'
+import TabItem from './TabItem.vue';
 
-export default TabItem
+export default TabItem;

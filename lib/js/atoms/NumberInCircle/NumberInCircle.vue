@@ -73,7 +73,6 @@
 </style>
 
 <script>
-
 import { NUMBER_IN_CIRCLE_COLORS } from './NumberInCircle.consts';
 
 export default {

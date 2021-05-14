@@ -1,3 +1,4 @@
-import IconButton from './IconButton.vue'
+import IconButton from './IconButton.vue';
 
-export default IconButton
+export default IconButton;
+export * from './IconButton.consts';

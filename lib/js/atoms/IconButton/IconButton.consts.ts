@@ -1,4 +1,3 @@
-
 import { COLORS } from '../../consts/colors';
 import { BUTTON_COLORS, BUTTON_TYPES } from '../Button/Button.consts';
 
@@ -25,4 +24,3 @@ export const ICON_BUTTON_COLORS = {
 	...COLORS,
 	...BUTTON_COLORS,
 } as const;
-

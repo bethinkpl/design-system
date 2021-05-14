@@ -1,3 +1,4 @@
-import BadgeScore from './BadgeScore.vue'
+import BadgeScore from './BadgeScore.vue';
 
-export default BadgeScore
+export default BadgeScore;
+export * from './BadgeScore.consts';

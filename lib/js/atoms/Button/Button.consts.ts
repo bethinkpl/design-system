@@ -42,4 +42,3 @@ export const BUTTON_ELEVATIONS = {
 	X_SMALL: 'x-small',
 	SMALL: 'small',
 } as const;
-

@@ -1,5 +1,4 @@
 <template>
-	<v-app>
 		<div class="a-input" :class="{ '-success': success, '-error': error || !!errorMessage }">
 			<v-text-field
 				:id="id"
@@ -38,7 +37,6 @@
 				</template>
 			</v-text-field>
 		</div>
-	</v-app>
 </template>
 
 <style lang="scss" scoped>
@@ -56,12 +54,11 @@
 		}
 	}
 
-  &.-success {
-    .a-input__labelAddition {
-      color: $color-success;
-    }
-
-  }
+	&.-success {
+		.a-input__labelAddition {
+			color: $color-success;
+		}
+	}
 }
 </style>
 
@@ -91,41 +88,35 @@
 		border-image: none !important;
 	}
 
-  &.-success {
-    .v-input__prepend-inner {
-      fill: $color-success;
-    }
-  }
+	&.-success {
+		.v-input__prepend-inner {
+			fill: $color-success;
+		}
+	}
 
-  &.-error {
-    .v-input__prepend-inner {
-      fill: $color-danger;
-    }
-  }
-
-
+	&.-error {
+		.v-input__prepend-inner {
+			fill: $color-danger;
+		}
+	}
 }
 </style>
 
 <script lang="ts">
-import 'vuetify/dist/vuetify.min.css';
-import Vue, { VueConstructor } from 'vue';
+import { VueConstructor } from 'vue';
 import { Prop } from 'vue/types/options';
-import Vuetify ,  { VTextField, VApp } from 'vuetify/lib';
+import Vuetify, { VTextField } from 'vuetify/lib';
 
 import Icon from '../Icon';
 import { VUETIFY_THEME } from '../../consts/vuetifyTheme.const';
 import { ICON_SIZES, ICONS } from '../Icon/Icon.consts';
 
-
-Vue.use(Vuetify, { theme: VUETIFY_THEME });
 export default {
 	name: 'Input',
 	vuetify: new Vuetify({ theme: VUETIFY_THEME }), // TODO: remove it
 	components: {
 		Icon,
-    VTextField,
-    VApp,
+		VTextField,
 	},
 	props: {
 		label: {

@@ -58,12 +58,12 @@ import { Value } from '../../utils/type.utils';
 
 import WnlIcon, { ICONS, ICON_SIZES } from '../Icon';
 import {
-  BUTTON_COLORS,
-  BUTTON_ELEVATIONS,
-  BUTTON_RADIUSES,
-  BUTTON_SIZES,
-  BUTTON_STATES,
-  BUTTON_TYPES,
+	BUTTON_COLORS,
+	BUTTON_ELEVATIONS,
+	BUTTON_RADIUSES,
+	BUTTON_SIZES,
+	BUTTON_STATES,
+	BUTTON_TYPES,
 } from './Button.consts';
 
 export default {

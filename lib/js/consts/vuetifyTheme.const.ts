@@ -8,6 +8,9 @@ export const VUETIFY_THEME = {
 			error: FUNCTIONAL_COLORS.DANGER,
 			success: FUNCTIONAL_COLORS.SUCCESS,
 			warning: FUNCTIONAL_COLORS.WARNING,
+		},
+		dark: {
+			
 		}
-	}
-} as const
+	},
+} as const;

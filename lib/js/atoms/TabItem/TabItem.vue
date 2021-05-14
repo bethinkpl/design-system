@@ -43,8 +43,6 @@ import { VueConstructor } from 'vue';
 
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
 
-export { ICONS };
-
 export default {
 	name: 'TabItem',
 	components: {

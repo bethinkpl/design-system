@@ -14,7 +14,7 @@ describe('Input', () => {
 		helpMessage = '',
 		label = '',
 		labelAddition = '',
-		leftIcon = undefined as  IconItem | undefined,
+		leftIcon = undefined as IconItem | undefined,
 		rightIcon = undefined as IconItem | undefined,
 		success = false,
 	} = {}) => {

@@ -72,7 +72,6 @@ $x-small-badge-score-width: 36px;
 </style>
 
 <script lang="ts">
-
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 
 export default {

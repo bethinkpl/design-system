@@ -1,3 +1,4 @@
-import NumberInCircle from './NumberInCircle.vue'
+import NumberInCircle from './NumberInCircle.vue';
 
-export default NumberInCircle
+export default NumberInCircle;
+export * from './NumberInCircle.consts';

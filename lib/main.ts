@@ -1,5 +1,10 @@
-import * as components from './js/index.ts';
+import Vue from 'vue';
+import Vuetify from 'vuetify';
 
+import * as components from './js/index.ts';
+import { VUETIFY_THEME } from './js/consts/vuetifyTheme.const';
+
+Vue.use(Vuetify, { theme: VUETIFY_THEME });
 const ComponentLibrary = {
 	install(Vue, _options = {}) {
 		for (const componentName in components) {
