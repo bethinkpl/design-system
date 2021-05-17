@@ -1,7 +1,5 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
-import Vuetify from 'vuetify';
-// @ts-ignore
-import VTextField from 'vuetify/lib/components/VTextField';
+import Vuetify, { VTextField } from 'vuetify/lib';
 
 import Input from './Input.vue';
 import { IconItem, ICONS } from '../Icon/Icon.consts';

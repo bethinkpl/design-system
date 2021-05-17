@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuetify from 'vuetify';
+import Vuetify from 'vuetify/lib';
 
 import * as components from './js/index.ts';
 import { VUETIFY_THEME } from './js/consts/vuetifyTheme.const';
