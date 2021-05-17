@@ -8,9 +8,14 @@ module.exports = {
 					return prefixedSelector;
 				}
 
-				if(selector === 'html') {
+				if(selector.include('html')) {
 					return prefixedSelector;
 				}
+
+				if(selector.include('select') || selector.include('button') || selector.include('textarea')) {
+					return prefixedSelector;
+				}
+
 
 				return selector;
 			}
