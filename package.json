@@ -5,12 +5,13 @@
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
   "private": true,
+  "main": "./dist/design-system.umd.js",
   "engines": {
     "yarn": "^1.22.0",
     "node": "^14.15.0"
   },
   "scripts": {
-    "build": "vue-cli-service build --target lib --name design-system lib/main.ts",
+    "build": "vue-cli-service build --target lib --name design-system lib/js/index.ts",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:scripts": "eslint --max-warnings 0 --cache 'lib/js/**/*.{js,vue,ts}'",
     "lint:scripts:fix": "eslint 'lib/js/**/*.{js,vue,ts}' --fix --cache",
