@@ -11,3 +11,4 @@ export { default as Input } from './atoms/Input';
 export { default as NumberInCircle } from './atoms/NumberInCircle';
 export * from './atoms/NumberInCircle/NumberInCircle.consts';
 export { default as TabItem } from './atoms/TabItem';
+export { default as AccessStatus } from './molecules/AccessStatus.vue';
