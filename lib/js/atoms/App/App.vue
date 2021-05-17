@@ -5,16 +5,16 @@
 </template>
 
 <script lang="ts">
-import { VApp, } from 'vuetify/lib';
+import Vuetify, { VApp, } from 'vuetify/lib';
 import Vue from 'vue';
 import { VUETIFY_THEME } from '../../consts/vuetifyTheme.const';
-import Vuetify from 'vuetify';
 
 Vue.use(Vuetify, { theme: VUETIFY_THEME });
 
 export default {
-  name: 'App',
-  components: { VApp },
+	name: 'App',
+	components: { VApp },
+	vuetify: new Vuetify({ theme: VUETIFY_THEME }),
 };
 </script>
 
