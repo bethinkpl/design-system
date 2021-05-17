@@ -1,8 +1,9 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { createLocalVue,  MountOptions, shallowMount } from '@vue/test-utils';
 import Vuetify, { VTextField } from 'vuetify/lib';
 
 import Input from './Input.vue';
 import { IconItem, ICONS } from '../Icon/Icon.consts';
+import Vue from 'vue';
 
 describe('Input', () => {
 	const text = 'Wpłynąłem na suchego przestwór oceanu';
@@ -16,8 +17,8 @@ describe('Input', () => {
 		rightIcon = undefined as IconItem | undefined,
 		success = false,
 	} = {}) => {
+		Vue.use(Vuetify)
 		const localVue = createLocalVue();
-		localVue.use(Vuetify);
 
 		return shallowMount(Input, {
 			localVue,
@@ -35,7 +36,8 @@ describe('Input', () => {
 			stubs: {
 				'v-text-field': VTextField,
 			},
-		});
+			vuetify: new Vuetify({}) ,
+		} as MountOptions<Vue>);
 	};
 
 	it('should create', () => {

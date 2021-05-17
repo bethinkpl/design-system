@@ -4,6 +4,12 @@
   </v-app>
 </template>
 
+<style >
+select {
+  -webkit-appearance: auto;
+}
+</style>
+
 <script lang="ts">
 import Vuetify, { VApp, } from 'vuetify/lib';
 import Vue from 'vue';
@@ -18,6 +24,3 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>

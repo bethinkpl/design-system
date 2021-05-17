@@ -1,5 +1,9 @@
 module.exports = {
 	css: {
-		extract: false
+		loaderOptions: {
+			scss: {
+				additionalData: `@import "lib/styles/variables.scss";`
+			},
+		},
 	}
 }
