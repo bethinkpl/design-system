@@ -1,10 +1,10 @@
 <template>
 	<ds-app>
-		<div class="a-select" :class="{ '-error': error || !!errorMessage, '-disabled': disabled }">
+		<div class="a-select" :class="{ '-error': isErrorComputed, '-disabled': disabled }">
 			<v-select
 				:items="['a', 'b', 'c']"
-				:messages="helpMessage"
-				:error="error"
+				:messages="errorMessage || helpMessage"
+				:error="isErrorComputed"
 				:readonly="readonly"
 				:disabled="disabled"
 				filled
@@ -12,7 +12,7 @@
 				<template slot="message">
 					<div class="a-select__helpMessage">
 						<icon
-							v-if="error || errorMessage"
+							v-if="isErrorComputed"
 							class="a-input__labelErrorIcon"
 							:icon="ICONS.FA_EXCLAMATION_TRIANGLE"
 							:size="ICON_SIZES.XX_SMALL"
@@ -176,6 +176,11 @@ export default {
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
 		this.ICONS = ICONS;
+	},
+	computed: {
+		isErrorComputed(): boolean {
+			return this.error || !!this.errorMessage;
+		},
 	},
 };
 </script>
