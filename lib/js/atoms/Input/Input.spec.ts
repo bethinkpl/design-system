@@ -113,17 +113,6 @@ describe('Input', () => {
 		it.each([ICONS.FA_CHART_BAR, undefined])(
 			'when component is in error state component should render FA_EXCLAMATION_CIRCLE as rightIcon',
 			(rightIcon) => {
-				const component = createComponent({ rightIcon, error: true });
-
-				expect(component.find('icon-stub').props().icon).toEqual(
-					ICONS.FA_EXCLAMATION_CIRCLE,
-				);
-			},
-		);
-
-		it.each([ICONS.FA_CHART_BAR, undefined])(
-			'when component is in error state component should render FA_EXCLAMATION_CIRCLE as rightIcon',
-			(rightIcon) => {
 				const component = createComponent({ rightIcon, success: true });
 
 				expect(component.find('icon-stub').props().icon).toEqual(ICONS.FA_CHECK_CIRCLE);

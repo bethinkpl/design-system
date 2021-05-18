@@ -1,5 +1,8 @@
 <template>
-	<div class="a-input" :class="{ '-success': success, '-error': error || !!errorMessage }">
+	<div
+		class="a-input"
+		:class="{ '-success': success, '-error': error || !!errorMessage, '-disabled': disabled }"
+	>
 		<v-text-field
 			:id="id"
 			:autofocus="autofocus"
@@ -45,7 +48,7 @@
 						:size="ICON_SIZES.XX_SMALL"
 					></icon>
 					<span>
-						{{ helpMessage }}
+						{{ errorMessage || helpMessage }}
 					</span>
 				</div>
 			</template>
@@ -66,11 +69,25 @@
 		.a-input__labelAddition {
 			color: $color-danger;
 		}
+
+		.a-input__helpMessage {
+			color: $color-danger;
+		}
 	}
 
 	&.-success {
 		.a-input__labelAddition {
 			color: $color-success;
+		}
+
+		.a-input__helpMessage {
+			color: $color-success;
+		}
+	}
+
+	&.-disabled {
+		.a-input__labelAddition {
+			color: rgba($color-total-black, 0.38);
 		}
 	}
 }
@@ -115,11 +132,29 @@
 		.v-input__prepend-inner {
 			fill: $color-success;
 		}
+
+		.v-input__append-inner {
+			fill: $color-success;
+		}
 	}
 
 	&.-error {
 		.v-input__prepend-inner {
 			fill: $color-danger;
+		}
+
+		.v-input__append-inner {
+			fill: $color-danger;
+		}
+	}
+
+	&.-disabled {
+		.v-input__prepend-inner {
+			fill: rgba($color-total-black, 0.38);
+		}
+
+		.v-input__append-inner {
+			fill: rgba($color-total-black, 0.38);
 		}
 	}
 }
