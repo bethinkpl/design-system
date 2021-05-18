@@ -1,17 +1,17 @@
 <template>
-  <v-app>
-    <slot />
-  </v-app>
+	<v-app>
+		<slot />
+	</v-app>
 </template>
 
-<style >
+<style>
 select {
-  -webkit-appearance: auto;
+	-webkit-appearance: auto;
 }
 </style>
 
 <script lang="ts">
-import Vuetify, { VApp, } from 'vuetify/lib';
+import Vuetify, { VApp } from 'vuetify/lib';
 import Vue from 'vue';
 import { VUETIFY_THEME } from '../../consts/vuetifyTheme.const';
 
@@ -23,4 +23,3 @@ export default {
 	vuetify: new Vuetify({ theme: VUETIFY_THEME }),
 };
 </script>
-

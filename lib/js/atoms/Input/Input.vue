@@ -1,42 +1,42 @@
 <template>
-		<div class="a-input" :class="{ '-success': success, '-error': error || !!errorMessage }">
-			<v-text-field
-				:id="id"
-				:autofocus="autofocus"
-				:disabled="disabled"
-				:error-messages="errorMessage"
-				:error="error"
-				:hint="helpMessage"
-				:persistent-hint="!!helpMessage"
-				:readonly="readonly"
-				:success="success"
-				:value="value"
-				filled
-			>
-				<template v-slot:prepend-inner>
-					<template v-if="leftIcon">
-						<icon :icon="leftIcon" :size="ICON_SIZES.X_SMALL"></icon>
-					</template>
+	<div class="a-input" :class="{ '-success': success, '-error': error || !!errorMessage }">
+		<v-text-field
+			:id="id"
+			:autofocus="autofocus"
+			:disabled="disabled"
+			:error-messages="errorMessage"
+			:error="error"
+			:hint="helpMessage"
+			:persistent-hint="!!helpMessage"
+			:readonly="readonly"
+			:success="success"
+			:value="value"
+			filled
+		>
+			<template #prepend-inner>
+				<template v-if="leftIcon">
+					<icon :icon="leftIcon" :size="ICON_SIZES.X_SMALL"></icon>
 				</template>
+			</template>
 
-				<template v-slot:append>
-					<template v-if="rightIconComputed">
-						<icon :icon="rightIconComputed" :size="ICON_SIZES.X_SMALL"></icon>
-					</template>
+			<template #append>
+				<template v-if="rightIconComputed">
+					<icon :icon="rightIconComputed" :size="ICON_SIZES.X_SMALL"></icon>
 				</template>
+			</template>
 
-				<template v-slot:label>
-					<template>
-						<span class="a-input__label">
-							{{ label }}
-						</span>
-						<span v-if="labelAddition" class="a-input__labelAddition">
-							{{ labelAddition }}
-						</span>
-					</template>
-				</template>
-			</v-text-field>
-		</div>
+			<template #label>
+				<div>
+					<span class="a-input__label">
+						{{ label }}
+					</span>
+					<span v-if="labelAddition" class="a-input__labelAddition">
+						{{ labelAddition }}
+					</span>
+				</div>
+			</template>
+		</v-text-field>
+	</div>
 </template>
 
 <style lang="scss" scoped>
@@ -105,15 +105,13 @@
 <script lang="ts">
 import { VueConstructor } from 'vue';
 import { Prop } from 'vue/types/options';
-import Vuetify, { VTextField } from 'vuetify/lib';
+import { VTextField } from 'vuetify/lib';
 
 import Icon from '../Icon';
-import { VUETIFY_THEME } from '../../consts/vuetifyTheme.const';
 import { ICON_SIZES, ICONS } from '../Icon/Icon.consts';
 
 export default {
 	name: 'Input',
-	vuetify: new Vuetify({ theme: VUETIFY_THEME }), // TODO: remove it
 	components: {
 		Icon,
 		VTextField,

@@ -9,5 +9,5 @@ module.exports = {
 				data: '@import "lib/styles/variables.scss";'
 			},
 		},
-	}
-}
+	},
+};

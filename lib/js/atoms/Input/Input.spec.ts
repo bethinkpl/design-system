@@ -1,4 +1,4 @@
-import { createLocalVue,  MountOptions, shallowMount } from '@vue/test-utils';
+import { createLocalVue, MountOptions, shallowMount } from '@vue/test-utils';
 import Vuetify, { VTextField } from 'vuetify/lib';
 
 import Input from './Input.vue';
@@ -17,7 +17,7 @@ describe('Input', () => {
 		rightIcon = undefined as IconItem | undefined,
 		success = false,
 	} = {}) => {
-		Vue.use(Vuetify)
+		Vue.use(Vuetify);
 		const localVue = createLocalVue();
 
 		return shallowMount(Input, {
@@ -36,7 +36,7 @@ describe('Input', () => {
 			stubs: {
 				'v-text-field': VTextField,
 			},
-			vuetify: new Vuetify({}) ,
+			vuetify: new Vuetify({}),
 		} as MountOptions<Vue>);
 	};
 

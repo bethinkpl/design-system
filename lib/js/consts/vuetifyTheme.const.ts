@@ -10,8 +10,6 @@ export const VUETIFY_THEME = {
 			warning: FUNCTIONAL_COLORS.WARNING,
 			anchor: 'none',
 		},
-		dark: {
-			
-		}
+		dark: {},
 	},
 } as const;
