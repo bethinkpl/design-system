@@ -35,6 +35,20 @@
 					</span>
 				</div>
 			</template>
+
+			<template #message>
+				<div class="a-input__helpMessage">
+					<icon
+						v-if="error || errorMessage"
+						class="a-input__labelErrorIcon"
+						:icon="ICONS.FA_EXCLAMATION_TRIANGLE"
+						:size="ICON_SIZES.XX_SMALL"
+					></icon>
+					<span>
+						{{ helpMessage }}
+					</span>
+				</div>
+			</template>
 		</v-text-field>
 	</div>
 </template>
@@ -68,8 +82,17 @@
 
 .a-input {
 	.v-input__slot {
-		margin-bottom: $space-xxxxs !important;
+		margin-bottom: $space-xxxs !important;
 		background: rgba($color-firefly-black, 0.06) !important;
+	}
+
+	&__labelErrorIcon > svg {
+		margin-right: $space-xxxxs;
+	}
+
+	&__helpMessage {
+		display: flex;
+		align-items: center;
 	}
 
 	.v-input--is-focused .v-input__slot {
@@ -178,9 +201,6 @@ export default {
 	},
 	computed: {
 		rightIconComputed() {
-			if (this.error) {
-				return ICONS.FA_EXCLAMATION_CIRCLE;
-			}
 			if (this.success) {
 				return ICONS.FA_CHECK_CIRCLE;
 			}
@@ -189,6 +209,7 @@ export default {
 	},
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
+		this.ICONS = ICONS;
 	},
 };
 </script>
