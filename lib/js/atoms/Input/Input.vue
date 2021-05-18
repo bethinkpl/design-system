@@ -61,6 +61,10 @@
 @import '../../../styles/settings/typography';
 
 .a-input {
+	&__label {
+		color: $color-storm-gray;
+	}
+
 	&__labelAddition {
 		color: $color-primary;
 	}
@@ -101,6 +105,10 @@
 	.v-input__slot {
 		margin-bottom: $space-xxxs !important;
 		background: rgba($color-firefly-black, 0.06) !important;
+
+		&:hover {
+			background: rgba($color-firefly-black, 0.12) !important;
+		}
 	}
 
 	&__labelErrorIcon > svg {
