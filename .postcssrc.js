@@ -12,7 +12,7 @@ module.exports = {
 					return prefixedSelector;
 				}
 
-				if(selector.includes('select') || selector.includes('button') || selector.includes('textarea')) {
+				if(selector.includes('select') || selector.includes('textarea')) {
 					return prefixedSelector;
 				}
 

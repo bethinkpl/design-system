@@ -1,8 +1,5 @@
 # Bethink design system
 
-## Library info
-For quicker development during initial phase of Design System we decided to publish this repo as is - not as a [Vue library](https://cli.vuejs.org/guide/build-targets.html#library).
-
 ### Typescript
 You have to transpile it in the project where it is included as dependency. Make sure you don't exclude this package in your `webpack` config file:
 ```
@@ -38,3 +35,7 @@ DS requires access to font-awesome PRO. Add `.npmrc` file to root catalog. File 
 > For development, a package can be linked into another project. This is often useful to test out new features or when trying to debug an issue in a package that manifests itself in another project.
 
 Instruction: https://classic.yarnpkg.com/en/docs/cli/link/
+
+## Usage
+
+Components like input/select/checkbox etc have to be  placed inside `App` component (`lib/js/atoms/App`)
