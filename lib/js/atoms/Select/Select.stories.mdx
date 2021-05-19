@@ -1,11 +1,13 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 import Select from './Select.vue';
 
 <Meta title='atoms/Select' component={Select} />
 
 # Select
 
-<Story name='interactive'
+<Story name='without icon'
 	   args={{
 		   label: 'Label',
 		   errorMessage: undefined,
@@ -15,7 +17,9 @@ import Select from './Select.vue';
 		   readonly: false,
 		   labelAddition: '(Label Addition)',
 	   }}
-	   argTypes={{}}>
+	   argTypes={{
+		   iconLeft: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+	   }}>
 	{(args) => {
 		return {
 			components: { DsSelect: Select },
@@ -28,7 +32,45 @@ import Select from './Select.vue';
 				:helpMessage="helpMessage"
 				:errorMessage="errorMessage"
 				:labelAddition="labelAddition"
+				:leftIcon="ICONS[iconLeft]"
 			/>`,
+			created() {
+				this.ICONS = ICONS;
+			}
+		};
+	}}
+</Story>
+
+<Story name='with icon'
+	   args={{
+		   label: 'Label',
+		   errorMessage: undefined,
+		   error:false,
+		   helpMessage: 'Help message',
+		   disabled: false,
+		   readonly: false,
+		   labelAddition: '(Label Addition)',
+	   }}
+	   argTypes={{
+		   iconLeft: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+	   }}>
+	{(args) => {
+		return {
+			components: { DsSelect: Select },
+			props: Object.keys(args),
+			template: `<ds-select
+				:label="label"
+				:error="error"
+				:disabled="disabled"
+				:readonly="readonly"
+				:helpMessage="helpMessage"
+				:errorMessage="errorMessage"
+				:labelAddition="labelAddition"
+				:leftIcon="ICONS[iconLeft]"
+			/>`,
+			created() {
+				this.ICONS = ICONS;
+			}
 		};
 	}}
 </Story>

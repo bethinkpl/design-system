@@ -4,6 +4,7 @@ import { VSelect } from 'vuetify/lib';
 
 import Select from './Select.vue';
 import Icon from '../Icon/Icon.vue';
+import { IconItem, ICONS } from '../Icon';
 
 describe('Select', () => {
 	const text = 'Wpłynąłem na suchego przestwór oceanu';
@@ -13,6 +14,7 @@ describe('Select', () => {
 		labelAddition = '',
 		helpMessage = '',
 		errorMessage = '',
+		leftIcon = undefined as IconItem | undefined,
 	} = {}) => {
 		const localVue = createLocalVue();
 
@@ -24,6 +26,7 @@ describe('Select', () => {
 				labelAddition,
 				helpMessage,
 				errorMessage,
+				leftIcon,
 			},
 			stubs: {
 				'v-select': VSelect,
@@ -72,6 +75,13 @@ describe('Select', () => {
 		const component = createComponent({ helpMessage });
 
 		expect(component.find('.a-select__helpMessage').text()).toContain(helpMessage);
+	});
+
+	it('should render icon from leftIcon prop', () => {
+		const leftIcon = ICONS.FA_CHART_BAR;
+		const component = createComponent({ leftIcon });
+
+		expect(component.find('.a-icon').props().icon).toEqual(leftIcon);
 	});
 
 	describe('errorMessage', () => {
