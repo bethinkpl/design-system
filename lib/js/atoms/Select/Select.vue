@@ -1,6 +1,6 @@
 <template>
-	<ds-app>
-		<div class="a-select" :class="{ '-error': isErrorComputed, '-disabled': disabled }">
+	<div class="a-select" :class="{ '-error': isErrorComputed, '-disabled': disabled }">
+		<ds-app>
 			<v-select
 				:items="['a', 'b', 'c']"
 				:messages="errorMessage || helpMessage"
@@ -23,6 +23,12 @@
 					</div>
 				</template>
 
+				<template #prepend-inner>
+					<template v-if="leftIcon">
+						<icon :icon="leftIcon" :size="ICON_SIZES.X_SMALL"></icon>
+					</template>
+				</template>
+
 				<template #append>
 					<icon
 						class="a-select__rightIcon"
@@ -42,8 +48,8 @@
 					</div>
 				</template>
 			</v-select>
-		</div>
-	</ds-app>
+		</ds-app>
+	</div>
 </template>
 
 <style scoped lang="scss">
@@ -90,6 +96,11 @@
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/spacings';
 
+.v-menu__content {
+	// input's label has to be visible
+	transform: translateY(22px);
+}
+
 .a-select {
 	.v-input__slot {
 		margin-bottom: $space-xxxs !important;
@@ -135,6 +146,8 @@ import { VSelect } from 'vuetify/lib';
 
 import DsApp from '../App';
 import Icon, { ICON_SIZES, ICONS } from '../Icon';
+import { Prop } from 'vue/types/options';
+import { VueConstructor } from 'vue';
 
 export default {
 	name: 'Select',
@@ -172,15 +185,22 @@ export default {
 			type: String,
 			default: undefined,
 		},
+		leftIcon: {
+			type: Object as Prop<VueConstructor | undefined>,
+			default: undefined,
+			validate(icon?: VueConstructor) {
+				return !icon || Object.values(ICONS).includes(icon);
+			},
+		},
 	},
+  computed: {
+    isErrorComputed(): boolean {
+      return this.error || !!this.errorMessage;
+    },
+  },
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
 		this.ICONS = ICONS;
-	},
-	computed: {
-		isErrorComputed(): boolean {
-			return this.error || !!this.errorMessage;
-		},
 	},
 };
 </script>
