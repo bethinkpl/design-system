@@ -12,6 +12,7 @@ export { default as NumberInCircle } from './atoms/NumberInCircle';
 export * from './atoms/NumberInCircle/NumberInCircle.consts';
 export { default as TabItem } from './atoms/TabItem';
 export { default as AccessStatus } from './molecules/AccessStatus.vue';
+export { default as Select } from './atoms/Select.vue';
 
 export {
 	initialize as initializeIcons,

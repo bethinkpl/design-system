@@ -70,11 +70,7 @@
 
 .a-input {
 	&__label {
-<<<<<<< HEAD
 		color: $color-rhino-gray;
-=======
-		color: $color-storm-gray;
->>>>>>> 3dbfb7b (IT-3662 | create select component)
 	}
 
 	&__labelAddition {

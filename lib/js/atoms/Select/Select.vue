@@ -193,11 +193,11 @@ export default {
 			},
 		},
 	},
-  computed: {
-    isErrorComputed(): boolean {
-      return this.error || !!this.errorMessage;
-    },
-  },
+	computed: {
+		isErrorComputed(): boolean {
+			return this.error || !!this.errorMessage;
+		},
+	},
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
 		this.ICONS = ICONS;
