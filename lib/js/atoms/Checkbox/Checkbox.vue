@@ -107,7 +107,6 @@ $checkbox-m-size: 24px;
 
 <script lang="ts">
 import { VCheckbox, VLayout } from 'vuetify/lib';
-import '@mdi/font/css/materialdesignicons.css';
 
 import { CHECKBOX_SIZES } from './Checkbox.consts';
 import Icon, { ICON_SIZES, ICONS } from '../Icon';

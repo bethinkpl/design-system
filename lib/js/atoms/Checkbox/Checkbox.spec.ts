@@ -1,28 +1,32 @@
-import Vuex, { Store } from 'vuex';
 import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { VCheckbox, VLayout } from 'vuetify/lib';
+import Vuetify from 'vuetify';
+
+import Icon from '../Icon/Icon.vue';
 
 import Checkbox from './Checkbox.vue';
 
 describe('Checkbox', () => {
 	const createComponent = ({} = {}) => {
 		const localVue = createLocalVue();
-		localVue.use(Vuex);
-		const store = new Store({
-			
-		});
 
-		return shallowMount<Checkbox>(Checkbox, {
+		return shallowMount(Checkbox, {
 			localVue,
-			store,
 			mocks: {},
 			propsData: {},
-			stubs: {},
+			stubs: {
+				'v-checkbox': VCheckbox,
+				// icon: Icon,
+				// 'v-layout': VLayout,
+			},
+			vuetify: new Vuetify({}),
 		});
 	};
 
 	it('should create', () => {
 		const component = createComponent();
 
+		console.log(component.html());
 		expect(component.exists()).toBe(true);
 	});
 
