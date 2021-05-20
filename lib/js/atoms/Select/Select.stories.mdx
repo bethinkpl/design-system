@@ -1,6 +1,8 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 
 import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
+import App from 'design-system/lib/js/atoms/App';
+
 import Select from './Select.vue';
 
 import '@mdi/font/css/materialdesignicons.css';
@@ -24,9 +26,9 @@ import '@mdi/font/css/materialdesignicons.css';
 	   }}>
 	{(args) => {
 		return {
-			components: { DsSelect: Select },
+			components: { DsSelect: Select, DsApp: App },
 			props: Object.keys(args),
-			template: `<ds-select
+			template: `<ds-app><ds-select
 				:label="label"
 				:error="error"
 				:disabled="disabled"
@@ -36,7 +38,7 @@ import '@mdi/font/css/materialdesignicons.css';
 				:labelAddition="labelAddition"
 				:items="['a', 'b', 'c']"
 				:leftIcon="ICONS[iconLeft]"
-			/>`,
+			/></ds-app>`,
 			created() {
 				this.ICONS = ICONS;
 			}
@@ -59,9 +61,9 @@ import '@mdi/font/css/materialdesignicons.css';
 	   }}>
 	{(args) => {
 		return {
-			components: { DsSelect: Select },
+			components: { DsSelect: Select, DsApp: App },
 			props: Object.keys(args),
-			template: `<ds-select
+			template: `<ds-app><ds-select
 				:label="label"
 				:error="error"
 				:disabled="disabled"
@@ -71,7 +73,7 @@ import '@mdi/font/css/materialdesignicons.css';
 				:labelAddition="labelAddition"
 				:items="['a', 'b', 'c']"
 				:leftIcon="ICONS[iconLeft]"
-			/>`,
+			/><ds-app>`,
 			created() {
 				this.ICONS = ICONS;
 			}

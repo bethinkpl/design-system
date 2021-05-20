@@ -1,13 +1,15 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { createLocalVue, mount } from '@vue/test-utils';
 import Vuetify from 'vuetify';
 import { VSelect } from 'vuetify/lib';
 
 import Select from './Select.vue';
 import Icon from '../Icon/Icon.vue';
 import { IconItem, ICONS } from '../Icon';
+import Vue from 'vue';
 
 describe('Select', () => {
 	const text = 'Wpłynąłem na suchego przestwór oceanu';
+	let vuetify;
 
 	const createComponent = ({
 		label = '',
@@ -18,8 +20,10 @@ describe('Select', () => {
 		leftIcon = undefined as IconItem | undefined,
 	} = {}) => {
 		const localVue = createLocalVue();
+		// https://github.com/vuetifyjs/vuetify/issues/6046#issuecomment-578201806
+		Vue.use(Vuetify);
 
-		return shallowMount(Select, {
+		return mount(Select, {
 			localVue,
 			mocks: {},
 			propsData: {
@@ -34,9 +38,13 @@ describe('Select', () => {
 				'v-select': VSelect,
 				icon: Icon,
 			},
-			vuetify: new Vuetify({}),
+			vuetify,
 		});
 	};
+
+	beforeEach(() => {
+		vuetify = new Vuetify();
+	});
 
 	it('should create', () => {
 		const component = createComponent();
