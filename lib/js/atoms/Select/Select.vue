@@ -2,7 +2,7 @@
 	<div class="a-select" :class="{ '-error': isErrorComputed, '-disabled': disabled }">
 		<ds-app>
 			<v-select
-				:items="['a', 'b', 'c']"
+				:items="items"
 				:messages="errorMessage || helpMessage"
 				:error="isErrorComputed"
 				:readonly="readonly"
@@ -13,7 +13,7 @@
 					<div class="a-select__helpMessage">
 						<icon
 							v-if="isErrorComputed"
-							class="a-input__labelErrorIcon"
+							class="a-select__labelErrorIcon"
 							:icon="ICONS.FA_EXCLAMATION_TRIANGLE"
 							:size="ICON_SIZES.XX_SMALL"
 						></icon>
@@ -143,10 +143,10 @@
 
 <script lang="ts">
 import { VSelect } from 'vuetify/lib';
+import { Prop } from 'vue/types/options';
 
 import DsApp from '../App';
 import Icon, { ICON_SIZES, ICONS } from '../Icon';
-import { Prop } from 'vue/types/options';
 import { VueConstructor } from 'vue';
 
 export default {
@@ -157,9 +157,9 @@ export default {
 		Icon,
 	},
 	props: {
-		label: {
-			type: String,
-			default: '',
+		disabled: {
+			type: Boolean,
+			default: false,
 		},
 		error: {
 			type: Boolean,
@@ -169,17 +169,17 @@ export default {
 			type: String,
 			default: undefined,
 		},
+		items: {
+			type: Array,
+			required: true,
+		},
+		label: {
+			type: String,
+			default: '',
+		},
 		helpMessage: {
 			type: String,
 			default: undefined,
-		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		readonly: {
-			type: Boolean,
-			default: false,
 		},
 		labelAddition: {
 			type: String,
@@ -191,6 +191,10 @@ export default {
 			validate(icon?: VueConstructor) {
 				return !icon || Object.values(ICONS).includes(icon);
 			},
+		},
+		readonly: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	computed: {
