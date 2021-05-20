@@ -1,0 +1,46 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+import App from 'design-system/lib/js/atoms/App';
+
+import Checkbox from './Checkbox';
+import { CHECKBOX_SIZES } from './Checkbox.consts';
+
+<Meta title='atoms/Checkbox' component={Checkbox} />
+
+# Checkbox
+
+<Story name='interactive'
+	   args={{
+		   label: 'Label',
+		   disabled: false,
+		   error: false,
+		   errorMessage: '',
+		   helpMessage: '',
+		   labelAddition: '(Label addition)',
+		   size: CHECKBOX_SIZES.MEDIUM,
+	   }}
+	   argTypes={{
+		   size: {
+			   control: { type: 'select', options: Object.values(CHECKBOX_SIZES) }
+		   }
+	   }}>
+	{(args) => {
+		return {
+			components: { DsCheckbox: Checkbox, DsApp: App},
+			props: Object.keys(args),
+			template: `<ds-app><ds-checkbox
+				:label="label"
+				:disabled="disabled"
+				:error="error"
+				:help-message="helpMessage"
+				:error-message="errorMessage"
+				:label-addition="labelAddition"
+				:size="size"
+			></ds-checkbox></ds-app>`,
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={Checkbox} />

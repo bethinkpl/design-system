@@ -1,3 +1,5 @@
+import '@mdi/font/css/materialdesignicons.css'
+
 export { default as BadgeScore } from './atoms/BadgeScore';
 export * from './atoms/BadgeScore/BadgeScore.consts';
 export { default as App } from './atoms/App';

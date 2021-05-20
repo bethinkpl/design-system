@@ -13,6 +13,7 @@ select {
 <script lang="ts">
 import Vuetify, { VApp } from 'vuetify/lib';
 import Vue from 'vue';
+
 import { VUETIFY_THEME } from '../../consts/vuetifyTheme.const';
 
 Vue.use(Vuetify, { theme: VUETIFY_THEME });

@@ -7,6 +7,9 @@ import { initialize } from 'design-system/lib/js/icons/fontawesome';
 import { addDecorator } from '@storybook/vue';
 import App from 'design-system/lib/js/atoms/App';
 
+import '@mdi/font/css/materialdesignicons.css'
+
+
 const customViewports = {
 	mobile: {
 		name: 'Breakpoint mobile',
