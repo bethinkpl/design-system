@@ -1,54 +1,52 @@
 <template>
 	<div class="a-select" :class="{ '-error': isErrorComputed, '-disabled': disabled }">
-		<ds-app>
-			<v-select
-				:items="items"
-				:messages="errorMessage || helpMessage"
-				:error="isErrorComputed"
-				:readonly="readonly"
-				:disabled="disabled"
-				filled
-			>
-				<template slot="message">
-					<div class="a-select__helpMessage">
-						<icon
-							v-if="isErrorComputed"
-							class="a-select__labelErrorIcon"
-							:icon="ICONS.FA_EXCLAMATION_TRIANGLE"
-							:size="ICON_SIZES.XX_SMALL"
-						></icon>
-						<span>
-							{{ errorMessage || helpMessage }}
-						</span>
-					</div>
-				</template>
-
-				<template #prepend-inner>
-					<template v-if="leftIcon">
-						<icon :icon="leftIcon" :size="ICON_SIZES.X_SMALL"></icon>
-					</template>
-				</template>
-
-				<template #append>
+		<v-select
+			:items="items"
+			:messages="errorMessage || helpMessage"
+			:error="isErrorComputed"
+			:readonly="readonly"
+			:disabled="disabled"
+			filled
+		>
+			<template slot="message">
+				<div class="a-select__helpMessage">
 					<icon
-						class="a-select__rightIcon"
-						:icon="ICONS.FA_CHEVRON_DOWN_SOLID"
+						v-if="isErrorComputed"
+						class="a-select__labelErrorIcon"
+						:icon="ICONS.FA_EXCLAMATION_TRIANGLE"
 						:size="ICON_SIZES.XX_SMALL"
 					></icon>
-				</template>
+					<span>
+						{{ errorMessage || helpMessage }}
+					</span>
+				</div>
+			</template>
 
-				<template #label>
-					<div>
-						<span class="a-select__label">
-							{{ label }}
-						</span>
-						<span v-if="labelAddition" class="a-select__labelAddition">
-							{{ labelAddition }}
-						</span>
-					</div>
+			<template #prepend-inner>
+				<template v-if="leftIcon">
+					<icon :icon="leftIcon" :size="ICON_SIZES.X_SMALL"></icon>
 				</template>
-			</v-select>
-		</ds-app>
+			</template>
+
+			<template #append>
+				<icon
+					class="a-select__rightIcon"
+					:icon="ICONS.FA_CHEVRON_DOWN_SOLID"
+					:size="ICON_SIZES.XX_SMALL"
+				></icon>
+			</template>
+
+			<template #label>
+				<div>
+					<span class="a-select__label">
+						{{ label }}
+					</span>
+					<span v-if="labelAddition" class="a-select__labelAddition">
+						{{ labelAddition }}
+					</span>
+				</div>
+			</template>
+		</v-select>
 	</div>
 </template>
 
@@ -142,18 +140,16 @@
 </style>
 
 <script lang="ts">
+import { VueConstructor } from 'vue';
 import { VSelect } from 'vuetify/lib';
 import { Prop } from 'vue/types/options';
 
-import DsApp from '../App';
 import Icon, { ICON_SIZES, ICONS } from '../Icon';
-import { VueConstructor } from 'vue';
 
 export default {
 	name: 'Select',
 	components: {
 		VSelect,
-		DsApp,
 		Icon,
 	},
 	props: {
