@@ -14,6 +14,7 @@ describe('Select', () => {
 		labelAddition = '',
 		helpMessage = '',
 		errorMessage = '',
+		items = [] as Array<string>,
 		leftIcon = undefined as IconItem | undefined,
 	} = {}) => {
 		const localVue = createLocalVue();
@@ -22,10 +23,11 @@ describe('Select', () => {
 			localVue,
 			mocks: {},
 			propsData: {
+				errorMessage,
+				helpMessage,
+				items,
 				label,
 				labelAddition,
-				helpMessage,
-				errorMessage,
 				leftIcon,
 			},
 			stubs: {
@@ -83,6 +85,20 @@ describe('Select', () => {
 
 		expect(component.find('.a-icon').props().icon).toEqual(leftIcon);
 	});
+
+	it.each([0, 1, 2])(
+		'component should update input value after user select a value',
+		async (index) => {
+			const items = ['a', 'b', 'c'];
+			const component = createComponent({ items });
+			await component.find('.v-select__slot').trigger('click');
+			await component
+				.find(`.v-list-item:nth-of-type(${index + 1}) .v-list-item__content`)
+				.trigger('click');
+
+			expect(component.find('input[type="hidden"]').attributes('value')).toBe(items[index]);
+		},
+	);
 
 	describe('errorMessage', () => {
 		it('should render text from errorMessage prop', () => {
