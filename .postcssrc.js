@@ -8,14 +8,13 @@ module.exports = {
 					return prefixedSelector;
 				}
 
-				if(selector.includes('html')) {
+				if(selector === 'html') {
 					return prefixedSelector;
 				}
 
-				if(selector.includes('select') || selector.includes('textarea')) {
+				if(selector.match(/^select|textarea/) || selector.match(/( |,)(select|textarea)/) ) {
 					return prefixedSelector;
 				}
-
 
 				return selector;
 			}
