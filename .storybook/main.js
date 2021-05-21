@@ -1,5 +1,7 @@
 const path = require('path');
 
+const scopifyVuetifyGlobalStyles = require('../lib/js/utils/scopify-vuetify-global-styles');
+
 module.exports = {
 	stories: ['../lib/**/*.stories.@(js|mdx)'],
 	addons: [
@@ -42,33 +44,18 @@ module.exports = {
 							plugins: () => [
 								require('postcss-prefix-selector')({
 									prefix: '.enabled-vuetify-global-styling',
-									transform: function (prefix, selector, prefixedSelector) {
-										if ((selector.startsWith('.v-application') || selector.startsWith('.theme--light.v-application')) && !selector.startsWith('.v-application--')) {
-											return prefixedSelector;
-										}
-
-										if(selector === 'html') {
-											return prefixedSelector;
-										}
-
-										if(selector.match(/^select|textarea/) || selector.match(/( |,)(select|textarea)/) ) {
-											return prefixedSelector;
-										}
-
-										return selector;
-									}
+									transform: scopifyVuetifyGlobalStyles,
 								}),
-							]
-						}
+							],
+						},
 					},
 					{
 						loader: 'sass-loader',
 						options: {
 							implementation: require('sass'),
-							data: "@import 'design-system/lib/styles/variables.scss'"
+							data: "@import 'design-system/lib/styles/variables.scss'",
 						},
 					},
-
 				],
 				include: path.resolve(__dirname, '../../'),
 			},
@@ -83,12 +70,9 @@ module.exports = {
 						loader: 'sass-loader',
 						options: {
 							implementation: require('sass'),
-							data: "@import 'design-system/lib/styles/variables.scss';"
+							data: "@import 'design-system/lib/styles/variables.scss';",
 						},
 					},
-
-
-
 				],
 				include: path.resolve(__dirname, '../../'),
 			},
