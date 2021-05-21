@@ -17,6 +17,7 @@ import Select from './Select.vue';
 		   helpMessage: 'Help message',
 		   disabled: false,
 		   readonly: false,
+		   id: undefined,
 		   labelAddition: '(Label Addition)',
 	   }}
 	   >
@@ -29,6 +30,7 @@ import Select from './Select.vue';
 				:error="error"
 				:disabled="disabled"
 				:readonly="readonly"
+				:id="id"
 				:helpMessage="helpMessage"
 				:errorMessage="errorMessage"
 				:labelAddition="labelAddition"
