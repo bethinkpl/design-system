@@ -15,9 +15,12 @@ import { CHECKBOX_SIZES } from './Checkbox.consts';
 		   disabled: false,
 		   error: false,
 		   errorMessage: '',
+		   id: undefined,
+		   readonly: false,
 		   helpMessage: '',
 		   labelAddition: '(Label addition)',
 		   size: CHECKBOX_SIZES.MEDIUM,
+		   value: false,
 	   }}
 	   argTypes={{
 		   size: {
@@ -32,10 +35,13 @@ import { CHECKBOX_SIZES } from './Checkbox.consts';
 				:label="label"
 				:disabled="disabled"
 				:error="error"
+				:id="id"
 				:help-message="helpMessage"
 				:error-message="errorMessage"
 				:label-addition="labelAddition"
+				:readonly="readonly"
 				:size="size"
+				:value="value"
 			></ds-checkbox></ds-app>`,
 		};
 	}}

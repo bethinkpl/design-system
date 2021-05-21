@@ -31,6 +31,7 @@ describe('Checkbox', () => {
 				helpMessage,
 				size,
 				errorMessage,
+				value: false,
 			},
 			stubs: {
 				'v-checkbox': VCheckbox,

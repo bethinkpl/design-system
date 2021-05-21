@@ -11,12 +11,16 @@
 	>
 		<v-layout>
 			<v-checkbox
-				v-model="key"
+				:id="id"
 				:disabled="disabled"
 				:error="isErrorComputed"
 				:error-message="errorMessage"
 				:label="label"
 				:messages="errorMessage || helpMessage"
+				:readonly="readonly"
+				:value="value"
+				@click="$emit('click', $event)"
+				@change="$emit('change', $event)"
 			>
 				<template #label>
 					<div>
@@ -162,6 +166,18 @@ export default {
 			type: String,
 			default: undefined,
 		},
+		id: {
+			type: String,
+			default: undefined,
+		},
+		readonly: {
+			type: Boolean,
+			default: false,
+		},
+		value: {
+			type: Boolean,
+			required: true,
+		},
 		size: {
 			type: String,
 			default: CHECKBOX_SIZES.MEDIUM,
@@ -169,11 +185,6 @@ export default {
 				Object.values(CHECKBOX_SIZES).includes(size);
 			},
 		},
-	},
-	data() {
-		return {
-			key: true,
-		};
 	},
 	computed: {
 		isErrorComputed(): boolean {
