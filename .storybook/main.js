@@ -37,12 +37,38 @@ module.exports = {
 					'style-loader',
 					'css-loader',
 					{
+						loader: require.resolve('postcss-loader'),
+						options: {
+							plugins: () => [
+								require('postcss-prefix-selector')({
+									prefix: '.enabled-vuetify-global-styling',
+									transform: function (prefix, selector, prefixedSelector) {
+										if ((selector.startsWith('.v-application') || selector.startsWith('.theme--light.v-application')) && !selector.startsWith('.v-application--')) {
+											return prefixedSelector;
+										}
+
+										if(selector === 'html') {
+											return prefixedSelector;
+										}
+
+										if(selector.match(/^select|textarea/) || selector.match(/( |,)(select|textarea)/) ) {
+											return prefixedSelector;
+										}
+
+										return selector;
+									}
+								}),
+							]
+						}
+					},
+					{
 						loader: 'sass-loader',
 						options: {
 							implementation: require('sass'),
 							data: "@import 'design-system/lib/styles/variables.scss'"
 						},
 					},
+
 				],
 				include: path.resolve(__dirname, '../../'),
 			},
@@ -50,7 +76,9 @@ module.exports = {
 				test: /\.scss$/,
 				use: [
 					'style-loader',
+
 					'css-loader',
+
 					{
 						loader: 'sass-loader',
 						options: {
@@ -58,6 +86,9 @@ module.exports = {
 							data: "@import 'design-system/lib/styles/variables.scss';"
 						},
 					},
+
+
+
 				],
 				include: path.resolve(__dirname, '../../'),
 			},
