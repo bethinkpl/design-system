@@ -65,7 +65,6 @@
     "@fortawesome/pro-regular-svg-icons": "^5.15.3",
     "@fortawesome/pro-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^2.0.2",
-    "@mdi/font": "^5.9.55",
     "vue": "^2.6.11",
     "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2",
     "vuetify": "^2.4.9"
