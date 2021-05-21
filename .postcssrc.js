@@ -12,7 +12,7 @@ module.exports = {
 					return prefixedSelector;
 				}
 
-				if(selector.match(/^select|textarea/) || selector.match(/( |,)(select|textarea)/) ) {
+				if(selector.match(/^(select|textarea)/) || selector.match(/( |,)(select|textarea)/) ) {
 					return prefixedSelector;
 				}
 
