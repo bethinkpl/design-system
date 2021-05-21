@@ -130,31 +130,31 @@
 
 	&.-success {
 		.v-input__prepend-inner {
-			fill: $color-success;
+			color: $color-success;
 		}
 
 		.v-input__append-inner {
-			fill: $color-success;
+			color: $color-success;
 		}
 	}
 
 	&.-error {
 		.v-input__prepend-inner {
-			fill: $color-danger;
+			color: $color-danger;
 		}
 
 		.v-input__append-inner {
-			fill: $color-danger;
+			color: $color-danger;
 		}
 	}
 
 	&.-disabled {
 		.v-input__prepend-inner {
-			fill: rgba($color-total-black, 0.38);
+			color: rgba($color-total-black, 0.38);
 		}
 
 		.v-input__append-inner {
-			fill: rgba($color-total-black, 0.38);
+			color: rgba($color-total-black, 0.38);
 		}
 	}
 }
