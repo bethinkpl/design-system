@@ -26,7 +26,7 @@ const vuetifyConfig = {
 	icons: {
 		iconfont: 'faSvg',
 	},
-};
+} as const;
 
 // eslint-disable-next-line vue/component-definition-name-casing, vue/match-component-file-name
 Vue.component('font-awesome-icon', FontAwesomeIcon);
