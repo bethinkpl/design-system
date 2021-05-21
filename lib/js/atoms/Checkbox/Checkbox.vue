@@ -82,9 +82,18 @@ $checkbox-m-size: 24px;
 		}
 	}
 
-	&.-medium {
+	&.-xsmall {
 		.v-icon {
-			font-size: $checkbox-m-size;
+			font-size: $checkbox-xs-size;
+		}
+
+		.v-input--selection-controls__input {
+			margin-right: 0;
+		}
+
+		.a-checkbox__label,
+		.a-checkbox__labelAddition {
+			@include headlineXXS();
 		}
 	}
 
@@ -93,20 +102,23 @@ $checkbox-m-size: 24px;
 			font-size: $checkbox-s-size;
 		}
 
+		.v-input--selection-controls__input {
+			margin-right: $space-xxxxs;
+		}
+
 		.a-checkbox__label,
 		.a-checkbox__labelAddition {
 			@include headlineXS();
 		}
 	}
 
-	&.-xsmall {
+	&.-medium {
 		.v-icon {
-			font-size: $checkbox-xs-size;
+			font-size: $checkbox-m-size;
 		}
 
-		.a-checkbox__label,
-		.a-checkbox__labelAddition {
-			@include headlineXXS();
+		.a-checkbox .v-input--selection-controls__input {
+			margin-right: $space-xxs;
 		}
 	}
 }
