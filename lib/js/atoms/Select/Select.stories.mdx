@@ -19,9 +19,7 @@ import Select from './Select.vue';
 		   readonly: false,
 		   labelAddition: '(Label Addition)',
 	   }}
-	   argTypes={{
-		   iconLeft: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
-	   }}>
+	   >
 	{(args) => {
 		return {
 			components: { DsSelect: Select, DsApp: App },
@@ -35,43 +33,7 @@ import Select from './Select.vue';
 				:errorMessage="errorMessage"
 				:labelAddition="labelAddition"
 				:items="['a', 'b', 'c']"
-				:leftIcon="ICONS[iconLeft]"
 			/></ds-app>`,
-			created() {
-				this.ICONS = ICONS;
-			}
-		};
-	}}
-</Story>
-
-<Story name='with icon'
-	   args={{
-		   label: 'Label',
-		   errorMessage: undefined,
-		   error:false,
-		   helpMessage: 'Help message',
-		   disabled: false,
-		   readonly: false,
-		   labelAddition: '(Label Addition)',
-	   }}
-	   argTypes={{
-		   iconLeft: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
-	   }}>
-	{(args) => {
-		return {
-			components: { DsSelect: Select, DsApp: App },
-			props: Object.keys(args),
-			template: `<ds-app><ds-select
-				:label="label"
-				:error="error"
-				:disabled="disabled"
-				:readonly="readonly"
-				:helpMessage="helpMessage"
-				:errorMessage="errorMessage"
-				:labelAddition="labelAddition"
-				:items="['a', 'b', 'c']"
-				:leftIcon="ICONS[iconLeft]"
-			/><ds-app>`,
 			created() {
 				this.ICONS = ICONS;
 			}
