@@ -113,8 +113,7 @@
 		background: $color-danger-background !important;
 	}
 
-	&__rightIcon svg {
-		fill: $color-storm-gray;
+	&__rightIcon {
 		color: $color-storm-gray;
 	}
 
@@ -124,15 +123,14 @@
 		}
 
 		.v-input__prepend-inner {
-			fill: rgba($color-total-black, 0.38);
+			color: rgba($color-total-black, 0.38);
 		}
 
 		.v-input__append-inner {
-			fill: rgba($color-total-black, 0.38);
+			color: rgba($color-total-black, 0.38);
 		}
 
-		.a-select__rightIcon svg {
-			fill: rgba($color-total-black, 0.38);
+		.a-select__rightIcon {
 			color: rgba($color-total-black, 0.38);
 		}
 	}
