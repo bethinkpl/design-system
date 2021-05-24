@@ -100,7 +100,7 @@
 
 .v-menu__content {
 	// input's label has to be visible
-	transform: translateY(22px);
+	transform: translateY(56px); // 54px of select + 2px of border
 }
 
 .a-select {
@@ -119,6 +119,17 @@
 
 	&__rightIcon {
 		color: $color-storm-gray;
+	}
+
+	.v-input__append-inner {
+		margin-top: 21px; // (54 - 12) / 2
+	}
+
+	.v-select--is-menu-active {
+		.a-select__rightIcon {
+			color: $color-primary;
+			transform: rotate(180deg);
+		}
 	}
 
 	&.-disabled {
