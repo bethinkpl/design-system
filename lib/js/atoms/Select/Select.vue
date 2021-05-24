@@ -1,12 +1,16 @@
 <template>
 	<div class="a-select" :class="{ '-error': isErrorComputed, '-disabled': disabled }">
 		<v-select
+			:id="id"
+			:disabled="disabled"
+			:error="isErrorComputed"
 			:items="items"
 			:messages="errorMessage || helpMessage"
-			:error="isErrorComputed"
 			:readonly="readonly"
-			:disabled="disabled"
 			filled
+			@blur="$emit('blur', $event)"
+			@click="$emit('click', $event)"
+			@change="$emit('change', $event)"
 		>
 			<template slot="message">
 				<div class="a-select__helpMessage">
@@ -166,6 +170,10 @@ export default {
 		items: {
 			type: Array,
 			required: true,
+		},
+		id: {
+			type: String,
+			default: undefined,
 		},
 		label: {
 			type: String,
