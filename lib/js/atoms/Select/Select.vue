@@ -61,32 +61,29 @@
 
 .a-select {
 	&__label {
-		color: $color-storm-gray;
+		color: $color-rhino-gray;
 	}
 
 	&__labelAddition {
 		color: $color-primary;
+		font-style: italic;
+	}
+
+	&__helpMessage {
+		color: $color-minor;
+		hyphens: initial;
 	}
 
 	&.-error {
-		.a-select__label {
-			color: $color-danger;
-		}
-
-		.a-select__labelAddition {
-			color: $color-danger;
-		}
-
+		.a-select__label,
+		.a-select__labelAddition,
 		.a-select__helpMessage {
 			color: $color-danger;
 		}
 	}
 
 	&.-disabled {
-		.a-select__label {
-			color: rgba($color-total-black, 0.38);
-		}
-
+		.a-select__label,
 		.a-select__labelAddition {
 			color: rgba($color-total-black, 0.38);
 		}
@@ -98,6 +95,9 @@
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/spacings';
 
+$color-select-background: rgba($color-firefly-black, 0.06);
+$color-select-background-hovered: rgba($color-firefly-black, 0.12);
+
 .v-menu__content {
 	// input's label has to be visible
 	transform: translateY(56px); // 54px of select + 2px of border
@@ -106,10 +106,14 @@
 .a-select {
 	.v-input__slot {
 		margin-bottom: $space-xxxs !important;
-		background: rgba($color-firefly-black, 0.06) !important;
+		background: $color-select-background !important;
+
+		&::before {
+			border-color: $color-minor-supporting !important;
+		}
 
 		&:hover {
-			background: rgba($color-firefly-black, 0.12) !important;
+			background: $color-select-background-hovered !important;
 		}
 	}
 
@@ -125,10 +129,14 @@
 		margin-top: 21px; // (54 - 12) / 2
 	}
 
-	.v-select--is-menu-active {
+	.v-select--is-menu-active .a-select__rightIcon {
+		color: $color-primary;
+		transform: rotate(180deg);
+	}
+
+	&.-error {
 		.a-select__rightIcon {
-			color: $color-primary;
-			transform: rotate(180deg);
+			color: $color-danger;
 		}
 	}
 
@@ -137,16 +145,10 @@
 			border-image: none !important;
 		}
 
-		.v-input__prepend-inner {
-			color: rgba($color-total-black, 0.38);
-		}
-
-		.v-input__append-inner {
-			color: rgba($color-total-black, 0.38);
-		}
-
+		.v-input__prepend-inner,
+		.v-input__append-inner,
 		.a-select__rightIcon {
-			color: rgba($color-total-black, 0.38);
+			color: $color-minor-supporting;
 		}
 	}
 }
