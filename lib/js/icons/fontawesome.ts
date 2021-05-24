@@ -114,6 +114,7 @@ import {
 	faCameraAlt as fasCameraAlt,
 	faCheck as fasCheck,
 	faCheckCircle as fasCheckCircle,
+	faCheckSquare as fasCheckSquare,
 	faChevronDown as fasChevronDown,
 	faChevronLeft as fasChevronLeft,
 	faChevronRight as fasChevronRight,
@@ -174,6 +175,8 @@ export const FONTAWESOME_ICONS = {
 	FA_CHECK_CIRCLE: faCheckCircle,
 	FA_CHECK_CIRCLE_SOLID: fasCheckCircle,
 	FA_CHECK_SQUARE: faCheckSquare,
+	// required for a Checkbox component 👇
+	FA_CHECK_SQUARE_SOLID: fasCheckSquare,
 	FA_CHEVRON_DOWN_SOLID: fasChevronDown,
 	FA_CHEVRON_LEFT_SOLID: fasChevronLeft,
 	FA_CHEVRON_LEFT_LIGHT: falChevronLeft,
@@ -257,6 +260,7 @@ export const FONTAWESOME_ICONS = {
 	FA_SITEMAP_SOLID: fasSitemap,
 	FA_SLIDERS_H: faSlidersH,
 	FA_SMILE: faSmile,
+	// required for a Checkbox component 👇
 	FA_SQUARE: faSquare,
 	FA_STAR: faStar,
 	FA_STAR_SOLID: fasStar,
