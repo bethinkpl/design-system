@@ -102,6 +102,7 @@
 @import '../../../styles/settings/spacings';
 
 $color-input-background: rgba($color-firefly-black, 0.06);
+$color-input-background-hovered: rgba($color-firefly-black, 0.12);
 
 .a-input {
 	.v-input__slot {
@@ -109,6 +110,10 @@ $color-input-background: rgba($color-firefly-black, 0.06);
 
 		&::before {
 			border-color: $color-minor !important;
+		}
+
+		&:hover {
+			border-color: $color-input-background-hovered !important;
 		}
 	}
 
