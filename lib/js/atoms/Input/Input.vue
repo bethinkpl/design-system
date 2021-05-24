@@ -5,6 +5,7 @@
 	>
 		<v-text-field
 			:id="id"
+			filled
 			:autofocus="autofocus"
 			:disabled="disabled"
 			:error-messages="errorMessage"
@@ -14,7 +15,9 @@
 			:readonly="readonly"
 			:success="success"
 			:value="value"
-			filled
+			@blur="$emit('blur', $event)"
+			@click="$emit('click', $event)"
+			@change="$emit('change', $event)"
 		>
 			<template #prepend-inner>
 				<template v-if="leftIcon">
