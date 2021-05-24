@@ -15,7 +15,6 @@ describe('Input', () => {
 		labelAddition = '',
 		leftIcon = undefined as IconItem | undefined,
 		rightIcon = undefined as IconItem | undefined,
-		success = false,
 	} = {}) => {
 		Vue.use(Vuetify);
 		const localVue = createLocalVue();
@@ -31,7 +30,6 @@ describe('Input', () => {
 				labelAddition,
 				leftIcon,
 				rightIcon,
-				success,
 			},
 			stubs: {
 				'v-text-field': VTextField,
@@ -87,14 +85,6 @@ describe('Input', () => {
 		expect(component.find('.v-messages.error--text').exists()).toBe(true);
 	});
 
-	it('when component has set success prop to true component should be in success state', () => {
-		const component = createComponent({ success: true, label: 'label' });
-
-		expect(component.find('.a-input.-success').exists()).toBe(true);
-		expect(component.find('.v-input.success--text').exists()).toBe(true);
-		expect(component.find('.v-messages.success--text').exists()).toBe(true);
-	});
-
 	describe('icons', () => {
 		it('should render icon from leftIcon prop', () => {
 			const leftIcon = ICONS.FA_CHART_BAR;
@@ -109,15 +99,6 @@ describe('Input', () => {
 
 			expect(component.find('icon-stub').props().icon).toEqual(rightIcon);
 		});
-
-		it.each([ICONS.FA_CHART_BAR, undefined])(
-			'when component is in error state component should render FA_EXCLAMATION_CIRCLE as rightIcon',
-			(rightIcon) => {
-				const component = createComponent({ rightIcon, success: true });
-
-				expect(component.find('icon-stub').props().icon).toEqual(ICONS.FA_CHECK_CIRCLE);
-			},
-		);
 	});
 
 	describe('errorMessage', () => {
