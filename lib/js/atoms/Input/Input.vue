@@ -1,8 +1,5 @@
 <template>
-	<div
-		class="a-input"
-		:class="{ '-error': error || !!errorMessage, '-disabled': disabled }"
-	>
+	<div class="a-input" :class="{ '-error': error || !!errorMessage, '-disabled': disabled }">
 		<v-text-field
 			:id="id"
 			filled
