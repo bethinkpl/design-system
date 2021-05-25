@@ -82,7 +82,7 @@ initialize();
 
 addDecorator(() => ({
 	components: {
-		App
+		App,
 	},
 	template: `
     <app>
