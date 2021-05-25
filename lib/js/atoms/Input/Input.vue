@@ -18,13 +18,21 @@
 		>
 			<template #prepend-inner>
 				<template v-if="leftIcon">
-					<icon :icon="leftIcon" :size="ICON_SIZES.X_SMALL"></icon>
+					<icon
+						class="a-input__leftIcon"
+						:icon="leftIcon"
+						:size="ICON_SIZES.X_SMALL"
+					></icon>
 				</template>
 			</template>
 
 			<template #append>
 				<template v-if="rightIcon">
-					<icon :icon="rightIcon" :size="ICON_SIZES.X_SMALL"></icon>
+					<icon
+						class="a-input__rightIcon"
+						:icon="rightIcon"
+						:size="ICON_SIZES.X_SMALL"
+					></icon>
 				</template>
 			</template>
 
@@ -72,7 +80,15 @@
 
 	&__helpMessage {
 		color: $color-minor;
-		hyphens: inherit;
+		hyphens: initial;
+	}
+
+	&__leftIcon {
+		color: $color-minor-supporting;
+	}
+
+	&__rightIcon {
+		color: $color-minor-supporting;
 	}
 
 	&.-error {
@@ -128,10 +144,16 @@ $color-input-background-hovered: rgba($color-firefly-black, 0.12);
 		color: $color-minor;
 	}
 
-	.v-input--is-focused .v-input__slot {
-		background: $color-input-background !important;
+	.v-input--is-focused {
+		.v-input__slot {
+			background: $color-input-background !important;
 
-		.a-input__label {
+			.a-input__label {
+				color: $color-primary;
+			}
+		}
+
+		.a-input__leftIcon {
 			color: $color-primary;
 		}
 	}
@@ -161,7 +183,7 @@ $color-input-background-hovered: rgba($color-firefly-black, 0.12);
 			color: $color-minor-supporting;
 		}
 
-		.v-input__append-inner {
+		.a-input__leftIcon {
 			color: $color-mischka-gray;
 		}
 	}
