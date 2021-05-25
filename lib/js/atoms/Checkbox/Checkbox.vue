@@ -21,6 +21,7 @@
 				:value="value"
 				@click="$emit('click', $event)"
 				@change="$emit('change', $event)"
+				@input="$emit('input', $event)"
 			>
 				<template #label>
 					<div>
