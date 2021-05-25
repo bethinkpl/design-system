@@ -2,6 +2,7 @@
 	<div class="a-select" :class="{ '-error': isErrorComputed, '-disabled': disabled }">
 		<v-select
 			:id="id"
+			:value="value"
 			:disabled="disabled"
 			:error="isErrorComputed"
 			:items="items"
@@ -12,6 +13,7 @@
 			@blur="$emit('blur', $event)"
 			@click="$emit('click', $event)"
 			@change="$emit('change', $event)"
+			@input="$emit('input', $event)"
 		>
 			<template slot="message">
 				<div class="a-select__helpMessage">
@@ -194,6 +196,10 @@ export default {
 			default: undefined,
 		},
 		labelAddition: {
+			type: String,
+			default: undefined,
+		},
+		value: {
 			type: String,
 			default: undefined,
 		},
