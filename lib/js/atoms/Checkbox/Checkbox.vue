@@ -57,9 +57,9 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
-$checkbox-xs-size: 14px;
-$checkbox-s-size: 18px;
-$checkbox-m-size: 24px;
+$checkbox-xs-size: 12px;
+$checkbox-s-size: 16px;
+$checkbox-m-size: 20px;
 
 .a-checkbox {
 	&__label {
@@ -70,6 +70,7 @@ $checkbox-m-size: 24px;
 
 	&__labelAddition {
 		color: $color-primary;
+		font-style: italic;
 	}
 
 	&.-error {
