@@ -7,6 +7,7 @@
 			:items="items"
 			:messages="errorMessage || helpMessage"
 			:readonly="readonly"
+			:menu-props="{ bottom: true, offsetY: true }"
 			filled
 			@blur="$emit('blur', $event)"
 			@click="$emit('click', $event)"
@@ -98,11 +99,6 @@
 $color-select-background: rgba($color-firefly-black, 0.06);
 $color-select-background-hovered: rgba($color-firefly-black, 0.12);
 
-.v-menu__content {
-	// input's label has to be visible
-	transform: translateY(56px); // 54px of select + 2px of border
-}
-
 .a-select {
 	.v-input__slot {
 		margin-bottom: $space-xxxs !important;
@@ -126,7 +122,8 @@ $color-select-background-hovered: rgba($color-firefly-black, 0.12);
 	}
 
 	.v-input__append-inner {
-		margin-top: 21px; // (54 - 12) / 2
+		align-self: center;
+		margin-top: 0;
 	}
 
 	.v-select--is-menu-active .a-select__rightIcon {
