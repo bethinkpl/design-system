@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="a-input"
-		:class="{ '-success': success, '-error': error || !!errorMessage, '-disabled': disabled }"
+		:class="{ '-error': error || !!errorMessage, '-disabled': disabled }"
 	>
 		<v-text-field
 			:id="id"
@@ -17,6 +17,7 @@
 			@blur="$emit('blur', $event)"
 			@click="$emit('click', $event)"
 			@change="$emit('change', $event)"
+			@input="$emit('input', $event)"
 		>
 			<template #prepend-inner>
 				<template v-if="leftIcon">
