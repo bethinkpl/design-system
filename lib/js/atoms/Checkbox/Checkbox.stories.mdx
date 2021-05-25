@@ -47,6 +47,48 @@ import { CHECKBOX_SIZES } from './Checkbox.consts';
 	}}
 </Story>
 
+<Story name='with v-model'
+	   args={{
+		   label: 'Label',
+		   disabled: false,
+		   error: false,
+		   errorMessage: '',
+		   id: undefined,
+		   readonly: false,
+		   helpMessage: '',
+		   labelAddition: '(Label addition)',
+		   size: CHECKBOX_SIZES.MEDIUM,
+	   }}
+	   argTypes={{
+		   size: {
+			   control: { type: 'select', options: Object.values(CHECKBOX_SIZES) }
+		   }
+	   }}>
+	{(args) => {
+		return {
+			components: { DsCheckbox: Checkbox, DsApp: App},
+			data() {
+				return {
+					selected: false,
+				};
+			},
+			props: Object.keys(args),
+			template: `<ds-app><ds-checkbox
+				v-model="selected"
+				:label="label"
+				:disabled="disabled"
+				:error="error"
+				:id="id"
+				:help-message="helpMessage"
+				:error-message="errorMessage"
+				:label-addition="labelAddition"
+				:readonly="readonly"
+				:size="size"
+			></ds-checkbox><div>Wybrana wartość: <strong>{{!!selected}}</strong></div></ds-app>`,
+		};
+	}}
+</Story>
+
 ## Props
 
 <Props of={Checkbox} />

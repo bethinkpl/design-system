@@ -20,16 +20,15 @@
 				:readonly="readonly"
 				:value="value"
 				@click="$emit('click', $event)"
-				@change="$emit('change', $event)"
-				@input="$emit('input', $event)"
+				@change="$emit('input', !!$event)"
 			>
 				<template #label>
-					<div>
+					<div class="a-checkbox__labelContainer">
 						<span class="a-checkbox__label">
 							{{ label }}
 						</span>
 						<span v-if="labelAddition" class="a-checkbox__labelAddition">
-							{{ labelAddition }}
+							&nbsp;{{ labelAddition }}
 						</span>
 					</div>
 				</template>
@@ -62,6 +61,11 @@ $checkbox-s-size: 16px;
 $checkbox-m-size: 20px;
 
 .a-checkbox {
+	&__labelContainer {
+		// forced vertical center on XS and S
+		display: flex;
+	}
+
 	&__label {
 		@include headlineS();
 
@@ -71,6 +75,10 @@ $checkbox-m-size: 20px;
 	&__labelAddition {
 		color: $color-primary;
 		font-style: italic;
+	}
+
+	.v-icon {
+		color: $color-minor;
 	}
 
 	&.-error {
@@ -188,7 +196,7 @@ export default {
 		},
 		value: {
 			type: Boolean,
-			required: true,
+			default: undefined,
 		},
 		size: {
 			type: String,
