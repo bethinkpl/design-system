@@ -77,6 +77,11 @@ $checkbox-m-size: 20px;
 		font-style: italic;
 	}
 
+	&__helpMessage {
+		color: $color-minor;
+		hyphens: initial;
+	}
+
 	.v-icon {
 		color: $color-minor;
 	}
