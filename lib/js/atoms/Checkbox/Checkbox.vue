@@ -100,6 +100,11 @@ $checkbox-m-size: 24px;
 		.a-checkbox__labelAddition {
 			@include headlineXXS();
 		}
+
+		.v-input--selection-controls__input:hover .v-input--selection-controls__ripple::before,
+		.v-input--selection-controls__ripple > .v-ripple__container {
+			transform: scale(0.8);
+		}
 	}
 
 	&.-small {
@@ -114,6 +119,11 @@ $checkbox-m-size: 24px;
 		.a-checkbox__label,
 		.a-checkbox__labelAddition {
 			@include headlineXS();
+		}
+
+		.v-input--selection-controls__input:hover .v-input--selection-controls__ripple::before,
+		.v-input--selection-controls__ripple > .v-ripple__container {
+			transform: scale(1);
 		}
 	}
 
