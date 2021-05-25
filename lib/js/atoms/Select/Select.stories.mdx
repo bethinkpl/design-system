@@ -8,8 +8,7 @@ import Select from './Select.vue';
 <Meta title='atoms/Select' component={Select} />
 
 # Select
-
-<Story name='without icon'
+<Story name='interactive'
 	   args={{
 		   label: 'Label',
 		   errorMessage: undefined,
@@ -21,6 +20,48 @@ import Select from './Select.vue';
 		   labelAddition: '(Label Addition)',
 	   }}
 	   >
+	{(args) => {
+		return {
+			components: { DsSelect: Select, DsApp: App },
+			data() {
+				return {
+					selected: undefined
+				};
+			},
+			props: Object.keys(args),
+			template: `<ds-app>
+				<ds-select
+					:label="label"
+					:error="error"
+					:disabled="disabled"
+					:readonly="readonly"
+					:id="id"
+					v-model="selected"
+					:helpMessage="helpMessage"
+					:errorMessage="errorMessage"
+					:labelAddition="labelAddition"
+					:items="[{ value: 'ga', text: 'Georgia'}, { value: 'ne', text: 'Nebraska'}, { value: 'ca', text: 'California'}]"
+				/>
+			</ds-app>`,
+			created() {
+				this.ICONS = ICONS;
+			}
+		};
+	}}
+</Story>
+
+<Story name='with v-model'
+	   args={{
+		   label: 'Label',
+		   errorMessage: undefined,
+		   error:false,
+		   helpMessage: 'Help message',
+		   disabled: false,
+		   readonly: false,
+		   id: undefined,
+		   labelAddition: '(Label Addition)',
+	   }}
+>
 	{(args) => {
 		return {
 			components: { DsSelect: Select, DsApp: App },
@@ -51,6 +92,7 @@ import Select from './Select.vue';
 		};
 	}}
 </Story>
+
 
 ## Props
 <Props of={Select} />

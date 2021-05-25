@@ -87,8 +87,9 @@
 
 	&.-disabled {
 		.a-select__label,
-		.a-select__labelAddition {
-			color: rgba($color-total-black, 0.38);
+		.a-select__labelAddition,
+		.a-select__helpMessage {
+			color: $color-minor-supporting;
 		}
 	}
 }
@@ -128,9 +129,17 @@ $color-select-background-hovered: rgba($color-firefly-black, 0.12);
 		margin-top: 0;
 	}
 
+	.v-label--active .a-select__label {
+		color: $color-minor;
+	}
+
 	.v-select--is-menu-active .a-select__rightIcon {
 		color: $color-primary;
 		transform: rotate(180deg);
+	}
+
+	.v-select__selection {
+		color: $color-firefly-black;
 	}
 
 	&.-error {
