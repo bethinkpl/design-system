@@ -1,8 +1,5 @@
 <template>
-	<div
-		class="a-input"
-		:class="{ '-success': success, '-error': error || !!errorMessage, '-disabled': disabled }"
-	>
+	<div class="a-input" :class="{ '-error': error || !!errorMessage, '-disabled': disabled }">
 		<v-text-field
 			:id="id"
 			filled
@@ -13,21 +10,29 @@
 			:hint="helpMessage"
 			:persistent-hint="!!helpMessage"
 			:readonly="readonly"
-			:success="success"
 			:value="value"
 			@blur="$emit('blur', $event)"
 			@click="$emit('click', $event)"
 			@change="$emit('change', $event)"
+			@input="$emit('input', $event)"
 		>
 			<template #prepend-inner>
 				<template v-if="leftIcon">
-					<icon :icon="leftIcon" :size="ICON_SIZES.X_SMALL"></icon>
+					<icon
+						class="a-input__leftIcon"
+						:icon="leftIcon"
+						:size="ICON_SIZES.X_SMALL"
+					></icon>
 				</template>
 			</template>
 
 			<template #append>
-				<template v-if="rightIconComputed">
-					<icon :icon="rightIconComputed" :size="ICON_SIZES.X_SMALL"></icon>
+				<template v-if="rightIcon">
+					<icon
+						class="a-input__rightIcon"
+						:icon="rightIcon"
+						:size="ICON_SIZES.X_SMALL"
+					></icon>
 				</template>
 			</template>
 
@@ -65,11 +70,25 @@
 
 .a-input {
 	&__label {
-		color: $color-storm-gray;
+		color: $color-rhino-gray;
 	}
 
 	&__labelAddition {
 		color: $color-primary;
+		font-style: italic;
+	}
+
+	&__helpMessage {
+		color: $color-minor;
+		hyphens: initial;
+	}
+
+	&__leftIcon {
+		color: $color-minor-supporting;
+	}
+
+	&__rightIcon {
+		color: $color-minor-supporting;
 	}
 
 	&.-error {
@@ -82,19 +101,11 @@
 		}
 	}
 
-	&.-success {
-		.a-input__labelAddition {
-			color: $color-success;
-		}
-
-		.a-input__helpMessage {
-			color: $color-success;
-		}
-	}
-
 	&.-disabled {
-		.a-input__labelAddition {
-			color: rgba($color-total-black, 0.38);
+		.a-input__label,
+		.a-input__labelAddition,
+		.a-input__helpMessage {
+			color: $color-minor-supporting;
 		}
 	}
 }
@@ -104,13 +115,19 @@
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/spacings';
 
+$color-input-background: rgba($color-firefly-black, 0.06);
+$color-input-background-hovered: rgba($color-firefly-black, 0.12);
+
 .a-input {
 	.v-input__slot {
-		margin-bottom: $space-xxxs !important;
-		background: rgba($color-firefly-black, 0.06) !important;
+		background: $color-input-background !important;
+
+		&::before {
+			border-color: $color-minor !important;
+		}
 
 		&:hover {
-			background: rgba($color-firefly-black, 0.12) !important;
+			border-color: $color-input-background-hovered !important;
 		}
 	}
 
@@ -123,49 +140,51 @@
 		align-items: center;
 	}
 
-	.v-input--is-focused .v-input__slot {
-		background: rgba($color-firefly-black, 0.12) !important;
+	.v-label--active .a-input__label {
+		color: $color-minor;
+	}
+
+	.v-input--is-focused {
+		.v-input__slot {
+			background: $color-input-background !important;
+
+			.a-input__label {
+				color: $color-primary;
+			}
+		}
+
+		.a-input__leftIcon {
+			color: $color-primary;
+		}
 	}
 
 	&.-error .v-input__slot {
 		background: $color-danger-background !important;
 	}
 
-	&.-success .v-input__slot {
-		background: $color-success-background !important;
-	}
-
 	.v-input--is-disabled .v-input__slot::before {
 		border-image: none !important;
 	}
 
-	&.-success {
-		.v-input__prepend-inner {
-			color: $color-success;
-		}
-
-		.v-input__append-inner {
-			color: $color-success;
-		}
+	.v-input input {
+		color: $color-firefly-black;
 	}
 
 	&.-error {
-		.v-input__prepend-inner {
-			color: $color-danger;
-		}
-
+		.v-input__prepend-inner,
 		.v-input__append-inner {
 			color: $color-danger;
 		}
 	}
 
 	&.-disabled {
-		.v-input__prepend-inner {
-			color: rgba($color-total-black, 0.38);
+		.v-input__append-inner,
+		input {
+			color: $color-minor-supporting;
 		}
 
-		.v-input__append-inner {
-			color: rgba($color-total-black, 0.38);
+		.a-input__leftIcon {
+			color: $color-mischka-gray;
 		}
 	}
 }
@@ -236,21 +255,9 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		success: {
-			type: Boolean,
-			default: false,
-		},
 		error: {
 			type: Boolean,
 			default: false,
-		},
-	},
-	computed: {
-		rightIconComputed() {
-			if (this.success) {
-				return ICONS.FA_CHECK_CIRCLE;
-			}
-			return this.rightIcon;
 		},
 	},
 	created() {

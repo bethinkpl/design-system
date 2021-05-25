@@ -13,8 +13,6 @@ export * from './atoms/NumberInCircle/NumberInCircle.consts';
 export { default as TabItem } from './atoms/TabItem';
 export { default as AccessStatus } from './molecules/AccessStatus.vue';
 export { default as Select } from './atoms/Select';
-export { default as Checkbox } from './atoms/Checkbox';
-export * from './atoms/Checkbox/Checkbox.consts';
 
 export {
 	initialize as initializeIcons,

@@ -2,15 +2,18 @@
 	<div class="a-select" :class="{ '-error': isErrorComputed, '-disabled': disabled }">
 		<v-select
 			:id="id"
+			:value="value"
 			:disabled="disabled"
 			:error="isErrorComputed"
 			:items="items"
 			:messages="errorMessage || helpMessage"
 			:readonly="readonly"
+			:menu-props="{ bottom: true, offsetY: true }"
 			filled
 			@blur="$emit('blur', $event)"
 			@click="$emit('click', $event)"
 			@change="$emit('change', $event)"
+			@input="$emit('input', $event)"
 		>
 			<template slot="message">
 				<div class="a-select__helpMessage">
@@ -61,34 +64,32 @@
 
 .a-select {
 	&__label {
-		color: $color-storm-gray;
+		color: $color-rhino-gray;
 	}
 
 	&__labelAddition {
 		color: $color-primary;
+		font-style: italic;
+	}
+
+	&__helpMessage {
+		color: $color-minor;
+		hyphens: initial;
 	}
 
 	&.-error {
-		.a-select__label {
-			color: $color-danger;
-		}
-
-		.a-select__labelAddition {
-			color: $color-danger;
-		}
-
+		.a-select__label,
+		.a-select__labelAddition,
 		.a-select__helpMessage {
 			color: $color-danger;
 		}
 	}
 
 	&.-disabled {
-		.a-select__label {
-			color: rgba($color-total-black, 0.38);
-		}
-
-		.a-select__labelAddition {
-			color: rgba($color-total-black, 0.38);
+		.a-select__label,
+		.a-select__labelAddition,
+		.a-select__helpMessage {
+			color: $color-minor-supporting;
 		}
 	}
 }
@@ -98,18 +99,20 @@
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/spacings';
 
-.v-menu__content {
-	// input's label has to be visible
-	transform: translateY(22px);
-}
+$color-select-background: rgba($color-firefly-black, 0.06);
+$color-select-background-hovered: rgba($color-firefly-black, 0.12);
 
 .a-select {
 	.v-input__slot {
 		margin-bottom: $space-xxxs !important;
-		background: rgba($color-firefly-black, 0.06) !important;
+		background: $color-select-background !important;
+
+		&::before {
+			border-color: $color-minor-supporting !important;
+		}
 
 		&:hover {
-			background: rgba($color-firefly-black, 0.12) !important;
+			background: $color-select-background-hovered !important;
 		}
 	}
 
@@ -121,21 +124,39 @@
 		color: $color-storm-gray;
 	}
 
+	.v-input__append-inner {
+		align-self: center;
+		margin-top: 0;
+	}
+
+	.v-label--active .a-select__label {
+		color: $color-minor;
+	}
+
+	.v-select--is-menu-active .a-select__rightIcon {
+		color: $color-primary;
+		transform: rotate(180deg);
+	}
+
+	.v-select__selection {
+		color: $color-firefly-black;
+	}
+
+	&.-error {
+		.a-select__rightIcon {
+			color: $color-danger;
+		}
+	}
+
 	&.-disabled {
 		.v-input__slot::before {
 			border-image: none !important;
 		}
 
-		.v-input__prepend-inner {
-			color: rgba($color-total-black, 0.38);
-		}
-
-		.v-input__append-inner {
-			color: rgba($color-total-black, 0.38);
-		}
-
+		.v-input__prepend-inner,
+		.v-input__append-inner,
 		.a-select__rightIcon {
-			color: rgba($color-total-black, 0.38);
+			color: $color-minor-supporting;
 		}
 	}
 }
@@ -184,6 +205,10 @@ export default {
 			default: undefined,
 		},
 		labelAddition: {
+			type: String,
+			default: undefined,
+		},
+		value: {
 			type: String,
 			default: undefined,
 		},
