@@ -1,37 +1,89 @@
 import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
 
 import Stepper from 'design-system/lib/js/atoms/Stepper';
-import { ICONS } from 'design-system/lib/js/atoms/Icon';
+import { ICONS } from 'design-system/lib/js/atoms/Icon'; import { STEP_TYPES } from './Stepper.types';
 
 <Meta title='atoms/Stepper' component={Stepper} />
 
 # Stepper
-<Story name='interactive'
+
+<Story name='with 3 steps'
 	   args={{
 		   label1: 'Koszyk',
 		   label2: 'Dostawa',
 		   label3: 'Potwierdzenie',
-		   isFilled1: false,
-		   isFilled2: false,
-		   isFilled3: false,
-		   isClickable1: false,
-		   isClickable2: false,
-		   isClickable3: false,
+		   stepType1: STEP_TYPES.DEFAULT,
+		   stepType2: STEP_TYPES.DEFAULT,
+		   stepType3: STEP_TYPES.DEFAULT,
+		   disabled1: false,
+		   disabled2: false,
+		   disabled3: false,
+		   forceVerticalLabels: false
 	   }}
 	   argTypes={{
 		   iconKey1: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_SHOPPING_CART' },
 		   iconKey2: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TRUCK' },
 		   iconKey3: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_CLIPBOARD_LIST' },
+		   stepType1: {control: { type: 'select', options: Object.keys(STEP_TYPES) }, defaultValue: STEP_TYPES.DEFAULT },
+		   stepType2: {control: { type: 'select', options: Object.keys(STEP_TYPES) }, defaultValue: STEP_TYPES.DEFAULT },
+		   stepType3: {control: { type: 'select', options: Object.keys(STEP_TYPES) }, defaultValue: STEP_TYPES.DEFAULT },
 	   }}>
 	{(args) => {
 		return {
 			components: { Stepper },
 			props: Object.keys(args),
 			template: `<stepper :steps="[
-    	{ label: label1, icon: ICONS[iconKey1], isFilled: isFilled1, isClickable: isClickable1},
-    	{ label: label2, icon: ICONS[iconKey2], isFilled: isFilled2, isClickable: isClickable2},
-    	{ label: label3, icon: ICONS[iconKey3], isFilled: isFilled3, isClickable: isClickable3}
-    ]" />`,
+    	{ label: label1, icon: ICONS[iconKey1], type: stepType1, disabled: disabled1 },
+    	{ label: label2, icon: ICONS[iconKey2], type: stepType2, disabled: disabled2 },
+    	{ label: label3, icon: ICONS[iconKey3], type: stepType3, disabled: disabled3 },
+    ]"
+	:forceVerticalLabels="forceVerticalLabels"
+	/>`,
+			created() {
+				this.ICONS = ICONS;
+			},
+		};
+	}}
+</Story>
+
+<Story name='with 4 steps'
+	   args={{
+		   label1: 'Koszyk',
+		   label2: 'Dostawa',
+		   label3: 'Potwierdzenie',
+		   label4: 'Faktura',
+		   stepType1: STEP_TYPES.DEFAULT,
+		   stepType2: STEP_TYPES.DEFAULT,
+		   stepType3: STEP_TYPES.DEFAULT,
+		   stepType4: STEP_TYPES.DEFAULT,
+		   disabled1: false,
+		   disabled2: false,
+		   disabled3: false,
+		   disabled4: false,
+		   forceVerticalLabels: false
+	   }}
+	   argTypes={{
+		   iconKey1: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_SHOPPING_CART' },
+		   iconKey2: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TRUCK' },
+		   iconKey3: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_CLIPBOARD_LIST' },
+		   iconKey4: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_CLIPBOARD_LIST' },
+		   stepType1: {control: { type: 'select', options: Object.keys(STEP_TYPES) }, defaultValue: STEP_TYPES.DEFAULT },
+		   stepType2: {control: { type: 'select', options: Object.keys(STEP_TYPES) }, defaultValue: STEP_TYPES.DEFAULT },
+		   stepType3: {control: { type: 'select', options: Object.keys(STEP_TYPES) }, defaultValue: STEP_TYPES.DEFAULT },
+		   stepType4: {control: { type: 'select', options: Object.keys(STEP_TYPES) }, defaultValue: STEP_TYPES.DEFAULT },
+	   }}>
+	{(args) => {
+		return {
+			components: { Stepper },
+			props: Object.keys(args),
+			template: `<stepper :steps="[
+    	{ label: label1, icon: ICONS[iconKey1], type: stepType1, disabled: disabled1 },
+    	{ label: label2, icon: ICONS[iconKey2], type: stepType2, disabled: disabled2 },
+    	{ label: label3, icon: ICONS[iconKey3], type: stepType3, disabled: disabled3 },
+    	{ label: label4, icon: ICONS[iconKey4], type: stepType4, disabled: disabled4 },
+    ]"
+	:forceVerticalLabels="forceVerticalLabels"
+	/>`,
 			created() {
 				this.ICONS = ICONS;
 			},

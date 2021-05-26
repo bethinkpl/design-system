@@ -1,25 +1,29 @@
 <template>
-	<div class="stepper">
+	<div class="stepper" :class="{ '-forceVerticalLabels': forceVerticalLabels }">
 		<div v-for="(step, index) in steps" :key="index" class="stepper__item">
 			<div
 				v-if="index !== 0"
 				class="stepper__separator"
-				:class="{ '-filled': step.isFilled }"
+				:class="{ '-done': [STEP_TYPES.DONE, STEP_TYPES.ACTIVE].includes(step.type) }"
 			></div>
 			<div class="stepper__step">
 				<ripple-wrapper class="stepper__ripple" :disable="!step.isClickable">
 					<icon
 						class="stepper__icon"
 						:class="{
-							'-filled': step.isFilled,
-							'-disabled': !step.isClickable,
+							'-done': step.type === STEP_TYPES.DONE,
+							'-active': step.type === STEP_TYPES.ACTIVE,
+							'-disabled': step.disabled,
 						}"
 						:icon="step.icon"
 						:size="ICON_SIZES.X_SMALL"
 						@click.native="onStepClick(step)"
 					></icon>
 				</ripple-wrapper>
-				<div class="stepper__label" :class="{ '-filled': step.isFilled }">
+				<div
+					class="stepper__label"
+					:class="{ '-active': [STEP_TYPES.DONE, STEP_TYPES.ACTIVE].includes(step.type) }"
+				>
 					{{ step.label }}
 				</div>
 			</div>
@@ -40,9 +44,16 @@ $step-icon-size: 32px;
 
 .stepper {
 	display: flex;
+	justify-content: space-between;
 
 	&__item {
-		@include flex-center();
+		@include flex-space-between();
+
+		flex-grow: 1;
+
+		&:first-of-type {
+			flex-grow: 0;
+		}
 	}
 
 	&__step {
@@ -51,7 +62,7 @@ $step-icon-size: 32px;
 		flex-direction: column;
 		margin: 0 $space-xs;
 
-		@media #{breakpoint-s()} {
+		@media #{breakpoint-m()} {
 			flex-direction: row;
 		}
 	}
@@ -64,12 +75,12 @@ $step-icon-size: 32px;
 		margin-top: $space-xxxxs;
 		max-width: $step-icon-size + 2 * $space-s;
 
-		@media #{breakpoint-s()} {
+		@media #{breakpoint-m()} {
 			margin-left: $space-xxs;
 			margin-top: 0;
 		}
 
-		&.-filled {
+		&.-active {
 			color: $color-primary;
 		}
 	}
@@ -85,9 +96,18 @@ $step-icon-size: 32px;
 		width: $step-icon-size;
 		transition: background-color $basic-transition-time;
 
-		&.-filled {
+		&.-done {
 			background-color: $color-primary-background;
 			color: $color-primary;
+
+			&:hover:not(.-disabled) {
+				background-color: $color-primary-background-hovered;
+			}
+		}
+
+		&.-active {
+			background-color: $color-primary;
+			color: $color-total-white;
 
 			&:hover:not(.-disabled) {
 				background-color: $color-primary-background-hovered;
@@ -97,7 +117,7 @@ $step-icon-size: 32px;
 		&:not(.-disabled) {
 			cursor: pointer;
 
-			&:hover:not(.-filled) {
+			&:hover:not(.-done):not(.-active) {
 				background-color: mix(
 					$color-minor-background,
 					$color-firefly-black,
@@ -113,14 +133,14 @@ $step-icon-size: 32px;
 		height: 2px;
 		margin-bottom: $space-xs;
 		transition: background-color $basic-transition-time;
-		width: 32px;
+		min-width: 60px;
+		flex-grow: 1;
 
-		@media #{breakpoint-s()} {
-			width: 151px;
+		@media #{breakpoint-m()} {
 			margin-bottom: 0;
 		}
 
-		&.-filled {
+		&.-done {
 			background-color: $color-primary;
 		}
 	}
@@ -134,6 +154,21 @@ $step-icon-size: 32px;
 			border-radius: 100%;
 		}
 	}
+
+	&.-forceVerticalLabels {
+		.stepper__label {
+			margin-left: 0;
+			margin-top: $space-xxxxs;
+		}
+
+		.stepper__step {
+			flex-direction: column;
+		}
+
+		.stepper__separator {
+			margin-bottom: $space-xs;
+		}
+	}
 }
 </style>
 
@@ -144,7 +179,7 @@ import RippleWrapper from '../utils/RippleWrapper.vue';
 import { arrayOfObjectValidator } from '../utils/validatior.utils';
 
 import Icon, { ICON_SIZES, ICONS } from './Icon.vue';
-import { Step } from './Stepper.types';
+import { Step, STEP_TYPES } from './Stepper.types';
 
 export default {
 	name: 'Stepper',
@@ -153,16 +188,23 @@ export default {
 		steps: {
 			type: Array as Prop<Array<Step>>,
 			required: true,
-			validate: arrayOfObjectValidator,
+			validate(steps: Array<Step>) {
+				return arrayOfObjectValidator(steps) && steps.length > 2;
+			},
+		},
+		forceVerticalLabels: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	created() {
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
+		this.STEP_TYPES = STEP_TYPES;
 	},
 	methods: {
 		onStepClick(step: Step) {
-			if (!step.isClickable) {
+			if (step.disabled) {
 				return;
 			}
 			this.$emit('stepClick', step.name);

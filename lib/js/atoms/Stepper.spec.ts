@@ -4,13 +4,13 @@ import RippleWrapper from 'design-system/lib/js/utils/RippleWrapper.vue';
 import Icon from 'design-system/lib/js/atoms/Icon.vue';
 
 import Stepper from './Stepper.vue';
-import { Step } from './Stepper.types';
+import { Step, STEP_TYPES } from './Stepper.types';
 import { ICONS } from './Icon.vue';
 
 describe('Stepper', () => {
 	const icon = ICONS.FA_ARROW_LEFT_SOLID;
 
-	const createComponent = ({ steps = [] as Array<Step> } = {}) => {
+	const createComponent = ({ steps = [] as Array<Step>, forceVerticalLabels = false } = {}) => {
 		const localVue = createLocalVue();
 
 		return shallowMount<Stepper>(Stepper, {
@@ -18,7 +18,7 @@ describe('Stepper', () => {
 			mocks: {},
 			propsData: {
 				steps,
-				disableNotFilledSteps: false,
+				forceVerticalLabels,
 			},
 			stubs: {
 				Icon,
@@ -39,10 +39,10 @@ describe('Stepper', () => {
 			steps: [
 				{
 					label,
-					isFilled: false,
+					type: STEP_TYPES.DEFAULT,
 					icon,
 					name: '',
-					isClickable: true,
+					disabled: false,
 				},
 			],
 		});
@@ -53,10 +53,10 @@ describe('Stepper', () => {
 	it.each([3, 4, 42])('should render each element from steps prop', (size) => {
 		const steps = Array(size).fill({
 			label: '',
-			isFilled: false,
 			icon,
-			isClickable: true,
+			disabled: false,
 			name: '',
+			type: STEP_TYPES.DEFAULT,
 		});
 
 		const component = createComponent({ steps });
@@ -65,31 +65,51 @@ describe('Stepper', () => {
 	});
 
 	it.each([true, false])(
-		'when isFilled flag is true component should render -isFilled class',
-		(isFilled) => {
+		'when disabled flag is true component should render -disabled class',
+		(disabled) => {
 			const component = createComponent({
 				steps: [
 					{
 						label: 'Wpłynąłem na suchego przestwór oceanu',
-						isFilled,
+						disabled,
+						type: STEP_TYPES.DEFAULT,
 						icon,
-						isClickable: true,
 						name: '',
 					},
 				],
 			});
 
-			expect(component.find('.-filled').exists()).toBe(isFilled);
+			expect(component.find('.-disabled').exists()).toBe(disabled);
+		},
+	);
+
+	it.each([true, false])(
+		'when forceVerticalLabels flag is true component should render -forceVerticalLabels class',
+		(forceVerticalLabels) => {
+			const component = createComponent({
+				steps: [
+					{
+						label: 'Wpłynąłem na suchego przestwór oceanu',
+						disabled: false,
+						type: STEP_TYPES.DEFAULT,
+						icon,
+						name: '',
+					},
+				],
+				forceVerticalLabels,
+			});
+
+			expect(component.find('.-forceVerticalLabels').exists()).toBe(forceVerticalLabels);
 		},
 	);
 
 	it.each([3, 4, 42])('should render separator between eash step', (size) => {
 		const steps = Array(size).fill({
 			label: '',
-			isFilled: false,
 			name: '',
 			icon,
-			isClickable: true,
+			disabled: false,
+			type: STEP_TYPES.DEFAULT,
 		});
 
 		const component = createComponent({ steps });
@@ -104,14 +124,14 @@ describe('Stepper', () => {
 				.fill(null)
 				.map((_, index) => ({
 					label: '',
-					isFilled: false,
+					type: STEP_TYPES.DEFAULT,
 					name: `${index}`,
-					isClickable: true,
+					disabled: false,
 					icon,
 				}));
 
 			const component = createComponent({ steps });
-			const step = component.find(`.stepper__item:nth-of-type(${n + 1}) .stepper__icon`);
+			const step = component.find(`.stepper__item:nth-of-type(${n + 1}) .a-icon`);
 			await step.trigger('click');
 
 			expect(component.emitted().stepClick?.[0]).toEqual([`${n}`]);
@@ -119,15 +139,15 @@ describe('Stepper', () => {
 	);
 
 	it.each([true, false])(
-		'after click on step component with isClickable prop set to false should NOT emit click event with proper name step.name',
-		async (isClickable) => {
+		'after click on step component with disable prop set to true should NOT emit click event with proper name step.name',
+		async (disabled) => {
 			const steps = [
 				{
 					label: '',
-					isFilled: false,
+					type: STEP_TYPES.DEFAULT,
 					name: '',
 					icon,
-					isClickable,
+					disabled,
 				},
 			];
 
@@ -135,7 +155,7 @@ describe('Stepper', () => {
 			const step = component.find('.stepper__item .stepper__icon');
 			await step.trigger('click');
 
-			expect(!!component.emitted().stepClick?.length).toBe(isClickable);
+			expect(!!component.emitted().stepClick?.length).toBe(!disabled);
 		},
 	);
 });
