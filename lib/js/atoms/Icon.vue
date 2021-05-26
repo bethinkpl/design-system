@@ -18,7 +18,7 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
+import { Prop } from 'vue/types/options';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import { FONTAWESOME_ICONS } from '../icons/fontawesome';
@@ -26,6 +26,7 @@ import { FONTAWESOME_ICONS } from '../icons/fontawesome';
 import FileVerified from '../../images/icons/file-verified.svg';
 import HeadWithQuestionMark from '../../images/icons/head-with-question-mark.svg';
 import Ribbon from '../../images/icons/ribbon.svg';
+import { IconValue } from './Icon.types';
 
 export const ICON_SIZES = {
 	XX_SMALL: 'xx-small',
@@ -55,9 +56,9 @@ export default {
 	},
 	props: {
 		icon: {
-			type: Object,
+			type: Object as Prop<IconValue>,
 			required: true,
-			validate(icon: VueConstructor) {
+			validate(icon: IconValue) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
