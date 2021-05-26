@@ -92,11 +92,10 @@
 	}
 
 	&.-error {
-		.a-input__labelAddition {
-			color: $color-danger;
-		}
-
-		.a-input__helpMessage {
+		.a-input__label,
+		.a-input__labelAddition,
+		.a-input__helpMessage,
+		.a-input__leftIcon {
 			color: $color-danger;
 		}
 	}
@@ -127,7 +126,11 @@ $color-input-background-hovered: rgba($color-firefly-black, 0.12);
 		}
 
 		&:hover {
-			border-color: $color-input-background-hovered !important;
+			background-color: $color-input-background-hovered !important;
+
+			&::before {
+				border-color: $color-firefly-black !important;
+			}
 		}
 	}
 
@@ -147,10 +150,10 @@ $color-input-background-hovered: rgba($color-firefly-black, 0.12);
 	.v-input--is-focused {
 		.v-input__slot {
 			background: $color-input-background !important;
+		}
 
-			.a-input__label {
-				color: $color-primary;
-			}
+		.a-input__label {
+			color: $color-primary;
 		}
 
 		.a-input__leftIcon {
@@ -162,10 +165,6 @@ $color-input-background-hovered: rgba($color-firefly-black, 0.12);
 		background: $color-danger-background !important;
 	}
 
-	.v-input--is-disabled .v-input__slot::before {
-		border-image: none !important;
-	}
-
 	.v-input input {
 		color: $color-firefly-black;
 	}
@@ -174,6 +173,10 @@ $color-input-background-hovered: rgba($color-firefly-black, 0.12);
 		.v-input__prepend-inner,
 		.v-input__append-inner {
 			color: $color-danger;
+		}
+
+		.v-input__slot::before {
+			border-color: $color-danger !important;
 		}
 	}
 
@@ -185,6 +188,11 @@ $color-input-background-hovered: rgba($color-firefly-black, 0.12);
 
 		.a-input__leftIcon {
 			color: $color-mischka-gray;
+		}
+
+		.v-input__slot::before {
+			border-image: none !important;
+			border-color: $color-cadet-gray !important;
 		}
 	}
 }

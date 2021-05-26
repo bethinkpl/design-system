@@ -113,6 +113,10 @@ $color-select-background-hovered: rgba($color-firefly-black, 0.12);
 
 		&:hover {
 			background: $color-select-background-hovered !important;
+
+			&::before {
+				border-color: $color-firefly-black !important;
+			}
 		}
 	}
 
@@ -146,11 +150,16 @@ $color-select-background-hovered: rgba($color-firefly-black, 0.12);
 		.a-select__rightIcon {
 			color: $color-danger;
 		}
+
+		.v-input__slot::before {
+			border-color: $color-danger !important;
+		}
 	}
 
 	&.-disabled {
 		.v-input__slot::before {
 			border-image: none !important;
+			border-color: $color-cadet-gray !important;
 		}
 
 		.v-input__prepend-inner,
