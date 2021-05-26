@@ -67,6 +67,7 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/spacings';
 
 .a-input {
 	&__label {
@@ -76,6 +77,7 @@
 	&__labelAddition {
 		color: $color-primary;
 		font-style: italic;
+		padding-right: $space-xxxxs;
 	}
 
 	&__helpMessage {

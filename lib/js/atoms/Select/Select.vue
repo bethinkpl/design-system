@@ -39,7 +39,7 @@
 				<icon
 					class="a-select__rightIcon"
 					:icon="ICONS.FA_CHEVRON_DOWN_SOLID"
-					:size="ICON_SIZES.XX_SMALL"
+					:size="ICON_SIZES.X_SMALL"
 				></icon>
 			</template>
 
@@ -70,6 +70,7 @@
 	&__labelAddition {
 		color: $color-primary;
 		font-style: italic;
+		padding-right: $space-xxxxs;
 	}
 
 	&__helpMessage {
