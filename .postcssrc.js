@@ -7,7 +7,7 @@ module.exports = {
 			prefix: '.enabled-vuetify-global-styling',
 			transform: scopifyVuetifyGlobalStyles,
 		}),
-		postcss.plugin('myplugin', function myplugin() {
+		postcss.plugin('remove-print-rules', function removePrintRules() {
 			return function (css) {
 				css.walkAtRules(function (rule) {
 					if ((rule.type === 'atrule') & (rule.params === 'print')) {
