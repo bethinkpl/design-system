@@ -5,11 +5,13 @@
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
   "private": true,
+  "main": "./dist/design-system.umd.js",
   "engines": {
     "yarn": "^1.22.0",
     "node": "^14.15.0"
   },
   "scripts": {
+    "build": "vue-cli-service build --target lib --name design-system lib/js/index.ts",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:scripts": "eslint --max-warnings 0 --cache 'lib/js/**/*.{js,vue,ts}'",
     "lint:scripts:fix": "eslint 'lib/js/**/*.{js,vue,ts}' --fix --cache",
@@ -28,9 +30,11 @@
     "@storybook/addon-storysource": "^6.0.28",
     "@storybook/addon-viewport": "^6.0.28",
     "@storybook/vue": "^6.0.28",
-    "@typescript-eslint/eslint-plugin": "^3.9.0",
+    "@typescript-eslint/eslint-plugin": "4.24.0",
     "@typescript-eslint/parser": "^3.9.0",
+    "@vue/cli-plugin-typescript": "^4.5.13",
     "@vue/cli-plugin-unit-jest": "^4.5.3",
+    "@vue/cli-service": "^4.5.13",
     "@vue/test-utils": "^1.1.3",
     "babel-eslint": "10.1.0",
     "eslint": "7.5.0",
@@ -40,15 +44,16 @@
     "jest": "26.1.0",
     "jsdom": "^16.4.0",
     "jsdom-global": "^3.0.2",
-    "prettier": "^2.0.5",
+    "postcss-prefix-selector": "^1.9.0",
+    "prettier": "2.3.0",
     "sass": "^1.28.0",
     "sass-loader": "^7.1.0",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "4.1.0",
     "stylelint-scss": "3.18.0",
-    "ts-jest": "^26.2.0",
-    "typescript": "^3.9.7",
+    "ts-jest": "^26.5.6",
+    "typescript": "4.2.4",
     "vue-jest": "^3.0.5",
     "vue-loader": "^15.9.6",
     "vue-svg-loader": "^0.16.0",
@@ -61,7 +66,8 @@
     "@fortawesome/pro-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "vue": "^2.6.11",
-    "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2"
+    "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2",
+    "vuetify": "^2.4.9"
   },
   "exports": {
     "design-system": {

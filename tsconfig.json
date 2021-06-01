@@ -15,8 +15,6 @@
     "strictBindCallApply": true,
     "noUnusedParameters": true,
     "strictFunctionTypes": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
     "target": "es2019",
     "strictNullChecks": true,
     "paths": {
@@ -32,7 +30,8 @@
     "public"
   ],
   "typeRoots": [
-    "node_modules/@types"
+    "node_modules/@types",
+    "node_modules/vuetify/types"
   ]
 }
 

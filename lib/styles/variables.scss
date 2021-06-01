@@ -1,0 +1,11 @@
+@import './settings/spacings';
+
+$text-field-padding: 2px 0 8px 0;
+$text-field-label-active-transform: translateY(-10px) scale(0.75);
+$text-field-filled-full-width-label-active-transform: translateY(-10px) scale(0.75);
+$text-field-dense-append-prepend-margin: 19px; // total height is 54px, size od XS icon is 16 so (54-16) / 2 = 19
+$text-field-enclosed-prepend-append-margin-top: 19px; // as above
+$text-field-filled-full-width-outlined-slot-min-height: 54px;
+$text-field-append-prepend-margin: $space-xxs;
+$text-field-append-prepend-margin: $space-xxs;
+$input-slot-margin-bottom: $space-xxxxs;

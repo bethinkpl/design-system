@@ -1,0 +1,32 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import WnlNumberInCircle  from 'design-system/lib/js/atoms/NumberInCircle';
+import { NUMBER_IN_CIRCLE_COLORS } from 'design-system/lib/js/atoms/NumberInCircle/NumberInCircle.consts'
+
+<Meta title='atoms/NumberInCircle' component={WnlNumberInCircle} />
+
+# Label
+
+<Story name='interactive'
+    args={{
+        slotText: '1',
+        index: 1,
+        color: NUMBER_IN_CIRCLE_COLORS.DEFAULT,
+        medium: false,
+    }}
+    argTypes={{
+        color: {control: { type: 'select', options: Object.values(NUMBER_IN_CIRCLE_COLORS) }, defaultValue: NUMBER_IN_CIRCLE_COLORS.DEFAULT},
+        slotText: {control: { type: 'text' } },
+    }}
+>
+    {(args) => {
+        return {
+            components: { WnlNumberInCircle },
+            props: Object.keys(args),
+            template: '<wnl-number-in-circle :index="index" :color="color" :medium="medium">{{slotText}}</wnl-number-in-circle>',
+        };
+    }}
+</Story>
+
+## Props
+
+<Props of={WnlNumberInCircle} />

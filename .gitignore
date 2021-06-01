@@ -6,3 +6,4 @@ yarn-error.log
 .stylelintcache
 .npmrc
 public
+dist

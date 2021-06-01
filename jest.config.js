@@ -17,6 +17,8 @@ module.exports = {
 		'^.+\\.svg$': '<rootDir>/lib/js/tests/emptyTransformer.ts',
 	},
 	moduleFileExtensions: ['js', 'vue', 'json', 'ts'],
+	transformIgnorePatterns: ['node_modules/(?!vuetify/.*)'],
+
 	setupFilesAfterEnv: ['<rootDir>/lib/js/typings.d.ts', '<rootDir>/lib/js/tests/globals.ts'],
 	globals: {
 		'ts-jest': {

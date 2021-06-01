@@ -1,6 +1,6 @@
 <template>
 	<div class="m-accessStatus" :class="statusClass">
-		<wnl-icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="m-accessStatus__icon" />
+		<icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="m-accessStatus__icon" />
 		<span class="m-accessStatus__text">{{ text }}</span>
 	</div>
 </template>
@@ -37,14 +37,15 @@
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICON_SIZES, ICONS } from '../atoms/Icon.vue';
+import Icon from '../atoms/Icon';
+import { ICONS, ICON_SIZES } from '../atoms/Icon/Icon.consts';
 
 import { COURSE_ACCESS_STATUS } from '../consts/user';
 
 export default {
 	name: 'AccessStatus',
 	components: {
-		WnlIcon,
+		Icon,
 	},
 	props: {
 		status: {
