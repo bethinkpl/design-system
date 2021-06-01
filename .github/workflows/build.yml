@@ -22,6 +22,6 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@4.1.1
         with:
           branch: master # The branch the action should deploy to.
-          folder: dist # The folder that the build-storybook script generates files.
+          folder: dist # The folder that the build script generates files.
           clean: false # Automatically remove deleted files from the deploy branch
-          target-folder: dist # The folder that we serve our Storybook files from
+          target-folder: dist # The folder that we serve our design-system files from
