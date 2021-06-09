@@ -68,10 +68,5 @@
     "vue": "^2.6.11",
     "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2",
     "vuetify": "^2.4.9"
-  },
-  "exports": {
-    "design-system": {
-      "import": "."
-    }
   }
 }
