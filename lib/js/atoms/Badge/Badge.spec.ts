@@ -1,6 +1,7 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import Badge from './Badge.vue';
+import { BADGE_COLORS } from './Badge.consts';
 
 describe('Badge', () => {
 	const createComponent = ({ label = '' } = {}) => {
@@ -11,6 +12,7 @@ describe('Badge', () => {
 			mocks: {},
 			propsData: {
 				label,
+				color: BADGE_COLORS.MINOR,
 			},
 			stubs: {},
 		});

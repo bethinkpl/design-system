@@ -7,14 +7,10 @@ import Badge from './Badge'; import { BADGE_COLORS } from './Badge.consts';
 
 <Story name='interactive'
 	   args={{
-		   label: 'Komentarz zespołu'
+		   label: 'Komentarz zespołu',
+		   iconUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
 	   }}
 	   argTypes={{
-		   iconUrl: {control: { type: 'select', options: [
-					   'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
-					   'https://lek.wiecejnizlek.pl/images/ldek/logo-badge.svg',
-					   'https://lek.wiecejnizlek.pl/images/bodywork/logo-badge.svg',
-				   ] }, defaultValue: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg' },
 		   color: { control: { type: 'select', options: Object.values(BADGE_COLORS) }, defaultValue: BADGE_COLORS.MINOR }
 	   }}>
 	{(args) => {
