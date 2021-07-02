@@ -1,0 +1,31 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+import { ICONS } from '../Icon/Icon.consts';
+import BadgeWithIcon from './BadgeWithIcon';
+
+<Meta title='atoms/BadgeWithIcon' component={BadgeWithIcon} />
+
+# BadgeWithIcon
+
+<Story name='interactive'
+	   args={{
+	   	label: 'Komentarz zespołu',
+	   }}
+	   argTypes={{
+		   icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+	   }}>
+	{(args) => {
+		return {
+			components: { BadgeWithIcon },
+			created() {
+				this.ICONS = ICONS
+			},
+			props: Object.keys(args),
+			template: '<badge-with-icon :icon="ICONS[icon]" :label="label"/>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={BadgeWithIcon} />
