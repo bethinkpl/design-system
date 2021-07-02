@@ -17,7 +17,7 @@ import Badge from './Badge'; import { BADGE_COLORS } from './Badge.consts';
 		return {
 			components: { Badge },
 			props: Object.keys(args),
-			template: '<div style="display: flex"><badge :label="label" :color="color"><img :src="iconUrl" /></badge></div>',
+			template: '<div style="display: flex"><badge :label="label" :color="color"><img style="width: 100%; height: 100%" :src="iconUrl" /></badge></div>',
 		};
 	}}
 </Story>
