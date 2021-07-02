@@ -1,6 +1,6 @@
 <template>
 	<div class="badge" :class="{ '-minor': color === BADGE_COLORS.MINOR }">
-		<div class="badge__icon">
+		<div class="badge__slot">
 			<slot />
 		</div>
 		<div class="badge__label">{{ label }}</div>
@@ -23,17 +23,12 @@
 		background-color: $color-minor-background;
 	}
 
-	&__icon {
+	&__slot {
 		display: flex;
 		align-items: center;
 		margin-right: $space-xxs;
 		height: $icon-xxs;
 		width: $icon-xxs;
-
-		& > img {
-			height: $icon-xxs;
-			width: $icon-xxs;
-		}
 	}
 
 	&__label {
