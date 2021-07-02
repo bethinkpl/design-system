@@ -21,6 +21,10 @@
 
 	&.-minor {
 		background-color: $color-minor-background;
+
+		.badge__label {
+			color: $color-minor;
+		}
 	}
 
 	&__slot {
@@ -35,7 +39,6 @@
 		@include textInfoS();
 		@include textBold();
 
-		color: $color-minor;
 		text-transform: uppercase;
 	}
 }
