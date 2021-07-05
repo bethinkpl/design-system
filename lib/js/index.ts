@@ -1,4 +1,5 @@
 export { default as Badge } from './atoms/Badge';
+export * from './atoms/Badge';
 export * from './atoms/Badge/Badge.consts';
 export { default as BadgeScore } from './atoms/BadgeScore';
 export * from './atoms/BadgeScore/BadgeScore.consts';
