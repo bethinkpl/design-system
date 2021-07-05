@@ -8,14 +8,14 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'design-system/lib/js/atoms/Icon';
 <Story name='interactive'
        args={{
            size: ICON_SIZES.MEDIUM,
-           icon: 'FILE_VERIFIED',
+           icon: 'HEAD_WITH_QUESTION_MARK',
            spinning: false,
            touchable: false,
            rotation: null
        }}
        argTypes={{
            size: {control: { type: 'select', options: Object.values(ICON_SIZES) }, defaultValue: ICON_SIZES.MEDIUM},
-           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FILE_VERIFIED'},
+           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'HEAD_WITH_QUESTION_MARK'},
            rotation: {control: { type: 'select', options: [null, 90, 180, 270] }, defaultValue: null},
        }}>
     {(args) => {

@@ -19,6 +19,13 @@
 	display: flex;
 	padding: $space-xxxxs $space-xxs;
 
+	&__label {
+		@include textInfoS();
+		@include textBold();
+
+		text-transform: uppercase;
+	}
+
 	&.-minor {
 		background-color: $color-minor-background;
 
@@ -33,13 +40,6 @@
 		margin-right: $space-xxs;
 		height: $icon-xxs;
 		width: $icon-xxs;
-	}
-
-	&__label {
-		@include textInfoS();
-		@include textBold();
-
-		text-transform: uppercase;
 	}
 }
 </style>
