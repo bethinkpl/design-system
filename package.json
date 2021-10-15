@@ -12,6 +12,7 @@
   },
   "scripts": {
     "build": "vue-cli-service build --target lib --name design-system lib/js/index.ts",
+    "deploy:platform": "yarn build && rm -rf ../wnl-platform/node_modules/design-system/dist && cp -r  dist ../wnl-platform/node_modules/design-system",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:scripts": "eslint --max-warnings 0 --cache 'lib/js/**/*.{js,vue,ts}'",
     "lint:scripts:fix": "eslint 'lib/js/**/*.{js,vue,ts}' --fix --cache",
