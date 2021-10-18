@@ -8,11 +8,11 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/shadows';
 
 .card {
 	padding: $space-s;
-	box-shadow: 0 1px 2px rgba(12, 23, 38, 0.06), 0 0 4px rgba(12, 23, 38, 0.06),
-		0 1px 8px 2px rgba(12, 23, 38, 0.12);
+	box-shadow: $shadow-xl;
 }
 </style>
 

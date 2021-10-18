@@ -12,7 +12,9 @@ import Card from './Card';
 		   footer: 'footer',
 	   }}
 	   argTypes={{
-		    
+		   header: {control: { type: 'text' }, defaultValue: 'header'},
+		   content: {control: { type: 'text' }, defaultValue: 'content'},
+		   footer: {control: { type: 'text' }, defaultValue: 'footer'},
 	   }}>
 	{(args) => {
 		return {
