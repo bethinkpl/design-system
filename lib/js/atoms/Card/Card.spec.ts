@@ -19,4 +19,10 @@ describe('Card', () => {
 
 		expect(component.exists()).toBe(true);
 	});
+
+	it('should render card class', () => {
+		const component = createComponent();
+
+		expect(component.find('.card').exists()).toBe(true);
+	});
 });

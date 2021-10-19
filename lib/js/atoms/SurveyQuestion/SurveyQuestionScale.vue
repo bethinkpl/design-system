@@ -108,7 +108,7 @@ import Card from '../Card';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
 import { BUTTON_COLORS } from '../Button';
-import SurveyToggle, { SURVEY_TOGGLE_COLORS, SURVEY_TOGGLE_STATES } from '../SurveyToggle';
+import SurveyToggle, { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 
 export default {
 	name: 'SurveyQuestionScale',
@@ -143,9 +143,9 @@ export default {
 		return { selected: null, elaboration: '' };
 	},
 	created() {
-		this.ICON_SIZES = ICON_SIZES;
-		this.ICONS = ICONS;
 		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
 	},
 	watch: {
@@ -157,6 +157,7 @@ export default {
 	methods: {
 		onToggleClick(id: number) {
 			this.selected = id;
+			this.$emit('onChange', id);
 		},
 	},
 };
