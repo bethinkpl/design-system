@@ -1,0 +1,40 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+
+import { ICONS } from '../Icon';
+
+import SurveyToggle from './SurveyToggle';
+import { SURVEY_TOGGLE_STATES } from './SurveyToggle.consts';
+
+<Meta title='atoms/SurveyToggle' component={SurveyToggle} />
+
+# SurveyToggle
+
+<Story name='interactive'
+	   args={{
+		   label: 'label',
+		   content: '1',
+		   status: SURVEY_TOGGLE_STATES.EMPTY,
+		   icon: 'FA_CHECK_SOLID',
+		   disabled: false,
+	   }}
+	   argTypes={{
+		   label: {control: { type: 'text' }, defaultValue: 'label'},
+		   content: {control: { type: 'text' }, defaultValue: '1'},
+		   status: {control: { type: 'select', options: Object.values(SURVEY_TOGGLE_STATES) }, defaultValue: SURVEY_TOGGLE_STATES.EMPTY },
+		   icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_CHECK_SOLID' },
+	   }}>
+	{(args) => {
+		return {
+			components: { SurveyToggle },
+			props: Object.keys(args),
+			created() {
+				this.ICONS = ICONS;
+			},
+			template: '<div style="background-color:#e5e5e5"><survey-toggle  :label="label" :status="status" :content="content" :icon="ICONS[icon]" :disabled="disabled"/></div>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={SurveyToggle} />
