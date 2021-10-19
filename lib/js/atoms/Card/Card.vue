@@ -9,10 +9,12 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
+@import '../../../styles/settings/radiuses';
 
 .card {
-	padding: $space-s;
+	border-radius: $radius-m;
 	box-shadow: $shadow-xl;
+	padding: $space-s;
 }
 </style>
 

@@ -2,25 +2,19 @@
 	<div
 		class="surveyToggle"
 		:class="{
-			'-selected': status === SURVEY_TOGGLE_STATES.SELECTED,
-			'-string': status === SURVEY_TOGGLE_STATES.STRING,
-			'-selectedGrey': status === SURVEY_TOGGLE_STATES.SELECTED_GREY,
+			'-selected': isSelectedState,
+			'-string': isStringState,
+			'-selectedGrey': isSelectedGreyState,
 			'-disabled': disabled,
 		}"
 	>
-		<div class="surveyToggle__toggle">
+		<div class="surveyToggle__toggle" @click="$emit('click')">
 			<div class="surveyToggle__ring">
-				<span v-if="status === SURVEY_TOGGLE_STATES.STRING" class="surveyToggle__content">
+				<span v-if="isStringState" class="surveyToggle__content">
 					{{ content }}
 				</span>
-				<span
-					v-if="
-						status === SURVEY_TOGGLE_STATES.SELECTED ||
-						status === SURVEY_TOGGLE_STATES.SELECTED_GREY
-					"
-					class="surveyToggle__icon"
-				>
-					<icon :icon="icon" :size="ICON_SIZES.XX_SMALL"></icon>
+				<span v-if="isSelectedState || isSelectedGreyState" class="surveyToggle__icon">
+					<icon :icon="icon" :size="ICON_SIZES.X_SMALL"></icon>
 				</span>
 			</div>
 		</div>
@@ -36,16 +30,20 @@
 $survey-toggle-size: 48px;
 
 .surveyToggle {
-	width: $survey-toggle-size;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	width: $survey-toggle-size + 2 * $space-xxxs;
 
 	// toggle
 	&__toggle {
-		cursor: pointer;
-		border-radius: 100%;
-		padding: $space-xxs;
-		height: $survey-toggle-size;
-		display: flex;
 		background: $color-total-white;
+		border-radius: 100%;
+		cursor: pointer;
+		display: flex;
+		height: $survey-toggle-size;
+		padding: $space-xxs;
+		width: $survey-toggle-size;
 
 		&:hover {
 			border-color: mix($color-total-white, $color-firefly-black, 88%);
@@ -142,6 +140,8 @@ $survey-toggle-size: 48px;
 	// icon
 	&__icon {
 		color: $color-total-white;
+		height: 16px;
+		width: 16px;
 	}
 
 	// label
@@ -151,12 +151,13 @@ $survey-toggle-size: 48px;
 		color: $color-minor;
 		text-align: center;
 		margin-top: $space-xxs;
+		min-height: 2em;
 	}
 }
 </style>
 
 <script lang="ts">
-import { SURVEY_TOGGLE_STATES } from './SurveyToggle.consts';
+import { SURVEY_TOGGLE_COLORS } from './SurveyToggle.consts';
 import Icon, { ICON_SIZES, ICONS } from '../Icon';
 
 export default {
@@ -171,14 +172,18 @@ export default {
 		},
 		content: {
 			type: String,
-			required: true,
+			default: null,
 		},
-		status: {
+		color: {
 			type: String,
 			required: true,
-			validate(status) {
-				return Object.values(SURVEY_TOGGLE_STATES).includes(status);
+			validate(color) {
+				return Object.values(SURVEY_TOGGLE_COLORS).includes(color);
 			},
+		},
+		isActive: {
+			type: Boolean,
+			required: true,
 		},
 		disabled: {
 			type: Boolean,
@@ -186,17 +191,27 @@ export default {
 		},
 		icon: {
 			type: Object,
-			default: null,
+			default() {
+				return ICONS.FA_CHECK_SOLID;
+			},
 			validate(icon) {
-				if (icon === null) {
-					return true;
-				}
 				return Object.values(ICONS).includes(icon);
 			},
 		},
 	},
+	computed: {
+		isSelectedState() {
+			return this.color === SURVEY_TOGGLE_COLORS.PRIMARY && this.isActive;
+		},
+		isStringState() {
+			return this.color === SURVEY_TOGGLE_COLORS.PRIMARY && !this.isActive;
+		},
+		isSelectedGreyState() {
+			return this.color === SURVEY_TOGGLE_COLORS.SECONDARY && this.isActive;
+		},
+	},
 	created() {
-		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
+		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
 		this.ICON_SIZES = ICON_SIZES;
 	},
 };

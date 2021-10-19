@@ -4,3 +4,8 @@ export const SURVEY_TOGGLE_STATES = {
 	SELECTED_GREY: 'selected-grey',
 	STRING: 'string',
 } as const;
+
+export const SURVEY_TOGGLE_COLORS = {
+	PRIMARY: 'primary',
+	SECONDARY: 'secondary',
+} as const;

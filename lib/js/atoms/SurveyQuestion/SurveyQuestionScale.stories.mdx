@@ -1,0 +1,41 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import SurveyQuestionScale from './SurveyQuestionScale';
+import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
+
+<Meta title='atoms/SurveyQuestionScale' component={SurveyQuestionScale} />
+
+# SurveyQuestionScale
+
+<Story name='interactive'
+	   args={{
+		  title: 'title',
+		   label: 'label',
+		   explanation: false,
+		   disabled: false,
+	   }}
+	   argTypes={{
+		   title: { control: { type: 'text' } },
+		   label: { control: { type: 'text' } },
+		   explanation: { control: { type: 'boolean' } },
+		   disabled: { control: { type: 'boolean' } },
+	   }}>
+	{(args) => {
+		return {
+			components: { SurveyQuestionScale },
+			props: Object.keys(args),
+			created() {
+				this.options = [
+					{ id: 1, label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY },
+					{ id: 2, label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY },
+					{ id: 3, label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY },
+					{ id: 4, label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY },
+				];
+			},
+			template: '<survey-question-scale :title="title" :explanation="explanation" :options="options" :disabled="disabled" :label="label" />',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={SurveyQuestionScale} />
