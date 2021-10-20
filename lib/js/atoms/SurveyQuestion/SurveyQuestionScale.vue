@@ -10,6 +10,7 @@
 							:icon="ICONS.FA_QUESTION_CIRCLE"
 							:size="ICON_SIZES.MEDIUM"
 							:touchable="false"
+							@click.native="$emit('explanation-click')"
 						/>
 					</div>
 				</div>
@@ -153,6 +154,7 @@ export default {
 		elaboration() {
 			this.$refs.textarea.style.height = 'auto';
 			this.$refs.textarea.style.height = this.$refs.textarea.scrollHeight + 'px';
+			this.$emit('elaboration-change', this.elaboration);
 		},
 	},
 	created() {

@@ -1,0 +1,32 @@
+import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import SurveyQuestionOpenEnded from './SurveyQuestionOpenEnded';
+
+<Meta title='atoms/SurveyQuestionOpenEnded' component={SurveyQuestionOpenEnded} />
+
+# SurveyQuestionOpenEnded
+
+<Story name='interactive'
+	   args={{
+		   value: 'value',
+		   label: 'label',
+		   placeholder: 'label',
+		   disabled: false,
+	   }}
+	   argTypes={{
+		   label: { control: { type: 'text' } },
+		   value: { control: { type: 'text' } },
+		   placeholder: { control: { type: 'text' } },
+		   disabled: { control: { type: 'boolean' } },
+	   }}>
+	{(args) => {
+		return {
+			components: { SurveyQuestionOpenEnded },
+			props: Object.keys(args),
+			template: '<survey-question-open-ended  :label="label" :value="value" :disabled="disabled" :placeholder="placeholder" />',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={SurveyQuestionOpenEnded} />

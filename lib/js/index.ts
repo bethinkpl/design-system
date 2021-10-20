@@ -19,6 +19,7 @@ export * from './consts/colors';
 export { default as SurveyToggle } from './atoms/SurveyToggle.vue';
 export * from './atoms/SurveyToggle/SurveyToggle.consts';
 export { default as SurveyQuestionScale } from './atoms/SurveyQuestion/SurveyQuestionScale.vue';
+export { default as SurveyQuestionOpenEnded } from './atoms/SurveyQuestion/SurveyQuestionOpenEnded.vue';
 
 export {
 	initialize as initializeIcons,
