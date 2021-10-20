@@ -4,7 +4,7 @@
 			<div slot="content">
 				<div class="surveyQuestionScale__title">
 					<span>{{ title }}</span>
-					<div class="surveyQuestionScale__explanation">
+					<div v-if="explanation" class="surveyQuestionScale__explanation">
 						<icon-button
 							:color="BUTTON_COLORS.MINOR_SUPPORTING"
 							:icon="ICONS.FA_QUESTION_CIRCLE"
@@ -21,7 +21,7 @@
 							:color="option.color"
 							:content="option.content"
 							:label="option.label"
-							:isActive="option.id === selected"
+							:is-active="option.id === selected"
 							:disabled="disabled"
 							@click="onToggleClick(option.id)"
 						/>
@@ -149,17 +149,17 @@ export default {
 	data() {
 		return { selected: null, elaboration: '' };
 	},
-	created() {
-		this.BUTTON_COLORS = BUTTON_COLORS;
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
-		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
-	},
 	watch: {
 		elaboration() {
 			this.$refs.textarea.style.height = 'auto';
 			this.$refs.textarea.style.height = this.$refs.textarea.scrollHeight + 'px';
 		},
+	},
+	created() {
+		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
+		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
 	},
 	methods: {
 		onToggleClick(id: number) {

@@ -3,7 +3,7 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Card from './Card.vue';
 
 describe('Card', () => {
-	const createComponent = ({} = {}) => {
+	const createComponent = () => {
 		const localVue = createLocalVue();
 
 		return shallowMount(Card, {

@@ -1,9 +1,13 @@
 @import 'colors';
 
-$shadow-s: 0 1px 2px $color-neutrals-shadow-weak, 0 8px 16px $color-neutrals-shadow-weak, 0 2px 4px $color-neutrals-shadow-strong, 0 0 4px $color-neutrals-shadow;
-$shadow-m: 0 2px 4px $color-neutrals-shadow-weak, 0 6px 12px $color-neutrals-shadow-strong, 0 0 4px $color-neutrals-shadow;
-$shadow-l: 0 4px 8px $color-neutrals-shadow-weak, 0 10 20 $color-neutrals-shadow-strong, 0 0 4px $color-neutrals-shadow;
-$shadow-xl: 0 8px 16px $color-neutrals-shadow-weak, 0 16px 32px $color-neutrals-shadow-strong, 0 0 4px $color-neutrals-shadow;
+$shadow-s: 0 1px 2px $color-neutrals-shadow-weak, 0 8px 16px $color-neutrals-shadow-weak,
+	0 2px 4px $color-neutrals-shadow-strong, 0 0 4px $color-neutrals-shadow;
+$shadow-m: 0 2px 4px $color-neutrals-shadow-weak, 0 6px 12px $color-neutrals-shadow-strong,
+	0 0 4px $color-neutrals-shadow;
+$shadow-l: 0 4px 8px $color-neutrals-shadow-weak, 0 10px 20px $color-neutrals-shadow-strong,
+	0 0 4px $color-neutrals-shadow;
+$shadow-xl: 0 8px 16px $color-neutrals-shadow-weak, 0 16px 32px $color-neutrals-shadow-strong,
+	0 0 4px $color-neutrals-shadow;
 
 // deprecated
 $default-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);

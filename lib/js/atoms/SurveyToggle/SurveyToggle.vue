@@ -59,6 +59,10 @@ $survey-toggle-size: 48px;
 		background-color: $color-primary-disabled;
 	}
 
+	&.-selectedGrey:not(.-disabled) &__toggle {
+		background-color: $color-minor-supporting;
+	}
+
 	&.-selected:not(.-disabled) &__toggle:hover {
 		background-color: $color-primary-hovered;
 	}
@@ -67,20 +71,8 @@ $survey-toggle-size: 48px;
 		background-color: $color-primary-background;
 	}
 
-	&.-selectedGrey:not(.-disabled) &__toggle {
-		background-color: $color-minor-supporting;
-	}
-
 	&.-selectedGrey:not(.-disabled) &__toggle:hover {
 		background-color: mix($color-minor-supporting, $color-firefly-black, 88%);
-	}
-
-	&.-selectedGrey.-disabled &__toggle {
-		background-color: mix($color-minor-supporting, $color-total-white, 40%);
-	}
-
-	&.-disabled &__toggle {
-		cursor: not-allowed;
 	}
 
 	// ring
@@ -110,12 +102,12 @@ $survey-toggle-size: 48px;
 		border-color: $color-total-white;
 	}
 
-	&.-string.-disabled &__ring {
-		border-color: $color-primary-disabled;
-	}
-
 	&.-selectedGrey &__ring {
 		border-color: $color-total-white;
+	}
+
+	&.-string.-disabled &__ring {
+		border-color: $color-primary-disabled;
 	}
 
 	// content

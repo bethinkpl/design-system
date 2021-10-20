@@ -67,9 +67,7 @@ describe('SurveyQuestionScale', () => {
 		(explanation) => {
 			const component = createComponent({ explanation });
 
-			expect(component.find('.surveyQuestionScale__explanation').exists()).toContain(
-				explanation,
-			);
+			expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(explanation);
 		},
 	);
 

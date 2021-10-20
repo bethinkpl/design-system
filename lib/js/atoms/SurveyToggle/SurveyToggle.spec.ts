@@ -49,7 +49,7 @@ describe('SurveyToggle', () => {
 
 		await component.find('.surveyToggle__toggle').trigger('click');
 
-		expect(component.emitted()['click'][0]).toBeDefined();
+		expect(component.emitted()?.click?.[0]).toBeDefined();
 	});
 
 	it.each([true, false])(
