@@ -6,36 +6,40 @@
 					<span>{{ title }}</span>
 					<div class="surveyQuestionScale__explanation">
 						<icon-button
+							:color="BUTTON_COLORS.MINOR_SUPPORTING"
 							:icon="ICONS.FA_QUESTION_CIRCLE"
 							:size="ICON_SIZES.MEDIUM"
-							:color="BUTTON_COLORS.MINOR_SUPPORTING"
+							:touchable="false"
 						/>
 					</div>
 				</div>
 				<div class="surveyQuestionScale__content">
-					<template v-for="(item, index) in options">
+					<template v-for="option in options">
 						<survey-toggle
-							:key="item.id"
+							:key="option.id"
 							class="surveyQuestionScale__toggle"
-							:color="item.color"
-							:content="`${index + 1}`"
-							:label="item.label"
-							:isActive="item.id === selected"
+							:color="option.color"
+							:content="option.content"
+							:label="option.label"
+							:isActive="option.id === selected"
 							:disabled="disabled"
-							@click="onToggleClick(item.id)"
+							@click="onToggleClick(option.id)"
 						/>
 					</template>
 				</div>
 
-				<div>
+				<div v-if="selected !== null">
 					<hr class="surveyQuestionScale__separator" />
 					<div class="surveyQuestionScale__elaboration">
-						<label class="surveyQuestionScale__elaborationLabel">{{ label }}</label>
+						<label class="surveyQuestionScale__elaborationLabel" for="elaboration">
+							{{ label }}
+						</label>
 						<textarea
 							ref="textarea"
 							v-model="elaboration"
 							class="surveyQuestionScale__elaborationInput"
-							name=""
+							:disabled="disabled"
+							name="elaboration"
 						></textarea>
 					</div>
 				</div>
@@ -47,11 +51,12 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/colors';
+@import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
 .surveyQuestionScale {
-	display: inline-block;
+	max-width: 600px;
 
 	&__title {
 		@include headlineS();
@@ -67,12 +72,13 @@
 	}
 
 	&__content {
-		display: flex;
 		align-items: center;
 		background: $color-background-secondary;
+		display: flex;
 		justify-content: space-between;
-		padding: $space-s;
 		margin-bottom: $space-xxs;
+		padding: $space-s;
+		border-radius: $radius-s;
 	}
 
 	&__toggle {
@@ -99,6 +105,7 @@
 		box-shadow: inset 0 1px 3px $color-minor-supporting;
 		border-radius: 4px;
 		margin: $space-xxs 0;
+		resize: none;
 	}
 }
 </style>
@@ -156,7 +163,7 @@ export default {
 	},
 	methods: {
 		onToggleClick(id: number) {
-			this.selected = id;
+			this.selected = this.selected === id ? null : id;
 			this.$emit('onChange', id);
 		},
 	},

@@ -26,6 +26,7 @@
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/media-queries';
 
 $survey-toggle-size: 48px;
 
@@ -146,12 +147,19 @@ $survey-toggle-size: 48px;
 
 	// label
 	&__label {
-		@include textInfoM();
+		@include textInfoS();
+		@include textBold();
 
 		color: $color-minor;
 		text-align: center;
 		margin-top: $space-xxs;
 		min-height: 2em;
+
+		@media #{breakpoint-s()} {
+			@include textInfoM();
+
+			font-weight: normal;
+		}
 	}
 }
 </style>
