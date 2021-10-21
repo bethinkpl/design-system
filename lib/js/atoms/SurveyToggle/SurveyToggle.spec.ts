@@ -1,14 +1,19 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import SurveyToggle from './SurveyToggle.vue';
-import { SURVEY_TOGGLE_COLORS } from './SurveyToggle.consts';
+import {
+	SURVEY_TOGGLE_COLORS,
+	SURVEY_TOGGLE_STATES,
+	SURVEY_TOGGLE_STATUSES,
+} from './SurveyToggle.consts';
 
 describe('SurveyToggle', () => {
 	const createComponent = ({
-		isActive = false,
 		label = '',
 		content = '',
 		color = SURVEY_TOGGLE_COLORS.PRIMARY,
+		state = SURVEY_TOGGLE_STATES.DEFAULT,
+		status = SURVEY_TOGGLE_STATUSES.DEFAULT,
 	} = {}) => {
 		const localVue = createLocalVue();
 
@@ -18,8 +23,9 @@ describe('SurveyToggle', () => {
 			propsData: {
 				label,
 				color,
-				isActive,
 				content,
+				state,
+				status,
 			},
 			stubs: {},
 		});
@@ -52,25 +58,20 @@ describe('SurveyToggle', () => {
 		expect(component.emitted()?.click?.[0]).toBeDefined();
 	});
 
-	it.each([true, false])(
-		'when isActive prop is set to true component should render icon',
-		(isActive) => {
-			const component = createComponent({ isActive });
+	it.each([SURVEY_TOGGLE_STATUSES.DEFAULT, SURVEY_TOGGLE_STATUSES.SELECTED])(
+		'when state prop is set to selected component should render icon',
+		(status) => {
+			const component = createComponent({ status });
 
-			expect(component.find('icon-stub').exists()).toBe(isActive);
+			expect(component.find('icon-stub').exists()).toBe(
+				status === SURVEY_TOGGLE_STATUSES.SELECTED,
+			);
 		},
 	);
-
-	it('when isActive prop is set to true component should render icon', () => {
-		const component = createComponent({ isActive: true });
-
-		expect(component.find('icon-stub').exists()).toBeTruthy();
-	});
 
 	it('when isActive prop is false and color is primary component should render', () => {
 		const content = 'Wspłynąłem na suchego przestwór oceanu';
 		const component = createComponent({
-			isActive: false,
 			color: SURVEY_TOGGLE_COLORS.PRIMARY,
 			content,
 		});

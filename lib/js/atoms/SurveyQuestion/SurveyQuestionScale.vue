@@ -22,7 +22,12 @@
 							:color="option.color"
 							:content="option.content"
 							:label="option.label"
-							:is-active="option.id === selected"
+							:status="
+								selected === option.id
+									? SURVEY_TOGGLE_STATUSES.SELECTED
+									: SURVEY_TOGGLE_STATUSES.DEFAULT
+							"
+							:is-active="option.selected"
 							:disabled="disabled"
 							@click="onToggleClick(option.id)"
 						/>
@@ -116,7 +121,11 @@ import Card from '../Card';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
 import { BUTTON_COLORS } from '../Button';
-import SurveyToggle, { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
+import SurveyToggle, {
+	SURVEY_TOGGLE_COLORS,
+	SURVEY_TOGGLE_STATES,
+	SURVEY_TOGGLE_STATUSES,
+} from '../SurveyToggle';
 
 export default {
 	name: 'SurveyQuestionScale',
@@ -141,14 +150,21 @@ export default {
 		options: {
 			type: Array,
 			required: true,
+			validate(options) {
+				return options.every((option) => typeof option === 'object');
+			},
 		},
 		label: {
 			type: String,
 			required: true,
 		},
+		selected: {
+			type: String,
+			default: null,
+		},
 	},
 	data() {
-		return { selected: null, elaboration: '' };
+		return { elaboration: '' };
 	},
 	watch: {
 		elaboration() {
@@ -162,11 +178,12 @@ export default {
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
 		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
+		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
+		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
 	},
 	methods: {
 		onToggleClick(id: number) {
-			this.selected = this.selected === id ? null : id;
-			this.$emit('onChange', id);
+			this.$emit('selectChange', this.selected === id ? null : id);
 		},
 	},
 };

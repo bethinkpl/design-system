@@ -2,18 +2,24 @@
 	<div
 		class="surveyToggle"
 		:class="{
-			'-selected': isSelectedState,
-			'-string': isStringState,
-			'-selectedGrey': isSelectedGreyState,
-			'-disabled': disabled,
+			'-selected': isSelectedPrimary,
+			'-string': isDefaultPrimary,
+			'-selectedGrey': isSelectedSecondary,
+			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
+			'-hovered': isHoveredState,
 		}"
 	>
-		<div class="surveyToggle__toggle" @click="$emit('click')">
+		<div
+			class="surveyToggle__toggle"
+			@click="$emit('click')"
+			@mouseover="hovered = true"
+			@mouseleave="hovered = false"
+		>
 			<div class="surveyToggle__ring">
-				<span v-if="isStringState" class="surveyToggle__content">
+				<span v-if="isDefaultPrimary" class="surveyToggle__content">
 					{{ content }}
 				</span>
-				<span v-if="isSelectedState || isSelectedGreyState" class="surveyToggle__icon">
+				<span v-if="isSelectedPrimary || isSelectedSecondary" class="surveyToggle__icon">
 					<icon :icon="icon" :size="ICON_SIZES.X_SMALL"></icon>
 				</span>
 			</div>
@@ -25,6 +31,7 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors';
+@import '../../../styles/settings/icons';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/media-queries';
 
@@ -46,7 +53,7 @@ $survey-toggle-size: 48px;
 		padding: $space-xxs;
 		width: $survey-toggle-size;
 
-		&:hover {
+		.-hovered & {
 			border-color: mix($color-total-white, $color-firefly-black, 88%);
 		}
 	}
@@ -63,15 +70,15 @@ $survey-toggle-size: 48px;
 		background-color: $color-minor-supporting;
 	}
 
-	&.-selected:not(.-disabled) &__toggle:hover {
+	&.-selected.-hovered &__toggle {
 		background-color: $color-primary-hovered;
 	}
 
-	&.-string:not(.-disabled) &__toggle:hover {
+	&.-string.-hovered &__toggle {
 		background-color: $color-primary-background;
 	}
 
-	&.-selectedGrey:not(.-disabled) &__toggle:hover {
+	&.-selectedGrey.-hovered &__toggle {
 		background-color: mix($color-minor-supporting, $color-firefly-black, 88%);
 	}
 
@@ -133,8 +140,8 @@ $survey-toggle-size: 48px;
 	// icon
 	&__icon {
 		color: $color-total-white;
-		height: 16px;
-		width: 16px;
+		height: $icon-xs;
+		width: $icon-xs;
 	}
 
 	// label
@@ -157,7 +164,11 @@ $survey-toggle-size: 48px;
 </style>
 
 <script lang="ts">
-import { SURVEY_TOGGLE_COLORS } from './SurveyToggle.consts';
+import {
+	SURVEY_TOGGLE_COLORS,
+	SURVEY_TOGGLE_STATES,
+	SURVEY_TOGGLE_STATUSES,
+} from './SurveyToggle.consts';
 import Icon, { ICON_SIZES, ICONS } from '../Icon';
 
 export default {
@@ -181,13 +192,19 @@ export default {
 				return Object.values(SURVEY_TOGGLE_COLORS).includes(color);
 			},
 		},
-		isActive: {
-			type: Boolean,
-			required: true,
+		status: {
+			type: String,
+			default: SURVEY_TOGGLE_STATES.DEFAULT,
+			validate(status) {
+				return Object.values(SURVEY_TOGGLE_STATES).includes(status);
+			},
 		},
-		disabled: {
-			type: Boolean,
-			default: false,
+		state: {
+			type: String,
+			default: SURVEY_TOGGLE_STATES.DEFAULT,
+			validate(state) {
+				return Object.values(SURVEY_TOGGLE_STATES).includes(state);
+			},
 		},
 		icon: {
 			type: Object,
@@ -199,20 +216,51 @@ export default {
 			},
 		},
 	},
+	data() {
+		return {
+			hovered: false,
+		};
+	},
 	computed: {
-		isSelectedState() {
-			return this.color === SURVEY_TOGGLE_COLORS.PRIMARY && this.isActive;
+		isSelectedPrimary() {
+			return (
+				this.color === SURVEY_TOGGLE_COLORS.PRIMARY &&
+				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
+			);
 		},
-		isStringState() {
-			return this.color === SURVEY_TOGGLE_COLORS.PRIMARY && !this.isActive;
+		isDefaultPrimary() {
+			return (
+				this.color === SURVEY_TOGGLE_COLORS.PRIMARY &&
+				this.status === SURVEY_TOGGLE_STATUSES.DEFAULT
+			);
 		},
-		isSelectedGreyState() {
-			return this.color === SURVEY_TOGGLE_COLORS.SECONDARY && this.isActive;
+		isSelectedSecondary() {
+			return (
+				this.color === SURVEY_TOGGLE_COLORS.SECONDARY &&
+				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
+			);
+		},
+		isHoveredState() {
+			if (this.state === SURVEY_TOGGLE_STATES.DISABLED) {
+				return false;
+			}
+
+			if (this.state === SURVEY_TOGGLE_STATES.HOVERED) {
+				return true;
+			}
+			return this.hovered;
 		},
 	},
 	created() {
 		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
+		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
+		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
 		this.ICON_SIZES = ICON_SIZES;
+	},
+	methods: {
+		mouseOver() {
+			this.hovered = !this.hovered;
+		},
 	},
 };
 </script>

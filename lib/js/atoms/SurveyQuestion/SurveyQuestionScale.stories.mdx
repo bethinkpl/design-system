@@ -23,6 +23,9 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 		return {
 			components: { SurveyQuestionScale },
 			props: Object.keys(args),
+			data() {
+				return { selected: null }
+			},
 			created() {
 				this.options = [
 					{ id: 1, label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
@@ -31,7 +34,7 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 					{ id: 4, label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
-			template: '<survey-question-scale :title="title" :explanation="explanation" :options="options" :disabled="disabled" :label="label" />',
+			template: '<survey-question-scale :title="title" :explanation="explanation" :options="options" :disabled="disabled" :label="label" :status="status" :selected="selected" @selectChange="selected = $event" />',
 		};
 	}}
 </Story>
