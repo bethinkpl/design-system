@@ -19,6 +19,9 @@
 						<survey-toggle
 							:key="option.id"
 							class="surveyQuestionScale__toggle"
+							:class="{
+								'-standAlone': option.standAlone,
+							}"
 							:color="option.color"
 							:content="option.content"
 							:label="option.label"
@@ -55,9 +58,9 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/shadows';
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/radiuses';
+@import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
@@ -89,6 +92,11 @@
 
 	&__toggle {
 		margin-right: $space-m;
+
+		&.-standAlone {
+			flex-grow: 2;
+			align-items: flex-end;
+		}
 	}
 
 	&__separator {
@@ -109,7 +117,7 @@
 		border: 1px solid $color-mischka-gray;
 		box-sizing: border-box;
 		box-shadow: inset 0 1px 3px $color-minor-supporting;
-		border-radius: 4px;
+		border-radius: $radius-s;
 		margin: $space-xxs 0;
 		resize: none;
 	}
