@@ -71,17 +71,12 @@ describe('SurveyQuestionScale', () => {
 		},
 	);
 
-	it('should render elaboration section only when toggle is selected', async () => {
+	it('click on survey toggle should emit "selectChange" event', async () => {
 		const component = createComponent({ options: OPTIONS });
 
-		// select answer
-		expect(component.find('.surveyQuestionScale__elaboration').exists()).toBe(false);
 		await component.find('.surveyQuestionScale__toggle .surveyToggle__toggle').trigger('click');
-		expect(component.find('.surveyQuestionScale__elaboration').exists()).toBe(true);
 
-		// unselect answer
-		await component.find('.surveyQuestionScale__toggle .surveyToggle__toggle').trigger('click');
-		expect(component.find('.surveyQuestionScale__elaboration').exists()).toBe(false);
+		expect(component.emitted()?.selectChange?.[0]).toBeDefined();
 	});
 
 	it('should render SurveyToggle for each item in options prop', () => {

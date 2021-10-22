@@ -16,7 +16,7 @@ export * from './atoms/NumberInCircle/NumberInCircle.consts';
 export { default as TabItem } from './atoms/TabItem';
 export { default as AccessStatus } from './molecules/AccessStatus.vue';
 export * from './consts/colors';
-export { default as SurveyToggle } from './atoms/SurveyToggle.vue';
+export { default as SurveyToggle } from './atoms/SurveyToggle/SurveyToggle.vue';
 export * from './atoms/SurveyToggle/SurveyToggle.consts';
 export { default as SurveyQuestionScale } from './atoms/SurveyQuestion/SurveyQuestionScale.vue';
 export { default as SurveyQuestionOpenEnded } from './atoms/SurveyQuestion/SurveyQuestionOpenEnded.vue';
