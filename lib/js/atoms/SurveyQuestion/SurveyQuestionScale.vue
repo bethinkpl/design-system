@@ -191,7 +191,7 @@ export default {
 	},
 	methods: {
 		onToggleClick(id: number) {
-			this.$emit('selectChange', this.selected === id ? null : id);
+			this.$emit('input', this.selected === id ? null : id);
 		},
 	},
 };
