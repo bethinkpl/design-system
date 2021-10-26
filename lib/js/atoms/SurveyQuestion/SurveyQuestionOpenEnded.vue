@@ -1,5 +1,5 @@
 <template>
-	<div class="surveyQuestionOpenEnded">
+	<div class="surveyQuestionOpenEnded" :class="{ '-disabled': disabled }">
 		<card>
 			<div slot="content">
 				<div class="surveyQuestionOpenEnded__content">
@@ -45,9 +45,15 @@
 		border: 1px solid $color-mischka-gray;
 		box-sizing: border-box;
 		box-shadow: inset 0 1px 3px $color-minor-supporting;
-		border-radius: 4px;
+		border-radius: $radius-s;
 		margin: $space-xxs 0;
+		padding: $space-xxs;
+		min-height: 2em;
 		resize: none;
+
+		&.-disabled & {
+			color: $color-minor-supporting;
+		}
 	}
 }
 </style>
@@ -77,9 +83,6 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-	},
-	data() {
-		return { content: '' };
 	},
 	methods: {
 		updateValue(value) {

@@ -2,9 +2,9 @@
 	<div
 		class="surveyToggle"
 		:class="{
-			'-selected': isSelectedPrimary,
-			'-string': isDefaultPrimary,
-			'-selectedGrey': isSelectedSecondary,
+			'-selectedPrimary': isSelectedPrimary,
+			'-defaultPrimary': isDefaultPrimary,
+			'-selectedSecondary': isSelectedSecondary,
 			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
 			'-hovered': isHoveredState,
 		}"
@@ -58,27 +58,27 @@ $survey-toggle-size: 48px;
 		}
 	}
 
-	&.-selected &__toggle {
+	&.-selectedPrimary &__toggle {
 		background-color: $color-primary;
 	}
 
-	&.-selected.-disabled &__toggle {
+	&.-selectedPrimary.-disabled &__toggle {
 		background-color: $color-primary-disabled;
 	}
 
-	&.-selectedGrey:not(.-disabled) &__toggle {
+	&.-selectedSecondary:not(.-disabled) &__toggle {
 		background-color: $color-minor-supporting;
 	}
 
-	&.-selected.-hovered &__toggle {
+	&.-selectedPrimary.-hovered &__toggle {
 		background-color: $color-primary-hovered;
 	}
 
-	&.-string.-hovered &__toggle {
+	&.-defaultPrimary.-hovered &__toggle {
 		background-color: $color-primary-background;
 	}
 
-	&.-selectedGrey.-hovered &__toggle {
+	&.-selectedSecondary.-hovered &__toggle {
 		background-color: mix($color-minor-supporting, $color-firefly-black, 88%);
 	}
 
@@ -92,7 +92,7 @@ $survey-toggle-size: 48px;
 		border-radius: 100%;
 		width: 100%;
 
-		&:hover {
+		.-hovered & {
 			border-color: mix($color-minor-supporting, $color-firefly-black, 88%);
 		}
 	}
@@ -101,19 +101,19 @@ $survey-toggle-size: 48px;
 		border-color: mix($color-minor-supporting, $color-total-white, 40%);
 	}
 
-	&.-string &__ring {
+	&.-defaultPrimary &__ring {
 		border-color: $color-primary;
 	}
 
-	&.-selected &__ring {
+	&.-selectedPrimary &__ring {
 		border-color: $color-total-white;
 	}
 
-	&.-selectedGrey &__ring {
+	&.-selectedSecondary &__ring {
 		border-color: $color-total-white;
 	}
 
-	&.-string.-disabled &__ring {
+	&.-defaultPrimary.-disabled &__ring {
 		border-color: $color-primary-disabled;
 	}
 
@@ -125,15 +125,15 @@ $survey-toggle-size: 48px;
 		color: $color-minor-supporting;
 	}
 
-	&.-string &__content {
+	&.-defaultPrimary &__content {
 		color: $color-primary;
 
-		&:hover {
+		.-hovered & {
 			$border-color: $color-primary-hovered;
 		}
 	}
 
-	&.-string.-disabled &__content {
+	&.-defaultPrimary.-disabled &__content {
 		color: $color-primary-disabled;
 	}
 
@@ -187,16 +187,16 @@ export default {
 		},
 		color: {
 			type: String,
-			required: true,
+			default: SURVEY_TOGGLE_COLORS.PRIMARY,
 			validate(color) {
 				return Object.values(SURVEY_TOGGLE_COLORS).includes(color);
 			},
 		},
 		status: {
 			type: String,
-			default: SURVEY_TOGGLE_STATES.DEFAULT,
+			default: SURVEY_TOGGLE_STATUSES.DEFAULT,
 			validate(status) {
-				return Object.values(SURVEY_TOGGLE_STATES).includes(status);
+				return Object.values(SURVEY_TOGGLE_STATUSES).includes(status);
 			},
 		},
 		state: {

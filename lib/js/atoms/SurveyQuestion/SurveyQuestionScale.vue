@@ -37,21 +37,22 @@
 					</template>
 				</div>
 
-				<div v-if="selected !== null">
+				<template v-if="selected !== null">
 					<hr class="surveyQuestionScale__separator" />
 					<div class="surveyQuestionScale__elaboration">
 						<label class="surveyQuestionScale__elaborationLabel" for="elaboration">
-							{{ label }}
+							{{ elaborationLabel }}
 						</label>
 						<textarea
 							ref="textarea"
 							v-model="elaboration"
 							class="surveyQuestionScale__elaborationInput"
 							:disabled="disabled"
+							:placeholder="placeholder"
 							name="elaboration"
 						></textarea>
 					</div>
-				</div>
+				</template>
 			</div>
 		</card>
 	</div>
@@ -59,6 +60,7 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors';
+@import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
@@ -81,7 +83,7 @@
 	}
 
 	&__content {
-		align-items: center;
+		align-items: baseline;
 		background: $color-background-secondary;
 		display: flex;
 		justify-content: space-between;
@@ -91,7 +93,11 @@
 	}
 
 	&__toggle {
-		margin-right: $space-m;
+		margin-right: $space-xxs;
+
+		@media #{breakpoint-s()} {
+			margin-right: $space-m;
+		}
 
 		&.-standAlone {
 			flex-grow: 2;
@@ -101,7 +107,7 @@
 
 	&__separator {
 		color: $color-mischka-gray;
-		margin: $space-s 0;
+		margin: $space-m 0 $space-s 0;
 	}
 
 	&__elaboration {
@@ -119,6 +125,8 @@
 		box-shadow: inset 0 1px 3px $color-minor-supporting;
 		border-radius: $radius-s;
 		margin: $space-xxs 0;
+		min-height: 2em;
+		padding: $space-xxs;
 		resize: none;
 	}
 }
@@ -162,7 +170,7 @@ export default {
 				return options.every((option) => typeof option === 'object');
 			},
 		},
-		label: {
+		elaborationLabel: {
 			type: String,
 			required: true,
 		},
@@ -191,7 +199,7 @@ export default {
 	},
 	methods: {
 		onToggleClick(id: number) {
-			this.$emit('input', this.selected === id ? null : id);
+			this.$emit('selectChange', this.selected === id ? null : id);
 		},
 	},
 };

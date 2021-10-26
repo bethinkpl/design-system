@@ -1,7 +1,9 @@
 <template>
 	<div class="card">
 		<slot name="header"></slot>
-		<slot name="content"></slot>
+		<div class="card__content">
+			<slot name="content"></slot>
+		</div>
 		<slot name="footer"></slot>
 	</div>
 </template>
@@ -14,7 +16,10 @@
 .card {
 	border-radius: $radius-m;
 	box-shadow: $shadow-xl;
-	padding: $space-s;
+
+	&__content {
+		padding: $space-s;
+	}
 }
 </style>
 
