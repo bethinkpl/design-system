@@ -52,6 +52,19 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 
 ## Examples
 
+
+### multiple iconButtons
+<Story name='examples/multiple'>
+	{{
+		components: { WnlIconButton },
+		template: '<div><wnl-icon-button :icon="ICONS.FA_TIMES" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button><wnl-icon-button :icon="ICONS.FA_TIMES" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button><wnl-icon-button :icon="ICONS.FA_TIMES" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button></div>',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
+		},
+	}}
+</Story>
+
 ### filled with label
 <Story name='examples/filledWithLabel'>
     {{

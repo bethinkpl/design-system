@@ -9,6 +9,7 @@ module.exports = {
 		'@storybook/addon-controls',
 		'@storybook/addon-storysource',
 		'@storybook/addon-viewport',
+		'storybook-addon-pseudo-states',
 	],
 	webpackFinal: async (config) => {
 		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
