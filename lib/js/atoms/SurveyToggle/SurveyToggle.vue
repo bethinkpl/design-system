@@ -8,13 +8,9 @@
 			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
 			'-hovered': isHoveredState,
 		}"
+		@click="onClick"
 	>
-		<div
-			class="surveyToggle__toggle"
-			@click="$emit('click')"
-			@mouseover="hovered = true"
-			@mouseleave="hovered = false"
-		>
+		<div class="surveyToggle__toggle" @mouseover="hovered = true" @mouseleave="hovered = false">
 			<div class="surveyToggle__ring">
 				<span v-if="isDefaultPrimary" class="surveyToggle__content">
 					{{ content }}
@@ -39,6 +35,7 @@ $survey-toggle-size: 48px;
 
 .surveyToggle {
 	align-items: center;
+	cursor: pointer;
 	display: flex;
 	flex-direction: column;
 	width: $survey-toggle-size + 2 * $space-xxxs;
@@ -47,7 +44,6 @@ $survey-toggle-size: 48px;
 	&__toggle {
 		background: $color-total-white;
 		border-radius: 100%;
-		cursor: pointer;
 		display: flex;
 		height: $survey-toggle-size;
 		padding: $space-xxs;
@@ -64,6 +60,7 @@ $survey-toggle-size: 48px;
 
 	&.-selectedPrimary.-disabled &__toggle {
 		background-color: $color-primary-disabled;
+		cursor: not-allowed;
 	}
 
 	&.-selectedSecondary:not(.-disabled) &__toggle {
@@ -153,6 +150,7 @@ $survey-toggle-size: 48px;
 		text-align: center;
 		margin-top: $space-xxs;
 		min-height: 2em;
+		max-width: 60px;
 
 		@media #{breakpoint-s()} {
 			@include textInfoM();
@@ -260,6 +258,12 @@ export default {
 	methods: {
 		mouseOver() {
 			this.hovered = !this.hovered;
+		},
+		onClick() {
+			if (this.state === SURVEY_TOGGLE_STATES.DISABLED) {
+				return;
+			}
+			this.$emit('click');
 		},
 	},
 };

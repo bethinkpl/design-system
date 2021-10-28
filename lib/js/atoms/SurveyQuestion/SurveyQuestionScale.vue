@@ -9,7 +9,6 @@
 							:color="BUTTON_COLORS.MINOR_SUPPORTING"
 							:icon="ICONS.FA_QUESTION_CIRCLE"
 							:size="ICON_SIZES.MEDIUM"
-							:touchable="false"
 							@click.native="$emit('explanation-click')"
 						/>
 					</div>
@@ -31,7 +30,11 @@
 									: SURVEY_TOGGLE_STATUSES.DEFAULT
 							"
 							:is-active="option.selected"
-							:disabled="disabled"
+							:state="
+								disabled
+									? SURVEY_TOGGLE_STATES.DISABLED
+									: SURVEY_TOGGLE_STATES.DEFAULT
+							"
 							@click="onToggleClick(option.id)"
 						/>
 					</template>
@@ -67,8 +70,6 @@
 @import '../../../styles/settings/typography';
 
 .surveyQuestionScale {
-	max-width: 600px;
-
 	&__title {
 		@include headlineS();
 
@@ -83,13 +84,16 @@
 	}
 
 	&__content {
-		align-items: baseline;
+		align-items: center;
 		background: $color-background-secondary;
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: $space-xxs;
-		padding: $space-s;
 		border-radius: $radius-s;
+
+		@media #{breakpoint-s()} {
+			padding: $space-s;
+		}
 	}
 
 	&__toggle {
@@ -173,6 +177,10 @@ export default {
 		elaborationLabel: {
 			type: String,
 			required: true,
+		},
+		placeholder: {
+			type: String,
+			default: 'Wpisz swoją odpowiedź',
 		},
 		selected: {
 			type: String,

@@ -3,14 +3,13 @@
 		<card>
 			<div slot="content">
 				<div class="surveyQuestionOpenEnded__content">
-					<label class="surveyQuestionOpenEnded__label" for="surveyQuestion">
+					<label class="surveyQuestionOpenEnded__label">
 						{{ label }}
 					</label>
 					<textarea
 						ref="textarea"
 						class="surveyQuestionOpenEnded__input"
 						:disabled="disabled"
-						name="surveyQuestion"
 						:value="value"
 						:placeholder="placeholder"
 						@input="updateValue($event.target.value)"
@@ -29,8 +28,6 @@
 @import '../../../styles/settings/typography';
 
 .surveyQuestionOpenEnded {
-	max-width: 600px;
-
 	&__content {
 		display: flex;
 		flex-direction: column;
@@ -77,7 +74,7 @@ export default {
 		},
 		placeholder: {
 			type: String,
-			required: true,
+			default: 'Wpisz swoją odpowiedź',
 		},
 		disabled: {
 			type: Boolean,
