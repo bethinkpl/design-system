@@ -28,10 +28,10 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 			},
 			created() {
 				this.options = [
-					{ id: 1, label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
-					{ id: 2, label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '2'},
-					{ id: 3, label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3'},
-					{ id: 4, label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
+					{ id: '1', label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
+					{ id: '2', label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '2'},
+					{ id: '3', label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3'},
+					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
 			template: '<survey-question-scale :title="title" :explanation="explanation" :options="options" :elaborationLabel="elaborationLabel" :status="status" :selected="selected" @selectChange="selected = $event" />',
@@ -50,10 +50,10 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 			},
 			created() {
 				this.options = [
-					{ id: 1, label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
-					{ id: 2, label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '2'},
-					{ id: 3, label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3'},
-					{ id: 4, label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
+					{ id: '1', label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
+					{ id: '2', label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '2'},
+					{ id: '3', label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3'},
+					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
 			template: '<survey-question-scale title="title" :explanation="explanation" :options="options" elaborationLabel="elaborationLabel" :status="status" :selected="selected" @selectChange="selected = $event" />',
@@ -71,11 +71,11 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 			},
 			created() {
 				this.options = [
-					{ id: 1, label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
-					{ id: 2, label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '2'},
-					{ id: 3, label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3'},
-					{ id: 4, label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
-					{ id: 5, label: 'Nie wiem', color: SURVEY_TOGGLE_COLORS.SECONDARY, standAlone: true },
+					{ id: '1', label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
+					{ id: '2', label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '2'},
+					{ id: '3', label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3'},
+					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
+					{ id: '5', label: 'Nie wiem', color: SURVEY_TOGGLE_COLORS.SECONDARY, standAlone: true },
 				];
 			},
 			template: '<survey-question-scale title="title" :explanation="explanation" :options="options" elaborationLabel="elaborationLabel" :status="status" :selected="selected" @selectChange="selected = $event" />',

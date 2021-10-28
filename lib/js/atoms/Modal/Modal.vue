@@ -26,10 +26,11 @@
 </template>
 
 <style lang="scss" scoped>
-@import 'resources/assets/styles/variables';
-@import 'design-system/lib/styles/settings/colors';
-@import 'design-system/lib/styles/settings/spacings';
-@import 'design-system/lib/styles/settings/typography';
+@import '../../../styles/settings/colors';
+@import '../../../styles/settings/media-queries';
+@import '../../../styles/settings/spacings';
+@import '../../../styles/settings/z-indexes';
+@import '../../../styles/settings/typography';
 
 .m-modal {
 	align-items: center;
@@ -56,7 +57,7 @@
 		position: relative;
 		width: 100%;
 
-		@media #{media-query-tablet()} {
+		@media #{breakpoint-m()} {
 			margin: $space-xxl auto $space-xl;
 			max-height: calc(100vh - #{$space-xxl + $space-xl});
 			width: 640px;

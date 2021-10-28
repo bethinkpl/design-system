@@ -1,5 +1,8 @@
 <template>
 	<div class="surveyQuestionScale">
+		<modal v-if="showModal" @close-modal="showModal = false">
+			<slot name="modal" />
+		</modal>
 		<card>
 			<div slot="content">
 				<div class="surveyQuestionScale__title">
@@ -9,7 +12,7 @@
 							:color="BUTTON_COLORS.MINOR_SUPPORTING"
 							:icon="ICONS.FA_QUESTION_CIRCLE"
 							:size="ICON_SIZES.MEDIUM"
-							@click.native="$emit('explanation-click')"
+							@click.native="showModal = true"
 						/>
 					</div>
 				</div>
@@ -141,6 +144,7 @@ import Card from '../Card';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
 import { BUTTON_COLORS } from '../Button';
+import Modal from '../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_COLORS,
 	SURVEY_TOGGLE_STATES,
@@ -153,6 +157,7 @@ export default {
 		Card,
 		IconButton,
 		SurveyToggle,
+		Modal,
 	},
 	props: {
 		title: {
@@ -188,7 +193,7 @@ export default {
 		},
 	},
 	data() {
-		return { elaboration: '' };
+		return { elaboration: '', showModal: false };
 	},
 	watch: {
 		elaboration() {
