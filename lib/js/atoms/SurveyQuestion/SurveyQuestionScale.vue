@@ -1,13 +1,18 @@
 <template>
 	<div class="surveyQuestionScale">
 		<modal v-if="showModal" @close-modal="showModal = false">
-			<slot name="modal" />
+			<slot name="explanation" />
+			<div slot="footer">
+				<ds-button :size="BUTTON_SIZES.LARGE" :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
+					OK, rozumiem
+				</ds-button>
+			</div>
 		</modal>
 		<card>
 			<div slot="content">
 				<div class="surveyQuestionScale__title">
 					<span>{{ title }}</span>
-					<div v-if="explanation" class="surveyQuestionScale__explanation">
+					<div v-if="$slots.explanation" class="surveyQuestionScale__explanation">
 						<icon-button
 							:color="BUTTON_COLORS.MINOR_SUPPORTING"
 							:icon="ICONS.FA_QUESTION_CIRCLE"
@@ -113,7 +118,8 @@
 	}
 
 	&__separator {
-		color: $color-mischka-gray;
+		border-bottom: none;
+		border-top: 1px solid $color-mischka-gray;
 		margin: $space-m 0 $space-s 0;
 	}
 
@@ -143,7 +149,7 @@
 import Card from '../Card';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
-import { BUTTON_COLORS } from '../Button';
+import DsButton, { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Button';
 import Modal from '../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_COLORS,
@@ -158,15 +164,12 @@ export default {
 		IconButton,
 		SurveyToggle,
 		Modal,
+		DsButton,
 	},
 	props: {
 		title: {
 			type: String,
 			required: true,
-		},
-		explanation: {
-			type: Boolean,
-			default: false,
 		},
 		disabled: {
 			type: Boolean,
@@ -193,7 +196,10 @@ export default {
 		},
 	},
 	data() {
-		return { elaboration: '', showModal: false };
+		return {
+			elaboration: '',
+			showModal: false,
+		};
 	},
 	watch: {
 		elaboration() {
@@ -204,6 +210,8 @@ export default {
 	},
 	created() {
 		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.BUTTON_SIZES = BUTTON_SIZES;
+		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
 		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;

@@ -10,13 +10,12 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 	   args={{
 		  title: 'title',
 		   elaborationLabel: 'elaborationLabel',
-		   explanation: false,
 		   disabled: false,
 	   }}
 	   argTypes={{
 		   title: { control: { type: 'text' } },
 		   elaborationLabel: { control: { type: 'text' } },
-		   explanation: { control: { type: 'boolean' } },
+		   explanation: { control: { type: 'text' }, defaultValue: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.' },
 		   disabled: { control: { type: 'boolean' } },
 	   }}>
 	{(args) => {
@@ -34,7 +33,9 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
-			template: '<survey-question-scale :title="title" :explanation="explanation" :options="options" :elaborationLabel="elaborationLabel" :status="status" :selected="selected" @selectChange="selected = $event" />',
+			template: '<survey-question-scale :title="title" :options="options" :elaborationLabel="elaborationLabel" :status="status" :selected="selected" @selectChange="selected = $event">' +
+				'<div slot="explanation">{{ explanation }}</div>' +
+				'</survey-question-scale>',
 		};
 	}}
 </Story>
@@ -46,7 +47,7 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 			components: { SurveyQuestionScale },
 			props: Object.keys(args),
 			data() {
-				return { selected: 3 }
+				return { selected: '3' }
 			},
 			created() {
 				this.options = [
@@ -67,7 +68,7 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 			components: { SurveyQuestionScale },
 			props: Object.keys(args),
 			data() {
-				return { selected: 3 }
+				return { selected: '3' }
 			},
 			created() {
 				this.options = [
