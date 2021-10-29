@@ -81,7 +81,7 @@ $survey-toggle-size: 48px;
 
 	// ring
 	&__ring {
-		// TODO: mixin
+		// TODO: IT-4131 mixin
 		align-items: center;
 		display: flex;
 		justify-content: center;
