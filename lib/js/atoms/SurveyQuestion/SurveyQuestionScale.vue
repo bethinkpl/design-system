@@ -92,7 +92,6 @@
 	}
 
 	&__content {
-		align-items: center;
 		background: $color-background-secondary;
 		display: flex;
 		justify-content: space-between;
@@ -114,6 +113,10 @@
 		&.-standAlone {
 			flex-grow: 2;
 			align-items: flex-end;
+		}
+
+		&:last-child {
+			margin-right: 0;
 		}
 	}
 
