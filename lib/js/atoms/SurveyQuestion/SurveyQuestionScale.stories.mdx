@@ -33,7 +33,7 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
-			template: '<survey-question-scale :title="title" :options="options" :elaborationLabel="elaborationLabel" :status="status" :selected="selected" @selectChange="selected = $event">' +
+			template: '<survey-question-scale :title="title" :options="options" :elaborationLabel="elaborationLabel" :status="status" :selected="selected" :disabled="disabled" @selectChange="selected = $event">' +
 				'<div slot="explanation">{{ explanation }}</div>' +
 				'</survey-question-scale>',
 		};
