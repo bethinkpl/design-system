@@ -64,7 +64,7 @@ describe('SurveyQuestionScale', () => {
 		expect(component.find('.surveyQuestionScale__title').text()).toContain(title);
 	});
 
-	it('Don\'t show explanation icon when slot is empty', async () => {
+	it("Don't show explanation icon when slot is empty", async () => {
 		const component = createComponent();
 
 		expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(false);

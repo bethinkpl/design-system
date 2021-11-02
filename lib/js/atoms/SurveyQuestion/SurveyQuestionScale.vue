@@ -3,7 +3,11 @@
 		<modal v-if="showModal" @close-modal="showModal = false">
 			<slot name="explanation" />
 			<div slot="footer">
-				<ds-button :size="BUTTON_SIZES.LARGE" :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
+				<ds-button
+					:size="BUTTON_SIZES.LARGE"
+					:type="BUTTON_TYPES.OUTLINED"
+					@click.native="showModal = false"
+				>
 					OK, rozumiem
 				</ds-button>
 			</div>
