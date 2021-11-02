@@ -7,16 +7,12 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 # SurveyQuestionScale
 
 <Story name='interactive'
-	   args={{
-		  title: 'title',
-		   elaborationLabel: 'elaborationLabel',
-		   disabled: false,
-	   }}
 	   argTypes={{
-		   title: { control: { type: 'text' } },
-		   elaborationLabel: { control: { type: 'text' } },
+		   title: { control: { type: 'text' }, defaultValue: 'Main question write here if it\'s long it will collapse.' },
+		   elaborationLabel: { control: { type: 'text' }, defaultValue: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę' },
 		   explanation: { control: { type: 'text' }, defaultValue: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.' },
-		   disabled: { control: { type: 'boolean' } },
+		   disabled: { control: { type: 'boolean' }, defaultValue: false },
+		   placeholder: { control: { type: 'text' }, defaultValue: 'Wpisz swoją odpowiedź' },
 	   }}>
 	{(args) => {
 		return {
@@ -33,7 +29,7 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
-			template: '<survey-question-scale :title="title" :options="options" :elaborationLabel="elaborationLabel" :status="status" :selected="selected" :disabled="disabled" @selectChange="selected = $event">' +
+			template: '<survey-question-scale :title="title" :options="options" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected="selected" :disabled="disabled" @select-change="selected = $event">' +
 				'<div v-if="explanation" slot="explanation">{{ explanation }}</div>' +
 				'</survey-question-scale>',
 		};
@@ -57,7 +53,7 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
-			template: '<survey-question-scale title="title" :explanation="explanation" :options="options" elaborationLabel="elaborationLabel" :status="status" :selected="selected" @selectChange="selected = $event" />',
+			template: '<survey-question-scale title="title" :explanation="explanation" :options="options" elaborationLabel="elaborationLabel" :selected="selected" @selectChange="selected = $event" />',
 		};
 	}}
 </Story>
@@ -79,7 +75,7 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 					{ id: '5', label: 'Nie wiem', color: SURVEY_TOGGLE_COLORS.SECONDARY, standAlone: true },
 				];
 			},
-			template: '<survey-question-scale title="title" :explanation="explanation" :options="options" elaborationLabel="elaborationLabel" :status="status" :selected="selected" @selectChange="selected = $event" />',
+			template: '<survey-question-scale title="title" :explanation="explanation" :options="options" elaborationLabel="elaborationLabel" :selected="selected" @selectChange="selected = $event" />',
 		};
 	}}
 </Story>

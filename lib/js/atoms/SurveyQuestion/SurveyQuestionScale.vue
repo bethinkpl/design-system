@@ -36,7 +36,7 @@
 					>
 						<survey-toggle
 							:color="option.color"
-							:content="option.content"
+							:content-text="option.content"
 							:label="option.label"
 							:status="
 								selected === option.id
@@ -227,7 +227,7 @@ export default {
 	},
 	methods: {
 		onToggleClick(id: number) {
-			this.$emit('selectChange', this.selected === id ? null : id);
+			this.$emit('select-change', this.selected === id ? null : id);
 		},
 	},
 };

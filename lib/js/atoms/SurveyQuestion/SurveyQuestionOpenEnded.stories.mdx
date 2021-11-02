@@ -6,17 +6,11 @@ import SurveyQuestionOpenEnded from './SurveyQuestionOpenEnded';
 # SurveyQuestionOpenEnded
 
 <Story name='interactive'
-	   args={{
-		   value: 'value',
-		   label: 'Main question write here if it\'s long it will collapse.',
-		   placeholder: 'placeholder',
-		   disabled: false,
-	   }}
 	   argTypes={{
-		   label: { control: { type: 'text' } },
-		   value: { control: { type: 'text' } },
-		   placeholder: { control: { type: 'text' } },
-		   disabled: { control: { type: 'boolean' } },
+		   label: { control: { type: 'text' }, defaultValue: 'Main question write here if it\'s long it will collapse.' },
+		   value: { control: { type: 'text' }, defaultValue: 'value' },
+		   placeholder: { control: { type: 'text' }, defaultValue: 'Wpisz swoją odpowiedź' },
+		   disabled: { control: { type: 'boolean' }, defaultValue: false },
 		   explanation: { control: { type: 'text' }, defaultValue: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.' },
 	   }}>
 	{(args) => {

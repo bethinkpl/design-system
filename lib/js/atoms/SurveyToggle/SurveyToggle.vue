@@ -13,10 +13,10 @@
 		<div class="surveyToggle__toggle" @mouseover="hovered = true" @mouseleave="hovered = false">
 			<div class="surveyToggle__ring">
 				<span v-if="isDefaultPrimary" class="surveyToggle__content">
-					{{ content }}
+					{{ contentText }}
 				</span>
 				<span v-if="isSelectedPrimary || isSelectedSecondary" class="surveyToggle__icon">
-					<ds-icon :icon="icon" :size="ICON_SIZES.X_SMALL"></ds-icon>
+					<ds-icon :icon="contentIcon" :size="ICON_SIZES.X_SMALL"></ds-icon>
 				</span>
 			</div>
 		</div>
@@ -188,7 +188,7 @@ export default {
 			type: String,
 			default: null,
 		},
-		content: {
+		contentText: {
 			type: String,
 			default: null,
 		},
@@ -213,13 +213,13 @@ export default {
 				return Object.values(SURVEY_TOGGLE_STATES).includes(state);
 			},
 		},
-		icon: {
+		contentIcon: {
 			type: Object,
 			default() {
 				return ICONS.FA_CHECK_SOLID;
 			},
-			validate(icon) {
-				return Object.values(ICONS).includes(icon);
+			validate(contentIcon) {
+				return Object.values(ICONS).includes(contentIcon);
 			},
 		},
 	},
