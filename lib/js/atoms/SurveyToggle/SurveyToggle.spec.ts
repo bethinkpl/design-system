@@ -10,7 +10,7 @@ import {
 describe('SurveyToggle', () => {
 	const createComponent = ({
 		label = '',
-		content = '',
+		contentText = '',
 		color = SURVEY_TOGGLE_COLORS.PRIMARY,
 		state = SURVEY_TOGGLE_STATES.DEFAULT,
 		status = SURVEY_TOGGLE_STATUSES.DEFAULT as typeof SURVEY_TOGGLE_STATUSES[keyof typeof SURVEY_TOGGLE_STATUSES], // TODO: make an util
@@ -23,7 +23,7 @@ describe('SurveyToggle', () => {
 			propsData: {
 				label,
 				color,
-				content,
+				contentText,
 				state,
 				status,
 			},
@@ -63,18 +63,18 @@ describe('SurveyToggle', () => {
 		(status) => {
 			const component = createComponent({ status });
 
-			expect(component.find('icon-stub').exists()).toBe(
+			expect(component.find('ds-icon-stub').exists()).toBe(
 				status === SURVEY_TOGGLE_STATUSES.SELECTED,
 			);
 		},
 	);
 
 	it('when isActive prop is false and color is primary component should render', () => {
-		const content = 'Wspłynąłem na suchego przestwór oceanu';
+		const contentText = 'Wspłynąłem na suchego przestwór oceanu';
 		const component = createComponent({
 			color: SURVEY_TOGGLE_COLORS.PRIMARY,
-			content,
+			contentText,
 		});
-		expect(component.find('.surveyToggle__content').text()).toContain(content);
+		expect(component.find('.surveyToggle__content').text()).toContain(contentText);
 	});
 });
