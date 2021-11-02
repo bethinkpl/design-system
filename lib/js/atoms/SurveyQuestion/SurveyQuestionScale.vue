@@ -1,6 +1,6 @@
 <template>
 	<div class="surveyQuestionScale">
-		<modal v-if="showModal" @close-modal="showModal = false">
+		<ds-modal v-if="showModal" @close-modal="showModal = false">
 			<slot name="explanation" />
 			<div slot="footer">
 				<ds-button
@@ -11,8 +11,8 @@
 					OK, rozumiem
 				</ds-button>
 			</div>
-		</modal>
-		<card>
+		</ds-modal>
+		<ds-card>
 			<div slot="content">
 				<div class="surveyQuestionScale__title">
 					<span>{{ title }}</span>
@@ -71,7 +71,7 @@
 					</div>
 				</template>
 			</div>
-		</card>
+		</ds-card>
 	</div>
 </template>
 
@@ -153,11 +153,11 @@
 </style>
 
 <script lang="ts">
-import Card from '../Card';
+import DsCard from '../Card';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
 import DsButton, { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Button';
-import Modal from '../Modal';
+import DsModal from '../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_COLORS,
 	SURVEY_TOGGLE_STATES,
@@ -167,10 +167,10 @@ import SurveyToggle, {
 export default {
 	name: 'SurveyQuestionScale',
 	components: {
-		Card,
+		DsCard,
 		IconButton,
 		SurveyToggle,
-		Modal,
+		DsModal,
 		DsButton,
 	},
 	props: {

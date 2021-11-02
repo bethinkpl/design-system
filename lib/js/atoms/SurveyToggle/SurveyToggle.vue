@@ -16,7 +16,7 @@
 					{{ content }}
 				</span>
 				<span v-if="isSelectedPrimary || isSelectedSecondary" class="surveyToggle__icon">
-					<icon :icon="icon" :size="ICON_SIZES.X_SMALL"></icon>
+					<ds-icon :icon="icon" :size="ICON_SIZES.X_SMALL"></ds-icon>
 				</span>
 			</div>
 		</div>
@@ -176,12 +176,12 @@ import {
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from './SurveyToggle.consts';
-import Icon, { ICON_SIZES, ICONS } from '../Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
 
 export default {
 	name: 'SurveyToggle',
 	components: {
-		Icon,
+		DsIcon,
 	},
 	props: {
 		label: {

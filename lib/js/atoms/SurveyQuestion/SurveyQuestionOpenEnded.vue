@@ -1,11 +1,33 @@
 <template>
 	<div class="surveyQuestionOpenEnded" :class="{ '-disabled': disabled }">
-		<card>
+		<ds-modal v-if="showModal" @close-modal="showModal = false">
+			<slot name="explanation" />
+			<div slot="footer">
+				<ds-button
+					:size="BUTTON_SIZES.LARGE"
+					:type="BUTTON_TYPES.OUTLINED"
+					@click.native="showModal = false"
+				>
+					OK, rozumiem
+				</ds-button>
+			</div>
+		</ds-modal>
+		<ds-card>
 			<div slot="content">
-				<div class="surveyQuestionOpenEnded__content">
+				<div class="surveyQuestionOpenEnded__title">
 					<label class="surveyQuestionOpenEnded__label">
 						{{ label }}
 					</label>
+					<div v-if="$slots.explanation" class="surveyQuestionScale__explanation">
+						<icon-button
+							:color="BUTTON_COLORS.MINOR_SUPPORTING"
+							:icon="ICONS.FA_QUESTION_CIRCLE"
+							:size="ICON_SIZES.MEDIUM"
+							@click.native="showModal = true"
+						/>
+					</div>
+				</div>
+				<div class="surveyQuestionOpenEnded__content">
 					<textarea
 						ref="textarea"
 						class="surveyQuestionOpenEnded__input"
@@ -16,7 +38,7 @@
 					></textarea>
 				</div>
 			</div>
-		</card>
+		</ds-card>
 	</div>
 </template>
 
@@ -28,14 +50,16 @@
 @import '../../../styles/settings/typography';
 
 .surveyQuestionOpenEnded {
+	&__title {
+		display: flex;
+		align-items: center;
+		margin-bottom: $space-s;
+		justify-content: space-between;
+	}
+
 	&__content {
 		display: flex;
 		flex-direction: column;
-		padding: $space-xxs;
-	}
-
-	&__label {
-		margin-bottom: $space-m;
 	}
 
 	&__input {
@@ -56,12 +80,19 @@
 </style>
 
 <script lang="ts">
-import Card from '../Card';
+import DsCard from '../Card';
+import DsModal from '../Modal';
+import DsButton, { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Button';
+import IconButton from '../IconButton';
+import { ICON_SIZES, ICONS } from '../Icon';
 
 export default {
 	name: 'SurveyQuestionOpenEnded',
 	components: {
-		Card,
+		DsButton,
+		DsCard,
+		IconButton,
+		DsModal,
 	},
 	props: {
 		label: {
@@ -80,6 +111,18 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+	},
+	data() {
+		return {
+			showModal: false,
+		};
+	},
+	created() {
+		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.BUTTON_SIZES = BUTTON_SIZES;
+		this.BUTTON_TYPES = BUTTON_TYPES;
+		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
 		updateValue(value) {

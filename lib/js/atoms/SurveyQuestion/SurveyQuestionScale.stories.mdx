@@ -34,7 +34,7 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 				];
 			},
 			template: '<survey-question-scale :title="title" :options="options" :elaborationLabel="elaborationLabel" :status="status" :selected="selected" :disabled="disabled" @selectChange="selected = $event">' +
-				'<div slot="explanation">{{ explanation }}</div>' +
+				'<div v-if="explanation" slot="explanation">{{ explanation }}</div>' +
 				'</survey-question-scale>',
 		};
 	}}
