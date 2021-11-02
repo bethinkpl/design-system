@@ -20,7 +20,7 @@
 				</span>
 			</div>
 		</div>
-		<div class="surveyToggle__label">{{ label }}</div>
+		<div v-if="label" class="surveyToggle__label">{{ label }}</div>
 	</div>
 </template>
 
@@ -177,7 +177,7 @@ export default {
 	props: {
 		label: {
 			type: String,
-			required: true,
+			default: null,
 		},
 		content: {
 			type: String,
