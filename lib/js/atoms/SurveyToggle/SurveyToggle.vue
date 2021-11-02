@@ -60,7 +60,6 @@ $survey-toggle-size: 48px;
 
 	&.-selectedPrimary.-disabled &__toggle {
 		background-color: $color-primary-disabled;
-		cursor: not-allowed;
 	}
 
 	&.-selectedSecondary:not(.-disabled) &__toggle {
@@ -94,8 +93,12 @@ $survey-toggle-size: 48px;
 		}
 	}
 
-	&.-disabled &__ring {
-		border-color: mix($color-minor-supporting, $color-total-white, 40%);
+	&.-disabled {
+		pointer-events: none;
+
+		&__ring {
+			border-color: mix($color-minor-supporting, $color-total-white, 40%);
+		}
 	}
 
 	&.-defaultPrimary &__ring {
@@ -260,9 +263,6 @@ export default {
 			this.hovered = !this.hovered;
 		},
 		onClick() {
-			if (this.state === SURVEY_TOGGLE_STATES.DISABLED) {
-				return;
-			}
 			this.$emit('click');
 		},
 	},
