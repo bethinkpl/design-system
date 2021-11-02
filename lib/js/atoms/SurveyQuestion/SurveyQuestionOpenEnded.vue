@@ -13,7 +13,7 @@
 			</div>
 		</ds-modal>
 		<ds-card>
-			<div slot="content">
+			<template slot="content">
 				<div class="surveyQuestionOpenEnded__title">
 					<label class="surveyQuestionOpenEnded__label">
 						{{ label }}
@@ -37,7 +37,7 @@
 						@input="updateValue($event.target.value)"
 					></textarea>
 				</div>
-			</div>
+			</template>
 		</ds-card>
 	</div>
 </template>

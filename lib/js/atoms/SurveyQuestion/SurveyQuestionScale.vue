@@ -13,7 +13,7 @@
 			</div>
 		</ds-modal>
 		<ds-card>
-			<div slot="content">
+			<template slot="content">
 				<div class="surveyQuestionScale__title">
 					<span>{{ title }}</span>
 					<div v-if="$slots.explanation" class="surveyQuestionScale__explanation">
@@ -70,7 +70,7 @@
 						></textarea>
 					</div>
 				</template>
-			</div>
+			</template>
 		</ds-card>
 	</div>
 </template>
