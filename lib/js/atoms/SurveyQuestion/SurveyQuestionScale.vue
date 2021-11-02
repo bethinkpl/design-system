@@ -84,13 +84,9 @@
 		@include headlineS();
 
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		margin-bottom: $space-m;
 		justify-content: space-between;
-	}
-
-	&__explanation {
-		color: $color-minor-supporting;
 	}
 
 	&__content {
