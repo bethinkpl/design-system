@@ -10,7 +10,7 @@ describe('SurveyQuestionScale', () => {
 		title = '',
 		content = '',
 		options = [] as Array<unknown>,
-		explanation = true,
+		explanation = '',
 	} = {}) => {
 		const localVue = createLocalVue();
 
@@ -21,8 +21,10 @@ describe('SurveyQuestionScale', () => {
 				content,
 				options,
 				title,
-				explanation,
 				elaborationLabel,
+			},
+			slots: {
+				explanation,
 			},
 			stubs: {
 				SurveyToggle,
@@ -62,14 +64,17 @@ describe('SurveyQuestionScale', () => {
 		expect(component.find('.surveyQuestionScale__title').text()).toContain(title);
 	});
 
-	it.each([false, true])(
-		'should render explanation button only when explanation prop is true',
-		(explanation) => {
-			const component = createComponent({ explanation });
+	it('Don\'t show explanation icon when slot is empty', async () => {
+		const component = createComponent();
 
-			expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(explanation);
-		},
-	);
+		expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(false);
+	});
+
+	it('Show explanation icon when slot is not empty', async () => {
+		const component = createComponent({ explanation: 'test' });
+
+		expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(true);
+	});
 
 	it('click on survey toggle should emit "selectChange" event', async () => {
 		const component = createComponent({ options: OPTIONS });

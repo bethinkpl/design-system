@@ -22,13 +22,15 @@
 					</div>
 				</div>
 				<div class="surveyQuestionScale__content">
-					<template v-for="option in options">
+					<div
+						v-for="option in options"
+						:key="option.id"
+						class="surveyQuestionScale__toggle"
+						:class="{
+							'-standAlone': option.standAlone,
+						}"
+					>
 						<survey-toggle
-							:key="option.id"
-							class="surveyQuestionScale__toggle"
-							:class="{
-								'-standAlone': option.standAlone,
-							}"
 							:color="option.color"
 							:content="option.content"
 							:label="option.label"
@@ -45,7 +47,7 @@
 							"
 							@click="onToggleClick(option.id)"
 						/>
-					</template>
+					</div>
 				</div>
 
 				<template v-if="selected !== null">
@@ -111,8 +113,9 @@
 		}
 
 		&.-standAlone {
+			display: flex;
 			flex-grow: 2;
-			align-items: flex-end;
+			justify-content: flex-end;
 		}
 
 		&:last-child {
