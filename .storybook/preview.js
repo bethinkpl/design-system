@@ -44,7 +44,7 @@ const customViewports = {
 		name: 'Small mobile',
 		styles: {
 			height: '568px',
-			width: '320px',
+			width: '360px',
 		},
 		type: 'mobile',
 	},

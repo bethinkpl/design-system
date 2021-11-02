@@ -91,13 +91,14 @@
 
 	&__content {
 		background: $color-background-secondary;
+		border-radius: $radius-s;
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: $space-xxs;
-		border-radius: $radius-s;
+		padding: $space-s $space-xxs;
 
 		@media #{breakpoint-s()} {
-			padding: $space-s;
+			padding: $space-s $space-xl;
 		}
 	}
 
