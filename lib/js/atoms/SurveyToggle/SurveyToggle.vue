@@ -34,6 +34,8 @@
 $survey-toggle-size: 48px;
 
 .surveyToggle {
+	$self: &;
+
 	align-items: center;
 	cursor: pointer;
 	display: flex;
@@ -58,12 +60,16 @@ $survey-toggle-size: 48px;
 		background-color: $color-primary;
 	}
 
+	&.-selectedSecondary &__toggle {
+		background-color: $color-minor-supporting;
+	}
+
 	&.-selectedPrimary.-disabled &__toggle {
 		background-color: $color-primary-disabled;
 	}
 
-	&.-selectedSecondary:not(.-disabled) &__toggle {
-		background-color: $color-minor-supporting;
+	&.-selectedSecondary.-disabled &__toggle {
+		background-color: mix($color-minor-supporting, $color-total-white, 40%);
 	}
 
 	&.-selectedPrimary.-hovered &__toggle {
@@ -96,7 +102,7 @@ $survey-toggle-size: 48px;
 	&.-disabled {
 		pointer-events: none;
 
-		&__ring {
+		#{$self}__ring {
 			border-color: mix($color-minor-supporting, $color-total-white, 40%);
 		}
 	}
