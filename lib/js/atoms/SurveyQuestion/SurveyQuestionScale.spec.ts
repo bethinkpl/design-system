@@ -81,7 +81,7 @@ describe('SurveyQuestionScale', () => {
 
 		await component.find('.surveyQuestionScale__toggle .surveyToggle__toggle').trigger('click');
 
-		expect(component.emitted()?.selectChange?.[0]).toBeDefined();
+		expect(component.emitted()?.['select-change']?.[0]).toBeDefined();
 	});
 
 	it('should render SurveyToggle for each item in options prop', () => {
