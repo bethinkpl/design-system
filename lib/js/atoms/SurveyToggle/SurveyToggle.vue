@@ -51,7 +51,6 @@ $survey-toggle-size: 48px;
 		height: $survey-toggle-size;
 		padding: $space-xxs;
 		transition: color ease-in-out $default-transition-time,
-			border-color ease-in-out $default-transition-time,
 			background-color ease-in-out $default-transition-time;
 		width: $survey-toggle-size;
 
@@ -100,6 +99,7 @@ $survey-toggle-size: 48px;
 		justify-content: center;
 		border: 3px solid $color-minor-supporting;
 		border-radius: 100%;
+		transition: border-color ease-in-out $default-transition-time;
 		width: 100%;
 
 		.-hovered & {
