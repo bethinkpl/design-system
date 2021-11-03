@@ -1,5 +1,5 @@
 <template>
-	<div class="surveyQuestionOpenEnded" :class="{ '-disabled': disabled }">
+	<div class="surveyQuestionOpenEnded" :class="{ '-disabled': state === SURVEY_QUESTION_STATES.DISABLED }">
 		<ds-modal v-if="showModal" @close-modal="showModal = false">
 			<slot name="explanation" />
 			<div slot="footer">
@@ -31,7 +31,7 @@
 					<textarea
 						ref="textarea"
 						class="surveyQuestionOpenEnded__input"
-						:disabled="disabled"
+						:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 						:value="value"
 						:placeholder="placeholder"
 						@input="updateValue($event.target.value)"
@@ -85,6 +85,7 @@ import DsModal from '../Modal';
 import DsButton, { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Button';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
+import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 
 export default {
 	name: 'SurveyQuestionOpenEnded',
@@ -107,9 +108,12 @@ export default {
 			type: String,
 			default: 'Wpisz swoją odpowiedź',
 		},
-		disabled: {
-			type: Boolean,
-			default: false,
+		state: {
+			type: String,
+			default: SURVEY_QUESTION_STATES.DEFAULT,
+			validate(state) {
+				return Object.values(SURVEY_QUESTION_STATES).includes(state);
+			},
 		},
 	},
 	data() {
@@ -123,6 +127,7 @@ export default {
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
+		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
 	},
 	methods: {
 		updateValue(value) {

@@ -45,7 +45,7 @@
 							"
 							:is-active="option.selected"
 							:state="
-								disabled
+								state === SURVEY_QUESTION_STATES.DISABLED
 									? SURVEY_TOGGLE_STATES.DISABLED
 									: SURVEY_TOGGLE_STATES.DEFAULT
 							"
@@ -64,7 +64,7 @@
 							ref="textarea"
 							v-model="elaboration"
 							class="surveyQuestionScale__elaborationInput"
-							:disabled="disabled"
+							:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 							:placeholder="placeholder"
 							name="elaboration"
 						></textarea>
@@ -163,6 +163,7 @@ import SurveyToggle, {
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from '../SurveyToggle';
+import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 
 export default {
 	name: 'SurveyQuestionScale',
@@ -178,9 +179,12 @@ export default {
 			type: String,
 			required: true,
 		},
-		disabled: {
-			type: Boolean,
-			default: false,
+		state: {
+			type: String,
+			default: SURVEY_QUESTION_STATES.DEFAULT,
+			validate(state) {
+				return Object.values(SURVEY_QUESTION_STATES).includes(state);
+			},
 		},
 		options: {
 			type: Array,
@@ -224,6 +228,7 @@ export default {
 		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
 		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
 		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
+		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
 	},
 	methods: {
 		onToggleClick(id: number) {

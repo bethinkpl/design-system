@@ -1,6 +1,7 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import SurveyQuestionScale from './SurveyQuestionScale';
 import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
+import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 
 <Meta title='atoms/SurveyQuestionScale' component={SurveyQuestionScale} />
 
@@ -12,12 +13,12 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 			elaborationLabel: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę',
 			explanation: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.',
 			placeholder: 'Wpisz swoją odpowiedź',
-			disabled: false,
 		}}
 	   argTypes={{
 		   explanation: { control: { type: 'text' } },
 		   options: { control: false },
-		   selected: { control: false }
+		   selected: { control: false },
+		   state: {control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) }, defaultValue: SURVEY_QUESTION_STATES.DEFAULT },
 	   }}>
 	{(args) => {
 		return {
@@ -34,7 +35,7 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
-			template: '<survey-question-scale :title="title" :options="options" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected="selected" :disabled="disabled" @select-change="selected = $event">' +
+			template: '<survey-question-scale :title="title" :options="options" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected="selected" :state="state" @select-change="selected = $event">' +
 				'<div v-if="explanation" slot="explanation">{{ explanation }}</div>' +
 				'</survey-question-scale>',
 		};

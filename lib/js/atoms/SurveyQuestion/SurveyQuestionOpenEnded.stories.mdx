@@ -1,5 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import SurveyQuestionOpenEnded from './SurveyQuestionOpenEnded';
+import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 
 <Meta title='atoms/SurveyQuestionOpenEnded' component={SurveyQuestionOpenEnded} />
 
@@ -11,16 +12,16 @@ import SurveyQuestionOpenEnded from './SurveyQuestionOpenEnded';
 		   value: 'value',
 		   explanation: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.',
 		   placeholder: 'Wpisz swoją odpowiedź',
-		   disabled: false,
 	   }}
 	   argTypes={{
 		   explanation: { control: { type: 'text' } },
+		   state: {control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) }, defaultValue: SURVEY_QUESTION_STATES.DEFAULT },
 	   }}>
 	{(args) => {
 		return {
 			components: { SurveyQuestionOpenEnded },
 			props: Object.keys(args),
-			template: '<survey-question-open-ended  :label="label" :value="value" :disabled="disabled" :placeholder="placeholder">' +
+			template: '<survey-question-open-ended  :label="label" :value="value" :state="state" :placeholder="placeholder">' +
 				'<div v-if="explanation" slot="explanation">{{ explanation }}</div>' +
 				'</survey-question-open-ended>',
 		};
