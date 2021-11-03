@@ -7,12 +7,17 @@ import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
 # SurveyQuestionScale
 
 <Story name='interactive'
+		args={{
+			title: 'Main question write here if it\'s long it will collapse.',
+			elaborationLabel: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę',
+			explanation: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.',
+			placeholder: 'Wpisz swoją odpowiedź',
+			disabled: false,
+		}}
 	   argTypes={{
-		   title: { control: { type: 'text' }, defaultValue: 'Main question write here if it\'s long it will collapse.' },
-		   elaborationLabel: { control: { type: 'text' }, defaultValue: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę' },
-		   explanation: { control: { type: 'text' }, defaultValue: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.' },
-		   disabled: { control: { type: 'boolean' }, defaultValue: false },
-		   placeholder: { control: { type: 'text' }, defaultValue: 'Wpisz swoją odpowiedź' },
+		   explanation: { control: { type: 'text' } },
+		   options: { control: false },
+		   selected: { control: false }
 	   }}>
 	{(args) => {
 		return {
