@@ -10,7 +10,7 @@
 		}"
 		@click="onClick"
 	>
-		<div class="surveyToggle__toggle" @mouseover="hovered = true" @mouseleave="hovered = false">
+		<div v-ripple class="surveyToggle__toggle" @mouseover="hovered = true" @mouseleave="hovered = false">
 			<div class="surveyToggle__ring">
 				<span v-if="isDefaultPrimary" class="surveyToggle__content">
 					{{ contentText }}
@@ -25,11 +25,12 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/typography';
+@import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/icons';
-@import '../../../styles/settings/spacings';
 @import '../../../styles/settings/media-queries';
+@import '../../../styles/settings/spacings';
+@import '../../../styles/settings/typography';
 
 $survey-toggle-size: 48px;
 
@@ -49,10 +50,17 @@ $survey-toggle-size: 48px;
 		display: flex;
 		height: $survey-toggle-size;
 		padding: $space-xxs;
+		transition: color ease-in-out $default-transition-time,
+			border-color ease-in-out $default-transition-time,
+			background-color ease-in-out $default-transition-time;
 		width: $survey-toggle-size;
 
 		.-hovered & {
 			border-color: mix($color-total-white, $color-firefly-black, 88%);
+		}
+
+		&::v-deep .ripple {
+			background-color: rgba($color-total-white, $ripple-alpha) !important;
 		}
 	}
 
@@ -177,11 +185,15 @@ import {
 	SURVEY_TOGGLE_STATUSES,
 } from './SurveyToggle.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
+import Ripple from 'vue-ripple-directive';
 
 export default {
 	name: 'SurveyToggle',
 	components: {
 		DsIcon,
+	},
+	directives: {
+		ripple: Ripple,
 	},
 	props: {
 		label: {

@@ -42,6 +42,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/animations';
 @import '../../../styles/settings/buttons';
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/icons';
@@ -86,7 +87,7 @@ $icon-button-large-size: 40px;
 	color: $color-primary;
 	cursor: pointer;
 	display: inline-flex;
-	transition: color ease-in-out $button-animation-time;
+	transition: color ease-in-out $default-transition-time;
 
 	&:hover {
 		color: $color-primary-hovered;
