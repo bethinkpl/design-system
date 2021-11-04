@@ -7,6 +7,7 @@ import Card from '../Card';
 describe('SurveyQuestionScale', () => {
 	const createComponent = ({
 		elaborationLabel = '',
+		elaboration = '',
 		title = '',
 		content = '',
 		options = [] as Array<unknown>,
@@ -22,6 +23,7 @@ describe('SurveyQuestionScale', () => {
 				options,
 				title,
 				elaborationLabel,
+				elaboration,
 			},
 			slots: {
 				explanation,
