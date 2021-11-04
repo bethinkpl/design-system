@@ -57,10 +57,11 @@
 				<template v-if="selected !== null">
 					<hr class="surveyQuestionScale__separator" />
 					<div class="surveyQuestionScale__elaboration">
-						<label class="surveyQuestionScale__elaborationLabel" for="elaboration">
+						<label class="surveyQuestionScale__elaborationLabel" :for="inputId">
 							{{ elaborationLabel }}
 						</label>
 						<survey-question-textarea
+							:id="inputId"
 							:value="elaboration"
 							class="surveyQuestionScale__elaborationInput"
 							:placeholder="placeholder"
@@ -208,6 +209,12 @@ export default {
 	data() {
 		return {
 			showModal: false,
+			inputId:
+				'survey-question' +
+				Math.random()
+					.toString(36)
+					.replace(/[^a-z]+/g, '')
+					.substr(0, 8),
 		};
 	},
 	created() {

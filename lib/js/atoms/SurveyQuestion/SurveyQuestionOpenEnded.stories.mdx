@@ -8,20 +8,21 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 
 <Story name='interactive'
 	   args={{
-		   label: 'Main question write here if it\'s long it will collapse.',
+		   title: 'Main question write here if it\'s long it will collapse.',
 		   value: 'value',
 		   explanation: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.',
 		   placeholder: 'Wpisz swoją odpowiedź',
+		   state: SURVEY_QUESTION_STATES.DEFAULT,
 	   }}
 	   argTypes={{
 		   explanation: { control: { type: 'text' } },
-		   state: {control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) }, defaultValue: SURVEY_QUESTION_STATES.DEFAULT },
+		   state: {control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) } },
 	   }}>
 	{(args) => {
 		return {
 			components: { SurveyQuestionOpenEnded },
 			props: Object.keys(args),
-			template: '<survey-question-open-ended  :label="label" v-model="value" :state="state" :placeholder="placeholder">' +
+			template: '<survey-question-open-ended  :title="title" v-model="value" :state="state" :placeholder="placeholder">' +
 				'<div v-if="explanation" slot="explanation">{{ explanation }}</div>' +
 				'</survey-question-open-ended>',
 		};

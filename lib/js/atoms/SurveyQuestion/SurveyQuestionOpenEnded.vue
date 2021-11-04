@@ -17,9 +17,9 @@
 		</ds-modal>
 		<ds-card>
 			<template slot="content">
-				<div class="surveyQuestionOpenEnded__title">
-					<label class="surveyQuestionOpenEnded__label">
-						{{ label }}
+				<div class="surveyQuestionOpenEnded__header">
+					<label :for="inputId">
+						{{ title }}
 					</label>
 					<div v-if="$slots.explanation" class="surveyQuestionScale__explanation">
 						<icon-button
@@ -32,6 +32,7 @@
 				</div>
 				<div class="surveyQuestionOpenEnded__content">
 					<survey-question-textarea
+						:id="inputId"
 						class="surveyQuestionOpenEnded__input"
 						:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 						:value="value"
@@ -45,14 +46,10 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/shadows';
-@import '../../../styles/settings/colors';
-@import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 
 .surveyQuestionOpenEnded {
-	&__title {
+	&__header {
 		display: flex;
 		align-items: center;
 		margin-bottom: $space-s;
@@ -89,7 +86,7 @@ export default {
 		DsModal,
 	},
 	props: {
-		label: {
+		title: {
 			type: String,
 			required: true,
 		},
@@ -112,6 +109,12 @@ export default {
 	data() {
 		return {
 			showModal: false,
+			inputId:
+				'survey-question' +
+				Math.random()
+					.toString(36)
+					.replace(/[^a-z]+/g, '')
+					.substr(0, 8),
 		};
 	},
 	created() {
