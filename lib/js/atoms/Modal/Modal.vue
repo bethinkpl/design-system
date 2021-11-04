@@ -93,17 +93,6 @@
 			z-index: 1;
 		}
 	}
-
-	// Atoms viable inside modal
-	.a-subtitle {
-		margin-bottom: $space-xs;
-		margin-top: $space-m;
-		text-transform: uppercase;
-
-		&:first-child {
-			margin-top: 0;
-		}
-	}
 }
 </style>
 

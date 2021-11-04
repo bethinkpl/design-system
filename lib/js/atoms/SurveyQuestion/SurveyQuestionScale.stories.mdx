@@ -50,7 +50,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			components: { SurveyQuestionScale },
 			props: Object.keys(args),
 			data() {
-				return { selected: '3' }
+				return { selected: '3', elaboration: '' }
 			},
 			created() {
 				this.options = [
@@ -60,7 +60,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
-			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :selected="selected" @selectChange="selected = $event" />',
+			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :elaboration="elaboration" :selected="selected" @selectChange="selected = $event" />',
 		};
 	}}
 </Story>
@@ -71,7 +71,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			components: { SurveyQuestionScale },
 			props: Object.keys(args),
 			data() {
-				return { selected: '3' }
+				return { selected: '3', elaboration: '' }
 			},
 			created() {
 				this.options = [
@@ -82,7 +82,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 					{ id: '5', label: 'Nie wiem', color: SURVEY_TOGGLE_COLORS.SECONDARY, standAlone: true },
 				];
 			},
-			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :selected="selected" @selectChange="selected = $event" />',
+			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :elaboration="elaboration" :selected="selected" @selectChange="selected = $event" />',
 		};
 	}}
 </Story>
