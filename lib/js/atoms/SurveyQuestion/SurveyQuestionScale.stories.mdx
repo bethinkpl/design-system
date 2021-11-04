@@ -26,7 +26,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			components: { SurveyQuestionScale },
 			props: Object.keys(args),
 			data() {
-				return { selected: null }
+				return { selected: null, elaborationData: this.elaboration }
 			},
 			created() {
 				this.options = [
@@ -36,7 +36,13 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
-			template: '<survey-question-scale :title="title" :options="options" :elaboration="elaboration" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected="selected" :state="state" @select-change="selected = $event" @elaboration-change="elaboration = $event">' +
+			watch: {
+				elaboration() {
+					// elaboration is a prop here, Vue don't like modifying props, so we wrap it into valueData
+					this.elaborationData = this.elaboration;
+				}
+			},
+			template: '<survey-question-scale :title="title" :options="options" :elaboration="elaborationData" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected="selected" :state="state" @select-change="selected = $event" @elaboration-change="elaborationData = $event">' +
 				'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 				'</survey-question-scale>',
 		};

@@ -22,7 +22,16 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 		return {
 			components: { SurveyQuestionOpenEnded },
 			props: Object.keys(args),
-			template: '<survey-question-open-ended  :title="title" v-model="value" :state="state" :placeholder="placeholder">' +
+			data() {
+				return { valueData: this.value };
+			},
+			watch: {
+				value() {
+					// value is a prop here, Vue don't like modifying props, so we wrap it into valueData
+					this.valueData = this.value;
+				}
+			},
+			template: '<survey-question-open-ended  :title="title" v-model="valueData" :state="state" :placeholder="placeholder">' +
 				'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 				'</survey-question-open-ended>',
 		};
