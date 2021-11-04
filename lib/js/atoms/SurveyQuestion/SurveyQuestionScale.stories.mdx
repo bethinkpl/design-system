@@ -11,6 +11,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 		args={{
 			title: 'Main question write here if it\'s long it will collapse.',
 			elaborationLabel: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę',
+			elaboration: '',
 			explanation: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.',
 			placeholder: 'Wpisz swoją odpowiedź',
 		}}
@@ -35,7 +36,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
 				];
 			},
-			template: '<survey-question-scale :title="title" :options="options" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected="selected" :state="state" @select-change="selected = $event">' +
+			template: '<survey-question-scale :title="title" :options="options" :elaboration="elaboration" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected="selected" :state="state" @select-change="selected = $event" @elaboration-change="elaboration = $event">' +
 				'<div v-if="explanation" slot="explanation">{{ explanation }}</div>' +
 				'</survey-question-scale>',
 		};

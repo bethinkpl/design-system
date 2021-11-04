@@ -60,14 +60,13 @@
 						<label class="surveyQuestionScale__elaborationLabel" for="elaboration">
 							{{ elaborationLabel }}
 						</label>
-						<textarea
-							ref="textarea"
-							v-model="elaboration"
+						<survey-question-textarea
+							:value="elaboration"
 							class="surveyQuestionScale__elaborationInput"
-							:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 							:placeholder="placeholder"
-							name="elaboration"
-						></textarea>
+							:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
+							@input="$emit('elaboration-change', $event)"
+						/>
 					</div>
 				</template>
 			</template>
@@ -141,14 +140,7 @@
 	}
 
 	&__elaborationInput {
-		border: 1px solid $color-mischka-gray;
-		box-sizing: border-box;
-		box-shadow: inset 0 1px 3px $color-minor-supporting;
-		border-radius: $radius-s;
 		margin: $space-xxs 0;
-		min-height: 2em;
-		padding: $space-xxs;
-		resize: none;
 	}
 }
 </style>
@@ -165,10 +157,12 @@ import SurveyToggle, {
 	SURVEY_TOGGLE_STATUSES,
 } from '../SurveyToggle';
 import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
+import SurveyQuestionTextarea from './SurveyQuestionTextarea.vue';
 
 export default {
 	name: 'SurveyQuestionScale',
 	components: {
+		SurveyQuestionTextarea,
 		DsCard,
 		IconButton,
 		SurveyToggle,
@@ -198,6 +192,10 @@ export default {
 			type: String,
 			required: true,
 		},
+		elaboration: {
+			type: String,
+			required: true,
+		},
 		placeholder: {
 			type: String,
 			default: 'Wpisz swoją odpowiedź',
@@ -209,16 +207,8 @@ export default {
 	},
 	data() {
 		return {
-			elaboration: '',
 			showModal: false,
 		};
-	},
-	watch: {
-		elaboration() {
-			this.$refs.textarea.style.height = 'auto';
-			this.$refs.textarea.style.height = this.$refs.textarea.scrollHeight + 'px';
-			this.$emit('elaboration-change', this.elaboration);
-		},
 	},
 	created() {
 		this.BUTTON_COLORS = BUTTON_COLORS;

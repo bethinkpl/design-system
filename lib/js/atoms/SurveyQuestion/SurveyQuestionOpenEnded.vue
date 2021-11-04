@@ -31,14 +31,13 @@
 					</div>
 				</div>
 				<div class="surveyQuestionOpenEnded__content">
-					<textarea
-						ref="textarea"
+					<survey-question-textarea
 						class="surveyQuestionOpenEnded__input"
 						:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 						:value="value"
 						:placeholder="placeholder"
-						@input="updateValue($event.target.value)"
-					></textarea>
+						@input="$emit('input', $event)"
+					/>
 				</div>
 			</template>
 		</ds-card>
@@ -66,18 +65,7 @@
 	}
 
 	&__input {
-		border: 1px solid $color-mischka-gray;
-		box-sizing: border-box;
-		box-shadow: inset 0 1px 3px $color-minor-supporting;
-		border-radius: $radius-s;
 		margin: $space-xxs 0;
-		padding: $space-xxs;
-		min-height: 2em;
-		resize: none;
-
-		&.-disabled & {
-			color: $color-minor-supporting;
-		}
 	}
 }
 </style>
@@ -89,10 +77,12 @@ import DsButton, { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Button';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
 import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
+import SurveyQuestionTextarea from './SurveyQuestionTextarea.vue';
 
 export default {
 	name: 'SurveyQuestionOpenEnded',
 	components: {
+		SurveyQuestionTextarea,
 		DsButton,
 		DsCard,
 		IconButton,
@@ -131,13 +121,6 @@ export default {
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
 		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
-	},
-	methods: {
-		updateValue(value) {
-			this.$emit('input', value);
-			this.$refs.textarea.style.height = 'auto';
-			this.$refs.textarea.style.height = this.$refs.textarea.scrollHeight + 'px';
-		},
 	},
 };
 </script>

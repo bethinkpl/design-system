@@ -21,7 +21,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 		return {
 			components: { SurveyQuestionOpenEnded },
 			props: Object.keys(args),
-			template: '<survey-question-open-ended  :label="label" :value="value" :state="state" :placeholder="placeholder">' +
+			template: '<survey-question-open-ended  :label="label" v-model="value" :state="state" :placeholder="placeholder">' +
 				'<div v-if="explanation" slot="explanation">{{ explanation }}</div>' +
 				'</survey-question-open-ended>',
 		};
