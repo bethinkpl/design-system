@@ -14,6 +14,12 @@ DS requires access to font-awesome PRO. Add `.npmrc` file to root catalog. File 
 
 Instruction: https://classic.yarnpkg.com/en/docs/cli/link/
 
+In your project:
+```
+yarn link design-system
+yarn --cwd node_modules/design-system/ build
+```
+
 ## Usage
 
 Components like input/select/checkbox etc have to be  placed inside `App` component (`lib/js/atoms/App`)

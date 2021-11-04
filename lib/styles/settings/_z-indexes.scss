@@ -1,18 +1,3 @@
 // z-index positioning
 // hardcoded
-$z-index-reveal-controls: 1;
-$z-index-active-filters: 40;
-$z-index-navbar: 50;
-$z-index-version-toast: 16777271; // The highest possible value in Safari
-
-// calculated
-$z-index-modal: $z-index-version-toast - 1;
-$z-index-critical-info-overlay: $z-index-navbar - 1;
-$z-index-sidenav-slot: $z-index-navbar - 1;
-$z-index-toast-notifications: $z-index-navbar;
-$z-index-overlay: $z-index-navbar + 1;
-$z-index-autocomplete: $z-index-navbar + 1;
-
-$z-index-fullscren: $z-index-modal - 2;
-$z-index-fullscren-close: $z-index-modal - 1;
-$z-index-alerts: $z-index-modal - 1;
+$z-index-modal: 16777270; // 16777271 is the highest possible value in Safari, we need to make space for elements that above modal, so -1
