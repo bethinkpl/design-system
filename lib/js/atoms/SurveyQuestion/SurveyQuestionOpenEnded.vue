@@ -43,9 +43,12 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/typography';
 
 .surveyQuestionOpenEnded {
 	&__header {
+		@include headlineS();
+
 		display: flex;
 		align-items: center;
 		margin-bottom: $space-s;

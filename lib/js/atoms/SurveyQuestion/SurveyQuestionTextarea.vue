@@ -13,8 +13,11 @@
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/typography';
 
 .surveyQuestionTextarea {
+	@include textL;
+
 	border: 1px solid $color-mischka-gray;
 	box-sizing: border-box;
 	box-shadow: inset 0 1px 3px $color-minor-supporting;
