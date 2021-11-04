@@ -46,7 +46,11 @@ $survey-toggle-size: 48px;
 	cursor: pointer;
 	display: flex;
 	flex-direction: column;
-	width: $survey-toggle-size + 2 * $space-xxxs;
+	width: $survey-toggle-size;
+
+	@media #{breakpoint-s()} {
+		width: $survey-toggle-size + 2 * $space-xxxs;
+	}
 
 	// toggle
 	&__toggle {
@@ -172,7 +176,7 @@ $survey-toggle-size: 48px;
 		text-align: center;
 		margin-top: $space-xxs;
 		min-height: 2em;
-		max-width: 60px;
+		max-width: 100%;
 
 		@media #{breakpoint-s()} {
 			@include textInfoM();

@@ -100,6 +100,7 @@
 		justify-content: space-between;
 		margin-bottom: $space-xxs;
 		padding: $space-s $space-xxs;
+		overflow-x: auto;
 
 		@media #{breakpoint-s()} {
 			padding: $space-s $space-xl;
@@ -111,12 +112,12 @@
 
 		@media #{breakpoint-s()} {
 			margin-right: $space-m;
-		}
 
-		&.-standAlone {
-			display: flex;
-			flex-grow: 2;
-			justify-content: flex-end;
+			&.-standAlone {
+				display: flex;
+				flex-grow: 2;
+				justify-content: flex-end;
+			}
 		}
 
 		&:last-child {
