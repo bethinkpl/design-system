@@ -1,5 +1,8 @@
 <template>
-	<div class="surveyQuestionOpenEnded" :class="{ '-disabled': state === SURVEY_QUESTION_STATES.DISABLED }">
+	<div
+		class="surveyQuestionOpenEnded"
+		:class="{ '-disabled': state === SURVEY_QUESTION_STATES.DISABLED }"
+	>
 		<ds-modal v-if="showModal" @close-modal="showModal = false">
 			<slot name="explanation" />
 			<div slot="footer">

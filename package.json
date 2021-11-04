@@ -13,6 +13,7 @@
   "scripts": {
     "build": "vue-cli-service build --target lib --name design-system lib/js/index.ts",
     "lint": "yarn lint:scripts && yarn lint:styles",
+    "lint:fix": "yarn lint:scripts:fix && yarn lint:styles:fix",
     "lint:scripts": "eslint --max-warnings 0 --cache 'lib/js/**/*.{js,vue,ts}'",
     "lint:scripts:fix": "eslint 'lib/js/**/*.{js,vue,ts}' --fix --cache",
     "lint:styles": "stylelint 'lib/**/*.{vue,scss}' --cache",

@@ -10,7 +10,12 @@
 		}"
 		@click="onClick"
 	>
-		<div v-ripple class="surveyToggle__toggle" @mouseover="hovered = true" @mouseleave="hovered = false">
+		<div
+			v-ripple
+			class="surveyToggle__toggle"
+			@mouseover="hovered = true"
+			@mouseleave="hovered = false"
+		>
 			<div class="surveyToggle__ring">
 				<span v-if="isDefaultPrimary" class="surveyToggle__content">
 					{{ contentText }}
