@@ -12,7 +12,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			title: 'Main question write here if it\'s long it will collapse.',
 			elaborationLabel: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę',
 			elaboration: '',
-			explanation: 'Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.',
+			explanation: '<h3 class="-headlineL -textRegular" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3><div>Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 			placeholder: 'Wpisz swoją odpowiedź',
 		}}
 	   argTypes={{
@@ -37,7 +37,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 				];
 			},
 			template: '<survey-question-scale :title="title" :options="options" :elaboration="elaboration" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected="selected" :state="state" @select-change="selected = $event" @elaboration-change="elaboration = $event">' +
-				'<div v-if="explanation" slot="explanation">{{ explanation }}</div>' +
+				'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 				'</survey-question-scale>',
 		};
 	}}

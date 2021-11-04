@@ -6,11 +6,7 @@
 		<ds-modal v-if="showModal" @close-modal="showModal = false">
 			<slot name="explanation" />
 			<div slot="footer">
-				<ds-button
-					:size="BUTTON_SIZES.LARGE"
-					:type="BUTTON_TYPES.OUTLINED"
-					@click.native="showModal = false"
-				>
+				<ds-button :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
 					OK, rozumiem
 				</ds-button>
 			</div>
@@ -70,7 +66,7 @@
 <script lang="ts">
 import DsCard from '../Card';
 import DsModal from '../Modal';
-import DsButton, { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Button';
+import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../Button';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
 import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
@@ -119,7 +115,6 @@ export default {
 	},
 	created() {
 		this.BUTTON_COLORS = BUTTON_COLORS;
-		this.BUTTON_SIZES = BUTTON_SIZES;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
