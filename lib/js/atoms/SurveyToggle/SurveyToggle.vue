@@ -35,6 +35,7 @@
 @import '../../../styles/settings/icons';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/shadows';
 @import '../../../styles/settings/typography';
 
 $survey-toggle-size: 48px;
@@ -60,12 +61,14 @@ $survey-toggle-size: 48px;
 		height: $survey-toggle-size;
 		padding: $space-xxs;
 		transition: color ease-in-out $default-transition-time,
-			background-color ease-in-out $default-transition-time;
+			background-color ease-in-out $default-transition-time,
+			box-shadow ease-in-out $default-transition-time;
 		width: $survey-toggle-size;
 
 		.-hovered & {
 			border-color: mix($color-total-white, $color-firefly-black, 88%);
 			background-color: $color-ice-gray;
+			box-shadow: $shadow-s;
 		}
 
 		&::v-deep .ripple {
