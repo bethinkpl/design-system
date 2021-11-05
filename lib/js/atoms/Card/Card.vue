@@ -15,7 +15,7 @@
 
 .card {
 	border-radius: $radius-m;
-	box-shadow: $shadow-xl;
+	box-shadow: $shadow-s;
 
 	&__content {
 		padding: $space-s;
