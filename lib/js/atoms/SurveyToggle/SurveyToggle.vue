@@ -65,6 +65,7 @@ $survey-toggle-size: 48px;
 
 		.-hovered & {
 			border-color: mix($color-total-white, $color-firefly-black, 88%);
+			background-color: $color-ice-gray;
 		}
 
 		&::v-deep .ripple {
