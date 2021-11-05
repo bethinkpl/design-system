@@ -2,7 +2,7 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import SurveyToggle from './SurveyToggle.vue';
 import {
-	SURVEY_TOGGLE_COLORS,
+	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from './SurveyToggle.consts';
@@ -11,7 +11,7 @@ describe('SurveyToggle', () => {
 	const createComponent = ({
 		label = '',
 		contentText = '',
-		color = SURVEY_TOGGLE_COLORS.PRIMARY,
+		color = SURVEY_TOGGLE_MEANINGS.PRIMARY,
 		state = SURVEY_TOGGLE_STATES.DEFAULT,
 		status = SURVEY_TOGGLE_STATUSES.DEFAULT as typeof SURVEY_TOGGLE_STATUSES[keyof typeof SURVEY_TOGGLE_STATUSES], // TODO: make an util
 	} = {}) => {
@@ -72,7 +72,7 @@ describe('SurveyToggle', () => {
 	it('when isActive prop is false and color is primary component should render', () => {
 		const contentText = 'Wspłynąłem na suchego przestwór oceanu';
 		const component = createComponent({
-			color: SURVEY_TOGGLE_COLORS.PRIMARY,
+			color: SURVEY_TOGGLE_MEANINGS.PRIMARY,
 			contentText,
 		});
 		expect(component.find('.surveyToggle__content').text()).toContain(contentText);

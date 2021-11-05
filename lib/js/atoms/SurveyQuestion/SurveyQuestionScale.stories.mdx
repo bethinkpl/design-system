@@ -1,6 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import SurveyQuestionScale from './SurveyQuestionScale';
-import { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
+import { SURVEY_TOGGLE_MEANINGS } from '../SurveyToggle';
 import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 
 <Meta title='atoms/SurveyQuestionScale' component={SurveyQuestionScale} />
@@ -12,13 +12,19 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			title: 'Main question write here if it\'s long it will collapse.',
 			elaborationLabel: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę',
 			elaboration: '',
-			explanation: '<h3 class="-headlineL -textRegular" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3><div>Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
+			explanation: '<h3 class="-headlineL -textRegular" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 			placeholder: 'Wpisz swoją odpowiedź',
+			options:[
+				{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
+				{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
+				{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
+				{ id: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
+			]
 		}}
 	   argTypes={{
 		   explanation: { control: { type: 'text' } },
-		   options: { control: false },
 		   selected: { control: false },
+		   options: { control: { type: 'object' } },
 		   state: {control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) }, defaultValue: SURVEY_QUESTION_STATES.DEFAULT },
 	   }}>
 	{(args) => {
@@ -27,14 +33,6 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			props: Object.keys(args),
 			data() {
 				return { selected: null, elaborationData: this.elaboration }
-			},
-			created() {
-				this.options = [
-					{ id: '1', label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
-					{ id: '2', label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '2'},
-					{ id: '3', label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3'},
-					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
-				];
 			},
 			watch: {
 				elaboration() {
@@ -60,10 +58,10 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			},
 			created() {
 				this.options = [
-					{ id: '1', label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
-					{ id: '2', label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '2'},
-					{ id: '3', label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3'},
-					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
+					{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
+					{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
+					{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
+					{ id: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
 				];
 			},
 			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :elaboration="elaboration" :selected="selected" @selectChange="selected = $event" />',
@@ -81,11 +79,11 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			},
 			created() {
 				this.options = [
-					{ id: '1', label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1'},
-					{ id: '2', label: 'Trochę się nie zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '2'},
-					{ id: '3', label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3'},
-					{ id: '4', label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4'},
-					{ id: '5', label: 'Nie wiem', color: SURVEY_TOGGLE_COLORS.SECONDARY, standAlone: true },
+					{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
+					{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
+					{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
+					{ id: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
+					{ id: '5', label: 'Nie wiem', meaning: SURVEY_TOGGLE_MEANINGS.NEUTRAL, standAlone: true },
 				];
 			},
 			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :elaboration="elaboration" :selected="selected" @selectChange="selected = $event" />',

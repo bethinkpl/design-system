@@ -1,7 +1,7 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import SurveyQuestionScale from './SurveyQuestionScale.vue';
-import SurveyToggle, { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
+import SurveyToggle, { SURVEY_TOGGLE_MEANINGS } from '../SurveyToggle';
 import Card from '../Card';
 
 describe('SurveyQuestionScale', () => {
@@ -36,15 +36,15 @@ describe('SurveyQuestionScale', () => {
 	};
 
 	const OPTIONS = [
-		{ id: 1, label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1' },
+		{ id: 1, label: 'Nie zgadzam się', color: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1' },
 		{
 			id: 2,
 			label: 'Trochę się nie zgadzam',
-			color: SURVEY_TOGGLE_COLORS.PRIMARY,
+			color: SURVEY_TOGGLE_MEANINGS.PRIMARY,
 			content: '2',
 		},
-		{ id: 3, label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3' },
-		{ id: 4, label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4' },
+		{ id: 3, label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3' },
+		{ id: 4, label: 'Zgadzam się ', color: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4' },
 	];
 
 	it('should create', () => {

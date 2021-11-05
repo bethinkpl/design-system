@@ -17,6 +17,7 @@
 							:color="BUTTON_COLORS.MINOR_SUPPORTING"
 							:icon="ICONS.FA_QUESTION_CIRCLE"
 							:size="ICON_SIZES.MEDIUM"
+							:touchable="false"
 							@click.native="showModal = true"
 						/>
 					</div>
@@ -31,7 +32,7 @@
 						}"
 					>
 						<survey-toggle
-							:color="option.color"
+							:meaning="option.meaning"
 							:content-text="option.content"
 							:label="option.label"
 							:status="
@@ -149,7 +150,7 @@ import { ICON_SIZES, ICONS } from '../Icon';
 import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../Button';
 import DsModal from '../Modal';
 import SurveyToggle, {
-	SURVEY_TOGGLE_COLORS,
+	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from '../SurveyToggle';
@@ -218,7 +219,7 @@ export default {
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
-		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
+		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_MEANINGS;
 		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
 		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
 		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;

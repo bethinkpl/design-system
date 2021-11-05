@@ -3,7 +3,7 @@ import { Meta, Story, Props } from '@storybook/addon-docs';
 import { ICONS } from '../Icon';
 
 import SurveyToggle from './SurveyToggle';
-import { SURVEY_TOGGLE_COLORS, SURVEY_TOGGLE_STATES, SURVEY_TOGGLE_STATUSES } from './SurveyToggle.consts';
+import { SURVEY_TOGGLE_MEANINGS, SURVEY_TOGGLE_STATES, SURVEY_TOGGLE_STATUSES } from './SurveyToggle.consts';
 
 <Meta title='atoms/SurveyToggle' component={SurveyToggle} />
 
@@ -13,7 +13,7 @@ import { SURVEY_TOGGLE_COLORS, SURVEY_TOGGLE_STATES, SURVEY_TOGGLE_STATUSES } fr
 	   argTypes={{
 		   label: {control: { type: 'text' }, defaultValue: 'label'},
 		   contentText: {control: { type: 'text' }, defaultValue: '1'},
-		   color: {control: { type: 'select', options: Object.values(SURVEY_TOGGLE_COLORS) }, defaultValue: SURVEY_TOGGLE_COLORS.PRIMARY },
+		   meaning: {control: { type: 'select', options: Object.values(SURVEY_TOGGLE_MEANINGS) }, defaultValue: SURVEY_TOGGLE_MEANINGS.PRIMARY },
 		   status: {control: { type: 'select', options: Object.values(SURVEY_TOGGLE_STATUSES) }, defaultValue: SURVEY_TOGGLE_STATUSES.DEFAULT },
 		   state: {control: { type: 'select', options: Object.values(SURVEY_TOGGLE_STATES) }, defaultValue: SURVEY_TOGGLE_STATES.DEFAULT },
 		   contentIcon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_CHECK_SOLID' },
@@ -25,7 +25,7 @@ import { SURVEY_TOGGLE_COLORS, SURVEY_TOGGLE_STATES, SURVEY_TOGGLE_STATUSES } fr
 			created() {
 				this.ICONS = ICONS;
 			},
-			template: '<div style="background-color:#e5e5e5"><survey-toggle :label="label"  :color="color" :contentText="contentText" :contentIcon="ICONS[contentIcon]" :status="status" :state="state" /></div>',
+			template: '<div style="background-color:#f6f6f8"><survey-toggle :label="label"  :meaning="meaning" :contentText="contentText" :contentIcon="ICONS[contentIcon]" :status="status" :state="state" /></div>',
 		};
 	}}
 </Story>

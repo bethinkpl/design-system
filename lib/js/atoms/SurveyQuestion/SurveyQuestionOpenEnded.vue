@@ -22,6 +22,7 @@
 							:color="BUTTON_COLORS.MINOR_SUPPORTING"
 							:icon="ICONS.FA_QUESTION_CIRCLE"
 							:size="ICON_SIZES.MEDIUM"
+							:touchable="false"
 							@click.native="showModal = true"
 						/>
 					</div>

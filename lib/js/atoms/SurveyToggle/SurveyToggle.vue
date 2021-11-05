@@ -4,7 +4,7 @@
 		:class="{
 			'-selectedPrimary': isSelectedPrimary,
 			'-defaultPrimary': isDefaultPrimary,
-			'-selectedSecondary': isSelectedSecondary,
+			'-selectedNeutral': isSelectedNeutral,
 			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
 			'-hovered': isHoveredState,
 		}"
@@ -17,11 +17,11 @@
 			@mouseleave="hovered = false"
 		>
 			<div class="surveyToggle__ring">
-				<span v-if="isDefaultPrimary" class="surveyToggle__content">
-					{{ contentText }}
-				</span>
-				<span v-if="isSelectedPrimary || isSelectedSecondary" class="surveyToggle__icon">
+				<span v-if="isSelectedPrimary || isSelectedNeutral" class="surveyToggle__icon">
 					<ds-icon :icon="contentIcon" :size="ICON_SIZES.X_SMALL"></ds-icon>
+				</span>
+				<span v-else class="surveyToggle__content">
+					{{ contentText }}
 				</span>
 			</div>
 		</div>
@@ -76,7 +76,7 @@ $survey-toggle-size: 48px;
 		background-color: $color-primary;
 	}
 
-	&.-selectedSecondary &__toggle {
+	&.-selectedNeutral &__toggle {
 		background-color: $color-minor-supporting;
 	}
 
@@ -84,7 +84,7 @@ $survey-toggle-size: 48px;
 		background-color: $color-primary-disabled;
 	}
 
-	&.-selectedSecondary.-disabled &__toggle {
+	&.-selectedNeutral.-disabled &__toggle {
 		background-color: mix($color-minor-supporting, $color-total-white, 40%);
 	}
 
@@ -96,7 +96,7 @@ $survey-toggle-size: 48px;
 		background-color: $color-primary-background;
 	}
 
-	&.-selectedSecondary.-hovered &__toggle {
+	&.-selectedNeutral.-hovered &__toggle {
 		background-color: mix($color-minor-supporting, $color-firefly-black, 88%);
 	}
 
@@ -132,7 +132,7 @@ $survey-toggle-size: 48px;
 		border-color: $color-total-white;
 	}
 
-	&.-selectedSecondary &__ring {
+	&.-selectedNeutral &__ring {
 		border-color: $color-total-white;
 	}
 
@@ -189,7 +189,7 @@ $survey-toggle-size: 48px;
 
 <script lang="ts">
 import {
-	SURVEY_TOGGLE_COLORS,
+	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from './SurveyToggle.consts';
@@ -213,11 +213,11 @@ export default {
 			type: String,
 			default: null,
 		},
-		color: {
+		meaning: {
 			type: String,
-			default: SURVEY_TOGGLE_COLORS.PRIMARY,
-			validate(color) {
-				return Object.values(SURVEY_TOGGLE_COLORS).includes(color);
+			default: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			validate(meaning) {
+				return Object.values(SURVEY_TOGGLE_MEANINGS).includes(meaning);
 			},
 		},
 		status: {
@@ -252,19 +252,19 @@ export default {
 	computed: {
 		isSelectedPrimary() {
 			return (
-				this.color === SURVEY_TOGGLE_COLORS.PRIMARY &&
+				this.meaning === SURVEY_TOGGLE_MEANINGS.PRIMARY &&
 				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
 			);
 		},
 		isDefaultPrimary() {
 			return (
-				this.color === SURVEY_TOGGLE_COLORS.PRIMARY &&
+				this.meaning === SURVEY_TOGGLE_MEANINGS.PRIMARY &&
 				this.status === SURVEY_TOGGLE_STATUSES.DEFAULT
 			);
 		},
-		isSelectedSecondary() {
+		isSelectedNeutral() {
 			return (
-				this.color === SURVEY_TOGGLE_COLORS.SECONDARY &&
+				this.meaning === SURVEY_TOGGLE_MEANINGS.NEUTRAL &&
 				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
 			);
 		},
@@ -280,7 +280,7 @@ export default {
 		},
 	},
 	created() {
-		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
+		this.SURVEY_TOGGLE_MEANING = SURVEY_TOGGLE_MEANINGS;
 		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
 		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
 		this.ICON_SIZES = ICON_SIZES;
