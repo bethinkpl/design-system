@@ -66,7 +66,6 @@ $survey-toggle-size: 48px;
 		width: $survey-toggle-size;
 
 		.-hovered & {
-			border-color: mix($color-total-white, $color-firefly-black, 88%);
 			background-color: $color-ice-gray;
 			box-shadow: $shadow-s;
 		}
@@ -114,10 +113,6 @@ $survey-toggle-size: 48px;
 		border-radius: 100%;
 		transition: border-color ease-in-out $default-transition-time;
 		width: 100%;
-
-		.-hovered & {
-			border-color: mix($color-minor-supporting, $color-firefly-black, 88%);
-		}
 	}
 
 	&.-disabled {
