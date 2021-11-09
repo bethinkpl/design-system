@@ -285,9 +285,6 @@ export default {
 		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
-		mouseOver() {
-			this.hovered = !this.hovered;
-		},
 		onClick() {
 			this.$emit('click');
 		},
