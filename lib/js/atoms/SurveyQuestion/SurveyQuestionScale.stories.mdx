@@ -19,6 +19,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 				{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
 				{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
 				{ id: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
+				{ id: '5', label: 'Nie wiem', meaning: SURVEY_TOGGLE_MEANINGS.NEUTRAL, standAlone: true },
 			]
 		}}
 	   argTypes={{
@@ -48,45 +49,26 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 </Story>
 
 
-<Story name='examples/selectedAnswer'>
+<Story name='examples/7options'>
 	{(args) => {
 		return {
 			components: { SurveyQuestionScale },
 			props: Object.keys(args),
 			data() {
-				return { selected: '3', elaboration: '' }
+				return { selected: '', elaboration: '' }
 			},
 			created() {
 				this.options = [
 					{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
-					{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
-					{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
-					{ id: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
+					{ id: '2', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
+					{ id: '3', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
+					{ id: '4', label: 'Trochę', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
+					{ id: '5', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '5' },
+					{ id: '6', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '6' },
+					{ id: '7', label: 'Zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '7' },
 				];
 			},
-			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :elaboration="elaboration" :selected="selected" @selectChange="selected = $event" />',
-		};
-	}}
-</Story>
-
-<Story name='examples/withNeutralAnswer'>
-	{(args) => {
-		return {
-			components: { SurveyQuestionScale },
-			props: Object.keys(args),
-			data() {
-				return { selected: '3', elaboration: '' }
-			},
-			created() {
-				this.options = [
-					{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
-					{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
-					{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
-					{ id: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
-					{ id: '5', label: 'Nie wiem', meaning: SURVEY_TOGGLE_MEANINGS.NEUTRAL, standAlone: true },
-				];
-			},
-			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :elaboration="elaboration" :selected="selected" @selectChange="selected = $event" />',
+			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :elaboration="elaboration" :selected="selected" @selectChange="selected = $event"  @select-change="selected = $event" />',
 		};
 	}}
 </Story>

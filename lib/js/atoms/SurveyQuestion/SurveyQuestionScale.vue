@@ -180,6 +180,7 @@ export default {
 			},
 		},
 		options: {
+			// todo zmienić na toggleOptions
 			type: Array,
 			required: true,
 			validate(options) {
@@ -191,6 +192,7 @@ export default {
 			required: true,
 		},
 		elaboration: {
+			// TODO dodać value
 			type: String,
 			required: true,
 		},
