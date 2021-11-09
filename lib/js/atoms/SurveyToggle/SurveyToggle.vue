@@ -53,7 +53,6 @@ $survey-toggle-size: 48px;
 		width: $survey-toggle-size + 2 * $space-xxxs;
 	}
 
-	// toggle
 	&__toggle {
 		background: $color-total-white;
 		border-radius: 100%;
@@ -103,7 +102,6 @@ $survey-toggle-size: 48px;
 		background-color: mix($color-minor-supporting, $color-firefly-black, 88%);
 	}
 
-	// ring
 	&__ring {
 		// TODO: IT-4131 mixin
 		align-items: center;
@@ -139,7 +137,6 @@ $survey-toggle-size: 48px;
 		border-color: $color-primary-disabled;
 	}
 
-	// content
 	&__content {
 		@include headlineXS();
 		@include textBold();
@@ -159,14 +156,12 @@ $survey-toggle-size: 48px;
 		color: $color-primary-disabled;
 	}
 
-	// icon
 	&__icon {
 		color: $color-total-white;
 		height: $icon-xs;
 		width: $icon-xs;
 	}
 
-	// label
 	&__label {
 		@include textInfoS();
 		@include textBold();
