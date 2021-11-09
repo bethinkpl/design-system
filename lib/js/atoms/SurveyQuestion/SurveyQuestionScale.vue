@@ -25,8 +25,8 @@
 				<div class="surveyQuestionScale__content">
 					<template v-for="option in scaleOptions">
 						<div
-							v-if="option.standAlone"
-							:key="option.id"
+							v-if="option.standalone"
+							:key="`surveyQuestionScale__toggleSeparator${option.id}`"
 							class="surveyQuestionScale__toggleSeparator"
 						/>
 						<div :key="option.id" class="surveyQuestionScale__toggle">
@@ -39,7 +39,6 @@
 										? SURVEY_TOGGLE_STATUSES.SELECTED
 										: SURVEY_TOGGLE_STATUSES.DEFAULT
 								"
-								:is-active="option.selectedValue"
 								:state="
 									state === SURVEY_QUESTION_STATES.DISABLED
 										? SURVEY_TOGGLE_STATES.DISABLED
@@ -151,6 +150,8 @@
 </style>
 
 <script lang="ts">
+import { Prop } from 'vue/types/options';
+
 import DsCard from '../Card';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
@@ -163,6 +164,7 @@ import SurveyToggle, {
 } from '../SurveyToggle';
 import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 import SurveyQuestionTextarea from './SurveyQuestionTextarea.vue';
+import { ScaleOption } from './SurveyQuestion.domain';
 
 export default {
 	name: 'SurveyQuestionScale',
@@ -187,7 +189,7 @@ export default {
 			},
 		},
 		scaleOptions: {
-			type: Array,
+			type: Array as Prop<Array<ScaleOption>>,
 			required: true,
 			validate(scaleOptions) {
 				return scaleOptions.every((option) => typeof option === 'object');

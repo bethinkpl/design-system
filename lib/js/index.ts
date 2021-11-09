@@ -22,6 +22,7 @@ export * from './atoms/SurveyToggle/SurveyToggle.consts';
 export { default as SurveyQuestionScale } from './atoms/SurveyQuestion/SurveyQuestionScale.vue';
 export { default as SurveyQuestionOpenEnded } from './atoms/SurveyQuestion/SurveyQuestionOpenEnded.vue';
 export * from './atoms/SurveyQuestion/SurveyQuestion.consts';
+export * from './atoms/SurveyQuestion/SurveyQuestion.domain';
 
 export {
 	initialize as initializeIcons,
