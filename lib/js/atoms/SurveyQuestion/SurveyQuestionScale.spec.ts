@@ -7,10 +7,10 @@ import Card from '../Card';
 describe('SurveyQuestionScale', () => {
 	const createComponent = ({
 		elaborationLabel = '',
-		elaboration = '',
+		elaborationValue = '',
 		title = '',
 		content = '',
-		options = [] as Array<unknown>,
+		scaleOptions = [] as Array<unknown>,
 		explanation = '',
 	} = {}) => {
 		const localVue = createLocalVue();
@@ -20,10 +20,10 @@ describe('SurveyQuestionScale', () => {
 			mocks: {},
 			propsData: {
 				content,
-				options,
+				scaleOptions,
 				title,
 				elaborationLabel,
-				elaboration,
+				elaborationValue,
 			},
 			slots: {
 				explanation,
@@ -79,15 +79,15 @@ describe('SurveyQuestionScale', () => {
 	});
 
 	it('click on survey toggle should emit "selectChange" event', async () => {
-		const component = createComponent({ options: OPTIONS });
+		const component = createComponent({ scaleOptions: OPTIONS });
 
 		await component.find('.surveyQuestionScale__toggle .surveyToggle__toggle').trigger('click');
 
 		expect(component.emitted()?.['select-change']?.[0]).toBeDefined();
 	});
 
-	it('should render SurveyToggle for each item in options prop', () => {
-		const component = createComponent({ options: OPTIONS });
+	it('should render SurveyToggle for each item in scaleOptions prop', () => {
+		const component = createComponent({ scaleOptions: OPTIONS });
 
 		expect(component.findAll('.surveyToggle').length).toBe(OPTIONS.length);
 	});
