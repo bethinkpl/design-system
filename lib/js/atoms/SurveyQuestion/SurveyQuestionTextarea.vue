@@ -52,6 +52,8 @@ export default {
 	},
 	watch: {
 		value() {
+			// we want to update height of textarea based on content that is inside
+			// https://stackoverflow.com/a/24676492
 			this.$refs.textarea.style.height = 'auto';
 			this.$refs.textarea.style.height = this.$refs.textarea.scrollHeight + 'px';
 		},
