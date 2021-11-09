@@ -165,6 +165,7 @@ import SurveyToggle, {
 import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 import SurveyQuestionTextarea from './SurveyQuestionTextarea.vue';
 import { ScaleOption } from './SurveyQuestion.domain';
+import { randomString } from '../../utils/string';
 
 export default {
 	name: 'SurveyQuestionScale',
@@ -215,12 +216,7 @@ export default {
 	data() {
 		return {
 			showModal: false,
-			inputId:
-				'survey-question' +
-				Math.random()
-					.toString(36)
-					.replace(/[^a-z]+/g, '')
-					.substr(0, 8),
+			inputId: 'survey-question-' + randomString(8),
 		};
 	},
 	created() {
