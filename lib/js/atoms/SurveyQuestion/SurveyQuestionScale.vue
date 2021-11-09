@@ -12,15 +12,15 @@
 			<template slot="content">
 				<div class="surveyQuestionScale__title">
 					<span>{{ title }}</span>
-					<div v-if="$slots.explanation" class="surveyQuestionScale__explanation">
-						<icon-button
-							:color="BUTTON_COLORS.MINOR_SUPPORTING"
-							:icon="ICONS.FA_QUESTION_CIRCLE"
-							:size="ICON_SIZES.MEDIUM"
-							:touchable="false"
-							@click.native="showModal = true"
-						/>
-					</div>
+					<icon-button
+						v-if="$slots.explanation"
+						class="surveyQuestionScale__explanation"
+						:color="BUTTON_COLORS.MINOR_SUPPORTING"
+						:icon="ICONS.FA_QUESTION_CIRCLE"
+						:size="ICON_SIZES.MEDIUM"
+						:touchable="false"
+						@click.native="showModal = true"
+					/>
 				</div>
 				<div class="surveyQuestionScale__content">
 					<div
@@ -73,6 +73,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/buttons';
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/radiuses';
@@ -85,9 +86,14 @@
 		@include headlineS();
 
 		display: flex;
-		align-items: center;
+		// title without explanation iconButton has to be the same size as with iconButton
+		min-height: $icon-button-medium-size;
 		margin-bottom: $space-m;
 		justify-content: space-between;
+	}
+
+	&__explanation {
+		align-self: flex-start;
 	}
 
 	&__content {

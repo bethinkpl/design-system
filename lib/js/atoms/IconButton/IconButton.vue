@@ -50,11 +50,6 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
-$icon-button-x-small-size: 20px;
-$icon-button-small-size: 28px;
-$icon-button-medium-size: 32px;
-$icon-button-large-size: 40px;
-
 @mixin iconButtonColor($color, $hover-color: '') {
 	@if $hover-color == '' {
 		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);

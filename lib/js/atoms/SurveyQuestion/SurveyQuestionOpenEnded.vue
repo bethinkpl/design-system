@@ -17,15 +17,15 @@
 					<label :for="inputId">
 						{{ title }}
 					</label>
-					<div v-if="$slots.explanation" class="surveyQuestionScale__explanation">
-						<icon-button
-							:color="BUTTON_COLORS.MINOR_SUPPORTING"
-							:icon="ICONS.FA_QUESTION_CIRCLE"
-							:size="ICON_SIZES.MEDIUM"
-							:touchable="false"
-							@click.native="showModal = true"
-						/>
-					</div>
+					<icon-button
+						v-if="$slots.explanation"
+						class="surveyQuestionOpenEnded__explanation"
+						:color="BUTTON_COLORS.MINOR_SUPPORTING"
+						:icon="ICONS.FA_QUESTION_CIRCLE"
+						:size="ICON_SIZES.MEDIUM"
+						:touchable="false"
+						@click.native="showModal = true"
+					/>
 				</div>
 				<div class="surveyQuestionOpenEnded__content">
 					<survey-question-textarea
@@ -43,6 +43,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/buttons';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
@@ -51,9 +52,14 @@
 		@include headlineS();
 
 		display: flex;
-		align-items: center;
+		// header without explanation iconButton has to be the same size as with iconButton
+		min-height: $icon-button-medium-size;
 		margin-bottom: $space-s;
 		justify-content: space-between;
+	}
+
+	&__explanation {
+		align-self: flex-start;
 	}
 
 	&__content {
