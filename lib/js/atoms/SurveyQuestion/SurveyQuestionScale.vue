@@ -100,7 +100,6 @@
 		background: $color-background-secondary;
 		border-radius: $radius-s;
 		display: flex;
-		justify-content: space-between;
 		margin-bottom: $space-xxs;
 		padding: $space-s $space-xxs;
 		overflow-x: auto;
