@@ -11,10 +11,10 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 		args={{
 			title: 'Main question write here if it\'s long it will collapse.',
 			elaborationLabel: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę',
-			elaboration: '',
+			elaborationValue: '',
 			explanation: '<h3 class="-headlineL -textRegular" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 			placeholder: 'Wpisz swoją odpowiedź',
-			options:[
+			scaleOptions: [
 				{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
 				{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
 				{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
@@ -24,8 +24,8 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 		}}
 	   argTypes={{
 		   explanation: { control: { type: 'text' } },
-		   selected: { control: false },
-		   options: { control: { type: 'object' } },
+		   selectedValue: { control: false },
+		   scaleOptions: { control: { type: 'object' } },
 		   state: {control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) }, defaultValue: SURVEY_QUESTION_STATES.DEFAULT },
 	   }}>
 	{(args) => {
@@ -33,7 +33,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			components: { SurveyQuestionScale },
 			props: Object.keys(args),
 			data() {
-				return { selected: null, elaborationData: this.elaboration }
+				return { selectedValue: null, elaborationData: this.elaborationValue }
 			},
 			watch: {
 				elaboration() {
@@ -41,9 +41,50 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 					this.elaborationData = this.elaboration;
 				}
 			},
-			template: '<survey-question-scale :title="title" :options="options" :elaboration="elaborationData" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected="selected" :state="state" @select-change="selected = $event" @elaboration-change="elaborationData = $event">' +
+			template: '<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationData" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationData = $event">' +
 				'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 				'</survey-question-scale>',
+		};
+	}}
+</Story>
+
+<Story name='examples/limitedWidth' parameters={{ controls: { disabled: true } }}
+		args={{
+			title: 'Main question write here if it\'s long it will collapse.',
+			elaborationLabel: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę',
+			elaborationValue: '',
+			explanation: '<h3 class="-headlineL -textRegular" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
+			placeholder: 'Wpisz swoją odpowiedź',
+			scaleOptions: [
+				{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
+				{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
+				{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
+				{ id: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
+				{ id: '5', label: 'Nie wiem', meaning: SURVEY_TOGGLE_MEANINGS.NEUTRAL, standAlone: true },
+			]
+		}}
+	   argTypes={{
+		   explanation: { control: { type: 'text' } },
+		   selectedValue: { control: false },
+		   scaleOptions: { control: { type: 'object' } },
+		   state: {control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) }, defaultValue: SURVEY_QUESTION_STATES.DEFAULT },
+	   }}>
+	{(args) => {
+		return {
+			components: { SurveyQuestionScale },
+			props: Object.keys(args),
+			data() {
+				return { selectedValue: null, elaborationData: this.elaborationValue }
+			},
+			watch: {
+				elaboration() {
+					// elaboration is a prop here, Vue don't like modifying props, so we wrap it into valueData
+					this.elaborationData = this.elaboration;
+				}
+			},
+			template: '<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationData" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationData = $event">' +
+				'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
+				'</survey-question-scale></div>',
 		};
 	}}
 </Story>
@@ -55,10 +96,10 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			components: { SurveyQuestionScale },
 			props: Object.keys(args),
 			data() {
-				return { selected: '', elaboration: '' }
+				return { selectedValue: '', elaboration: '' }
 			},
 			created() {
-				this.options = [
+				this.scaleOptions = [
 					{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
 					{ id: '2', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
 					{ id: '3', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
@@ -68,7 +109,7 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 					{ id: '7', label: 'Zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '7' },
 				];
 			},
-			template: '<survey-question-scale title="title" :options="options" elaborationLabel="elaborationLabel" :elaboration="elaboration" :selected="selected" @selectChange="selected = $event"  @select-change="selected = $event" />',
+			template: '<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" @select-change="selectedValue = $event" />',
 		};
 	}}
 </Story>

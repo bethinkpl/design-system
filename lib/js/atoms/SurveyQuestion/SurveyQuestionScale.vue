@@ -24,7 +24,7 @@
 				</div>
 				<div class="surveyQuestionScale__content">
 					<div
-						v-for="option in options"
+						v-for="option in scaleOptions"
 						:key="option.id"
 						class="surveyQuestionScale__toggle"
 						:class="{
@@ -36,11 +36,11 @@
 							:content-text="option.content"
 							:label="option.label"
 							:status="
-								selected === option.id
+								selectedValue === option.id
 									? SURVEY_TOGGLE_STATUSES.SELECTED
 									: SURVEY_TOGGLE_STATUSES.DEFAULT
 							"
-							:is-active="option.selected"
+							:is-active="option.selectedValue"
 							:state="
 								state === SURVEY_QUESTION_STATES.DISABLED
 									? SURVEY_TOGGLE_STATES.DISABLED
@@ -51,7 +51,7 @@
 					</div>
 				</div>
 
-				<template v-if="selected !== null">
+				<template v-if="selectedValue !== null">
 					<hr class="surveyQuestionScale__separator" />
 					<div class="surveyQuestionScale__elaboration">
 						<label class="surveyQuestionScale__elaborationLabel" :for="inputId">
@@ -59,7 +59,7 @@
 						</label>
 						<survey-question-textarea
 							:id="inputId"
-							:value="elaboration"
+							:value="elaborationValue"
 							class="surveyQuestionScale__elaborationInput"
 							:placeholder="placeholder"
 							:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
@@ -179,20 +179,18 @@ export default {
 				return Object.values(SURVEY_QUESTION_STATES).includes(state);
 			},
 		},
-		options: {
-			// todo zmienić na toggleOptions
+		scaleOptions: {
 			type: Array,
 			required: true,
-			validate(options) {
-				return options.every((option) => typeof option === 'object');
+			validate(scaleOptions) {
+				return scaleOptions.every((option) => typeof option === 'object');
 			},
 		},
 		elaborationLabel: {
 			type: String,
 			required: true,
 		},
-		elaboration: {
-			// TODO dodać value
+		elaborationValue: {
 			type: String,
 			required: true,
 		},
@@ -200,7 +198,7 @@ export default {
 			type: String,
 			default: 'Wpisz swoją odpowiedź',
 		},
-		selected: {
+		selectedValue: {
 			type: String,
 			default: null,
 		},
@@ -228,7 +226,7 @@ export default {
 	},
 	methods: {
 		onToggleClick(id: number) {
-			this.$emit('select-change', this.selected === id ? null : id);
+			this.$emit('select-change', this.selectedValue === id ? null : id);
 		},
 	},
 };
