@@ -9,6 +9,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/radiuses';
@@ -19,6 +20,10 @@
 
 	&__content {
 		padding: $space-s;
+
+		@media #{breakpoint-s()} {
+			padding: $space-m;
+		}
 	}
 }
 </style>
