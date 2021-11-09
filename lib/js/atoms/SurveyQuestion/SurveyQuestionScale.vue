@@ -23,32 +23,32 @@
 					/>
 				</div>
 				<div class="surveyQuestionScale__content">
-					<div
-						v-for="option in scaleOptions"
-						:key="option.id"
-						class="surveyQuestionScale__toggle"
-						:class="{
-							'-standAlone': option.standAlone,
-						}"
-					>
-						<survey-toggle
-							:meaning="option.meaning"
-							:content-text="option.content"
-							:label="option.label"
-							:status="
-								selectedValue === option.id
-									? SURVEY_TOGGLE_STATUSES.SELECTED
-									: SURVEY_TOGGLE_STATUSES.DEFAULT
-							"
-							:is-active="option.selectedValue"
-							:state="
-								state === SURVEY_QUESTION_STATES.DISABLED
-									? SURVEY_TOGGLE_STATES.DISABLED
-									: SURVEY_TOGGLE_STATES.DEFAULT
-							"
-							@click="onToggleClick(option.id)"
+					<template v-for="option in scaleOptions">
+						<div
+							v-if="option.standAlone"
+							:key="option.id"
+							class="surveyQuestionScale__toggleSeparator"
 						/>
-					</div>
+						<div :key="option.id" class="surveyQuestionScale__toggle">
+							<survey-toggle
+								:meaning="option.meaning"
+								:content-text="option.content"
+								:label="option.label"
+								:status="
+									selectedValue === option.id
+										? SURVEY_TOGGLE_STATUSES.SELECTED
+										: SURVEY_TOGGLE_STATUSES.DEFAULT
+								"
+								:is-active="option.selectedValue"
+								:state="
+									state === SURVEY_QUESTION_STATES.DISABLED
+										? SURVEY_TOGGLE_STATES.DISABLED
+										: SURVEY_TOGGLE_STATES.DEFAULT
+								"
+								@click="onToggleClick(option.id)"
+							/>
+						</div>
+					</template>
 				</div>
 
 				<template v-if="selectedValue !== null">
@@ -106,25 +106,27 @@
 		overflow-x: auto;
 
 		@media #{breakpoint-s()} {
-			padding: $space-s $space-xl;
+			padding: $space-s;
 		}
 	}
 
 	&__toggle {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
 		margin-right: $space-xxs;
-
-		@media #{breakpoint-s()} {
-			margin-right: $space-m;
-
-			&.-standAlone {
-				display: flex;
-				flex-grow: 2;
-				justify-content: flex-end;
-			}
-		}
 
 		&:last-child {
 			margin-right: 0;
+		}
+	}
+
+	&__toggleSeparator {
+		display: none;
+
+		@media #{breakpoint-s()} {
+			display: block;
+			flex-grow: 3;
 		}
 	}
 

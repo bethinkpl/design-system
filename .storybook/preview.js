@@ -41,7 +41,7 @@ const customViewports = {
 		type: 'desktop',
 	},
 	mobile1: {
-		name: 'Small mobile',
+		name: 'Smallest supported mobile',
 		styles: {
 			height: '568px',
 			width: '360px',
@@ -82,7 +82,7 @@ initialize();
 
 addDecorator(() => ({
 	components: {
-		App
+		App,
 	},
 	template: `
     <app>
