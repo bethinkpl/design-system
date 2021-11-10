@@ -36,9 +36,9 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 				return { selectedValue: null, elaborationData: this.elaborationValue }
 			},
 			watch: {
-				elaboration() {
+				elaborationValue() {
 					// elaboration is a prop here, Vue don't like modifying props, so we wrap it into valueData
-					this.elaborationData = this.elaboration;
+					this.elaborationData = this.elaborationValue;
 				}
 			},
 			template: '<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationData" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationData = $event">' +
