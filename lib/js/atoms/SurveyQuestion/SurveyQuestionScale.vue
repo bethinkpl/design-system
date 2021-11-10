@@ -93,6 +93,7 @@
 
 	&__explanation {
 		align-self: flex-start;
+		margin-left: $space-xxxxs;
 	}
 
 	&__content {
