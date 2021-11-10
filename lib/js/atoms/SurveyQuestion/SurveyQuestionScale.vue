@@ -164,7 +164,7 @@ import SurveyToggle, {
 } from '../SurveyToggle';
 import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 import SurveyQuestionTextarea from './SurveyQuestionTextarea.vue';
-import { ScaleOption } from './SurveyQuestion.domain';
+import { SurveyQuestionScaleOption } from './SurveyQuestion.domain';
 import { randomString } from '../../utils/string';
 
 export default {
@@ -190,7 +190,7 @@ export default {
 			},
 		},
 		scaleOptions: {
-			type: Array as Prop<Array<ScaleOption>>,
+			type: Array as Prop<Array<SurveyQuestionScaleOption>>,
 			required: true,
 			validate(scaleOptions) {
 				return scaleOptions.every((option) => typeof option === 'object');

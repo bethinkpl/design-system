@@ -1,4 +1,4 @@
-export interface ScaleOption {
+export interface SurveyQuestionScaleOption {
 	id: string;
 	label: string | null;
 	content: string | null;
