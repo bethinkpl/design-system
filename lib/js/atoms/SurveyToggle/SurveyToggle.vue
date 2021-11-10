@@ -40,6 +40,8 @@
 
 $survey-toggle-size: 48px;
 
+$color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
+
 .surveyToggle {
 	$self: &;
 
@@ -59,8 +61,7 @@ $survey-toggle-size: 48px;
 		display: flex;
 		height: $survey-toggle-size;
 		padding: $space-xxs;
-		transition: color ease-in-out $default-transition-time,
-			background-color ease-in-out $default-transition-time,
+		transition: background-color ease-in-out $default-transition-time,
 			box-shadow ease-in-out $default-transition-time;
 		width: $survey-toggle-size;
 
@@ -87,7 +88,7 @@ $survey-toggle-size: 48px;
 	}
 
 	&.-selectedNeutral.-disabled &__toggle {
-		background-color: mix($color-minor-supporting, $color-total-white, 40%);
+		background-color: $color-disabled-neutral;
 	}
 
 	&.-selectedPrimary.-hovered &__toggle {
@@ -117,7 +118,7 @@ $survey-toggle-size: 48px;
 		pointer-events: none;
 
 		#{$self}__ring {
-			border-color: mix($color-minor-supporting, $color-total-white, 40%);
+			border-color: $color-disabled-neutral;
 		}
 	}
 
@@ -142,6 +143,11 @@ $survey-toggle-size: 48px;
 		@include textBold();
 
 		color: $color-minor-supporting;
+		transition: color ease-in-out $default-transition-time;
+	}
+
+	&.-disabled &__content {
+		color: $color-disabled-neutral;
 	}
 
 	&.-defaultPrimary &__content {
