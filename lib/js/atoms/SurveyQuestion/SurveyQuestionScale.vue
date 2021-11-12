@@ -10,8 +10,8 @@
 		</ds-modal>
 		<ds-card>
 			<template slot="content">
-				<div class="surveyQuestionScale__title">
-					<span>{{ title }}</span>
+				<div class="surveyQuestionScale__header">
+					<span class="surveyQuestionScale__title">{{ title }}</span>
 					<icon-button
 						v-if="$slots.explanation"
 						class="surveyQuestionScale__explanation"
@@ -81,7 +81,7 @@
 @import '../../../styles/settings/typography';
 
 .surveyQuestionScale {
-	&__title {
+	&__header {
 		@include headlineS();
 
 		display: flex;
@@ -89,6 +89,10 @@
 		min-height: $icon-button-medium-size;
 		margin-bottom: $space-m;
 		justify-content: space-between;
+	}
+
+	&__title {
+		align-self: center;
 	}
 
 	&__explanation {

@@ -14,7 +14,7 @@
 		<ds-card>
 			<template slot="content">
 				<div class="surveyQuestionOpenEnded__header">
-					<label :for="inputId">
+					<label class="surveyQuestionOpenEnded__title" :for="inputId">
 						{{ title }}
 					</label>
 					<icon-button
@@ -56,6 +56,10 @@
 		min-height: $icon-button-medium-size;
 		margin-bottom: $space-s;
 		justify-content: space-between;
+	}
+
+	&__title {
+		align-self: center;
 	}
 
 	&__explanation {
