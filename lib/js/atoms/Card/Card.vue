@@ -9,12 +9,14 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/colors';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/radiuses';
 
 .card {
+	background-color: $color-total-white;
 	border-radius: $radius-m;
 	box-shadow: $shadow-s;
 
