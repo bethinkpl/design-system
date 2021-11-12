@@ -109,7 +109,7 @@
 		overflow-x: auto;
 
 		@media #{breakpoint-s()} {
-			padding: $space-s $space-m;
+			padding: $space-s $space-l;
 		}
 	}
 
