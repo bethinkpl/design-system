@@ -100,17 +100,17 @@
 		background: $color-background-secondary;
 		border-radius: $radius-s;
 		display: flex;
+		justify-content: space-between;
 		padding: $space-s $space-xxs;
 		overflow-x: auto;
 
 		@media #{breakpoint-s()} {
-			padding: $space-s;
+			padding: $space-s $space-m;
 		}
 	}
 
 	&__toggle {
 		display: flex;
-		flex-grow: 1;
 		justify-content: center;
 		margin-right: $space-xxs;
 
@@ -123,8 +123,8 @@
 		display: none;
 
 		@media #{breakpoint-s()} {
+			width: $space-l;
 			display: block;
-			flex-grow: 3;
 		}
 	}
 
