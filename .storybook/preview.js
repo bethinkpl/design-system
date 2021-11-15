@@ -77,14 +77,3 @@ export const parameters = {
 };
 
 initialize();
-
-addDecorator(() => ({
-	components: {
-		App,
-	},
-	template: `
-    <app>
-      <story/>
-    </app>
-    `,
-}));
