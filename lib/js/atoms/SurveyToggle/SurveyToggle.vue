@@ -18,7 +18,7 @@
 		>
 			<div class="surveyToggle__ring">
 				<span v-if="isSelectedPrimary || isSelectedNeutral" class="surveyToggle__icon">
-					<ds-icon :icon="contentIcon" :size="ICON_SIZES.X_SMALL"></ds-icon>
+					<ds-icon :icon="selectedIcon" :size="ICON_SIZES.X_SMALL"></ds-icon>
 				</span>
 				<span v-else class="surveyToggle__content">
 					{{ contentText }}
@@ -234,13 +234,13 @@ export default {
 				return Object.values(SURVEY_TOGGLE_STATES).includes(state);
 			},
 		},
-		contentIcon: {
+		selectedIcon: {
 			type: Object,
 			default() {
 				return ICONS.FA_CHECK_SOLID;
 			},
-			validate(contentIcon) {
-				return Object.values(ICONS).includes(contentIcon);
+			validate(selectedIcon) {
+				return Object.values(ICONS).includes(selectedIcon);
 			},
 		},
 	},

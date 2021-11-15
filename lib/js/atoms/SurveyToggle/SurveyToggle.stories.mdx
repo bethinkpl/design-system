@@ -16,7 +16,7 @@ import { SURVEY_TOGGLE_MEANINGS, SURVEY_TOGGLE_STATES, SURVEY_TOGGLE_STATUSES } 
 		   meaning: {control: { type: 'select', options: Object.values(SURVEY_TOGGLE_MEANINGS) }, defaultValue: SURVEY_TOGGLE_MEANINGS.PRIMARY },
 		   status: {control: { type: 'select', options: Object.values(SURVEY_TOGGLE_STATUSES) }, defaultValue: SURVEY_TOGGLE_STATUSES.DEFAULT },
 		   state: {control: { type: 'select', options: Object.values(SURVEY_TOGGLE_STATES) }, defaultValue: SURVEY_TOGGLE_STATES.DEFAULT },
-		   contentIcon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_CHECK_SOLID' },
+		   selectedIcon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_CHECK_SOLID' },
 	   }}>
 	{(args) => {
 		return {
@@ -25,7 +25,7 @@ import { SURVEY_TOGGLE_MEANINGS, SURVEY_TOGGLE_STATES, SURVEY_TOGGLE_STATUSES } 
 			created() {
 				this.ICONS = ICONS;
 			},
-			template: '<div style="background-color:#f6f6f8"><survey-toggle :label="label"  :meaning="meaning" :contentText="contentText" :contentIcon="ICONS[contentIcon]" :status="status" :state="state" /></div>',
+			template: '<div style="background-color:#f6f6f8"><survey-toggle :label="label"  :meaning="meaning" :content-text="contentText" :selected-icon="ICONS[selectedIcon]" :status="status" :state="state" /></div>',
 		};
 	}}
 </Story>
