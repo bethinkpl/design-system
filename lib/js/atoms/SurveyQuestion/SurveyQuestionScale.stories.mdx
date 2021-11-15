@@ -15,11 +15,11 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			explanation: '<h3 class="-headlineL -textRegular" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 			placeholder: 'Wpisz swoją odpowiedź',
 			scaleOptions: [
-				{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
-				{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
-				{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
-				{ id: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
-				{ id: '5', label: 'Nie wiem', meaning: SURVEY_TOGGLE_MEANINGS.NEUTRAL, standalone: true },
+				{ value: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
+				{ value: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
+				{ value: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
+				{ value: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
+				{ value: '5', label: 'Nie wiem', meaning: SURVEY_TOGGLE_MEANINGS.NEUTRAL, standalone: true },
 			]
 		}}
 	   argTypes={{
@@ -56,11 +56,11 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			explanation: '<h3 class="-headlineL -textRegular" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 			placeholder: 'Wpisz swoją odpowiedź',
 			scaleOptions: [
-				{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
-				{ id: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
-				{ id: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
-				{ id: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
-				{ id: '5', label: 'Nie wiem', meaning: SURVEY_TOGGLE_MEANINGS.NEUTRAL, standalone: true },
+				{ value: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
+				{ value: '2', label: 'Trochę się nie zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
+				{ value: '3', label: 'Trochę się zgadzam', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
+				{ value: '4', label: 'Zgadzam się ', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
+				{ value: '5', label: 'Nie wiem', meaning: SURVEY_TOGGLE_MEANINGS.NEUTRAL, standalone: true },
 			]
 		}}
 	   argTypes={{
@@ -100,13 +100,13 @@ import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
 			},
 			created() {
 				this.scaleOptions = [
-					{ id: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
-					{ id: '2', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
-					{ id: '3', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
-					{ id: '4', label: 'Trochę', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
-					{ id: '5', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '5' },
-					{ id: '6', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '6' },
-					{ id: '7', label: 'Zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '7' },
+					{ value: '1', label: 'Nie zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '1'},
+					{ value: '2', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '2'},
+					{ value: '3', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '3'},
+					{ value: '4', label: 'Trochę', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '4'},
+					{ value: '5', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '5' },
+					{ value: '6', label: '', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '6' },
+					{ value: '7', label: 'Zgadzam się', meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY, content: '7' },
 				];
 			},
 			template: '<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" @select-change="selectedValue = $event" />',

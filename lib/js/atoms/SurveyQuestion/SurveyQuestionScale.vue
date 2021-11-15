@@ -23,19 +23,22 @@
 					/>
 				</div>
 				<div class="surveyQuestionScale__content">
-					<template v-for="option in scaleOptions">
+					<template v-for="(option, index) in scaleOptions">
 						<div
 							v-if="option.standalone"
-							:key="`surveyQuestionScale__toggleSeparator${option.id}`"
+							:key="`surveyQuestionScale__toggleSeparator-${index}`"
 							class="surveyQuestionScale__toggleSeparator"
 						/>
-						<div :key="option.id" class="surveyQuestionScale__toggle">
+						<div
+							:key="`surveyQuestionScale__toggle${index}`"
+							class="surveyQuestionScale__toggle"
+						>
 							<survey-toggle
 								:meaning="option.meaning"
 								:content-text="option.content"
 								:label="option.label"
 								:status="
-									selectedValue === option.id
+									selectedValue === option.value
 										? SURVEY_TOGGLE_STATUSES.SELECTED
 										: SURVEY_TOGGLE_STATUSES.DEFAULT
 								"
@@ -44,7 +47,7 @@
 										? SURVEY_TOGGLE_STATES.DISABLED
 										: SURVEY_TOGGLE_STATES.DEFAULT
 								"
-								@click="onToggleClick(option.id)"
+								@click="onToggleClick(option.value)"
 							/>
 						</div>
 					</template>
@@ -234,8 +237,8 @@ export default {
 		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
 	},
 	methods: {
-		onToggleClick(id: number) {
-			this.$emit('select-change', this.selectedValue === id ? null : id);
+		onToggleClick(value: number) {
+			this.$emit('select-change', this.selectedValue === value ? null : value);
 		},
 	},
 };
