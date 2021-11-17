@@ -20,3 +20,8 @@ Components like input/select/checkbox etc have to be  placed inside `App` compon
 
 ## Consequences of using Vuetify
 Vuetify is distributed with css reset and global styles. In order to keep existing application styles we had to disable these global styles using `postcss` - see [.postcssrc.js](.postcssrc.js)
+
+## Releasing
+1. Bump version in `package.json`
+2. Wait until `Build and Deploy Dist` Github Action finishes
+3. Create new tag and release in https://github.com/bethinkpl/design-system/releases
