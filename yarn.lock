@@ -15031,17 +15031,17 @@ stylehacks@^4.0.0:
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
 
-stylelint-config-recommended@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-3.0.0.tgz#e0e547434016c5539fe2650afd58049a2fd1d657"
-  integrity sha512-F6yTRuc06xr1h5Qw/ykb2LuFynJ2IxkKfCMf+1xqPffkxh0S09Zc902XCffcsw/XMFq/OzQ1w54fLIDtmRNHnQ==
+stylelint-config-recommended@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-recommended/-/stylelint-config-recommended-6.0.0.tgz#fd2523a322836005ad9bf473d3e5534719c09f9d"
+  integrity sha512-ZorSSdyMcxWpROYUvLEMm0vSZud2uB7tX1hzBZwvVY9SV/uly4AvvJPPhCcymZL3fcQhEQG5AELmrxWqtmzacw==
 
-stylelint-config-standard@20.0.0:
-  version "20.0.0"
-  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-20.0.0.tgz#06135090c9e064befee3d594289f50e295b5e20d"
-  integrity sha512-IB2iFdzOTA/zS4jSVav6z+wGtin08qfj+YyExHB3LF9lnouQht//YyB0KZq9gGz5HNPkddHOzcY8HsUey6ZUlA==
+stylelint-config-standard@24.0.0:
+  version "24.0.0"
+  resolved "https://registry.yarnpkg.com/stylelint-config-standard/-/stylelint-config-standard-24.0.0.tgz#6823f207ab997ae0b641f9a636d007cc44d77541"
+  integrity sha512-+RtU7fbNT+VlNbdXJvnjc3USNPZRiRVp/d2DxOF/vBDDTi0kH5RX2Ny6errdtZJH3boO+bmqIYEllEmok4jiuw==
   dependencies:
-    stylelint-config-recommended "^3.0.0"
+    stylelint-config-recommended "^6.0.0"
 
 stylelint-order@4.1.0:
   version "4.1.0"
@@ -16248,17 +16248,6 @@ vue-inbrowser-compiler-utils@^4.41.2:
   dependencies:
     camelcase "^5.3.1"
 
-vue-jest@4:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/vue-jest/-/vue-jest-4.0.1.tgz#683efc351c24456865b1356bae69d5bb663dafb5"
-  integrity sha512-4jewjN8HVgpIW0ZdEwzCWz5vcRLIs1PxMs+5IqJ/6f9KRbEQ+DEqEKHUzIjoNzW2UJOUYBZzWpBnVHakpc/k5w==
-  dependencies:
-    "@babel/plugin-transform-modules-commonjs" "^7.2.0"
-    "@vue/component-compiler-utils" "^3.1.0"
-    chalk "^2.1.0"
-    extract-from-css "^0.4.4"
-    source-map "0.5.6"
-
 vue-jest@^3.0.5:
   version "3.0.7"
   resolved "https://registry.yarnpkg.com/vue-jest/-/vue-jest-3.0.7.tgz#a6d29758a5cb4d750f5d1242212be39be4296a33"
@@ -16275,6 +16264,17 @@ vue-jest@^3.0.5:
     source-map "^0.5.6"
     tsconfig "^7.0.0"
     vue-template-es2015-compiler "^1.6.0"
+
+vue-jest@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/vue-jest/-/vue-jest-4.0.1.tgz#683efc351c24456865b1356bae69d5bb663dafb5"
+  integrity sha512-4jewjN8HVgpIW0ZdEwzCWz5vcRLIs1PxMs+5IqJ/6f9KRbEQ+DEqEKHUzIjoNzW2UJOUYBZzWpBnVHakpc/k5w==
+  dependencies:
+    "@babel/plugin-transform-modules-commonjs" "^7.2.0"
+    "@vue/component-compiler-utils" "^3.1.0"
+    chalk "^2.1.0"
+    extract-from-css "^0.4.4"
+    source-map "0.5.6"
 
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   version "16.2.0"

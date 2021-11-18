@@ -50,7 +50,7 @@
     "sass": "^1.28.0",
     "sass-loader": "^7.1.0",
     "stylelint": "13.6.1",
-    "stylelint-config-standard": "20.0.0",
+    "stylelint-config-standard": "24.0.0",
     "stylelint-order": "4.1.0",
     "stylelint-scss": "3.18.0",
     "ts-jest": "^26.5.6",
