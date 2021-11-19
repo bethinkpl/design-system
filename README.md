@@ -13,3 +13,8 @@ DS requires access to font-awesome PRO. Add `.npmrc` file to root catalog. File 
 > For development, a package can be linked into another project. This is often useful to test out new features or when trying to debug an issue in a package that manifests itself in another project.
 
 Instruction: https://classic.yarnpkg.com/en/docs/cli/link/
+
+## Releasing
+1. Bump version in `package.json`
+2. Wait until `Build and Deploy Dist` Github Action finishes
+3. Create new tag and release in https://github.com/bethinkpl/design-system/releases

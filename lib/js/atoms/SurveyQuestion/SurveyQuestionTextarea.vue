@@ -16,7 +16,7 @@
 @import '../../../styles/settings/typography';
 
 .surveyQuestionTextarea {
-	@include textL;
+	@include textM;
 
 	border: 1px solid $color-mischka-gray;
 	box-sizing: border-box;

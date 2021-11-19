@@ -151,7 +151,7 @@
 	}
 
 	&__elaborationInput {
-		margin: $space-xxs 0;
+		margin-top: $space-xxs;
 	}
 }
 </style>
@@ -237,7 +237,7 @@ export default {
 		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
 	},
 	methods: {
-		onToggleClick(value: number) {
+		onToggleClick(value: string) {
 			this.$emit('select-change', this.selectedValue === value ? null : value);
 		},
 	},

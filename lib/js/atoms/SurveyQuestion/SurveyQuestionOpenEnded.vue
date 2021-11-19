@@ -73,7 +73,7 @@
 	}
 
 	&__input {
-		margin: $space-xxs 0;
+		margin-top: $space-xxs;
 	}
 }
 </style>

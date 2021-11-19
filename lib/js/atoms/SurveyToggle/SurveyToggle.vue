@@ -32,7 +32,6 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors';
-@import '../../../styles/settings/icons';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
@@ -164,8 +163,7 @@ $color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
 
 	&__icon {
 		color: $color-total-white;
-		height: $icon-xs;
-		width: $icon-xs;
+		display: flex;
 	}
 
 	&__label {
