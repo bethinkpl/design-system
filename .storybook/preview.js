@@ -4,8 +4,6 @@ import 'design-system/lib/styles/storybook.scss';
 import 'design-system/lib/styles/theme-varaibles.scss';
 
 import { initialize } from 'design-system/lib/js/icons/fontawesome';
-import { addDecorator } from '@storybook/vue';
-import App from 'design-system/lib/js/atoms/App';
 
 const customViewports = {
 	mobile: {
@@ -41,10 +39,10 @@ const customViewports = {
 		type: 'desktop',
 	},
 	mobile1: {
-		name: 'Small mobile',
+		name: 'Smallest supported mobile',
 		styles: {
 			height: '568px',
-			width: '320px',
+			width: '360px',
 		},
 		type: 'mobile',
 	},
@@ -79,14 +77,3 @@ export const parameters = {
 };
 
 initialize();
-
-addDecorator(() => ({
-	components: {
-		App
-	},
-	template: `
-    <app>
-      <story/>
-    </app>
-    `,
-}));

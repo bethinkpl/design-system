@@ -1,73 +1,104 @@
 <template>
-	<div class="surveyQuestionOpenEnded" :class="{ '-disabled': disabled }">
-		<card>
-			<div slot="content">
-				<div class="surveyQuestionOpenEnded__content">
-					<label class="surveyQuestionOpenEnded__label" for="surveyQuestion">
-						{{ label }}
+	<div
+		class="surveyQuestionOpenEnded"
+		:class="{ '-disabled': state === SURVEY_QUESTION_STATES.DISABLED }"
+	>
+		<ds-modal v-if="showModal" @close-modal="showModal = false">
+			<slot name="explanation" />
+			<div slot="footer">
+				<ds-button :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
+					OK, rozumiem
+				</ds-button>
+			</div>
+		</ds-modal>
+		<ds-card>
+			<template slot="content">
+				<div class="surveyQuestionOpenEnded__header">
+					<label class="surveyQuestionOpenEnded__title" :for="inputId">
+						{{ title }}
 					</label>
-					<textarea
-						ref="textarea"
+					<icon-button
+						v-if="$slots.explanation"
+						class="surveyQuestionOpenEnded__explanation"
+						:color="BUTTON_COLORS.MINOR_SUPPORTING"
+						:icon="ICONS.FA_QUESTION_CIRCLE"
+						:size="ICON_SIZES.MEDIUM"
+						:touchable="false"
+						@click.native="showModal = true"
+					/>
+				</div>
+				<div class="surveyQuestionOpenEnded__content">
+					<survey-question-textarea
+						:id="inputId"
 						class="surveyQuestionOpenEnded__input"
-						:disabled="disabled"
-						name="surveyQuestion"
+						:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 						:value="value"
 						:placeholder="placeholder"
-						@input="updateValue($event.target.value)"
-					></textarea>
+						@input="$emit('input', $event)"
+					/>
 				</div>
-			</div>
-		</card>
+			</template>
+		</ds-card>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/shadows';
-@import '../../../styles/settings/colors';
-@import '../../../styles/settings/radiuses';
+@import '../../../styles/settings/buttons';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
 .surveyQuestionOpenEnded {
-	max-width: 600px;
+	&__header {
+		@include headlineS();
+
+		display: flex;
+		// header without explanation iconButton has to be the same size as with iconButton
+		min-height: $icon-button-medium-size;
+		margin-bottom: $space-s;
+		justify-content: space-between;
+	}
+
+	&__title {
+		align-self: center;
+	}
+
+	&__explanation {
+		align-self: flex-start;
+		margin-left: $space-xxxxs;
+	}
 
 	&__content {
 		display: flex;
 		flex-direction: column;
-		padding: $space-xxs;
-	}
-
-	&__label {
-		margin-bottom: $space-m;
 	}
 
 	&__input {
-		border: 1px solid $color-mischka-gray;
-		box-sizing: border-box;
-		box-shadow: inset 0 1px 3px $color-minor-supporting;
-		border-radius: $radius-s;
-		margin: $space-xxs 0;
-		padding: $space-xxs;
-		min-height: 2em;
-		resize: none;
-
-		&.-disabled & {
-			color: $color-minor-supporting;
-		}
+		margin-top: $space-xxs;
 	}
 }
 </style>
 
 <script lang="ts">
-import Card from '../Card';
+import DsCard from '../Card';
+import DsModal from '../Modal';
+import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../Button';
+import IconButton from '../IconButton';
+import { ICON_SIZES, ICONS } from '../Icon';
+import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
+import SurveyQuestionTextarea from './SurveyQuestionTextarea.vue';
+import { randomString } from '../../utils/string';
 
 export default {
 	name: 'SurveyQuestionOpenEnded',
 	components: {
-		Card,
+		SurveyQuestionTextarea,
+		DsButton,
+		DsCard,
+		IconButton,
+		DsModal,
 	},
 	props: {
-		label: {
+		title: {
 			type: String,
 			required: true,
 		},
@@ -77,19 +108,28 @@ export default {
 		},
 		placeholder: {
 			type: String,
-			required: true,
+			default: 'Wpisz swoją odpowiedź',
 		},
-		disabled: {
-			type: Boolean,
-			default: false,
+		state: {
+			type: String,
+			default: SURVEY_QUESTION_STATES.DEFAULT,
+			validate(state) {
+				return Object.values(SURVEY_QUESTION_STATES).includes(state);
+			},
 		},
 	},
-	methods: {
-		updateValue(value) {
-			this.$emit('input', value);
-			this.$refs.textarea.style.height = 'auto';
-			this.$refs.textarea.style.height = this.$refs.textarea.scrollHeight + 'px';
-		},
+	data() {
+		return {
+			showModal: false,
+			inputId: 'survey-question-' + randomString(8),
+		};
+	},
+	created() {
+		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.BUTTON_TYPES = BUTTON_TYPES;
+		this.ICONS = ICONS;
+		this.ICON_SIZES = ICON_SIZES;
+		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
 	},
 };
 </script>

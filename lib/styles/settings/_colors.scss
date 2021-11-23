@@ -109,5 +109,7 @@ $color-warning-shadow: rgba($color-warning, 0.7);
 
 // Tokens - shadows
 $color-neutrals-shadow-weak: rgba($color-firefly-black, 0.06);
-$color-neutrals-shadow: rgba($color-firefly-black, 0.1);
+$color-neutrals-shadow: rgba($color-firefly-black, 0.08);
 $color-neutrals-shadow-strong: rgba($color-firefly-black, 0.12);
+
+$ripple-alpha: 0.16;

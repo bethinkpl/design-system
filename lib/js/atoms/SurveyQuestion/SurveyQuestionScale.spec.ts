@@ -1,16 +1,18 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import SurveyQuestionScale from './SurveyQuestionScale.vue';
-import SurveyToggle, { SURVEY_TOGGLE_COLORS } from '../SurveyToggle';
+import SurveyToggle, { SURVEY_TOGGLE_MEANINGS } from '../SurveyToggle';
 import Card from '../Card';
+import { SurveyQuestionScaleOption } from './SurveyQuestion.domain';
 
 describe('SurveyQuestionScale', () => {
 	const createComponent = ({
 		elaborationLabel = '',
+		elaborationValue = '',
 		title = '',
 		content = '',
-		options = [] as Array<unknown>,
-		explanation = true,
+		scaleOptions = [] as Array<unknown>,
+		explanation = '',
 	} = {}) => {
 		const localVue = createLocalVue();
 
@@ -19,10 +21,13 @@ describe('SurveyQuestionScale', () => {
 			mocks: {},
 			propsData: {
 				content,
-				options,
+				scaleOptions,
 				title,
-				explanation,
 				elaborationLabel,
+				elaborationValue,
+			},
+			slots: {
+				explanation,
 			},
 			stubs: {
 				SurveyToggle,
@@ -31,16 +36,28 @@ describe('SurveyQuestionScale', () => {
 		});
 	};
 
-	const OPTIONS = [
-		{ id: 1, label: 'Nie zgadzam się', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '1' },
+	const OPTIONS: Array<SurveyQuestionScaleOption> = [
 		{
-			id: 2,
+			value: '1',
+			label: 'Nie zgadzam się',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '1',
+		},
+		{
+			value: '2',
 			label: 'Trochę się nie zgadzam',
-			color: SURVEY_TOGGLE_COLORS.PRIMARY,
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
 			content: '2',
 		},
-		{ id: 3, label: 'Trochę się zgadzam', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '3' },
-		{ id: 4, label: 'Zgadzam się ', color: SURVEY_TOGGLE_COLORS.PRIMARY, content: '4' },
+		{
+			value: '3',
+			label: 'Trochę się zgadzam',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '3',
+		},
+		{
+			value: '4',
+		},
 	];
 
 	it('should create', () => {
@@ -62,25 +79,28 @@ describe('SurveyQuestionScale', () => {
 		expect(component.find('.surveyQuestionScale__title').text()).toContain(title);
 	});
 
-	it.each([false, true])(
-		'should render explanation button only when explanation prop is true',
-		(explanation) => {
-			const component = createComponent({ explanation });
+	it("Don't show explanation icon when slot is empty", async () => {
+		const component = createComponent();
 
-			expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(explanation);
-		},
-	);
+		expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(false);
+	});
+
+	it('Show explanation icon when slot is not empty', async () => {
+		const component = createComponent({ explanation: 'test' });
+
+		expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(true);
+	});
 
 	it('click on survey toggle should emit "selectChange" event', async () => {
-		const component = createComponent({ options: OPTIONS });
+		const component = createComponent({ scaleOptions: OPTIONS });
 
 		await component.find('.surveyQuestionScale__toggle .surveyToggle__toggle').trigger('click');
 
-		expect(component.emitted()?.selectChange?.[0]).toBeDefined();
+		expect(component.emitted()?.['select-change']?.[0]).toBeDefined();
 	});
 
-	it('should render SurveyToggle for each item in options prop', () => {
-		const component = createComponent({ options: OPTIONS });
+	it('should render SurveyToggle for each item in scaleOptions prop', () => {
+		const component = createComponent({ scaleOptions: OPTIONS });
 
 		expect(component.findAll('.surveyToggle').length).toBe(OPTIONS.length);
 	});

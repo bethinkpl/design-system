@@ -1,4 +1,4 @@
-import { Meta, Story, Props } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Props } from '@storybook/addon-docs';
 import Card from './Card';
 
 <Meta title='atoms/Card' component={Card} />
@@ -6,21 +6,16 @@ import Card from './Card';
 # Card
 
 <Story name='interactive'
-	   args={{
-		   header: 'header',
-		   content: 'content',
-		   footer: 'footer',
-	   }}
 	   argTypes={{
-		   header: {control: { type: 'text' }, defaultValue: 'header'},
-		   content: {control: { type: 'text' }, defaultValue: 'content'},
-		   footer: {control: { type: 'text' }, defaultValue: 'footer'},
+		   header: {control: { type: 'text' }, defaultValue: 'header slot'},
+		   content: {control: { type: 'text' }, defaultValue: 'content slot that supports <b>HTML markup</b>'},
+		   footer: {control: { type: 'text' }, defaultValue: 'footer slot'},
 	   }}>
 	{(args) => {
 		return {
 			components: { Card },
 			props: Object.keys(args),
-			template: '<card><div slot="header">{{ header }}</div><div slot="content">{{ content }}</div><div slot="footer">{{ footer }}</div></card>',
+			template: '<card><div slot="header" v-html="header" /><div slot="content" v-html="content" /><div slot="footer" v-html="footer" /></card>',
 		};
 	}}
 </Story>

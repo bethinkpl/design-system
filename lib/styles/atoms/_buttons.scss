@@ -1,3 +1,4 @@
+@import '../settings/animations';
 @import '../settings/colors';
 @import '../settings/spacings';
 @import '../settings/radiuses';
@@ -54,9 +55,6 @@ $button-large-min-height: 48px;
 $button-hover-alpha: 0.12;
 $button-focus-alpha: 0.24;
 $button-disabled-alpha: 0.6;
-$button-ripple-alpha: 0.16;
-
-$button-animation-time: 0.3s;
 
 $theme-calculated-colors: (
 	'secondary': (
@@ -111,9 +109,9 @@ $regular-colors: (
 	position: relative;
 	text-transform: uppercase;
 	transform-style: preserve-3d;
-	transition: color ease-in-out $button-animation-time,
-		border-color ease-in-out $button-animation-time,
-		background-color ease-in-out $button-animation-time;
+	transition: color ease-in-out $default-transition-time,
+		border-color ease-in-out $default-transition-time,
+		background-color ease-in-out $default-transition-time;
 	user-select: none;
 
 	&:disabled,
@@ -147,8 +145,8 @@ $regular-colors: (
 			left: 0;
 			pointer-events: none;
 			position: absolute;
-			transition: opacity ease-in-out $button-animation-time,
-				background-color ease-in-out $button-animation-time;
+			transition: opacity ease-in-out $default-transition-time,
+				background-color ease-in-out $default-transition-time;
 			right: 0;
 			top: 0;
 		}
@@ -217,7 +215,7 @@ $regular-colors: (
 	}
 
 	.ripple {
-		background-color: rgba($color-total-white, $button-ripple-alpha) !important;
+		background-color: rgba($color-total-white, $ripple-alpha) !important;
 	}
 
 	&.-outlined {
@@ -254,7 +252,7 @@ $regular-colors: (
 
 		.ripple {
 			background-color: currentColor !important;
-			opacity: $button-ripple-alpha;
+			opacity: $ripple-alpha;
 		}
 	}
 
@@ -309,7 +307,7 @@ $regular-colors: (
 	&__content {
 		align-items: center;
 		display: inline-flex;
-		transition: opacity ease-in-out $button-animation-time;
+		transition: opacity ease-in-out $default-transition-time;
 	}
 
 	&__icon {

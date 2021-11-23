@@ -4,57 +4,73 @@
 		:class="{
 			'-selectedPrimary': isSelectedPrimary,
 			'-defaultPrimary': isDefaultPrimary,
-			'-selectedSecondary': isSelectedSecondary,
+			'-selectedNeutral': isSelectedNeutral,
 			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
 			'-hovered': isHoveredState,
 		}"
+		@click="onClick"
 	>
 		<div
+			v-ripple
 			class="surveyToggle__toggle"
-			@click="$emit('click')"
 			@mouseover="hovered = true"
 			@mouseleave="hovered = false"
 		>
 			<div class="surveyToggle__ring">
-				<span v-if="isDefaultPrimary" class="surveyToggle__content">
-					{{ content }}
+				<span v-if="isSelectedPrimary || isSelectedNeutral" class="surveyToggle__icon">
+					<ds-icon :icon="selectedIcon" :size="ICON_SIZES.X_SMALL"></ds-icon>
 				</span>
-				<span v-if="isSelectedPrimary || isSelectedSecondary" class="surveyToggle__icon">
-					<icon :icon="icon" :size="ICON_SIZES.X_SMALL"></icon>
+				<span v-else class="surveyToggle__content">
+					{{ contentText }}
 				</span>
 			</div>
 		</div>
-		<div class="surveyToggle__label">{{ label }}</div>
+		<div v-if="label" class="surveyToggle__label">{{ label }}</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/typography';
+@import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors';
-@import '../../../styles/settings/icons';
-@import '../../../styles/settings/spacings';
 @import '../../../styles/settings/media-queries';
+@import '../../../styles/settings/spacings';
+@import '../../../styles/settings/shadows';
+@import '../../../styles/settings/typography';
 
 $survey-toggle-size: 48px;
 
+$color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
+
 .surveyToggle {
+	$self: &;
+
 	align-items: center;
+	cursor: pointer;
 	display: flex;
 	flex-direction: column;
-	width: $survey-toggle-size + 2 * $space-xxxs;
+	width: $survey-toggle-size;
 
-	// toggle
+	@media #{breakpoint-s()} {
+		width: $survey-toggle-size + 2 * $space-xxxs;
+	}
+
 	&__toggle {
 		background: $color-total-white;
 		border-radius: 100%;
-		cursor: pointer;
 		display: flex;
 		height: $survey-toggle-size;
 		padding: $space-xxs;
+		transition: background-color ease-in-out $default-transition-time,
+			box-shadow ease-in-out $default-transition-time;
 		width: $survey-toggle-size;
 
 		.-hovered & {
-			border-color: mix($color-total-white, $color-firefly-black, 88%);
+			background-color: $color-ice-gray;
+			box-shadow: $shadow-s;
+		}
+
+		&::v-deep .ripple {
+			background-color: rgba($color-total-white, $ripple-alpha) !important;
 		}
 	}
 
@@ -62,12 +78,16 @@ $survey-toggle-size: 48px;
 		background-color: $color-primary;
 	}
 
+	&.-selectedNeutral &__toggle {
+		background-color: $color-minor-supporting;
+	}
+
 	&.-selectedPrimary.-disabled &__toggle {
 		background-color: $color-primary-disabled;
 	}
 
-	&.-selectedSecondary:not(.-disabled) &__toggle {
-		background-color: $color-minor-supporting;
+	&.-selectedNeutral.-disabled &__toggle {
+		background-color: $color-disabled-neutral;
 	}
 
 	&.-selectedPrimary.-hovered &__toggle {
@@ -78,27 +98,27 @@ $survey-toggle-size: 48px;
 		background-color: $color-primary-background;
 	}
 
-	&.-selectedSecondary.-hovered &__toggle {
+	&.-selectedNeutral.-hovered &__toggle {
 		background-color: mix($color-minor-supporting, $color-firefly-black, 88%);
 	}
 
-	// ring
 	&__ring {
-		// TODO: mixin
+		// TODO: IT-4131 mixin
 		align-items: center;
 		display: flex;
 		justify-content: center;
 		border: 3px solid $color-minor-supporting;
 		border-radius: 100%;
+		transition: border-color ease-in-out $default-transition-time;
 		width: 100%;
-
-		.-hovered & {
-			border-color: mix($color-minor-supporting, $color-firefly-black, 88%);
-		}
 	}
 
-	&.-disabled &__ring {
-		border-color: mix($color-minor-supporting, $color-total-white, 40%);
+	&.-disabled {
+		pointer-events: none;
+
+		#{$self}__ring {
+			border-color: $color-disabled-neutral;
+		}
 	}
 
 	&.-defaultPrimary &__ring {
@@ -109,7 +129,7 @@ $survey-toggle-size: 48px;
 		border-color: $color-total-white;
 	}
 
-	&.-selectedSecondary &__ring {
+	&.-selectedNeutral &__ring {
 		border-color: $color-total-white;
 	}
 
@@ -117,12 +137,16 @@ $survey-toggle-size: 48px;
 		border-color: $color-primary-disabled;
 	}
 
-	// content
 	&__content {
 		@include headlineXS();
 		@include textBold();
 
 		color: $color-minor-supporting;
+		transition: color ease-in-out $default-transition-time;
+	}
+
+	&.-disabled &__content {
+		color: $color-disabled-neutral;
 	}
 
 	&.-defaultPrimary &__content {
@@ -137,14 +161,11 @@ $survey-toggle-size: 48px;
 		color: $color-primary-disabled;
 	}
 
-	// icon
 	&__icon {
 		color: $color-total-white;
-		height: $icon-xs;
-		width: $icon-xs;
+		display: flex;
 	}
 
-	// label
 	&__label {
 		@include textInfoS();
 		@include textBold();
@@ -153,6 +174,7 @@ $survey-toggle-size: 48px;
 		text-align: center;
 		margin-top: $space-xxs;
 		min-height: 2em;
+		max-width: 100%;
 
 		@media #{breakpoint-s()} {
 			@include textInfoM();
@@ -165,31 +187,35 @@ $survey-toggle-size: 48px;
 
 <script lang="ts">
 import {
-	SURVEY_TOGGLE_COLORS,
+	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from './SurveyToggle.consts';
-import Icon, { ICON_SIZES, ICONS } from '../Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
+import Ripple from 'vue-ripple-directive';
 
 export default {
 	name: 'SurveyToggle',
 	components: {
-		Icon,
+		DsIcon,
+	},
+	directives: {
+		ripple: Ripple,
 	},
 	props: {
 		label: {
 			type: String,
-			required: true,
+			default: null,
 		},
-		content: {
+		contentText: {
 			type: String,
 			default: null,
 		},
-		color: {
+		meaning: {
 			type: String,
-			default: SURVEY_TOGGLE_COLORS.PRIMARY,
-			validate(color) {
-				return Object.values(SURVEY_TOGGLE_COLORS).includes(color);
+			default: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			validate(meaning) {
+				return Object.values(SURVEY_TOGGLE_MEANINGS).includes(meaning);
 			},
 		},
 		status: {
@@ -206,13 +232,13 @@ export default {
 				return Object.values(SURVEY_TOGGLE_STATES).includes(state);
 			},
 		},
-		icon: {
+		selectedIcon: {
 			type: Object,
 			default() {
 				return ICONS.FA_CHECK_SOLID;
 			},
-			validate(icon) {
-				return Object.values(ICONS).includes(icon);
+			validate(selectedIcon) {
+				return Object.values(ICONS).includes(selectedIcon);
 			},
 		},
 	},
@@ -224,19 +250,19 @@ export default {
 	computed: {
 		isSelectedPrimary() {
 			return (
-				this.color === SURVEY_TOGGLE_COLORS.PRIMARY &&
+				this.meaning === SURVEY_TOGGLE_MEANINGS.PRIMARY &&
 				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
 			);
 		},
 		isDefaultPrimary() {
 			return (
-				this.color === SURVEY_TOGGLE_COLORS.PRIMARY &&
+				this.meaning === SURVEY_TOGGLE_MEANINGS.PRIMARY &&
 				this.status === SURVEY_TOGGLE_STATUSES.DEFAULT
 			);
 		},
-		isSelectedSecondary() {
+		isSelectedNeutral() {
 			return (
-				this.color === SURVEY_TOGGLE_COLORS.SECONDARY &&
+				this.meaning === SURVEY_TOGGLE_MEANINGS.NEUTRAL &&
 				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
 			);
 		},
@@ -252,14 +278,14 @@ export default {
 		},
 	},
 	created() {
-		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
+		this.SURVEY_TOGGLE_MEANING = SURVEY_TOGGLE_MEANINGS;
 		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
 		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
 		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
-		mouseOver() {
-			this.hovered = !this.hovered;
+		onClick() {
+			this.$emit('click');
 		},
 	},
 };

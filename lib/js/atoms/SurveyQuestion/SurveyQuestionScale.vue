@@ -1,64 +1,81 @@
 <template>
 	<div class="surveyQuestionScale">
-		<card>
-			<div slot="content">
-				<div class="surveyQuestionScale__title">
-					<span>{{ title }}</span>
-					<div v-if="explanation" class="surveyQuestionScale__explanation">
-						<icon-button
-							:color="BUTTON_COLORS.MINOR_SUPPORTING"
-							:icon="ICONS.FA_QUESTION_CIRCLE"
-							:size="ICON_SIZES.MEDIUM"
-							:touchable="false"
-							@click.native="$emit('explanation-click')"
-						/>
-					</div>
+		<ds-modal v-if="showModal" @close-modal="showModal = false">
+			<slot name="explanation" />
+			<div slot="footer">
+				<ds-button :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
+					OK, rozumiem
+				</ds-button>
+			</div>
+		</ds-modal>
+		<ds-card>
+			<template slot="content">
+				<div class="surveyQuestionScale__header">
+					<span class="surveyQuestionScale__title">{{ title }}</span>
+					<icon-button
+						v-if="$slots.explanation"
+						class="surveyQuestionScale__explanation"
+						:color="BUTTON_COLORS.MINOR_SUPPORTING"
+						:icon="ICONS.FA_QUESTION_CIRCLE"
+						:size="ICON_SIZES.MEDIUM"
+						:touchable="false"
+						@click.native="showModal = true"
+					/>
 				</div>
 				<div class="surveyQuestionScale__content">
-					<template v-for="option in options">
-						<survey-toggle
-							:key="option.id"
-							class="surveyQuestionScale__toggle"
-							:class="{
-								'-standAlone': option.standAlone,
-							}"
-							:color="option.color"
-							:content="option.content"
-							:label="option.label"
-							:status="
-								selected === option.id
-									? SURVEY_TOGGLE_STATUSES.SELECTED
-									: SURVEY_TOGGLE_STATUSES.DEFAULT
-							"
-							:is-active="option.selected"
-							:disabled="disabled"
-							@click="onToggleClick(option.id)"
+					<template v-for="(option, index) in scaleOptions">
+						<div
+							v-if="option.standalone"
+							:key="`surveyQuestionScale__toggleSeparator-${index}`"
+							class="surveyQuestionScale__toggleSeparator"
 						/>
+						<div
+							:key="`surveyQuestionScale__toggle${index}`"
+							class="surveyQuestionScale__toggle"
+						>
+							<survey-toggle
+								:meaning="option.meaning"
+								:content-text="option.content"
+								:label="option.label"
+								:status="
+									selectedValue === option.value
+										? SURVEY_TOGGLE_STATUSES.SELECTED
+										: SURVEY_TOGGLE_STATUSES.DEFAULT
+								"
+								:state="
+									state === SURVEY_QUESTION_STATES.DISABLED
+										? SURVEY_TOGGLE_STATES.DISABLED
+										: SURVEY_TOGGLE_STATES.DEFAULT
+								"
+								@click="onToggleClick(option.value)"
+							/>
+						</div>
 					</template>
 				</div>
 
-				<template v-if="selected !== null">
+				<template v-if="selectedValue !== null">
 					<hr class="surveyQuestionScale__separator" />
 					<div class="surveyQuestionScale__elaboration">
-						<label class="surveyQuestionScale__elaborationLabel" for="elaboration">
+						<label class="surveyQuestionScale__elaborationLabel" :for="inputId">
 							{{ elaborationLabel }}
 						</label>
-						<textarea
-							ref="textarea"
-							v-model="elaboration"
+						<survey-question-textarea
+							:id="inputId"
+							:value="elaborationValue"
 							class="surveyQuestionScale__elaborationInput"
-							:disabled="disabled"
 							:placeholder="placeholder"
-							name="elaboration"
-						></textarea>
+							:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
+							@input="$emit('elaboration-change', $event)"
+						/>
 					</div>
 				</template>
-			</div>
-		</card>
+			</template>
+		</ds-card>
 	</div>
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/buttons';
 @import '../../../styles/settings/colors';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/radiuses';
@@ -67,46 +84,60 @@
 @import '../../../styles/settings/typography';
 
 .surveyQuestionScale {
-	max-width: 600px;
-
-	&__title {
+	&__header {
 		@include headlineS();
 
 		display: flex;
-		align-items: baseline;
+		// title without explanation iconButton has to be the same size as with iconButton
+		min-height: $icon-button-medium-size;
 		margin-bottom: $space-m;
 		justify-content: space-between;
 	}
 
+	&__title {
+		align-self: center;
+	}
+
 	&__explanation {
-		color: $color-minor-supporting;
+		align-self: flex-start;
+		margin-left: $space-xxxxs;
 	}
 
 	&__content {
-		align-items: baseline;
 		background: $color-background-secondary;
+		border-radius: $radius-s;
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: $space-xxs;
-		padding: $space-s;
-		border-radius: $radius-s;
+		padding: $space-s $space-xxs;
+		overflow-x: auto;
+
+		@media #{breakpoint-s()} {
+			padding: $space-s $space-l;
+		}
 	}
 
 	&__toggle {
+		display: flex;
+		justify-content: center;
 		margin-right: $space-xxs;
 
-		@media #{breakpoint-s()} {
-			margin-right: $space-m;
+		&:last-child {
+			margin-right: 0;
 		}
+	}
 
-		&.-standAlone {
-			flex-grow: 2;
-			align-items: flex-end;
+	&__toggleSeparator {
+		display: none;
+
+		@media #{breakpoint-s()} {
+			width: $space-l;
+			display: block;
 		}
 	}
 
 	&__separator {
-		color: $color-mischka-gray;
+		border-bottom: none;
+		border-top: 1px solid $color-mischka-gray;
 		margin: $space-m 0 $space-s 0;
 	}
 
@@ -120,86 +151,94 @@
 	}
 
 	&__elaborationInput {
-		border: 1px solid $color-mischka-gray;
-		box-sizing: border-box;
-		box-shadow: inset 0 1px 3px $color-minor-supporting;
-		border-radius: $radius-s;
-		margin: $space-xxs 0;
-		min-height: 2em;
-		padding: $space-xxs;
-		resize: none;
+		margin-top: $space-xxs;
 	}
 }
 </style>
 
 <script lang="ts">
-import Card from '../Card';
+import { Prop } from 'vue/types/options';
+
+import DsCard from '../Card';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
-import { BUTTON_COLORS } from '../Button';
+import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../Button';
+import DsModal from '../Modal';
 import SurveyToggle, {
-	SURVEY_TOGGLE_COLORS,
+	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from '../SurveyToggle';
+import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
+import SurveyQuestionTextarea from './SurveyQuestionTextarea.vue';
+import { SurveyQuestionScaleOption } from './SurveyQuestion.domain';
+import { randomString } from '../../utils/string';
 
 export default {
 	name: 'SurveyQuestionScale',
 	components: {
-		Card,
+		SurveyQuestionTextarea,
+		DsCard,
 		IconButton,
 		SurveyToggle,
+		DsModal,
+		DsButton,
 	},
 	props: {
 		title: {
 			type: String,
 			required: true,
 		},
-		explanation: {
-			type: Boolean,
-			default: false,
+		state: {
+			type: String,
+			default: SURVEY_QUESTION_STATES.DEFAULT,
+			validate(state) {
+				return Object.values(SURVEY_QUESTION_STATES).includes(state);
+			},
 		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
-		options: {
-			type: Array,
+		scaleOptions: {
+			type: Array as Prop<Array<SurveyQuestionScaleOption>>,
 			required: true,
-			validate(options) {
-				return options.every((option) => typeof option === 'object');
+			validate(scaleOptions) {
+				return scaleOptions.every((option) => typeof option === 'object');
 			},
 		},
 		elaborationLabel: {
 			type: String,
 			required: true,
 		},
-		selected: {
+		elaborationValue: {
+			type: String,
+			required: true,
+		},
+		placeholder: {
+			type: String,
+			default: 'Wpisz swoją odpowiedź',
+		},
+		selectedValue: {
 			type: String,
 			default: null,
 		},
 	},
 	data() {
-		return { elaboration: '' };
-	},
-	watch: {
-		elaboration() {
-			this.$refs.textarea.style.height = 'auto';
-			this.$refs.textarea.style.height = this.$refs.textarea.scrollHeight + 'px';
-			this.$emit('elaboration-change', this.elaboration);
-		},
+		return {
+			showModal: false,
+			inputId: 'survey-question-' + randomString(8),
+		};
 	},
 	created() {
 		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
-		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_COLORS;
+		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_MEANINGS;
 		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
 		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
+		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
 	},
 	methods: {
-		onToggleClick(id: number) {
-			this.$emit('selectChange', this.selected === id ? null : id);
+		onToggleClick(value: string) {
+			this.$emit('select-change', this.selectedValue === value ? null : value);
 		},
 	},
 };

@@ -1,6 +1,6 @@
-export const SURVEY_TOGGLE_COLORS = {
+export const SURVEY_TOGGLE_MEANINGS = {
 	PRIMARY: 'primary',
-	SECONDARY: 'secondary',
+	NEUTRAL: 'neutral',
 } as const;
 
 export const SURVEY_TOGGLE_STATUSES = {
