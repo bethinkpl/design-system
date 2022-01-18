@@ -1,0 +1,26 @@
+{
+  "sourcePath": "lib/storage/colors/",
+  "destinationPath": "lib/styles/settings/colors/",
+  "files": [
+    {
+      "source": "tokens.json",
+      "destination": "_tokens.scss"
+    },
+    {
+      "source": "tokens-bodywork.json",
+      "destination": "_tokens-bodywork.scss"
+    }
+  ],
+  "doubleStringsMap": {
+    "gray/gray": "gray",
+    "green/green": "green",
+    "gold/gold": "gold",
+    "orange/orange": "orange",
+    "red/red": "red",
+    "violet/violet": "violet",
+    "indigo/indigo": "indigo",
+    "blue/blue": "blue",
+    "white/white": "blue",
+    "theme/theme": "theme"
+  }
+}

@@ -1,0 +1,536 @@
+{
+  "document": {
+    "id": "0:0",
+    "name": "LMS - BW Theme ColorPalette"
+  },
+  "nodes": [
+    {
+      "node": {
+        "id": "I3:270;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:cabd5c5b1123e754efedfeb2451c86d8de36bfb1,",
+          "name": "theme-700"
+        },
+        "to": {
+          "id": "S:8f3ddd170e0371a1c1082c9c072e0ef6959b171b,",
+          "name": "primary/text"
+        },
+        "transforms": {
+          "opacity": 6
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:271;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:3d96ccaab47547d4c6c65f627c70bfb7d7cf3bbc,",
+          "name": "theme-900"
+        },
+        "to": {
+          "id": "S:7c065c3dc586c7045274d095bc5f240cad512d0e,",
+          "name": "primary/text-hovered"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:272;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:3d96ccaab47547d4c6c65f627c70bfb7d7cf3bbc,",
+          "name": "theme-900"
+        },
+        "to": {
+          "id": "S:816e3e35fee3e0cce94edbe61cbda0a2234bbd07,",
+          "name": "primary/text-focused"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:273;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:a350832b96ba6f6defdde3a0c1f1a5fd6d5a1492,",
+          "name": "theme-300"
+        },
+        "to": {
+          "id": "S:023cd1c1549b5cfc201872ca6ebc43080199919a,",
+          "name": "primary/text-disabled"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:278;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:deedb2725adc06c5a4e39d9d209f229763cc8a5b,",
+          "name": "theme-500"
+        },
+        "to": {
+          "id": "S:d027ee7713c5c1d03f4a56ee9c22dea31781903b,",
+          "name": "primary/icon"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:279;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:cabd5c5b1123e754efedfeb2451c86d8de36bfb1,",
+          "name": "theme-700"
+        },
+        "to": {
+          "id": "S:f45f64730a0e89e2ea36f769a20bc117bc7641f9,",
+          "name": "primary/icon-hovered"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:280;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:cabd5c5b1123e754efedfeb2451c86d8de36bfb1,",
+          "name": "theme-700"
+        },
+        "to": {
+          "id": "S:62235a7112e17fd74eb2c48d32e75355edcddee1,",
+          "name": "primary/icon-focused"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:281;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:5ff10251636a026c2772ce26723801b019b53e71,",
+          "name": "theme-200"
+        },
+        "to": {
+          "id": "S:f03852317b0a16d669193ab3b4b991998301aba3,",
+          "name": "primary/icon-disabled"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:285;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:deedb2725adc06c5a4e39d9d209f229763cc8a5b,",
+          "name": "theme-500"
+        },
+        "to": {
+          "id": "S:af30ea3fa1ea47309d08677ba56f48cc90e0dbee,",
+          "name": "primary/icon-weak-focused"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:286;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:35524763dc054e47a039d7ab8cc057da2642863d,",
+          "name": "theme-100"
+        },
+        "to": {
+          "id": "S:e5c5486065dafdc40270ad4635ae5f5599db414e,",
+          "name": "primary/icon-weak-disabled"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:291;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:cabd5c5b1123e754efedfeb2451c86d8de36bfb1,",
+          "name": "theme-700"
+        },
+        "to": {
+          "id": "S:ab7a301f0fa59fdf19cb9e38a19b352f0ce1400b,",
+          "name": "primary/background-strong"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:292;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:610e0796a64b94f4a18995f674cb80e82358ece2,",
+          "name": "theme-800"
+        },
+        "to": {
+          "id": "S:7fa05ac478d08f4b3447323ffe3459915da08913,",
+          "name": "primary/background-strong-hovered"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:293;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:610e0796a64b94f4a18995f674cb80e82358ece2,",
+          "name": "theme-800"
+        },
+        "to": {
+          "id": "S:fce1391388aea577aa0d9fdf47089ed60d19c4c6,",
+          "name": "primary/background-strong-focused"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:294;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:5ff10251636a026c2772ce26723801b019b53e71,",
+          "name": "theme-200"
+        },
+        "to": {
+          "id": "S:76c89daa7516cf02a4093f6ec381ad5bbd182b6b,",
+          "name": "primary/background-strong-disabled"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:296;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:35524763dc054e47a039d7ab8cc057da2642863d,",
+          "name": "theme-100"
+        },
+        "to": {
+          "id": "S:faf3e76ec0a5ea736fcac25d3fc1e87b6668d343,",
+          "name": "primary/background-medium"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:298;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:a418a9d151c2f854872fca9b30e802d1fbdb1203,",
+          "name": "theme-50"
+        },
+        "to": {
+          "id": "S:7704af603dd947fea55a416497ffa7515b1ebcd3,",
+          "name": "primary/background"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:300;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:35524763dc054e47a039d7ab8cc057da2642863d,",
+          "name": "theme-100"
+        },
+        "to": {
+          "id": "S:7b5d07e1c71a28d0c7d49cedc168cc389865d7a1,",
+          "name": "primary/background-focused"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:301;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:a418a9d151c2f854872fca9b30e802d1fbdb1203,",
+          "name": "theme-50"
+        },
+        "to": {
+          "id": "S:2dbf21922fbc8de88798e31ac40f173b4d6420dd,",
+          "name": "primary/background-disabled"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:303;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:ba4ed417a6e7f089ddb18921c4a7cfb8d801e2b6,",
+          "name": "whiteBW"
+        },
+        "to": {
+          "id": "S:1e85fa6bb6c40519419356f54f0d1814ba7b8acf,",
+          "name": "primary/background-weak"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:304;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:35524763dc054e47a039d7ab8cc057da2642863d,",
+          "name": "theme-100"
+        },
+        "to": {
+          "id": "S:4652286d366a2906e12362dd03f48e65035c6a69,",
+          "name": "primary/background-weak-hovered"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:305;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:35524763dc054e47a039d7ab8cc057da2642863d,",
+          "name": "theme-100"
+        },
+        "to": {
+          "id": "S:a0bbdb601b115e66273bb50b865b287f8e0822d6,",
+          "name": "primary/background-weak-focused"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:306;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:5ff10251636a026c2772ce26723801b019b53e71,",
+          "name": "theme-200"
+        },
+        "to": {
+          "id": "S:e554b6e77262d9b79b015ec47b52d85cb1cd3b6c,",
+          "name": "primary/background-weak-pressed"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:308;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:deedb2725adc06c5a4e39d9d209f229763cc8a5b,",
+          "name": "theme-500"
+        },
+        "to": {
+          "id": "S:53f57441a9fa211176da7782b18518107cbd1429,",
+          "name": "primary/background-ghost"
+        },
+        "transforms": {
+          "opacity": -100
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:309;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:deedb2725adc06c5a4e39d9d209f229763cc8a5b,",
+          "name": "theme-500"
+        },
+        "to": {
+          "id": "S:66907a9bc404dde9e3b4b617cd2161591cd46083,",
+          "name": "primary/background-ghost-hovered"
+        },
+        "transforms": {
+          "opacity": -88
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:310;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:deedb2725adc06c5a4e39d9d209f229763cc8a5b,",
+          "name": "theme-500"
+        },
+        "to": {
+          "id": "S:472a0fb398f98ba9f7e4aeb0ca3e7ee2cafbfb54,",
+          "name": "primary/background-ghost-focused"
+        },
+        "transforms": {
+          "opacity": -88
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:311;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:deedb2725adc06c5a4e39d9d209f229763cc8a5b,",
+          "name": "theme-500"
+        },
+        "to": {
+          "id": "S:243d41b2a8e025ee4e7bc883aa49dcf125ab1440,",
+          "name": "primary/background-ghost-pressed"
+        },
+        "transforms": {
+          "opacity": -82
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:312;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:deedb2725adc06c5a4e39d9d209f229763cc8a5b,",
+          "name": "theme-500"
+        },
+        "to": {
+          "id": "S:3f3e6643c854d8ca861e03ae5e2c9b1d168c9ea7,",
+          "name": "primary/background-ghost-disabled"
+        },
+        "transforms": {
+          "opacity": -100
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:317;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:deedb2725adc06c5a4e39d9d209f229763cc8a5b,",
+          "name": "theme-500"
+        },
+        "to": {
+          "id": "S:5027fa54514a620f49812647033f9256a227a261,",
+          "name": "primary/border"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:319;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:cabd5c5b1123e754efedfeb2451c86d8de36bfb1,",
+          "name": "theme-700"
+        },
+        "to": {
+          "id": "S:2f54bdf20b5242fb80e45126d7d7e7552ab6682f,",
+          "name": "primary/border-focused"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:318;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:cabd5c5b1123e754efedfeb2451c86d8de36bfb1,",
+          "name": "theme-700"
+        },
+        "to": {
+          "id": "S:7a6fb97b4618f0fc245e5775707249c875a9c7a1,",
+          "name": "primary/border-hovered"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:320;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:5ff10251636a026c2772ce26723801b019b53e71,",
+          "name": "theme-200"
+        },
+        "to": {
+          "id": "S:678dbea38ae6e84a5a41984a64167fe41dbc1dee,",
+          "name": "primary/border-disabled"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:283;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:a350832b96ba6f6defdde3a0c1f1a5fd6d5a1492,",
+          "name": "theme-300"
+        },
+        "to": {
+          "id": "S:d69552810a0813fd77dfe7c74d5be6c22371f68c,",
+          "name": "primary/icon-weak"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:284;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:deedb2725adc06c5a4e39d9d209f229763cc8a5b,",
+          "name": "theme-500"
+        },
+        "to": {
+          "id": "S:182c2af65d5394356018703730815e1c91f1bf8f,",
+          "name": "primary/icon-weak-hovered"
+        }
+      }
+    },
+    {
+      "node": {
+        "id": "I3:299;411:88"
+      },
+      "fill": {
+        "from": {
+          "id": "S:35524763dc054e47a039d7ab8cc057da2642863d,",
+          "name": "theme-100"
+        },
+        "to": {
+          "id": "S:58632aa744d6d2fb470076b4432d7bd45976f41b,",
+          "name": "primary/background-hovered"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "sourcePath": "lib/storage/colors/",
+  "destinationPath": "lib/styles/settings/colors/",
+  "files": [
+    {
+      "source": "raw.txt",
+      "destination": "_raw.scss",
+      "isTheme": false
+    },
+    {
+      "source": "raw-wnl.txt",
+      "destination": "_raw-wnl.scss",
+      "isTheme": true
+    },
+    {
+      "source": "raw-bodywork.txt",
+      "destination": "_raw-bodywork.scss",
+      "isTheme": true
+    }
+  ],
+  "doubleStringsMap": {
+    "graygray": "gray",
+    "greengreen": "green",
+    "goldgold": "gold",
+    "orangeorange": "orange",
+    "redred": "red",
+    "violetviolet": "violet",
+    "indigoindigo": "indigo",
+    "blueblue": "blue",
+    "FFFFFF": "fff",
+    "themetheme": "theme",
+    "--theme--theme": "--theme"
+  }
+}
