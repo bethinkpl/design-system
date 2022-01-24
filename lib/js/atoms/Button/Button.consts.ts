@@ -22,6 +22,7 @@ export const BUTTON_COLORS = {
 	DANGER_SUPPORTING: 'danger-supporting',
 	WARNING: 'warning',
 	SUCCESS: 'success',
+	INVERTED: 'inverted',
 } as const;
 
 export const BUTTON_RADIUSES = {

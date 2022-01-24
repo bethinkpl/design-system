@@ -36,16 +36,20 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
         return {
             components: { WnlButton },
             props: Object.keys(args),
-            template: `<wnl-button
-              :size="size"
-              :type="type"
-              :state="state"
-              :radius="radius"
-              :color="color"
-              :icon-left="ICONS[iconLeft]"
-              :icon-right="ICONS[iconRight]"
-              :elevation="elevation"
-            >{{slotText}}</wnl-button>`,
+            template: `<div style="background-color: lightgrey; height: 200px; padding: 10px">
+                <wnl-button
+                  :size="size"
+                  :type="type"
+                  :state="state"
+                  :radius="radius"
+                  :color="color"
+                  :icon-left="ICONS[iconLeft]"
+                  :icon-right="ICONS[iconRight]"
+                  :elevation="elevation"
+                >
+                    {{slotText}}
+                </wnl-button>
+            </div>`,
             created() {
                 this.ICONS = ICONS;
             }
