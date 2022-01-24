@@ -23,7 +23,7 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
            size: {control: { type: 'select', options: Object.values(ICON_BUTTON_SIZES) }, defaultValue: ICON_BUTTON_SIZES.LARGE},
            type: {control: { type: 'select', options: Object.values(ICON_BUTTON_TYPES) }, defaultValue: ICON_BUTTON_TYPES.ICON_ONLY},
            radius: {control: { type: 'select', options: Object.values(BUTTON_RADIUSES) }, defaultValue: BUTTON_RADIUSES.CAPSULE},
-           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES' },
+           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES_LIGHT' },
            color: {control: { type: 'select', options: Object.keys(ICON_BUTTON_COLORS) }, defaultValue: 'PRIMARY' },
            colorScheme: {control: { type: 'select', options: Object.values(ICON_BUTTON_COLOR_SCHEMES) }, defaultValue: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR },
            elevation: {control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) }, defaultValue: BUTTON_ELEVATIONS.NONE },
@@ -56,7 +56,7 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 <Story name='examples/filledWithLabel'>
     {{
         components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_TIMES" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button>',
+        template: '<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button>',
         created() {
             this.ICONS = ICONS;
             this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
@@ -95,7 +95,7 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 <Story name='examples/outlinedMinorSupportingMinorIcon'>
     {{
         components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_TIMES" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :color-scheme="ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON" />',
+        template: '<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :color-scheme="ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON" />',
         created() {
             this.ICONS = ICONS;
             this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
@@ -110,7 +110,7 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 <Story name='examples/filledMinor'>
     {{
         components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_TIMES" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.X_SMALL" />',
+        template: '<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.X_SMALL" />',
         created() {
             this.ICONS = ICONS;
             this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;

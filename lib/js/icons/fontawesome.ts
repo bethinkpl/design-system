@@ -98,7 +98,6 @@ import {
 	faTags,
 	faTasks,
 	faThumbsUp,
-	faTimes,
 	faTimesCircle,
 	faTrashAlt,
 	faTrophyAlt,
@@ -143,6 +142,7 @@ import {
 import {
 	faChevronLeft as falChevronLeft,
 	faChevronRight as falChevronRight,
+	faTimes as falTimes,
 } from '@fortawesome/pro-light-svg-icons';
 
 export const FONTAWESOME_ICONS = {
@@ -271,8 +271,8 @@ export const FONTAWESOME_ICONS = {
 	FA_THUMBS_UP: faThumbsUp,
 	FA_THUMBS_UP_SOLID: fasThumbsUp,
 	FA_THUMBTACK_SOLID: fasThumbtack,
-	FA_TIMES: faTimes,
 	FA_TIMES_CIRCLE: faTimesCircle,
+	FA_TIMES_LIGHT: falTimes,
 	FA_TRASH_ALT: faTrashAlt,
 	FA_TROPHY_ALT: faTrophyAlt,
 	FA_UNDO: faUndo,
