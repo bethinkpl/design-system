@@ -145,6 +145,8 @@ import {
 	faTimes as falTimes,
 } from '@fortawesome/pro-light-svg-icons';
 
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+
 export const FONTAWESOME_ICONS = {
 	FA_ADDRESS_CARD: faAddressCard,
 	FA_ANGLE_DOWN: faAngleDown,
@@ -201,6 +203,7 @@ export const FONTAWESOME_ICONS = {
 	FA_EXPAND_ARROWS: faExpandArrows,
 	FA_EYE: faEye,
 	FA_EYE_SLASH: faEyeSlash,
+	FA_FACEBOOK: faFacebook,
 	FA_FILE_ALT: faFileAlt,
 	FA_FILE_INVOICE_DOLLAR: faFileInvoiceDollar,
 	FA_FILE_ALT_SOLID: fasFileAlt,
