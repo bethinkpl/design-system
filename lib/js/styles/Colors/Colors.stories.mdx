@@ -1,0 +1,19 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import Colors from './Colors';
+
+<Meta title='foundations/Colors/Raw' component={Colors} />
+
+# Card
+
+<Story name='Raw'>
+	{() => {
+		return {
+			components: { Colors },
+			template: '<colors></colors>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={Colors} />

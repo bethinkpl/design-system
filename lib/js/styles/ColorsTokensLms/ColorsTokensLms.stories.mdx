@@ -1,0 +1,19 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import ColorsTokensLms from './ColorsTokensLms';
+
+<Meta title='foundations/Tokens/ColorsLms' component={ColorsTokensLms} />
+
+# Card
+
+<Story name='ColorsLms'>
+	{() => {
+		return {
+			components: { ColorsTokensLms },
+			template: '<colors-tokens-lms></colors-tokens-lms>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={ColorsTokensLms} />

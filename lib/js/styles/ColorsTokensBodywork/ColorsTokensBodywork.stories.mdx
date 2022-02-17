@@ -1,0 +1,19 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import ColorsTokensBodywork from './ColorsTokensBodywork';
+
+<Meta title='foundations/Tokens/ColorsBodywork' component={ColorsTokensBodywork} />
+
+# Card
+
+<Story name='ColorsBodywork'>
+	{() => {
+		return {
+			components: { ColorsTokensBodywork },
+			template: '<colors-tokens-bodywork></colors-tokens-bodywork>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={ColorsTokensBodywork} />
