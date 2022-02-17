@@ -72,25 +72,20 @@
 		width: 200px;
 	}
 	&__list {
-		line-height:1.5em;
+		line-height: 1.5em;
 	}
 }
 </style>
 
 <script lang="ts">
 
-import { ColorPalette, ColorItem } from '@storybook/addon-docs';
 import rawColors from '../../../styles/settings/colors/_raw.json'
 
 export default {
 	name: 'Colors',
-	comments: {
-		ColorPalette,
-		ColorItem
-	},
 	data(){
 		return {
-			rawColors: rawColors
+			rawColors
 		}
 	}
 };

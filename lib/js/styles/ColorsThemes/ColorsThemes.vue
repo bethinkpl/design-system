@@ -35,16 +35,11 @@
 
 <script lang="ts">
 
-import { ColorPalette, ColorItem } from '@storybook/addon-docs';
 import themeWNL from '../../../styles/settings/colors/_raw-wnl.json'
 import themeBodywork from '../../../styles/settings/colors/_raw-bodywork.json'
 
 export default {
 	name: 'ColorsThemes',
-	comments: {
-		ColorPalette,
-		ColorItem
-	},
 	data(){
 		return {
 			WNLThemeWNLColors: themeWNL,

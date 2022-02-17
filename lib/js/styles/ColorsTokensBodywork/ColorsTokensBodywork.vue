@@ -22,15 +22,10 @@
 
 <script lang="ts">
 
-import { ColorPalette, ColorItem } from '@storybook/addon-docs';
 import tokensWNL from '../../../styles/settings/colors/_tokens-bodywork.json'
 
 export default {
 	name: 'ColorsTokensBodywork',
-	comments: {
-		ColorPalette,
-		ColorItem
-	},
 	data(){
 		return {
 			tokensWNL,
