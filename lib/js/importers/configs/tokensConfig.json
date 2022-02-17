@@ -4,13 +4,18 @@
   "files": [
     {
       "source": "tokens.json",
-      "destination": "_tokens.scss"
+      "destination": "_tokens.scss",
+      "destinationJson": "_tokens.json",
+      "binId": "61ee83a05c8caf43a69c4222"
     },
     {
       "source": "tokens-bodywork.json",
-      "destination": "_tokens-bodywork.scss"
+      "destination": "_tokens-bodywork.scss",
+      "destinationJson": "_tokens-bodywork.json",
+      "binId": "61ee83e91cdb114401237ee5"
     }
   ],
+  "jsonBinApiUrl": "https://api.jsonbin.io/b/",
   "doubleStringsMap": {
     "gray/gray": "gray",
     "green/green": "green",

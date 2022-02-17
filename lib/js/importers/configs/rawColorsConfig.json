@@ -5,16 +5,19 @@
     {
       "source": "raw.txt",
       "destination": "_raw.scss",
+      "destinationJson": "_raw.json",
       "isTheme": false
     },
     {
       "source": "raw-wnl.txt",
       "destination": "_raw-wnl.scss",
+      "destinationJson": "_raw-wnl.json",
       "isTheme": true
     },
     {
       "source": "raw-bodywork.txt",
       "destination": "_raw-bodywork.scss",
+      "destinationJson": "_raw-bodywork.json",
       "isTheme": true
     }
   ],

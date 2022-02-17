@@ -1,0 +1,64 @@
+{
+  "theme": [
+    {
+      "id": "raw-wnl.txt_theme-50",
+      "label": "theme-50",
+      "value": "#E8F6F6",
+      "weight": 50
+    },
+    {
+      "id": "raw-wnl.txt_theme-100",
+      "label": "theme-100",
+      "value": "#D5EEEF",
+      "weight": 100
+    },
+    {
+      "id": "raw-wnl.txt_theme-200",
+      "label": "theme-200",
+      "value": "#A6DCDE",
+      "weight": 200
+    },
+    {
+      "id": "raw-wnl.txt_theme-300",
+      "label": "theme-300",
+      "value": "#5BBDC1",
+      "weight": 300
+    },
+    {
+      "id": "raw-wnl.txt_theme-400",
+      "label": "theme-400",
+      "value": "#0D9EA4",
+      "weight": 400
+    },
+    {
+      "id": "raw-wnl.txt_theme-500",
+      "label": "theme-500",
+      "value": "#078F96",
+      "weight": 500
+    },
+    {
+      "id": "raw-wnl.txt_theme-600",
+      "label": "theme-600",
+      "value": "#088289",
+      "weight": 600
+    },
+    {
+      "id": "raw-wnl.txt_theme-700",
+      "label": "theme-700",
+      "value": "#096C76",
+      "weight": 700
+    },
+    {
+      "id": "raw-wnl.txt_theme-800",
+      "label": "theme-800",
+      "value": "#095D68",
+      "weight": 800
+    },
+    {
+      "id": "raw-wnl.txt_theme-900",
+      "label": "theme-900",
+      "value": "#0A4C58",
+      "weight": 900
+    }
+  ]
+}
