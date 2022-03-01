@@ -1,14 +1,14 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
-import AccessStatus from './AccessStatus.vue';
+import BlockadeStatus from './BlockadeStatus.vue';
 import { COURSE_ACCESS_STATUS } from '../consts/user';
 import { ICONS } from '../atoms/Icon';
 
-describe('AccessStatus', () => {
+describe('BlockadeStatus', () => {
 	const createComponent = (status) => {
 		const localVue = createLocalVue();
 
-		return shallowMount(AccessStatus, {
+		return shallowMount(BlockadeStatus, {
 			localVue,
 			mocks: {},
 			propsData: {
@@ -21,23 +21,13 @@ describe('AccessStatus', () => {
 	test.each([
 		{
 			status: COURSE_ACCESS_STATUS.ACTIVE,
-			expectedText: 'Aktywny',
-			expectedIcon: ICONS.FA_UNLOCK_ALT,
+			expectedText: 'Blokada dostępu',
+			expectedIcon: ICONS.FA_LOCK_ALT,
 		},
 		{
 			status: COURSE_ACCESS_STATUS.AWAITING,
-			expectedText: 'Oczekujący',
-			expectedIcon: ICONS.FA_HOURGLASS_START,
-		},
-		{
-			status: COURSE_ACCESS_STATUS.EXPIRED,
-			expectedText: 'Zakończony',
-			expectedIcon: ICONS.FA_LOCK_ALT,
-		},
-		{
-			status: COURSE_ACCESS_STATUS.SUSPENDED,
-			expectedText: 'Zawieszony',
-			expectedIcon: ICONS.FA_LOCK_ALT,
+			expectedText: 'Blokada zakończona',
+			expectedIcon: ICONS.FA_UNLOCK_ALT,
 		},
 	])('should render correct icon and text', ({ status, expectedText, expectedIcon }) => {
 		const component = createComponent(status);
