@@ -15,6 +15,7 @@ export { default as NumberInCircle } from './atoms/NumberInCircle';
 export * from './atoms/NumberInCircle/NumberInCircle.consts';
 export { default as TabItem } from './atoms/TabItem';
 export { default as AccessStatus } from './molecules/AccessStatus.vue';
+export { default as BlockadeStatus } from './molecules/BlockadeStatus.vue';
 export * from './consts/colors';
 export { default as SurveyToggle } from './atoms/SurveyToggle/SurveyToggle.vue';
 export * from './atoms/SurveyToggle/SurveyToggle.consts';
