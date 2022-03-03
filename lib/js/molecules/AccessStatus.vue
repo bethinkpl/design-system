@@ -1,7 +1,7 @@
 <template>
-	<div class="m-accessStatus" :class="statusClass">
-		<icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="m-accessStatus__icon" />
-		<span class="m-accessStatus__text">{{ text }}</span>
+	<div class="accessStatus" :class="statusClass">
+		<icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="accessStatus__icon" />
+		<span class="accessStatus__text">{{ text }}</span>
 	</div>
 </template>
 
@@ -10,7 +10,7 @@
 @import '../../styles/settings/spacings';
 @import '../../styles/settings/typography';
 
-.m-accessStatus {
+.accessStatus {
 	align-items: center;
 	color: $color-storm-gray;
 	display: flex;
@@ -19,16 +19,16 @@
 		color: $color-salad-green;
 	}
 
-	&.-notActive {
+	&.-suspended {
 		color: $color-crimson-red;
 	}
 
 	&__icon {
-		margin-right: $space-xxxs;
+		margin-right: $space-xxxxs;
 	}
 
 	&__text {
-		@include textM;
+		@include textXS;
 		@include textBold;
 
 		text-transform: uppercase;
@@ -67,10 +67,10 @@ export default {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
 				return '-active';
 			}
-			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return '';
+			if (this.status === COURSE_ACCESS_STATUS.SUSPENDED) {
+				return '-suspended';
 			}
-			return '-notActive';
+			return '';
 		},
 		text() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
@@ -78,6 +78,9 @@ export default {
 			}
 			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
 				return 'Oczekujący';
+			}
+			if (this.status === COURSE_ACCESS_STATUS.SUSPENDED) {
+				return 'Zawieszony';
 			}
 			return 'Zakończony';
 		},
