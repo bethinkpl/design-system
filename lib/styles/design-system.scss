@@ -24,11 +24,12 @@
 @import 'modifiers/media-queries';
 @import 'modifiers/shadows';
 @import 'modifiers/typography';
+@import 'settings/colors/tokens';
 
 html,
 body {
 	// TODO add font-size when wnl-platform is ready
-	color: $color-firefly-black;
+	color: var($default-text);
 }
 
 html,

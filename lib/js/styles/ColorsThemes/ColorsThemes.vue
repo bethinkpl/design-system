@@ -35,7 +35,7 @@
 
 <script lang="ts">
 
-import themeWNL from '../../../styles/settings/colors/_raw-wnl.json'
+import themeWNL from '../../../styles/settings/colors/_raw.json'
 import themeBodywork from '../../../styles/settings/colors/_raw-bodywork.json'
 
 export default {

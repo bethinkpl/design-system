@@ -1,0 +1,48 @@
+{
+  "destinationPath": "lib/styles/settings/colors/",
+  "bins": [
+    {
+      "id": "620e4f834bf50f4b2d0044e9",
+      "name": "wnl",
+      "isTheme": false,
+      "files": {
+        "colorsRaw": {
+          "destination": "_raw.scss",
+          "destinationJson": "_raw.json"
+        },
+        "tokens": {
+          "destination": "_tokens.scss",
+          "destinationJson": "_tokens.json"
+        }
+      }
+    },
+    {
+      "id": "621cd1407caf5d67835b93b5",
+      "name": "bodywork",
+      "isTheme": true,
+      "files": {
+        "colorsRaw": {
+          "destination": "_raw-bodywork.scss",
+          "destinationJson": "_raw-bodywork.json"
+        },
+        "tokens": {
+          "destination": "_tokens-bodywork.scss",
+          "destinationJson": "_tokens-bodywork.json"
+        }
+      }
+    }
+  ],
+  "jsonBinApiUrl": "https://api.jsonbin.io/b/",
+  "doubleStringsMap": {
+    "gray/gray": "gray",
+    "green/green": "green",
+    "gold/gold": "gold",
+    "orange/orange": "orange",
+    "red/red": "red",
+    "violet/violet": "violet",
+    "indigo/indigo": "indigo",
+    "blue/blue": "blue",
+    "white/white": "blue",
+    "theme/theme": "theme"
+  }
+}
