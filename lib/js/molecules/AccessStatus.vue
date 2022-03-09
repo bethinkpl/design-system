@@ -9,18 +9,19 @@
 @import '../../styles/settings/colors';
 @import '../../styles/settings/spacings';
 @import '../../styles/settings/typography';
+@import '../../styles/settings/colors/tokens';
 
 .accessStatus {
 	align-items: center;
-	color: $color-storm-gray;
+	color: $neutral-text;
 	display: flex;
 
 	&.-active {
-		color: $color-salad-green;
+		color: $success-text;
 	}
 
 	&.-suspended {
-		color: $color-crimson-red;
+		color: $danger-text;
 	}
 
 	&__icon {
@@ -38,8 +39,7 @@
 
 <script lang="ts">
 import Icon from '../atoms/Icon';
-import { ICONS, ICON_SIZES } from '../atoms/Icon/Icon.consts';
-
+import { ICONS, ICON_SIZES } from '../atoms/Icon';
 import { COURSE_ACCESS_STATUS } from '../consts/user';
 
 export default {
