@@ -14,9 +14,10 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/radiuses';
+@import '../../../styles/settings/colors/tokens';
 
 .card {
-	background-color: $color-total-white;
+	background-color: $default-background;
 	border-radius: $radius-m;
 	box-shadow: $shadow-s;
 

@@ -16,6 +16,7 @@
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/colors/tokens';
 
 .a-numberInCircle {
 	align-items: center;
@@ -37,31 +38,31 @@
 	}
 
 	&.-is1 {
-		color: $color-primary;
+		color: $primary-text;
 	}
 
 	&.-is2 {
-		color: $color-salad-green;
+		color: $success-text;
 	}
 
 	&.-is3 {
-		color: $color-deluge-violet;
+		color: $accent-text;
 	}
 
 	&.-is4 {
-		color: $color-cobalt-blue;
+		color: $info-text;
 	}
 
 	&.-danger {
-		color: $color-crimson-red;
+		color: $danger-text;
 	}
 
 	&.-primary {
-		color: $color-primary;
+		color: $primary-text;
 	}
 
 	&.-secondary {
-		color: $color-storm-gray;
+		color: $neutral-text;
 	}
 
 	&.-medium {

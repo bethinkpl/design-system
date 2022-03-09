@@ -13,6 +13,7 @@
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/atoms/icons';
+@import '../../../styles/settings/colors/tokens';
 
 .badge {
 	border-radius: $radius-s;
@@ -30,7 +31,7 @@
 		background-color: $color-minor-background;
 
 		.badge__label {
-			color: $color-minor;
+			color: $neutral-text;
 		}
 	}
 

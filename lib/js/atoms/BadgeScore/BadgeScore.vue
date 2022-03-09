@@ -19,6 +19,7 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors';
+@import '../../../styles/settings/colors/tokens';
 
 $badge-score-width: 74px;
 $small-badge-score-width: 48px;
@@ -36,23 +37,23 @@ $x-small-badge-score-width: 36px;
 	text-align: center;
 
 	&.-success {
-		color: $color-success;
+		color: $success-text;
 	}
 
 	&.-danger {
-		color: $color-danger;
+		color: $danger-text;
 	}
 
 	&.-warning {
-		color: $color-warning;
+		color: $warning-text;
 	}
 
 	&.-inverted {
-		color: $color-total-white;
+		color: $default-text-inverted;
 	}
 
 	&.-minor {
-		color: $color-minor-supporting;
+		color: $neutral-text-weak;
 	}
 
 	&.-small {
