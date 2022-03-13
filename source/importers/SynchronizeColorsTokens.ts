@@ -1,8 +1,6 @@
 const fsT = require('fs');
 const axios = require("axios");
-const tokensFilesConfig = JSON.parse(
-	fsT.readFileSync('lib/js/importers/configs/allInOneConfig.json', 'utf8')
-);
+const tokensFilesConfig = JSON.parse(require('./configs/SynchronizeColorsTokens.json'));
 
 interface IResultJsonObject {
 	id: string;
@@ -60,14 +58,14 @@ const ImportColorsRaw = (
 					id: binValues.destination + '_' + colorName,
 					label: colorName,
 					value: obj.values.hex,
-					weight: colorNameSplitted[2] ? parseInt(colorNameSplitted[2]) : parseInt(colorNameSplitted[1])
+					weight: parseInt(colorNameSplitted[1])
 				};
 
 				if (resultJson[category] === undefined) {
 					resultJson[category] = [];
 				}
 				resultJson[category].push(resultJsonObject);
-				resultJson[category].sort((a,b) => (parseInt(a.weight) > parseInt(b.weight)) ? 1 : ((parseInt(b.weight) > parseInt(a.weight)) ? -1 : 0))
+				resultJson[category].sort((a,b) => a.weight - b.weight);
 			}
 		});
 		saveColorFile(tokensFilesConfig.destinationPath + binValues.destination, result);
@@ -167,7 +165,7 @@ const saveColorFileJSON  = (filepath: string, content: any) => {
 	file.end();
 }
 
-const AllInOneImporter = () => {
+const SynchronizeColorsTokens = () => {
 	tokensFilesConfig.bins.forEach(bin =>{
 		axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest')
 		.then(function(response) {
@@ -186,4 +184,4 @@ const AllInOneImporter = () => {
 	});
 }
 
-AllInOneImporter();
+SynchronizeColorsTokens();

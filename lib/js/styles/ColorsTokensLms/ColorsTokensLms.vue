@@ -1,19 +1,19 @@
 <template>
-	<div class="sb__presentation">
-		<div class="sb__row">
-			<ol class="sb__list">
-				<li v-for="(colors, colorCategory) in tokensWNL" :key="colorCategory" class="sb__legend">
+	<div class="colorsList">
+		<div class="colorsList__row">
+			<ol class="colorsList__categories">
+				<li v-for="(colors, colorCategory) in tokensWNL" :key="colorCategory" class="colorsDefinition__category">
 					{{ colorCategory }}
 				</li>
 			</ol>
 		</div>
-		<div v-for="(colors, colorCategory) in tokensWNL" :key="colorCategory" class="sb__row">
+		<div v-for="(colors, colorCategory) in tokensWNL" :key="colorCategory" class="colorsList__row">
 			<h2 :id="'category-' + colorCategory">{{ colorCategory }}</h2>
-			<div v-for="color in colors" :key="color.id" class='sb__table'>
-				<div class="sb__tableId">{{ color.label }}</div>
-				<div class="sb__tableValue">{{ color.value }}</div>
-				<div class="sb__tableColor">
-					<span class="sb__color" :style="{ background: 'var('+color.value+')' }"></span>
+			<div v-for="color in colors" :key="color.id" class='colorDefinition'>
+				<div class="colorDefinition__id">{{ color.label }}</div>
+				<div class="colorDefinition__value">{{ color.value }}</div>
+				<div class="colorDefinition__color">
+					<span :style="{ background: 'var('+color.value+')' }"></span>
 				</div>
 			</div>
 		</div>

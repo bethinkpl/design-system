@@ -1,30 +1,30 @@
 <template>
-	<div class="sb__presentation">
-		<div class="sb__row">
-			<ol class="sb__list">
-				<li class="sb__legend">Theme WNL</li>
-				<li class="sb__legend">Theme Bodywork</li>
+	<div class="colorsList">
+		<div class="colorsList__row">
+			<ol class="colorsList__categories">
+				<li class="colorsDefinition__category">Theme WNL</li>
+				<li class="colorsDefinition__category">Theme Bodywork</li>
 			</ol>
 		</div>
 
-		<div v-for="(colors, colorWNLCategory) in WNLThemeWNLColors" :key="colorWNLCategory" class="sb__row">
+		<div v-for="(colors, colorWNLCategory) in colorsListWnl" :key="colorWNLCategory" class="colorsList__row">
 			<h2>Theme WNL</h2>
-			<div v-for="color in colors" :key="color.id" class='sb__table'>
-				<div class="sb__tableId">{{ color.label }}</div>
-				<div class="sb__tableValue">{{ color.value }}</div>
-				<div class="sb__tableColor">
-					<span class="sb__color" :style="{ background: color.value }"></span>
+			<div v-for="color in colors" :key="color.id" class='colorDefinition'>
+				<div class="colorDefinition__id">{{ color.label }}</div>
+				<div class="colorDefinition__value">{{ color.value }}</div>
+				<div class="colorDefinition__color">
+					<span :style="{ background: color.value }"></span>
 				</div>
 			</div>
 		</div>
 
-		<div v-for="(colors, colorBodyworkCategory) in BodyworkThemeColors" :key="colorBodyworkCategory" class="sb__row">
+		<div v-for="(colors, colorBodyworkCategory) in colorsListBodywork" :key="colorBodyworkCategory" class="colorsList__row">
 			<h2>Theme Bodywork</h2>
-			<div v-for="color in colors" :key="color.id" class='sb__table'>
-				<div class="sb__tableId">{{ color.label }}</div>
-				<div class="sb__tableValue">{{ color.value }}</div>
-				<div class="sb__tableColor">
-					<span class="sb__color" :style="{ background: color.value }"></span>
+			<div v-for="color in colors" :key="color.id" class='colorDefinition'>
+				<div class="colorDefinition__id">{{ color.label }}</div>
+				<div class="colorDefinition__value">{{ color.value }}</div>
+				<div class="colorDefinition__color">
+					<span :style="{ background: color.value }"></span>
 				</div>
 			</div>
 		</div>
@@ -35,16 +35,17 @@
 
 <script lang="ts">
 
-import themeWNL from '../../../styles/settings/colors/_raw.json'
-import themeBodywork from '../../../styles/settings/colors/_raw-bodywork.json'
-
 export default {
 	name: 'ColorsThemes',
-	data(){
-		return {
-			WNLThemeWNLColors: themeWNL,
-			BodyworkThemeColors: themeBodywork,
-		}
-	}
+	props: {
+		colorsListWnl: {
+			type: Object,
+			required: true,
+		},
+		colorsListBodywork: {
+			type: Object,
+			required: true,
+		},
+	},
 };
 </script>
