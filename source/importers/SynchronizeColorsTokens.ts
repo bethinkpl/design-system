@@ -33,6 +33,8 @@ const ImportColorsRaw = (
 		let temporaryColorsJson = {};
 		let resultColorsJson = {};
 
+		result.push(':root {\n');
+
 		jsonColors.forEach(obj => {
 			const patternRawOrTheme = /RAW\/|theme/i;
 			const patternDeprecatedOrPattern = /deprecated|Pattern/i;
@@ -73,6 +75,8 @@ const ImportColorsRaw = (
 			}
 		});
 
+		result.push('}\n');
+
 		Object.entries<Array<IResultJsonObject>>(temporaryColorsJson).forEach(([category, colors]) => {
 			Object.entries(colors).forEach(([, color]) => {
 				const resultFileJsonObject: IResultFileJsonObject = {
@@ -88,8 +92,8 @@ const ImportColorsRaw = (
 			});
 		});
 
-		saveColorFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-		saveColorFileJSON(tokensFilesConfig.destinationPath + binValues.destinationJson, resultColorsJson);
+		arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
+		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultColorsJson);
 
 	} catch (err) {
 		console.error(err)
@@ -113,17 +117,15 @@ const ImportSingleTokenFile = (
 				let tokenName = obj.name;
 				tokenName = tokenName.replace(/\//i, '-');
 
-				obj.values.hex = obj.values.hex.replace(/FFFFFF/gi, function(){
-					return 'fff';
-				});
+				if (obj.values.hex .split('').every(char => char === obj.values.hex [0])){
+					obj.values.hex  = `${obj.values.hex [0]}${obj.values.hex [1]}${obj.values.hex [2]}`
+				}
 
 				if (obj.values.alpha !== 1) {
 					result.push('$' + tokenName + ': ' + 'rgba(var(' + hexToCssVariable[obj.values.hex] +'-rgb), ' + obj.values.alpha + ');');
 				} else {
 					result.push('$' + tokenName + ': ' + hexToCssVariable[obj.values.hex] + ';');
 				}
-
-
 
 				/** JSON object structure */
 				const tokenNameSplitted = tokenName.split('-');
@@ -139,26 +141,13 @@ const ImportSingleTokenFile = (
 				resultJson[category].push(resultJsonObject);
 			}
 		});
-		saveTokenFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-		saveTokenFileJSON(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJson);
+		arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
+		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJson);
 	} catch (err) {
 		console.error(err)
 	}
 }
 
-const saveTokenFileJSON  = (filepath: string, content: any) => {
-	let file = fsT.createWriteStream(filepath);
-	file.on('error', function(err) { console.log(err) });
-	file.write(JSON.stringify(content));
-	file.end();
-}
-
-const saveTokenFile = (filepath, content) => {
-	let file = fsT.createWriteStream(filepath);
-	file.on('error', function(err) { console.log(err) });
-	content.forEach(function(v) { file.write(v.toLowerCase() + '\n'); });
-	file.end();
-}
 
 const hexToRgb = (hex: string ) => {
 	if (hex.length === 4) {
@@ -169,16 +158,14 @@ const hexToRgb = (hex: string ) => {
 		parseInt(result[2], 16) + ', ' + parseInt(result[3], 16)  : null;
 }
 
-const saveColorFile = (filepath: string, content: any) => {
+const arrayToFile = (filepath: string, content: Array<string>) => {
 	let file = fsT.createWriteStream(filepath);
 	file.on('error', function(err) { console.log(err) });
-	file.write(':root {\n');
 	content.forEach(function(v) { file.write('\t' + v.toLowerCase() + '\n'); });
-	file.write('}\n')
 	file.end();
 }
 
-const saveColorFileJSON  = (filepath: string, content: any) => {
+const jsonToFile  = (filepath: string, content: any) => {
 	let file = fsT.createWriteStream(filepath);
 	file.on('error', function(err) { console.log(err) });
 	file.write(JSON.stringify(content));
