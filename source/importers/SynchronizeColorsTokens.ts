@@ -176,26 +176,33 @@ const jsonToFile  = (filepath: string, content: any) => {
 	file.end();
 }
 
-const SynchronizeColorsTokens = () => {
-	tokensFilesConfig.bins.forEach(bin =>{
-		axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest')
-		.then(function(response) {
-			let hexToCssVariable;
-			Object.keys(bin.files).forEach(key => {
-				switch (key) {
-					case "colorsRaw":
-						hexToCssVariable = ImportColorsRaw(bin.files[key], response?.data?.colors);
-						break;
-					case "tokens":
-						if (typeof hexToCssVariable === 'object') {
-							ImportSingleTokenFile(bin.files[key], response?.data?.colors, hexToCssVariable);
-						} else {
-							console.log("You must set in config file colorsRaw as first file");
-						}
-						break;
-				}
-			});
+const SynchronizeSingleBin = async (bin) => {
+	try {
+		const response = await axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');
+		let hexToCssVariable;
+		Object.keys(bin.files).forEach(key => {
+			switch (key) {
+				case "colorsRaw":
+					hexToCssVariable = ImportColorsRaw(bin.files[key], response?.data?.colors);
+					break;
+				case "tokens":
+					if (typeof hexToCssVariable === 'object') {
+						ImportSingleTokenFile(bin.files[key], response?.data?.colors, hexToCssVariable);
+					} else {
+						console.log("You must set in config file colorsRaw as first file");
+					}
+					break;
+			}
 		});
+	} catch (err) {
+		// Handle Error Here
+		console.error(err);
+	}
+};
+
+const SynchronizeColorsTokens = async () => {
+	tokensFilesConfig.bins.forEach(bin => {
+		SynchronizeSingleBin(bin)
 	});
 }
 
