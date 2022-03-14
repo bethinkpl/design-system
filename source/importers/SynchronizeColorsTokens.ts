@@ -1,6 +1,6 @@
 const fsT = require('fs');
 const axios = require("axios");
-const tokensFilesConfig = JSON.parse(require('./configs/SynchronizeColorsTokens.json'));
+const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
 
 interface IResultJsonObject {
 	id: string;
@@ -22,18 +22,18 @@ interface ITokenJsonObject {
 
 const ImportColorsRaw = (
 	binValues: configFileObject,
-	jsonSource: { data }
+	jsonColors: Array<any>
 ) => {
-	let hexToCssVariable: Array<Object> = [];
+	let hexToCssVariable: Object = {};
 	try {
 		let result: Array<string> = [];
 		let resultJson = {};
 
-		jsonSource.data.colors.forEach(obj => {
-			const patternIsRawColor = /RAW\/|theme/i;
-			const patternDeprecated = /deprecated|Pattern/i;
+		jsonColors.forEach(obj => {
+			const patternRawOrTheme = /RAW\/|theme/i;
+			const patternDeprecatedOrPattern = /deprecated|Pattern/i;
 			const patternTheme = /theme/i;
-			if (obj.name.match(patternIsRawColor) && obj.name.match(patternDeprecated) === null) {
+			if (obj.name.match(patternRawOrTheme) && obj.name.match(patternDeprecatedOrPattern) === null) {
 				const nameSplit = obj.name.split('/');
 				let colorName = (nameSplit[2] === undefined) ? nameSplit[1] : nameSplit[2];
 
@@ -41,14 +41,14 @@ const ImportColorsRaw = (
 					return 'fff';
 				});
 
-				const colorPrefix = obj.name.match(patternTheme) ? '--' : '--raw-';
+				const colorFinalName = obj.name.match(patternTheme) ? '--' : '--raw-' + colorName;
 
 				if (hexToCssVariable[obj.values.hex] === undefined) {
-					hexToCssVariable[obj.values.hex] = colorPrefix + colorName;
+					hexToCssVariable[obj.values.hex] = colorFinalName ;
 				}
 
-				result.push(colorPrefix + colorName + ': ' + obj.values.hex + ';');
-				result.push(colorPrefix + colorName + '-rgb' + ': ' + hexToRgb(obj.values.hex) + ';');
+				result.push(colorFinalName + ': ' + obj.values.hex + ';');
+				result.push(colorFinalName + '-rgb' + ': ' + hexToRgb(obj.values.hex) + ';');
 
 				/** JSON object structure */
 				colorName = colorName.replace(/--/i, '').replace(/raw-/i, '');
@@ -80,16 +80,16 @@ const ImportColorsRaw = (
 
 const ImportSingleTokenFile = (
 	binValues: configFileObject,
-	jsonSource: { data },
+	jsonColors: Array<any>,
 	hexToCssVariable: Object,
 ) => {
 	try {
 		let result: Array<string> = [];
 		let resultJson = {};
 
-		jsonSource.data.colors.forEach(obj => {
-			const patternDeprecated = /deprecated|Pattern|RAW|theme/i;
-			if (obj.name.match(patternDeprecated) === null) {
+		jsonColors.forEach(obj => {
+			const patternRawColorExcludes = /deprecated|Pattern|RAW|theme/i;
+			if (obj.name.match(patternRawColorExcludes) === null) {
 				let tokenName = obj.name;
 				tokenName = tokenName.replace(/\//i, '-');
 
@@ -98,7 +98,7 @@ const ImportSingleTokenFile = (
 				});
 
 				if (obj.values.alpha !== 1) {
-					result.push('$' + tokenName + ': ' + 'rgba(var(' + hexToCssVariable[obj.values.hex] +'), ' + obj.values.alpha + ');');
+					result.push('$' + tokenName + ': ' + 'rgba(var(' + hexToCssVariable[obj.values.hex] +'-rgb), ' + obj.values.alpha + ');');
 				} else {
 					result.push('$' + tokenName + ': ' + hexToCssVariable[obj.values.hex] + ';');
 				}
@@ -173,10 +173,14 @@ const SynchronizeColorsTokens = () => {
 			Object.keys(bin.files).forEach(key => {
 				switch (key) {
 					case "colorsRaw":
-						hexToCssVariable = ImportColorsRaw(bin.files[key], response);
+						hexToCssVariable = ImportColorsRaw(bin.files[key], response?.data?.colors);
 						break;
 					case "tokens":
-						ImportSingleTokenFile(bin.files[key], response, hexToCssVariable);
+						if (typeof hexToCssVariable === 'object') {
+							ImportSingleTokenFile(bin.files[key], response?.data?.colors, hexToCssVariable);
+						} else {
+							console.log("You must set in config file colorsRaw as first file");
+						}
 						break;
 				}
 			});

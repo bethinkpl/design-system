@@ -2,12 +2,12 @@
 	<div class="colorsList">
 		<div class="colorsList__row">
 			<ol class="colorsList__categories">
-				<li v-for="(colors, colorCategory) in tokensWNL" :key="colorCategory" class="colorsDefinition__category">
+				<li v-for="(colors, colorCategory) in tokensBodywork" :key="colorCategory" class="colorsDefinition__category">
 					{{ colorCategory }}
 				</li>
 			</ol>
 		</div>
-		<div v-for="(colors, colorCategory) in tokensWNL" :key="colorCategory" class="colorsList__row">
+		<div v-for="(colors, colorCategory) in tokensBodywork" :key="colorCategory" class="colorsList__row">
 			<h2 :id="'category-' + colorCategory">{{ colorCategory }}</h2>
 			<div v-for="color in colors" :key="color.id" class='colorDefinition'>
 				<div class="colorDefinition__id">{{ color.label }}</div>
@@ -21,15 +21,13 @@
 </template>
 
 <script lang="ts">
-
-import tokensWNL from '../../../styles/settings/colors/_tokens-bodywork.json'
-
 export default {
 	name: 'ColorsTokensBodywork',
-	data(){
-		return {
-			tokensWNL,
-		}
-	}
+  props: {
+    tokensBodywork: {
+      type: Object,
+      required: true,
+    },
+  },
 };
 </script>
