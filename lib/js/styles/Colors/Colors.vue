@@ -20,63 +20,6 @@
 	</div>
 </template>
 
-<style lang="scss">
-.colorsList {
-	margin: 0 auto;
-	width: 80%;
-
-	h2 {
-		margin-top: 0;
-	}
-
-	&__row {
-		border: 1px solid #f3f2f2;
-		margin-bottom: 20px;
-		padding: 20px 20px;
-	}
-
-	&__categories {
-		line-height: 1.5em;
-	}
-}
-
-.colorDefinition {
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
-	width: 100%;
-
-	div {
-		min-width: 200px;
-		padding: 10px;
-	}
-
-	&__color {
-		flex: 3 1 auto;
-		width: 200px;
-
-		span {
-			box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
-			display: block;
-			height: 40px;
-			width: 100%;
-		}
-	}
-
-	&__value {
-		color: #707070;
-		flex: 1 1 auto;
-		width: 200px;
-	}
-
-	&__id {
-		flex: 1 1 auto;
-		width: 200px;
-	}
-}
-
-</style>
-
 <script lang="ts">
 export default {
 	name: 'Colors',

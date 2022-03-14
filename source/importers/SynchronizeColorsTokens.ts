@@ -169,7 +169,7 @@ const arrayToFile = (filepath: string, content: Array<string>) => {
 	file.end();
 }
 
-const jsonToFile  = (filepath: string, content: any) => {
+const jsonToFile  = (filepath: string, content: Object) => {
 	let file = fsT.createWriteStream(filepath);
 	file.on('error', function(err) { console.log(err) });
 	file.write(JSON.stringify(content));
