@@ -36,10 +36,10 @@ const ImportColorsRaw = (
 		result.push(':root {\n');
 
 		jsonColors.forEach(obj => {
-			const patternRawOrTheme = /RAW\/|theme/i;
-			const patternDeprecatedOrPattern = /deprecated|Pattern/i;
+			const patternColorsToProcess = /RAW\/|theme/i;
+			const patternColorsToIgnore = /deprecated|Pattern/i;
 			const patternTheme = /theme/i;
-			if (obj.name.match(patternRawOrTheme) && obj.name.match(patternDeprecatedOrPattern) === null) {
+			if (obj.name.match(patternColorsToProcess) && obj.name.match(patternColorsToIgnore) === null) {
 				const nameSplit = obj.name.split('/');
 				let colorName = (nameSplit[2] === undefined) ? nameSplit[1] : nameSplit[2];
 
@@ -112,8 +112,8 @@ const ImportSingleTokenFile = (
 		let resultJson = {};
 
 		jsonColors.forEach(obj => {
-			const patternRawColorExcludes = /deprecated|Pattern|RAW|theme/i;
-			if (obj.name.match(patternRawColorExcludes) === null) {
+			const patternColorsToIgnore = /deprecated|Pattern|RAW|theme/i;
+			if (obj.name.match(patternColorsToIgnore) === null) {
 				let tokenName = obj.name;
 				tokenName = tokenName.replace(/\//i, '-');
 
@@ -150,6 +150,10 @@ const ImportSingleTokenFile = (
 
 
 const hexToRgb = (hex: string ) => {
+	if (typeof hex !== "string" || [4, 7].includes(hex.length) === false) {
+		return null;
+	}
+
 	if (hex.length === 4) {
 		hex = hex + hex[1] + hex[2] + hex[3];
 	}
