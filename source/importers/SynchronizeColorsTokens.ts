@@ -2,10 +2,13 @@ const fsT = require('fs');
 const axios = require("axios");
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
 
-interface IResultJsonObject {
+interface IResultFileJsonObject {
 	id: string;
 	label: string;
 	value: string;
+}
+
+interface IResultJsonObject  extends IResultFileJsonObject {
 	weight: number;
 }
 
@@ -27,7 +30,8 @@ const ImportColorsRaw = (
 	let hexToCssVariable: Object = {};
 	try {
 		let result: Array<string> = [];
-		let resultJson = {};
+		let temporaryColorsJson = {};
+		let resultColorsJson = {};
 
 		jsonColors.forEach(obj => {
 			const patternRawOrTheme = /RAW\/|theme/i;
@@ -61,15 +65,31 @@ const ImportColorsRaw = (
 					weight: parseInt(colorNameSplitted[1])
 				};
 
-				if (resultJson[category] === undefined) {
-					resultJson[category] = [];
+				if (temporaryColorsJson[category] === undefined) {
+					temporaryColorsJson[category] = [];
 				}
-				resultJson[category].push(resultJsonObject);
-				resultJson[category].sort((a,b) => a.weight - b.weight);
+				temporaryColorsJson[category].push(resultJsonObject);
+				temporaryColorsJson[category].sort((a,b) => a.weight - b.weight);
 			}
 		});
+
+		Object.entries<Array<IResultJsonObject>>(temporaryColorsJson).forEach(([category, colors]) => {
+			Object.entries(colors).forEach(([, color]) => {
+				const resultFileJsonObject: IResultFileJsonObject = {
+					id: color.id,
+					label: color.label,
+					value: color.value
+				}
+
+				if (resultColorsJson[category] === undefined) {
+					resultColorsJson[category] = [];
+				}
+				resultColorsJson[category].push(resultFileJsonObject);
+			});
+		});
+
 		saveColorFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-		saveColorFileJSON(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJson);
+		saveColorFileJSON(tokensFilesConfig.destinationPath + binValues.destinationJson, resultColorsJson);
 
 	} catch (err) {
 		console.error(err)
