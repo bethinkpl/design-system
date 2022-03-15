@@ -103,7 +103,7 @@ const ImportColorsRaw = (
 };
 
 const ImportSingleTokenFile = (
-	binValues: configFileObject,
+	binValues : configFileObject,
 	jsonColors: Array<any>,
 	hexToCssVariable: Object,
 ) => {
@@ -180,22 +180,19 @@ const SynchronizeSingleBin = async (bin) => {
 	try {
 		const response = await axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');
 		let hexToCssVariable;
-		Object.keys(bin.files).forEach(key => {
-			switch (key) {
-				case "colorsRaw":
-					hexToCssVariable = ImportColorsRaw(bin.files[key], response?.data?.colors);
-					break;
-				case "tokens":
-					if (typeof hexToCssVariable === 'object') {
-						ImportSingleTokenFile(bin.files[key], response?.data?.colors, hexToCssVariable);
-					} else {
-						console.log("You must set in config file colorsRaw as first file");
-					}
-					break;
+		Object.keys(bin.files).forEach(() => {
+			if (!response.data.colors) {
+				throw new TypeError('Response structure has no colors!');
 			}
+
+			hexToCssVariable = ImportColorsRaw(bin.files.colorsRaw, response.data.colors);
+			if (typeof hexToCssVariable !== 'object') {
+				throw new TypeError('Colors in downloaded raw colors file are broken!');
+			}
+
+			ImportSingleTokenFile(bin.files.tokens, response.data.colors, hexToCssVariable);
 		});
 	} catch (err) {
-		// Handle Error Here
 		console.error(err);
 	}
 };
