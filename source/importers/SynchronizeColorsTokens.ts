@@ -1,5 +1,5 @@
 const fsT = require('fs');
-const axios = require("axios");
+const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
 
 interface IResultFileJsonObject {
@@ -8,13 +8,13 @@ interface IResultFileJsonObject {
 	value: string;
 }
 
-interface IResultJsonObject  extends IResultFileJsonObject {
+interface IResultJsonObject extends IResultFileJsonObject {
 	weight: number;
 }
 
 interface configFileObject {
-	destination: string,
-	destinationJson: string
+	destination: string;
+	destinationJson: string;
 }
 
 interface ITokenJsonObject {
@@ -23,10 +23,7 @@ interface ITokenJsonObject {
 	value: string;
 }
 
-const ImportColorsRaw = (
-	binValues: configFileObject,
-	jsonColors: Array<any>
-) => {
+const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) => {
 	let hexToCssVariable: Object = {};
 	try {
 		let result: Array<string> = [];
@@ -35,23 +32,27 @@ const ImportColorsRaw = (
 
 		result.push(':root {');
 
-		jsonColors.forEach(obj => {
+		jsonColors.forEach((obj) => {
 			const patternColorsToProcess = /RAW\/|theme/i;
 			const patternColorsToIgnore = /deprecated|Pattern/i;
 			const patternTheme = /theme/i;
-			if (obj.name.match(patternColorsToProcess) && obj.name.match(patternColorsToIgnore) === null) {
+			if (
+				obj.name.match(patternColorsToProcess) &&
+				obj.name.match(patternColorsToIgnore) === null
+			) {
 				const nameSplit = obj.name.split('/');
-				let colorName = (nameSplit[2] === undefined) ? nameSplit[1] : nameSplit[2];
+				let colorName = nameSplit[2] === undefined ? nameSplit[1] : nameSplit[2];
 				console.log(colorName);
-				obj.values.hex = obj.values.hex.replace(/FFFFFF/gi, function(){
+				obj.values.hex = obj.values.hex.replace(/FFFFFF/gi, function () {
 					return 'fff';
 				});
 
-				const colorFinalName = obj.name.match(patternTheme) ? '--'  + colorName : '--raw-' + colorName;
-				console.log(colorFinalName);
+				const colorFinalName = obj.name.match(patternTheme)
+					? '--' + colorName
+					: '--raw-' + colorName;
 
 				if (hexToCssVariable[obj.values.hex] === undefined) {
-					hexToCssVariable[obj.values.hex] = colorFinalName ;
+					hexToCssVariable[obj.values.hex] = colorFinalName;
 				}
 
 				result.push(colorFinalName + ': ' + obj.values.hex + ';');
@@ -60,51 +61,53 @@ const ImportColorsRaw = (
 				/** JSON object structure */
 				colorName = colorName.replace(/--/i, '').replace(/raw-/i, '');
 				const colorNameSplitted = colorName.split('-');
-				const category = (colorNameSplitted[1] === undefined) ? 'default' : colorNameSplitted[0];
+				const category =
+					colorNameSplitted[1] === undefined ? 'default' : colorNameSplitted[0];
 				const resultJsonObject: IResultJsonObject = {
 					id: binValues.destination + '_' + colorName,
 					label: colorName,
 					value: obj.values.hex,
-					weight: parseInt(colorNameSplitted[1])
+					weight: parseInt(colorNameSplitted[1]),
 				};
 
 				if (temporaryColorsJson[category] === undefined) {
 					temporaryColorsJson[category] = [];
 				}
 				temporaryColorsJson[category].push(resultJsonObject);
-				temporaryColorsJson[category].sort((a,b) => a.weight - b.weight);
+				temporaryColorsJson[category].sort((a, b) => a.weight - b.weight);
 			}
 		});
 
 		result.push('}\n');
 
-		Object.entries<Array<IResultJsonObject>>(temporaryColorsJson).forEach(([category, colors]) => {
-			Object.entries(colors).forEach(([, color]) => {
-				const resultFileJsonObject: IResultFileJsonObject = {
-					id: color.id,
-					label: color.label,
-					value: color.value
-				}
+		Object.entries<Array<IResultJsonObject>>(temporaryColorsJson).forEach(
+			([category, colors]) => {
+				Object.entries(colors).forEach(([, color]) => {
+					const resultFileJsonObject: IResultFileJsonObject = {
+						id: color.id,
+						label: color.label,
+						value: color.value,
+					};
 
-				if (resultColorsJson[category] === undefined) {
-					resultColorsJson[category] = [];
-				}
-				resultColorsJson[category].push(resultFileJsonObject);
-			});
-		});
+					if (resultColorsJson[category] === undefined) {
+						resultColorsJson[category] = [];
+					}
+					resultColorsJson[category].push(resultFileJsonObject);
+				});
+			},
+		);
 
 		arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
 		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultColorsJson);
-
 	} catch (err) {
-		console.error(err)
+		console.error(err);
 	}
 
 	return hexToCssVariable;
 };
 
 const ImportSingleTokenFile = (
-	binValues : configFileObject,
+	binValues: configFileObject,
 	jsonColors: Array<any>,
 	hexToCssVariable: Object,
 ) => {
@@ -112,18 +115,27 @@ const ImportSingleTokenFile = (
 		let result: Array<string> = [];
 		let resultJson = {};
 
-		jsonColors.forEach(obj => {
+		jsonColors.forEach((obj) => {
 			const patternColorsToIgnore = /deprecated|Pattern|RAW|theme/i;
 			if (obj.name.match(patternColorsToIgnore) === null) {
 				let tokenName = obj.name;
 				tokenName = tokenName.replace(/\//i, '-');
 
-				if (obj.values.hex .split('').every(char => char === obj.values.hex [0])){
-					obj.values.hex  = `${obj.values.hex [0]}${obj.values.hex [1]}${obj.values.hex [2]}`
+				if (obj.values.hex.split('').every((char) => char === obj.values.hex[0])) {
+					obj.values.hex = `${obj.values.hex[0]}${obj.values.hex[1]}${obj.values.hex[2]}`;
 				}
 
 				if (obj.values.alpha !== 1) {
-					result.push('$' + tokenName + ': ' + 'rgba(var(' + hexToCssVariable[obj.values.hex] +'-rgb), ' + obj.values.alpha + ');');
+					result.push(
+						'$' +
+							tokenName +
+							': ' +
+							'rgba(var(' +
+							hexToCssVariable[obj.values.hex] +
+							'-rgb), ' +
+							obj.values.alpha +
+							');',
+					);
 				} else {
 					result.push('$' + tokenName + ': ' + hexToCssVariable[obj.values.hex] + ';');
 				}
@@ -145,13 +157,12 @@ const ImportSingleTokenFile = (
 		arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
 		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJson);
 	} catch (err) {
-		console.error(err)
+		console.error(err);
 	}
-}
+};
 
-
-const hexToRgb = (hex: string ) => {
-	if (typeof hex !== "string" || [4, 7].includes(hex.length) === false) {
+const hexToRgb = (hex: string) => {
+	if (typeof hex !== 'string' || [4, 7].includes(hex.length) === false) {
 		return null;
 	}
 
@@ -159,34 +170,44 @@ const hexToRgb = (hex: string ) => {
 		hex = hex + hex[1] + hex[2] + hex[3];
 	}
 	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	return result ? '' + parseInt(result[1], 16) + ', ' +
-		parseInt(result[2], 16) + ', ' + parseInt(result[3], 16)  : null;
-}
+	return result
+		? '' +
+				parseInt(result[1], 16) +
+				', ' +
+				parseInt(result[2], 16) +
+				', ' +
+				parseInt(result[3], 16)
+		: null;
+};
 
 const arrayToFile = (filepath: string, content: Array<string>) => {
 	let file = fsT.createWriteStream(filepath);
-	file.on('error', function(err) { console.log(err) });
+	file.on('error', function (err) {
+		console.log(err);
+	});
 
 	const patternTheme = /root|}/i;
 	let hasFileIndentation = false;
-	content.forEach(function(v) {
+	content.forEach(function (v) {
 		if (v.match(patternTheme)) {
 			hasFileIndentation = true;
-			file.write( v.toLowerCase() + '\n');
+			file.write(v.toLowerCase() + '\n');
 		} else {
-			const hasLineIndentation = hasFileIndentation ? '\t' : ''
-			file.write( hasLineIndentation+ v.toLowerCase() + '\n');
+			const hasLineIndentation = hasFileIndentation ? '\t' : '';
+			file.write(hasLineIndentation + v.toLowerCase() + '\n');
 		}
 	});
 	file.end();
-}
+};
 
-const jsonToFile  = (filepath: string, content: Object) => {
+const jsonToFile = (filepath: string, content: Object) => {
 	let file = fsT.createWriteStream(filepath);
-	file.on('error', function(err) { console.log(err) });
+	file.on('error', function (err) {
+		console.log(err);
+	});
 	file.write(JSON.stringify(content));
 	file.end();
-}
+};
 
 const SynchronizeSingleBin = async (bin) => {
 	try {
@@ -210,9 +231,9 @@ const SynchronizeSingleBin = async (bin) => {
 };
 
 const SynchronizeColorsTokens = async () => {
-	tokensFilesConfig.bins.forEach(bin => {
-		SynchronizeSingleBin(bin)
+	tokensFilesConfig.bins.forEach((bin) => {
+		SynchronizeSingleBin(bin);
 	});
-}
+};
 
 SynchronizeColorsTokens();
