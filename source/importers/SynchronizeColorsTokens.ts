@@ -42,12 +42,13 @@ const ImportColorsRaw = (
 			if (obj.name.match(patternColorsToProcess) && obj.name.match(patternColorsToIgnore) === null) {
 				const nameSplit = obj.name.split('/');
 				let colorName = (nameSplit[2] === undefined) ? nameSplit[1] : nameSplit[2];
-
+				console.log(colorName);
 				obj.values.hex = obj.values.hex.replace(/FFFFFF/gi, function(){
 					return 'fff';
 				});
 
-				const colorFinalName = obj.name.match(patternTheme) ? '--' : '--raw-' + colorName;
+				const colorFinalName = obj.name.match(patternTheme) ? '--'  + colorName : '--raw-' + colorName;
+				console.log(colorFinalName);
 
 				if (hexToCssVariable[obj.values.hex] === undefined) {
 					hexToCssVariable[obj.values.hex] = colorFinalName ;
