@@ -2,6 +2,10 @@ const fsT = require('fs');
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
 
+interface Dict<V> {
+	[key: string]: V;
+}
+
 interface IResultFileJsonObject {
 	id: string;
 	label: string;
@@ -27,8 +31,8 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 	let hexToCssVariable: Object = {};
 	try {
 		let result: Array<string> = [];
-		let temporaryColorsJson = {};
-		let resultColorsJson = {};
+		let temporaryColorsJson: Dict<Array<IResultJsonObject>> = {};
+		let resultColorsJson: Dict<Array<IResultFileJsonObject>> = {};
 
 		result.push(':root {');
 
@@ -63,7 +67,6 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 				}
 
 				/** JSON object structure */
-				colorName = colorName.replace(/--/i, '').replace(/raw-/i, '');
 				const colorNameSplitted = colorName.split('-');
 				const category =
 					colorNameSplitted[1] === undefined ? 'default' : colorNameSplitted[0];
@@ -82,6 +85,10 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 		});
 
 		result.push('}\n');
+
+		if (result.length === 2) {
+			throw new Error('No colors to save');
+		}
 
 		Object.entries<Array<IResultJsonObject>>(temporaryColorsJson).forEach(
 			([category, colors]) => {
@@ -157,6 +164,11 @@ const ImportSingleTokenFile = (
 				resultJson[category].push(resultJsonObject);
 			}
 		});
+
+		if (result.length == 0) {
+			throw new Error('No colors to save');
+		}
+
 		arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
 		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJson);
 	} catch (err) {
@@ -218,12 +230,12 @@ const SynchronizeSingleBin = async (bin) => {
 		let hexToCssVariable;
 
 		if (!response.data.colors) {
-			new TypeError('Response structure has no colors!');
+			throw new TypeError('Response structure has no colors!');
 		}
 
 		hexToCssVariable = ImportColorsRaw(bin.files.colorsRaw, response.data.colors);
 		if (typeof hexToCssVariable !== 'object') {
-			new TypeError('Colors in downloaded raw colors file are broken!');
+			throw new TypeError('Colors in downloaded raw colors file are broken!');
 		}
 
 		ImportSingleTokenFile(bin.files.tokens, response.data.colors, hexToCssVariable);
