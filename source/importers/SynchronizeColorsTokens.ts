@@ -56,7 +56,11 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 				}
 
 				result.push(colorFinalName + ': ' + obj.values.hex + ';');
-				result.push(colorFinalName + '-rgb' + ': ' + hexToRgb(obj.values.hex) + ';');
+
+				const rgb = hexToRgb(obj.values.hex);
+				if (rgb !== null) {
+					result.push(colorFinalName + '-rgb' + ': ' + rgb + ';');
+				}
 
 				/** JSON object structure */
 				colorName = colorName.replace(/--/i, '').replace(/raw-/i, '');
@@ -74,7 +78,6 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 					temporaryColorsJson[category] = [];
 				}
 				temporaryColorsJson[category].push(resultJsonObject);
-				temporaryColorsJson[category].sort((a, b) => a.weight - b.weight);
 			}
 		});
 
@@ -213,18 +216,17 @@ const SynchronizeSingleBin = async (bin) => {
 	try {
 		const response = await axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');
 		let hexToCssVariable;
-		Object.keys(bin.files).forEach(() => {
-			if (!response.data.colors) {
-				throw new TypeError('Response structure has no colors!');
-			}
 
-			hexToCssVariable = ImportColorsRaw(bin.files.colorsRaw, response.data.colors);
-			if (typeof hexToCssVariable !== 'object') {
-				throw new TypeError('Colors in downloaded raw colors file are broken!');
-			}
+		if (!response.data.colors) {
+			new TypeError('Response structure has no colors!');
+		}
 
-			ImportSingleTokenFile(bin.files.tokens, response.data.colors, hexToCssVariable);
-		});
+		hexToCssVariable = ImportColorsRaw(bin.files.colorsRaw, response.data.colors);
+		if (typeof hexToCssVariable !== 'object') {
+			new TypeError('Colors in downloaded raw colors file are broken!');
+		}
+
+		ImportSingleTokenFile(bin.files.tokens, response.data.colors, hexToCssVariable);
 	} catch (err) {
 		console.error(err);
 	}
