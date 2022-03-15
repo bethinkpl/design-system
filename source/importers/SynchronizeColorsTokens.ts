@@ -33,7 +33,7 @@ const ImportColorsRaw = (
 		let temporaryColorsJson = {};
 		let resultColorsJson = {};
 
-		result.push(':root {\n');
+		result.push(':root {');
 
 		jsonColors.forEach(obj => {
 			const patternColorsToProcess = /RAW\/|theme/i;
@@ -165,7 +165,18 @@ const hexToRgb = (hex: string ) => {
 const arrayToFile = (filepath: string, content: Array<string>) => {
 	let file = fsT.createWriteStream(filepath);
 	file.on('error', function(err) { console.log(err) });
-	content.forEach(function(v) { file.write('\t' + v.toLowerCase() + '\n'); });
+
+	const patternTheme = /root|}/i;
+	let hasFileIndentation = false;
+	content.forEach(function(v) {
+		if (v.match(patternTheme)) {
+			hasFileIndentation = true;
+			file.write( v.toLowerCase() + '\n');
+		} else {
+			const hasLineIndentation = hasFileIndentation ? '\t' : ''
+			file.write( hasLineIndentation+ v.toLowerCase() + '\n');
+		}
+	});
 	file.end();
 }
 
