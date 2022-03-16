@@ -16,6 +16,7 @@ module.exports = {
 		 * declaration (.d.ts) files.
 		 * Discussed here https://github.com/vuejs/vue-cli/issues/1081
 		 */
+		console.log(process.env.NODE_ENV);
 		if (process.env.NODE_ENV === 'production') {
 			config.module.rule('ts').uses.delete('cache-loader');
 			config.module
