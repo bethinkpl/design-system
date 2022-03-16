@@ -29,89 +29,85 @@ interface ITokenJsonObject {
 
 const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) => {
 	let hexToCssVariable: Object = {};
-	try {
-		let result: Array<string> = [];
-		let temporaryColorsJson: Dict<Array<IResultJsonObject>> = {};
-		let resultColorsJson: Dict<Array<IResultFileJsonObject>> = {};
 
-		result.push(':root {');
+	let result: Array<string> = [];
+	let temporaryColorsJson: Dict<Array<IResultJsonObject>> = {};
+	let resultColorsJson: Dict<Array<IResultFileJsonObject>> = {};
 
-		jsonColors.forEach((obj) => {
-			const patternColorsToProcess = /RAW\/|theme/i;
-			const patternColorsToIgnore = /deprecated|Pattern/i;
-			const patternTheme = /theme/i;
-			if (
-				obj.name.match(patternColorsToProcess) &&
-				obj.name.match(patternColorsToIgnore) === null
-			) {
-				const nameSplit = obj.name.split('/');
-				let colorName = nameSplit[2] === undefined ? nameSplit[1] : nameSplit[2];
-				console.log(colorName);
-				obj.values.hex = obj.values.hex.replace(/FFFFFF/gi, function () {
-					return 'fff';
-				});
+	result.push(':root {');
 
-				const colorFinalName = obj.name.match(patternTheme)
-					? '--' + colorName
-					: '--raw-' + colorName;
+	jsonColors.forEach((obj) => {
+		const patternColorsToProcess = /RAW\/|theme/i;
+		const patternColorsToIgnore = /deprecated|Pattern/i;
+		const patternTheme = /theme/i;
+		if (
+			obj.name.match(patternColorsToProcess) &&
+			obj.name.match(patternColorsToIgnore) === null
+		) {
+			const nameSplit = obj.name.split('/');
+			let colorName = nameSplit[2] === undefined ? nameSplit[1] : nameSplit[2];
 
-				if (hexToCssVariable[obj.values.hex] === undefined) {
-					hexToCssVariable[obj.values.hex] = colorFinalName;
-				}
-
-				result.push(colorFinalName + ': ' + obj.values.hex + ';');
-
-				const rgb = hexToRgb(obj.values.hex);
-				if (rgb !== null) {
-					result.push(colorFinalName + '-rgb' + ': ' + rgb + ';');
-				}
-
-				/** JSON object structure */
-				const colorNameSplitted = colorName.split('-');
-				const category =
-					colorNameSplitted[1] === undefined ? 'default' : colorNameSplitted[0];
-				const resultJsonObject: IResultJsonObject = {
-					id: binValues.destination + '_' + colorName,
-					label: colorName,
-					value: obj.values.hex,
-					weight: parseInt(colorNameSplitted[1]),
-				};
-
-				if (temporaryColorsJson[category] === undefined) {
-					temporaryColorsJson[category] = [];
-				}
-				temporaryColorsJson[category].push(resultJsonObject);
+			if (obj.values.hex.split('').every((char) => char === obj.values.hex[0])) {
+				obj.values.hex = `${obj.values.hex[0]}${obj.values.hex[1]}${obj.values.hex[2]}`;
 			}
-		});
 
-		result.push('}\n');
+			const colorFinalName = obj.name.match(patternTheme)
+				? '--' + colorName
+				: '--raw-' + colorName;
 
-		if (result.length === 2) {
-			throw new Error('No colors to save');
+			if (hexToCssVariable[obj.values.hex] === undefined) {
+				hexToCssVariable[obj.values.hex] = colorFinalName;
+			}
+
+			result.push(colorFinalName + ': ' + obj.values.hex + ';');
+
+			const rgb = hexToRgb(obj.values.hex);
+			if (rgb === null) {
+				throw new Error('ERROR! Cant convert this hex to rgb: ' + obj.values.hex);
+			}
+
+			result.push(colorFinalName + '-rgb' + ': ' + rgb + ';');
+
+			/** JSON object structure */
+			const colorNameSplitted = colorName.split('-');
+			const category = colorNameSplitted[1] === undefined ? 'default' : colorNameSplitted[0];
+			const resultJsonObject: IResultJsonObject = {
+				id: binValues.destination + '_' + colorName,
+				label: colorName,
+				value: obj.values.hex,
+				weight: parseInt(colorNameSplitted[1]),
+			};
+
+			if (temporaryColorsJson[category] === undefined) {
+				temporaryColorsJson[category] = [];
+			}
+			temporaryColorsJson[category].push(resultJsonObject);
 		}
+	});
 
-		Object.entries<Array<IResultJsonObject>>(temporaryColorsJson).forEach(
-			([category, colors]) => {
-				Object.entries(colors).forEach(([, color]) => {
-					const resultFileJsonObject: IResultFileJsonObject = {
-						id: color.id,
-						label: color.label,
-						value: color.value,
-					};
+	result.push('}\n');
 
-					if (resultColorsJson[category] === undefined) {
-						resultColorsJson[category] = [];
-					}
-					resultColorsJson[category].push(resultFileJsonObject);
-				});
-			},
-		);
-
-		arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultColorsJson);
-	} catch (err) {
-		console.error(err);
+	if (result.length === 2) {
+		throw new Error('ERROR! No colors to save');
 	}
+
+	Object.entries<Array<IResultJsonObject>>(temporaryColorsJson).forEach(([category, colors]) => {
+		Object.entries(colors).forEach(([, color]) => {
+			const resultFileJsonObject: IResultFileJsonObject = {
+				id: color.id,
+				label: color.label,
+				value: color.value,
+			};
+
+			if (resultColorsJson[category] === undefined) {
+				resultColorsJson[category] = [];
+			}
+			resultColorsJson[category].push(resultFileJsonObject);
+		});
+	});
+
+	arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
+	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultColorsJson);
 
 	return hexToCssVariable;
 };
@@ -119,61 +115,57 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 const ImportSingleTokenFile = (
 	binValues: configFileObject,
 	jsonColors: Array<any>,
-	hexToCssVariable: Object,
+	hexToCssVariable: Dict<string>,
 ) => {
-	try {
-		let result: Array<string> = [];
-		let resultJson = {};
+	let result: Array<string> = [];
+	let resultJson = {};
 
-		jsonColors.forEach((obj) => {
-			const patternColorsToIgnore = /deprecated|Pattern|RAW|theme/i;
-			if (obj.name.match(patternColorsToIgnore) === null) {
-				let tokenName = obj.name;
-				tokenName = tokenName.replace(/\//i, '-');
+	jsonColors.forEach((obj) => {
+		const patternColorsToIgnore = /deprecated|Pattern|RAW|theme/i;
+		if (obj.name.match(patternColorsToIgnore) === null) {
+			let tokenName = obj.name;
+			tokenName = tokenName.replace(/\//i, '-');
 
-				if (obj.values.hex.split('').every((char) => char === obj.values.hex[0])) {
-					obj.values.hex = `${obj.values.hex[0]}${obj.values.hex[1]}${obj.values.hex[2]}`;
-				}
-
-				if (obj.values.alpha !== 1) {
-					result.push(
-						'$' +
-							tokenName +
-							': ' +
-							'rgba(var(' +
-							hexToCssVariable[obj.values.hex] +
-							'-rgb), ' +
-							obj.values.alpha +
-							');',
-					);
-				} else {
-					result.push('$' + tokenName + ': ' + hexToCssVariable[obj.values.hex] + ';');
-				}
-
-				/** JSON object structure */
-				const tokenNameSplitted = tokenName.split('-');
-				const category = tokenNameSplitted[1];
-				const resultJsonObject: ITokenJsonObject = {
-					id: binValues.destination + '_' + tokenName,
-					label: tokenName,
-					value: hexToCssVariable[obj.values.hex],
-				};
-				if (resultJson[category] === undefined) {
-					resultJson[category] = [];
-				}
-				resultJson[category].push(resultJsonObject);
+			if (obj.values.hex.split('').every((char) => char === obj.values.hex[0])) {
+				obj.values.hex = `${obj.values.hex[0]}${obj.values.hex[1]}${obj.values.hex[2]}`;
 			}
-		});
 
-		if (result.length == 0) {
-			throw new Error('No colors to save');
+			if (obj.values.alpha !== 1) {
+				result.push(
+					'$' +
+						tokenName +
+						': ' +
+						'rgba(var(' +
+						hexToCssVariable[obj.values.hex] +
+						'-rgb), ' +
+						obj.values.alpha +
+						');',
+				);
+			} else {
+				result.push('$' + tokenName + ': ' + hexToCssVariable[obj.values.hex] + ';');
+			}
+
+			/** JSON object structure */
+			const tokenNameSplitted = tokenName.split('-');
+			const category = tokenNameSplitted[1];
+			const resultJsonObject: ITokenJsonObject = {
+				id: binValues.destination + '_' + tokenName,
+				label: tokenName,
+				value: hexToCssVariable[obj.values.hex],
+			};
+			if (resultJson[category] === undefined) {
+				resultJson[category] = [];
+			}
+			resultJson[category].push(resultJsonObject);
 		}
+	});
 
-		arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJson);
-	} catch (err) {
-		console.error(err);
+	if (result.length == 0) {
+		throw new Error('ERROR! No colors to save');
 	}
+
+	arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
+	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJson);
 };
 
 const hexToRgb = (hex: string) => {
@@ -225,23 +217,20 @@ const jsonToFile = (filepath: string, content: Object) => {
 };
 
 const SynchronizeSingleBin = async (bin) => {
-	try {
-		const response = await axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');
-		let hexToCssVariable;
+	const response = await axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');
+	let hexToCssVariable;
 
-		if (!response.data.colors) {
-			throw new TypeError('Response structure has no colors!');
-		}
-
-		hexToCssVariable = ImportColorsRaw(bin.files.colorsRaw, response.data.colors);
-		if (typeof hexToCssVariable !== 'object') {
-			throw new TypeError('Colors in downloaded raw colors file are broken!');
-		}
-
-		ImportSingleTokenFile(bin.files.tokens, response.data.colors, hexToCssVariable);
-	} catch (err) {
-		console.error(err);
+	if (!response.data.colors) {
+		throw new TypeError('Response structure has no colors!');
 	}
+
+	hexToCssVariable = ImportColorsRaw(bin.files.colorsRaw, response.data.colors);
+	if (typeof hexToCssVariable !== 'object') {
+		throw new TypeError('Colors in downloaded raw colors file are broken!');
+	}
+
+	ImportSingleTokenFile(bin.files.tokens, response.data.colors, hexToCssVariable);
+	console.log('The import was successful for bin: ' + bin.id);
 };
 
 const SynchronizeColorsTokens = async () => {
