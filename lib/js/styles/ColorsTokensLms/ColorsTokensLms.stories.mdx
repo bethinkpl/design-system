@@ -1,23 +1,25 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import ColorsTokensLms from './ColorsTokensLms';
-import tokensWnl from '../../../styles/settings/colors/_tokens.json'
+import tokensWnl from '../../../styles/settings/colors/_tokens.json';
 
-<Meta title='foundations/Tokens/ColorsLms' component={ColorsTokensLms} />
+<Meta title="foundations/Tokens/ColorsLms" component={ColorsTokensLms} />
 
 # Card
 
-<Story name='ColorsLms'
-   args={{
-       tokensWnl: tokensWnl,
-   }}
-   argTypes={{
-       tokensWnl: Object,
-   }}>
+<Story
+	name="ColorsLms"
+	args={{
+		tokensWnl: tokensWnl,
+	}}
+	argTypes={{
+		tokensWnl: Object,
+	}}
+>
 	{(args) => {
 		return {
 			components: { ColorsTokensLms },
 			template: '<colors-tokens-lms :tokensWnl="tokensWnl"></colors-tokens-lms>',
-            props: Object.keys(args),
+			props: Object.keys(args),
 		};
 	}}
 </Story>
