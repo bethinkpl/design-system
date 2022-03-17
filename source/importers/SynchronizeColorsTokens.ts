@@ -82,7 +82,7 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 		}
 	});
 
-	result.push('}\n');
+	result.push('}');
 
 	if (result.length === 2) {
 		throw new Error('ERROR! No colors to save');
