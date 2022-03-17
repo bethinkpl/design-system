@@ -46,10 +46,7 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 		) {
 			const nameSplit = obj.name.split('/');
 			let colorName = nameSplit[2] === undefined ? nameSplit[1] : nameSplit[2];
-
-			if (obj.values.hex.split('').every((char) => char === obj.values.hex[0])) {
-				obj.values.hex = `${obj.values.hex[0]}${obj.values.hex[1]}${obj.values.hex[2]}`;
-			}
+			obj.values.hex = makeHexShortcut(obj.values.hex);
 
 			const colorFinalName = obj.name.match(patternTheme)
 				? '--' + colorName
@@ -125,10 +122,7 @@ const ImportSingleTokenFile = (
 		if (obj.name.match(patternColorsToIgnore) === null) {
 			let tokenName = obj.name;
 			tokenName = tokenName.replace(/\//i, '-');
-
-			if (obj.values.hex.split('').every((char) => char === obj.values.hex[0])) {
-				obj.values.hex = `${obj.values.hex[0]}${obj.values.hex[1]}${obj.values.hex[2]}`;
-			}
+			obj.values.hex = makeHexShortcut(obj.values.hex);
 
 			if (obj.values.alpha !== 1) {
 				result.push(
@@ -166,6 +160,13 @@ const ImportSingleTokenFile = (
 
 	arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
 	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJson);
+};
+
+const makeHexShortcut = (hex: string) => {
+	if (hex.split('').every((char) => char === hex[1] || char === '#')) {
+		hex = '#' + `${hex[1]}${hex[2]}${hex[3]}`;
+	}
+	return hex;
 };
 
 const hexToRgb = (hex: string) => {
