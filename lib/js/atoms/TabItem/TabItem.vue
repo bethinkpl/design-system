@@ -9,8 +9,7 @@
 	</div>
 </template>
 
-<style scoped lang="scss">
-@import '../../../styles/settings/colors';
+1
 @import '../../../styles/settings/icons';
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';

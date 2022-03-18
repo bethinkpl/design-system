@@ -27,13 +27,14 @@ interface ITokenJsonObject {
 	value: string;
 }
 
-const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) => {
+const ImportColorsRaw = (name: string, binValues: configFileObject, jsonColors: Array<any>) => {
 	let hexToCssVariable: Object = {};
 
 	let result: Array<string> = [];
 	let temporaryColorsJson: Dict<Array<IResultJsonObject>> = {};
 	let resultColorsJson: Dict<Array<IResultFileJsonObject>> = {};
 
+	result.push('.theme-' + name + ',');
 	result.push(':root {');
 
 	jsonColors.forEach((obj) => {
@@ -63,6 +64,9 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 				throw new Error('ERROR! Cant convert this hex to rgb: ' + obj.values.hex);
 			}
 
+			if (hexToCssVariable[rgb] === undefined) {
+				hexToCssVariable[rgb] = colorFinalName + '-rgb';
+			}
 			result.push(colorFinalName + '-rgb' + ': ' + rgb + ';');
 
 			/** JSON object structure */
@@ -84,7 +88,7 @@ const ImportColorsRaw = (binValues: configFileObject, jsonColors: Array<any>) =>
 
 	result.push('}');
 
-	if (result.length === 2) {
+	if (result.length === 3) {
 		throw new Error('ERROR! No colors to save');
 	}
 
@@ -125,6 +129,11 @@ const ImportSingleTokenFile = (
 			obj.values.hex = makeHexShortcut(obj.values.hex);
 
 			if (obj.values.alpha !== 1) {
+				const rgb = hexToRgb(obj.values.hex);
+				if (rgb && hexToCssVariable[rgb.toString()] === undefined) {
+					throw new Error('No RGB color:' + rgb);
+				}
+
 				result.push(
 					'$' +
 						tokenName +
@@ -136,6 +145,9 @@ const ImportSingleTokenFile = (
 						');',
 				);
 			} else {
+				if (hexToCssVariable[obj.values.hex] === undefined) {
+					throw new Error('No HEX color:' + obj.values.hex);
+				}
 				result.push('$' + tokenName + ': ' + hexToCssVariable[obj.values.hex] + ';');
 			}
 
@@ -145,7 +157,14 @@ const ImportSingleTokenFile = (
 			const resultJsonObject: ITokenJsonObject = {
 				id: binValues.destination + '_' + tokenName,
 				label: tokenName,
-				value: hexToCssVariable[obj.values.hex],
+				value:
+					obj.values.alpha == 1
+						? hexToCssVariable[obj.values.hex]
+						: 'rgba(var(' +
+						  hexToCssVariable[obj.values.hex] +
+						  '), ' +
+						  obj.values.alpha +
+						  ')',
 			};
 			if (resultJson[category] === undefined) {
 				resultJson[category] = [];
@@ -225,7 +244,7 @@ const SynchronizeSingleBin = async (bin) => {
 		throw new TypeError('Response structure has no colors!');
 	}
 
-	hexToCssVariable = ImportColorsRaw(bin.files.colorsRaw, response.data.colors);
+	hexToCssVariable = ImportColorsRaw(bin.name, bin.files.colorsRaw, response.data.colors);
 	if (typeof hexToCssVariable !== 'object') {
 		throw new TypeError('Colors in downloaded raw colors file are broken!');
 	}
