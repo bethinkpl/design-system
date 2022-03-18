@@ -1,5 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import ColorsList from './../ColorsList';
+import colorsListWnl from '../../../styles/settings/colors/_raw-wnl.json';
 import colorsListBodywork from '../../../styles/settings/colors/_raw-bodywork.json';
 
 <Meta title="foundations/Colors/Themes" component={ColorsList} />
@@ -9,7 +10,10 @@ import colorsListBodywork from '../../../styles/settings/colors/_raw-bodywork.js
 <Story
 	name="Themes"
 	args={{
-		colorsLists: [{ title: 'Theme Bodywork', list: colorsListBodywork }],
+		colorsLists: [
+			{ title: 'Theme WNL', list: colorsListWnl },
+			{ title: 'Theme Bodywork', list: colorsListBodywork },
+		],
 	}}
 	argTypes={{
 		colorsLists: Array,

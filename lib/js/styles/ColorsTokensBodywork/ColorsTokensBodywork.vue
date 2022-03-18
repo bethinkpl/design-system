@@ -6,7 +6,7 @@
 	</div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../../styles/settings/colors/raw-bodywork';
 </style>
 

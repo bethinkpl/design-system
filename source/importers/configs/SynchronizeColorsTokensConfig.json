@@ -4,6 +4,7 @@
     {
       "id": "620e4f834bf50f4b2d0044e9",
       "name": "wnl",
+      "isTheme": false,
       "files": {
         "colorsRaw": {
           "destination": "_raw.scss",
@@ -11,13 +12,26 @@
         },
         "tokens": {
           "destination": "_tokens.scss",
-          "destinationJson": "_tokens.json"
+          "destinationJson": "_tokens.json",
+          "destinationTokensVariables": "_tokens-variables.scss"
+        }
+      }
+    },
+    {
+      "id": "621cd1407caf5d67835b93b5",
+      "name": "wnl",
+      "isTheme": true,
+      "files": {
+        "colorsRaw": {
+          "destination": "_raw-wnl.scss",
+          "destinationJson": "_raw-wnl.json"
         }
       }
     },
     {
       "id": "621cd1407caf5d67835b93b5",
       "name": "bodywork",
+      "isTheme": true,
       "files": {
         "colorsRaw": {
           "destination": "_raw-bodywork.scss",
@@ -25,7 +39,8 @@
         },
         "tokens": {
           "destination": "_tokens-bodywork.scss",
-          "destinationJson": "_tokens-bodywork.json"
+          "destinationJson": "_tokens-bodywork.json",
+          "destinationTokensVariables": "_tokens-bodywork-variables.scss"
         }
       }
     }
