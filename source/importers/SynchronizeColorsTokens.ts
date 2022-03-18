@@ -162,7 +162,7 @@ const ImportSingleTokenFile = (
 						? hexToCssVariable[obj.values.hex]
 						: 'rgba(var(' +
 						  hexToCssVariable[obj.values.hex] +
-						  '), ' +
+						  '-rgb), ' +
 						  obj.values.alpha +
 						  ')',
 			};

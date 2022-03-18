@@ -25,7 +25,7 @@
 						<div class="colorDefinition__value">{{ color.value }}</div>
 						<div class="colorDefinition__color">
 							<span
-								v-if="isHex(color.value)"
+								v-if="isHexOrRGBA(color.value)"
 								:style="{ background: color.value }"
 							></span>
 							<span v-else :style="{ background: 'var(' + color.value + ')' }"></span>
@@ -49,11 +49,12 @@ export default {
 	data() {
 		return {
 			hasHash: /#/i,
+			hasRGBA: /rgba/i,
 		};
 	},
 	methods: {
-		isHex(color: string) {
-			return String(color).match(this.hasHash);
+		isHexOrRGBA(color: string) {
+			return color.match(this.hasHash) || color.match(this.hasRGBA);
 		},
 	},
 };
