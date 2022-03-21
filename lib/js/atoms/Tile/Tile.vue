@@ -1,16 +1,16 @@
 <template>
   <div class="a-tile" :class="{ '-clickable': clickable }">
-    <div v-if="leftIcon" class="a-tile__leftIcon">
-      <wnl-icon :icon="leftIcon" :size="ICON_SIZES.SMALL"/>
+    <div v-if="left" class="a-tile__left">
+      <wnl-icon :icon="left" :size="ICON_SIZES.SMALL"/>
     </div>
-    <div class="a-tile__centerText">
-      <span class="a-tile__eyebrow">{{ eyebrow }}</span>
-      <span class="a-tile__text">{{ text }}</span>
+    <div class="a-tile__center">
+      <div class="a-tile__eyebrow"><slot name="eyebrow" /></div>
+      <div class="a-tile__title"><slot /></div>
     </div>
-    <div v-if="clickable" class="a-tile__rightIcon">
-      <wnl-icon :icon="ICONS.FA_CHEVRON_RIGHT" :size="ICON_SIZES.SMALL"/>
+    <div v-if="right" class="a-tile__right">
+      <wnl-icon :icon="right" :size="ICON_SIZES.SMALL"/>
     </div>
-    <div v-else-if="rightText" class="a-tile__rightText">{{ rightText }}</div>
+    <div v-else-if="text" class="a-tile__text">{{ text }}</div>
   </div>
 </template>
 
@@ -37,22 +37,22 @@
 		}
 	}
 
-	&__leftIcon {
+	&__left {
 		margin-right: $space-xs;
 	}
 
-	&__centerText {
+	&__center {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 	}
 
-	&__rightIcon {
+	&__right {
 		margin-left: $space-xs;
 		color: #0f9698; //TODO: ask for correct name
 	}
 
-	&__rightText {
+	&__text {
 		@include textXS;
 
 		margin-left: $space-xs;
@@ -68,7 +68,7 @@
 		color: $color-mischka-gray;
 	}
 
-	&__text {
+	&__title {
 		@include textM;
 
 		color: #363636; //TODO: ask for correct name
@@ -92,23 +92,23 @@ export default {
       required: false,
       default: true,
     },
-    eyebrow: {
-      type: String,
-      required: true,
-    },
-    text: {
-      type: String,
-      required: true,
-    },
-    leftIcon: {
+    left: {
       type: Object,
       required: false,
       default: null,
-      validate(icon: VueConstructor) {
-        return Object.values(ICONS).includes(icon);
+      validate(left: VueConstructor) {
+        return Object.values(ICONS).includes(left);
       },
     },
-    rightText: {
+    right: {
+      type: Object,
+      required: false,
+      default: null,
+      validate(right: VueConstructor) {
+        return Object.values(ICONS).includes(right);
+      },
+    },
+    text: {
       type: String,
       required: false,
       default: null,
@@ -116,7 +116,6 @@ export default {
   },
   created() {
     this.ICON_SIZES = ICON_SIZES;
-    this.ICONS = ICONS;
   },
 }
 </script>

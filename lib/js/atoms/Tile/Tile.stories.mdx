@@ -11,19 +11,20 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 <Story name='interactive'
   args={{
       clickable: true,
-      eyebrow: 'this is eyebrow text',
-      text: 'this is main text',
+      text: 'this is a right text',
    }}
   argTypes={{
-      rightText: {control: { type: 'text' }, defaultValue: '' },
-      leftIcon: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CALENDAR_ALT' },
+      eyebrow: {control: { type: 'text' }, defaultValue: 'this is an eyebrow text' },
+      title: {control: { type: 'text' }, defaultValue: 'this is a title text' },
+      left: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CALENDAR_ALT' },
+      right: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CHEVRON_RIGHT' },
   }}>
 >
 	{(args) => {
 		return {
 			components: { Tile },
 			props: Object.keys(args),
-			template: '<tile :text="text" :eyebrow="eyebrow" :clickable="clickable" :leftIcon="ICONS[leftIcon]" :rightText="rightText"/>',
+			template: '<tile :clickable="clickable" :left="ICONS[left]" :text="text" :right="ICONS[right]"><span slot="eyebrow">{{ eyebrow }}</span><span slot="default">{{ title }}</span></tile>',
             created() {
               this.ICONS = ICONS;
             }
