@@ -1,3 +1,3 @@
-import Tile from './Tile.vue'
+import Tile from './Tile.vue';
 
-export default Tile; 
+export default Tile;
