@@ -11,13 +11,13 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 <Story name='interactive'
   args={{
       clickable: true,
-      text: 'this is a right text',
+      text: '',
+      eyebrow: 'this is an eyebrow text',
+      title: 'this is a title text',
    }}
   argTypes={{
-      eyebrow: {control: { type: 'text' }, defaultValue: 'this is an eyebrow text' },
-      title: {control: { type: 'text' }, defaultValue: 'this is a title text' },
       left: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CALENDAR_ALT' },
-      right: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CHEVRON_RIGHT' },
+      right: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: null },
   }}>
 >
 	{(args) => {
