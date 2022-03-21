@@ -82,6 +82,7 @@
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/colors/tokens';
 
 .surveyQuestionScale {
 	&__header {
@@ -104,7 +105,7 @@
 	}
 
 	&__content {
-		background: $color-background-secondary;
+		background: $neutral-background;
 		border-radius: $radius-s;
 		display: flex;
 		justify-content: space-between;
@@ -137,7 +138,7 @@
 
 	&__separator {
 		border-bottom: none;
-		border-top: 1px solid $color-mischka-gray;
+		border-top: 1px solid $neutral-border-weak;
 		margin: $space-m 0 $space-s 0;
 	}
 

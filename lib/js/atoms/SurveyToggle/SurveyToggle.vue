@@ -36,10 +36,9 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/colors/tokens';
 
 $survey-toggle-size: 48px;
-
-$color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
 
 .surveyToggle {
 	$self: &;
@@ -55,7 +54,7 @@ $color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
 	}
 
 	&__toggle {
-		background: $color-total-white;
+		background: $default-background;
 		border-radius: 100%;
 		display: flex;
 		height: $survey-toggle-size;
@@ -65,41 +64,41 @@ $color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
 		width: $survey-toggle-size;
 
 		.-hovered & {
-			background-color: $color-ice-gray;
+			background-color: $neutral-background-medium;
 			box-shadow: $shadow-s;
 		}
 
 		&::v-deep .ripple {
-			background-color: rgba($color-total-white, $ripple-alpha) !important;
+			background-color: $default-ripple-inverted;
 		}
 	}
 
 	&.-selectedPrimary &__toggle {
-		background-color: $color-primary;
+		background-color: $primary-background-strong;
 	}
 
 	&.-selectedNeutral &__toggle {
-		background-color: $color-minor-supporting;
+		background-color: $neutral-background-strong;
 	}
 
 	&.-selectedPrimary.-disabled &__toggle {
-		background-color: $color-primary-disabled;
+		background-color: var(--raw-theme-200);
 	}
 
 	&.-selectedNeutral.-disabled &__toggle {
-		background-color: $color-disabled-neutral;
+		background-color: $neutral-background-strong-disabled;
 	}
 
 	&.-selectedPrimary.-hovered &__toggle {
-		background-color: $color-primary-hovered;
+		background-color: $primary-background-strong-hovered;
 	}
 
 	&.-defaultPrimary.-hovered &__toggle {
-		background-color: $color-primary-background;
+		background-color: $primary-background-weak-hovered;
 	}
 
 	&.-selectedNeutral.-hovered &__toggle {
-		background-color: mix($color-minor-supporting, $color-firefly-black, 88%);
+		background-color: $neutral-background-strong-hovered;
 	}
 
 	&__ring {
@@ -107,7 +106,7 @@ $color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
 		align-items: center;
 		display: flex;
 		justify-content: center;
-		border: 3px solid $color-minor-supporting;
+		border: 3px solid var(--raw-gray-400);
 		border-radius: 100%;
 		transition: border-color ease-in-out $default-transition-time;
 		width: 100%;
@@ -117,52 +116,49 @@ $color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
 		pointer-events: none;
 
 		#{$self}__ring {
-			border-color: $color-disabled-neutral;
+			border-color: $neutral-border-disabled;
 		}
 	}
 
 	&.-defaultPrimary &__ring {
-		border-color: $color-primary;
+		border-color: $primary-border;
 	}
 
+	&.-selectedNeutral &__ring,
 	&.-selectedPrimary &__ring {
-		border-color: $color-total-white;
-	}
-
-	&.-selectedNeutral &__ring {
-		border-color: $color-total-white;
+		border-color: $default-border-inverted;
 	}
 
 	&.-defaultPrimary.-disabled &__ring {
-		border-color: $color-primary-disabled;
+		border-color: var(--raw-theme-200);
 	}
 
 	&__content {
 		@include headlineXS();
 		@include textBold();
 
-		color: $color-minor-supporting;
+		color: $neutral-text-weak;
 		transition: color ease-in-out $default-transition-time;
 	}
 
 	&.-disabled &__content {
-		color: $color-disabled-neutral;
+		color: $neutral-text-disabled;
 	}
 
 	&.-defaultPrimary &__content {
-		color: $color-primary;
+		color: $primary-text;
 
 		.-hovered & {
-			$border-color: $color-primary-hovered;
+			border-color: $primary-border-hovered;
 		}
 	}
 
 	&.-defaultPrimary.-disabled &__content {
-		color: $color-primary-disabled;
+		color: $primary-text-disabled;
 	}
 
 	&__icon {
-		color: $color-total-white;
+		color: $default-text-inverted;
 		display: flex;
 	}
 
@@ -170,7 +166,7 @@ $color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
 		@include textInfoS();
 		@include textBold();
 
-		color: $color-minor;
+		color: $neutral-text;
 		text-align: center;
 		margin-top: $space-xxs;
 		min-height: 2em;
