@@ -23,12 +23,12 @@
 .a-tile {
 	width: 100%;
 	min-height: $space-xl;
-  background-color: $color-alabaster-gray;
+	background-color: $color-alabaster-gray;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-  padding: $space-xxs $space-xs $space-xxs $space-xs;
-  
+	padding: $space-xxs $space-xs $space-xxs $space-xs;
+
 	&.-clickable {
 		cursor: pointer;
 
@@ -53,13 +53,13 @@
 	}
 
 	&__rightText {
-    @include textXS;
+		@include textXS;
 
 		margin-left: $space-xs;
-    flex-grow: 1;
-    max-width: 30%;
-    color: $color-storm-gray;
-    text-align: right;
+		flex-grow: 1;
+		max-width: 30%;
+		color: $color-storm-gray;
+		text-align: right;
 	}
 
 	&__eyebrow {
