@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-for="colorList in colorsLists" :key="colorList.title" class="colorDefinition">
+		<div v-for="colorList in colors" :key="colorList.title" class="colorDefinition">
 			<div class="colorsList">
 				<div class="colorsList__row">
 					<h2>{{ colorList.title }}</h2>
@@ -50,9 +50,25 @@ export default {
 		return {
 			hasHash: /#/i,
 			hasRGBA: /rgba/i,
+			colors: this.colorsLists,
 		};
 	},
+	mounted() {
+		this.colors.forEach((list, index) => {
+			if (list.disableDefault) {
+				for (let key in list.list) {
+					if (key === 'default') {
+						this.colors[index].list[key] = null;
+						delete this.colors[index].list[key];
+					}
+				}
+			}
+		});
+	},
 	methods: {
+		canBeDisplayed(category: string, disableDefault: boolean) {
+			return !(category === 'default' && disableDefault);
+		},
 		isHexOrRGBA(color: string) {
 			return color.match(this.hasHash) || color.match(this.hasRGBA);
 		},

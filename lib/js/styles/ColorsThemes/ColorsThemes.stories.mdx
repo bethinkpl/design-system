@@ -11,8 +11,13 @@ import colorsListBodywork from '../../../styles/settings/colors/_raw-bodywork.js
 	name="Themes"
 	args={{
 		colorsLists: [
-			{ title: 'Theme WNL', list: colorsListWnl },
-			{ title: 'Theme Bodywork', list: colorsListBodywork },
+			{ title: 'Theme WNL', list: colorsListWnl, class: 'theme-wnl', disableDefault: true },
+			{
+				title: 'Theme Bodywork',
+				list: colorsListBodywork,
+				class: 'theme-bodywork',
+				disableDefault: true,
+			},
 		],
 	}}
 	argTypes={{
