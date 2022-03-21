@@ -57,8 +57,8 @@
 
 	&__right {
 		margin-left: $space-xs;
-    color: $color-storm-gray;
-  }
+		color: $color-storm-gray;
+	}
 
 	&__text {
 		@include textXS;
