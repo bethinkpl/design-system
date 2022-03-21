@@ -1,15 +1,15 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import ColorsList from './../ColorsList';
-import tokensWnl from '../../../styles/settings/colors/_tokens.json';
+import tokensWnl from '../../../styles/settings/colors/_tokens-wnl.json';
 
-<Meta title="foundations/Tokens/ColorsLms" component={ColorsList} />
+<Meta title="foundations/Tokens/ColorsWnl" component={ColorsList} />
 
 # Card
 
 <Story
-	name="ColorsLms"
+	name="ColorsWnl"
 	args={{
-		colorsLists: [{ title: 'Tokens LMS', list: tokensWnl }],
+		colorsLists: [{ title: 'Tokens Wnl', list: tokensWnl, class: 'theme-wnl' }],
 	}}
 	argTypes={{
 		colorsLists: Array,

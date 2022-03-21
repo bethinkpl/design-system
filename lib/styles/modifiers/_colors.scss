@@ -1,5 +1,3 @@
-@import '../settings/colors/tokens';
-
 .-cadetGray {
 	color: $color-cadet-gray;
 }
@@ -17,7 +15,7 @@
 }
 
 .-totalWhite {
-	color: var($default-text-inverted);
+	color: $color-total-white;
 }
 
 .-jungleGreen {
@@ -29,7 +27,7 @@
 }
 
 .-fireflyBlack {
-	color: var($default-text);
+	color: $color-firefly-black;
 }
 
 .-delugeViolet {

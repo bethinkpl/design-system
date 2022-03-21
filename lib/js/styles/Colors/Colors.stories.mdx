@@ -1,19 +1,29 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
-import Colors from './Colors';
+import ColorsList from './../ColorsList';
+import rawColors from '../../../styles/settings/colors/_raw.json';
 
-<Meta title='foundations/Colors/Raw' component={Colors} />
+<Meta title="foundations/Colors/Raw" component={ColorsList} />
 
 # Card
 
-<Story name='Raw'>
-	{() => {
+<Story
+	name="Raw"
+	args={{
+		colorsLists: [{ title: 'Raw', list: rawColors }],
+	}}
+	argTypes={{
+		colorsLists: Array,
+	}}
+>
+	{(args) => {
 		return {
-			components: { Colors },
-			template: '<colors></colors>',
+			components: { ColorsList },
+			template: '<ColorsList :colorsLists="colorsLists"></ColorsList>',
+			props: Object.keys(args),
 		};
 	}}
 </Story>
 
 ## Props
 
-<Props of={Colors} />
+<Props of={ColorsList} />

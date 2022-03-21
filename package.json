@@ -1,6 +1,6 @@
 {
   "name": "design-system",
-  "version": "7.2.0",
+  "version": "7.3.0",
   "description": "Bethink universe design-system",
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
@@ -24,7 +24,7 @@
     "storybook:build": "build-storybook -c .storybook -o public/storybook",
     "test": "jest",
     "ts:check": "tsc --noEmit",
-    "import": "npx ts-node lib/js/importers/RawColorsImporter.ts && npx ts-node lib/js/importers/TokensImporter.ts"
+    "synchronizeColors": "npx ts-node tools/importers/SynchronizeColorsTokens.ts"
   },
   "devDependencies": {
     "@storybook/addon-controls": "^6.3.12",
@@ -39,6 +39,7 @@
     "@vue/cli-plugin-unit-jest": "^4.5.3",
     "@vue/cli-service": "^4.5.13",
     "@vue/test-utils": "^1.1.3",
+    "axios": "^0.26.0",
     "babel-eslint": "10.1.0",
     "eslint": "7.5.0",
     "eslint-config-prettier": "^6.11.0",
@@ -71,7 +72,6 @@
     "@fortawesome/pro-solid-svg-icons": "^5.15.3",
     "@fortawesome/vue-fontawesome": "^2.0.2",
     "storybook-addon-designs": "^6.2.1",
-    "axios": "^0.26.0",
     "vue": "^2.6.11",
     "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2"
   }
