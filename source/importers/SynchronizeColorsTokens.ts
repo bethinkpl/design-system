@@ -6,14 +6,10 @@ interface Dict<V> {
 	[key: string]: V;
 }
 
-interface IResultFileJsonObject {
+interface IResultJsonObject {
 	id: string;
 	label: string;
 	value: string;
-}
-
-interface IResultJsonObject extends IResultFileJsonObject {
-	weight: number;
 }
 
 interface configFileObject {
@@ -38,7 +34,7 @@ const ImportColorsRaw = (
 
 	let result: Array<string> = [];
 	let temporaryColorsJson: Dict<Array<IResultJsonObject>> = {};
-	let resultColorsJson: Dict<Array<IResultFileJsonObject>> = {};
+	let resultColorsJson: Dict<Array<IResultJsonObject>> = {};
 
 	if (isTheme) {
 		result.push('.theme-' + name + ' {');
@@ -86,7 +82,6 @@ const ImportColorsRaw = (
 				id: binValues.destination + '_' + colorName,
 				label: colorName,
 				value: obj.values.hex,
-				weight: parseInt(colorNameSplitted[1]),
 			};
 
 			if (temporaryColorsJson[category] === undefined) {
@@ -104,7 +99,7 @@ const ImportColorsRaw = (
 
 	Object.entries<Array<IResultJsonObject>>(temporaryColorsJson).forEach(([category, colors]) => {
 		Object.entries(colors).forEach(([, color]) => {
-			const resultFileJsonObject: IResultFileJsonObject = {
+			const resultFileJsonObject: IResultJsonObject = {
 				id: color.id,
 				label: color.label,
 				value: color.value,
