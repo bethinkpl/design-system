@@ -7,7 +7,10 @@
       <div class="a-tile__eyebrow"><slot name="eyebrow" /></div>
       <div class="a-tile__title"><slot /></div>
     </div>
-    <div v-if="right" class="a-tile__right">
+    <div v-if="clickable" class="a-tile__clickableIcon">
+      <wnl-icon :icon="ICONS.FA_CHEVRON_RIGHT" :size="ICON_SIZES.SMALL"/>
+    </div>
+    <div v-else-if="right" class="a-tile__right">
       <wnl-icon :icon="right" :size="ICON_SIZES.SMALL"/>
     </div>
     <div v-else-if="text" class="a-tile__text">{{ text }}</div>
@@ -47,10 +50,15 @@
 		flex-grow: 1;
 	}
 
-	&__right {
+	&__clickableIcon {
 		margin-left: $space-xs;
 		color: #0f9698; //TODO: ask for correct name
 	}
+
+	&__right {
+		margin-left: $space-xs;
+    color: $color-storm-gray;
+  }
 
 	&__text {
 		@include textXS;
@@ -116,6 +124,7 @@ export default {
   },
   created() {
     this.ICON_SIZES = ICON_SIZES;
+    this.ICONS = ICONS;
   },
 }
 </script>
