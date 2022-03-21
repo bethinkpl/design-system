@@ -129,12 +129,18 @@ const ImportSingleTokenFile = (
 	binValues: configFileObject,
 	jsonColors: Array<any>,
 	hexToCssVariable: Dict<string>,
+	themeName: string,
+	isTheme: boolean,
 ) => {
 	let result: Array<string> = [];
 	let resultJsonTokens = {};
 	let resultJsonVariables: Array<string> = [];
 
-	resultJsonVariables.push(':root {');
+	if (isTheme) {
+		resultJsonVariables.push('.theme-' + themeName + ' {');
+	} else {
+		resultJsonVariables.push(':root {');
+	}
 
 	jsonColors.forEach((obj) => {
 		const patternColorsToIgnore = /deprecated|Pattern|RAW|theme/i;
@@ -143,6 +149,8 @@ const ImportSingleTokenFile = (
 			tokenName = tokenName.replace(/\//i, '-');
 			obj.values.hex = makeHexShortcut(obj.values.hex);
 
+			const tab = isTheme ? '\t' : '';
+
 			if (obj.values.alpha !== 1) {
 				const rgb = hexToRgb(obj.values.hex);
 				if (rgb && hexToCssVariable[rgb.toString()] === undefined) {
@@ -150,7 +158,8 @@ const ImportSingleTokenFile = (
 				}
 
 				resultJsonVariables.push(
-					'--' +
+					tab +
+						'--' +
 						tokenName +
 						': ' +
 						'rgba(var(' +
@@ -164,7 +173,7 @@ const ImportSingleTokenFile = (
 					throw new Error('No HEX color:' + obj.values.hex);
 				}
 				resultJsonVariables.push(
-					'--' + tokenName + ': var(' + hexToCssVariable[obj.values.hex] + ');',
+					tab + '--' + tokenName + ': var(' + hexToCssVariable[obj.values.hex] + ');',
 				);
 			}
 			result.push('$' + tokenName + ': ' + 'var(--' + tokenName + ');');
@@ -280,7 +289,13 @@ const SynchronizeSingleBin = async (bin) => {
 	}
 
 	if (bin.files.tokens) {
-		ImportSingleTokenFile(bin.files.tokens, response.data.colors, hexToCssVariable);
+		ImportSingleTokenFile(
+			bin.files.tokens,
+			response.data.colors,
+			hexToCssVariable,
+			bin.name,
+			bin.isTheme,
+		);
 	}
 	console.log('The import was successful for bin: ' + bin.id);
 };
