@@ -79,7 +79,7 @@
 </style>
 
 <script lang="ts">
-import DsCard from '../Card';
+import DsCard from '../../components/Cards/Card.vue';
 import DsModal from '../Modal';
 import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../Button';
 import IconButton from '../IconButton';

@@ -1,0 +1,30 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import CardExpandable from './CardExpandable';
+
+<Meta title='components/Cards/CardExpandable' component={CardExpandable} />
+
+# Card
+
+<Story name='interactive'
+		argTypes={{
+			header: {control: { type: 'text' }, defaultValue: 'header slot'},
+			content: {control: { type: 'text' }, defaultValue: 'content slot that supports <b>HTML markup</b>'},
+		}}
+		args={{
+			isExpanderVisible: true,
+			expanderText: '',
+			isExpanded: false,
+		}}
+	>
+	{(args) => {
+		return {
+			components: { CardExpandable },
+			props: Object.keys(args),
+			template: '<card-expandable :is-expander-visible="isExpanderVisible" :expander-text="expanderText" :is-expanded="isExpanded"><div slot="header" v-html="header" /><div slot="content" v-html="content" /></card-expandable>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={Card} />
