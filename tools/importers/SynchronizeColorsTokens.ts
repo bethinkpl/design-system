@@ -128,13 +128,13 @@ const ImportSingleTokenFile = (
 	isTheme: boolean,
 ) => {
 	let result: Array<string> = [];
-	let fileJsonTokens = {};
-	let fileJsonVariables: Array<string> = [];
+	let resultJsonTokens = {};
+	let resultVariables: Array<string> = [];
 
 	if (isTheme) {
-		fileJsonVariables.push('.theme-' + themeName + ' {');
+		resultVariables.push('.theme-' + themeName + ' {');
 	} else {
-		fileJsonVariables.push(':root {');
+		resultVariables.push(':root {');
 	}
 
 	jsonColors.forEach((obj) => {
@@ -152,7 +152,7 @@ const ImportSingleTokenFile = (
 					throw new Error('No RGB color:' + rgb);
 				}
 
-				fileJsonVariables.push(
+				resultVariables.push(
 					tab +
 						'--' +
 						tokenName +
@@ -167,7 +167,7 @@ const ImportSingleTokenFile = (
 				if (hexToCssVariable[obj.values.hex] === undefined) {
 					throw new Error('No HEX color:' + obj.values.hex);
 				}
-				fileJsonVariables.push(
+				resultVariables.push(
 					tab + '--' + tokenName + ': var(' + hexToCssVariable[obj.values.hex] + ');',
 				);
 			}
@@ -188,24 +188,24 @@ const ImportSingleTokenFile = (
 						  obj.values.alpha +
 						  ')',
 			};
-			if (fileJsonTokens[category] === undefined) {
-				fileJsonTokens[category] = [];
+			if (resultJsonTokens[category] === undefined) {
+				resultJsonTokens[category] = [];
 			}
-			fileJsonTokens[category].push(resultJsonObject);
+			resultJsonTokens[category].push(resultJsonObject);
 		}
 	});
-	fileJsonVariables.push('}');
+	resultVariables.push('}');
 
 	if (result.length == 0) {
 		throw new Error('ERROR! No colors to save');
 	}
 
 	arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, fileJsonTokens);
+	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJsonTokens);
 	if (binValues.destinationTokensVariables) {
 		arrayToFile(
 			tokensFilesConfig.destinationPath + binValues.destinationTokensVariables,
-			fileJsonVariables,
+			resultVariables,
 		);
 	}
 };
