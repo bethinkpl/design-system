@@ -21,7 +21,7 @@ import Card from './Card';
 		return {
 			components: { Card },
 			props: Object.keys(args),
-			template: '<card><div slot="header" v-html="header" /><div slot="content" v-html="content" /><div slot="footer" v-html="footer" /></card>',
+			template: '<card><div v-if="header" slot="header" v-html="header" /><div slot="content" v-html="content" /><div slot="footer" v-html="footer" /></card>',
 		};
 	}}
 </Story>
