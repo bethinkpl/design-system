@@ -128,13 +128,13 @@ const ImportSingleTokenFile = (
 	isTheme: boolean,
 ) => {
 	let result: Array<string> = [];
-	let resultJsonTokens = {};
-	let resultJsonVariables: Array<string> = [];
+	let fileJsonTokens = {};
+	let fileJsonVariables: Array<string> = [];
 
 	if (isTheme) {
-		resultJsonVariables.push('.theme-' + themeName + ' {');
+		fileJsonVariables.push('.theme-' + themeName + ' {');
 	} else {
-		resultJsonVariables.push(':root {');
+		fileJsonVariables.push(':root {');
 	}
 
 	jsonColors.forEach((obj) => {
@@ -152,7 +152,7 @@ const ImportSingleTokenFile = (
 					throw new Error('No RGB color:' + rgb);
 				}
 
-				resultJsonVariables.push(
+				fileJsonVariables.push(
 					tab +
 						'--' +
 						tokenName +
@@ -167,7 +167,7 @@ const ImportSingleTokenFile = (
 				if (hexToCssVariable[obj.values.hex] === undefined) {
 					throw new Error('No HEX color:' + obj.values.hex);
 				}
-				resultJsonVariables.push(
+				fileJsonVariables.push(
 					tab + '--' + tokenName + ': var(' + hexToCssVariable[obj.values.hex] + ');',
 				);
 			}
@@ -181,31 +181,31 @@ const ImportSingleTokenFile = (
 				label: tokenName,
 				value:
 					obj.values.alpha == 1
-						? hexToCssVariable[obj.values.hex]
+						? 'var(' + hexToCssVariable[obj.values.hex] + ')'
 						: 'rgba(var(' +
 						  hexToCssVariable[obj.values.hex] +
 						  '-rgb), ' +
 						  obj.values.alpha +
 						  ')',
 			};
-			if (resultJsonTokens[category] === undefined) {
-				resultJsonTokens[category] = [];
+			if (fileJsonTokens[category] === undefined) {
+				fileJsonTokens[category] = [];
 			}
-			resultJsonTokens[category].push(resultJsonObject);
+			fileJsonTokens[category].push(resultJsonObject);
 		}
 	});
-	resultJsonVariables.push('}');
+	fileJsonVariables.push('}');
 
 	if (result.length == 0) {
 		throw new Error('ERROR! No colors to save');
 	}
 
 	arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJsonTokens);
+	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, fileJsonTokens);
 	if (binValues.destinationTokensVariables) {
 		arrayToFile(
 			tokensFilesConfig.destinationPath + binValues.destinationTokensVariables,
-			resultJsonVariables,
+			fileJsonVariables,
 		);
 	}
 };
