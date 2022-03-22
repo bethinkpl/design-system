@@ -28,13 +28,13 @@
 	&__expander {
 		align-items: center;
 		background-color: $neutral-background;
+		cursor: pointer;
 		display: flex;
 		height: 44px;
 		justify-content: center;
 		padding: $space-xxs $space-s;
 
 		&:hover {
-			cursor: pointer;
 			background-color: $neutral-background-hovered;
 		}
 
