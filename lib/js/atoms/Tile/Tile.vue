@@ -1,5 +1,5 @@
 <template>
-	<div class="a-tile" :class="{ '-clickable': clickable }">
+	<div v-ripple :class="{ '-clickable': clickable }" class="a-tile">
 		<div v-if="left" class="a-tile__left">
 			<wnl-icon :icon="left" :size="ICON_SIZES.SMALL" />
 		</div>
@@ -31,8 +31,16 @@
 	align-items: center;
 	padding: $space-xxs $space-xs $space-xxs $space-xs;
 
+	&::v-deep .ripple-container {
+		display: none;
+	}
+
 	&.-clickable {
 		cursor: pointer;
+
+		&::v-deep .ripple-container {
+			display: initial;
+		}
 
 		&:hover {
 			background-color: $color-ice-gray;
@@ -84,6 +92,7 @@
 </style>
 
 <script lang="ts">
+import Ripple from 'vue-ripple-directive';
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
 import { VueConstructor } from 'vue';
 
@@ -91,6 +100,9 @@ export default {
 	name: 'Tile',
 	components: {
 		WnlIcon,
+	},
+	directives: {
+		ripple: Ripple,
 	},
 	props: {
 		clickable: {
