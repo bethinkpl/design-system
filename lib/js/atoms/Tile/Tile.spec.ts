@@ -22,7 +22,6 @@ const createComponent = function ({
         },
         stubs: {},
     });
-
 }
 
 describe('Tile', () => {

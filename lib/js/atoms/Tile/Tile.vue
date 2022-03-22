@@ -51,7 +51,7 @@
 
 	&__clickableIcon {
 		margin-left: $space-xs;
-		color: #0f9698; //TODO: ask for correct name
+		color: $color-primary;
 	}
 
 	&__right {
@@ -78,7 +78,7 @@
 	&__title {
 		@include textM;
 
-		color: #363636; //TODO: ask for correct name
+		color: $color-storm-gray;
 	}
 }
 </style>
