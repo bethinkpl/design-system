@@ -31,21 +31,21 @@ describe('Card', () => {
 		expect(component.find('.card').exists()).toBe(true);
 	});
 
-	it('should render render content slot', () => {
+	it('should render content slot', () => {
 		const content = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({ contentSlot: content });
 
 		expect(component.find('.card__content').text()).toContain(content);
 	});
 
-	it('should render render header slot', () => {
+	it('should render header slot', () => {
 		const header = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({ headerSlot: header });
 
 		expect(component.text()).toContain(header);
 	});
 
-	it('should render render footer slot', () => {
+	it('should render footer slot', () => {
 		const footer = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({ footerSlot: footer });
 
