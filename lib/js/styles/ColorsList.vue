@@ -118,9 +118,9 @@ export default {
 	},
 	mounted() {
 		this.colorsLocal.forEach((list, index) => {
-			if (list.disableDefault) {
+			if (list.disabled) {
 				for (let key in list.list) {
-					if (key === 'default') {
+					if (key === list.disabled) {
 						this.colorsLocal[index].list[key] = null;
 						delete this.colorsLocal[index].list[key];
 					}
