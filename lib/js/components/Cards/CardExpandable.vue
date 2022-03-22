@@ -1,14 +1,18 @@
 <template>
 	<ds-card class="cardExpandable">
 		<template #header><slot name="header"></slot></template>
-		<template #content><slot name="content"></slot></template>
+		<template #content>
+			<slot name="content" :isExpanded="isExpandedInternal" />
+			<slot v-if="isExpandedInternal" name="expandedContent" />
+		</template>
 		<template v-if="isExpanderVisible" #footer>
 			<div v-ripple class="cardExpandable__expander" @click="onExpanderClick">
 				<span class="cardExpandable__expanderLabel">{{ computedExpanderText }}</span>
 				<ds-icon
 					class="cardExpandable__expanderIcon"
-					:icon="expanderIcon"
+					:icon="ICONS.FA_CHEVRON_DOWN"
 					:size="ICON_SIZES.X_SMALL"
+					:rotation="isExpandedInternal ? 180 : null"
 				/>
 			</div>
 		</template>
@@ -17,9 +21,7 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/shadows';
 @import '../../../styles/settings/typography';
 
 .cardExpandable {
@@ -35,7 +37,10 @@
 			cursor: pointer;
 			background-color: $neutral-background-hovered;
 		}
-		// TODO ripple
+
+		&::v-deep .ripple {
+			background-color: $default-ripple !important;
+		}
 	}
 
 	&__expanderLabel {
@@ -46,6 +51,7 @@
 		font-weight: bold;
 		margin-right: $space-xxxxs;
 	}
+
 	&__expanderIcon {
 		color: $primary-icon;
 	}
@@ -56,7 +62,6 @@
 import DsCard from './Card.vue';
 import DsIcon, { ICONS, ICON_SIZES } from '../../atoms/Icon';
 import Ripple from 'vue-ripple-directive';
-import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 export default {
 	name: 'CardExpandable',
@@ -94,9 +99,6 @@ export default {
 
 			return this.isExpandedInternal ? 'Zwiń' : 'Rozwiń';
 		},
-		expanderIcon(): IconDefinition {
-			return this.isExpandedInternal ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN;
-		},
 	},
 	watch: {
 		isExpanded: {
@@ -110,11 +112,12 @@ export default {
 	},
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
+		this.ICONS = ICONS;
 	},
 	methods: {
 		onExpanderClick() {
 			this.isExpandedInternal = !this.isExpandedInternal;
-			this.$emit('expanded-change', this.isExpandedInternal);
+			this.$emit('update:isExpanded', this.isExpandedInternal);
 		},
 	},
 };
