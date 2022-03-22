@@ -3,31 +3,20 @@
 @import '../settings/spacings';
 @import '../settings/radiuses';
 @import '../settings/typography';
+@import '../settings/buttons';
 
 $default-lighter-shadow: 0 4px 12px rgba($color-firefly-black, 0.35);
 
-@mixin outlinedColor($color) {
-	color: rgba($color, 1);
+@mixin outlinedColor($color, $disabled) {
+	color: $color;
 
 	&:disabled,
 	&.-disabled {
-		color: rgba($color, 1 - $button-disabled-alpha);
+		color: $disabled;
 	}
 }
 
-@mixin textColor($color, $hover-color: '', $focus-color: '', $disabled-color: '') {
-	@if $hover-color == '' {
-		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
-	}
-
-	@if $focus-color == '' {
-		$focus-color: mix($color, $color-firefly-black, (1 - $button-focus-alpha) * 100%);
-	}
-
-	@if $disabled-color == '' {
-		$disabled-color: mix($color, $color-total-white, (1 - $button-disabled-alpha) * 100%);
-	}
-
+@mixin textColor($color, $hover-color, $focus-color, $disabled-color) {
 	color: $color;
 
 	&:hover,
@@ -56,40 +45,6 @@ $button-hover-alpha: 0.12;
 $button-focus-alpha: 0.24;
 $button-disabled-alpha: 0.6;
 
-$theme-calculated-colors: (
-	'secondary': (
-		'color': $color-secondary,
-		'rgb': $color-secondary-rgb,
-		'hovered': $color-secondary-hovered,
-		'focused': $color-secondary-focused,
-		'disabled': $color-secondary-disabled,
-	),
-	'primary-supporting': (
-		'color': $color-primary-supporting,
-		'rgb': $color-primary-supporting-rgb,
-		'hovered': $color-primary-supporting-hovered,
-		'focused': $color-primary-supporting-focused,
-		'disabled': $color-primary-supporting-disabled,
-	),
-	'secondary-supporting': (
-		'color': $color-secondary-supporting,
-		'rgb': $color-secondary-supporting-rgb,
-		'hovered': $color-secondary-supporting-hovered,
-		'focused': $color-secondary-supporting-focused,
-		'disabled': $color-secondary-supporting-disabled,
-	),
-);
-$regular-colors: (
-	'minor': $color-minor,
-	'minor-supporting': $color-minor-supporting,
-	'content': $color-content,
-	'danger': $color-danger,
-	'danger-supporting': $color-danger-supporting,
-	'warning': $color-warning,
-	'success': $color-success,
-	'inverted': $color-total-white,
-);
-
 .a-button {
 	$self: &;
 
@@ -99,7 +54,7 @@ $regular-colors: (
 	background-color: transparent; // override defaut <button> background color
 	border: 0;
 	border-radius: 100px;
-	color: $color-total-white;
+	color: $default-text-inverted;
 	cursor: pointer;
 	display: inline-flex;
 	min-height: $button-medium-min-height;
@@ -122,15 +77,15 @@ $regular-colors: (
 	}
 
 	&:not(.-outlined) {
-		@each $color-name, $color-map in $theme-calculated-colors {
+		@each $color-name, $color-map in $theme-calculated-colors-new {
 			&.-color-#{$color-name}:after {
-				background-color: map-get($color-map, 'color');
+				background-color: map-get($color-map, 'background');
 			}
 		}
 
-		@each $color-name, $color in $regular-colors {
+		@each $color-name, $color-map in $regular-colors-new {
 			&.-color-#{$color-name}:after {
-				background-color: $color;
+				background-color: map-get($color-map, 'background');
 			}
 		}
 	}
@@ -152,14 +107,14 @@ $regular-colors: (
 			top: 0;
 		}
 
-		&::before {
-			background-color: $color-firefly-black;
-			opacity: 0;
-			transform: translateZ(-1px);
-		}
+		//&::before {
+		//	background-color: $color-firefly-black;
+		//	opacity: 0;
+		//	transform: translateZ(-1px);
+		//}
 
 		&::after {
-			background-color: $color-primary;
+			background-color: $primary-background-strong;
 			transform: translateZ(-2px);
 		}
 
@@ -216,21 +171,27 @@ $regular-colors: (
 	}
 
 	.ripple {
-		background-color: rgba($color-total-white, $ripple-alpha) !important;
+		background-color: $default-ripple-inverted !important;
 	}
 
 	&.-outlined {
-		@include outlinedColor($color-primary-rgb);
+		@include outlinedColor($color-primary-rgb, $color-primary-disabled);
 
-		@each $color-name, $color-map in $theme-calculated-colors {
+		@each $color-name, $color-map in $theme-calculated-colors-new {
 			&.-color-#{$color-name} {
-				@include outlinedColor(map-get($color-map, 'rgb'));
+				@include outlinedColor(
+					map-get($color-map, 'color'),
+					map-get($color-map, 'disabled')
+				);
 			}
 		}
 
-		@each $color-name, $color in $regular-colors {
+		@each $color-name, $color-map in $regular-colors-new {
 			&.-color-#{$color-name} {
-				@include outlinedColor($color);
+				@include outlinedColor(
+					map-get($color-map, 'color'),
+					map-get($color-map, 'disabled')
+				);
 			}
 		}
 
@@ -259,13 +220,13 @@ $regular-colors: (
 
 	&.-text {
 		@include textColor(
-			$color-primary,
-			$color-primary-hovered,
-			$color-primary-focused,
-			$color-primary-disabled
+			$primary-text,
+			$primary-text-hovered,
+			$primary-text-focused,
+			$primary-text-disabled
 		);
 
-		@each $color-name, $color-map in $theme-calculated-colors {
+		@each $color-name, $color-map in $theme-calculated-colors-new {
 			&.-color-#{$color-name} {
 				@include textColor(
 					map-get($color-map, 'color'),
@@ -276,9 +237,14 @@ $regular-colors: (
 			}
 		}
 
-		@each $color-name, $color in $regular-colors {
+		@each $color-name, $color-map in $regular-colors-new {
 			&.-color-#{$color-name} {
-				@include textColor($color);
+				@include textColor(
+					map-get($color-map, 'color'),
+					map-get($color-map, 'hovered'),
+					map-get($color-map, 'focused'),
+					map-get($color-map, 'disabled')
+				);
 			}
 		}
 

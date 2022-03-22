@@ -1,4 +1,5 @@
 @import 'colors';
+@import 'colors/tokens';
 
 $button-small-min-height: 28px;
 $button-medium-min-height: 32px;
@@ -40,11 +41,83 @@ $theme-calculated-colors: (
 	),
 );
 $regular-colors: (
-	'minor': $color-minor,
-	'minor-supporting': $color-minor-supporting,
-	'content': $color-content,
-	'danger': $color-danger,
-	'danger-supporting': $color-danger-supporting,
-	'warning': $color-warning,
-	'success': $color-success,
+	'minor': $neutral-text,
+	'minor-supporting': $neutral-text-weak,
+	'content': $default-text,
+	'danger': $danger-text,
+	'danger-supporting': var(--raw-red-300),
+	'warning': $warning-text,
+	'success': $success-text,
+);
+
+$theme-calculated-colors-new: (
+	'secondary': (
+		'color': $primary-text,
+		'background': $primary-background-strong,
+		'rgb': $primary-text,
+		'hovered': $primary-icon-hovered,
+		'focused': $primary-text-focused,
+		'disabled': $primary-text-disabled,
+	),
+	'primary-supporting': (
+		'color': var(--raw-theme-300),
+		'background': var(--raw-theme-300),
+		'rgb': var(--raw-theme-300),
+		'hovered': var(--raw-theme-300),
+		'focused': var(--raw-theme-300),
+		'disabled': var(--raw-theme-100),
+	),
+	'secondary-supporting': (
+		'color': var(--raw-theme-300),
+		'background': var(--raw-theme-300),
+		'rgb': var(--raw-theme-300),
+		'hovered': var(--raw-theme-300),
+		'focused': var(--raw-theme-300),
+		'disabled': var(--raw-theme-100),
+	),
+);
+
+$regular-colors-new: (
+	'minor': (
+		'color': $neutral-text,
+		'hovered': $neutral-text-hovered,
+		'focused': $neutral-text-focused,
+		'disabled': $neutral-text-disabled,
+	),
+	'minor-supporting': (
+		'color': $neutral-text-weak,
+		'hovered': $neutral-text-weak-hovered,
+		'focused': $neutral-text-weak-focused,
+		'disabled': $neutral-text-weak-disabled,
+	),
+	'content': (
+		'color': $default-text,
+		'hovered': $default-text,
+		'focused': $default-text,
+		'disabled': $default-text,
+	),
+	'danger': (
+		'color': $danger-text,
+		'hovered:': $danger-text-hovered,
+		'focused': $danger-text-focused,
+		'disabled': $danger-text-disabled,
+	),
+	'danger-supporting': (
+		'color': var(--raw-red-300),
+		'hovered': var(--raw-red-300),
+		'focused': var(--raw-red-300),
+		'disabled': var(--raw-red-300),
+	),
+	'warning': (
+		'color': $warning-text,
+		'hovered': $warning-text,
+		'focused': $warning-text,
+		'disabled': $warning-text,
+	),
+	'success': (
+		'color': $success-text,
+		'hovered': $success-text-hovered,
+		'focused': $success-text-focused,
+		'disabled': $success-text-disabled,
+	),
 );

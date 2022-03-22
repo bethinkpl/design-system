@@ -50,11 +50,7 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
-@mixin iconButtonColor($color, $hover-color: '') {
-	@if $hover-color == '' {
-		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
-	}
-
+@mixin iconButtonColor($color, $hover-color) {
 	color: $color;
 
 	&:hover,
@@ -66,26 +62,26 @@
 .a-iconButton {
 	$self: &;
 
-	@each $color-name, $color-map in $theme-calculated-colors {
+	@each $color-name, $color-map in $theme-calculated-colors-new {
 		&.-color-#{$color-name} {
 			@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
 		}
 	}
 
-	@each $color-name, $color in $regular-colors {
+	@each $color-name, $color-map in $regular-colors-new {
 		&.-color-#{$color-name} {
-			@include iconButtonColor($color);
+			@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
 		}
 	}
 
 	align-items: center;
-	color: $color-primary;
+	color: $primary-text;
 	cursor: pointer;
 	display: inline-flex;
 	transition: color ease-in-out $default-transition-time;
 
 	&:hover {
-		color: $color-primary-hovered;
+		color: $primary-text-hovered;
 	}
 
 	&__button {
@@ -114,13 +110,13 @@
 		}
 
 		&.-minor {
-			@include iconButtonColor($color-minor);
+			@include iconButtonColor($neutral-text, $neutral-text-hovered);
 		}
 	}
 
 	&__icon {
 		&.-minor {
-			color: $color-minor;
+			color: $neutral-text;
 		}
 	}
 
