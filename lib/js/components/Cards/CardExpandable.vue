@@ -31,7 +31,7 @@
 		display: flex;
 		height: 44px;
 		justify-content: center;
-		padding: $space-xs;
+		padding: $space-xxs $space-s;
 
 		&:hover {
 			cursor: pointer;
