@@ -18,18 +18,18 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/colors';
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/colors/tokens';
 
 .a-tile {
 	width: 100%;
 	min-height: $space-xl;
-	background-color: $color-alabaster-gray;
+	background-color: $neutral-background;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	padding: $space-xxs $space-xs $space-xxs $space-xs;
+	padding: $space-xxs $space-xs;
 
 	&::v-deep .ripple-container {
 		display: none;
@@ -43,7 +43,7 @@
 		}
 
 		&:hover {
-			background-color: $color-ice-gray;
+			background-color: $neutral-background-hovered;
 		}
 	}
 
@@ -59,12 +59,12 @@
 
 	&__clickableIcon {
 		margin-left: $space-xs;
-		color: $color-primary;
+		color: $primary-icon;
 	}
 
 	&__right {
 		margin-left: $space-xs;
-		color: $color-storm-gray;
+		color: $neutral-icon;
 	}
 
 	&__text {
@@ -73,20 +73,20 @@
 		margin-left: $space-xs;
 		flex-grow: 1;
 		max-width: 30%;
-		color: $color-storm-gray;
+		color: $neutral-text;
 		text-align: right;
 	}
 
 	&__eyebrow {
 		@include textS;
 
-		color: $color-mischka-gray;
+		color: $neutral-text-weak ;
 	}
 
 	&__title {
 		@include textM;
 
-		color: $color-storm-gray;
+		color: $neutral-text-heavy;
 	}
 }
 </style>
