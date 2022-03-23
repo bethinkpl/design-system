@@ -19,7 +19,8 @@ import CardExpandable from './CardExpandable';
 		}}
 		args={{
 			isExpanderVisible: true,
-			expanderText: '',
+			expanderTextCollapsed: 'Rozwiń',
+			expanderTextExpanded: 'Zwiń',
 			isExpanded: false,
 		}}
 	>
@@ -27,7 +28,7 @@ import CardExpandable from './CardExpandable';
 		return {
 			components: { CardExpandable },
 			props: Object.keys(args),
-			template: '<card-expandable :is-expander-visible="isExpanderVisible" :expander-text="expanderText" :is-expanded="isExpanded">' +
+			template: '<card-expandable :is-expander-visible="isExpanderVisible" :expander-text-collapsed="expanderTextCollapsed" :expander-text-expanded="expanderTextExpanded" :is-expanded="isExpanded">' +
 				'<div v-if="header" slot="header" v-html="header" />' +
 				'<template #content="{ isExpanded: isExpandedInternal }">' +
 				'<div v-html="content" /><div v-if="isExpandedInternal">Dodatkowa treść w slocie <code>content</code> widoczna po rozwinięciu</div>' +

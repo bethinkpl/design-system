@@ -7,7 +7,9 @@
 		</template>
 		<template v-if="isExpanderVisible" #footer>
 			<div v-ripple class="cardExpandable__expander" @click="onExpanderClick">
-				<span class="cardExpandable__expanderLabel">{{ computedExpanderText }}</span>
+				<span class="cardExpandable__expanderLabel">{{
+					isExpandedInternal ? expanderTextExpanded : expanderTextCollapsed
+				}}</span>
 				<ds-icon
 					class="cardExpandable__expanderIcon"
 					:icon="ICONS.FA_CHEVRON_DOWN"
@@ -80,24 +82,19 @@ export default {
 			type: Boolean,
 			default: true,
 		},
-		expanderText: {
+		expanderTextCollapsed: {
 			type: String,
-			default: null,
+			default: 'Rozwiń',
+		},
+		expanderTextExpanded: {
+			type: String,
+			default: 'Zwiń',
 		},
 	},
 	data() {
 		return {
 			isExpandedInternal: false,
 		};
-	},
-	computed: {
-		computedExpanderText(): string {
-			if (this.expanderText) {
-				return this.expanderText;
-			}
-
-			return this.isExpandedInternal ? 'Zwiń' : 'Rozwiń';
-		},
 	},
 	watch: {
 		isExpanded: {
