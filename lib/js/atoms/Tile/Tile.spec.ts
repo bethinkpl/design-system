@@ -10,7 +10,7 @@ const defaultProps = {
 	left: null,
 	right: null,
 };
-const createComponent = function ({ title, eyebrow, clickable, text, left, right, }) {
+const createComponent = function ({ title, eyebrow, clickable, text, left, right }) {
 	const localVue = createLocalVue();
 	return shallowMount(Tile, {
 		localVue,

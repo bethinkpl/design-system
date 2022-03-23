@@ -1,9 +1,7 @@
 <template>
 	<ripple-wrapper :disable="!clickable">
 		<div :class="{ '-clickable': clickable }" class="a-tile">
-			<div v-if="left" class="a-tile__left">
-				<wnl-icon :icon="left" :size="ICON_SIZES.SMALL" />
-			</div>
+			<icon v-if="left" :icon="left" :size="ICON_SIZES.SMALL" class="a-tile__left" />
 			<div class="a-tile__center">
 				<div class="a-tile__eyebrow">
 					<slot name="eyebrow" />
@@ -12,12 +10,13 @@
 					<slot />
 				</div>
 			</div>
-			<div v-if="clickable" class="a-tile__clickableIcon">
-				<wnl-icon :icon="ICONS.FA_CHEVRON_RIGHT" :size="ICON_SIZES.SMALL" />
-			</div>
-			<div v-else-if="right" class="a-tile__right">
-				<wnl-icon :icon="right" :size="ICON_SIZES.SMALL" />
-			</div>
+			<icon
+				v-if="clickable"
+				:icon="ICONS.FA_CHEVRON_RIGHT"
+				:size="ICON_SIZES.SMALL"
+				class="a-tile__clickableIcon"
+			/>
+			<icon v-else-if="right" :icon="right" :size="ICON_SIZES.SMALL" class="a-tile__right" />
 			<div v-else-if="text" class="a-tile__text">{{ text }}</div>
 		</div>
 	</ripple-wrapper>
@@ -95,13 +94,13 @@
 
 <script lang="ts">
 import RippleWrapper from '../../utils/RippleWrapper.vue';
-import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
+import Icon, { ICON_SIZES, ICONS } from '../Icon';
 import { VueConstructor } from 'vue';
 
 export default {
 	name: 'Tile',
 	components: {
-		WnlIcon,
+		Icon,
 		RippleWrapper,
 	},
 	props: {
