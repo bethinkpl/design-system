@@ -75,13 +75,13 @@
 	}
 
 	align-items: center;
-	color: $primary-text;
+	color: $color-primary-text;
 	cursor: pointer;
 	display: inline-flex;
 	transition: color ease-in-out $default-transition-time;
 
 	&:hover {
-		color: $primary-text-hovered;
+		color: $color-primary-text-hovered;
 	}
 
 	&__button {
@@ -110,13 +110,13 @@
 		}
 
 		&.-minor {
-			@include iconButtonColor($neutral-text, $neutral-text-hovered);
+			@include iconButtonColor($color-neutral-text, $color-neutral-text-hovered);
 		}
 	}
 
 	&__icon {
 		&.-minor {
-			color: $neutral-text;
+			color: $color-neutral-text;
 		}
 	}
 

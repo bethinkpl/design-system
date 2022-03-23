@@ -54,7 +54,7 @@ $button-disabled-alpha: 0.6;
 	background-color: transparent; // override defaut <button> background color
 	border: 0;
 	border-radius: 100px;
-	color: $default-text-inverted;
+	color: $color-default-text-inverted;
 	cursor: pointer;
 	display: inline-flex;
 	min-height: $button-medium-min-height;
@@ -114,7 +114,7 @@ $button-disabled-alpha: 0.6;
 		//}
 
 		&::after {
-			background-color: $primary-background-strong;
+			background-color: $color-primary-background-strong;
 			transform: translateZ(-2px);
 		}
 
@@ -171,7 +171,7 @@ $button-disabled-alpha: 0.6;
 	}
 
 	.ripple {
-		background-color: $default-ripple-inverted !important;
+		background-color: $color-default-ripple-inverted !important;
 	}
 
 	&.-outlined {
@@ -220,10 +220,10 @@ $button-disabled-alpha: 0.6;
 
 	&.-text {
 		@include textColor(
-			$primary-text,
-			$primary-text-hovered,
-			$primary-text-focused,
-			$primary-text-disabled
+			$color-primary-text,
+			$color-primary-text-hovered,
+			$color-primary-text-focused,
+			$color-primary-text-disabled
 		);
 
 		@each $color-name, $color-map in $theme-calculated-colors-new {
