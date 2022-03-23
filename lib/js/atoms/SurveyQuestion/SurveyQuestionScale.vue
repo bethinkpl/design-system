@@ -105,7 +105,7 @@
 	}
 
 	&__content {
-		background: $neutral-background;
+		background: $color-neutral-background;
 		border-radius: $radius-s;
 		display: flex;
 		justify-content: space-between;
@@ -138,7 +138,7 @@
 
 	&__separator {
 		border-bottom: none;
-		border-top: 1px solid $neutral-border-weak;
+		border-top: 1px solid $color-neutral-border-weak;
 		margin: $space-m 0 $space-s 0;
 	}
 

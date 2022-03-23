@@ -13,15 +13,15 @@
 
 .accessStatus {
 	align-items: center;
-	color: $neutral-text;
+	color: $color-neutral-text;
 	display: flex;
 
 	&.-active {
-		color: $success-text;
+		color: $color-success-text;
 	}
 
 	&.-suspended {
-		color: $danger-text;
+		color: $color-danger-text;
 	}
 
 	&__icon {

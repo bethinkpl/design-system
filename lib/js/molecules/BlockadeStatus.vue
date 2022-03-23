@@ -13,11 +13,11 @@
 
 .blockadeStatus {
 	align-items: center;
-	color: $neutral-text;
+	color: $color-neutral-text;
 	display: flex;
 
 	&.-active {
-		color: $danger-text;
+		color: $color-danger-text;
 	}
 
 	&__icon {

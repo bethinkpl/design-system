@@ -54,7 +54,7 @@ $survey-toggle-size: 48px;
 	}
 
 	&__toggle {
-		background: $default-background;
+		background: $color-default-background;
 		border-radius: 100%;
 		display: flex;
 		height: $survey-toggle-size;
@@ -64,21 +64,21 @@ $survey-toggle-size: 48px;
 		width: $survey-toggle-size;
 
 		.-hovered & {
-			background-color: $neutral-background-medium;
+			background-color: $color-neutral-background-medium;
 			box-shadow: $shadow-s;
 		}
 
 		&::v-deep .ripple {
-			background-color: $default-ripple-inverted;
+			background-color: $color-default-ripple-inverted;
 		}
 	}
 
 	&.-selectedPrimary &__toggle {
-		background-color: $primary-background-strong;
+		background-color: $color-primary-background-strong;
 	}
 
 	&.-selectedNeutral &__toggle {
-		background-color: $neutral-background-strong;
+		background-color: $color-neutral-background-strong;
 	}
 
 	&.-selectedPrimary.-disabled &__toggle {
@@ -86,19 +86,19 @@ $survey-toggle-size: 48px;
 	}
 
 	&.-selectedNeutral.-disabled &__toggle {
-		background-color: $neutral-background-strong-disabled;
+		background-color: $color-neutral-background-strong-disabled;
 	}
 
 	&.-selectedPrimary.-hovered &__toggle {
-		background-color: $primary-background-strong-hovered;
+		background-color: $color-primary-background-strong-hovered;
 	}
 
 	&.-defaultPrimary.-hovered &__toggle {
-		background-color: $primary-background-weak-hovered;
+		background-color: $color-primary-background-weak-hovered;
 	}
 
 	&.-selectedNeutral.-hovered &__toggle {
-		background-color: $neutral-background-strong-hovered;
+		background-color: $color-neutral-background-strong-hovered;
 	}
 
 	&__ring {
@@ -116,17 +116,17 @@ $survey-toggle-size: 48px;
 		pointer-events: none;
 
 		#{$self}__ring {
-			border-color: $neutral-border-disabled;
+			border-color: $color-neutral-border-disabled;
 		}
 	}
 
 	&.-defaultPrimary &__ring {
-		border-color: $primary-border;
+		border-color: $color-primary-border;
 	}
 
 	&.-selectedNeutral &__ring,
 	&.-selectedPrimary &__ring {
-		border-color: $default-border-inverted;
+		border-color: $color-default-border-inverted;
 	}
 
 	&.-defaultPrimary.-disabled &__ring {
@@ -137,28 +137,28 @@ $survey-toggle-size: 48px;
 		@include headlineXS();
 		@include textBold();
 
-		color: $neutral-text-weak;
+		color: $color-neutral-text-weak;
 		transition: color ease-in-out $default-transition-time;
 	}
 
 	&.-disabled &__content {
-		color: $neutral-text-disabled;
+		color: $color-neutral-text-disabled;
 	}
 
 	&.-defaultPrimary &__content {
-		color: $primary-text;
+		color: $color-primary-text;
 
 		.-hovered & {
-			border-color: $primary-border-hovered;
+			border-color: $color-primary-border-hovered;
 		}
 	}
 
 	&.-defaultPrimary.-disabled &__content {
-		color: $primary-text-disabled;
+		color: $color-primary-text-disabled;
 	}
 
 	&__icon {
-		color: $default-text-inverted;
+		color: $color-default-text-inverted;
 		display: flex;
 	}
 
@@ -166,7 +166,7 @@ $survey-toggle-size: 48px;
 		@include textInfoS();
 		@include textBold();
 
-		color: $neutral-text;
+		color: $color-neutral-text;
 		text-align: center;
 		margin-top: $space-xxs;
 		min-height: 2em;

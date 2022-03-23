@@ -19,7 +19,7 @@
 .surveyQuestionTextarea {
 	@include textM;
 
-	border: 1px solid $neutral-border-weak;
+	border: 1px solid $color-neutral-border-weak;
 	box-sizing: border-box;
 	box-shadow: inset 0 1px 3px var(--raw-gray-400);
 	border-radius: $radius-s;
@@ -28,8 +28,8 @@
 	resize: none;
 
 	&:disabled {
-		background: $default-background;
-		color: $neutral-text-weak;
+		background: $color-default-background;
+		color: $color-neutral-text-weak;
 	}
 }
 </style>

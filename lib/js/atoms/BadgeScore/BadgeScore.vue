@@ -37,23 +37,23 @@ $x-small-badge-score-width: 36px;
 	text-align: center;
 
 	&.-success {
-		color: $success-text;
+		color: $color-success-text;
 	}
 
 	&.-danger {
-		color: $danger-text;
+		color: $color-danger-text;
 	}
 
 	&.-warning {
-		color: $warning-text;
+		color: $color-warning-text;
 	}
 
 	&.-inverted {
-		color: $default-text-inverted;
+		color: $color-default-text-inverted;
 	}
 
 	&.-minor {
-		color: $neutral-text-weak;
+		color: $color-neutral-text-weak;
 	}
 
 	&.-small {
