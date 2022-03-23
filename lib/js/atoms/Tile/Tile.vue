@@ -29,13 +29,13 @@
 @import '../../../styles/settings/colors/tokens';
 
 ::v-deep .ripple {
-	background-color: $neutral-ripple !important;
+	background-color: $color-neutral-ripple !important;
 }
 
 .a-tile {
 	width: 100%;
 	min-height: $space-xl;
-	background-color: $neutral-background;
+	background-color: $color-neutral-background;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
@@ -45,7 +45,7 @@
 		cursor: pointer;
 
 		&:hover {
-			background-color: $neutral-background-hovered;
+			background-color: $color-neutral-background-hovered;
 		}
 	}
 
@@ -61,12 +61,12 @@
 
 	&__clickableIcon {
 		margin-left: $space-xs;
-		color: $primary-icon;
+		color: $color-primary-icon;
 	}
 
 	&__right {
 		margin-left: $space-xs;
-		color: $neutral-icon;
+		color: $color-neutral-icon;
 	}
 
 	&__text {
@@ -75,20 +75,20 @@
 		margin-left: $space-xs;
 		flex-grow: 1;
 		max-width: 30%;
-		color: $neutral-text;
+		color: $color-neutral-text;
 		text-align: right;
 	}
 
 	&__eyebrow {
 		@include textS;
 
-		color: $neutral-text-weak;
+		color: $color-neutral-text-weak;
 	}
 
 	&__title {
 		@include textM;
 
-		color: $neutral-text-heavy;
+		color: $color-neutral-text-heavy;
 	}
 }
 </style>
