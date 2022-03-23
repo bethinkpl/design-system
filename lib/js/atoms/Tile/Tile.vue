@@ -1,23 +1,31 @@
 <template>
-	<ripple-wrapper :disable="!clickable">
-		<div :class="{ '-clickable': clickable }" class="a-tile">
-			<icon v-if="left" :icon="left" :size="ICON_SIZES.SMALL" class="a-tile__left" />
+	<ripple-wrapper :disable="!interactive">
+		<div :class="{ '-interactive': interactive }" class="a-tile">
+			<icon
+				v-if="leftIcon"
+				:icon="leftIcon"
+				:size="ICON_SIZES.SMALL"
+				class="a-tile__leftIcon"
+			/>
 			<div class="a-tile__center">
-				<div class="a-tile__eyebrow">
-					<slot name="eyebrow" />
-				</div>
-				<div class="a-tile__title">
-					<slot />
-				</div>
+				<span class="a-tile__eyebrowText" v-text="eyebrowText" />
+				<span class="a-tile__text" v-text="text" />
 			</div>
 			<icon
-				v-if="clickable"
+				v-if="interactive"
 				:icon="ICONS.FA_CHEVRON_RIGHT"
 				:size="ICON_SIZES.SMALL"
-				class="a-tile__clickableIcon"
+				class="a-tile__interactiveIcon"
 			/>
-			<icon v-else-if="right" :icon="right" :size="ICON_SIZES.SMALL" class="a-tile__right" />
-			<div v-else-if="text" class="a-tile__text">{{ text }}</div>
+			<icon
+				v-else-if="rightIcon"
+				:icon="rightIcon"
+				:size="ICON_SIZES.SMALL"
+				class="a-tile__rightIcon"
+			/>
+			<div v-else-if="additionalText" class="a-tile__additionalText">{{
+				additionalText
+			}}</div>
 		</div>
 	</ripple-wrapper>
 </template>
@@ -40,7 +48,7 @@
 	align-items: center;
 	padding: $space-xxs $space-xs;
 
-	&.-clickable {
+	&.-interactive {
 		cursor: pointer;
 
 		&:hover {
@@ -48,7 +56,7 @@
 		}
 	}
 
-	&__left {
+	&__leftIcon {
 		margin-right: $space-xs;
 	}
 
@@ -58,17 +66,17 @@
 		flex-grow: 1;
 	}
 
-	&__clickableIcon {
+	&__interactiveIcon {
 		margin-left: $space-xs;
 		color: $color-primary-icon;
 	}
 
-	&__right {
+	&__rightIcon {
 		margin-left: $space-xs;
 		color: $color-neutral-icon;
 	}
 
-	&__text {
+	&__additionalText {
 		@include textXS;
 
 		margin-left: $space-xs;
@@ -78,13 +86,13 @@
 		text-align: right;
 	}
 
-	&__eyebrow {
+	&__eyebrowText {
 		@include textS;
 
 		color: $color-neutral-text-weak;
 	}
 
-	&__title {
+	&__text {
 		@include textM;
 
 		color: $color-neutral-text-heavy;
@@ -104,28 +112,37 @@ export default {
 		RippleWrapper,
 	},
 	props: {
-		clickable: {
+		text: {
+			type: String,
+			required: true,
+		},
+		eyebrowText: {
+			type: String,
+			required: false,
+			default: null,
+		},
+		interactive: {
 			type: Boolean,
 			required: false,
-			default: true,
+			default: false,
 		},
-		left: {
+		leftIcon: {
 			type: Object,
 			required: false,
 			default: null,
-			validate(left: VueConstructor) {
-				return Object.values(ICONS).includes(left);
+			validate(leftIcon: VueConstructor) {
+				return Object.values(ICONS).includes(leftIcon);
 			},
 		},
-		right: {
+		rightIcon: {
 			type: Object,
 			required: false,
 			default: null,
-			validate(right: VueConstructor) {
-				return Object.values(ICONS).includes(right);
+			validate(rightIcon: VueConstructor) {
+				return Object.values(ICONS).includes(rightIcon);
 			},
 		},
-		text: {
+		additionalText: {
 			type: String,
 			required: false,
 			default: null,
