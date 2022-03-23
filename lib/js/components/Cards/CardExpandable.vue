@@ -30,9 +30,8 @@
 		background-color: $color-neutral-background;
 		cursor: pointer;
 		display: flex;
-		height: 44px;
 		justify-content: center;
-		padding: $space-xxs $space-s;
+		padding: $space-xs $space-s;
 
 		&:hover {
 			background-color: $color-neutral-background-hovered;
