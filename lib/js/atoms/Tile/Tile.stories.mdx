@@ -4,16 +4,16 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 
 <Meta title='atoms/Tile' component={Tile} />
 
-# Select
+#Tile
 
-**Nazwa opisowa komponentu**
+**Tile component**
 
 <Story name='interactive'
   args={{
       clickable: true,
       text: '',
-      eyebrow: 'this is an eyebrow text',
       title: 'this is a title text',
+      eyebrow: 'this is an eyebrow text',
    }}
   argTypes={{
       left: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CALENDAR_ALT' },
@@ -24,7 +24,7 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 		return {
 			components: { Tile },
 			props: Object.keys(args),
-			template: '<tile :clickable="clickable" :left="ICONS[left]" :text="text" :right="ICONS[right]"><span slot="eyebrow">{{ eyebrow }}</span><span slot="default">{{ title }}</span></tile>',
+			template: '<tile :clickable="clickable" :left="ICONS[left]" :text="text" :right="ICONS[right]"><span slot="eyebrow" v-text="eyebrow" /><span slot="default" v-text="title" /></tile>',
             created() {
               this.ICONS = ICONS;
             }
