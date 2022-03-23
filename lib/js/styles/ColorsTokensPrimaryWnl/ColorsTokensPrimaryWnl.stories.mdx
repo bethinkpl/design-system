@@ -1,15 +1,15 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import ColorsList from './../ColorsList';
-import rawColors from '../../../styles/settings/colors/_raw.json';
+import tokensWnl from '../../../styles/settings/colors/_tokens-wnl.json';
 
-<Meta title="foundations/Colors/Raw" component={ColorsList} />
+<Meta title="foundations/Design Tokens/Color Tokens/Primary WNL" component={ColorsList} />
 
 # Card
 
 <Story
-	name="Raw"
+	name="Primary WNL"
 	args={{
-		colorsLists: [{ title: 'Raw', list: rawColors, disabled: 'theme' }],
+		colorsLists: [{ title: 'Primary WNL', list: tokensWnl, class: 'theme-wnl' }],
 	}}
 	argTypes={{
 		colorsLists: Array,

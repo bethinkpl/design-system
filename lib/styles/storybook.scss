@@ -4,8 +4,11 @@
 @import 'settings/colors/raw-wnl';
 @import 'settings/colors/raw-bodywork';
 @import 'settings/colors/tokens-variables';
+@import 'settings/colors/tokens-wnl-variables';
 @import 'settings/colors/tokens-bodywork-variables';
 @import 'settings/colors/tokens';
+@import 'settings/colors/tokens-bodywork';
+@import 'settings/colors/tokens-wnl';
 
 $fontFamiy: 'BlinkMacSystemFont', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
 	'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;

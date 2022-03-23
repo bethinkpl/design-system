@@ -24,7 +24,7 @@
     "storybook:build": "build-storybook -c .storybook -o public/storybook",
     "test": "jest",
     "ts:check": "tsc --noEmit",
-    "synchronizeColors": "npx ts-node source/importers/SynchronizeColorsTokens.ts"
+    "synchronizeColors": "npx ts-node tools/importers/SynchronizeColorsTokens.ts"
   },
   "devDependencies": {
     "@storybook/addon-controls": "^6.3.12",
