@@ -141,7 +141,7 @@ const ImportSingleTokenFile = (
 		const patternColorsToIgnore = /deprecated|Pattern|RAW|theme/i;
 		if (obj.name.match(patternColorsToIgnore) === null) {
 			let tokenName = obj.name;
-			tokenName = tokenName.replace(/\//i, '-');
+			tokenName = 'color-' + tokenName.replace(/\//i, '-');
 			obj.values.hex = makeHexShortcut(obj.values.hex);
 
 			const tab = isTheme ? '\t' : '';
@@ -175,7 +175,7 @@ const ImportSingleTokenFile = (
 
 			/** JSON Tokens */
 			const tokenNameSplitted = tokenName.split('-');
-			const category = tokenNameSplitted[1];
+			const category = tokenNameSplitted[2];
 			const resultJsonObject: ITokenJsonObject = {
 				id: binValues.destination + '_' + tokenName,
 				label: tokenName,
