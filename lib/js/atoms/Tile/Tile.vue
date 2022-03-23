@@ -1,26 +1,36 @@
 <template>
-	<div v-ripple :class="{ '-clickable': clickable }" class="a-tile">
-		<div v-if="left" class="a-tile__left">
-			<wnl-icon :icon="left" :size="ICON_SIZES.SMALL" />
+	<ripple-wrapper :disable="!clickable">
+		<div :class="{ '-clickable': clickable }" class="a-tile">
+			<div v-if="left" class="a-tile__left">
+				<wnl-icon :icon="left" :size="ICON_SIZES.SMALL" />
+			</div>
+			<div class="a-tile__center">
+				<div class="a-tile__eyebrow">
+					<slot name="eyebrow" />
+				</div>
+				<div class="a-tile__title">
+					<slot />
+				</div>
+			</div>
+			<div v-if="clickable" class="a-tile__clickableIcon">
+				<wnl-icon :icon="ICONS.FA_CHEVRON_RIGHT" :size="ICON_SIZES.SMALL" />
+			</div>
+			<div v-else-if="right" class="a-tile__right">
+				<wnl-icon :icon="right" :size="ICON_SIZES.SMALL" />
+			</div>
+			<div v-else-if="text" class="a-tile__text">{{ text }}</div>
 		</div>
-		<div class="a-tile__center">
-			<div class="a-tile__eyebrow"><slot name="eyebrow" /></div>
-			<div class="a-tile__title"><slot /></div>
-		</div>
-		<div v-if="clickable" class="a-tile__clickableIcon">
-			<wnl-icon :icon="ICONS.FA_CHEVRON_RIGHT" :size="ICON_SIZES.SMALL" />
-		</div>
-		<div v-else-if="right" class="a-tile__right">
-			<wnl-icon :icon="right" :size="ICON_SIZES.SMALL" />
-		</div>
-		<div v-else-if="text" class="a-tile__text">{{ text }}</div>
-	</div>
+	</ripple-wrapper>
 </template>
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
+
+::v-deep .ripple {
+	background-color: $neutral-ripple !important;
+}
 
 .a-tile {
 	width: 100%;
@@ -31,16 +41,8 @@
 	align-items: center;
 	padding: $space-xxs $space-xs;
 
-	&::v-deep .ripple-container {
-		display: none;
-	}
-
 	&.-clickable {
 		cursor: pointer;
-
-		&::v-deep .ripple-container {
-			display: initial;
-		}
 
 		&:hover {
 			background-color: $neutral-background-hovered;
@@ -80,7 +82,7 @@
 	&__eyebrow {
 		@include textS;
 
-		color: $neutral-text-weak ;
+		color: $neutral-text-weak;
 	}
 
 	&__title {
@@ -92,7 +94,7 @@
 </style>
 
 <script lang="ts">
-import Ripple from 'vue-ripple-directive';
+import RippleWrapper from '../../utils/RippleWrapper.vue';
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
 import { VueConstructor } from 'vue';
 
@@ -100,9 +102,7 @@ export default {
 	name: 'Tile',
 	components: {
 		WnlIcon,
-	},
-	directives: {
-		ripple: Ripple,
+		RippleWrapper,
 	},
 	props: {
 		clickable: {
