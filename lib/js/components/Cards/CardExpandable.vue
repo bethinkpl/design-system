@@ -27,7 +27,7 @@
 .cardExpandable {
 	&__expander {
 		align-items: center;
-		background-color: $neutral-background;
+		background-color: $color-neutral-background;
 		cursor: pointer;
 		display: flex;
 		height: 44px;
@@ -35,25 +35,25 @@
 		padding: $space-xxs $space-s;
 
 		&:hover {
-			background-color: $neutral-background-hovered;
+			background-color: $color-neutral-background-hovered;
 		}
 
 		&::v-deep .ripple {
-			background-color: $default-ripple !important;
+			background-color: $color-default-ripple !important;
 		}
 	}
 
 	&__expanderLabel {
 		@include buttonS;
 
-		color: $primary-text;
+		color: $color-primary-text;
 		text-transform: uppercase;
 		font-weight: bold;
 		margin-right: $space-xxxxs;
 	}
 
 	&__expanderIcon {
-		color: $primary-icon;
+		color: $color-primary-icon;
 	}
 }
 </style>
