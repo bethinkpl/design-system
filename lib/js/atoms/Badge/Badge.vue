@@ -31,7 +31,7 @@
 		background-color: $color-minor-background;
 
 		.badge__label {
-			color: $neutral-text;
+			color: $color-neutral-text;
 		}
 	}
 

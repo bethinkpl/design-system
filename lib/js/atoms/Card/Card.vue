@@ -17,7 +17,7 @@
 @import '../../../styles/settings/colors/tokens';
 
 .card {
-	background-color: $default-background;
+	background-color: $color-default-background;
 	border-radius: $radius-m;
 	box-shadow: $shadow-s;
 

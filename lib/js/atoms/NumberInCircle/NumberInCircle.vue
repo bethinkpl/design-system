@@ -38,31 +38,31 @@
 	}
 
 	&.-is1 {
-		color: $primary-text;
+		color: $color-primary-text;
 	}
 
 	&.-is2 {
-		color: $success-text;
+		color: $color-success-text;
 	}
 
 	&.-is3 {
-		color: $accent-text;
+		color: $color-accent-text;
 	}
 
 	&.-is4 {
-		color: $info-text;
+		color: $color-info-text;
 	}
 
 	&.-danger {
-		color: $danger-text;
+		color: $color-danger-text;
 	}
 
 	&.-primary {
-		color: $primary-text;
+		color: $color-primary-text;
 	}
 
 	&.-secondary {
-		color: $neutral-text;
+		color: $color-neutral-text;
 	}
 
 	&.-medium {
