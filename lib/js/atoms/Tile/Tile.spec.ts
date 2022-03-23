@@ -2,15 +2,15 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import Tile from './Tile.vue';
 import { ICONS } from '../Icon';
-
-const createComponent = function ({
-	title = '',
-	eyebrow = '',
-	clickable = true,
-	text = '',
-	left = null,
-	right = null,
-}) {
+const defaultProps = {
+	title: '',
+	eyebrow: '',
+	clickable: true,
+	text: '',
+	left: null,
+	right: null,
+};
+const createComponent = function ({ title, eyebrow, clickable, text, left, right, }) {
 	const localVue = createLocalVue();
 	return shallowMount(Tile, {
 		localVue,
@@ -32,7 +32,7 @@ describe('Tile', () => {
 			text: 'text text',
 			right: ICONS.FA_ANGLE_RIGHT,
 		};
-		const component = createComponent(props);
+		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrow').text()).toBe('eyebrow text');
 		expect(component.find('.a-tile__title').text()).toBe('title text');
 		expect(component.find('.a-tile__clickableIcon').exists()).toBe(true);
@@ -49,7 +49,7 @@ describe('Tile', () => {
 			right: ICONS.FA_ANGLE_RIGHT,
 			left: ICONS.FA_ARCHIVE,
 		};
-		const component = createComponent(props);
+		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrow').text()).toBe('eyebrow text');
 		expect(component.find('.a-tile__title').text()).toBe('title text');
 		expect(component.find('.a-tile__clickableIcon').exists()).toBe(true);
@@ -65,7 +65,7 @@ describe('Tile', () => {
 			clickable: false,
 			left: ICONS.FA_ARCHIVE,
 		};
-		const component = createComponent(props);
+		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrow').text()).toBe('eyebrow text');
 		expect(component.find('.a-tile__title').text()).toBe('title text');
 		expect(component.find('.a-tile__clickableIcon').exists()).toBe(false);
@@ -82,7 +82,7 @@ describe('Tile', () => {
 			clickable: false,
 			left: ICONS.FA_ARCHIVE,
 		};
-		const component = createComponent(props);
+		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrow').text()).toBe('eyebrow text');
 		expect(component.find('.a-tile__title').text()).toBe('title text');
 		expect(component.find('.a-tile__clickableIcon').exists()).toBe(false);
@@ -99,7 +99,7 @@ describe('Tile', () => {
 			clickable: false,
 			left: ICONS.FA_ARCHIVE,
 		};
-		const component = createComponent(props);
+		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrow').text()).toBe('eyebrow text');
 		expect(component.find('.a-tile__title').text()).toBe('title text');
 		expect(component.find('.a-tile__clickableIcon').exists()).toBe(false);
@@ -117,7 +117,7 @@ describe('Tile', () => {
 			clickable: false,
 			left: ICONS.FA_ARCHIVE,
 		};
-		const component = createComponent(props);
+		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrow').text()).toBe('eyebrow text');
 		expect(component.find('.a-tile__title').text()).toBe('title text');
 		expect(component.find('.a-tile__clickableIcon').exists()).toBe(false);
