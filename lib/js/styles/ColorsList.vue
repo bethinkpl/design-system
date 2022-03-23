@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<div v-for="colorList in colors" :key="colorList.title" class="colorDefinition">
-			<div class="colorsList" :class="{ [colorList.class]: true }">
+		<div v-for="colorList in colorsLocal" :key="colorList.title" class="colorDefinition">
+			<div class="colorsList" :class="{ [colorList.class]: colorList.class }">
 				<div class="colorsList__row">
-					<h2>{{ colorList.title }}</h2>
+					<h2 class="colorsList__title">{{ colorList.title }}</h2>
 					<ol class="colorsList__categories">
 						<li
 							v-for="(colors, colorCategory) in colorList.list"
@@ -25,10 +25,9 @@
 						<div class="colorDefinition__value">{{ color.value }}</div>
 						<div class="colorDefinition__color">
 							<span
-								v-if="isHexOrRGBA(color.value)"
 								:style="{ background: color.value }"
+								class="colorDefinition__tile"
 							></span>
-							<span v-else :style="{ background: 'var(' + color.value + ')' }"></span>
 						</div>
 					</div>
 				</div>
@@ -42,7 +41,7 @@
 	margin: 0 auto;
 	width: 80%;
 
-	h2 {
+	&__title {
 		margin-top: 0;
 	}
 
@@ -63,7 +62,9 @@
 	justify-content: space-between;
 	width: 100%;
 
-	div {
+	&__id,
+	&__value,
+	&__color {
 		min-width: 200px;
 		padding: 10px;
 	}
@@ -71,13 +72,13 @@
 	&__color {
 		flex: 3 1 auto;
 		width: 200px;
+	}
 
-		span {
-			box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
-			display: block;
-			height: 40px;
-			width: 100%;
-		}
+	&__tile {
+		box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
+		display: block;
+		height: 40px;
+		width: 100%;
 	}
 
 	&__value {
@@ -104,18 +105,16 @@ export default {
 	},
 	data() {
 		return {
-			hasHash: /#/i,
-			hasRGBA: /rgba/i,
-			colors: this.colorsLists,
+			colorsLocal: this.colorsLists,
 		};
 	},
 	mounted() {
-		this.colors.forEach((list, index) => {
-			if (list.disableDefault) {
+		this.colorsLocal.forEach((list, index) => {
+			if (list.disabled) {
 				for (let key in list.list) {
-					if (key === 'default') {
-						this.colors[index].list[key] = null;
-						delete this.colors[index].list[key];
+					if (key === list.disabled) {
+						this.colorsLocal[index].list[key] = null;
+						delete this.colorsLocal[index].list[key];
 					}
 				}
 			}
@@ -124,9 +123,6 @@ export default {
 	methods: {
 		canBeDisplayed(category: string, disableDefault: boolean) {
 			return !(category === 'default' && disableDefault);
-		},
-		isHexOrRGBA(color: string) {
-			return color.match(this.hasHash) || color.match(this.hasRGBA);
 		},
 	},
 };
