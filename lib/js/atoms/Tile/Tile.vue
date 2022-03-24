@@ -1,7 +1,7 @@
 <template>
 	<ripple-wrapper :disable="!interactive">
 		<div :class="{ '-interactive': interactive }" class="a-tile">
-			<icon
+			<ds-icon
 				v-if="iconLeft"
 				:icon="iconLeft"
 				:size="ICON_SIZES.SMALL"
@@ -11,7 +11,7 @@
 				<span class="a-tile__eyebrowText" v-text="eyebrowText" />
 				<span class="a-tile__text" v-text="text" />
 			</div>
-			<icon
+			<ds-icon
 				v-if="iconRightDisplayed"
 				:icon="iconRightDisplayed"
 				:size="ICON_SIZES.SMALL"
@@ -31,17 +31,50 @@
 @import '../../../styles/settings/colors/tokens';
 
 ::v-deep .ripple {
-	background-color: $color-neutral-ripple !important;
+	background-color: $color-default-ripple !important;
 }
 
 .a-tile {
-	width: 100%;
-	min-height: $space-xl;
+	align-items: center;
 	background-color: $color-neutral-background;
 	display: flex;
 	flex-direction: row;
-	align-items: center;
 	padding: $space-xxs $space-xs;
+
+	&__additionalText {
+		@include textXS;
+
+		color: $color-neutral-text;
+		flex-grow: 1;
+		margin-left: $space-xs;
+		max-width: 30%;
+		text-align: right;
+	}
+
+	&__center {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
+
+	&__eyebrowText {
+		@include textS;
+
+		color: $color-neutral-text-weak;
+	}
+
+	&__iconLeft {
+		margin-right: $space-xs;
+	}
+
+	&__iconRight {
+		color: $color-neutral-icon;
+		margin-left: $space-xs;
+
+		&.-interactive {
+			color: $color-primary-icon;
+		}
+	}
 
 	&.-interactive {
 		cursor: pointer;
@@ -51,44 +84,9 @@
 		}
 	}
 
-	&__iconLeft {
-		margin-right: $space-xs;
-	}
-
-	&__center {
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-	}
-
 	&__interactiveIcon {
-		margin-left: $space-xs;
 		color: $color-primary-icon;
-	}
-
-	&__iconRight {
 		margin-left: $space-xs;
-		color: $color-neutral-icon;
-
-		&.-interactive {
-			color: $color-primary-icon;
-		}
-	}
-
-	&__additionalText {
-		@include textXS;
-
-		margin-left: $space-xs;
-		flex-grow: 1;
-		max-width: 30%;
-		color: $color-neutral-text;
-		text-align: right;
-	}
-
-	&__eyebrowText {
-		@include textS;
-
-		color: $color-neutral-text-weak;
 	}
 
 	&__text {
@@ -101,13 +99,13 @@
 
 <script lang="ts">
 import RippleWrapper from '../../utils/RippleWrapper.vue';
-import Icon, { ICON_SIZES, ICONS } from '../Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
 import { VueConstructor } from 'vue';
 
 export default {
 	name: 'Tile',
 	components: {
-		Icon,
+		DsIcon,
 		RippleWrapper,
 	},
 	props: {
