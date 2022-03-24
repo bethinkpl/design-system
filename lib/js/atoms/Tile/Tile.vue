@@ -12,15 +12,10 @@
 				<span class="a-tile__text" v-text="text" />
 			</div>
 			<icon
-				v-if="interactive"
-				:icon="ICONS.FA_CHEVRON_RIGHT"
+				v-if="rightIconDisplayed"
+				:icon="rightIconDisplayed"
 				:size="ICON_SIZES.SMALL"
-				class="a-tile__interactiveIcon"
-			/>
-			<icon
-				v-else-if="rightIcon"
-				:icon="rightIcon"
-				:size="ICON_SIZES.SMALL"
+        :class="{ '-interactive': interactive }"
 				class="a-tile__rightIcon"
 			/>
 			<div v-else-if="additionalText" class="a-tile__additionalText">{{
@@ -74,6 +69,9 @@
 	&__rightIcon {
 		margin-left: $space-xs;
 		color: $color-neutral-icon;
+    &.-interactive {
+      color: $color-primary-icon;
+    }
 	}
 
 	&__additionalText {
@@ -118,17 +116,14 @@ export default {
 		},
 		eyebrowText: {
 			type: String,
-			required: false,
 			default: null,
 		},
 		interactive: {
 			type: Boolean,
-			required: false,
 			default: false,
 		},
 		leftIcon: {
 			type: Object,
-			required: false,
 			default: null,
 			validate(leftIcon: VueConstructor) {
 				return Object.values(ICONS).includes(leftIcon);
@@ -136,7 +131,6 @@ export default {
 		},
 		rightIcon: {
 			type: Object,
-			required: false,
 			default: null,
 			validate(rightIcon: VueConstructor) {
 				return Object.values(ICONS).includes(rightIcon);
@@ -144,13 +138,16 @@ export default {
 		},
 		additionalText: {
 			type: String,
-			required: false,
 			default: null,
 		},
 	},
+  computed: {
+    rightIconDisplayed() {
+      return this.interactive ? ICONS.FA_CHEVRON_RIGHT : this.rightIcon ;
+    }
+  },
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
-		this.ICONS = ICONS;
-	},
+  }
 };
 </script>
