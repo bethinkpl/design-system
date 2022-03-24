@@ -11,7 +11,9 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'design-system/lib/js/atoms/Icon';
            icon: 'HEAD_WITH_QUESTION_MARK',
            spinning: false,
            touchable: false,
-           rotation: null
+           rotation: null,
+           flippedVertical: false,
+           flippedHorizontal: false,
        }}
        argTypes={{
            size: {control: { type: 'select', options: Object.values(ICON_SIZES) }, defaultValue: ICON_SIZES.MEDIUM},
@@ -25,7 +27,7 @@ import WnlIcon, {ICON_SIZES, ICONS} from 'design-system/lib/js/atoms/Icon';
             created() {
                 this.ICONS = ICONS
             },
-            template: '<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" /></div>',
+            template: '<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
         };
     }}
 </Story>

@@ -3,30 +3,49 @@
 		<template #header><slot name="header"></slot></template>
 		<template #content>
 			<slot name="content" :isExpanded="isExpandedInternal" />
-			<slot v-if="isExpandedInternal" name="expandedContent" />
+			<div v-if="isExpandedInternal" class="cardExpandable__expandedContent">
+				<slot name="expandedContent" />
+			</div>
 		</template>
 		<template v-if="isExpanderVisible" #footer>
 			<div v-ripple class="cardExpandable__expander" @click="onExpanderClick">
-				<span class="cardExpandable__expanderLabel">{{
-					isExpandedInternal ? expanderTextExpanded : expanderTextCollapsed
-				}}</span>
+				<span class="cardExpandable__expanderLabelWrapper">
+					<span
+						class="cardExpandable__expanderLabel"
+						:class="{ '-visible': isExpandedInternal }"
+					>
+						{{ expanderTextExpanded }}
+					</span>
+					<span
+						class="cardExpandable__expanderLabel"
+						:class="{ '-visible': !isExpandedInternal }"
+					>
+						{{ expanderTextCollapsed }}
+					</span>
+				</span>
 				<ds-icon
 					class="cardExpandable__expanderIcon"
 					:icon="ICONS.FA_CHEVRON_DOWN"
 					:size="ICON_SIZES.X_SMALL"
-					:rotation="isExpandedInternal ? 180 : null"
+					:flipped-vertical="isExpandedInternal"
 				/>
 			</div>
 		</template>
 	</ds-card>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/icons';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
 .cardExpandable {
+	&__expandedContent {
+		animation: a-fadeIn 600ms ease-in-out 0s 1;
+	}
+
 	&__expander {
 		align-items: center;
 		background-color: $color-neutral-background;
@@ -44,13 +63,29 @@
 		}
 	}
 
+	&__expanderLabelWrapper {
+		// required for text animation
+		display: grid;
+	}
+
 	&__expanderLabel {
 		@include buttonS;
 
+		align-self: center;
 		color: $color-primary-text;
 		text-transform: uppercase;
 		font-weight: bold;
+		// Needed to overlap text for animation
+		grid-column-start: 1;
+		grid-row-start: 1;
 		margin-right: $space-xxxxs;
+		opacity: 0;
+		transition: opacity ease-in-out $default-transition-time;
+		text-align: right;
+
+		&.-visible {
+			opacity: 1;
+		}
 	}
 
 	&__expanderIcon {

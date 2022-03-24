@@ -4,6 +4,8 @@
 		:class="{
 			'-touchable': touchable,
 			'-spin': spinning,
+			'-flipped-vertical': flippedVertical,
+			'-flipped-horizontal': flippedHorizontal,
 			[rotationClass]: rotationClass,
 			[sizeClassName]: true,
 		}"
@@ -47,6 +49,14 @@ export default {
 			validator(value: number) {
 				return [90, 180, 270].includes(value);
 			},
+		},
+		flippedVertical: {
+			type: Boolean,
+			default: false,
+		},
+		flippedHorizontal: {
+			type: Boolean,
+			default: false,
 		},
 		touchable: {
 			type: Boolean,
