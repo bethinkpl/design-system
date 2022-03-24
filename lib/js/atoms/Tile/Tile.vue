@@ -15,7 +15,7 @@
 				v-if="rightIconDisplayed"
 				:icon="rightIconDisplayed"
 				:size="ICON_SIZES.SMALL"
-        :class="{ '-interactive': interactive }"
+				:class="{ '-interactive': interactive }"
 				class="a-tile__rightIcon"
 			/>
 			<div v-else-if="additionalText" class="a-tile__additionalText">{{
@@ -69,9 +69,10 @@
 	&__rightIcon {
 		margin-left: $space-xs;
 		color: $color-neutral-icon;
-    &.-interactive {
-      color: $color-primary-icon;
-    }
+
+		&.-interactive {
+			color: $color-primary-icon;
+		}
 	}
 
 	&__additionalText {
@@ -141,13 +142,13 @@ export default {
 			default: null,
 		},
 	},
-  computed: {
-    rightIconDisplayed() {
-      return this.interactive ? ICONS.FA_CHEVRON_RIGHT : this.rightIcon ;
-    }
-  },
+	computed: {
+		rightIconDisplayed() {
+			return this.interactive ? ICONS.FA_CHEVRON_RIGHT : this.rightIcon;
+		},
+	},
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
-  }
+	},
 };
 </script>

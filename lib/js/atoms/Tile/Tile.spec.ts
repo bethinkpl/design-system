@@ -22,11 +22,7 @@ const createComponent = function ({
 	return shallowMount(Tile, {
 		localVue,
 		mocks: {},
-		propsData: { interactive, additionalText, leftIcon, rightIcon },
-		slots: {
-			eyebrowText,
-			default: text,
-		},
+		propsData: { text, eyebrowText, interactive, additionalText, leftIcon, rightIcon },
 		stubs: {},
 	});
 };
@@ -42,10 +38,9 @@ describe('Tile', () => {
 		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__interactiveIcon').exists()).toBe(true);
+		expect(component.find('.a-tile__rightIcon').exists()).toBe(true);
 		expect(component.find('.a-tile__leftIcon').exists()).toBe(false);
 
-		expect(component.find('.a-tile__rightIcon').exists()).toBe(false);
 		expect(component.find('.a-additionalText').exists()).toBe(false);
 	});
 	it('Is interactive with left icon', () => {
@@ -59,10 +54,9 @@ describe('Tile', () => {
 		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__interactiveIcon').exists()).toBe(true);
+		expect(component.find('.a-tile__rightIcon').exists()).toBe(true);
 		expect(component.find('.a-tile__leftIcon').exists()).toBe(true);
 
-		expect(component.find('.a-tile__rightIcon').exists()).toBe(false);
 		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
 	});
 	it('Is not interactive without right icon and additionalText', () => {
@@ -75,7 +69,6 @@ describe('Tile', () => {
 		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__interactiveIcon').exists()).toBe(false);
 
 		expect(component.find('.a-tile__leftIcon').exists()).toBe(true);
 		expect(component.find('.a-tile__rightIcon').exists()).toBe(false);
@@ -92,7 +85,6 @@ describe('Tile', () => {
 		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__interactiveIcon').exists()).toBe(false);
 		expect(component.find('.a-tile__rightIcon').exists()).toBe(true);
 
 		expect(component.find('.a-tile__leftIcon').exists()).toBe(true);
@@ -109,10 +101,9 @@ describe('Tile', () => {
 		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__interactiveIcon').exists()).toBe(false);
+		expect(component.find('.a-tile__rightIcon').exists()).toBe(false);
 		expect(component.find('.a-tile__additionalText').exists()).toBe(true);
 
-		expect(component.find('.a-tile__rightIcon').exists()).toBe(false);
 		expect(component.find('.a-tile__leftIcon').exists()).toBe(true);
 	});
 	it('Is not interactive with right and additionalText but additionalText is not visible when right is present', () => {
@@ -127,10 +118,9 @@ describe('Tile', () => {
 		const component = createComponent({ ...defaultProps, ...props });
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__interactiveIcon').exists()).toBe(false);
+		expect(component.find('.a-tile__rightIcon .-interactive').exists()).toBe(false);
 		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
 
-		expect(component.find('.a-tile__rightIcon').exists()).toBe(true);
 		expect(component.find('.a-tile__leftIcon').exists()).toBe(true);
 	});
 });
