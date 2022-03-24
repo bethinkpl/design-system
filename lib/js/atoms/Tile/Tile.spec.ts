@@ -2,22 +2,16 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import Tile from './Tile.vue';
 import { ICONS } from '../Icon';
-const defaultProps = {
-	text: '',
-	eyebrowText: '',
-	interactive: true,
-	additionalText: '',
-	iconLeft: null,
-	iconRight: null,
-};
+import { IconDefinition } from "@fortawesome/fontawesome-common-types";
+
 const createComponent = function ({
-	text,
-	eyebrowText,
-	interactive,
-	additionalText,
-	iconLeft,
-	iconRight,
-}) {
+	text = '',
+	eyebrowText = '',
+	interactive = false,
+	additionalText = '',
+	iconLeft = null,
+	iconRight = null,
+}: createComponentOptions) {
 	const localVue = createLocalVue();
 	return shallowMount(Tile, {
 		localVue,
@@ -26,16 +20,23 @@ const createComponent = function ({
 		stubs: {},
 	});
 };
-
+interface createComponentOptions {
+	text: string;
+	eyebrowText?: string;
+	interactive?: boolean;
+	additionalText?: string;
+	iconRight?: IconDefinition | null;
+	iconLeft?: IconDefinition | null;
+}
 describe('Tile', () => {
 	it('Is interactive without left icon', () => {
 		const props = {
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
-			iconRight: ICONS.FA_ANGLE_RIGHT,
+			interactive: true,
 		};
-		const component = createComponent({ ...defaultProps, ...props });
+		const component = createComponent(props);
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
 		expect(component.find('.a-tile__iconRight').exists()).toBe(true);
@@ -44,14 +45,13 @@ describe('Tile', () => {
 		expect(component.find('.a-additionalText').exists()).toBe(false);
 	});
 	it('Is interactive with left icon', () => {
-		const props = {
+		const component = createComponent({
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
-			iconRight: ICONS.FA_ANGLE_RIGHT,
+			interactive: true,
 			iconLeft: ICONS.FA_ARCHIVE,
-		};
-		const component = createComponent({ ...defaultProps, ...props });
+		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
 		expect(component.find('.a-tile__iconRight').exists()).toBe(true);
@@ -60,13 +60,11 @@ describe('Tile', () => {
 		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
 	});
 	it('Is not interactive without right icon and additionalText', () => {
-		const props = {
+		const component = createComponent({
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
-			interactive: false,
 			iconLeft: ICONS.FA_ARCHIVE,
-		};
-		const component = createComponent({ ...defaultProps, ...props });
+		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
 
@@ -75,14 +73,12 @@ describe('Tile', () => {
 		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
 	});
 	it('Is not interactive with right and without additionalText', () => {
-		const props = {
+		const component = createComponent({
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
 			iconRight: ICONS.FA_ANGLE_RIGHT,
-			interactive: false,
 			iconLeft: ICONS.FA_ARCHIVE,
-		};
-		const component = createComponent({ ...defaultProps, ...props });
+		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
 		expect(component.find('.a-tile__iconRight').exists()).toBe(true);
@@ -91,14 +87,12 @@ describe('Tile', () => {
 		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
 	});
 	it('Is not interactive without right and with additionalText', () => {
-		const props = {
+		const component = createComponent({
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
-			interactive: false,
 			iconLeft: ICONS.FA_ARCHIVE,
-		};
-		const component = createComponent({ ...defaultProps, ...props });
+		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
 		expect(component.find('.a-tile__iconRight').exists()).toBe(false);
@@ -107,15 +101,13 @@ describe('Tile', () => {
 		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
 	});
 	it('Is not interactive with right and additionalText but additionalText is not visible when right is present', () => {
-		const props = {
+		const component = createComponent({
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
 			iconRight: ICONS.FA_ANGLE_RIGHT,
-			interactive: false,
 			iconLeft: ICONS.FA_ARCHIVE,
-		};
-		const component = createComponent({ ...defaultProps, ...props });
+		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
 		expect(component.find('.a-tile__iconRight .-interactive').exists()).toBe(false);
