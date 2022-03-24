@@ -2,21 +2,21 @@
 	<ripple-wrapper :disable="!interactive">
 		<div :class="{ '-interactive': interactive }" class="a-tile">
 			<icon
-				v-if="leftIcon"
-				:icon="leftIcon"
+				v-if="iconLeft"
+				:icon="iconLeft"
 				:size="ICON_SIZES.SMALL"
-				class="a-tile__leftIcon"
+				class="a-tile__iconLeft"
 			/>
 			<div class="a-tile__center">
 				<span class="a-tile__eyebrowText" v-text="eyebrowText" />
 				<span class="a-tile__text" v-text="text" />
 			</div>
 			<icon
-				v-if="rightIconDisplayed"
-				:icon="rightIconDisplayed"
+				v-if="iconRightDisplayed"
+				:icon="iconRightDisplayed"
 				:size="ICON_SIZES.SMALL"
 				:class="{ '-interactive': interactive }"
-				class="a-tile__rightIcon"
+				class="a-tile__iconRight"
 			/>
 			<div v-else-if="additionalText" class="a-tile__additionalText">{{
 				additionalText
@@ -51,7 +51,7 @@
 		}
 	}
 
-	&__leftIcon {
+	&__iconLeft {
 		margin-right: $space-xs;
 	}
 
@@ -66,7 +66,7 @@
 		color: $color-primary-icon;
 	}
 
-	&__rightIcon {
+	&__iconRight {
 		margin-left: $space-xs;
 		color: $color-neutral-icon;
 
@@ -123,18 +123,18 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		leftIcon: {
+		iconLeft: {
 			type: Object,
 			default: null,
-			validate(leftIcon: VueConstructor) {
-				return Object.values(ICONS).includes(leftIcon);
+			validate(iconLeft: VueConstructor) {
+				return Object.values(ICONS).includes(iconLeft);
 			},
 		},
-		rightIcon: {
+		iconRight: {
 			type: Object,
 			default: null,
-			validate(rightIcon: VueConstructor) {
-				return Object.values(ICONS).includes(rightIcon);
+			validate(iconRight: VueConstructor) {
+				return Object.values(ICONS).includes(iconRight);
 			},
 		},
 		additionalText: {
@@ -143,8 +143,8 @@ export default {
 		},
 	},
 	computed: {
-		rightIconDisplayed() {
-			return this.interactive ? ICONS.FA_CHEVRON_RIGHT : this.rightIcon;
+		iconRightDisplayed() {
+			return this.interactive ? ICONS.FA_CHEVRON_RIGHT : this.iconRight;
 		},
 	},
 	created() {

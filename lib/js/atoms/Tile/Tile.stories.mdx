@@ -16,15 +16,15 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
       eyebrowText: 'this is an eyebrowText text',
    }}
   argTypes={{
-      leftIcon: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CALENDAR_ALT' },
-      rightIcon: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: null },
+      iconLeft: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CALENDAR_ALT' },
+      iconRight: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: null },
   }}>
 >
 	{(args) => {
 		return {
 			components: { Tile },
 			props: Object.keys(args),
-			template: '<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :leftIcon="ICONS[leftIcon]" :additionalText="additionalText" :rightIcon="ICONS[rightIcon]" />',
+			template: '<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" />',
             created() {
               this.ICONS = ICONS;
             }
