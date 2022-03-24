@@ -9,19 +9,8 @@
 		</template>
 		<template v-if="isExpanderVisible" #footer>
 			<div v-ripple class="cardExpandable__expander" @click="onExpanderClick">
-				<span class="cardExpandable__expanderLabelWrapper">
-					<span
-						class="cardExpandable__expanderLabel"
-						:class="{ '-visible': isExpandedInternal }"
-					>
-						{{ expanderTextExpanded }}
-					</span>
-					<span
-						class="cardExpandable__expanderLabel"
-						:class="{ '-visible': !isExpandedInternal }"
-					>
-						{{ expanderTextCollapsed }}
-					</span>
+				<span class="cardExpandable__expanderLabel">
+					{{ isExpandedInternal ? expanderTextExpanded : expanderTextCollapsed }}
 				</span>
 				<ds-icon
 					class="cardExpandable__expanderIcon"
@@ -34,8 +23,7 @@
 	</ds-card>
 </template>
 
-<style lang="scss">
-@import '../../../styles/settings/animations';
+<style lang="scss" scoped>
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/icons';
 @import '../../../styles/settings/spacings';
@@ -43,7 +31,7 @@
 
 .cardExpandable {
 	&__expandedContent {
-		animation: a-fadeIn 600ms ease-in-out 0s 1;
+		animation: a-fadeIn 600ms ease-in-out;
 	}
 
 	&__expander {
@@ -63,29 +51,13 @@
 		}
 	}
 
-	&__expanderLabelWrapper {
-		// required for text animation
-		display: grid;
-	}
-
 	&__expanderLabel {
 		@include buttonS;
 
-		align-self: center;
 		color: $color-primary-text;
 		text-transform: uppercase;
 		font-weight: bold;
-		// Needed to overlap text for animation
-		grid-column-start: 1;
-		grid-row-start: 1;
 		margin-right: $space-xxxxs;
-		opacity: 0;
-		transition: opacity ease-in-out $default-transition-time;
-		text-align: right;
-
-		&.-visible {
-			opacity: 1;
-		}
 	}
 
 	&__expanderIcon {

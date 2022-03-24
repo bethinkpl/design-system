@@ -2,14 +2,24 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import CardExpandable from './CardExpandable.vue';
 
+interface createComponentOptions {
+	isExpanded?: boolean;
+	expanderTextExpanded?: string | null;
+	expanderTextCollapsed?: string | null;
+	headerSlot?: string;
+	contentSlot?: string;
+	expandedContentSlot?: string;
+}
+
 describe('CardExpandable', () => {
 	const createComponent = ({
 		isExpanded = false,
-		expanderText = '',
+		expanderTextExpanded = null,
+		expanderTextCollapsed = null,
 		headerSlot = '',
 		contentSlot = '',
 		expandedContentSlot = '',
-	} = {}) => {
+	}: createComponentOptions = {}) => {
 		const localVue = createLocalVue();
 
 		return shallowMount(CardExpandable, {
@@ -17,7 +27,8 @@ describe('CardExpandable', () => {
 			mocks: {},
 			propsData: {
 				isExpanded,
-				expanderText,
+				...(expanderTextExpanded && { expanderTextExpanded }),
+				...(expanderTextCollapsed && { expanderTextCollapsed }),
 			},
 			stubs: {},
 			slots: {
@@ -60,11 +71,16 @@ describe('CardExpandable', () => {
 	});
 
 	it('should render expander with custom text', async () => {
-		const component = createComponent({ expanderText: 'expander' });
+		const component = createComponent({
+			expanderTextExpanded: 'collapse',
+			expanderTextCollapsed: 'expand',
+		});
 
 		const expander = component.find('.cardExpandable__expander');
 		expect(expander.exists()).toBe(true);
-		expect(expander.text()).toBe('expander');
+		expect(expander.text()).toBe('expand');
+		await expander.trigger('click');
+		expect(expander.text()).toBe('collapse');
 	});
 
 	it('expander click should emit update:isExpanded event', async () => {
