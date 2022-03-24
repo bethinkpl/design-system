@@ -84,11 +84,6 @@
 		}
 	}
 
-	&__interactiveIcon {
-		color: $color-primary-icon;
-		margin-left: $space-xs;
-	}
-
 	&__text {
 		@include textM;
 
