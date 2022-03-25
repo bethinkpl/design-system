@@ -28,6 +28,7 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
 
 ::v-deep .ripple {
@@ -40,6 +41,7 @@
 	display: flex;
 	flex-direction: row;
 	padding: $space-xxs $space-xs;
+  border-radius: $radius-s;
 
 	&__additionalText {
 		@include textXS;
@@ -52,7 +54,9 @@
 	}
 
 	&__center {
-		display: flex;
+    @include textBold;
+
+    display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 	}
@@ -64,7 +68,8 @@
 	}
 
 	&__iconLeft {
-		margin-right: $space-xs;
+    color: $color-neutral-icon;
+    margin-right: $space-xs;
 	}
 
 	&__iconRight {
@@ -88,6 +93,7 @@
 		@include textM;
 
 		color: $color-neutral-text-heavy;
+    margin-top: $space-xxxxxs;
 	}
 }
 </style>
@@ -104,31 +110,31 @@ export default {
 		RippleWrapper,
 	},
 	props: {
+    interactive: {
+      type: Boolean,
+      default: false,
+    },
+    iconLeft: {
+      type: Object,
+      default: null,
+      validate(iconLeft: VueConstructor) {
+        return Object.values(ICONS).includes(iconLeft);
+      },
+    },
+    iconRight: {
+      type: Object,
+      default: null,
+      validate(iconRight: VueConstructor) {
+        return Object.values(ICONS).includes(iconRight);
+      },
+    },
 		text: {
 			type: String,
 			required: true,
 		},
 		eyebrowText: {
 			type: String,
-			default: null,
-		},
-		interactive: {
-			type: Boolean,
-			default: false,
-		},
-		iconLeft: {
-			type: Object,
-			default: null,
-			validate(iconLeft: VueConstructor) {
-				return Object.values(ICONS).includes(iconLeft);
-			},
-		},
-		iconRight: {
-			type: Object,
-			default: null,
-			validate(iconRight: VueConstructor) {
-				return Object.values(ICONS).includes(iconRight);
-			},
+			required: true,
 		},
 		additionalText: {
 			type: String,

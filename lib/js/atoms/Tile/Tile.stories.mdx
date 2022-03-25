@@ -10,13 +10,41 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
 
 <Story name='interactive'
   args={{
-      interactive: false,
-      additionalText: '',
+      interactive: true,
+      iconLeft: null,
+      iconRight: null,
       text: 'this is a text text',
       eyebrowText: 'this is an eyebrowText text',
+      additionalText: '',
    }}
   argTypes={{
-      iconLeft: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: 'FA_CALENDAR_ALT' },
+      iconLeft: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: null },
+      iconRight: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: null },
+  }}>
+>
+	{(args) => {
+		return {
+			components: { Tile },
+			props: Object.keys(args),
+			template: '<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" />',
+            created() {
+              this.ICONS = ICONS;
+            }
+        };
+	}}
+</Story>
+
+<Story name='static'
+  args={{
+      interactive: false,
+      iconLeft: null,
+      iconRight: null,
+      text: 'this is a text text',
+      eyebrowText: 'this is an eyebrowText text',
+      additionalText: 'this is some additionalText',
+   }}
+  argTypes={{
+      iconLeft: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: null },
       iconRight: {control: { type: 'select', options: [null, ...Object.keys(ICONS)] }, defaultValue: null },
   }}>
 >
