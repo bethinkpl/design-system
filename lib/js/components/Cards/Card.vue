@@ -12,7 +12,6 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors';
-@import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/radiuses';
@@ -25,18 +24,10 @@
 
 	&__header {
 		padding: $space-s;
-
-		@media #{breakpoint-s()} {
-			padding: $space-m;
-		}
 	}
 
 	&__content {
 		padding: $space-s;
-
-		@media #{breakpoint-s()} {
-			padding: $space-m;
-		}
 	}
 }
 </style>
