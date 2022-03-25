@@ -41,7 +41,7 @@
 	display: flex;
 	flex-direction: row;
 	padding: $space-xxs $space-xs;
-  border-radius: $radius-s;
+	border-radius: $radius-s;
 
 	&__additionalText {
 		@include textXS;
@@ -54,9 +54,9 @@
 	}
 
 	&__center {
-    @include textBold;
+		@include textBold;
 
-    display: flex;
+		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 	}
@@ -68,8 +68,8 @@
 	}
 
 	&__iconLeft {
-    color: $color-neutral-icon;
-    margin-right: $space-xs;
+		color: $color-neutral-icon;
+		margin-right: $space-xs;
 	}
 
 	&__iconRight {
@@ -93,7 +93,7 @@
 		@include textM;
 
 		color: $color-neutral-text-heavy;
-    margin-top: $space-xxxxxs;
+		margin-top: $space-xxxxxs;
 	}
 }
 </style>
@@ -110,24 +110,24 @@ export default {
 		RippleWrapper,
 	},
 	props: {
-    interactive: {
-      type: Boolean,
-      default: false,
-    },
-    iconLeft: {
-      type: Object,
-      default: null,
-      validate(iconLeft: VueConstructor) {
-        return Object.values(ICONS).includes(iconLeft);
-      },
-    },
-    iconRight: {
-      type: Object,
-      default: null,
-      validate(iconRight: VueConstructor) {
-        return Object.values(ICONS).includes(iconRight);
-      },
-    },
+		interactive: {
+			type: Boolean,
+			default: false,
+		},
+		iconLeft: {
+			type: Object,
+			default: null,
+			validate(iconLeft: VueConstructor) {
+				return Object.values(ICONS).includes(iconLeft);
+			},
+		},
+		iconRight: {
+			type: Object,
+			default: null,
+			validate(iconRight: VueConstructor) {
+				return Object.values(ICONS).includes(iconRight);
+			},
+		},
 		text: {
 			type: String,
 			required: true,
