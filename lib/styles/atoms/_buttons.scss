@@ -7,33 +7,65 @@
 
 $default-lighter-shadow: 0 4px 12px rgba($color-firefly-black, 0.35);
 
-@mixin outlinedColor($color, $disabled) {
-	color: $color;
-
-	&:disabled,
-	&.-disabled {
-		color: $disabled;
-	}
-}
-
-@mixin textColor($color, $hover-color, $focus-color, $disabled-color) {
-	color: $color;
-
-	&:hover,
-	&.-hovered,
-	&:active,
-	&.-active {
-		color: $hover-color;
+@mixin buttonColors(
+	$color: '',
+	$background: '',
+	$hover: '',
+	$focus: '',
+	$disabled: '',
+	$ripple: '',
+	$border: ''
+) {
+	@if $color != '' {
+		color: $color;
 	}
 
-	&:focus,
-	&.-focused {
-		color: $focus-color;
+	@if $background != '' {
+		background-color: $background;
+	} @else {
+		background-color: transparent;
 	}
 
-	&:disabled,
-	&.-disabled {
-		color: $disabled-color;
+	@if $hover != '' {
+		@if $border != '' or $background != '' {
+			&:hover,
+			&.-hovered,
+			&:active,
+			&.-active {
+				background-color: $hover;
+			}
+		} @else {
+			&:hover,
+			&.-hovered,
+			&:active,
+			&.-active {
+				color: $hover;
+			}
+		}
+	}
+
+	@if $focus != '' {
+		&:focus,
+		&.-focused {
+			background-color: $focus;
+		}
+	}
+
+	@if $disabled != '' {
+		&:disabled,
+		&.-disabled {
+			background-color: $disabled;
+		}
+	}
+
+	@if $ripple != '' {
+		.ripple {
+			background-color: $ripple !important;
+		}
+	}
+
+	@if $border != '' {
+		border: 1px solid $border;
 	}
 }
 
@@ -54,7 +86,6 @@ $button-disabled-alpha: 0.6;
 	background-color: transparent; // override defaut <button> background color
 	border: 0;
 	border-radius: 100px;
-	color: $color-default-text-inverted;
 	cursor: pointer;
 	display: inline-flex;
 	min-height: $button-medium-min-height;
@@ -76,73 +107,83 @@ $button-disabled-alpha: 0.6;
 		pointer-events: none;
 	}
 
-	&:not(.-outlined) {
-		@each $color-name, $color-map in $theme-calculated-colors-new {
-			&.-color-#{$color-name}:after {
-				background-color: map-get($color-map, 'background');
-			}
-		}
+	@include buttonColors(
+		map-get($button-colors, 'primary', 'color'),
+		map-get($button-colors, 'primary', 'background'),
+		map-get($button-colors, 'primary', 'hovered'),
+		map-get($button-colors, 'primary', 'focused'),
+		map-get($button-colors, 'primary', 'disabled'),
+		map-get($button-colors, 'primary', 'ripple')
+	);
 
-		@each $color-name, $color-map in $regular-colors-new {
-			&.-color-#{$color-name}:after {
-				background-color: map-get($color-map, 'background');
+	@each $color-name, $color-map in $icon-button-colors {
+		&.-color-#{$color-name} {
+			@include buttonColors(
+				map-get($color-map, 'color'),
+				map-get($color-map, 'background'),
+				map-get($color-map, 'hovered'),
+				map-get($color-map, 'focused'),
+				map-get($color-map, 'disabled'),
+				map-get($color-map, 'ripple')
+			);
+		}
+	}
+
+	&.-outlined {
+		@include buttonColors(
+			map-get($button-colors, 'primary', 'inverted', 'color'),
+			'',
+			map-get($button-colors, 'primary', 'inverted', 'hovered'),
+			map-get($button-colors, 'primary', 'inverted', 'focused'),
+			map-get($button-colors, 'primary', 'inverted', 'disabled'),
+			map-get($button-colors, 'primary', 'inverted', 'ripple'),
+			map-get($button-colors, 'primary', 'inverted', 'border')
+		);
+
+		@each $color-name, $color-map in $icon-button-colors {
+			&.-color-#{$color-name} {
+				@include buttonColors(
+					map-get($color-map, 'inverted', 'color'),
+					'',
+					map-get($color-map, 'inverted', 'hovered'),
+					map-get($color-map, 'inverted', 'focused'),
+					map-get($color-map, 'inverted', 'disabled'),
+					map-get($color-map, 'inverted', 'ripple'),
+					map-get($color-map, 'inverted', 'border')
+				);
 			}
 		}
 	}
 
+	&.-text {
+		@include buttonColors(
+			map-get($button-colors, 'primary', 'background'),
+			'',
+			map-get($button-colors, 'primary', 'hovered'),
+			map-get($button-colors, 'primary', 'focused'),
+			map-get($button-colors, 'primary', 'disabled')
+		);
+
+		@each $color-name, $color-map in $icon-button-colors {
+			&.-color-#{$color-name} {
+				@include buttonColors(
+					map-get($color-map, 'background'),
+					'',
+					map-get($color-map, 'hovered'),
+					map-get($color-map, 'focused'),
+					map-get($color-map, 'disabled')
+				);
+			}
+		}
+
+		border: none;
+		border-radius: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
 	&:not(.-text) {
 		min-width: 100px;
-
-		&::before,
-		&::after {
-			border-radius: inherit;
-			bottom: 0;
-			content: '';
-			left: 0;
-			pointer-events: none;
-			position: absolute;
-			transition: opacity ease-in-out $default-transition-time,
-				background-color ease-in-out $default-transition-time;
-			right: 0;
-			top: 0;
-		}
-
-		//&::before {
-		//	background-color: $color-firefly-black;
-		//	opacity: 0;
-		//	transform: translateZ(-1px);
-		//}
-
-		&::after {
-			background-color: $color-primary-background-strong;
-			transform: translateZ(-2px);
-		}
-
-		&:hover,
-		&.-hovered,
-		&:active,
-		&.-active {
-			&::before {
-				opacity: $button-hover-alpha;
-			}
-		}
-
-		&:focus,
-		&.-focused {
-			&::before {
-				opacity: $button-focus-alpha;
-			}
-		}
-
-		&:not(.-outlined) {
-			&:disabled,
-			&.-disabled {
-				&::before {
-					background-color: $color-total-white;
-					opacity: $button-disabled-alpha;
-				}
-			}
-		}
 	}
 
 	&.-large {
@@ -168,90 +209,6 @@ $button-disabled-alpha: 0.6;
 			padding-left: $space-s;
 			padding-right: $space-s;
 		}
-	}
-
-	.ripple {
-		background-color: $color-default-ripple-inverted !important;
-	}
-
-	&.-outlined {
-		@include outlinedColor($color-primary-rgb, $color-primary-disabled);
-
-		@each $color-name, $color-map in $theme-calculated-colors-new {
-			&.-color-#{$color-name} {
-				@include outlinedColor(
-					map-get($color-map, 'color'),
-					map-get($color-map, 'disabled')
-				);
-			}
-		}
-
-		@each $color-name, $color-map in $regular-colors-new {
-			&.-color-#{$color-name} {
-				@include outlinedColor(
-					map-get($color-map, 'color'),
-					map-get($color-map, 'disabled')
-				);
-			}
-		}
-
-		border: 1px solid currentColor;
-
-		&::before {
-			background-color: currentColor;
-		}
-
-		&::after {
-			background-color: transparent;
-		}
-
-		&.-elevation-x-small,
-		&.-elevation-small {
-			&::after {
-				background-color: $color-total-white;
-			}
-		}
-
-		.ripple {
-			background-color: currentColor !important;
-			opacity: $ripple-alpha;
-		}
-	}
-
-	&.-text {
-		@include textColor(
-			$color-primary-text,
-			$color-primary-text-hovered,
-			$color-primary-text-focused,
-			$color-primary-text-disabled
-		);
-
-		@each $color-name, $color-map in $theme-calculated-colors-new {
-			&.-color-#{$color-name} {
-				@include textColor(
-					map-get($color-map, 'color'),
-					map-get($color-map, 'hovered'),
-					map-get($color-map, 'focused'),
-					map-get($color-map, 'disabled')
-				);
-			}
-		}
-
-		@each $color-name, $color-map in $regular-colors-new {
-			&.-color-#{$color-name} {
-				@include textColor(
-					map-get($color-map, 'color'),
-					map-get($color-map, 'hovered'),
-					map-get($color-map, 'focused'),
-					map-get($color-map, 'disabled')
-				);
-			}
-		}
-
-		border: none;
-		border-radius: 0;
-		padding-left: 0;
-		padding-right: 0;
 	}
 
 	&.-loading {

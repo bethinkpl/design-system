@@ -10,17 +10,21 @@ export const BUTTON_TYPES = {
 	TEXT: 'text',
 } as const;
 
+export const BUTTON_ICON_COLORS = {
+	PRIMARY: 'primary',
+	NEUTRAL: 'neutral',
+	NEUTRAL_WEAK: 'neutral-weak',
+	DANGER: 'danger',
+	SUCCESS: 'success',
+	INVERTED: 'inverted',
+	WARNING: 'warning',
+	INFO: 'info',
+} as const;
+
 export const BUTTON_COLORS = {
 	PRIMARY: 'primary',
-	PRIMARY_SUPPORTING: 'primary-supporting',
-	SECONDARY: 'secondary',
-	SECONDARY_SUPPORTING: 'secondary-supporting',
-	CONTENT: 'content',
-	MINOR: 'minor',
-	MINOR_SUPPORTING: 'minor-supporting',
+	NEUTRAL: 'neutral',
 	DANGER: 'danger',
-	DANGER_SUPPORTING: 'danger-supporting',
-	WARNING: 'warning',
 	SUCCESS: 'success',
 	INVERTED: 'inverted',
 } as const;

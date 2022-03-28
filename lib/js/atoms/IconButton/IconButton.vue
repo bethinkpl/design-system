@@ -18,7 +18,7 @@
 		<div
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
 			class="a-iconButton__label"
-			:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_LABEL }"
+			:class="{ '-neutral': colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL }"
 			><slot
 		/></div>
 		<wnl-button
@@ -31,12 +31,7 @@
 			:elevation="elevation"
 			:color="isButtonColor ? color : null"
 		>
-			<wnl-icon
-				class="a-iconButton__icon"
-				:icon="icon"
-				:size="iconSize"
-				:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON }"
-			/>
+			<wnl-icon class="a-iconButton__icon" :icon="icon" :size="iconSize" />
 		</wnl-button>
 	</div>
 </template>
@@ -50,27 +45,43 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
-@mixin iconButtonColor($color, $hover-color) {
+@mixin iconButtonColor($color, $icon, $border, $background, $hovered, $focused, $disabled) {
 	color: $color;
+	border-color: $border;
+	background-color: transparent;
 
 	&:hover,
 	&:active {
-		color: $hover-color;
+		//background-color: $hovered;
+	}
+	&:focus {
+		//background-color: $focused;
+	}
+	&:disabled {
+		//background-color: $disabled;
 	}
 }
 
 .a-iconButton {
 	$self: &;
 
-	@each $color-name, $color-map in $theme-calculated-colors-new {
+	@each $color-name, $color-map in $icon-button-colors {
 		&.-color-#{$color-name} {
-			@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
-		}
-	}
-
-	@each $color-name, $color-map in $regular-colors-new {
-		&.-color-#{$color-name} {
-			@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
+			@include iconButtonColor(
+				map-get($color-map, 'color'),
+				map-get($color-map, 'icon'),
+				map-get($color-map, 'border'),
+				map-get($color-map, 'background'),
+				map-get($color-map, 'hovered'),
+				map-get($color-map, 'focused'),
+				map-get($color-map, 'disabled')
+			);
+			#{$self}__label {
+				color: map-get($color-map, 'background');
+			}
+			#{$self}__button {
+				//background: map-get($color-map, 'background');
+			}
 		}
 	}
 
@@ -81,7 +92,7 @@
 	transition: color ease-in-out $default-transition-time;
 
 	&:hover {
-		color: $color-primary-text-hovered;
+		color: map-get($icon-button-colors, 'theme', 'hovered');
 	}
 
 	&__button {
@@ -93,7 +104,6 @@
 
 		&.-iconOnly {
 			border: none;
-			color: currentColor;
 		}
 	}
 
@@ -109,14 +119,8 @@
 			display: initial;
 		}
 
-		&.-minor {
-			@include iconButtonColor($color-neutral-text, $color-neutral-text-hovered);
-		}
-	}
-
-	&__icon {
-		&.-minor {
-			color: $color-neutral-text;
+		&.-neutral {
+			color: $color-neutral-text !important;
 		}
 	}
 
@@ -278,7 +282,7 @@ export default {
 			throw new Error(`Color: ${this.color} is supported only in type: "icon-only"`);
 		},
 		isButtonColor(): boolean {
-			return Object.values(BUTTON_COLORS).includes(this.color);
+			return Object.values(ICON_BUTTON_COLORS).includes(this.color);
 		},
 		colorClassName(): string {
 			return `-color-${this.color}`;

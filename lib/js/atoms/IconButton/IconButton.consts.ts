@@ -1,5 +1,4 @@
-import { COLORS } from '../../consts/colors';
-import { BUTTON_COLORS, BUTTON_TYPES } from '../Button/Button.consts';
+import { BUTTON_ICON_COLORS, BUTTON_TYPES } from '../Button/Button.consts';
 
 export const ICON_BUTTON_SIZES = {
 	X_SMALL: 'x-small',
@@ -16,11 +15,9 @@ export const ICON_BUTTON_TYPES = {
 
 export const ICON_BUTTON_COLOR_SCHEMES = {
 	ALL_IN_COLOR: 'all-in-color',
-	MINOR_ICON: 'minor-icon',
-	MINOR_LABEL: 'minor-label',
+	NEUTRAL_LABEL: 'neutral-label',
 } as const;
 
 export const ICON_BUTTON_COLORS = {
-	...COLORS,
-	...BUTTON_COLORS,
+	...BUTTON_ICON_COLORS,
 } as const;
