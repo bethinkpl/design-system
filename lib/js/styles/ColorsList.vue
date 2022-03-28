@@ -25,12 +25,6 @@
 						<div class="colorDefinition__value">{{ color.value }}</div>
 						<div class="colorDefinition__color">
 							<span
-								v-if="isHexOrRGBA(color.value)"
-								class="colorDefinition__tile"
-								:style="{ background: color.value }"
-							></span>
-							<span
-								v-else
 								:style="{ background: color.value }"
 								class="colorDefinition__tile"
 							></span>
@@ -111,8 +105,6 @@ export default {
 	},
 	data() {
 		return {
-			hasHash: /#/i,
-			hasRGBA: /rgba/i,
 			colorsLocal: this.colorsLists,
 		};
 	},
@@ -131,9 +123,6 @@ export default {
 	methods: {
 		canBeDisplayed(category: string, disableDefault: boolean) {
 			return !(category === 'default' && disableDefault);
-		},
-		isHexOrRGBA(color: string) {
-			return color.match(this.hasHash) || color.match(this.hasRGBA);
 		},
 	},
 };
