@@ -1,0 +1,38 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+
+import BadgeScore from './BadgeScore.vue';
+import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
+
+<Meta title="components/Badges/BadgeScore" component={BadgeScore} />
+
+# BadgeScore
+
+<Story
+	name="interactive"
+	args={{
+		text: '42%',
+		color: BADGE_SCORE_COLORS.SUCCESS,
+		size: BADGE_SCORE_SIZES.MEDIUM,
+	}}
+	argTypes={{
+		text: { control: { type: 'text' } },
+		color: {
+			control: { type: 'select', options: Object.values(BADGE_SCORE_COLORS) },
+		},
+		size: {
+			control: { type: 'select', options: Object.values(BADGE_SCORE_SIZES) },
+		},
+	}}
+>
+	{(args) => {
+		return {
+			components: { BadgeScore },
+			props: Object.keys(args),
+			template: '<badge-score :color="color" :text="text" :size="size" />',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={BadgeScore} />
