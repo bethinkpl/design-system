@@ -26,7 +26,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
 		touchable: true,
 		elevation: BUTTON_ELEVATIONS.NONE,
-		color: 'PRIMARY',
+		color: 'primary',
 	}}
 	argTypes={{
 		size: {
@@ -46,8 +46,8 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			defaultValue: 'FA_TIMES_LIGHT',
 		},
 		color: {
-			control: { type: 'select', options: Object.keys(ICON_BUTTON_COLORS) },
-			defaultValue: 'PRIMARY',
+			control: { type: 'select', options: Object.values(ICON_BUTTON_COLORS) },
+			defaultValue: 'primary',
 		},
 		colorScheme: {
 			control: { type: 'select', options: Object.values(ICON_BUTTON_COLOR_SCHEMES) },
@@ -63,7 +63,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		return {
 			components: { WnlIconButton },
 			props: Object.keys(args),
-			template: `<div style="background-color: lightgrey; height: 200px; padding: 10px">
+			template: `<div style="background-color: #efeded; height: 200px; padding: 10px">
 <wnl-icon-button
               :icon="ICONS[icon]"
               :size="size"
@@ -72,7 +72,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
               :color-scheme="colorScheme"
               :touchable="touchable"
               :elevation="elevation"
-              :color="ICON_BUTTON_COLORS[color]"
+              :color="color"
             ><span v-if="label !== ''">{{label}}</span></wnl-icon-button>
 </div>`,
 			created() {
@@ -132,11 +132,11 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 
 ### icon-only primary medium
 
-<Story name="examples/iconOnlyPrimary">
+<Story name="examples/iconOnlyInfo">
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.PRIMARY" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+			'<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.INFO" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
@@ -151,7 +151,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+			'<wnl-icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;

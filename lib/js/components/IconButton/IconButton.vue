@@ -225,7 +225,7 @@ export default {
 		},
 		color: {
 			type: String,
-			default: BUTTON_COLORS.PRIMARY,
+			default: ICON_BUTTON_COLORS.PRIMARY,
 			validator(value): boolean {
 				return Object.values(ICON_BUTTON_COLORS).includes(value);
 			},
