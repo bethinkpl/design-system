@@ -49,22 +49,6 @@ $color-secondary-rgb: var(--raw-theme-500-rgb);
 $color-secondary-supporting-rgb: var(--raw-theme-300-rgb);
 $color-total-white-opacity50: rgba(var(--raw-white-rgb), 0.5);
 
-//$color-catalina-blue: #25335a;
-
-// DEPRECATED - nie używane nigdzie
-$color-ice-green: #e2f2e3;
-$color-success-background: $color-ice-green;
-
-$color-garden-green: #98d293;
-$color-success-supporting: $color-garden-green;
-
-$color-french-red: #e55066;
-
-$color-powder-pink: #fadeda;
-$color-danger-background: $color-powder-pink;
-
-$DEPRECATED-color-primary-dark: var(--color-primary-hovered);
-
 // theme colors
 $color-primary: var(--raw-theme-500);
 $color-primary-hovered: var(--raw-theme-700);
@@ -119,42 +103,3 @@ $color-neutrals-shadow-strong: rgba($color-firefly-black, 0.12);
 $color-overlay-inverted: rgba($color-total-white, 0.95);
 
 $ripple-alpha: 0.16;
-
-//:root {
-//  --color-primary: #0f9698;
-//  --color-primary-rgb: 15, 150, 152;
-//  --color-primary-hovered: #0f878a;
-//  --color-primary-hovered-rgb: 15, 135, 138;
-//  --color-primary-focused: #0e787d;
-//  --color-primary-focused-rgb: 14, 120, 125;
-//  --color-primary-disabled: #9fd5d6;
-//  --color-primary-disabled-rgb: 159, 213, 214;
-//  --color-primary-background: #d9eeef;
-//  --color-primary-background-rgb: 217, 238, 239;
-//  --color-primary-supporting: #84cacb;
-//  --color-primary-supporting-rgb: 132, 202, 203;
-//  --color-primary-supporting-hovered: #76b5b7;
-//  --color-primary-supporting-hovered-rgb: 118, 181, 183;
-//  --color-primary-supporting-focused: #679fa3;
-//  --color-primary-supporting-focused-rgb: 103, 159, 163;
-//  --color-primary-supporting-disabled: #ceeaea;
-//  --color-primary-supporting-disabled-rgb: 206, 234, 234;
-//  --color-secondary: #11afb2;
-//  --color-secondary-rgb: 17, 175, 178;
-//  --color-secondary-hovered: #109da1;
-//  --color-secondary-hovered-rgb: 16, 157, 161;
-//  --color-secondary-focused: #108b90;
-//  --color-secondary-focused-rgb: 16, 139, 144;
-//  --color-secondary-disabled: #a0dfe0;
-//  --color-secondary-disabled-rgb: 160, 223, 224;
-//  --color-secondary-background: #d9f2f3;
-//  --color-secondary-background-rgb: 217, 242, 243;
-//  --color-secondary-supporting: #8ececf;
-//  --color-secondary-supporting-rgb: 142, 206, 207;
-//  --color-secondary-supporting-hovered: #7eb8bb;
-//  --color-secondary-supporting-hovered-rgb: 126, 184, 187;
-//  --color-secondary-supporting-focused: #6fa2a6;
-//  --color-secondary-supporting-focused-rgb: 111, 162, 166;
-//  --color-secondary-supporting-disabled: #d2ebec;
-//  --color-secondary-supporting-disabled-rgb: 210, 235, 236;
-//}
