@@ -10,6 +10,8 @@
 @import 'settings/spacings';
 @import 'settings/typography';
 @import 'settings/colors/raw';
+@import 'settings/colors/raw-wnl';
+@import 'settings/colors/raw-bodywork';
 
 // Mixins
 @import 'mixins/layout';
@@ -26,6 +28,11 @@
 @import 'modifiers/shadows';
 @import 'modifiers/typography';
 @import 'settings/colors/tokens';
+@import 'settings/colors/tokens-wnl';
+@import 'settings/colors/tokens-bodywork';
+@import 'settings/colors/tokens-variables';
+@import 'settings/colors/tokens-wnl-variables';
+@import 'settings/colors/tokens-bodywork-variables';
 
 html,
 body {
