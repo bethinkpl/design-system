@@ -114,17 +114,17 @@
 	--color-neutral-border-strong-focused: var(--raw-gray-600);
 	--color-neutral-border-strong-disabled: var(--raw-gray-300);
 	--color-neutral-border: var(--raw-gray-300);
-	--color-neutral-border-hover: var(--raw-gray-500);
+	--color-neutral-border-hovered: var(--raw-gray-500);
 	--color-neutral-border-focused: var(--raw-gray-500);
 	--color-neutral-border-disabled: var(--raw-gray-200);
 	--color-neutral-border-weak: var(--raw-gray-200);
-	--color-neutral-border-weak-hover: var(--raw-gray-400);
+	--color-neutral-border-weak-hovered: var(--raw-gray-400);
 	--color-neutral-border-weak-focused: var(--raw-gray-400);
 	--color-neutral-border-weak-disabled: var(--raw-gray-100);
 	--color-neutral-border-ghost: var(--raw-gray-100);
+	--color-neutral-divider-strong: var(--raw-gray-300);
 	--color-neutral-divider: var(--raw-gray-200);
 	--color-neutral-divider-weak: var(--raw-gray-100);
-	--color-neutral-divider-strong: var(--raw-gray-300);
 	--color-neutral-ripple: rgba(var(--raw-gray-600-rgb), 0.12);
 	--color-danger-text: var(--raw-red-500);
 	--color-danger-text-hovered: var(--raw-red-700);
@@ -202,7 +202,7 @@
 	--color-warning-background-strong-hovered: var(--raw-gold-600);
 	--color-warning-background-strong-focused: var(--raw-gold-600);
 	--color-warning-background-strong-disabled: var(--raw-gold-200);
-	--color-warning-background-medium: var(--raw-gold-200);
+	--color-warning-background-medium: var(--raw-gold-100);
 	--color-warning-background: var(--raw-gold-50);
 	--color-warning-background-hovered: var(--raw-gold-100);
 	--color-warning-background-focused: var(--raw-gold-100);
@@ -296,6 +296,7 @@
 	--color-accent-background: var(--raw-violet-50);
 	--color-accent-background-hovered: var(--raw-violet-100);
 	--color-accent-background-focused: var(--raw-violet-100);
+	--color-accent-background-weak: var(--raw-white);
 	--color-accent-background-weak-hovered: var(--raw-violet-100);
 	--color-accent-background-weak-focused: var(--raw-violet-100);
 	--color-accent-background-ghost: rgba(var(--raw-violet-500-rgb), 0);
