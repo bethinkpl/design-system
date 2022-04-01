@@ -53,6 +53,14 @@ declare const _default: {
                             default: null;
                             validator(value: number): boolean;
                         };
+                        flippedVertical: {
+                            type: BooleanConstructor;
+                            default: boolean;
+                        };
+                        flippedHorizontal: {
+                            type: BooleanConstructor;
+                            default: boolean;
+                        };
                         touchable: {
                             type: BooleanConstructor;
                             default: boolean;
@@ -94,6 +102,14 @@ declare const _default: {
                                     type: NumberConstructor;
                                     default: null;
                                     validator(value: number): boolean;
+                                };
+                                flippedVertical: {
+                                    type: BooleanConstructor;
+                                    default: boolean;
+                                };
+                                flippedHorizontal: {
+                                    type: BooleanConstructor;
+                                    default: boolean;
                                 };
                                 touchable: {
                                     type: BooleanConstructor;
@@ -273,6 +289,14 @@ declare const _default: {
                             default: null;
                             validator(value: number): boolean;
                         };
+                        flippedVertical: {
+                            type: BooleanConstructor;
+                            default: boolean;
+                        };
+                        flippedHorizontal: {
+                            type: BooleanConstructor;
+                            default: boolean;
+                        };
                         touchable: {
                             type: BooleanConstructor;
                             default: boolean;
@@ -360,6 +384,14 @@ declare const _default: {
                             default: null;
                             validator(value: number): boolean;
                         };
+                        flippedVertical: {
+                            type: BooleanConstructor;
+                            default: boolean;
+                        };
+                        flippedHorizontal: {
+                            type: BooleanConstructor;
+                            default: boolean;
+                        };
                         touchable: {
                             type: BooleanConstructor;
                             default: boolean;
@@ -414,6 +446,14 @@ declare const _default: {
                             type: NumberConstructor;
                             default: null;
                             validator(value: number): boolean;
+                        };
+                        flippedVertical: {
+                            type: BooleanConstructor;
+                            default: boolean;
+                        };
+                        flippedHorizontal: {
+                            type: BooleanConstructor;
+                            default: boolean;
                         };
                         touchable: {
                             type: BooleanConstructor;
