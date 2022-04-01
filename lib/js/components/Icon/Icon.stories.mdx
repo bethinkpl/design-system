@@ -13,6 +13,8 @@ import WnlIcon, { ICON_SIZES, ICONS } from 'design-system/lib/js/components/Icon
 		spinning: false,
 		touchable: false,
 		rotation: null,
+		flippedVertical: false,
+		flippedHorizontal: false,
 	}}
 	argTypes={{
 		size: {
@@ -37,7 +39,7 @@ import WnlIcon, { ICON_SIZES, ICONS } from 'design-system/lib/js/components/Icon
 				this.ICONS = ICONS;
 			},
 			template:
-				'<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" /></div>',
+				'<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
 		};
 	}}
 </Story>

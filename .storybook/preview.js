@@ -76,7 +76,15 @@ export const parameters = {
 	viewport: { viewports: customViewports },
 	options: {
 		storySort: {
-			order: ['foundations', 'components'],
+			order: [
+				'foundations',
+				[
+					'Colors',
+					'Design Tokens',
+					['Color Tokens', ['LMS', 'Primary WNL', 'Primary Bodywork']],
+				],
+				'components',
+			],
 		},
 	},
 };
