@@ -1,0 +1,29 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import ColorsList from './../ColorsList';
+import tokensWnl from '../../../styles/settings/colors/_tokens.json';
+
+<Meta title="foundations/Design Tokens/Color Tokens/LMS" component={ColorsList} />
+
+# Card
+
+<Story
+	name="LMS"
+	args={{
+		colorsLists: [{ title: 'LMS', list: tokensWnl }],
+	}}
+	argTypes={{
+		colorsLists: Array,
+	}}
+>
+	{(args) => {
+		return {
+			components: { ColorsList },
+			template: '<ColorsList :colorsLists="colorsLists"></ColorsList>',
+			props: Object.keys(args),
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={ColorsList} />

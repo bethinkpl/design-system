@@ -1,0 +1,29 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import ColorsList from './../ColorsList';
+import tokensBodywork from '../../../styles/settings/colors/_tokens-bodywork.json';
+
+<Meta title="foundations/Design Tokens/Color Tokens/Primary Bodywork" component={ColorsList} />
+
+# Card
+
+<Story
+	name="Primary Bodywork"
+	args={{
+		colorsLists: [{ title: 'Primary Bodywork', list: tokensBodywork, class: 'theme-bodywork' }],
+	}}
+	argTypes={{
+		colorsLists: Array,
+	}}
+>
+	{(args) => {
+		return {
+			components: { ColorsList },
+			template: '<ColorsList :colorsLists="colorsLists"></ColorsList>',
+			props: Object.keys(args),
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={ColorsList} />

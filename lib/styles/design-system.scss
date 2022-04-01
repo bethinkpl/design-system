@@ -9,6 +9,9 @@
 @import 'settings/radiuses';
 @import 'settings/spacings';
 @import 'settings/typography';
+@import 'settings/colors/raw';
+@import 'settings/colors/raw-wnl';
+@import 'settings/colors/raw-bodywork';
 
 // Mixins
 @import 'mixins/layout';
@@ -24,11 +27,17 @@
 @import 'modifiers/media-queries';
 @import 'modifiers/shadows';
 @import 'modifiers/typography';
+@import 'settings/colors/tokens';
+@import 'settings/colors/tokens-wnl';
+@import 'settings/colors/tokens-bodywork';
+@import 'settings/colors/tokens-variables';
+@import 'settings/colors/tokens-wnl-variables';
+@import 'settings/colors/tokens-bodywork-variables';
 
 html,
 body {
 	// TODO add font-size when wnl-platform is ready
-	color: $color-firefly-black;
+	color: var($color-default-text);
 }
 
 html,
