@@ -15,6 +15,7 @@ export { default as Modal } from './atoms/Modal';
 export { default as NumberInCircle } from './atoms/NumberInCircle';
 export * from './atoms/NumberInCircle/NumberInCircle.consts';
 export { default as TabItem } from './atoms/TabItem';
+export { default as Tile } from './atoms/Tile';
 export { default as AccessStatus } from './molecules/AccessStatus.vue';
 export { default as BlockadeStatus } from './molecules/BlockadeStatus.vue';
 export * from './consts/colors';
