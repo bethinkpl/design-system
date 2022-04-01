@@ -21,3 +21,10 @@ export const ICON_BUTTON_COLOR_SCHEMES = {
 export const ICON_BUTTON_COLORS = {
 	...BUTTON_ICON_COLORS,
 } as const;
+
+export const ICON_BUTTON_STATES = {
+	DEFAULT: 'default',
+	HOVERED: 'hovered',
+	FOCUSED: 'focused',
+	DISABLED: 'disabled',
+} as const;

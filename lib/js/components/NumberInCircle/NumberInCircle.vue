@@ -37,32 +37,44 @@
 		min-width: $icon-xxl;
 	}
 
-	&.-is1 {
+	&.-is1,
+	&.-is6,
+	&.-primary {
 		color: $color-primary-text;
+		border-color: $color-primary-border;
 	}
 
-	&.-is2 {
+	&.-is5,
+	&.-is10,
+	&.-neutral {
+		color: $color-neutral-text;
+		border-color: $color-neutral-border-heavy;
+	}
+
+	&.-is2,
+	&.-is7,
+	&.-success {
 		color: $color-success-text;
-	}
-
-	&.-is3 {
-		color: $color-accent-text;
-	}
-
-	&.-is4 {
-		color: $color-info-text;
+		border-color: $color-success-border;
 	}
 
 	&.-danger {
 		color: $color-danger-text;
+		border-color: $color-danger-border;
 	}
 
-	&.-primary {
-		color: $color-primary-text;
+	&.-is4,
+	&.-is9,
+	&.-info {
+		color: $color-info-text;
+		border-color: $color-info-border;
 	}
 
-	&.-secondary {
-		color: $color-neutral-text;
+	&.-is3,
+	&.-is8,
+	&.-violet {
+		color: var(--raw-violet-500);
+		border-color: var(--raw-violet-500);
 	}
 
 	&.-medium {
@@ -98,10 +110,12 @@ export default {
 	computed: {
 		colorClass() {
 			const colorToClassMap = {
-				[NUMBER_IN_CIRCLE_COLORS.DEFAULT]: `-is${this.index}`,
-				[NUMBER_IN_CIRCLE_COLORS.PRIMARY]: '-primary',
+				[NUMBER_IN_CIRCLE_COLORS.PRIMARY]: `-is${this.index}`,
+				[NUMBER_IN_CIRCLE_COLORS.NEUTRAL]: '-neutral',
+				[NUMBER_IN_CIRCLE_COLORS.SUCCESS]: '-success',
 				[NUMBER_IN_CIRCLE_COLORS.DANGER]: '-danger',
-				[NUMBER_IN_CIRCLE_COLORS.SECONDARY]: '-secondary',
+				[NUMBER_IN_CIRCLE_COLORS.INFO]: '-info',
+				[NUMBER_IN_CIRCLE_COLORS.VIOLET]: '-violet',
 			};
 			return colorToClassMap[this.color];
 		},

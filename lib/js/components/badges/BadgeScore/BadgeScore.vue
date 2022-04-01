@@ -1,17 +1,18 @@
 <template>
 	<div
-		class="a-badgeScore"
+		class="badgeScore"
 		:class="{
 			'-success': color === BADGE_SCORE_COLORS.SUCCESS,
 			'-warning': color === BADGE_SCORE_COLORS.WARNING,
 			'-danger': color === BADGE_SCORE_COLORS.DANGER,
 			'-inverted': color === BADGE_SCORE_COLORS.INVERTED,
-			'-minor': color === BADGE_SCORE_COLORS.MINOR,
+			'-primary': color === BADGE_SCORE_COLORS.PRIMARY,
+			'-neutral': color === BADGE_SCORE_COLORS.NEUTRAL,
 			'-small': size === BADGE_SCORE_SIZES.SMALL,
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
 		}"
 	>
-		{{ text }}
+		{{ text }}<span class="badgeScore__additionalText">{{ additionalText }}</span>
 	</div>
 </template>
 
@@ -25,7 +26,8 @@ $badge-score-width: 74px;
 $small-badge-score-width: 48px;
 $x-small-badge-score-width: 36px;
 
-.a-badgeScore {
+.badgeScore {
+	$self: &;
 	@include textBold();
 	@include headlineL();
 
@@ -38,22 +40,50 @@ $x-small-badge-score-width: 36px;
 
 	&.-success {
 		color: $color-success-text;
+		border-color: $color-success-border;
+		#{$self}__additionalText {
+			color: $color-success-text-weak;
+		}
 	}
 
 	&.-danger {
 		color: $color-danger-text;
+		border-color: $color-danger-border;
+		#{$self}__additionalText {
+			color: $color-danger-text-weak;
+		}
 	}
 
 	&.-warning {
 		color: $color-warning-text;
+		border-color: $color-warning-border;
+		#{$self}__additionalText {
+			color: $color-warning-text-weak;
+		}
 	}
 
 	&.-inverted {
 		color: $color-default-text-inverted;
+		border-color: $color-default-border-inverted;
+		#{$self}__additionalText {
+			color: $color-default-text-inverted;
+		}
 	}
 
-	&.-minor {
-		color: $color-neutral-text-weak;
+	&.-primary {
+		color: $color-primary-text;
+		border-color: $color-primary-border;
+		#{$self}__additionalText {
+			color: $color-primary-text;
+		}
+	}
+
+	&.-neutral {
+		color: $color-neutral-text;
+		border-color: $color-neutral-border-strong;
+		#{$self}__additionalText {
+			color: $color-neutral-text-weak;
+		}
 	}
 
 	&.-small {
@@ -81,6 +111,11 @@ export default {
 		text: {
 			type: String,
 			required: true,
+		},
+		additionalText: {
+			type: String,
+			required: false,
+			default: null,
 		},
 		color: {
 			type: String,

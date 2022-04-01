@@ -12,12 +12,20 @@
 @import '../../../../styles/settings/colors/tokens';
 
 .blockadeStatus {
+	$self: &;
 	align-items: center;
 	color: $color-neutral-text;
 	display: flex;
 
+	&__icon {
+		color: $color-neutral-icon;
+	}
+
 	&.-active {
 		color: $color-danger-text;
+		#{$self}__icon {
+			color: $color-danger-icon;
+		}
 	}
 
 	&__icon {

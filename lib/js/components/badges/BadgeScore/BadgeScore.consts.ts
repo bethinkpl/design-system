@@ -3,7 +3,8 @@ export const BADGE_SCORE_COLORS = {
 	WARNING: 'warning',
 	DANGER: 'danger',
 	INVERTED: 'inverted',
-	MINOR: 'minor',
+	PRIMARY: 'primary',
+	NEUTRAL: 'neutral',
 } as const;
 
 export const BADGE_SCORE_SIZES = {

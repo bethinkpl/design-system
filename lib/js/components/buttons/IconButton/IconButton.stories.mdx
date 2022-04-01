@@ -5,6 +5,7 @@ import {
 	ICON_BUTTON_COLOR_SCHEMES,
 	ICON_BUTTON_TYPES,
 	ICON_BUTTON_COLORS,
+	ICON_BUTTON_STATES,
 } from 'design-system/lib/js/components/buttons/IconButton/IconButton.consts';
 import {
 	BUTTON_ELEVATIONS,
@@ -27,6 +28,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		touchable: true,
 		elevation: BUTTON_ELEVATIONS.NONE,
 		color: 'primary',
+		state: ICON_BUTTON_STATES.DEFAULT,
 	}}
 	argTypes={{
 		size: {
@@ -57,6 +59,10 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) },
 			defaultValue: BUTTON_ELEVATIONS.NONE,
 		},
+		state: {
+			control: { type: 'select', options: Object.values(ICON_BUTTON_STATES) },
+			defaultValue: ICON_BUTTON_STATES.DEFAULT,
+		},
 	}}
 >
 	{(args) => {
@@ -73,6 +79,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
               :touchable="touchable"
               :elevation="elevation"
               :color="color"
+              :state="state"
             ><span v-if="label !== ''">{{label}}</span></wnl-icon-button>
 </div>`,
 			created() {

@@ -7,65 +7,173 @@
 
 $default-lighter-shadow: 0 4px 12px rgba($color-firefly-black, 0.35);
 
-@mixin buttonColors(
-	$color: '',
-	$background: '',
-	$hover: '',
-	$focus: '',
-	$disabled: '',
-	$ripple: '',
-	$border: ''
-) {
+@mixin setButtonColor($color: '', $color-hovered: '', $color-focused: '', $color-disabled: '') {
 	@if $color != '' {
 		color: $color;
 	}
 
+	@if $color-hovered != '' {
+		&:hover,
+		&.-hovered,
+		&:active,
+		&.-active {
+			color: $color-hovered;
+		}
+	}
+
+	@if $color-focused != '' {
+		&:focus,
+		&.-focused {
+			color: $color-focused;
+		}
+	}
+
+	@if $color-disabled != '' {
+		&.-disabled {
+			color: $color-disabled;
+		}
+	}
+}
+
+@mixin setButtonBackground(
+	$background: '',
+	$background-hover: '',
+	$background-focus: '',
+	$background-disabled: ''
+) {
 	@if $background != '' {
 		background-color: $background;
 	} @else {
 		background-color: transparent;
 	}
 
-	@if $hover != '' {
-		@if $border != '' or $background != '' {
-			&:hover,
-			&.-hovered,
-			&:active,
-			&.-active {
-				background-color: $hover;
-			}
-		} @else {
-			&:hover,
-			&.-hovered,
-			&:active,
-			&.-active {
-				color: $hover;
-			}
+	@if $background-hover != '' {
+		&:hover,
+		&.-hovered,
+		&:active,
+		&.-active {
+			background-color: $background-hover;
 		}
 	}
 
-	@if $focus != '' {
+	@if $background-focus != '' {
 		&:focus,
 		&.-focused {
-			background-color: $focus;
+			background-color: $background-focus;
 		}
 	}
 
-	@if $disabled != '' {
+	@if $background-disabled != '' {
 		&:disabled,
 		&.-disabled {
-			background-color: $disabled;
+			background-color: $background-disabled;
+		}
+	}
+}
+
+@mixin setButtonDisabled(
+	$disabled-color: '',
+	$disabled-icon: '',
+	$disabled-background: '',
+	$disabled-border: ''
+) {
+	@if $disabled-color != '' {
+		&:disabled,
+		&.-disabled {
+			color: $disabled-color;
 		}
 	}
 
+	@if $disabled-icon != '' {
+		&:disabled,
+		&.-disabled {
+			.a-button__icon {
+				color: $disabled-icon;
+			}
+		}
+	}
+
+	@if $disabled-background != '' {
+		&:disabled,
+		&.-disabled {
+			background-color: $disabled-background;
+		}
+	}
+
+	@if $disabled-border != '' {
+		&:disabled,
+		&.-disabled {
+			border-color: $disabled-border;
+		}
+	}
+}
+
+@mixin setButtonAdditions(
+	$ripple: '',
+	$border: '',
+	$icon: '',
+	$icon-hovered: '',
+	$icon-focused: '',
+	$icon-disabled: ''
+) {
 	@if $ripple != '' {
 		.ripple {
 			background-color: $ripple !important;
+		}
+	} @else {
+		.ripple {
+			background-color: transparent !important;
 		}
 	}
 
 	@if $border != '' {
 		border: 1px solid $border;
+	}
+
+	@if $icon != '' {
+		.a-iconButton, // this rule here avoid repeating similar loop in IconButton
+		.a-button {
+			&__icon,
+			&__loadingIcon {
+				color: $icon;
+			}
+		}
+	}
+
+	@if $icon-hovered != '' {
+		&.-hovered,
+		&:hover {
+			.a-iconButton,  // this rule here avoid repeating similar loop in IconButton
+			.a-button {
+				&__icon,
+				&__loadingIcon {
+					color: $icon-hovered;
+				}
+			}
+		}
+	}
+	@if $icon-focused != '' {
+		&.-focused,
+		&:focus {
+			.a-iconButton,  // this rule here avoid repeating similar loop in IconButton
+			.a-button {
+				&__icon,
+				&__loadingIcon {
+					color: $icon-focused;
+				}
+			}
+		}
+	}
+	@if $icon-disabled != '' {
+		&.-disabled {
+			.a-iconButton,  // this rule here avoid repeating similar loop in IconButton
+			.a-button {
+				&__icon,
+				&__loadingIcon {
+					color: $icon-disabled;
+				}
+			}
+		}
 	}
 }
 
@@ -107,71 +215,130 @@ $button-disabled-alpha: 0.6;
 		pointer-events: none;
 	}
 
-	@include buttonColors(
-		map-get($button-colors, 'primary', 'color'),
-		map-get($button-colors, 'primary', 'background'),
-		map-get($button-colors, 'primary', 'hovered'),
-		map-get($button-colors, 'primary', 'focused'),
-		map-get($button-colors, 'primary', 'disabled'),
-		map-get($button-colors, 'primary', 'ripple')
+	@include setButtonColor(map-get($button-colors, 'primary', 'filled', 'color'));
+	@include setButtonBackground(
+		map-get($button-colors, 'primary', 'filled', 'background'),
+		map-get($button-colors, 'primary', 'filled', 'background-hovered'),
+		map-get($button-colors, 'primary', 'filled', 'background-focused'),
+		map-get($button-colors, 'primary', 'filled', 'background-disabled')
+	);
+	@include setButtonDisabled(
+		map-get($button-colors, 'primary', 'filled', 'disabled', 'color'),
+		map-get($button-colors, 'primary', 'filled', 'disabled', 'icon'),
+		map-get($button-colors, 'primary', 'filled', 'disabled', 'background')
+	);
+	@include setButtonAdditions(
+		map-get($button-colors, 'primary', 'filled', 'ripple'),
+		'',
+		map-get($button-colors, 'primary', 'filled', 'icon')
 	);
 
 	@each $color-name, $color-map in $icon-button-colors {
 		&.-color-#{$color-name} {
-			@include buttonColors(
-				map-get($color-map, 'color'),
-				map-get($color-map, 'background'),
-				map-get($color-map, 'hovered'),
-				map-get($color-map, 'focused'),
-				map-get($color-map, 'disabled'),
-				map-get($color-map, 'ripple')
+			@include setButtonColor(map-get($color-map, 'filled', 'color'));
+			@include setButtonBackground(
+				map-get($color-map, 'filled', 'background'),
+				map-get($color-map, 'filled', 'background-hovered'),
+				map-get($color-map, 'filled', 'background-focused'),
+				map-get($color-map, 'filled', 'background-disabled')
+			);
+			@include setButtonDisabled(
+				map-get($color-map, 'filled', 'disabled', 'color'),
+				map-get($color-map, 'filled', 'disabled', 'icon'),
+				map-get($color-map, 'filled', 'disabled', 'background')
+			);
+			@include setButtonAdditions(
+				map-get($color-map, 'filled', 'ripple'),
+				'',
+				map-get($color-map, 'filled', 'icon')
 			);
 		}
 	}
 
 	&.-outlined {
-		@include buttonColors(
-			map-get($button-colors, 'primary', 'inverted', 'color'),
+		@include setButtonColor(map-get($button-colors, 'primary', 'outlined', 'color'));
+		@include setButtonBackground(
 			'',
-			map-get($button-colors, 'primary', 'inverted', 'hovered'),
-			map-get($button-colors, 'primary', 'inverted', 'focused'),
-			map-get($button-colors, 'primary', 'inverted', 'disabled'),
-			map-get($button-colors, 'primary', 'inverted', 'ripple'),
-			map-get($button-colors, 'primary', 'inverted', 'border')
+			map-get($button-colors, 'primary', 'outlined', 'background-hovered'),
+			map-get($button-colors, 'primary', 'outlined', 'background-focused'),
+			map-get($button-colors, 'primary', 'outlined', 'background-disabled')
+		);
+		@include setButtonDisabled(
+			map-get($button-colors, 'primary', 'outlined', 'disabled', 'color'),
+			map-get($button-colors, 'primary', 'outlined', 'disabled', 'icon'),
+			map-get($button-colors, 'primary', 'outlined', 'disabled', 'background'),
+			map-get($button-colors, 'primary', 'outlined', 'disabled', 'border')
+		);
+		@include setButtonAdditions(
+			map-get($button-colors, 'primary', 'outlined', 'ripple'),
+			map-get($button-colors, 'primary', 'outlined', 'border'),
+			map-get($button-colors, 'primary', 'outlined', 'icon')
 		);
 
 		@each $color-name, $color-map in $icon-button-colors {
 			&.-color-#{$color-name} {
-				@include buttonColors(
-					map-get($color-map, 'inverted', 'color'),
+				@include setButtonColor(map-get($color-map, 'outlined', 'color'));
+				@include setButtonBackground(
 					'',
-					map-get($color-map, 'inverted', 'hovered'),
-					map-get($color-map, 'inverted', 'focused'),
-					map-get($color-map, 'inverted', 'disabled'),
-					map-get($color-map, 'inverted', 'ripple'),
-					map-get($color-map, 'inverted', 'border')
+					map-get($color-map, 'outlined', 'background-hovered'),
+					map-get($color-map, 'outlined', 'background-focused'),
+					map-get($color-map, 'outlined', 'background-disabled')
+				);
+				@include setButtonDisabled(
+					map-get($color-map, 'outlined', 'disabled', 'color'),
+					map-get($color-map, 'outlined', 'disabled', 'icon'),
+					map-get($color-map, 'outlined', 'disabled', 'background'),
+					map-get($color-map, 'outlined', 'disabled', 'border')
+				);
+				@include setButtonAdditions(
+					map-get($color-map, 'outlined', 'ripple'),
+					map-get($color-map, 'outlined', 'border'),
+					map-get($color-map, 'outlined', 'icon')
 				);
 			}
 		}
 	}
-
+	//
 	&.-text {
-		@include buttonColors(
-			map-get($button-colors, 'primary', 'background'),
-			'',
-			map-get($button-colors, 'primary', 'hovered'),
-			map-get($button-colors, 'primary', 'focused'),
-			map-get($button-colors, 'primary', 'disabled')
+		@include setButtonColor(
+			map-get($button-colors, 'primary', 'text', 'color'),
+			map-get($button-colors, 'primary', 'text', 'color-hovered'),
+			map-get($button-colors, 'primary', 'text', 'color-focused'),
+			map-get($button-colors, 'primary', 'text', 'color-disabled')
 		);
-
+		@include setButtonBackground('', '', '', '');
+		@include setButtonDisabled(
+			map-get($button-colors, 'primary', 'text', 'disabled', 'color'),
+			map-get($button-colors, 'primary', 'text', 'disabled', 'icon')
+		);
+		@include setButtonAdditions(
+			'',
+			'',
+			map-get($button-colors, 'primary', 'text', 'icon'),
+			map-get($button-colors, 'primary', 'text', 'icon-hovered'),
+			map-get($button-colors, 'primary', 'text', 'icon-focused'),
+			map-get($button-colors, 'primary', 'text', 'disabled', 'icon')
+		);
 		@each $color-name, $color-map in $icon-button-colors {
 			&.-color-#{$color-name} {
-				@include buttonColors(
-					map-get($color-map, 'background'),
+				@include setButtonColor(
+					map-get($color-map, 'text', 'color'),
+					map-get($color-map, 'text', 'color-hovered'),
+					map-get($color-map, 'text', 'color-focused'),
+					map-get($color-map, 'text', 'color-disabled')
+				);
+				@include setButtonBackground('', '', '', '');
+				@include setButtonDisabled(
+					map-get($color-map, 'text', 'disabled', 'color'),
+					map-get($color-map, 'text', 'disabled', 'icon')
+				);
+				@include setButtonAdditions(
 					'',
-					map-get($color-map, 'hovered'),
-					map-get($color-map, 'focused'),
-					map-get($color-map, 'disabled')
+					'',
+					map-get($color-map, 'text', 'icon'),
+					map-get($color-map, 'text', 'icon-hovered'),
+					map-get($color-map, 'text', 'icon-focused'),
+					map-get($color-map, 'text', 'disabled', 'icon')
 				);
 			}
 		}

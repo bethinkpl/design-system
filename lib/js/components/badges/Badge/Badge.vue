@@ -1,5 +1,5 @@
 <template>
-	<div class="badge" :class="{ '-minor': color === BADGE_COLORS.MINOR }">
+	<div class="badge" :class="{ '-neutral': color === BADGE_COLORS.NEUTRAL }">
 		<div class="badge__slot">
 			<slot />
 		</div>
@@ -27,8 +27,8 @@
 		text-transform: uppercase;
 	}
 
-	&.-minor {
-		background-color: $color-minor-background;
+	&.-neutral {
+		background-color: $color-neutral-background-medium;
 
 		.badge__label {
 			color: $color-neutral-text;

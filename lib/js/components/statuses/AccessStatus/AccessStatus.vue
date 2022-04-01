@@ -12,16 +12,27 @@
 @import '../../../../styles/settings/colors/tokens';
 
 .accessStatus {
+	$self: &;
 	align-items: center;
 	color: $color-neutral-text;
 	display: flex;
 
+	&__icon {
+		color: $color-neutral-icon;
+	}
+
 	&.-active {
 		color: $color-success-text;
+		#{$self}__icon {
+			color: $color-success-icon;
+		}
 	}
 
 	&.-suspended {
 		color: $color-danger-text;
+		#{$self}__icon {
+			color: $color-danger-icon;
+		}
 	}
 
 	&__icon {

@@ -1,3 +1,3 @@
 export const BADGE_COLORS = {
-	MINOR: 'minor',
+	NEUTRAL: 'neutral',
 } as const;

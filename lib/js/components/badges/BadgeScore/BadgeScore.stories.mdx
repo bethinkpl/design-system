@@ -10,12 +10,14 @@ import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 <Story
 	name="interactive"
 	args={{
-		text: '42%',
+		text: '42',
+		additionalText: '%',
 		color: BADGE_SCORE_COLORS.SUCCESS,
 		size: BADGE_SCORE_SIZES.MEDIUM,
 	}}
 	argTypes={{
 		text: { control: { type: 'text' } },
+		additionalText: { control: { type: 'text' } },
 		color: {
 			control: { type: 'select', options: Object.values(BADGE_SCORE_COLORS) },
 		},
@@ -28,7 +30,10 @@ import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 		return {
 			components: { BadgeScore },
 			props: Object.keys(args),
-			template: '<badge-score :color="color" :text="text" :size="size" />',
+			template:
+				'<div style="background-color: #efeded; height: 200px; padding: 10px">' +
+				'<badge-score :color="color" :additionalText="additionalText" :text="text" :size="size" />' +
+				'</div>',
 		};
 	}}
 </Story>

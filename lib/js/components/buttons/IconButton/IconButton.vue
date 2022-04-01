@@ -6,6 +6,11 @@
 			'-small': size === ICON_BUTTON_SIZES.SMALL,
 			'-large': size === ICON_BUTTON_SIZES.LARGE,
 
+			'-hovered': state === ICON_BUTTON_STATES.HOVERED,
+			'-focused': state === ICON_BUTTON_STATES.FOCUSED,
+			'-loading': state === ICON_BUTTON_STATES.LOADING,
+			'-disabled': state === ICON_BUTTON_STATES.DISABLED,
+
 			[colorClassName]: isButtonColor,
 
 			'-touchable': touchable,
@@ -27,7 +32,7 @@
 			:class="{ '-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY }"
 			:radius="radius"
 			:type="buttonType"
-			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
+			:state="hovered ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT"
 			:elevation="elevation"
 			:color="isButtonColor ? color : null"
 		>
@@ -45,42 +50,52 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
 
-@mixin iconButtonColor($color, $icon, $border, $background, $hovered, $focused, $disabled) {
-	color: $color;
-	border-color: $border;
-	background-color: transparent;
-
-	&:hover,
-	&:active {
-		//background-color: $hovered;
-	}
-	&:focus {
-		//background-color: $focused;
-	}
-	&:disabled {
-		//background-color: $disabled;
-	}
-}
-
 .a-iconButton {
 	$self: &;
 
 	@each $color-name, $color-map in $icon-button-colors {
 		&.-color-#{$color-name} {
-			@include iconButtonColor(
-				map-get($color-map, 'color'),
-				map-get($color-map, 'icon'),
-				map-get($color-map, 'border'),
-				map-get($color-map, 'background'),
-				map-get($color-map, 'hovered'),
-				map-get($color-map, 'focused'),
-				map-get($color-map, 'disabled')
-			);
 			#{$self}__label {
-				color: map-get($color-map, 'background');
+				color: map-get($color-map, 'outlined', 'color');
 			}
-			#{$self}__button {
-				//background: map-get($color-map, 'background');
+
+			&.-hovered {
+				#{$self}__button {
+					background-color: map-get($color-map, 'filled', 'background-hovered');
+					color: map-get($color-map, 'icon');
+					&.-outlined {
+						background-color: map-get($color-map, 'outlined', 'background-hovered');
+						color: map-get($color-map, 'inverted', 'icon');
+					}
+				}
+			}
+
+			&.-focused {
+				#{$self}__button {
+					background-color: map-get($color-map, 'filled' 'background-focused');
+					color: map-get($color-map, 'filled', 'icon');
+					&.-outlined {
+						background-color: map-get($color-map, 'outlined', 'background-focused');
+						color: map-get($color-map, 'inverted', 'icon');
+					}
+				}
+			}
+
+			&.-disabled {
+				#{$self}__button {
+					background-color: map-get($color-map, 'filled', 'background-disabled');
+					color: map-get($color-map, 'icon');
+					&.-outlined {
+						background-color: map-get($color-map, 'outlined', 'background');
+						border-color: map-get($color-map, 'outlined', 'disabled', 'border');
+						.a-iconButton__icon {
+							color: map-get($color-map, 'outlined', 'disabled', 'icon');
+						}
+					}
+				}
+				#{$self}__label {
+					color: map-get($color-map, 'outlined', 'disabled', 'icon');
+				}
 			}
 		}
 	}
@@ -121,6 +136,14 @@
 
 		&.-neutral {
 			color: $color-neutral-text !important;
+		}
+	}
+
+	&.-disabled {
+		#{$self}__label {
+			&.-neutral {
+				color: $color-neutral-text-weak !important;
+			}
 		}
 	}
 
@@ -172,14 +195,15 @@ import {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_TYPES,
+	ICON_BUTTON_STATES,
 } from './IconButton.consts';
 import {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
 	BUTTON_RADIUSES,
-	BUTTON_STATES,
 	BUTTON_TYPES,
 } from '../Button/Button.consts';
+import { Value } from '../../../utils/type.utils';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.X_SMALL]: ICON_SIZES.XX_SMALL,
@@ -248,6 +272,13 @@ export default {
 			type: Boolean,
 			default: true,
 		},
+		state: {
+			type: String,
+			default: ICON_BUTTON_STATES.DEFAULT,
+			validator(value: Value<typeof ICON_BUTTON_STATES>) {
+				return Object.values(ICON_BUTTON_STATES).includes(value);
+			},
+		},
 	},
 	data() {
 		return {
@@ -294,7 +325,7 @@ export default {
 		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
 		this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
 		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-		this.BUTTON_STATES = BUTTON_STATES;
+		this.ICON_BUTTON_STATES = ICON_BUTTON_STATES;
 		this.BUTTON_COLORS = BUTTON_COLORS;
 	},
 	methods: {
