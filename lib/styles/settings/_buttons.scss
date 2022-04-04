@@ -80,7 +80,7 @@ $only-icon-button-colors: (
 			'background-hovered': $color-warning-background-strong-hovered,
 			'background-focused': $color-warning-background-strong-focused,
 			'background-disabled': $color-warning-background-strong-disabled,
-			'ripple': $color-default-ripple-inverted,
+			'ripple': $color-warning-ripple,
 			'disabled': (
 				'color': $color-default-text-inverted,
 				'icon': $color-default-icon-inverted,
@@ -95,7 +95,7 @@ $only-icon-button-colors: (
 			'background-hovered': $color-warning-background-ghost-hovered,
 			'background-focused': $color-warning-background-ghost-focused,
 			'background-disabled': $color-warning-background-ghost-disabled,
-			'ripple': $color-default-ripple-inverted,
+			'ripple': $color-warning-ripple,
 			'disabled': (
 				'color': $color-warning-text-weak,
 				'border': $color-warning-border-disabled,
@@ -124,7 +124,7 @@ $only-icon-button-colors: (
 			'background-hovered': $color-info-background-strong-hovered,
 			'background-focused': $color-info-background-strong-focused,
 			'background-disabled': $color-info-background-strong-disabled,
-			'ripple': $color-default-ripple-inverted,
+			'ripple': $color-info-ripple,
 			'disabled': (
 				'color': $color-default-text-inverted,
 				'icon': $color-default-icon-inverted,

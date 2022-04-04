@@ -399,8 +399,10 @@ $button-disabled-alpha: 0.6;
 
 	&.-elevation-small {
 		&.-outlined {
-			box-shadow: $default-lighter-shadow;
 			background: $color-default-background !important;
+		}
+		&:not(.-text) {
+			box-shadow: $default-lighter-shadow;
 		}
 	}
 
