@@ -298,7 +298,15 @@ $button-disabled-alpha: 0.6;
 			}
 		}
 	}
-	//
+
+	&.-large {
+		@include buttonL;
+
+		min-height: $button-large-min-height;
+		padding-left: $space-m;
+		padding-right: $space-m;
+	}
+
 	&.-text {
 		@include setButtonColor(
 			map-get($button-colors, 'primary', 'text', 'color'),
@@ -351,14 +359,6 @@ $button-disabled-alpha: 0.6;
 
 	&:not(.-text) {
 		min-width: 100px;
-	}
-
-	&.-large {
-		@include buttonL;
-
-		min-height: $button-large-min-height;
-		padding-left: $space-m;
-		padding-right: $space-m;
 	}
 
 	&.-small {

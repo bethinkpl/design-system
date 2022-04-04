@@ -31,7 +31,7 @@ import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 			components: { BadgeScore },
 			props: Object.keys(args),
 			template:
-				'<div style="background-color: #efeded; height: 200px; padding: 10px">' +
+				'<div class="contrastBackground">' +
 				'<badge-score :color="color" :additionalText="additionalText" :text="text" :size="size" />' +
 				'</div>',
 		};

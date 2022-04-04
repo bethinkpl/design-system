@@ -40,3 +40,8 @@ body {
 html {
 	box-sizing: border-box;
 }
+
+.contrastBackground {
+	background: var(--raw-gray-200);
+	padding: 10px;
+}
