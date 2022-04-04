@@ -15,7 +15,7 @@
 					<icon-button
 						v-if="$slots.explanation"
 						class="surveyQuestionScale__explanation"
-						:color="BUTTON_COLORS.MINOR_SUPPORTING"
+						:color="BUTTON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_QUESTION_CIRCLE"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
@@ -149,6 +149,7 @@
 
 	&__elaborationLabel {
 		@include headlineXS();
+		color: $color-default-text;
 	}
 
 	&__elaborationInput {

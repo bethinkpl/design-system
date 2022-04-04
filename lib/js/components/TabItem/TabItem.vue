@@ -19,8 +19,8 @@
 $tab-item-width: (2 * $space-s) + $icon-xs;
 
 .a-tabItem {
-	border-bottom: 1px solid $color-neutral-border-weak;
-	color: $color-neutral-text;
+	border-bottom: 1px solid $color-neutral-border;
+	color: $color-neutral-icon;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
@@ -29,12 +29,12 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 
 	&:hover {
 		border-bottom-color: $color-default-border;
-		color: $color-default-text;
+		color: $color-default-icon;
 	}
 
 	&.-isActive {
 		border-bottom-color: $color-primary-border;
-		color: $color-primary-text;
+		color: $color-primary-icon;
 	}
 }
 </style>

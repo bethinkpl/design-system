@@ -69,7 +69,7 @@ $survey-toggle-size: 48px;
 		}
 
 		&::v-deep .ripple {
-			background-color: $color-default-ripple-inverted;
+			background-color: $color-primary-ripple !important;
 		}
 	}
 
