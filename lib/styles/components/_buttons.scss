@@ -5,7 +5,7 @@
 @import '../settings/typography';
 @import '../settings/buttons';
 
-$default-lighter-shadow: 0 4px 12px rgba($color-firefly-black, 0.35);
+$default-lighter-shadow: 0 4px 12px rgba($color-firefly-black-rgb, 0.35);
 
 @mixin setButtonColor($color: '', $color-hovered: '', $color-focused: '', $color-disabled: '') {
 	@if $color != '' {
@@ -391,8 +391,17 @@ $button-disabled-alpha: 0.6;
 		}
 	}
 
+	&.-elevation-x-small {
+		&.-outlined {
+			background: $color-default-background !important;
+		}
+	}
+
 	&.-elevation-small {
-		box-shadow: $default-lighter-shadow;
+		&.-outlined {
+			box-shadow: $default-lighter-shadow;
+			background: $color-default-background !important;
+		}
 	}
 
 	&__content {
