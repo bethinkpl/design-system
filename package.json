@@ -1,6 +1,6 @@
 {
   "name": "design-system",
-  "version": "7.3.2",
+  "version": "7.4.0",
   "description": "Bethink universe design-system",
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
@@ -39,7 +39,7 @@
     "@vue/cli-plugin-typescript": "^4.5.13",
     "@vue/cli-plugin-unit-jest": "^5.0.4",
     "@vue/cli-service": "^4.5.13",
-    "@vue/test-utils": "^1.1.3",
+    "@vue/test-utils": "^1.3.0",
     "axios": "^0.26.0",
     "babel-eslint": "10.1.0",
     "eslint": "7.5.0",
