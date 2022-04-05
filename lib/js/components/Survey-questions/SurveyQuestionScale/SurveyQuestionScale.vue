@@ -162,9 +162,9 @@
 import { Prop } from 'vue/types/options';
 
 import DsCard from '../../Cards/Card.vue';
-import IconButton from '../../buttons/IconButton';
+import IconButton from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
-import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../buttons/Button';
+import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
 import DsModal from '../../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_MEANINGS,

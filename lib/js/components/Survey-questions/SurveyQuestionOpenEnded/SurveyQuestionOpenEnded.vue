@@ -84,8 +84,8 @@
 <script lang="ts">
 import DsCard from '../../Cards/Card.vue';
 import DsModal from '../../Modal';
-import DsButton, { BUTTON_ICON_COLORS, BUTTON_TYPES } from '../../buttons/Button';
-import IconButton from '../../buttons/IconButton';
+import DsButton, { BUTTON_ICON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
+import IconButton from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';

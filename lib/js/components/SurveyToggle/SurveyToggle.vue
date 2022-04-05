@@ -54,7 +54,7 @@ $survey-toggle-size: 48px;
 	}
 
 	&__toggle {
-		background: $color-default-background;
+		background: $color-neutral-background-weak;
 		border-radius: 100%;
 		display: flex;
 		height: $survey-toggle-size;
@@ -69,24 +69,26 @@ $survey-toggle-size: 48px;
 		}
 
 		&::v-deep .ripple {
+			background-color: $color-neutral-ripple !important;
+		}
+	}
+
+	&.-defaultPrimary &__toggle {
+		background-color: $color-primary-background-weak;
+		&::v-deep .ripple {
 			background-color: $color-primary-ripple !important;
 		}
 	}
 
 	&.-selectedPrimary &__toggle {
 		background-color: $color-primary-background-strong;
-	}
-
-	&.-selectedNeutral &__toggle {
-		background-color: $color-neutral-background-strong;
+		&::v-deep .ripple {
+			background-color: $color-default-ripple-inverted !important;
+		}
 	}
 
 	&.-selectedPrimary.-disabled &__toggle {
-		background-color: var(--raw-theme-200);
-	}
-
-	&.-selectedNeutral.-disabled &__toggle {
-		background-color: $color-neutral-background-strong-disabled;
+		background-color: $color-primary-background-strong-disabled;
 	}
 
 	&.-selectedPrimary.-hovered &__toggle {
@@ -95,6 +97,17 @@ $survey-toggle-size: 48px;
 
 	&.-defaultPrimary.-hovered &__toggle {
 		background-color: $color-primary-background-weak-hovered;
+	}
+
+	&.-selectedNeutral &__toggle {
+		background-color: $color-neutral-background-strong;
+		&::v-deep .ripple {
+			background-color: $color-default-ripple-inverted !important;
+		}
+	}
+
+	&.-selectedNeutral.-disabled &__toggle {
+		background-color: $color-neutral-background-strong-disabled;
 	}
 
 	&.-selectedNeutral.-hovered &__toggle {
@@ -106,7 +119,7 @@ $survey-toggle-size: 48px;
 		align-items: center;
 		display: flex;
 		justify-content: center;
-		border: 3px solid var(--raw-gray-400);
+		border: 3px solid $color-neutral-border;
 		border-radius: 100%;
 		transition: border-color ease-in-out $default-transition-time;
 		width: 100%;
@@ -130,7 +143,7 @@ $survey-toggle-size: 48px;
 	}
 
 	&.-defaultPrimary.-disabled &__ring {
-		border-color: var(--raw-theme-200);
+		border-color: $color-primary-border-disabled;
 	}
 
 	&__content {
@@ -158,7 +171,7 @@ $survey-toggle-size: 48px;
 	}
 
 	&__icon {
-		color: $color-default-text-inverted;
+		color: $color-default-icon-inverted;
 		display: flex;
 	}
 

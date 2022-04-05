@@ -94,7 +94,7 @@
 					}
 				}
 				#{$self}__label {
-					color: map-get($color-map, 'outlined', 'disabled', 'icon');
+					color: map-get($color-map, 'outlined', 'disabled', 'color');
 				}
 			}
 		}

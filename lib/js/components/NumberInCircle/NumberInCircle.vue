@@ -72,9 +72,9 @@
 
 	&.-is3,
 	&.-is8,
-	&.-violet {
-		color: var(--raw-violet-500);
-		border-color: var(--raw-violet-500);
+	&.-accent {
+		color: $color-accent-text;
+		border-color: $color-accent-border;
 	}
 
 	&.-medium {
@@ -115,7 +115,7 @@ export default {
 				[NUMBER_IN_CIRCLE_COLORS.SUCCESS]: '-success',
 				[NUMBER_IN_CIRCLE_COLORS.DANGER]: '-danger',
 				[NUMBER_IN_CIRCLE_COLORS.INFO]: '-info',
-				[NUMBER_IN_CIRCLE_COLORS.VIOLET]: '-violet',
+				[NUMBER_IN_CIRCLE_COLORS.ACCENT]: '-accent',
 			};
 			return colorToClassMap[this.color];
 		},

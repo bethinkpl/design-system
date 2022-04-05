@@ -4,5 +4,5 @@ export const NUMBER_IN_CIRCLE_COLORS = {
 	SUCCESS: 'success',
 	DANGER: 'danger',
 	INFO: 'info',
-	VIOLET: 'violet',
+	ACCENT: 'accent',
 } as const;
