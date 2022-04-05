@@ -71,15 +71,15 @@ describe('BadgeScore', () => {
 		expect(component.find('.-primary').exists()).toBe(false);
 	});
 
-	it(`when color is set as ${BADGE_SCORE_COLORS.INVERTED} should render -danger class`, () => {
+	it(`when color is set as ${BADGE_SCORE_COLORS.INVERTED} should render -inverted class`, () => {
 		const component = createComponent({ color: BADGE_SCORE_COLORS.INVERTED });
 
 		expect(component.find('.-success').exists()).toBe(false);
 		expect(component.find('.-warning').exists()).toBe(false);
 		expect(component.find('.-danger').exists()).toBe(false);
-		expect(component.find('.-minor').exists()).toBe(false);
+		expect(component.find('.-neutral').exists()).toBe(false);
 		expect(component.find('.-inverted').exists()).toBe(true);
-		expect(component.find('.-primary').exists()).toBe(true);
+		expect(component.find('.-primary').exists()).toBe(false);
 	});
 
 	it(`when color is set as ${BADGE_SCORE_COLORS.NEUTRAL} should render -danger class`, () => {
