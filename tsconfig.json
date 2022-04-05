@@ -19,7 +19,9 @@
     "strictNullChecks": true,
     "paths": {
       "design-system/lib/*": ["lib/*"]
-    }
+    },
+    "declaration": true,
+    "declarationDir": "dist"
   },
   "include": [
     "lib/js/**/*.vue",

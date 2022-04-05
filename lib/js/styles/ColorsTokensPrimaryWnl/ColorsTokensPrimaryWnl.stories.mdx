@@ -1,0 +1,29 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import ColorsList from './../ColorsList';
+import tokensWnl from '../../../styles/settings/colors/_tokens-wnl.json';
+
+<Meta title="foundations/Design Tokens/Color Tokens/Primary WNL" component={ColorsList} />
+
+# Card
+
+<Story
+	name="Primary WNL"
+	args={{
+		colorsLists: [{ title: 'Primary WNL', list: tokensWnl, class: 'theme-wnl' }],
+	}}
+	argTypes={{
+		colorsLists: Array,
+	}}
+>
+	{(args) => {
+		return {
+			components: { ColorsList },
+			template: '<ColorsList :colorsLists="colorsLists"></ColorsList>',
+			props: Object.keys(args),
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={ColorsList} />

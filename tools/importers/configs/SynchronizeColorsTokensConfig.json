@@ -1,0 +1,54 @@
+{
+  "destinationPath": "lib/styles/settings/colors/",
+  "bins": [
+    {
+      "id": "620e4f834bf50f4b2d0044e9",
+      "name": "wnl",
+      "isTheme": false,
+      "files": {
+        "colorsRaw": {
+          "destination": "_raw.scss",
+          "destinationJson": "_raw.json"
+        },
+        "tokens": {
+          "destination": "_tokens.scss",
+          "destinationJson": "_tokens.json",
+          "destinationTokensVariables": "_tokens-variables.scss"
+        }
+      }
+    },
+    {
+      "id": "62385c25a703bb67493100c6",
+      "name": "wnl",
+      "isTheme": true,
+      "files": {
+        "colorsRaw": {
+          "destination": "_raw-wnl.scss",
+          "destinationJson": "_raw-wnl.json"
+        },
+        "tokens": {
+          "destination": "_tokens-wnl.scss",
+          "destinationJson": "_tokens-wnl.json",
+          "destinationTokensVariables": "_tokens-wnl-variables.scss"
+        }
+      }
+    },
+    {
+      "id": "621cd1407caf5d67835b93b5",
+      "name": "bodywork",
+      "isTheme": true,
+      "files": {
+        "colorsRaw": {
+          "destination": "_raw-bodywork.scss",
+          "destinationJson": "_raw-bodywork.json"
+        },
+        "tokens": {
+          "destination": "_tokens-bodywork.scss",
+          "destinationJson": "_tokens-bodywork.json",
+          "destinationTokensVariables": "_tokens-bodywork-variables.scss"
+        }
+      }
+    }
+  ],
+  "jsonBinApiUrl": "https://api.jsonbin.io/b/"
+}

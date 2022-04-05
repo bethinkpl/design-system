@@ -34,6 +34,14 @@
 		animation: a-spinAround 2s infinite linear;
 	}
 
+	&.-flipped-vertical {
+		transform: rotateX(180deg);
+	}
+
+	&.-flipped-horizontal {
+		transform: rotateY(180deg);
+	}
+
 	svg,
 	// We need this class to override FontAwesome styles
 	.svg-inline--fa {
