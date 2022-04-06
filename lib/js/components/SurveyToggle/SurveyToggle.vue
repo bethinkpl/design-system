@@ -2,9 +2,10 @@
 	<div
 		class="surveyToggle"
 		:class="{
-			'-selectedPrimary': isSelectedPrimary,
-			'-defaultPrimary': isDefaultPrimary,
-			'-selectedNeutral': isSelectedNeutral,
+			'-primary-selected': isPrimarySelected,
+			'-primary': isPrimary,
+			'-neutral': isNeutral,
+			'-neutral-selected': isNeutralSelected,
 			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
 			'-hovered': isHoveredState,
 		}"
@@ -17,7 +18,7 @@
 			@mouseleave="hovered = false"
 		>
 			<div class="surveyToggle__ring">
-				<span v-if="isSelectedPrimary || isSelectedNeutral" class="surveyToggle__icon">
+				<span v-if="isPrimarySelected || isNeutralSelected" class="surveyToggle__icon">
 					<ds-icon :icon="selectedIcon" :size="ICON_SIZES.X_SMALL"></ds-icon>
 				</span>
 				<span v-else class="surveyToggle__content">
@@ -40,6 +41,115 @@
 
 $survey-toggle-size: 48px;
 
+$survey-toggle-colors: (
+	'primary': (
+		'background': $color-primary-background-weak,
+		'border': $color-primary-border,
+		'color': $color-primary-text,
+		'icon': $color-default-icon-inverted,
+		'background-hovered': $color-primary-background-weak-hovered,
+		'ripple': $color-primary-ripple,
+		'disabled': (
+			'border': $color-primary-border-disabled,
+			'color': $color-primary-text-disabled,
+			'icon': $color-primary-icon-disabled,
+		),
+	),
+	'primary-selected': (
+		'background': $color-primary-background-strong,
+		'border': $color-default-border-inverted,
+		'color': $color-default-icon-inverted,
+		'icon': $color-default-text-inverted,
+		'background-hovered': $color-primary-background-strong-hovered,
+		'ripple': $color-default-ripple-inverted,
+		'disabled': (
+			'background': $color-primary-background-strong-disabled,
+		),
+	),
+	'neutral': (
+		'background': $color-neutral-background-weak,
+		'border': $color-neutral-border-strong,
+		'color': $color-neutral-text-weak,
+		'icon': $color-neutral-icon-weak,
+		'background-hovered': $color-neutral-background-weak-hovered,
+		'ripple': $color-neutral-ripple,
+		'disabled': (
+			'border': $color-neutral-border-strong-disabled,
+			'color': $color-neutral-text-weak-disabled,
+			'icon': $color-neutral-icon-weak-disabled,
+		),
+	),
+	'neutral-selected': (
+		'background': $color-neutral-background-strong,
+		'border': $color-default-border-inverted,
+		'color': $color-default-icon-inverted,
+		'icon': $color-default-text-inverted,
+		'background-hovered': $color-neutral-background-strong-hovered,
+		'ripple': $color-default-ripple-inverted,
+		'disabled': (
+			'background': $color-neutral-background-strong-disabled,
+		),
+	),
+);
+
+@mixin setSurveyToggleOtherStates(
+	$background-hover: '',
+	$disabled-border: '',
+	$disabled-text: '',
+	$disabled-icon: '',
+	$disabled-background: ''
+) {
+	@if $background-hover != '' {
+		background-color: $background-hover;
+	}
+
+	@if $disabled-text != '' {
+		color: $disabled-text;
+	}
+
+	@if $disabled-icon != '' {
+		.surveyToggle__icon {
+			color: $disabled-icon;
+		}
+	}
+
+	@if $disabled-border != '' {
+		border-color: $disabled-border;
+	}
+
+	@if $disabled-background != '' {
+		background-color: $disabled-background;
+	}
+}
+
+@mixin setSurveyToggleNormalState($background: '', $border: '', $text: '', $icon: '', $ripple: '') {
+	@if $background != '' {
+		background-color: $background;
+	}
+
+	@if $border != '' {
+		border-color: $border;
+	}
+
+	@if $text != '' {
+		.surveyToggle__content {
+			color: $text;
+		}
+	}
+
+	@if $icon != '' {
+		.surveyToggle__icon {
+			color: $icon;
+		}
+	}
+
+	@if $ripple != '' {
+		&::v-deep .ripple {
+			background-color: $ripple !important;
+		}
+	}
+}
+
 .surveyToggle {
 	$self: &;
 
@@ -54,7 +164,6 @@ $survey-toggle-size: 48px;
 	}
 
 	&__toggle {
-		background: $color-neutral-background-weak;
 		border-radius: 100%;
 		display: flex;
 		height: $survey-toggle-size;
@@ -63,55 +172,67 @@ $survey-toggle-size: 48px;
 			box-shadow ease-in-out $default-transition-time;
 		width: $survey-toggle-size;
 
+		@include setSurveyToggleNormalState(
+			map-get($survey-toggle-colors, 'primary', 'background'),
+			'',
+			map-get($survey-toggle-colors, 'primary', 'color'),
+			map-get($survey-toggle-colors, 'primary', 'icon'),
+			map-get($survey-toggle-colors, 'primary', 'ripple')
+		);
+
 		.-hovered & {
-			background-color: $color-neutral-background-medium;
+			@include setSurveyToggleOtherStates(
+				map-get($survey-toggle-colors, 'primary', 'background-hovered')
+			);
 			box-shadow: $shadow-s;
 		}
+	}
 
-		&::v-deep .ripple {
-			background-color: $color-neutral-ripple !important;
+	@each $color-name, $color-map in $survey-toggle-colors {
+		&.-#{$color-name} {
+			#{$self}__toggle {
+				@include setSurveyToggleNormalState(
+					map-get($color-map, 'background'),
+					'',
+					map-get($color-map, 'color'),
+					'',
+					map-get($color-map, 'ripple')
+				);
+			}
+			#{$self}__ring {
+				@include setSurveyToggleNormalState('', map-get($color-map, 'border'));
+			}
+			&:hover,
+			&.-hovered {
+				#{$self}__toggle {
+					@include setSurveyToggleOtherStates(map-get($color-map, 'background-hovered'));
+				}
+			}
+			&.-disabled {
+				#{$self}__toggle {
+					@include setSurveyToggleOtherStates(
+						'',
+						'',
+						'',
+						map-get($color-map, 'disabled', 'icon'),
+						map-get($color-map, 'disabled', 'background')
+					);
+				}
+				#{$self}__content {
+					@include setSurveyToggleOtherStates(
+						'',
+						'',
+						map-get($color-map, 'disabled', 'color')
+					);
+				}
+				#{$self}__ring {
+					@include setSurveyToggleOtherStates(
+						'',
+						map-get($color-map, 'disabled', 'border')
+					);
+				}
+			}
 		}
-	}
-
-	&.-defaultPrimary &__toggle {
-		background-color: $color-primary-background-weak;
-		&::v-deep .ripple {
-			background-color: $color-primary-ripple !important;
-		}
-	}
-
-	&.-selectedPrimary &__toggle {
-		background-color: $color-primary-background-strong;
-		&::v-deep .ripple {
-			background-color: $color-default-ripple-inverted !important;
-		}
-	}
-
-	&.-selectedPrimary.-disabled &__toggle {
-		background-color: $color-primary-background-strong-disabled;
-	}
-
-	&.-selectedPrimary.-hovered &__toggle {
-		background-color: $color-primary-background-strong-hovered;
-	}
-
-	&.-defaultPrimary.-hovered &__toggle {
-		background-color: $color-primary-background-weak-hovered;
-	}
-
-	&.-selectedNeutral &__toggle {
-		background-color: $color-neutral-background-strong;
-		&::v-deep .ripple {
-			background-color: $color-default-ripple-inverted !important;
-		}
-	}
-
-	&.-selectedNeutral.-disabled &__toggle {
-		background-color: $color-neutral-background-strong-disabled;
-	}
-
-	&.-selectedNeutral.-hovered &__toggle {
-		background-color: $color-neutral-background-strong-hovered;
 	}
 
 	&__ring {
@@ -127,51 +248,16 @@ $survey-toggle-size: 48px;
 
 	&.-disabled {
 		pointer-events: none;
-
-		#{$self}__ring {
-			border-color: $color-neutral-border-disabled;
-		}
-	}
-
-	&.-defaultPrimary &__ring {
-		border-color: $color-primary-border;
-	}
-
-	&.-selectedNeutral &__ring,
-	&.-selectedPrimary &__ring {
-		border-color: $color-default-border-inverted;
-	}
-
-	&.-defaultPrimary.-disabled &__ring {
-		border-color: $color-primary-border-disabled;
 	}
 
 	&__content {
 		@include headlineXS();
 		@include textBold();
 
-		color: $color-neutral-text-weak;
 		transition: color ease-in-out $default-transition-time;
 	}
 
-	&.-disabled &__content {
-		color: $color-neutral-text-disabled;
-	}
-
-	&.-defaultPrimary &__content {
-		color: $color-primary-text;
-
-		.-hovered & {
-			border-color: $color-primary-border-hovered;
-		}
-	}
-
-	&.-defaultPrimary.-disabled &__content {
-		color: $color-primary-text-disabled;
-	}
-
 	&__icon {
-		color: $color-default-icon-inverted;
 		display: flex;
 	}
 
@@ -257,19 +343,25 @@ export default {
 		};
 	},
 	computed: {
-		isSelectedPrimary() {
+		isPrimarySelected() {
 			return (
 				this.meaning === SURVEY_TOGGLE_MEANINGS.PRIMARY &&
 				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
 			);
 		},
-		isDefaultPrimary() {
+		isPrimary() {
 			return (
 				this.meaning === SURVEY_TOGGLE_MEANINGS.PRIMARY &&
 				this.status === SURVEY_TOGGLE_STATUSES.DEFAULT
 			);
 		},
-		isSelectedNeutral() {
+		isNeutral() {
+			return (
+				this.meaning === SURVEY_TOGGLE_MEANINGS.NEUTRAL &&
+				this.status === SURVEY_TOGGLE_STATUSES.DEFAULT
+			);
+		},
+		isNeutralSelected() {
 			return (
 				this.meaning === SURVEY_TOGGLE_MEANINGS.NEUTRAL &&
 				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
