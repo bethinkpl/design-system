@@ -37,9 +37,14 @@ import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 			components: { BadgeScore },
 			props: Object.keys(args),
 			template:
-				'<div class="contrastBackground">' +
+				'<div :class="{ contrastBackground: isInverted }">' +
 				'<badge-score :color="color" :additionalText="additionalText" :text="text" :size="size" />' +
 				'</div>',
+			computed: {
+				isInverted: function () {
+					return this.color === 'inverted';
+				},
+			},
 		};
 	}}
 </Story>

@@ -68,6 +68,9 @@
 						color: map-get($color-map, 'inverted', 'icon');
 					}
 				}
+				#{$self}__label {
+					color: map-get($color-map, 'filled', 'color-hovered');
+				}
 			}
 
 			&.-focused {
@@ -78,6 +81,9 @@
 						background-color: map-get($color-map, 'outlined', 'background-focused');
 						color: map-get($color-map, 'inverted', 'icon');
 					}
+				}
+				#{$self}__label {
+					color: map-get($color-map, 'filled', 'color-focused');
 				}
 			}
 
@@ -136,6 +142,22 @@
 
 		&.-neutral {
 			color: $color-neutral-text !important;
+		}
+	}
+
+	/* Exception for scheme neutral-label, it has class `-neutral` deep in a-iconButton__label only for 1 case.
+  So there is no sense to set it in main loop
+  */
+	&:hover,
+	&.-hovered {
+		.a-iconButton__label.-neutral {
+			color: $color-neutral-text-hovered !important;
+		}
+	}
+	&:focus,
+	&.-focused {
+		.a-iconButton__label.-neutral {
+			color: $color-neutral-text-focused !important;
 		}
 	}
 

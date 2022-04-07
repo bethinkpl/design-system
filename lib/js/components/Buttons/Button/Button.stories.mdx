@@ -75,7 +75,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		return {
 			components: { WnlButton },
 			props: Object.keys(args),
-			template: `<div class="contrastBackground">
+			template: `<div :class="{ contrastBackground: isInverted }">
                 <wnl-button
                   :size="size"
                   :type="type"
@@ -89,6 +89,11 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
                     {{slotText}}
                 </wnl-button>
             </div>`,
+			computed: {
+				isInverted: function () {
+					return this.color === 'inverted';
+				},
+			},
 			created() {
 				this.ICONS = ICONS;
 			},

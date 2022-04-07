@@ -6,7 +6,6 @@
 			'-warning': color === BADGE_SCORE_COLORS.WARNING,
 			'-danger': color === BADGE_SCORE_COLORS.DANGER,
 			'-inverted': color === BADGE_SCORE_COLORS.INVERTED,
-			'-primary': color === BADGE_SCORE_COLORS.PRIMARY,
 			'-neutral': color === BADGE_SCORE_COLORS.NEUTRAL,
 			'-small': size === BADGE_SCORE_SIZES.SMALL,
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
@@ -20,11 +19,28 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors';
+@import '../../../../styles/components/badge-score';
 @import '../../../../styles/settings/colors/tokens';
 
 $badge-score-width: 74px;
 $small-badge-score-width: 48px;
 $x-small-badge-score-width: 36px;
+
+@mixin setBadgeScoreColor($self, $border: '', $color: '', $color-additional: '') {
+	@if $border != '' {
+		border-color: $border;
+	}
+
+	@if $color != '' {
+		color: $color;
+	}
+
+	@if $color-additional != '' {
+		#{$self}__additionalText {
+			color: $color-additional;
+		}
+	}
+}
 
 .badgeScore {
 	$self: &;
@@ -38,51 +54,14 @@ $x-small-badge-score-width: 36px;
 	padding: $space-xxxs $space-xxxxs;
 	text-align: center;
 
-	&.-success {
-		color: $color-success-text;
-		border-color: $color-success-border;
-		#{$self}__additionalText {
-			color: $color-success-text-weak;
-		}
-	}
-
-	&.-danger {
-		color: $color-danger-text;
-		border-color: $color-danger-border;
-		#{$self}__additionalText {
-			color: $color-danger-text-weak;
-		}
-	}
-
-	&.-warning {
-		color: $color-warning-text;
-		border-color: $color-warning-border;
-		#{$self}__additionalText {
-			color: $color-warning-text-weak;
-		}
-	}
-
-	&.-inverted {
-		color: $color-default-text-inverted;
-		border-color: $color-default-border-inverted;
-		#{$self}__additionalText {
-			color: $color-default-text-inverted;
-		}
-	}
-
-	&.-primary {
-		color: $color-primary-text;
-		border-color: $color-primary-border;
-		#{$self}__additionalText {
-			color: $color-primary-text;
-		}
-	}
-
-	&.-neutral {
-		color: $color-neutral-text;
-		border-color: $color-neutral-border-strong;
-		#{$self}__additionalText {
-			color: $color-neutral-text-weak;
+	@each $color-name, $color-map in $badge-score-colors {
+		&.-#{$color-name} {
+			@include setBadgeScoreColor(
+				$self,
+				map-get($color-map, 'border'),
+				map-get($color-map, 'color'),
+				map-get($color-map, 'color-additional')
+			);
 		}
 	}
 

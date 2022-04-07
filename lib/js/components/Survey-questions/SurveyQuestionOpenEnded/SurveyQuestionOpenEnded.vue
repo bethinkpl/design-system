@@ -62,7 +62,6 @@
 
 	&__title {
 		align-self: center;
-		color: $color-default-text;
 	}
 
 	&__explanation {

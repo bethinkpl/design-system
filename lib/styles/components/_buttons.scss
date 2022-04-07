@@ -258,7 +258,7 @@ $button-disabled-alpha: 0.6;
 	&.-outlined {
 		@include setButtonColor(map-get($button-colors, 'primary', 'outlined', 'color'));
 		@include setButtonBackground(
-			'',
+			map-get($button-colors, 'primary', 'outlined', 'background'),
 			map-get($button-colors, 'primary', 'outlined', 'background-hovered'),
 			map-get($button-colors, 'primary', 'outlined', 'background-focused'),
 			map-get($button-colors, 'primary', 'outlined', 'background-disabled')
@@ -279,7 +279,7 @@ $button-disabled-alpha: 0.6;
 			&.-color-#{$color-name} {
 				@include setButtonColor(map-get($color-map, 'outlined', 'color'));
 				@include setButtonBackground(
-					'',
+					map-get($color-map, 'outlined', 'background'),
 					map-get($color-map, 'outlined', 'background-hovered'),
 					map-get($color-map, 'outlined', 'background-focused'),
 					map-get($color-map, 'outlined', 'background-disabled')

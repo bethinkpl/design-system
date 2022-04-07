@@ -1,0 +1,29 @@
+@import '../../styles/settings/colors/tokens';
+
+$badge-score-colors: (
+	'success': (
+		'border': $color-success-border,
+		'color': $color-success-text,
+		'color-additional': $color-success-text-weak,
+	),
+	'danger': (
+		'border': $color-danger-border,
+		'color': $color-danger-text,
+		'color-additional': $color-danger-text-weak,
+	),
+	'warning': (
+		'border': $color-warning-border,
+		'color': $color-warning-text,
+		'color-additional': $color-warning-text-weak,
+	),
+	'inverted': (
+		'border': $color-default-border-inverted,
+		'color': $color-default-text-inverted,
+		'color-additional': $color-default-text-inverted,
+	),
+	'neutral': (
+		'border': $color-neutral-border-strong,
+		'color': $color-neutral-text-weak,
+		'color-additional': $color-neutral-text-weak,
+	),
+);

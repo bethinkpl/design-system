@@ -169,6 +169,8 @@ $button-colors: (
 	'primary': (
 		'filled': (
 			'color': $color-default-text-inverted,
+			'color-hovered': $color-primary-text-hovered,
+			'color-focused': $color-primary-text-focused,
 			'icon': $color-default-icon-inverted,
 			'background': $color-primary-background-strong,
 			'background-hovered': $color-primary-background-strong-hovered,
@@ -183,6 +185,8 @@ $button-colors: (
 		),
 		'outlined': (
 			'color': $color-primary-text,
+			'color-hovered': $color-primary-text-hovered,
+			'color-focused': $color-primary-text-focused,
 			'icon': $color-primary-icon,
 			'border': $color-primary-border,
 			'background': $color-primary-background-ghost,
@@ -215,6 +219,8 @@ $button-colors: (
 	'neutral': (
 		'filled': (
 			'color': $color-default-text-inverted,
+			'color-hovered': $color-neutral-text-hovered,
+			'color-focused': $color-neutral-text-focused,
 			'icon': $color-default-icon-inverted,
 			'background': $color-neutral-background-heavy,
 			'background-hovered': $color-neutral-background-heavy-hovered,
@@ -229,6 +235,8 @@ $button-colors: (
 		),
 		'outlined': (
 			'color': $color-neutral-text,
+			'color-hovered': $color-neutral-text-hovered,
+			'color-focused': $color-neutral-text-focused,
 			'icon': $color-neutral-icon,
 			'border': $color-neutral-border-heavy,
 			'background': $color-neutral-background-ghost,

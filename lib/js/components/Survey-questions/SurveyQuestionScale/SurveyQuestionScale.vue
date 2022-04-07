@@ -15,7 +15,7 @@
 					<icon-button
 						v-if="$slots.explanation"
 						class="surveyQuestionScale__explanation"
-						:color="BUTTON_COLORS.NEUTRAL_WEAK"
+						:color="BUTTON_ICON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_QUESTION_CIRCLE"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
@@ -96,6 +96,7 @@
 	}
 
 	&__title {
+		color: $color-default-text;
 		align-self: center;
 	}
 
@@ -164,7 +165,7 @@ import { Prop } from 'vue/types/options';
 import DsCard from '../../Cards/Card.vue';
 import IconButton from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
-import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
+import DsButton, { BUTTON_ICON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
 import DsModal from '../../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_MEANINGS,
@@ -229,7 +230,7 @@ export default {
 		};
 	},
 	created() {
-		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.BUTTON_ICON_COLORS = BUTTON_ICON_COLORS;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
