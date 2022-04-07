@@ -52,9 +52,9 @@ export default {
 	computed: {
 		icon() {
 			if (this.status === COURSE_BLOCKADE_ACCESS_STATUS.ACTIVE) {
-				return ICONS.FA_LOCK_ALT;
+				return ICONS.FA_LOCK_KEYHOLE;
 			}
-			return ICONS.FA_UNLOCK_ALT;
+			return ICONS.FA_UNLOCK_KEYHOLE;
 		},
 		statusClass() {
 			if (this.status === COURSE_BLOCKADE_ACCESS_STATUS.ACTIVE) {
