@@ -6,7 +6,7 @@
 				<wnl-icon
 					touchable
 					:icon="ICONS.FA_TIMES_LIGHT"
-					class="-stormGray m-modal__header__close"
+					class="m-modal__header__close"
 					:size="ICON_SIZES.SMALL"
 					@click.native.stop="$emit('close-modal')"
 				/>
@@ -31,6 +31,7 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/z-indexes';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/colors/tokens';
 
 .m-modal {
 	align-items: center;
@@ -73,6 +74,7 @@
 		z-index: 1;
 
 		&__close:only-child {
+			color: $color-neutral-icon-weak;
 			margin-left: auto;
 		}
 	}
@@ -85,6 +87,7 @@
 	&__content {
 		overflow: auto;
 		padding: $space-s;
+		color: $color-default-text;
 
 		&__shadow {
 			box-shadow: 0 #{-$space-xxxxs} $space-xxxxs $color-total-white;
