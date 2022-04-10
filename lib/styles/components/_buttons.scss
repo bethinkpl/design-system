@@ -43,7 +43,9 @@ $default-lighter-shadow: 0 4px 12px rgba($color-firefly-black-rgb, 0.35);
 ) {
 	@if $background != '' {
 		background-color: $background;
-	} @else {
+	}
+
+	@if $background == '' {
 		background-color: transparent;
 	}
 
@@ -120,7 +122,9 @@ $default-lighter-shadow: 0 4px 12px rgba($color-firefly-black-rgb, 0.35);
 		.ripple {
 			background-color: $ripple !important;
 		}
-	} @else {
+	}
+
+	@if $ripple == '' {
 		.ripple {
 			background-color: transparent !important;
 		}
@@ -152,6 +156,7 @@ $default-lighter-shadow: 0 4px 12px rgba($color-firefly-black-rgb, 0.35);
 			}
 		}
 	}
+
 	@if $icon-focused != '' {
 		&.-focused,
 		&:focus {
@@ -164,6 +169,7 @@ $default-lighter-shadow: 0 4px 12px rgba($color-firefly-black-rgb, 0.35);
 			}
 		}
 	}
+
 	@if $icon-disabled != '' {
 		&.-disabled {
 			.a-iconButton,  // this rule here avoid repeating similar loop in IconButton
@@ -189,32 +195,6 @@ $button-disabled-alpha: 0.6;
 	$self: &;
 
 	@include buttonM;
-
-	align-items: center;
-	background-color: transparent; // override defaut <button> background color
-	border: 0;
-	border-radius: 100px;
-	cursor: pointer;
-	display: inline-flex;
-	min-height: $button-medium-min-height;
-	font-weight: 700;
-	justify-content: center;
-	outline: none;
-	padding: $space-xxxxs $space-s;
-	position: relative;
-	text-transform: uppercase;
-	transform-style: preserve-3d;
-	transition: color ease-in-out $default-transition-time,
-		border-color ease-in-out $default-transition-time,
-		background-color ease-in-out $default-transition-time;
-	user-select: none;
-
-	&:disabled,
-	&.-disabled {
-		cursor: not-allowed;
-		pointer-events: none;
-	}
-
 	@include setButtonColor(map-get($button-colors, 'primary', 'filled', 'color'));
 	@include setButtonBackground(
 		map-get($button-colors, 'primary', 'filled', 'background'),
@@ -253,6 +233,31 @@ $button-disabled-alpha: 0.6;
 				map-get($color-map, 'filled', 'icon')
 			);
 		}
+	}
+
+	align-items: center;
+	background-color: transparent; // override defaut <button> background color
+	border: 0;
+	border-radius: 100px;
+	cursor: pointer;
+	display: inline-flex;
+	min-height: $button-medium-min-height;
+	font-weight: 700;
+	justify-content: center;
+	outline: none;
+	padding: $space-xxxxs $space-s;
+	position: relative;
+	text-transform: uppercase;
+	transform-style: preserve-3d;
+	transition: color ease-in-out $default-transition-time,
+		border-color ease-in-out $default-transition-time,
+		background-color ease-in-out $default-transition-time;
+	user-select: none;
+
+	&:disabled,
+	&.-disabled {
+		cursor: not-allowed;
+		pointer-events: none;
 	}
 
 	&.-outlined {
@@ -327,6 +332,7 @@ $button-disabled-alpha: 0.6;
 			map-get($button-colors, 'primary', 'text', 'icon-focused'),
 			map-get($button-colors, 'primary', 'text', 'disabled', 'icon')
 		);
+
 		@each $color-name, $color-map in $icon-button-colors {
 			&.-color-#{$color-name} {
 				@include setButtonColor(
@@ -401,6 +407,7 @@ $button-disabled-alpha: 0.6;
 		&.-outlined {
 			background: $color-default-background !important;
 		}
+
 		&:not(.-text) {
 			box-shadow: $default-lighter-shadow;
 		}

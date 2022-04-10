@@ -39,7 +39,7 @@
 
 $survey-toggle-size: 48px;
 
-$color-disabled-neutral: #000000; // IT WILL BE REPLACED IN NEXT PR
+$color-disabled-neutral: #000; // IT WILL BE REPLACED IN NEXT PR
 
 .surveyToggle {
 	$self: &;
