@@ -23,7 +23,14 @@
 		<div
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
 			class="a-iconButton__label"
-			:class="{ '-neutral': colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL }"
+			:class="{
+				'-neutral':
+					colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL &&
+					color !== ICON_BUTTON_COLORS.NEUTRAL_WEAK,
+				'-neutral-weak':
+					colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL &&
+					color === ICON_BUTTON_COLORS.NEUTRAL_WEAK,
+			}"
 			><slot
 		/></div>
 		<wnl-button
@@ -59,6 +66,7 @@
 				color: map-get($color-map, 'outlined', 'color');
 			}
 
+			&:hover,
 			&.-hovered {
 				#{$self}__button {
 					background-color: map-get($color-map, 'filled', 'background-hovered');
@@ -73,9 +81,10 @@
 				}
 			}
 
+			&:focus,
 			&.-focused {
 				#{$self}__button {
-					background-color: map-get($color-map, 'filled' 'background-focused');
+					background-color: map-get($color-map, 'filled', 'background-focused');
 					color: map-get($color-map, 'filled', 'icon');
 					&.-outlined {
 						background-color: map-get($color-map, 'outlined', 'background-focused');
@@ -112,6 +121,12 @@
 	display: inline-flex;
 	transition: color ease-in-out $default-transition-time;
 
+	&:disabled,
+	&.-disabled {
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
 	&:hover {
 		color: map-get($icon-button-colors, 'theme', 'hovered');
 	}
@@ -143,6 +158,9 @@
 		&.-neutral {
 			color: $color-neutral-text !important;
 		}
+		&.-neutral-weak {
+			color: $color-neutral-text-weak !important;
+		}
 	}
 
 	/* Exception for scheme neutral-label, it has class `-neutral` deep in a-iconButton__label only for 1 case.
@@ -150,21 +168,34 @@
   */
 	&:hover,
 	&.-hovered {
-		.a-iconButton__label.-neutral {
-			color: $color-neutral-text-hovered !important;
+		.a-iconButton__label {
+			&.-neutral {
+				color: $color-neutral-text-hovered !important;
+			}
+			&.-neutral-weak {
+				color: $color-neutral-text-weak-disabled !important;
+			}
 		}
 	}
 	&:focus,
 	&.-focused {
-		.a-iconButton__label.-neutral {
-			color: $color-neutral-text-focused !important;
+		.a-iconButton__label {
+			&.-neutral {
+				color: $color-neutral-text-focused !important;
+			}
+			&.-neutral-weak {
+				color: $color-neutral-text-weak-focused !important;
+			}
 		}
 	}
 
 	&.-disabled {
 		#{$self}__label {
 			&.-neutral {
-				color: $color-neutral-text-weak !important;
+				color: $color-neutral-text-disabled !important;
+			}
+			&.-neutral-weak {
+				color: $color-neutral-text-weak-disabled !important;
 			}
 		}
 	}
@@ -349,6 +380,7 @@ export default {
 		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
 		this.ICON_BUTTON_STATES = ICON_BUTTON_STATES;
 		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
 	},
 	methods: {
 		onClick(evt): void {

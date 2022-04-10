@@ -4,7 +4,7 @@
 		:class="{
 			'-success': color === BADGE_SCORE_COLORS.SUCCESS,
 			'-warning': color === BADGE_SCORE_COLORS.WARNING,
-			'-danger': color === BADGE_SCORE_COLORS.DANGER,
+			'-fail': color === BADGE_SCORE_COLORS.FAIL,
 			'-inverted': color === BADGE_SCORE_COLORS.INVERTED,
 			'-neutral': color === BADGE_SCORE_COLORS.NEUTRAL,
 			'-small': size === BADGE_SCORE_SIZES.SMALL,

@@ -1,7 +1,7 @@
 export const BADGE_SCORE_COLORS = {
 	SUCCESS: 'success',
 	WARNING: 'warning',
-	DANGER: 'danger',
+	FAIL: 'fail',
 	INVERTED: 'inverted',
 	NEUTRAL: 'neutral',
 } as const;

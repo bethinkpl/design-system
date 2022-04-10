@@ -6,10 +6,10 @@ $badge-score-colors: (
 		'color': $color-success-text,
 		'color-additional': $color-success-text-weak,
 	),
-	'danger': (
-		'border': $color-danger-border,
-		'color': $color-danger-text,
-		'color-additional': $color-danger-text-weak,
+	'fail': (
+		'border': $color-fail-border,
+		'color': $color-fail-text,
+		'color-additional': $color-fail-text-weak,
 	),
 	'warning': (
 		'border': $color-warning-border,
