@@ -1,4 +1,4 @@
-import { BUTTON_ICON_COLORS, BUTTON_TYPES } from '../Button';
+import { BUTTON_TYPES } from '../Button';
 
 export const ICON_BUTTON_SIZES = {
 	X_SMALL: 'x-small',
@@ -19,7 +19,14 @@ export const ICON_BUTTON_COLOR_SCHEMES = {
 } as const;
 
 export const ICON_BUTTON_COLORS = {
-	...BUTTON_ICON_COLORS,
+	PRIMARY: 'primary',
+	NEUTRAL: 'neutral',
+	NEUTRAL_WEAK: 'neutral-weak',
+	DANGER: 'danger',
+	SUCCESS: 'success',
+	INVERTED: 'inverted',
+	WARNING: 'warning',
+	INFO: 'info',
 } as const;
 
 export const ICON_BUTTON_STATES = {

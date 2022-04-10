@@ -10,17 +10,6 @@ export const BUTTON_TYPES = {
 	TEXT: 'text',
 } as const;
 
-export const BUTTON_ICON_COLORS = {
-	PRIMARY: 'primary',
-	NEUTRAL: 'neutral',
-	NEUTRAL_WEAK: 'neutral-weak',
-	DANGER: 'danger',
-	SUCCESS: 'success',
-	INVERTED: 'inverted',
-	WARNING: 'warning',
-	INFO: 'info',
-} as const;
-
 export const BUTTON_COLORS = {
 	PRIMARY: 'primary',
 	NEUTRAL: 'neutral',
