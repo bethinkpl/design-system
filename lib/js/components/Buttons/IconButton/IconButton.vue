@@ -225,7 +225,7 @@ export default {
 		},
 		color: {
 			type: String,
-			default: BUTTON_COLORS.PRIMARY,
+			default: ICON_BUTTON_COLORS.PRIMARY,
 			validator(value): boolean {
 				return Object.values(ICON_BUTTON_COLORS).includes(value);
 			},
@@ -295,6 +295,7 @@ export default {
 		this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
 		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
 		this.BUTTON_STATES = BUTTON_STATES;
+		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
 		this.BUTTON_COLORS = BUTTON_COLORS;
 	},
 	methods: {
