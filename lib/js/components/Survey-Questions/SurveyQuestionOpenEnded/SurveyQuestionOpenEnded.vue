@@ -46,6 +46,7 @@
 @import '../../../../styles/settings/buttons';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/colors/tokens';
 
 .surveyQuestionOpenEnded {
 	color: $color-default-text;
@@ -81,7 +82,7 @@
 </style>
 
 <script lang="ts">
-import DsCard from '../../Cards/Card.vue';
+import DsCard from '../../Cards/Card/Card';
 import DsModal from '../../Modal';
 import DsButton, { BUTTON_ICON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
 import IconButton from '../../Buttons/IconButton';
