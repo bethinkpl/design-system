@@ -1,17 +1,17 @@
 <template>
 	<div
-		class="a-badgeScore"
+		class="badgeScore"
 		:class="{
 			'-success': color === BADGE_SCORE_COLORS.SUCCESS,
 			'-warning': color === BADGE_SCORE_COLORS.WARNING,
-			'-danger': color === BADGE_SCORE_COLORS.DANGER,
+			'-fail': color === BADGE_SCORE_COLORS.FAIL,
 			'-inverted': color === BADGE_SCORE_COLORS.INVERTED,
-			'-minor': color === BADGE_SCORE_COLORS.MINOR,
+			'-neutral': color === BADGE_SCORE_COLORS.NEUTRAL,
 			'-small': size === BADGE_SCORE_SIZES.SMALL,
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
 		}"
 	>
-		{{ text }}
+		{{ text }}<span class="badgeScore__additionalText">{{ additionalText }}</span>
 	</div>
 </template>
 
@@ -19,12 +19,31 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors';
+@import '../../../../styles/components/badge-score';
+@import '../../../../styles/settings/colors/tokens';
 
 $badge-score-width: 74px;
 $small-badge-score-width: 48px;
 $x-small-badge-score-width: 36px;
 
-.a-badgeScore {
+@mixin setBadgeScoreColor($self, $border: '', $color: '', $color-additional: '') {
+	@if $border != '' {
+		border-color: $border;
+	}
+
+	@if $color != '' {
+		color: $color;
+	}
+
+	@if $color-additional != '' {
+		#{$self}__additionalText {
+			color: $color-additional;
+		}
+	}
+}
+
+.badgeScore {
+	$self: &;
 	@include textBold();
 	@include headlineL();
 
@@ -35,24 +54,15 @@ $x-small-badge-score-width: 36px;
 	padding: $space-xxxs $space-xxxxs;
 	text-align: center;
 
-	&.-success {
-		color: $color-success;
-	}
-
-	&.-danger {
-		color: $color-danger;
-	}
-
-	&.-warning {
-		color: $color-warning;
-	}
-
-	&.-inverted {
-		color: $color-total-white;
-	}
-
-	&.-minor {
-		color: $color-minor-supporting;
+	@each $color-name, $color-map in $badge-score-colors {
+		&.-#{$color-name} {
+			@include setBadgeScoreColor(
+				$self,
+				map-get($color-map, 'border'),
+				map-get($color-map, 'color'),
+				map-get($color-map, 'color-additional')
+			);
+		}
 	}
 
 	&.-small {
@@ -80,6 +90,11 @@ export default {
 		text: {
 			type: String,
 			required: true,
+		},
+		additionalText: {
+			type: String,
+			required: false,
+			default: null,
 		},
 		color: {
 			type: String,
