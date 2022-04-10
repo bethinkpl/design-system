@@ -150,6 +150,7 @@
 
 	&__elaborationLabel {
 		@include headlineXS();
+
 		color: $color-default-text;
 	}
 
