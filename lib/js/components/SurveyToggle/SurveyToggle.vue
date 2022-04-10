@@ -38,65 +38,8 @@
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/survey-toggle';
 @import '../../../styles/components/survey-toggle';
-
-@mixin setSurveyToggleOtherStates(
-	$background-hover: '',
-	$disabled-border: '',
-	$disabled-text: '',
-	$disabled-icon: '',
-	$disabled-background: ''
-) {
-	@if $background-hover != '' {
-		background-color: $background-hover;
-	}
-
-	@if $disabled-text != '' {
-		color: $disabled-text;
-	}
-
-	@if $disabled-icon != '' {
-		.surveyToggle__icon {
-			color: $disabled-icon;
-		}
-	}
-
-	@if $disabled-border != '' {
-		border-color: $disabled-border;
-	}
-
-	@if $disabled-background != '' {
-		background-color: $disabled-background;
-	}
-}
-
-@mixin setSurveyToggleNormalState($background: '', $border: '', $text: '', $icon: '', $ripple: '') {
-	@if $background != '' {
-		background-color: $background;
-	}
-
-	@if $border != '' {
-		border-color: $border;
-	}
-
-	@if $text != '' {
-		.surveyToggle__content {
-			color: $text;
-		}
-	}
-
-	@if $icon != '' {
-		.surveyToggle__icon {
-			color: $icon;
-		}
-	}
-
-	@if $ripple != '' {
-		&::v-deep .ripple {
-			background-color: $ripple !important;
-		}
-	}
-}
 
 .surveyToggle {
 	$self: &;

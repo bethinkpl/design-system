@@ -1,54 +1,57 @@
-@import '../settings/colors/tokens';
+@mixin setSurveyToggleOtherStates(
+	$background-hover: '',
+	$disabled-border: '',
+	$disabled-text: '',
+	$disabled-icon: '',
+	$disabled-background: ''
+) {
+	@if $background-hover != '' {
+		background-color: $background-hover;
+	}
 
-$survey-toggle-size: 48px;
+	@if $disabled-text != '' {
+		color: $disabled-text;
+	}
 
-$survey-toggle-colors: (
-	'primary': (
-		'background': $color-primary-background-weak,
-		'border': $color-primary-border,
-		'color': $color-primary-text,
-		'icon': $color-default-icon-inverted,
-		'background-hovered': $color-primary-background-weak-hovered,
-		'ripple': $color-primary-ripple,
-		'disabled': (
-			'border': $color-primary-border-disabled,
-			'color': $color-primary-text-disabled,
-			'icon': $color-primary-icon-disabled,
-		),
-	),
-	'primary-selected': (
-		'background': $color-primary-background-strong,
-		'border': $color-default-border-inverted,
-		'color': $color-default-icon-inverted,
-		'icon': $color-default-text-inverted,
-		'background-hovered': $color-primary-background-strong-hovered,
-		'ripple': $color-default-ripple-inverted,
-		'disabled': (
-			'background': $color-primary-background-strong-disabled,
-		),
-	),
-	'neutral': (
-		'background': $color-neutral-background-weak,
-		'border': $color-neutral-border-strong,
-		'color': $color-neutral-text-weak,
-		'icon': $color-neutral-icon-weak,
-		'background-hovered': $color-neutral-background-weak-hovered,
-		'ripple': $color-neutral-ripple,
-		'disabled': (
-			'border': $color-neutral-border-strong-disabled,
-			'color': $color-neutral-text-weak-disabled,
-			'icon': $color-neutral-icon-weak-disabled,
-		),
-	),
-	'neutral-selected': (
-		'background': $color-neutral-background-strong,
-		'border': $color-default-border-inverted,
-		'color': $color-default-icon-inverted,
-		'icon': $color-default-text-inverted,
-		'background-hovered': $color-neutral-background-strong-hovered,
-		'ripple': $color-default-ripple-inverted,
-		'disabled': (
-			'background': $color-neutral-background-strong-disabled,
-		),
-	),
-);
+	@if $disabled-icon != '' {
+		.surveyToggle__icon {
+			color: $disabled-icon;
+		}
+	}
+
+	@if $disabled-border != '' {
+		border-color: $disabled-border;
+	}
+
+	@if $disabled-background != '' {
+		background-color: $disabled-background;
+	}
+}
+
+@mixin setSurveyToggleNormalState($background: '', $border: '', $text: '', $icon: '', $ripple: '') {
+	@if $background != '' {
+		background-color: $background;
+	}
+
+	@if $border != '' {
+		border-color: $border;
+	}
+
+	@if $text != '' {
+		.surveyToggle__content {
+			color: $text;
+		}
+	}
+
+	@if $icon != '' {
+		.surveyToggle__icon {
+			color: $icon;
+		}
+	}
+
+	@if $ripple != '' {
+		&::v-deep .ripple {
+			background-color: $ripple !important;
+		}
+	}
+}
