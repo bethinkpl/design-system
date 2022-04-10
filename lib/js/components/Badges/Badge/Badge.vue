@@ -8,11 +8,11 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/colors';
-@import '../../../styles/settings/radiuses';
-@import '../../../styles/settings/typography';
-@import '../../../styles/settings/spacings';
-@import '../../../styles/atoms/icons';
+@import '../../../../styles/settings/colors';
+@import '../../../../styles/settings/radiuses';
+@import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/components/icons';
 
 .badge {
 	border-radius: $radius-s;

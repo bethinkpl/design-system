@@ -1,5 +1,5 @@
-import { COLORS } from '../../consts/colors';
-import { BUTTON_COLORS, BUTTON_TYPES } from '../Button/Button.consts';
+import { COLORS } from '../../../consts/colors';
+import { BUTTON_COLORS, BUTTON_TYPES } from '../Button';
 
 export const ICON_BUTTON_SIZES = {
 	X_SMALL: 'x-small',

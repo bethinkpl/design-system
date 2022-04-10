@@ -47,16 +47,16 @@
 </template>
 
 <style lang="scss">
-@import '../../../styles/atoms/buttons';
+@import '../../../../styles/components/buttons';
 </style>
 
 <script lang="ts">
 import { VueConstructor } from 'vue';
 import Ripple from 'vue-ripple-directive';
 
-import { Value } from '../../utils/type.utils';
+import { Value } from '../../../utils/type.utils';
 
-import WnlIcon, { ICONS, ICON_SIZES } from '../Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from '../../Icon';
 import {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,

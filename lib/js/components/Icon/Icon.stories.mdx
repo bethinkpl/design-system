@@ -1,52 +1,65 @@
 import { Meta, Story, Props, IconGallery, IconItem } from '@storybook/addon-docs';
-import WnlIcon, {ICON_SIZES, ICONS} from 'design-system/lib/js/atoms/Icon';
+import WnlIcon, { ICON_SIZES, ICONS } from 'design-system/lib/js/components/Icon';
 
-<Meta title='atoms/Icon' component={WnlIcon} />
+<Meta title="components/Icon" component={WnlIcon} />
 
 # Icon
 
-<Story name='interactive'
-       args={{
-           size: ICON_SIZES.MEDIUM,
-           icon: 'HEAD_WITH_QUESTION_MARK',
-           spinning: false,
-           touchable: false,
-           rotation: null,
-           flippedVertical: false,
-           flippedHorizontal: false,
-       }}
-       argTypes={{
-           size: {control: { type: 'select', options: Object.values(ICON_SIZES) }, defaultValue: ICON_SIZES.MEDIUM},
-           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'HEAD_WITH_QUESTION_MARK'},
-           rotation: {control: { type: 'select', options: [null, 90, 180, 270] }, defaultValue: null},
-       }}>
-    {(args) => {
-        return {
-            components: { WnlIcon },
-            props: Object.keys(args),
-            created() {
-                this.ICONS = ICONS
-            },
-            template: '<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
-        };
-    }}
+<Story
+	name="interactive"
+	args={{
+		size: ICON_SIZES.MEDIUM,
+		icon: 'HEAD_WITH_QUESTION_MARK',
+		spinning: false,
+		touchable: false,
+		rotation: null,
+		flippedVertical: false,
+		flippedHorizontal: false,
+	}}
+	argTypes={{
+		size: {
+			control: { type: 'select', options: Object.values(ICON_SIZES) },
+			defaultValue: ICON_SIZES.MEDIUM,
+		},
+		icon: {
+			control: { type: 'select', options: Object.keys(ICONS) },
+			defaultValue: 'HEAD_WITH_QUESTION_MARK',
+		},
+		rotation: {
+			control: { type: 'select', options: [null, 90, 180, 270] },
+			defaultValue: null,
+		},
+	}}
+>
+	{(args) => {
+		return {
+			components: { WnlIcon },
+			props: Object.keys(args),
+			created() {
+				this.ICONS = ICONS;
+			},
+			template:
+				'<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
+		};
+	}}
 </Story>
 
-<Story name='all icons'>
-    {() => {
-        return {
-            components: { WnlIcon },
-            created() {
-                this.ICONS = ICONS
-            },
-            template: '<div style="display: flex; flex-wrap: wrap; font-size: 10px">' +
-                '<div v-for="(icon, iconName) in ICONS" :key="iconName" style="display: flex; flex-direction: column; align-items: center; padding: 10px; width: 150px; word-break: break-word; text-align: center">'+
-                  '<wnl-icon :icon="icon" />' +
-                  '<div>{{iconName}}</div>' +
-                '</div>' +
-            '</div>',
-        };
-    }}
+<Story name="all icons">
+	{() => {
+		return {
+			components: { WnlIcon },
+			created() {
+				this.ICONS = ICONS;
+			},
+			template:
+				'<div style="display: flex; flex-wrap: wrap; font-size: 10px">' +
+				'<div v-for="(icon, iconName) in ICONS" :key="iconName" style="display: flex; flex-direction: column; align-items: center; padding: 10px; width: 150px; word-break: break-word; text-align: center">' +
+				'<wnl-icon :icon="icon" />' +
+				'<div>{{iconName}}</div>' +
+				'</div>' +
+				'</div>',
+		};
+	}}
 </Story>
 
 ## Props

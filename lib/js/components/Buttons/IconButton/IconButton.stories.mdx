@@ -1,38 +1,69 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
-import WnlIconButton from 'design-system/lib/js/atoms/IconButton';
-import { ICON_BUTTON_SIZES, ICON_BUTTON_COLOR_SCHEMES, ICON_BUTTON_TYPES, ICON_BUTTON_COLORS } from 'design-system/lib/js/atoms/IconButton/IconButton.consts';
-import { BUTTON_ELEVATIONS, BUTTON_RADIUSES } from 'design-system/lib/js/atoms/Button/Button.consts';
-import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
+import WnlIconButton from 'design-system/lib/js/components/Buttons/IconButton';
+import {
+	ICON_BUTTON_SIZES,
+	ICON_BUTTON_COLOR_SCHEMES,
+	ICON_BUTTON_TYPES,
+	ICON_BUTTON_COLORS,
+} from 'design-system/lib/js/components/Buttons/IconButton/IconButton.consts';
+import {
+	BUTTON_ELEVATIONS,
+	BUTTON_RADIUSES,
+} from 'design-system/lib/js/components/Buttons/Button/Button.consts';
+import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 
-<Meta title='atoms/IconButton' component={WnlIconButton} />
+<Meta title="components/Buttons/IconButton" component={WnlIconButton} />
 
 # IconButton
 
-<Story name='interactive'
-       args={{
-           size: ICON_BUTTON_SIZES.LARGE,
-           type: ICON_BUTTON_TYPES.ICON_ONLY,
-           radius: BUTTON_RADIUSES.CAPSULE,
-           label: 'Zamknij',
-           colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
-           touchable: true,
-           elevation: BUTTON_ELEVATIONS.NONE,
-           color: 'PRIMARY',
-       }}
-       argTypes={{
-           size: {control: { type: 'select', options: Object.values(ICON_BUTTON_SIZES) }, defaultValue: ICON_BUTTON_SIZES.LARGE},
-           type: {control: { type: 'select', options: Object.values(ICON_BUTTON_TYPES) }, defaultValue: ICON_BUTTON_TYPES.ICON_ONLY},
-           radius: {control: { type: 'select', options: Object.values(BUTTON_RADIUSES) }, defaultValue: BUTTON_RADIUSES.CAPSULE},
-           icon: {control: { type: 'select', options: Object.keys(ICONS) }, defaultValue: 'FA_TIMES_LIGHT' },
-           color: {control: { type: 'select', options: Object.keys(ICON_BUTTON_COLORS) }, defaultValue: 'PRIMARY' },
-           colorScheme: {control: { type: 'select', options: Object.values(ICON_BUTTON_COLOR_SCHEMES) }, defaultValue: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR },
-           elevation: {control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) }, defaultValue: BUTTON_ELEVATIONS.NONE },
-       }}>
-    {(args) => {
-        return {
-            components: { WnlIconButton },
-            props: Object.keys(args),
-            template: `<wnl-icon-button
+<Story
+	name="interactive"
+	args={{
+		size: ICON_BUTTON_SIZES.LARGE,
+		type: ICON_BUTTON_TYPES.ICON_ONLY,
+		radius: BUTTON_RADIUSES.CAPSULE,
+		label: 'Zamknij',
+		colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
+		touchable: true,
+		elevation: BUTTON_ELEVATIONS.NONE,
+		color: 'PRIMARY',
+	}}
+	argTypes={{
+		size: {
+			control: { type: 'select', options: Object.values(ICON_BUTTON_SIZES) },
+			defaultValue: ICON_BUTTON_SIZES.LARGE,
+		},
+		type: {
+			control: { type: 'select', options: Object.values(ICON_BUTTON_TYPES) },
+			defaultValue: ICON_BUTTON_TYPES.ICON_ONLY,
+		},
+		radius: {
+			control: { type: 'select', options: Object.values(BUTTON_RADIUSES) },
+			defaultValue: BUTTON_RADIUSES.CAPSULE,
+		},
+		icon: {
+			control: { type: 'select', options: Object.keys(ICONS) },
+			defaultValue: 'FA_TIMES_LIGHT',
+		},
+		color: {
+			control: { type: 'select', options: Object.keys(ICON_BUTTON_COLORS) },
+			defaultValue: 'PRIMARY',
+		},
+		colorScheme: {
+			control: { type: 'select', options: Object.values(ICON_BUTTON_COLOR_SCHEMES) },
+			defaultValue: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
+		},
+		elevation: {
+			control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) },
+			defaultValue: BUTTON_ELEVATIONS.NONE,
+		},
+	}}
+>
+	{(args) => {
+		return {
+			components: { WnlIconButton },
+			props: Object.keys(args),
+			template: `<wnl-icon-button
               :icon="ICONS[icon]"
               :size="size"
               :type="type"
@@ -42,134 +73,152 @@ import { ICONS } from 'design-system/lib/js/atoms/Icon/Icon.consts';
               :elevation="elevation"
               :color="ICON_BUTTON_COLORS[color]"
             ><span v-if="label !== ''">{{label}}</span></wnl-icon-button>`,
-            created() {
-                this.ICONS = ICONS;
-                this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-            }
-        };
-    }}
+			created() {
+				this.ICONS = ICONS;
+				this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+			},
+		};
+	}}
 </Story>
 
 ## Examples
 
 ### filled with label
-<Story name='examples/filledWithLabel'>
-    {{
-        components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button>',
-        created() {
-            this.ICONS = ICONS;
-            this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-        },
-    }}
+
+<Story name="examples/filledWithLabel">
+	{{
+		components: { WnlIconButton },
+		template:
+			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button>',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
+		},
+	}}
 </Story>
 
 ### outlined rounded
-<Story name='examples/outlinedRounded'>
-    {{
-        components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_CHEVRON_RIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" />',
-        created() {
-            this.ICONS = ICONS;
-            this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-            this.BUTTON_RADIUSES = BUTTON_RADIUSES;
-        },
-    }}
+
+<Story name="examples/outlinedRounded">
+	{{
+		components: { WnlIconButton },
+		template:
+			'<wnl-icon-button :icon="ICONS.FA_CHEVRON_RIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" />',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
+			this.BUTTON_RADIUSES = BUTTON_RADIUSES;
+		},
+	}}
 </Story>
 
 ### outlined rounded minor-supporting
-<Story name='examples/outlinedRoundedMinorSupporting'>
-    {{
-        components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_CHEVRON_RIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" />',
-        created() {
-            this.ICONS = ICONS;
-            this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-            this.BUTTON_RADIUSES = BUTTON_RADIUSES;
-            this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-        },
-    }}
+
+<Story name="examples/outlinedRoundedMinorSupporting">
+	{{
+		components: { WnlIconButton },
+		template:
+			'<wnl-icon-button :icon="ICONS.FA_CHEVRON_RIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" />',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
+			this.BUTTON_RADIUSES = BUTTON_RADIUSES;
+			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+		},
+	}}
 </Story>
 
 ### outlined minor-supporting minor-icon
-<Story name='examples/outlinedMinorSupportingMinorIcon'>
-    {{
-        components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :color-scheme="ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON" />',
-        created() {
-            this.ICONS = ICONS;
-            this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-            this.BUTTON_RADIUSES = BUTTON_RADIUSES;
-            this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-            this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
-        },
-    }}
+
+<Story name="examples/outlinedMinorSupportingMinorIcon">
+	{{
+		components: { WnlIconButton },
+		template:
+			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :color-scheme="ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON" />',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
+			this.BUTTON_RADIUSES = BUTTON_RADIUSES;
+			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+			this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
+		},
+	}}
 </Story>
 
 ### filled minor x-small
-<Story name='examples/filledMinor'>
-    {{
-        components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.X_SMALL" />',
-        created() {
-            this.ICONS = ICONS;
-            this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-            this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-            this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-        },
-    }}
+
+<Story name="examples/filledMinor">
+	{{
+		components: { WnlIconButton },
+		template:
+			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.X_SMALL" />',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
+			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+			this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+		},
+	}}
 </Story>
 
 ### icon-only minor medium
-<Story name='examples/iconOnlyMinor'>
-    {{
-        components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.MEDIUM" />',
-        created() {
-            this.ICONS = ICONS;
-            this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-            this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-        },
-    }}
+
+<Story name="examples/iconOnlyMinor">
+	{{
+		components: { WnlIconButton },
+		template:
+			'<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+			this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+		},
+	}}
 </Story>
 
 ### icon-only navy-blue medium
-<Story name='examples/iconOnlyNavyBlue'>
-    {{
-        components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.NAVY_BLUE" :size="ICON_BUTTON_SIZES.MEDIUM" />',
-        created() {
-            this.ICONS = ICONS;
-            this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-            this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-        },
-    }}
+
+<Story name="examples/iconOnlyNavyBlue">
+	{{
+		components: { WnlIconButton },
+		template:
+			'<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.NAVY_BLUE" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+			this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+		},
+	}}
 </Story>
 
 ### icon-only minor-supporting medium
-<Story name='examples/iconOnlyMinorSupporting'>
-    {{
-        components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.FA_INFO_CIRCLE" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
-        created() {
-            this.ICONS = ICONS;
-            this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-            this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-        },
-    }}
+
+<Story name="examples/iconOnlyMinorSupporting">
+	{{
+		components: { WnlIconButton },
+		template:
+			'<wnl-icon-button :icon="ICONS.FA_INFO_CIRCLE" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+			this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+		},
+	}}
 </Story>
 
 ### icon-only california-yellow medium
-<Story name='examples/iconOnlyCaliforniaYellow'>
-    {{
-        components: { WnlIconButton },
-        template: '<wnl-icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.CALIFORNIA_YELLOW" :size="ICON_BUTTON_SIZES.MEDIUM" />',
-        created() {
-            this.ICONS = ICONS;
-            this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-            this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-        },
-    }}
+
+<Story name="examples/iconOnlyCaliforniaYellow">
+	{{
+		components: { WnlIconButton },
+		template:
+			'<wnl-icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.CALIFORNIA_YELLOW" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+		created() {
+			this.ICONS = ICONS;
+			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+			this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+		},
+	}}
 </Story>
 
 ## Props

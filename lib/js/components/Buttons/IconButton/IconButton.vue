@@ -42,13 +42,13 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/animations';
-@import '../../../styles/settings/buttons';
-@import '../../../styles/settings/colors';
-@import '../../../styles/settings/icons';
-@import '../../../styles/settings/media-queries';
-@import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
+@import '../../../../styles/settings/animations';
+@import '../../../../styles/settings/buttons';
+@import '../../../../styles/settings/colors';
+@import '../../../../styles/settings/icons';
+@import '../../../../styles/settings/media-queries';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/typography';
 
 @mixin iconButtonColor($color, $hover-color: '') {
 	@if $hover-color == '' {
@@ -165,7 +165,7 @@
 <script lang="ts">
 import { VueConstructor } from 'vue';
 
-import WnlIcon, { ICONS, ICON_SIZES } from '../Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from '../../Icon';
 import WnlButton from '../Button';
 import {
 	ICON_BUTTON_COLOR_SCHEMES,
@@ -179,7 +179,7 @@ import {
 	BUTTON_RADIUSES,
 	BUTTON_STATES,
 	BUTTON_TYPES,
-} from '../Button/Button.consts';
+} from '../Button';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.X_SMALL]: ICON_SIZES.XX_SMALL,

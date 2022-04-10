@@ -75,13 +75,13 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/buttons';
-@import '../../../styles/settings/colors';
-@import '../../../styles/settings/media-queries';
-@import '../../../styles/settings/radiuses';
-@import '../../../styles/settings/shadows';
-@import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
+@import '../../../../styles/settings/buttons';
+@import '../../../../styles/settings/colors';
+@import '../../../../styles/settings/media-queries';
+@import '../../../../styles/settings/radiuses';
+@import '../../../../styles/settings/shadows';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/typography';
 
 .surveyQuestionScale {
 	&__header {
@@ -159,20 +159,20 @@
 <script lang="ts">
 import { Prop } from 'vue/types/options';
 
-import DsCard from '../../components/Cards/Card/Card.vue';
-import IconButton from '../IconButton';
-import { ICON_SIZES, ICONS } from '../Icon';
-import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../Button';
-import DsModal from '../Modal';
+import DsCard from '../../Cards/Card/Card.vue';
+import IconButton from '../../Buttons/IconButton';
+import { ICON_SIZES, ICONS } from '../../Icon';
+import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
+import DsModal from '../../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
-} from '../SurveyToggle';
-import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
-import SurveyQuestionTextarea from './SurveyQuestionTextarea.vue';
-import { SurveyQuestionScaleOption } from './SurveyQuestion.domain';
-import { randomString } from '../../utils/string';
+} from '../../SurveyToggle';
+import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
+import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
+import { randomString } from '../../../utils/string';
 
 export default {
 	name: 'SurveyQuestionScale',

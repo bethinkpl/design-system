@@ -1,8 +1,8 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import BlockadeStatus from './BlockadeStatus.vue';
-import { COURSE_ACCESS_STATUS } from '../consts/user';
-import { ICONS } from '../atoms/Icon';
+import { COURSE_ACCESS_STATUS } from '../../../consts/user';
+import { ICONS } from '../../Icon';
 
 describe('BlockadeStatus', () => {
 	const createComponent = (status) => {

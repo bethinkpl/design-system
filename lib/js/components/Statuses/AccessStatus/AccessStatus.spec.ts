@@ -1,8 +1,8 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import AccessStatus from './AccessStatus.vue';
-import { COURSE_ACCESS_STATUS } from '../consts/user';
-import { ICONS } from '../atoms/Icon';
+import { COURSE_ACCESS_STATUS } from '../../../consts/user';
+import { ICONS } from '../../Icon';
 
 describe('AccessStatus', () => {
 	const createComponent = (status) => {

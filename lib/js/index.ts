@@ -14,17 +14,17 @@ export * from './components/Buttons/IconButton/IconButton.consts';
 export { default as Modal } from './components/Modal';
 export { default as NumberInCircle } from './components/NumberInCircle';
 export * from './components/NumberInCircle/NumberInCircle.consts';
-export { default as TabItem } from './atoms/TabItem';
-export { default as Tile } from './atoms/Tile';
-export { default as AccessStatus } from './molecules/AccessStatus.vue';
-export { default as BlockadeStatus } from './molecules/BlockadeStatus.vue';
+export { default as TabItem } from './components/TabItem';
+export { default as Tile } from './components/Tile';
+export { default as AccessStatus } from './components/Statuses/AccessStatus.vue';
+export { default as BlockadeStatus } from './components/Statuses/BlockadeStatus.vue';
 export * from './consts/colors';
 export { default as SurveyToggle } from './components/SurveyToggle/SurveyToggle.vue';
-export * from './atoms/SurveyToggle/SurveyToggle.consts';
-export { default as SurveyQuestionScale } from './atoms/SurveyQuestion/SurveyQuestionScale.vue';
-export { default as SurveyQuestionOpenEnded } from './atoms/SurveyQuestion/SurveyQuestionOpenEnded.vue';
-export * from './atoms/SurveyQuestion/SurveyQuestion.consts';
-export * from './atoms/SurveyQuestion/SurveyQuestion.domain';
+export * from './components/SurveyToggle/SurveyToggle.consts';
+export { default as SurveyQuestionScale } from './components/Survey-Questions/SurveyQuestionScale/SurveyQuestionScale.vue';
+export { default as SurveyQuestionOpenEnded } from './components/Survey-Questions/SurveyQuestionOpenEnded/SurveyQuestionOpenEnded.vue';
+export * from './components/Survey-Questions/SurveyQuestion.consts';
+export * from './components/Survey-Questions/SurveyQuestion.domain';
 
 export {
 	initialize as initializeIcons,

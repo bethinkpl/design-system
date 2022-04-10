@@ -16,7 +16,7 @@
 </template>
 
 <style lang="scss">
-@import '../../../styles/atoms/icons';
+@import '../../../styles/components/icons';
 </style>
 
 <script lang="ts">

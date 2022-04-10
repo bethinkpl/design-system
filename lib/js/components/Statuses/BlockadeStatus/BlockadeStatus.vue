@@ -33,10 +33,10 @@
 </style>
 
 <script lang="ts">
-import Icon from '../atoms/Icon';
-import { ICONS, ICON_SIZES } from '../atoms/Icon/Icon.consts';
+import Icon from '../../Icon';
+import { ICONS, ICON_SIZES } from '../../Icon';
 
-import { COURSE_BLOCKADE_ACCESS_STATUS } from '../consts/user';
+import { COURSE_BLOCKADE_ACCESS_STATUS } from '../../../consts/user';
 
 export default {
 	name: 'BlockadeStatus',

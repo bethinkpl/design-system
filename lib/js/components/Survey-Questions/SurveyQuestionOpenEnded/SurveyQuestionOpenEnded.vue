@@ -43,9 +43,9 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/buttons';
-@import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
+@import '../../../../styles/settings/buttons';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/typography';
 
 .surveyQuestionOpenEnded {
 	&__header {
@@ -79,14 +79,14 @@
 </style>
 
 <script lang="ts">
-import DsCard from '../../components/Cards/Card/Card.vue';
-import DsModal from '../Modal';
-import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../Button';
-import IconButton from '../IconButton';
-import { ICON_SIZES, ICONS } from '../Icon';
-import { SURVEY_QUESTION_STATES } from './SurveyQuestion.consts';
-import SurveyQuestionTextarea from './SurveyQuestionTextarea.vue';
-import { randomString } from '../../utils/string';
+import DsCard from '../../Cards/Card/Card';
+import DsModal from '../../Modal';
+import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
+import IconButton from '../../Buttons/IconButton';
+import { ICON_SIZES, ICONS } from '../../Icon';
+import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
+import { randomString } from '../../../utils/string';
 
 export default {
 	name: 'SurveyQuestionOpenEnded',
