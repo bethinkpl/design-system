@@ -14,12 +14,13 @@
 @import '../../../styles/settings/icons';
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/colors/tokens';
 
 $tab-item-width: (2 * $space-s) + $icon-xs;
 
 .a-tabItem {
-	border-bottom: 1px solid $color-mischka-gray;
-	color: $color-storm-gray;
+	border-bottom: 1px solid $color-neutral-border;
+	color: $color-neutral-icon;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
@@ -27,13 +28,13 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 	width: $tab-item-width;
 
 	&:hover {
-		border-bottom-color: $color-firefly-black;
-		color: $color-firefly-black;
+		border-bottom-color: $color-default-border;
+		color: $color-default-icon;
 	}
 
 	&.-isActive {
-		border-bottom-color: $color-primary;
-		color: $color-primary;
+		border-bottom-color: $color-primary-border;
+		color: $color-primary-icon;
 	}
 }
 </style>
