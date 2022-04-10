@@ -68,7 +68,7 @@
 
 <script lang="ts">
 import DsCard from '../Card/Card.vue';
-import DsIcon, { ICONS, ICON_SIZES } from '../../../atoms/Icon';
+import DsIcon, { ICONS, ICON_SIZES } from '../../../components/Icon';
 import Ripple from 'vue-ripple-directive';
 
 export default {
