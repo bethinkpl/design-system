@@ -15,7 +15,7 @@
 					<icon-button
 						v-if="$slots.explanation"
 						class="surveyQuestionScale__explanation"
-						:color="BUTTON_COLORS.MINOR_SUPPORTING"
+						:color="BUTTON_ICON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_QUESTION_CIRCLE"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
@@ -82,6 +82,7 @@
 @import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/colors/tokens';
 
 .surveyQuestionScale {
 	&__header {
@@ -95,6 +96,7 @@
 	}
 
 	&__title {
+		color: $color-default-text;
 		align-self: center;
 	}
 
@@ -104,7 +106,7 @@
 	}
 
 	&__content {
-		background: $color-background-secondary;
+		background: $color-neutral-background;
 		border-radius: $radius-s;
 		display: flex;
 		justify-content: space-between;
@@ -137,7 +139,7 @@
 
 	&__separator {
 		border-bottom: none;
-		border-top: 1px solid $color-mischka-gray;
+		border-top: 1px solid $color-neutral-border-weak;
 		margin: $space-m 0 $space-s 0;
 	}
 
@@ -148,6 +150,7 @@
 
 	&__elaborationLabel {
 		@include headlineXS();
+		color: $color-default-text;
 	}
 
 	&__elaborationInput {
@@ -159,10 +162,10 @@
 <script lang="ts">
 import { Prop } from 'vue/types/options';
 
-import DsCard from '../../Cards/Card/Card.vue';
+import DsCard from '../../Cards/Card.vue';
 import IconButton from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
-import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
+import DsButton, { BUTTON_ICON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
 import DsModal from '../../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_MEANINGS,
@@ -227,7 +230,7 @@ export default {
 		};
 	},
 	created() {
-		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.BUTTON_ICON_COLORS = BUTTON_ICON_COLORS;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;

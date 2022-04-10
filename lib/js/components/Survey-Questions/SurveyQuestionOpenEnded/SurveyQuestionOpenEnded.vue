@@ -20,7 +20,7 @@
 					<icon-button
 						v-if="$slots.explanation"
 						class="surveyQuestionOpenEnded__explanation"
-						:color="BUTTON_COLORS.MINOR_SUPPORTING"
+						:color="BUTTON_ICON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_QUESTION_CIRCLE"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
@@ -48,6 +48,8 @@
 @import '../../../../styles/settings/typography';
 
 .surveyQuestionOpenEnded {
+	color: $color-default-text;
+
 	&__header {
 		@include headlineS();
 
@@ -79,9 +81,9 @@
 </style>
 
 <script lang="ts">
-import DsCard from '../../Cards/Card/Card';
+import DsCard from '../../Cards/Card.vue';
 import DsModal from '../../Modal';
-import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
+import DsButton, { BUTTON_ICON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
 import IconButton from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
@@ -125,7 +127,7 @@ export default {
 		};
 	},
 	created() {
-		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.BUTTON_ICON_COLORS = BUTTON_ICON_COLORS;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;
