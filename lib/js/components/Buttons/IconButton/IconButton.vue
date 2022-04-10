@@ -6,6 +6,11 @@
 			'-small': size === ICON_BUTTON_SIZES.SMALL,
 			'-large': size === ICON_BUTTON_SIZES.LARGE,
 
+			'-hovered': state === ICON_BUTTON_STATES.HOVERED,
+			'-focused': state === ICON_BUTTON_STATES.FOCUSED,
+			'-loading': state === ICON_BUTTON_STATES.LOADING,
+			'-disabled': state === ICON_BUTTON_STATES.DISABLED,
+
 			[colorClassName]: isButtonColor,
 
 			'-touchable': touchable,
@@ -18,7 +23,14 @@
 		<div
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
 			class="a-iconButton__label"
-			:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_LABEL }"
+			:class="{
+				'-neutral':
+					colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL &&
+					color !== ICON_BUTTON_COLORS.NEUTRAL_WEAK,
+				'-neutral-weak':
+					colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL &&
+					color === ICON_BUTTON_COLORS.NEUTRAL_WEAK,
+			}"
 			><slot
 		/></div>
 		<wnl-button
@@ -27,16 +39,11 @@
 			:class="{ '-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY }"
 			:radius="radius"
 			:type="buttonType"
-			:state="hovered ? BUTTON_STATES.HOVERED : BUTTON_STATES.DEFAULT"
+			:state="hovered ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT"
 			:elevation="elevation"
 			:color="isButtonColor ? color : null"
 		>
-			<wnl-icon
-				class="a-iconButton__icon"
-				:icon="icon"
-				:size="iconSize"
-				:class="{ '-minor': colorScheme === ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON }"
-			/>
+			<wnl-icon class="a-iconButton__icon" :icon="icon" :size="iconSize" />
 		</wnl-button>
 	</div>
 </template>
@@ -50,42 +57,78 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
 
-@mixin iconButtonColor($color, $hover-color: '') {
-	@if $hover-color == '' {
-		//$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
-	}
-
-	color: $color;
-
-	&:hover,
-	&:active {
-		color: $hover-color;
-	}
-}
-
 .a-iconButton {
 	$self: &;
 
-	@each $color-name, $color-map in $theme-calculated-colors {
+	@each $color-name, $color-map in $icon-button-colors {
 		&.-color-#{$color-name} {
-			@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
-		}
-	}
+			#{$self}__label {
+				color: map-get($color-map, 'outlined', 'color');
+			}
 
-	@each $color-name, $color in $regular-colors {
-		&.-color-#{$color-name} {
-			@include iconButtonColor($color);
+			&:hover,
+			&.-hovered {
+				#{$self}__button {
+					background-color: map-get($color-map, 'filled', 'background-hovered');
+					color: map-get($color-map, 'icon');
+					&.-outlined {
+						background-color: map-get($color-map, 'outlined', 'background-hovered');
+						color: map-get($color-map, 'inverted', 'icon');
+					}
+				}
+				#{$self}__label {
+					color: map-get($color-map, 'filled', 'color-hovered');
+				}
+			}
+
+			&:focus,
+			&.-focused {
+				#{$self}__button {
+					background-color: map-get($color-map, 'filled', 'background-focused');
+					color: map-get($color-map, 'filled', 'icon');
+					&.-outlined {
+						background-color: map-get($color-map, 'outlined', 'background-focused');
+						color: map-get($color-map, 'inverted', 'icon');
+					}
+				}
+				#{$self}__label {
+					color: map-get($color-map, 'filled', 'color-focused');
+				}
+			}
+
+			&.-disabled {
+				#{$self}__button {
+					background-color: map-get($color-map, 'filled', 'background-disabled');
+					color: map-get($color-map, 'icon');
+					&.-outlined {
+						background-color: map-get($color-map, 'outlined', 'background');
+						border-color: map-get($color-map, 'outlined', 'disabled', 'border');
+						.a-iconButton__icon {
+							color: map-get($color-map, 'outlined', 'disabled', 'icon');
+						}
+					}
+				}
+				#{$self}__label {
+					color: map-get($color-map, 'outlined', 'disabled', 'color');
+				}
+			}
 		}
 	}
 
 	align-items: center;
-	color: $color-primary;
+	color: $color-primary-text;
 	cursor: pointer;
 	display: inline-flex;
 	transition: color ease-in-out $default-transition-time;
 
+	&:disabled,
+	&.-disabled {
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
 	&:hover {
-		color: $color-primary-hovered;
+		color: map-get($icon-button-colors, 'theme', 'hovered');
 	}
 
 	&__button {
@@ -97,7 +140,6 @@
 
 		&.-iconOnly {
 			border: none;
-			color: currentColor;
 		}
 	}
 
@@ -113,14 +155,48 @@
 			display: initial;
 		}
 
-		&.-minor {
-			@include iconButtonColor($color-minor);
+		&.-neutral {
+			color: $color-neutral-text !important;
+		}
+		&.-neutral-weak {
+			color: $color-neutral-text-weak !important;
 		}
 	}
 
-	&__icon {
-		&.-minor {
-			color: $color-minor;
+	/* Exception for scheme neutral-label, it has class `-neutral` deep in a-iconButton__label only for 1 case.
+  So there is no sense to set it in main loop
+  */
+	&:hover,
+	&.-hovered {
+		.a-iconButton__label {
+			&.-neutral {
+				color: $color-neutral-text-hovered !important;
+			}
+			&.-neutral-weak {
+				color: $color-neutral-text-weak-disabled !important;
+			}
+		}
+	}
+	&:focus,
+	&.-focused {
+		.a-iconButton__label {
+			&.-neutral {
+				color: $color-neutral-text-focused !important;
+			}
+			&.-neutral-weak {
+				color: $color-neutral-text-weak-focused !important;
+			}
+		}
+	}
+
+	&.-disabled {
+		#{$self}__label {
+			&.-neutral {
+				color: $color-neutral-text-disabled !important;
+			}
+			&.-neutral-weak {
+				color: $color-neutral-text-weak-disabled !important;
+			}
 		}
 	}
 
@@ -172,14 +248,15 @@ import {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_TYPES,
+	ICON_BUTTON_STATES,
 } from './IconButton.consts';
 import {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
 	BUTTON_RADIUSES,
-	BUTTON_STATES,
 	BUTTON_TYPES,
-} from '../Button';
+} from '../Button/Button.consts';
+import { Value } from '../../../utils/type.utils';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.X_SMALL]: ICON_SIZES.XX_SMALL,
@@ -225,7 +302,7 @@ export default {
 		},
 		color: {
 			type: String,
-			default: BUTTON_COLORS.PRIMARY,
+			default: ICON_BUTTON_COLORS.PRIMARY,
 			validator(value): boolean {
 				return Object.values(ICON_BUTTON_COLORS).includes(value);
 			},
@@ -247,6 +324,13 @@ export default {
 		touchable: {
 			type: Boolean,
 			default: true,
+		},
+		state: {
+			type: String,
+			default: ICON_BUTTON_STATES.DEFAULT,
+			validator(value: Value<typeof ICON_BUTTON_STATES>) {
+				return Object.values(ICON_BUTTON_STATES).includes(value);
+			},
 		},
 	},
 	data() {
@@ -282,7 +366,7 @@ export default {
 			throw new Error(`Color: ${this.color} is supported only in type: "icon-only"`);
 		},
 		isButtonColor(): boolean {
-			return Object.values(BUTTON_COLORS).includes(this.color);
+			return Object.values(ICON_BUTTON_COLORS).includes(this.color);
 		},
 		colorClassName(): string {
 			return `-color-${this.color}`;
@@ -294,8 +378,9 @@ export default {
 		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
 		this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
 		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-		this.BUTTON_STATES = BUTTON_STATES;
+		this.ICON_BUTTON_STATES = ICON_BUTTON_STATES;
 		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
 	},
 	methods: {
 		onClick(evt): void {

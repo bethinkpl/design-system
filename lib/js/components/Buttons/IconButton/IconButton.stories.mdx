@@ -5,6 +5,7 @@ import {
 	ICON_BUTTON_COLOR_SCHEMES,
 	ICON_BUTTON_TYPES,
 	ICON_BUTTON_COLORS,
+	ICON_BUTTON_STATES,
 } from 'design-system/lib/js/components/Buttons/IconButton/IconButton.consts';
 import {
 	BUTTON_ELEVATIONS,
@@ -18,6 +19,12 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 
 <Story
 	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=180%3A2709',
+		},
+	}}
 	args={{
 		size: ICON_BUTTON_SIZES.LARGE,
 		type: ICON_BUTTON_TYPES.ICON_ONLY,
@@ -26,7 +33,8 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
 		touchable: true,
 		elevation: BUTTON_ELEVATIONS.NONE,
-		color: 'PRIMARY',
+		color: 'primary',
+		state: ICON_BUTTON_STATES.DEFAULT,
 	}}
 	argTypes={{
 		size: {
@@ -46,8 +54,8 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			defaultValue: 'FA_TIMES_LIGHT',
 		},
 		color: {
-			control: { type: 'select', options: Object.keys(ICON_BUTTON_COLORS) },
-			defaultValue: 'PRIMARY',
+			control: { type: 'select', options: Object.values(ICON_BUTTON_COLORS) },
+			defaultValue: 'primary',
 		},
 		colorScheme: {
 			control: { type: 'select', options: Object.values(ICON_BUTTON_COLOR_SCHEMES) },
@@ -57,13 +65,18 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) },
 			defaultValue: BUTTON_ELEVATIONS.NONE,
 		},
+		state: {
+			control: { type: 'select', options: Object.values(ICON_BUTTON_STATES) },
+			defaultValue: ICON_BUTTON_STATES.DEFAULT,
+		},
 	}}
 >
 	{(args) => {
 		return {
 			components: { WnlIconButton },
 			props: Object.keys(args),
-			template: `<wnl-icon-button
+			template: `<div :class="{ contrastBackground: isInverted }">
+<wnl-icon-button
               :icon="ICONS[icon]"
               :size="size"
               :type="type"
@@ -71,8 +84,15 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
               :color-scheme="colorScheme"
               :touchable="touchable"
               :elevation="elevation"
-              :color="ICON_BUTTON_COLORS[color]"
-            ><span v-if="label !== ''">{{label}}</span></wnl-icon-button>`,
+              :color="color"
+              :state="state"
+            ><span v-if="label !== ''">{{label}}</span></wnl-icon-button>
+</div>`,
+			computed: {
+				isInverted: function () {
+					return this.color === 'inverted';
+				},
+			},
 			created() {
 				this.ICONS = ICONS;
 				this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
@@ -112,46 +132,13 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	}}
 </Story>
 
-### outlined rounded minor-supporting
+### filled primary x-small
 
-<Story name="examples/outlinedRoundedMinorSupporting">
+<Story name="examples/filledPrimary">
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_CHEVRON_RIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" />',
-		created() {
-			this.ICONS = ICONS;
-			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-			this.BUTTON_RADIUSES = BUTTON_RADIUSES;
-			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-		},
-	}}
-</Story>
-
-### outlined minor-supporting minor-icon
-
-<Story name="examples/outlinedMinorSupportingMinorIcon">
-	{{
-		components: { WnlIconButton },
-		template:
-			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :color-scheme="ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON" />',
-		created() {
-			this.ICONS = ICONS;
-			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-			this.BUTTON_RADIUSES = BUTTON_RADIUSES;
-			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-			this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
-		},
-	}}
-</Story>
-
-### filled minor x-small
-
-<Story name="examples/filledMinor">
-	{{
-		components: { WnlIconButton },
-		template:
-			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.X_SMALL" />',
+			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.PRIMARY" :size="ICON_BUTTON_SIZES.X_SMALL" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
@@ -161,13 +148,13 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	}}
 </Story>
 
-### icon-only minor medium
+### icon-only primary medium
 
-<Story name="examples/iconOnlyMinor">
+<Story name="examples/iconOnlyInfo">
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+			'<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.INFO" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
@@ -176,43 +163,13 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	}}
 </Story>
 
-### icon-only navy-blue medium
+### icon-only warning medium
 
-<Story name="examples/iconOnlyNavyBlue">
+<Story name="examples/iconOnlyWarning">
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.NAVY_BLUE" :size="ICON_BUTTON_SIZES.MEDIUM" />',
-		created() {
-			this.ICONS = ICONS;
-			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-			this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-		},
-	}}
-</Story>
-
-### icon-only minor-supporting medium
-
-<Story name="examples/iconOnlyMinorSupporting">
-	{{
-		components: { WnlIconButton },
-		template:
-			'<wnl-icon-button :icon="ICONS.FA_INFO_CIRCLE" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
-		created() {
-			this.ICONS = ICONS;
-			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-			this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-		},
-	}}
-</Story>
-
-### icon-only california-yellow medium
-
-<Story name="examples/iconOnlyCaliforniaYellow">
-	{{
-		components: { WnlIconButton },
-		template:
-			'<wnl-icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.CALIFORNIA_YELLOW" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+			'<wnl-icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
