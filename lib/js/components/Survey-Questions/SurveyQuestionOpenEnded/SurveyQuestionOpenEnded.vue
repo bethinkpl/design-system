@@ -20,7 +20,7 @@
 					<icon-button
 						v-if="$slots.explanation"
 						class="surveyQuestionOpenEnded__explanation"
-						:color="BUTTON_ICON_COLORS.NEUTRAL_WEAK"
+						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_QUESTION_CIRCLE"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
@@ -84,8 +84,8 @@
 <script lang="ts">
 import DsCard from '../../Cards/Card/Card';
 import DsModal from '../../Modal';
-import DsButton, { BUTTON_ICON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
-import IconButton from '../../Buttons/IconButton';
+import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
+import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
@@ -128,7 +128,7 @@ export default {
 		};
 	},
 	created() {
-		this.BUTTON_ICON_COLORS = BUTTON_ICON_COLORS;
+		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;

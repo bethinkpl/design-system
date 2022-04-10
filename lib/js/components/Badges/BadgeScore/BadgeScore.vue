@@ -44,15 +44,9 @@ $x-small-badge-score-width: 36px;
 
 .badgeScore {
 	$self: &;
+
 	@include textBold();
 	@include headlineL();
-
-	border-radius: 4px;
-	border: 2px solid currentColor;
-	display: inline-block;
-	min-width: $badge-score-width;
-	padding: $space-xxxs $space-xxxxs;
-	text-align: center;
 
 	@each $color-name, $color-map in $badge-score-colors {
 		&.-#{$color-name} {
@@ -64,6 +58,13 @@ $x-small-badge-score-width: 36px;
 			);
 		}
 	}
+
+	border-radius: 4px;
+	border: 2px solid currentColor;
+	display: inline-block;
+	min-width: $badge-score-width;
+	padding: $space-xxxs $space-xxxxs;
+	text-align: center;
 
 	&.-small {
 		@include headlineS();

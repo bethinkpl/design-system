@@ -94,7 +94,7 @@ export default {
 			type: String,
 			default: BUTTON_COLORS.PRIMARY,
 			validator(value: Value<typeof BUTTON_COLORS>) {
-				return Object.values(BUTTON_ICON_COLORS).includes(value);
+				return Object.values(BUTTON_COLORS).includes(value);
 			},
 		},
 		radius: {

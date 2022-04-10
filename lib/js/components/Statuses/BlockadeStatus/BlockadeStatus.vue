@@ -13,12 +13,14 @@
 
 .blockadeStatus {
 	$self: &;
+
 	align-items: center;
 	color: $color-neutral-text;
 	display: flex;
 
 	&__icon {
 		color: $color-neutral-icon;
+		margin-right: $space-xxxxs;
 	}
 
 	&.-active {
@@ -26,10 +28,6 @@
 		#{$self}__icon {
 			color: $color-danger-icon;
 		}
-	}
-
-	&__icon {
-		margin-right: $space-xxxxs;
 	}
 
 	&__text {
