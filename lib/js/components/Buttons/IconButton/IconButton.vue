@@ -71,6 +71,7 @@
 				#{$self}__button {
 					background-color: map-get($color-map, 'filled', 'background-hovered');
 					color: map-get($color-map, 'icon');
+
 					&.-outlined {
 						background-color: map-get($color-map, 'outlined', 'background-hovered');
 						color: map-get($color-map, 'inverted', 'icon');
@@ -86,6 +87,7 @@
 				#{$self}__button {
 					background-color: map-get($color-map, 'filled', 'background-focused');
 					color: map-get($color-map, 'filled', 'icon');
+
 					&.-outlined {
 						background-color: map-get($color-map, 'outlined', 'background-focused');
 						color: map-get($color-map, 'inverted', 'icon');
@@ -100,14 +102,17 @@
 				#{$self}__button {
 					background-color: map-get($color-map, 'filled', 'background-disabled');
 					color: map-get($color-map, 'icon');
+
 					&.-outlined {
 						background-color: map-get($color-map, 'outlined', 'background');
 						border-color: map-get($color-map, 'outlined', 'disabled', 'border');
+
 						.a-iconButton__icon {
 							color: map-get($color-map, 'outlined', 'disabled', 'icon');
 						}
 					}
 				}
+
 				#{$self}__label {
 					color: map-get($color-map, 'outlined', 'disabled', 'color');
 				}
@@ -158,6 +163,7 @@
 		&.-neutral {
 			color: $color-neutral-text !important;
 		}
+
 		&.-neutral-weak {
 			color: $color-neutral-text-weak !important;
 		}
@@ -172,17 +178,20 @@
 			&.-neutral {
 				color: $color-neutral-text-hovered !important;
 			}
+
 			&.-neutral-weak {
 				color: $color-neutral-text-weak-disabled !important;
 			}
 		}
 	}
+
 	&:focus,
 	&.-focused {
 		.a-iconButton__label {
 			&.-neutral {
 				color: $color-neutral-text-focused !important;
 			}
+
 			&.-neutral-weak {
 				color: $color-neutral-text-weak-focused !important;
 			}
@@ -194,6 +203,7 @@
 			&.-neutral {
 				color: $color-neutral-text-disabled !important;
 			}
+
 			&.-neutral-weak {
 				color: $color-neutral-text-weak-disabled !important;
 			}
