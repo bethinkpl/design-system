@@ -101,41 +101,6 @@
 .surveyToggle {
 	$self: &;
 
-	align-items: center;
-	cursor: pointer;
-	display: flex;
-	flex-direction: column;
-	width: $survey-toggle-size;
-
-	@media #{breakpoint-s()} {
-		width: $survey-toggle-size + 2 * $space-xxxs;
-	}
-
-	&__toggle {
-		border-radius: 100%;
-		display: flex;
-		height: $survey-toggle-size;
-		padding: $space-xxs;
-		transition: background-color ease-in-out $default-transition-time,
-			box-shadow ease-in-out $default-transition-time;
-		width: $survey-toggle-size;
-
-		@include setSurveyToggleNormalState(
-			map-get($survey-toggle-colors, 'primary', 'background'),
-			'',
-			map-get($survey-toggle-colors, 'primary', 'color'),
-			map-get($survey-toggle-colors, 'primary', 'icon'),
-			map-get($survey-toggle-colors, 'primary', 'ripple')
-		);
-
-		.-hovered & {
-			@include setSurveyToggleOtherStates(
-				map-get($survey-toggle-colors, 'primary', 'background-hovered')
-			);
-			box-shadow: $shadow-s;
-		}
-	}
-
 	@each $color-name, $color-map in $survey-toggle-colors {
 		&.-#{$color-name} {
 			#{$self}__toggle {
@@ -150,12 +115,14 @@
 			#{$self}__ring {
 				@include setSurveyToggleNormalState('', map-get($color-map, 'border'));
 			}
+
 			&:hover,
 			&.-hovered {
 				#{$self}__toggle {
 					@include setSurveyToggleOtherStates(map-get($color-map, 'background-hovered'));
 				}
 			}
+
 			&.-disabled {
 				#{$self}__toggle {
 					@include setSurveyToggleOtherStates(
@@ -180,6 +147,42 @@
 					);
 				}
 			}
+		}
+	}
+
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	width: $survey-toggle-size;
+
+	@media #{breakpoint-s()} {
+		width: $survey-toggle-size + 2 * $space-xxxs;
+	}
+
+	&__toggle {
+		@include setSurveyToggleNormalState(
+			map-get($survey-toggle-colors, 'primary', 'background'),
+			'',
+			map-get($survey-toggle-colors, 'primary', 'color'),
+			map-get($survey-toggle-colors, 'primary', 'icon'),
+			map-get($survey-toggle-colors, 'primary', 'ripple')
+		);
+
+		border-radius: 100%;
+		display: flex;
+		height: $survey-toggle-size;
+		padding: $space-xxs;
+		transition: background-color ease-in-out $default-transition-time,
+			box-shadow ease-in-out $default-transition-time;
+		width: $survey-toggle-size;
+
+		.-hovered & {
+			@include setSurveyToggleOtherStates(
+				map-get($survey-toggle-colors, 'primary', 'background-hovered')
+			);
+
+			box-shadow: $shadow-s;
 		}
 	}
 
