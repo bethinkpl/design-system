@@ -52,7 +52,7 @@
 
 @mixin iconButtonColor($color, $hover-color: '') {
 	@if $hover-color == '' {
-		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
+		//$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
 	}
 
 	color: $color;

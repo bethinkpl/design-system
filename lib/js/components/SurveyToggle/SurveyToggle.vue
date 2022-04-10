@@ -39,7 +39,7 @@
 
 $survey-toggle-size: 48px;
 
-$color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
+$color-disabled-neutral: #000000; // IT WILL BE REPLACED IN NEXT PR
 
 .surveyToggle {
 	$self: &;
@@ -99,7 +99,7 @@ $color-disabled-neutral: mix($color-minor-supporting, $color-total-white, 40%);
 	}
 
 	&.-selectedNeutral.-hovered &__toggle {
-		background-color: mix($color-minor-supporting, $color-firefly-black, 88%);
+		background-color: #000; // IT WILL BE REPLACED IN NEXT PR
 	}
 
 	&__ring {

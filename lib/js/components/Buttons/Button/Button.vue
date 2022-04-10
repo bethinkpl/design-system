@@ -60,6 +60,7 @@ import WnlIcon, { ICONS, ICON_SIZES } from '../../Icon';
 import {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
+	BUTTON_ICON_COLORS,
 	BUTTON_RADIUSES,
 	BUTTON_SIZES,
 	BUTTON_STATES,
@@ -93,7 +94,7 @@ export default {
 			type: String,
 			default: BUTTON_COLORS.PRIMARY,
 			validator(value: Value<typeof BUTTON_COLORS>) {
-				return Object.values(BUTTON_COLORS).includes(value);
+				return Object.values(BUTTON_ICON_COLORS).includes(value);
 			},
 		},
 		radius: {

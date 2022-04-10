@@ -6,34 +6,22 @@
 			$color-supporting: scale-color($color, $lightness: 49%, $saturation: -51%);
 
 			@include exportCssVariables($color-name, $color);
-			@include exportCssVariables(
-				'#{$color-name}-hovered',
-				mix($color, $color-firefly-black, 88%)
-			);
-			@include exportCssVariables(
-				'#{$color-name}-focused',
-				mix($color, $color-firefly-black, 76%)
-			);
-			@include exportCssVariables(
-				'#{$color-name}-disabled',
-				mix($color, $color-total-white, 40%)
-			);
-			@include exportCssVariables(
-				'#{$color-name}-background',
-				mix($color, $color-total-white, 16%)
-			);
+			@include exportCssVariables('#{$color-name}-hovered', mix($color, #0c1726, 88%));
+			@include exportCssVariables('#{$color-name}-focused', mix($color, #0c1726, 76%));
+			@include exportCssVariables('#{$color-name}-disabled', mix($color, #fff, 40%));
+			@include exportCssVariables('#{$color-name}-background', mix($color, #fff, 16%));
 			@include exportCssVariables('#{$color-name}-supporting', $color-supporting);
 			@include exportCssVariables(
 				'#{$color-name}-supporting-hovered',
-				mix($color-supporting, $color-firefly-black, 88%)
+				mix($color-supporting, #0c1726, 88%)
 			);
 			@include exportCssVariables(
 				'#{$color-name}-supporting-focused',
-				mix($color-supporting, $color-firefly-black, 76%)
+				mix($color-supporting, #0c1726, 76%)
 			);
 			@include exportCssVariables(
 				'#{$color-name}-supporting-disabled',
-				mix($color-supporting, $color-total-white, 40%)
+				mix($color-supporting, #0c1726, 40%)
 			);
 		}
 	}
