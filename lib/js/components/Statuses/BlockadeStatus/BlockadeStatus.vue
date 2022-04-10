@@ -6,9 +6,9 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../styles/settings/colors';
-@import '../../styles/settings/spacings';
-@import '../../styles/settings/typography';
+@import '../../../../styles/settings/colors';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/typography';
 
 .blockadeStatus {
 	align-items: center;
