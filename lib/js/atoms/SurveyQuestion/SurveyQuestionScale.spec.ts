@@ -2,7 +2,7 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import SurveyQuestionScale from './SurveyQuestionScale.vue';
 import SurveyToggle, { SURVEY_TOGGLE_MEANINGS } from '../SurveyToggle';
-import Card from '../../components/Cards/Card.vue';
+import Card from '../../components/Cards/Card/Card.vue';
 import { SurveyQuestionScaleOption } from './SurveyQuestion.domain';
 
 describe('SurveyQuestionScale', () => {

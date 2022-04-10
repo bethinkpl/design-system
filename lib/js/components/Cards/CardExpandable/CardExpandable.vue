@@ -24,10 +24,10 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/icons';
-@import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/icons';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/typography';
 
 .cardExpandable {
 	&__expandedContent {
@@ -67,8 +67,8 @@
 </style>
 
 <script lang="ts">
-import DsCard from './Card.vue';
-import DsIcon, { ICONS, ICON_SIZES } from '../../atoms/Icon';
+import DsCard from '../Card/Card.vue';
+import DsIcon, { ICONS, ICON_SIZES } from '../../../atoms/Icon';
 import Ripple from 'vue-ripple-directive';
 
 export default {

@@ -5,7 +5,7 @@ export { default as BadgeScore } from './atoms/BadgeScore';
 export * from './atoms/BadgeScore/BadgeScore.consts';
 export { default as Button } from './atoms/Button';
 export * from './atoms/Button/Button.consts';
-export { default as Card } from './components/Cards/Card.vue';
+export { default as Card } from './components/Cards/Card/Card.vue';
 export { default as CardExpandable } from './components/Cards/CardExpandable.vue';
 export { default as Icon } from './atoms/Icon';
 export * from './atoms/Icon/Icon.consts';
