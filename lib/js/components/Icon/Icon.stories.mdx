@@ -7,6 +7,12 @@ import WnlIcon, { ICON_SIZES, ICONS } from 'design-system/lib/js/components/Icon
 
 <Story
 	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34963',
+		},
+	}}
 	args={{
 		size: ICON_SIZES.MEDIUM,
 		icon: 'HEAD_WITH_QUESTION_MARK',
@@ -44,7 +50,15 @@ import WnlIcon, { ICON_SIZES, ICONS } from 'design-system/lib/js/components/Icon
 	}}
 </Story>
 
-<Story name="all icons">
+<Story
+	name="all icons"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/nWyPHXdfIyFX6x9LQbtzYd/LMS---DS---FoundationsAssets?node-id=0%3A626',
+		},
+	}}
+>
 	{() => {
 		return {
 			components: { WnlIcon },
