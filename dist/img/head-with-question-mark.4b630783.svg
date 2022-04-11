@@ -1,0 +1,7 @@
+import { render } from "./head-with-question-mark.svg?vue&type=template&id=4a5ecfe1"
+const script = {}
+
+import exportComponent from "/Users/igor/Code/bethink/design-system/node_modules/vue-loader/dist/exportHelper.js"
+const __exports__ = /*#__PURE__*/exportComponent(script, [['render',render]])
+
+export default __exports__
