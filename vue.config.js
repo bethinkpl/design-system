@@ -10,6 +10,22 @@ module.exports = {
 		extract: false,
 	},
 	chainWebpack: (config) => {
+		config.resolve.alias.set('vue', '@vue/compat');
+
+		config.module
+			.rule('vue')
+			.use('vue-loader')
+			.tap((options) => {
+				return {
+					...options,
+					compilerOptions: {
+						compatConfig: {
+							MODE: 2,
+						},
+					},
+				};
+			});
+
 		/**
 		 * These are some necessary steps changing the default webpack config of the Vue CLI
 		 * that need to be changed in order for TypeScript based components to generate their
@@ -34,8 +50,8 @@ module.exports = {
 		svgRule.uses.clear();
 
 		svgRule
-			.use('babel-loader')
-			.loader('babel-loader')
+			.use('vue-loader')
+			.loader('vue-loader-v16')
 			.end()
 			.use('vue-svg-loader')
 			.loader('vue-svg-loader');

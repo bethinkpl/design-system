@@ -157,8 +157,6 @@
 </style>
 
 <script lang="ts">
-import { Prop } from 'vue/types/options';
-
 import DsCard from '../../components/Cards/Card.vue';
 import IconButton from '../IconButton';
 import { ICON_SIZES, ICONS } from '../Icon';
@@ -197,7 +195,7 @@ export default {
 			},
 		},
 		scaleOptions: {
-			type: Array as Prop<Array<SurveyQuestionScaleOption>>,
+			type: Array as () => Array<SurveyQuestionScaleOption>,
 			required: true,
 			validate(scaleOptions) {
 				return scaleOptions.every((option) => typeof option === 'object');

@@ -50,8 +50,6 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
-
 import { Value } from '../../utils/type.utils';
 
 import WnlIcon, { ICONS, ICON_SIZES } from '../Icon';
@@ -108,14 +106,14 @@ export default {
 		iconLeft: {
 			type: Object,
 			default: null,
-			validate(icon: VueConstructor) {
+			validate(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
-			validate(icon: VueConstructor) {
+			validate(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},

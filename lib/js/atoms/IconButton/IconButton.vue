@@ -163,7 +163,7 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
+
 
 import WnlIcon, { ICONS, ICON_SIZES } from '../Icon';
 import WnlButton from '../Button';
@@ -219,7 +219,7 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validate(icon: VueConstructor) {
+			validate(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},

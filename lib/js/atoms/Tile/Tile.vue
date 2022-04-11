@@ -101,7 +101,7 @@
 <script lang="ts">
 import RippleWrapper from '../../utils/RippleWrapper.vue';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
-import { VueConstructor } from 'vue';
+
 
 export default {
 	name: 'Tile',
@@ -117,14 +117,14 @@ export default {
 		iconLeft: {
 			type: Object,
 			default: null,
-			validate(iconLeft: VueConstructor) {
+			validate(iconLeft) {
 				return Object.values(ICONS).includes(iconLeft);
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
-			validate(iconRight: VueConstructor) {
+			validate(iconRight) {
 				return Object.values(ICONS).includes(iconRight);
 			},
 		},

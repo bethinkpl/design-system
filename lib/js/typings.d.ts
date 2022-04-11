@@ -1,17 +1,19 @@
 // TypeScript compiler doesn't read webpack config so we need to tell him how interpret import Vue files
 
 declare module '*.vue' {
-	import Vue from 'vue';
-	export default Vue;
+	import { CompatVue } from '@vue/runtime-dom'
+	const Vue: CompatVue
+	export default Vue
+	export * from '@vue/runtime-dom'
+	const { configureCompat } = Vue
+	export { configureCompat }
 }
 
 declare module '*.svg' {
-	import Vue, { VueConstructor } from 'vue';
-	const content: VueConstructor<Vue>;
-	export default content;
-}
-
-declare module 'vue-ripple-directive' {
-	import { DirectiveFunction } from 'vue/types/options';
-	export default {} as DirectiveFunction;
+	import { CompatVue } from '@vue/runtime-dom'
+	const Vue: CompatVue
+	export default Vue
+	export * from '@vue/runtime-dom'
+	const { configureCompat } = Vue
+	export { configureCompat }
 }

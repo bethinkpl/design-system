@@ -39,7 +39,7 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
+
 
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
 
@@ -52,7 +52,7 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validate(icon: VueConstructor) {
+			validate(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
