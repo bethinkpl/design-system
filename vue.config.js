@@ -51,7 +51,7 @@ module.exports = {
 
 		svgRule
 			.use('vue-loader')
-			.loader('vue-loader-v16')
+			.loader('vue-loader')
 			.end()
 			.use('vue-svg-loader')
 			.loader('vue-svg-loader');
