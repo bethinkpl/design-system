@@ -5,14 +5,16 @@
 	>
 		<ds-modal v-if="showModal" @close-modal="showModal = false">
 			<slot name="explanation" />
-			<div slot="footer">
-				<ds-button :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
-					OK, rozumiem
-				</ds-button>
-			</div>
+			<template #footer>
+				<div>
+					<ds-button :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
+						OK, rozumiem
+					</ds-button>
+				</div>
+			</template>
 		</ds-modal>
 		<ds-card>
-			<template slot="content">
+			<template #content>
 				<div class="surveyQuestionOpenEnded__header">
 					<label class="surveyQuestionOpenEnded__title" :for="inputId">
 						{{ title }}

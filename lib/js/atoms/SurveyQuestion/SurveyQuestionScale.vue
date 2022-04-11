@@ -2,14 +2,16 @@
 	<div class="surveyQuestionScale">
 		<ds-modal v-if="showModal" @close-modal="showModal = false">
 			<slot name="explanation" />
-			<div slot="footer">
-				<ds-button :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
-					OK, rozumiem
-				</ds-button>
-			</div>
+			<template #footer>
+				<div>
+					<ds-button :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
+						OK, rozumiem
+					</ds-button>
+				</div>
+			</template>
 		</ds-modal>
 		<ds-card>
-			<template slot="content">
+			<template #content>
 				<div class="surveyQuestionScale__header">
 					<span class="surveyQuestionScale__title">{{ title }}</span>
 					<icon-button
@@ -23,14 +25,12 @@
 					/>
 				</div>
 				<div class="surveyQuestionScale__content">
-					<template v-for="(option, index) in scaleOptions">
+					<template v-for="(option, index) in scaleOptions" :key="`surveyQuestionScale-${index}`">
 						<div
 							v-if="option.standalone"
-							:key="`surveyQuestionScale__toggleSeparator-${index}`"
 							class="surveyQuestionScale__toggleSeparator"
 						/>
 						<div
-							:key="`surveyQuestionScale__toggle${index}`"
 							class="surveyQuestionScale__toggle"
 						>
 							<survey-toggle
