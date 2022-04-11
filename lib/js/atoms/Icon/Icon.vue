@@ -10,8 +10,7 @@
 			[sizeClassName]: true,
 		}"
 	>
-		<font-awesome-icon v-if="isFontawesomeIcon" :icon="icon" />
-		<component :is="icon" v-else />
+		<font-awesome-icon :icon="icon" />
 	</div>
 </template>
 
@@ -70,9 +69,6 @@ export default {
 	computed: {
 		sizeClassName() {
 			return `-${this.size}`;
-		},
-		isFontawesomeIcon() {
-			return 'iconName' in this.icon;
 		},
 		rotationClass() {
 			if (this.rotation === null) {
