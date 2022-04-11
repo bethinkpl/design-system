@@ -1,17 +1,13 @@
 <template>
 	<div>
-		<div v-if="!disableRipple" v-ripple><slot></slot></div>
+		<div v-if="!disableRipple"><slot></slot></div>
 		<div v-else><slot></slot></div>
 	</div>
 </template>
 
 <script lang="ts">
-import Ripple from 'vue-ripple-directive';
 export default {
 	name: 'RippleWrapper',
-	directives: {
-		ripple: Ripple,
-	},
 	props: {
 		disable: {
 			type: Boolean,

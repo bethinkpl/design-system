@@ -11,7 +11,6 @@
 		@click="onClick"
 	>
 		<div
-			v-ripple
 			class="surveyToggle__toggle"
 			@mouseover="hovered = true"
 			@mouseleave="hovered = false"
@@ -192,15 +191,11 @@ import {
 	SURVEY_TOGGLE_STATUSES,
 } from './SurveyToggle.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
-import Ripple from 'vue-ripple-directive';
 
 export default {
 	name: 'SurveyToggle',
 	components: {
 		DsIcon,
-	},
-	directives: {
-		ripple: Ripple,
 	},
 	props: {
 		label: {

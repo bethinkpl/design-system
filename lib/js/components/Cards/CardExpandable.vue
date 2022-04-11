@@ -8,7 +8,7 @@
 			</div>
 		</template>
 		<template v-if="isExpanderVisible" #footer>
-			<div v-ripple class="cardExpandable__expander" @click="onExpanderClick">
+			<div class="cardExpandable__expander" @click="onExpanderClick">
 				<span class="cardExpandable__expanderLabel">
 					{{ isExpandedInternal ? expanderTextExpanded : expanderTextCollapsed }}
 				</span>
@@ -69,16 +69,12 @@
 <script lang="ts">
 import DsCard from './Card.vue';
 import DsIcon, { ICONS, ICON_SIZES } from '../../atoms/Icon';
-import Ripple from 'vue-ripple-directive';
 
 export default {
 	name: 'CardExpandable',
 	components: {
 		DsCard,
 		DsIcon,
-	},
-	directives: {
-		ripple: Ripple,
 	},
 	props: {
 		isExpanded: {

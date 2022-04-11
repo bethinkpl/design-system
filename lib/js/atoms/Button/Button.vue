@@ -1,6 +1,5 @@
 <template>
 	<span
-		v-ripple
 		class="a-button"
 		:class="{
 			'-outlined': type === BUTTON_TYPES.OUTLINED,
@@ -52,7 +51,6 @@
 
 <script lang="ts">
 import { VueConstructor } from 'vue';
-import Ripple from 'vue-ripple-directive';
 
 import { Value } from '../../utils/type.utils';
 
@@ -68,9 +66,6 @@ import {
 
 export default {
 	name: 'Button',
-	directives: {
-		ripple: Ripple,
-	},
 	components: {
 		WnlIcon,
 	},
