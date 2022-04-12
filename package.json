@@ -66,6 +66,7 @@
     "vue-template-compiler": "^2.6.12"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-common-types": "6.1.1",
     "@fortawesome/fontawesome-svg-core": "6.1.1",
     "@fortawesome/free-brands-svg-icons": "6.1.1",
     "@fortawesome/pro-light-svg-icons": "6.1.1",
