@@ -29,4 +29,5 @@ export * from './atoms/SurveyQuestion/SurveyQuestion.domain';
 export {
 	initialize as initializeIcons,
 	initializeWithDomWatcher as initializeIconsWithDomWatcher,
+	IconDefinition,
 } from './icons/fontawesome';
