@@ -301,4 +301,4 @@ export function initializeWithDomWatcher() {
 	dom.watch();
 }
 
-export { IconDefinition } from '@fortawesome/fontawesome-common-types';
+export { IconDefinition } from '@fortawesome/fontawesome-svg-core';
