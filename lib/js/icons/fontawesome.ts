@@ -107,6 +107,7 @@ import {
 	faUser,
 	faWandMagicSparkles,
 	faWindowMaximize,
+	faXmark,
 	faXmarkCircle,
 } from '@fortawesome/pro-regular-svg-icons';
 import {
@@ -143,7 +144,6 @@ import {
 import {
 	faChevronLeft as falChevronLeft,
 	faChevronRight as falChevronRight,
-	faXmark as falXmark,
 } from '@fortawesome/pro-light-svg-icons';
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
@@ -286,8 +286,8 @@ export const FONTAWESOME_ICONS = {
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
+	FA_XMARK: faXmark,
 	FA_XMARK_CIRCLE: faXmarkCircle,
-	FA_XMARK_LIGHT: falXmark,
 } as const;
 
 export function initialize() {

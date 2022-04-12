@@ -5,7 +5,7 @@
 				<slot name="header" />
 				<wnl-icon
 					touchable
-					:icon="ICONS.FA_XMARK_LIGHT"
+					:icon="ICONS.FA_XMARK"
 					class="-stormGray m-modal__header__close"
 					:size="ICON_SIZES.SMALL"
 					@click.native.stop="$emit('close-modal')"

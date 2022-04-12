@@ -50,9 +50,9 @@ describe('Button', () => {
 	});
 
 	it('should render icon', () => {
-		const leftIcon = createComponent({ 'icon-left': ICONS.FA_XMARK_LIGHT });
+		const leftIcon = createComponent({ 'icon-left': ICONS.FA_XMARK });
 		expect(leftIcon.find('.a-button__icon.-left').exists()).toBe(true);
-		expect(leftIcon.find('.a-button__icon.-left').props().icon).toBe(ICONS.FA_XMARK_LIGHT);
+		expect(leftIcon.find('.a-button__icon.-left').props().icon).toBe(ICONS.FA_XMARK);
 
 		const rightIcon = createComponent({ 'icon-right': ICONS.FA_CLOCK });
 		expect(rightIcon.find('.a-button__icon.-right').exists()).toBe(true);
