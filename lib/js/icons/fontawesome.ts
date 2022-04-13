@@ -35,6 +35,7 @@ import {
 	faCircleInfo,
 	faCircleNotch,
 	faCircleQuestion,
+	faCircleXmark,
 	faClock,
 	faClockRotateLeft,
 	faCode,
@@ -108,7 +109,6 @@ import {
 	faWandMagicSparkles,
 	faWindowMaximize,
 	faXmark,
-	faXmarkCircle,
 } from '@fortawesome/pro-regular-svg-icons';
 import {
 	faArrowDown as fasArrowDown,
@@ -195,6 +195,7 @@ export const FONTAWESOME_ICONS = {
 	FA_CIRCLE_NOTCH: faCircleNotch,
 	FA_CIRCLE_PLAY_SOLID: fasCirclePlay,
 	FA_CIRCLE_QUESTION: faCircleQuestion,
+	FA_CIRCLE_XMARK: faCircleXmark,
 	FA_CLOCK: faClock,
 	FA_CLOCK_ROTATE_LEFT: faClockRotateLeft,
 	FA_CODE: faCode,
@@ -287,7 +288,6 @@ export const FONTAWESOME_ICONS = {
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
 	FA_XMARK: faXmark,
-	FA_XMARK_CIRCLE: faXmarkCircle,
 } as const;
 
 export function initialize() {
