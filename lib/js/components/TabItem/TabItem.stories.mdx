@@ -1,0 +1,39 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import TabItem from 'design-system/lib/js/components/TabItem';
+import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
+
+<Meta title="components/TabItem" component={TabItem} />
+
+# Select
+
+**Tab nawigacji**
+
+<Story
+	name="interactive"
+	args={{
+		isActive: false,
+		title: 'Wpłynąłem na suchego przestówr oceanu',
+	}}
+	argTypes={{
+		icon: {
+			control: { type: 'select', options: Object.keys(ICONS) },
+			defaultValue: 'FA_CALENDAR_DAYS',
+		},
+	}}
+>
+	>
+	{(args) => {
+		return {
+			components: { TabItem },
+			props: Object.keys(args),
+			template: '<tab-item :icon="ICONS[icon]" :is-active="isActive" :title="title" />',
+			created() {
+				this.ICONS = ICONS;
+			},
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={WnlSelect} />

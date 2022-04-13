@@ -106,6 +106,6 @@ module.exports = {
 				ignorePatterns: ['router-link', 'router-view'],
 			},
 		],
+		'vue/multi-word-component-names': 0,
 	},
 };
-
