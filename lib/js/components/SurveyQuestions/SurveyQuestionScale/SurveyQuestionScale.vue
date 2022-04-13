@@ -159,7 +159,7 @@
 <script lang="ts">
 import { Prop } from 'vue/types/options';
 
-import DsCard from '../../Cards/Card/Card.vue';
+import DsCard from '../../Cards/Card';
 import IconButton from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
 import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
@@ -170,7 +170,7 @@ import SurveyToggle, {
 	SURVEY_TOGGLE_STATUSES,
 } from '../../SurveyToggle';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
-import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
+import SurveyQuestionTextarea from '../';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
 
