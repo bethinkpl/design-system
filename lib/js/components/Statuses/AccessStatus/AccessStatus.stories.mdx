@@ -1,0 +1,37 @@
+import { Meta, Story } from '@storybook/addon-docs';
+
+import AccessStatus from 'design-system/lib/js/components/Statuses/AccessStatus/AccessStatus';
+import { COURSE_ACCESS_STATUS } from 'design-system/lib/js/consts/user';
+
+<Meta title="components/AccessStatus" component={AccessStatus} />
+
+# AccessStatus
+
+<Story
+	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/a1bETkPjEbc4KxOXoLqFwq/Abonament-WNL---checkout%2C-dost%C4%99py-i-blokady?node-id=63%3A24867',
+		},
+	}}
+	args={{
+		status: COURSE_ACCESS_STATUS.ACTIVE,
+	}}
+	argTypes={{
+		status: {
+			control: { type: 'select', options: Object.values(COURSE_ACCESS_STATUS) },
+			defaultValue: COURSE_ACCESS_STATUS.ACTIVE,
+		},
+	}}
+>
+	{(args) => {
+		return {
+			components: {
+				AccessStatus,
+			},
+			props: Object.keys(args),
+			template: `<access-status :status="status" />`,
+		};
+	}}
+</Story>
