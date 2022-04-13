@@ -45,7 +45,7 @@
 </style>
 
 <script lang="ts">
-import { Value } from '../../utils/type.utils';
+import { Value } from '../../../utils/type.utils';
 
 import { BADGE_COLORS } from './Badge.consts';
 

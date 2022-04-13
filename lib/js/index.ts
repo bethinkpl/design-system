@@ -5,8 +5,8 @@ export { default as BadgeScore } from './components/Badges/BadgeScore';
 export * from './components/Badges/BadgeScore/BadgeScore.consts';
 export { default as Button } from './components/Buttons/Button';
 export * from './components/Buttons/Button/Button.consts';
-export { default as Card } from './components/Cards/Card/Card.vue';
-export { default as CardExpandable } from './components/Cards/CardExpandable/CardExpandable.vue';
+export { default as Card } from './components/Cards/Card/';
+export { default as CardExpandable } from './components/Cards/CardExpandable/';
 export { default as Icon } from './components/Icon';
 export * from './components/Icon/Icon.consts';
 export { default as IconButton } from './components/Buttons/IconButton';
@@ -16,15 +16,15 @@ export { default as NumberInCircle } from './components/NumberInCircle';
 export * from './components/NumberInCircle/NumberInCircle.consts';
 export { default as TabItem } from './components/TabItem';
 export { default as Tile } from './components/Tile';
-export { default as AccessStatus } from './components/Statuses/AccessStatus.vue';
-export { default as BlockadeStatus } from './components/Statuses/BlockadeStatus.vue';
+export { default as AccessStatus } from './components/Statuses/AccessStatus/';
+export { default as BlockadeStatus } from './components/Statuses/BlockadeStatus/';
 export * from './consts/colors';
-export { default as SurveyToggle } from './components/SurveyToggle/SurveyToggle.vue';
+export { default as SurveyToggle } from './components/SurveyToggle/';
 export * from './components/SurveyToggle/SurveyToggle.consts';
-export { default as SurveyQuestionScale } from './components/Survey-Questions/SurveyQuestionScale/SurveyQuestionScale.vue';
-export { default as SurveyQuestionOpenEnded } from './components/Survey-Questions/SurveyQuestionOpenEnded/SurveyQuestionOpenEnded.vue';
-export * from './components/Survey-Questions/SurveyQuestion.consts';
-export * from './components/Survey-Questions/SurveyQuestion.domain';
+export { default as SurveyQuestionScale } from './components/SurveyQuestions/SurveyQuestionScale/';
+export { default as SurveyQuestionOpenEnded } from './components/SurveyQuestions/SurveyQuestionOpenEnded/';
+export * from './components/SurveyQuestions/SurveyQuestion.consts';
+export * from './components/SurveyQuestions/SurveyQuestion.domain';
 
 export {
 	initialize as initializeIcons,
