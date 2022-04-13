@@ -2,7 +2,7 @@
 	<ds-card class="cardExpandable">
 		<template #header><slot name="header"></slot></template>
 		<template #content>
-			<slot name="content" :isExpanded="isExpandedInternal" />
+			<slot name="content" :is-expanded="isExpandedInternal" />
 			<div v-if="isExpandedInternal" class="cardExpandable__expandedContent">
 				<slot name="expandedContent" />
 			</div>
