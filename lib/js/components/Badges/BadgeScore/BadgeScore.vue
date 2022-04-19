@@ -26,7 +26,7 @@ $badge-score-width: 74px;
 $small-badge-score-width: 48px;
 $x-small-badge-score-width: 36px;
 
-@mixin setBadgeScoreColor($self, $border: '', $color: '', $color-additional: '') {
+@mixin setBadgeScoreColor($self, $border, $color, $color-additional) {
 	@if $border != '' {
 		border-color: $border;
 	}
@@ -60,7 +60,8 @@ $x-small-badge-score-width: 36px;
 	}
 
 	border-radius: 4px;
-	border: 2px solid currentColor;
+	border-width: 2px;
+	border-style: solid;
 	display: inline-block;
 	min-width: $badge-score-width;
 	padding: $space-xxxs $space-xxxxs;

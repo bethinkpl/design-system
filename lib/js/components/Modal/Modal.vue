@@ -73,9 +73,12 @@
 		padding: $space-xs $space-xs $space-xxxs;
 		z-index: 1;
 
-		&__close:only-child {
+		&__close {
 			color: $color-neutral-icon-weak;
-			margin-left: auto;
+
+			&:only-child {
+				margin-left: auto;
+			}
 		}
 	}
 

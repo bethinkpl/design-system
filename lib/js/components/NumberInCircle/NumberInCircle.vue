@@ -21,7 +21,8 @@
 .a-numberInCircle {
 	align-items: center;
 	border-radius: 50%;
-	border: 1px solid currentColor;
+	border-width: 1px;
+	border-style: solid;
 	display: inline-flex;
 	font-size: $font-size-headline-m;
 	height: $icon-xl;
