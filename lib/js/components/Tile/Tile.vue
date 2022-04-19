@@ -99,7 +99,7 @@
 </style>
 
 <script lang="ts">
-import RippleWrapper from '../../utils/RippleWrapper.vue';
+import RippleWrapper from '../../utils';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
 import { VueConstructor } from 'vue';
 

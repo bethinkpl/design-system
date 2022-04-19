@@ -50,7 +50,7 @@ $only-icon-button-colors: (
 				'color': $color-neutral-text-disabled,
 				'border': $color-neutral-border-strong-disabled,
 				'icon': $color-neutral-icon-weak-disabled,
-				'background': '',
+				'background': $color-neutral-background-ghost-disabled,
 			),
 		),
 		'text': (
@@ -95,7 +95,7 @@ $only-icon-button-colors: (
 				'color': $color-warning-text-weak,
 				'border': $color-warning-border-disabled,
 				'icon': $color-warning-icon-disabled,
-				'background': '',
+				'background': $color-warning-background-ghost-disabled,
 			),
 		),
 		'text': (
@@ -140,7 +140,7 @@ $only-icon-button-colors: (
 				'color': $color-info-text,
 				'border': $color-info-border-disabled,
 				'icon': $color-info-icon-disabled,
-				'background': '',
+				'background': $color-info-background-ghost-disabled,
 			),
 		),
 		'text': (
@@ -192,7 +192,7 @@ $button-colors: (
 				'color': $color-primary-text-disabled,
 				'border': $color-primary-border-disabled,
 				'icon': $color-primary-icon-disabled,
-				'background': 'transparent',
+				'background': $color-primary-background-ghost-disabled,
 			),
 		),
 		'text': (
@@ -242,7 +242,7 @@ $button-colors: (
 				'color': $color-neutral-text-disabled,
 				'border': $color-neutral-border-heavy-disabled,
 				'icon': $color-neutral-icon-disabled,
-				'background': 'transparent',
+				'background': $color-neutral-background-ghost-disabled,
 			),
 		),
 		'text': (
@@ -288,7 +288,7 @@ $button-colors: (
 				'color': $color-danger-text-disabled,
 				'border': $color-danger-border-disabled,
 				'icon': $color-danger-icon-disabled,
-				'background': 'transparent',
+				'background': $color-danger-background-ghost-disabled,
 			),
 		),
 		'text': (
@@ -334,7 +334,7 @@ $button-colors: (
 				'color': $color-success-text-disabled,
 				'border': $color-success-border-disabled,
 				'icon': $color-success-icon-disabled,
-				'background': 'transparent',
+				'background': $color-success-background-ghost-disabled,
 			),
 		),
 		'text': (
@@ -380,7 +380,7 @@ $button-colors: (
 				'color': $color-default-text-inverted-disabled,
 				'border': $color-default-border-inverted-disabled,
 				'icon': $color-default-icon-inverted-disabled,
-				'background': 'transparent',
+				'background': $color-default-background-ghost-disabled,
 			),
 		),
 		'text': (

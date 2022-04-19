@@ -51,7 +51,6 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/animations';
 @import '../../../../styles/settings/buttons';
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
