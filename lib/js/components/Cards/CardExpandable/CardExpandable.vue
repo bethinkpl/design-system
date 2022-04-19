@@ -67,7 +67,7 @@
 </style>
 
 <script lang="ts">
-import DsCard from '../Card/Card.vue';
+import DsCard from '../Card/';
 import DsIcon, { ICONS, ICON_SIZES } from '../../../components/Icon';
 import Ripple from 'vue-ripple-directive';
 
