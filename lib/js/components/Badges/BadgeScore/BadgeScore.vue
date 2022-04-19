@@ -18,7 +18,6 @@
 <style scoped lang="scss">
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/components/badge-score';
 @import '../../../../styles/settings/colors/tokens';
 

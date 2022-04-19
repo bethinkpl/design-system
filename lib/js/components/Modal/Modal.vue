@@ -26,7 +26,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/colors';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/z-indexes';
@@ -48,7 +47,7 @@
 	z-index: $z-index-modal;
 
 	&__contentWrapper {
-		background-color: $color-total-white;
+		background-color: $color-default-background;
 		box-shadow: 0 4px 34px rgba(0, 0, 0, 0.85);
 		display: flex;
 		flex-direction: column;
@@ -67,7 +66,7 @@
 
 	&__header {
 		align-items: center;
-		box-shadow: 0 $space-xxxxs $space-xxxxs $color-total-white;
+		box-shadow: 0 $space-xxxxs $space-xxxxs var(--raw-white);
 		display: flex;
 		justify-content: space-between;
 		padding: $space-xs $space-xs $space-xxxs;
@@ -90,10 +89,9 @@
 	&__content {
 		overflow: auto;
 		padding: $space-s;
-		color: $color-default-text;
 
 		&__shadow {
-			box-shadow: 0 #{-$space-xxxxs} $space-xxxxs $color-total-white;
+			box-shadow: 0 #{-$space-xxxxs} $space-xxxxs var(--raw-white);
 			content: ' ';
 			height: $space-xxxxs;
 			z-index: 1;

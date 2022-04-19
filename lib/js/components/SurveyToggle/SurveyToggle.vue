@@ -31,7 +31,6 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/animations';
-@import '../../../styles/settings/colors';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
