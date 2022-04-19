@@ -8,8 +8,6 @@
 $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 
 @mixin setButtonColor($color, $color-hovered: null, $color-focused: null, $color-disabled: null) {
-	color: $color;
-
 	@if $color-hovered != null {
 		&:hover,
 		&.-hovered,
@@ -31,6 +29,8 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 			color: $color-disabled;
 		}
 	}
+
+	color: $color;
 }
 
 @mixin setButtonBackground(
