@@ -80,7 +80,7 @@
 </style>
 
 <script lang="ts">
-import DsCard from '../../Cards/Card/Card';
+import DsCard from '../../Cards/Card';
 import DsModal from '../../Modal';
 import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
 import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
