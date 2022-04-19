@@ -10,7 +10,6 @@
 </template>
 
 <style scoped lang="scss">
-@import '../../../styles/settings/colors';
 @import '../../../styles/settings/icons';
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';

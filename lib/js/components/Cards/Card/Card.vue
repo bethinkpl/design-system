@@ -11,7 +11,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/radiuses';
