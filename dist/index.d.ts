@@ -25,4 +25,4 @@ export { default as SurveyQuestionScale } from './components/SurveyQuestions/Sur
 export { default as SurveyQuestionOpenEnded } from './components/SurveyQuestions/SurveyQuestionOpenEnded/';
 export * from './components/SurveyQuestions/SurveyQuestion.consts';
 export * from './components/SurveyQuestions/SurveyQuestion.domain';
-export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, } from './icons/fontawesome';
+export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, IconDefinition, } from './icons/fontawesome';

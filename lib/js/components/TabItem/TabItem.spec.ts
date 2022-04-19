@@ -11,7 +11,7 @@ describe('TabItem', () => {
 			localVue,
 			mocks: {},
 			propsData: {
-				icon: ICONS.FA_CALENDAR_ALT,
+				icon: ICONS.FA_CALENDAR_DAYS,
 				isActive,
 				title: 'wpłynąłem na suchego przestwór oceanu',
 			},
