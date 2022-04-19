@@ -6,7 +6,7 @@ export * from './components/Badges/BadgeScore/BadgeScore.consts';
 export { default as Button } from './components/Buttons/Button';
 export * from './components/Buttons/Button/Button.consts';
 export { default as Card } from './components/Cards/Card/Card.vue';
-export { default as CardExpandable } from './components/Cards/CardExpandable.vue';
+export { default as CardExpandable } from './components/Cards/CardExpandable/CardExpandable.vue';
 export { default as Icon } from './components/Icon';
 export * from './components/Icon/Icon.consts';
 export { default as IconButton } from './components/Buttons/IconButton';
