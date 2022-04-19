@@ -49,8 +49,6 @@
 @import '../../../../styles/settings/colors/tokens';
 
 .surveyQuestionOpenEnded {
-	color: $color-default-text;
-
 	&__header {
 		@include headlineS();
 

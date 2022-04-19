@@ -1,1 +1,3 @@
-export * from './CardExpandable.spec';
+import CardExpandable from './CardExpandable.vue';
+
+export default CardExpandable;
