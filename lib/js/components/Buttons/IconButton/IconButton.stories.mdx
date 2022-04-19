@@ -43,7 +43,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		},
 		icon: {
 			control: { type: 'select', options: Object.keys(ICONS) },
-			defaultValue: 'FA_TIMES_LIGHT',
+			defaultValue: 'FA_XMARK',
 		},
 		color: {
 			control: { type: 'select', options: Object.keys(ICON_BUTTON_COLORS) },
@@ -89,7 +89,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button>',
+			'<wnl-icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button>',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
@@ -134,7 +134,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :color-scheme="ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON" />',
+			'<wnl-icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :color-scheme="ICON_BUTTON_COLOR_SCHEMES.MINOR_ICON" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
@@ -151,7 +151,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.X_SMALL" />',
+			'<wnl-icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.MINOR" :size="ICON_BUTTON_SIZES.X_SMALL" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
@@ -197,7 +197,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_INFO_CIRCLE" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+			'<wnl-icon-button :icon="ICONS.FA_CIRCLE_INFO" :color="ICON_BUTTON_COLORS.MINOR_SUPPORTING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;

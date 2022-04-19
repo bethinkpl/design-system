@@ -2,7 +2,7 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import Tile from './Tile.vue';
 import { ICONS } from '../Icon';
-import { IconDefinition } from '@fortawesome/fontawesome-common-types';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 
 const createComponent = function ({
 	text = '',
@@ -50,7 +50,7 @@ describe('Tile', () => {
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
 			interactive: true,
-			iconLeft: ICONS.FA_ARCHIVE,
+			iconLeft: ICONS.FA_BOX_ARCHIVE,
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
@@ -63,7 +63,7 @@ describe('Tile', () => {
 		const component = createComponent({
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
-			iconLeft: ICONS.FA_ARCHIVE,
+			iconLeft: ICONS.FA_BOX_ARCHIVE,
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
@@ -77,7 +77,7 @@ describe('Tile', () => {
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
 			iconRight: ICONS.FA_ANGLE_RIGHT,
-			iconLeft: ICONS.FA_ARCHIVE,
+			iconLeft: ICONS.FA_BOX_ARCHIVE,
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
@@ -91,7 +91,7 @@ describe('Tile', () => {
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
-			iconLeft: ICONS.FA_ARCHIVE,
+			iconLeft: ICONS.FA_BOX_ARCHIVE,
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
@@ -106,7 +106,7 @@ describe('Tile', () => {
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
 			iconRight: ICONS.FA_ANGLE_RIGHT,
-			iconLeft: ICONS.FA_ARCHIVE,
+			iconLeft: ICONS.FA_BOX_ARCHIVE,
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
