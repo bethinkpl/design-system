@@ -160,8 +160,7 @@
 <script lang="ts">
 import { Prop } from 'vue/types/options';
 
-
-import DsCard from '../../Cards/Card/Card';
+import DsCard from '../../Cards/Card';
 import IconButton from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
 import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
