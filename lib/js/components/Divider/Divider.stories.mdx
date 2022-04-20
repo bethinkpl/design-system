@@ -1,0 +1,36 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import Divider from './Divider'; import { PROMINENCES } from './Divider.consts';
+
+<Meta title='components/Divider' component={Divider} />
+
+# Divider
+
+<Story name='interactive'
+	   parameters={{
+		   design: {
+			   type: 'figma',
+			   url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34960',
+		   }
+	   }}
+	   args={{
+		   isVertical: false,
+		   prominence: PROMINENCES.DEFAULT,
+	   }}
+	   argTypes={{
+		   prominence: {
+			   control: { type: 'select', options: Object.values(PROMINENCES) },
+			   defaultValue: PROMINENCES.DEFAULT,
+		   },
+	   }}>
+	{(args) => {
+		return {
+			components: { Divider },
+			props: Object.keys(args),
+			template: '<div style="height: 200px; width: 200px;"><divider :is-vertical="isVertical" :prominence="prominence"/></div>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={Divider} />
