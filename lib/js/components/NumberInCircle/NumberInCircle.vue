@@ -11,16 +11,17 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/colors';
 @import '../../../styles/settings/icons';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/colors/tokens';
 
 .a-numberInCircle {
 	align-items: center;
 	border-radius: 50%;
-	border: 1px solid currentColor;
+	border-width: 1px;
+	border-style: solid;
 	display: inline-flex;
 	font-size: $font-size-headline-m;
 	height: $icon-xl;
@@ -36,32 +37,44 @@
 		min-width: $icon-xxl;
 	}
 
-	&.-is1 {
-		color: $color-primary;
+	&.-is1,
+	&.-is6,
+	&.-primary {
+		color: $color-primary-text;
+		border-color: $color-primary-border;
 	}
 
-	&.-is2 {
-		color: $color-salad-green;
+	&.-is5,
+	&.-is10,
+	&.-neutral {
+		color: $color-neutral-text;
+		border-color: $color-neutral-border-heavy;
 	}
 
-	&.-is3 {
-		color: $color-deluge-violet;
-	}
-
-	&.-is4 {
-		color: $color-cobalt-blue;
+	&.-is2,
+	&.-is7,
+	&.-success {
+		color: $color-success-text;
+		border-color: $color-success-border;
 	}
 
 	&.-danger {
-		color: $color-crimson-red;
+		color: $color-danger-text;
+		border-color: $color-danger-border;
 	}
 
-	&.-primary {
-		color: $color-primary;
+	&.-is4,
+	&.-is9,
+	&.-info {
+		color: $color-info-text;
+		border-color: $color-info-border;
 	}
 
-	&.-secondary {
-		color: $color-storm-gray;
+	&.-is3,
+	&.-is8,
+	&.-accent {
+		color: $color-accent-text;
+		border-color: $color-accent-border;
 	}
 
 	&.-medium {
@@ -97,10 +110,12 @@ export default {
 	computed: {
 		colorClass() {
 			const colorToClassMap = {
-				[NUMBER_IN_CIRCLE_COLORS.DEFAULT]: `-is${this.index}`,
-				[NUMBER_IN_CIRCLE_COLORS.PRIMARY]: '-primary',
+				[NUMBER_IN_CIRCLE_COLORS.PRIMARY]: `-is${this.index}`,
+				[NUMBER_IN_CIRCLE_COLORS.NEUTRAL]: '-neutral',
+				[NUMBER_IN_CIRCLE_COLORS.SUCCESS]: '-success',
 				[NUMBER_IN_CIRCLE_COLORS.DANGER]: '-danger',
-				[NUMBER_IN_CIRCLE_COLORS.SECONDARY]: '-secondary',
+				[NUMBER_IN_CIRCLE_COLORS.INFO]: '-info',
+				[NUMBER_IN_CIRCLE_COLORS.ACCENT]: '-accent',
 			};
 			return colorToClassMap[this.color];
 		},

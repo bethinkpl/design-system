@@ -1,27 +1,33 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import Card from './Card';
 
-<Meta title='components/Cards/Card' component={Card} />
+<Meta title="components/Cards/Card" component={Card} />
 
 # Card
 
-<Story name='interactive'
-		parameters={{
-			design: {
-				type: 'figma',
-				url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34959',
-			}
-		}}
-		argTypes={{
-			header: {control: { type: 'text' }, defaultValue: 'header slot'},
-			content: {control: { type: 'text' }, defaultValue: 'content slot that supports <b>HTML markup</b>'},
-			footer: {control: { type: 'text' }, defaultValue: 'footer slot'},
-		}}>
+<Story
+	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34959',
+		},
+	}}
+	argTypes={{
+		header: { control: { type: 'text' }, defaultValue: 'header slot' },
+		content: {
+			control: { type: 'text' },
+			defaultValue: 'content slot that supports <b>HTML markup</b>',
+		},
+		footer: { control: { type: 'text' }, defaultValue: 'footer slot' },
+	}}
+>
 	{(args) => {
 		return {
 			components: { Card },
 			props: Object.keys(args),
-			template: '<card><div v-if="header" slot="header" v-html="header" /><div slot="content" v-html="content" /><div slot="footer" v-html="footer" /></card>',
+			template:
+				'<card><div v-if="header" slot="header" v-html="header" /><div slot="content" v-html="content" /><div slot="footer" v-html="footer" /></card>',
 		};
 	}}
 </Story>
