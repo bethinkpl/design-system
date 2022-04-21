@@ -44,7 +44,7 @@ export default {
 	props: {
 		isVertical: {
 			type: Boolean,
-			required: true,
+			default: false,
 		},
 		prominence: {
 			type: String,
