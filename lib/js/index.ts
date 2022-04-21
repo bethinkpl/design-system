@@ -7,6 +7,7 @@ export { default as Button } from './components/Buttons/Button';
 export * from './components/Buttons/Button/Button.consts';
 export { default as Card } from './components/Cards/Card/';
 export { default as CardExpandable } from './components/Cards/CardExpandable/';
+export * from './components/Divider';
 export { default as Icon } from './components/Icon';
 export * from './components/Icon/Icon.consts';
 export { default as IconButton } from './components/Buttons/IconButton';
