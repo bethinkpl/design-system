@@ -4,8 +4,8 @@
 		:class="{
 			'-vertical': isVertical,
 			'-horizontal': !isVertical,
-			'-strong': prominence === PROMINENCES.STRONG,
-			'-weak': prominence === PROMINENCES.WEAK,
+			'-strong': prominence === DIVIDER_PROMINENCES.STRONG,
+			'-weak': prominence === DIVIDER_PROMINENCES.WEAK,
 		}"
 	/>
 </template>
@@ -37,7 +37,7 @@
 </style>
 
 <script lang="ts">
-import { PROMINENCES } from './Divider.consts';
+import { DIVIDER_PROMINENCES } from './Divider.consts';
 
 export default {
 	name: 'Divider',
@@ -48,12 +48,12 @@ export default {
 		},
 		prominence: {
 			type: String,
-			default: PROMINENCES.DEFAULT,
-			validator: (value: string) => Object.values(PROMINENCES).includes(value),
+			default: DIVIDER_PROMINENCES.DEFAULT,
+			validator: (value: string) => Object.values(DIVIDER_PROMINENCES).includes(value),
 		},
 	},
 	created() {
-		this.PROMINENCES = PROMINENCES;
+		this.DIVIDER_PROMINENCES = DIVIDER_PROMINENCES;
 	},
 };
 </script>

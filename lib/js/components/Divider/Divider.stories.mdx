@@ -1,6 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import Divider from './Divider';
-import { PROMINENCES } from './Divider.consts';
+import { DIVIDER_PROMINENCES } from './Divider.consts';
 
 <Meta title="components/Divider" component={Divider} />
 
@@ -16,12 +16,12 @@ import { PROMINENCES } from './Divider.consts';
 	}}
 	args={{
 		isVertical: false,
-		prominence: PROMINENCES.DEFAULT,
+		prominence: DIVIDER_PROMINENCES.DEFAULT,
 	}}
 	argTypes={{
 		prominence: {
-			control: { type: 'select', options: Object.values(PROMINENCES) },
-			defaultValue: PROMINENCES.DEFAULT,
+			control: { type: 'select', options: Object.values(DIVIDER_PROMINENCES) },
+			defaultValue: DIVIDER_PROMINENCES.DEFAULT,
 		},
 	}}
 >
