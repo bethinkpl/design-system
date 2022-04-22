@@ -75,6 +75,15 @@ $color-content-inverted: $color-total-white;
 $color-background: $color-total-white;
 $color-background-secondary: $color-alabaster-gray;
 
+// NOT USED
+$color-garden-green: #98d293;
+$color-ice-green: #e2f2e3;
+$color-french-red: #e55066;
+$color-powder-pink: #fadeda;
+$DEPRECATED-color-primary-dark: var(--color-primary-hovered);
+$color-success-supporting: $color-garden-green;
+$color-success-background: $color-ice-green;
+
 // functional colors
 $color-success: $color-salad-green;
 

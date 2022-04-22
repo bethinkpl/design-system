@@ -1,4 +1,3 @@
-@import 'colors';
 @import 'colors/tokens';
 
 $button-small-min-height: 28px;
@@ -10,22 +9,7 @@ $icon-button-small-size: 28px;
 $icon-button-medium-size: 32px;
 $icon-button-large-size: 40px;
 
-$button-hover-alpha: 0.12;
-$button-focus-alpha: 0.24;
-$button-disabled-alpha: 0.6;
-$button-ripple-alpha: 0.16;
-
 $button-animation-time: 0.3s;
-
-$regular-colors: (
-	'minor': $color-minor,
-	'minor-supporting': $color-minor-supporting,
-	'content': $color-content,
-	'danger': $color-danger,
-	'danger-supporting': $color-danger-supporting,
-	'warning': $color-warning,
-	'success': $color-success,
-);
 
 $only-icon-button-colors: (
 	'neutral-weak': (
@@ -411,37 +395,3 @@ $button-colors: (
 );
 
 $icon-button-colors: map-merge($button-colors, $only-icon-button-colors);
-
-// DEPRECATED, TEMPORARY:
-$theme-calculated-colors: (
-	'secondary': (
-		'color': $color-secondary,
-		'rgb': $color-secondary-rgb,
-		'hovered': $color-secondary-hovered,
-		'focused': $color-secondary-focused,
-		'disabled': $color-secondary-disabled,
-	),
-	'primary-supporting': (
-		'color': $color-primary-supporting,
-		'rgb': $color-primary-supporting-rgb,
-		'hovered': $color-primary-supporting-hovered,
-		'focused': $color-primary-supporting-focused,
-		'disabled': $color-primary-supporting-disabled,
-	),
-	'secondary-supporting': (
-		'color': $color-secondary-supporting,
-		'rgb': $color-secondary-supporting-rgb,
-		'hovered': $color-secondary-supporting-hovered,
-		'focused': $color-secondary-supporting-focused,
-		'disabled': $color-secondary-supporting-disabled,
-	),
-);
-$regular-colors: (
-	'minor': $color-minor,
-	'minor-supporting': $color-minor-supporting,
-	'content': $color-content,
-	'danger': $color-danger,
-	'danger-supporting': $color-danger-supporting,
-	'warning': $color-warning,
-	'success': $color-success,
-);
