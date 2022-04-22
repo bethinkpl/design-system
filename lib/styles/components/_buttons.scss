@@ -8,6 +8,8 @@
 $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 
 @mixin setButtonColor($color, $color-hovered: null, $color-focused: null, $color-disabled: null) {
+	color: $color;
+
 	&:hover,
 	&.-hovered,
 	&:active,
@@ -23,8 +25,6 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 	&.-disabled {
 		color: $color-disabled;
 	}
-
-	color: $color;
 }
 
 @mixin setButtonBackground(
@@ -33,11 +33,11 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 	$background-focus,
 	$background-disabled
 ) {
-	background-color: $background;
-
 	@if $background == null {
 		background-color: transparent;
 	}
+
+	background-color: $background;
 
 	&:hover,
 	&.-hovered,
@@ -65,24 +65,13 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 ) {
 	&:disabled,
 	&.-disabled {
+		border-color: $disabled-border;
 		color: $disabled-color;
-	}
+		background-color: $disabled-background;
 
-	&:disabled,
-	&.-disabled {
 		.a-button__icon {
 			color: $disabled-icon;
 		}
-	}
-
-	&:disabled,
-	&.-disabled {
-		background-color: $disabled-background;
-	}
-
-	&:disabled,
-	&.-disabled {
-		border-color: $disabled-border;
 	}
 }
 
@@ -94,14 +83,16 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 	$icon-focused: null,
 	$icon-disabled: null
 ) {
-	.ripple {
-		background-color: $ripple !important;
-	}
-
 	@if $ripple == null {
 		.ripple {
 			display: none;
 		}
+	}
+
+	border: 1px solid $border;
+
+	.ripple {
+		background-color: $ripple !important;
 	}
 
 	.a-button {
@@ -139,8 +130,6 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 			}
 		}
 	}
-
-	border: 1px solid $border;
 }
 
 $button-small-min-height: 28px;
