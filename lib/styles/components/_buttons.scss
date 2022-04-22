@@ -8,29 +8,23 @@
 $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 
 @mixin setButtonColor($color, $color-hovered: null, $color-focused: null, $color-disabled: null) {
-	@if $color-hovered != null {
-		&:hover,
-		&.-hovered,
-		&:active,
-		&.-active {
-			color: $color-hovered;
-		}
-	}
-
-	@if $color-focused != null {
-		&:focus,
-		&.-focused {
-			color: $color-focused;
-		}
-	}
-
-	@if $color-disabled != null {
-		&.-disabled {
-			color: $color-disabled;
-		}
-	}
-
 	color: $color;
+
+	&:hover,
+	&.-hovered,
+	&:active,
+	&.-active {
+		color: $color-hovered;
+	}
+
+	&:focus,
+	&.-focused {
+		color: $color-focused;
+	}
+
+	&.-disabled {
+		color: $color-disabled;
+	}
 }
 
 @mixin setButtonBackground(
@@ -39,35 +33,27 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 	$background-focus,
 	$background-disabled
 ) {
-	@if $background != null {
-		background-color: $background;
-	}
-
 	@if $background == null {
 		background-color: transparent;
 	}
 
-	@if $background-hover != null {
-		&:hover,
-		&.-hovered,
-		&:active,
-		&.-active {
-			background-color: $background-hover;
-		}
+	background-color: $background;
+
+	&:hover,
+	&.-hovered,
+	&:active,
+	&.-active {
+		background-color: $background-hover;
 	}
 
-	@if $background-focus != null {
-		&:focus,
-		&.-focused {
-			background-color: $background-focus;
-		}
+	&:focus,
+	&.-focused {
+		background-color: $background-focus;
 	}
 
-	@if $background-disabled != null {
-		&:disabled,
-		&.-disabled {
-			background-color: $background-disabled;
-		}
+	&:disabled,
+	&.-disabled {
+		background-color: $background-disabled;
 	}
 }
 
@@ -77,33 +63,14 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 	$disabled-background: null,
 	$disabled-border: null
 ) {
-	@if $disabled-color != null {
-		&:disabled,
-		&.-disabled {
-			color: $disabled-color;
-		}
-	}
+	&:disabled,
+	&.-disabled {
+		border-color: $disabled-border;
+		color: $disabled-color;
+		background-color: $disabled-background;
 
-	@if $disabled-icon != null {
-		&:disabled,
-		&.-disabled {
-			.a-button__icon {
-				color: $disabled-icon;
-			}
-		}
-	}
-
-	@if $disabled-background != null {
-		&:disabled,
-		&.-disabled {
-			background-color: $disabled-background;
-		}
-	}
-
-	@if $disabled-border != null {
-		&:disabled,
-		&.-disabled {
-			border-color: $disabled-border;
+		.a-button__icon {
+			color: $disabled-icon;
 		}
 	}
 }
@@ -116,62 +83,50 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 	$icon-focused: null,
 	$icon-disabled: null
 ) {
-	@if $ripple != null {
-		.ripple {
-			background-color: $ripple !important;
-		}
-	}
-
 	@if $ripple == null {
 		.ripple {
 			display: none;
 		}
 	}
 
-	@if $border != null {
-		border: 1px solid $border;
+	border: 1px solid $border;
+
+	.ripple {
+		background-color: $ripple !important;
 	}
 
-	@if $icon != null {
+	.a-button {
+		&__icon,
+		&__loadingIcon {
+			color: $icon;
+		}
+	}
+
+	&.-hovered,
+	&:hover {
 		.a-button {
 			&__icon,
 			&__loadingIcon {
-				color: $icon;
+				color: $icon-hovered;
 			}
 		}
 	}
 
-	@if $icon-hovered != null {
-		&.-hovered,
-		&:hover {
-			.a-button {
-				&__icon,
-				&__loadingIcon {
-					color: $icon-hovered;
-				}
+	&.-focused,
+	&:focus {
+		.a-button {
+			&__icon,
+			&__loadingIcon {
+				color: $icon-focused;
 			}
 		}
 	}
 
-	@if $icon-focused != null {
-		&.-focused,
-		&:focus {
-			.a-button {
-				&__icon,
-				&__loadingIcon {
-					color: $icon-focused;
-				}
-			}
-		}
-	}
-
-	@if $icon-disabled != null {
-		&.-disabled {
-			.a-button {
-				&__icon,
-				&__loadingIcon {
-					color: $icon-disabled;
-				}
+	&.-disabled {
+		.a-button {
+			&__icon,
+			&__loadingIcon {
+				color: $icon-disabled;
 			}
 		}
 	}
