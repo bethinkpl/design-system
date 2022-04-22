@@ -24,12 +24,7 @@
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
 			class="a-iconButton__label"
 			:class="{
-				'-neutral':
-					colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL &&
-					color !== ICON_BUTTON_COLORS.NEUTRAL_WEAK,
-				'-neutral-weak':
-					colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL &&
-					color === ICON_BUTTON_COLORS.NEUTRAL_WEAK,
+				'-neutral': colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL,
 			}"
 			><slot
 		/></div>
