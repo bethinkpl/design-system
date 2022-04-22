@@ -40,7 +40,7 @@
 		<wnl-icon
 			v-if="state === STATES.LOADING"
 			class="a-button__loadingIcon"
-			:icon="ICONS.FA_SYNC"
+			:icon="ICONS.FA_ARROWS_ROTATE"
 			:size="ICON_SIZES.X_SMALL"
 		/>
 	</span>

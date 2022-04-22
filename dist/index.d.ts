@@ -7,6 +7,8 @@ export { default as Button } from './components/Buttons/Button';
 export * from './components/Buttons/Button/Button.consts';
 export { default as Card } from './components/Cards/Card/';
 export { default as CardExpandable } from './components/Cards/CardExpandable/';
+export { default as Divider } from './components/Divider';
+export * from './components/Divider/Divider.consts';
 export { default as Icon } from './components/Icon';
 export * from './components/Icon/Icon.consts';
 export { default as IconButton } from './components/Buttons/IconButton';
@@ -25,4 +27,4 @@ export { default as SurveyQuestionScale } from './components/SurveyQuestions/Sur
 export { default as SurveyQuestionOpenEnded } from './components/SurveyQuestions/SurveyQuestionOpenEnded/';
 export * from './components/SurveyQuestions/SurveyQuestion.consts';
 export * from './components/SurveyQuestions/SurveyQuestion.domain';
-export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, } from './icons/fontawesome';
+export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, IconDefinition, } from './icons/fontawesome';

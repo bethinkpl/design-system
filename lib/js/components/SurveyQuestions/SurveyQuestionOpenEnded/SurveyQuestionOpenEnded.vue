@@ -21,7 +21,7 @@
 						v-if="$slots.explanation"
 						class="surveyQuestionOpenEnded__explanation"
 						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
-						:icon="ICONS.FA_QUESTION_CIRCLE"
+						:icon="ICONS.FA_CIRCLE_QUESTION"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
 						@click.native="showModal = true"

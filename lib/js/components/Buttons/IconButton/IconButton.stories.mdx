@@ -51,7 +51,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		},
 		icon: {
 			control: { type: 'select', options: Object.keys(ICONS) },
-			defaultValue: 'FA_TIMES_LIGHT',
+			defaultValue: 'FA_XMARK',
 		},
 		color: {
 			control: { type: 'select', options: Object.values(ICON_BUTTON_COLORS) },
@@ -109,7 +109,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button>',
+			'<wnl-icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</wnl-icon-button>',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
@@ -138,7 +138,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.FA_TIMES_LIGHT" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.PRIMARY" :size="ICON_BUTTON_SIZES.X_SMALL" />',
+			'<wnl-icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.PRIMARY" :size="ICON_BUTTON_SIZES.X_SMALL" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
@@ -169,7 +169,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 	{{
 		components: { WnlIconButton },
 		template:
-			'<wnl-icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
+			'<wnl-icon-button :icon="ICONS.FA_CIRCLE_INFO" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 		created() {
 			this.ICONS = ICONS;
 			this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
