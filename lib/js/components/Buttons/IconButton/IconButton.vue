@@ -197,8 +197,8 @@
 	}
 
 	/* Exception for scheme neutral-label, it has class `-neutral` deep in a-iconButton__label only for 1 case.
-  So there is no sense to set it in main loop
-  */
+	So there is no sense to set it in main loop
+	*/
 	&:hover,
 	&.-hovered {
 		.a-iconButton__label {
