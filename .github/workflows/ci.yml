@@ -20,7 +20,6 @@ jobs:
         with:
           node-version: '16.13'
           cache: 'yarn'
-
       - name: Install dependencies
         run: yarn install
       - name: TypeScript check
