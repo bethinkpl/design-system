@@ -197,17 +197,13 @@
 	}
 
 	/* Exception for scheme neutral-label, it has class `-neutral` deep in a-iconButton__label only for 1 case.
-  So there is no sense to set it in main loop
-  */
+	So there is no sense to set it in main loop
+	*/
 	&:hover,
 	&.-hovered {
 		.a-iconButton__label {
 			&.-neutral {
 				color: $color-neutral-text-hovered !important;
-			}
-
-			&.-neutral-weak {
-				color: $color-neutral-text-weak-disabled !important;
 			}
 		}
 	}
@@ -218,10 +214,6 @@
 			&.-neutral {
 				color: $color-neutral-text-focused !important;
 			}
-
-			&.-neutral-weak {
-				color: $color-neutral-text-weak-focused !important;
-			}
 		}
 	}
 
@@ -229,10 +221,6 @@
 		#{$self}__label {
 			&.-neutral {
 				color: $color-neutral-text-disabled !important;
-			}
-
-			&.-neutral-weak {
-				color: $color-neutral-text-weak-disabled !important;
 			}
 		}
 	}
