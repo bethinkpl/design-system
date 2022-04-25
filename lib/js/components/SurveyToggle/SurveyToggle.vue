@@ -37,8 +37,96 @@
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/survey-toggle';
-@import '../../../styles/components/survey-toggle';
+
+$survey-toggle-size: 48px;
+
+$survey-toggle-colors: (
+	'primary': (
+		'background': $color-primary-background-weak,
+		'border': $color-primary-border,
+		'color': $color-primary-text,
+		'icon': $color-default-icon-inverted,
+		'background-hovered': $color-primary-background-weak-hovered,
+		'ripple': $color-primary-ripple,
+		'disabled': (
+			'border': $color-primary-border-disabled,
+			'color': $color-primary-text-disabled,
+			'icon': $color-primary-icon-disabled,
+		),
+	),
+	'primary-selected': (
+		'background': $color-primary-background-strong,
+		'border': $color-default-border-inverted,
+		'color': $color-default-icon-inverted,
+		'icon': $color-default-text-inverted,
+		'background-hovered': $color-primary-background-strong-hovered,
+		'ripple': $color-default-ripple-inverted,
+		'disabled': (
+			'background': $color-primary-background-strong-disabled,
+		),
+	),
+	'neutral': (
+		'background': $color-neutral-background-weak,
+		'border': $color-neutral-border-strong,
+		'color': $color-neutral-text-weak,
+		'icon': $color-neutral-icon-weak,
+		'background-hovered': $color-neutral-background-weak-hovered,
+		'ripple': $color-neutral-ripple,
+		'disabled': (
+			'border': $color-neutral-border-strong-disabled,
+			'color': $color-neutral-text-weak-disabled,
+			'icon': $color-neutral-icon-weak-disabled,
+		),
+	),
+	'neutral-selected': (
+		'background': $color-neutral-background-strong,
+		'border': $color-default-border-inverted,
+		'color': $color-default-icon-inverted,
+		'icon': $color-default-text-inverted,
+		'background-hovered': $color-neutral-background-strong-hovered,
+		'ripple': $color-default-ripple-inverted,
+		'disabled': (
+			'background': $color-neutral-background-strong-disabled,
+		),
+	),
+);
+
+@mixin setSurveyContentOtherStates($disabled-text) {
+	color: $disabled-text;
+}
+
+@mixin setSurveyRingOtherStates($disabled-border) {
+	border-color: $disabled-border;
+}
+
+@mixin setSurveyToggleOtherStates($background, $icon: null) {
+	background-color: $background;
+	.surveyToggle__icon {
+		color: $icon;
+	}
+}
+
+@mixin setSurveyRingNormalState($border) {
+	border-color: $border;
+}
+
+@mixin setSurveyToggleNormalState($background, $text, $ripple, $icon: null) {
+	background-color: $background;
+
+	.surveyToggle {
+		&__content {
+			color: $text;
+		}
+
+		&__icon {
+			color: $icon;
+		}
+	}
+
+	&::v-deep .ripple {
+		background-color: $ripple !important;
+	}
+}
 
 .surveyToggle {
 	$self: &;
@@ -48,14 +136,12 @@
 			#{$self}__toggle {
 				@include setSurveyToggleNormalState(
 					map-get($color-map, 'background'),
-					'',
 					map-get($color-map, 'color'),
-					'',
 					map-get($color-map, 'ripple')
 				);
 			}
 			#{$self}__ring {
-				@include setSurveyToggleNormalState('', map-get($color-map, 'border'));
+				@include setSurveyRingNormalState(map-get($color-map, 'border'));
 			}
 
 			&:hover,
@@ -68,25 +154,15 @@
 			&.-disabled {
 				#{$self}__toggle {
 					@include setSurveyToggleOtherStates(
-						'',
-						'',
-						'',
-						map-get($color-map, 'disabled', 'icon'),
-						map-get($color-map, 'disabled', 'background')
+						map-get($color-map, 'disabled', 'background'),
+						map-get($color-map, 'disabled', 'icon')
 					);
 				}
 				#{$self}__content {
-					@include setSurveyToggleOtherStates(
-						'',
-						'',
-						map-get($color-map, 'disabled', 'color')
-					);
+					@include setSurveyContentOtherStates(map-get($color-map, 'disabled', 'color'));
 				}
 				#{$self}__ring {
-					@include setSurveyToggleOtherStates(
-						'',
-						map-get($color-map, 'disabled', 'border')
-					);
+					@include setSurveyRingOtherStates(map-get($color-map, 'disabled', 'border'));
 				}
 			}
 		}
@@ -105,10 +181,9 @@
 	&__toggle {
 		@include setSurveyToggleNormalState(
 			map-get($survey-toggle-colors, 'primary', 'background'),
-			'',
 			map-get($survey-toggle-colors, 'primary', 'color'),
-			map-get($survey-toggle-colors, 'primary', 'icon'),
-			map-get($survey-toggle-colors, 'primary', 'ripple')
+			map-get($survey-toggle-colors, 'primary', 'ripple'),
+			map-get($survey-toggle-colors, 'primary', 'icon')
 		);
 
 		border-radius: 100%;
