@@ -8,15 +8,14 @@ export const ICON_BUTTON_SIZES = {
 } as const;
 
 export const ICON_BUTTON_TYPES = {
-	FILLED: BUTTON_TYPES.FILLED,
-	OUTLINED: BUTTON_TYPES.OUTLINED,
 	ICON_ONLY: 'icon-only',
+	OUTLINED: BUTTON_TYPES.OUTLINED,
+	FILLED: BUTTON_TYPES.FILLED,
 } as const;
 
 export const ICON_BUTTON_COLOR_SCHEMES = {
 	ALL_IN_COLOR: 'all-in-color',
-	MINOR_ICON: 'minor-icon',
-	MINOR_LABEL: 'minor-label',
+	NEUTRAL_LABEL: 'neutral-label',
 } as const;
 
 export const ICON_BUTTON_COLORS = {
@@ -28,4 +27,11 @@ export const ICON_BUTTON_COLORS = {
 	INVERTED: 'inverted',
 	WARNING: 'warning',
 	INFO: 'info',
+} as const;
+
+export const ICON_BUTTON_STATES = {
+	DEFAULT: 'default',
+	HOVERED: 'hovered',
+	FOCUSED: 'focused',
+	DISABLED: 'disabled',
 } as const;
