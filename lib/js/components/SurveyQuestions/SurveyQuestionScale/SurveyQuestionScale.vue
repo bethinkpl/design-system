@@ -76,7 +76,6 @@
 
 <style lang="scss" scoped>
 @import '../../../../styles/settings/buttons';
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/shadows';

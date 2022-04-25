@@ -89,7 +89,9 @@ $default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 		}
 	}
 
-	border: 1px solid $border;
+	@if $border != null {
+		border: 1px solid $border;
+	}
 
 	.ripple {
 		background-color: $ripple !important;
@@ -292,13 +294,17 @@ $button-disabled-alpha: 0.6;
 
 	&.-elevation-x-small {
 		&.-outlined {
-			background: $color-default-background !important;
+			&:not(.-hovered):not(:hover):not(.-focused):not(:focus):not(.-disabled) {
+				background: $color-default-background !important;
+			}
 		}
 	}
 
 	&.-elevation-small {
 		&.-outlined {
-			background: $color-default-background !important;
+			&:not(.-hovered):not(:hover):not(.-focused):not(:focus):not(.-disabled) {
+				background: $color-default-background !important;
+			}
 		}
 
 		&:not(.-text) {
