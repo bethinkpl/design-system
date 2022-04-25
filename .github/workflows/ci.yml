@@ -21,7 +21,7 @@ jobs:
           node-version: '16.13'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --pure-lockfile
+        run: yarn install
       - name: TypeScript check
         run: yarn ts:check
       - name: Run unit tests
