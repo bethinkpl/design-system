@@ -18,7 +18,6 @@
 <style scoped lang="scss">
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/components/badge-score';
 @import '../../../../styles/settings/colors/tokens';
 
@@ -26,19 +25,11 @@ $badge-score-width: 74px;
 $small-badge-score-width: 48px;
 $x-small-badge-score-width: 36px;
 
-@mixin setBadgeScoreColor($self, $border: '', $color: '', $color-additional: '') {
-	@if $border != '' {
-		border-color: $border;
-	}
-
-	@if $color != '' {
-		color: $color;
-	}
-
-	@if $color-additional != '' {
-		#{$self}__additionalText {
-			color: $color-additional;
-		}
+@mixin setBadgeScoreColor($self, $border, $color, $color-additional) {
+	border-color: $border;
+	color: $color;
+	#{$self}__additionalText {
+		color: $color-additional;
 	}
 }
 
@@ -60,7 +51,8 @@ $x-small-badge-score-width: 36px;
 	}
 
 	border-radius: 4px;
-	border: 2px solid currentColor;
+	border-width: 2px;
+	border-style: solid;
 	display: inline-block;
 	min-width: $badge-score-width;
 	padding: $space-xxxs $space-xxxxs;

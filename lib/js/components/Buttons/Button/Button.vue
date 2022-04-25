@@ -40,7 +40,7 @@
 		<wnl-icon
 			v-if="state === STATES.LOADING"
 			class="a-button__loadingIcon"
-			:icon="ICONS.FA_SYNC"
+			:icon="ICONS.FA_ARROWS_ROTATE"
 			:size="ICON_SIZES.X_SMALL"
 		/>
 	</span>
@@ -60,7 +60,6 @@ import WnlIcon, { ICONS, ICON_SIZES } from '../../Icon';
 import {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
-	BUTTON_ICON_COLORS,
 	BUTTON_RADIUSES,
 	BUTTON_SIZES,
 	BUTTON_STATES,

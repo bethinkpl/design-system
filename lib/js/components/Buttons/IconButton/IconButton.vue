@@ -24,12 +24,7 @@
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
 			class="a-iconButton__label"
 			:class="{
-				'-neutral':
-					colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL &&
-					color !== ICON_BUTTON_COLORS.NEUTRAL_WEAK,
-				'-neutral-weak':
-					colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL &&
-					color === ICON_BUTTON_COLORS.NEUTRAL_WEAK,
+				'-neutral': colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL,
 			}"
 			><slot
 		/></div>
@@ -51,17 +46,49 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/animations';
 @import '../../../../styles/settings/buttons';
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
+
+@mixin setIconButtonAdditions($ripple: null, $border: null, $icon: null) {
+	@if $ripple != null {
+		.ripple {
+			background-color: $ripple !important;
+		}
+	}
+
+	@if $ripple == null {
+		.ripple {
+			display: none;
+		}
+	}
+
+	@if $border != null {
+		border: 1px solid $border;
+	}
+
+	@if $icon != null {
+		.a-iconButton {
+			&__icon,
+			&__loadingIcon {
+				color: $icon;
+			}
+		}
+	}
+}
 
 .a-iconButton {
 	$self: &;
 
 	@each $color-name, $color-map in $icon-button-colors {
 		&.-color-#{$color-name} {
+			@include setIconButtonAdditions(
+				map-get($color-map, 'filled', 'ripple'),
+				null,
+				map-get($color-map, 'filled', 'icon')
+			);
+
 			#{$self}__label {
 				color: map-get($color-map, 'outlined', 'color');
 			}
@@ -70,7 +97,6 @@
 			&.-hovered {
 				#{$self}__button {
 					background-color: map-get($color-map, 'filled', 'background-hovered');
-					color: map-get($color-map, 'icon');
 
 					&.-outlined {
 						background-color: map-get($color-map, 'outlined', 'background-hovered');
@@ -86,7 +112,6 @@
 			&.-focused {
 				#{$self}__button {
 					background-color: map-get($color-map, 'filled', 'background-focused');
-					color: map-get($color-map, 'filled', 'icon');
 
 					&.-outlined {
 						background-color: map-get($color-map, 'outlined', 'background-focused');
@@ -101,7 +126,6 @@
 			&.-disabled {
 				#{$self}__button {
 					background-color: map-get($color-map, 'filled', 'background-disabled');
-					color: map-get($color-map, 'icon');
 
 					&.-outlined {
 						background-color: map-get($color-map, 'outlined', 'background');
@@ -117,6 +141,14 @@
 					color: map-get($color-map, 'outlined', 'disabled', 'color');
 				}
 			}
+
+			.-outlined {
+				@include setIconButtonAdditions(
+					map-get($color-map, 'outlined', 'ripple'),
+					map-get($color-map, 'outlined', 'border'),
+					map-get($color-map, 'outlined', 'icon')
+				);
+			}
 		}
 	}
 
@@ -128,7 +160,6 @@
 
 	&:disabled,
 	&.-disabled {
-		cursor: not-allowed;
 		pointer-events: none;
 	}
 
@@ -143,7 +174,7 @@
 		padding: 0;
 		width: $icon-button-medium-size;
 
-		&.-iconOnly {
+		&.-iconOnly.-outlined {
 			border: none;
 		}
 	}
@@ -162,10 +193,6 @@
 
 		&.-neutral {
 			color: $color-neutral-text !important;
-		}
-
-		&.-neutral-weak {
-			color: $color-neutral-text-weak !important;
 		}
 	}
 

@@ -6,7 +6,6 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
@@ -67,12 +66,12 @@ export default {
 	computed: {
 		icon() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return ICONS.FA_UNLOCK_ALT;
+				return ICONS.FA_UNLOCK_KEYHOLE;
 			}
 			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
 				return ICONS.FA_HOURGLASS_START;
 			}
-			return ICONS.FA_LOCK_ALT;
+			return ICONS.FA_LOCK_KEYHOLE;
 		},
 		statusClass() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
