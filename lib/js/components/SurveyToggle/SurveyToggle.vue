@@ -101,6 +101,7 @@ $survey-toggle-colors: (
 
 @mixin setSurveyToggleOtherStates($background, $icon: null) {
 	background-color: $background;
+
 	.surveyToggle__icon {
 		color: $icon;
 	}
