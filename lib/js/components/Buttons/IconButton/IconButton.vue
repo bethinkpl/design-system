@@ -205,10 +205,6 @@
 			&.-neutral {
 				color: $color-neutral-text-hovered !important;
 			}
-
-			&.-neutral-weak {
-				color: $color-neutral-text-weak-disabled !important;
-			}
 		}
 	}
 
@@ -218,10 +214,6 @@
 			&.-neutral {
 				color: $color-neutral-text-focused !important;
 			}
-
-			&.-neutral-weak {
-				color: $color-neutral-text-weak-focused !important;
-			}
 		}
 	}
 
@@ -229,10 +221,6 @@
 		#{$self}__label {
 			&.-neutral {
 				color: $color-neutral-text-disabled !important;
-			}
-
-			&.-neutral-weak {
-				color: $color-neutral-text-weak-disabled !important;
 			}
 		}
 	}
