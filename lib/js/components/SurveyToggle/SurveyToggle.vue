@@ -91,24 +91,12 @@ $survey-toggle-colors: (
 	),
 );
 
-@mixin setSurveyContentOtherStates($disabled-text) {
-	color: $disabled-text;
-}
-
-@mixin setSurveyRingOtherStates($disabled-border) {
-	border-color: $disabled-border;
-}
-
 @mixin setSurveyToggleOtherStates($background, $icon: null) {
 	background-color: $background;
 
 	.surveyToggle__icon {
 		color: $icon;
 	}
-}
-
-@mixin setSurveyRingNormalState($border) {
-	border-color: $border;
 }
 
 @mixin setSurveyToggleNormalState($background, $text, $ripple, $icon: null) {
@@ -142,7 +130,7 @@ $survey-toggle-colors: (
 				);
 			}
 			#{$self}__ring {
-				@include setSurveyRingNormalState(map-get($color-map, 'border'));
+				border-color: map-get($color-map, 'border');
 			}
 
 			&:hover,
@@ -160,10 +148,10 @@ $survey-toggle-colors: (
 					);
 				}
 				#{$self}__content {
-					@include setSurveyContentOtherStates(map-get($color-map, 'disabled', 'color'));
+					color: map-get($color-map, 'disabled', 'color');
 				}
 				#{$self}__ring {
-					@include setSurveyRingOtherStates(map-get($color-map, 'disabled', 'border'));
+					border-color: map-get($color-map, 'disabled', 'border');
 				}
 			}
 		}
