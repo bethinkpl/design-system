@@ -2,9 +2,10 @@
 	<div
 		class="surveyToggle"
 		:class="{
-			'-selectedPrimary': isSelectedPrimary,
-			'-defaultPrimary': isDefaultPrimary,
-			'-selectedNeutral': isSelectedNeutral,
+			'-primary-selected': isPrimarySelected,
+			'-primary': isPrimary,
+			'-neutral': isNeutral,
+			'-neutral-selected': isNeutralSelected,
 			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
 			'-hovered': isHoveredState,
 		}"
@@ -17,7 +18,7 @@
 			@mouseleave="hovered = false"
 		>
 			<div class="surveyToggle__ring">
-				<span v-if="isSelectedPrimary || isSelectedNeutral" class="surveyToggle__icon">
+				<span v-if="isPrimarySelected || isNeutralSelected" class="surveyToggle__icon">
 					<ds-icon :icon="selectedIcon" :size="ICON_SIZES.X_SMALL"></ds-icon>
 				</span>
 				<span v-else class="surveyToggle__content">
@@ -35,13 +36,123 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/colors/tokens';
 
 $survey-toggle-size: 48px;
 
-$color-disabled-neutral: #000; // IT WILL BE REPLACED IN NEXT PR
+$survey-toggle-colors: (
+	'primary': (
+		'background': $color-primary-background-weak,
+		'border': $color-primary-border,
+		'color': $color-primary-text,
+		'icon': $color-default-icon-inverted,
+		'background-hovered': $color-primary-background-weak-hovered,
+		'ripple': $color-primary-ripple,
+		'disabled': (
+			'border': $color-primary-border-disabled,
+			'color': $color-primary-text-disabled,
+			'icon': $color-primary-icon-disabled,
+		),
+	),
+	'primary-selected': (
+		'background': $color-primary-background-strong,
+		'border': $color-default-border-inverted,
+		'color': $color-default-text-inverted,
+		'background-hovered': $color-primary-background-strong-hovered,
+		'ripple': $color-default-ripple-inverted,
+		'disabled': (
+			'background': $color-primary-background-strong-disabled,
+		),
+	),
+	'neutral': (
+		'background': $color-neutral-background-weak,
+		'border': $color-neutral-border-strong,
+		'color': $color-neutral-text-weak,
+		'background-hovered': $color-neutral-background-weak-hovered,
+		'ripple': $color-neutral-ripple,
+		'disabled': (
+			'border': $color-neutral-border-strong-disabled,
+			'color': $color-neutral-text-weak-disabled,
+			'icon': $color-neutral-icon-weak-disabled,
+		),
+	),
+	'neutral-selected': (
+		'background': $color-neutral-background-strong,
+		'border': $color-default-border-inverted,
+		'color': $color-default-text-inverted,
+		'background-hovered': $color-neutral-background-strong-hovered,
+		'ripple': $color-default-ripple-inverted,
+		'disabled': (
+			'background': $color-neutral-background-strong-disabled,
+		),
+	),
+);
+
+@mixin setSurveyToggleOtherStates($background, $icon: null) {
+	background-color: $background;
+
+	.surveyToggle__icon {
+		color: $icon;
+	}
+}
+
+@mixin setSurveyToggleNormalState($background, $text, $ripple, $icon: null) {
+	background-color: $background;
+
+	.surveyToggle {
+		&__content {
+			color: $text;
+		}
+
+		&__icon {
+			color: $icon;
+		}
+	}
+
+	&::v-deep .ripple {
+		background-color: $ripple !important;
+	}
+}
 
 .surveyToggle {
 	$self: &;
+
+	@each $color-name, $color-map in $survey-toggle-colors {
+		&.-#{$color-name} {
+			#{$self}__toggle {
+				@include setSurveyToggleNormalState(
+					map-get($color-map, 'background'),
+					map-get($color-map, 'color'),
+					map-get($color-map, 'ripple')
+				);
+			}
+			#{$self}__ring {
+				border-color: map-get($color-map, 'border');
+			}
+
+			&:hover,
+			&.-hovered {
+				#{$self}__toggle {
+					@include setSurveyToggleOtherStates(map-get($color-map, 'background-hovered'));
+				}
+			}
+
+			&.-disabled {
+				#{$self}__toggle {
+					@include setSurveyToggleOtherStates(
+						map-get($color-map, 'disabled', 'background'),
+						map-get($color-map, 'disabled', 'icon')
+					);
+				}
+				#{$self}__content {
+					color: map-get($color-map, 'disabled', 'color');
+				}
+				#{$self}__ring {
+					border-color: map-get($color-map, 'disabled', 'border');
+				}
+			}
+		}
+	}
 
 	align-items: center;
 	cursor: pointer;
@@ -54,7 +165,13 @@ $color-disabled-neutral: #000; // IT WILL BE REPLACED IN NEXT PR
 	}
 
 	&__toggle {
-		background: $color-total-white;
+		@include setSurveyToggleNormalState(
+			map-get($survey-toggle-colors, 'primary', 'background'),
+			map-get($survey-toggle-colors, 'primary', 'color'),
+			map-get($survey-toggle-colors, 'primary', 'ripple'),
+			map-get($survey-toggle-colors, 'primary', 'icon')
+		);
+
 		border-radius: 100%;
 		display: flex;
 		height: $survey-toggle-size;
@@ -64,41 +181,12 @@ $color-disabled-neutral: #000; // IT WILL BE REPLACED IN NEXT PR
 		width: $survey-toggle-size;
 
 		.-hovered & {
-			background-color: $color-ice-gray;
+			@include setSurveyToggleOtherStates(
+				map-get($survey-toggle-colors, 'primary', 'background-hovered')
+			);
+
 			box-shadow: $shadow-s;
 		}
-
-		&::v-deep .ripple {
-			background-color: rgba($color-total-white, $ripple-alpha) !important;
-		}
-	}
-
-	&.-selectedPrimary &__toggle {
-		background-color: $color-primary;
-	}
-
-	&.-selectedNeutral &__toggle {
-		background-color: $color-minor-supporting;
-	}
-
-	&.-selectedPrimary.-disabled &__toggle {
-		background-color: $color-primary-disabled;
-	}
-
-	&.-selectedNeutral.-disabled &__toggle {
-		background-color: $color-disabled-neutral;
-	}
-
-	&.-selectedPrimary.-hovered &__toggle {
-		background-color: $color-primary-hovered;
-	}
-
-	&.-defaultPrimary.-hovered &__toggle {
-		background-color: $color-primary-background;
-	}
-
-	&.-selectedNeutral.-hovered &__toggle {
-		background-color: #000; // IT WILL BE REPLACED IN NEXT PR
 	}
 
 	&__ring {
@@ -106,7 +194,7 @@ $color-disabled-neutral: #000; // IT WILL BE REPLACED IN NEXT PR
 		align-items: center;
 		display: flex;
 		justify-content: center;
-		border: 3px solid $color-minor-supporting;
+		border: 3px solid $color-neutral-border;
 		border-radius: 100%;
 		transition: border-color ease-in-out $default-transition-time;
 		width: 100%;
@@ -114,54 +202,16 @@ $color-disabled-neutral: #000; // IT WILL BE REPLACED IN NEXT PR
 
 	&.-disabled {
 		pointer-events: none;
-
-		#{$self}__ring {
-			border-color: $color-disabled-neutral;
-		}
-	}
-
-	&.-defaultPrimary &__ring {
-		border-color: $color-primary;
-	}
-
-	&.-selectedPrimary &__ring {
-		border-color: $color-total-white;
-	}
-
-	&.-selectedNeutral &__ring {
-		border-color: $color-total-white;
-	}
-
-	&.-defaultPrimary.-disabled &__ring {
-		border-color: $color-primary-disabled;
 	}
 
 	&__content {
 		@include headlineXS();
 		@include textBold();
 
-		color: $color-minor-supporting;
 		transition: color ease-in-out $default-transition-time;
 	}
 
-	&.-disabled &__content {
-		color: $color-disabled-neutral;
-	}
-
-	&.-defaultPrimary &__content {
-		color: $color-primary;
-
-		.-hovered & {
-			$border-color: $color-primary-hovered;
-		}
-	}
-
-	&.-defaultPrimary.-disabled &__content {
-		color: $color-primary-disabled;
-	}
-
 	&__icon {
-		color: $color-total-white;
 		display: flex;
 	}
 
@@ -169,7 +219,7 @@ $color-disabled-neutral: #000; // IT WILL BE REPLACED IN NEXT PR
 		@include textInfoS();
 		@include textBold();
 
-		color: $color-minor;
+		color: $color-neutral-text;
 		text-align: center;
 		margin-top: $space-xxs;
 		min-height: 2em;
@@ -247,19 +297,25 @@ export default {
 		};
 	},
 	computed: {
-		isSelectedPrimary() {
+		isPrimarySelected() {
 			return (
 				this.meaning === SURVEY_TOGGLE_MEANINGS.PRIMARY &&
 				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
 			);
 		},
-		isDefaultPrimary() {
+		isPrimary() {
 			return (
 				this.meaning === SURVEY_TOGGLE_MEANINGS.PRIMARY &&
 				this.status === SURVEY_TOGGLE_STATUSES.DEFAULT
 			);
 		},
-		isSelectedNeutral() {
+		isNeutral() {
+			return (
+				this.meaning === SURVEY_TOGGLE_MEANINGS.NEUTRAL &&
+				this.status === SURVEY_TOGGLE_STATUSES.DEFAULT
+			);
+		},
+		isNeutralSelected() {
 			return (
 				this.meaning === SURVEY_TOGGLE_MEANINGS.NEUTRAL &&
 				this.status === SURVEY_TOGGLE_STATUSES.SELECTED
