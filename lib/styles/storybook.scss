@@ -22,7 +22,6 @@ body {
 	&.styleguide {
 		@include textL;
 
-		color: $color-catalina-blue;
 		font-family: $fontFamiy;
 
 		button,
@@ -40,4 +39,9 @@ body {
 
 html {
 	box-sizing: border-box;
+}
+
+.contrastBackground {
+	background: var(--raw-black);
+	padding: 10px;
 }

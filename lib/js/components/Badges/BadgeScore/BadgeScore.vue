@@ -26,18 +26,10 @@ $small-badge-score-width: 48px;
 $x-small-badge-score-width: 36px;
 
 @mixin setBadgeScoreColor($self, $border, $color, $color-additional) {
-	@if $border != '' {
-		border-color: $border;
-	}
-
-	@if $color != '' {
-		color: $color;
-	}
-
-	@if $color-additional != '' {
-		#{$self}__additionalText {
-			color: $color-additional;
-		}
+	border-color: $border;
+	color: $color;
+	#{$self}__additionalText {
+		color: $color-additional;
 	}
 }
 

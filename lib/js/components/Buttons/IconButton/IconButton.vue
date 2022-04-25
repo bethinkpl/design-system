@@ -51,7 +51,7 @@
 
 @mixin iconButtonColor($color, $hover-color: '') {
 	@if $hover-color == '' {
-		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
+		//$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
 	}
 
 	color: $color;
@@ -62,102 +62,104 @@
 	}
 }
 
+// @todo It will be fixed in the next PR colors-migration-2c-iconbutton
+//
 .a-iconButton {
 	$self: &;
 
-	@each $color-name, $color-map in $theme-calculated-colors {
-		&.-color-#{$color-name} {
-			@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
-		}
-	}
+	//@each $color-name, $color-map in $theme-calculated-colors {
+	//	&.-color-#{$color-name} {
+	//		@include iconButtonColor(map-get($color-map, 'color'), map-get($color-map, 'hovered'));
+	//	}
+	//}
+	//
+	//@each $color-name, $color in $regular-colors {
+	//	&.-color-#{$color-name} {
+	//		@include iconButtonColor($color);
+	//	}
+	//}
 
-	@each $color-name, $color in $regular-colors {
-		&.-color-#{$color-name} {
-			@include iconButtonColor($color);
-		}
-	}
-
-	align-items: center;
-	color: $color-primary;
-	cursor: pointer;
-	display: inline-flex;
-	transition: color ease-in-out $default-transition-time;
-
-	&:hover {
-		color: $color-primary-hovered;
-	}
-
-	&__button {
-		height: $icon-button-medium-size;
-		min-height: auto;
-		min-width: auto;
-		padding: 0;
-		width: $icon-button-medium-size;
-
-		&.-iconOnly {
-			border: none;
-			color: currentColor;
-		}
-	}
-
-	&__label {
-		@include buttonM;
-
-		display: none;
-		font-weight: bold;
-		margin-right: $space-xs;
-		text-transform: uppercase;
-
-		@media #{breakpoint-s()} {
-			display: initial;
-		}
-
-		&.-minor {
-			@include iconButtonColor($color-minor);
-		}
-	}
-
-	&__icon {
-		&.-minor {
-			color: $color-minor;
-		}
-	}
-
-	&.-x-small {
-		#{$self}__button {
-			height: $icon-button-x-small-size;
-			width: $icon-button-x-small-size;
-		}
-
-		#{$self}__label {
-			@include buttonXS;
-		}
-	}
-
-	&.-small {
-		#{$self}__button {
-			height: $icon-button-small-size;
-			width: $icon-button-small-size;
-		}
-
-		#{$self}__label {
-			@include buttonS;
-		}
-	}
-
-	&.-large {
-		#{$self}__button {
-			height: $icon-button-large-size;
-			width: $icon-button-large-size;
-		}
-	}
-
-	&.-touchable {
-		align-items: center;
-		justify-content: center;
-		min-height: $min-touchable-size;
-		min-width: $min-touchable-size;
-	}
+	//align-items: center;
+	//color: $color-primary;
+	//cursor: pointer;
+	//display: inline-flex;
+	//transition: color ease-in-out $default-transition-time;
+	//
+	//&:hover {
+	//	color: $color-primary-hovered;
+	//}
+	//
+	//&__button {
+	//	height: $icon-button-medium-size;
+	//	min-height: auto;
+	//	min-width: auto;
+	//	padding: 0;
+	//	width: $icon-button-medium-size;
+	//
+	//	&.-iconOnly {
+	//		border: none;
+	//		color: currentColor;
+	//	}
+	//}
+	//
+	//&__label {
+	//	@include buttonM;
+	//
+	//	display: none;
+	//	font-weight: bold;
+	//	margin-right: $space-xs;
+	//	text-transform: uppercase;
+	//
+	//	@media #{breakpoint-s()} {
+	//		display: initial;
+	//	}
+	//
+	//	&.-minor {
+	//		@include iconButtonColor($color-minor);
+	//	}
+	//}
+	//
+	//&__icon {
+	//	&.-minor {
+	//		color: $color-minor;
+	//	}
+	//}
+	//
+	//&.-x-small {
+	//	#{$self}__button {
+	//		height: $icon-button-x-small-size;
+	//		width: $icon-button-x-small-size;
+	//	}
+	//
+	//	#{$self}__label {
+	//		@include buttonXS;
+	//	}
+	//}
+	//
+	//&.-small {
+	//	#{$self}__button {
+	//		height: $icon-button-small-size;
+	//		width: $icon-button-small-size;
+	//	}
+	//
+	//	#{$self}__label {
+	//		@include buttonS;
+	//	}
+	//}
+	//
+	//&.-large {
+	//	#{$self}__button {
+	//		height: $icon-button-large-size;
+	//		width: $icon-button-large-size;
+	//	}
+	//}
+	//
+	//&.-touchable {
+	//	align-items: center;
+	//	justify-content: center;
+	//	min-height: $min-touchable-size;
+	//	min-width: $min-touchable-size;
+	//}
 }
 </style>
 
