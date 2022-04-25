@@ -174,7 +174,7 @@
 		padding: 0;
 		width: $icon-button-medium-size;
 
-		&.-iconOnly {
+		&.-iconOnly.-outlined {
 			border: none;
 		}
 	}
@@ -193,10 +193,6 @@
 
 		&.-neutral {
 			color: $color-neutral-text !important;
-		}
-
-		&.-neutral-weak {
-			color: $color-neutral-text-weak !important;
 		}
 	}
 
