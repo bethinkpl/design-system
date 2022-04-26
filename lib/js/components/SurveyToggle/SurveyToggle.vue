@@ -45,7 +45,6 @@ $survey-toggle-colors: (
 		'background': $color-primary-background-weak,
 		'border': $color-primary-border,
 		'color': $color-primary-text,
-		'icon': $color-default-icon-inverted,
 		'background-hovered': $color-primary-background-weak-hovered,
 		'ripple': $color-primary-ripple,
 		'disabled': (
@@ -168,8 +167,7 @@ $survey-toggle-colors: (
 		@include setSurveyToggleNormalState(
 			map-get($survey-toggle-colors, 'primary', 'background'),
 			map-get($survey-toggle-colors, 'primary', 'color'),
-			map-get($survey-toggle-colors, 'primary', 'ripple'),
-			map-get($survey-toggle-colors, 'primary', 'icon')
+			map-get($survey-toggle-colors, 'primary', 'ripple')
 		);
 
 		border-radius: 100%;
@@ -213,6 +211,7 @@ $survey-toggle-colors: (
 
 	&__icon {
 		display: flex;
+		color: $color-default-icon-inverted;
 	}
 
 	&__label {
