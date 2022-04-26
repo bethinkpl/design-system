@@ -83,9 +83,10 @@ declare const _default: {
         hovered: boolean;
     };
     computed: {
-        isSelectedPrimary(): boolean;
-        isDefaultPrimary(): boolean;
-        isSelectedNeutral(): boolean;
+        isPrimarySelected(): boolean;
+        isPrimary(): boolean;
+        isNeutral(): boolean;
+        isNeutralSelected(): boolean;
         isHoveredState(): any;
     };
     created(): void;
