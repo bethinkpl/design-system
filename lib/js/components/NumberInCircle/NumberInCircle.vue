@@ -110,7 +110,8 @@ export default {
 	computed: {
 		colorClass() {
 			const colorToClassMap = {
-				[NUMBER_IN_CIRCLE_COLORS.PRIMARY]: `-is${this.index}`,
+				[NUMBER_IN_CIRCLE_COLORS.DEFAULT]: `-is${this.index}`,
+				[NUMBER_IN_CIRCLE_COLORS.PRIMARY]: '-primary',
 				[NUMBER_IN_CIRCLE_COLORS.NEUTRAL]: '-neutral',
 				[NUMBER_IN_CIRCLE_COLORS.SUCCESS]: '-success',
 				[NUMBER_IN_CIRCLE_COLORS.DANGER]: '-danger',
