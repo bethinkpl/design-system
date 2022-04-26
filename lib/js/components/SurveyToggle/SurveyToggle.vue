@@ -95,21 +95,17 @@ $survey-toggle-colors: (
 	}
 }
 
-@mixin setSurveyToggleNormalState($background, $text, $ripple, $icon: null) {
-	background-color: $background;
+@mixin setSurveyToggleNormalState($self, $background, $text, $ripple) {
+	#{$self}__toggle {
+		background-color: $background;
 
-	.surveyToggle {
-		&__content {
-			color: $text;
-		}
-
-		&__icon {
-			color: $icon;
+		&::v-deep .ripple {
+			background-color: $ripple !important;
 		}
 	}
 
-	&::v-deep .ripple {
-		background-color: $ripple !important;
+	#{$self}__content {
+		color: $text;
 	}
 }
 
@@ -118,13 +114,12 @@ $survey-toggle-colors: (
 
 	@each $color-name, $color-map in $survey-toggle-colors {
 		&.-#{$color-name} {
-			#{$self}__toggle {
-				@include setSurveyToggleNormalState(
-					map-get($color-map, 'background'),
-					map-get($color-map, 'color'),
-					map-get($color-map, 'ripple')
-				);
-			}
+			@include setSurveyToggleNormalState(
+				$self,
+				map-get($color-map, 'background'),
+				map-get($color-map, 'color'),
+				map-get($color-map, 'ripple')
+			);
 			#{$self}__ring {
 				border-color: map-get($color-map, 'border');
 			}
@@ -165,6 +160,7 @@ $survey-toggle-colors: (
 
 	&__toggle {
 		@include setSurveyToggleNormalState(
+			$self,
 			map-get($survey-toggle-colors, 'primary', 'background'),
 			map-get($survey-toggle-colors, 'primary', 'color'),
 			map-get($survey-toggle-colors, 'primary', 'ripple')
