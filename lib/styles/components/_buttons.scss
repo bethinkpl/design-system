@@ -294,7 +294,6 @@ $button-disabled-alpha: 0.6;
 	&.-elevation-x-small {
 		&.-outlined {
 			&:not(.-hovered):not(:hover):not(.-focused):not(:focus) {
-				//background: $color-default-background !important;
 				background: $color-default-background;
 			}
 		}
@@ -303,7 +302,6 @@ $button-disabled-alpha: 0.6;
 	&.-elevation-small {
 		&.-outlined {
 			&:not(.-hovered):not(:hover):not(.-focused):not(:focus) {
-				//background: $color-default-background !important;
 				background: $color-default-background;
 			}
 		}
