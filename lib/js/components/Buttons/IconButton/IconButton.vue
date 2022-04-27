@@ -31,7 +31,13 @@
 		<wnl-button
 			ref="button"
 			class="a-iconButton__button"
-			:class="{ '-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY }"
+			:class="{
+				'-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY,
+				'-hovered': state === ICON_BUTTON_STATES.HOVERED,
+				'-focused': state === ICON_BUTTON_STATES.FOCUSED,
+				'-loading': state === ICON_BUTTON_STATES.LOADING,
+				'-disabled': state === ICON_BUTTON_STATES.DISABLED,
+			}"
 			:radius="radius"
 			:type="buttonType"
 			:state="hovered ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT"
@@ -95,14 +101,6 @@
 
 			&:hover,
 			&.-hovered {
-				#{$self}__button {
-					background-color: map-get($color-map, 'filled', 'background-hovered');
-
-					&.-outlined {
-						background-color: map-get($color-map, 'outlined', 'background-hovered');
-						color: map-get($color-map, 'inverted', 'icon');
-					}
-				}
 				#{$self}__label {
 					color: map-get($color-map, 'filled', 'color-hovered');
 				}
@@ -110,33 +108,12 @@
 
 			&:focus,
 			&.-focused {
-				#{$self}__button {
-					background-color: map-get($color-map, 'filled', 'background-focused');
-
-					&.-outlined {
-						background-color: map-get($color-map, 'outlined', 'background-focused');
-						color: map-get($color-map, 'inverted', 'icon');
-					}
-				}
 				#{$self}__label {
 					color: map-get($color-map, 'filled', 'color-focused');
 				}
 			}
 
 			&.-disabled {
-				#{$self}__button {
-					background-color: map-get($color-map, 'filled', 'background-disabled');
-
-					&.-outlined {
-						background-color: map-get($color-map, 'outlined', 'background');
-						border-color: map-get($color-map, 'outlined', 'disabled', 'border');
-
-						.a-iconButton__icon {
-							color: map-get($color-map, 'outlined', 'disabled', 'icon');
-						}
-					}
-				}
-
 				#{$self}__label {
 					color: map-get($color-map, 'outlined', 'disabled', 'color');
 				}

@@ -41,7 +41,7 @@ $only-icon-button-colors: (
 			'background-disabled': $color-neutral-background-ghost-disabled,
 			'ripple': $color-neutral-ripple,
 			'disabled': (
-				'color': $color-neutral-text-disabled,
+				'color': $color-neutral-text-weak-disabled,
 				'border': $color-neutral-border-strong-disabled,
 				'icon': $color-neutral-icon-weak-disabled,
 				'background': $color-neutral-background-ghost-disabled,
@@ -55,7 +55,7 @@ $only-icon-button-colors: (
 			'background-focused': $color-neutral-background-ghost-focused,
 			'background-disabled': $color-neutral-background-ghost-disabled,
 			'disabled': (
-				'color': $color-neutral-text-disabled,
+				'color': $color-neutral-text-weak-disabled,
 				'icon': $color-neutral-icon-weak-disabled,
 				'ripple': $color-neutral-ripple,
 			),
