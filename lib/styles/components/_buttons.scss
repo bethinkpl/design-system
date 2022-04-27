@@ -293,7 +293,7 @@ $button-disabled-alpha: 0.6;
 
 	&.-elevation-x-small {
 		&.-outlined {
-			&:not(.-hovered):not(:hover):not(.-focused):not(:focus):not(.-disabled) {
+			&:not(.-hovered):not(:hover):not(.-focused):not(:focus) {
 				background: $color-default-background !important;
 			}
 		}
@@ -301,7 +301,7 @@ $button-disabled-alpha: 0.6;
 
 	&.-elevation-small {
 		&.-outlined {
-			&:not(.-hovered):not(:hover):not(.-focused):not(:focus):not(.-disabled) {
+			&:not(.-hovered):not(:hover):not(.-focused):not(:focus) {
 				background: $color-default-background !important;
 			}
 		}
