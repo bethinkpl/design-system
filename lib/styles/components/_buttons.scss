@@ -291,21 +291,31 @@ $button-disabled-alpha: 0.6;
 		}
 	}
 
-	&.-elevation-x-small {
+	&.-elevation-x-small,
+	&.-elevation-small {
 		&.-outlined {
-			&:not(.-hovered):not(:hover):not(.-focused):not(:focus) {
+			&::before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				bottom: 0;
+				right: 0;
 				background: $color-default-background;
+				transform: translateZ(-1px);
+				border-radius: 100px;
+			}
+		}
+
+		&.-rounded {
+			&::before {
+				border-radius: $radius-s;
 			}
 		}
 	}
 
 	&.-elevation-small {
-		&.-outlined {
-			&:not(.-hovered):not(:hover):not(.-focused):not(:focus) {
-				background: $color-default-background;
-			}
-		}
-
 		&:not(.-text) {
 			box-shadow: $default-lighter-shadow;
 		}

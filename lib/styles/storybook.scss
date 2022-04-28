@@ -61,4 +61,8 @@ html {
 		width: 150px;
 		word-break: break-word;
 	}
+
+	&__singleIcon {
+		color: $color-default-icon;
+	}
 }

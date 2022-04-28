@@ -114,6 +114,15 @@
 			}
 
 			&.-disabled {
+				#{$self}__button {
+					&.-outlined {
+						border-color: map-get($color-map, 'outlined', 'disabled', 'border');
+
+						.a-iconButton__icon {
+							color: map-get($color-map, 'outlined', 'disabled', 'icon');
+						}
+					}
+				}
 				#{$self}__label {
 					color: map-get($color-map, 'outlined', 'disabled', 'color');
 				}
