@@ -8,7 +8,6 @@
 
 			'-hovered': state === ICON_BUTTON_STATES.HOVERED,
 			'-focused': state === ICON_BUTTON_STATES.FOCUSED,
-			'-loading': state === ICON_BUTTON_STATES.LOADING,
 			'-disabled': state === ICON_BUTTON_STATES.DISABLED,
 
 			[colorClassName]: isButtonColor,
@@ -35,7 +34,6 @@
 				'-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY,
 				'-hovered': state === ICON_BUTTON_STATES.HOVERED,
 				'-focused': state === ICON_BUTTON_STATES.FOCUSED,
-				'-loading': state === ICON_BUTTON_STATES.LOADING,
 				'-disabled': state === ICON_BUTTON_STATES.DISABLED,
 			}"
 			:radius="radius"
