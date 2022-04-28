@@ -116,8 +116,6 @@
 			&.-disabled {
 				#{$self}__button {
 					&.-outlined {
-						border-color: map-get($color-map, 'outlined', 'disabled', 'border');
-
 						.a-iconButton__icon {
 							color: map-get($color-map, 'outlined', 'disabled', 'icon');
 						}
@@ -134,6 +132,10 @@
 					map-get($color-map, 'outlined', 'border'),
 					map-get($color-map, 'outlined', 'icon')
 				);
+
+				&.-disabled {
+					border-color: map-get($color-map, 'outlined', 'disabled', 'border');
+				}
 			}
 		}
 	}
