@@ -27,4 +27,6 @@ export { default as SurveyQuestionScale } from './components/SurveyQuestions/Sur
 export { default as SurveyQuestionOpenEnded } from './components/SurveyQuestions/SurveyQuestionOpenEnded/';
 export * from './components/SurveyQuestions/SurveyQuestion.consts';
 export * from './components/SurveyQuestions/SurveyQuestion.domain';
+export { default as Ripple } from './components/Ripple';
+export * from './components/Ripple/Ripple.consts';
 export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, IconDefinition, } from './icons/fontawesome';
