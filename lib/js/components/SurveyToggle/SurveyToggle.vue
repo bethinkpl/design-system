@@ -55,10 +55,10 @@ $survey-toggle-colors: (
 	),
 	'primary-selected': (
 		'background': $color-primary-background-strong,
-		'border': $color-default-border-inverted,
-		'color': $color-default-text-inverted,
+		'border': $color-inverted-border,
+		'color': $color-inverted-text,
 		'background-hovered': $color-primary-background-strong-hovered,
-		'ripple': $color-default-ripple-inverted,
+		'ripple': $color-inverted-ripple,
 		'disabled': (
 			'background': $color-primary-background-strong-disabled,
 		),
@@ -77,10 +77,10 @@ $survey-toggle-colors: (
 	),
 	'neutral-selected': (
 		'background': $color-neutral-background-strong,
-		'border': $color-default-border-inverted,
-		'color': $color-default-text-inverted,
+		'border': $color-inverted-border,
+		'color': $color-inverted-text,
 		'background-hovered': $color-neutral-background-strong-hovered,
-		'ripple': $color-default-ripple-inverted,
+		'ripple': $color-inverted-ripple,
 		'disabled': (
 			'background': $color-neutral-background-strong-disabled,
 		),
@@ -207,7 +207,7 @@ $survey-toggle-colors: (
 
 	&__icon {
 		display: flex;
-		color: $color-default-icon-inverted;
+		color: $color-inverted-icon;
 	}
 
 	&__label {
