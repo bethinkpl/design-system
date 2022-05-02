@@ -31,7 +31,6 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/z-indexes';
 @import '../../../styles/settings/typography';
-@import '../../../styles/settings/shadows';
 
 .m-modal {
 	align-items: center;
