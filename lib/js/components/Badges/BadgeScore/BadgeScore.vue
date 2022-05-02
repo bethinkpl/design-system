@@ -18,12 +18,39 @@
 <style scoped lang="scss">
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
-@import '../../../../styles/components/badge-score';
 @import '../../../../styles/settings/colors/tokens';
 
 $badge-score-width: 74px;
 $small-badge-score-width: 48px;
 $x-small-badge-score-width: 36px;
+
+$badge-score-colors: (
+	'success': (
+		'border': $color-success-border,
+		'color': $color-success-text,
+		'color-additional': $color-success-text-weak,
+	),
+	'fail': (
+		'border': $color-fail-border,
+		'color': $color-fail-text,
+		'color-additional': $color-fail-text-weak,
+	),
+	'warning': (
+		'border': $color-warning-border,
+		'color': $color-warning-text,
+		'color-additional': $color-warning-text-weak,
+	),
+	'inverted': (
+		'border': $color-inverted-border,
+		'color': $color-inverted-text,
+		'color-additional': $color-inverted-text,
+	),
+	'neutral': (
+		'border': $color-neutral-border-strong,
+		'color': $color-neutral-text-weak,
+		'color-additional': $color-neutral-text-weak,
+	),
+);
 
 @mixin setBadgeScoreColor($self, $border, $color, $color-additional) {
 	border-color: $border;
