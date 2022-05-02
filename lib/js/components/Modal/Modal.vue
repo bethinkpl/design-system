@@ -31,6 +31,7 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/z-indexes';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/shadows';
 
 .m-modal {
 	align-items: center;
@@ -48,7 +49,7 @@
 
 	&__contentWrapper {
 		background-color: $color-total-white;
-		box-shadow: 0 4px 34px rgba(0, 0, 0, 0.85);
+		box-shadow: 0 4px 34px rgba(var(--raw-black-rgb), 0.85);
 		display: flex;
 		flex-direction: column;
 		margin: $space-xl $space-s $space-l;
@@ -66,7 +67,7 @@
 
 	&__header {
 		align-items: center;
-		box-shadow: 0 $space-xxxxs $space-xxxxs $color-total-white;
+		box-shadow: 0 $space-xxxxs $space-xxxxs var(--raw-white);
 		display: flex;
 		justify-content: space-between;
 		padding: $space-xs $space-xs $space-xxxs;
@@ -87,7 +88,7 @@
 		padding: $space-s;
 
 		&__shadow {
-			box-shadow: 0 #{-$space-xxxxs} $space-xxxxs $color-total-white;
+			box-shadow: 0 #{-$space-xxxxs} $space-xxxxs var(--raw-white);
 			content: ' ';
 			height: $space-xxxxs;
 			z-index: 1;

@@ -75,7 +75,7 @@
 	}
 
 	&__tile {
-		box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
+		box-shadow: 0 1px 3px 0 rgb(var(--raw-black), 0.1);
 		display: block;
 		height: 40px;
 		width: 100%;

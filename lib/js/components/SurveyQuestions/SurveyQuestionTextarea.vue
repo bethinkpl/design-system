@@ -20,7 +20,7 @@
 
 	border: 1px solid $color-mischka-gray;
 	box-sizing: border-box;
-	box-shadow: inset 0 1px 3px $color-minor-supporting;
+	box-shadow: inset 0 1px 3px var(--raw-gray-400);
 	border-radius: $radius-s;
 	min-height: 2em;
 	padding: $space-xxs;
