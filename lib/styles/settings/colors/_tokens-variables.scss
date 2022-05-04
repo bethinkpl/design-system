@@ -1,10 +1,6 @@
 :root {
 	--color-default-text: var(--raw-black);
-	--color-default-text-inverted: var(--raw-white);
-	--color-default-text-inverted-disabled: rgba(var(--raw-white-rgb), 0.6);
 	--color-default-icon: var(--raw-black);
-	--color-default-icon-inverted: var(--raw-white);
-	--color-default-icon-inverted-disabled: rgba(var(--raw-white-rgb), 0.6);
 	--color-default-background: var(--raw-white);
 	--color-default-background-ghost: rgba(var(--raw-white-rgb), 0);
 	--color-default-background-ghost-hovered: rgba(var(--raw-white-rgb), 0.12);
@@ -12,12 +8,22 @@
 	--color-default-background-ghost-pressed: rgba(var(--raw-white-rgb), 0.18);
 	--color-default-background-ghost-disabled: rgba(var(--raw-white-rgb), 0);
 	--color-default-overlay: rgba(var(--raw-black-rgb), 0.9);
-	--color-default-overlay-inverted: rgba(var(--raw-white-rgb), 0.95);
 	--color-default-border: var(--raw-black);
-	--color-default-border-inverted: var(--raw-white);
-	--color-default-border-inverted-disabled: rgba(var(--raw-white-rgb), 0.7);
 	--color-default-ripple: rgba(var(--raw-black-rgb), 0.06);
-	--color-default-ripple-inverted: rgba(var(--raw-white-rgb), 0.12);
+	--color-default-shadow-strong: rgba(var(--raw-black-rgb), 0.12);
+	--color-default-shadow: rgba(var(--raw-black-rgb), 0.08);
+	--color-default-shadow-weak: rgba(var(--raw-black-rgb), 0.06);
+	--color-inverted-text: var(--raw-white);
+	--color-inverted-text-disabled: rgba(var(--raw-white-rgb), 0.6);
+	--color-inverted-icon: var(--raw-white);
+	--color-inverted-icon-disabled: rgba(var(--raw-white-rgb), 0.6);
+	--color-inverted-overlay: rgba(var(--raw-white-rgb), 0.95);
+	--color-inverted-border: var(--raw-white);
+	--color-inverted-border-disabled: rgba(var(--raw-white-rgb), 0.7);
+	--color-inverted-ripple: rgba(var(--raw-white-rgb), 0.12);
+	--color-inverted-shadow-strong: rgba(var(--raw-white-rgb), 0.94);
+	--color-inverted-shadow: rgba(var(--raw-white-rgb), 0.92);
+	--color-inverted-shadow-weak: rgba(var(--raw-white-rgb), 0.88);
 	--color-primary-text: var(--theme-600);
 	--color-primary-text-hovered: var(--theme-800);
 	--color-primary-text-focused: var(--theme-800);
