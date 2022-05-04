@@ -1,6 +1,7 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import SectionHeader from './SectionHeader';
 import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
+import { ICONS } from '../Icon';
 
 <Meta title="components/SectionHeader" component={SectionHeader} />
 
@@ -9,12 +10,17 @@ import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
 <Story
 	name="interactive"
 	argTypes={{
+		iconLeft: {
+			control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+			defaultValue: null,
+		},
 		size: {
 			control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
 			defaultValue: SECTION_HEADER_SIZES.M,
 		},
 	}}
 	args={{
+		iconLeft: null,
 		size: SECTION_HEADER_SIZES.M,
 		text: 'Text',
 	}}
@@ -23,8 +29,11 @@ import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
 		return {
 			components: { SectionHeader },
 			props: Object.keys(args),
+			created() {
+				this.ICONS = ICONS;
+			},
 			template:
-				'<section-header :size="size" :text="text">' +
+				'<section-header :icon-left="ICONS[iconLeft]" :size="size" :text="text">' +
 				'<div style="border: 1px solid;">Slot</div>' +
 				'</section-header>',
 		};
