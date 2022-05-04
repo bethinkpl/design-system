@@ -27,11 +27,21 @@
 @import '../../../styles/settings/typography';
 
 .sectionHeader {
+	$section-header-height-large: 56px;
+	$section-header-height-medium: 44px;
 	$self: &;
 
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
+
+	&.-size-l {
+		min-height: 56px;
+	}
+
+	&.-size-l {
+		min-height: 44px;
+	}
 
 	&__titleWrapper {
 		@include textBold();
