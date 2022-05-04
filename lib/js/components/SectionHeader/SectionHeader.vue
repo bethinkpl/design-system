@@ -44,7 +44,7 @@
 		min-height: 56px;
 	}
 
-	&.-size-l {
+	&.-size-m {
 		min-height: 44px;
 	}
 
