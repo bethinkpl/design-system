@@ -216,6 +216,17 @@ $button-disabled-alpha: 0.6;
 				);
 			}
 		}
+
+		&.-rounded {
+			border-radius: $radius-s;
+			padding-left: $space-xs;
+			padding-right: $space-xs;
+
+			&.-large {
+				padding-left: $space-s;
+				padding-right: $space-s;
+			}
+		}
 	}
 
 	&.-large {
@@ -265,17 +276,6 @@ $button-disabled-alpha: 0.6;
 		@include buttonS;
 
 		min-height: $button-small-min-height;
-	}
-
-	&.-rounded {
-		border-radius: $radius-s;
-		padding-left: $space-xs;
-		padding-right: $space-xs;
-
-		&.-large {
-			padding-left: $space-s;
-			padding-right: $space-s;
-		}
 	}
 
 	&.-loading {
