@@ -53,14 +53,10 @@
 	}
 
 	&__iconLeft {
-		// Override icon's display to center it vertically
-		display: block;
 		margin-right: $space-xxs;
 	}
 
 	&__chevron {
-		// Override icon's display to center it vertically
-		display: block;
 		margin-left: $space-xxs;
 	}
 }
