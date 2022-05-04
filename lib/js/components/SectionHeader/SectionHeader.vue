@@ -1,5 +1,5 @@
 <template>
-	<div class="sectionHeader" :class="{ [sizeClass]: true }">
+	<div class="sectionHeader" :class="{ '-expandable': expandable, [sizeClass]: true }">
 		<div class="sectionHeader__titleWrapper">
 			<ds-icon
 				v-if="iconLeft"
@@ -8,6 +8,12 @@
 				:size="ICON_SIZES.SMALL"
 			/>
 			<span>{{ text }}</span>
+			<ds-icon
+				v-if="expandable"
+				class="sectionHeader__chevron"
+				:icon="chevronIcon"
+				:size="ICON_SIZES.SMALL"
+			/>
 		</div>
 		<slot></slot>
 	</div>
@@ -19,6 +25,8 @@
 @import '../../../styles/settings/typography';
 
 .sectionHeader {
+	$self: &;
+
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
@@ -29,6 +37,11 @@
 		align-items: center;
 		color: $color-neutral-text;
 		display: flex;
+
+		#{$self}.-expandable &:hover {
+			color: $color-neutral-text-hovered;
+			cursor: pointer;
+		}
 	}
 
 	&.-size-l &__titleWrapper {
@@ -41,6 +54,10 @@
 
 	&__iconLeft {
 		margin-right: $space-xxs;
+	}
+
+	&__chevron {
+		margin-left: $space-xxs;
 	}
 }
 </style>
@@ -55,6 +72,10 @@ export default {
 		DsIcon,
 	},
 	props: {
+		expandable: {
+			type: Boolean,
+			default: false,
+		},
 		iconLeft: {
 			type: Object as () => IconItem,
 			default: null,
@@ -75,6 +96,10 @@ export default {
 		},
 	},
 	computed: {
+		chevronIcon(): IconItem {
+			// TODO
+			return ICONS.FA_CHEVRON_DOWN;
+		},
 		sizeClass(): string {
 			return `-size-${this.size}`;
 		},

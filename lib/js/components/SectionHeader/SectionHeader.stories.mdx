@@ -20,6 +20,7 @@ import { ICONS } from '../Icon';
 		},
 	}}
 	args={{
+		expandable: false,
 		iconLeft: null,
 		size: SECTION_HEADER_SIZES.M,
 		text: 'Text',
@@ -33,7 +34,7 @@ import { ICONS } from '../Icon';
 				this.ICONS = ICONS;
 			},
 			template:
-				'<section-header :icon-left="ICONS[iconLeft]" :size="size" :text="text">' +
+				'<section-header :expandable="expandable" :icon-left="ICONS[iconLeft]" :size="size" :text="text">' +
 				'<div style="border: 1px solid;">Slot</div>' +
 				'</section-header>',
 		};
