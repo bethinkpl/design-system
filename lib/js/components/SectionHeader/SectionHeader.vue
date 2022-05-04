@@ -27,6 +27,7 @@
 		@include textBold();
 
 		align-items: center;
+		color: $color-neutral-text;
 		display: flex;
 	}
 
