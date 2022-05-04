@@ -7,7 +7,7 @@
 				:icon="iconLeft"
 				:size="ICON_SIZES.SMALL"
 			/>
-			<span>{{ text }}</span>
+			<span class="sectionHeader__text">{{ text }}</span>
 			<ds-icon
 				v-if="expandable"
 				class="sectionHeader__chevron"
@@ -22,6 +22,7 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
@@ -32,7 +33,12 @@
 
 	align-items: center;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
+
+	@media #{breakpoint-s()} {
+		flex-wrap: nowrap;
+	}
 
 	&.-size-l {
 		min-height: 56px;
@@ -48,6 +54,7 @@
 		align-items: center;
 		color: $color-neutral-text;
 		display: flex;
+		overflow: hidden;
 
 		#{$self}.-expandable &:hover {
 			color: $color-neutral-text-hovered;
@@ -65,6 +72,11 @@
 
 	&__iconLeft {
 		margin-right: $space-xxs;
+	}
+
+	&__text {
+		overflow: hidden;
+		text-overflow: ellipsis;
 	}
 
 	&__chevron {
