@@ -111,8 +111,8 @@ export default {
 		},
 	},
 	computed: {
-		chevronRotation(): number {
-			return this.isExpanded ? 180 : 0;
+		chevronRotation(): number | null {
+			return this.isExpanded ? 180 : null;
 		},
 		sizeClass(): string {
 			return `-size-${this.size}`;
