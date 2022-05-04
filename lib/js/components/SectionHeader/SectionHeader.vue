@@ -1,6 +1,6 @@
 <template>
 	<div class="sectionHeader" :class="{ '-expandable': expandable, [sizeClass]: true }">
-		<div class="sectionHeader__titleWrapper">
+		<div class="sectionHeader__titleWrapper" @click="$emit('update:isExpanded', !isExpanded)">
 			<ds-icon
 				v-if="iconLeft"
 				class="sectionHeader__iconLeft"
@@ -14,7 +14,6 @@
 				:icon="ICONS.FA_CHEVRON_DOWN"
 				:rotation="chevronRotation"
 				:size="ICON_SIZES.SMALL"
-				@click.native="$emit('update:isExpanded', !isExpanded)"
 			/>
 		</div>
 		<slot></slot>
