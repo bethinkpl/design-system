@@ -11,7 +11,8 @@
 			<ds-icon
 				v-if="expandable"
 				class="sectionHeader__chevron"
-				:icon="chevronIcon"
+				:icon="ICONS.FA_CHEVRON_DOWN"
+				:rotation="chevronRotation"
 				:size="ICON_SIZES.SMALL"
 				@click.native="$emit('update:isExpanded', !isExpanded)"
 			/>
@@ -101,8 +102,8 @@ export default {
 		},
 	},
 	computed: {
-		chevronIcon(): IconItem {
-			return this.isExpanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN;
+		chevronRotation(): number {
+			return this.isExpanded ? 180 : 0;
 		},
 		sizeClass(): string {
 			return `-size-${this.size}`;
@@ -110,6 +111,7 @@ export default {
 	},
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
+		this.ICONS = ICONS;
 	},
 };
 </script>
