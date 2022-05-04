@@ -1,0 +1,36 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import SectionHeader from './SectionHeader';
+import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
+
+<Meta title="components/SectionHeader" component={SectionHeader} />
+
+# SectionHeader
+
+<Story
+	name="interactive"
+	argTypes={{
+		size: {
+			control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
+			defaultValue: SECTION_HEADER_SIZES.M,
+		},
+	}}
+	args={{
+		size: SECTION_HEADER_SIZES.M,
+		text: 'Text',
+	}}
+>
+	{(args) => {
+		return {
+			components: { SectionHeader },
+			props: Object.keys(args),
+			template:
+				'<section-header :size="size" :text="text">' +
+				'<div style="border: 1px solid;">Slot</div>' +
+				'</section-header>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={SectionHeader} />
