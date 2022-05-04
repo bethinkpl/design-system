@@ -13,6 +13,7 @@
 				class="sectionHeader__chevron"
 				:icon="chevronIcon"
 				:size="ICON_SIZES.SMALL"
+				@click.native="$emit('update:isExpanded', !isExpanded)"
 			/>
 		</div>
 		<slot></slot>
@@ -83,6 +84,10 @@ export default {
 				return Object.values(ICONS).includes(iconLeft);
 			},
 		},
+		isExpanded: {
+			type: Boolean,
+			default: false,
+		},
 		size: {
 			type: String,
 			default: SECTION_HEADER_SIZES.M,
@@ -97,8 +102,7 @@ export default {
 	},
 	computed: {
 		chevronIcon(): IconItem {
-			// TODO
-			return ICONS.FA_CHEVRON_DOWN;
+			return this.isExpanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN;
 		},
 		sizeClass(): string {
 			return `-size-${this.size}`;

@@ -22,19 +22,27 @@ import { ICONS } from '../Icon';
 	args={{
 		expandable: false,
 		iconLeft: null,
+		isExpanded: false,
 		size: SECTION_HEADER_SIZES.M,
 		text: 'Text',
 	}}
 >
-	{(args) => {
+	{(args, { updateArgs }) => {
 		return {
 			components: { SectionHeader },
 			props: Object.keys(args),
 			created() {
 				this.ICONS = ICONS;
 			},
+			methods: {
+				onIsExpandedUpdated(isExpanded) {
+					updateArgs({
+						isExpanded,
+					});
+				},
+			},
 			template:
-				'<section-header :expandable="expandable" :icon-left="ICONS[iconLeft]" :size="size" :text="text">' +
+				'<section-header :expandable="expandable" :icon-left="ICONS[iconLeft]" :is-expanded="isExpanded" :size="size" :text="text" @update:isExpanded="onIsExpandedUpdated">' +
 				'<div style="border: 1px solid;">Slot</div>' +
 				'</section-header>',
 		};
