@@ -1,6 +1,6 @@
 <template>
 	<div class="sectionHeader" :class="{ '-expandable': expandable, [sizeClass]: true }">
-		<div class="sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
+		<div class="sectionHeader__textWrapper" @click="onTextWrapperClicked">
 			<ds-icon
 				v-if="iconLeft"
 				class="sectionHeader__iconLeft"
@@ -42,7 +42,7 @@
 		min-height: 44px;
 	}
 
-	&__titleWrapper {
+	&__textWrapper {
 		@include textBold();
 
 		align-items: center;
@@ -55,11 +55,11 @@
 		}
 	}
 
-	&.-size-l &__titleWrapper {
+	&.-size-l &__textWrapper {
 		@include headlineL();
 	}
 
-	&.-size-m &__titleWrapper {
+	&.-size-m &__textWrapper {
 		@include headlineM();
 	}
 
@@ -123,7 +123,7 @@ export default {
 		this.ICONS = ICONS;
 	},
 	methods: {
-		onTitleWrapperClicked(): void {
+		onTextWrapperClicked(): void {
 			if (!this.expandable) {
 				return;
 			}
