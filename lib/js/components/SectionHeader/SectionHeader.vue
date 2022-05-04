@@ -1,6 +1,6 @@
 <template>
 	<div class="sectionHeader" :class="{ '-expandable': expandable, [sizeClass]: true }">
-		<div class="sectionHeader__titleWrapper" @click="$emit('update:isExpanded', !isExpanded)">
+		<div class="sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
 			<ds-icon
 				v-if="iconLeft"
 				class="sectionHeader__iconLeft"
@@ -121,6 +121,14 @@ export default {
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
 		this.ICONS = ICONS;
+	},
+	methods: {
+		onTitleWrapperClicked(): void {
+			if (!this.expandable) {
+				return;
+			}
+			this.$emit('update:isExpanded', !this.isExpanded);
+		},
 	},
 };
 </script>
