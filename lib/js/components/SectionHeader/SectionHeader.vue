@@ -73,6 +73,7 @@
 	&__text {
 		overflow: hidden;
 		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	&__chevron {
