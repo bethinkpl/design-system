@@ -16,7 +16,9 @@
 				:size="ICON_SIZES.SMALL"
 			/>
 		</div>
-		<slot></slot>
+		<div v-if="$slots.default" class="sectionHeader__slot">
+			<slot></slot>
+		</div>
 	</div>
 </template>
 
@@ -75,6 +77,12 @@
 
 	&__chevron {
 		margin-left: $space-xxs;
+	}
+
+	&__slot {
+		@media #{breakpoint-s()} {
+			margin-left: $space-s;
+		}
 	}
 }
 </style>
