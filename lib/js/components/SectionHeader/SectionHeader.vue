@@ -29,7 +29,7 @@
 @import '../../../styles/settings/typography';
 
 .sectionHeader {
-	$self: &;
+	$root: &;
 
 	align-items: center;
 	display: flex;
@@ -43,51 +43,60 @@
 	&__textWrapper {
 		@include textBold();
 
-		align-items: center;
+		align-items: start;
 		color: $color-neutral-text;
 		display: flex;
-		overflow: hidden;
 		width: 100%;
 
 		@media #{breakpoint-s()} {
 			width: auto;
 		}
 
-		#{$self}.-expandable &:hover {
+		#{$root}.-expandable &:hover {
 			color: $color-neutral-text-hovered;
 			cursor: pointer;
 		}
 	}
 
-	&.-size-l &__textWrapper {
-		@include headlineL();
-
-		padding: $space-xs 0;
-	}
-
-	&.-size-m &__textWrapper {
-		@include headlineM();
-
-		padding: $space-xxs 0;
-	}
-
-	&__iconLeft {
-		margin-right: $space-xxs;
-	}
-
-	&__text {
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
-
-	&__chevron {
-		margin-left: $space-xxs;
-	}
-
 	&__slot {
 		@media #{breakpoint-s()} {
 			margin-left: $space-s;
+		}
+	}
+
+	&.-size-l {
+		#{$root}__textWrapper {
+			@include headlineL();
+		}
+
+		#{$root}__iconLeft {
+			margin: $space-s $space-xxs $space-s 0;
+		}
+
+		#{$root}__text {
+			padding: $space-xs 0;
+		}
+
+		#{$root}__chevron {
+			margin: $space-s 0 $space-s $space-xxs;
+		}
+	}
+
+	&.-size-m {
+		#{$root}__textWrapper {
+			@include headlineM();
+		}
+
+		#{$root}__iconLeft {
+			margin: $space-xs $space-xxs $space-xs 0;
+		}
+
+		#{$root}__text {
+			padding: $space-xxs 0;
+		}
+
+		#{$root}__chevron {
+			margin: $space-xs 0 $space-xs $space-xxs;
 		}
 	}
 }
