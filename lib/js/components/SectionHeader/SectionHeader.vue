@@ -47,6 +47,11 @@
 		color: $color-neutral-text;
 		display: flex;
 		overflow: hidden;
+		width: 100%;
+
+		@media #{breakpoint-s()} {
+			width: auto;
+		}
 
 		#{$self}.-expandable &:hover {
 			color: $color-neutral-text-hovered;
