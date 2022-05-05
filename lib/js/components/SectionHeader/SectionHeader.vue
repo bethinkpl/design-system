@@ -44,18 +44,34 @@
 		@include textBold();
 
 		align-items: start;
-		color: $color-neutral-text;
 		display: flex;
 		width: 100%;
 
 		@media #{breakpoint-s()} {
 			width: auto;
 		}
+	}
 
-		#{$root}.-expandable &:hover {
-			color: $color-neutral-text-hovered;
-			cursor: pointer;
+	&.-expandable &__titleWrapper:hover {
+		cursor: pointer;
+
+		#{$root}__iconLeft,
+		#{$root}__chevron {
+			color: $color-neutral-icon-hovered;
 		}
+
+		#{$root}__title {
+			color: $color-neutral-text-hovered;
+		}
+	}
+
+	&__iconLeft,
+	&__chevron {
+		color: $color-neutral-icon;
+	}
+
+	&__title {
+		color: $color-neutral-text;
 	}
 
 	&__slot {
