@@ -1,13 +1,13 @@
 <template>
 	<div class="sectionHeader" :class="{ '-expandable': expandable, [sizeClass]: true }">
-		<div class="sectionHeader__textWrapper" @click="onTextWrapperClicked">
+		<div class="sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
 			<ds-icon
 				v-if="iconLeft"
 				class="sectionHeader__iconLeft"
 				:icon="iconLeft"
 				:size="ICON_SIZES.SMALL"
 			/>
-			<span class="sectionHeader__text">{{ text }}</span>
+			<span class="sectionHeader__title">{{ title }}</span>
 			<ds-icon
 				v-if="expandable"
 				class="sectionHeader__chevron"
@@ -40,7 +40,7 @@
 		flex-wrap: nowrap;
 	}
 
-	&__textWrapper {
+	&__titleWrapper {
 		@include textBold();
 
 		align-items: start;
@@ -65,7 +65,7 @@
 	}
 
 	&.-size-l {
-		#{$root}__textWrapper {
+		#{$root}__titleWrapper {
 			@include headlineL();
 		}
 
@@ -73,7 +73,7 @@
 			margin: $space-s $space-xxs $space-s 0;
 		}
 
-		#{$root}__text {
+		#{$root}__title {
 			padding: $space-xs 0;
 		}
 
@@ -83,7 +83,7 @@
 	}
 
 	&.-size-m {
-		#{$root}__textWrapper {
+		#{$root}__titleWrapper {
 			@include headlineM();
 		}
 
@@ -91,7 +91,7 @@
 			margin: $space-xs $space-xxs $space-xs 0;
 		}
 
-		#{$root}__text {
+		#{$root}__title {
 			padding: $space-xxs 0;
 		}
 
@@ -134,7 +134,7 @@ export default {
 				Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
 		},
-		text: {
+		title: {
 			type: String,
 			required: true,
 		},
@@ -152,7 +152,7 @@ export default {
 		this.ICONS = ICONS;
 	},
 	methods: {
-		onTextWrapperClicked(): void {
+		onTitleWrapperClicked(): void {
 			if (!this.expandable) {
 				return;
 			}
