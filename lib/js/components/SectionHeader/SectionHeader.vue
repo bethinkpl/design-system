@@ -27,8 +27,6 @@
 @import '../../../styles/settings/typography';
 
 .sectionHeader {
-	$section-header-height-large: 56px;
-	$section-header-height-medium: 44px;
 	$self: &;
 
 	align-items: center;
@@ -38,14 +36,6 @@
 
 	@media #{breakpoint-s()} {
 		flex-wrap: nowrap;
-	}
-
-	&.-size-l {
-		min-height: 56px;
-	}
-
-	&.-size-m {
-		min-height: 44px;
 	}
 
 	&__textWrapper {
@@ -64,10 +54,14 @@
 
 	&.-size-l &__textWrapper {
 		@include headlineL();
+
+		padding: $space-xs 0;
 	}
 
 	&.-size-m &__textWrapper {
 		@include headlineM();
+
+		padding: $space-xxs 0;
 	}
 
 	&__iconLeft {
