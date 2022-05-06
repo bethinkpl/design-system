@@ -16,7 +16,11 @@
 				:size="ICON_SIZES.SMALL"
 			/>
 		</div>
-		<div v-if="$slots.default" class="sectionHeader__slot">
+		<div
+			v-if="$slots.default"
+			class="sectionHeader__slot"
+			:class="{ '-withPadding': slotPadding }"
+		>
 			<slot></slot>
 		</div>
 	</div>
@@ -77,6 +81,10 @@
 	&__slot {
 		@media #{breakpoint-s()} {
 			margin-left: $space-s;
+		}
+
+		&.-withPadding {
+			padding: $space-xxs 0;
 		}
 	}
 
@@ -149,6 +157,10 @@ export default {
 			validate(size) {
 				Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
+		},
+		slotPadding: {
+			type: Boolean,
+			default: true,
 		},
 		title: {
 			type: String,

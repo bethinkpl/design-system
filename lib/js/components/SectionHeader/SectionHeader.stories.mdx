@@ -24,6 +24,7 @@ import { ICONS } from '../Icon';
 		iconLeft: null,
 		isExpanded: false,
 		size: SECTION_HEADER_SIZES.M,
+		slotPadding: true,
 		title: 'Title',
 	}}
 >
@@ -42,8 +43,16 @@ import { ICONS } from '../Icon';
 				},
 			},
 			template:
-				'<section-header :expandable="expandable" :icon-left="ICONS[iconLeft]" :is-expanded="isExpanded" :size="size" :title="title" @update:isExpanded="onIsExpandedUpdated">' +
-				'<div style="border: 1px solid;">Slot</div>' +
+				'<section-header' +
+				' :expandable="expandable"' +
+				' :icon-left="ICONS[iconLeft]"' +
+				' :is-expanded="isExpanded"' +
+				' :size="size"' +
+				' :slot-padding="slotPadding"' +
+				' :title="title"' +
+				' @update:isExpanded="onIsExpandedUpdated"' +
+				'>' +
+				'<div style="border: 1px solid;">Slot content</div>' +
 				'</section-header>',
 		};
 	}}
