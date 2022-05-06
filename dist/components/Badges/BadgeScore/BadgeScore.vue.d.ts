@@ -5,6 +5,11 @@ declare const _default: {
             type: StringConstructor;
             required: boolean;
         };
+        additionalText: {
+            type: StringConstructor;
+            required: boolean;
+            default: null;
+        };
         color: {
             type: StringConstructor;
             required: boolean;
