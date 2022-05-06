@@ -10,25 +10,25 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/colors';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/colors/tokens';
 
 .surveyQuestionTextarea {
 	@include textM;
 
-	border: 1px solid $color-mischka-gray;
+	border: 1px solid $color-neutral-border-weak;
 	box-sizing: border-box;
-	box-shadow: inset 0 1px 3px $color-minor-supporting;
+	box-shadow: inset 0 1px 3px var(--raw-gray-400);
 	border-radius: $radius-s;
 	min-height: 2em;
 	padding: $space-xxs;
 	resize: none;
 
 	&:disabled {
-		background: $color-total-white;
-		color: $color-minor-supporting;
+		background: $color-default-background;
+		color: $color-neutral-text-weak;
 	}
 }
 </style>

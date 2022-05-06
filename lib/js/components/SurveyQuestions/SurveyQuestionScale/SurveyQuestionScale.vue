@@ -15,7 +15,7 @@
 					<icon-button
 						v-if="$slots.explanation"
 						class="surveyQuestionScale__explanation"
-						:color="BUTTON_COLORS.MINOR_SUPPORTING"
+						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_CIRCLE_QUESTION"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
@@ -76,12 +76,12 @@
 
 <style lang="scss" scoped>
 @import '../../../../styles/settings/buttons';
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/colors/tokens';
 
 .surveyQuestionScale {
 	&__header {
@@ -104,7 +104,7 @@
 	}
 
 	&__content {
-		background: $color-background-secondary;
+		background: $color-neutral-background;
 		border-radius: $radius-s;
 		display: flex;
 		justify-content: space-between;
@@ -137,7 +137,7 @@
 
 	&__separator {
 		border-bottom: none;
-		border-top: 1px solid $color-mischka-gray;
+		border-top: 1px solid $color-neutral-border-weak;
 		margin: $space-m 0 $space-s 0;
 	}
 
@@ -162,7 +162,8 @@ import { Prop } from 'vue/types/options';
 import DsCard from '../../Cards/Card';
 import IconButton from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
-import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
+import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
+import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import DsModal from '../../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_MEANINGS,
@@ -227,7 +228,7 @@ export default {
 		};
 	},
 	created() {
-		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;

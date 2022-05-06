@@ -8,6 +8,12 @@ import { BADGE_COLORS } from './Badge.consts';
 
 <Story
 	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34953',
+		},
+	}}
 	args={{
 		label: 'Komentarz zespołu',
 		iconUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
@@ -15,7 +21,7 @@ import { BADGE_COLORS } from './Badge.consts';
 	argTypes={{
 		color: {
 			control: { type: 'select', options: Object.values(BADGE_COLORS) },
-			defaultValue: BADGE_COLORS.MINOR,
+			defaultValue: BADGE_COLORS.NEUTRAL,
 		},
 	}}
 >

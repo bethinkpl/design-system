@@ -12,7 +12,7 @@ describe('Badge', () => {
 			mocks: {},
 			propsData: {
 				label,
-				color: BADGE_COLORS.MINOR,
+				color: BADGE_COLORS.NEUTRAL,
 			},
 			stubs: {},
 		});

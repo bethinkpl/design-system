@@ -20,7 +20,7 @@
 					<icon-button
 						v-if="$slots.explanation"
 						class="surveyQuestionOpenEnded__explanation"
-						:color="BUTTON_COLORS.MINOR_SUPPORTING"
+						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_CIRCLE_QUESTION"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
@@ -46,6 +46,7 @@
 @import '../../../../styles/settings/buttons';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/colors/tokens';
 
 .surveyQuestionOpenEnded {
 	&__header {
@@ -81,11 +82,11 @@
 <script lang="ts">
 import DsCard from '../../Cards/Card';
 import DsModal from '../../Modal';
-import DsButton, { BUTTON_COLORS, BUTTON_TYPES } from '../../Buttons/Button';
-import IconButton from '../../Buttons/IconButton';
+import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
+import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icon';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
-import SurveyQuestionTextarea from '../';
+import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
 import { randomString } from '../../../utils/string';
 
 export default {
@@ -125,7 +126,7 @@ export default {
 		};
 	},
 	created() {
-		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
 		this.BUTTON_TYPES = BUTTON_TYPES;
 		this.ICONS = ICONS;
 		this.ICON_SIZES = ICON_SIZES;

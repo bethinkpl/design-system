@@ -6,25 +6,36 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/colors/tokens';
 
 .accessStatus {
+	$self: &;
+
 	align-items: center;
-	color: $color-storm-gray;
+	color: $color-neutral-text;
 	display: flex;
 
+	&__icon {
+		color: $color-neutral-icon;
+		margin-right: $space-xxxxs;
+	}
+
 	&.-active {
-		color: $color-salad-green;
+		color: $color-success-text;
+
+		#{$self}__icon {
+			color: $color-success-icon;
+		}
 	}
 
 	&.-suspended {
-		color: $color-crimson-red;
-	}
+		color: $color-danger-text;
 
-	&__icon {
-		margin-right: $space-xxxxs;
+		#{$self}__icon {
+			color: $color-danger-icon;
+		}
 	}
 
 	&__text {
@@ -37,9 +48,8 @@
 </style>
 
 <script lang="ts">
-import Icon from '../../../components/Icon';
+import Icon from '../../Icon';
 import { ICONS, ICON_SIZES } from '../../Icon';
-
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
 
 export default {

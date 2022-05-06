@@ -7,6 +7,12 @@ import WnlIcon, { ICON_SIZES, ICONS } from 'design-system/lib/js/components/Icon
 
 <Story
 	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34963',
+		},
+	}}
 	args={{
 		size: ICON_SIZES.MEDIUM,
 		icon: 'HEAD_WITH_QUESTION_MARK',
@@ -39,12 +45,20 @@ import WnlIcon, { ICON_SIZES, ICONS } from 'design-system/lib/js/components/Icon
 				this.ICONS = ICONS;
 			},
 			template:
-				'<div style="display: flex"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
+				'<div class="iconList__singleIcon"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
 		};
 	}}
 </Story>
 
-<Story name="all icons">
+<Story
+	name="all icons"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/nWyPHXdfIyFX6x9LQbtzYd/LMS---DS---FoundationsAssets?node-id=0%3A626',
+		},
+	}}
+>
 	{() => {
 		return {
 			components: { WnlIcon },
@@ -52,8 +66,8 @@ import WnlIcon, { ICON_SIZES, ICONS } from 'design-system/lib/js/components/Icon
 				this.ICONS = ICONS;
 			},
 			template:
-				'<div style="display: flex; flex-wrap: wrap; font-size: 10px">' +
-				'<div v-for="(icon, iconName) in ICONS" :key="iconName" style="display: flex; flex-direction: column; align-items: center; padding: 10px; width: 150px; word-break: break-word; text-align: center">' +
+				'<div class="iconList">' +
+				'<div v-for="(icon, iconName) in ICONS" :key="iconName" class="iconList__icon">' +
 				'<wnl-icon :icon="icon" />' +
 				'<div>{{iconName}}</div>' +
 				'</div>' +

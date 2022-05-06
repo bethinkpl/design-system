@@ -1,9 +1,9 @@
 export const BADGE_SCORE_COLORS = {
 	SUCCESS: 'success',
 	WARNING: 'warning',
-	DANGER: 'danger',
+	FAIL: 'fail',
 	INVERTED: 'inverted',
-	MINOR: 'minor',
+	NEUTRAL: 'neutral',
 } as const;
 
 export const BADGE_SCORE_SIZES = {

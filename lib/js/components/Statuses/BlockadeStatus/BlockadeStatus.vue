@@ -6,21 +6,27 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/colors/tokens';
 
 .blockadeStatus {
+	$self: &;
+
 	align-items: center;
-	color: $color-storm-gray;
+	color: $color-neutral-text;
 	display: flex;
 
-	&.-active {
-		color: $color-crimson-red;
+	&__icon {
+		color: $color-neutral-icon;
+		margin-right: $space-xxxxs;
 	}
 
-	&__icon {
-		margin-right: $space-xxxxs;
+	&.-active {
+		color: $color-danger-text;
+		#{$self}__icon {
+			color: $color-danger-icon;
+		}
 	}
 
 	&__text {
@@ -35,7 +41,6 @@
 <script lang="ts">
 import Icon from '../../Icon';
 import { ICONS, ICON_SIZES } from '../../Icon';
-
 import { COURSE_BLOCKADE_ACCESS_STATUS } from '../../../consts/user';
 
 export default {

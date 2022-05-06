@@ -1,5 +1,5 @@
 <template>
-	<div class="badge" :class="{ '-minor': color === BADGE_COLORS.MINOR }">
+	<div class="badge" :class="{ '-neutral': color === BADGE_COLORS.NEUTRAL }">
 		<div class="badge__slot">
 			<slot />
 		</div>
@@ -8,11 +8,11 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../../styles/settings/colors';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/components/icons';
+@import '../../../../styles/settings/colors/tokens';
 
 .badge {
 	border-radius: $radius-s;
@@ -26,11 +26,11 @@
 		text-transform: uppercase;
 	}
 
-	&.-minor {
-		background-color: $color-minor-background;
+	&.-neutral {
+		background-color: $color-neutral-background-medium;
 
 		.badge__label {
-			color: $color-minor;
+			color: $color-neutral-text;
 		}
 	}
 
