@@ -291,21 +291,31 @@ $button-disabled-alpha: 0.6;
 		}
 	}
 
-	&.-elevation-x-small {
+	&.-elevation-x-small,
+	&.-elevation-small {
 		&.-outlined {
-			&:not(.-hovered):not(:hover):not(.-focused):not(:focus):not(.-disabled) {
-				background: $color-default-background !important;
+			&::before {
+				background: $color-default-background;
+				border-radius: 100px;
+				bottom: 0;
+				content: '';
+				display: block;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transform: translateZ(-1px);
+			}
+		}
+
+		&.-rounded {
+			&::before {
+				border-radius: $radius-s;
 			}
 		}
 	}
 
 	&.-elevation-small {
-		&.-outlined {
-			&:not(.-hovered):not(:hover):not(.-focused):not(:focus):not(.-disabled) {
-				background: $color-default-background !important;
-			}
-		}
-
 		&:not(.-text) {
 			box-shadow: $default-lighter-shadow;
 		}
