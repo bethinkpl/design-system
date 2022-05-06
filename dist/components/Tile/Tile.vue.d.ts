@@ -46,12 +46,17 @@ declare const _default: {
                 rotationClass(): string | null;
             };
         };
-        RippleWrapper: {
+        DsRipple: {
             name: string;
             directives: {
                 ripple: import("vue").DirectiveFunction;
             };
             props: {
+                color: {
+                    type: StringConstructor;
+                    default: string;
+                    validate(color: any): void;
+                };
                 disable: {
                     type: BooleanConstructor;
                     default: boolean;
@@ -59,6 +64,9 @@ declare const _default: {
             };
             data(): {
                 disableRipple: boolean;
+            };
+            computed: {
+                colorClass(): string;
             };
             watch: {
                 disable: {

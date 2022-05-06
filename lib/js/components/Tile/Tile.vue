@@ -1,5 +1,5 @@
 <template>
-	<ripple-wrapper :disable="!interactive">
+	<ds-ripple :disable="!interactive">
 		<div :class="{ '-interactive': interactive }" class="a-tile">
 			<ds-icon
 				v-if="iconLeft"
@@ -22,7 +22,7 @@
 				additionalText
 			}}</div>
 		</div>
-	</ripple-wrapper>
+	</ds-ripple>
 </template>
 
 <style lang="scss" scoped>
@@ -30,10 +30,6 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
-
-::v-deep .ripple {
-	background-color: $color-default-ripple !important;
-}
 
 .a-tile {
 	align-items: center;
@@ -99,7 +95,7 @@
 </style>
 
 <script lang="ts">
-import RippleWrapper from '../../utils';
+import DsRipple from '../Ripple';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
 import { VueConstructor } from 'vue';
 
@@ -107,7 +103,7 @@ export default {
 	name: 'Tile',
 	components: {
 		DsIcon,
-		RippleWrapper,
+		DsRipple,
 	},
 	props: {
 		interactive: {
