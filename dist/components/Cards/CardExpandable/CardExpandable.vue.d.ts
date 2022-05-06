@@ -73,6 +73,9 @@ declare const _default: {
     data(): {
         isExpandedInternal: boolean;
     };
+    computed: {
+        chevronRotation(): number | null;
+    };
     watch: {
         isExpanded: {
             handler(isExpanded: any): void;
