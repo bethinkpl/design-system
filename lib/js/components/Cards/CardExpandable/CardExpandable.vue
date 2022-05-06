@@ -15,8 +15,8 @@
 				<ds-icon
 					class="cardExpandable__expanderIcon"
 					:icon="ICONS.FA_CHEVRON_DOWN"
+					:rotation="chevronRotation"
 					:size="ICON_SIZES.X_SMALL"
-					:flipped-vertical="isExpandedInternal"
 				/>
 			</div>
 		</template>
@@ -102,6 +102,11 @@ export default {
 		return {
 			isExpandedInternal: false,
 		};
+	},
+	computed: {
+		chevronRotation(): number | null {
+			return this.isExpandedInternal ? 180 : null;
+		},
 	},
 	watch: {
 		isExpanded: {
