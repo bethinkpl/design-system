@@ -32,7 +32,7 @@
 	}
 
 	&.-color-inverted::v-deep .ripple {
-		background-color: $color-default-ripple-inverted !important;
+		background-color: $color-inverted-ripple !important;
 	}
 
 	&.-color-neutral::v-deep .ripple {
