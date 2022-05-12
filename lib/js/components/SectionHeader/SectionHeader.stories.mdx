@@ -1,0 +1,63 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import SectionHeader from './SectionHeader';
+import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
+import { ICONS } from '../Icon';
+
+<Meta title="components/SectionHeader" component={SectionHeader} />
+
+# SectionHeader
+
+<Story
+	name="interactive"
+	argTypes={{
+		iconLeft: {
+			control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+			defaultValue: null,
+		},
+		size: {
+			control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
+			defaultValue: SECTION_HEADER_SIZES.M,
+		},
+	}}
+	args={{
+		expandable: false,
+		iconLeft: null,
+		isExpanded: false,
+		size: SECTION_HEADER_SIZES.M,
+		slotPadding: true,
+		title: 'Title',
+	}}
+>
+	{(args, { updateArgs }) => {
+		return {
+			components: { SectionHeader },
+			props: Object.keys(args),
+			created() {
+				this.ICONS = ICONS;
+			},
+			methods: {
+				onIsExpandedUpdated(isExpanded) {
+					updateArgs({
+						isExpanded,
+					});
+				},
+			},
+			template:
+				'<section-header' +
+				' :expandable="expandable"' +
+				' :icon-left="ICONS[iconLeft]"' +
+				' :is-expanded="isExpanded"' +
+				' :size="size"' +
+				' :slot-padding="slotPadding"' +
+				' :title="title"' +
+				' @update:isExpanded="onIsExpandedUpdated"' +
+				'>' +
+				'<div style="border: 1px solid;">Slot content</div>' +
+				'</section-header>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={SectionHeader} />

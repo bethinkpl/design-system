@@ -1,4 +1,6 @@
 import { VueConstructor } from 'vue';
+import { ICON_BUTTON_STATES } from './IconButton.consts';
+import { Value } from '../../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
@@ -101,7 +103,7 @@ declare const _default: {
                 size: {
                     type: StringConstructor;
                     default: "medium";
-                    validator(value: import("../../../utils/type.utils").Value<{
+                    validator(value: Value<{
                         readonly SMALL: "small";
                         readonly MEDIUM: "medium";
                         readonly LARGE: "large";
@@ -110,7 +112,7 @@ declare const _default: {
                 type: {
                     type: StringConstructor;
                     default: "filled";
-                    validator(value: import("../../../utils/type.utils").Value<{
+                    validator(value: Value<{
                         readonly FILLED: "filled";
                         readonly OUTLINED: "outlined";
                         readonly TEXT: "text";
@@ -119,17 +121,10 @@ declare const _default: {
                 color: {
                     type: StringConstructor;
                     default: "primary";
-                    validator(value: import("../../../utils/type.utils").Value<{
+                    validator(value: Value<{
                         readonly PRIMARY: "primary";
-                        readonly PRIMARY_SUPPORTING: "primary-supporting";
-                        readonly SECONDARY: "secondary";
-                        readonly SECONDARY_SUPPORTING: "secondary-supporting";
-                        readonly CONTENT: "content";
-                        readonly MINOR: "minor";
-                        readonly MINOR_SUPPORTING: "minor-supporting";
+                        readonly NEUTRAL: "neutral";
                         readonly DANGER: "danger";
-                        readonly DANGER_SUPPORTING: "danger-supporting";
-                        readonly WARNING: "warning";
                         readonly SUCCESS: "success";
                         readonly INVERTED: "inverted";
                     }>): boolean;
@@ -137,7 +132,7 @@ declare const _default: {
                 radius: {
                     type: StringConstructor;
                     default: "capsule";
-                    validator(value: import("../../../utils/type.utils").Value<{
+                    validator(value: Value<{
                         readonly CAPSULE: "capsule";
                         readonly ROUNDED: "rounded";
                     }>): boolean;
@@ -145,7 +140,7 @@ declare const _default: {
                 state: {
                     type: StringConstructor;
                     default: "default";
-                    validator(value: import("../../../utils/type.utils").Value<{
+                    validator(value: Value<{
                         readonly DEFAULT: "default";
                         readonly HOVERED: "hovered";
                         readonly FOCUSED: "focused";
@@ -166,7 +161,7 @@ declare const _default: {
                 elevation: {
                     type: StringConstructor;
                     default: "none";
-                    validator(value: import("../../../utils/type.utils").Value<{
+                    validator(value: Value<{
                         readonly NONE: "none";
                         readonly X_SMALL: "x-small";
                         readonly SMALL: "small";
@@ -218,6 +213,11 @@ declare const _default: {
         touchable: {
             type: BooleanConstructor;
             default: boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: Value<typeof ICON_BUTTON_STATES>): boolean;
         };
     };
     data(): {

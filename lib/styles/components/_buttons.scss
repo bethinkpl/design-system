@@ -1,50 +1,135 @@
 @import '../settings/animations';
-@import '../settings/colors';
 @import '../settings/spacings';
 @import '../settings/radiuses';
 @import '../settings/typography';
+@import '../settings/buttons';
 
-$default-lighter-shadow: 0 4px 12px rgba($color-firefly-black, 0.35);
+$default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
 
-@mixin outlinedColor($color) {
-	color: rgba($color, 1);
-
-	&:disabled,
-	&.-disabled {
-		color: rgba($color, 1 - $button-disabled-alpha);
-	}
-}
-
-@mixin textColor($color, $hover-color: '', $focus-color: '', $disabled-color: '') {
-	@if $hover-color == '' {
-		$hover-color: mix($color, $color-firefly-black, (1 - $button-hover-alpha) * 100%);
-	}
-
-	@if $focus-color == '' {
-		$focus-color: mix($color, $color-firefly-black, (1 - $button-focus-alpha) * 100%);
-	}
-
-	@if $disabled-color == '' {
-		$disabled-color: mix($color, $color-total-white, (1 - $button-disabled-alpha) * 100%);
-	}
-
+@mixin setButtonColor($color, $color-hovered: null, $color-focused: null, $color-disabled: null) {
 	color: $color;
 
 	&:hover,
 	&.-hovered,
 	&:active,
 	&.-active {
-		color: $hover-color;
+		color: $color-hovered;
 	}
 
 	&:focus,
 	&.-focused {
-		color: $focus-color;
+		color: $color-focused;
+	}
+
+	&.-disabled {
+		color: $color-disabled;
+	}
+}
+
+@mixin setButtonBackground(
+	$background,
+	$background-hover,
+	$background-focus,
+	$background-disabled
+) {
+	@if $background == null {
+		background-color: transparent;
+	}
+
+	background-color: $background;
+
+	&:hover,
+	&.-hovered,
+	&:active,
+	&.-active {
+		background-color: $background-hover;
+	}
+
+	&:focus,
+	&.-focused {
+		background-color: $background-focus;
 	}
 
 	&:disabled,
 	&.-disabled {
+		background-color: $background-disabled;
+	}
+}
+
+@mixin setButtonDisabled(
+	$disabled-color: null,
+	$disabled-icon: null,
+	$disabled-background: null,
+	$disabled-border: null
+) {
+	&:disabled,
+	&.-disabled {
+		border-color: $disabled-border;
 		color: $disabled-color;
+		background-color: $disabled-background;
+
+		.a-button__icon {
+			color: $disabled-icon;
+		}
+	}
+}
+
+@mixin setButtonAdditions(
+	$ripple: null,
+	$border: null,
+	$icon: null,
+	$icon-hovered: null,
+	$icon-focused: null,
+	$icon-disabled: null
+) {
+	@if $ripple == null {
+		.ripple {
+			display: none;
+		}
+	}
+
+	@if $border != null {
+		border: 1px solid $border;
+	}
+
+	.ripple {
+		background-color: $ripple !important;
+	}
+
+	.a-button {
+		&__icon,
+		&__loadingIcon {
+			color: $icon;
+		}
+	}
+
+	&.-hovered,
+	&:hover {
+		.a-button {
+			&__icon,
+			&__loadingIcon {
+				color: $icon-hovered;
+			}
+		}
+	}
+
+	&.-focused,
+	&:focus {
+		.a-button {
+			&__icon,
+			&__loadingIcon {
+				color: $icon-focused;
+			}
+		}
+	}
+
+	&.-disabled {
+		.a-button {
+			&__icon,
+			&__loadingIcon {
+				color: $icon-disabled;
+			}
+		}
 	}
 }
 
@@ -56,50 +141,37 @@ $button-hover-alpha: 0.12;
 $button-focus-alpha: 0.24;
 $button-disabled-alpha: 0.6;
 
-$theme-calculated-colors: (
-	'secondary': (
-		'color': $color-secondary,
-		'rgb': $color-secondary-rgb,
-		'hovered': $color-secondary-hovered,
-		'focused': $color-secondary-focused,
-		'disabled': $color-secondary-disabled,
-	),
-	'primary-supporting': (
-		'color': $color-primary-supporting,
-		'rgb': $color-primary-supporting-rgb,
-		'hovered': $color-primary-supporting-hovered,
-		'focused': $color-primary-supporting-focused,
-		'disabled': $color-primary-supporting-disabled,
-	),
-	'secondary-supporting': (
-		'color': $color-secondary-supporting,
-		'rgb': $color-secondary-supporting-rgb,
-		'hovered': $color-secondary-supporting-hovered,
-		'focused': $color-secondary-supporting-focused,
-		'disabled': $color-secondary-supporting-disabled,
-	),
-);
-$regular-colors: (
-	'minor': $color-minor,
-	'minor-supporting': $color-minor-supporting,
-	'content': $color-content,
-	'danger': $color-danger,
-	'danger-supporting': $color-danger-supporting,
-	'warning': $color-warning,
-	'success': $color-success,
-	'inverted': $color-total-white,
-);
-
 .a-button {
 	$self: &;
 
 	@include buttonM;
 
+	@each $color-name, $color-map in $icon-button-colors {
+		&.-color-#{$color-name} {
+			@include setButtonColor(map-get($color-map, 'filled', 'color'));
+			@include setButtonBackground(
+				map-get($color-map, 'filled', 'background'),
+				map-get($color-map, 'filled', 'background-hovered'),
+				map-get($color-map, 'filled', 'background-focused'),
+				map-get($color-map, 'filled', 'background-disabled')
+			);
+			@include setButtonDisabled(
+				map-get($color-map, 'filled', 'disabled', 'color'),
+				map-get($color-map, 'filled', 'disabled', 'icon'),
+				map-get($color-map, 'filled', 'disabled', 'background')
+			);
+			@include setButtonAdditions(
+				map-get($color-map, 'filled', 'ripple'),
+				null,
+				map-get($color-map, 'filled', 'icon')
+			);
+		}
+	}
+
 	align-items: center;
 	background-color: transparent; // override defaut <button> background color
 	border: 0;
 	border-radius: 100px;
-	color: $color-total-white;
 	cursor: pointer;
 	display: inline-flex;
 	min-height: $button-medium-min-height;
@@ -121,71 +193,38 @@ $regular-colors: (
 		pointer-events: none;
 	}
 
-	&:not(.-outlined) {
-		@each $color-name, $color-map in $theme-calculated-colors {
-			&.-color-#{$color-name}:after {
-				background-color: map-get($color-map, 'color');
+	&.-outlined {
+		@each $color-name, $color-map in $icon-button-colors {
+			&.-color-#{$color-name} {
+				@include setButtonColor(map-get($color-map, 'outlined', 'color'));
+				@include setButtonBackground(
+					map-get($color-map, 'outlined', 'background'),
+					map-get($color-map, 'outlined', 'background-hovered'),
+					map-get($color-map, 'outlined', 'background-focused'),
+					map-get($color-map, 'outlined', 'background-disabled')
+				);
+				@include setButtonDisabled(
+					map-get($color-map, 'outlined', 'disabled', 'color'),
+					map-get($color-map, 'outlined', 'disabled', 'icon'),
+					map-get($color-map, 'outlined', 'disabled', 'background'),
+					map-get($color-map, 'outlined', 'disabled', 'border')
+				);
+				@include setButtonAdditions(
+					map-get($color-map, 'outlined', 'ripple'),
+					map-get($color-map, 'outlined', 'border'),
+					map-get($color-map, 'outlined', 'icon')
+				);
 			}
 		}
 
-		@each $color-name, $color in $regular-colors {
-			&.-color-#{$color-name}:after {
-				background-color: $color;
-			}
-		}
-	}
+		&.-rounded {
+			border-radius: $radius-s;
+			padding-left: $space-xs;
+			padding-right: $space-xs;
 
-	&:not(.-text) {
-		min-width: 100px;
-
-		&::before,
-		&::after {
-			border-radius: inherit;
-			bottom: 0;
-			content: '';
-			left: 0;
-			pointer-events: none;
-			position: absolute;
-			transition: opacity ease-in-out $default-transition-time,
-				background-color ease-in-out $default-transition-time;
-			right: 0;
-			top: 0;
-		}
-
-		&::before {
-			background-color: $color-firefly-black;
-			opacity: 0;
-			transform: translateZ(-1px);
-		}
-
-		&::after {
-			background-color: $color-primary;
-			transform: translateZ(-2px);
-		}
-
-		&:hover,
-		&.-hovered,
-		&:active,
-		&.-active {
-			&::before {
-				opacity: $button-hover-alpha;
-			}
-		}
-
-		&:focus,
-		&.-focused {
-			&::before {
-				opacity: $button-focus-alpha;
-			}
-		}
-
-		&:not(.-outlined) {
-			&:disabled,
-			&.-disabled {
-				&::before {
-					background-color: $color-total-white;
-					opacity: $button-disabled-alpha;
-				}
+			&.-large {
+				padding-left: $space-s;
+				padding-right: $space-s;
 			}
 		}
 	}
@@ -198,87 +237,28 @@ $regular-colors: (
 		padding-right: $space-m;
 	}
 
-	&.-small {
-		@include buttonS;
-
-		min-height: $button-small-min-height;
-	}
-
-	&.-rounded {
-		border-radius: $radius-s;
-		padding-left: $space-xs;
-		padding-right: $space-xs;
-
-		&.-large {
-			padding-left: $space-s;
-			padding-right: $space-s;
-		}
-	}
-
-	.ripple {
-		background-color: rgba($color-total-white, $ripple-alpha) !important;
-	}
-
-	&.-outlined {
-		@include outlinedColor($color-primary-rgb);
-
-		@each $color-name, $color-map in $theme-calculated-colors {
-			&.-color-#{$color-name} {
-				@include outlinedColor(map-get($color-map, 'rgb'));
-			}
-		}
-
-		@each $color-name, $color in $regular-colors {
-			&.-color-#{$color-name} {
-				@include outlinedColor($color);
-			}
-		}
-
-		border: 1px solid currentColor;
-
-		&::before {
-			background-color: currentColor;
-		}
-
-		&::after {
-			background-color: transparent;
-		}
-
-		&.-elevation-x-small,
-		&.-elevation-small {
-			&::after {
-				background-color: $color-total-white;
-			}
-		}
-
-		.ripple {
-			background-color: currentColor !important;
-			opacity: $ripple-alpha;
-		}
-	}
-
 	&.-text {
-		@include textColor(
-			$color-primary,
-			$color-primary-hovered,
-			$color-primary-focused,
-			$color-primary-disabled
-		);
-
-		@each $color-name, $color-map in $theme-calculated-colors {
+		@each $color-name, $color-map in $icon-button-colors {
 			&.-color-#{$color-name} {
-				@include textColor(
-					map-get($color-map, 'color'),
-					map-get($color-map, 'hovered'),
-					map-get($color-map, 'focused'),
-					map-get($color-map, 'disabled')
+				@include setButtonColor(
+					map-get($color-map, 'text', 'color'),
+					map-get($color-map, 'text', 'color-hovered'),
+					map-get($color-map, 'text', 'color-focused'),
+					map-get($color-map, 'text', 'color-disabled')
 				);
-			}
-		}
-
-		@each $color-name, $color in $regular-colors {
-			&.-color-#{$color-name} {
-				@include textColor($color);
+				@include setButtonBackground(null, null, null, null);
+				@include setButtonDisabled(
+					map-get($color-map, 'text', 'disabled', 'color'),
+					map-get($color-map, 'text', 'disabled', 'icon')
+				);
+				@include setButtonAdditions(
+					null,
+					null,
+					map-get($color-map, 'text', 'icon'),
+					map-get($color-map, 'text', 'icon-hovered'),
+					map-get($color-map, 'text', 'icon-focused'),
+					map-get($color-map, 'text', 'disabled', 'icon')
+				);
 			}
 		}
 
@@ -286,6 +266,16 @@ $regular-colors: (
 		border-radius: 0;
 		padding-left: 0;
 		padding-right: 0;
+	}
+
+	&:not(.-text) {
+		min-width: 100px;
+	}
+
+	&.-small {
+		@include buttonS;
+
+		min-height: $button-small-min-height;
 	}
 
 	&.-loading {
@@ -301,8 +291,34 @@ $regular-colors: (
 		}
 	}
 
+	&.-elevation-x-small,
 	&.-elevation-small {
-		box-shadow: $default-lighter-shadow;
+		&.-outlined {
+			&::before {
+				background: $color-default-background;
+				border-radius: 100px;
+				bottom: 0;
+				content: '';
+				display: block;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transform: translateZ(-1px);
+			}
+		}
+
+		&.-rounded {
+			&::before {
+				border-radius: $radius-s;
+			}
+		}
+	}
+
+	&.-elevation-small {
+		&:not(.-text) {
+			box-shadow: $default-lighter-shadow;
+		}
 	}
 
 	&__content {

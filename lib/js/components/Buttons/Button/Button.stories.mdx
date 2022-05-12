@@ -19,6 +19,12 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 
 <Story
 	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=138%3A2373',
+		},
+	}}
 	args={{
 		size: BUTTON_SIZES.MEDIUM,
 		type: BUTTON_TYPES.FILLED,
@@ -69,7 +75,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		return {
 			components: { WnlButton },
 			props: Object.keys(args),
-			template: `<div style="background-color: lightgrey; height: 200px; padding: 10px">
+			template: `<div :class="{ contrastBackground: isInverted }">
                 <wnl-button
                   :size="size"
                   :type="type"
@@ -83,6 +89,11 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
                     {{slotText}}
                 </wnl-button>
             </div>`,
+			computed: {
+				isInverted: function () {
+					return this.color === 'inverted';
+				},
+			},
 			created() {
 				this.ICONS = ICONS;
 			},

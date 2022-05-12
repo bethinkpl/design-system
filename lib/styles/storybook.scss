@@ -22,7 +22,6 @@ body {
 	&.styleguide {
 		@include textL;
 
-		color: $color-catalina-blue;
 		font-family: $fontFamiy;
 
 		button,
@@ -40,4 +39,30 @@ body {
 
 html {
 	box-sizing: border-box;
+}
+
+.contrastBackground {
+	background: var(--raw-black);
+	padding: 10px;
+}
+
+.iconList {
+	display: flex;
+	font-size: 10px;
+	flex-wrap: wrap;
+
+	&__icon {
+		align-items: center;
+		color: $color-default-icon;
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		text-align: center;
+		width: 150px;
+		word-break: break-word;
+	}
+
+	&__singleIcon {
+		color: $color-default-icon;
+	}
 }

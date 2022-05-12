@@ -151,15 +151,8 @@ declare const _default: {
                             default: "primary";
                             validator(value: import("../../../utils/type.utils").Value<{
                                 readonly PRIMARY: "primary";
-                                readonly PRIMARY_SUPPORTING: "primary-supporting";
-                                readonly SECONDARY: "secondary";
-                                readonly SECONDARY_SUPPORTING: "secondary-supporting";
-                                readonly CONTENT: "content";
-                                readonly MINOR: "minor";
-                                readonly MINOR_SUPPORTING: "minor-supporting";
+                                readonly NEUTRAL: "neutral";
                                 readonly DANGER: "danger";
-                                readonly DANGER_SUPPORTING: "danger-supporting";
-                                readonly WARNING: "warning";
                                 readonly SUCCESS: "success";
                                 readonly INVERTED: "inverted";
                             }>): boolean;
@@ -248,6 +241,16 @@ declare const _default: {
                 touchable: {
                     type: BooleanConstructor;
                     default: boolean;
+                };
+                state: {
+                    type: StringConstructor;
+                    default: "default";
+                    validator(value: import("../../../utils/type.utils").Value<{
+                        readonly DEFAULT: "default";
+                        readonly HOVERED: "hovered";
+                        readonly FOCUSED: "focused";
+                        readonly DISABLED: "disabled";
+                    }>): boolean;
                 };
             };
             data(): {
@@ -350,9 +353,10 @@ declare const _default: {
                 hovered: boolean;
             };
             computed: {
-                isSelectedPrimary(): boolean;
-                isDefaultPrimary(): boolean;
-                isSelectedNeutral(): boolean;
+                isPrimarySelected(): boolean;
+                isPrimary(): boolean;
+                isNeutral(): boolean;
+                isNeutralSelected(): boolean;
                 isHoveredState(): any;
             };
             created(): void;
@@ -495,15 +499,8 @@ declare const _default: {
                     default: "primary";
                     validator(value: import("../../../utils/type.utils").Value<{
                         readonly PRIMARY: "primary";
-                        readonly PRIMARY_SUPPORTING: "primary-supporting";
-                        readonly SECONDARY: "secondary";
-                        readonly SECONDARY_SUPPORTING: "secondary-supporting";
-                        readonly CONTENT: "content";
-                        readonly MINOR: "minor";
-                        readonly MINOR_SUPPORTING: "minor-supporting";
+                        readonly NEUTRAL: "neutral";
                         readonly DANGER: "danger";
-                        readonly DANGER_SUPPORTING: "danger-supporting";
-                        readonly WARNING: "warning";
                         readonly SUCCESS: "success";
                         readonly INVERTED: "inverted";
                     }>): boolean;

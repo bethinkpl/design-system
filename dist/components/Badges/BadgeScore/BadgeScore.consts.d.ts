@@ -1,9 +1,9 @@
 export declare const BADGE_SCORE_COLORS: {
     readonly SUCCESS: "success";
     readonly WARNING: "warning";
-    readonly DANGER: "danger";
+    readonly FAIL: "fail";
     readonly INVERTED: "inverted";
-    readonly MINOR: "minor";
+    readonly NEUTRAL: "neutral";
 };
 export declare const BADGE_SCORE_SIZES: {
     readonly MEDIUM: "medium";

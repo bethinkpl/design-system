@@ -1,3 +1,3 @@
 export declare const BADGE_COLORS: {
-    readonly MINOR: "minor";
+    readonly NEUTRAL: "neutral";
 };
