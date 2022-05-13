@@ -16,11 +16,7 @@
 				:size="ICON_SIZES.SMALL"
 			/>
 		</div>
-		<div
-			v-if="$slots.default"
-			class="sectionHeader__slot"
-			:class="{ '-withPadding': slotPadding }"
-		>
+		<div v-if="showSlot" class="sectionHeader__slot" :class="{ '-withPadding': slotPadding }">
 			<slot></slot>
 		</div>
 	</div>
@@ -140,6 +136,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		hideSlotWhenCollapsed: {
+			type: Boolean,
+			default: false,
+		},
 		iconLeft: {
 			type: Object as () => IconItem,
 			default: null,
@@ -170,6 +170,9 @@ export default {
 	computed: {
 		chevronRotation(): number | null {
 			return this.isExpanded ? 180 : null;
+		},
+		showSlot(): boolean {
+			return this.$slots.default && (this.isExpanded || !this.hideSlotWhenCollapsed);
 		},
 		sizeClass(): string {
 			return `-size-${this.size}`;

@@ -21,6 +21,7 @@ import { ICONS } from '../Icon';
 	}}
 	args={{
 		expandable: false,
+		hideSlotWhenCollapsed: false,
 		iconLeft: null,
 		isExpanded: false,
 		size: SECTION_HEADER_SIZES.M,
@@ -45,6 +46,7 @@ import { ICONS } from '../Icon';
 			template:
 				'<section-header' +
 				' :expandable="expandable"' +
+				' :hide-slot-when-collapsed="hideSlotWhenCollapsed"' +
 				' :icon-left="ICONS[iconLeft]"' +
 				' :is-expanded="isExpanded"' +
 				' :size="size"' +
