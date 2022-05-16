@@ -52,6 +52,10 @@ declare const _default: {
             type: BooleanConstructor;
             default: boolean;
         };
+        hideSlotWhenCollapsed: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         iconLeft: {
             type: () => IconItem;
             default: null;
@@ -77,6 +81,7 @@ declare const _default: {
     };
     computed: {
         chevronRotation(): number | null;
+        showSlot(): boolean;
         sizeClass(): string;
     };
     created(): void;

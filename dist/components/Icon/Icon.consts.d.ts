@@ -112,6 +112,7 @@ export declare const ICONS: {
     readonly FA_LOCK_KEYHOLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MAGNIFYING_GLASS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MEDAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_MEMO_CIRCLE_INFO: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MINUS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MONEY_BILL1: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MUSIC: import("@fortawesome/fontawesome-common-types").IconDefinition;
