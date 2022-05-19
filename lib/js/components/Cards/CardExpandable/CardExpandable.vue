@@ -38,7 +38,7 @@
 	&__expander {
 		align-items: center;
 		background-color: $color-neutral-background;
-		border-radius: $radius-m $radius-m 0 0;
+		border-radius: 0 0 $radius-m $radius-m;
 		cursor: pointer;
 		display: flex;
 		justify-content: center;
