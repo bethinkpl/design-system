@@ -117,6 +117,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_SITEMAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SITEMAP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SLIDERS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_SPELL_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SQUARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SQUARE_CARET_RIGHT: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SQUARE_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
