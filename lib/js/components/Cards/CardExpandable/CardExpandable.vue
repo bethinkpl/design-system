@@ -26,6 +26,7 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/icons';
+@import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography';
 
@@ -37,6 +38,7 @@
 	&__expander {
 		align-items: center;
 		background-color: $color-neutral-background;
+		border-radius: $radius-m $radius-m 0 0;
 		cursor: pointer;
 		display: flex;
 		justify-content: center;
