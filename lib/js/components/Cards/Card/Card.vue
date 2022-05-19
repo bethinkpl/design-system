@@ -20,7 +20,6 @@
 	background-color: $color-default-background;
 	border-radius: $radius-m;
 	box-shadow: $shadow-s;
-	overflow: hidden;
 
 	&__header {
 		padding: $space-s;
