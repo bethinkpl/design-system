@@ -33,6 +33,7 @@ export declare const ICONS: {
     readonly FA_BELL_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_BOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_BOOKMARK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_BOOK_SPARKLES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_BOX_ARCHIVE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CALENDAR_DAYS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CAMERA_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -77,9 +78,11 @@ export declare const ICONS: {
     readonly FA_FILE_INVOICE_DOLLAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FILE_LINES: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FILE_LINES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_FILE_PEN_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FILM: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FILTER: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FLAG: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_FLASK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FLOPPY_DISK: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FOLDER_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_GAUGE_HIGH: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -113,6 +116,7 @@ export declare const ICONS: {
     readonly FA_MAGNIFYING_GLASS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MEDAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MEMO_CIRCLE_INFO: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_MESSAGE_QUESTION_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MINUS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MONEY_BILL1: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MUSIC: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -142,6 +146,7 @@ export declare const ICONS: {
     readonly FA_THUMBTACK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_TRASH_CAN: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_TRIANGLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_TRIANGLE_EXCLAMATION_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_TROPHY_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_UNLOCK_KEYHOLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_UPLOAD: import("@fortawesome/fontawesome-common-types").IconDefinition;
