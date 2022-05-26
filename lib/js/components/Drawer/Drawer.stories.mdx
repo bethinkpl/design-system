@@ -1,0 +1,27 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import Drawer from './Drawer';
+
+<Meta title="components/Drawer" component={Drawer} />
+
+# Drawer
+
+<Story name="interactive">
+	{(args) => {
+		return {
+			components: { Drawer },
+			props: Object.keys(args),
+			template:
+				'<div style="height: 400px; width: 200px;">' +
+				'<Drawer>' +
+				'<template v-slot:header><div style="border: 1px solid #000">Header</div></template>' +
+				'<template v-slot:content><div style="border: 1px solid #000">Content</div></template>' +
+				'<template v-slot:footer><div style="border: 1px solid #000">Footer</div></template>' +
+				'</Drawer>' +
+				'</div>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={Drawer} />

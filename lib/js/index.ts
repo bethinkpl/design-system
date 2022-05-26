@@ -31,6 +31,7 @@ export { default as Ripple } from './components/Ripple';
 export * from './components/Ripple/Ripple.consts';
 export { default as SectionHeader } from './components/SectionHeader';
 export * from './components/SectionHeader/SectionHeader.consts';
+export { default as Drawer } from './components/Drawer';
 
 export {
 	initialize as initializeIcons,
