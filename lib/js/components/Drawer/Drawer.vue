@@ -1,7 +1,7 @@
 <template>
 	<div class="drawer">
 		<slot name="header" />
-		<slot name="content" />
+		<slot />
 		<slot name="footer" />
 	</div>
 </template>
