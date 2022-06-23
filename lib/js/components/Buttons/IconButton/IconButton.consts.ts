@@ -1,6 +1,7 @@
 import { BUTTON_TYPES } from '../Button';
 
 export const ICON_BUTTON_SIZES = {
+	XX_SMALL: 'xx-small',
 	X_SMALL: 'x-small',
 	SMALL: 'small',
 	MEDIUM: 'medium',

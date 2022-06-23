@@ -2,6 +2,7 @@
 	<div
 		class="a-iconButton"
 		:class="{
+			'-xx-small': size === ICON_BUTTON_SIZES.XX_SMALL,
 			'-x-small': size === ICON_BUTTON_SIZES.X_SMALL,
 			'-small': size === ICON_BUTTON_SIZES.SMALL,
 			'-large': size === ICON_BUTTON_SIZES.LARGE,
@@ -211,6 +212,17 @@
 		}
 	}
 
+	&.-xx-small {
+		#{$self}__button {
+			height: $icon-button-xx-small-size;
+			width: $icon-button-xx-small-size;
+		}
+
+		#{$self}__label {
+			@include buttonXS;
+		}
+	}
+
 	&.-x-small {
 		#{$self}__button {
 			height: $icon-button-x-small-size;
@@ -270,6 +282,7 @@ import {
 import { Value } from '../../../utils/type.utils';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
+	[ICON_BUTTON_SIZES.XX_SMALL]: ICON_SIZES.XXX_SMALL,
 	[ICON_BUTTON_SIZES.X_SMALL]: ICON_SIZES.XX_SMALL,
 	[ICON_BUTTON_SIZES.SMALL]: ICON_SIZES.X_SMALL,
 	[ICON_BUTTON_SIZES.MEDIUM]: ICON_SIZES.SMALL,
@@ -353,6 +366,10 @@ export default {
 		iconSize(): string {
 			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
 				return ICON_ONLY_ICON_SIZES_MAP[this.size];
+			}
+
+			if (this.size === ICON_BUTTON_SIZES.XX_SMALL) {
+				return ICON_SIZES.XXX_SMALL;
 			}
 
 			if (this.size === ICON_BUTTON_SIZES.X_SMALL) {

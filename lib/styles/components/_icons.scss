@@ -90,4 +90,10 @@
 		height: $icon-xxs;
 		width: $icon-xxs;
 	}
+
+	&.-xxx-small svg,
+	&.-xxx-small .svg-inline--fa {
+		height: $icon-xxxs;
+		width: $icon-xxxs;
+	}
 }

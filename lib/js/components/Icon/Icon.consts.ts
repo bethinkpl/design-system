@@ -3,6 +3,7 @@ import Ribbon from '../../../images/icons/ribbon.svg';
 import { FONTAWESOME_ICONS } from '../../icons/fontawesome';
 
 export const ICON_SIZES = {
+	XXX_SMALL: 'xxx-small',
 	XX_SMALL: 'xx-small',
 	X_SMALL: 'x-small',
 	SMALL: 'small',
