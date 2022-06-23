@@ -1,5 +1,5 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
-import Pill, { PILL_SIZES } from './';
+import Pill, { PILL_COLORS, PILL_SIZES } from './';
 import { ICONS } from 'design-system/lib/js/components/Icon';
 
 <Meta title="components/Pill" component={Pill} />
@@ -18,7 +18,8 @@ import { ICONS } from 'design-system/lib/js/components/Icon';
 		label: 'Pill z labelem',
 		leftIcon: null,
 		hasDelete: false,
-		size: PILL_SIZES.SMALL
+		size: PILL_SIZES.SMALL,
+		color: PILL_COLORS.NEUTRAL,
 	}}
 	argTypes={{
 		leftIcon: {
@@ -27,6 +28,9 @@ import { ICONS } from 'design-system/lib/js/components/Icon';
 		size: {
 			control: { type: 'select', options: Object.values(PILL_SIZES) },
 		},
+		color: {
+			control: { type: 'select', options: Object.values(PILL_COLORS) },
+		},
 	}}
 >
 	{(args) => {
@@ -34,7 +38,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon';
 			components: { Pill },
 			props: Object.keys(args),
 			template:
-				'<pill :label="label" :left-icon="ICONS[leftIcon]" :has-delete="hasDelete" :size="size" />',
+				'<pill :label="label" :left-icon="ICONS[leftIcon]" :has-delete="hasDelete" :size="size" :color="color" />',
 			created() {
 				this.ICONS = ICONS;
 			},

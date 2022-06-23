@@ -1,5 +1,5 @@
 <template>
-	<div class="pill" :class="{ '-x-small': size === PILL_SIZES.X_SMALL }">
+	<div class="pill" :class="{ '-x-small': size === PILL_SIZES.X_SMALL, [colorClassName]: true }">
 		<icon
 			v-if="leftIcon"
 			class="pill__leftIcon"
@@ -10,6 +10,7 @@
 		<icon-button
 			v-if="hasDelete"
 			:touchable="false"
+			:color="iconButtonColor"
 			:size="ICON_BUTTON_SIZES.XX_SMALL"
 			:icon="ICONS.FA_XMARK"
 			:elevation="BUTTON_ELEVATIONS.X_SMALL"
@@ -21,6 +22,49 @@
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
+
+$pill-colors: (
+	'neutral': (
+		'label': $color-neutral-text-strong,
+		'icon': $color-neutral-icon,
+		'background': $color-neutral-background-medium,
+	),
+	'primaryStrong': (
+		'label': $color-inverted-text,
+		'icon': $color-inverted-icon,
+		'background': $color-primary-background-strong,
+	),
+	'primary': (
+		'label': $color-primary-text,
+		'icon': $color-primary-icon,
+		'background': $color-primary-background,
+	),
+	'fail': (
+		'label': $color-fail-text,
+		'icon': $color-fail-icon,
+		'background': $color-fail-background,
+	),
+	'warning': (
+		'label': $color-warning-text,
+		'icon': $color-warning-icon,
+		'background': $color-warning-background,
+	),
+	'success': (
+		'label': $color-success-text,
+		'icon': $color-success-icon,
+		'background': $color-success-background,
+	),
+	'info': (
+		'label': $color-info-text,
+		'icon': $color-info-icon,
+		'background': $color-info-background,
+	),
+	'inverted': (
+		'label': $color-neutral-text,
+		'icon': $color-neutral-icon,
+		'background': $color-default-background,
+	),
+);
 
 .pill {
 	$self: &;
@@ -55,15 +99,40 @@
 			margin: 0 $space-xxxxs 0 0;
 		}
 	}
+
+	@each $color-name, $color-map in $pill-colors {
+		&.-color-#{$color-name} {
+			background-color: map-get($color-map, 'background');
+
+			#{$self}__leftIcon {
+				color: map-get($color-map, 'icon');
+			}
+
+			#{$self}__label {
+				color: map-get($color-map, 'label');
+			}
+		}
+	}
 }
 </style>
 
 <script lang="ts">
-import { PILL_SIZES } from './Pill.consts';
-import IconButton, { ICON_BUTTON_SIZES } from '../Buttons/IconButton';
+import { PILL_SIZES, PILL_COLORS } from './Pill.consts';
+import IconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_COLORS } from '../Buttons/IconButton';
 import Icon, { ICONS, ICON_SIZES } from '../Icon';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 import { VueConstructor } from 'vue';
+
+const PILL_ICON_BUTTONS_COLOR_MAP = {
+	[PILL_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
+	[PILL_COLORS.NEUTRAL]: ICON_BUTTON_COLORS.NEUTRAL,
+	[PILL_COLORS.PRIMARY]: ICON_BUTTON_COLORS.PRIMARY,
+	[PILL_COLORS.PRIMARY_STRONG]: ICON_BUTTON_COLORS.PRIMARY,
+	[PILL_COLORS.FAIL]: ICON_BUTTON_COLORS.FAIL,
+	[PILL_COLORS.WARNING]: ICON_BUTTON_COLORS.WARNING,
+	[PILL_COLORS.SUCCESS]: ICON_BUTTON_COLORS.SUCCESS,
+	[PILL_COLORS.INFO]: ICON_BUTTON_COLORS.INFO,
+};
 
 export default {
 	name: 'Pill',
@@ -87,9 +156,25 @@ export default {
 				return Object.values(PILL_SIZES).includes(size);
 			},
 		},
+		color: {
+			type: String,
+			default: PILL_COLORS.NEUTRAL,
+			validate(color) {
+				return Object.values(PILL_COLORS).includes(color);
+			},
+		},
 		hasDelete: {
 			type: Boolean,
 			default: false,
+		},
+	},
+	computed: {
+		colorClassName(): string {
+			return `-color-${this.color}`;
+		},
+
+		iconButtonColor(): string {
+			return PILL_ICON_BUTTONS_COLOR_MAP[this.color] || ICON_BUTTON_COLORS.PRIMARY;
 		},
 	},
 	created() {
