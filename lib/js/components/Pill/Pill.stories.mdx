@@ -1,0 +1,47 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import Pill, { PILL_SIZES } from './';
+import { ICONS } from 'design-system/lib/js/components/Icon';
+
+<Meta title="components/Pill" component={Pill} />
+
+# Pill
+
+<Story
+	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/HFY6waq7kWsr3rj8a0ghXZ/INI-115-Admin-i-Kursant?node-id=1499%3A118929',
+		},
+	}}
+	args={{
+		label: 'Pill z labelem',
+		leftIcon: null,
+		hasDelete: false,
+		size: PILL_SIZES.SMALL
+	}}
+	argTypes={{
+		leftIcon: {
+			control: { type: 'select', options: Object.keys(ICONS) },
+		},
+		size: {
+			control: { type: 'select', options: Object.values(PILL_SIZES) },
+		},
+	}}
+>
+	{(args) => {
+		return {
+			components: { Pill },
+			props: Object.keys(args),
+			template:
+				'<pill :label="label" :left-icon="ICONS[leftIcon]" :has-delete="hasDelete" :size="size" />',
+			created() {
+				this.ICONS = ICONS;
+			},
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={Pill} />
