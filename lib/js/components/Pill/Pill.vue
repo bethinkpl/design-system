@@ -9,11 +9,13 @@
 		<span class="pill__label">{{ label }}</span>
 		<icon-button
 			v-if="hasDelete"
+			class="pill__delete"
 			:touchable="false"
 			:color="iconButtonColor"
 			:size="ICON_BUTTON_SIZES.XX_SMALL"
 			:icon="ICONS.FA_XMARK"
 			:elevation="BUTTON_ELEVATIONS.X_SMALL"
+			@click.native="$emit('delete')"
 		/>
 	</div>
 </template>
@@ -69,6 +71,20 @@ $pill-colors: (
 .pill {
 	$self: &;
 
+	@each $color-name, $color-map in $pill-colors {
+		&.-color-#{$color-name} {
+			background-color: map-get($color-map, 'background');
+
+			#{$self}__leftIcon {
+				color: map-get($color-map, 'icon');
+			}
+
+			#{$self}__label {
+				color: map-get($color-map, 'label');
+			}
+		}
+	}
+
 	align-items: center;
 	background-color: $color-primary-background-strong;
 	border-radius: 100px;
@@ -97,20 +113,6 @@ $pill-colors: (
 			@include textInfoS;
 
 			margin: 0 $space-xxxxs 0 0;
-		}
-	}
-
-	@each $color-name, $color-map in $pill-colors {
-		&.-color-#{$color-name} {
-			background-color: map-get($color-map, 'background');
-
-			#{$self}__leftIcon {
-				color: map-get($color-map, 'icon');
-			}
-
-			#{$self}__label {
-				color: map-get($color-map, 'label');
-			}
 		}
 	}
 }
