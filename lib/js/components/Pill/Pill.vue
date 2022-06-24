@@ -86,7 +86,6 @@ $pill-colors: (
 	}
 
 	align-items: center;
-	background-color: $color-primary-background-strong;
 	border-radius: 100px;
 	display: inline-flex;
 	padding: $space-xxxxxs $space-xxxxxs $space-xxxxxs $space-xxs;
