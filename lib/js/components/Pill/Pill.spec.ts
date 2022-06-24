@@ -72,7 +72,7 @@ describe('Pill', () => {
 		expect(deleteButton.props().icon).toBe(ICONS.FA_XMARK);
 
 		deleteButton.trigger('click');
-		expect(component.emitted().delete?.length).toBe(1);
+		expect(component.emitted('delete')?.length).toBe(1);
 	});
 
 	it("doesn' contain x-small class by default", () => {

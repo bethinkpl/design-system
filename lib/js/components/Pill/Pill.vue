@@ -1,5 +1,9 @@
 <template>
-	<div class="pill" :class="{ '-x-small': size === PILL_SIZES.X_SMALL, [colorClassName]: true }">
+	<div
+		class="pill"
+		:class="{ '-x-small': size === PILL_SIZES.X_SMALL, [colorClassName]: true }"
+		:title="label"
+	>
 		<icon
 			v-if="leftIcon"
 			class="pill__leftIcon"
@@ -94,7 +98,10 @@ $pill-colors: (
 		@include textInfoM;
 
 		font-weight: bold;
+		overflow: hidden;
 		margin: $space-xxxxxs $space-xxxs $space-xxxxxs 0;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	&__leftIcon {
