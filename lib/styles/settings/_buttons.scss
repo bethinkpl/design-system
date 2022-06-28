@@ -4,6 +4,7 @@ $button-small-min-height: 28px;
 $button-medium-min-height: 32px;
 $button-large-min-height: 48px;
 
+$icon-button-xx-small-size: 16px;
 $icon-button-x-small-size: 20px;
 $icon-button-small-size: 28px;
 $icon-button-medium-size: 32px;
@@ -148,6 +149,51 @@ $only-icon-button-colors: (
 				'color': $color-info-text,
 				'icon': $color-info-icon-disabled,
 				'ripple': $color-info-ripple,
+			),
+		),
+	),
+	'fail': (
+		'filled': (
+			'color': $color-inverted-text,
+			'icon': $color-inverted-icon,
+			'background': $color-fail-background-strong,
+			'background-hovered': $color-fail-background-strong-hovered,
+			'background-focused': $color-fail-background-strong-focused,
+			'background-disabled': $color-fail-background-strong-disabled,
+			'ripple': $color-inverted-ripple,
+			'disabled': (
+				'color': $color-inverted-text,
+				'icon': $color-inverted-icon,
+				'background': $color-fail-background-strong-disabled,
+			),
+		),
+		'outlined': (
+			'color': $color-fail-text,
+			'icon': $color-fail-icon,
+			'border': $color-fail-border,
+			'background': $color-fail-background-ghost,
+			'background-hovered': $color-fail-background-ghost-hovered,
+			'background-focused': $color-fail-background-ghost-focused,
+			'background-disabled': $color-fail-background-ghost-disabled,
+			'ripple': $color-fail-ripple,
+			'disabled': (
+				'color': $color-fail-text,
+				'border': $color-fail-border-disabled,
+				'icon': $color-fail-icon-disabled,
+				'background': $color-fail-background-ghost-disabled,
+			),
+		),
+		'text': (
+			'color': $color-fail-text,
+			'icon': $color-fail-icon,
+			'background': $color-fail-background-ghost,
+			'background-hovered': $color-fail-background-ghost-hovered,
+			'background-focused': $color-fail-background-ghost-focused,
+			'background-disabled': $color-fail-background-ghost-disabled,
+			'disabled': (
+				'color': $color-fail-text,
+				'icon': $color-fail-icon-disabled,
+				'ripple': $color-fail-ripple,
 			),
 		),
 	),

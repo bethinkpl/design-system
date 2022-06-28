@@ -1,6 +1,7 @@
 import { BUTTON_TYPES } from '../Button';
 
 export const ICON_BUTTON_SIZES = {
+	XX_SMALL: 'xx-small',
 	X_SMALL: 'x-small',
 	SMALL: 'small',
 	MEDIUM: 'medium',
@@ -22,6 +23,7 @@ export const ICON_BUTTON_COLORS = {
 	PRIMARY: 'primary',
 	NEUTRAL: 'neutral',
 	NEUTRAL_WEAK: 'neutral-weak',
+	FAIL: 'fail',
 	DANGER: 'danger',
 	SUCCESS: 'success',
 	INVERTED: 'inverted',
