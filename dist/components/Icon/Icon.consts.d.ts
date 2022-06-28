@@ -1,4 +1,5 @@
 export declare const ICON_SIZES: {
+    XXX_SMALL: string;
     XX_SMALL: string;
     X_SMALL: string;
     SMALL: string;

@@ -1,4 +1,5 @@
 export declare const ICON_BUTTON_SIZES: {
+    readonly XX_SMALL: "xx-small";
     readonly X_SMALL: "x-small";
     readonly SMALL: "small";
     readonly MEDIUM: "medium";
@@ -17,6 +18,7 @@ export declare const ICON_BUTTON_COLORS: {
     readonly PRIMARY: "primary";
     readonly NEUTRAL: "neutral";
     readonly NEUTRAL_WEAK: "neutral-weak";
+    readonly FAIL: "fail";
     readonly DANGER: "danger";
     readonly SUCCESS: "success";
     readonly INVERTED: "inverted";
