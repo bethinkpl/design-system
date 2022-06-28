@@ -121,4 +121,11 @@ describe('Pill', () => {
 			});
 		},
 	);
+
+	it("doesn't render delete when size x-small", () => {
+		const component = createComponent({ hasDelete: true, size: PILL_SIZES.X_SMALL });
+
+		const deleteButton = component.find('.pill__delete');
+		expect(deleteButton.exists()).toBe(false);
+	});
 });

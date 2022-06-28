@@ -12,7 +12,7 @@
 		/>
 		<span class="pill__label">{{ label }}</span>
 		<icon-button
-			v-if="hasDelete"
+			v-if="size !== PILL_SIZES.X_SMALL && hasDelete"
 			class="pill__delete"
 			:touchable="false"
 			:color="iconButtonColor"
