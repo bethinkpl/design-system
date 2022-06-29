@@ -31,7 +31,7 @@
 
 	&.-horizontal {
 		height: 1px;
-		width: 100%;
+		width: auto;
 	}
 }
 </style>

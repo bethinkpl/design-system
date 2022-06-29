@@ -3,13 +3,16 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 import Card from './Card.vue';
 
 describe('Card', () => {
-	const createComponent = ({ headerSlot = '', contentSlot = '', footerSlot = '' } = {}) => {
+	const createComponent = ({ headerSlot = '', contentSlot = '', footerSlot = '', headerHasPadding = false, dividerUnderHeader = false, } = {}) => {
 		const localVue = createLocalVue();
 
 		return shallowMount(Card, {
 			localVue,
 			mocks: {},
-			propsData: {},
+			propsData: {
+				headerHasPadding,
+				dividerUnderHeader,
+			},
 			stubs: {},
 			slots: {
 				header: headerSlot,
@@ -50,5 +53,32 @@ describe('Card', () => {
 		const component = createComponent({ footerSlot: footer });
 
 		expect(component.text()).toContain(footer);
+	});
+
+	it('should render header slot with padding', () => {
+		const header = 'Wpłynąlem na suchego przestwór oceanu';
+		const component = createComponent({ headerSlot: header, headerHasPadding: true, });
+
+		expect(component.find('.card__header').classes()).toContain('-withPadding');
+	});
+
+	it('should render divider', () => {
+		const header = 'Wpłynąlem na suchego przestwór oceanu';
+		const component = createComponent({ headerSlot: header, dividerUnderHeader: true, });
+
+		expect(component.find('.card__headerDivider').exists()).toBe(true);
+	});
+
+	it('doesn\'t render divider when no header', () => {
+		const component = createComponent({ dividerUnderHeader: true, });
+
+		expect(component.find('.card__headerDivider').exists()).toBe(false);
+	});
+
+	it('should render divider with margin if headerHasPadding', () => {
+		const header = 'Wpłynąlem na suchego przestwór oceanu';
+		const component = createComponent({ headerSlot: header, dividerUnderHeader: true, headerHasPadding: true, });
+
+		expect(component.find('.card__headerDivider').classes()).toContain('-withHorizontalMargin');
 	});
 });
