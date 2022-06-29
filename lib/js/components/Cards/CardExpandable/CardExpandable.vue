@@ -1,5 +1,9 @@
 <template>
-	<ds-card class="cardExpandable" :header-has-padding="headerHasPadding" :divider-under-header="dividerUnderHeader">
+	<ds-card
+		class="cardExpandable"
+		:header-has-padding="headerHasPadding"
+		:divider-under-header="dividerUnderHeader"
+	>
 		<template #header><slot name="header"></slot></template>
 		<template #content>
 			<slot name="content" :is-expanded="isExpandedInternal" />
