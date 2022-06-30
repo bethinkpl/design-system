@@ -70,7 +70,11 @@ describe('Card', () => {
 
 	it('should render divider', () => {
 		const header = 'Wpłynąlem na suchego przestwór oceanu';
-		const component = createComponent({ headerSlot: header, dividerUnderHeader: true });
+		const component = createComponent({
+			headerSlot: header,
+			contentSlot: 'asd',
+			dividerUnderHeader: true,
+		});
 
 		expect(component.find('.card__headerDivider').exists()).toBe(true);
 	});
@@ -81,10 +85,17 @@ describe('Card', () => {
 		expect(component.find('.card__headerDivider').exists()).toBe(false);
 	});
 
+	it("doesn't render divider when no content", () => {
+		const component = createComponent({ headerSlot: 'test', dividerUnderHeader: true });
+
+		expect(component.find('.card__headerDivider').exists()).toBe(false);
+	});
+
 	it('should render divider with margin if headerHasPadding', () => {
 		const header = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({
 			headerSlot: header,
+			contentSlot: 'asd',
 			dividerUnderHeader: true,
 			headerHasPadding: true,
 		});

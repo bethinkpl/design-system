@@ -8,11 +8,11 @@
 			<slot name="header"></slot>
 		</div>
 		<ds-divider
-			v-if="$slots.header && dividerUnderHeader"
+			v-if="$slots.header && $slots.content && dividerUnderHeader"
 			class="card__headerDivider"
 			:class="{ '-withHorizontalMargin': headerHasPadding }"
 		/>
-		<div class="card__content">
+		<div v-if="$slots.content" class="card__content">
 			<slot name="content"></slot>
 		</div>
 		<slot name="footer"></slot>
