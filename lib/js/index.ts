@@ -3,6 +3,7 @@ export * from './components/Badges/Badge';
 export * from './components/Badges/Badge/Badge.consts';
 export { default as BadgeScore } from './components/Badges/BadgeScore';
 export * from './components/Badges/BadgeScore/BadgeScore.consts';
+export { default as Banner } from './components/Banner';
 export { default as Button } from './components/Buttons/Button';
 export * from './components/Buttons/Button/Button.consts';
 export { default as Card } from './components/Cards/Card/';
