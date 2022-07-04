@@ -38,7 +38,7 @@ import { ICONS } from '../Icon';
             components: {DsBanner,},
             props: Object.keys(args),
             template: `<ds-banner :closable="closable" :icon="icon" :color="color" :title="title" :buttonText="buttonText" :layout="layout">
-                <template  #defaultText><span v-html="defaultText"></span></template>
+                <template  #defaultText><span v-if="defaultText.length > 0" v-html="defaultText"></span></template>
                 <template #expandedText><div v-if="expandedText.length > 0" v-html="expandedText"></div></template>
             </ds-banner>`,
         };

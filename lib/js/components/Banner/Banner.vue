@@ -9,7 +9,7 @@
 
         <div class="o-banner__text">
           <div class="o-banner__title" v-text="title"/>
-          <div class="o-banner__defaultText">
+          <div v-if="hasDefaultText" class="o-banner__defaultText">
             <slot name="defaultText"/>
           </div>
         </div>
@@ -84,8 +84,6 @@
   &__title {
     @include headlineXS;
     @include textBold;
-
-    margin-bottom: $space-xxxxs;
   }
 
   &__defaultText {
@@ -93,11 +91,16 @@
   }
 
   &__text {
-    display: flex;
+    display: inline-flex;
     flex-direction: column;
+    justify-content: center;
     flex-grow: 1;
     padding: $space-xxxxs 0;
     margin: 0 $space-s;
+
+    :nth-child(2) {
+      margin-top: $space-xxxxs;
+    }
   }
 
   &__iconContainer {
@@ -265,6 +268,9 @@ export default {
     },
     hasExpandedText() {
       return !!this.$slots.expandedText && this.$slots.expandedText.length > 0;
+    },
+    hasDefaultText() {
+      return !!this.$slots.defaultText && this.$slots.defaultText.length > 0;
     }
   },
   created() {
