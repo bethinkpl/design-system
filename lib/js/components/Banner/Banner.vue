@@ -2,9 +2,9 @@
   <div class="o-banner" :class=[backgroundColorClass]>
     <div class="o-banner__content">
       <div class="o-banner__header">
-        <div v-if="icon" class="o-banner__iconContainer" :class=[iconColor]>
+        <div v-if="icon" class="o-banner__iconContainer">
           <!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
-          <ds-icon :icon="icon"/>
+          <ds-icon class="o-banner__icon" :class=[iconColor] :icon="icon"/>
         </div>
 
         <div class="o-banner__text">
@@ -17,6 +17,7 @@
           <ds-button
               :color="BUTTON_COLORS.NEUTRAL"
               :type="BUTTON_TYPES.OUTLINED"
+              :size="BUTTON_SIZES.SMALL"
               @click.native="$emit('button-clicked')"
           >{{ buttonText }}
           </ds-button>
@@ -34,11 +35,11 @@
       </div>
       <div v-if="!hasExpandedText && closable">
         <ds-icon-button
-            touchable
             :size="ICON_BUTTON_SIZES.SMALL"
             :icon="ICONS.FA_XMARK"
             :color="ICON_BUTTON_COLORS.NEUTRAL"
             :radius="BUTTON_RADIUSES.ROUNDED"
+            :touchable="false"
             @click.native="$emit('close')"
         />
       </div>
@@ -91,7 +92,7 @@
   }
 
   &__text {
-    display: inline-flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     flex-grow: 1;
@@ -104,10 +105,11 @@
   }
 
   &__iconContainer {
-    display: flex;
-    align-self: flex-start;
+    padding: $space-xxs 0;
+  }
+
+  &__icon {
     padding: $space-xxs;
-    margin-top: $space-xxs;
     border-radius: 100px;
   }
 
@@ -196,7 +198,7 @@
 import { VueConstructor } from 'vue';
 
 import { Prop } from 'vue/types/options';
-import DsButton, { BUTTON_RADIUSES, BUTTON_TYPES, BUTTON_COLORS } from "../Buttons/Button";
+import DsButton, { BUTTON_RADIUSES, BUTTON_TYPES, BUTTON_COLORS, BUTTON_SIZES } from "../Buttons/Button";
 import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
 import DsIcon from "../Icon";
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from "../Buttons/IconButton";
@@ -276,6 +278,7 @@ export default {
   created() {
     this.BUTTON_COLORS = BUTTON_COLORS;
     this.BUTTON_RADIUSES = BUTTON_RADIUSES;
+    this.BUTTON_SIZES = BUTTON_SIZES;
     this.BUTTON_TYPES = BUTTON_TYPES;
     this.DIVIDER_PROMINENCES = DIVIDER_PROMINENCES;
     this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
