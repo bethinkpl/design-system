@@ -21,13 +21,17 @@ import Card from './Card';
 		},
 		footer: { control: { type: 'text' }, defaultValue: 'footer slot' },
 	}}
+	args={{
+		headerHasPadding: false,
+		dividerUnderHeader: false,
+	}}
 >
 	{(args) => {
 		return {
 			components: { Card },
 			props: Object.keys(args),
 			template:
-				'<card><div v-if="header" slot="header" v-html="header" /><div slot="content" v-html="content" /><div slot="footer" v-html="footer" /></card>',
+				'<card :header-has-padding="headerHasPadding" :divider-under-header="dividerUnderHeader"><div v-if="header" slot="header" v-html="header" /><div v-if="content" slot="content" v-html="content" /><div slot="footer" v-html="footer" /></card>',
 		};
 	}}
 </Story>

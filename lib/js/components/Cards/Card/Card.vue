@@ -1,9 +1,18 @@
 <template>
 	<div class="card">
-		<div v-if="$slots.header" class="card__header">
+		<div
+			v-if="$slots.header"
+			class="card__header"
+			:class="{ '-withPadding': headerHasPadding }"
+		>
 			<slot name="header"></slot>
 		</div>
-		<div class="card__content">
+		<ds-divider
+			v-if="$slots.header && $slots.content && dividerUnderHeader"
+			class="card__headerDivider"
+			:class="{ '-withHorizontalMargin': headerHasPadding }"
+		/>
+		<div v-if="$slots.content" class="card__content">
 			<slot name="content"></slot>
 		</div>
 		<slot name="footer"></slot>
@@ -22,7 +31,15 @@
 	box-shadow: $shadow-s;
 
 	&__header {
-		padding: $space-s;
+		&.-withPadding {
+			padding: $space-s;
+		}
+	}
+
+	&__headerDivider {
+		&.-withHorizontalMargin {
+			margin: 0 $space-s;
+		}
 	}
 
 	&__content {
@@ -32,7 +49,19 @@
 </style>
 
 <script lang="ts">
+import DsDivider from '../../Divider/Divider.vue';
 export default {
 	name: 'Card',
+	components: { DsDivider },
+	props: {
+		headerHasPadding: {
+			type: Boolean,
+			default: false,
+		},
+		dividerUnderHeader: {
+			type: Boolean,
+			default: false,
+		},
+	},
 };
 </script>

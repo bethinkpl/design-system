@@ -30,6 +30,8 @@ import CardExpandable from './CardExpandable';
 		expanderTextCollapsed: 'Rozwiń',
 		expanderTextExpanded: 'Zwiń',
 		isExpanded: false,
+		headerHasPadding: false,
+		dividerUnderHeader: false,
 	}}
 >
 	{(args) => {
@@ -37,7 +39,7 @@ import CardExpandable from './CardExpandable';
 			components: { CardExpandable },
 			props: Object.keys(args),
 			template:
-				'<card-expandable :is-expander-visible="isExpanderVisible" :expander-text-collapsed="expanderTextCollapsed" :expander-text-expanded="expanderTextExpanded" :is-expanded="isExpanded">' +
+				'<card-expandable :is-expander-visible="isExpanderVisible" :expander-text-collapsed="expanderTextCollapsed" :expander-text-expanded="expanderTextExpanded" :is-expanded="isExpanded" :header-has-padding="headerHasPadding" :divider-under-header="dividerUnderHeader">' +
 				'<div v-if="header" slot="header" v-html="header" />' +
 				'<template #content="{ isExpanded: isExpandedInternal }">' +
 				'<div v-html="content" /><div v-if="isExpandedInternal">Dodatkowa treść w slocie <code>content</code> widoczna po rozwinięciu</div>' +

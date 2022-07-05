@@ -1,5 +1,9 @@
 <template>
-	<ds-card class="cardExpandable">
+	<ds-card
+		class="cardExpandable"
+		:header-has-padding="headerHasPadding"
+		:divider-under-header="dividerUnderHeader"
+	>
 		<template #header><slot name="header"></slot></template>
 		<template #content>
 			<slot name="content" :is-expanded="isExpandedInternal" />
@@ -98,6 +102,14 @@ export default {
 		expanderTextExpanded: {
 			type: String,
 			default: 'Zwiń',
+		},
+		headerHasPadding: {
+			type: Boolean,
+			default: false,
+		},
+		dividerUnderHeader: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	data() {
