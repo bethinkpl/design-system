@@ -1,65 +1,65 @@
 <template>
-  <div class="o-banner" :class="[backgroundColorClass]">
-    <div class="o-banner__content" :class="layoutClass">
-      <div class="o-banner__header">
-        <div v-if="icon" class="o-banner__iconContainer">
-          <!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
-          <ds-icon class="o-banner__icon" :class=[iconColor] :icon="icon"/>
-        </div>
+	<div class="o-banner" :class="[backgroundColorClass]">
+		<div class="o-banner__content" :class="layoutClass">
+			<div class="o-banner__header">
+				<div v-if="icon" class="o-banner__iconContainer">
+					<!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
+					<ds-icon class="o-banner__icon" :class="[iconColor]" :icon="icon" />
+				</div>
 
-        <div class="o-banner__text">
-          <div class="o-banner__title" v-text="title"/>
-          <div v-if="hasDefaultText" class="o-banner__defaultText">
-            <slot name="defaultText"/>
-          </div>
-          <div v-if="buttonText.length > 0" class="o-banner__buttonTextVertical">
-            <ds-button
-                :color="BUTTON_COLORS.NEUTRAL"
-                :type="BUTTON_TYPES.OUTLINED"
-                :size="BUTTON_SIZES.SMALL"
-                @click.native="$emit('button-clicked')"
-            >{{ buttonText }}
-            </ds-button>
-          </div>
-        </div>
-        <div v-if="buttonText.length > 0" class="o-banner__buttonText">
-          <ds-button
-              :color="BUTTON_COLORS.NEUTRAL"
-              :type="BUTTON_TYPES.OUTLINED"
-              :size="BUTTON_SIZES.SMALL"
-              @click.native="$emit('button-clicked')"
-          >{{ buttonText }}
-          </ds-button>
-        </div>
-      </div>
-      <div v-if="hasExpandedText" class="o-banner__expander">
-        <ds-icon-button
-            :size="ICON_BUTTON_SIZES.SMALL"
-            :icon="expanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
-            :color="ICON_BUTTON_COLORS.NEUTRAL"
-            :radius="BUTTON_RADIUSES.ROUNDED"
-            :touchable="false"
-            @click.native="toggleExpandedText"
-        />
-      </div>
-      <div v-if="!hasExpandedText && closable">
-        <ds-icon-button
-            :size="ICON_BUTTON_SIZES.SMALL"
-            :icon="ICONS.FA_XMARK"
-            :color="ICON_BUTTON_COLORS.NEUTRAL"
-            :radius="BUTTON_RADIUSES.ROUNDED"
-            :touchable="false"
-            @click.native="$emit('close')"
-        />
-      </div>
-    </div>
-    <div v-if="hasExpandedText && expanded" class="o-banner__expandedContainer">
-      <ds-divider :prominence="DIVIDER_PROMINENCES.STRONG"/>
-      <div class="o-banner__expandedText">
-        <slot name="expandedText"/>
-      </div>
-    </div>
-  </div>
+				<div class="o-banner__text">
+					<div class="o-banner__title" v-text="title" />
+					<div v-if="hasDefaultText" class="o-banner__defaultText">
+						<slot name="defaultText" />
+					</div>
+					<div v-if="buttonText.length > 0" class="o-banner__buttonTextVertical">
+						<ds-button
+							:color="BUTTON_COLORS.NEUTRAL"
+							:type="BUTTON_TYPES.OUTLINED"
+							:size="BUTTON_SIZES.SMALL"
+							@click.native="$emit('button-clicked')"
+							>{{ buttonText }}
+						</ds-button>
+					</div>
+				</div>
+				<div v-if="buttonText.length > 0" class="o-banner__buttonText">
+					<ds-button
+						:color="BUTTON_COLORS.NEUTRAL"
+						:type="BUTTON_TYPES.OUTLINED"
+						:size="BUTTON_SIZES.SMALL"
+						@click.native="$emit('button-clicked')"
+						>{{ buttonText }}
+					</ds-button>
+				</div>
+			</div>
+			<div v-if="hasExpandedText" class="o-banner__expander">
+				<ds-icon-button
+					:size="ICON_BUTTON_SIZES.SMALL"
+					:icon="expanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
+					:color="ICON_BUTTON_COLORS.NEUTRAL"
+					:radius="BUTTON_RADIUSES.ROUNDED"
+					:touchable="false"
+					@click.native="toggleExpandedText"
+				/>
+			</div>
+			<div v-if="!hasExpandedText && closable">
+				<ds-icon-button
+					:size="ICON_BUTTON_SIZES.SMALL"
+					:icon="ICONS.FA_XMARK"
+					:color="ICON_BUTTON_COLORS.NEUTRAL"
+					:radius="BUTTON_RADIUSES.ROUNDED"
+					:touchable="false"
+					@click.native="$emit('close')"
+				/>
+			</div>
+		</div>
+		<div v-if="hasExpandedText && expanded" class="o-banner__expandedContainer">
+			<ds-divider :prominence="DIVIDER_PROMINENCES.STRONG" />
+			<div class="o-banner__expandedText">
+				<slot name="expandedText" />
+			</div>
+		</div>
+	</div>
 </template>
 
 <style lang="scss" scoped>
@@ -70,206 +70,210 @@
 @import '../../../styles/settings/media-queries';
 
 .o-banner {
-  $self: &;
+	$self: &;
 
-  @mixin iconContainerMobileStyles {
-    padding: $space-xxxxs 0;
-  }
-  @mixin headerMobileStyles {
-    padding: 0 $space-xxxxs;
-  }
-  @mixin expanderMobileStyles {
-    padding: 0 $space-xxxxs;
-  }
-  @mixin iconMobileStyles {
-    padding: $space-xxxs;
-  }
+	@mixin iconContainerMobileStyles {
+		padding: $space-xxxxs 0;
+	}
 
-  border-radius: $radius-m;
-  border-style: solid;
-  border-width: 1px;
-  display: flex;
-  flex-direction: column;
-  padding: $space-xs;
+	@mixin headerMobileStyles {
+		padding: 0 $space-xxxxs;
+	}
 
-  .-vertical {
-    #{$self}__buttonText {
-      display: none !important;
-    }
+	@mixin expanderMobileStyles {
+		padding: 0 $space-xxxxs;
+	}
 
-    #{$self}__buttonTextVertical {
-      display: initial !important;
-    }
+	@mixin iconMobileStyles {
+		padding: $space-xxxs;
+	}
 
-    #{$self}__iconContainer {
-      @include iconContainerMobileStyles;
-    }
+	border-radius: $radius-m;
+	border-style: solid;
+	border-width: 1px;
+	display: flex;
+	flex-direction: column;
+	padding: $space-xs;
 
-    #{$self}__header {
-      @include headerMobileStyles;
-    }
+	.-vertical {
+		#{$self}__buttonText {
+			display: none !important;
+		}
 
-    #{$self}__expander {
-      @include expanderMobileStyles;
-    }
+		#{$self}__buttonTextVertical {
+			display: initial !important;
+		}
 
-    #{$self}__icon {
-      @include iconMobileStyles;
-    }
-  }
+		#{$self}__iconContainer {
+			@include iconContainerMobileStyles;
+		}
 
-  &__content {
-    display: flex;
-  }
+		#{$self}__header {
+			@include headerMobileStyles;
+		}
 
-  &__header {
-    @include headerMobileStyles;
+		#{$self}__expander {
+			@include expanderMobileStyles;
+		}
 
-    display: flex;
-    justify-content: space-between;
-    margin-right: $space-xxs;
-    width: 100%;
+		#{$self}__icon {
+			@include iconMobileStyles;
+		}
+	}
 
-    @media #{breakpoint-m()} {
-      padding: 0 $space-xxs;
-    }
-  }
+	&__content {
+		display: flex;
+	}
 
-  &__title {
-    @include headlineXS;
-    @include textBold;
-  }
+	&__header {
+		@include headerMobileStyles;
 
-  &__defaultText {
-    @include textM;
-  }
+		display: flex;
+		justify-content: space-between;
+		margin-right: $space-xxs;
+		width: 100%;
 
-  &__text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 1;
-    padding: $space-xxxxs 0;
-    margin: 0 $space-s;
+		@media #{breakpoint-m()} {
+			padding: 0 $space-xxs;
+		}
+	}
 
-    :nth-child(n+2) {
-      margin-top: $space-xxxxs;
-    }
-  }
+	&__title {
+		@include headlineXS;
+		@include textBold;
+	}
 
-  &__iconContainer {
-    @include iconContainerMobileStyles;
+	&__defaultText {
+		@include textM;
+	}
 
-    @media #{breakpoint-m()} {
-      padding: $space-xxs 0;
-    }
-  }
+	&__text {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		flex-grow: 1;
+		padding: $space-xxxxs 0;
+		margin: 0 $space-s;
 
-  &__icon {
-    @include iconMobileStyles;
-    border-radius: 100px;
+		:nth-child(n + 2) {
+			margin-top: $space-xxxxs;
+		}
+	}
 
-    @media #{breakpoint-m()} {
-      padding: $space-xxs;
-    }
-  }
+	&__iconContainer {
+		@include iconContainerMobileStyles;
 
-  .-iconNeutral {
-    color: $color-neutral-icon;
-    background-color: $color-neutral-background-medium;
-  }
+		@media #{breakpoint-m()} {
+			padding: $space-xxs 0;
+		}
+	}
 
-  .-iconDefault {
-    color: $color-default-icon;
-    background-color: $color-neutral-background-medium;
-  }
+	&__icon {
+		@include iconMobileStyles;
 
-  .-iconWarning {
-    color: $color-warning-icon;
-    background-color: $color-warning-background-medium;
-  }
+		border-radius: 100px;
 
-  .-iconSuccess {
-    color: $color-success-icon;
-    background-color: $color-success-background-medium;
-  }
+		@media #{breakpoint-m()} {
+			padding: $space-xxs;
+		}
+	}
 
-  .-iconInfo {
-    color: $color-info-icon;
-    background-color: $color-info-background-medium;
-  }
+	.-iconNeutral {
+		color: $color-neutral-icon;
+		background-color: $color-neutral-background-medium;
+	}
 
-  .-iconFail {
-    color: $color-fail-icon;
-    background-color: $color-fail-background-medium;
-  }
+	.-iconDefault {
+		color: $color-default-icon;
+		background-color: $color-neutral-background-medium;
+	}
 
-  &__buttonText {
-    padding: $space-xs 0;
-    flex-shrink: 0;
-    display: none;
+	.-iconWarning {
+		color: $color-warning-icon;
+		background-color: $color-warning-background-medium;
+	}
 
-    @media #{breakpoint-m()} {
-      display: initial;
-    }
-  }
+	.-iconSuccess {
+		color: $color-success-icon;
+		background-color: $color-success-background-medium;
+	}
 
-  &__buttonTextVertical {
-    padding: $space-xxs 0 0;
+	.-iconInfo {
+		color: $color-info-icon;
+		background-color: $color-info-background-medium;
+	}
 
-    @media #{breakpoint-m()} {
-      display: none;
-    }
-  }
+	.-iconFail {
+		color: $color-fail-icon;
+		background-color: $color-fail-background-medium;
+	}
 
-  &__expander {
-    @include expanderMobileStyles;
+	&__buttonText {
+		padding: $space-xs 0;
+		flex-shrink: 0;
+		display: none;
 
-    @media #{breakpoint-m()} {
-      padding: $space-xs $space-xxxxs $space-xs 0;
-    }
-  }
+		@media #{breakpoint-m()} {
+			display: initial;
+		}
+	}
 
-  &__expandedContainer {
-    @include textM;
+	&__buttonTextVertical {
+		padding: $space-xxs 0 0;
 
-    margin-top: $space-xs;
-    padding: 0 $space-xxxxs $space-xxxxs;
-  }
+		@media #{breakpoint-m()} {
+			display: none;
+		}
+	}
 
-  &__expandedText {
-    margin-top: $space-xs;
-  }
+	&__expander {
+		@include expanderMobileStyles;
+
+		@media #{breakpoint-m()} {
+			padding: $space-xs $space-xxxxs $space-xs 0;
+		}
+	}
+
+	&__expandedContainer {
+		@include textM;
+
+		margin-top: $space-xs;
+		padding: 0 $space-xxxxs $space-xxxxs;
+	}
+
+	&__expandedText {
+		margin-top: $space-xs;
+	}
 }
 
 .-warning {
-  background-color: $color-warning-background;
-  border-color: $color-warning-border;
+	background-color: $color-warning-background;
+	border-color: $color-warning-border;
 }
 
 .-success {
-  background-color: $color-success-background;
-  border-color: $color-success-border;
+	background-color: $color-success-background;
+	border-color: $color-success-border;
 }
 
 .-info {
-  background-color: $color-info-background;
-  border-color: $color-info-border;
+	background-color: $color-info-background;
+	border-color: $color-info-border;
 }
 
 .-fail {
-  background-color: $color-fail-background;
-  border-color: $color-fail-border;
+	background-color: $color-fail-background;
+	border-color: $color-fail-border;
 }
 
 .-neutral {
-  background-color: $color-neutral-background;
-  border-color: $color-neutral-border-weak;
+	background-color: $color-neutral-background;
+	border-color: $color-neutral-border-weak;
 }
 
 .-default {
-  background-color: $color-default-background;
-  border-color: $color-neutral-border-weak;
+	background-color: $color-default-background;
+	border-color: $color-neutral-border-weak;
 }
 </style>
 
@@ -277,100 +281,105 @@
 import { VueConstructor } from 'vue';
 
 import { Prop } from 'vue/types/options';
-import DsButton, { BUTTON_RADIUSES, BUTTON_TYPES, BUTTON_COLORS, BUTTON_SIZES } from "../Buttons/Button";
+import DsButton, {
+	BUTTON_RADIUSES,
+	BUTTON_TYPES,
+	BUTTON_COLORS,
+	BUTTON_SIZES,
+} from '../Buttons/Button';
 import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
-import DsIcon from "../Icon";
-import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from "../Buttons/IconButton";
-import { ICONS } from "../Icon";
-import { BANNER_COLORS, BANNER_LAYOUTS } from "./Banner.consts";
+import DsIcon from '../Icon';
+import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
+import { ICONS } from '../Icon';
+import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
 
 export default {
-  name: 'Banner',
-  components: {
-    DsButton,
-    DsDivider,
-    DsIconButton,
-    DsIcon,
-  },
-  props: {
-    icon: {
-      type: Object as Prop<VueConstructor>,
-      default: null,
-      validate: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
-    },
-    buttonText: {
-      type: String,
-      default: null,
-    },
-    closable: {
-      type: Boolean,
-      default: false,
-    },
-    color: {
-      type: String,
-      default: BANNER_COLORS.DEFAULT,
-      validate: color => Object.values(BANNER_COLORS).includes(color),
-    },
-    title: {
-      type: String,
-      required: true,
-    },
-    layout: {
-      type: String,
-      default: BANNER_LAYOUTS.HORIZONTAL,
-      validate: layout => Object.values(BANNER_LAYOUTS).includes(layout),
-    },
-  },
-  data() {
-    return {
-      expanded: false
-    }
-  },
-  computed: {
-    backgroundColorClass() {
-      return {
-        [BANNER_COLORS.NEUTRAL]: '-neutral',
-        [BANNER_COLORS.DEFAULT]: '-default',
-        [BANNER_COLORS.FAIL]: '-fail',
-        [BANNER_COLORS.INFO]: '-info',
-        [BANNER_COLORS.SUCCESS]: '-success',
-        [BANNER_COLORS.WARNING]: '-warning',
-      }[this.color];
-    },
-    layoutClass() {
-      return this.layout === BANNER_LAYOUTS.VERTICAL ? '-vertical' : '-horizontal';
-    },
-    iconColor() {
-      return {
-        [BANNER_COLORS.NEUTRAL]: '-iconNeutral',
-        [BANNER_COLORS.DEFAULT]: '-iconDefault',
-        [BANNER_COLORS.FAIL]: '-iconFail',
-        [BANNER_COLORS.INFO]: '-iconInfo',
-        [BANNER_COLORS.SUCCESS]: '-iconSuccess',
-        [BANNER_COLORS.WARNING]: '-iconWarning',
-      }[this.color];
-    },
-    hasExpandedText() {
-      return !!this.$slots.expandedText && this.$slots.expandedText.length > 0;
-    },
-    hasDefaultText() {
-      return !!this.$slots.defaultText && this.$slots.defaultText.length > 0;
-    }
-  },
-  created() {
-    this.BUTTON_COLORS = BUTTON_COLORS;
-    this.BUTTON_RADIUSES = BUTTON_RADIUSES;
-    this.BUTTON_SIZES = BUTTON_SIZES;
-    this.BUTTON_TYPES = BUTTON_TYPES;
-    this.DIVIDER_PROMINENCES = DIVIDER_PROMINENCES;
-    this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-    this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-    this.ICONS = ICONS;
-  },
-  methods: {
-    toggleExpandedText() {
-      this.expanded = !this.expanded;
-    }
-  }
+	name: 'Banner',
+	components: {
+		DsButton,
+		DsDivider,
+		DsIconButton,
+		DsIcon,
+	},
+	props: {
+		icon: {
+			type: Object as Prop<VueConstructor>,
+			default: null,
+			validate: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
+		},
+		buttonText: {
+			type: String,
+			default: null,
+		},
+		closable: {
+			type: Boolean,
+			default: false,
+		},
+		color: {
+			type: String,
+			default: BANNER_COLORS.DEFAULT,
+			validate: (color) => Object.values(BANNER_COLORS).includes(color),
+		},
+		title: {
+			type: String,
+			required: true,
+		},
+		layout: {
+			type: String,
+			default: BANNER_LAYOUTS.HORIZONTAL,
+			validate: (layout) => Object.values(BANNER_LAYOUTS).includes(layout),
+		},
+	},
+	data() {
+		return {
+			expanded: false,
+		};
+	},
+	computed: {
+		backgroundColorClass() {
+			return {
+				[BANNER_COLORS.NEUTRAL]: '-neutral',
+				[BANNER_COLORS.DEFAULT]: '-default',
+				[BANNER_COLORS.FAIL]: '-fail',
+				[BANNER_COLORS.INFO]: '-info',
+				[BANNER_COLORS.SUCCESS]: '-success',
+				[BANNER_COLORS.WARNING]: '-warning',
+			}[this.color];
+		},
+		layoutClass() {
+			return this.layout === BANNER_LAYOUTS.VERTICAL ? '-vertical' : '-horizontal';
+		},
+		iconColor() {
+			return {
+				[BANNER_COLORS.NEUTRAL]: '-iconNeutral',
+				[BANNER_COLORS.DEFAULT]: '-iconDefault',
+				[BANNER_COLORS.FAIL]: '-iconFail',
+				[BANNER_COLORS.INFO]: '-iconInfo',
+				[BANNER_COLORS.SUCCESS]: '-iconSuccess',
+				[BANNER_COLORS.WARNING]: '-iconWarning',
+			}[this.color];
+		},
+		hasExpandedText() {
+			return !!this.$slots.expandedText && this.$slots.expandedText.length > 0;
+		},
+		hasDefaultText() {
+			return !!this.$slots.defaultText && this.$slots.defaultText.length > 0;
+		},
+	},
+	created() {
+		this.BUTTON_COLORS = BUTTON_COLORS;
+		this.BUTTON_RADIUSES = BUTTON_RADIUSES;
+		this.BUTTON_SIZES = BUTTON_SIZES;
+		this.BUTTON_TYPES = BUTTON_TYPES;
+		this.DIVIDER_PROMINENCES = DIVIDER_PROMINENCES;
+		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+		this.ICONS = ICONS;
+	},
+	methods: {
+		toggleExpandedText() {
+			this.expanded = !this.expanded;
+		},
+	},
 };
 </script>
