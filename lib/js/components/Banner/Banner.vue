@@ -161,7 +161,7 @@
     @include iconContainerMobileStyles;
 
     @media #{breakpoint-m()} {
-      padding: 0 $space-xxs;
+      padding: $space-xxs 0;
     }
   }
 
