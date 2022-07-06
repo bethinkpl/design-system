@@ -1,6 +1,6 @@
 <template>
-  <div class="o-banner" :class=[backgroundColorClass]>
-    <div class="o-banner__content">
+  <div class="o-banner" :class="[backgroundColorClass]">
+    <div class="o-banner__content" :class="layoutClass">
       <div class="o-banner__header">
         <div v-if="icon" class="o-banner__iconContainer">
           <!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
@@ -11,6 +11,15 @@
           <div class="o-banner__title" v-text="title"/>
           <div v-if="hasDefaultText" class="o-banner__defaultText">
             <slot name="defaultText"/>
+          </div>
+          <div v-if="buttonText.length > 0" class="o-banner__buttonTextVertical">
+            <ds-button
+                :color="BUTTON_COLORS.NEUTRAL"
+                :type="BUTTON_TYPES.OUTLINED"
+                :size="BUTTON_SIZES.SMALL"
+                @click.native="$emit('button-clicked')"
+            >{{ buttonText }}
+            </ds-button>
           </div>
         </div>
         <div v-if="buttonText.length > 0" class="o-banner__buttonText">
@@ -25,11 +34,11 @@
       </div>
       <div v-if="hasExpandedText" class="o-banner__expander">
         <ds-icon-button
-            touchable
             :size="ICON_BUTTON_SIZES.SMALL"
             :icon="expanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
             :color="ICON_BUTTON_COLORS.NEUTRAL"
             :radius="BUTTON_RADIUSES.ROUNDED"
+            :touchable="false"
             @click.native="toggleExpandedText"
         />
       </div>
@@ -61,6 +70,21 @@
 @import '../../../styles/settings/media-queries';
 
 .o-banner {
+  $self: &;
+
+  @mixin iconContainerMobileStyles {
+    padding: $space-xxxxs 0;
+  }
+  @mixin headerMobileStyles {
+    padding: 0 $space-xxxxs;
+  }
+  @mixin expanderMobileStyles {
+    padding: 0 $space-xxxxs;
+  }
+  @mixin iconMobileStyles {
+    padding: $space-xxxs;
+  }
+
   border-radius: $radius-m;
   border-style: solid;
   border-width: 1px;
@@ -68,17 +92,46 @@
   flex-direction: column;
   padding: $space-xs;
 
+  .-vertical {
+    #{$self}__buttonText {
+      display: none !important;
+    }
+
+    #{$self}__buttonTextVertical {
+      display: initial !important;
+    }
+
+    #{$self}__iconContainer {
+      @include iconContainerMobileStyles;
+    }
+
+    #{$self}__header {
+      @include headerMobileStyles;
+    }
+
+    #{$self}__expander {
+      @include expanderMobileStyles;
+    }
+
+    #{$self}__icon {
+      @include iconMobileStyles;
+    }
+  }
+
   &__content {
     display: flex;
   }
 
   &__header {
+    @include headerMobileStyles;
+
     display: flex;
     justify-content: space-between;
-    padding: 0 $space-xxs;
+    margin-right: $space-xxs;
+    width: 100%;
 
     @media #{breakpoint-m()} {
-      width: 100%;
+      padding: 0 $space-xxs;
     }
   }
 
@@ -99,18 +152,26 @@
     padding: $space-xxxxs 0;
     margin: 0 $space-s;
 
-    :nth-child(2) {
+    :nth-child(n+2) {
       margin-top: $space-xxxxs;
     }
   }
 
   &__iconContainer {
-    padding: $space-xxs 0;
+    @include iconContainerMobileStyles;
+
+    @media #{breakpoint-m()} {
+      padding: 0 $space-xxs;
+    }
   }
 
   &__icon {
-    padding: $space-xxs;
+    @include iconMobileStyles;
     border-radius: 100px;
+
+    @media #{breakpoint-m()} {
+      padding: $space-xxs;
+    }
   }
 
   .-iconNeutral {
@@ -145,10 +206,28 @@
 
   &__buttonText {
     padding: $space-xs 0;
+    flex-shrink: 0;
+    display: none;
+
+    @media #{breakpoint-m()} {
+      display: initial;
+    }
+  }
+
+  &__buttonTextVertical {
+    padding: $space-xxs 0 0;
+
+    @media #{breakpoint-m()} {
+      display: none;
+    }
   }
 
   &__expander {
-    padding: $space-xs $space-xxxxs $space-xs 0;
+    @include expanderMobileStyles;
+
+    @media #{breakpoint-m()} {
+      padding: $space-xs $space-xxxxs $space-xs 0;
+    }
   }
 
   &__expandedContainer {
@@ -190,7 +269,7 @@
 
 .-default {
   background-color: $color-default-background;
-  border-color: $color-default-border;
+  border-color: $color-neutral-border-weak;
 }
 </style>
 
@@ -257,6 +336,9 @@ export default {
         [BANNER_COLORS.SUCCESS]: '-success',
         [BANNER_COLORS.WARNING]: '-warning',
       }[this.color];
+    },
+    layoutClass() {
+      return this.layout === BANNER_LAYOUTS.VERTICAL ? '-vertical' : '-horizontal';
     },
     iconColor() {
       return {
