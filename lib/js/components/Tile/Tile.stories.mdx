@@ -1,5 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import Tile from 'design-system/lib/js/components/Tile';
+import { TILE_COLORS } from './Tile.consts';
 import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 
 <Meta title="components/Tile" component={Tile} />
@@ -33,6 +34,10 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 			defaultValue: null,
 		},
+		color: {
+		    control: { type: 'select', options: [...Object.values(TILE_COLORS)] },
+            defaultValue: TILE_COLORS.NEUTRAL,
+		},
 	}}
 >
 	>
@@ -41,7 +46,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			components: { Tile },
 			props: Object.keys(args),
 			template:
-				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" />',
+				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" />',
 			created() {
 				this.ICONS = ICONS;
 			},
@@ -68,6 +73,10 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 			defaultValue: null,
 		},
+		color: {
+		    control: { type: 'select', options: [null, ...Object.values(TILE_COLORS)] },
+            defaultValue: TILE_COLORS.NEUTRAL,
+		},
 	}}
 >
 	>
@@ -76,7 +85,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			components: { Tile },
 			props: Object.keys(args),
 			template:
-				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" />',
+				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" />',
 			created() {
 				this.ICONS = ICONS;
 			},
