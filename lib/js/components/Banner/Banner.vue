@@ -1,10 +1,10 @@
 <template>
-	<div class="o-banner" :class="[backgroundColorClass]">
-		<div class="o-banner__content" :class="layoutClass">
+	<div class="o-banner" :class="[colorClass, layoutClass]">
+		<div class="o-banner__content">
 			<div class="o-banner__header">
 				<div v-if="icon" class="o-banner__iconContainer">
 					<!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
-					<ds-icon class="o-banner__icon" :class="[iconColor]" :icon="icon" />
+					<ds-icon class="o-banner__icon" :class="[colorClass]" :icon="icon" />
 				</div>
 
 				<div class="o-banner__text">
@@ -95,7 +95,7 @@
 	flex-direction: column;
 	padding: $space-xs;
 
-	.-vertical {
+	&.-vertical {
 		#{$self}__buttonText {
 			display: none !important;
 		}
@@ -176,36 +176,36 @@
 		@media #{breakpoint-m()} {
 			padding: $space-xxs;
 		}
-	}
 
-	.-iconNeutral {
-		color: $color-neutral-icon;
-		background-color: $color-neutral-background-medium;
-	}
+    &.-neutral {
+      color: $color-neutral-icon;
+      background-color: $color-neutral-background-medium;
+    }
 
-	.-iconDefault {
-		color: $color-default-icon;
-		background-color: $color-neutral-background-medium;
-	}
+    &.-default {
+      color: $color-default-icon;
+      background-color: $color-neutral-background-medium;
+    }
 
-	.-iconWarning {
-		color: $color-warning-icon;
-		background-color: $color-warning-background-medium;
-	}
+    &.-warning {
+      color: $color-warning-icon;
+      background-color: $color-warning-background-medium;
+    }
 
-	.-iconSuccess {
-		color: $color-success-icon;
-		background-color: $color-success-background-medium;
-	}
+    &.-success {
+      color: $color-success-icon;
+      background-color: $color-success-background-medium;
+    }
 
-	.-iconInfo {
-		color: $color-info-icon;
-		background-color: $color-info-background-medium;
-	}
+    &.-info {
+      color: $color-info-icon;
+      background-color: $color-info-background-medium;
+    }
 
-	.-iconFail {
-		color: $color-fail-icon;
-		background-color: $color-fail-background-medium;
+    &.-fail {
+      color: $color-fail-icon;
+      background-color: $color-fail-background-medium;
+    }
 	}
 
 	&__buttonText {
@@ -244,36 +244,37 @@
 	&__expandedText {
 		margin-top: $space-xs;
 	}
-}
 
-.-warning {
-	background-color: $color-warning-background;
-	border-color: $color-warning-border;
-}
 
-.-success {
-	background-color: $color-success-background;
-	border-color: $color-success-border;
-}
+  &.-warning {
+    background-color: $color-warning-background;
+    border-color: $color-warning-border;
+  }
 
-.-info {
-	background-color: $color-info-background;
-	border-color: $color-info-border;
-}
+  &.-success {
+    background-color: $color-success-background;
+    border-color: $color-success-border;
+  }
 
-.-fail {
-	background-color: $color-fail-background;
-	border-color: $color-fail-border;
-}
+  &.-info {
+    background-color: $color-info-background;
+    border-color: $color-info-border;
+  }
 
-.-neutral {
-	background-color: $color-neutral-background;
-	border-color: $color-neutral-border-weak;
-}
+  &.-fail {
+    background-color: $color-fail-background;
+    border-color: $color-fail-border;
+  }
 
-.-default {
-	background-color: $color-default-background;
-	border-color: $color-neutral-border-weak;
+  &.-neutral {
+    background-color: $color-neutral-background;
+    border-color: $color-neutral-border-weak;
+  }
+
+  &.-default {
+    background-color: $color-default-background;
+    border-color: $color-neutral-border-weak;
+  }
 }
 </style>
 
@@ -336,7 +337,7 @@ export default {
 		};
 	},
 	computed: {
-		backgroundColorClass() {
+		colorClass() {
 			return {
 				[BANNER_COLORS.NEUTRAL]: '-neutral',
 				[BANNER_COLORS.DEFAULT]: '-default',
@@ -348,16 +349,6 @@ export default {
 		},
 		layoutClass() {
 			return this.layout === BANNER_LAYOUTS.VERTICAL ? '-vertical' : '-horizontal';
-		},
-		iconColor() {
-			return {
-				[BANNER_COLORS.NEUTRAL]: '-iconNeutral',
-				[BANNER_COLORS.DEFAULT]: '-iconDefault',
-				[BANNER_COLORS.FAIL]: '-iconFail',
-				[BANNER_COLORS.INFO]: '-iconInfo',
-				[BANNER_COLORS.SUCCESS]: '-iconSuccess',
-				[BANNER_COLORS.WARNING]: '-iconWarning',
-			}[this.color];
 		},
 		hasExpandedText() {
 			return !!this.$slots.expandedText && this.$slots.expandedText.length > 0;
