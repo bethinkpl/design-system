@@ -177,35 +177,35 @@
 			padding: $space-xxs;
 		}
 
-    &.-neutral {
-      color: $color-neutral-icon;
-      background-color: $color-neutral-background-medium;
-    }
+		&.-neutral {
+			color: $color-neutral-icon;
+			background-color: $color-neutral-background-medium;
+		}
 
-    &.-default {
-      color: $color-default-icon;
-      background-color: $color-neutral-background-medium;
-    }
+		&.-default {
+			color: $color-default-icon;
+			background-color: $color-neutral-background-medium;
+		}
 
-    &.-warning {
-      color: $color-warning-icon;
-      background-color: $color-warning-background-medium;
-    }
+		&.-warning {
+			color: $color-warning-icon;
+			background-color: $color-warning-background-medium;
+		}
 
-    &.-success {
-      color: $color-success-icon;
-      background-color: $color-success-background-medium;
-    }
+		&.-success {
+			color: $color-success-icon;
+			background-color: $color-success-background-medium;
+		}
 
-    &.-info {
-      color: $color-info-icon;
-      background-color: $color-info-background-medium;
-    }
+		&.-info {
+			color: $color-info-icon;
+			background-color: $color-info-background-medium;
+		}
 
-    &.-fail {
-      color: $color-fail-icon;
-      background-color: $color-fail-background-medium;
-    }
+		&.-fail {
+			color: $color-fail-icon;
+			background-color: $color-fail-background-medium;
+		}
 	}
 
 	&__buttonText {
@@ -245,36 +245,35 @@
 		margin-top: $space-xs;
 	}
 
+	&.-warning {
+		background-color: $color-warning-background;
+		border-color: $color-warning-border;
+	}
 
-  &.-warning {
-    background-color: $color-warning-background;
-    border-color: $color-warning-border;
-  }
+	&.-success {
+		background-color: $color-success-background;
+		border-color: $color-success-border;
+	}
 
-  &.-success {
-    background-color: $color-success-background;
-    border-color: $color-success-border;
-  }
+	&.-info {
+		background-color: $color-info-background;
+		border-color: $color-info-border;
+	}
 
-  &.-info {
-    background-color: $color-info-background;
-    border-color: $color-info-border;
-  }
+	&.-fail {
+		background-color: $color-fail-background;
+		border-color: $color-fail-border;
+	}
 
-  &.-fail {
-    background-color: $color-fail-background;
-    border-color: $color-fail-border;
-  }
+	&.-neutral {
+		background-color: $color-neutral-background;
+		border-color: $color-neutral-border-weak;
+	}
 
-  &.-neutral {
-    background-color: $color-neutral-background;
-    border-color: $color-neutral-border-weak;
-  }
-
-  &.-default {
-    background-color: $color-default-background;
-    border-color: $color-neutral-border-weak;
-  }
+	&.-default {
+		background-color: $color-default-background;
+		border-color: $color-neutral-border-weak;
+	}
 }
 </style>
 
