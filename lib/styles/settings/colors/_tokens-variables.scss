@@ -69,6 +69,10 @@
 	--color-primary-border-hovered: var(--theme-700);
 	--color-primary-border-focused: var(--theme-700);
 	--color-primary-border-disabled: var(--theme-200);
+	--color-primary-border-weak: var(--theme-100);
+	--color-primary-border-weak-hovered: var(--theme-300);
+	--color-primary-border-weak-focused: var(--theme-300);
+	--color-primary-border-weak-disabled: var(--theme-100);
 	--color-primary-ripple: rgba(var(--theme-500-rgb), 0.12);
 	--color-neutral-text-heavy: var(--raw-gray-900);
 	--color-neutral-text-heavy-disabled: var(--raw-gray-400);
@@ -188,6 +192,10 @@
 	--color-danger-border-hovered: var(--raw-red-700);
 	--color-danger-border-focused: var(--raw-red-700);
 	--color-danger-border-disabled: var(--raw-red-200);
+	--color-danger-border-weak: var(--raw-red-100);
+	--color-danger-border-weak-hovered: var(--raw-red-300);
+	--color-danger-border-weak-focused: var(--raw-red-300);
+	--color-danger-border-weak-disabled: var(--raw-red-100);
 	--color-danger-ripple: rgba(var(--raw-red-500-rgb), 0.12);
 	--color-fail-text: var(--raw-orange-500);
 	--color-fail-text-weak: var(--raw-orange-400);
@@ -228,6 +236,10 @@
 	--color-fail-border-hovered: var(--raw-orange-700);
 	--color-fail-border-focused: var(--raw-orange-700);
 	--color-fail-border-disabled: var(--raw-orange-200);
+	--color-fail-border-weak: var(--raw-orange-100);
+	--color-fail-border-weak-hovered: var(--raw-orange-300);
+	--color-fail-border-weak-focused: var(--raw-orange-300);
+	--color-fail-border-weak-disabled: var(--raw-orange-200);
 	--color-fail-ripple: rgba(var(--raw-orange-500-rgb), 0.12);
 	--color-warning-text: var(--raw-gold-500);
 	--color-warning-text-weak: var(--raw-gold-400);
@@ -268,6 +280,10 @@
 	--color-warning-border-hovered: var(--raw-gold-700);
 	--color-warning-border-focused: var(--raw-gold-700);
 	--color-warning-border-disabled: var(--raw-gold-200);
+	--color-warning-border-weak: var(--raw-gold-100);
+	--color-warning-border-weak-hovered: var(--raw-gold-300);
+	--color-warning-border-weak-focused: var(--raw-gold-300);
+	--color-warning-border-weak-disabled: var(--raw-gold-100);
 	--color-warning-ripple: rgba(var(--raw-gold-500-rgb), 0.12);
 	--color-success-text: var(--raw-green-500);
 	--color-success-text-hovered: var(--raw-green-700);
@@ -314,6 +330,10 @@
 	--color-success-border-hovered: var(--raw-green-700);
 	--color-success-border-focused: var(--raw-green-700);
 	--color-success-border-disabled: var(--raw-green-200);
+	--color-success-border-weak: var(--raw-green-100);
+	--color-success-border-weak-hovered: var(--raw-green-300);
+	--color-success-border-weak-focused: var(--raw-green-300);
+	--color-success-border-weak-disabled: var(--raw-green-100);
 	--color-success-ripple: rgba(var(--raw-green-500-rgb), 0.12);
 	--color-info-text: var(--raw-blue-500);
 	--color-info-icon: var(--raw-blue-500);
@@ -353,6 +373,10 @@
 	--color-info-border-hovered: var(--raw-blue-700);
 	--color-info-border-focused: var(--raw-blue-700);
 	--color-info-border-disabled: var(--raw-blue-100);
+	--color-info-border-weak: var(--raw-blue-100);
+	--color-info-border-weak-hovered: var(--raw-blue-300);
+	--color-info-border-weak-focused: var(--raw-blue-300);
+	--color-info-border-weak-disabled: var(--raw-blue-100);
 	--color-info-ripple: rgba(var(--raw-blue-500-rgb), 0.12);
 	--color-accent-text: var(--raw-violet-500);
 	--color-accent-icon: var(--raw-violet-500);
@@ -388,5 +412,9 @@
 	--color-accent-border-hovered: var(--raw-violet-700);
 	--color-accent-border-focused: var(--raw-violet-700);
 	--color-accent-border-disabled: var(--raw-violet-200);
+	--color-accent-border-weak: var(--raw-violet-100);
+	--color-accent-border-weak-hovered: var(--raw-violet-300);
+	--color-accent-border-weak-focused: var(--raw-violet-300);
+	--color-accent-border-weak-disabled: var(--raw-violet-100);
 	--color-accent-ripple: rgba(var(--raw-violet-500-rgb), 0.12);
 }
