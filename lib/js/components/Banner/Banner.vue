@@ -123,22 +123,22 @@
 
 	&.-warning {
 		background-color: $color-warning-background;
-		border-color: $color-warning-border;
+		border-color: $color-warning-border-weak;
 	}
 
 	&.-success {
 		background-color: $color-success-background;
-		border-color: $color-success-border;
+		border-color: $color-success-border-weak;
 	}
 
 	&.-info {
 		background-color: $color-info-background;
-		border-color: $color-info-border;
+		border-color: $color-info-border-weak;
 	}
 
 	&.-fail {
 		background-color: $color-fail-background;
-		border-color: $color-fail-border;
+		border-color: $color-fail-border-weak;
 	}
 
 	&.-neutral {
@@ -153,7 +153,7 @@
 
 	&.-danger {
 		background-color: $color-danger-background;
-		border-color: $color-danger-border;
+		border-color: $color-danger-border-weak;
 	}
 
 	&__content {
