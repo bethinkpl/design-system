@@ -1,29 +1,28 @@
 <template>
-  <ds-ripple :disable="!interactive" :color="rippleColor">
-    <div :class="[tileColor, { '-interactive': interactive }]" class="a-tile">
-      <ds-icon
-          v-if="iconLeft"
-          :icon="iconLeft"
-          :size="ICON_SIZES.SMALL"
-          class="a-tile__iconLeft"
-      />
-      <div class="a-tile__center">
-        <span class="a-tile__eyebrowText" v-text="eyebrowText"/>
-        <span class="a-tile__text" v-text="text"/>
-      </div>
-      <ds-icon
-          v-if="iconRight"
-          :icon="iconRight"
-          :size="ICON_SIZES.SMALL"
-          :class="{ '-interactive': interactive }"
-          class="a-tile__iconRight"
-      />
-      <div v-else-if="additionalText" class="a-tile__additionalText">{{
-          additionalText
-        }}
-      </div>
-    </div>
-  </ds-ripple>
+	<ds-ripple :disable="!interactive" :color="rippleColor">
+		<div :class="[tileColor, { '-interactive': interactive }]" class="a-tile">
+			<ds-icon
+				v-if="iconLeft"
+				:icon="iconLeft"
+				:size="ICON_SIZES.SMALL"
+				class="a-tile__iconLeft"
+			/>
+			<div class="a-tile__center">
+				<span class="a-tile__eyebrowText" v-text="eyebrowText" />
+				<span class="a-tile__text" v-text="text" />
+			</div>
+			<ds-icon
+				v-if="iconRight"
+				:icon="iconRight"
+				:size="ICON_SIZES.SMALL"
+				:class="{ '-interactive': interactive }"
+				class="a-tile__iconRight"
+			/>
+			<div v-else-if="additionalText" class="a-tile__additionalText"
+				>{{ additionalText }}
+			</div>
+		</div>
+	</ds-ripple>
 </template>
 
 <style lang="scss" scoped>
@@ -33,125 +32,133 @@
 @import '../../../styles/settings/colors/tokens';
 
 .a-tile {
-  $self: &;
+	$self: &;
 
-  align-items: center;
-  display: flex;
-  flex-direction: row;
-  padding: $space-xxs $space-xs;
-  border-radius: $radius-s;
+	align-items: center;
+	display: flex;
+	flex-direction: row;
+	padding: $space-xxs $space-xs;
+	border-radius: $radius-s;
 
-  &__additionalText {
-    @include textXS;
+	&__additionalText {
+		@include textXS;
 
-    flex-grow: 1;
-    margin-left: $space-xs;
-    max-width: 30%;
-    text-align: right;
-  }
+		flex-grow: 1;
+		margin-left: $space-xs;
+		max-width: 30%;
+		text-align: right;
+	}
 
-  &__center {
-    @include textBold;
+	&__center {
+		@include textBold;
 
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-  }
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+	}
 
-  &__eyebrowText {
-    @include textS;
-  }
+	&__eyebrowText {
+		@include textS;
+	}
 
-  &__text {
-    @include textM;
+	&__text {
+		@include textM;
 
-    color: $color-neutral-text-heavy;
-    margin-top: $space-xxxxxs;
-  }
+		color: $color-neutral-text-heavy;
+		margin-top: $space-xxxxxs;
+	}
 
-  &__iconLeft,
-  &__iconRight {
-    margin-right: $space-xs;
-  }
+	&__iconLeft,
+	&__iconRight {
+		margin-right: $space-xs;
+	}
 
-  &.-interactive {
-    cursor: pointer;
-  }
+	&.-interactive {
+		cursor: pointer;
+	}
 
-  &.-neutral {
-    background-color: $color-neutral-background;
+	&.-neutral {
+		background-color: $color-neutral-background;
 
-    #{$self}__eyebrowText,
-    #{$self}__additionalText {
-      color: $color-neutral-text-weak;
-    }
-    #{$self}__iconLeft,
-    #{$self}__iconRight {
-      color: $color-neutral-icon;
-    }
-    &.-interactive {
-      &:hover {
-        background-color: $color-neutral-background-hovered;
-      }
-    }
-  }
+		#{$self}__eyebrowText,
+		#{$self}__additionalText {
+			color: $color-neutral-text-weak;
+		}
+		#{$self}__iconLeft,
+		#{$self}__iconRight {
+			color: $color-neutral-icon;
+		}
 
-  &.-success {
-    background-color: $color-success-background;
+		&.-interactive {
+			#{$self}__iconRight {
+				color: $color-primary-icon;
+			}
 
-    #{$self}__eyebrowText,
-    #{$self}__additionalText {
-      color: $color-success-text;
-    }
+			&:hover {
+				background-color: $color-neutral-background-hovered;
+			}
+		}
+	}
 
-    #{$self}__iconLeft,
-    #{$self}__iconRight {
-      color: $color-success-icon;
-    }
-    &.-interactive {
-      &:hover {
-        background-color: $color-success-background-hovered;
-      }
-    }
-  }
+	&.-success {
+		background-color: $color-success-background;
 
-  &.-fail {
-    background-color: $color-fail-background;
+		#{$self}__eyebrowText,
+		#{$self}__additionalText {
+			color: $color-success-text;
+		}
 
-    #{$self}__eyebrowText,
-    #{$self}__additionalText {
-      color: $color-fail-text;
-    }
+		#{$self}__iconLeft,
+		#{$self}__iconRight {
+			color: $color-success-icon;
+		}
 
-    #{$self}__iconLeft,
-    #{$self}__iconRight {
-      color: $color-fail-icon;
-    }
-    &.-interactive {
-      &:hover {
-        background-color: $color-fail-background-hovered;
-      }
-    }
-  }
+		&.-interactive {
+			&:hover {
+				background-color: $color-success-background-hovered;
+			}
+		}
+	}
 
-  &.-primary {
-    background-color: $color-primary-background;
+	&.-fail {
+		background-color: $color-fail-background;
 
-    #{$self}__eyebrowText,
-    #{$self}__additionalText {
-      color: $color-primary-text;
-    }
+		#{$self}__eyebrowText,
+		#{$self}__additionalText {
+			color: $color-fail-text;
+		}
 
-    #{$self}__iconLeft,
-    #{$self}__iconRight {
-      color: $color-primary-icon;
-    }
-    &.-interactive {
-      &:hover {
-        background-color: $color-primary-background-hovered;
-      }
-    }
-  }
+		#{$self}__iconLeft,
+		#{$self}__iconRight {
+			color: $color-fail-icon;
+		}
+
+		&.-interactive {
+			&:hover {
+				background-color: $color-fail-background-hovered;
+			}
+		}
+	}
+
+	&.-primary {
+		background-color: $color-primary-background;
+
+		#{$self}__eyebrowText,
+		#{$self}__additionalText {
+			color: $color-primary-text;
+		}
+
+		#{$self}__iconLeft,
+		#{$self}__iconRight {
+			color: $color-primary-icon;
+		}
+
+		&.-interactive {
+			&:hover {
+				background-color: $color-primary-background-hovered;
+			}
+		}
+	}
 }
 </style>
 
@@ -162,70 +169,70 @@ import { VueConstructor } from 'vue';
 import { TILE_COLORS } from './Tile.consts';
 
 export default {
-  name: 'Tile',
-  components: {
-    DsIcon,
-    DsRipple,
-  },
-  props: {
-    interactive: {
-      type: Boolean,
-      default: false,
-    },
-    iconLeft: {
-      type: Object,
-      default: null,
-      validate(iconLeft: VueConstructor) {
-        return Object.values(ICONS).includes(iconLeft);
-      },
-    },
-    iconRight: {
-      type: Object,
-      default: null,
-      validate(iconRight: VueConstructor) {
-        return Object.values(ICONS).includes(iconRight);
-      },
-    },
-    text: {
-      type: String,
-      required: true,
-    },
-    eyebrowText: {
-      type: String,
-      required: true,
-    },
-    additionalText: {
-      type: String,
-      default: null,
-    },
-    color: {
-      type: String,
-      default: TILE_COLORS.NEUTRAL,
-      validate(color) {
-        return Object.values(TILE_COLORS).includes(color);
-      }
-    }
-  },
-  computed: {
-    tileColor() {
-      return {
-        [TILE_COLORS.NEUTRAL]: '-neutral',
-        [TILE_COLORS.PRIMARY]: '-primary',
-        [TILE_COLORS.SUCCESS]: '-success',
-        [TILE_COLORS.FAIL]: '-fail',
-      }[this.color];
-    },
-    rippleColor() {
-      return {
-        [TILE_COLORS.NEUTRAL]: RIPPLE_COLORS.NEUTRAL,
-        [TILE_COLORS.PRIMARY]: RIPPLE_COLORS.PRIMARY,
-        [TILE_COLORS.SUCCESS]: RIPPLE_COLORS.SUCCESS,
-        [TILE_COLORS.FAIL]: RIPPLE_COLORS.FAIL,
-      }[this.color];
-    }
-  },
-  created() {
-    this.ICON_SIZES = ICON_SIZES;
-  },
+	name: 'Tile',
+	components: {
+		DsIcon,
+		DsRipple,
+	},
+	props: {
+		interactive: {
+			type: Boolean,
+			default: false,
+		},
+		iconLeft: {
+			type: Object,
+			default: null,
+			validate(iconLeft: VueConstructor) {
+				return Object.values(ICONS).includes(iconLeft);
+			},
+		},
+		iconRight: {
+			type: Object,
+			default: null,
+			validate(iconRight: VueConstructor) {
+				return Object.values(ICONS).includes(iconRight);
+			},
+		},
+		text: {
+			type: String,
+			required: true,
+		},
+		eyebrowText: {
+			type: String,
+			required: true,
+		},
+		additionalText: {
+			type: String,
+			default: null,
+		},
+		color: {
+			type: String,
+			default: TILE_COLORS.NEUTRAL,
+			validate(color) {
+				return Object.values(TILE_COLORS).includes(color);
+			},
+		},
+	},
+	computed: {
+		tileColor() {
+			return {
+				[TILE_COLORS.NEUTRAL]: '-neutral',
+				[TILE_COLORS.PRIMARY]: '-primary',
+				[TILE_COLORS.SUCCESS]: '-success',
+				[TILE_COLORS.FAIL]: '-fail',
+			}[this.color];
+		},
+		rippleColor() {
+			return {
+				[TILE_COLORS.NEUTRAL]: RIPPLE_COLORS.NEUTRAL,
+				[TILE_COLORS.PRIMARY]: RIPPLE_COLORS.PRIMARY,
+				[TILE_COLORS.SUCCESS]: RIPPLE_COLORS.SUCCESS,
+				[TILE_COLORS.FAIL]: RIPPLE_COLORS.FAIL,
+			}[this.color];
+		},
+	},
+	created() {
+		this.ICON_SIZES = ICON_SIZES;
+	},
 };
 </script>
