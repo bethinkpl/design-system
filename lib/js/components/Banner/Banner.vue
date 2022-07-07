@@ -121,35 +121,35 @@
 		}
 	}
 
-  &.-warning {
-    background-color: $color-warning-background;
-    border-color: $color-warning-border;
-  }
+	&.-warning {
+		background-color: $color-warning-background;
+		border-color: $color-warning-border;
+	}
 
-  &.-success {
-    background-color: $color-success-background;
-    border-color: $color-success-border;
-  }
+	&.-success {
+		background-color: $color-success-background;
+		border-color: $color-success-border;
+	}
 
-  &.-info {
-    background-color: $color-info-background;
-    border-color: $color-info-border;
-  }
+	&.-info {
+		background-color: $color-info-background;
+		border-color: $color-info-border;
+	}
 
-  &.-fail {
-    background-color: $color-fail-background;
-    border-color: $color-fail-border;
-  }
+	&.-fail {
+		background-color: $color-fail-background;
+		border-color: $color-fail-border;
+	}
 
-  &.-neutral {
-    background-color: $color-neutral-background;
-    border-color: $color-neutral-border-weak;
-  }
+	&.-neutral {
+		background-color: $color-neutral-background;
+		border-color: $color-neutral-border-weak;
+	}
 
-  &.-default {
-    background-color: $color-default-background;
-    border-color: $color-neutral-border-weak;
-  }
+	&.-default {
+		background-color: $color-default-background;
+		border-color: $color-neutral-border-weak;
+	}
 
 	&__content {
 		display: flex;
