@@ -5,7 +5,7 @@ export const BANNER_COLORS = {
 	FAIL: 'fail',
 	WARNING: 'warning',
 	INFO: 'info',
-	DANGER: 'danger'
+	DANGER: 'danger',
 } as const;
 
 export const BANNER_LAYOUTS = {

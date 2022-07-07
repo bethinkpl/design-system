@@ -72,19 +72,19 @@
 .ds-banner {
 	$self: &;
 
-	@mixin iconContainerMobileStyles {
+	@mixin iconContainerVerticalStyles {
 		padding: $space-xxxxs 0;
 	}
 
-	@mixin headerMobileStyles {
+	@mixin headerVerticalStyles {
 		padding: 0 $space-xxxxs;
 	}
 
-	@mixin expanderMobileStyles {
+	@mixin expanderVerticalStyles {
 		padding: 0 $space-xxxxs;
 	}
 
-	@mixin iconMobileStyles {
+	@mixin iconVerticalStyles {
 		padding: $space-xxxs;
 	}
 
@@ -97,27 +97,27 @@
 
 	&.-vertical {
 		#{$self}__buttonTextHorizontal {
-			display: none !important;
+			display: none;
 		}
 
 		#{$self}__buttonTextVertical {
-			display: initial !important;
+			display: initial;
 		}
 
 		#{$self}__iconContainer {
-			@include iconContainerMobileStyles;
+			@include iconContainerVerticalStyles;
 		}
 
 		#{$self}__header {
-			@include headerMobileStyles;
+			@include headerVerticalStyles;
 		}
 
 		#{$self}__expander {
-			@include expanderMobileStyles;
+			@include expanderVerticalStyles;
 		}
 
 		#{$self}__icon {
-			@include iconMobileStyles;
+			@include iconVerticalStyles;
 		}
 	}
 
@@ -150,6 +150,7 @@
 		background-color: $color-default-background;
 		border-color: $color-neutral-border-weak;
 	}
+
 	&.-danger {
 		background-color: $color-danger-background;
 		border-color: $color-danger-border;
@@ -160,7 +161,7 @@
 	}
 
 	&__header {
-		@include headerMobileStyles;
+		@include headerVerticalStyles;
 
 		display: flex;
 		justify-content: space-between;
@@ -195,7 +196,7 @@
 	}
 
 	&__iconContainer {
-		@include iconContainerMobileStyles;
+		@include iconContainerVerticalStyles;
 
 		@media #{breakpoint-m()} {
 			padding: $space-xxs 0;
@@ -203,7 +204,7 @@
 	}
 
 	&__icon {
-		@include iconMobileStyles;
+		@include iconVerticalStyles;
 
 		border-radius: 100px;
 
@@ -241,10 +242,10 @@
 			background-color: $color-fail-background-medium;
 		}
 
-    &.-danger {
-      color: $color-danger-icon;
-      background-color: $color-danger-background-medium;
-    }
+		&.-danger {
+			color: $color-danger-icon;
+			background-color: $color-danger-background-medium;
+		}
 	}
 
 	&__buttonTextHorizontal {
@@ -266,7 +267,7 @@
 	}
 
 	&__expander {
-		@include expanderMobileStyles;
+		@include expanderVerticalStyles;
 
 		@media #{breakpoint-m()} {
 			padding: $space-xs $space-xxxxs $space-xs 0;
