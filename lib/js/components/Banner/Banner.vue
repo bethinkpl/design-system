@@ -1,18 +1,18 @@
 <template>
-	<div class="o-banner" :class="[colorClass, layoutClass]">
-		<div class="o-banner__content">
-			<div class="o-banner__header">
-				<div v-if="icon" class="o-banner__iconContainer">
+	<div class="ds-banner" :class="[colorClass, layoutClass]">
+		<div class="ds-banner__content">
+			<div class="ds-banner__header">
+				<div v-if="icon" class="ds-banner__iconContainer">
 					<!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
-					<ds-icon class="o-banner__icon" :class="[colorClass]" :icon="icon" />
+					<ds-icon class="ds-banner__icon" :class="[colorClass]" :icon="icon" />
 				</div>
 
-				<div class="o-banner__text">
-					<div class="o-banner__title" v-text="title" />
-					<div v-if="hasDefaultText" class="o-banner__defaultText">
+				<div class="ds-banner__text">
+					<div class="ds-banner__title" v-text="title" />
+					<div v-if="hasDefaultText" class="ds-banner__defaultText">
 						<slot name="defaultText" />
 					</div>
-					<div v-if="buttonText.length > 0" class="o-banner__buttonTextVertical">
+					<div v-if="buttonText.length > 0" class="ds-banner__buttonTextVertical">
 						<ds-button
 							:color="BUTTON_COLORS.NEUTRAL"
 							:type="BUTTON_TYPES.OUTLINED"
@@ -22,7 +22,7 @@
 						</ds-button>
 					</div>
 				</div>
-				<div v-if="buttonText.length > 0" class="o-banner__buttonText">
+				<div v-if="buttonText.length > 0" class="ds-banner__buttonTextHorizontal">
 					<ds-button
 						:color="BUTTON_COLORS.NEUTRAL"
 						:type="BUTTON_TYPES.OUTLINED"
@@ -32,7 +32,7 @@
 					</ds-button>
 				</div>
 			</div>
-			<div v-if="hasExpandedText" class="o-banner__expander">
+			<div v-if="hasExpandedText" class="ds-banner__expander">
 				<ds-icon-button
 					:size="ICON_BUTTON_SIZES.SMALL"
 					:icon="expanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
@@ -53,9 +53,9 @@
 				/>
 			</div>
 		</div>
-		<div v-if="hasExpandedText && expanded" class="o-banner__expandedContainer">
+		<div v-if="hasExpandedText && expanded" class="ds-banner__expandedContainer">
 			<ds-divider :prominence="DIVIDER_PROMINENCES.STRONG" />
-			<div class="o-banner__expandedText">
+			<div class="ds-banner__expandedText">
 				<slot name="expandedText" />
 			</div>
 		</div>
@@ -69,7 +69,7 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/media-queries';
 
-.o-banner {
+.ds-banner {
 	$self: &;
 
 	@mixin iconContainerMobileStyles {
@@ -96,7 +96,7 @@
 	padding: $space-xs;
 
 	&.-vertical {
-		#{$self}__buttonText {
+		#{$self}__buttonTextHorizontal {
 			display: none !important;
 		}
 
@@ -120,6 +120,36 @@
 			@include iconMobileStyles;
 		}
 	}
+
+  &.-warning {
+    background-color: $color-warning-background;
+    border-color: $color-warning-border;
+  }
+
+  &.-success {
+    background-color: $color-success-background;
+    border-color: $color-success-border;
+  }
+
+  &.-info {
+    background-color: $color-info-background;
+    border-color: $color-info-border;
+  }
+
+  &.-fail {
+    background-color: $color-fail-background;
+    border-color: $color-fail-border;
+  }
+
+  &.-neutral {
+    background-color: $color-neutral-background;
+    border-color: $color-neutral-border-weak;
+  }
+
+  &.-default {
+    background-color: $color-default-background;
+    border-color: $color-neutral-border-weak;
+  }
 
 	&__content {
 		display: flex;
@@ -208,7 +238,7 @@
 		}
 	}
 
-	&__buttonText {
+	&__buttonTextHorizontal {
 		padding: $space-xs 0;
 		flex-shrink: 0;
 		display: none;
@@ -243,36 +273,6 @@
 
 	&__expandedText {
 		margin-top: $space-xs;
-	}
-
-	&.-warning {
-		background-color: $color-warning-background;
-		border-color: $color-warning-border;
-	}
-
-	&.-success {
-		background-color: $color-success-background;
-		border-color: $color-success-border;
-	}
-
-	&.-info {
-		background-color: $color-info-background;
-		border-color: $color-info-border;
-	}
-
-	&.-fail {
-		background-color: $color-fail-background;
-		border-color: $color-fail-border;
-	}
-
-	&.-neutral {
-		background-color: $color-neutral-background;
-		border-color: $color-neutral-border-weak;
-	}
-
-	&.-default {
-		background-color: $color-default-background;
-		border-color: $color-neutral-border-weak;
 	}
 }
 </style>
