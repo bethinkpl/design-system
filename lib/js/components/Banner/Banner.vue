@@ -37,7 +37,7 @@
 					:size="ICON_BUTTON_SIZES.SMALL"
 					:icon="expanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
-					:radius="BUTTON_RADIUSES.ROUNDED"
+					:radius="BUTTON_RADIUSES.CAPSULE"
 					:touchable="false"
 					@click.native="toggleExpandedText"
 				/>
@@ -47,7 +47,7 @@
 					:size="ICON_BUTTON_SIZES.SMALL"
 					:icon="ICONS.FA_XMARK"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
-					:radius="BUTTON_RADIUSES.ROUNDED"
+					:radius="BUTTON_RADIUSES.CAPSULE"
 					:touchable="false"
 					@click.native="$emit('close')"
 				/>
