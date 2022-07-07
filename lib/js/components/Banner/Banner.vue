@@ -150,6 +150,10 @@
 		background-color: $color-default-background;
 		border-color: $color-neutral-border-weak;
 	}
+	&.-danger {
+		background-color: $color-danger-background;
+		border-color: $color-danger-border;
+	}
 
 	&__content {
 		display: flex;
@@ -236,6 +240,11 @@
 			color: $color-fail-icon;
 			background-color: $color-fail-background-medium;
 		}
+
+    &.-danger {
+      color: $color-danger-icon;
+      background-color: $color-danger-background-medium;
+    }
 	}
 
 	&__buttonTextHorizontal {
@@ -344,6 +353,7 @@ export default {
 				[BANNER_COLORS.INFO]: '-info',
 				[BANNER_COLORS.SUCCESS]: '-success',
 				[BANNER_COLORS.WARNING]: '-warning',
+				[BANNER_COLORS.DANGER]: '-danger',
 			}[this.color];
 		},
 		layoutClass() {
