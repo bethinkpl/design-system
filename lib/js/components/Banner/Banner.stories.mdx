@@ -1,50 +1,64 @@
 import { Meta, Props, Story } from '@storybook/addon-docs';
 import DsBanner from './Banner.vue';
-import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts.ts'
+import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts.ts';
 import { ICONS } from '../Icon';
 
-<Meta title='components/Banner' component={DsBanner}/>
+<Meta title="components/Banner" component={DsBanner} />
 
 # Banner
 
-<Story name='interactive'
-       args={{
-           closable: true,
-           icon: ICONS.FA_CIRCLE_INFO,
-           color: BANNER_COLORS.WARNING,
-           title: 'Banner Title',
-           buttonText: '',
-           layout: BANNER_LAYOUTS.HORIZONTAL,
-       }}
-       argTypes={{
-           closable: {control: {type: 'boolean'}},
-           icon: {control: {type: 'select', options: ICONS}, defaultValue: ICONS.FA_CIRCLE_INFO},
-           color: {control: {type: 'select', options: Object.values(BANNER_COLORS)}, defaultValue: BANNER_COLORS.WARNING},
-           title: '',
-           buttonText: '',
-           layout: {control: {type: 'select', options: Object.values(BANNER_LAYOUTS)}, defaultValue: BANNER_LAYOUTS.HORIZONTAL},
-           defaultText: {
-               control: { type: 'text' },
-               defaultValue: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices malesuada vehicula. Mauris egestas scelerisque enim, condimentum aliquet arcu bibendum nec.',
-           },
-           expandedText: {
-               control: { type: 'text' },
-               defaultValue: '',
-           },
-       }}
+<Story
+	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=3696%3A68274',
+		},
+	}}
+	args={{
+		closable: true,
+		icon: ICONS.FA_CIRCLE_INFO,
+		color: BANNER_COLORS.WARNING,
+		title: 'Banner Title',
+		buttonText: '',
+		layout: BANNER_LAYOUTS.HORIZONTAL,
+	}}
+	argTypes={{
+		closable: { control: { type: 'boolean' } },
+		icon: { control: { type: 'select', options: ICONS }, defaultValue: ICONS.FA_CIRCLE_INFO },
+		color: {
+			control: { type: 'select', options: Object.values(BANNER_COLORS) },
+			defaultValue: BANNER_COLORS.WARNING,
+		},
+		title: '',
+		buttonText: '',
+		layout: {
+			control: { type: 'select', options: Object.values(BANNER_LAYOUTS) },
+			defaultValue: BANNER_LAYOUTS.HORIZONTAL,
+		},
+		defaultText: {
+			control: { type: 'text' },
+			defaultValue:
+				'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices malesuada vehicula. Mauris egestas scelerisque enim, condimentum aliquet arcu bibendum nec.',
+		},
+		expandedText: {
+			control: { type: 'text' },
+			defaultValue: '',
+		},
+	}}
 >
-    {(args) => {
-        return {
-            components: {DsBanner,},
-            props: Object.keys(args),
-            template: `<ds-banner :closable="closable" :icon="icon" :color="color" :title="title" :buttonText="buttonText" :layout="layout">
+	{(args) => {
+		return {
+			components: { DsBanner },
+			props: Object.keys(args),
+			template: `<ds-banner :closable="closable" :icon="icon" :color="color" :title="title" :buttonText="buttonText" :layout="layout">
                 <template  #defaultText><span v-if="defaultText.length > 0" v-html="defaultText"></span></template>
                 <template #expandedText><div v-if="expandedText.length > 0" v-html="expandedText"></div></template>
             </ds-banner>`,
-        };
-    }}
+		};
+	}}
 </Story>
 
 ## Props
 
-<Props of={DsBanner}/>
+<Props of={DsBanner} />
