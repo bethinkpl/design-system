@@ -181,8 +181,8 @@
 	&__defaultText {
 		@include textM;
 
-    margin-top: $space-xxxxs;
-  }
+		margin-top: $space-xxxxs;
+	}
 
 	&__text {
 		display: flex;
@@ -257,8 +257,8 @@
 	}
 
 	&__buttonTextVertical {
-    margin-top: $space-xxxxs;
-    padding: $space-xxs 0 0;
+		margin-top: $space-xxxxs;
+		padding: $space-xxs 0 0;
 
 		@media #{breakpoint-m()} {
 			display: none;
