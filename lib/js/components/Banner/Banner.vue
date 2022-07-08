@@ -180,7 +180,9 @@
 
 	&__defaultText {
 		@include textM;
-	}
+
+    margin-top: $space-xxxxs;
+  }
 
 	&__text {
 		display: flex;
@@ -189,10 +191,6 @@
 		flex-grow: 1;
 		padding: $space-xxxxs 0;
 		margin: 0 $space-s;
-
-		:nth-child(n + 2) {
-			margin-top: $space-xxxxs;
-		}
 	}
 
 	&__iconContainer {
@@ -259,7 +257,8 @@
 	}
 
 	&__buttonTextVertical {
-		padding: $space-xxs 0 0;
+    margin-top: $space-xxxxs;
+    padding: $space-xxs 0 0;
 
 		@media #{breakpoint-m()} {
 			display: none;
