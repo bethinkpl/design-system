@@ -111,7 +111,7 @@
 		#{$self}__expander {
 			@include expanderVerticalStyles;
 		}
-  }
+	}
 
 	&.-warning {
 		background-color: $color-warning-background;
@@ -159,7 +159,7 @@
 		justify-content: space-between;
 		width: 100%;
 
-    @media #{breakpoint-m()} {
+		@media #{breakpoint-m()} {
 			padding: 0 $space-xxs;
 		}
 	}
@@ -168,7 +168,7 @@
 		@include headlineXS;
 		@include textBold;
 
-    color: $color-neutral-text-strong
+		color: $color-neutral-text-strong;
 	}
 
 	&__defaultText {
@@ -188,7 +188,7 @@
 	&__iconContainer {
 		@include iconContainerVerticalStyles;
 
-    margin-right: $space-s;
+		margin-right: $space-s;
 
 		@media #{breakpoint-m()} {
 			padding: $space-xxs 0;
@@ -239,7 +239,7 @@
 		padding: $space-xs 0;
 		flex-shrink: 0;
 		display: none;
-    margin-left: $space-s;
+		margin-left: $space-s;
 
 		@media #{breakpoint-m()} {
 			display: initial;
@@ -255,14 +255,14 @@
 		}
 	}
 
-  &__close {
-    margin-left: $space-xxs;
-  }
+	&__close {
+		margin-left: $space-xxs;
+	}
 
-  &__expander {
+	&__expander {
 		@include expanderVerticalStyles;
 
-    margin-left: $space-xxs;
+		margin-left: $space-xxs;
 
 		@media #{breakpoint-m()} {
 			padding: $space-xs $space-xxxxs $space-xs 0;
