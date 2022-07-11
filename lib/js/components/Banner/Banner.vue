@@ -84,10 +84,6 @@
 		padding: 0 $space-xxxxs;
 	}
 
-	@mixin iconVerticalStyles {
-		padding: $space-xxxs;
-	}
-
 	border-radius: $radius-m;
 	border-style: solid;
 	border-width: 1px;
@@ -115,11 +111,7 @@
 		#{$self}__expander {
 			@include expanderVerticalStyles;
 		}
-
-		#{$self}__icon {
-			@include iconVerticalStyles;
-		}
-	}
+  }
 
 	&.-warning {
 		background-color: $color-warning-background;
@@ -202,13 +194,8 @@
 	}
 
 	&__icon {
-		@include iconVerticalStyles;
-
 		border-radius: 100px;
-
-		@media #{breakpoint-m()} {
-			padding: $space-xxs;
-		}
+		padding: $space-xxs;
 
 		&.-neutral {
 			color: $color-neutral-icon;
