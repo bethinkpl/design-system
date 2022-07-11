@@ -1,10 +1,10 @@
 export const BANNER_COLORS = {
 	DEFAULT: 'default',
 	NEUTRAL: 'neutral',
-	SUCCESS: 'success',
-	FAIL: 'fail',
-	WARNING: 'warning',
 	INFO: 'info',
+	SUCCESS: 'success',
+	WARNING: 'warning',
+	FAIL: 'fail',
 	DANGER: 'danger',
 } as const;
 

@@ -167,6 +167,8 @@
 	&__title {
 		@include headlineXS;
 		@include textBold;
+
+    color: $color-neutral-text-strong
 	}
 
 	&__defaultText {
@@ -203,7 +205,7 @@
 		}
 
 		&.-default {
-			color: $color-default-icon;
+			color: $color-neutral-icon;
 			background-color: $color-neutral-background-medium;
 		}
 
