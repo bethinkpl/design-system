@@ -1,9 +1,7 @@
 import { shallowMount } from '@vue/test-utils';
 
 import CounterToggle from './CounterToggle.vue';
-import {
-	COUNTER_TOGGLE_COLORS,
-} from './CounterToggle.consts';
+import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import { ICONS } from '../Icon';
 
 const DEFAULT_ICON = ICONS.FA_XMARK;
@@ -23,7 +21,12 @@ describe('CounterToggle', () => {
 
 	test.each([
 		[{ props: { color: COUNTER_TOGGLE_COLORS.INVERTED }, expectedClass: '-color-inverted' }],
-		[{ props: { color: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG }, expectedClass: '-color-neutralStrong' }],
+		[
+			{
+				props: { color: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG },
+				expectedClass: '-color-neutralStrong',
+			},
+		],
 		[{ props: { color: COUNTER_TOGGLE_COLORS.NEUTRAL }, expectedClass: '-color-neutral' }],
 		[{ props: { color: COUNTER_TOGGLE_COLORS.PRIMARY }, expectedClass: '-color-primary' }],
 		[{ props: { isSelected: true }, expectedClass: '-selected' }],

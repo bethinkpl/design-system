@@ -35,7 +35,7 @@ export { default as Drawer } from './components/Drawer';
 export { default as Pill } from './components/Pill';
 export * from './components/Pill/Pill.consts';
 export { default as CounterToggle } from './components/CounterToggle';
-export * from './components/CounterToggle/CounterToggle.consts'
+export * from './components/CounterToggle/CounterToggle.consts';
 
 export {
 	initialize as initializeIcons,
