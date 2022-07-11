@@ -42,7 +42,7 @@
 					@click.native="toggleExpandedText"
 				/>
 			</div>
-			<div v-if="!hasExpandedText && closable">
+			<div v-if="!hasExpandedText && closable" class="ds-banner__close">
 				<ds-icon-button
 					:size="ICON_BUTTON_SIZES.SMALL"
 					:icon="ICONS.FA_XMARK"
@@ -165,10 +165,9 @@
 
 		display: flex;
 		justify-content: space-between;
-		margin-right: $space-xxs;
 		width: 100%;
 
-		@media #{breakpoint-m()} {
+    @media #{breakpoint-m()} {
 			padding: 0 $space-xxs;
 		}
 	}
@@ -190,11 +189,12 @@
 		justify-content: center;
 		flex-grow: 1;
 		padding: $space-xxxxs 0;
-		margin: 0 $space-s;
 	}
 
 	&__iconContainer {
 		@include iconContainerVerticalStyles;
+
+    margin-right: $space-s;
 
 		@media #{breakpoint-m()} {
 			padding: $space-xxs 0;
@@ -250,6 +250,7 @@
 		padding: $space-xs 0;
 		flex-shrink: 0;
 		display: none;
+    margin-left: $space-s;
 
 		@media #{breakpoint-m()} {
 			display: initial;
@@ -265,8 +266,14 @@
 		}
 	}
 
-	&__expander {
+  &__close {
+    margin-left: $space-xxs;
+  }
+
+  &__expander {
 		@include expanderVerticalStyles;
+
+    margin-left: $space-xxs;
 
 		@media #{breakpoint-m()} {
 			padding: $space-xs $space-xxxxs $space-xs 0;
