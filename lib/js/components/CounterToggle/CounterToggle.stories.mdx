@@ -9,20 +9,38 @@ import { ICONS } from 'design-system/lib/js/components/Icon';
 
 <Story
 	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=3693%3A70976',
+		},
+	}}
 	argTypes={{
 		color: {
 			control: { type: 'select', options: Object.values(COUNTER_TOGGLE_COLORS) },
 			defaultValue: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
 		},
 		icon: {
-			control: { type: 'select', options: Object.keys(ICONS) },
+			control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 			defaultValue: 'FA_SQUARE_CARET_RIGHT',
+		},
+		counter: {
+			control: { type: 'text', },
+			defaultValue: null,
+		},
+		isSelected: {
+			control: { type: 'boolean', },
+			defaultValue: false,
+		},
+		isDisabled: {
+			control: { type: 'boolean', },
+			defaultValue: false,
 		},
 	}}
 	args={{
 		color: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
 		counter: '99+',
-		icon: ICONS.FA_SLIDERS,
+		icon: ICONS.FA_SQUARE_CARET_RIGHT,
 		isSelected: false,
 		isDisabled: false,
 	}}
@@ -31,7 +49,15 @@ import { ICONS } from 'design-system/lib/js/components/Icon';
 		return {
 			components: { CounterToggle },
 			props: Object.keys(args),
-			template: '<counter-toggle :color="color" :counter="counter"  :icon="icon" :isSelected="isSelected" :isDisabled="isDisabled" />'
+			template:
+				'<div :class="{ contrastBackground: isInverted }">' +
+				'<counter-toggle :color="color" :counter="counter"  :icon="icon" :isSelected="isSelected" :isDisabled="isDisabled" />' +
+				'</div>',
+			computed: {
+				isInverted: function () {
+					return this.color === 'inverted';
+				},
+			},
 		};
 	}}
 </Story>

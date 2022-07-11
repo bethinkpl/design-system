@@ -3,13 +3,14 @@
 		v-ripple
 		class='counterToggle'
 		:class="[{ '-selected': isSelected, '-disabled': isDisabled }, colorClass]"
+		@click="$emit('click')"
 	>
 		<icon
 			class='counterToggle__icon'
 			:icon='icon'
 			:size='ICON_SIZES.X_SMALL'
 		/>
-		<span class='counterToggle__counter'>{{ counter }}</span>
+		<span class='counterToggle__counter' v-if='counter'>{{ counter }}</span>
 	</div>
 </template>
 
@@ -19,8 +20,8 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
-$counter-toggle-width: 46px;
-$counter-toggle-height: 32px;
+$counter-toggle-min-width: 46px;
+$counter-toggle-min-height: 32px;
 
 $counter-toggle-colors: (
 	'primary': (
@@ -173,12 +174,7 @@ $counter-toggle-colors: (
 	}
 }
 
-
-@mixin setCounterToggleBackground(
-	$background,
-	$background-hover,
-	$background-focus
-) {
+@mixin setCounterToggleBackground($background, $background-hover, $background-focus) {
 	@if $background == null {
 		background-color: transparent;
 	}
@@ -218,10 +214,7 @@ $counter-toggle-colors: (
 }
 
 
-@mixin setCounterToggleAdditions(
-	$ripple: null,
-	$icon: null,
-) {
+@mixin setCounterToggleAdditions($ripple: null, $icon: null) {
 	@if $ripple == null {
 		.ripple-container {
 			display: none;
@@ -241,8 +234,6 @@ $counter-toggle-colors: (
 }
 
 .counterToggle {
-	$self: &;
-
 	align-items: center;
 	flex-direction: row;
 	background-color: transparent;
@@ -251,8 +242,8 @@ $counter-toggle-colors: (
 	cursor: pointer;
 	display: inline-flex;
 	width: auto;
-	min-width: $counter-toggle-width;
-	min-height: $counter-toggle-height;
+	min-width: $counter-toggle-min-width;
+	min-height: $counter-toggle-min-height;
 	justify-content: center;
 	padding: $space-xxs;
 	gap: 2px;
@@ -340,8 +331,8 @@ export default {
 	},
 	props: {
 		counter: {
-			type: String,
-			required: true,
+			type: [String, Number],
+			default: null,
 		},
 		color: {
 			type: String,
