@@ -45,7 +45,7 @@ $counter-toggle-colors: (
 			'color-focused': $color-primary-text-focused,
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
-			'background-focused': $color-primary-background-focused, // todo dopytać się o pressed a hovered
+			'background-focused': $color-primary-background-focused,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -55,9 +55,102 @@ $counter-toggle-colors: (
 			),
 		),
 	),
-	'neutral': (),
-	'neutralStrong': (),
-	'inverted': (),
+	'neutral': (
+		'default': (
+			'color': $color-neutral-text,
+			'color-hovered': $color-neutral-text,
+			'color-focused': $color-neutral-text,
+			'background': $color-neutral-background-ghost,
+			'background-hovered': $color-neutral-background-ghost-hovered,
+			'background-focused': $color-neutral-background-ghost-focused,
+			'icon': $color-neutral-icon,
+			'ripple': $color-neutral-ripple,
+			'disabled': (
+				'color': $color-neutral-text-disabled,
+				'icon': $color-neutral-icon-disabled,
+				'background': $color-neutral-background-ghost-disabled,
+			),
+		),
+		'selected': (
+			'color': $color-primary-text,
+			'color-hovered': $color-primary-text-hovered,
+			'color-focused': $color-primary-text-focused,
+			'background': $color-primary-background,
+			'background-hovered': $color-primary-background-hovered,
+			'background-focused': $color-primary-background-focused,
+			'icon': $color-primary-icon,
+			'ripple': $color-primary-ripple,
+			'disabled': (
+				'color': $color-primary-text-disabled,
+				'icon': $color-primary-icon-disabled,
+				'background': $color-primary-background-disabled,
+			),
+		),
+	),
+	'neutralStrong': (
+		'default': (
+			'color': $color-neutral-text-strong,
+			'color-hovered': $color-neutral-text-strong,
+			'color-focused': $color-neutral-text-strong,
+			'background': $color-neutral-background-ghost,
+			'background-hovered': $color-neutral-background-ghost-hovered,
+			'background-focused': $color-neutral-background-ghost-focused,
+			'icon': $color-neutral-icon-strong,
+			'ripple': $color-inverted-ripple,
+			'disabled': (
+				'color': $color-neutral-text-strong-disabled,
+				'icon': $color-neutral-icon-strong-disabled,
+				'background': $color-neutral-background-ghost-disabled,
+			),
+		),
+		'selected': (
+			'color': $color-primary-text,
+			'color-hovered': $color-primary-text-hovered,
+			'color-focused': $color-primary-text-focused,
+			'background': $color-primary-background,
+			'background-hovered': $color-primary-background-hovered,
+			'background-focused': $color-primary-background-focused,
+			'icon': $color-primary-icon,
+			'ripple': $color-primary-ripple,
+			'disabled': (
+				'color': $color-primary-text-disabled,
+				'icon': $color-primary-icon-disabled,
+				'background': $color-primary-background-disabled,
+			),
+		),
+	),
+	'inverted': (
+		'default': (
+			'color': $color-inverted-text,
+			'color-hovered': $color-inverted-text,
+			'color-focused': $color-inverted-text,
+			'background': $color-default-background-ghost,
+			'background-hovered': $color-default-background-ghost-hovered,
+			'background-focused': $color-default-background-ghost-focused,
+			'icon': $color-inverted-icon,
+			'ripple': $color-inverted-ripple,
+			'disabled': (
+				'color': $color-inverted-text-disabled,
+				'icon': $color-inverted-icon-disabled,
+				'background': $color-default-background-ghost-disabled,
+			),
+		),
+		'selected': (
+			'color': $color-primary-text,
+			'color-hovered': $color-primary-text-hovered,
+			'color-focused': $color-primary-text-focused,
+			'background': $color-primary-background,
+			'background-hovered': $color-primary-background-hovered,
+			'background-focused': $color-primary-background-focused,
+			'icon': $color-primary-icon,
+			'ripple': $color-primary-ripple,
+			'disabled': (
+				'color': $color-primary-text-disabled,
+				'icon': $color-primary-icon-disabled,
+				'background': $color-primary-background-disabled,
+			),
+		),
+	),
 );
 
 @mixin setCounterToggleColor($color, $color-hovered: null, $color-focused: null, $color-disabled: null) {
@@ -130,13 +223,14 @@ $counter-toggle-colors: (
 	$icon: null,
 ) {
 	@if $ripple == null {
-		.ripple {
+		.ripple-container {
 			display: none;
 		}
 	}
 
-	.ripple {
-		background-color: $ripple !important;
+	.ripple-container {
+		background-color: red !important;
+		//background-color: $ripple !important;
 	}
 
 	.counterToggle {
