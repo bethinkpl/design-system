@@ -10,7 +10,7 @@
 			:icon='icon'
 			:size='ICON_SIZES.X_SMALL'
 		/>
-		<span class='counterToggle__counter' v-if='counter'>{{ counter }}</span>
+		<span v-if='counter !== null' class='counterToggle__counter'>{{ counter }}</span>
 	</div>
 </template>
 
