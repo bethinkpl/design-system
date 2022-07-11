@@ -8,8 +8,8 @@
 				class="a-tile__iconLeft"
 			/>
 			<div class="a-tile__center">
-				<span class="a-tile__eyebrowText" v-text="eyebrowText"/>
-				<span class="a-tile__text" v-text="text"/>
+				<span class="a-tile__eyebrowText" v-text="eyebrowText" />
+				<span class="a-tile__text" v-text="text" />
 			</div>
 			<ds-icon
 				v-if="iconRight"
@@ -19,7 +19,7 @@
 				class="a-tile__iconRight"
 			/>
 			<div v-else-if="additionalText" class="a-tile__additionalText"
-			>{{ additionalText }}
+				>{{ additionalText }}
 			</div>
 		</div>
 	</ds-ripple>
