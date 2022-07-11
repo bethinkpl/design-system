@@ -159,7 +159,7 @@
 		justify-content: space-between;
 		width: 100%;
 
-		@media #{breakpoint-m()} {
+		@media #{breakpoint-s()} {
 			padding: 0 $space-xxs;
 		}
 	}
@@ -190,7 +190,7 @@
 
 		margin-right: $space-s;
 
-		@media #{breakpoint-m()} {
+		@media #{breakpoint-s()} {
 			padding: $space-xxs 0;
 		}
 	}
@@ -241,7 +241,7 @@
 		display: none;
 		margin-left: $space-s;
 
-		@media #{breakpoint-m()} {
+		@media #{breakpoint-s()} {
 			display: initial;
 		}
 	}
@@ -250,7 +250,7 @@
 		margin-top: $space-xxxxs;
 		padding: $space-xxs 0 0;
 
-		@media #{breakpoint-m()} {
+		@media #{breakpoint-s()} {
 			display: none;
 		}
 	}
@@ -264,7 +264,7 @@
 
 		margin-left: $space-xxs;
 
-		@media #{breakpoint-m()} {
+		@media #{breakpoint-s()} {
 			padding: $space-xs $space-xxxxs $space-xs 0;
 		}
 	}
