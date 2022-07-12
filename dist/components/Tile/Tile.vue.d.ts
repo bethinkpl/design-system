@@ -103,9 +103,15 @@ declare const _default: {
             type: StringConstructor;
             default: null;
         };
+        color: {
+            type: StringConstructor;
+            default: "neutral";
+            validate(color: any): boolean;
+        };
     };
     computed: {
-        iconRightDisplayed(): any;
+        tileColor(): any;
+        rippleColor(): any;
     };
     created(): void;
 };
