@@ -18,6 +18,7 @@ export { default as NumberInCircle } from './components/NumberInCircle';
 export * from './components/NumberInCircle/NumberInCircle.consts';
 export { default as TabItem } from './components/TabItem';
 export { default as Tile } from './components/Tile';
+export * from './components/Tile/Tile.consts';
 export { default as AccessStatus } from './components/Statuses/AccessStatus/';
 export { default as BlockadeStatus } from './components/Statuses/BlockadeStatus/';
 export * from './consts/colors';

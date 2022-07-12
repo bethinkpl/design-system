@@ -20,6 +20,7 @@ const createComponent = function ({
 		stubs: {},
 	});
 };
+
 interface createComponentOptions {
 	text: string;
 	eyebrowText?: string;
@@ -28,8 +29,9 @@ interface createComponentOptions {
 	iconRight?: IconDefinition | null;
 	iconLeft?: IconDefinition | null;
 }
+
 describe('Tile', () => {
-	it('Is interactive without left icon', () => {
+	it('Is interactive without icons', () => {
 		const props = {
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
@@ -39,8 +41,41 @@ describe('Tile', () => {
 		const component = createComponent(props);
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
+		expect(component.find('.a-tile__iconRight').exists()).toBe(false);
+		expect(component.find('.a-tile__iconLeft').exists()).toBe(false);
+
+		expect(component.find('.a-additionalText').exists()).toBe(false);
+	});
+	it('Is interactive with right icon', () => {
+		const props = {
+			text: 'text text',
+			eyebrowText: 'eyebrowText text',
+			additionalText: 'additionalText text',
+			interactive: true,
+			iconRight: ICONS.FA_CHEVRON_RIGHT,
+		};
+		const component = createComponent(props);
+		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.a-tile__text').text()).toBe('text text');
 		expect(component.find('.a-tile__iconRight').exists()).toBe(true);
 		expect(component.find('.a-tile__iconLeft').exists()).toBe(false);
+
+		expect(component.find('.a-additionalText').exists()).toBe(false);
+	});
+	it('Is interactive with both icons', () => {
+		const props = {
+			text: 'text text',
+			eyebrowText: 'eyebrowText text',
+			additionalText: 'additionalText text',
+			interactive: true,
+			iconRight: ICONS.FA_CHEVRON_RIGHT,
+			iconLeft: ICONS.FA_BOX_ARCHIVE,
+		};
+		const component = createComponent(props);
+		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.a-tile__text').text()).toBe('text text');
+		expect(component.find('.a-tile__iconRight').exists()).toBe(true);
+		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
 
 		expect(component.find('.a-additionalText').exists()).toBe(false);
 	});
@@ -54,10 +89,10 @@ describe('Tile', () => {
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__iconRight').exists()).toBe(true);
+		expect(component.find('.a-tile__iconRight').exists()).toBe(false);
 		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
 
-		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
+		expect(component.find('.a-tile__additionalText').exists()).toBe(true);
 	});
 	it('Is not interactive without right icon and additionalText', () => {
 		const component = createComponent({
