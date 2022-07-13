@@ -12,7 +12,7 @@
 					<div v-if="hasDefaultText" class="ds-banner__defaultText">
 						<slot name="defaultText" />
 					</div>
-					<div v-if="buttonText.length > 0" class="ds-banner__buttonTextVertical">
+					<div v-if="buttonText" class="ds-banner__buttonTextVertical">
 						<ds-button
 							:color="BUTTON_COLORS.NEUTRAL"
 							:type="BUTTON_TYPES.OUTLINED"
@@ -22,7 +22,7 @@
 						</ds-button>
 					</div>
 				</div>
-				<div v-if="buttonText.length > 0" class="ds-banner__buttonTextHorizontal">
+				<div v-if="buttonText" class="ds-banner__buttonTextHorizontal">
 					<ds-button
 						:color="BUTTON_COLORS.NEUTRAL"
 						:type="BUTTON_TYPES.OUTLINED"
@@ -81,7 +81,7 @@
 	}
 
 	@mixin expanderVerticalStyles {
-		padding: 0 $space-xxxxs;
+		padding: 0;
 	}
 
 	border-radius: $radius-m;
