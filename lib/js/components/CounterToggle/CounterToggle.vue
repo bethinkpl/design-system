@@ -1,23 +1,21 @@
 <template>
 	<div
 		v-ripple
-		class="counterToggle"
+		class='counterToggle'
 		:class="[{ '-selected': isSelected, '-disabled': isDisabled }, colorClass]"
 		@click="$emit('click')"
 	>
-		<icon class="counterToggle__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
-		<span v-if="counter !== null" class="counterToggle__counter">{{ counter }}</span>
+		<icon class='counterToggle__icon' :icon='icon' :size='ICON_SIZES.X_SMALL' />
+		<span v-if='counter !== null' class='counterToggle__counter'>{{ counter }}</span>
 	</div>
 </template>
 
-<style scoped lang="scss">
+<style scoped lang='scss'>
 @import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
-
-$counter-toggle-min-width: 46px;
-$counter-toggle-min-height: 32px;
+@import '../../../styles/settings/radiuses';
 
 $counter-toggle-colors: (
 	'primary': (
@@ -28,6 +26,7 @@ $counter-toggle-colors: (
 			'background': $color-primary-background-ghost,
 			'background-hovered': $color-primary-background-ghost-hovered,
 			'background-focused': $color-primary-background-ghost-focused,
+			'background-pressed': $color-primary-background-ghost-pressed,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -43,6 +42,7 @@ $counter-toggle-colors: (
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
+			'background-pressed': $color-primary-background-hovered,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -60,6 +60,7 @@ $counter-toggle-colors: (
 			'background': $color-neutral-background-ghost,
 			'background-hovered': $color-neutral-background-ghost-hovered,
 			'background-focused': $color-neutral-background-ghost-focused,
+			'background-pressed': $color-neutral-background-ghost-pressed,
 			'icon': $color-neutral-icon,
 			'ripple': $color-neutral-ripple,
 			'disabled': (
@@ -75,6 +76,7 @@ $counter-toggle-colors: (
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
+			'background-pressed': $color-primary-background-hovered,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -92,6 +94,7 @@ $counter-toggle-colors: (
 			'background': $color-neutral-background-ghost,
 			'background-hovered': $color-neutral-background-ghost-hovered,
 			'background-focused': $color-neutral-background-ghost-focused,
+			'background-pressed': $color-neutral-background-ghost-pressed,
 			'icon': $color-neutral-icon-strong,
 			'ripple': $color-inverted-ripple,
 			'disabled': (
@@ -107,6 +110,7 @@ $counter-toggle-colors: (
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
+			'background-pressed': $color-primary-background-hovered,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -124,6 +128,7 @@ $counter-toggle-colors: (
 			'background': $color-default-background-ghost,
 			'background-hovered': $color-default-background-ghost-hovered,
 			'background-focused': $color-default-background-ghost-focused,
+			'background-pressed': $color-default-background-ghost-pressed,
 			'icon': $color-inverted-icon,
 			'ripple': $color-inverted-ripple,
 			'disabled': (
@@ -139,6 +144,7 @@ $counter-toggle-colors: (
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
+			'background-pressed': $color-primary-background-hovered,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -175,7 +181,7 @@ $counter-toggle-colors: (
 	}
 }
 
-@mixin setCounterToggleBackground($background, $background-hover, $background-focus) {
+@mixin setCounterToggleBackground($background, $background-hover, $background-focus, $background-pressed) {
 	@if $background == null {
 		background-color: transparent;
 	}
@@ -183,10 +189,13 @@ $counter-toggle-colors: (
 	background-color: $background;
 
 	&:hover,
-	&.-hovered,
+	&.-hovered {
+		background-color: $background-hover;
+	}
+
 	&:active,
 	&.-active {
-		background-color: $background-hover;
+		background-color: $background-pressed;
 	}
 
 	&:focus,
@@ -215,14 +224,13 @@ $counter-toggle-colors: (
 
 @mixin setCounterToggleAdditions($ripple: null, $icon: null) {
 	@if $ripple == null {
-		.ripple-container {
+		&::v-deep .ripple {
 			display: none;
 		}
 	}
 
-	.ripple-container {
-		background-color: red !important;
-		//background-color: $ripple !important;
+	&::v-deep .ripple {
+		background-color: $ripple !important;
 	}
 
 	.counterToggle {
@@ -237,60 +245,56 @@ $counter-toggle-colors: (
 		&.-color-#{$color-name} {
 			@include setCounterToggleColor(map-get($color-map, 'default', 'color'));
 			@include setCounterToggleBackground(
-				map-get($color-map, 'default', 'background'),
-				map-get($color-map, 'default', 'background-hovered'),
-				map-get($color-map, 'default', 'background-focused')
+					map-get($color-map, 'default', 'background'),
+					map-get($color-map, 'default', 'background-hovered'),
+					map-get($color-map, 'default', 'background-focused'),
+					map-get($color-map, 'default', 'background-pressed')
 			);
 			@include setCounterToggleDisabled(
-				map-get($color-map, 'default', 'disabled', 'color'),
-				map-get($color-map, 'default', 'disabled', 'icon'),
-				map-get($color-map, 'default', 'disabled', 'background')
+					map-get($color-map, 'default', 'disabled', 'color'),
+					map-get($color-map, 'default', 'disabled', 'icon'),
+					map-get($color-map, 'default', 'disabled', 'background')
 			);
 			@include setCounterToggleAdditions(
-				map-get($color-map, 'default', 'ripple'),
-				map-get($color-map, 'default', 'icon')
+					map-get($color-map, 'default', 'ripple'),
+					map-get($color-map, 'default', 'icon')
 			);
 		}
 	}
 
 	align-items: center;
-	flex-direction: row;
 	background-color: transparent;
 	border: 0;
-	border-radius: 4px;
+	border-radius: $radius-s;
 	cursor: pointer;
 	display: inline-flex;
 	width: auto;
-	min-width: $counter-toggle-min-width;
-	min-height: $counter-toggle-min-height;
 	justify-content: center;
 	padding: $space-xxs;
-	gap: 2px;
 	position: relative;
 	text-transform: uppercase;
 	transform-style: preserve-3d;
 	transition: color ease-in-out $default-transition-time,
-		border-color ease-in-out $default-transition-time,
-		background-color ease-in-out $default-transition-time;
-	user-select: none;
+	background-color ease-in-out $default-transition-time;
 
 	&.-selected {
 		@each $color-name, $color-map in $counter-toggle-colors {
 			&.-color-#{$color-name} {
 				@include setCounterToggleColor(map-get($color-map, 'selected', 'color'));
 				@include setCounterToggleBackground(
-					map-get($color-map, 'selected', 'background'),
-					map-get($color-map, 'selected', 'background-hovered'),
-					map-get($color-map, 'selected', 'background-focused')
+						map-get($color-map, 'selected', 'background'),
+						map-get($color-map, 'selected', 'background-hovered'),
+						map-get($color-map, 'selected', 'background-focused'),
+						map-get($color-map, 'selected', 'background-pressed')
 				);
 				@include setCounterToggleDisabled(
-					map-get($color-map, 'selected', 'disabled', 'color'),
-					map-get($color-map, 'selected', 'disabled', 'icon'),
-					map-get($color-map, 'selected', 'disabled', 'background')
+						map-get($color-map, 'selected', 'disabled', 'color'),
+						map-get($color-map, 'selected', 'disabled', 'icon'),
+						map-get($color-map, 'selected', 'disabled', 'background')
 				);
 				@include setCounterToggleAdditions(
-					map-get($color-map, 'selected', 'ripple'),
-					map-get($color-map, 'selected', 'icon')
+						map-get($color-map, 'selected', 'ripple'),
+						map-get($color-map, 'selected', 'icon')
 				);
 			}
 		}
@@ -302,17 +306,18 @@ $counter-toggle-colors: (
 		pointer-events: none;
 	}
 
+	&__icon {
+		margin-right: $space-xxxxxs;
+	}
+
 	&__counter {
 		@include textBold();
 		@include buttonS();
-
-		// Keep it consistent with DsIconButton
-		//transition: color ease-in-out $default-transition-time;
 	}
 }
 </style>
 
-<script lang="ts">
+<script lang='ts'>
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import Icon, { ICON_SIZES } from '../Icon';
 import { VueConstructor } from 'vue';

@@ -21,8 +21,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon';
 			defaultValue: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
 		},
 		icon: {
-			control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-			defaultValue: 'FA_SQUARE_CARET_RIGHT',
+			control: { type: 'select', options: Object.keys(ICONS) },
 		},
 		counter: {
 			control: { type: 'text', },
@@ -40,7 +39,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon';
 	args={{
 		color: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
 		counter: '99+',
-		icon: ICONS.FA_SQUARE_CARET_RIGHT,
+		icon: 'FA_SQUARE_CARET_RIGHT',
 		isSelected: false,
 		isDisabled: false,
 	}}
@@ -51,8 +50,11 @@ import { ICONS } from 'design-system/lib/js/components/Icon';
 			props: Object.keys(args),
 			template:
 				'<div :class="{ contrastBackground: isInverted }">' +
-				'<counter-toggle :color="color" :counter="counter"  :icon="icon" :isSelected="isSelected" :isDisabled="isDisabled" />' +
+				'<counter-toggle :color="color" :counter="counter" :icon="ICONS[icon]" :isSelected="isSelected" :isDisabled="isDisabled" />' +
 				'</div>',
+			created() {
+				this.ICONS = ICONS;
+			},
 			computed: {
 				isInverted: function () {
 					return this.color === 'inverted';
