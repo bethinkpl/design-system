@@ -1,16 +1,16 @@
 <template>
 	<div
 		v-ripple
-		class='counterToggle'
+		class="counterToggle"
 		:class="[{ '-selected': isSelected, '-disabled': isDisabled }, colorClass]"
 		@click="$emit('click')"
 	>
-		<icon class='counterToggle__icon' :icon='icon' :size='ICON_SIZES.X_SMALL' />
-		<span v-if='counter !== null' class='counterToggle__counter'>{{ counter }}</span>
+		<icon class="counterToggle__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
+		<span v-if="counter !== null" class="counterToggle__counter">{{ counter }}</span>
 	</div>
 </template>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 @import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
@@ -181,7 +181,12 @@ $counter-toggle-colors: (
 	}
 }
 
-@mixin setCounterToggleBackground($background, $background-hover, $background-focus, $background-pressed) {
+@mixin setCounterToggleBackground(
+	$background,
+	$background-hover,
+	$background-focus,
+	$background-pressed
+) {
 	@if $background == null {
 		background-color: transparent;
 	}
@@ -245,19 +250,19 @@ $counter-toggle-colors: (
 		&.-color-#{$color-name} {
 			@include setCounterToggleColor(map-get($color-map, 'default', 'color'));
 			@include setCounterToggleBackground(
-					map-get($color-map, 'default', 'background'),
-					map-get($color-map, 'default', 'background-hovered'),
-					map-get($color-map, 'default', 'background-focused'),
-					map-get($color-map, 'default', 'background-pressed')
+				map-get($color-map, 'default', 'background'),
+				map-get($color-map, 'default', 'background-hovered'),
+				map-get($color-map, 'default', 'background-focused'),
+				map-get($color-map, 'default', 'background-pressed')
 			);
 			@include setCounterToggleDisabled(
-					map-get($color-map, 'default', 'disabled', 'color'),
-					map-get($color-map, 'default', 'disabled', 'icon'),
-					map-get($color-map, 'default', 'disabled', 'background')
+				map-get($color-map, 'default', 'disabled', 'color'),
+				map-get($color-map, 'default', 'disabled', 'icon'),
+				map-get($color-map, 'default', 'disabled', 'background')
 			);
 			@include setCounterToggleAdditions(
-					map-get($color-map, 'default', 'ripple'),
-					map-get($color-map, 'default', 'icon')
+				map-get($color-map, 'default', 'ripple'),
+				map-get($color-map, 'default', 'icon')
 			);
 		}
 	}
@@ -275,26 +280,26 @@ $counter-toggle-colors: (
 	text-transform: uppercase;
 	transform-style: preserve-3d;
 	transition: color ease-in-out $default-transition-time,
-	background-color ease-in-out $default-transition-time;
+		background-color ease-in-out $default-transition-time;
 
 	&.-selected {
 		@each $color-name, $color-map in $counter-toggle-colors {
 			&.-color-#{$color-name} {
 				@include setCounterToggleColor(map-get($color-map, 'selected', 'color'));
 				@include setCounterToggleBackground(
-						map-get($color-map, 'selected', 'background'),
-						map-get($color-map, 'selected', 'background-hovered'),
-						map-get($color-map, 'selected', 'background-focused'),
-						map-get($color-map, 'selected', 'background-pressed')
+					map-get($color-map, 'selected', 'background'),
+					map-get($color-map, 'selected', 'background-hovered'),
+					map-get($color-map, 'selected', 'background-focused'),
+					map-get($color-map, 'selected', 'background-pressed')
 				);
 				@include setCounterToggleDisabled(
-						map-get($color-map, 'selected', 'disabled', 'color'),
-						map-get($color-map, 'selected', 'disabled', 'icon'),
-						map-get($color-map, 'selected', 'disabled', 'background')
+					map-get($color-map, 'selected', 'disabled', 'color'),
+					map-get($color-map, 'selected', 'disabled', 'icon'),
+					map-get($color-map, 'selected', 'disabled', 'background')
 				);
 				@include setCounterToggleAdditions(
-						map-get($color-map, 'selected', 'ripple'),
-						map-get($color-map, 'selected', 'icon')
+					map-get($color-map, 'selected', 'ripple'),
+					map-get($color-map, 'selected', 'icon')
 				);
 			}
 		}
@@ -317,7 +322,7 @@ $counter-toggle-colors: (
 }
 </style>
 
-<script lang='ts'>
+<script lang="ts">
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import Icon, { ICON_SIZES } from '../Icon';
 import { VueConstructor } from 'vue';
