@@ -258,6 +258,7 @@ $counter-toggle-colors: (
 
 	&__icon {
 		margin-right: $space-xxxxxs;
+		transition: color ease-in-out $default-transition-time;
 	}
 
 	&__counter {
