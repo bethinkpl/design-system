@@ -281,6 +281,7 @@ $counter-toggle-colors: (
 	transform-style: preserve-3d;
 	transition: color ease-in-out $default-transition-time,
 		background-color ease-in-out $default-transition-time;
+	user-select: none;
 
 	&.-selected {
 		@each $color-name, $color-map in $counter-toggle-colors {
