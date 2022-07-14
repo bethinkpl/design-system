@@ -277,8 +277,6 @@ $counter-toggle-colors: (
 	justify-content: center;
 	padding: $space-xxs;
 	position: relative;
-	text-transform: uppercase;
-	transform-style: preserve-3d;
 	transition: color ease-in-out $default-transition-time,
 		background-color ease-in-out $default-transition-time;
 	user-select: none;
@@ -308,7 +306,6 @@ $counter-toggle-colors: (
 
 	&:disabled,
 	&.-disabled {
-		cursor: not-allowed;
 		pointer-events: none;
 	}
 
