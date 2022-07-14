@@ -18,12 +18,12 @@ import { ICONS } from '../Icon';
 	args={{
 		closable: true,
 		icon: ICONS.FA_CIRCLE_INFO,
-		color: BANNER_COLORS.WARNING,
+		color: BANNER_COLORS.DEFAULT,
 		title: 'Banner Title',
 		buttonText: null,
 		layout: BANNER_LAYOUTS.HORIZONTAL,
 		defaultText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices malesuada vehicula. Mauris egestas scelerisque enim, condimentum aliquet arcu bibendum nec.',
-		expandedText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+		expandedText: '',
 	}}
 	argTypes={{
 		closable: { control: { type: 'boolean' }, defaultValue: false },
@@ -73,9 +73,9 @@ import { ICONS } from '../Icon';
 					:buttonText='buttonText'
 					:layout='layout'
 				>
-				<template v-slot:defaultText v-if='defaultText'><span v-html='defaultText' /></template>
-				<template v-slot:expandedText v-if='expandedText'>
-					<div v-html='expandedText' />
+				<template v-slot:defaultText><span v-if='defaultText' v-html='defaultText' /></template>
+				<template v-slot:expandedText>
+					<div v-if='expandedText' v-html='${args.expandedText}' />
 				</template>
 				</ds-banner>`,
 		};
