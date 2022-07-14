@@ -38,24 +38,26 @@ describe('CounterToggle', () => {
 
 	it('should render icon', () => {
 		const icon = createComponent({ icon: ICONS.FA_XMARK });
-		expect(icon.find('.counterToggle__icon').exists()).toBe(true);
-		expect(icon.find('.counterToggle__icon').props().icon).toBe(ICONS.FA_XMARK);
+		let iconElement = icon.find('.counterToggle__icon');
+		expect(iconElement.exists()).toBe(true);
+		expect(iconElement.props().icon).toBe(ICONS.FA_XMARK);
 	});
 
 	test.each([
-		[{ props: { counter: null }, expectedText: '', expectedToExists: false }],
-		[{ props: { counter: 0 }, expectedText: '0', expectedToExists: true }],
-		[{ props: { counter: 1 }, expectedText: '1', expectedToExists: true }],
-		[{ props: { counter: '0' }, expectedText: '0', expectedToExists: true }],
-		[{ props: { counter: '42' }, expectedText: '42', expectedToExists: true }],
-		[{ props: { counter: '99+' }, expectedText: '99+', expectedToExists: true }],
-		[{ props: { counter: '1024' }, expectedText: '1024', expectedToExists: true }],
-		[{ props: { counter: 'test' }, expectedText: 'test', expectedToExists: true }],
-	])('correct counter', ({ props, expectedText, expectedToExists }) => {
+		[{ props: { counter: null }, expectedText: '', expectedToExist: false }],
+		[{ props: { counter: 0 }, expectedText: '0', expectedToExist: true }],
+		[{ props: { counter: 1 }, expectedText: '1', expectedToExist: true }],
+		[{ props: { counter: '0' }, expectedText: '0', expectedToExist: true }],
+		[{ props: { counter: '42' }, expectedText: '42', expectedToExist: true }],
+		[{ props: { counter: '99+' }, expectedText: '99+', expectedToExist: true }],
+		[{ props: { counter: '1024' }, expectedText: '1024', expectedToExist: true }],
+		[{ props: { counter: 'test' }, expectedText: 'test', expectedToExist: true }],
+	])('correct counter', ({ props, expectedText, expectedToExist }) => {
 		const counterToggle = createComponent(props);
-		expect(counterToggle.find('.counterToggle__counter').exists()).toBe(expectedToExists);
-		if (counterToggle.find('.counterToggle__counter').exists()) {
-			expect(counterToggle.find('.counterToggle__counter').text()).toBe(expectedText);
+		const counterElement = counterToggle.find('.counterToggle__counter');
+		expect(counterElement.exists()).toBe(expectedToExist);
+		if (expectedToExist) {
+			expect(counterElement.text()).toBe(expectedText);
 		}
 	});
 });
