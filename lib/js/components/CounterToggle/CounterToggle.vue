@@ -21,8 +21,6 @@ $counter-toggle-colors: (
 	'primary': (
 		'default': (
 			'color': $color-primary-text,
-			'color-hovered': $color-primary-text,
-			'color-focused': $color-primary-text,
 			'background': $color-primary-background-ghost,
 			'background-hovered': $color-primary-background-ghost-hovered,
 			'background-focused': $color-primary-background-ghost-focused,
@@ -37,8 +35,6 @@ $counter-toggle-colors: (
 		),
 		'selected': (
 			'color': $color-primary-text,
-			'color-hovered': $color-primary-text-hovered,
-			'color-focused': $color-primary-text-focused,
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
@@ -55,8 +51,6 @@ $counter-toggle-colors: (
 	'neutral': (
 		'default': (
 			'color': $color-neutral-text,
-			'color-hovered': $color-neutral-text,
-			'color-focused': $color-neutral-text,
 			'background': $color-neutral-background-ghost,
 			'background-hovered': $color-neutral-background-ghost-hovered,
 			'background-focused': $color-neutral-background-ghost-focused,
@@ -71,8 +65,6 @@ $counter-toggle-colors: (
 		),
 		'selected': (
 			'color': $color-primary-text,
-			'color-hovered': $color-primary-text-hovered,
-			'color-focused': $color-primary-text-focused,
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
@@ -89,8 +81,6 @@ $counter-toggle-colors: (
 	'neutralStrong': (
 		'default': (
 			'color': $color-neutral-text-strong,
-			'color-hovered': $color-neutral-text-strong,
-			'color-focused': $color-neutral-text-strong,
 			'background': $color-neutral-background-ghost,
 			'background-hovered': $color-neutral-background-ghost-hovered,
 			'background-focused': $color-neutral-background-ghost-focused,
@@ -105,8 +95,6 @@ $counter-toggle-colors: (
 		),
 		'selected': (
 			'color': $color-primary-text,
-			'color-hovered': $color-primary-text-hovered,
-			'color-focused': $color-primary-text-focused,
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
@@ -123,8 +111,6 @@ $counter-toggle-colors: (
 	'inverted': (
 		'default': (
 			'color': $color-inverted-text,
-			'color-hovered': $color-inverted-text,
-			'color-focused': $color-inverted-text,
 			'background': $color-default-background-ghost,
 			'background-hovered': $color-default-background-ghost-hovered,
 			'background-focused': $color-default-background-ghost-focused,
@@ -139,8 +125,6 @@ $counter-toggle-colors: (
 		),
 		'selected': (
 			'color': $color-primary-text,
-			'color-hovered': $color-primary-text-hovered,
-			'color-focused': $color-primary-text-focused,
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
@@ -156,24 +140,8 @@ $counter-toggle-colors: (
 	),
 );
 
-@mixin setCounterToggleColor($color, $color-hovered, $color-focused, $color-disabled) {
+@mixin setCounterToggleColor($color) {
 	color: $color;
-
-	&:hover,
-	&.-hovered,
-	&:active,
-	&.-active {
-		color: $color-hovered;
-	}
-
-	&:focus,
-	&.-focused {
-		color: $color-focused;
-	}
-
-	&.-disabled {
-		color: $color-disabled;
-	}
 }
 
 @mixin setCounterToggleBackground(
@@ -227,12 +195,7 @@ $counter-toggle-colors: (
 .counterToggle {
 	@each $color-name, $color-map in $counter-toggle-colors {
 		&.-color-#{$color-name} {
-			@include setCounterToggleColor(
-				map-get($color-map, 'default', 'color'),
-				map-get($color-map, 'default', 'color-hovered'),
-				map-get($color-map, 'default', 'color-focused'),
-				map-get($color-map, 'default', 'color-disabled')
-			);
+			@include setCounterToggleColor(map-get($color-map, 'default', 'color'));
 			@include setCounterToggleBackground(
 				map-get($color-map, 'default', 'background'),
 				map-get($color-map, 'default', 'background-hovered'),
@@ -268,12 +231,7 @@ $counter-toggle-colors: (
 	&.-selected {
 		@each $color-name, $color-map in $counter-toggle-colors {
 			&.-color-#{$color-name} {
-				@include setCounterToggleColor(
-					map-get($color-map, 'default', 'color'),
-					map-get($color-map, 'default', 'color-hovered'),
-					map-get($color-map, 'default', 'color-focused'),
-					map-get($color-map, 'default', 'color-disabled')
-				);
+				@include setCounterToggleColor(map-get($color-map, 'selected', 'color'));
 				@include setCounterToggleBackground(
 					map-get($color-map, 'selected', 'background'),
 					map-get($color-map, 'selected', 'background-hovered'),
