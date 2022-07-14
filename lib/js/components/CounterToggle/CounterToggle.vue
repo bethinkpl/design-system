@@ -156,12 +156,7 @@ $counter-toggle-colors: (
 	),
 );
 
-@mixin setCounterToggleColor(
-	$color,
-	$color-hovered: null,
-	$color-focused: null,
-	$color-disabled: null
-) {
+@mixin setCounterToggleColor($color, $color-hovered, $color-focused, $color-disabled) {
 	color: $color;
 
 	&:hover,
@@ -187,10 +182,6 @@ $counter-toggle-colors: (
 	$background-focus,
 	$background-pressed
 ) {
-	@if $background == null {
-		background-color: transparent;
-	}
-
 	background-color: $background;
 
 	&:hover,
@@ -209,15 +200,9 @@ $counter-toggle-colors: (
 	}
 }
 
-@mixin setCounterToggleDisabled(
-	$disabled-color: null,
-	$disabled-icon: null,
-	$disabled-background: null,
-	$disabled-border: null
-) {
+@mixin setCounterToggleDisabled($disabled-color, $disabled-icon, $disabled-background) {
 	&:disabled,
 	&.-disabled {
-		border-color: $disabled-border;
 		color: $disabled-color;
 		background-color: $disabled-background;
 
@@ -227,13 +212,7 @@ $counter-toggle-colors: (
 	}
 }
 
-@mixin setCounterToggleAdditions($ripple: null, $icon: null) {
-	@if $ripple == null {
-		&::v-deep .ripple {
-			display: none;
-		}
-	}
-
+@mixin setCounterToggleAdditions($ripple, $icon) {
 	&::v-deep .ripple {
 		background-color: $ripple !important;
 	}
@@ -248,7 +227,12 @@ $counter-toggle-colors: (
 .counterToggle {
 	@each $color-name, $color-map in $counter-toggle-colors {
 		&.-color-#{$color-name} {
-			@include setCounterToggleColor(map-get($color-map, 'default', 'color'));
+			@include setCounterToggleColor(
+				map-get($color-map, 'default', 'color'),
+				map-get($color-map, 'default', 'color-hovered'),
+				map-get($color-map, 'default', 'color-focused'),
+				map-get($color-map, 'default', 'color-disabled')
+			);
 			@include setCounterToggleBackground(
 				map-get($color-map, 'default', 'background'),
 				map-get($color-map, 'default', 'background-hovered'),
@@ -284,7 +268,12 @@ $counter-toggle-colors: (
 	&.-selected {
 		@each $color-name, $color-map in $counter-toggle-colors {
 			&.-color-#{$color-name} {
-				@include setCounterToggleColor(map-get($color-map, 'selected', 'color'));
+				@include setCounterToggleColor(
+					map-get($color-map, 'default', 'color'),
+					map-get($color-map, 'default', 'color-hovered'),
+					map-get($color-map, 'default', 'color-focused'),
+					map-get($color-map, 'default', 'color-disabled')
+				);
 				@include setCounterToggleBackground(
 					map-get($color-map, 'selected', 'background'),
 					map-get($color-map, 'selected', 'background-hovered'),
