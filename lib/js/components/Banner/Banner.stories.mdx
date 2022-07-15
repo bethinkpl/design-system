@@ -75,7 +75,7 @@ import { ICONS } from '../Icon';
 				>
 				<template v-slot:defaultText><span v-if='defaultText' v-html='defaultText' /></template>
 				<template v-slot:expandedText>
-					<div v-if='expandedText' v-html='${args.expandedText}' />
+					<div v-if='expandedText' v-html='expandedText' />
 				</template>
 				</ds-banner>`,
 		};
