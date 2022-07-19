@@ -24,6 +24,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		text: 'this is a text text',
 		eyebrowText: 'this is an eyebrowText text',
 		additionalText: '',
+		isEyebrowTextUppercase: false,
 	}}
 	argTypes={{
 		iconLeft: {
@@ -46,7 +47,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			components: { Tile },
 			props: Object.keys(args),
 			template:
-				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" />',
+				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :is-eyebrow-text-uppercase="isEyebrowTextUppercase" />',
 			created() {
 				this.ICONS = ICONS;
 			},
