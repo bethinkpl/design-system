@@ -2,11 +2,14 @@
 	<div
 		v-ripple
 		class="counterToggle"
-		:class="[{ '-selected': isSelected, '-disabled': isDisabled }, colorClass]"
+		:class="[
+			{ '-selected': isSelected, '-disabled': isDisabled, '-single-item': !hasCounter },
+			colorClass,
+		]"
 		@click="$emit('click')"
 	>
 		<icon class="counterToggle__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
-		<span v-if="counter !== null" class="counterToggle__counter">{{ counter }}</span>
+		<span v-if="hasCounter" class="counterToggle__counter">{{ counter }}</span>
 	</div>
 </template>
 
@@ -38,7 +41,7 @@ $counter-toggle-colors: (
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
-			'background-pressed': $color-primary-background-hovered,
+			'background-pressed': $color-primary-background-pressed,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -68,7 +71,7 @@ $counter-toggle-colors: (
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
-			'background-pressed': $color-primary-background-hovered,
+			'background-pressed': $color-primary-background-pressed,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -98,7 +101,7 @@ $counter-toggle-colors: (
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
-			'background-pressed': $color-primary-background-hovered,
+			'background-pressed': $color-primary-background-pressed,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -128,7 +131,7 @@ $counter-toggle-colors: (
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
-			'background-pressed': $color-primary-background-hovered,
+			'background-pressed': $color-primary-background-pressed,
 			'icon': $color-primary-icon,
 			'ripple': $color-primary-ripple,
 			'disabled': (
@@ -193,6 +196,8 @@ $counter-toggle-colors: (
 }
 
 .counterToggle {
+	$self: &;
+
 	@each $color-name, $color-map in $counter-toggle-colors {
 		&.-color-#{$color-name} {
 			@include setCounterToggleColor(map-get($color-map, 'default', 'color'));
@@ -257,13 +262,18 @@ $counter-toggle-colors: (
 	}
 
 	&__icon {
-		margin-right: $space-xxxxxs;
 		transition: color ease-in-out $default-transition-time;
 	}
 
 	&__counter {
 		@include textBold();
 		@include buttonS();
+	}
+
+	&:not(.-single-item) {
+		#{$self}__counter {
+			margin-left: $space-xxxxxs;
+		}
 	}
 }
 </style>
@@ -314,6 +324,9 @@ export default {
 	computed: {
 		colorClass(): string {
 			return `-color-${this.color}`;
+		},
+		hasCounter(): boolean {
+			return this.counter !== null && this.counter !== '';
 		},
 	},
 	created() {
