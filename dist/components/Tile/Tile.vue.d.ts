@@ -108,6 +108,10 @@ declare const _default: {
             default: "neutral";
             validate(color: any): boolean;
         };
+        isEyebrowTextUppercase: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     };
     computed: {
         tileColor(): any;

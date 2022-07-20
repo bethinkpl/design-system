@@ -100,6 +100,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_LINK_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_LIST: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_LIST_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_LIST_OL: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_LOCATION_DOT: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_LOCK_KEYHOLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_MAGNIFYING_GLASS: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -112,6 +113,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_PAPERCLIP: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_PAPER_PLANE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_PENCIL: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_PEN_FIELD: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_PLAY: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_PLUS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_REPLY: import("@fortawesome/fontawesome-common-types").IconDefinition;
