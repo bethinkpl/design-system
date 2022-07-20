@@ -3,7 +3,7 @@
 		v-ripple
 		class="counterToggle"
 		:class="[
-			{ '-selected': isSelected, '-disabled': isDisabled, '-single-item': !hasCounter },
+			{ '-selected': isSelected, '-disabled': isDisabled },
 			colorClass,
 		]"
 		@click="$emit('click')"
@@ -268,12 +268,8 @@ $counter-toggle-colors: (
 	&__counter {
 		@include textBold();
 		@include buttonS();
-	}
 
-	&:not(.-single-item) {
-		#{$self}__counter {
-			margin-left: $space-xxxxxs;
-		}
+		margin-left: $space-xxxxxs;
 	}
 }
 </style>
@@ -326,7 +322,7 @@ export default {
 			return `-color-${this.color}`;
 		},
 		hasCounter(): boolean {
-			return this.counter !== null && this.counter !== '';
+			return this.counter !== null && this.counter !== '' && this.counter !== undefined;
 		},
 	},
 	created() {
