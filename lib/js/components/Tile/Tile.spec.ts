@@ -11,12 +11,21 @@ const createComponent = function ({
 	additionalText = '',
 	iconLeft = null,
 	iconRight = null,
+	isEyebrowTextUppercase = false,
 }: createComponentOptions) {
 	const localVue = createLocalVue();
 	return shallowMount(Tile, {
 		localVue,
 		mocks: {},
-		propsData: { text, eyebrowText, interactive, additionalText, iconLeft, iconRight },
+		propsData: {
+			text,
+			eyebrowText,
+			interactive,
+			additionalText,
+			iconLeft,
+			iconRight,
+			isEyebrowTextUppercase,
+		},
 		stubs: {},
 	});
 };
@@ -28,6 +37,7 @@ interface createComponentOptions {
 	additionalText?: string;
 	iconRight?: IconDefinition | null;
 	iconLeft?: IconDefinition | null;
+	isEyebrowTextUppercase?: boolean;
 }
 
 describe('Tile', () => {
@@ -149,5 +159,16 @@ describe('Tile', () => {
 		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
 
 		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
+	});
+
+	it('Eyebrowtext is uppercased when isEyebrowTextUppercase', () => {
+		const component = createComponent({
+			text: 'text text',
+			eyebrowText: 'eyebrowText text',
+			additionalText: 'additionalText text',
+			isEyebrowTextUppercase: true,
+		});
+		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.a-tile__eyebrowText').classes()).toContain('-uppercase');
 	});
 });

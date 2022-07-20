@@ -8,7 +8,11 @@
 				class="a-tile__iconLeft"
 			/>
 			<div class="a-tile__center">
-				<span class="a-tile__eyebrowText" v-text="eyebrowText" />
+				<span
+					class="a-tile__eyebrowText"
+					:class="{ '-uppercase': isEyebrowTextUppercase }"
+					v-text="eyebrowText"
+				/>
 				<span class="a-tile__text" v-text="text" />
 			</div>
 			<ds-icon
@@ -59,6 +63,10 @@
 
 	&__eyebrowText {
 		@include textS;
+
+		&.-uppercase {
+			text-transform: uppercase;
+		}
 	}
 
 	&__text {
@@ -215,6 +223,10 @@ export default {
 			validate(color) {
 				return Object.values(TILE_COLORS).includes(color);
 			},
+		},
+		isEyebrowTextUppercase: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	computed: {
