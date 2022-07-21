@@ -35,7 +35,7 @@
 			<div v-if="hasExpandedText" class="ds-banner__expander">
 				<ds-icon-button
 					:size="ICON_BUTTON_SIZES.SMALL"
-					:icon="expanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
+					:icon="isExpandedInternal ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:radius="BUTTON_RADIUSES.CAPSULE"
 					:touchable="false"
@@ -53,7 +53,7 @@
 				/>
 			</div>
 		</div>
-		<div v-if="hasExpandedText && expanded" class="ds-banner__expandedContainer">
+		<div v-if="hasExpandedText && isExpandedInternal" class="ds-banner__expandedContainer">
 			<ds-divider :prominence="DIVIDER_PROMINENCES.STRONG" />
 			<div class="ds-banner__expandedText">
 				<slot name="expandedText" />
@@ -334,10 +334,14 @@ export default {
 			default: BANNER_LAYOUTS.HORIZONTAL,
 			validate: (layout) => Object.values(BANNER_LAYOUTS).includes(layout),
 		},
+		isExpanded: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	data() {
 		return {
-			expanded: false,
+			isExpandedInternal: false,
 		};
 	},
 	computed: {
@@ -362,6 +366,16 @@ export default {
 			return !!this.$slots.defaultText && this.$slots.defaultText.length > 0;
 		},
 	},
+	watch: {
+		isExpanded: {
+			handler(isExpanded) {
+				if (isExpanded !== this.isExpandedInternal) {
+					this.isExpandedInternal = isExpanded;
+				}
+			},
+			immediate: true,
+		},
+	},
 	created() {
 		this.BUTTON_COLORS = BUTTON_COLORS;
 		this.BUTTON_RADIUSES = BUTTON_RADIUSES;
@@ -374,7 +388,8 @@ export default {
 	},
 	methods: {
 		toggleExpandedText() {
-			this.expanded = !this.expanded;
+			this.isExpandedInternal = !this.isExpandedInternal;
+			this.$emit('update:isExpanded', this.isExpandedInternal);
 		},
 	},
 };
