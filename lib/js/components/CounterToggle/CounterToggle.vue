@@ -2,10 +2,7 @@
 	<div
 		v-ripple
 		class="counterToggle"
-		:class="[
-			{ '-selected': isSelected, '-disabled': isDisabled },
-			colorClass,
-		]"
+		:class="[{ '-selected': isSelected, '-disabled': isDisabled }, colorClass]"
 		@click="$emit('click')"
 	>
 		<icon class="counterToggle__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
