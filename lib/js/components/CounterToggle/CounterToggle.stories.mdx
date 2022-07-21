@@ -1,0 +1,69 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import CounterToggle from './CounterToggle';
+import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
+import { ICONS } from 'design-system/lib/js/components/Icon';
+
+<Meta title="components/CounterToggle" component={CounterToggle} />
+
+# CounterToggle
+
+<Story
+	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=3693%3A70976',
+		},
+	}}
+	argTypes={{
+		color: {
+			control: { type: 'select', options: Object.values(COUNTER_TOGGLE_COLORS) },
+			defaultValue: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
+		},
+		icon: {
+			control: { type: 'select', options: Object.keys(ICONS) },
+		},
+		counter: {
+			control: { type: 'text', },
+			defaultValue: null,
+		},
+		isSelected: {
+			control: { type: 'boolean', },
+			defaultValue: false,
+		},
+		isDisabled: {
+			control: { type: 'boolean', },
+			defaultValue: false,
+		},
+	}}
+	args={{
+		color: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
+		counter: '99+',
+		icon: 'FA_SQUARE_CARET_RIGHT',
+		isSelected: false,
+		isDisabled: false,
+	}}
+>
+	{(args) => {
+		return {
+			components: { CounterToggle },
+			props: Object.keys(args),
+			template:
+				'<div :class="{ contrastBackground: isInverted }">' +
+				'<counter-toggle :color="color" :counter="counter" :icon="ICONS[icon]" :isSelected="isSelected" :isDisabled="isDisabled" />' +
+				'</div>',
+			created() {
+				this.ICONS = ICONS;
+			},
+			computed: {
+				isInverted: function () {
+					return this.color === 'inverted';
+				},
+			},
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={CounterToggle} />
