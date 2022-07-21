@@ -455,15 +455,25 @@ declare const _default: {
             default: "horizontal";
             validate: (layout: any) => boolean;
         };
+        isExpanded: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     };
     data(): {
-        expanded: boolean;
+        isExpandedInternal: boolean;
     };
     computed: {
         colorClass(): any;
         layoutClass(): "-vertical" | "-horizontal";
         hasExpandedText(): boolean;
         hasDefaultText(): boolean;
+    };
+    watch: {
+        isExpanded: {
+            handler(isExpanded: any): void;
+            immediate: boolean;
+        };
     };
     created(): void;
     methods: {
