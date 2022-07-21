@@ -57,6 +57,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_COMPRESS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_EARTH_AMERICAS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ELLIPSIS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_ELLIPSIS_VERTICAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_EXCLAMATION_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_EYE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_EYE_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -116,6 +117,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_PEN_FIELD: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_PLAY: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_PLUS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_PRINT: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_REPLY: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SHARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SHIELD_HALVED: import("@fortawesome/fontawesome-common-types").IconDefinition;
