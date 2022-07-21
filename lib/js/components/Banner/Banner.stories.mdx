@@ -22,8 +22,10 @@ import { ICONS } from '../Icon';
 		title: 'Banner Title',
 		buttonText: null,
 		layout: BANNER_LAYOUTS.HORIZONTAL,
-		defaultText: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices malesuada vehicula. Mauris egestas scelerisque enim, condimentum aliquet arcu bibendum nec.',
+		defaultText:
+			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices malesuada vehicula. Mauris egestas scelerisque enim, condimentum aliquet arcu bibendum nec.',
 		expandedText: '',
+		isExpanded: false,
 	}}
 	argTypes={{
 		closable: { control: { type: 'boolean' }, defaultValue: false },
@@ -43,7 +45,7 @@ import { ICONS } from '../Icon';
 		},
 		buttonText: {
 			control: { type: 'text' },
-			defaultValue: null,
+			defaultValue: '',
 		},
 		layout: {
 			control: { type: 'select', options: Object.values(BANNER_LAYOUTS) },
@@ -55,14 +57,24 @@ import { ICONS } from '../Icon';
 		expandedText: {
 			control: { type: 'text' },
 		},
+		isExpanded: {
+			control: { type: 'boolean' },
+		},
 	}}
 >
-	{(args) => {
+	{(args, { updateArgs }) => {
 		return {
 			components: { DsBanner },
 			props: Object.keys(args),
 			created() {
 				this.ICONS = ICONS;
+			},
+			methods: {
+				onIsExpandedUpdated(isExpanded) {
+					updateArgs({
+						isExpanded,
+					});
+				},
 			},
 			template: `
 				<ds-banner
@@ -72,6 +84,8 @@ import { ICONS } from '../Icon';
 					:title='title'
 					:buttonText='buttonText'
 					:layout='layout'
+					:is-expanded='isExpanded'
+					@update:isExpanded="onIsExpandedUpdated"
 				>
 				<template v-slot:defaultText><span v-if='defaultText' v-html='defaultText' /></template>
 				<template v-slot:expandedText>
