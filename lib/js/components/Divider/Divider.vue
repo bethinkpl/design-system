@@ -6,6 +6,7 @@
 			'-horizontal': !isVertical,
 			'-strong': prominence === DIVIDER_PROMINENCES.STRONG,
 			'-weak': prominence === DIVIDER_PROMINENCES.WEAK,
+			[sizeClass]: true,
 		}"
 	/>
 </template>
@@ -33,11 +34,27 @@
 		height: 1px;
 		width: auto;
 	}
+
+	&.-medium-vertical {
+		width: 2px;
+	}
+
+	&.-large-vertical {
+		width: 4px;
+	}
+
+	&.-medium-horizontal {
+		height: 2px;
+	}
+
+	&.-large-horizontal {
+		height: 4px;
+	}
 }
 </style>
 
 <script lang="ts">
-import { DIVIDER_PROMINENCES } from './Divider.consts';
+import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from './Divider.consts';
 
 export default {
 	name: 'Divider',
@@ -50,6 +67,20 @@ export default {
 			type: String,
 			default: DIVIDER_PROMINENCES.DEFAULT,
 			validator: (value: string) => Object.values(DIVIDER_PROMINENCES).includes(value),
+		},
+		size: {
+			type: String,
+			default: DIVIDER_SIZES.S,
+			validator: (value: string) => Object.values(DIVIDER_SIZES).includes(value),
+		},
+	},
+	computed: {
+		sizeClass() {
+			return {
+				[DIVIDER_SIZES.S]: '',
+				[DIVIDER_SIZES.M]: '-medium-' + (this.isVertical ? 'vertical' : 'horizontal'),
+				[DIVIDER_SIZES.L]: '-large-' + (this.isVertical ? 'vertical' : 'horizontal'),
+			}[this.size];
 		},
 	},
 	created() {

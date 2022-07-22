@@ -3,3 +3,8 @@ export const DIVIDER_PROMINENCES = {
 	STRONG: 'strong',
 	WEAK: 'weak',
 };
+export const DIVIDER_SIZES = {
+	S: 'small',
+	M: 'medium',
+	L: 'large',
+};
