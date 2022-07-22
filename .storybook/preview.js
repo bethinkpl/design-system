@@ -1,5 +1,4 @@
 import 'design-system/lib/styles/_normalize.scss';
-import 'design-system/lib/styles/theme-varaibles.scss';
 import 'design-system/lib/styles/design-system.scss';
 import 'design-system/lib/styles/storybook.scss';
 
