@@ -1,9 +1,11 @@
+@import '../settings/colors/tokens';
+
 .a-link {
 	cursor: pointer;
-	color: $color-primary;
+	color: $color-primary-text;
 
 	&:hover {
-		color: $color-primary;
+		color: $color-primary-text;
 	}
 }
 
