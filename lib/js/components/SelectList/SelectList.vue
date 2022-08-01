@@ -28,7 +28,7 @@
 @import '../../../styles/settings/typography';
 
 .selectList {
-	padding: $space-xxs;
+	padding: $space-xxs 0;
 
 	&__item {
 		background-color: $color-neutral-background-ghost;
