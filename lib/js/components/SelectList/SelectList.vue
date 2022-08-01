@@ -12,7 +12,7 @@
 				<ds-icon
 					v-if="item.icon"
 					class="selectList__itemIcon"
-					:icon="getIconForItem(item)"
+					:icon="item.icon"
 					:size="ICON_SIZES.X_SMALL"
 				/>
 				{{ item.label }}
@@ -72,9 +72,9 @@
 
 <script lang="ts">
 import { SELECT_LIST_SIZES } from './SelectList.consts';
-import DsIcon, { ICONS, ICON_SIZES, IconItem } from '../Icon';
+import DsIcon, { ICONS, ICON_SIZES } from '../Icon';
 import { PropType } from 'vue';
-import { SelectListItem, SelectListItemTextWithIcon } from './SelectList.domain';
+import { SelectListItem } from './SelectList.domain';
 import Divider from '../Divider/Divider.vue';
 
 export default {
@@ -122,9 +122,6 @@ export default {
 			}
 
 			return classNames;
-		},
-		getIconForItem(item: SelectListItemTextWithIcon): IconItem {
-			return ICONS[item.icon];
 		},
 		onItemClick(item: SelectListItem): void {
 			if (item.type === 'text') {

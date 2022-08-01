@@ -1,4 +1,4 @@
-import { IconKey } from '../Icon';
+import { IconItem } from '../Icon';
 
 interface SelectListItemDivider {
 	type: 'divider';
@@ -14,8 +14,8 @@ type SelectListItemTextWithoutIcon = SelectListItemTextBase & {
 	icon: null;
 };
 
-export type SelectListItemTextWithIcon = SelectListItemTextBase & {
-	icon: IconKey;
+type SelectListItemTextWithIcon = SelectListItemTextBase & {
+	icon: IconItem;
 };
 
 type SelectListItemText = SelectListItemTextWithoutIcon | SelectListItemTextWithIcon;
