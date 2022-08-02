@@ -23,7 +23,6 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
@@ -72,7 +71,7 @@
 
 <script lang="ts">
 import { SELECT_LIST_SIZES } from './SelectList.consts';
-import DsIcon, { ICONS, ICON_SIZES } from '../Icon';
+import DsIcon, { ICON_SIZES } from '../Icon';
 import { PropType } from 'vue';
 import { SelectListItem } from './SelectList.domain';
 import Divider from '../Divider/Divider.vue';
@@ -103,7 +102,6 @@ export default {
 	},
 	created() {
 		this.ICON_SIZES = ICON_SIZES;
-		this.ICONS = ICONS;
 	},
 	methods: {
 		getClassNamesForItem(item: SelectListItem): Array<string> {
