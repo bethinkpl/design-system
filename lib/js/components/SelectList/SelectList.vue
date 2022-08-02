@@ -2,7 +2,7 @@
 	<div class="selectList">
 		<div
 			v-for="(item, index) in items"
-			:key="index"
+			:key="`${JSON.stringify(item)}-${index}`"
 			class="selectList__item"
 			:class="getClassNamesForItem(item)"
 			@click="onItemClick(item)"
