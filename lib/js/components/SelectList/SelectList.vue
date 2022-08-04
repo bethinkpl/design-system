@@ -15,7 +15,7 @@
 					:icon="item.icon"
 					:size="ICON_SIZES.X_SMALL"
 				/>
-				{{ item.label }}
+				<span class="selectList__itemText">{{ item.label }}</span>
 			</template>
 		</div>
 	</div>
@@ -67,6 +67,12 @@
 	&__itemIcon {
 		color: $color-neutral-icon-strong;
 		margin-right: $space-xxxs;
+	}
+
+	&__itemText {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 }
 </style>
