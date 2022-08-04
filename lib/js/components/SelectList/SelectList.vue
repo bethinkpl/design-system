@@ -43,7 +43,13 @@
 			cursor: pointer;
 			display: flex;
 			padding: $space-xs;
+		}
 
+		&.-selected {
+			background-color: $color-neutral-background;
+		}
+
+		&.-text:not(.-selected) {
 			&:focus {
 				background-color: $color-neutral-background-ghost-focused;
 			}
@@ -55,10 +61,6 @@
 			&:active {
 				background-color: $color-neutral-background-ghost-pressed;
 			}
-		}
-
-		&.-selected {
-			background-color: $color-neutral-background;
 		}
 	}
 
