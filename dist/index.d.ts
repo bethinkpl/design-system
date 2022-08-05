@@ -39,4 +39,7 @@ export { default as Pill } from './components/Pill';
 export * from './components/Pill/Pill.consts';
 export { default as CounterToggle } from './components/CounterToggle';
 export * from './components/CounterToggle/CounterToggle.consts';
+export { default as SelectList } from './components/SelectList';
+export * from './components/SelectList/SelectList.consts';
+export * from './components/SelectList/SelectList.domain';
 export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, IconDefinition, } from './icons/fontawesome';
