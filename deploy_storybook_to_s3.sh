@@ -21,4 +21,4 @@ yarn storybook:build
 echo "Deploying storybook to $BUCKET as $BRANCH"
 s3cmd put -r -P public/storybook/* s3://$BUCKET/$BRANCH/
 
-echo "Your storybook is available on: https://$BUCKET.s3.amazonaws.com/public/storybook/$BRANCH/index.html"
+echo "Your storybook is available on: https://$BUCKET.s3.amazonaws.com/$BRANCH/index.html"
