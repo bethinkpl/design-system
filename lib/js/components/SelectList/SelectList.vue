@@ -40,7 +40,6 @@
 			@include headlineS();
 
 			color: $color-neutral-text-heavy;
-			cursor: pointer;
 			display: flex;
 			padding: $space-xs;
 		}
@@ -50,6 +49,8 @@
 		}
 
 		&.-text:not(.-selected) {
+			cursor: pointer;
+
 			&:focus {
 				background-color: $color-neutral-background-ghost-focused;
 			}
@@ -130,7 +131,7 @@ export default {
 			return classNames;
 		},
 		onItemClick(item: SelectListItem): void {
-			if (item.type === 'text') {
+			if (item.type === 'text' && item.value !== this.value) {
 				this.$emit('input', item.value);
 			}
 		},
