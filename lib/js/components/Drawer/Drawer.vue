@@ -8,16 +8,19 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/media-queries';
 
 .drawer {
 	height: 100%;
 
-	&.-positionLeft {
-		border-right: 1px solid $color-neutral-border-weak;
-	}
+	@media #{breakpoint-s()} {
+		&.-positionLeft {
+			border-right: 1px solid $color-neutral-border-weak;
+		}
 
-	&.-positionRight {
-		border-left: 1px solid $color-neutral-border-weak;
+		&.-positionRight {
+			border-left: 1px solid $color-neutral-border-weak;
+		}
 	}
 }
 </style>
