@@ -60,10 +60,6 @@
 			&:hover {
 				background-color: $color-neutral-background-ghost-hovered;
 			}
-
-			&:active {
-				background-color: $color-neutral-background-ghost-pressed;
-			}
 		}
 	}
 
