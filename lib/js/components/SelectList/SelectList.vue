@@ -61,6 +61,10 @@
 				background-color: $color-neutral-background-ghost-hovered;
 			}
 		}
+
+		&::v-deep .ripple {
+			background-color: $color-neutral-ripple !important;
+		}
 	}
 
 	&__itemIcon {
