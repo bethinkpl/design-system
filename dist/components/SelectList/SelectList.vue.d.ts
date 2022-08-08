@@ -71,6 +71,9 @@ declare const _default: {
             };
         };
     };
+    directives: {
+        ripple: import("vue").DirectiveFunction;
+    };
     props: {
         items: {
             type: PropType<SelectListItem[]>;
@@ -86,7 +89,18 @@ declare const _default: {
             default: null;
         };
     };
-    created(): void;
+    data(): {
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+    };
     methods: {
         getClassNamesForItem(item: SelectListItem): Array<string>;
         onItemClick(item: SelectListItem): void;
