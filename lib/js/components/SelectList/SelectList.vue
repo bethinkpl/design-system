@@ -3,6 +3,7 @@
 		<div
 			v-for="(item, index) in items"
 			:key="`${JSON.stringify(item)}-${index}`"
+			v-ripple
 			class="selectList__item"
 			:class="getClassNamesForItem(item)"
 			@click="onItemClick(item)"
@@ -46,6 +47,7 @@
 
 		&.-selected {
 			background-color: $color-neutral-background;
+			pointer-events: none;
 		}
 
 		&.-text:not(.-selected) {
@@ -79,9 +81,11 @@
 </style>
 
 <script lang="ts">
+import { PropType } from 'vue';
+import Ripple from 'vue-ripple-directive';
+
 import { SELECT_LIST_SIZES } from './SelectList.consts';
 import DsIcon, { ICON_SIZES } from '../Icon';
-import { PropType } from 'vue';
 import { SelectListItem } from './SelectList.domain';
 import Divider from '../Divider/Divider.vue';
 
@@ -90,6 +94,9 @@ export default {
 	components: {
 		Divider,
 		DsIcon,
+	},
+	directives: {
+		ripple: Ripple,
 	},
 	props: {
 		items: {
@@ -109,8 +116,10 @@ export default {
 			default: null,
 		},
 	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
+	data() {
+		return {
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+		};
 	},
 	methods: {
 		getClassNamesForItem(item: SelectListItem): Array<string> {
