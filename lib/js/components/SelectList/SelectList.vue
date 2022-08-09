@@ -32,6 +32,7 @@
 
 	&__item {
 		background-color: $color-neutral-background-ghost;
+		pointer-events: none;
 
 		&.-divider {
 			padding: $space-xxs 0;
@@ -47,11 +48,11 @@
 
 		&.-selected {
 			background-color: $color-neutral-background;
-			pointer-events: none;
 		}
 
 		&.-text:not(.-selected) {
 			cursor: pointer;
+			pointer-events: auto;
 
 			&:focus {
 				background-color: $color-neutral-background-ghost-focused;
