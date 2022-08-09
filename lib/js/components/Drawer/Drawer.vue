@@ -11,15 +11,18 @@
 @import '../../../styles/settings/media-queries';
 
 .drawer {
+	border-color: $color-neutral-border-weak;
+	border-style: solid;
+	border-width: 0;
 	height: 100%;
 
 	@media #{breakpoint-s()} {
 		&.-positionLeft {
-			border-right: 1px solid $color-neutral-border-weak;
+			border-right-width: 1px;
 		}
 
 		&.-positionRight {
-			border-left: 1px solid $color-neutral-border-weak;
+			border-left-width: 1px;
 		}
 	}
 }
