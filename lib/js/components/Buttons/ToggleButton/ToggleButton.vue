@@ -23,7 +23,7 @@
 			}"
 			@click="isInteractive && $emit('click')"
 		>
-			{{ text }}
+			<span class="toggleButton__content">{{ text }}</span>
 		</span>
 	</ds-ripple>
 </template>
@@ -76,7 +76,7 @@ $toggle-button-colors: (
 );
 
 .toggleButtonWrapper {
-	display: inline-flex;
+	display: inline-block;
 }
 
 .toggleButton {
@@ -120,7 +120,7 @@ $toggle-button-colors: (
 	// we can't use percent value because we don't want ellipse shape when text is longer
 	// value it big enough to make circle when text is short
 	border-radius: 100px;
-	display: inline-flex;
+	display: flex;
 	font-weight: bold;
 	justify-content: center;
 	min-height: $toggle-button-size-medium;
@@ -134,6 +134,12 @@ $toggle-button-colors: (
 		border-color ease-in-out $default-transition-time,
 		background-color ease-in-out $default-transition-time,
 		outline-color ease-in-out $default-transition-time;
+
+	&__content {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 
 	&.-long {
 		padding: $space-xxs $space-s;
