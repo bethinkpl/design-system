@@ -9,6 +9,8 @@
 				'-xSmall': size === TOGGLE_BUTTON_SIZES.X_SMALL,
 				'-small': size === TOGGLE_BUTTON_SIZES.SMALL,
 
+				'-long': isLong,
+
 				'-rounded': radius === TOGGLE_BUTTON_RADIUSES.ROUNDED,
 
 				[colorClassName]: true,
@@ -80,23 +82,6 @@ $toggle-button-colors: (
 .toggleButton {
 	@include headlineXS;
 
-	align-items: center;
-	// we can't use percent value because we don't want ellipse shape when text is longer
-	// value it big enough to make circle when text is short
-	border-radius: 100px;
-	display: inline-flex;
-	font-weight: bold;
-	justify-content: center;
-	min-height: $toggle-button-size-medium;
-	min-width: $toggle-button-size-medium;
-	outline: 6px solid transparent;
-	padding: $space-xxs;
-	pointer-events: none;
-	transition: color ease-in-out $default-transition-time,
-		border-color ease-in-out $default-transition-time,
-		background-color ease-in-out $default-transition-time,
-		outline-color ease-in-out $default-transition-time;
-
 	@each $color-name, $color-map in $toggle-button-colors {
 		&.-color-#{$color-name} {
 			color: map-get($color-map, 'text');
@@ -131,6 +116,33 @@ $toggle-button-colors: (
 		}
 	}
 
+	align-items: center;
+	// we can't use percent value because we don't want ellipse shape when text is longer
+	// value it big enough to make circle when text is short
+	border-radius: 100px;
+	display: inline-flex;
+	font-weight: bold;
+	justify-content: center;
+	min-height: $toggle-button-size-medium;
+	min-width: $toggle-button-size-medium;
+	outline: 6px solid transparent;
+	// vertical passing is smaller than designed, but we compensate that with `min-height`.
+	// This shortcut allows us to use the same padding on .filled and .outlined versions, so number of variants is cut by half
+	padding: $space-xxs;
+	pointer-events: none;
+	transition: color ease-in-out $default-transition-time,
+		border-color ease-in-out $default-transition-time,
+		background-color ease-in-out $default-transition-time,
+		outline-color ease-in-out $default-transition-time;
+
+	&.-long {
+		padding: $space-xxs $space-s;
+
+		&.-rounded {
+			padding: $space-xxs $space-xs;
+		}
+	}
+
 	&.-rounded {
 		border-radius: $radius-s;
 	}
@@ -152,12 +164,28 @@ $toggle-button-colors: (
 		min-height: $toggle-button-size-x-small;
 		min-width: $toggle-button-size-x-small;
 		padding: $space-xxxxs;
+
+		&.-long {
+			padding: $space-xxxxs $space-xs;
+
+			&.-rounded {
+				padding: $space-xxxxs $space-xxs;
+			}
+		}
 	}
 
 	&.-small {
 		min-height: $toggle-button-size-small;
 		min-width: $toggle-button-size-small;
 		padding: $space-xxxs;
+
+		&.-long {
+			padding: $space-xxxs $space-s;
+
+			&.-rounded {
+				padding: $space-xxxs $space-xs;
+			}
+		}
 	}
 
 	&.-elevationXSmall,
@@ -274,6 +302,9 @@ export default {
 				[TOGGLE_BUTTON_COLORS.NEUTRAL]: RIPPLE_COLORS.NEUTRAL,
 				[TOGGLE_BUTTON_COLORS.PRIMARY]: RIPPLE_COLORS.PRIMARY,
 			}[this.color];
+		},
+		isLong() {
+			return this.text.length > 1;
 		},
 	},
 };
