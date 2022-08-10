@@ -1,5 +1,10 @@
 <template>
-	<ds-ripple class="toggleButtonWrapper" :disable="!isInteractive" :color="rippleColor">
+	<ds-ripple
+		class="toggleButtonWrapper"
+		:disable="!isInteractive"
+		:color="rippleColor"
+		@click="$emit('click')"
+	>
 		<span
 			class="toggleButton"
 			:class="{
