@@ -6,7 +6,6 @@
 		}"
 		:disable="!isInteractive"
 		:color="rippleColor"
-		@click="$emit('click')"
 	>
 		<span
 			class="toggleButton"
