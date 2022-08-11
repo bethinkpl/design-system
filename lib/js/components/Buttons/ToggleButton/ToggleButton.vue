@@ -201,7 +201,8 @@ $toggle-button-colors: (
 		padding: $space-xxxs;
 
 		&.-long {
-			padding: $space-xxxs $space-s;
+			// Exception in padding rules in Figma. -capsule has the same padding as -rounded
+			padding: $space-xxxs $space-xs;
 
 			&.-rounded {
 				padding: $space-xxxs $space-xs;
