@@ -54,14 +54,18 @@ $toggle-button-colors: (
 		'filled': (
 			'background': $color-primary-background-medium,
 			'background-hovered': $color-primary-background-medium-hovered,
+			'background-focused': $color-primary-background-medium-focused,
 		),
 		'outlined': (
 			'border': $color-primary-border,
+			'background': $color-primary-background-ghost,
 			'background-hovered': $color-primary-background-ghost-hovered,
+			'background-focused': $color-primary-background-ghost-focused,
 		),
 		'selected': (
 			'background': $color-primary-background-strong,
 			'background-hovered': $color-primary-background-strong-hovered,
+			'background-focused': $color-primary-background-strong-focused,
 		),
 	),
 	'neutral': (
@@ -70,14 +74,18 @@ $toggle-button-colors: (
 		'filled': (
 			'background': $color-neutral-background-medium,
 			'background-hovered': $color-neutral-background-medium-hovered,
+			'background-focused': $color-neutral-background-medium-focused,
 		),
 		'outlined': (
 			'border': $color-neutral-border-strong,
+			'background': $color-neutral-background-ghost,
 			'background-hovered': $color-neutral-background-ghost-hovered,
+			'background-focused': $color-neutral-background-ghost-focused,
 		),
 		'selected': (
 			'background': $color-neutral-background-strong,
 			'background-hovered': $color-neutral-background-strong-hovered,
+			'background-focused': $color-neutral-background-strong-focused,
 		),
 	),
 );
@@ -111,13 +119,22 @@ $toggle-button-colors: (
 				&:hover {
 					background-color: map-get($color-map, 'filled', 'background-hovered');
 				}
+
+				&:focus {
+					background-color: map-get($color-map, 'filled', 'background-focused');
+				}
 			}
 
 			&.-outlined {
+				background-color: map-get($color-map, 'outlined', 'background');
 				border-color: map-get($color-map, 'outlined', 'border');
 
 				&:hover {
 					background-color: map-get($color-map, 'outlined', 'background-hovered');
+				}
+
+				&:focus {
+					background-color: map-get($color-map, 'outlined', 'background-focused');
 				}
 			}
 
@@ -126,6 +143,10 @@ $toggle-button-colors: (
 
 				&:hover {
 					background-color: map-get($color-map, 'selected', 'background-hovered');
+				}
+
+				&:focus {
+					background-color: map-get($color-map, 'selected', 'background-focused');
 				}
 			}
 		}
