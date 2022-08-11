@@ -1,6 +1,9 @@
 <template>
 	<ds-ripple
 		class="toggleButtonWrapper"
+		:class="{
+			'-rounded': radius === TOGGLE_BUTTON_RADIUSES.ROUNDED,
+		}"
 		:disable="!isInteractive"
 		:color="rippleColor"
 		@click="$emit('click')"
@@ -33,7 +36,7 @@
 	</ds-ripple>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../../../styles/settings/animations';
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/spacings';
@@ -82,6 +85,14 @@ $toggle-button-colors: (
 
 .toggleButtonWrapper {
 	display: inline-block;
+
+	&::v-deep .ripple-container {
+		border-radius: 100px !important;
+	}
+
+	&.-rounded::v-deep .ripple-container {
+		border-radius: $radius-s !important;
+	}
 }
 
 .toggleButton {
