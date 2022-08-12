@@ -11,11 +11,11 @@
 </template>
 
 <style scoped lang="scss">
-@import '../../../styles/settings/animations';
-@import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
-@import '../../../styles/settings/radiuses';
+@import '../../../../styles/settings/animations';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/radiuses';
 
 $counter-toggle-colors: (
 	'primary': (
@@ -276,7 +276,7 @@ import { VueConstructor } from 'vue';
 import Ripple from 'vue-ripple-directive';
 
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
-import Icon, { ICON_SIZES, ICONS } from '../Icon';
+import Icon, { ICON_SIZES, ICONS } from '../../Icon';
 
 export default {
 	name: 'CounterToggle',
