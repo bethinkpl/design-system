@@ -48,7 +48,7 @@
 
 	&__contentWrapper {
 		background-color: $color-default-background;
-		box-shadow: 0 4px 34px rgba(0, 0, 0, 0.85);
+		box-shadow: 0 4px 34px rgba(var(--raw-black-rgb), 0.85);
 		display: flex;
 		flex-direction: column;
 		margin: $space-xl $space-s $space-l;

@@ -11,10 +11,9 @@ $shadow-xl: 0 8px 16px $color-default-shadow-weak, 0 16px 32px $color-default-sh
 	0 0 4px $color-default-shadow;
 
 // deprecated
-$default-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
-$default-lighter-shadow: 0 4px 12px rgba($color-firefly-black, 0.35);
-$small-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-$medium-lightest-shadow: 0 4px 8px rgba($color-firefly-black, 0.12);
-$medium-lightest-shadow-up: 0 -4px 8px rgba($color-firefly-black, 0.12);
-$medium-lightest-shadow-top: inset 0 4px 8px rgba($color-firefly-black, 0.12);
-$medium-lightest-shadow-bottom: inset 0 -4px 8px rgba($color-firefly-black, 0.12);
+$default-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.3);
+$small-shadow: 0 2px 4px rgba(var(--raw-black-rgb), 0.2);
+$medium-lightest-shadow: 0 4px 8px rgba(var(--raw-black-rgb), 0.12);
+$medium-lightest-shadow-up: 0 -4px 8px rgba(var(--raw-black-rgb), 0.12);
+$medium-lightest-shadow-top: inset 0 4px 8px rgba(var(--raw-black-rgb), 0.12);
+$medium-lightest-shadow-bottom: inset 0 -4px 8px rgba(var(--raw-black-rgb), 0.12);
