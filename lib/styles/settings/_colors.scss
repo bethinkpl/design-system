@@ -1,3 +1,5 @@
+@import 'colors/tokens';
+
 // regular colors
 $color-elf-green: #239952;
 $color-garden-green: #98d293;
@@ -101,15 +103,15 @@ $color-fail: $color-outrageous-orange;
 $color-fail-supporting: $color-melon-orange;
 $color-fail-background: $color-ice-orange;
 
-$color-shadow: rgba($color-firefly-black, 0.35);
-$color-success-shadow: rgba($color-success, 0.7);
-$color-danger-shadow: rgba($color-danger, 0.7);
-$color-warning-shadow: rgba($color-warning, 0.7);
+$color-shadow: rgba(var(--raw-black-rgb), 0.3);
+$color-success-shadow: rgba(var(--raw-green-500-rgb), 0.7);
+$color-danger-shadow: rgba(var(--raw-red-500-rgb), 0.7);
+$color-warning-shadow: rgba(var(--raw-gold-500-rgb), 0.7);
 
 // Tokens - shadows
-$color-neutrals-shadow-weak: rgba($color-firefly-black, 0.06);
-$color-neutrals-shadow: rgba($color-firefly-black, 0.08);
-$color-neutrals-shadow-strong: rgba($color-firefly-black, 0.12);
+$color-neutrals-shadow-weak: $color-default-shadow-weak;
+$color-neutrals-shadow: $color-default-shadow;
+$color-neutrals-shadow-strong: $color-default-shadow-strong;
 
 $color-overlay-inverted: rgba($color-total-white, 0.95);
 
