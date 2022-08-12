@@ -298,7 +298,7 @@ export default {
 		},
 		isSelected: {
 			type: Boolean,
-			default: true,
+			default: false,
 		},
 		// TODO implement me in future
 		// iconLeft: {
