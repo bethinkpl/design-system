@@ -474,6 +474,8 @@ declare const _default: {
     computed: {
         colorClass(): any;
         layoutClass(): "-vertical" | "-horizontal";
+        hasExpandedText(): boolean;
+        hasDefaultText(): boolean;
     };
     watch: {
         isExpanded: {
