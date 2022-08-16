@@ -9,7 +9,10 @@
 
 				<div class="ds-banner__text">
 					<div class="ds-banner__title" v-text="title" />
-					<div v-if="hasDefaultText" class="ds-banner__defaultText">
+					<div
+						v-if="$slots.defaultText && $slots.defaultText.length > 0"
+						class="ds-banner__defaultText"
+					>
 						<slot name="defaultText" />
 					</div>
 					<div v-if="buttonText" class="ds-banner__buttonTextVertical">
@@ -32,7 +35,10 @@
 					</ds-button>
 				</div>
 			</div>
-			<div v-if="hasExpandedText" class="ds-banner__expander">
+			<div
+				v-if="$slots.expandedText && $slots.expandedText.length > 0"
+				class="ds-banner__expander"
+			>
 				<ds-icon-button
 					:size="ICON_BUTTON_SIZES.SMALL"
 					:icon="isExpandedInternal ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
@@ -42,7 +48,10 @@
 					@click.native="toggleExpandedText"
 				/>
 			</div>
-			<div v-if="!hasExpandedText && closable" class="ds-banner__close">
+			<div
+				v-if="!($slots.expandedText && $slots.expandedText.length > 0) && closable"
+				class="ds-banner__close"
+			>
 				<ds-icon-button
 					:size="ICON_BUTTON_SIZES.SMALL"
 					:icon="ICONS.FA_XMARK"
@@ -53,7 +62,10 @@
 				/>
 			</div>
 		</div>
-		<div v-if="hasExpandedText && isExpandedInternal" class="ds-banner__expandedContainer">
+		<div
+			v-if="$slots.expandedText && $slots.expandedText.length > 0 && isExpandedInternal"
+			class="ds-banner__expandedContainer"
+		>
 			<ds-divider :prominence="DIVIDER_PROMINENCES.STRONG" />
 			<div class="ds-banner__expandedText">
 				<slot name="expandedText" />
@@ -358,12 +370,6 @@ export default {
 		},
 		layoutClass() {
 			return this.layout === BANNER_LAYOUTS.VERTICAL ? '-vertical' : '-horizontal';
-		},
-		hasExpandedText() {
-			return !!this.$slots.expandedText && this.$slots.expandedText.length > 0;
-		},
-		hasDefaultText() {
-			return !!this.$slots.defaultText && this.$slots.defaultText.length > 0;
 		},
 	},
 	watch: {
