@@ -1,35 +1,31 @@
-.-cadetGray {
-	color: $color-cadet-gray;
+.-gray400 {
+	color: var(--raw-gray-400);
 }
 
-.-catalinaBlue {
-	color: $color-catalina-blue;
+.-gray700 {
+	color: var(--raw-gray-700);
 }
 
-.-stormGray {
-	color: $color-storm-gray;
+.-gray300 {
+	color: var(--raw-gray-300);
 }
 
-.-mischkaGray {
-	color: $color-mischka-gray;
+.-white {
+	color: var(--raw-white);
 }
 
-.-totalWhite {
-	color: $color-total-white;
+.-green500 {
+	color: var(--raw-green-500);
 }
 
-.-jungleGreen {
-	color: $color-jungle-green;
+.-blue500 {
+	color: var(--raw-blue-500);
 }
 
-.-navyBlue {
-	color: $color-navy-blue;
+.-black {
+	color: var(--raw-black);
 }
 
-.-fireflyBlack {
-	color: $color-firefly-black;
-}
-
-.-delugeViolet {
-	color: $color-deluge-violet;
+.-violet500 {
+	color: var(--raw-violet-500);
 }

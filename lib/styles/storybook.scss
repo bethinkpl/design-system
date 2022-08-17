@@ -1,5 +1,4 @@
 @import 'settings/typography';
-@import 'settings/colors';
 @import 'settings/colors/raw';
 @import 'settings/colors/raw-wnl';
 @import 'settings/colors/raw-bodywork';
@@ -10,7 +9,7 @@
 @import 'settings/colors/tokens-bodywork';
 @import 'settings/colors/tokens-wnl';
 
-$fontFamiy: 'BlinkMacSystemFont', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+$fontFamily: 'BlinkMacSystemFont', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
 	'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
 
 html,
@@ -22,13 +21,13 @@ body {
 	&.styleguide {
 		@include textL;
 
-		font-family: $fontFamiy;
+		font-family: $fontFamily;
 
 		button,
 		input,
 		select,
 		textarea {
-			font-family: $fontFamiy;
+			font-family: $fontFamily;
 		}
 	}
 }
