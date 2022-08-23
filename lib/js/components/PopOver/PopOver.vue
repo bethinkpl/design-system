@@ -13,16 +13,16 @@
 			<div class="popPover__content">
 				<div v-if="titleText" class="popPover__title"> {{ titleText }} </div>
 				<slot />
-				<ds-button
-					v-if="buttonText"
-					class="popPover__button"
-					:type="BUTTON_TYPES.TEXT"
-					:size="BUTTON_SIZES.LARGE"
-					@click="$emit('button-click')"
-				>
-					{{ buttonText }}
-				</ds-button>
 			</div>
+			<ds-button
+				v-if="buttonText"
+				class="popPover__button"
+				:type="BUTTON_TYPES.TEXT"
+				:size="BUTTON_SIZES.LARGE"
+				@click="$emit('button-click')"
+			>
+				{{ buttonText }}
+			</ds-button>
 		</div>
 
 		<slot slot="reference" name="reference" />
@@ -39,7 +39,9 @@
 .popPover {
 	background-color: $color-default-background;
 	border-radius: $radius-m;
-	box-shadow: $default-shadow;
+	box-shadow: $shadow-l;
+	display: flex;
+	flex-direction: column;
 	padding: 0;
 	max-width: 320px;
 
@@ -110,8 +112,6 @@
 	}
 
 	&__content {
-		display: flex;
-		flex-direction: column;
 		padding: $space-s;
 		// Override popperjs styles
 		text-align: left;
@@ -125,7 +125,7 @@
 	}
 
 	&__button {
-		margin-top: $space-s;
+		margin: 0 $space-s $space-xs;
 		align-self: flex-end;
 	}
 }
