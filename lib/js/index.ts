@@ -45,6 +45,8 @@ export * from './components/Toggles/CounterToggle/CounterToggle.consts';
 export { default as SelectList } from './components/SelectList';
 export * from './components/SelectList/SelectList.consts';
 export * from './components/SelectList/SelectList.domain';
+export { default as PopOver } from './components/PopOver';
+// export * from './components/PopOver/PopOver.consts';
 
 export {
 	initialize as initializeIcons,

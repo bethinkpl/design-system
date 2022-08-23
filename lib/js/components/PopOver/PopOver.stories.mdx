@@ -1,0 +1,33 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import PopOver from './PopOver';
+
+<Meta title="components/PopOver" component={PopOver} />
+
+# PopOver
+
+<Story
+	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=3590%3A67741',
+		},
+	}}
+	argTypes={{
+	}}
+	args={{
+	}}
+>
+	{(args) => {
+		return {
+			components: { PopOver },
+			props: Object.keys(args),
+			template:
+				'<pop-over><span slot="reference">click me!</span><div>Lorem ipsum</div></pop-over>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={PopOver} />
