@@ -3,11 +3,25 @@
 		:boundaries-selector="boundariesSelector"
 		:force-show="forceShow"
 		:options="{ placement }"
-		:trigger="trigger"
+		:trigger="triggerAction"
 	>
-		<div class="popper o-popper" :class="{ '-alabaster-grey': isBackgroundAlabasterGrey }">
-			<div class="o-popper__content">
+		<div
+			class="popper popPover"
+			:class="{ '-color-neutral': color === POP_OVER_COLORS.NEUTRAL }"
+		>
+			<img v-if="headerImageUrl" class="popPover__image" :src="headerImageUrl" alt="" />
+			<div class="popPover__content">
+				<div v-if="titleText" class="popPover__title"> {{ titleText }} </div>
 				<slot />
+				<ds-button
+					v-if="buttonText"
+					class="popPover__button"
+					:type="BUTTON_TYPES.TEXT"
+					:size="BUTTON_SIZES.LARGE"
+					@click="$emit('button-click')"
+				>
+					{{ buttonText }}
+				</ds-button>
 			</div>
 		</div>
 
@@ -16,31 +30,32 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/colors';
+@import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/typography';
 
-.o-popper {
-	background-color: $color-total-white;
+.popPover {
+	background-color: $color-default-background;
 	border-radius: $radius-m;
 	box-shadow: $default-shadow;
 	padding: 0;
 	max-width: 320px;
 
-	&.-alabaster-grey ::v-deep .popper__arrow {
-		border-color: $color-alabaster-gray transparent !important;
+	&.-color-neutral ::v-deep .popper__arrow {
+		border-color: $color-neutral-background transparent !important;
 	}
 
-	&.-alabaster-grey {
-		background-color: $color-alabaster-gray;
+	&.-color-neutral {
+		background-color: $color-neutral-background;
 	}
 
 	&[x-placement^='bottom'] {
 		margin-top: $space-s;
 
 		::v-deep .popper__arrow {
-			border-color: transparent transparent $color-total-white transparent;
+			border-color: transparent transparent $color-inverted-border transparent;
 			border-width: 0 $space-xs $space-s $space-xs;
 			left: calc(50% - #{$space-xs});
 			margin-bottom: 0;
@@ -53,7 +68,7 @@
 		margin-bottom: $space-s;
 
 		::v-deep .popper__arrow {
-			border-color: $color-total-white transparent transparent transparent;
+			border-color: $color-inverted-border transparent transparent transparent;
 			border-width: $space-s $space-xs 0 $space-xs;
 			bottom: -$space-s;
 			left: calc(50% - #{$space-xs});
@@ -66,7 +81,7 @@
 		margin-left: $space-s;
 
 		::v-deep .popper__arrow {
-			border-color: transparent $color-total-white transparent transparent;
+			border-color: transparent $color-inverted-border transparent transparent;
 			border-width: $space-xs $space-s $space-xs 0;
 			left: -$space-s;
 			margin-left: 0;
@@ -79,7 +94,7 @@
 		margin-right: $space-s;
 
 		::v-deep .popper__arrow {
-			border-color: transparent transparent transparent $color-total-white;
+			border-color: transparent transparent transparent $color-inverted-border;
 			border-width: $space-xs 0 $space-xs $space-s;
 			margin-left: 0;
 			margin-right: 0;
@@ -88,8 +103,30 @@
 		}
 	}
 
+	&__image {
+		border-top-left-radius: $radius-m;
+		border-top-right-radius: $radius-m;
+		max-width: 100%;
+	}
+
 	&__content {
-		padding: $space-m;
+		display: flex;
+		flex-direction: column;
+		padding: $space-s;
+		// Override popperjs styles
+		text-align: left;
+	}
+
+	&__title {
+		@include headlineS;
+
+		font-weight: bold;
+		margin-bottom: $space-xxs;
+	}
+
+	&__button {
+		margin-top: $space-s;
+		align-self: flex-end;
 	}
 }
 </style>
@@ -97,36 +134,64 @@
 <script>
 import VuePopper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
+import { POP_OVER_COLORS, POP_OVER_PLACEMENTS, POP_OVER_TRIGGER_ACTIONS } from './PopOver.consts';
+import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 
 export default {
 	name: 'PopOver',
 	components: {
 		VuePopper,
+		DsButton,
 	},
 	props: {
 		boundariesSelector: {
 			type: String,
 			default: null,
 		},
-		trigger: {
+		triggerAction: {
 			type: String,
-			default: 'click',
+			default: POP_OVER_TRIGGER_ACTIONS.CLICK,
+			validate(triggerAction) {
+				return Object.values(POP_OVER_TRIGGER_ACTIONS).includes(triggerAction);
+			},
 		},
 		placement: {
 			type: String,
-			default: 'bottom',
+			default: POP_OVER_PLACEMENTS.BOTTOM,
 			validate(placement) {
-				return ['top', 'bottom', 'left', 'right'].includes(placement);
+				return Object.values(POP_OVER_TRIGGER_ACTIONS).includes(placement);
 			},
 		},
 		forceShow: {
 			type: Boolean,
 			default: false,
 		},
-		isBackgroundAlabasterGrey: {
-			type: Boolean,
-			default: false,
+		color: {
+			type: String,
+			default: POP_OVER_COLORS.DEFAULT,
+			validate(color) {
+				return Object.values(POP_OVER_COLORS).includes(color);
+			},
 		},
+		titleText: {
+			type: String,
+			default: null,
+		},
+		buttonText: {
+			type: String,
+			default: null,
+		},
+		headerImageUrl: {
+			type: String,
+			default: null,
+		},
+	},
+	data() {
+		return {
+			POP_OVER_COLORS: Object.freeze(POP_OVER_COLORS),
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
+		};
 	},
 };
 </script>
