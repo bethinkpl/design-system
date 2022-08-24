@@ -1,7 +1,7 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import Dropdown from './Dropdown';
 import { DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
-import SelectList from '../SelectList';
+import SelectList, { SELECT_LIST_SIZES } from '../SelectList';
 import { ICONS } from '../Icon';
 
 <Meta title="components/Dropdown" component={Dropdown} />
@@ -73,12 +73,15 @@ import { ICONS } from '../Icon';
 						},
 					],
 					value: 'part-2',
+					SELECT_LIST_SIZES: Object.freeze(SELECT_LIST_SIZES),
 				};
 			},
 			template:
 				'<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth">' +
 				'<span slot="reference">Dropdown entry point</span>' +
-				'<select-list v-model="value" :items="items" />' +
+				'<template v-slot="{ close }">' +
+				'<select-list v-model="value" :items="items" :size="SELECT_LIST_SIZES.MEDIUM" @input="close" />' +
+				'</template>' +
 				'</dropdown>',
 		};
 	}}

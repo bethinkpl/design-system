@@ -1,5 +1,6 @@
 <template>
 	<vue-popper
+		ref="popper"
 		:boundaries-selector="boundariesSelector"
 		:force-show="forceShow"
 		:options="options"
@@ -10,7 +11,7 @@
 		@show="$emit('show')"
 	>
 		<div class="popper dsDropdown">
-			<slot />
+			<slot :close="close" />
 		</div>
 
 		<slot slot="reference" name="reference" />
@@ -78,6 +79,11 @@ export default {
 					},
 				}),
 			};
+		},
+	},
+	methods: {
+		close() {
+			this.$refs.popper.doClose();
 		},
 	},
 };
