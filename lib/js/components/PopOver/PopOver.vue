@@ -1,5 +1,7 @@
 <template>
 	<vue-popper
+		ref="popper"
+		:key="key"
 		:boundaries-selector="boundariesSelector"
 		:force-show="forceShow"
 		:options="{ placement }"
@@ -12,7 +14,7 @@
 			<img v-if="headerImageUrl" class="popPover__image" :src="headerImageUrl" alt="" />
 			<div class="popPover__content">
 				<div v-if="titleText" class="popPover__title"> {{ titleText }} </div>
-				<slot />
+				<slot :close="close" />
 			</div>
 			<ds-button
 				v-if="buttonText"
@@ -191,7 +193,29 @@ export default {
 			POP_OVER_COLORS: Object.freeze(POP_OVER_COLORS),
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
+			key: 1,
 		};
+	},
+	watch: {
+		triggerAction() {
+			this.updateKey();
+		},
+		placement() {
+			this.updateKey();
+		},
+		boundariesSelector() {
+			this.updateKey();
+		},
+	},
+	methods: {
+		close() {
+			this.$refs.popper.doClose();
+		},
+		updateKey() {
+			// Force component rerender to apply new vue-popperjs options.
+			// vue-popperjs doesn't support changing props in existing component
+			this.key++;
+		},
 	},
 };
 </script>

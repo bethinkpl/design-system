@@ -1,6 +1,7 @@
 <template>
 	<vue-popper
 		ref="popper"
+		:key="key"
 		:boundaries-selector="boundariesSelector"
 		:force-show="forceShow"
 		:options="options"
@@ -65,6 +66,11 @@ export default {
 			},
 		},
 	},
+	data() {
+		return {
+			key: 1,
+		};
+	},
 	computed: {
 		options() {
 			return {
@@ -81,9 +87,25 @@ export default {
 			};
 		},
 	},
+	watch: {
+		triggerAction() {
+			this.updateKey();
+		},
+		sameWidth() {
+			this.updateKey();
+		},
+		boundariesSelector() {
+			this.updateKey();
+		},
+	},
 	methods: {
 		close() {
 			this.$refs.popper.doClose();
+		},
+		updateKey() {
+			// Force component rerender to apply new vue-popperjs options.
+			// vue-popperjs doesn't support changing props in existing component
+			this.key++;
 		},
 	},
 };
