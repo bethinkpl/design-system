@@ -46,7 +46,9 @@ export { default as SelectList } from './components/SelectList';
 export * from './components/SelectList/SelectList.consts';
 export * from './components/SelectList/SelectList.domain';
 export { default as PopOver } from './components/PopOver';
-// export * from './components/PopOver/PopOver.consts';
+export * from './components/PopOver/PopOver.consts';
+export { default as Dropdown } from './components/Dropdown';
+export * from './components/Dropdown/Dropdown.consts';
 
 export {
 	initialize as initializeIcons,
