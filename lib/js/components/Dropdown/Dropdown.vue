@@ -7,6 +7,7 @@
 		:options="options"
 		:visible-arrow="false"
 		:trigger="triggerAction"
+		:delay-on-mouse-out="300"
 		@document-click="$emit('document-click')"
 		@hide="$emit('hide')"
 		@show="$emit('show')"

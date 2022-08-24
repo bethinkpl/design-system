@@ -6,6 +6,7 @@
 		:force-show="forceShow"
 		:options="{ placement }"
 		:trigger="triggerAction"
+		:delay-on-mouse-out="300"
 	>
 		<div
 			class="popper popPover"
