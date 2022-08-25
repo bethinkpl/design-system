@@ -58,7 +58,7 @@ declare const _default: {
         color: {
             type: StringConstructor;
             default: string;
-            validate(color: any): void;
+            validate(color: any): boolean;
         };
         icon: {
             type: ObjectConstructor;

@@ -6,7 +6,7 @@ declare const _default: {
         position: {
             type: PropType<DrawerPosition>;
             default: "right";
-            validate(position: any): void;
+            validate(position: any): boolean;
         };
     };
     computed: {
