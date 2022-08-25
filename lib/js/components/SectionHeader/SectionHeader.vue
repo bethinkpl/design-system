@@ -159,7 +159,7 @@ export default {
 			type: String,
 			default: SECTION_HEADER_SIZES.M,
 			validate(size) {
-				Object.values(SECTION_HEADER_SIZES).includes(size);
+				return Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
 		},
 		slotPadding: {
