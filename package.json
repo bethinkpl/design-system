@@ -1,6 +1,6 @@
 {
   "name": "design-system",
-  "version": "9.10.0",
+  "version": "9.11.0",
   "description": "Bethink universe design-system",
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
@@ -13,6 +13,7 @@
   },
   "scripts": {
     "build": "vue-cli-service build --target lib --name design-system lib/js/index.ts",
+    "dev": "start-storybook -p 6006",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:fix": "yarn lint:scripts:fix && yarn lint:styles:fix",
     "lint:scripts": "eslint --max-warnings 0 --cache 'lib/js/**/*.{js,vue,ts}'",
@@ -71,6 +72,7 @@
     "vue": "^2.6.11",
     "vue-jest": "^4.0.1",
     "vue-loader": "^15.9.6",
+    "vue-popperjs": "2.3.0",
     "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.12"

@@ -13,12 +13,12 @@ declare const _default: {
         color: {
             type: StringConstructor;
             required: boolean;
-            validate(color: any): void;
+            validate(color: any): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): void;
+            validate(size: any): boolean;
         };
     };
     created(): void;

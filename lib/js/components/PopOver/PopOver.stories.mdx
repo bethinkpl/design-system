@@ -1,0 +1,56 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import PopOver from './PopOver';
+import { POP_OVER_COLORS, POP_OVER_PLACEMENTS, POP_OVER_TRIGGER_ACTIONS } from './PopOver.consts';
+
+<Meta title="components/PopOver" component={PopOver} />
+
+# PopOver
+
+<Story
+	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=3590%3A67741',
+		},
+	}}
+	argTypes={{
+		placement: {
+			control: { type: 'select', options: Object.values(POP_OVER_PLACEMENTS) },
+			defaultValue: POP_OVER_PLACEMENTS.BOTTOM,
+		},
+		color: {
+			control: { type: 'select', options: Object.values(POP_OVER_COLORS) },
+			defaultValue: POP_OVER_COLORS.DEFAULT,
+		},
+		triggerAction: {
+			control: { type: 'select', options: Object.values(POP_OVER_TRIGGER_ACTIONS) },
+			defaultValue: POP_OVER_TRIGGER_ACTIONS.CLICK,
+		},
+	}}
+	args={{
+		placement: POP_OVER_PLACEMENTS.BOTTOM,
+		color: POP_OVER_COLORS.DEFAULT,
+		triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
+		titleText: 'Lorem ipsum',
+		buttonText: 'button text',
+		forceShow: false,
+		headerImageUrl: 'https://lek.wiecejnizlek.pl/images/lesson-status-onboarding-inprogress.png',
+	}}
+>
+	{(args) => {
+		return {
+			components: { PopOver },
+			props: Object.keys(args),
+			template:
+				'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl">' +
+				'<span slot="reference">click me!</span>' +
+				'<div>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork. Ground round pork bresaola porchetta leberkas venison salami. Drumstick andouille salami ball tip boudin tenderloin. Turducken tongue shankle swine prosciutto shank ribeye picanha. Pastrami bacon corned beef buffalo t-bone picanha ham hock pork loin porchetta bresaola. Bresaola doner flank shank rump leberkas jerky tenderloin ball tip kevin kielbasa boudin beef burgdoggen buffalo.</div>' +
+				'</pop-over>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={PopOver} />
