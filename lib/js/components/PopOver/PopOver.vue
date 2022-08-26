@@ -41,6 +41,8 @@
 
 .popOver {
 	background-color: $color-default-background;
+	// override popperjs styles
+	border: none;
 	border-radius: $radius-m;
 	box-shadow: $shadow-l;
 	display: flex;
@@ -115,6 +117,9 @@
 	}
 
 	&__content {
+		@include textM;
+
+		color: $color-neutral-text-heavy;
 		padding: $space-s;
 		// Override popperjs styles
 		text-align: left;
@@ -123,6 +128,7 @@
 	&__title {
 		@include headlineS;
 
+		color: $color-default-text;
 		font-weight: bold;
 		margin-bottom: $space-xxs;
 	}
