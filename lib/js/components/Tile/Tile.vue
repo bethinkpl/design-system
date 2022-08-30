@@ -1,6 +1,6 @@
 <template>
-	<ds-ripple :disable="!interactive" :color="rippleColor">
-		<div :class="[tileColor, { '-interactive': interactive }]" class="a-tile">
+	<ds-ripple :disable="!interactive || state === TILE_STATES.DISABLED" :color="rippleColor">
+		<div :class="[tileColor, tileState, { '-interactive': interactive }]" class="a-tile">
 			<ds-icon
 				v-if="iconLeft"
 				:icon="iconLeft"
@@ -126,10 +126,10 @@ $tile-colors: (
 	$self: &;
 
 	align-items: center;
+	border-radius: $radius-s;
 	display: flex;
 	flex-direction: row;
 	padding: $space-xxs $space-xs;
-	border-radius: $radius-s;
 
 	@each $color-name, $color-map in $tile-colors {
 		&.-#{$color-name} {
@@ -138,6 +138,8 @@ $tile-colors: (
 	}
 
 	&.-disabled {
+		pointer-events: none;
+
 		@each $color-name, $color-map in $tile-colors {
 			&.-#{$color-name} {
 				@include setColors($self, map-get($color-map, 'disabled'));
@@ -190,7 +192,7 @@ $tile-colors: (
 		margin-left: $space-xs;
 	}
 
-	&.-interactive {
+	&.-interactive:not(.-disabled) {
 		cursor: pointer;
 	}
 }
@@ -200,7 +202,8 @@ $tile-colors: (
 import DsRipple, { RIPPLE_COLORS } from '../Ripple';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
 import { VueConstructor } from 'vue';
-import { TILE_COLORS } from './Tile.consts';
+import { TILE_COLORS, TILE_STATES } from './Tile.consts';
+import { Value } from '../../utils/type.utils';
 
 export default {
 	name: 'Tile',
@@ -250,6 +253,19 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		state: {
+			type: String,
+			default: TILE_STATES.DEFAULT,
+			validator(value: Value<typeof TILE_STATES>) {
+				return Object.values(TILE_STATES).includes(value);
+			},
+		},
+	},
+	data() {
+		return {
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			TILE_STATES: Object.freeze(TILE_STATES),
+		};
 	},
 	computed: {
 		tileColor() {
@@ -268,9 +284,12 @@ export default {
 				[TILE_COLORS.FAIL]: RIPPLE_COLORS.FAIL,
 			}[this.color];
 		},
-	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
+		tileState() {
+			return {
+				[TILE_STATES.DEFAULT]: null,
+				[TILE_STATES.DISABLED]: '-disabled',
+			}[this.state];
+		},
 	},
 };
 </script>
