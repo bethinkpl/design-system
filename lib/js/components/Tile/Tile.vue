@@ -1,9 +1,6 @@
 <template>
-	<ds-ripple :disable="!interactiveComputed" :color="rippleColor">
-		<div
-			:class="[tileColor, tileState, { '-interactive': interactiveComputed }]"
-			class="a-tile"
-		>
+	<ds-ripple :disable="rippleDisabled" :color="rippleColor">
+		<div :class="[tileColor, tileState, { '-interactive': interactive }]" class="a-tile">
 			<ds-icon
 				v-if="iconLeft"
 				:icon="iconLeft"
@@ -125,7 +122,7 @@ $tile-colors: (
 			color: map-get($color-map, 'icon-interactive');
 		}
 
-		&:hover {
+		&:not(.-loading):hover {
 			background-color: map-get($color-map, 'background-hover');
 		}
 	}
@@ -207,7 +204,7 @@ $tile-colors: (
 		margin-left: $space-xs;
 	}
 
-	&.-interactive:not(.-disabled) {
+	&.-interactive:not(.-disabled):not(.-loading) {
 		cursor: pointer;
 	}
 }
@@ -284,10 +281,10 @@ export default {
 		};
 	},
 	computed: {
-		interactiveComputed() {
+		rippleDisabled() {
 			return (
-				this.interactive &&
-				![TILE_STATES.DISABLED, TILE_STATES.LOADING].includes(this.state)
+				!this.interactive ||
+				[TILE_STATES.DISABLED, TILE_STATES.LOADING].includes(this.state)
 			);
 		},
 		tileColor() {
