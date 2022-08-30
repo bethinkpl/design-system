@@ -134,26 +134,26 @@ $tile-colors: (
 .a-tile {
 	$self: &;
 
-	align-items: center;
-	border-radius: $radius-s;
-	display: flex;
-	flex-direction: row;
-	padding: $space-xxs $space-xs;
-
 	@each $color-name, $color-map in $tile-colors {
 		&.-#{$color-name} {
 			@include setColors($self, map-get($color-map, 'default'));
 		}
 	}
 
-	&.-disabled {
-		pointer-events: none;
+	align-items: center;
+	border-radius: $radius-s;
+	display: flex;
+	flex-direction: row;
+	padding: $space-xxs $space-xs;
 
+	&.-disabled {
 		@each $color-name, $color-map in $tile-colors {
 			&.-#{$color-name} {
 				@include setColors($self, map-get($color-map, 'disabled'));
 			}
 		}
+
+		pointer-events: none;
 
 		#{$self}__text {
 			color: $color-neutral-text-heavy-disabled;
