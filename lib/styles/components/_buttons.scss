@@ -259,6 +259,7 @@ $button-disabled-alpha: 0.6;
 
 	&:not(.-text) {
 		min-width: 100px;
+
 		&.-rounded {
 			border-radius: $radius-s;
 			padding-left: $space-xs;
