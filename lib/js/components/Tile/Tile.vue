@@ -100,7 +100,7 @@ $tile-colors: (
 		),
 		'disabled': (
 			'background': $color-fail-background-disabled,
-			// TODO Update when https://bethink.atlassian.net/browse/IT-4795 is merged
+			// TODO IT-4795 change to $color-fail-text-disabled
 			'eyebrow-text': var(--raw-orange-200),
 			'icon': $color-fail-icon-disabled,
 			'icon-interactive': $color-fail-icon-disabled,
