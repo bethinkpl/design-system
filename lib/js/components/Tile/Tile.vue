@@ -99,20 +99,20 @@ $tile-colors: (
 	),
 );
 
-@mixin setColors($color-map) {
+@mixin setColors($root, $color-map) {
 	background-color: map-get($color-map, 'background');
 
-	&__eyebrowText {
+	#{$root}__eyebrowText {
 		color: map-get($color-map, 'eyebrow-text');
 	}
 
-	&__iconLeft,
-	&__iconRight {
+	#{$root}__iconLeft,
+	#{$root}__iconRight {
 		color: map-get($color-map, 'icon');
 	}
 
 	&.-interactive {
-		&__iconRight {
+		#{$root}__iconRight {
 			color: map-get($color-map, 'icon-interactive');
 		}
 
@@ -133,17 +133,19 @@ $tile-colors: (
 
 	@each $color-name, $color-map in $tile-colors {
 		&.-#{$color-name} {
-			@include setColors(map-get($color-map, 'default'));
+			@include setColors($self, map-get($color-map, 'default'));
 		}
 	}
 
 	&.-disabled {
-		color: $color-neutral-text-heavy-disabled;
-
 		@each $color-name, $color-map in $tile-colors {
 			&.-#{$color-name} {
-				@include setColors(map-get($color-map, 'disabled'));
+				@include setColors($self, map-get($color-map, 'disabled'));
 			}
+		}
+
+		#{$self}__text {
+			color: $color-neutral-text-heavy-disabled;
 		}
 	}
 
