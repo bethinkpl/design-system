@@ -118,6 +118,7 @@ import {
 	faWandMagicSparkles,
 	faWindowMaximize,
 	faXmark,
+	faSpinnerThird,
 } from '@fortawesome/pro-regular-svg-icons';
 import {
 	faArrowDown as fasArrowDown,
@@ -295,6 +296,7 @@ export const FONTAWESOME_ICONS = {
 	FA_SITEMAP: faSitemap,
 	FA_SITEMAP_SOLID: fasSitemap,
 	FA_SLIDERS: faSliders,
+	FA_SPINNER_THIRD: faSpinnerThird,
 	FA_SPELL_CHECK: faSpellCheck,
 	FA_SQUARE: faSquare,
 	FA_SQUARE_CARET_RIGHT: faSquareCaretRight,
