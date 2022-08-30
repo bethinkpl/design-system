@@ -129,6 +129,12 @@ $tile-colors: (
 			background-color: map-get($color-map, 'background-hover');
 		}
 	}
+
+	&.-loading {
+		#{$root}__iconRight {
+			color: map-get($color-map, 'icon-interactive');
+		}
+	}
 }
 
 .a-tile {
