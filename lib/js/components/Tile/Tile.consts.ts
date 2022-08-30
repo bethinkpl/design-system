@@ -8,4 +8,5 @@ export const TILE_COLORS = {
 export const TILE_STATES = {
 	DEFAULT: 'default',
 	DISABLED: 'disabled',
+	LOADING: 'loading',
 } as const;

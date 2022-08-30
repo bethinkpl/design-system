@@ -1,6 +1,9 @@
 <template>
-	<ds-ripple :disable="!interactive || state === TILE_STATES.DISABLED" :color="rippleColor">
-		<div :class="[tileColor, tileState, { '-interactive': interactive }]" class="a-tile">
+	<ds-ripple :disable="!interactiveComputed" :color="rippleColor">
+		<div
+			:class="[tileColor, tileState, { '-interactive': interactiveComputed }]"
+			class="a-tile"
+		>
 			<ds-icon
 				v-if="iconLeft"
 				:icon="iconLeft"
@@ -16,10 +19,9 @@
 				<span class="a-tile__text" v-text="text" />
 			</div>
 			<ds-icon
-				v-if="iconRight"
-				:icon="iconRight"
+				v-if="iconRightComputed"
+				:icon="iconRightComputed"
 				:size="ICON_SIZES.SMALL"
-				:class="{ '-interactive': interactive }"
 				class="a-tile__iconRight"
 			/>
 			<div v-else-if="additionalText" class="a-tile__additionalText">
@@ -268,6 +270,19 @@ export default {
 		};
 	},
 	computed: {
+		iconRightComputed() {
+			if (this.state === TILE_STATES.LOADING) {
+				return ICONS.FA_ARROWS_ROTATE;
+			}
+
+			return this.iconRight;
+		},
+		interactiveComputed() {
+			return (
+				this.interactive &&
+				![TILE_STATES.DISABLED, TILE_STATES.LOADING].includes(this.state)
+			);
+		},
 		tileColor() {
 			return {
 				[TILE_COLORS.NEUTRAL]: '-neutral',
@@ -288,6 +303,7 @@ export default {
 			return {
 				[TILE_STATES.DEFAULT]: null,
 				[TILE_STATES.DISABLED]: '-disabled',
+				[TILE_STATES.LOADING]: '-loading',
 			}[this.state];
 		},
 	},
