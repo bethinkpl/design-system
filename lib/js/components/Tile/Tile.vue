@@ -22,8 +22,8 @@
 				:class="{ '-interactive': interactive }"
 				class="a-tile__iconRight"
 			/>
-			<div v-else-if="additionalText" class="a-tile__additionalText"
-				>{{ additionalText }}
+			<div v-else-if="additionalText" class="a-tile__additionalText">
+				{{ additionalText }}
 			</div>
 		</div>
 	</ds-ripple>
@@ -35,6 +35,93 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
 
+$tile-colors: (
+	'neutral': (
+		'default': (
+			'background': $color-neutral-background,
+			'background-hover': $color-neutral-background-hovered,
+			'eyebrow-text': $color-neutral-text-weak,
+			'icon': $color-neutral-icon,
+			'icon-interactive': $color-primary-icon,
+		),
+		'disabled': (
+			'background': $color-neutral-background-disabled,
+			'eyebrow-text': $color-neutral-text-weak-disabled,
+			'icon': $color-neutral-icon-disabled,
+			'icon-interactive': $color-primary-icon-disabled,
+		),
+	),
+	'primary': (
+		'default': (
+			'background': $color-primary-background,
+			'background-hover': $color-primary-background-hovered,
+			'eyebrow-text': $color-primary-text,
+			'icon': $color-primary-icon,
+			'icon-interactive': $color-primary-icon,
+		),
+		'disabled': (
+			'background': $color-primary-background-disabled,
+			'eyebrow-text': $color-primary-text-disabled,
+			'icon': $color-primary-icon-disabled,
+			'icon-interactive': $color-primary-icon-disabled,
+		),
+	),
+	'success': (
+		'default': (
+			'background': $color-success-background,
+			'background-hover': $color-success-background-hovered,
+			'eyebrow-text': $color-success-text,
+			'icon': $color-success-icon,
+			'icon-interactive': $color-success-icon,
+		),
+		'disabled': (
+			'background': $color-success-background-disabled,
+			'eyebrow-text': $color-success-text-disabled,
+			'icon': $color-success-icon-disabled,
+			'icon-interactive': $color-success-icon-disabled,
+		),
+	),
+	'fail': (
+		'default': (
+			'background': $color-fail-background,
+			'background-hover': $color-fail-background-hovered,
+			'eyebrow-text': $color-fail-text,
+			'icon': $color-fail-icon,
+			'icon-interactive': $color-fail-icon,
+		),
+		'disabled': (
+			'background': $color-fail-background-disabled,
+			// TODO Update when https://bethink.atlassian.net/browse/IT-4795 is merged
+			'eyebrow-text': var(--raw-orange-200),
+			'icon': $color-fail-icon-disabled,
+			'icon-interactive': $color-fail-icon-disabled,
+		),
+	),
+);
+
+@mixin setColors($color-map) {
+	background-color: map-get($color-map, 'background');
+
+	&__eyebrowText {
+		color: map-get($color-map, 'eyebrow-text');
+	}
+
+	&__iconLeft,
+	&__iconRight {
+		color: map-get($color-map, 'icon');
+	}
+
+	&.-interactive {
+		&__iconRight {
+			color: map-get($color-map, 'icon-interactive');
+		}
+
+		&:hover {
+			background-color: map-get($color-map, 'background-hover');
+		}
+	}
+}
+
 .a-tile {
 	$self: &;
 
@@ -44,9 +131,26 @@
 	padding: $space-xxs $space-xs;
 	border-radius: $radius-s;
 
+	@each $color-name, $color-map in $tile-colors {
+		&.-#{$color-name} {
+			@include setColors(map-get($color-map, 'default'));
+		}
+	}
+
+	&.-disabled {
+		color: $color-neutral-text-heavy-disabled;
+
+		@each $color-name, $color-map in $tile-colors {
+			&.-#{$color-name} {
+				@include setColors(map-get($color-map, 'disabled'));
+			}
+		}
+	}
+
 	&__additionalText {
 		@include textXS;
 
+		color: $color-neutral-text;
 		flex-grow: 1;
 		margin-left: $space-xs;
 		max-width: 30%;
@@ -86,90 +190,6 @@
 
 	&.-interactive {
 		cursor: pointer;
-	}
-
-	&.-neutral {
-		background-color: $color-neutral-background;
-
-		#{$self}__eyebrowText,
-		#{$self}__additionalText {
-			color: $color-neutral-text-weak;
-		}
-
-		#{$self}__iconLeft,
-		#{$self}__iconRight {
-			color: $color-neutral-icon;
-		}
-
-		&.-interactive {
-			#{$self}__iconRight {
-				color: $color-primary-icon;
-			}
-
-			&:hover {
-				background-color: $color-neutral-background-hovered;
-			}
-		}
-	}
-
-	&.-success {
-		background-color: $color-success-background;
-
-		#{$self}__eyebrowText,
-		#{$self}__additionalText {
-			color: $color-success-text;
-		}
-
-		#{$self}__iconLeft,
-		#{$self}__iconRight {
-			color: $color-success-icon;
-		}
-
-		&.-interactive {
-			&:hover {
-				background-color: $color-success-background-hovered;
-			}
-		}
-	}
-
-	&.-fail {
-		background-color: $color-fail-background;
-
-		#{$self}__eyebrowText,
-		#{$self}__additionalText {
-			color: $color-fail-text;
-		}
-
-		#{$self}__iconLeft,
-		#{$self}__iconRight {
-			color: $color-fail-icon;
-		}
-
-		&.-interactive {
-			&:hover {
-				background-color: $color-fail-background-hovered;
-			}
-		}
-	}
-
-	&.-primary {
-		background-color: $color-primary-background;
-
-		#{$self}__eyebrowText,
-		#{$self}__additionalText {
-			color: $color-primary-text;
-		}
-
-		#{$self}__iconLeft,
-		#{$self}__iconRight {
-			color: $color-primary-icon;
-		}
-
-		&.-interactive {
-			&:hover {
-				background-color: $color-primary-background-hovered;
-			}
-		}
 	}
 }
 </style>
