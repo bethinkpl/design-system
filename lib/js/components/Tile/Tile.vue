@@ -19,10 +19,17 @@
 				<span class="a-tile__text" v-text="text" />
 			</div>
 			<ds-icon
-				v-if="iconRightComputed"
-				:icon="iconRightComputed"
-				:size="ICON_SIZES.SMALL"
+				v-if="state === TILE_STATES.LOADING"
 				class="a-tile__iconRight"
+				:icon="ICONS.FA_SPINNER_THIRD"
+				:size="ICON_SIZES.SMALL"
+				spinning
+			/>
+			<ds-icon
+				v-else-if="iconRight"
+				class="a-tile__iconRight"
+				:icon="iconRight"
+				:size="ICON_SIZES.SMALL"
 			/>
 			<div v-else-if="additionalText" class="a-tile__additionalText">
 				{{ additionalText }}
@@ -265,18 +272,12 @@ export default {
 	},
 	data() {
 		return {
+			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			TILE_STATES: Object.freeze(TILE_STATES),
 		};
 	},
 	computed: {
-		iconRightComputed() {
-			if (this.state === TILE_STATES.LOADING) {
-				return ICONS.FA_ARROWS_ROTATE;
-			}
-
-			return this.iconRight;
-		},
 		interactiveComputed() {
 			return (
 				this.interactive &&
