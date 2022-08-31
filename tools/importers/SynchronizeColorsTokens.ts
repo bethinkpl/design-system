@@ -269,7 +269,6 @@ const SynchronizeSingleBin = async (bin) => {
 	const response = await axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');
 	let hexToCssVariable;
 
-	console.log(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');
 	if (!response.data.record.colors) {
 		throw new TypeError('Response structure has no colors!');
 	}
