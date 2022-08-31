@@ -97,8 +97,7 @@ $tile-colors: (
 		),
 		'disabled': (
 			'background': $color-fail-background-disabled,
-			// TODO IT-4795 change to $color-fail-text-disabled
-			'eyebrow-text': var(--raw-orange-200),
+			'eyebrow-text': $color-fail-text-disabled,
 			'icon': $color-fail-icon-disabled,
 			'icon-interactive': $color-fail-icon-disabled,
 		),
