@@ -23,6 +23,7 @@
 <style lang="scss" scoped>
 @import '../../../../lib/styles/settings/colors/tokens';
 @import '../../../../lib/styles/settings/radiuses';
+@import '../../../../lib/styles/settings/spacings';
 @import '../../../../lib/styles/settings/shadows';
 
 .dsDropdown {
@@ -30,9 +31,18 @@
 	border: 0;
 	border-radius: 0 0 $radius-s $radius-s;
 	box-shadow: $shadow-m;
+	max-width: 100%;
 	min-width: 128px;
 	padding: 0;
 	text-align: left;
+
+	&[x-placement^='bottom'] {
+		margin-top: $space-xxxxs;
+	}
+
+	&[x-placement^='top'] {
+		margin-bottom: $space-xxxxs;
+	}
 }
 </style>
 
