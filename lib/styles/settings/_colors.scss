@@ -109,10 +109,6 @@ $color-danger-shadow: rgba(var(--raw-red-500-rgb), 0.7);
 $color-warning-shadow: rgba(var(--raw-gold-500-rgb), 0.7);
 
 // Tokens - shadows
-$color-neutrals-shadow-weak: $color-default-shadow-weak;
-$color-neutrals-shadow: $color-default-shadow;
-$color-neutrals-shadow-strong: $color-default-shadow-strong;
-
 $color-overlay-inverted: rgba($color-total-white, 0.95);
 
 $ripple-alpha: 0.16;
