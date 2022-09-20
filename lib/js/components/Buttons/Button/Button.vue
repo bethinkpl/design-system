@@ -65,6 +65,7 @@ import {
 	BUTTON_SIZES,
 	BUTTON_STATES,
 	BUTTON_TYPES,
+	BUTTON_COLORS_WITH_ICON_COLORS,
 } from './Button.consts';
 
 export default {
@@ -93,8 +94,8 @@ export default {
 		color: {
 			type: String,
 			default: BUTTON_COLORS.PRIMARY,
-			validator(value: Value<typeof BUTTON_COLORS>) {
-				return Object.values(BUTTON_COLORS).includes(value);
+			validator(value: Value<typeof BUTTON_COLORS_WITH_ICON_COLORS>) {
+				return Object.values(BUTTON_COLORS_WITH_ICON_COLORS).includes(value);
 			},
 		},
 		radius: {
@@ -147,6 +148,7 @@ export default {
 		this.SIZES = BUTTON_SIZES;
 		this.STATES = BUTTON_STATES;
 		this.ELEVATIONS = BUTTON_ELEVATIONS;
+		this.BUTTON_COLORS_WITH_ICON_COLORS = BUTTON_COLORS_WITH_ICON_COLORS;
 	},
 };
 </script>
