@@ -1,5 +1,3 @@
-// Button.stories.ts
-
 import Button from './Button.vue';
 import {
 	BUTTON_SIZES,
@@ -11,21 +9,21 @@ import {
 } from './Button.consts';
 import { ICONS } from '../../Icon';
 
-import { Meta, Story } from '@storybook/vue';
+import { Meta, StoryFn } from '@storybook/vue';
 
 export default {
 	title: 'Components/Buttons/Button',
 	component: Button,
 } as Meta<typeof Button>;
 
-const Template: Story<{
+const StoryTemplate: StoryFn<{
 	slotText: Object;
-	size: Object;
-	type: Object;
-	color: Object;
-	radius: Object;
-	state: Object;
-	elevation: Object;
+	size: String;
+	type: String;
+	color: String;
+	radius: String;
+	state: String;
+	elevation: String;
 	iconLeft: Object;
 	iconRight: Object;
 }> = (argTypes) => ({
@@ -33,14 +31,9 @@ const Template: Story<{
 	props: Object.keys(argTypes),
 	template: `<div :class="{ contrastBackground: isInverted }">
                 <Button
-                  :size="size"
-                  :type="type"
-                  :state="state"
-                  :radius="radius"
-                  :color="color"
-                  :elevation="elevation"
-                  :icon-left="ICONS[iconLeft]"
-                  :icon-right="ICONS[iconRight]"
+					v-bind=$props
+                  	:icon-left="ICONS[iconLeft]"
+                  	:icon-right="ICONS[iconRight]"
                 >
                     {{slotText}}
                 </Button>
@@ -55,7 +48,7 @@ const Template: Story<{
 	},
 });
 
-export const Interactive = Template.bind({});
+export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
 	slotText: 'hello',

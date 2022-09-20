@@ -18,7 +18,7 @@ const BETHINK_ICONS = {
 	RIBBON: Ribbon,
 } as const;
 
-export let ICONS = {
+export const ICONS = {
 	...FONTAWESOME_ICONS,
 	...BETHINK_ICONS,
 } as const;
