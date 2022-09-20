@@ -295,7 +295,7 @@ export default {
 			type: String,
 			default: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
 			validate(color) {
-				Object.values(COUNTER_TOGGLE_COLORS).includes(color);
+				return Object.values(COUNTER_TOGGLE_COLORS).includes(color);
 			},
 		},
 		icon: {

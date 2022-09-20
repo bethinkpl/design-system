@@ -1,6 +1,6 @@
 import { Meta, Story, Props } from '@storybook/addon-docs';
 import Tile from 'design-system/lib/js/components/Tile';
-import { TILE_COLORS } from './Tile.consts';
+import { TILE_COLORS, TILE_STATES } from './Tile.consts';
 import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 
 <Meta title="components/Tile" component={Tile} />
@@ -25,6 +25,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		eyebrowText: 'this is an eyebrowText text',
 		additionalText: '',
 		isEyebrowTextUppercase: false,
+		state: TILE_STATES.DEFAULT,
 	}}
 	argTypes={{
 		iconLeft: {
@@ -36,8 +37,12 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			defaultValue: null,
 		},
 		color: {
-		    control: { type: 'select', options: [...Object.values(TILE_COLORS)] },
-            defaultValue: TILE_COLORS.NEUTRAL,
+			control: { type: 'select', options: [...Object.values(TILE_COLORS)] },
+			defaultValue: TILE_COLORS.NEUTRAL,
+		},
+		state: {
+			control: { type: 'select', options: [...Object.values(TILE_STATES)] },
+			defaultValue: TILE_STATES.DEFAULT,
 		},
 	}}
 >
@@ -47,7 +52,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			components: { Tile },
 			props: Object.keys(args),
 			template:
-				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :is-eyebrow-text-uppercase="isEyebrowTextUppercase" />',
+				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :is-eyebrow-text-uppercase="isEyebrowTextUppercase" :state="state" />',
 			created() {
 				this.ICONS = ICONS;
 			},
@@ -64,6 +69,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 		text: 'this is a text text',
 		eyebrowText: 'this is an eyebrowText text',
 		additionalText: 'this is some additionalText',
+		state: TILE_STATES.DEFAULT,
 	}}
 	argTypes={{
 		iconLeft: {
@@ -75,8 +81,12 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			defaultValue: null,
 		},
 		color: {
-		    control: { type: 'select', options: [null, ...Object.values(TILE_COLORS)] },
-            defaultValue: TILE_COLORS.NEUTRAL,
+			control: { type: 'select', options: [null, ...Object.values(TILE_COLORS)] },
+			defaultValue: TILE_COLORS.NEUTRAL,
+		},
+		state: {
+			control: { type: 'select', options: [...Object.values(TILE_STATES)] },
+			defaultValue: TILE_STATES.DEFAULT,
 		},
 	}}
 >
@@ -86,7 +96,7 @@ import { ICONS } from 'design-system/lib/js/components/Icon/Icon.consts';
 			components: { Tile },
 			props: Object.keys(args),
 			template:
-				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" />',
+				'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :state="state" />',
 			created() {
 				this.ICONS = ICONS;
 			},

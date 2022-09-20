@@ -68,7 +68,7 @@ export default {
 			type: String,
 			default: RIPPLE_COLORS.DEFAULT,
 			validate(color) {
-				Object.values(RIPPLE_COLORS).includes(color);
+				return Object.values(RIPPLE_COLORS).includes(color);
 			},
 		},
 		disable: {

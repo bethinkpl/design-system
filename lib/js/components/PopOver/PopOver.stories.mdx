@@ -1,0 +1,58 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import PopOver from './PopOver';
+import { POP_OVER_COLORS, POP_OVER_PLACEMENTS, POP_OVER_TRIGGER_ACTIONS } from './PopOver.consts';
+
+<Meta title="components/PopOver" component={PopOver} />
+
+# PopOver
+
+<Story
+	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=3590%3A67741',
+		},
+	}}
+	argTypes={{
+		placement: {
+			control: { type: 'select', options: Object.values(POP_OVER_PLACEMENTS) },
+			defaultValue: POP_OVER_PLACEMENTS.BOTTOM,
+		},
+		color: {
+			control: { type: 'select', options: Object.values(POP_OVER_COLORS) },
+			defaultValue: POP_OVER_COLORS.DEFAULT,
+		},
+		triggerAction: {
+			control: { type: 'select', options: Object.values(POP_OVER_TRIGGER_ACTIONS) },
+			defaultValue: POP_OVER_TRIGGER_ACTIONS.CLICK,
+		},
+	}}
+	args={{
+		placement: POP_OVER_PLACEMENTS.BOTTOM,
+		color: POP_OVER_COLORS.DEFAULT,
+		triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
+		titleText: 'Lorem ipsum',
+		buttonText: 'button text',
+		forceShow: false,
+		headerImageUrl: 'https://lek.wiecejnizlek.pl/images/lesson-status-onboarding-inprogress.png',
+	}}
+>
+	{(args) => {
+		return {
+			components: { PopOver },
+			props: Object.keys(args),
+			template:
+				'<div style="display: flex; align-items: center; justify-content: center; height: 600px">' +
+				'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl">' +
+				'<span slot="reference">click me!</span>' +
+				'<div>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork. </div>' +
+				'</pop-over>'
+				+ '</div>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={PopOver} />

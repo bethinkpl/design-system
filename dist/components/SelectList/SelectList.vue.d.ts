@@ -82,7 +82,7 @@ declare const _default: {
         size: {
             type: StringConstructor;
             required: boolean;
-            validate(size: any): void;
+            validate(size: any): boolean;
         };
         value: {
             type: StringConstructor;

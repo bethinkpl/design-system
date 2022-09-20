@@ -120,14 +120,14 @@ export default {
 			type: String,
 			required: true,
 			validate(color) {
-				Object.values(BADGE_SCORE_COLORS).includes(color);
+				return Object.values(BADGE_SCORE_COLORS).includes(color);
 			},
 		},
 		size: {
 			type: String,
 			default: BADGE_SCORE_SIZES.MEDIUM,
 			validate(size) {
-				Object.values(BADGE_SCORE_SIZES).includes(size);
+				return Object.values(BADGE_SCORE_SIZES).includes(size);
 			},
 		},
 	},

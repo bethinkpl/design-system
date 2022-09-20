@@ -109,7 +109,7 @@ export default {
 			type: String,
 			required: true,
 			validate(size) {
-				Object.values(SELECT_LIST_SIZES).includes(size);
+				return Object.values(SELECT_LIST_SIZES).includes(size);
 			},
 		},
 		value: {

@@ -68,7 +68,7 @@ declare const _default: {
         size: {
             type: StringConstructor;
             default: string;
-            validate(size: any): void;
+            validate(size: any): boolean;
         };
         slotPadding: {
             type: BooleanConstructor;
