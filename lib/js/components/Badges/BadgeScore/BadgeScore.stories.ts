@@ -24,11 +24,6 @@ const StoryTemplate: StoryFn<{
 	created() {
 		this.ICONS = ICONS;
 	},
-	computed: {
-		isInverted() {
-			return this.color === 'inverted';
-		},
-	},
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -36,8 +31,6 @@ export const Interactive = StoryTemplate.bind({});
 Interactive.args = {
 	text: '42',
 	suffix: '%',
-	color: BADGE_SCORE_COLORS.SUCCESS,
-	size: BADGE_SCORE_SIZES.MEDIUM,
 };
 
 Interactive.argTypes = {
@@ -45,6 +38,7 @@ Interactive.argTypes = {
 	suffix: { control: { type: 'text' } },
 	color: {
 		control: { type: 'select', options: Object.values(BADGE_SCORE_COLORS) },
+		defaultValue: BADGE_SCORE_COLORS.SUCCESS,
 	},
 	icon: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
@@ -52,6 +46,7 @@ Interactive.argTypes = {
 	},
 	size: {
 		control: { type: 'select', options: Object.values(BADGE_SCORE_SIZES) },
+		defaultValue: BADGE_SCORE_SIZES.MEDIUM,
 	},
 };
 
@@ -63,52 +58,25 @@ Interactive.parameters = {
 };
 
 /* FULL WIDTH */
-const FullWidthStoryTemplate: StoryFn<{
-	text: string;
-	suffix: string;
-	color: string;
-	size: string;
-	icon: string;
+const StaticStoryTemplate: StoryFn<{
+	isFullWidth: boolean;
 }> = (argTypes) => ({
 	components: { BadgeScore },
 	props: Object.keys(argTypes),
 	template:
-		'<div class="flexWrapper">' +
+		'<div v-if="isFullWidth" class="flexWrapper">' +
 		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="100" />' +
-		'</div>',
+		'</div>' +
+		'<badge-score v-else :color="BADGE_SCORE_COLORS.WARNING" text="1" />',
 	created() {
 		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
 	},
 });
 
-export const FullWidth = FullWidthStoryTemplate.bind({});
+export const MinWidth = StaticStoryTemplate.bind({});
 
-/* TEXT ONLY */
-const TextOnlyStoryTemplate: StoryFn<{
-	text: string;
-	suffix: string;
-	color: string;
-	size: string;
-	icon: string;
-}> = (argTypes) => ({
-	components: { BadgeScore },
-	props: Object.keys(argTypes),
-	template: '<badge-score :color="BADGE_SCORE_COLORS.FAIL" :text="text" :size="size"/>',
-	created() {
-		this.BADGE_SCORE_SIZES = BADGE_SCORE_SIZES;
-		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
-	},
-});
+export const FullWidth = StaticStoryTemplate.bind({});
 
-export const TextOnly = TextOnlyStoryTemplate.bind({});
-
-TextOnly.args = {
-	text: '42',
-};
-
-TextOnly.argTypes = {
-	text: { control: { type: 'text' } },
-	size: {
-		control: { type: 'select', options: Object.values(BADGE_SCORE_SIZES) },
-	},
+FullWidth.args = {
+	isFullWidth: true,
 };
