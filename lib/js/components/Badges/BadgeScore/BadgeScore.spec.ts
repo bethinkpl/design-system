@@ -94,7 +94,7 @@ describe('BadgeScore', () => {
 	});
 
 	it(`when color is set as ${BADGE_SCORE_COLORS.NEUTRAL_MEDIUM} should render -fail class`, () => {
-		const component = createComponent({ color: BADGE_SCORE_COLORS.NEUTRAL });
+		const component = createComponent({ color: BADGE_SCORE_COLORS.NEUTRAL_MEDIUM });
 
 		expect(component.find('.-success').exists()).toBe(false);
 		expect(component.find('.-warning').exists()).toBe(false);
