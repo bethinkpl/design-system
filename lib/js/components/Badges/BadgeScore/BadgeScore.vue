@@ -15,7 +15,7 @@
 		<div class="badgeScore__wrapper">
 			<wnl-icon v-if="icon" class="badgeScore__icon" :icon="icon" :size="iconSize" />
 			<div class="badgeScore__content">
-				<span class="badgeScore__text">{{ text }}</span>
+				{{ text }}
 				<span class="badgeScore__suffix">{{ suffix }}</span>
 			</div>
 		</div>
@@ -27,9 +27,9 @@
 @import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
 
-$badge-score-width: 66px;
-$small-badge-score-width: 56px;
-$x-small-badge-score-width: 40px;
+$badge-score-min-width: 66px;
+$badge-score-small-min-width: 56px;
+$badge-score-x-small-min-width: 40px;
 
 $badge-score-colors: (
 	'success': (
@@ -102,7 +102,7 @@ $badge-score-colors: (
 	border-radius: 4px;
 	display: inline-block;
 	flex: 1;
-	min-width: $badge-score-width;
+	min-width: $badge-score-min-width;
 	padding: $space-xxxs $space-xxs;
 
 	&__wrapper {
@@ -126,7 +126,7 @@ $badge-score-colors: (
 	&.-small {
 		@include headlineS();
 
-		min-width: $small-badge-score-width;
+		min-width: $badge-score-small-min-width;
 		#{$self}__suffix {
 			@include headlineXS();
 		}
@@ -135,7 +135,7 @@ $badge-score-colors: (
 	&.-xsmall {
 		@include textInfoM();
 
-		min-width: $x-small-badge-score-width;
+		min-width: $badge-score-x-small-min-width;
 		padding: $space-xxxs;
 
 		#{$self}__suffix {
@@ -178,7 +178,6 @@ export default {
 		},
 		icon: {
 			type: Object,
-			required: false,
 			default: null,
 			validate(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
