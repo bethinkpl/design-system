@@ -12,12 +12,10 @@
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
 		}"
 	>
-		<div class="badgeScore__wrapper">
-			<wnl-icon v-if="icon" class="badgeScore__icon" :icon="icon" :size="iconSize" />
-			<div class="badgeScore__content">
-				{{ text }}
-				<span class="badgeScore__suffix">{{ suffix }}</span>
-			</div>
+		<wnl-icon v-if="icon" class="badgeScore__icon" :icon="icon" :size="iconSize" />
+		<div class="badgeScore__content">
+			{{ text }}
+			<span class="badgeScore__suffix">{{ suffix }}</span>
 		</div>
 	</div>
 </template>
@@ -100,15 +98,11 @@ $badge-score-colors: (
 	}
 
 	border-radius: 4px;
-	display: inline-block;
+	display: inline-flex;
 	flex: 1;
+	justify-content: center;
 	min-width: $badge-score-min-width;
 	padding: $space-xxxs $space-xxs;
-
-	&__wrapper {
-		display: flex;
-		justify-content: center;
-	}
 
 	&__content {
 		display: flex;

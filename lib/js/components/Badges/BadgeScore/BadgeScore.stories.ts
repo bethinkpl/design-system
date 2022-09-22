@@ -64,7 +64,7 @@ const StaticStoryTemplate: StoryFn<{
 	components: { BadgeScore },
 	props: Object.keys(argTypes),
 	template:
-		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="100" :class="{ \'-fullWidth\': isFullWidth }" />',
+		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="1" :class="{ \'-fullWidth\': isFullWidth }" />',
 	created() {
 		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
 	},
