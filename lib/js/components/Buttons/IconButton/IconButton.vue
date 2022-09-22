@@ -357,19 +357,19 @@ export default {
 			},
 		},
 	},
-  data() {
-    return {
-      hovered: false,
-      ICONS: Object.freeze(ICONS),
-      ICON_SIZES: Object.freeze(ICON_SIZES),
-      ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
-      ICON_BUTTON_COLOR_SCHEMES: Object.freeze(ICON_BUTTON_COLOR_SCHEMES),
-      ICON_BUTTON_TYPES: Object.freeze(ICON_BUTTON_TYPES),
-      ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
-      ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
-      BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
-    };
-  },
+	data() {
+		return {
+			hovered: false,
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+			ICON_BUTTON_COLOR_SCHEMES: Object.freeze(ICON_BUTTON_COLOR_SCHEMES),
+			ICON_BUTTON_TYPES: Object.freeze(ICON_BUTTON_TYPES),
+			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
+		};
+	},
 	computed: {
 		iconSize(): string {
 			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {

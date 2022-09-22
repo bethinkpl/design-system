@@ -67,9 +67,7 @@ import {
 	BUTTON_TYPES,
 } from './Button.consts';
 
-import {
-  ICON_BUTTON_COLORS,
-} from '../IconButton/IconButton.consts';
+import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
 
 export default {
 	name: 'Button',
@@ -137,18 +135,18 @@ export default {
 			},
 		},
 	},
-  data() {
-    return {
-      ICONS: Object.freeze(ICONS),
-      ICON_SIZES: Object.freeze(ICON_SIZES),
-      BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
-      COLORS: Object.freeze(BUTTON_COLORS),
-      RADIUSES: Object.freeze(BUTTON_RADIUSES),
-      SIZES: Object.freeze(BUTTON_SIZES),
-      STATES: Object.freeze(BUTTON_STATES),
-      ELEVATIONS: Object.freeze(BUTTON_ELEVATIONS),
-    };
-  },
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			COLORS: Object.freeze(BUTTON_COLORS),
+			RADIUSES: Object.freeze(BUTTON_RADIUSES),
+			SIZES: Object.freeze(BUTTON_SIZES),
+			STATES: Object.freeze(BUTTON_STATES),
+			ELEVATIONS: Object.freeze(BUTTON_ELEVATIONS),
+		};
+	},
 	computed: {
 		colorClassName(): string {
 			return `-color-${this.color}`;
