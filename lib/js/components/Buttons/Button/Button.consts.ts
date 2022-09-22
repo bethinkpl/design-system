@@ -18,14 +18,6 @@ export const BUTTON_COLORS = {
 	INVERTED: 'inverted',
 } as const;
 
-export const BUTTON_COLORS_WITH_ICON_COLORS = {
-	...BUTTON_COLORS,
-	NEUTRAL_WEAK: 'neutral-weak',
-	FAIL: 'fail',
-	WARNING: 'warning',
-	INFO: 'info',
-};
-
 export const BUTTON_RADIUSES = {
 	CAPSULE: 'capsule',
 	ROUNDED: 'rounded',
