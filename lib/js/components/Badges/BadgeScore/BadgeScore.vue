@@ -12,13 +12,13 @@
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
 		}"
 	>
-    <div class="badgeScore__wrapper">
-      <wnl-icon v-if="icon" class="badgeScore__icon" :icon="icon" :size="iconSize" />
-      <div class="badgeScore__content">
-        <span class="badgeScore__text">{{ text }}</span>
-        <span class="badgeScore__suffix">{{ suffix }}</span>
-      </div>
-    </div>
+		<div class="badgeScore__wrapper">
+			<wnl-icon v-if="icon" class="badgeScore__icon" :icon="icon" :size="iconSize" />
+			<div class="badgeScore__content">
+				<span class="badgeScore__text">{{ text }}</span>
+				<span class="badgeScore__suffix">{{ suffix }}</span>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -149,19 +149,19 @@ $badge-score-colors: (
 <script lang="ts">
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 import WnlIcon, { ICONS, ICON_SIZES } from '../../Icon';
-import { VueConstructor } from "vue";
+import { VueConstructor } from 'vue';
 
 export default {
 	name: 'BadgeScore',
-  components: {
-    WnlIcon,
-  },
+	components: {
+		WnlIcon,
+	},
 	props: {
 		text: {
 			type: String,
 			required: true,
 		},
-    suffix: {
+		suffix: {
 			type: String,
 			required: false,
 			default: null,
@@ -173,14 +173,14 @@ export default {
 				return Object.values(BADGE_SCORE_COLORS).includes(color);
 			},
 		},
-    icon: {
-      type: Object,
-      required: false,
-      default: null,
-      validate(icon: VueConstructor) {
-        return Object.values(ICONS).includes(icon);
-      },
-    },
+		icon: {
+			type: Object,
+			required: false,
+			default: null,
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
+		},
 		size: {
 			type: String,
 			default: BADGE_SCORE_SIZES.MEDIUM,
@@ -189,20 +189,20 @@ export default {
 			},
 		},
 	},
-  computed: {
-    iconSize(): string {
-      if (this.size === BADGE_SCORE_SIZES.SMALL) {
-        return ICON_SIZES.X_SMALL;
-      }
-      if (this.size === BADGE_SCORE_SIZES.XSMALL) {
-        return ICON_SIZES.XX_SMALL;
-      }
+	computed: {
+		iconSize(): string {
+			if (this.size === BADGE_SCORE_SIZES.SMALL) {
+				return ICON_SIZES.X_SMALL;
+			}
+			if (this.size === BADGE_SCORE_SIZES.XSMALL) {
+				return ICON_SIZES.XX_SMALL;
+			}
 
-      return ICON_SIZES.SMALL;
-    },
-  },
+			return ICON_SIZES.SMALL;
+		},
+	},
 	created() {
-    this.ICON_SIZES = ICON_SIZES;
+		this.ICON_SIZES = ICON_SIZES;
 		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
 		this.BADGE_SCORE_SIZES = BADGE_SCORE_SIZES;
 	},
