@@ -133,14 +133,13 @@ $badge-score-colors: (
 	}
 
 	&.-xsmall {
-		font-size: $font-size-info-m;
-		line-height: $line-height-info-m;
+		@include textInfoM();
+
 		min-width: $x-small-badge-score-width;
 		padding: $space-xxxs;
 
 		#{$self}__suffix {
-			font-size: $font-size-info-m;
-			line-height: $line-height-info-m;
+			@include textInfoM();
 		}
 	}
 
