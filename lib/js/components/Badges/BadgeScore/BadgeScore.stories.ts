@@ -14,9 +14,7 @@ const StoryTemplate: StoryFn<{ text: string; suffix: string; color: string, size
     components: { BadgeScore },
     props: Object.keys(argTypes),
     template:
-        '<div :class="{ contrastBackground: isInverted }">' +
-        '<badge-score :color="color" :suffix="suffix" :text="text" :size="size" :icon="ICONS[icon]" />' +
-        '</div>',
+        '<badge-score :color="color" :suffix="suffix" :text="text" :size="size" :icon="ICONS[icon]" />',
     created() {
         this.ICONS = ICONS;
     },
