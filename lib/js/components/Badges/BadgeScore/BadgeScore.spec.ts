@@ -45,6 +45,7 @@ describe('BadgeScore', () => {
 		expect(component.find('.-warning').exists()).toBe(false);
 		expect(component.find('.-fail').exists()).toBe(false);
 		expect(component.find('.-neutral').exists()).toBe(false);
+		expect(component.find('.-neutral-medium').exists()).toBe(false);
 		expect(component.find('.-inverted').exists()).toBe(false);
 	});
 
@@ -55,6 +56,7 @@ describe('BadgeScore', () => {
 		expect(component.find('.-warning').exists()).toBe(true);
 		expect(component.find('.-fail').exists()).toBe(false);
 		expect(component.find('.-neutral').exists()).toBe(false);
+		expect(component.find('.-neutral-medium').exists()).toBe(false);
 		expect(component.find('.-inverted').exists()).toBe(false);
 	});
 
@@ -65,6 +67,7 @@ describe('BadgeScore', () => {
 		expect(component.find('.-warning').exists()).toBe(false);
 		expect(component.find('.-fail').exists()).toBe(true);
 		expect(component.find('.-neutral').exists()).toBe(false);
+		expect(component.find('.-neutral-medium').exists()).toBe(false);
 		expect(component.find('.-inverted').exists()).toBe(false);
 	});
 
@@ -75,6 +78,7 @@ describe('BadgeScore', () => {
 		expect(component.find('.-warning').exists()).toBe(false);
 		expect(component.find('.-fail').exists()).toBe(false);
 		expect(component.find('.-neutral').exists()).toBe(false);
+		expect(component.find('.-neutral-medium').exists()).toBe(false);
 		expect(component.find('.-inverted').exists()).toBe(true);
 	});
 
@@ -85,6 +89,18 @@ describe('BadgeScore', () => {
 		expect(component.find('.-warning').exists()).toBe(false);
 		expect(component.find('.-fail').exists()).toBe(false);
 		expect(component.find('.-neutral').exists()).toBe(true);
+		expect(component.find('.-neutral-medium').exists()).toBe(false);
+		expect(component.find('.-inverted').exists()).toBe(false);
+	});
+
+	it(`when color is set as ${BADGE_SCORE_COLORS.NEUTRAL_MEDIUM} should render -fail class`, () => {
+		const component = createComponent({ color: BADGE_SCORE_COLORS.NEUTRAL });
+
+		expect(component.find('.-success').exists()).toBe(false);
+		expect(component.find('.-warning').exists()).toBe(false);
+		expect(component.find('.-fail').exists()).toBe(false);
+		expect(component.find('.-neutral').exists()).toBe(false);
+		expect(component.find('.-neutral-medium').exists()).toBe(true);
 		expect(component.find('.-inverted').exists()).toBe(false);
 	});
 

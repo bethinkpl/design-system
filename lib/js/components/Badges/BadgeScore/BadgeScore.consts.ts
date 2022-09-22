@@ -4,6 +4,7 @@ export const BADGE_SCORE_COLORS = {
 	FAIL: 'fail',
 	INVERTED: 'inverted',
 	NEUTRAL: 'neutral',
+	NEUTRAL_MEDIUM: 'neutral-medium',
 } as const;
 
 export const BADGE_SCORE_SIZES = {
