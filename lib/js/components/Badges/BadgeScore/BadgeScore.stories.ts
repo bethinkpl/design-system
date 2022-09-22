@@ -16,11 +16,12 @@ const StoryTemplate: StoryFn<{
 	color: string;
 	size: string;
 	icon: string;
+	fullWidth: boolean;
 }> = (argTypes) => ({
 	components: { BadgeScore },
 	props: Object.keys(argTypes),
 	template:
-		'<badge-score :color="color" :suffix="suffix" :text="text" :size="size" :icon="ICONS[icon]" />',
+		'<badge-score :color="color" :suffix="suffix" :text="text" :size="size" :icon="ICONS[icon]" :fullWidth="fullWidth" />',
 	created() {
 		this.ICONS = ICONS;
 	},
@@ -31,6 +32,7 @@ export const Interactive = StoryTemplate.bind({});
 Interactive.args = {
 	text: '42',
 	suffix: '%',
+	fullWidth: false,
 };
 
 Interactive.argTypes = {
@@ -57,14 +59,12 @@ Interactive.parameters = {
 	},
 };
 
-/* FULL WIDTH */
-const StaticStoryTemplate: StoryFn<{
-	isFullWidth: boolean;
-}> = (argTypes) => ({
+/* STATIC STORIES */
+const StaticStoryTemplate: StoryFn<{}> = (argTypes) => ({
 	components: { BadgeScore },
 	props: Object.keys(argTypes),
 	template:
-		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="1" :class="{ \'-fullWidth\': isFullWidth }" />',
+		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="1" :full-width="fullWidth" />',
 	created() {
 		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
 	},
@@ -73,11 +73,11 @@ const StaticStoryTemplate: StoryFn<{
 export const MinWidth = StaticStoryTemplate.bind({});
 
 MinWidth.args = {
-	isFullWidth: false,
+	fullWidth: false,
 };
 
 export const FullWidth = StaticStoryTemplate.bind({});
 
 FullWidth.args = {
-	isFullWidth: true,
+	fullWidth: true,
 };

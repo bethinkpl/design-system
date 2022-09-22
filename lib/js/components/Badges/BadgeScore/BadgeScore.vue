@@ -10,13 +10,12 @@
 			'-neutral-medium': color === BADGE_SCORE_COLORS.NEUTRAL_MEDIUM,
 			'-small': size === BADGE_SCORE_SIZES.SMALL,
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
+			'-full-width': fullWidth,
 		}"
 	>
 		<wnl-icon v-if="icon" class="badgeScore__icon" :icon="icon" :size="iconSize" />
-		<div class="badgeScore__content">
-			{{ text }}
-			<span class="badgeScore__suffix">{{ suffix }}</span>
-		</div>
+		<div class="badgeScore__text">{{ text }}</div>
+		<span class="badgeScore__suffix">{{ suffix }}</span>
 	</div>
 </template>
 
@@ -104,9 +103,8 @@ $badge-score-colors: (
 	min-width: $badge-score-min-width;
 	padding: $space-xxxs $space-xxs;
 
-	&__content {
-		display: flex;
-		align-items: baseline;
+	&__text {
+		align-self: baseline;
 	}
 
 	&__icon {
@@ -115,6 +113,8 @@ $badge-score-colors: (
 
 	&__suffix {
 		@include headlineS();
+
+		align-self: baseline;
 	}
 
 	&.-small {
@@ -137,7 +137,7 @@ $badge-score-colors: (
 		}
 	}
 
-	&.-fullWidth {
+	&.-full-width {
 		width: 100%;
 	}
 }
@@ -183,6 +183,10 @@ export default {
 			validate(size) {
 				return Object.values(BADGE_SCORE_SIZES).includes(size);
 			},
+		},
+		fullWidth: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	computed: {
