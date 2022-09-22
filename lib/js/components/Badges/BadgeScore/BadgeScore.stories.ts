@@ -72,6 +72,10 @@ const StaticStoryTemplate: StoryFn<{
 
 export const MinWidth = StaticStoryTemplate.bind({});
 
+MinWidth.args = {
+	isFullWidth: false,
+};
+
 export const FullWidth = StaticStoryTemplate.bind({});
 
 FullWidth.args = {
