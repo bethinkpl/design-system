@@ -64,10 +64,7 @@ const StaticStoryTemplate: StoryFn<{
 	components: { BadgeScore },
 	props: Object.keys(argTypes),
 	template:
-		'<div v-if="isFullWidth" class="flexWrapper">' +
-		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="100" />' +
-		'</div>' +
-		'<badge-score v-else :color="BADGE_SCORE_COLORS.WARNING" text="1" />',
+		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="100" :class="{ \'-fullWidth\': isFullWidth }" />',
 	created() {
 		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
 	},

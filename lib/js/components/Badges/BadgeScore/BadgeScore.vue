@@ -143,6 +143,10 @@ $badge-score-colors: (
 			line-height: $line-height-info-m;
 		}
 	}
+
+	&.-fullWidth {
+		width: 100%;
+	}
 }
 </style>
 
