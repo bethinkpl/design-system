@@ -9,24 +9,16 @@ import {
 } from './Button.consts';
 import { ICONS } from '../../Icon';
 
-import { Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import Badge from '../../Badges/Badge/Badge.vue';
+import { BADGE_COLORS } from '../../Badges/Badge';
 
 export default {
 	title: 'Components/Buttons/Button',
 	component: Button,
 } as Meta<typeof Button>;
 
-const StoryTemplate: StoryFn<{
-	slotText: Object;
-	size: String;
-	type: String;
-	color: String;
-	radius: String;
-	state: String;
-	elevation: String;
-	iconLeft: Object;
-	iconRight: Object;
-}> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Button> = (argTypes) => ({
 	components: { Button },
 	props: Object.keys(argTypes),
 	template: `<div :class="{ contrastBackground: isInverted }">
@@ -50,11 +42,11 @@ const StoryTemplate: StoryFn<{
 
 export const Interactive = StoryTemplate.bind({});
 
-Interactive.args = {
+const args = {
 	slotText: 'hello',
-};
+} as Args;
 
-Interactive.argTypes = {
+const argTypes = {
 	size: {
 		control: { type: 'select', options: Object.values(BUTTON_SIZES) },
 		defaultValue: BUTTON_SIZES.MEDIUM,
@@ -87,7 +79,10 @@ Interactive.argTypes = {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: null,
 	},
-};
+} as ArgTypes;
+
+Interactive.argTypes = argTypes;
+Interactive.args = args;
 
 Interactive.parameters = {
 	design: {
