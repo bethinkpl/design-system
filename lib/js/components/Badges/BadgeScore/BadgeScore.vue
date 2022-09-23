@@ -82,6 +82,7 @@ $badge-score-colors: (
 	#{$self}__suffix {
 		color: $color-suffix;
 	}
+
 	&.-xsmall {
 		#{$self}__suffix {
 			color: $color-suffix-xs;
