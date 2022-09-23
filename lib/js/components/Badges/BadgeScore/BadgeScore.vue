@@ -6,8 +6,8 @@
 			'-warning': color === BADGE_SCORE_COLORS.WARNING,
 			'-fail': color === BADGE_SCORE_COLORS.FAIL,
 			'-inverted': color === BADGE_SCORE_COLORS.INVERTED,
+			'-neutral-weak': color === BADGE_SCORE_COLORS.NEUTRAL_WEAK,
 			'-neutral': color === BADGE_SCORE_COLORS.NEUTRAL,
-			'-neutral-medium': color === BADGE_SCORE_COLORS.NEUTRAL_MEDIUM,
 			'-small': size === BADGE_SCORE_SIZES.SMALL,
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
 			'-full-width': fullWidth,
@@ -34,40 +34,46 @@ $badge-score-colors: (
 		'icon': $color-success-icon,
 		'color': $color-success-text,
 		'color-suffix': $color-success-text-weak,
+		'color-suffix-xs': $color-success-text,
 	),
 	'fail': (
 		'background': $color-fail-background-medium,
 		'icon': $color-fail-icon,
 		'color': $color-fail-text,
 		'color-suffix': $color-fail-text-weak,
+		'color-suffix-xs': $color-fail-text,
 	),
 	'warning': (
 		'background': $color-warning-background-medium,
 		'icon': $color-warning-icon,
 		'color': $color-warning-text,
 		'color-suffix': $color-warning-text-weak,
+		'color-suffix-xs': $color-warning-text,
 	),
 	'inverted': (
 		'background': $color-default-background,
 		'icon': $color-neutral-icon-weak,
 		'color': $color-neutral-text-weak,
 		'color-suffix': $color-neutral-text-weak,
+		'color-suffix-xs': $color-neutral-text-weak,
 	),
 	'neutral': (
+		'background': $color-neutral-background-medium,
+		'icon': $color-neutral-icon,
+		'color': $color-neutral-text,
+		'color-suffix': $color-neutral-text,
+		'color-suffix-xs': $color-neutral-text,
+	),
+	'neutral-weak': (
 		'background': $color-neutral-background,
 		'icon': $color-neutral-icon-weak,
 		'color': $color-neutral-text-weak,
 		'color-suffix': $color-neutral-text-weak,
-	),
-	'neutral-medium': (
-		'background': $color-neutral-background-medium,
-		'icon': $color-neutral-icon-strong,
-		'color': $color-neutral-text,
-		'color-suffix': $color-neutral-text,
+		'color-suffix-xs': $color-neutral-text-weak,
 	),
 );
 
-@mixin setBadgeScoreColor($self, $background, $icon, $color, $color-suffix) {
+@mixin setBadgeScoreColor($self, $background, $icon, $color, $color-suffix, $color-suffix-xs) {
 	background-color: $background;
 	color: $color;
 	#{$self}__icon {
@@ -75,6 +81,11 @@ $badge-score-colors: (
 	}
 	#{$self}__suffix {
 		color: $color-suffix;
+	}
+	&.-xsmall {
+		#{$self}__suffix {
+			color: $color-suffix-xs;
+		}
 	}
 }
 
@@ -91,7 +102,8 @@ $badge-score-colors: (
 				map-get($color-map, 'background'),
 				map-get($color-map, 'icon'),
 				map-get($color-map, 'color'),
-				map-get($color-map, 'color-suffix')
+				map-get($color-map, 'color-suffix'),
+				map-get($color-map, 'color-suffix-xs')
 			);
 		}
 	}
@@ -196,7 +208,7 @@ export default {
 				return ICON_SIZES.X_SMALL;
 			}
 			if (this.size === BADGE_SCORE_SIZES.XSMALL) {
-				return ICON_SIZES.XX_SMALL;
+				return ICON_SIZES.XXX_SMALL;
 			}
 
 			return ICON_SIZES.SMALL;
