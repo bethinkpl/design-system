@@ -6,11 +6,11 @@
 			'-warning': color === BADGE_SCORE_COLORS.WARNING,
 			'-fail': color === BADGE_SCORE_COLORS.FAIL,
 			'-inverted': color === BADGE_SCORE_COLORS.INVERTED,
-			'-neutral-weak': color === BADGE_SCORE_COLORS.NEUTRAL_WEAK,
+			'-neutralWeak': color === BADGE_SCORE_COLORS.NEUTRAL_WEAK,
 			'-neutral': color === BADGE_SCORE_COLORS.NEUTRAL,
 			'-small': size === BADGE_SCORE_SIZES.SMALL,
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
-			'-full-width': fullWidth,
+			'-fullWidth': fullWidth,
 		}"
 	>
 		<wnl-icon v-if="icon" class="badgeScore__icon" :icon="icon" :size="iconSize" />
@@ -64,7 +64,7 @@ $badge-score-colors: (
 		'color-suffix': $color-neutral-text,
 		'color-suffix-xs': $color-neutral-text,
 	),
-	'neutral-weak': (
+	'neutralWeak': (
 		'background': $color-neutral-background,
 		'icon': $color-neutral-icon-weak,
 		'color': $color-neutral-text-weak,
@@ -150,7 +150,7 @@ $badge-score-colors: (
 		}
 	}
 
-	&.-full-width {
+	&.-fullWidth {
 		width: 100%;
 	}
 }
