@@ -98,7 +98,6 @@ $badge-score-colors: (
 
 	border-radius: 4px;
 	display: inline-flex;
-	flex: 1;
 	justify-content: center;
 	min-width: $badge-score-min-width;
 	padding: $space-xxxs $space-xxs;
@@ -109,6 +108,7 @@ $badge-score-colors: (
 
 	&__icon {
 		margin-right: $space-xxxxxs;
+		align-self: center;
 	}
 
 	&__suffix {
@@ -120,6 +120,7 @@ $badge-score-colors: (
 	&.-small {
 		@include headlineS();
 
+		padding: $space-xxs $space-xxs;
 		min-width: $badge-score-small-min-width;
 		#{$self}__suffix {
 			@include headlineXS();
