@@ -25,6 +25,7 @@ import { ICONS } from '../Icon';
 		defaultText:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices malesuada vehicula. Mauris egestas scelerisque enim, condimentum aliquet arcu bibendum nec.',
 		expandedText: '',
+		rightSlot: '',
 		isExpanded: false,
 	}}
 	argTypes={{
@@ -55,6 +56,9 @@ import { ICONS } from '../Icon';
 			control: { type: 'text' },
 		},
 		expandedText: {
+			control: { type: 'text' },
+		},
+		rightSlot: {
 			control: { type: 'text' },
 		},
 		isExpanded: {
@@ -90,6 +94,9 @@ import { ICONS } from '../Icon';
 				<template v-slot:defaultText><span v-if='defaultText' v-html='defaultText' /></template>
 				<template v-slot:expandedText>
 					<div v-if='expandedText' v-html='expandedText' />
+				</template>
+				<template v-slot:rightSlot>
+					<div v-if='rightSlot' v-html='rightSlot' />
 				</template>
 				</ds-banner>`,
 		};

@@ -15,7 +15,26 @@
 					>
 						<slot name="defaultText" />
 					</div>
-					<div v-if="buttonText" class="ds-banner__buttonTextVertical">
+					<div class="ds-banner__rightWrapperVertical">
+						<div v-if="buttonText" class="ds-banner__buttonTextVertical">
+							<ds-button
+								:color="BUTTON_COLORS.NEUTRAL"
+								:type="BUTTON_TYPES.OUTLINED"
+								:size="BUTTON_SIZES.SMALL"
+								@click.native="$emit('button-clicked')"
+								>{{ buttonText }}
+							</ds-button>
+						</div>
+						<div
+							v-if="$slots.rightSlot && $slots.rightSlot.length > 0"
+							class="ds-banner__rightSlotVertical"
+						>
+							<slot name="rightSlot" />
+						</div>
+					</div>
+				</div>
+				<div class="ds-banner__rightWrapperHorizontal">
+					<div v-if="buttonText" class="ds-banner__buttonTextHorizontal">
 						<ds-button
 							:color="BUTTON_COLORS.NEUTRAL"
 							:type="BUTTON_TYPES.OUTLINED"
@@ -24,15 +43,12 @@
 							>{{ buttonText }}
 						</ds-button>
 					</div>
-				</div>
-				<div v-if="buttonText" class="ds-banner__buttonTextHorizontal">
-					<ds-button
-						:color="BUTTON_COLORS.NEUTRAL"
-						:type="BUTTON_TYPES.OUTLINED"
-						:size="BUTTON_SIZES.SMALL"
-						@click.native="$emit('button-clicked')"
-						>{{ buttonText }}
-					</ds-button>
+					<div
+						v-if="$slots.rightSlot && $slots.rightSlot.length > 0"
+						class="ds-banner__rightSlotHorizontal"
+					>
+						<slot name="rightSlot" />
+					</div>
 				</div>
 			</div>
 			<div
@@ -104,6 +120,14 @@
 	padding: $space-xs;
 
 	&.-vertical {
+		#{$self}__rightWrapperHorizontal {
+			display: none;
+		}
+
+		#{$self}__rightWrapperVertical {
+			display: flex;
+		}
+
 		#{$self}__buttonTextHorizontal {
 			display: none;
 		}
@@ -197,6 +221,39 @@
 		padding: $space-xxxxs 0;
 	}
 
+	&__rightWrapperHorizontal {
+		display: none;
+		padding: $space-xxxxxs 0 $space-xxxxxs $space-s;
+
+		@media #{breakpoint-s()} {
+			display: flex;
+		}
+	}
+
+	&__rightWrapperVertical {
+		display: flex;
+
+		@media #{breakpoint-s()} {
+			display: none;
+		}
+	}
+
+	&__rightSlotHorizontal {
+		padding: $space-xs 0 $space-xs 0;
+
+		&:nth-child(2) {
+			padding-left: $space-xxxxs;
+		}
+	}
+
+	&__rightSlotVertical {
+		padding: $space-xxs 0 0 0;
+
+		&:nth-child(2) {
+			padding-left: $space-xxxxs;
+		}
+	}
+
 	&__iconContainer {
 		@include iconContainerVerticalStyles;
 
@@ -249,9 +306,7 @@
 
 	&__buttonTextHorizontal {
 		padding: $space-xs 0;
-		flex-shrink: 0;
 		display: none;
-		margin-left: $space-s;
 
 		@media #{breakpoint-s()} {
 			display: initial;
@@ -259,8 +314,7 @@
 	}
 
 	&__buttonTextVertical {
-		margin-top: $space-xxxxs;
-		padding: $space-xxs 0 0;
+		padding: $space-xxs 0 0 0;
 
 		@media #{breakpoint-s()} {
 			display: none;
