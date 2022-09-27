@@ -67,6 +67,8 @@ import {
 	BUTTON_TYPES,
 } from './Button.consts';
 
+import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
+
 export default {
 	name: 'Button',
 	directives: {
@@ -93,8 +95,8 @@ export default {
 		color: {
 			type: String,
 			default: BUTTON_COLORS.PRIMARY,
-			validator(value: Value<typeof BUTTON_COLORS>) {
-				return Object.values(BUTTON_COLORS).includes(value);
+			validator(value: Value<typeof ICON_BUTTON_COLORS>) {
+				return Object.values(ICON_BUTTON_COLORS).includes(value);
 			},
 		},
 		radius: {
@@ -133,20 +135,22 @@ export default {
 			},
 		},
 	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			COLORS: Object.freeze(BUTTON_COLORS),
+			RADIUSES: Object.freeze(BUTTON_RADIUSES),
+			SIZES: Object.freeze(BUTTON_SIZES),
+			STATES: Object.freeze(BUTTON_STATES),
+			ELEVATIONS: Object.freeze(BUTTON_ELEVATIONS),
+		};
+	},
 	computed: {
 		colorClassName(): string {
 			return `-color-${this.color}`;
 		},
-	},
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
-		this.BUTTON_TYPES = BUTTON_TYPES;
-		this.COLORS = BUTTON_COLORS;
-		this.RADIUSES = BUTTON_RADIUSES;
-		this.SIZES = BUTTON_SIZES;
-		this.STATES = BUTTON_STATES;
-		this.ELEVATIONS = BUTTON_ELEVATIONS;
 	},
 };
 </script>

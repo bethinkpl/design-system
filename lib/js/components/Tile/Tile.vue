@@ -1,6 +1,6 @@
 <template>
-	<ds-ripple :disable="!interactive" :color="rippleColor">
-		<div :class="[tileColor, { '-interactive': interactive }]" class="a-tile">
+	<ds-ripple :disable="rippleDisabled" :color="rippleColor">
+		<div :class="[tileColor, tileState, { '-interactive': interactive }]" class="a-tile">
 			<ds-icon
 				v-if="iconLeft"
 				:icon="iconLeft"
@@ -16,14 +16,20 @@
 				<span class="a-tile__text" v-text="text" />
 			</div>
 			<ds-icon
-				v-if="iconRight"
+				v-if="state === TILE_STATES.LOADING"
+				class="a-tile__iconRight"
+				:icon="ICONS.FA_SPINNER_THIRD"
+				:size="ICON_SIZES.SMALL"
+				spinning
+			/>
+			<ds-icon
+				v-else-if="iconRight"
+				class="a-tile__iconRight"
 				:icon="iconRight"
 				:size="ICON_SIZES.SMALL"
-				:class="{ '-interactive': interactive }"
-				class="a-tile__iconRight"
 			/>
-			<div v-else-if="additionalText" class="a-tile__additionalText"
-				>{{ additionalText }}
+			<div v-else-if="additionalText" class="a-tile__additionalText">
+				{{ additionalText }}
 			</div>
 		</div>
 	</ds-ripple>
@@ -35,18 +41,131 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
 
+$tile-colors: (
+	'neutral': (
+		'default': (
+			'background': $color-neutral-background,
+			'background-hover': $color-neutral-background-hovered,
+			'eyebrow-text': $color-neutral-text-weak,
+			'icon': $color-neutral-icon,
+			'icon-interactive': $color-primary-icon,
+		),
+		'disabled': (
+			'background': $color-neutral-background-disabled,
+			'eyebrow-text': $color-neutral-text-weak-disabled,
+			'icon': $color-neutral-icon-disabled,
+			'icon-interactive': $color-primary-icon-disabled,
+		),
+	),
+	'primary': (
+		'default': (
+			'background': $color-primary-background,
+			'background-hover': $color-primary-background-hovered,
+			'eyebrow-text': $color-primary-text,
+			'icon': $color-primary-icon,
+			'icon-interactive': $color-primary-icon,
+		),
+		'disabled': (
+			'background': $color-primary-background-disabled,
+			'eyebrow-text': $color-primary-text-disabled,
+			'icon': $color-primary-icon-disabled,
+			'icon-interactive': $color-primary-icon-disabled,
+		),
+	),
+	'success': (
+		'default': (
+			'background': $color-success-background,
+			'background-hover': $color-success-background-hovered,
+			'eyebrow-text': $color-success-text,
+			'icon': $color-success-icon,
+			'icon-interactive': $color-success-icon,
+		),
+		'disabled': (
+			'background': $color-success-background-disabled,
+			'eyebrow-text': $color-success-text-disabled,
+			'icon': $color-success-icon-disabled,
+			'icon-interactive': $color-success-icon-disabled,
+		),
+	),
+	'fail': (
+		'default': (
+			'background': $color-fail-background,
+			'background-hover': $color-fail-background-hovered,
+			'eyebrow-text': $color-fail-text,
+			'icon': $color-fail-icon,
+			'icon-interactive': $color-fail-icon,
+		),
+		'disabled': (
+			'background': $color-fail-background-disabled,
+			'eyebrow-text': $color-fail-text-disabled,
+			'icon': $color-fail-icon-disabled,
+			'icon-interactive': $color-fail-icon-disabled,
+		),
+	),
+);
+
+@mixin setColors($root, $color-map) {
+	background-color: map-get($color-map, 'background');
+
+	#{$root}__eyebrowText {
+		color: map-get($color-map, 'eyebrow-text');
+	}
+
+	#{$root}__iconLeft,
+	#{$root}__iconRight {
+		color: map-get($color-map, 'icon');
+	}
+
+	&.-interactive {
+		#{$root}__iconRight {
+			color: map-get($color-map, 'icon-interactive');
+		}
+
+		&:not(.-loading):hover {
+			background-color: map-get($color-map, 'background-hover');
+		}
+	}
+
+	&.-loading {
+		#{$root}__iconRight {
+			color: map-get($color-map, 'icon-interactive');
+		}
+	}
+}
+
 .a-tile {
 	$self: &;
 
+	@each $color-name, $color-map in $tile-colors {
+		&.-#{$color-name} {
+			@include setColors($self, map-get($color-map, 'default'));
+		}
+	}
+
 	align-items: center;
+	border-radius: $radius-s;
 	display: flex;
 	flex-direction: row;
 	padding: $space-xxs $space-xs;
-	border-radius: $radius-s;
+
+	&.-disabled {
+		@each $color-name, $color-map in $tile-colors {
+			&.-#{$color-name} {
+				@include setColors($self, map-get($color-map, 'disabled'));
+			}
+		}
+
+		pointer-events: none;
+
+		#{$self}__text {
+			color: $color-neutral-text-heavy-disabled;
+		}
+	}
 
 	&__additionalText {
 		@include textXS;
 
+		color: $color-neutral-text;
 		flex-grow: 1;
 		margin-left: $space-xs;
 		max-width: 30%;
@@ -84,92 +203,8 @@
 		margin-left: $space-xs;
 	}
 
-	&.-interactive {
+	&.-interactive:not(.-disabled):not(.-loading) {
 		cursor: pointer;
-	}
-
-	&.-neutral {
-		background-color: $color-neutral-background;
-
-		#{$self}__eyebrowText,
-		#{$self}__additionalText {
-			color: $color-neutral-text-weak;
-		}
-
-		#{$self}__iconLeft,
-		#{$self}__iconRight {
-			color: $color-neutral-icon;
-		}
-
-		&.-interactive {
-			#{$self}__iconRight {
-				color: $color-primary-icon;
-			}
-
-			&:hover {
-				background-color: $color-neutral-background-hovered;
-			}
-		}
-	}
-
-	&.-success {
-		background-color: $color-success-background;
-
-		#{$self}__eyebrowText,
-		#{$self}__additionalText {
-			color: $color-success-text;
-		}
-
-		#{$self}__iconLeft,
-		#{$self}__iconRight {
-			color: $color-success-icon;
-		}
-
-		&.-interactive {
-			&:hover {
-				background-color: $color-success-background-hovered;
-			}
-		}
-	}
-
-	&.-fail {
-		background-color: $color-fail-background;
-
-		#{$self}__eyebrowText,
-		#{$self}__additionalText {
-			color: $color-fail-text;
-		}
-
-		#{$self}__iconLeft,
-		#{$self}__iconRight {
-			color: $color-fail-icon;
-		}
-
-		&.-interactive {
-			&:hover {
-				background-color: $color-fail-background-hovered;
-			}
-		}
-	}
-
-	&.-primary {
-		background-color: $color-primary-background;
-
-		#{$self}__eyebrowText,
-		#{$self}__additionalText {
-			color: $color-primary-text;
-		}
-
-		#{$self}__iconLeft,
-		#{$self}__iconRight {
-			color: $color-primary-icon;
-		}
-
-		&.-interactive {
-			&:hover {
-				background-color: $color-primary-background-hovered;
-			}
-		}
 	}
 }
 </style>
@@ -178,7 +213,8 @@
 import DsRipple, { RIPPLE_COLORS } from '../Ripple';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
 import { VueConstructor } from 'vue';
-import { TILE_COLORS } from './Tile.consts';
+import { TILE_COLORS, TILE_STATES } from './Tile.consts';
+import { Value } from '../../utils/type.utils';
 
 export default {
 	name: 'Tile',
@@ -228,8 +264,28 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		state: {
+			type: String,
+			default: TILE_STATES.DEFAULT,
+			validator(value: Value<typeof TILE_STATES>) {
+				return Object.values(TILE_STATES).includes(value);
+			},
+		},
+	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			TILE_STATES: Object.freeze(TILE_STATES),
+		};
 	},
 	computed: {
+		rippleDisabled() {
+			return (
+				!this.interactive ||
+				[TILE_STATES.DISABLED, TILE_STATES.LOADING].includes(this.state)
+			);
+		},
 		tileColor() {
 			return {
 				[TILE_COLORS.NEUTRAL]: '-neutral',
@@ -246,9 +302,13 @@ export default {
 				[TILE_COLORS.FAIL]: RIPPLE_COLORS.FAIL,
 			}[this.color];
 		},
-	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
+		tileState() {
+			return {
+				[TILE_STATES.DEFAULT]: null,
+				[TILE_STATES.DISABLED]: '-disabled',
+				[TILE_STATES.LOADING]: '-loading',
+			}[this.state];
+		},
 	},
 };
 </script>

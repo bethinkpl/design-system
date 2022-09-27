@@ -360,6 +360,14 @@ export default {
 	data() {
 		return {
 			hovered: false,
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+			ICON_BUTTON_COLOR_SCHEMES: Object.freeze(ICON_BUTTON_COLOR_SCHEMES),
+			ICON_BUTTON_TYPES: Object.freeze(ICON_BUTTON_TYPES),
+			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
 		};
 	},
 	computed: {
@@ -399,17 +407,6 @@ export default {
 		colorClassName(): string {
 			return `-color-${this.color}`;
 		},
-	},
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
-		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-		this.ICON_BUTTON_COLOR_SCHEMES = ICON_BUTTON_COLOR_SCHEMES;
-		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-		this.ICON_BUTTON_STATES = ICON_BUTTON_STATES;
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-		this.BUTTON_COLORS = BUTTON_COLORS;
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
 	},
 	methods: {
 		onClick(evt): void {
