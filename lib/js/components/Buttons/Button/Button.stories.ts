@@ -10,8 +10,6 @@ import {
 import { ICONS } from '../../Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
-import Badge from '../../Badges/Badge/Badge.vue';
-import { BADGE_COLORS } from '../../Badges/Badge';
 
 export default {
 	title: 'Components/Buttons/Button',
@@ -24,10 +22,10 @@ const StoryTemplate: StoryFn<typeof Button> = (argTypes) => ({
 	template: `<div :class="{ contrastBackground: isInverted }">
                 <Button
 					v-bind=$props
-                  	:icon-left="ICONS[iconLeft]"
-                  	:icon-right="ICONS[iconRight]"
+                  	:icon-left="ICONS[$props.iconLeft]"
+                  	:icon-right="ICONS[$props.iconRight]"
                 >
-                    {{slotText}}
+					<template v-if="${'default' in args}" v-slot>${args.default}</template>
                 </Button>
             </div>`,
 	computed: {
@@ -35,15 +33,17 @@ const StoryTemplate: StoryFn<typeof Button> = (argTypes) => ({
 			return this.color === 'inverted';
 		},
 	},
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	slotText: 'hello',
+	default: 'Hello',
 } as Args;
 
 const argTypes = {
