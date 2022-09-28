@@ -16,7 +16,10 @@
       <div class="progressBar__labelText">{{ labelText }}</div>
       <div v-if="labelDataExist" class="progressBar__labelDataWrapper">
         <div v-if="labelData" class="progressBar__labelData">{{ labelData }}</div>
-        <div v-if="labelDataSupporting" class="progressBar__labelDataSupporting">{{ labelDataSupporting }}</div>
+        <div v-if="labelDataSupporting" class="progressBar__labelDataSupporting">
+          <span class="progressBar__labelDataSeparator">/</span>
+          {{ labelDataSupporting }}
+        </div>
         <div v-if="labelDataSuffix" class="progressBar__labelDataSuffix">{{ labelDataSuffix }}</div>
       </div>
     </div>
@@ -27,7 +30,6 @@
 			  '-xsmall': size === PROGRESS_BAR_SIZES.XSMALL,
 			  '-noRadius': radius === PROGRESS_BAR_RADII.NONE,
       }">
-<!--      <div class="progressBar__results" :style="{ background: backgroundGradient }">-->
       <div class="progressBar__results">
         <div v-for="(range) in ranges" :class="{progressBar__result: true, '-secondary': range.layer === 2 && numberOfLayers === 2 }" :style="{ left: range.percentValueFrom+'%', width: range.length+'%'}">
         </div>
@@ -40,6 +42,7 @@
 <style scoped lang="scss">
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
+@import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
 
 $progress-bar-height: 16px;
@@ -50,28 +53,46 @@ $progress-bar-border-radius: 8px;
 
 $progress-bar-layers: (
   'primary': (
-    'background': $color-primary-text,
-    'background-secondary': $color-primary-text-disabled,
+    'default': $color-primary-text,
+    'ghost': $color-primary-data-ghost,
+    'medium': $color-primary-data-medium,
+    'weak': $color-primary-data-weak,
+    'neutral-weak': $color-neutral-data-weak,
   ),
   'info': (
-      'background': $color-info-text,
-      'background-secondary': $color-info-text-disabled,
+    'default': $color-info-text,
+    'ghost': $color-info-data-ghost,
+    'medium': $color-info-data-medium,
+    'weak': $color-info-data-weak,
+    'neutral-weak': $color-neutral-data-weak,
   ),
   'neutral': (
-      'background': $color-neutral-text,
-      'background-secondary': $color-neutral-text-disabled,
+    'default': $color-neutral-data,
+    'ghost': $color-neutral-data-ghost,
+    'medium': $color-neutral-data-medium,
+    'weak': $color-neutral-data-weak,
+    'neutral-weak': $color-neutral-data-weak,
   ),
   'success': (
-      'background': $color-success-text,
-      'background-secondary': $color-success-text-disabled,
+    'default': $color-success-text,
+    'ghost': $color-success-data-ghost,
+    'medium': $color-success-data-medium,
+    'weak': $color-success-data-weak,
+    'neutral-weak': $color-neutral-data-weak,
   ),
   'warning': (
-      'background': $color-warning-text,
-      'background-secondary': $color-warning-text-disabled,
+    'default': $color-warning-text,
+    'ghost': $color-warning-data-ghost,
+    'medium': $color-warning-data-medium,
+    'weak': $color-warning-data-weak,
+    'neutral-weak': $color-neutral-data-weak,
   ),
   'fail': (
-      'background': $color-fail-text,
-      'background-secondary': $color-fail-text-disabled,
+    'default': $color-fail-text,
+    'ghost': $color-fail-data-ghost,
+    'medium': $color-fail-data-medium,
+    'weak': $color-fail-data-weak,
+    'neutral-weak': $color-neutral-data-weak,
   ),
 );
 
@@ -80,7 +101,7 @@ $progress-bar-layers: (
 
   &__bar {
     background-color: $color-default-background;
-    box-shadow: inset 0 1px 4px rgba(12, 23, 38, 0.2);
+    box-shadow: inset 0 1px 4px $color-default-shadow-heavy;
     height: $progress-bar-height;
     border-radius: $progress-bar-border-radius;
     overflow: hidden;
@@ -90,7 +111,7 @@ $progress-bar-layers: (
 
     &.-xsmall {
       height: $progress-bar-xs-height;
-      box-shadow: inset 0 1px 3px rgba(12, 23, 38, 0.2);
+      box-shadow: inset 0 1px 3px $color-default-shadow-heavy;
       border-radius: 0;
     }
     &.-noRadius {
@@ -101,14 +122,21 @@ $progress-bar-layers: (
   &__label {
     display: flex;
     justify-content: space-between;
-    margin-bottom: $space-xxs;
+    margin-bottom: $space-xxxs;
+
+    @media #{breakpoint-s()} {
+      margin-bottom: $space-xxs;
+    }
   }
 
   &__labelText {
-    @include headlineS();
+    @include headlineXS();
     @include textBold;
 
     color: $color-neutral-text-heavy;
+    @media #{breakpoint-s()} {
+      @include headlineS();
+    }
   }
 
   &__labelDataWrapper {
@@ -123,7 +151,12 @@ $progress-bar-layers: (
 
   &__labelDataSupporting {
     color: $color-neutral-text;
+    display: flex;
     margin-left: $space-xxxxxs;
+  }
+
+  &__labelDataSeparator {
+    margin-right: $space-xxxxxs;
   }
 
   &__labelDataSuffix {
@@ -135,6 +168,15 @@ $progress-bar-layers: (
 
   &-noRadius {
     border-radius: 0;
+  }
+
+  &.-compact {
+    #{$self}__labelText {
+      @include headlineXS();
+    }
+    #{$self}__label {
+      margin-bottom: $space-xxxs;
+    }
   }
 
   &__results {
@@ -152,9 +194,28 @@ $progress-bar-layers: (
   @each $color-name, $color-map in $progress-bar-layers {
     &.-#{$color-name} {
       #{$self}__result {
-        background: map-get($color-map, 'background');
+        background: map-get($color-map, 'default');
         &.-secondary {
-          background: map-get($color-map, 'background-secondary');
+          background: map-get($color-map, 'ghost');
+        }
+      }
+
+      &.-schemeMedium {
+        #{$self}__result {
+          background: map-get($color-map, 'medium');
+
+          &.-secondary {
+            background: map-get($color-map, 'weak');
+          }
+        }
+      }
+      &.-schemeMediumNeutral {
+        #{$self}__result {
+          background: map-get($color-map, 'medium');
+
+          &.-secondary {
+            background: map-get($color-map, 'neutral-weak');
+          }
         }
       }
     }
@@ -244,18 +305,6 @@ export default {
     };
   },
   computed: {
-    backgroundGradient() {
-
-      const gradients = this.ranges.map(
-          (range) =>
-              `linear-gradient(${range.color},${range.color}) ${range.percentValueFrom}%  / ${range.percentValueTo/2}% no-repeat`,
-      );
-
-      gradients.push('linear-gradient(#E6E8EE, #E6E8EE) 0% 0% / 100% 100% no-repeat');
-      let result = gradients.join(', ');
-      console.log(result);
-      return result;
-    },
     labelDataExist() {
       return this.labelData || this.labelDataSupporting || this.labelDataSuffix;
     }

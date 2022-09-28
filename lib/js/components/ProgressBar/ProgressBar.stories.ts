@@ -47,30 +47,8 @@ const argTypes = {
                 layer: 1,
                 color: '#000',
                 percentValueFrom: 0,
-                percentValueTo: 10,
-                length: 10,
+                length: 30,
             },
-            {
-                layer: 2,
-                color: '#8c3939',
-                percentValueFrom: 20,
-                percentValueTo: 30,
-                length: 10,
-            },
-            {
-                layer: 1,
-                color: '#188521',
-                percentValueFrom: 30,
-                percentValueTo: 40,
-                length: 10,
-            },
-            {
-                layer: 1,
-                color: '#f50dbc',
-                percentValueFrom: 50,
-                percentValueTo: 60,
-                length: 10,
-            }
         ],
     },
     radius: {
