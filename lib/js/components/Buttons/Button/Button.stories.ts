@@ -21,7 +21,12 @@ const StoryTemplate: StoryFn<typeof Button> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template: `<div :class="{ contrastBackground: isInverted }">
                 <Button
-					v-bind=$props
+					:size="size"
+					:type="type"
+					:state="state"
+					:radius="radius"
+					:color="color"
+					:elevation="elevation"
                   	:icon-left="ICONS[$props.iconLeft]"
                   	:icon-right="ICONS[$props.iconRight]"
                 >

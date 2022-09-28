@@ -12,7 +12,7 @@ const StoryTemplate: StoryFn<typeof Badge> = (argTypes) => ({
 	components: { Badge },
 	props: Object.keys(argTypes),
 	template:
-		'<div style="display: flex"><Badge v-bind=$props><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></Badge></div>',
+		'<div style="display: flex"><Badge :color="color" :label="label"><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></Badge></div>',
 });
 
 export const Interactive = StoryTemplate.bind({});
