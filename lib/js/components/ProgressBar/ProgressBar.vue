@@ -142,9 +142,22 @@ $progress-bar-layers: (
 		}
 	}
 
+	&-noRadius {
+		border-radius: 0;
+	}
+
+	&.-compact {
+		#{$self}__labelText {
+			@include headlineXS();
+		}
+		#{$self}__label {
+			margin-bottom: $space-xxxs;
+		}
+	}
+
 	&__bar {
 		background-color: $color-default-background;
-    border-radius: $progress-bar-border-radius;
+		border-radius: $progress-bar-border-radius;
 		box-shadow: inset 0 1px 4px $color-default-shadow-heavy;
 		height: $progress-bar-height;
 		overflow: hidden;
@@ -154,8 +167,8 @@ $progress-bar-layers: (
 		}
 
 		&.-xsmall {
-      border-radius: 0;
-      box-shadow: inset 0 1px 3px $color-default-shadow-heavy;
+			border-radius: 0;
+			box-shadow: inset 0 1px 3px $color-default-shadow-heavy;
 			height: $progress-bar-xs-height;
 		}
 
@@ -210,19 +223,6 @@ $progress-bar-layers: (
 
 		color: $color-neutral-text-weak;
 		margin-left: $space-xxxxs;
-	}
-
-	&-noRadius {
-		border-radius: 0;
-	}
-
-	&.-compact {
-		#{$self}__labelText {
-			@include headlineXS();
-		}
-		#{$self}__label {
-			margin-bottom: $space-xxxs;
-		}
 	}
 
 	&__results {

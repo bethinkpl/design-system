@@ -101,7 +101,7 @@ TwoLayers.args = {
 			percentValueFrom: 30,
 			length: 30,
 		},
-	]
+	],
 } as Args;
 
 export const WithLabels = StoryTemplate.bind({});
@@ -152,7 +152,7 @@ WithGaps.args = {
 			percentValueFrom: 70,
 			length: 100,
 		},
-	]
+	],
 } as Args;
 
 export const Compact = StoryTemplate.bind({});
@@ -165,7 +165,7 @@ Compact.args = {
 			layer: 1,
 			percentValueFrom: 0,
 			length: 30,
-		}
+		},
 	],
 	labelText: 'Label text',
 	labelData: '30',
