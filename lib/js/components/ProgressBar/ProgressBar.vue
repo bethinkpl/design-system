@@ -178,7 +178,7 @@ $progress-bar-layers: (
 	}
 
 	&__label {
-    align-items: flex-end;
+		align-items: flex-end;
 		display: flex;
 		justify-content: space-between;
 		margin-bottom: $space-xxxs;
