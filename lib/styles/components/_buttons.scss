@@ -3,8 +3,7 @@
 @import '../settings/radiuses';
 @import '../settings/typography';
 @import '../settings/buttons';
-
-$default-lighter-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.35);
+@import '../settings/shadows';
 
 @mixin setButtonColor($color, $color-hovered: null, $color-focused: null, $color-disabled: null) {
 	color: $color;
@@ -317,7 +316,7 @@ $button-disabled-alpha: 0.6;
 
 	&.-elevation-small {
 		&:not(.-text) {
-			box-shadow: $default-lighter-shadow;
+			box-shadow: $shadow-l;
 		}
 	}
 

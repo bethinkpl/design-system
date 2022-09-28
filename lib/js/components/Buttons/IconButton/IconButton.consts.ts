@@ -1,4 +1,4 @@
-import { BUTTON_TYPES } from '../Button';
+import { BUTTON_TYPES } from '../Button/Button.consts';
 
 export const ICON_BUTTON_SIZES = {
 	XX_SMALL: 'xx-small',
