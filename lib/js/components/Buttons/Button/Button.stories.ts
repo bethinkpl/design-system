@@ -20,19 +20,19 @@ const StoryTemplate: StoryFn<typeof Button> = (argTypes) => ({
 	components: { Button },
 	props: Object.keys(argTypes),
 	template: `<div :class="{ contrastBackground: isInverted }">
-                <Button
-					:size="size"
-					:type="type"
-					:state="state"
-					:radius="radius"
-					:color="color"
-					:elevation="elevation"
-                  	:icon-left="ICONS[$props.iconLeft]"
-                  	:icon-right="ICONS[$props.iconRight]"
-                >
-					<template v-if="${'default' in args}" v-slot>${args.default}</template>
-                </Button>
-            </div>`,
+		<Button
+			:size="size"
+			:type="type"
+			:state="state"
+			:radius="radius"
+			:color="color"
+			:elevation="elevation"
+			:icon-left="ICONS[$props.iconLeft]"
+			:icon-right="ICONS[$props.iconRight]"
+		>
+			<template v-if="${'default' in args}" v-slot>${args.default}</template>
+		</Button>
+	</div>`,
 	computed: {
 		isInverted() {
 			return this.color === 'inverted';
