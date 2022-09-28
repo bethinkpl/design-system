@@ -144,9 +144,9 @@ $progress-bar-layers: (
 
 	&__bar {
 		background-color: $color-default-background;
+    border-radius: $progress-bar-border-radius;
 		box-shadow: inset 0 1px 4px $color-default-shadow-heavy;
 		height: $progress-bar-height;
-		border-radius: $progress-bar-border-radius;
 		overflow: hidden;
 
 		&.-small {
@@ -154,9 +154,9 @@ $progress-bar-layers: (
 		}
 
 		&.-xsmall {
+      border-radius: 0;
+      box-shadow: inset 0 1px 3px $color-default-shadow-heavy;
 			height: $progress-bar-xs-height;
-			box-shadow: inset 0 1px 3px $color-default-shadow-heavy;
-			border-radius: 0;
 		}
 
 		&.-noRadius {
