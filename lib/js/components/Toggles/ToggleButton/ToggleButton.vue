@@ -237,7 +237,7 @@ $toggle-button-colors: (
 	}
 
 	&.-elevationSmall {
-		box-shadow: $default-shadow;
+		box-shadow: $shadow-l;
 	}
 }
 </style>
