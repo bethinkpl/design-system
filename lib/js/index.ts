@@ -49,6 +49,8 @@ export { default as PopOver } from './components/PopOver';
 export * from './components/PopOver/PopOver.consts';
 export { default as Dropdown } from './components/Dropdown';
 export * from './components/Dropdown/Dropdown.consts';
+export { default as ProgressBar } from './components/ProgressBar';
+export * from './components/ProgressBar/ProgressBar.consts';
 
 export {
 	initialize as initializeIcons,
