@@ -18,15 +18,16 @@
 						</div>
 					</div>
 					<div class="ds-banner__rightWrapper">
-						<ds-button
-							v-if="buttonText"
-							class="ds-banner__ctaButton"
-							:color="BUTTON_COLORS.NEUTRAL"
-							:type="BUTTON_TYPES.OUTLINED"
-							:size="BUTTON_SIZES.SMALL"
-							@click.native="$emit('button-clicked')"
-							>{{ buttonText }}
-						</ds-button>
+						<div v-if="buttonText" class="ds-banner__buttonWrapper">
+							<ds-button
+								class="ds-banner__ctaButton"
+								:color="BUTTON_COLORS.NEUTRAL"
+								:type="BUTTON_TYPES.OUTLINED"
+								:size="BUTTON_SIZES.SMALL"
+								@click.native="$emit('button-clicked')"
+								>{{ buttonText }}
+							</ds-button>
+						</div>
 						<div
 							v-if="$slots.rightSlot && $slots.rightSlot.length > 0"
 							class="ds-banner__rightSlot"
@@ -114,8 +115,8 @@
 				padding: $space-xxxxxs 0 $space-xxxxxs $space-s;
 			}
 
-			#{$self}__ctaButton {
-				margin: $space-xs 0;
+			#{$self}__buttonWrapper {
+				padding: $space-xs 0;
 			}
 
 			#{$self}__rightSlot {
@@ -205,8 +206,8 @@
 		padding: 0;
 	}
 
-	&__ctaButton {
-		margin: $space-xs 0;
+	&__buttonWrapper {
+		padding: $space-xs 0;
 	}
 
 	&__rightSlot {
