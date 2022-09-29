@@ -18,7 +18,7 @@
 						</div>
 					</div>
 					<div class="ds-banner__rightWrapper">
-						<div v-if="buttonText" class="ds-banner__buttonText">
+						<div v-if="buttonText" class="ds-banner__buttonWrapper">
 							<ds-button
 								:color="BUTTON_COLORS.NEUTRAL"
 								:type="BUTTON_TYPES.OUTLINED"
@@ -92,34 +92,71 @@
 	flex-direction: column;
 	padding: $space-xs;
 
-	&.-vertical {
-		#{$self}__iconContainer {
-			padding: $space-xxxxs 0;
-		}
+	@media #{breakpoint-s()} {
+		&.-horizontal {
+			#{$self}__iconContainer {
+				padding: $space-xxs 0;
+			}
 
-		#{$self}__header {
-			padding: 0 $space-xxxxs;
-		}
+			#{$self}__header {
+				padding: 0 $space-xxs;
+			}
 
-		#{$self}__expander {
-			padding: 0;
-		}
+			#{$self}__expander {
+				padding: $space-xs $space-xxxxs $space-xs 0;
+			}
 
-		#{$self}__textWrapper {
-			flex-direction: column;
-		}
+			#{$self}__textWrapper {
+				flex-direction: row;
+			}
 
-		#{$self}__rightWrapper {
-			padding: 0;
-		}
+			#{$self}__rightWrapper {
+				padding: $space-xxxxxs 0 $space-xxxxxs $space-s;
+			}
 
-		#{$self}__buttonText {
-			padding: $space-xxs 0 0 0;
-		}
+			#{$self}__buttonWrapper {
+				padding: $space-xs 0;
+			}
 
-		#{$self}__rightSlot {
-			padding: $space-xxs 0 0 0;
+			#{$self}__rightSlot {
+				padding: $space-xs 0 $space-xs 0;
+			}
 		}
+	}
+
+	&.-warning {
+		background-color: $color-warning-background;
+		border-color: $color-warning-border-weak;
+	}
+
+	&.-success {
+		background-color: $color-success-background;
+		border-color: $color-success-border-weak;
+	}
+
+	&.-info {
+		background-color: $color-info-background;
+		border-color: $color-info-border-weak;
+	}
+
+	&.-fail {
+		background-color: $color-fail-background;
+		border-color: $color-fail-border-weak;
+	}
+
+	&.-neutral {
+		background-color: $color-neutral-background;
+		border-color: $color-neutral-border-weak;
+	}
+
+	&.-default {
+		background-color: $color-default-background;
+		border-color: $color-neutral-border-weak;
+	}
+
+	&.-danger {
+		background-color: $color-danger-background;
+		border-color: $color-danger-border-weak;
 	}
 
 	&__content {
@@ -130,7 +167,7 @@
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
-		padding: 0 $space-xxs;
+		padding: 0 $space-xxxxs;
 	}
 
 	&__title {
@@ -149,7 +186,7 @@
 	&__textWrapper {
 		flex: 1;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: space-between;
 	}
 
@@ -165,15 +202,15 @@
 		display: flex;
 		flex-wrap: nowrap;
 		flex-shrink: 0;
-		padding: $space-xxxxxs 0 $space-xxxxxs $space-s;
+		padding: 0;
 	}
 
-	&__buttonText {
+	&__buttonWrapper {
 		padding: $space-xs 0;
 	}
 
 	&__rightSlot {
-		padding: $space-xs 0 $space-xs 0;
+		padding: $space-xxs 0 0 0;
 
 		&:nth-child(2) {
 			margin-left: $space-xxxxs;
@@ -181,7 +218,7 @@
 	}
 
 	&__iconContainer {
-		padding: $space-xxs 0;
+		padding: $space-xxxxs 0;
 		margin-right: $space-s;
 	}
 
@@ -230,7 +267,7 @@
 	}
 
 	&__expander {
-		padding: $space-xs $space-xxxxs $space-xs 0;
+		padding: 0;
 		margin-left: $space-xxs;
 	}
 
@@ -243,41 +280,6 @@
 
 	&__expandedText {
 		margin-top: $space-xs;
-	}
-
-	&.-warning {
-		background-color: $color-warning-background;
-		border-color: $color-warning-border-weak;
-	}
-
-	&.-success {
-		background-color: $color-success-background;
-		border-color: $color-success-border-weak;
-	}
-
-	&.-info {
-		background-color: $color-info-background;
-		border-color: $color-info-border-weak;
-	}
-
-	&.-fail {
-		background-color: $color-fail-background;
-		border-color: $color-fail-border-weak;
-	}
-
-	&.-neutral {
-		background-color: $color-neutral-background;
-		border-color: $color-neutral-border-weak;
-	}
-
-	&.-default {
-		background-color: $color-default-background;
-		border-color: $color-neutral-border-weak;
-	}
-
-	&.-danger {
-		background-color: $color-danger-background;
-		border-color: $color-danger-border-weak;
 	}
 }
 </style>
