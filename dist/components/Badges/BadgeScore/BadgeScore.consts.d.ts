@@ -4,6 +4,7 @@ export declare const BADGE_SCORE_COLORS: {
     readonly FAIL: "fail";
     readonly INVERTED: "inverted";
     readonly NEUTRAL: "neutral";
+    readonly NEUTRAL_WEAK: "neutral-weak";
 };
 export declare const BADGE_SCORE_SIZES: {
     readonly MEDIUM: "medium";
