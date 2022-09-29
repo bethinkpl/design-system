@@ -6,12 +6,16 @@
 			'-warning': color === BADGE_SCORE_COLORS.WARNING,
 			'-fail': color === BADGE_SCORE_COLORS.FAIL,
 			'-inverted': color === BADGE_SCORE_COLORS.INVERTED,
+			'-neutralWeak': color === BADGE_SCORE_COLORS.NEUTRAL_WEAK,
 			'-neutral': color === BADGE_SCORE_COLORS.NEUTRAL,
 			'-small': size === BADGE_SCORE_SIZES.SMALL,
 			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
+			'-fullWidth': fullWidth,
 		}"
 	>
-		{{ text }}<span class="badgeScore__additionalText">{{ additionalText }}</span>
+		<wnl-icon v-if="icon" class="badgeScore__icon" :icon="icon" :size="iconSize" />
+		<div class="badgeScore__text">{{ text }}</div>
+		<span class="badgeScore__suffix">{{ suffix }}</span>
 	</div>
 </template>
 
@@ -20,43 +24,69 @@
 @import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
 
-$badge-score-width: 74px;
-$small-badge-score-width: 48px;
-$x-small-badge-score-width: 36px;
+$badge-score-min-width: 66px;
+$badge-score-small-min-width: 56px;
+$badge-score-x-small-min-width: 40px;
 
 $badge-score-colors: (
 	'success': (
-		'border': $color-success-border,
+		'background': $color-success-background-medium,
+		'icon': $color-success-icon,
 		'color': $color-success-text,
-		'color-additional': $color-success-text-weak,
+		'color-suffix': $color-success-text-weak,
+		'color-suffix-xs': $color-success-text,
 	),
 	'fail': (
-		'border': $color-fail-border,
+		'background': $color-fail-background-medium,
+		'icon': $color-fail-icon,
 		'color': $color-fail-text,
-		'color-additional': $color-fail-text-weak,
+		'color-suffix': $color-fail-text-weak,
+		'color-suffix-xs': $color-fail-text,
 	),
 	'warning': (
-		'border': $color-warning-border,
+		'background': $color-warning-background-medium,
+		'icon': $color-warning-icon,
 		'color': $color-warning-text,
-		'color-additional': $color-warning-text-weak,
+		'color-suffix': $color-warning-text-weak,
+		'color-suffix-xs': $color-warning-text,
 	),
 	'inverted': (
-		'border': $color-inverted-border,
-		'color': $color-inverted-text,
-		'color-additional': $color-inverted-text,
+		'background': $color-default-background,
+		'icon': $color-neutral-icon-weak,
+		'color': $color-neutral-text-weak,
+		'color-suffix': $color-neutral-text-weak,
+		'color-suffix-xs': $color-neutral-text-weak,
 	),
 	'neutral': (
-		'border': $color-neutral-border-strong,
+		'background': $color-neutral-background-medium,
+		'icon': $color-neutral-icon,
+		'color': $color-neutral-text,
+		'color-suffix': $color-neutral-text,
+		'color-suffix-xs': $color-neutral-text,
+	),
+	'neutralWeak': (
+		'background': $color-neutral-background,
+		'icon': $color-neutral-icon-weak,
 		'color': $color-neutral-text-weak,
-		'color-additional': $color-neutral-text-weak,
+		'color-suffix': $color-neutral-text-weak,
+		'color-suffix-xs': $color-neutral-text-weak,
 	),
 );
 
-@mixin setBadgeScoreColor($self, $border, $color, $color-additional) {
-	border-color: $border;
+@mixin setBadgeScoreColor($self, $background, $icon, $color, $color-suffix, $color-suffix-xs) {
+	background-color: $background;
 	color: $color;
-	#{$self}__additionalText {
-		color: $color-additional;
+	#{$self}__icon {
+		color: $icon;
+	}
+	#{$self}__suffix {
+		color: $color-suffix;
+	}
+
+	&.-xsmall {
+		#{$self}__suffix {
+			color: $color-suffix-xs;
+		}
 	}
 }
 
@@ -64,54 +94,85 @@ $badge-score-colors: (
 	$self: &;
 
 	@include textBold();
-	@include headlineL();
+	@include headlineM();
 
 	@each $color-name, $color-map in $badge-score-colors {
 		&.-#{$color-name} {
 			@include setBadgeScoreColor(
 				$self,
-				map-get($color-map, 'border'),
+				map-get($color-map, 'background'),
+				map-get($color-map, 'icon'),
 				map-get($color-map, 'color'),
-				map-get($color-map, 'color-additional')
+				map-get($color-map, 'color-suffix'),
+				map-get($color-map, 'color-suffix-xs')
 			);
 		}
 	}
 
 	border-radius: 4px;
-	border-width: 2px;
-	border-style: solid;
-	display: inline-block;
-	min-width: $badge-score-width;
-	padding: $space-xxxs $space-xxxxs;
-	text-align: center;
+	display: inline-flex;
+	justify-content: center;
+	min-width: $badge-score-min-width;
+	padding: $space-xxxs $space-xxs;
+
+	&__text {
+		align-self: baseline;
+	}
+
+	&__icon {
+		margin-right: $space-xxxxxs;
+		align-self: center;
+	}
+
+	&__suffix {
+		@include headlineS();
+
+		align-self: baseline;
+	}
 
 	&.-small {
 		@include headlineS();
 
-		min-width: $small-badge-score-width;
+		padding: $space-xxs $space-xxs;
+		min-width: $badge-score-small-min-width;
+		#{$self}__suffix {
+			@include headlineXS();
+		}
 	}
 
 	&.-xsmall {
-		@include textXS();
+		@include textInfoM();
 
-		min-width: $x-small-badge-score-width;
-		border-width: 1px;
-		padding: $space-xxxxs;
+		min-width: $badge-score-x-small-min-width;
+		padding: $space-xxxs;
+
+		#{$self}__suffix {
+			@include textInfoM();
+		}
+	}
+
+	&.-fullWidth {
+		width: 100%;
 	}
 }
 </style>
 
 <script lang="ts">
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
+import WnlIcon, { ICONS, ICON_SIZES } from '../../Icon';
+import { VueConstructor } from 'vue';
 
 export default {
 	name: 'BadgeScore',
+	components: {
+		WnlIcon,
+	},
 	props: {
 		text: {
 			type: String,
 			required: true,
 		},
-		additionalText: {
+		suffix: {
 			type: String,
 			required: false,
 			default: null,
@@ -123,6 +184,13 @@ export default {
 				return Object.values(BADGE_SCORE_COLORS).includes(color);
 			},
 		},
+		icon: {
+			type: Object,
+			default: null,
+			validate(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
+		},
 		size: {
 			type: String,
 			default: BADGE_SCORE_SIZES.MEDIUM,
@@ -130,8 +198,25 @@ export default {
 				return Object.values(BADGE_SCORE_SIZES).includes(size);
 			},
 		},
+		fullWidth: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	computed: {
+		iconSize(): string {
+			if (this.size === BADGE_SCORE_SIZES.SMALL) {
+				return ICON_SIZES.X_SMALL;
+			}
+			if (this.size === BADGE_SCORE_SIZES.XSMALL) {
+				return ICON_SIZES.XXX_SMALL;
+			}
+
+			return ICON_SIZES.SMALL;
+		},
 	},
 	created() {
+		this.ICON_SIZES = ICON_SIZES;
 		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
 		this.BADGE_SCORE_SIZES = BADGE_SCORE_SIZES;
 	},
