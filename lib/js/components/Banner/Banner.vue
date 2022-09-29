@@ -115,7 +115,7 @@
 			}
 
 			#{$self}__ctaButton {
-				padding: $space-xs 0;
+				margin: $space-xs 0;
 			}
 
 			#{$self}__rightSlot {
@@ -206,7 +206,7 @@
 	}
 
 	&__ctaButton {
-		padding: $space-xs 0;
+		margin: $space-xs 0;
 	}
 
 	&__rightSlot {
