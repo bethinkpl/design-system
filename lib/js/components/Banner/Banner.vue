@@ -2,7 +2,11 @@
 	<div class="ds-banner" :class="[colorClass, layoutClass]">
 		<div class="ds-banner__content">
 			<div class="ds-banner__header">
-				<div v-if="icon" class="ds-banner__iconContainer">
+				<div
+					v-if="icon"
+					class="ds-banner__iconContainer"
+					:class="{ '-hideOnMobile': isIconHiddenOnMobile }"
+				>
 					<!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
 					<ds-icon class="ds-banner__icon" :class="[colorClass]" :icon="icon" />
 				</div>
@@ -221,6 +225,14 @@
 	&__iconContainer {
 		padding: $space-xxxxs 0;
 		margin-right: $space-s;
+
+		&.-hideOnMobile {
+			display: none;
+
+			@media #{breakpoint-s()} {
+				display: initial;
+			}
+		}
 	}
 
 	&__icon {
@@ -338,6 +350,10 @@ export default {
 			validate: (layout) => Object.values(BANNER_LAYOUTS).includes(layout),
 		},
 		isExpanded: {
+			type: Boolean,
+			default: false,
+		},
+		isIconHiddenOnMobile: {
 			type: Boolean,
 			default: false,
 		},
