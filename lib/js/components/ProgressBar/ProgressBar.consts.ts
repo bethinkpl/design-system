@@ -35,7 +35,7 @@ export const PROGRESS_BAR_COLOR_SCHEMES = {
 };
 
 export interface Ranges {
-	layer: Number,
-	from: Number,
-	length: Number,
+	layer: Number;
+	from: Number;
+	length: Number;
 }

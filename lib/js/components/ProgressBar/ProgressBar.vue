@@ -34,16 +34,16 @@
 				'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
 			}"
 		>
-      <div
-        v-for="(range, index) in ranges"
-        :key="index"
-        :class="{
-          progressBar__result: true,
-          '-secondary': range.layer === 2 && numberOfLayers === 2,
-        }"
-        :style="{ left: range.percentValueFrom + '%', width: range.length + '%' }"
-      >
-      </div>
+			<div
+				v-for="(range, index) in ranges"
+				:key="index"
+				:class="{
+					progressBar__result: true,
+					'-secondary': range.layer === 2 && numberOfLayers === 2,
+				}"
+				:style="{ left: range.percentValueFrom + '%', width: range.length + '%' }"
+			>
+			</div>
 		</div>
 	</div>
 </template>
@@ -156,7 +156,7 @@ $progress-bar-layers: (
 		box-shadow: $default-shadow-progress-m;
 		height: $progress-bar-height;
 		overflow: hidden;
-    position: relative;
+		position: relative;
 
 		&.-small {
 			height: $progress-bar-s-height;
@@ -230,15 +230,15 @@ $progress-bar-layers: (
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue'
+import { PropType } from 'vue';
 import {
 	PROGRESS_BAR_COLORS,
 	PROGRESS_BAR_SIZES,
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_COLOR_SCHEMES,
-  PROGRESS_BAR_LAYERS,
-  Ranges
+	PROGRESS_BAR_LAYERS,
+	Ranges,
 } from './ProgressBar.consts';
 
 export default {
@@ -247,9 +247,9 @@ export default {
 		numberOfLayers: {
 			type: Number,
 			default: PROGRESS_BAR_LAYERS.ONE,
-      validate(size) {
-        return Object.values(PROGRESS_BAR_LAYERS).includes(size);
-      },
+			validate(size) {
+				return Object.values(PROGRESS_BAR_LAYERS).includes(size);
+			},
 		},
 		colorScheme: {
 			type: String,
@@ -273,7 +273,7 @@ export default {
 			},
 		},
 		ranges: {
-      type: Array as PropType<Array<Ranges>>,
+			type: Array as PropType<Array<Ranges>>,
 			required: true,
 		},
 		radius: {
@@ -313,7 +313,7 @@ export default {
 			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
 			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
 			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
-      PROGRESS_BAR_LAYERS: Object.freeze(PROGRESS_BAR_LAYERS),
+			PROGRESS_BAR_LAYERS: Object.freeze(PROGRESS_BAR_LAYERS),
 			PROGRESS_BAR_COLOR_SCHEMES: Object.freeze(PROGRESS_BAR_COLOR_SCHEMES),
 		};
 	},
