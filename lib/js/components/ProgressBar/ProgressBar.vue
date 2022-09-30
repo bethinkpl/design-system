@@ -17,13 +17,13 @@
 			<div class="progressBar__labelText">{{ labelText }}</div>
 			<div v-if="labelDataExists" class="progressBar__labelDataWrapper">
 				<span v-if="labelData" class="progressBar__labelData">{{ labelData }}</span>
-				<div v-if="labelDataSupporting" class="progressBar__labelDataSupporting">
+				<span v-if="labelDataSupporting" class="progressBar__labelDataSupporting">
 					<span class="progressBar__labelDataSeparator">/</span>
 					{{ labelDataSupporting }}
-				</div>
-				<div v-if="labelDataSuffix" class="progressBar__labelDataSuffix">{{
+				</span>
+				<span v-if="labelDataSuffix" class="progressBar__labelDataSuffix">{{
 					labelDataSuffix
-				}}</div>
+				}}</span>
 			</div>
 		</div>
 		<div
@@ -238,7 +238,7 @@ import {
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_COLOR_SCHEMES,
 	PROGRESS_BAR_LAYERS,
-	Ranges,
+	Range,
 } from './ProgressBar.consts';
 
 export default {
@@ -273,7 +273,7 @@ export default {
 			},
 		},
 		ranges: {
-			type: Array as PropType<Array<Ranges>>,
+			type: Array as PropType<Array<Range>>,
 			required: true,
 		},
 		radius: {

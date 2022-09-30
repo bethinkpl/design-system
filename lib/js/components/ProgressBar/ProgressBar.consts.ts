@@ -34,7 +34,7 @@ export const PROGRESS_BAR_COLOR_SCHEMES = {
 	MEDIUM_NEUTRAL: 'medium-neutral',
 };
 
-export interface Ranges {
+export interface Range {
 	layer: Number;
 	from: Number;
 	length: Number;

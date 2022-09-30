@@ -34,7 +34,7 @@ const argTypes = {
 	},
 	color: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_COLORS) },
-		defaultValue: PROGRESS_BAR_COLORS.PRIMARY,
+		defaultValue: PROGRESS_BAR_COLORS.INFO,
 	},
 	size: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_SIZES) },
