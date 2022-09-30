@@ -15,8 +15,8 @@
 	>
 		<div class="progressBar__label">
 			<div class="progressBar__labelText">{{ labelText }}</div>
-			<div v-if="labelDataExist" class="progressBar__labelDataWrapper">
-				<div v-if="labelData" class="progressBar__labelData">{{ labelData }}</div>
+			<div v-if="labelDataExists" class="progressBar__labelDataWrapper">
+				<span v-if="labelData" class="progressBar__labelData">{{ labelData }}</span>
 				<div v-if="labelDataSupporting" class="progressBar__labelDataSupporting">
 					<span class="progressBar__labelDataSeparator">/</span>
 					{{ labelDataSupporting }}
@@ -34,18 +34,16 @@
 				'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
 			}"
 		>
-			<div class="progressBar__results">
-				<div
-					v-for="(range, index) in ranges"
-					:key="index"
-					:class="{
-						progressBar__result: true,
-						'-secondary': range.layer === 2 && numberOfLayers === 2,
-					}"
-					:style="{ left: range.percentValueFrom + '%', width: range.length + '%' }"
-				>
-				</div>
-			</div>
+      <div
+        v-for="(range, index) in ranges"
+        :key="index"
+        :class="{
+          progressBar__result: true,
+          '-secondary': range.layer === 2 && numberOfLayers === 2,
+        }"
+        :style="{ left: range.percentValueFrom + '%', width: range.length + '%' }"
+      >
+      </div>
 		</div>
 	</div>
 </template>
@@ -55,6 +53,7 @@
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/shadows';
 
 $progress-bar-height: 16px;
 $progress-bar-s-height: 8px;
@@ -64,14 +63,14 @@ $progress-bar-border-radius: 8px;
 
 $progress-bar-layers: (
 	'primary': (
-		'default': $color-primary-text,
+		'default': $color-primary-data,
 		'ghost': $color-primary-data-ghost,
 		'medium': $color-primary-data-medium,
 		'weak': $color-primary-data-weak,
 		'neutral-weak': $color-neutral-data-weak,
 	),
 	'info': (
-		'default': $color-info-text,
+		'default': $color-info-data,
 		'ghost': $color-info-data-ghost,
 		'medium': $color-info-data-medium,
 		'weak': $color-info-data-weak,
@@ -85,21 +84,21 @@ $progress-bar-layers: (
 		'neutral-weak': $color-neutral-data-weak,
 	),
 	'success': (
-		'default': $color-success-text,
+		'default': $color-success-data,
 		'ghost': $color-success-data-ghost,
 		'medium': $color-success-data-medium,
 		'weak': $color-success-data-weak,
 		'neutral-weak': $color-neutral-data-weak,
 	),
 	'warning': (
-		'default': $color-warning-text,
+		'default': $color-warning-data,
 		'ghost': $color-warning-data-ghost,
 		'medium': $color-warning-data-medium,
 		'weak': $color-warning-data-weak,
 		'neutral-weak': $color-neutral-data-weak,
 	),
 	'fail': (
-		'default': $color-fail-text,
+		'default': $color-fail-data,
 		'ghost': $color-fail-data-ghost,
 		'medium': $color-fail-data-medium,
 		'weak': $color-fail-data-weak,
@@ -142,10 +141,6 @@ $progress-bar-layers: (
 		}
 	}
 
-	&-noRadius {
-		border-radius: 0;
-	}
-
 	&.-compact {
 		#{$self}__labelText {
 			@include headlineXS();
@@ -158,17 +153,17 @@ $progress-bar-layers: (
 	&__bar {
 		background-color: $color-default-background;
 		border-radius: $progress-bar-border-radius;
-		box-shadow: inset 0 1px 4px $color-default-shadow-heavy;
+		box-shadow: $default-shadow-progress-m;
 		height: $progress-bar-height;
 		overflow: hidden;
+    position: relative;
 
 		&.-small {
 			height: $progress-bar-s-height;
 		}
 
 		&.-xsmall {
-			border-radius: 0;
-			box-shadow: inset 0 1px 3px $color-default-shadow-heavy;
+			box-shadow: $default-shadow-progress-s;
 			height: $progress-bar-xs-height;
 		}
 
@@ -226,12 +221,6 @@ $progress-bar-layers: (
 		margin-left: $space-xxxxs;
 	}
 
-	&__results {
-		height: 100%;
-		position: relative;
-		width: 100%;
-	}
-
 	&__result {
 		height: 100%;
 		position: absolute;
@@ -241,12 +230,15 @@ $progress-bar-layers: (
 </style>
 
 <script lang="ts">
+import { PropType } from 'vue'
 import {
 	PROGRESS_BAR_COLORS,
 	PROGRESS_BAR_SIZES,
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_COLOR_SCHEMES,
+  PROGRESS_BAR_LAYERS,
+  Ranges
 } from './ProgressBar.consts';
 
 export default {
@@ -254,7 +246,10 @@ export default {
 	props: {
 		numberOfLayers: {
 			type: Number,
-			default: 1,
+			default: PROGRESS_BAR_LAYERS.ONE,
+      validate(size) {
+        return Object.values(PROGRESS_BAR_LAYERS).includes(size);
+      },
 		},
 		colorScheme: {
 			type: String,
@@ -265,7 +260,7 @@ export default {
 		},
 		color: {
 			type: String,
-			required: true,
+			default: PROGRESS_BAR_COLORS.INFO,
 			validate(color) {
 				return Object.values(PROGRESS_BAR_COLORS).includes(color);
 			},
@@ -278,7 +273,7 @@ export default {
 			},
 		},
 		ranges: {
-			type: Array,
+      type: Array as PropType<Array<Ranges>>,
 			required: true,
 		},
 		radius: {
@@ -318,11 +313,12 @@ export default {
 			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
 			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
 			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
+      PROGRESS_BAR_LAYERS: Object.freeze(PROGRESS_BAR_LAYERS),
 			PROGRESS_BAR_COLOR_SCHEMES: Object.freeze(PROGRESS_BAR_COLOR_SCHEMES),
 		};
 	},
 	computed: {
-		labelDataExist() {
+		labelDataExists() {
 			return this.labelData || this.labelDataSupporting || this.labelDataSuffix;
 		},
 	},
