@@ -25,7 +25,9 @@ import { ICONS } from '../Icon';
 		defaultText:
 			'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices malesuada vehicula. Mauris egestas scelerisque enim, condimentum aliquet arcu bibendum nec.',
 		expandedText: '',
+		rightSlot: '',
 		isExpanded: false,
+		isIconHiddenOnMobile: false,
 	}}
 	argTypes={{
 		closable: { control: { type: 'boolean' }, defaultValue: false },
@@ -35,6 +37,10 @@ import { ICONS } from '../Icon';
 				options: Object.keys(ICONS),
 			},
 			defaultValue: null,
+		},
+		isIconHiddenOnMobile: {
+			control: { type: 'boolean' },
+			defaultValue: false
 		},
 		color: {
 			control: { type: 'select', options: Object.values(BANNER_COLORS) },
@@ -55,6 +61,9 @@ import { ICONS } from '../Icon';
 			control: { type: 'text' },
 		},
 		expandedText: {
+			control: { type: 'text' },
+		},
+		rightSlot: {
 			control: { type: 'text' },
 		},
 		isExpanded: {
@@ -85,11 +94,15 @@ import { ICONS } from '../Icon';
 					:buttonText='buttonText'
 					:layout='layout'
 					:is-expanded='isExpanded'
-					@update:isExpanded="onIsExpandedUpdated"
+					:is-icon-hidden-on-mobile='isIconHiddenOnMobile'
+					@update:isExpanded='onIsExpandedUpdated'
 				>
 				<template v-slot:defaultText><span v-if='defaultText' v-html='defaultText' /></template>
 				<template v-slot:expandedText>
 					<div v-if='expandedText' v-html='expandedText' />
+				</template>
+				<template v-slot:rightSlot>
+					<div v-if='rightSlot' v-html='rightSlot' />
 				</template>
 				</ds-banner>`,
 		};
