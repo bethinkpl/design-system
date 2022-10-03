@@ -21,6 +21,8 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_BELL: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_BELL_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_BOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_BOOK_BLANK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_BOOK_COPY: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_BOOK_SPARKLES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_BOOKMARK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_BOX_ARCHIVE: import("@fortawesome/fontawesome-common-types").IconDefinition;
