@@ -202,6 +202,7 @@ declare const _default: {
                     readonly FA_FILE_INVOICE_DOLLAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILE_LINES: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILE_LINES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_FILE_MAGNIFYING_GLASS: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILE_PEN_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILM: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILTER: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -605,6 +606,7 @@ declare const _default: {
                             readonly FA_FILE_INVOICE_DOLLAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_FILE_LINES: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_FILE_LINES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                            readonly FA_FILE_MAGNIFYING_GLASS: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_FILE_PEN_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_FILM: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_FILTER: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -867,6 +869,7 @@ declare const _default: {
                     readonly FA_FILE_INVOICE_DOLLAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILE_LINES: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILE_LINES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_FILE_MAGNIFYING_GLASS: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILE_PEN_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILM: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FILTER: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1089,6 +1092,10 @@ declare const _default: {
             validate: (layout: any) => boolean;
         };
         isExpanded: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isIconHiddenOnMobile: {
             type: BooleanConstructor;
             default: boolean;
         };
