@@ -99,7 +99,7 @@ const argTypesColorOnly = {
 	color: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_COLORS) },
 		defaultValue: PROGRESS_BAR_COLORS.INFO,
-	}
+	},
 } as ArgTypes;
 
 export const WithoutLabels = StoryTemplate.bind({});

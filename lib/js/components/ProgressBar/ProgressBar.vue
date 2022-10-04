@@ -34,7 +34,6 @@
 				'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
 			}"
 		>
-
 			<div
 				v-for="(range, index) in ranges"
 				:key="index"
@@ -44,8 +43,8 @@
 				}"
 				:style="{ left: range.percentValueFrom + '%', width: range.length + '%' }"
 			>
-      </div>
-      <div class="progressBar__resultsShadow"></div>
+			</div>
+			<div class="progressBar__resultsShadow"></div>
 		</div>
 	</div>
 </template>
@@ -71,7 +70,7 @@ $progress-bar-layers: (
 		'default-layer': $color-primary-data,
 		'default-layer-secondary': $color-primary-data-ghost,
 		'emphasize-layer': $color-primary-data-medium,
-    'emphasize-layer-secondary': $color-primary-data-weak,
+		'emphasize-layer-secondary': $color-primary-data-weak,
 		'placeholder-layer': $color-neutral-data-weak,
 	),
 	'info': (
@@ -192,7 +191,7 @@ $progress-bar-layers: (
 		@include textBold;
 
 		color: $color-neutral-text-heavy;
-    max-width: $progress-bar-label-text-max-width;
+		max-width: $progress-bar-label-text-max-width;
 
 		@media #{breakpoint-s()} {
 			@include headlineS();
@@ -207,7 +206,7 @@ $progress-bar-layers: (
 		color: $color-neutral-text-heavy;
 		display: flex;
 		margin-left: $space-xxs;
-    max-width: $progress-bar-label-data-max-width;
+		max-width: $progress-bar-label-data-max-width;
 	}
 
 	&__labelDataSupporting {
@@ -233,14 +232,14 @@ $progress-bar-layers: (
 		top: 0;
 	}
 
-  &__resultsShadow {
-    box-shadow: $shadow-inset-m;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-  }
+	&__resultsShadow {
+		box-shadow: $shadow-inset-m;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
 }
 </style>
 
