@@ -15,15 +15,15 @@
 	>
 		<div class="progressBar__label">
 			<div class="progressBar__labelText">{{ labelText }}</div>
-			<div v-if="labelDataExist" class="progressBar__labelDataWrapper">
-				<div v-if="labelData" class="progressBar__labelData">{{ labelData }}</div>
-				<div v-if="labelDataSupporting" class="progressBar__labelDataSupporting">
+			<div v-if="labelDataExists" class="progressBar__labelDataWrapper">
+				<span v-if="labelData" class="progressBar__labelData">{{ labelData }}</span>
+				<span v-if="labelDataSupporting" class="progressBar__labelDataSupporting">
 					<span class="progressBar__labelDataSeparator">/</span>
 					{{ labelDataSupporting }}
-				</div>
-				<div v-if="labelDataSuffix" class="progressBar__labelDataSuffix">{{
+				</span>
+				<span v-if="labelDataSuffix" class="progressBar__labelDataSuffix">{{
 					labelDataSuffix
-				}}</div>
+				}}</span>
 			</div>
 		</div>
 		<div
@@ -34,18 +34,17 @@
 				'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
 			}"
 		>
-			<div class="progressBar__results">
-				<div
-					v-for="(range, index) in ranges"
-					:key="index"
-					:class="{
-						progressBar__result: true,
-						'-secondary': range.layer === 2 && numberOfLayers === 2,
-					}"
-					:style="{ left: range.percentValueFrom + '%', width: range.length + '%' }"
-				>
-				</div>
+			<div
+				v-for="(range, index) in ranges"
+				:key="index"
+				:class="{
+					progressBar__result: true,
+					'-secondary': range.layer === 2 && numberOfLayers === 2,
+				}"
+				:style="{ left: range.percentValueFrom + '%', width: range.length + '%' }"
+			>
 			</div>
+			<div class="progressBar__resultsShadow"></div>
 		</div>
 	</div>
 </template>
@@ -55,6 +54,7 @@
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/shadows';
 
 $progress-bar-height: 16px;
 $progress-bar-s-height: 8px;
@@ -62,48 +62,51 @@ $progress-bar-xs-height: 4px;
 
 $progress-bar-border-radius: 8px;
 
+$progress-bar-label-text-max-width: 70%;
+$progress-bar-label-data-max-width: 30%;
+
 $progress-bar-layers: (
 	'primary': (
-		'default': $color-primary-text,
-		'ghost': $color-primary-data-ghost,
-		'medium': $color-primary-data-medium,
-		'weak': $color-primary-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-primary-data,
+		'default-color-scheme-second-layer': $color-primary-data-ghost,
+		'medium-color-scheme-first-layer': $color-primary-data-medium,
+		'medium-color-scheme-second-layer': $color-primary-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'info': (
-		'default': $color-info-text,
-		'ghost': $color-info-data-ghost,
-		'medium': $color-info-data-medium,
-		'weak': $color-info-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-info-data,
+		'default-color-scheme-second-layer': $color-info-data-ghost,
+		'medium-color-scheme-first-layer': $color-info-data-medium,
+		'medium-color-scheme-second-layer': $color-info-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'neutral': (
-		'default': $color-neutral-data,
-		'ghost': $color-neutral-data-ghost,
-		'medium': $color-neutral-data-medium,
-		'weak': $color-neutral-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-neutral-data,
+		'default-color-scheme-second-layer': $color-neutral-data-ghost,
+		'medium-color-scheme-first-layer': $color-neutral-data-medium,
+		'medium-color-scheme-second-layer': $color-neutral-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'success': (
-		'default': $color-success-text,
-		'ghost': $color-success-data-ghost,
-		'medium': $color-success-data-medium,
-		'weak': $color-success-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-success-data,
+		'default-color-scheme-second-layer': $color-success-data-ghost,
+		'medium-color-scheme-first-layer': $color-success-data-medium,
+		'medium-color-scheme-second-layer': $color-success-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'warning': (
-		'default': $color-warning-text,
-		'ghost': $color-warning-data-ghost,
-		'medium': $color-warning-data-medium,
-		'weak': $color-warning-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-warning-data,
+		'default-color-scheme-second-layer': $color-warning-data-ghost,
+		'medium-color-scheme-first-layer': $color-warning-data-medium,
+		'medium-color-scheme-second-layer': $color-warning-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'fail': (
-		'default': $color-fail-text,
-		'ghost': $color-fail-data-ghost,
-		'medium': $color-fail-data-medium,
-		'weak': $color-fail-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-fail-data,
+		'default-color-scheme-second-layer': $color-fail-data-ghost,
+		'medium-color-scheme-first-layer': $color-fail-data-medium,
+		'medium-color-scheme-second-layer': $color-fail-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 );
 
@@ -113,42 +116,38 @@ $progress-bar-layers: (
 	@each $color-name, $color-map in $progress-bar-layers {
 		&.-#{$color-name} {
 			#{$self}__result {
-				background: map-get($color-map, 'default');
+				background: map-get($color-map, 'default-color-scheme-first-layer');
 
 				&.-secondary {
-					background: map-get($color-map, 'ghost');
+					background: map-get($color-map, 'default-color-scheme-second-layer');
 				}
 			}
 
 			&.-schemeMedium {
 				#{$self}__result {
-					background: map-get($color-map, 'medium');
+					background: map-get($color-map, 'medium-color-scheme-first-layer');
 
 					&.-secondary {
-						background: map-get($color-map, 'weak');
+						background: map-get($color-map, 'medium-color-scheme-second-layer');
 					}
 				}
 			}
 
 			&.-schemeMediumNeutral {
 				#{$self}__result {
-					background: map-get($color-map, 'medium');
+					background: map-get($color-map, 'medium-color-scheme-first-layer');
 
 					&.-secondary {
-						background: map-get($color-map, 'neutral-weak');
+						background: map-get($color-map, 'medium-neutral-color-scheme-second-layer');
 					}
 				}
 			}
 		}
 	}
 
-	&-noRadius {
-		border-radius: 0;
-	}
-
 	&.-compact {
 		#{$self}__labelText {
-			@include headlineXS();
+			@include headlineXXS();
 		}
 		#{$self}__label {
 			margin-bottom: $space-xxxs;
@@ -158,17 +157,16 @@ $progress-bar-layers: (
 	&__bar {
 		background-color: $color-default-background;
 		border-radius: $progress-bar-border-radius;
-		box-shadow: inset 0 1px 4px $color-default-shadow-heavy;
 		height: $progress-bar-height;
 		overflow: hidden;
+		position: relative;
 
 		&.-small {
 			height: $progress-bar-s-height;
 		}
 
 		&.-xsmall {
-			border-radius: 0;
-			box-shadow: inset 0 1px 3px $color-default-shadow-heavy;
+			box-shadow: $shadow-inset-s;
 			height: $progress-bar-xs-height;
 		}
 
@@ -189,10 +187,11 @@ $progress-bar-layers: (
 	}
 
 	&__labelText {
-		@include headlineXS();
+		@include headlineXXS();
 		@include textBold;
 
 		color: $color-neutral-text-heavy;
+		max-width: $progress-bar-label-text-max-width;
 
 		@media #{breakpoint-s()} {
 			@include headlineS();
@@ -207,6 +206,7 @@ $progress-bar-layers: (
 		color: $color-neutral-text-heavy;
 		display: flex;
 		margin-left: $space-xxs;
+		max-width: $progress-bar-label-data-max-width;
 	}
 
 	&__labelDataSupporting {
@@ -226,27 +226,33 @@ $progress-bar-layers: (
 		margin-left: $space-xxxxs;
 	}
 
-	&__results {
-		height: 100%;
-		position: relative;
-		width: 100%;
-	}
-
 	&__result {
 		height: 100%;
 		position: absolute;
 		top: 0;
 	}
+
+	&__resultsShadow {
+		box-shadow: $shadow-inset-m;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
 }
 </style>
 
 <script lang="ts">
+import { PropType } from 'vue';
 import {
 	PROGRESS_BAR_COLORS,
 	PROGRESS_BAR_SIZES,
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_COLOR_SCHEMES,
+	PROGRESS_BAR_LAYERS,
+	Range,
 } from './ProgressBar.consts';
 
 export default {
@@ -254,7 +260,10 @@ export default {
 	props: {
 		numberOfLayers: {
 			type: Number,
-			default: 1,
+			default: PROGRESS_BAR_LAYERS.ONE,
+			validate(size) {
+				return Object.values(PROGRESS_BAR_LAYERS).includes(size);
+			},
 		},
 		colorScheme: {
 			type: String,
@@ -265,7 +274,7 @@ export default {
 		},
 		color: {
 			type: String,
-			required: true,
+			default: PROGRESS_BAR_COLORS.INFO,
 			validate(color) {
 				return Object.values(PROGRESS_BAR_COLORS).includes(color);
 			},
@@ -278,7 +287,7 @@ export default {
 			},
 		},
 		ranges: {
-			type: Array,
+			type: Array as PropType<Array<Range>>,
 			required: true,
 		},
 		radius: {
@@ -318,11 +327,12 @@ export default {
 			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
 			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
 			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
+			PROGRESS_BAR_LAYERS: Object.freeze(PROGRESS_BAR_LAYERS),
 			PROGRESS_BAR_COLOR_SCHEMES: Object.freeze(PROGRESS_BAR_COLOR_SCHEMES),
 		};
 	},
 	computed: {
-		labelDataExist() {
+		labelDataExists() {
 			return this.labelData || this.labelDataSupporting || this.labelDataSuffix;
 		},
 	},

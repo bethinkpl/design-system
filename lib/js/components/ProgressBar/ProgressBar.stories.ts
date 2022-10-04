@@ -34,7 +34,7 @@ const argTypes = {
 	},
 	color: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_COLORS) },
-		defaultValue: PROGRESS_BAR_COLORS.PRIMARY,
+		defaultValue: PROGRESS_BAR_COLORS.INFO,
 	},
 	size: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_SIZES) },
@@ -48,6 +48,16 @@ const argTypes = {
 				percentValueFrom: 0,
 				length: 30,
 			},
+			{
+				layer: 2,
+				percentValueFrom: 30,
+				length: 10,
+			},
+			{
+				layer: 2,
+				percentValueFrom: 40,
+				length: 10,
+			},
 		],
 	},
 	radius: {
@@ -60,19 +70,19 @@ const argTypes = {
 	},
 	labelText: {
 		control: { type: 'text' },
-		defaultValue: '',
+		defaultValue: 'Label text',
 	},
 	labelData: {
 		control: { type: 'text' },
-		defaultValue: '',
+		defaultValue: '30',
 	},
 	labelDataSupporting: {
 		control: { type: 'text' },
-		defaultValue: '',
+		defaultValue: '100',
 	},
 	labelDataSuffix: {
 		control: { type: 'text' },
-		defaultValue: '',
+		defaultValue: '(%)',
 	},
 } as ArgTypes;
 
@@ -84,6 +94,27 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/726BIQ076eFnS0ElNuPVC2/Statystyki-i-Dashboard-Bazy-zada%C5%84-na-V1?node-id=548%3A50027',
 	},
 };
+
+const argTypesColorOnly = {
+	color: {
+		control: { type: 'select', options: Object.values(PROGRESS_BAR_COLORS) },
+		defaultValue: PROGRESS_BAR_COLORS.INFO,
+	},
+} as ArgTypes;
+
+export const WithoutLabels = StoryTemplate.bind({});
+
+WithoutLabels.args = {
+	color: PROGRESS_BAR_COLORS.PRIMARY,
+	ranges: [
+		{
+			layer: 1,
+			percentValueFrom: 0,
+			length: 30,
+		},
+	],
+} as Args;
+WithoutLabels.argTypes = argTypesColorOnly;
 
 export const TwoLayers = StoryTemplate.bind({});
 
@@ -103,23 +134,7 @@ TwoLayers.args = {
 		},
 	],
 } as Args;
-
-export const WithLabels = StoryTemplate.bind({});
-
-WithLabels.args = {
-	color: PROGRESS_BAR_COLORS.PRIMARY,
-	ranges: [
-		{
-			layer: 1,
-			percentValueFrom: 0,
-			length: 30,
-		},
-	],
-	labelText: 'Label text',
-	labelData: '30',
-	labelDataSupporting: '100',
-	labelDataSuffix: '(%)',
-} as Args;
+TwoLayers.argTypes = argTypesColorOnly;
 
 export const WithGaps = StoryTemplate.bind({});
 
@@ -154,6 +169,7 @@ WithGaps.args = {
 		},
 	],
 } as Args;
+WithGaps.argTypes = argTypesColorOnly;
 
 export const Compact = StoryTemplate.bind({});
 
@@ -172,3 +188,4 @@ Compact.args = {
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
 } as Args;
+Compact.argTypes = argTypesColorOnly;
