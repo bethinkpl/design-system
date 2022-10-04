@@ -1,9 +1,12 @@
+import { PropType } from 'vue';
+import { Range } from './ProgressBar.consts';
 declare const _default: {
     name: string;
     props: {
         numberOfLayers: {
             type: NumberConstructor;
             default: number;
+            validate(size: any): boolean;
         };
         colorScheme: {
             type: StringConstructor;
@@ -12,7 +15,7 @@ declare const _default: {
         };
         color: {
             type: StringConstructor;
-            required: boolean;
+            default: "info";
             validate(color: any): boolean;
         };
         size: {
@@ -21,7 +24,7 @@ declare const _default: {
             validate(size: any): boolean;
         };
         ranges: {
-            type: ArrayConstructor;
+            type: PropType<Range[]>;
             required: boolean;
         };
         radius: {
@@ -73,6 +76,10 @@ declare const _default: {
             DEFAULT: string;
             COMPACT: string;
         }>;
+        PROGRESS_BAR_LAYERS: Readonly<{
+            ONE: number;
+            TWO: number;
+        }>;
         PROGRESS_BAR_COLOR_SCHEMES: Readonly<{
             DEFAULT: string;
             MEDIUM: string;
@@ -80,7 +87,7 @@ declare const _default: {
         }>;
     };
     computed: {
-        labelDataExist(): any;
+        labelDataExists(): any;
     };
 };
 export default _default;

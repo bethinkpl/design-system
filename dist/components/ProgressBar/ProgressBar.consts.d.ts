@@ -28,3 +28,8 @@ export declare const PROGRESS_BAR_COLOR_SCHEMES: {
     MEDIUM: string;
     MEDIUM_NEUTRAL: string;
 };
+export interface Range {
+    layer: Number;
+    from: Number;
+    length: Number;
+}
