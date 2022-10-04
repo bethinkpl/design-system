@@ -2,37 +2,43 @@
 	<div class="ds-banner" :class="[colorClass, layoutClass]">
 		<div class="ds-banner__content">
 			<div class="ds-banner__header">
-				<div v-if="icon" class="ds-banner__iconContainer">
+				<div
+					v-if="icon"
+					class="ds-banner__iconContainer"
+					:class="{ '-hideOnMobile': isIconHiddenOnMobile }"
+				>
 					<!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
 					<ds-icon class="ds-banner__icon" :class="[colorClass]" :icon="icon" />
 				</div>
 
-				<div class="ds-banner__text">
-					<div class="ds-banner__title" v-text="title" />
-					<div
-						v-if="$slots.defaultText && $slots.defaultText.length > 0"
-						class="ds-banner__defaultText"
-					>
-						<slot name="defaultText" />
+				<div class="ds-banner__textWrapper">
+					<div class="ds-banner__titleWrapper">
+						<div class="ds-banner__title" v-text="title" />
+						<div
+							v-if="$slots.defaultText && $slots.defaultText.length > 0"
+							class="ds-banner__defaultText"
+						>
+							<slot name="defaultText" />
+						</div>
 					</div>
-					<div v-if="buttonText" class="ds-banner__buttonTextVertical">
-						<ds-button
-							:color="BUTTON_COLORS.NEUTRAL"
-							:type="BUTTON_TYPES.OUTLINED"
-							:size="BUTTON_SIZES.SMALL"
-							@click.native="$emit('button-clicked')"
-							>{{ buttonText }}
-						</ds-button>
+					<div class="ds-banner__rightWrapper">
+						<div v-if="buttonText" class="ds-banner__buttonWrapper">
+							<ds-button
+								class="ds-banner__ctaButton"
+								:color="BUTTON_COLORS.NEUTRAL"
+								:type="BUTTON_TYPES.OUTLINED"
+								:size="BUTTON_SIZES.SMALL"
+								@click.native="$emit('button-clicked')"
+								>{{ buttonText }}
+							</ds-button>
+						</div>
+						<div
+							v-if="$slots.rightSlot && $slots.rightSlot.length > 0"
+							class="ds-banner__rightSlot"
+						>
+							<slot name="rightSlot" />
+						</div>
 					</div>
-				</div>
-				<div v-if="buttonText" class="ds-banner__buttonTextHorizontal">
-					<ds-button
-						:color="BUTTON_COLORS.NEUTRAL"
-						:type="BUTTON_TYPES.OUTLINED"
-						:size="BUTTON_SIZES.SMALL"
-						@click.native="$emit('button-clicked')"
-						>{{ buttonText }}
-					</ds-button>
 				</div>
 			</div>
 			<div
@@ -84,18 +90,6 @@
 .ds-banner {
 	$self: &;
 
-	@mixin iconContainerVerticalStyles {
-		padding: $space-xxxxs 0;
-	}
-
-	@mixin headerVerticalStyles {
-		padding: 0 $space-xxxxs;
-	}
-
-	@mixin expanderVerticalStyles {
-		padding: 0;
-	}
-
 	border-radius: $radius-m;
 	border-style: solid;
 	border-width: 1px;
@@ -103,25 +97,35 @@
 	flex-direction: column;
 	padding: $space-xs;
 
-	&.-vertical {
-		#{$self}__buttonTextHorizontal {
-			display: none;
-		}
+	@media #{breakpoint-s()} {
+		&.-horizontal {
+			#{$self}__iconContainer {
+				padding: $space-xxs 0;
+			}
 
-		#{$self}__buttonTextVertical {
-			display: initial;
-		}
+			#{$self}__header {
+				padding: 0 $space-xxs;
+			}
 
-		#{$self}__iconContainer {
-			@include iconContainerVerticalStyles;
-		}
+			#{$self}__expander {
+				padding: $space-xs $space-xxxxs $space-xs 0;
+			}
 
-		#{$self}__header {
-			@include headerVerticalStyles;
-		}
+			#{$self}__textWrapper {
+				flex-direction: row;
+			}
 
-		#{$self}__expander {
-			@include expanderVerticalStyles;
+			#{$self}__rightWrapper {
+				padding: $space-xxxxxs 0 $space-xxxxxs $space-s;
+			}
+
+			#{$self}__buttonWrapper {
+				padding: $space-xs 0;
+			}
+
+			#{$self}__rightSlot {
+				padding: $space-xs 0 $space-xs 0;
+			}
 		}
 	}
 
@@ -165,15 +169,10 @@
 	}
 
 	&__header {
-		@include headerVerticalStyles;
-
 		display: flex;
 		justify-content: space-between;
 		width: 100%;
-
-		@media #{breakpoint-s()} {
-			padding: 0 $space-xxs;
-		}
+		padding: 0 $space-xxxxs;
 	}
 
 	&__title {
@@ -189,7 +188,14 @@
 		margin-top: $space-xxxxs;
 	}
 
-	&__text {
+	&__textWrapper {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	&__titleWrapper {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -197,13 +203,35 @@
 		padding: $space-xxxxs 0;
 	}
 
-	&__iconContainer {
-		@include iconContainerVerticalStyles;
+	&__rightWrapper {
+		display: flex;
+		flex-wrap: nowrap;
+		flex-shrink: 0;
+		padding: 0;
+	}
 
+	&__buttonWrapper {
+		padding: $space-xs 0;
+	}
+
+	&__rightSlot {
+		padding: $space-xxs 0 0 0;
+
+		&:nth-child(2) {
+			margin-left: $space-xxxxs;
+		}
+	}
+
+	&__iconContainer {
+		padding: $space-xxxxs 0;
 		margin-right: $space-s;
 
-		@media #{breakpoint-s()} {
-			padding: $space-xxs 0;
+		&.-hideOnMobile {
+			display: none;
+
+			@media #{breakpoint-s()} {
+				display: initial;
+			}
 		}
 	}
 
@@ -247,38 +275,13 @@
 		}
 	}
 
-	&__buttonTextHorizontal {
-		padding: $space-xs 0;
-		flex-shrink: 0;
-		display: none;
-		margin-left: $space-s;
-
-		@media #{breakpoint-s()} {
-			display: initial;
-		}
-	}
-
-	&__buttonTextVertical {
-		margin-top: $space-xxxxs;
-		padding: $space-xxs 0 0;
-
-		@media #{breakpoint-s()} {
-			display: none;
-		}
-	}
-
 	&__close {
 		margin-left: $space-xxs;
 	}
 
 	&__expander {
-		@include expanderVerticalStyles;
-
+		padding: 0;
 		margin-left: $space-xxs;
-
-		@media #{breakpoint-s()} {
-			padding: $space-xs $space-xxxxs $space-xs 0;
-		}
 	}
 
 	&__expandedContainer {
@@ -347,6 +350,10 @@ export default {
 			validate: (layout) => Object.values(BANNER_LAYOUTS).includes(layout),
 		},
 		isExpanded: {
+			type: Boolean,
+			default: false,
+		},
+		isIconHiddenOnMobile: {
 			type: Boolean,
 			default: false,
 		},

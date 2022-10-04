@@ -28,6 +28,7 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/shadows';
 @import '../../../styles/settings/z-indexes';
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors/tokens';
@@ -48,7 +49,7 @@
 
 	&__contentWrapper {
 		background-color: $color-default-background;
-		box-shadow: 0 4px 34px rgba(var(--raw-black-rgb), 0.85);
+		box-shadow: $shadow-xl;
 		display: flex;
 		flex-direction: column;
 		margin: $space-xl $space-s $space-l;

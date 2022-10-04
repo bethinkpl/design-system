@@ -50,5 +50,5 @@
       }
     }
   ],
-  "jsonBinApiUrl": "https://api.jsonbin.io/b/"
+  "jsonBinApiUrl": "https://api.jsonbin.io/v3/b/"
 }

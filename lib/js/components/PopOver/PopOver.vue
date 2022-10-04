@@ -6,20 +6,21 @@
 		:force-show="forceShow"
 		:options="{ placement }"
 		:trigger="triggerAction"
+		:delay-on-mouse-over="300"
 		:delay-on-mouse-out="300"
 	>
 		<div
-			class="popper popPover"
+			class="popper popOver"
 			:class="{ '-color-neutral': color === POP_OVER_COLORS.NEUTRAL }"
 		>
-			<img v-if="headerImageUrl" class="popPover__image" :src="headerImageUrl" alt="" />
-			<div class="popPover__content">
-				<div v-if="titleText" class="popPover__title"> {{ titleText }} </div>
+			<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
+			<div class="popOver__content">
+				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
 				<slot :close="close" />
 			</div>
 			<ds-button
 				v-if="buttonText"
-				class="popPover__button"
+				class="popOver__button"
 				:type="BUTTON_TYPES.TEXT"
 				:size="BUTTON_SIZES.LARGE"
 				@click="$emit('button-click')"
@@ -39,8 +40,10 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
-.popPover {
+.popOver {
 	background-color: $color-default-background;
+	// override popperjs styles
+	border: none;
 	border-radius: $radius-m;
 	box-shadow: $shadow-l;
 	display: flex;
@@ -115,6 +118,9 @@
 	}
 
 	&__content {
+		@include textM;
+
+		color: $color-neutral-text-heavy;
 		padding: $space-s;
 		// Override popperjs styles
 		text-align: left;
@@ -123,6 +129,7 @@
 	&__title {
 		@include headlineS;
 
+		color: $color-default-text;
 		font-weight: bold;
 		margin-bottom: $space-xxs;
 	}

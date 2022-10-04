@@ -14,6 +14,9 @@ describe('Button', () => {
 	const createComponent = (props = {}) => {
 		return shallowMount(Button, {
 			propsData: props,
+			slots: {
+				default: 'Hello',
+			},
 		});
 	};
 
@@ -56,5 +59,11 @@ describe('Button', () => {
 		const rightIcon = createComponent({ 'icon-right': ICONS.FA_CLOCK });
 		expect(rightIcon.find('.a-button__icon.-right').exists()).toBe(true);
 		expect(rightIcon.find('.a-button__icon.-right').props().icon).toBe(ICONS.FA_CLOCK);
+	});
+
+	it('correct slot content', () => {
+		const component = createComponent({ 'icon-left': null });
+		expect(component.find('.a-button__icon.-left').exists()).toBe(false);
+		expect(component.find('.a-button__content').text()).toBe('Hello');
 	});
 });

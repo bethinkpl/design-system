@@ -4,3 +4,8 @@ export declare const TILE_COLORS: {
     readonly SUCCESS: "success";
     readonly FAIL: "fail";
 };
+export declare const TILE_STATES: {
+    readonly DEFAULT: "default";
+    readonly DISABLED: "disabled";
+    readonly LOADING: "loading";
+};
