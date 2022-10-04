@@ -10,8 +10,8 @@ $shadow-l: 0 4px 8px $color-default-shadow-weak, 0 10px 20px $color-default-shad
 $shadow-xl: 0 8px 16px $color-default-shadow-weak, 0 16px 32px $color-default-shadow-strong,
 	0 0 4px $color-default-shadow;
 
-$default-shadow-progress-m: inset 0 1px 4px $color-default-shadow-heavy;
-$default-shadow-progress-s: inset 0 1px 3px $color-default-shadow-heavy;
+$shadow-inset-m: inset 0 1px 4px $color-default-shadow-heavy;
+$shadow-inset-s: inset 0 1px 3px $color-default-shadow-heavy;
 
 // deprecated
 $default-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.3);
