@@ -67,46 +67,46 @@ $progress-bar-label-data-max-width: 30%;
 
 $progress-bar-layers: (
 	'primary': (
-		'default-layer': $color-primary-data,
-		'default-layer-secondary': $color-primary-data-ghost,
-		'emphasize-layer': $color-primary-data-medium,
-		'emphasize-layer-secondary': $color-primary-data-weak,
-		'placeholder-layer': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-primary-data,
+		'default-color-scheme-second-layer': $color-primary-data-ghost,
+		'medium-color-scheme-first-layer': $color-primary-data-medium,
+		'medium-color-scheme-second-layer': $color-primary-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'info': (
-		'default': $color-info-data,
-		'ghost': $color-info-data-ghost,
-		'medium': $color-info-data-medium,
-		'weak': $color-info-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-info-data,
+		'default-color-scheme-second-layer': $color-info-data-ghost,
+		'medium-color-scheme-first-layer': $color-info-data-medium,
+		'medium-color-scheme-second-layer': $color-info-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'neutral': (
-		'default': $color-neutral-data,
-		'ghost': $color-neutral-data-ghost,
-		'medium': $color-neutral-data-medium,
-		'weak': $color-neutral-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-neutral-data,
+		'default-color-scheme-second-layer': $color-neutral-data-ghost,
+		'medium-color-scheme-first-layer': $color-neutral-data-medium,
+		'medium-color-scheme-second-layer': $color-neutral-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'success': (
-		'default': $color-success-data,
-		'ghost': $color-success-data-ghost,
-		'medium': $color-success-data-medium,
-		'weak': $color-success-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-success-data,
+		'default-color-scheme-second-layer': $color-success-data-ghost,
+		'medium-color-scheme-first-layer': $color-success-data-medium,
+		'medium-color-scheme-second-layer': $color-success-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'warning': (
-		'default': $color-warning-data,
-		'ghost': $color-warning-data-ghost,
-		'medium': $color-warning-data-medium,
-		'weak': $color-warning-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-warning-data,
+		'default-color-scheme-second-layer': $color-warning-data-ghost,
+		'medium-color-scheme-first-layer': $color-warning-data-medium,
+		'medium-color-scheme-second-layer': $color-warning-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 	'fail': (
-		'default': $color-fail-data,
-		'ghost': $color-fail-data-ghost,
-		'medium': $color-fail-data-medium,
-		'weak': $color-fail-data-weak,
-		'neutral-weak': $color-neutral-data-weak,
+		'default-color-scheme-first-layer': $color-fail-data,
+		'default-color-scheme-second-layer': $color-fail-data-ghost,
+		'medium-color-scheme-first-layer': $color-fail-data-medium,
+		'medium-color-scheme-second-layer': $color-fail-data-weak,
+		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
 	),
 );
 
@@ -116,29 +116,29 @@ $progress-bar-layers: (
 	@each $color-name, $color-map in $progress-bar-layers {
 		&.-#{$color-name} {
 			#{$self}__result {
-				background: map-get($color-map, 'default');
+				background: map-get($color-map, 'default-color-scheme-first-layer');
 
 				&.-secondary {
-					background: map-get($color-map, 'ghost');
+					background: map-get($color-map, 'default-color-scheme-second-layer');
 				}
 			}
 
 			&.-schemeMedium {
 				#{$self}__result {
-					background: map-get($color-map, 'medium');
+					background: map-get($color-map, 'medium-color-scheme-first-layer');
 
 					&.-secondary {
-						background: map-get($color-map, 'weak');
+						background: map-get($color-map, 'medium-color-scheme-second-layer');
 					}
 				}
 			}
 
 			&.-schemeMediumNeutral {
 				#{$self}__result {
-					background: map-get($color-map, 'medium');
+					background: map-get($color-map, 'medium-color-scheme-first-layer');
 
 					&.-secondary {
-						background: map-get($color-map, 'neutral-weak');
+						background: map-get($color-map, 'medium-neutral-color-scheme-second-layer');
 					}
 				}
 			}
