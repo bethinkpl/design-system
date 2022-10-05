@@ -45,17 +45,17 @@ const argTypes = {
 		defaultValue: [
 			{
 				layer: 1,
-				percentValueFrom: 0,
+				start: 0,
 				length: 30,
 			},
 			{
 				layer: 2,
-				percentValueFrom: 30,
+				start: 30,
 				length: 10,
 			},
 			{
 				layer: 2,
-				percentValueFrom: 40,
+				start: 40,
 				length: 10,
 			},
 		],
