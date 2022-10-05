@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import { Range } from './ProgressBar.consts';
+import { ProgressBarRange } from './ProgressBar.consts';
 declare const _default: {
     name: string;
     props: {
@@ -24,7 +24,7 @@ declare const _default: {
             validate(size: any): boolean;
         };
         ranges: {
-            type: PropType<Range[]>;
+            type: PropType<ProgressBarRange[]>;
             required: boolean;
         };
         radius: {

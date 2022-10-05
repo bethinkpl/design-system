@@ -1,4 +1,4 @@
-import { Range } from './ProgressBar.consts';
+import { ProgressBarRange } from './ProgressBar.consts';
 import { Meta, StoryFn } from '@storybook/vue';
 declare const _default: Meta<{
     name: string;
@@ -24,7 +24,7 @@ declare const _default: Meta<{
             validate(size: any): boolean;
         };
         ranges: {
-            type: import("vue").PropType<Range[]>;
+            type: import("vue").PropType<ProgressBarRange[]>;
             required: boolean;
         };
         radius: {
@@ -115,7 +115,7 @@ export declare const Interactive: StoryFn<{
             validate(size: any): boolean;
         };
         ranges: {
-            type: import("vue").PropType<Range[]>;
+            type: import("vue").PropType<ProgressBarRange[]>;
             required: boolean;
         };
         radius: {
@@ -205,7 +205,7 @@ export declare const WithoutLabels: StoryFn<{
             validate(size: any): boolean;
         };
         ranges: {
-            type: import("vue").PropType<Range[]>;
+            type: import("vue").PropType<ProgressBarRange[]>;
             required: boolean;
         };
         radius: {
@@ -295,7 +295,7 @@ export declare const TwoLayers: StoryFn<{
             validate(size: any): boolean;
         };
         ranges: {
-            type: import("vue").PropType<Range[]>;
+            type: import("vue").PropType<ProgressBarRange[]>;
             required: boolean;
         };
         radius: {
@@ -385,7 +385,7 @@ export declare const WithGaps: StoryFn<{
             validate(size: any): boolean;
         };
         ranges: {
-            type: import("vue").PropType<Range[]>;
+            type: import("vue").PropType<ProgressBarRange[]>;
             required: boolean;
         };
         radius: {
@@ -475,7 +475,7 @@ export declare const Compact: StoryFn<{
             validate(size: any): boolean;
         };
         ranges: {
-            type: import("vue").PropType<Range[]>;
+            type: import("vue").PropType<ProgressBarRange[]>;
             required: boolean;
         };
         radius: {
