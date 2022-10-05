@@ -41,10 +41,9 @@
 					progressBar__result: true,
 					'-secondary': range.layer === 2 && numberOfLayers === 2,
 				}"
-				:style="{ left: range.percentValueFrom + '%', width: range.length + '%' }"
+				:style="{ left: range.start + '%', width: range.length + '%' }"
 			>
 			</div>
-			<div class="progressBar__resultsShadow"></div>
 		</div>
 	</div>
 </template>
@@ -173,6 +172,17 @@ $progress-bar-layers: (
 		&.-noRadius {
 			border-radius: 0;
 		}
+
+		&::after {
+			box-shadow: $shadow-inset-m;
+			content: '';
+			display: block;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+			width: 100%;
+		}
 	}
 
 	&__label {
@@ -230,15 +240,6 @@ $progress-bar-layers: (
 		height: 100%;
 		position: absolute;
 		top: 0;
-	}
-
-	&__resultsShadow {
-		box-shadow: $shadow-inset-m;
-		height: 100%;
-		left: 0;
-		position: absolute;
-		top: 0;
-		width: 100%;
 	}
 }
 </style>
