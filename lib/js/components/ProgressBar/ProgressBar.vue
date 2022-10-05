@@ -253,7 +253,7 @@ import {
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_COLOR_SCHEMES,
 	PROGRESS_BAR_LAYERS,
-	Range,
+	ProgressBarRange,
 } from './ProgressBar.consts';
 
 export default {
@@ -288,7 +288,7 @@ export default {
 			},
 		},
 		ranges: {
-			type: Array as PropType<Array<Range>>,
+			type: Array as PropType<Array<ProgressBarRange>>,
 			required: true,
 		},
 		radius: {
