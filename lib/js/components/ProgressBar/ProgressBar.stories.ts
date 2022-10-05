@@ -6,7 +6,7 @@ import {
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_LAYERS,
 	PROGRESS_BAR_COLOR_SCHEMES,
-	Range,
+	ProgressBarRange,
 } from './ProgressBar.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
@@ -48,17 +48,17 @@ const argTypes = {
 				layer: 1,
 				start: 0,
 				length: 30,
-			} as Range,
+			} as ProgressBarRange,
 			{
 				layer: 2,
 				start: 30,
 				length: 10,
-			} as Range,
+			} as ProgressBarRange,
 			{
 				layer: 2,
 				start: 40,
 				length: 10,
-			} as Range,
+			} as ProgressBarRange,
 		],
 	},
 	radius: {
@@ -112,7 +112,7 @@ WithoutLabels.args = {
 			layer: 1,
 			start: 0,
 			length: 30,
-		} as Range,
+		} as ProgressBarRange,
 	],
 } as Args;
 WithoutLabels.argTypes = argTypesColorOnly;
@@ -127,12 +127,12 @@ TwoLayers.args = {
 			layer: 1,
 			start: 0,
 			length: 30,
-		} as Range,
+		} as ProgressBarRange,
 		{
 			layer: 2,
 			start: 30,
 			length: 30,
-		} as Range,
+		} as ProgressBarRange,
 	],
 } as Args;
 TwoLayers.argTypes = argTypesColorOnly;
@@ -147,27 +147,27 @@ WithGaps.args = {
 			layer: 1,
 			start: 0,
 			length: 10,
-		} as Range,
+		} as ProgressBarRange,
 		{
 			layer: 2,
 			start: 20,
 			length: 10,
-		} as Range,
+		} as ProgressBarRange,
 		{
 			layer: 1,
 			start: 40,
 			length: 10,
-		} as Range,
+		} as ProgressBarRange,
 		{
 			layer: 2,
 			start: 50,
 			length: 10,
-		} as Range,
+		} as ProgressBarRange,
 		{
 			layer: 1,
 			start: 70,
 			length: 100,
-		} as Range,
+		} as ProgressBarRange,
 	],
 } as Args;
 WithGaps.argTypes = argTypesColorOnly;
@@ -182,7 +182,7 @@ Compact.args = {
 			layer: 1,
 			start: 0,
 			length: 30,
-		} as Range,
+		} as ProgressBarRange,
 	],
 	labelText: 'Label text',
 	labelData: '30',
