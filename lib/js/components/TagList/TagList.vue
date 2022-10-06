@@ -78,7 +78,7 @@ export default {
 		},
 		size: {
 			type: String,
-			default: TAG_LIST_SIZES.MEDIUM,
+			default: TAG_LIST_SIZES.X_SMALL,
 			validate(size) {
 				return Object.values(TAG_LIST_SIZES).includes(size);
 			},

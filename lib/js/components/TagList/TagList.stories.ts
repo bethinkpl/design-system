@@ -22,7 +22,7 @@ const argTypes = {
 	},
 	size: {
 		control: { type: 'select', options: Object.values(TAG_LIST_SIZES) },
-		defaultValue: TAG_LIST_SIZES.MEDIUM,
+		defaultValue: TAG_LIST_SIZES.X_SMALL,
 	},
 	tags: {
 		control: { type: 'array' },
