@@ -204,7 +204,7 @@ $progress-bar-layers: (
 		max-width: $progress-bar-label-text-max-width;
 
 		@media #{breakpoint-s()} {
-			@include headlineS();
+			@include headlineXS();
 		}
 	}
 
