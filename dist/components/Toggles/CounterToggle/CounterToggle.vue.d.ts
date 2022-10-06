@@ -52,7 +52,7 @@ declare const _default: {
     };
     props: {
         counter: {
-            type: (StringConstructor | NumberConstructor)[];
+            type: (NumberConstructor | StringConstructor)[];
             default: null;
         };
         color: {
