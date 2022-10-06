@@ -215,6 +215,8 @@ $progress-bar-layers: (
 		align-items: baseline;
 		color: $color-neutral-text-heavy;
 		display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
 		margin-left: $space-xxs;
 		max-width: $progress-bar-label-data-max-width;
 	}
