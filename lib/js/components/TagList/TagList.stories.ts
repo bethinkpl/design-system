@@ -37,6 +37,6 @@ Interactive.argTypes = argTypes;
 Interactive.parameters = {
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/WeJCbVlnkL9HmEcoBpu5NU/LMS---Specific-Components-%26-Limbo?node-id=464%3A26198',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=4832%3A81133',
 	},
 };
