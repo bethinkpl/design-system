@@ -17,11 +17,13 @@ export const Interactive = StoryTemplate.bind({});
 
 const argTypes = {
 	color: {
-		control: { type: 'select', options: Object.values(TAG_LIST_COLORS) },
+		control: { type: 'select' },
+		options: Object.values(TAG_LIST_COLORS),
 		defaultValue: TAG_LIST_COLORS.NEUTRAL_WEAK,
 	},
 	size: {
-		control: { type: 'select', options: Object.values(TAG_LIST_SIZES) },
+		control: { type: 'select' },
+		options: Object.values(TAG_LIST_SIZES),
 		defaultValue: TAG_LIST_SIZES.X_SMALL,
 	},
 	tagNames: {
