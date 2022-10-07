@@ -1,10 +1,10 @@
 export const TAG_LIST_COLORS = {
-	NEUTRAL: 'neutral',
-	NEUTRAL_HEAVY: 'neutralHeavy',
+	NEUTRAL_WEAK: 'neutralWeak',
+	NEUTRAL_STRONG: 'neutralStrong',
 };
 
 export const TAG_LIST_SIZES = {
-	X_SMALL: 'x-small',
+	X_SMALL: 'xSmall',
 	SMALL: 'small',
 	MEDIUM: 'medium',
 };

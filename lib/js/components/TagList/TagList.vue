@@ -2,8 +2,8 @@
 	<div
 		:class="{
 			tagList: true,
-			'-neutral': color === TAG_LIST_COLORS.NEUTRAL,
-			'-neutralHeavy': color === TAG_LIST_COLORS.NEUTRAL_HEAVY,
+			'-neutralWeak': color === TAG_LIST_COLORS.NEUTRAL_WEAK,
+			'-neutralStrong': color === TAG_LIST_COLORS.NEUTRAL_STRONG,
 			'-xSmall': size === TAG_LIST_SIZES.X_SMALL,
 			'-small': size === TAG_LIST_SIZES.SMALL,
 			'-medium': size === TAG_LIST_SIZES.MEDIUM,
@@ -25,7 +25,7 @@
 	align-items: flex-start;
 	display: flex;
 
-	&.-neutral {
+	&.-neutralWeak {
 		color: $color-neutral-text-weak;
 
 		#{$root}__icon {
@@ -33,8 +33,8 @@
 		}
 	}
 
-	&.-neutralHeavy {
-		color: $color-neutral-text-heavy;
+	&.-neutralStrong {
+		color: $color-neutral-text-strong;
 
 		#{$root}__icon {
 			color: $color-neutral-icon;
@@ -71,7 +71,7 @@ export default {
 	props: {
 		color: {
 			type: String,
-			default: TAG_LIST_COLORS.NEUTRAL,
+			default: TAG_LIST_COLORS.NEUTRAL_WEAK,
 			validate(color) {
 				return Object.values(TAG_LIST_COLORS).includes(color);
 			},

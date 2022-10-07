@@ -18,7 +18,7 @@ export const Interactive = StoryTemplate.bind({});
 const argTypes = {
 	color: {
 		control: { type: 'select', options: Object.values(TAG_LIST_COLORS) },
-		defaultValue: TAG_LIST_COLORS.NEUTRAL,
+		defaultValue: TAG_LIST_COLORS.NEUTRAL_WEAK,
 	},
 	size: {
 		control: { type: 'select', options: Object.values(TAG_LIST_SIZES) },
