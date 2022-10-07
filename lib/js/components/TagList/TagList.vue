@@ -10,7 +10,7 @@
 		}"
 	>
 		<icon class="tagList__icon" :icon="ICONS.FA_TAGS" :size="ICON_SIZES.X_SMALL" />
-		<div>{{ tagsConcatenated }}</div>
+		<div>{{ tagNamesConcatenated }}</div>
 	</div>
 </template>
 
@@ -72,20 +72,23 @@ export default {
 		color: {
 			type: String,
 			default: TAG_LIST_COLORS.NEUTRAL_WEAK,
-			validate(color) {
+			validator(color) {
 				return Object.values(TAG_LIST_COLORS).includes(color);
 			},
 		},
 		size: {
 			type: String,
 			default: TAG_LIST_SIZES.X_SMALL,
-			validate(size) {
+			validator(size) {
 				return Object.values(TAG_LIST_SIZES).includes(size);
 			},
 		},
-		tags: {
+		tagNames: {
 			type: Array,
 			required: true,
+			validator(tagNames) {
+				return !tagNames.some((tagName) => typeof tagName !== 'string');
+			},
 		},
 	},
 	data() {
@@ -97,8 +100,8 @@ export default {
 		};
 	},
 	computed: {
-		tagsConcatenated(): string {
-			return this.tags.join(', ');
+		tagNamesConcatenated(): string {
+			return this.tagNames.join(', ');
 		},
 	},
 };

@@ -24,7 +24,7 @@ const argTypes = {
 		control: { type: 'select', options: Object.values(TAG_LIST_SIZES) },
 		defaultValue: TAG_LIST_SIZES.X_SMALL,
 	},
-	tags: {
+	tagNames: {
 		control: { type: 'array' },
 		defaultValue: ['Tagi', 'po', 'przecinku'],
 	},
