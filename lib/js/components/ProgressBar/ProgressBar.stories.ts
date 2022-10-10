@@ -92,7 +92,7 @@ Interactive.argTypes = argTypes;
 Interactive.parameters = {
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/726BIQ076eFnS0ElNuPVC2/Statystyki-i-Dashboard-Bazy-zada%C5%84-na-V1?node-id=548%3A50027',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=4560%3A78921',
 	},
 };
 
