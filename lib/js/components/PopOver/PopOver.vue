@@ -29,7 +29,9 @@
 			</ds-button>
 		</div>
 
-		<slot slot="reference" name="reference" />
+		<template #reference>
+			<slot name="reference" />
+		</template>
 	</vue-popper>
 </template>
 
