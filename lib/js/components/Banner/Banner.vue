@@ -125,6 +125,7 @@
 
 			#{$self}__rightSlot {
 				padding: $space-xs 0 $space-xs 0;
+				flex-grow: initial;
 			}
 		}
 	}
@@ -216,6 +217,7 @@
 
 	&__rightSlot {
 		padding: $space-xxs 0 0 0;
+		flex-grow: 1;
 
 		&:nth-child(2) {
 			margin-left: $space-xxxxs;
