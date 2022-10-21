@@ -5,11 +5,6 @@ $color-success-shadow: rgba(var(--raw-green-500-rgb), 0.7);
 $color-danger-shadow: rgba(var(--raw-red-500-rgb), 0.7);
 $color-warning-shadow: rgba(var(--raw-gold-500-rgb), 0.7);
 
-// Tokens - shadows
-$color-neutrals-shadow-weak: $color-default-shadow-weak;
-$color-neutrals-shadow: $color-default-shadow;
-$color-neutrals-shadow-strong: $color-default-shadow-strong;
-
 $shadow-s: 0 1px 2px $color-default-shadow-weak, 0 8px 16px $color-default-shadow-weak,
 	0 2px 4px $color-default-shadow-strong, 0 0 4px $color-default-shadow;
 $shadow-m: 0 2px 4px $color-default-shadow-weak, 0 6px 12px $color-default-shadow-strong,
