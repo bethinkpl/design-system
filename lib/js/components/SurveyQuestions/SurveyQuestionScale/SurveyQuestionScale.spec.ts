@@ -1,8 +1,7 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { createLocalVue, mount } from '@vue/test-utils';
 
 import SurveyQuestionScale from './SurveyQuestionScale.vue';
-import SurveyToggle, { SURVEY_TOGGLE_MEANINGS } from '../../SurveyToggle';
-import Card from '../../Cards/Card';
+import { SURVEY_TOGGLE_MEANINGS } from '../../SurveyToggle';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 
 describe('SurveyQuestionScale', () => {
@@ -16,7 +15,7 @@ describe('SurveyQuestionScale', () => {
 	} = {}) => {
 		const localVue = createLocalVue();
 
-		return shallowMount(SurveyQuestionScale, {
+		return mount(SurveyQuestionScale, {
 			localVue,
 			mocks: {},
 			propsData: {
@@ -28,10 +27,6 @@ describe('SurveyQuestionScale', () => {
 			},
 			slots: {
 				explanation,
-			},
-			stubs: {
-				SurveyToggle,
-				Card,
 			},
 		});
 	};
