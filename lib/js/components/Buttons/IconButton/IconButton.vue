@@ -10,6 +10,7 @@
 			'-hovered': state === ICON_BUTTON_STATES.HOVERED,
 			'-focused': state === ICON_BUTTON_STATES.FOCUSED,
 			'-disabled': state === ICON_BUTTON_STATES.DISABLED,
+			'-loading': state === ICON_BUTTON_STATES.LOADING,
 
 			[colorClassName]: isButtonColor,
 
@@ -43,7 +44,8 @@
 			:elevation="elevation"
 			:color="isButtonColor ? color : null"
 		>
-			<wnl-icon class="a-iconButton__icon" :icon="icon" :size="iconSize" />
+			<wnl-icon v-if="state === ICON_BUTTON_STATES.LOADING" class="a-iconButton__icon --animated" :icon="ICONS.FA_SPINNER_THIRD" :size="iconSize" />
+			<wnl-icon v-else class="a-iconButton__icon" :icon="icon" :size="iconSize" />
 		</wnl-button>
 	</div>
 </template>
@@ -165,6 +167,12 @@
 			border: none;
 		}
 	}
+
+  &.-loading {
+    .a-icon {
+      animation: a-fadeIn 300ms ease-in-out 0s 1, a-spinAround 1500ms infinite linear;
+    }
+  }
 
 	&__label {
 		@include buttonM;
@@ -372,6 +380,25 @@ export default {
 	},
 	computed: {
 		iconSize(): string {
+      if (this.state === ICON_BUTTON_STATES.LOADING) {
+        if (this.size === ICON_BUTTON_SIZES.XX_SMALL) {
+          return ICON_SIZES.XXX_SMALL;
+
+        }
+        if (this.size === ICON_BUTTON_SIZES.X_SMALL) {
+          return ICON_SIZES.XX_SMALL;
+        }
+
+        if (this.size === ICON_BUTTON_SIZES.MEDIUM) {
+          return ICON_SIZES.SMALL;
+        }
+        if (this.size === ICON_BUTTON_SIZES.LARGE) {
+          return ICON_SIZES.MEDIUM;
+        }
+
+        return ICON_SIZES.X_SMALL;
+      }
+
 			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
 				return ICON_ONLY_ICON_SIZES_MAP[this.size];
 			}

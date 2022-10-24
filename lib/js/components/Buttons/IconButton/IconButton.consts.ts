@@ -36,4 +36,5 @@ export const ICON_BUTTON_STATES = {
 	HOVERED: 'hovered',
 	FOCUSED: 'focused',
 	DISABLED: 'disabled',
+	LOADING: 'loading',
 } as const;
