@@ -46,7 +46,7 @@
 		>
 			<wnl-icon
 				v-if="state === ICON_BUTTON_STATES.LOADING"
-				class="a-iconButton__icon --animated"
+				class="a-iconButton__icon"
 				:icon="ICONS.FA_SPINNER_THIRD"
 				:size="iconSize"
 			/>

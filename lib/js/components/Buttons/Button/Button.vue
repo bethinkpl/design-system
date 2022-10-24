@@ -156,7 +156,6 @@ export default {
 			return `-color-${this.color}`;
 		},
 		loadingIconSize(): string {
-			console.log('loadingIconSize');
 			if (this.size === BUTTON_SIZES.LARGE) {
 				return ICON_SIZES.MEDIUM;
 			}
