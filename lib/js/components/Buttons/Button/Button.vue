@@ -42,7 +42,7 @@
 			v-if="state === STATES.LOADING"
 			class="a-button__loadingIcon"
 			:icon="ICONS.FA_SPINNER_THIRD"
-      :size="loadingIconSize"
+			:size="loadingIconSize"
 		/>
 	</span>
 </template>
@@ -67,7 +67,11 @@ import {
 	BUTTON_TYPES,
 } from './Button.consts';
 
-import {ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_TYPES} from '../IconButton/IconButton.consts';
+import {
+	ICON_BUTTON_COLORS,
+	ICON_BUTTON_SIZES,
+	ICON_BUTTON_TYPES,
+} from '../IconButton/IconButton.consts';
 
 export default {
 	name: 'Button',
@@ -151,18 +155,18 @@ export default {
 		colorClassName(): string {
 			return `-color-${this.color}`;
 		},
-    loadingIconSize(): string {
-      console.log("loadingIconSize");
-      if (this.size === BUTTON_SIZES.LARGE) {
-        return ICON_SIZES.MEDIUM;
-      }
+		loadingIconSize(): string {
+			console.log('loadingIconSize');
+			if (this.size === BUTTON_SIZES.LARGE) {
+				return ICON_SIZES.MEDIUM;
+			}
 
-      if (this.size === BUTTON_SIZES.SMALL) {
-        return ICON_SIZES.X_SMALL;
-      }
+			if (this.size === BUTTON_SIZES.SMALL) {
+				return ICON_SIZES.X_SMALL;
+			}
 
-      return ICON_SIZES.SMALL;
-    }
+			return ICON_SIZES.SMALL;
+		},
 	},
 };
 </script>
