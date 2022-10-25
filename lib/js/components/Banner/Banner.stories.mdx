@@ -32,10 +32,7 @@ import { ICONS } from '../Icon';
 	argTypes={{
 		closable: { control: { type: 'boolean' }, defaultValue: false },
 		icon: {
-			control: {
-				type: 'select',
-				options: Object.keys(ICONS),
-			},
+            control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 			defaultValue: null,
 		},
 		isIconHiddenOnMobile: {
