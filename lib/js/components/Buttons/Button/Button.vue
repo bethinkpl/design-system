@@ -70,6 +70,7 @@ import {
 import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
 
 export default {
+	// eslint-disable-next-line vue/no-reserved-component-names
 	name: 'Button',
 	directives: {
 		ripple: Ripple,
