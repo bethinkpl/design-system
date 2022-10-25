@@ -49,7 +49,7 @@
 				class="a-iconButton__icon"
 				:icon="ICONS.FA_SPINNER_THIRD"
 				:size="iconSize"
-				:spinning="true"
+				spinning
 			/>
 			<wnl-icon v-else class="a-iconButton__icon" :icon="icon" :size="iconSize" />
 		</wnl-button>
@@ -380,10 +380,7 @@ export default {
 	},
 	computed: {
 		iconSize(): string {
-			if (
-				this.type === ICON_BUTTON_TYPES.ICON_ONLY ||
-				this.state === ICON_BUTTON_STATES.LOADING
-			) {
+			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
 				return ICON_ONLY_ICON_SIZES_MAP[this.size];
 			}
 
