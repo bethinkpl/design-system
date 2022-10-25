@@ -67,11 +67,7 @@ import {
 	BUTTON_TYPES,
 } from './Button.consts';
 
-import {
-	ICON_BUTTON_COLORS,
-	ICON_BUTTON_SIZES,
-	ICON_BUTTON_TYPES,
-} from '../IconButton/IconButton.consts';
+import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
 
 export default {
 	name: 'Button',
