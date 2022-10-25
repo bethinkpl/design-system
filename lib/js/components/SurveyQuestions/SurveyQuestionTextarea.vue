@@ -6,7 +6,7 @@
 		:placeholder="placeholder"
 		:value="value"
 		@input="onInput"
-	></textarea>
+	/>
 </template>
 
 <style lang="scss" scoped>

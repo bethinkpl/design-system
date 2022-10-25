@@ -21,7 +21,7 @@
 			class="sectionHeader__slot"
 			:class="{ '-withPadding': slotPadding }"
 		>
-			<slot></slot>
+			<slot />
 		</div>
 	</div>
 </template>

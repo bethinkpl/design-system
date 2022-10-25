@@ -19,7 +19,7 @@
 		>
 			<div class="surveyToggle__ring">
 				<span v-if="isPrimarySelected || isNeutralSelected" class="surveyToggle__icon">
-					<ds-icon :icon="selectedIcon" :size="ICON_SIZES.X_SMALL"></ds-icon>
+					<ds-icon :icon="selectedIcon" :size="ICON_SIZES.X_SMALL" />
 				</span>
 				<span v-else class="surveyToggle__content">
 					{{ contentText }}

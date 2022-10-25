@@ -27,7 +27,7 @@
 							<span
 								:style="{ background: color.value }"
 								class="colorDefinition__tile"
-							></span>
+							/>
 						</div>
 					</div>
 				</div>

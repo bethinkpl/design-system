@@ -4,7 +4,7 @@
 		:header-has-padding="headerHasPadding"
 		:divider-under-header="dividerUnderHeader"
 	>
-		<template #header><slot name="header"></slot></template>
+		<template #header><slot name="header" /></template>
 		<template #content>
 			<slot name="content" :is-expanded="isExpandedInternal" />
 			<div v-if="isExpandedInternal" class="cardExpandable__expandedContent">
