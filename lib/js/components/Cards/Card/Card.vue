@@ -5,7 +5,7 @@
 			class="card__header"
 			:class="{ '-withPadding': headerHasPadding }"
 		>
-			<slot name="header"></slot>
+			<slot name="header" />
 		</div>
 		<ds-divider
 			v-if="$slots.header && $slots.content && dividerUnderHeader"
@@ -13,9 +13,9 @@
 			:class="{ '-withHorizontalMargin': headerHasPadding }"
 		/>
 		<div v-if="$slots.content" class="card__content">
-			<slot name="content"></slot>
+			<slot name="content" />
 		</div>
-		<slot name="footer"></slot>
+		<slot name="footer" />
 	</div>
 </template>
 

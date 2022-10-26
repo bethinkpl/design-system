@@ -42,8 +42,7 @@
 					'-secondary': range.layer === 2 && numberOfLayers === 2,
 				}"
 				:style="{ left: range.start + '%', width: range.length + '%' }"
-			>
-			</div>
+			/>
 		</div>
 	</div>
 </template>
