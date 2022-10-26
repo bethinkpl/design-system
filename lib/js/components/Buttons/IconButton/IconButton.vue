@@ -10,6 +10,7 @@
 			'-hovered': state === ICON_BUTTON_STATES.HOVERED,
 			'-focused': state === ICON_BUTTON_STATES.FOCUSED,
 			'-disabled': state === ICON_BUTTON_STATES.DISABLED,
+			'-loading': state === ICON_BUTTON_STATES.LOADING,
 
 			[colorClassName]: isButtonColor,
 
@@ -43,7 +44,14 @@
 			:elevation="elevation"
 			:color="isButtonColor ? color : null"
 		>
-			<wnl-icon class="a-iconButton__icon" :icon="icon" :size="iconSize" />
+			<wnl-icon
+				v-if="state === ICON_BUTTON_STATES.LOADING"
+				class="a-iconButton__icon"
+				:icon="ICONS.FAD_SPINNER_THIRD"
+				:size="iconSize"
+				spinning
+			/>
+			<wnl-icon v-else class="a-iconButton__icon" :icon="icon" :size="iconSize" />
 		</wnl-button>
 	</div>
 </template>

@@ -166,6 +166,8 @@ import {
 	faChevronRight as falChevronRight,
 } from '@fortawesome/pro-light-svg-icons';
 
+import { faSpinnerThird as fadSpinnerThird } from '@fortawesome/pro-duotone-svg-icons';
+
 import { faFacebook } from '@fortawesome/free-brands-svg-icons';
 
 export const FONTAWESOME_ICONS = {
@@ -328,6 +330,7 @@ export const FONTAWESOME_ICONS = {
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
 	FA_XMARK: faXmark,
+	FAD_SPINNER_THIRD: fadSpinnerThird,
 } as const;
 
 export function initialize() {

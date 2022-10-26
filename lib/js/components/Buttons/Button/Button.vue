@@ -41,8 +41,8 @@
 		<wnl-icon
 			v-if="state === STATES.LOADING"
 			class="a-button__loadingIcon"
-			:icon="ICONS.FA_ARROWS_ROTATE"
-			:size="ICON_SIZES.X_SMALL"
+			:icon="ICONS.FA_SPINNER_THIRD"
+			:size="loadingIconSize"
 		/>
 	</span>
 </template>
@@ -151,6 +151,17 @@ export default {
 	computed: {
 		colorClassName(): string {
 			return `-color-${this.color}`;
+		},
+		loadingIconSize(): string {
+			if (this.size === BUTTON_SIZES.LARGE) {
+				return ICON_SIZES.MEDIUM;
+			}
+
+			if (this.size === BUTTON_SIZES.SMALL) {
+				return ICON_SIZES.X_SMALL;
+			}
+
+			return ICON_SIZES.SMALL;
 		},
 	},
 };
