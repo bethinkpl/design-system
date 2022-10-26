@@ -158,6 +158,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_WINDOW_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
 };
 export declare function initialize(): void;
 export declare function initializeWithDomWatcher(): void;

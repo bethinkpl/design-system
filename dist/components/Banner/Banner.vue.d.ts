@@ -290,6 +290,7 @@ declare const _default: {
                     readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_WINDOW_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                 }>;
                 ICON_SIZES: Readonly<{
                     XXX_SMALL: string;
@@ -337,6 +338,7 @@ declare const _default: {
             };
             computed: {
                 colorClassName(): string;
+                loadingIconSize(): string;
             };
         };
         DsDivider: {
@@ -696,6 +698,7 @@ declare const _default: {
                             readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_WINDOW_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                            readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                         }>;
                         ICON_SIZES: Readonly<{
                             XXX_SMALL: string;
@@ -743,6 +746,7 @@ declare const _default: {
                     };
                     computed: {
                         colorClassName(): string;
+                        loadingIconSize(): string;
                     };
                 };
             };
@@ -794,6 +798,7 @@ declare const _default: {
                         readonly HOVERED: "hovered";
                         readonly FOCUSED: "focused";
                         readonly DISABLED: "disabled";
+                        readonly LOADING: "loading";
                     }>): boolean;
                 };
             };
@@ -961,6 +966,7 @@ declare const _default: {
                     readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_WINDOW_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                 }>;
                 ICON_SIZES: Readonly<{
                     XXX_SMALL: string;
@@ -993,6 +999,7 @@ declare const _default: {
                     readonly HOVERED: "hovered";
                     readonly FOCUSED: "focused";
                     readonly DISABLED: "disabled";
+                    readonly LOADING: "loading";
                 }>;
                 ICON_BUTTON_COLORS: Readonly<{
                     readonly PRIMARY: "primary";

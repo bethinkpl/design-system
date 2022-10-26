@@ -30,4 +30,5 @@ export declare const ICON_BUTTON_STATES: {
     readonly HOVERED: "hovered";
     readonly FOCUSED: "focused";
     readonly DISABLED: "disabled";
+    readonly LOADING: "loading";
 };

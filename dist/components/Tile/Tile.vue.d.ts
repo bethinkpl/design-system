@@ -283,6 +283,7 @@ declare const _default: {
             readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_WINDOW_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
         }>;
         ICON_SIZES: Readonly<{
             XXX_SMALL: string;

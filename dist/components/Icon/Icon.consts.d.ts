@@ -170,6 +170,7 @@ export declare const ICONS: {
     readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_WINDOW_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
 };
 export declare type IconKey = keyof typeof ICONS;
 export declare type IconItem = typeof ICONS[IconKey];
