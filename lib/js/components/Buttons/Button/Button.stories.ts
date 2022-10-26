@@ -30,7 +30,7 @@ const StoryTemplate: StoryFn<typeof Button> = (argTypes) => ({
 			:icon-left="ICONS[$props.iconLeft]"
 			:icon-right="ICONS[$props.iconRight]"
 		>
-			<template v-if="${'default' in args}" v-slot>${args.default}</template>
+			{{slotText}}
 		</Button>
 	</div>`,
 	computed: {
@@ -48,7 +48,7 @@ const StoryTemplate: StoryFn<typeof Button> = (argTypes) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	default: 'Hello',
+	slotText: 'Hello',
 } as Args;
 
 const argTypes = {
