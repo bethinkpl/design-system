@@ -41,7 +41,7 @@
 		<wnl-icon
 			v-if="state === STATES.LOADING"
 			class="a-button__loadingIcon"
-			:icon="ICONS.FA_SPINNER_THIRD"
+			:icon="ICONS.FAD_SPINNER_THIRD"
 			:size="loadingIconSize"
 		/>
 	</span>
