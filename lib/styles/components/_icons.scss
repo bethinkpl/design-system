@@ -31,7 +31,7 @@
 	}
 
 	&.-spin {
-		animation: a-spinAround 1s infinite linear;
+		animation: $animation-spin;
 	}
 
 	&.-flipped-vertical {
