@@ -1,0 +1,46 @@
+$typography-font-family: var(--typography-font-family);
+
+$typography-font-size-base: var(--typography-font-size-base);
+$typography-font-size-s: var(--typography-font-size-s);
+$typography-font-size-xs: var(--typography-font-size-xs);
+$typography-font-size-2xs: var(--typography-font-size-2xs);
+
+$typography-font-weight-bold: var(--typography-font-weight-bold);
+
+$typography-line-height-2xs: var(--typography-line-height-2xs);
+$typography-line-height-3xs: var(--typography-line-height-3xs);
+$typography-line-height-4xs: var(--typography-line-height-4xs);
+
+$typography-letter-spacing-s: var(--typography-letter-spacing-s);
+
+body {
+  font-family: $typography-font-family;
+  font-size: $typography-font-size-base;
+}
+
+@mixin labelLDefaultBold() {
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-bold;
+  line-height: $typography-line-height-2xs;
+  font-size: $typography-font-size-s;
+  letter-spacing: $typography-letter-spacing-s;
+  --token: label-l-default-bold;
+}
+
+@mixin labelMDefaultBold() {
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-bold;
+  line-height: $typography-line-height-3xs;
+  font-size: $typography-font-size-xs;
+  letter-spacing: $typography-letter-spacing-s;
+  --token: label-m-default-bold;
+}
+
+@mixin labelSDefaultBold() {
+  font-family: $typography-font-family;
+  font-weight: $typography-font-weight-bold;
+  line-height: $typography-line-height-4xs;
+  font-size: $typography-font-size-2xs;
+  letter-spacing: $typography-letter-spacing-s;
+  --token: label-s-default-bold;
+}

@@ -53,6 +53,7 @@
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/shadows';
+@import '../../../styles/settings/typography/tokens';
 
 $progress-bar-height: 16px;
 $progress-bar-s-height: 8px;
@@ -196,21 +197,17 @@ $progress-bar-layers: (
 	}
 
 	&__labelText {
-		@include headlineXXS();
-		@include textBold;
+    font-size: var(--typography-font-size-xs);
 
 		color: $color-neutral-text-heavy;
 		max-width: $progress-bar-label-text-max-width;
 
 		@media #{breakpoint-s()} {
-			@include headlineXS();
+      @include labelLDefaultBold();
 		}
 	}
 
 	&__labelDataWrapper {
-		@include textS();
-		@include textBold;
-
 		align-items: baseline;
 		color: $color-neutral-text-heavy;
 		display: flex;
@@ -219,6 +216,12 @@ $progress-bar-layers: (
 		margin-left: $space-xxs;
 		max-width: $progress-bar-label-data-max-width;
 	}
+
+  &__labelData,
+  &__labelDataSupporting {
+    @include labelMDefaultBold();
+  }
+
 
 	&__labelDataSupporting {
 		color: $color-neutral-text;
@@ -231,7 +234,7 @@ $progress-bar-layers: (
 	}
 
 	&__labelDataSuffix {
-		@include textXS;
+    @include labelSDefaultBold();
 
 		color: $color-neutral-text-weak;
 		margin-left: $space-xxxxs;
