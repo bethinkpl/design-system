@@ -18,7 +18,7 @@
 			<ds-icon
 				v-if="state === TILE_STATES.LOADING"
 				class="a-tile__iconRight"
-				:icon="ICONS.FA_SPINNER_THIRD"
+				:icon="ICONS.FAD_SPINNER_THIRD"
 				:size="ICON_SIZES.SMALL"
 				spinning
 			/>
