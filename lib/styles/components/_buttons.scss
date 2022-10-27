@@ -286,7 +286,7 @@ $button-disabled-alpha: 0.6;
 		}
 
 		#{$self}__loadingIcon {
-			animation: $animation-spin;
+			animation: $animation-fade-in, $animation-spin;
 			position: absolute;
 		}
 	}

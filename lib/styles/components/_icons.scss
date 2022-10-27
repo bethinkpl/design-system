@@ -31,7 +31,7 @@
 	}
 
 	&.-spin {
-		animation: $animation-spin;
+		animation: $animation-fade-in, $animation-spin;
 	}
 
 	&.-flipped-vertical {
