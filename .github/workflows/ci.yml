@@ -14,14 +14,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      - name: Insert auth font awesome auth token
-        run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
       - uses: actions/setup-node@v3
         with:
           node-version: '16.13'
           cache: 'yarn'
+      - name: Insert auth font awesome auth token
+        run: yarn config set npmScopes.fortawesome.npmAuthToken ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
       - name: Install dependencies
-        run: yarn install --pure-lockfile
+        run: yarn install --immutable
       - name: TypeScript check
         run: yarn ts:check
       - name: Run unit tests
