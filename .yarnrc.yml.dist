@@ -1,0 +1,12 @@
+defaultSemverRangePrefix: ""
+nodeLinker: node-modules
+npmScopes:
+  fortawesome:
+    npmRegistryServer: "https://npm.fontawesome.com/"
+    npmAlwaysAuth: true
+    npmAuthToken: "FILL-ME"
+supportedArchitectures:
+  os:
+    - "darwin"
+    - "linux"
+yarnPath: .yarn/releases/yarn-3.2.4.cjs

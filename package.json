@@ -31,10 +31,10 @@
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "6.1.1",
     "@fortawesome/free-brands-svg-icons": "6.1.1",
+    "@fortawesome/pro-duotone-svg-icons": "6.1.1",
     "@fortawesome/pro-light-svg-icons": "6.1.1",
     "@fortawesome/pro-regular-svg-icons": "6.1.1",
     "@fortawesome/pro-solid-svg-icons": "6.1.1",
-    "@fortawesome/pro-duotone-svg-icons": "6.1.1",
     "@fortawesome/vue-fontawesome": "2.0.6",
     "@storybook/addon-controls": "^6.5.13",
     "@storybook/addon-docs": "^6.5.13",
@@ -77,5 +77,6 @@
     "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.12"
-  }
+  },
+  "packageManager": "yarn@3.2.4"
 }
