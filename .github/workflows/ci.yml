@@ -19,7 +19,9 @@ jobs:
           node-version: '16.13'
           cache: 'yarn'
       - name: Insert auth font awesome auth token
-        run: yarn config set npmScopes.fortawesome.npmAuthToken ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
+        run: yarn config set npmScopes.fortawesome.npmAuthToken $FONT_AWESOME_AUTH_TOKEN
+        env:
+          FONT_AWESOME_AUTH_TOKEN: ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
       - name: Install dependencies
         run: yarn install --immutable
       - name: TypeScript check
