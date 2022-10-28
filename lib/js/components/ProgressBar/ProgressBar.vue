@@ -197,7 +197,7 @@ $progress-bar-layers: (
 	}
 
 	&__labelText {
-		font-size: var(--typography-font-size-xs);
+    @include labelMDefaultBold();
 		color: $color-neutral-text-heavy;
 		max-width: $progress-bar-label-text-max-width;
 

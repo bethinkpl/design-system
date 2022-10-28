@@ -30,7 +30,7 @@ body {
 	letter-spacing: $typography-letter-spacing-s;
 	line-height: $typography-line-height-2xs;
 	text-decoration: $typography-text-decoration-none;
-	text-decoration: $typography-text-transform-none;
+	text-transform: $typography-text-transform-none;
 }
 
 @mixin labelMDefaultBold() {
@@ -42,7 +42,7 @@ body {
 	letter-spacing: $typography-letter-spacing-s;
 	line-height: $typography-line-height-3xs;
 	text-decoration: $typography-text-decoration-none;
-	text-decoration: $typography-text-transform-none;
+	text-transform: $typography-text-transform-none;
 }
 
 @mixin labelSDefaultBold() {
@@ -54,5 +54,5 @@ body {
 	letter-spacing: $typography-letter-spacing-s;
 	line-height: $typography-line-height-4xs;
 	text-decoration: $typography-text-decoration-none;
-	text-decoration: $typography-text-transform-none;
+	text-transform: $typography-text-transform-none;
 }
