@@ -18,3 +18,4 @@ Instruction: https://classic.yarnpkg.com/en/docs/cli/link/
 1. Bump version in `package.json`
 2. Wait until `Build and Deploy Dist` Github Action finishes
 3. Create new tag and release in https://github.com/bethinkpl/design-system/releases
+4. Run `npm publish --access public`
