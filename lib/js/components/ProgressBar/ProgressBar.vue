@@ -197,13 +197,12 @@ $progress-bar-layers: (
 	}
 
 	&__labelText {
-    font-size: var(--typography-font-size-xs);
-
+		font-size: var(--typography-font-size-xs);
 		color: $color-neutral-text-heavy;
 		max-width: $progress-bar-label-text-max-width;
 
 		@media #{breakpoint-s()} {
-      @include labelLDefaultBold();
+			@include labelLDefaultBold();
 		}
 	}
 
@@ -217,11 +216,10 @@ $progress-bar-layers: (
 		max-width: $progress-bar-label-data-max-width;
 	}
 
-  &__labelData,
-  &__labelDataSupporting {
-    @include labelMDefaultBold();
-  }
-
+	&__labelData,
+	&__labelDataSupporting {
+		@include labelMDefaultBold();
+	}
 
 	&__labelDataSupporting {
 		color: $color-neutral-text;
@@ -234,7 +232,7 @@ $progress-bar-layers: (
 	}
 
 	&__labelDataSuffix {
-    @include labelSDefaultBold();
+		@include labelSDefaultBold();
 
 		color: $color-neutral-text-weak;
 		margin-left: $space-xxxxs;

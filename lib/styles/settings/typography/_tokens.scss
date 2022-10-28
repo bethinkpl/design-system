@@ -18,38 +18,41 @@ $typography-font-style-normal: var(--typography-font-style-normal);
 $typography-text-transform-none: var(--typography-text-transform-none);
 
 body {
-  font-size: $typography-font-size-base;
+	font-size: $typography-font-size-base;
 }
 
 @mixin labelLDefaultBold() {
-  font-size: $typography-font-size-s;
-  font-style: $typography-font-style-normal;
-  font-weight: $typography-font-weight-bold;
-  letter-spacing: $typography-letter-spacing-s;
-  line-height: $typography-line-height-2xs;
-  text-decoration: $typography-text-decoration-none;
-  text-decoration: $typography-text-transform-none;
-  --token: label-l-default-bold;
+	--token: label-l-default-bold;
+
+	font-size: $typography-font-size-s;
+	font-style: $typography-font-style-normal;
+	font-weight: $typography-font-weight-bold;
+	letter-spacing: $typography-letter-spacing-s;
+	line-height: $typography-line-height-2xs;
+	text-decoration: $typography-text-decoration-none;
+	text-decoration: $typography-text-transform-none;
 }
 
 @mixin labelMDefaultBold() {
-  font-size: $typography-font-size-xs;
-  font-style: $typography-font-style-normal;
-  font-weight: $typography-font-weight-bold;
-  letter-spacing: $typography-letter-spacing-s;
-  line-height: $typography-line-height-3xs;
-  text-decoration: $typography-text-decoration-none;
-  text-decoration: $typography-text-transform-none;
-  --token: label-m-default-bold;
+	--token: label-m-default-bold;
+
+	font-size: $typography-font-size-xs;
+	font-style: $typography-font-style-normal;
+	font-weight: $typography-font-weight-bold;
+	letter-spacing: $typography-letter-spacing-s;
+	line-height: $typography-line-height-3xs;
+	text-decoration: $typography-text-decoration-none;
+	text-decoration: $typography-text-transform-none;
 }
 
 @mixin labelSDefaultBold() {
-  font-size: $typography-font-size-2xs;
-  font-style: $typography-font-style-normal;
-  font-weight: $typography-font-weight-bold;
-  letter-spacing: $typography-letter-spacing-s;
-  line-height: $typography-line-height-4xs;
-  text-decoration: $typography-text-decoration-none;
-  text-decoration: $typography-text-transform-none;
-  --token: label-s-default-bold;
+	--token: label-s-default-bold;
+
+	font-size: $typography-font-size-2xs;
+	font-style: $typography-font-style-normal;
+	font-weight: $typography-font-weight-bold;
+	letter-spacing: $typography-letter-spacing-s;
+	line-height: $typography-line-height-4xs;
+	text-decoration: $typography-text-decoration-none;
+	text-decoration: $typography-text-transform-none;
 }
