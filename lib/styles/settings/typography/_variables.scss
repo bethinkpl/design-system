@@ -1,6 +1,4 @@
 :root {
-  --typography-font-family: 'Lato';
-
   --typography-font-size-base: 16px;
   --typography-font-size-s: 14px;
   --typography-font-size-xs: 12px;
@@ -13,4 +11,10 @@
   --typography-line-height-4xs: 12px;
 
   --typography-letter-spacing-s: 0.005em;
+
+  --typography-text-decoration-none: none;
+
+  --typography-font-style-normal: normal;
+
+  --typography-text-transform-none: none;
 }
