@@ -17,6 +17,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.13'
+      - name: Set yarn version
+        # Hard to say why this is needed here but not in wnl-platform
+        # Keep in sync with packageManager in package.json
+        run: yarn set version 3.2.4
       - name: Insert auth font awesome auth token
         run: yarn config set npmScopes.fortawesome.npmAuthToken $FONT_AWESOME_AUTH_TOKEN
         env:
