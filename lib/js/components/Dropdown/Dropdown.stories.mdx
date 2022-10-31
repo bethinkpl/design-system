@@ -79,7 +79,7 @@ import { ICONS } from '../Icon';
 			template:
 				'<div style="position: relative">' +
 				'<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth">' +
-				'<span slot="reference">Dropdown entry point</span>' +
+				'<template #reference><span>Dropdown entry point</span></template>' +
 				'<template v-slot="{ close }">' +
 				'<select-list v-model="value" :items="items" :size="SELECT_LIST_SIZES.MEDIUM" @input="close" />' +
 				'</template>' +

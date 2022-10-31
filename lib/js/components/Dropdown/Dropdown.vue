@@ -16,9 +16,9 @@
 			<slot :close="close" />
 		</div>
 
-		<template #reference>
-			<slot name="reference" />
-		</template>
+		<!-- TODO IT-4909 -->
+		<!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
+		<slot slot="reference" name="reference" />
 	</vue-popper>
 </template>
 
