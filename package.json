@@ -54,7 +54,7 @@
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-storybook": "0.6.6",
     "eslint-plugin-vue": "9.6.0",
-    "jest": "26.1.0",
+    "jest": "29.2.2",
     "jsdom": "^19.0.0",
     "jsdom-global": "^3.0.2",
     "postcss-prefix-selector": "^1.9.0",
