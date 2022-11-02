@@ -52,15 +52,17 @@ const ImportTypographyRaw = (
 						propertyValue += 'px';
 						break;
 					case 'letterSpacing':
-						propertyValue =
-							value[variableKey].value.replace(/[^0-9/.]/g, '') * 0.01 + 'em';
+						propertyValue = value[variableKey].value.replace(/[^0-9/.]/g, '') * 0.01;
+						if (value[variableKey].value != 0) {
+							propertyValue += 'em';
+						}
 						break;
 					case 'textCase':
 					case 'textDecoration':
 						propertyValue = value[variableKey].value;
 						break;
 				}
-				if (propertyValue) {
+				if (propertyValue !== undefined) {
 					resultCss.push('--' + propertyName + ': ' + propertyValue + ';');
 					resultScss.push('$' + propertyName + ': var(--' + propertyName + ');');
 				}
