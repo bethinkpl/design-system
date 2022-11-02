@@ -9,15 +9,5 @@ $icon-xxl: 64px;
 
 $min-touchable-size: 40px;
 
-$animation-fade-in: fadeIn 300ms; /* stylelint-disable-line value-keyword-case */
+$animation-fade-in: a-fadeIn 300ms; /* stylelint-disable-line value-keyword-case */
 $animation-spin: a-spinAround 1s infinite linear; /* stylelint-disable-line value-keyword-case */
-
-@keyframes fadeIn {
-	0% {
-		opacity: 0;
-	}
-
-	100% {
-		opacity: 1;
-	}
-}
