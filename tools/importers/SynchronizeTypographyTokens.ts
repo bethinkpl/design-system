@@ -41,20 +41,19 @@ const ImportTypographyRaw = (
 			for (let variableKey in value) {
 				let propertyName = typographyPrefix + jsonKeyToCssProperty[key] + '-' + variableKey;
 				let propertyValue;
-				let valueSplit;
 
 				switch (key) {
 					case 'fontSize':
 					case 'lineHeight':
-						let valueBase = value.base.value.replace(/[^0-9]/g, '');
-						valueSplit = value[variableKey].value.split('*');
-						let valueMultiplier = valueSplit[1];
+						const valueBase = value.base.value.replace(/[^0-9]/g, '');
+						const valueSplit = value[variableKey].value.split('*');
+						const valueMultiplier = valueSplit[1];
 						propertyValue = valueMultiplier ? valueBase * valueMultiplier : valueBase;
 						propertyValue += 'px';
 						break;
 					case 'letterSpacing':
-						valueSplit = value[variableKey].value.replace(/[^0-9/.]/g, '');
-						propertyValue = valueSplit * 0.01 + 'em';
+						propertyValue =
+							value[variableKey].value.replace(/[^0-9/.]/g, '') * 0.01 + 'em';
 						break;
 					case 'textCase':
 					case 'textDecoration':
