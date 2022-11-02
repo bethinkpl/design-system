@@ -284,11 +284,6 @@ $button-disabled-alpha: 0.6;
 		#{$self}__content {
 			opacity: 0;
 		}
-
-		#{$self}__loadingIcon {
-			animation: $animation-fade-in, $animation-spin;
-			position: absolute;
-		}
 	}
 
 	&.-elevation-x-small,
@@ -324,7 +319,6 @@ $button-disabled-alpha: 0.6;
 	&__content {
 		align-items: center;
 		display: inline-flex;
-		transition: opacity ease-in-out $default-transition-time;
 	}
 
 	&__icon {
@@ -335,5 +329,10 @@ $button-disabled-alpha: 0.6;
 		&.-right {
 			margin-left: $space-xxxxs;
 		}
+	}
+
+	&__loadingIcon {
+		animation: $animation-fade-in, $animation-spin;
+		position: absolute;
 	}
 }
