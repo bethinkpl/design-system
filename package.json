@@ -73,7 +73,7 @@
     "vue-jest": "^4.0.1",
     "vue-loader": "^15.9.6",
     "vue-popperjs": "2.3.0",
-    "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.0.2",
+    "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.1.1",
     "vue-svg-loader": "^0.16.0",
     "vue-template-compiler": "^2.6.12"
   }
