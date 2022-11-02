@@ -1,4 +1,4 @@
-import Dropdown from './Dropdown';
+import Dropdown from './Dropdown.vue';
 import { DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
 import SelectList, { SELECT_LIST_SIZES } from '../SelectList';
 import { ICONS } from '../Icon';
