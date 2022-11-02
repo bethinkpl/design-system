@@ -1,0 +1,19 @@
+{
+  "destinationPath": "lib/styles/settings/typography/",
+  "bins": [
+    {
+      "id": "633d96230e6a79321e1dec41",
+      "name": "wnl",
+      "isTheme": false,
+      "files": {
+        "variablesRaw": {
+          "destinationVariables": "_variables.scss",
+          "destinationVariablesCss": "_variables-css.scss",
+          "destinationJson": "_variables.json"
+        }
+      }
+    }
+  ],
+  "jsonBinApiUrl": "https://api.jsonbin.io/v3/b/",
+  "xMasterKey": "$2b$10$pGYu2VSnUSqm/6m2kMaJSOwc39KdqiTppeIv/qFcAaaqkRm.J/akW"
+}
