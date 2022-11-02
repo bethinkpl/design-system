@@ -143,6 +143,7 @@ $button-disabled-alpha: 0.6;
 
 .a-button {
 	$self: &;
+	overflow: hidden;
 
 	@include buttonM;
 
