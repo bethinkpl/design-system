@@ -101,11 +101,6 @@
 		&__loadingIcon {
 			color: $icon;
 		}
-
-		&__loadingIcon {
-			position: absolute;
-			animation: $animation-fade-in, $animation-spin;
-		}
 	}
 
 	&.-hovered,
@@ -334,5 +329,10 @@ $button-disabled-alpha: 0.6;
 		&.-right {
 			margin-left: $space-xxxxs;
 		}
+	}
+
+	&__loadingIcon {
+		position: absolute;
+		animation: $animation-fade-in, $animation-spin;
 	}
 }
