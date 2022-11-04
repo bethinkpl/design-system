@@ -40,5 +40,15 @@ const arrayToMixinFile = (filepath: string, content: Array<string>) => {
 	file.end();
 };
 
+const jsonToFile = (filepath: string, content: Object) => {
+	let file = fs.createWriteStream(filepath);
+	file.on('error', function (err) {
+		console.error(err);
+	});
+	file.write(JSON.stringify(content));
+	file.end();
+};
+
 exports.arrayToFile = arrayToFile;
 exports.arrayToMixinFile = arrayToMixinFile;
+exports.jsonToFile = jsonToFile;

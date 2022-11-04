@@ -81,7 +81,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingXLDefaultRegular-Uppercase() {
+@mixin headingXLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-xl;
 	font-size: $typography-font-size-xl;
@@ -99,7 +99,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingXLDefaultBold-Uppercase() {
+@mixin headingXLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-xl;
 	font-size: $typography-font-size-xl;
@@ -117,7 +117,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingLDefaultRegular-Uppercase() {
+@mixin headingLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
@@ -135,7 +135,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingLDefaultBold-Uppercase() {
+@mixin headingLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
@@ -153,7 +153,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingMDefaultRegular-Uppercase() {
+@mixin headingMDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -171,7 +171,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingMDefaultBold-Uppercase() {
+@mixin headingMDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -189,7 +189,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingSDefaultRegular-Uppercase() {
+@mixin headingSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
@@ -207,7 +207,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingSDefaultBold-Uppercase() {
+@mixin headingSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
@@ -225,7 +225,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingXSDefaultRegular-Uppercase() {
+@mixin headingXSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
@@ -243,7 +243,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin headingXSDefaultBold-Uppercase() {
+@mixin headingXSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
@@ -270,7 +270,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textXLDefaultRegular-Underlined() {
+@mixin textXLDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
@@ -279,7 +279,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textXLDefaultRegular-Uppercase() {
+@mixin textXLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
@@ -306,7 +306,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textXLDefaultBold-Underlined() {
+@mixin textXLDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
@@ -315,7 +315,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textXLDefaultBold-Uppercase() {
+@mixin textXLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
@@ -342,7 +342,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textXLCompactRegular-Underlined() {
+@mixin textXLCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
@@ -351,7 +351,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textXLCompactRegular-Uppercase() {
+@mixin textXLCompactRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
@@ -378,7 +378,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textXLCompactBold-Underlined() {
+@mixin textXLCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
@@ -387,7 +387,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textXLCompactBold-Uppercase() {
+@mixin textXLCompactBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
@@ -414,7 +414,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textLDefaultRegular-Underlined() {
+@mixin textLDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
@@ -423,7 +423,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textLDefaultRegular-Uppercase() {
+@mixin textLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
@@ -450,7 +450,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textLDefaultBold-Underlined() {
+@mixin textLDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
@@ -459,7 +459,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textLDefaultBold-Uppercase() {
+@mixin textLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
@@ -486,7 +486,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textLCompactRegular-Underlined() {
+@mixin textLCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -495,7 +495,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textLCompactRegular-Uppercase() {
+@mixin textLCompactRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -522,7 +522,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textLCompactBold-Underlined() {
+@mixin textLCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -531,7 +531,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textLCompactBold-Uppercase() {
+@mixin textLCompactBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -558,7 +558,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textMDefaultRegular-Underlined() {
+@mixin textMDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
@@ -567,7 +567,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textMDefaultRegular-Uppercase() {
+@mixin textMDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
@@ -594,7 +594,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textMDefaultBold-Underlined() {
+@mixin textMDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
@@ -603,7 +603,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textMDefaultBold-Uppercase() {
+@mixin textMDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
@@ -630,7 +630,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textMCompactRegular-Underlined() {
+@mixin textMCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
@@ -639,7 +639,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textMCompactRegular-Uppercase() {
+@mixin textMCompactRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
@@ -666,7 +666,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textMCompactBold-Underlined() {
+@mixin textMCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
@@ -675,7 +675,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textMCompactBold-Uppercase() {
+@mixin textMCompactBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
@@ -702,7 +702,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textSDefaultRegular-Underlined() {
+@mixin textSDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
@@ -711,7 +711,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textSDefaultRegular-Uppercase() {
+@mixin textSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
@@ -738,7 +738,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textSDefaultBold-Underlined() {
+@mixin textSDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
@@ -747,7 +747,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textSDefaultBold-Uppercase() {
+@mixin textSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
@@ -774,7 +774,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textSCompactRegular-Underlined() {
+@mixin textSCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
@@ -783,7 +783,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textSCompactRegular-Uppercase() {
+@mixin textSCompactRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
@@ -810,7 +810,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textSCompactBold-Underlined() {
+@mixin textSCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
@@ -819,7 +819,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin textSCompactBold-Uppercase() {
+@mixin textSCompactBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
@@ -882,7 +882,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoXLExtensiveRegular-Uppercase() {
+@mixin infoXLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -909,7 +909,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoXLExtensiveBold-Uppercase() {
+@mixin infoXLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -972,7 +972,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoLExtensiveRegular-Uppercase() {
+@mixin infoLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
@@ -999,7 +999,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoLExtensiveBold-Uppercase() {
+@mixin infoLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
@@ -1062,7 +1062,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoMExtensiveRegular-Uppercase() {
+@mixin infoMExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
@@ -1089,7 +1089,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoMExtensiveBold-Uppercase() {
+@mixin infoMExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
@@ -1152,7 +1152,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoSExtensiveRegular-Uppercase() {
+@mixin infoSExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
@@ -1179,7 +1179,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoSExtensiveBold-Uppercase() {
+@mixin infoSExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
@@ -1242,7 +1242,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoXSExtensiveRegular-Uppercase() {
+@mixin infoXSExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
@@ -1269,7 +1269,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin infoXSExtensiveBold-Uppercase() {
+@mixin infoXSExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
@@ -1701,7 +1701,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin label2XLDefaultRegular-Uppercase() {
+@mixin label2XLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
@@ -1719,7 +1719,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin label2XLDefaultBold-Uppercase() {
+@mixin label2XLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
@@ -1728,7 +1728,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin label2XLExtensiveRegular-Uppercase() {
+@mixin label2XLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
@@ -1737,7 +1737,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin label2XLExtensiveBold-Uppercase() {
+@mixin label2XLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
@@ -1764,7 +1764,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelXLDefaultRegular-Uppercase() {
+@mixin labelXLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -1782,7 +1782,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelXLDefaultBold-Uppercase() {
+@mixin labelXLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -1791,7 +1791,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelXLExtensiveRegular-Uppercase() {
+@mixin labelXLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -1800,7 +1800,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelXLExtensiveBold-Uppercase() {
+@mixin labelXLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -1827,7 +1827,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelLDefaultRegular-Uppercase() {
+@mixin labelLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
@@ -1845,7 +1845,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelLDefaultBold-Uppercase() {
+@mixin labelLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
@@ -1854,7 +1854,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelLExtensiveRegular-Uppercase() {
+@mixin labelLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
@@ -1863,7 +1863,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelLExtensiveBold-Uppercase() {
+@mixin labelLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
@@ -1890,7 +1890,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelMDefaultRegular-Uppercase() {
+@mixin labelMDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
@@ -1908,7 +1908,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelMDefaultBold-Uppercase() {
+@mixin labelMDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
@@ -1917,7 +1917,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelMExtensiveRegular-Uppercase() {
+@mixin labelMExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
@@ -1926,7 +1926,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelMExtensiveBold-Uppercase() {
+@mixin labelMExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
@@ -1953,7 +1953,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelSDefaultRegular-Uppercase() {
+@mixin labelSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
@@ -1971,7 +1971,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelSDefaultBold-Uppercase() {
+@mixin labelSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
@@ -1980,7 +1980,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelSExtensiveRegular-Uppercase() {
+@mixin labelSExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
@@ -1989,7 +1989,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelSExtensiveBold-Uppercase() {
+@mixin labelSExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
@@ -2016,7 +2016,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelXSDefaultRegular-Uppercase() {
+@mixin labelXSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
@@ -2034,7 +2034,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin labelXSDefaultBold-Uppercase() {
+@mixin labelXSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
@@ -2043,7 +2043,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelXSExtensiveRegular-Uppercase() {
+@mixin labelXSExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
@@ -2052,7 +2052,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin labelXSExtensiveBold-Uppercase() {
+@mixin labelXSExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
@@ -2061,7 +2061,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin buttonLDefaultBold-Uppercase() {
+@mixin buttonLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
@@ -2070,7 +2070,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin buttonMDefaultBold-Uppercase() {
+@mixin buttonMDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
@@ -2079,7 +2079,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin buttonSDefaultBold-Uppercase() {
+@mixin buttonSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
@@ -2088,7 +2088,7 @@
 	text-transform: $typography-text-transform-uppercase;
 }
 
-@mixin buttonXSDefaultBold-Uppercase() {
+@mixin buttonXSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
@@ -2106,7 +2106,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkXLDefaultRegular-Underlined() {
+@mixin linkXLDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
@@ -2124,7 +2124,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkXLDefaultBold-Underlined() {
+@mixin linkXLDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
@@ -2142,7 +2142,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkXLCompactRegular-Underlined() {
+@mixin linkXLCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
@@ -2160,7 +2160,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkXLCompactBold-Underlined() {
+@mixin linkXLCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
@@ -2178,7 +2178,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkLDefaultRegular-Underlined() {
+@mixin linkLDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
@@ -2196,7 +2196,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkLDefaultBold-Underlined() {
+@mixin linkLDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
@@ -2214,7 +2214,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkLCompactRegular-Underlined() {
+@mixin linkLCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -2232,7 +2232,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkLCompactBold-Underlined() {
+@mixin linkLCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
@@ -2250,7 +2250,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkMDefaultRegular-Underlined() {
+@mixin linkMDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
@@ -2268,7 +2268,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkMDefaultBold-Underlined() {
+@mixin linkMDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
@@ -2286,7 +2286,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkMCompactRegular-Underlined() {
+@mixin linkMCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
@@ -2304,7 +2304,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkMCompactBold-Underlined() {
+@mixin linkMCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
@@ -2322,7 +2322,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkSDefaultRegular-Underlined() {
+@mixin linkSDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
@@ -2340,7 +2340,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkSDefaultBold-Underlined() {
+@mixin linkSDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
@@ -2358,7 +2358,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkSCompactRegular-Underlined() {
+@mixin linkSCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
@@ -2376,7 +2376,7 @@
 	text-transform: $typography-text-transform-none;
 }
 
-@mixin linkSCompactBold-Underlined() {
+@mixin linkSCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;

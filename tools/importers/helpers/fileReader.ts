@@ -6,7 +6,8 @@ const recursiveTokenReader = (obj, keyResult: string, result: Array<any>, import
 	}
 
 	for (let key in obj) {
-		let temporaryKey = keyResult + ' ' + key;
+		let temporaryKey = (keyResult + ' ' + key).replace(/\-+/g, ' ');
+		console.log(temporaryKey);
 		let resultToPush = recursiveTokenReader(obj[key], temporaryKey, result, importerVariables);
 
 		if (resultToPush === undefined) {

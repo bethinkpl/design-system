@@ -1,28 +1,12 @@
-const fsT = require('fs');
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
 const fileWriter = require('./helpers/fileWriter');
-
-interface Dict<V> {
-	[key: string]: V;
-}
-
-interface IResultJsonObject {
-	id: string;
-	label: string;
-	value: string;
-}
+import { Dict, ITokenJsonObject, IResultJsonObject } from './helpers/structures';
 
 interface configFileObject {
 	destination: string;
 	destinationJson: string;
 	destinationTokensVariables: string;
-}
-
-interface ITokenJsonObject {
-	id: string;
-	label: string;
-	value: string;
 }
 
 const ImportColorsRaw = (
@@ -115,7 +99,10 @@ const ImportColorsRaw = (
 
 	fileWriter.arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
 	if (binValues.destinationJson) {
-		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultColorsJson);
+		fileWriter.jsonToFile(
+			tokensFilesConfig.destinationPath + binValues.destinationJson,
+			resultColorsJson,
+		);
 	}
 
 	return hexToCssVariable;
@@ -202,7 +189,10 @@ const ImportSingleTokenFile = (
 	}
 
 	fileWriter.arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJsonTokens);
+	fileWriter.jsonToFile(
+		tokensFilesConfig.destinationPath + binValues.destinationJson,
+		resultJsonTokens,
+	);
 	if (binValues.destinationTokensVariables) {
 		fileWriter.arrayToFile(
 			tokensFilesConfig.destinationPath + binValues.destinationTokensVariables,
@@ -235,15 +225,6 @@ const hexToRgb = (hex: string) => {
 				', ' +
 				parseInt(result[3], 16)
 		: null;
-};
-
-const jsonToFile = (filepath: string, content: Object) => {
-	let file = fsT.createWriteStream(filepath);
-	file.on('error', function (err) {
-		console.log(err);
-	});
-	file.write(JSON.stringify(content));
-	file.end();
 };
 
 const SynchronizeSingleBin = async (bin) => {

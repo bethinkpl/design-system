@@ -3,10 +3,12 @@ const tokensFilesConfig = require('./configs/SynchronizeTypographyTokensConfig.j
 const fileWriter = require('./helpers/fileWriter');
 const fileRead = require('./helpers/fileReader');
 const importerVariables = require('./helpers/typographyVariables');
+import { Dict, ITokenJsonObject, IResultJsonObject } from './helpers/structures';
 
 interface configFileObject {
 	destinationVariables: string;
 	destinationVariablesCss: string;
+	destinationVariablesCssJson: string;
 	destinationJson: string;
 }
 
@@ -18,6 +20,7 @@ const ImportTypographyRaw = (
 ) => {
 	let resultCss: Array<string> = [];
 	let resultScss: Array<string> = [];
+	let resultJsonCss: Dict<Array<IResultJsonObject>> = {};
 
 	if (isTheme) {
 		resultCss.push('.theme-' + name + ' {');
@@ -62,6 +65,18 @@ const ImportTypographyRaw = (
 				if (propertyValue !== undefined) {
 					resultCss.push('--' + propertyName + ': ' + propertyValue + ';');
 					resultScss.push('$' + propertyName + ': var(--' + propertyName + ');');
+
+					// const category = '';
+					const resultJsonObject: ITokenJsonObject = {
+						id: binValues.destinationJson + '_' + propertyName,
+						label: propertyName,
+						value: propertyValue,
+					};
+
+					if (resultJsonCss[key] === undefined) {
+						resultJsonCss[key] = [];
+					}
+					resultJsonCss[key].push(resultJsonObject);
 				}
 			}
 		}
@@ -86,6 +101,10 @@ const ImportTypographyRaw = (
 	fileWriter.arrayToFile(
 		tokensFilesConfig.destinationPath + binValues.destinationVariables,
 		resultScss,
+	);
+	fileWriter.jsonToFile(
+		tokensFilesConfig.destinationPath + binValues.destinationVariablesCssJson,
+		resultJsonCss,
 	);
 };
 
@@ -132,31 +151,37 @@ function buildTypographyTokensMixins(tokens: Object): Array<string> {
 }
 
 const SynchronizeSingleBin = async (bin) => {
-	const requestConfig = {
-		headers: {
-			'X-Master-Key': tokensFilesConfig.xMasterKey,
-		},
-	};
-	const response = await axios.get(
-		tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest',
-		requestConfig,
-	);
-
-	if (!response.data.record.values.LMSDesignSystemTypography) {
-		throw new TypeError('Response structure has no content!');
-	}
+	let requestResponse = await requestForBin(bin);
 
 	ImportTypographyRaw(
 		bin.name,
 		bin.files.variablesRaw,
-		response.data.record.values.LMSDesignSystemTypography,
+		requestResponse.data.record.values.LMSDesignSystemTypography,
 		bin.isTheme,
 	);
 
 	ImportTypographyTokensRaw(
 		bin.files.tokens,
-		response.data.record.values.LMSDesignSystemTypography,
+		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);
+};
+
+const requestForBin = async (bin) => {
+	const requestConfig = {
+		headers: {
+			'X-Master-Key': tokensFilesConfig.xMasterKey,
+		},
+	};
+	const requestResponse = await axios.get(
+		tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest',
+		requestConfig,
+	);
+
+	if (!requestResponse.data.record.values.LMSDesignSystemTypography) {
+		throw new TypeError('Response structure has no content!');
+	}
+
+	return requestResponse;
 };
 
 const SynchronizeTypographyTokens = async () => {
