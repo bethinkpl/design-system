@@ -10,6 +10,9 @@
           "destinationVariables": "_variables.scss",
           "destinationVariablesCss": "_variables-css.scss",
           "destinationJson": "_variables.json"
+        },
+        "tokens": {
+          "destinationVariables": "_tokens.scss"
         }
       }
     }
