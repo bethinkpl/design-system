@@ -1,24 +1,8 @@
-const fsT = require('fs');
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeTypographyTokensConfig.json');
-const typographyPrefix = 'typography-';
-const tokensKey = 'TypographyTokens';
-const variablesExcludedKeys = ['fontFamilies', 'TypographyTokens'];
-
-const fontFamilyProperty = 'font-families';
-const transformCssProperty = {
-	'text-case': 'text-transform',
-	'-regular': '-normal',
-};
-
-const jsonKeyToCssProperty = {
-	lineHeight: 'line-height',
-	fontWeight: 'font-weight',
-	fontSize: 'font-size',
-	letterSpacing: 'letter-spacing',
-	textCase: 'text-transform',
-	textDecoration: 'text-decoration',
-};
+const fileWriter = require('./helpers/fileWriter');
+const fileRead = require('./helpers/fileReader');
+const importerVariables = require('./helpers/typographyVariables');
 
 interface configFileObject {
 	destinationVariables: string;
@@ -29,7 +13,7 @@ interface configFileObject {
 const ImportTypographyRaw = (
 	name: string,
 	binValues: configFileObject,
-	jsonTypography: any,
+	jsonTypography: Object,
 	isTheme: boolean,
 ) => {
 	let resultCss: Array<string> = [];
@@ -42,24 +26,30 @@ const ImportTypographyRaw = (
 	}
 
 	for (let key in jsonTypography) {
-		if (!variablesExcludedKeys.includes(key)) {
+		if (!importerVariables.excludedKeys.includes(key)) {
 			let value = jsonTypography[key];
 
 			for (let variableKey in value) {
-				let propertyName = typographyPrefix + jsonKeyToCssProperty[key] + '-' + variableKey;
-				let propertyValue;
+				let propertyName: string =
+					importerVariables.typographyPrefix +
+					importerVariables.jsonKeyToCssProperty[key] +
+					'-' +
+					variableKey;
+				let propertyValue: string | undefined;
 
 				switch (key) {
 					case 'fontSize':
 					case 'lineHeight':
-						const valueBase = value.base.value.replace(/[^0-9]/g, '');
-						const valueSplit = value[variableKey].value.split('*');
-						const valueMultiplier = valueSplit[1];
-						propertyValue = valueMultiplier ? valueBase * valueMultiplier : valueBase;
-						propertyValue += 'px';
+						const valueBase: number = parseInt(value.base.value.replace(/[^0-9]/g, ''));
+						const valueSplit: Array<number> = value[variableKey].value.split('*');
+						const valueMultiplier: number = valueSplit[1];
+						propertyValue = valueMultiplier
+							? valueBase * valueMultiplier + 'px'
+							: valueBase + 'px';
 						break;
 					case 'letterSpacing':
-						propertyValue = value[variableKey].value.replace(/[^0-9/.]/g, '') * 0.01;
+						propertyValue =
+							value[variableKey].value.replace(/[^0-9/.]/g, '') * 0.01 + '';
 						if (value[variableKey].value != 0) {
 							propertyValue += 'em';
 						}
@@ -89,30 +79,37 @@ const ImportTypographyRaw = (
 	resultScss.push('$typography-font-style-normal: var(--typography-font-style-normal);');
 	resultScss.push('$typography-font-style-italic: var(--typography-font-style-italic);');
 
-	arrayToFile(tokensFilesConfig.destinationPath + binValues.destinationVariablesCss, resultCss);
-	arrayToFile(tokensFilesConfig.destinationPath + binValues.destinationVariables, resultScss);
+	fileWriter.arrayToFile(
+		tokensFilesConfig.destinationPath + binValues.destinationVariablesCss,
+		resultCss,
+	);
+	fileWriter.arrayToFile(
+		tokensFilesConfig.destinationPath + binValues.destinationVariables,
+		resultScss,
+	);
 };
 
 const ImportTypographyTokensRaw = (binValues: configFileObject, jsonTypography: any) => {
 	let resultScss: Array<string> = [];
 
-	for (let key in jsonTypography[tokensKey]) {
-		resultScss.push(iterateObject(jsonTypography[tokensKey][key], key, []));
+	for (let key in jsonTypography[importerVariables.tokensKey]) {
+		resultScss.push(
+			fileRead.recursiveTokenReader(
+				jsonTypography[importerVariables.tokensKey][key],
+				key,
+				[],
+				importerVariables,
+			),
+		);
 	}
 
-	resultScss = resultScss.flat();
-	const tempTokens = buildTokenMixins(resultScss);
-
-	const finalTokens: Array<string> = [];
-	finalTokens.push("@import 'variables';");
-	let finalTokens2 = finalTokens.concat(tempTokens);
-	arrayToMixinFile(
+	fileWriter.arrayToMixinFile(
 		tokensFilesConfig.destinationPath + binValues.destinationVariables,
-		finalTokens2,
+		[importerVariables.importVariables, ...buildTypographyTokensMixins(resultScss.flat())],
 	);
 };
 
-function buildTokenMixins(tokens: Object): Array<string> {
+function buildTypographyTokensMixins(tokens: Object): Array<string> {
 	let result: Array<string> = [];
 	for (let key in tokens) {
 		result.push('\n@mixin ' + tokens[key].tokenCamelCase + '() {');
@@ -122,7 +119,8 @@ function buildTokenMixins(tokens: Object): Array<string> {
 				cssAttributePartOne +
 					'-' +
 					cssAttributePartTwo +
-					': $typography-' +
+					': $' +
+					importerVariables.typographyPrefix +
 					attribute +
 					';',
 			);
@@ -132,93 +130,6 @@ function buildTokenMixins(tokens: Object): Array<string> {
 
 	return result;
 }
-
-function iterateObject(obj, keyResult, result) {
-	if ('value' in obj) {
-		return;
-	}
-
-	for (let key in obj) {
-		let temporaryKey = keyResult + ' ' + key;
-		let resultToPush = iterateObject(obj[key], temporaryKey, result);
-
-		if (resultToPush === undefined) {
-			let attributes: string[] = [];
-			for (let attrKey in obj[key].value) {
-				let attrValue = obj[key].value[attrKey]
-					.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-					.replace(/\.+/g, '-')
-					.slice(1, -1)
-					.toLowerCase();
-
-				attrValue = attrValue
-					.replace('text-case', transformCssProperty['text-case'])
-					.replace('-regular', transformCssProperty['-regular']);
-
-				if (attrValue && !attrValue.includes(fontFamilyProperty)) {
-					attributes.push(attrValue);
-				}
-			}
-			result.push({
-				token: temporaryKey
-					.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-					.replace(/\s+/g, '-')
-					.toLowerCase(),
-				tokenCamelCase: camelize(temporaryKey),
-				attributes,
-			});
-		}
-	}
-
-	return result;
-}
-
-function camelize(str) {
-	return str
-		.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
-			return index === 0 ? word.toLowerCase() : word.toUpperCase();
-		})
-		.replace(/\s+/g, '');
-}
-
-const arrayToMixinFile = (filepath: string, content: Array<string>) => {
-	let file = fsT.createWriteStream(filepath);
-	file.on('error', function (err) {
-		console.log(err);
-	});
-
-	const patternTheme = /@mixin|@import|}/i;
-
-	content.forEach(function (v) {
-		let hasLineIndentation = true;
-		if (v.match(patternTheme)) {
-			hasLineIndentation = false;
-		}
-		console.log(v);
-		file.write(hasLineIndentation ? '\t' + v + '\n' : v + '\n');
-	});
-	file.end();
-};
-
-const arrayToFile = (filepath: string, content: Array<string>) => {
-	let file = fsT.createWriteStream(filepath);
-	file.on('error', function (err) {
-		console.log(err);
-	});
-
-	const patternTheme = /root|}/i;
-	let hasFileIndentation = false;
-	content.forEach(function (v) {
-		if (v.match(patternTheme)) {
-			hasFileIndentation = true;
-			file.write(v.toLowerCase() + '\n');
-		} else {
-			const hasLineIndentation = hasFileIndentation ? '\t' : '';
-			file.write(hasLineIndentation + v.toLowerCase() + '\n');
-		}
-	});
-	file.end();
-};
 
 const SynchronizeSingleBin = async (bin) => {
 	const requestConfig = {
@@ -241,6 +152,7 @@ const SynchronizeSingleBin = async (bin) => {
 		response.data.record.values.LMSDesignSystemTypography,
 		bin.isTheme,
 	);
+
 	ImportTypographyTokensRaw(
 		bin.files.tokens,
 		response.data.record.values.LMSDesignSystemTypography,
@@ -253,4 +165,5 @@ const SynchronizeTypographyTokens = async () => {
 	});
 };
 
-SynchronizeTypographyTokens();
+// @ts-ignore
+SynchronizeTypographyTokens().then({});

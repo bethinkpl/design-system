@@ -1,6 +1,7 @@
 const fsT = require('fs');
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
+const fileWriter = require('./helpers/fileWriter');
 
 interface Dict<V> {
 	[key: string]: V;
@@ -112,7 +113,7 @@ const ImportColorsRaw = (
 		});
 	});
 
-	arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
+	fileWriter.arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
 	if (binValues.destinationJson) {
 		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultColorsJson);
 	}
@@ -200,10 +201,10 @@ const ImportSingleTokenFile = (
 		throw new Error('ERROR! No colors to save');
 	}
 
-	arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
+	fileWriter.arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
 	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJsonTokens);
 	if (binValues.destinationTokensVariables) {
-		arrayToFile(
+		fileWriter.arrayToFile(
 			tokensFilesConfig.destinationPath + binValues.destinationTokensVariables,
 			resultVariables,
 		);
@@ -234,26 +235,6 @@ const hexToRgb = (hex: string) => {
 				', ' +
 				parseInt(result[3], 16)
 		: null;
-};
-
-const arrayToFile = (filepath: string, content: Array<string>) => {
-	let file = fsT.createWriteStream(filepath);
-	file.on('error', function (err) {
-		console.log(err);
-	});
-
-	const patternTheme = /root|}/i;
-	let hasFileIndentation = false;
-	content.forEach(function (v) {
-		if (v.match(patternTheme)) {
-			hasFileIndentation = true;
-			file.write(v.toLowerCase() + '\n');
-		} else {
-			const hasLineIndentation = hasFileIndentation ? '\t' : '';
-			file.write(hasLineIndentation + v.toLowerCase() + '\n');
-		}
-	});
-	file.end();
 };
 
 const jsonToFile = (filepath: string, content: Object) => {
