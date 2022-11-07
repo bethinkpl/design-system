@@ -4,7 +4,7 @@ import ItemsList from './../ItemsList.vue';
 import source from '../../../styles/settings/typography/_variables-css.json';
 
 export default {
-	title: 'foundations/∂Design Tokens/Typography Tokens/Variables WNL',
+	title: 'foundations/Design Tokens/Typography Tokens/Variables WNL',
 	component: ItemsList,
 } as Meta<typeof ItemsList>;
 
