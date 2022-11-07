@@ -66,7 +66,6 @@ const ImportTypographyRaw = (
 					resultCss.push('--' + propertyName + ': ' + propertyValue + ';');
 					resultScss.push('$' + propertyName + ': var(--' + propertyName + ');');
 
-					// const category = '';
 					const resultJsonObject: ITokenJsonObject = {
 						id: binValues.destinationJson + '_' + propertyName,
 						label: propertyName,

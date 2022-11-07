@@ -1,32 +1,32 @@
 <template>
 	<div>
-		<div v-for="colorList in colorsLocal" :key="colorList.title" class="colorDefinition">
-			<div class="colorsList" :class="{ [colorList.class]: colorList.class }">
-				<div class="colorsList__row">
-					<h2 class="colorsList__title">{{ colorList.title }}</h2>
-					<ol class="colorsList__categories">
+		<div v-for="itemsList in itemsLocal" :key="itemsList.title" class="itemDefinition">
+			<div class="itemsList" :class="{ [itemsList.class]: itemsList.class }">
+				<div class="itemsList__row">
+					<h2 class="itemsList__title">{{ itemsList.title }}</h2>
+					<ol class="itemsList__categories">
 						<li
-							v-for="(colors, colorCategory) in colorList.list"
-							:key="colorCategory"
-							class="colorsDefinition__category"
+							v-for="(items, itemCategory) in itemsList.list"
+							:key="itemCategory"
+							class="itemDefinition__category"
 						>
-							{{ colorCategory }}
+							{{ itemCategory }}
 						</li>
 					</ol>
 				</div>
 				<div
-					v-for="(colors, colorCategory) in colorList.list"
-					:key="colorCategory"
-					class="colorsList__row"
+					v-for="(items, itemCategory) in itemsList.list"
+					:key="itemCategory"
+					class="itemsList__row"
 				>
-					<h3 :id="'category-' + colorCategory">{{ colorCategory }}</h3>
-					<div v-for="color in colors" :key="color.id" class="colorDefinition">
-						<div class="colorDefinition__id">{{ color.label }}</div>
-						<div class="colorDefinition__value">{{ color.value }}</div>
-						<div class="colorDefinition__color">
+					<h3 :id="'category-' + itemCategory">{{ itemCategory }}</h3>
+					<div v-for="item in items" :key="item.id" class="itemDefinition">
+						<div class="itemDefinition__id">{{ item.label }}</div>
+						<div class="itemDefinition__value">{{ item.value }}</div>
+						<div class="itemDefinition__color">
 							<span
-								:style="{ background: color.value }"
-								class="colorDefinition__tile"
+								:style="{ background: item.value }"
+								class="itemDefinition__tile"
 							/>
 						</div>
 					</div>
@@ -37,7 +37,7 @@
 </template>
 
 <style lang="scss" scoped>
-.colorsList {
+.itemsList {
 	margin: 0 auto;
 	width: 80%;
 
@@ -56,7 +56,7 @@
 	}
 }
 
-.colorDefinition {
+.itemDefinition {
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
@@ -96,25 +96,27 @@
 
 <script lang="ts">
 export default {
-	name: 'ColorsList',
+	name: 'ItemsList',
 	props: {
-		colorsLists: {
+		itemsLists: {
 			type: Array,
 			required: true,
 		},
 	},
 	data() {
 		return {
-			colorsLocal: this.colorsLists,
+			itemsLocal: this.itemsLists,
 		};
 	},
 	mounted() {
-		this.colorsLocal.forEach((list, index) => {
+
+    console.log(this.itemsLists);
+		this.itemsLocal.forEach((list, index) => {
 			if (list.disabled) {
 				for (let key in list.list) {
 					if (key === list.disabled) {
-						this.colorsLocal[index].list[key] = null;
-						delete this.colorsLocal[index].list[key];
+						this.itemsLocal[index].list[key] = null;
+						delete this.itemsLocal[index].list[key];
 					}
 				}
 			}
