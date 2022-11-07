@@ -2,6 +2,7 @@
 
 @mixin displayHeadingMDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xl;
 	font-size: $typography-font-size-4xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -11,6 +12,7 @@
 
 @mixin displayHeadingMDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xl;
 	font-size: $typography-font-size-4xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -20,6 +22,7 @@
 
 @mixin displayHeadingSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xl;
 	font-size: $typography-font-size-3xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -29,6 +32,7 @@
 
 @mixin displayHeadingSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xl;
 	font-size: $typography-font-size-3xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -38,6 +42,7 @@
 
 @mixin displayHeadingXSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-2xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -47,6 +52,7 @@
 
 @mixin displayHeadingXSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-2xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -56,6 +62,7 @@
 
 @mixin pageHeadingMDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-s;
@@ -65,6 +72,7 @@
 
 @mixin pageHeadingSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-s;
@@ -74,6 +82,7 @@
 
 @mixin headingXLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xl;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-s;
@@ -83,6 +92,7 @@
 
 @mixin headingXLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xl;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-l;
@@ -92,6 +102,7 @@
 
 @mixin headingXLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xl;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-s;
@@ -101,6 +112,7 @@
 
 @mixin headingXLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xl;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-l;
@@ -110,6 +122,7 @@
 
 @mixin headingLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-s;
@@ -119,6 +132,7 @@
 
 @mixin headingLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-l;
@@ -128,6 +142,7 @@
 
 @mixin headingLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-s;
@@ -137,6 +152,7 @@
 
 @mixin headingLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-l;
@@ -146,6 +162,7 @@
 
 @mixin headingMDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -155,6 +172,7 @@
 
 @mixin headingMDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-l;
@@ -164,6 +182,7 @@
 
 @mixin headingMDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -173,6 +192,7 @@
 
 @mixin headingMDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-l;
@@ -182,6 +202,7 @@
 
 @mixin headingSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -191,6 +212,7 @@
 
 @mixin headingSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-l;
@@ -200,6 +222,7 @@
 
 @mixin headingSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -209,6 +232,7 @@
 
 @mixin headingSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-l;
@@ -218,6 +242,7 @@
 
 @mixin headingXSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -227,6 +252,7 @@
 
 @mixin headingXSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-l;
@@ -236,6 +262,7 @@
 
 @mixin headingXSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -245,6 +272,7 @@
 
 @mixin headingXSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-l;
@@ -254,6 +282,7 @@
 
 @mixin textXLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -262,7 +291,8 @@
 }
 
 @mixin textXLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -272,6 +302,7 @@
 
 @mixin textXLDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -281,6 +312,7 @@
 
 @mixin textXLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-s;
@@ -290,6 +322,7 @@
 
 @mixin textXLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -298,7 +331,8 @@
 }
 
 @mixin textXLDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -308,6 +342,7 @@
 
 @mixin textXLDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -317,6 +352,7 @@
 
 @mixin textXLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-s;
@@ -326,6 +362,7 @@
 
 @mixin textXLCompactRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -334,7 +371,8 @@
 }
 
 @mixin textXLCompactRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -344,6 +382,7 @@
 
 @mixin textXLCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -353,6 +392,7 @@
 
 @mixin textXLCompactRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-s;
@@ -362,6 +402,7 @@
 
 @mixin textXLCompactBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -370,7 +411,8 @@
 }
 
 @mixin textXLCompactBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -380,6 +422,7 @@
 
 @mixin textXLCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -389,6 +432,7 @@
 
 @mixin textXLCompactBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-s;
@@ -398,6 +442,7 @@
 
 @mixin textLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -406,7 +451,8 @@
 }
 
 @mixin textLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -416,6 +462,7 @@
 
 @mixin textLDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -425,6 +472,7 @@
 
 @mixin textLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -434,6 +482,7 @@
 
 @mixin textLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -442,7 +491,8 @@
 }
 
 @mixin textLDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -452,6 +502,7 @@
 
 @mixin textLDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -461,6 +512,7 @@
 
 @mixin textLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -470,6 +522,7 @@
 
 @mixin textLCompactRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -478,7 +531,8 @@
 }
 
 @mixin textLCompactRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -488,6 +542,7 @@
 
 @mixin textLCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -497,6 +552,7 @@
 
 @mixin textLCompactRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -506,6 +562,7 @@
 
 @mixin textLCompactBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -514,7 +571,8 @@
 }
 
 @mixin textLCompactBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -524,6 +582,7 @@
 
 @mixin textLCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -533,6 +592,7 @@
 
 @mixin textLCompactBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -542,6 +602,7 @@
 
 @mixin textMDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -550,7 +611,8 @@
 }
 
 @mixin textMDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -560,6 +622,7 @@
 
 @mixin textMDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -569,6 +632,7 @@
 
 @mixin textMDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -578,6 +642,7 @@
 
 @mixin textMDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -586,7 +651,8 @@
 }
 
 @mixin textMDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -596,6 +662,7 @@
 
 @mixin textMDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -605,6 +672,7 @@
 
 @mixin textMDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -614,6 +682,7 @@
 
 @mixin textMCompactRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -622,7 +691,8 @@
 }
 
 @mixin textMCompactRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -632,6 +702,7 @@
 
 @mixin textMCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -641,6 +712,7 @@
 
 @mixin textMCompactRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -650,6 +722,7 @@
 
 @mixin textMCompactBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -658,7 +731,8 @@
 }
 
 @mixin textMCompactBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -668,6 +742,7 @@
 
 @mixin textMCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -677,6 +752,7 @@
 
 @mixin textMCompactBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -686,6 +762,7 @@
 
 @mixin textSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -694,7 +771,8 @@
 }
 
 @mixin textSDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -704,6 +782,7 @@
 
 @mixin textSDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -713,6 +792,7 @@
 
 @mixin textSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -722,6 +802,7 @@
 
 @mixin textSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -730,7 +811,8 @@
 }
 
 @mixin textSDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -740,6 +822,7 @@
 
 @mixin textSDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -749,6 +832,7 @@
 
 @mixin textSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -758,6 +842,7 @@
 
 @mixin textSCompactRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -766,7 +851,8 @@
 }
 
 @mixin textSCompactRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -776,6 +862,7 @@
 
 @mixin textSCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -785,6 +872,7 @@
 
 @mixin textSCompactRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -794,6 +882,7 @@
 
 @mixin textSCompactBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -802,7 +891,8 @@
 }
 
 @mixin textSCompactBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -812,6 +902,7 @@
 
 @mixin textSCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -821,6 +912,7 @@
 
 @mixin textSCompactBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -830,6 +922,7 @@
 
 @mixin infoXLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-m;
@@ -838,7 +931,8 @@
 }
 
 @mixin infoXLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-m;
@@ -848,6 +942,7 @@
 
 @mixin infoXLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-m;
@@ -856,7 +951,8 @@
 }
 
 @mixin infoXLDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-m;
@@ -866,6 +962,7 @@
 
 @mixin infoXLExtensiveRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -874,7 +971,8 @@
 }
 
 @mixin infoXLExtensiveRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -884,6 +982,7 @@
 
 @mixin infoXLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -893,6 +992,7 @@
 
 @mixin infoXLExtensiveBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -901,7 +1001,8 @@
 }
 
 @mixin infoXLExtensiveBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -911,6 +1012,7 @@
 
 @mixin infoXLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -920,6 +1022,7 @@
 
 @mixin infoLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-m;
@@ -928,7 +1031,8 @@
 }
 
 @mixin infoLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-m;
@@ -938,6 +1042,7 @@
 
 @mixin infoLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-m;
@@ -946,7 +1051,8 @@
 }
 
 @mixin infoLDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-m;
@@ -956,6 +1062,7 @@
 
 @mixin infoLExtensiveRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -964,7 +1071,8 @@
 }
 
 @mixin infoLExtensiveRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -974,6 +1082,7 @@
 
 @mixin infoLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -983,6 +1092,7 @@
 
 @mixin infoLExtensiveBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -991,7 +1101,8 @@
 }
 
 @mixin infoLExtensiveBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1001,6 +1112,7 @@
 
 @mixin infoLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1010,6 +1122,7 @@
 
 @mixin infoMDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1018,7 +1131,8 @@
 }
 
 @mixin infoMDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1028,6 +1142,7 @@
 
 @mixin infoMDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1036,7 +1151,8 @@
 }
 
 @mixin infoMDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1046,6 +1162,7 @@
 
 @mixin infoMExtensiveRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1054,7 +1171,8 @@
 }
 
 @mixin infoMExtensiveRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1064,6 +1182,7 @@
 
 @mixin infoMExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1073,6 +1192,7 @@
 
 @mixin infoMExtensiveBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1081,7 +1201,8 @@
 }
 
 @mixin infoMExtensiveBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1091,6 +1212,7 @@
 
 @mixin infoMExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1100,6 +1222,7 @@
 
 @mixin infoSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1108,7 +1231,8 @@
 }
 
 @mixin infoSDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1118,6 +1242,7 @@
 
 @mixin infoSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1126,7 +1251,8 @@
 }
 
 @mixin infoSDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1136,6 +1262,7 @@
 
 @mixin infoSExtensiveRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1144,7 +1271,8 @@
 }
 
 @mixin infoSExtensiveRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1154,6 +1282,7 @@
 
 @mixin infoSExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1163,6 +1292,7 @@
 
 @mixin infoSExtensiveBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1171,7 +1301,8 @@
 }
 
 @mixin infoSExtensiveBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1181,6 +1312,7 @@
 
 @mixin infoSExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1190,6 +1322,7 @@
 
 @mixin infoXSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1198,7 +1331,8 @@
 }
 
 @mixin infoXSDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1208,6 +1342,7 @@
 
 @mixin infoXSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1216,7 +1351,8 @@
 }
 
 @mixin infoXSDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-m;
@@ -1226,6 +1362,7 @@
 
 @mixin infoXSExtensiveRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1234,7 +1371,8 @@
 }
 
 @mixin infoXSExtensiveRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1244,6 +1382,7 @@
 
 @mixin infoXSExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1253,6 +1392,7 @@
 
 @mixin infoXSExtensiveBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1261,7 +1401,8 @@
 }
 
 @mixin infoXSExtensiveBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1271,6 +1412,7 @@
 
 @mixin infoXSExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1280,6 +1422,7 @@
 
 @mixin formLabelLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1288,7 +1431,8 @@
 }
 
 @mixin formLabelLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1298,6 +1442,7 @@
 
 @mixin formLabelLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1307,6 +1452,7 @@
 
 @mixin formLabelMDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1315,7 +1461,8 @@
 }
 
 @mixin formLabelMDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1325,6 +1472,7 @@
 
 @mixin formLabelMDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1334,6 +1482,7 @@
 
 @mixin formLabelSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1342,7 +1491,8 @@
 }
 
 @mixin formLabelSDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1352,6 +1502,7 @@
 
 @mixin formLabelSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1361,6 +1512,7 @@
 
 @mixin formTextXLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xl;
 	font-size: $typography-font-size-5xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1369,7 +1521,8 @@
 }
 
 @mixin formTextXLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xl;
 	font-size: $typography-font-size-5xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1379,6 +1532,7 @@
 
 @mixin formTextXLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xl;
 	font-size: $typography-font-size-5xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1387,7 +1541,8 @@
 }
 
 @mixin formTextXLDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xl;
 	font-size: $typography-font-size-5xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1397,6 +1552,7 @@
 
 @mixin formTextXLExtensiveRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-6xl;
 	font-size: $typography-font-size-5xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1405,7 +1561,8 @@
 }
 
 @mixin formTextXLExtensiveRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-6xl;
 	font-size: $typography-font-size-5xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1415,6 +1572,7 @@
 
 @mixin formTextXLExtensiveBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-6xl;
 	font-size: $typography-font-size-5xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1423,7 +1581,8 @@
 }
 
 @mixin formTextXLExtensiveBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-6xl;
 	font-size: $typography-font-size-5xl;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1433,6 +1592,7 @@
 
 @mixin formTextLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1441,7 +1601,8 @@
 }
 
 @mixin formTextLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1451,6 +1612,7 @@
 
 @mixin formTextLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1459,7 +1621,8 @@
 }
 
 @mixin formTextLDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1469,6 +1632,7 @@
 
 @mixin formTextLExtensiveRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1477,7 +1641,8 @@
 }
 
 @mixin formTextLExtensiveRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1487,6 +1652,7 @@
 
 @mixin formTextLExtensiveBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1495,7 +1661,8 @@
 }
 
 @mixin formTextLExtensiveBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1505,6 +1672,7 @@
 
 @mixin formTextMDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1513,7 +1681,8 @@
 }
 
 @mixin formTextMDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1523,6 +1692,7 @@
 
 @mixin formTextMDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1531,7 +1701,8 @@
 }
 
 @mixin formTextMDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1541,6 +1712,7 @@
 
 @mixin formTextMExtensiveRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1549,7 +1721,8 @@
 }
 
 @mixin formTextMExtensiveRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1559,6 +1732,7 @@
 
 @mixin formTextMExtensiveBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1567,7 +1741,8 @@
 }
 
 @mixin formTextMExtensiveBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1577,6 +1752,7 @@
 
 @mixin formTextSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1585,7 +1761,8 @@
 }
 
 @mixin formTextSDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1595,6 +1772,7 @@
 
 @mixin formTextSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1603,7 +1781,8 @@
 }
 
 @mixin formTextSDefaultBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1613,6 +1792,7 @@
 
 @mixin formTextSExtensiveRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1621,7 +1801,8 @@
 }
 
 @mixin formTextSExtensiveRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1631,6 +1812,7 @@
 
 @mixin formTextSExtensiveBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1639,7 +1821,8 @@
 }
 
 @mixin formTextSExtensiveBoldItalic() {
-	font-weight: $typography-font-weight-bold italic;
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -1649,6 +1832,7 @@
 
 @mixin formCaptionMDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1657,7 +1841,8 @@
 }
 
 @mixin formCaptionMDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1667,6 +1852,7 @@
 
 @mixin formCaptionSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1675,7 +1861,8 @@
 }
 
 @mixin formCaptionSDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1685,6 +1872,7 @@
 
 @mixin label2XLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1693,7 +1881,8 @@
 }
 
 @mixin label2XLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1703,6 +1892,7 @@
 
 @mixin label2XLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1712,6 +1902,7 @@
 
 @mixin label2XLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1721,6 +1912,7 @@
 
 @mixin label2XLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1730,6 +1922,7 @@
 
 @mixin label2XLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1739,6 +1932,7 @@
 
 @mixin label2XLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-xl;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1748,6 +1942,7 @@
 
 @mixin labelXLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1756,7 +1951,8 @@
 }
 
 @mixin labelXLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1766,6 +1962,7 @@
 
 @mixin labelXLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1775,6 +1972,7 @@
 
 @mixin labelXLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1784,6 +1982,7 @@
 
 @mixin labelXLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1793,6 +1992,7 @@
 
 @mixin labelXLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1802,6 +2002,7 @@
 
 @mixin labelXLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1811,6 +2012,7 @@
 
 @mixin labelLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1819,7 +2021,8 @@
 }
 
 @mixin labelLDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1829,6 +2032,7 @@
 
 @mixin labelLDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1838,6 +2042,7 @@
 
 @mixin labelLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1847,6 +2052,7 @@
 
 @mixin labelLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1856,6 +2062,7 @@
 
 @mixin labelLExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1865,6 +2072,7 @@
 
 @mixin labelLExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1874,6 +2082,7 @@
 
 @mixin labelMDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1882,7 +2091,8 @@
 }
 
 @mixin labelMDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1892,6 +2102,7 @@
 
 @mixin labelMDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1901,6 +2112,7 @@
 
 @mixin labelMDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1910,6 +2122,7 @@
 
 @mixin labelMDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1919,6 +2132,7 @@
 
 @mixin labelMExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1928,6 +2142,7 @@
 
 @mixin labelMExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1937,6 +2152,7 @@
 
 @mixin labelSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1945,7 +2161,8 @@
 }
 
 @mixin labelSDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1955,6 +2172,7 @@
 
 @mixin labelSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1964,6 +2182,7 @@
 
 @mixin labelSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1973,6 +2192,7 @@
 
 @mixin labelSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -1982,6 +2202,7 @@
 
 @mixin labelSExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -1991,6 +2212,7 @@
 
 @mixin labelSExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -2000,6 +2222,7 @@
 
 @mixin labelXSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -2008,7 +2231,8 @@
 }
 
 @mixin labelXSDefaultRegularItalic() {
-	font-weight: $typography-font-weight-normal italic;
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -2018,6 +2242,7 @@
 
 @mixin labelXSDefaultRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -2027,6 +2252,7 @@
 
 @mixin labelXSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -2036,6 +2262,7 @@
 
 @mixin labelXSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-s;
@@ -2045,6 +2272,7 @@
 
 @mixin labelXSExtensiveRegularUppercase() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -2054,6 +2282,7 @@
 
 @mixin labelXSExtensiveBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-xl;
@@ -2063,6 +2292,7 @@
 
 @mixin buttonLDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-l;
@@ -2072,6 +2302,7 @@
 
 @mixin buttonMDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-l;
@@ -2081,6 +2312,7 @@
 
 @mixin buttonSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
 	font-size: $typography-font-size-2xs;
 	letter-spacing: $typography-letter-spacing-l;
@@ -2090,6 +2322,7 @@
 
 @mixin buttonXSDefaultBoldUppercase() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
 	font-size: $typography-font-size-3xs;
 	letter-spacing: $typography-letter-spacing-l;
@@ -2099,6 +2332,7 @@
 
 @mixin linkXLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2108,6 +2342,7 @@
 
 @mixin linkXLDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2117,6 +2352,7 @@
 
 @mixin linkXLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2126,6 +2362,7 @@
 
 @mixin linkXLDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2135,6 +2372,7 @@
 
 @mixin linkXLCompactRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2144,6 +2382,7 @@
 
 @mixin linkXLCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2153,6 +2392,7 @@
 
 @mixin linkXLCompactBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2162,6 +2402,7 @@
 
 @mixin linkXLCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-l;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2171,6 +2412,7 @@
 
 @mixin linkLDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2180,6 +2422,7 @@
 
 @mixin linkLDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2189,6 +2432,7 @@
 
 @mixin linkLDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2198,6 +2442,7 @@
 
 @mixin linkLDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2207,6 +2452,7 @@
 
 @mixin linkLCompactRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2216,6 +2462,7 @@
 
 @mixin linkLCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2225,6 +2472,7 @@
 
 @mixin linkLCompactBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2234,6 +2482,7 @@
 
 @mixin linkLCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
 	font-size: $typography-font-size-m;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2243,6 +2492,7 @@
 
 @mixin linkMDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2252,6 +2502,7 @@
 
 @mixin linkMDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2261,6 +2512,7 @@
 
 @mixin linkMDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2270,6 +2522,7 @@
 
 @mixin linkMDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2279,6 +2532,7 @@
 
 @mixin linkMCompactRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2288,6 +2542,7 @@
 
 @mixin linkMCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2297,6 +2552,7 @@
 
 @mixin linkMCompactBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2306,6 +2562,7 @@
 
 @mixin linkMCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-s;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2315,6 +2572,7 @@
 
 @mixin linkSDefaultRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2324,6 +2582,7 @@
 
 @mixin linkSDefaultRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2333,6 +2592,7 @@
 
 @mixin linkSDefaultBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2342,6 +2602,7 @@
 
 @mixin linkSDefaultBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2351,6 +2612,7 @@
 
 @mixin linkSCompactRegular() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2360,6 +2622,7 @@
 
 @mixin linkSCompactRegularUnderlined() {
 	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2369,6 +2632,7 @@
 
 @mixin linkSCompactBold() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;
@@ -2378,6 +2642,7 @@
 
 @mixin linkSCompactBoldUnderlined() {
 	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
 	font-size: $typography-font-size-xs;
 	letter-spacing: $typography-letter-spacing-xs;

@@ -7,7 +7,7 @@ const recursiveTokenReader = (obj, keyResult: string, result: Array<any>, import
 
 	for (let key in obj) {
 		let temporaryKey = (keyResult + ' ' + key).replace(/\-+/g, ' ');
-		console.log(temporaryKey);
+
 		let resultToPush = recursiveTokenReader(obj[key], temporaryKey, result, importerVariables);
 
 		if (resultToPush === undefined) {
@@ -24,7 +24,22 @@ const recursiveTokenReader = (obj, keyResult: string, result: Array<any>, import
 					.replace('-regular', importerVariables.transformCssProperty['-regular']);
 
 				if (attrValue && !attrValue.includes(importerVariables.fontFamilyProperty)) {
-					attributes.push(attrValue);
+					if (attrKey === importerVariables.fontWeightKey) {
+						if (attrValue.includes('bold')) {
+							attributes.push('font-weight-bold');
+						} else if (attrValue.includes('light')) {
+							attributes.push('font-weight-light');
+						} else {
+							attributes.push('font-weight-normal');
+						}
+						if (attrValue.includes('italic')) {
+							attributes.push('font-style-italic');
+						} else {
+							attributes.push('font-style-normal');
+						}
+					} else {
+						attributes.push(attrValue);
+					}
 				}
 			}
 			result.push({
