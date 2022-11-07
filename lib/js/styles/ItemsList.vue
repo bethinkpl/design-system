@@ -23,7 +23,7 @@
 					<div v-for="item in items" :key="item.id" class="itemDefinition">
 						<div class="itemDefinition__id">{{ item.label }}</div>
 						<div class="itemDefinition__value">{{ item.value }}</div>
-						<div class="itemDefinition__color">
+						<div v-if="displayColor" class="itemDefinition__color">
 							<span
 								:style="{ background: item.value }"
 								class="itemDefinition__tile"
@@ -102,6 +102,10 @@ export default {
 			type: Array,
 			required: true,
 		},
+    displayColor: {
+      type: Boolean,
+      default: false,
+    }
 	},
 	data() {
 		return {

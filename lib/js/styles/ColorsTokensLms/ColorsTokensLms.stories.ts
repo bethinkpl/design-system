@@ -12,7 +12,7 @@ const StoryTemplate: StoryFn<typeof ItemsList> = (argTypes) => ({
 	components: { ItemsList },
 	props: Object.keys(argTypes),
 	template: `
-		<items-list :items-lists="itemsLists"></items-list>`,
+		<items-list :items-lists="itemsLists" :display-color="true"></items-list>`,
 });
 
 export const LMS = StoryTemplate.bind({});
