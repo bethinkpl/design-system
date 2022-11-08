@@ -22,7 +22,7 @@ const resultCssAdditionalLines: Array<string> = [
 	'--typography-font-weight-light: lighter;',
 	'--typography-font-style-normal: normal;',
 	'--typography-font-style-italic: italic;',
-	'}\n',
+	'}',
 ];
 const resultScssAdditionalLines: Array<string> = [
 	'$typography-font-weight-normal: var(--typography-font-weight-normal);',
