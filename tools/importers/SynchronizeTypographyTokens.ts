@@ -4,6 +4,7 @@ const fileWriter = require('./helpers/fileWriter');
 const fileRead = require('./helpers/fileReader');
 const modifiers = require('./helpers/modifiers');
 const importerVariables = require('./helpers/typographyVariables');
+import * as dotenv from 'dotenv';
 import {
 	Dict,
 	ITokenJsonObject,
@@ -12,6 +13,8 @@ import {
 	ITypographyToken,
 	ConfigFileBin,
 } from './helpers/structures';
+
+dotenv.config();
 
 const ImportTypographyRaw = (
 	name: string,
@@ -162,7 +165,7 @@ const SynchronizeSingleBin = async (bin: ConfigFileBin) => {
 const requestForBin = async (bin: ConfigFileBin) => {
 	const requestConfig = {
 		headers: {
-			'X-Master-Key': tokensFilesConfig.xMasterKey,
+			'X-Master-Key': process.env.JSON_BIN_X_MASTER_KEY,
 		},
 	};
 	const requestResponse = await axios.get(

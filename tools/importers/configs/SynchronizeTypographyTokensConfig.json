@@ -18,6 +18,5 @@
       }
     }
   ],
-  "jsonBinApiUrl": "https://api.jsonbin.io/v3/b/",
-  "xMasterKey": "$2b$10$pGYu2VSnUSqm/6m2kMaJSOwc39KdqiTppeIv/qFcAaaqkRm.J/akW"
+  "jsonBinApiUrl": "https://api.jsonbin.io/v3/b/"
 }
