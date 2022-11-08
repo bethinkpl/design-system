@@ -10,6 +10,7 @@ interface configFileObject {
 	destinationVariablesCss: string;
 	destinationVariablesCssJson: string;
 	destinationJson: string;
+	destination: string;
 }
 
 const ImportTypographyRaw = (
@@ -111,20 +112,19 @@ const ImportTypographyTokensRaw = (binValues: configFileObject, jsonTypography: 
 	let resultScss: Array<string> = [];
 
 	for (let key in jsonTypography[importerVariables.tokensKey]) {
-		resultScss.push(
-			fileRead.recursiveTokenReader(
-				jsonTypography[importerVariables.tokensKey][key],
-				key,
-				[],
-				importerVariables,
-			),
+		let token = fileRead.recursiveTokenReader(
+			jsonTypography[importerVariables.tokensKey][key],
+			key,
+			[],
+			importerVariables,
 		);
+		resultScss.push(token);
 	}
 
-	fileWriter.arrayToMixinFile(
-		tokensFilesConfig.destinationPath + binValues.destinationVariables,
-		[importerVariables.importVariables, ...buildTypographyTokensMixins(resultScss.flat())],
-	);
+	fileWriter.arrayToMixinFile(tokensFilesConfig.destinationPath + binValues.destination, [
+		importerVariables.importVariables,
+		...buildTypographyTokensMixins(resultScss.flat()),
+	]);
 };
 
 function buildTypographyTokensMixins(tokens: Object): Array<string> {

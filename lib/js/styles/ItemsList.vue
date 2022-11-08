@@ -20,17 +20,20 @@
 					class="itemsList__row"
 				>
 					<h3 :id="'category-' + itemCategory">{{ itemCategory }}</h3>
-					<div v-for="item in items" :key="item.id" class="itemDefinition">
-						<div class="itemDefinition__id">{{ item.label }}</div>
-						<div class="itemDefinition__value">{{ item.value }}</div>
-						<div v-if="displayColor" class="itemDefinition__color">
-							<span
-								:style="{ background: item.value }"
-								class="itemDefinition__tile"
-							/>
-						</div>
-					</div>
-				</div>
+          <item-color v-if="type === TOKENS_TYPES.COLORS" :items="items"/>
+
+          <div v-for="item in items" v-if="type === TOKENS_TYPES.TYPOGRAPHY" :key="item.id" class="itemDefinition">
+            <div v-if="item.label" class="itemDefinition__id">{{ item.label }}</div>
+            <div v-if="item.value" class="itemDefinition__value">{{ item.value }}</div>
+            <div v-if="item.token">{{ item.token }}</div>
+            <div v-if="item.attributes">
+              <div v-for="attribute in item.attributes" >{{ attribute }}</div>
+            </div>
+            <div v-if="item.attributes">
+              <div :style="attributesAsStyle(item.attributes)">Lorem ipsum</div>
+            </div>
+          </div>
+        </div>
 			</div>
 		</div>
 	</div>
@@ -95,26 +98,37 @@
 </style>
 
 <script lang="ts">
+import { TOKENS_TYPES } from "./TokenTypes.consts";
+import { Value } from "../utils/type.utils";
+import ItemColor from './ItemColor.vue';
+import ItemTypography from './ItemTypography.vue';
+
 export default {
 	name: 'ItemsList',
+  components: {
+    ItemColor,
+    ItemTypography
+  },
 	props: {
 		itemsLists: {
 			type: Array,
 			required: true,
 		},
-    displayColor: {
-      type: Boolean,
-      default: false,
-    }
+    type: {
+      type: String,
+      required: true,
+      validator(value: Value<typeof TOKENS_TYPES>) {
+        return Object.values(TOKENS_TYPES).includes(value);
+      },
+    },
 	},
 	data() {
 		return {
 			itemsLocal: this.itemsLists,
+      TOKENS_TYPES: Object.freeze(TOKENS_TYPES),
 		};
 	},
 	mounted() {
-
-    console.log(this.itemsLists);
 		this.itemsLocal.forEach((list, index) => {
 			if (list.disabled) {
 				for (let key in list.list) {
@@ -126,10 +140,11 @@ export default {
 			}
 		});
 	},
-	methods: {
-		canBeDisplayed(category: string, disableDefault: boolean) {
-			return !(category === 'default' && disableDefault);
-		},
-	},
+  methods: {
+    attributesAsStyle(attributes) {
+      console.log(attributes);
+      return 'color:red;';
+    },
+  }
 };
 </script>

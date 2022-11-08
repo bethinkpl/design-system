@@ -9,11 +9,11 @@
         "variablesRaw": {
           "destinationVariables": "_variables.scss",
           "destinationVariablesCss": "_variables-css.scss",
-          "destinationVariablesCssJson": "_variables-css.json",
-          "destinationJson": "_variables.json"
+          "destinationVariablesCssJson": "_variables-css.json"
         },
         "tokens": {
-          "destinationVariables": "_tokens.scss"
+          "destination": "_tokens.scss",
+          "destinationJson": "_tokens.json"
         }
       }
     }
