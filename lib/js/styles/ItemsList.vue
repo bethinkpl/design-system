@@ -20,20 +20,28 @@
 					class="itemsList__row"
 				>
 					<h3 :id="'category-' + itemCategory">{{ itemCategory }}</h3>
-          <item-color v-if="type === TOKENS_TYPES.COLORS" :items="items"/>
+					<item-color v-if="type === TOKENS_TYPES.COLORS" :items="items" />
 
-          <div v-for="item in items" v-if="type === TOKENS_TYPES.TYPOGRAPHY" :key="item.id" class="itemDefinition">
-            <div v-if="item.label" class="itemDefinition__id">{{ item.label }}</div>
-            <div v-if="item.value" class="itemDefinition__value">{{ item.value }}</div>
-            <div v-if="item.token">{{ item.token }}</div>
-            <div v-if="item.attributes">
-              <div v-for="attribute in item.attributes" >{{ attribute }}</div>
-            </div>
-            <div v-if="item.attributes">
-              <div :style="attributesAsStyle(item.attributes)">Lorem ipsum</div>
-            </div>
-          </div>
-        </div>
+          <!-- @todo replace content for ItemTypography -->
+					<template v-if="type === TOKENS_TYPES.TYPOGRAPHY">
+						<div v-for="item in items" :key="item.id" class="itemDefinition">
+							<div v-if="item.label" class="itemDefinition__id">{{ item.label }}</div>
+							<div v-if="item.value" class="itemDefinition__value">{{
+								item.value
+							}}</div>
+							<div v-if="item.token">{{ item.token }}</div>
+							<div v-if="item.attributes">
+								<div v-for="attribute in item.attributes" :key="attribute">{{
+									attribute
+								}}</div>
+							</div>
+							<div v-if="item.attributes">
+								<div :style="attributesAsStyle(item.attributes)">Lorem ipsum</div>
+							</div>
+						</div>
+						<item-typography items="" />
+					</template>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -98,34 +106,34 @@
 </style>
 
 <script lang="ts">
-import { TOKENS_TYPES } from "./TokenTypes.consts";
-import { Value } from "../utils/type.utils";
+import { TOKENS_TYPES } from './TokenTypes.consts';
+import { Value } from '../utils/type.utils';
 import ItemColor from './ItemColor.vue';
 import ItemTypography from './ItemTypography.vue';
 
 export default {
 	name: 'ItemsList',
-  components: {
-    ItemColor,
-    ItemTypography
-  },
+	components: {
+		ItemColor,
+		ItemTypography,
+	},
 	props: {
 		itemsLists: {
 			type: Array,
 			required: true,
 		},
-    type: {
-      type: String,
-      required: true,
-      validator(value: Value<typeof TOKENS_TYPES>) {
-        return Object.values(TOKENS_TYPES).includes(value);
-      },
-    },
+		type: {
+			type: String,
+			required: true,
+			validator(value: Value<typeof TOKENS_TYPES>) {
+				return Object.values(TOKENS_TYPES).includes(value);
+			},
+		},
 	},
 	data() {
 		return {
 			itemsLocal: this.itemsLists,
-      TOKENS_TYPES: Object.freeze(TOKENS_TYPES),
+			TOKENS_TYPES: Object.freeze(TOKENS_TYPES),
 		};
 	},
 	mounted() {
@@ -140,11 +148,11 @@ export default {
 			}
 		});
 	},
-  methods: {
-    attributesAsStyle(attributes) {
-      console.log(attributes);
-      return 'color:red;';
-    },
-  }
+	methods: {
+		attributesAsStyle(attributes) {
+			console.log(attributes);
+			return 'color:red;';
+		},
+	},
 };
 </script>

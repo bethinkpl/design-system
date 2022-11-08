@@ -86,7 +86,7 @@ const ImportTypographyRaw = (
 	resultCss.push('--typography-font-weight-light: lighter;');
 	resultCss.push('--typography-font-style-normal: normal;');
 	resultCss.push('--typography-font-style-italic: italic;');
-	resultCss.push('}');
+	resultCss.push('}\n');
 
 	resultScss.push('$typography-font-weight-normal: var(--typography-font-weight-normal);');
 	resultScss.push('$typography-font-weight-bold: var(--typography-font-weight-bold);');
