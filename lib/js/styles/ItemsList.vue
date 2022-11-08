@@ -22,7 +22,7 @@
 					<h3 :id="'category-' + itemCategory">{{ itemCategory }}</h3>
 					<item-color v-if="type === TOKENS_TYPES.COLORS" :items="items" />
 
-          <!-- @todo replace content for ItemTypography -->
+					<!-- @todo replace content for ItemTypography -->
 					<template v-if="type === TOKENS_TYPES.TYPOGRAPHY">
 						<div v-for="item in items" :key="item.id" class="itemDefinition">
 							<div v-if="item.label" class="itemDefinition__id">{{ item.label }}</div>

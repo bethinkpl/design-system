@@ -3,19 +3,17 @@ const tokensFilesConfig = require('./configs/SynchronizeTypographyTokensConfig.j
 const fileWriter = require('./helpers/fileWriter');
 const fileRead = require('./helpers/fileReader');
 const importerVariables = require('./helpers/typographyVariables');
-import { Dict, ITokenJsonObject, IResultJsonObject } from './helpers/structures';
-
-interface configFileObject {
-	destinationVariables: string;
-	destinationVariablesCss: string;
-	destinationVariablesCssJson: string;
-	destinationJson: string;
-	destination: string;
-}
+import {
+	Dict,
+	ITokenJsonObject,
+	IResultJsonObject,
+	ConfigFileObject,
+	ITypographyToken,
+} from './helpers/structures';
 
 const ImportTypographyRaw = (
 	name: string,
-	binValues: configFileObject,
+	binValues: ConfigFileObject,
 	jsonTypography: Object,
 	isTheme: boolean,
 ) => {
@@ -108,11 +106,11 @@ const ImportTypographyRaw = (
 	);
 };
 
-const ImportTypographyTokensRaw = (binValues: configFileObject, jsonTypography: any) => {
-	let resultScss: Array<string> = [];
+const ImportTypographyTokensRaw = (binValues: ConfigFileObject, jsonTypography: any) => {
+	let resultScss: Array<ITypographyToken> = [];
 
 	for (let key in jsonTypography[importerVariables.tokensKey]) {
-		let token = fileRead.recursiveTokenReader(
+		let token: ITypographyToken = fileRead.recursiveTokenReader(
 			jsonTypography[importerVariables.tokensKey][key],
 			key,
 			[],
@@ -127,8 +125,10 @@ const ImportTypographyTokensRaw = (binValues: configFileObject, jsonTypography: 
 	]);
 };
 
-function buildTypographyTokensMixins(tokens: Object): Array<string> {
+function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<string> {
+	console.log(tokens);
 	let result: Array<string> = [];
+
 	for (let key in tokens) {
 		result.push('\n@mixin ' + tokens[key].tokenCamelCase + '() {');
 		tokens[key].attributes.forEach((attribute) => {

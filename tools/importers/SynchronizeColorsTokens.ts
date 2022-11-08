@@ -1,17 +1,12 @@
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
 const fileWriter = require('./helpers/fileWriter');
-import { Dict, ITokenJsonObject, IResultJsonObject } from './helpers/structures';
-
-interface configFileObject {
-	destination: string;
-	destinationJson: string;
-	destinationTokensVariables: string;
-}
+const modifiers = require('./helpers/modifiers');
+import { Dict, ITokenJsonObject, IResultJsonObject, ConfigFileObject } from './helpers/structures';
 
 const ImportColorsRaw = (
 	name: string,
-	binValues: configFileObject,
+	binValues: ConfigFileObject,
 	jsonColors: Array<any>,
 	isTheme: boolean,
 ) => {
@@ -37,7 +32,7 @@ const ImportColorsRaw = (
 		) {
 			const nameSplit = obj.name.split('/');
 			let colorName = nameSplit[2] === undefined ? nameSplit[1] : nameSplit[2];
-			obj.values.hex = makeHexShortcut(obj.values.hex);
+			obj.values.hex = modifiers.makeHexShortcut(obj.values.hex);
 
 			const colorFinalName = obj.name.match(patternTheme)
 				? '--' + colorName
@@ -109,7 +104,7 @@ const ImportColorsRaw = (
 };
 
 const ImportSingleTokenFile = (
-	binValues: configFileObject,
+	binValues: ConfigFileObject,
 	jsonColors: Array<any>,
 	hexToCssVariable: Dict<string>,
 	themeName: string,
@@ -130,7 +125,7 @@ const ImportSingleTokenFile = (
 		if (obj.name.match(patternColorsToIgnore) === null) {
 			let tokenName = obj.name;
 			tokenName = 'color-' + tokenName.replace(/\//i, '-');
-			obj.values.hex = makeHexShortcut(obj.values.hex);
+			obj.values.hex = modifiers.makeHexShortcut(obj.values.hex);
 
 			const tab = isTheme ? '\t' : '';
 
@@ -193,19 +188,12 @@ const ImportSingleTokenFile = (
 		tokensFilesConfig.destinationPath + binValues.destinationJson,
 		resultJsonTokens,
 	);
-	if (binValues.destinationTokensVariables) {
+	if (binValues.destinationVariables) {
 		fileWriter.arrayToFile(
-			tokensFilesConfig.destinationPath + binValues.destinationTokensVariables,
+			tokensFilesConfig.destinationPath + binValues.destinationVariables,
 			resultVariables,
 		);
 	}
-};
-
-const makeHexShortcut = (hex: string) => {
-	if (hex.split('').every((char) => char === hex[1] || char === '#')) {
-		hex = '#' + `${hex[1]}${hex[2]}${hex[3]}`;
-	}
-	return hex;
 };
 
 const hexToRgb = (hex: string) => {

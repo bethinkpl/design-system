@@ -1,9 +1,7 @@
 <template>
 	<div>
-    <!-- @todo fill component -->
-		<div v-for="item in items" :key="item.id" class="itemDefinition">
-
-		</div>
+		<!-- @todo fill component -->
+		<div v-for="item in items" :key="item.id" class="itemDefinition"> </div>
 	</div>
 </template>
 

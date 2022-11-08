@@ -13,7 +13,7 @@
         "tokens": {
           "destination": "_tokens.scss",
           "destinationJson": "_tokens.json",
-          "destinationTokensVariables": "_tokens-variables.scss"
+          "destinationVariables": "_tokens-variables.scss"
         }
       }
     },
@@ -29,7 +29,7 @@
         "tokens": {
           "destination": "_tokens-wnl.scss",
           "destinationJson": "_tokens-wnl.json",
-          "destinationTokensVariables": "_tokens-wnl-variables.scss"
+          "destinationVariables": "_tokens-wnl-variables.scss"
         }
       }
     },
@@ -45,7 +45,7 @@
         "tokens": {
           "destination": "_tokens-bodywork.scss",
           "destinationJson": "_tokens-bodywork.json",
-          "destinationTokensVariables": "_tokens-bodywork-variables.scss"
+          "destinationVariables": "_tokens-bodywork-variables.scss"
         }
       }
     }
