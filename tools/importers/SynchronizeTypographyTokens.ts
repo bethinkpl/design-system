@@ -126,7 +126,6 @@ const ImportTypographyTokensRaw = (binValues: ConfigFileObject, jsonTypography: 
 };
 
 function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<string> {
-	console.log(tokens);
 	let result: Array<string> = [];
 
 	for (let key in tokens) {
