@@ -22,6 +22,18 @@ export interface ConfigFileObject {
 	destination: string;
 }
 
+interface ConfigFileFile {
+	variablesRaw: any;
+	tokens: any;
+}
+
+export interface ConfigFileBin {
+	id: string;
+	name: string;
+	isTheme: boolean;
+	files: ConfigFileFile;
+}
+
 export interface ITypographyToken {
 	token: string;
 	tokenCamelCase: string;

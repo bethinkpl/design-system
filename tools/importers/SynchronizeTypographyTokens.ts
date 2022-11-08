@@ -9,6 +9,7 @@ import {
 	IResultJsonObject,
 	ConfigFileObject,
 	ITypographyToken,
+	ConfigFileBin,
 } from './helpers/structures';
 
 const ImportTypographyRaw = (
@@ -29,7 +30,7 @@ const ImportTypographyRaw = (
 
 	for (let key in jsonTypography) {
 		if (!importerVariables.excludedKeys.includes(key)) {
-			let value = jsonTypography[key];
+			let value: any = jsonTypography[key];
 
 			for (let variableKey in value) {
 				let propertyName: string =
@@ -148,7 +149,7 @@ function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<str
 	return result;
 }
 
-const SynchronizeSingleBin = async (bin) => {
+const SynchronizeSingleBin = async (bin: ConfigFileBin) => {
 	let requestResponse = await requestForBin(bin);
 
 	ImportTypographyRaw(
@@ -164,7 +165,7 @@ const SynchronizeSingleBin = async (bin) => {
 	);
 };
 
-const requestForBin = async (bin) => {
+const requestForBin = async (bin: ConfigFileBin) => {
 	const requestConfig = {
 		headers: {
 			'X-Master-Key': tokensFilesConfig.xMasterKey,
@@ -183,10 +184,9 @@ const requestForBin = async (bin) => {
 };
 
 const SynchronizeTypographyTokens = async () => {
-	tokensFilesConfig.bins.forEach((bin) => {
+	tokensFilesConfig.bins.forEach((bin: ConfigFileBin) => {
 		SynchronizeSingleBin(bin);
 	});
 };
 
-// @ts-ignore
-SynchronizeTypographyTokens().then({});
+SynchronizeTypographyTokens().then(() => console.log('Import finished successfully.'));
