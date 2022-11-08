@@ -32,14 +32,14 @@ const ImportTypographyRaw = (
 			for (let variableKey in value) {
 				let propertyName: string =
 					importerVariables.typographyPrefix +
-					importerVariables.jsonKeyToCssProperty[key] +
+					importerVariables.jsonAttributeToCssProperty[key] +
 					'-' +
 					variableKey;
 				let propertyValue: string | undefined;
 
 				switch (key) {
-					case 'fontSize':
-					case 'lineHeight':
+					case importerVariables.tokensTypographyInputAttributes.fontSize:
+					case importerVariables.tokensTypographyInputAttributes.lineHeight:
 						const valueBase: number = parseInt(value.base.value.replace(/[^0-9]/g, ''));
 						const valueSplit: Array<number> = value[variableKey].value.split('*');
 						const valueMultiplier: number = valueSplit[1];
@@ -47,15 +47,15 @@ const ImportTypographyRaw = (
 							? valueBase * valueMultiplier + 'px'
 							: valueBase + 'px';
 						break;
-					case 'letterSpacing':
+					case importerVariables.tokensTypographyInputAttributes.letterSpacing:
 						propertyValue =
 							value[variableKey].value.replace(/[^0-9/.]/g, '') * 0.01 + '';
 						if (value[variableKey].value != 0) {
 							propertyValue += 'em';
 						}
 						break;
-					case 'textCase':
-					case 'textDecoration':
+					case importerVariables.tokensTypographyInputAttributes.textCase:
+					case importerVariables.tokensTypographyInputAttributes.textDecoration:
 						propertyValue = value[variableKey].value;
 						break;
 				}

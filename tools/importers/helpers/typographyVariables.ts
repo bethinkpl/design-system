@@ -8,7 +8,7 @@ const transformCssProperty: { [key: string]: string } = {
 	'-regular': '-normal',
 };
 const importVariables: string = "@import 'variables';";
-const jsonKeyToCssProperty: { [key: string]: string } = {
+const jsonAttributeToCssProperty: { [key: string]: string } = {
 	lineHeight: 'line-height',
 	fontWeight: 'font-weight',
 	fontSize: 'font-size',
@@ -32,13 +32,22 @@ const resultScssAdditionalLines: Array<string> = [
 	'$typography-font-style-italic: var(--typography-font-style-italic);',
 ];
 
+const tokensTypographyInputAttributes = {
+	fontSize: 'fontSize',
+	lineHeight: 'lineHeight',
+	letterSpacing: 'letterSpacing',
+	textCase: 'textCase',
+	textDecoration: 'textDecoration',
+} as const;
+
 exports.typographyPrefix = typographyPrefix;
 exports.tokensKey = tokensKey;
 exports.excludedKeys = excludedKeys;
 exports.fontFamilyProperty = fontFamilyProperty;
 exports.fontWeightKey = fontWeightKey;
 exports.transformCssProperty = transformCssProperty;
-exports.jsonKeyToCssProperty = jsonKeyToCssProperty;
+exports.jsonAttributeToCssProperty = jsonAttributeToCssProperty;
 exports.importVariables = importVariables;
 exports.resultCssAdditionalLines = resultCssAdditionalLines;
 exports.resultScssAdditionalLines = resultScssAdditionalLines;
+exports.tokensTypographyInputAttributes = tokensTypographyInputAttributes;

@@ -6,6 +6,7 @@
   "author": "nerdy@bethink.pl",
   "main": "./dist/design-system.umd.js",
   "typings": "./dist/index.d.ts",
+  "license": "UNLICENSED",
   "engines": {
     "yarn": "^1.22.0",
     "node": "^14.15.0 || ^16.13.0"
