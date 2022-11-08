@@ -13,5 +13,10 @@ const makeHexShortcut = (hex: string) => {
 	return hex;
 };
 
+const cssFileFirstLine = (isTheme: boolean, themeName: string | undefined) => {
+	return isTheme ? '.theme-' + themeName + ' {' : ':root {';
+};
+
 exports.makeHexShortcut = makeHexShortcut;
 exports.camelize = camelize;
+exports.cssFileFirstLine = cssFileFirstLine;

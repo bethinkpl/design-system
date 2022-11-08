@@ -16,11 +16,7 @@ const ImportColorsRaw = (
 	let temporaryColorsJson: Dict<Array<IResultJsonObject>> = {};
 	let resultColorsJson: Dict<Array<IResultJsonObject>> = {};
 
-	if (isTheme) {
-		result.push('.theme-' + name + ' {');
-	} else {
-		result.push(':root {');
-	}
+	result.push(modifiers.cssFileFirstLine(isTheme, name));
 
 	jsonColors.forEach((obj) => {
 		const patternColorsToProcess = /RAW\/|theme/i;
@@ -251,4 +247,4 @@ const SynchronizeColorsTokens = async () => {
 	});
 };
 
-SynchronizeColorsTokens();
+SynchronizeColorsTokens().then(() => console.log('Import in progress...'));

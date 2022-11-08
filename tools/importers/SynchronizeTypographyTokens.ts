@@ -2,6 +2,7 @@ const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeTypographyTokensConfig.json');
 const fileWriter = require('./helpers/fileWriter');
 const fileRead = require('./helpers/fileReader');
+const modifiers = require('./helpers/modifiers');
 const importerVariables = require('./helpers/typographyVariables');
 import {
 	Dict,
@@ -22,11 +23,7 @@ const ImportTypographyRaw = (
 	let resultScss: Array<string> = [];
 	let resultJsonCss: Dict<Array<IResultJsonObject>> = {};
 
-	if (isTheme) {
-		resultCss.push('.theme-' + name + ' {');
-	} else {
-		resultCss.push(':root {');
-	}
+	resultCss.push(modifiers.cssFileFirstLine(isTheme, name));
 
 	for (let key in jsonTypography) {
 		if (!importerVariables.excludedKeys.includes(key)) {
@@ -80,18 +77,13 @@ const ImportTypographyRaw = (
 			}
 		}
 	}
-	resultCss.push('--typography-font-weight-normal: normal;');
-	resultCss.push('--typography-font-weight-bold: bold;');
-	resultCss.push('--typography-font-weight-light: lighter;');
-	resultCss.push('--typography-font-style-normal: normal;');
-	resultCss.push('--typography-font-style-italic: italic;');
-	resultCss.push('}\n');
 
-	resultScss.push('$typography-font-weight-normal: var(--typography-font-weight-normal);');
-	resultScss.push('$typography-font-weight-bold: var(--typography-font-weight-bold);');
-	resultScss.push('$typography-font-weight-light: var(--typography-font-weight-light);');
-	resultScss.push('$typography-font-style-normal: var(--typography-font-style-normal);');
-	resultScss.push('$typography-font-style-italic: var(--typography-font-style-italic);');
+	importerVariables.resultCssAdditionalLines.forEach((item) => {
+		resultCss.push(item);
+	});
+	importerVariables.resultScssAdditionalLines.forEach((item) => {
+		resultScss.push(item);
+	});
 
 	fileWriter.arrayToFile(
 		tokensFilesConfig.destinationPath + binValues.destinationVariablesCss,
@@ -163,6 +155,8 @@ const SynchronizeSingleBin = async (bin: ConfigFileBin) => {
 		bin.files.tokens,
 		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);
+
+	console.log('The import was successful for bin: ' + bin.id);
 };
 
 const requestForBin = async (bin: ConfigFileBin) => {
@@ -189,4 +183,4 @@ const SynchronizeTypographyTokens = async () => {
 	});
 };
 
-SynchronizeTypographyTokens().then(() => console.log('Import finished successfully.'));
+SynchronizeTypographyTokens().then(() => console.log('Import in progress...'));
