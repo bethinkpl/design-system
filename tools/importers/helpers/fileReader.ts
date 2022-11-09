@@ -1,3 +1,5 @@
+import { ITypographyToken } from './structures';
+
 const modifiers = require('./modifiers');
 
 const {
@@ -6,7 +8,7 @@ const {
 	transformCssProperty,
 } = require('../helpers/typographyVariables');
 
-const recursiveTokenReader = (obj, keyResult: string, result: Array<any>) => {
+export const recursiveTokenReader = (obj, keyResult: string, result: Array<ITypographyToken>) => {
 	if ('value' in obj) {
 		return;
 	}
@@ -61,5 +63,3 @@ const recursiveTokenReader = (obj, keyResult: string, result: Array<any>) => {
 
 	return result;
 };
-
-exports.recursiveTokenReader = recursiveTokenReader;

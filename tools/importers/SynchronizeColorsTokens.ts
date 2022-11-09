@@ -1,8 +1,8 @@
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
-const fileWriter = require('./helpers/fileWriter');
-const modifiers = require('./helpers/modifiers');
-const colorsModifiers = require('./helpers/colorsModifiers');
+import modifiers = require('./helpers/modifiers');
+import { makeHexShortcut } from './helpers/colorsModifiers';
+import { arrayToFile, jsonToFile } from './helpers/fileWriter';
 import {
 	Dict,
 	ITokenJsonObject,
@@ -35,7 +35,7 @@ const ImportColorsRaw = (
 		) {
 			const nameSplit = obj.name.split('/');
 			let colorName = nameSplit[2] === undefined ? nameSplit[1] : nameSplit[2];
-			obj.values.hex = colorsModifiers.makeHexShortcut(obj.values.hex);
+			obj.values.hex = makeHexShortcut(obj.values.hex);
 
 			const colorFinalName = obj.name.match(patternTheme)
 				? '--' + colorName
@@ -95,12 +95,12 @@ const ImportColorsRaw = (
 		});
 	});
 
-	fileWriter.arrayToFile(
+	arrayToFile(
 		tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destination,
 		result,
 	);
 	if (binFilesConfig.tokens.destinationJson) {
-		fileWriter.jsonToFile(
+		jsonToFile(
 			tokensFilesConfig.destinationPath + binFilesConfig.tokens.destinationJson,
 			resultColorsJson,
 		);
@@ -131,7 +131,7 @@ const ImportSingleTokenFile = (
 		if (obj.name.match(patternColorsToIgnore) === null) {
 			let tokenName = obj.name;
 			tokenName = 'color-' + tokenName.replace(/\//i, '-');
-			obj.values.hex = colorsModifiers.makeHexShortcut(obj.values.hex);
+			obj.values.hex = makeHexShortcut(obj.values.hex);
 
 			const tab = isTheme ? '\t' : '';
 
@@ -189,16 +189,13 @@ const ImportSingleTokenFile = (
 		throw new Error('ERROR! No colors to save');
 	}
 
-	fileWriter.arrayToFile(
-		tokensFilesConfig.destinationPath + binValues.variablesRaw.destination,
-		result,
-	);
-	fileWriter.jsonToFile(
+	arrayToFile(tokensFilesConfig.destinationPath + binValues.variablesRaw.destination, result);
+	jsonToFile(
 		tokensFilesConfig.destinationPath + binValues.tokens.destinationJson,
 		resultJsonTokens,
 	);
 	if (binValues.tokens.destinationVariables) {
-		fileWriter.arrayToFile(
+		arrayToFile(
 			tokensFilesConfig.destinationPath + binValues.tokens.destinationVariables,
 			resultVariables,
 		);

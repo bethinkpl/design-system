@@ -1,7 +1,7 @@
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeTypographyTokensConfig.json');
-const fileWriter = require('./helpers/fileWriter');
-const fileRead = require('./helpers/fileReader');
+import { arrayToMixinFile, arrayToFile, jsonToFile } from './helpers/fileWriter';
+import { recursiveTokenReader } from './helpers/fileReader';
 import {
 	typographyPrefix,
 	tokensKey,
@@ -97,33 +97,36 @@ const ImportTypographyRaw = (binFilesConfig: TypographyBinFiles, jsonTypography:
 		resultScss.push(item);
 	});
 
-	fileWriter.arrayToFile(
+	arrayToFile(
 		tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destinationVariablesCss,
 		resultCss,
 	);
-	fileWriter.arrayToFile(
+	arrayToFile(
 		tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destinationVariables,
 		resultScss,
 	);
-	fileWriter.jsonToFile(
+	jsonToFile(
 		tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destinationVariablesCssJson,
 		resultJsonCss,
 	);
 };
 
 const ImportTypographyTokensRaw = (binConfig: TypographyBinFiles, jsonTypography: any) => {
-	let resultScss: Array<ITypographyToken> = [];
+	let resultScss: Array<Array<ITypographyToken>> = [];
 
 	for (let key in jsonTypography[tokensKey]) {
-		let token: ITypographyToken = fileRead.recursiveTokenReader(
+		let token: Array<ITypographyToken> | undefined = recursiveTokenReader(
 			jsonTypography[tokensKey][key],
 			key,
 			[],
 		);
-		resultScss.push(token);
+
+		if (token) {
+			resultScss.push(token);
+		}
 	}
 
-	fileWriter.arrayToMixinFile(tokensFilesConfig.destinationPath + binConfig.tokens.destination, [
+	arrayToMixinFile(tokensFilesConfig.destinationPath + binConfig.tokens.destination, [
 		importVariables,
 		...buildTypographyTokensMixins(resultScss.flat()),
 	]);
