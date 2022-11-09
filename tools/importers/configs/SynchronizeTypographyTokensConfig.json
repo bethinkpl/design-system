@@ -1,6 +1,6 @@
 {
   "destinationPath": "lib/styles/settings/typography/",
-  "bins": [
+  "bin":
     {
       "id": "633d96230e6a79321e1dec41",
       "files": {
@@ -14,7 +14,6 @@
           "destinationJson": "_tokens.json"
         }
       }
-    }
-  ],
+    },
   "jsonBinApiUrl": "https://api.jsonbin.io/v3/b/"
 }

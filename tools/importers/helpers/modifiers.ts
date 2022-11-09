@@ -9,3 +9,15 @@ export const camelize = (str: string) => {
 export const cssFileFirstLine = (isTheme: boolean, themeName: string | undefined) => {
 	return isTheme ? '.theme-' + themeName + ' {' : ':root {';
 };
+
+export const mixinNameLine = (token: string) => {
+	return '\n@mixin ' + token + '() {';
+};
+
+export const tokenAsCssPropertyLine = (token: string) => {
+	return '--token: ' + token + ';\n';
+};
+
+export const closeBracketLine = () => {
+	return '}';
+};

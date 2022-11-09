@@ -1,65 +1,58 @@
 import { ITypographyToken } from './structures';
 
-const modifiers = require('./modifiers');
+import { camelize } from './modifiers';
+import { fontFamilyProperty, fontWeightKey, transformCssProperty } from './typographyVariables';
 
-const {
-	fontFamilyProperty,
-	fontWeightKey,
-	transformCssProperty,
-} = require('../helpers/typographyVariables');
-
-export const recursiveTokenReader = (obj, keyResult: string, result: Array<ITypographyToken>) => {
+export const recursiveTokenReader = (obj, keyResult: string): Array<ITypographyToken> => {
 	if ('value' in obj) {
-		return;
-	}
+		let attributes: string[] = [];
+		for (let attrKey in obj.value) {
+			let attrValue = obj.value[attrKey]
+				.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+				.replace(/\.+/g, '-')
+				.slice(1, -1)
+				.toLowerCase();
 
-	for (let key in obj) {
-		let temporaryKey = (keyResult + ' ' + key).replace(/\-+/g, ' ');
+			attrValue = attrValue.replace('-regular', transformCssProperty['-regular']);
 
-		let resultToPush = recursiveTokenReader(obj[key], temporaryKey, result);
-
-		if (resultToPush === undefined) {
-			let attributes: string[] = [];
-			for (let attrKey in obj[key].value) {
-				let attrValue = obj[key].value[attrKey]
-					.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-					.replace(/\.+/g, '-')
-					.slice(1, -1)
-					.toLowerCase();
-
-				attrValue = attrValue
-					.replace('text-case', transformCssProperty['text-case'])
-					.replace('-regular', transformCssProperty['-regular']);
-
-				if (attrValue && !attrValue.includes(fontFamilyProperty)) {
-					if (attrKey === fontWeightKey) {
-						if (attrValue.includes('bold')) {
-							attributes.push('font-weight-bold');
-						} else if (attrValue.includes('light')) {
-							attributes.push('font-weight-light');
-						} else {
-							attributes.push('font-weight-normal');
-						}
-						if (attrValue.includes('italic')) {
-							attributes.push('font-style-italic');
-						} else {
-							attributes.push('font-style-normal');
-						}
+			if (attrValue && !attrValue.includes(fontFamilyProperty)) {
+				if (attrKey === fontWeightKey) {
+					if (attrValue.includes('bold')) {
+						attributes.push('font-weight-bold');
+					} else if (attrValue.includes('light')) {
+						attributes.push('font-weight-light');
 					} else {
-						attributes.push(attrValue);
+						attributes.push('font-weight-normal');
 					}
+					if (attrValue.includes('italic')) {
+						attributes.push('font-style-italic');
+					} else {
+						attributes.push('font-style-normal');
+					}
+				} else {
+					attributes.push(attrValue);
 				}
 			}
-			result.push({
-				token: temporaryKey
+		}
+
+		return [
+			{
+				token: keyResult
 					.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
 					.replace(/\s+/g, '-')
 					.toLowerCase(),
-				tokenCamelCase: modifiers.camelize(temporaryKey),
+				tokenCamelCase: camelize(keyResult),
 				attributes,
-			});
-		}
+			},
+		];
 	}
 
-	return result;
+	let results: Array<ITypographyToken> = [];
+	for (let key in obj) {
+		let temporaryKey: string = (keyResult + ' ' + key).replace(/\-+/g, ' ');
+		let result: Array<ITypographyToken> = recursiveTokenReader(obj[key], temporaryKey);
+		results.push(...result);
+	}
+
+	return results;
 };

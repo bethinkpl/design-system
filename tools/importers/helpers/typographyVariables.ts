@@ -4,7 +4,6 @@ export const excludedKeys: Array<string> = ['fontFamilies', 'TypographyTokens'];
 export const fontFamilyProperty: string = 'font-families';
 export const fontWeightKey: string = 'fontWeight';
 export const transformCssProperty: { [key: string]: string } = {
-	'text-case': 'text-transform',
 	'-regular': '-normal',
 };
 export const importVariables: string = "@import 'variables';";

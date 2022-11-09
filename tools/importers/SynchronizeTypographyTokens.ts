@@ -12,7 +12,12 @@ import {
 	resultScssAdditionalLines,
 	tokensTypographyInputAttributes,
 } from './helpers/typographyVariables';
-import { cssFileFirstLine } from './helpers/modifiers';
+import {
+	cssFileFirstLine,
+	mixinNameLine,
+	tokenAsCssPropertyLine,
+	closeBracketLine,
+} from './helpers/modifiers';
 import * as dotenv from 'dotenv';
 import {
 	Dict,
@@ -112,19 +117,7 @@ const ImportTypographyRaw = (binFilesConfig: TypographyBinFiles, jsonTypography:
 };
 
 const ImportTypographyTokensRaw = (binConfig: TypographyBinFiles, jsonTypography: any) => {
-	let resultScss: Array<Array<ITypographyToken>> = [];
-
-	for (let key in jsonTypography[tokensKey]) {
-		let token: Array<ITypographyToken> | undefined = recursiveTokenReader(
-			jsonTypography[tokensKey][key],
-			key,
-			[],
-		);
-
-		if (token) {
-			resultScss.push(token);
-		}
-	}
+	let resultScss: Array<ITypographyToken> = recursiveTokenReader(jsonTypography[tokensKey], '');
 
 	arrayToMixinFile(tokensFilesConfig.destinationPath + binConfig.tokens.destination, [
 		importVariables,
@@ -136,8 +129,8 @@ function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<str
 	let result: Array<string> = [];
 
 	for (let key in tokens) {
-		result.push('\n@mixin ' + tokens[key].tokenCamelCase + '() {');
-		result.push('--token: ' + tokens[key].token + ';\n');
+		result.push(mixinNameLine(tokens[key].tokenCamelCase));
+		result.push(tokenAsCssPropertyLine(tokens[key].token));
 		tokens[key].attributes.forEach((attribute) => {
 			let [cssAttributePartOne, cssAttributePartTwo] = attribute.split('-');
 			result.push(
@@ -150,26 +143,26 @@ function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<str
 					';',
 			);
 		});
-		result.push('}');
+		result.push(closeBracketLine());
 	}
 
 	return result;
 }
 
-const SynchronizeSingleBin = async (binConfig: TypographyConfigFileBin) => {
-	let requestResponse = await requestForBin(binConfig);
+const SynchronizeTypographyTokensBin = async () => {
+	let requestResponse = await requestForBin(tokensFilesConfig.bin);
 
 	ImportTypographyRaw(
-		binConfig.files,
+		tokensFilesConfig.bin.files,
 		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);
 
 	ImportTypographyTokensRaw(
-		binConfig.files,
+		tokensFilesConfig.bin.files,
 		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);
 
-	console.log('The import was successful for bin: ' + binConfig.id);
+	console.log('The import was successful for bin: ' + tokensFilesConfig.bin.id);
 };
 
 const requestForBin = async (binConfig: TypographyConfigFileBin) => {
@@ -190,10 +183,4 @@ const requestForBin = async (binConfig: TypographyConfigFileBin) => {
 	return requestResponse;
 };
 
-const SynchronizeTypographyTokens = async () => {
-	tokensFilesConfig.bins.forEach((bin: TypographyConfigFileBin) => {
-		SynchronizeSingleBin(bin);
-	});
-};
-
-SynchronizeTypographyTokens().then(() => console.log('Import in progress...'));
+SynchronizeTypographyTokensBin().then(() => console.log('Import in progress...'));
