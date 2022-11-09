@@ -32,7 +32,7 @@ import {
 
 dotenv.config();
 
-const ImportTypographyRaw = (binFilesConfig: TypographyBinFiles, jsonTypography: Object) => {
+const ImportTypographyVariables = (binFilesConfig: TypographyBinFiles, jsonTypography: Object) => {
 	let resultCss: Array<string> = [];
 	let resultScss: Array<string> = [];
 	let resultJsonCss: Dict<Array<IResultJsonObject>> = {};
@@ -116,13 +116,15 @@ const ImportTypographyRaw = (binFilesConfig: TypographyBinFiles, jsonTypography:
 	);
 };
 
-const ImportTypographyTokensRaw = (binConfig: TypographyBinFiles, jsonTypography: any) => {
+const ImportTypographyTokens = (binConfig: TypographyBinFiles, jsonTypography: any) => {
 	let resultScss: Array<ITypographyToken> = recursiveTokensReader(jsonTypography[tokensKey], '');
+	let resultJsonCss: Dict<Array<ITypographyToken>> = { tokens: resultScss };
 
 	arrayToMixinFile(tokensFilesConfig.destinationPath + binConfig.tokens.destination, [
 		importVariables,
 		...buildTypographyTokensMixins(resultScss.flat()),
 	]);
+	jsonToFile(tokensFilesConfig.destinationPath + binConfig.tokens.destinationJson, resultJsonCss);
 };
 
 function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<string> {
@@ -153,12 +155,12 @@ const SynchronizeTypographyTokensBin = async () => {
 	console.log('Import in progress...');
 	let requestResponse = await requestForBin(tokensFilesConfig.bin);
 
-	ImportTypographyRaw(
+	ImportTypographyVariables(
 		tokensFilesConfig.bin.files,
 		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);
 
-	ImportTypographyTokensRaw(
+	ImportTypographyTokens(
 		tokensFilesConfig.bin.files,
 		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);

@@ -1,1 +1,3449 @@
-{"DisplayHeading":[{"token":"display-heading-m-default-regular","tokenCamelCase":"displayHeadingMDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-4xl","font-size-4xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"display-heading-m-default-bold","tokenCamelCase":"displayHeadingMDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-4xl","font-size-4xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"display-heading-s-default-regular","tokenCamelCase":"displayHeadingSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-3xl","font-size-3xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"display-heading-s-default-bold","tokenCamelCase":"displayHeadingSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-3xl","font-size-3xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"display-heading-xs-default-regular","tokenCamelCase":"displayHeadingXSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xl","font-size-2xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"display-heading-xs-default-bold","tokenCamelCase":"displayHeadingXSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-2xl","font-size-2xl","letter-spacing-xs","text-decoration-none","text-transform-none"]}],"PageHeading":[{"token":"page-heading-m-default-bold","tokenCamelCase":"pageHeadingMDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-xl","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"page-heading-s-default-bold","tokenCamelCase":"pageHeadingSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-l","letter-spacing-s","text-decoration-none","text-transform-none"]}],"Heading":[{"token":"heading-xl-default-regular","tokenCamelCase":"headingXLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-xl","font-size-xl","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-xl-default-regular-uppercase","tokenCamelCase":"headingXLDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-xl","font-size-xl","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"heading-xl-default-bold","tokenCamelCase":"headingXLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-xl","font-size-xl","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-xl-default-bold-uppercase","tokenCamelCase":"headingXLDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-xl","font-size-xl","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"heading-l-default-regular","tokenCamelCase":"headingLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-l","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-l-default-regular-uppercase","tokenCamelCase":"headingLDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-l","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"heading-l-default-bold","tokenCamelCase":"headingLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-l","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-l-default-bold-uppercase","tokenCamelCase":"headingLDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-l","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"heading-m-default-regular","tokenCamelCase":"headingMDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-m-default-regular-uppercase","tokenCamelCase":"headingMDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"heading-m-default-bold","tokenCamelCase":"headingMDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-m-default-bold-uppercase","tokenCamelCase":"headingMDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"heading-s-default-regular","tokenCamelCase":"headingSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-s-default-regular-uppercase","tokenCamelCase":"headingSDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-s","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"heading-s-default-bold","tokenCamelCase":"headingSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-s-default-bold-uppercase","tokenCamelCase":"headingSDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-s","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"heading-xs-default-regular","tokenCamelCase":"headingXSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-xs-default-regular-uppercase","tokenCamelCase":"headingXSDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"heading-xs-default-bold","tokenCamelCase":"headingXSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"heading-xs-default-bold-uppercase","tokenCamelCase":"headingXSDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-l","text-decoration-none","text-transform-uppercase"]}],"Text":[{"token":"text-xl-default-regular","tokenCamelCase":"textXLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-xl-default-regular-italic","tokenCamelCase":"textXLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-xl-default-regular-underlined","tokenCamelCase":"textXLDefaultRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-xl-default-regular-uppercase","tokenCamelCase":"textXLDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-2xl","font-size-l","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-xl-default-bold","tokenCamelCase":"textXLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-xl-default-bold-italic","tokenCamelCase":"textXLDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-xl-default-bold-underlined","tokenCamelCase":"textXLDefaultBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-xl-default-bold-uppercase","tokenCamelCase":"textXLDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-2xl","font-size-l","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-xl-compact-regular","tokenCamelCase":"textXLCompactRegular","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-xl-compact-regular-italic","tokenCamelCase":"textXLCompactRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-xl-compact-regular-underlined","tokenCamelCase":"textXLCompactRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-xl-compact-regular-uppercase","tokenCamelCase":"textXLCompactRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-l","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-xl-compact-bold","tokenCamelCase":"textXLCompactBold","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-xl-compact-bold-italic","tokenCamelCase":"textXLCompactBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-xl-compact-bold-underlined","tokenCamelCase":"textXLCompactBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-xl-compact-bold-uppercase","tokenCamelCase":"textXLCompactBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-l","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-l-default-regular","tokenCamelCase":"textLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-l-default-regular-italic","tokenCamelCase":"textLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-l","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-l-default-regular-underlined","tokenCamelCase":"textLDefaultRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-m","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-l-default-regular-uppercase","tokenCamelCase":"textLDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-m","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-l-default-bold","tokenCamelCase":"textLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-l-default-bold-italic","tokenCamelCase":"textLDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-l","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-l-default-bold-underlined","tokenCamelCase":"textLDefaultBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-m","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-l-default-bold-uppercase","tokenCamelCase":"textLDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-m","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-l-compact-regular","tokenCamelCase":"textLCompactRegular","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-l-compact-regular-italic","tokenCamelCase":"textLCompactRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-l-compact-regular-underlined","tokenCamelCase":"textLCompactRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-l-compact-regular-uppercase","tokenCamelCase":"textLCompactRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-l-compact-bold","tokenCamelCase":"textLCompactBold","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-l-compact-bold-italic","tokenCamelCase":"textLCompactBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-l-compact-bold-underlined","tokenCamelCase":"textLCompactBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-l-compact-bold-uppercase","tokenCamelCase":"textLCompactBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-m-default-regular","tokenCamelCase":"textMDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-m","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-m-default-regular-italic","tokenCamelCase":"textMDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-m","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-m-default-regular-underlined","tokenCamelCase":"textMDefaultRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-m","font-size-s","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-m-default-regular-uppercase","tokenCamelCase":"textMDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-m","font-size-s","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-m-default-bold","tokenCamelCase":"textMDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-m","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-m-default-bold-italic","tokenCamelCase":"textMDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-m","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-m-default-bold-underlined","tokenCamelCase":"textMDefaultBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-m","font-size-s","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-m-default-bold-uppercase","tokenCamelCase":"textMDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-m","font-size-s","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-m-compact-regular","tokenCamelCase":"textMCompactRegular","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-m-compact-regular-italic","tokenCamelCase":"textMCompactRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-m-compact-regular-underlined","tokenCamelCase":"textMCompactRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-m-compact-regular-uppercase","tokenCamelCase":"textMCompactRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-m-compact-bold","tokenCamelCase":"textMCompactBold","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-m-compact-bold-italic","tokenCamelCase":"textMCompactBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-m-compact-bold-underlined","tokenCamelCase":"textMCompactBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-m-compact-bold-uppercase","tokenCamelCase":"textMCompactBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-s-default-regular","tokenCamelCase":"textSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-s-default-regular-italic","tokenCamelCase":"textSDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-s-default-regular-underlined","tokenCamelCase":"textSDefaultRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-s-default-regular-uppercase","tokenCamelCase":"textSDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-s-default-bold","tokenCamelCase":"textSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-s-default-bold-italic","tokenCamelCase":"textSDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-s-default-bold-underlined","tokenCamelCase":"textSDefaultBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-s-default-bold-uppercase","tokenCamelCase":"textSDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-s-compact-regular","tokenCamelCase":"textSCompactRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-s-compact-regular-italic","tokenCamelCase":"textSCompactRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-s-compact-regular-underlined","tokenCamelCase":"textSCompactRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-s-compact-regular-uppercase","tokenCamelCase":"textSCompactRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"text-s-compact-bold","tokenCamelCase":"textSCompactBold","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-s-compact-bold-italic","tokenCamelCase":"textSCompactBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"text-s-compact-bold-underlined","tokenCamelCase":"textSCompactBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"text-s-compact-bold-uppercase","tokenCamelCase":"textSCompactBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]}],"Info":[{"token":"info-xl-default-regular","tokenCamelCase":"infoXLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-xl-default-regular-italic","tokenCamelCase":"infoXLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-s","font-size-m","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-xl-default-bold","tokenCamelCase":"infoXLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-xl-default-bold-italic","tokenCamelCase":"infoXLDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-s","font-size-m","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-xl-extensive-regular","tokenCamelCase":"infoXLExtensiveRegular","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-xl-extensive-regular-italic","tokenCamelCase":"infoXLExtensiveRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-s","font-size-m","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-xl-extensive-regular-uppercase","tokenCamelCase":"infoXLExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"info-xl-extensive-bold","tokenCamelCase":"infoXLExtensiveBold","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-xl-extensive-bold-italic","tokenCamelCase":"infoXLExtensiveBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-s","font-size-m","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-xl-extensive-bold-uppercase","tokenCamelCase":"infoXLExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"info-l-default-regular","tokenCamelCase":"infoLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-s","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-l-default-regular-italic","tokenCamelCase":"infoLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-2xs","font-size-s","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-l-default-bold","tokenCamelCase":"infoLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-s","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-l-default-bold-italic","tokenCamelCase":"infoLDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-2xs","font-size-s","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-l-extensive-regular","tokenCamelCase":"infoLExtensiveRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-s","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-l-extensive-regular-italic","tokenCamelCase":"infoLExtensiveRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-2xs","font-size-s","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-l-extensive-regular-uppercase","tokenCamelCase":"infoLExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-s","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"info-l-extensive-bold","tokenCamelCase":"infoLExtensiveBold","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-s","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-l-extensive-bold-italic","tokenCamelCase":"infoLExtensiveBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-2xs","font-size-s","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-l-extensive-bold-uppercase","tokenCamelCase":"infoLExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-s","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"info-m-default-regular","tokenCamelCase":"infoMDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-m-default-regular-italic","tokenCamelCase":"infoMDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-3xs","font-size-xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-m-default-bold","tokenCamelCase":"infoMDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-m-default-bold-italic","tokenCamelCase":"infoMDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-3xs","font-size-xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-m-extensive-regular","tokenCamelCase":"infoMExtensiveRegular","attributes":["font-weight-normal","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-m-extensive-regular-italic","tokenCamelCase":"infoMExtensiveRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-3xs","font-size-xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-m-extensive-regular-uppercase","tokenCamelCase":"infoMExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"info-m-extensive-bold","tokenCamelCase":"infoMExtensiveBold","attributes":["font-weight-bold","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-m-extensive-bold-italic","tokenCamelCase":"infoMExtensiveBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-3xs","font-size-xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-m-extensive-bold-uppercase","tokenCamelCase":"infoMExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"info-s-default-regular","tokenCamelCase":"infoSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-s-default-regular-italic","tokenCamelCase":"infoSDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-4xs","font-size-2xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-s-default-bold","tokenCamelCase":"infoSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-s-default-bold-italic","tokenCamelCase":"infoSDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-4xs","font-size-2xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-s-extensive-regular","tokenCamelCase":"infoSExtensiveRegular","attributes":["font-weight-normal","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-s-extensive-regular-italic","tokenCamelCase":"infoSExtensiveRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-4xs","font-size-2xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-s-extensive-regular-uppercase","tokenCamelCase":"infoSExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"info-s-extensive-bold","tokenCamelCase":"infoSExtensiveBold","attributes":["font-weight-bold","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-s-extensive-bold-italic","tokenCamelCase":"infoSExtensiveBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-4xs","font-size-2xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-s-extensive-bold-uppercase","tokenCamelCase":"infoSExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"info-xs-default-regular","tokenCamelCase":"infoXSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-xs-default-regular-italic","tokenCamelCase":"infoXSDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-5xs","font-size-3xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-xs-default-bold","tokenCamelCase":"infoXSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-xs-default-bold-italic","tokenCamelCase":"infoXSDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-5xs","font-size-3xs","letter-spacing-m","text-decoration-none","text-transform-none"]},{"token":"info-xs-extensive-regular","tokenCamelCase":"infoXSExtensiveRegular","attributes":["font-weight-normal","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-xs-extensive-regular-italic","tokenCamelCase":"infoXSExtensiveRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-5xs","font-size-3xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-xs-extensive-regular-uppercase","tokenCamelCase":"infoXSExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"info-xs-extensive-bold","tokenCamelCase":"infoXSExtensiveBold","attributes":["font-weight-bold","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-xs-extensive-bold-italic","tokenCamelCase":"infoXSExtensiveBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-5xs","font-size-3xs","letter-spacing-xl","text-decoration-none","text-transform-none"]},{"token":"info-xs-extensive-bold-uppercase","tokenCamelCase":"infoXSExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]}],"FormLabel":[{"token":"form-label-l-default-regular","tokenCamelCase":"formLabelLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-label-l-default-regular-italic","tokenCamelCase":"formLabelLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-label-l-default-bold","tokenCamelCase":"formLabelLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-label-m-default-regular","tokenCamelCase":"formLabelMDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-label-m-default-regular-italic","tokenCamelCase":"formLabelMDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-2xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-label-m-default-bold","tokenCamelCase":"formLabelMDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-label-s-default-regular","tokenCamelCase":"formLabelSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-label-s-default-regular-italic","tokenCamelCase":"formLabelSDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-label-s-default-bold","tokenCamelCase":"formLabelSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]}],"FormText":[{"token":"form-text-xl-default-regular","tokenCamelCase":"formTextXLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-5xl","font-size-5xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-xl-default-regular-italic","tokenCamelCase":"formTextXLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-5xl","font-size-5xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-xl-default-bold","tokenCamelCase":"formTextXLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-5xl","font-size-5xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-xl-default-bold-italic","tokenCamelCase":"formTextXLDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-5xl","font-size-5xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-xl-extensive-regular","tokenCamelCase":"formTextXLExtensiveRegular","attributes":["font-weight-normal","font-style-normal","line-height-6xl","font-size-5xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-xl-extensive-regular-italic","tokenCamelCase":"formTextXLExtensiveRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-6xl","font-size-5xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-xl-extensive-bold","tokenCamelCase":"formTextXLExtensiveBold","attributes":["font-weight-bold","font-style-normal","line-height-6xl","font-size-5xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-xl-extensive-bold-italic","tokenCamelCase":"formTextXLExtensiveBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-6xl","font-size-5xl","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-l-default-regular","tokenCamelCase":"formTextLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-m","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-l-default-regular-italic","tokenCamelCase":"formTextLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-m","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-l-default-bold","tokenCamelCase":"formTextLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-m","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-l-default-bold-italic","tokenCamelCase":"formTextLDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-m","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-l-extensive-regular","tokenCamelCase":"formTextLExtensiveRegular","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-l-extensive-regular-italic","tokenCamelCase":"formTextLExtensiveRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-l-extensive-bold","tokenCamelCase":"formTextLExtensiveBold","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-l-extensive-bold-italic","tokenCamelCase":"formTextLExtensiveBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-m-default-regular","tokenCamelCase":"formTextMDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-m-default-regular-italic","tokenCamelCase":"formTextMDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-m-default-bold","tokenCamelCase":"formTextMDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-m-default-bold-italic","tokenCamelCase":"formTextMDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-m-extensive-regular","tokenCamelCase":"formTextMExtensiveRegular","attributes":["font-weight-normal","font-style-normal","line-height-m","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-m-extensive-regular-italic","tokenCamelCase":"formTextMExtensiveRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-m","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-m-extensive-bold","tokenCamelCase":"formTextMExtensiveBold","attributes":["font-weight-bold","font-style-normal","line-height-m","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-m-extensive-bold-italic","tokenCamelCase":"formTextMExtensiveBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-m","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-s-default-regular","tokenCamelCase":"formTextSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-s-default-regular-italic","tokenCamelCase":"formTextSDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-2xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-s-default-bold","tokenCamelCase":"formTextSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-s-default-bold-italic","tokenCamelCase":"formTextSDefaultBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-2xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-s-extensive-regular","tokenCamelCase":"formTextSExtensiveRegular","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-s-extensive-regular-italic","tokenCamelCase":"formTextSExtensiveRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-s-extensive-bold","tokenCamelCase":"formTextSExtensiveBold","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"form-text-s-extensive-bold-italic","tokenCamelCase":"formTextSExtensiveBoldItalic","attributes":["font-weight-bold","font-style-italic","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]}],"FormCaption":[{"token":"form-caption-m-default-regular","tokenCamelCase":"formCaptionMDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-caption-m-default-regular-italic","tokenCamelCase":"formCaptionMDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-caption-s-default-regular","tokenCamelCase":"formCaptionSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"form-caption-s-default-regular-italic","tokenCamelCase":"formCaptionSDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-4xs","font-size-2xs","letter-spacing-s","text-decoration-none","text-transform-none"]}],"Label":[{"token":"label-2-xl-default-regular","tokenCamelCase":"label2XLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-xl","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-2-xl-default-regular-italic","tokenCamelCase":"label2XLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-l","font-size-xl","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-2-xl-default-regular-uppercase","tokenCamelCase":"label2XLDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-xl","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-2-xl-default-bold","tokenCamelCase":"label2XLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-xl","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-2-xl-default-bold-uppercase","tokenCamelCase":"label2XLDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-xl","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-2-xl-extensive-regular-uppercase","tokenCamelCase":"label2XLExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-xl","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-2-xl-extensive-bold-uppercase","tokenCamelCase":"label2XLExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-xl","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-xl-default-regular","tokenCamelCase":"labelXLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-xl-default-regular-italic","tokenCamelCase":"labelXLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-xl-default-regular-uppercase","tokenCamelCase":"labelXLDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-xl-default-bold","tokenCamelCase":"labelXLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-xl-default-bold-uppercase","tokenCamelCase":"labelXLDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-xl-extensive-regular-uppercase","tokenCamelCase":"labelXLExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-xl-extensive-bold-uppercase","tokenCamelCase":"labelXLExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-l-default-regular","tokenCamelCase":"labelLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-l-default-regular-italic","tokenCamelCase":"labelLDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-2xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-l-default-regular-uppercase","tokenCamelCase":"labelLDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-l-default-bold","tokenCamelCase":"labelLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-l-default-bold-uppercase","tokenCamelCase":"labelLDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-s","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-l-extensive-regular-uppercase","tokenCamelCase":"labelLExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-s","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-l-extensive-bold-uppercase","tokenCamelCase":"labelLExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-s","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-m-default-regular","tokenCamelCase":"labelMDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-m-default-regular-italic","tokenCamelCase":"labelMDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-m-default-regular-uppercase","tokenCamelCase":"labelMDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-m-default-bold","tokenCamelCase":"labelMDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-m-default-bold-uppercase","tokenCamelCase":"labelMDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-m-extensive-regular-uppercase","tokenCamelCase":"labelMExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-m-extensive-bold-uppercase","tokenCamelCase":"labelMExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-3xs","font-size-xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-s-default-regular","tokenCamelCase":"labelSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-s-default-regular-italic","tokenCamelCase":"labelSDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-4xs","font-size-2xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-s-default-regular-uppercase","tokenCamelCase":"labelSDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-s-default-bold","tokenCamelCase":"labelSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-s-default-bold-uppercase","tokenCamelCase":"labelSDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-s-extensive-regular-uppercase","tokenCamelCase":"labelSExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-s-extensive-bold-uppercase","tokenCamelCase":"labelSExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-xs-default-regular","tokenCamelCase":"labelXSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-xs-default-regular-italic","tokenCamelCase":"labelXSDefaultRegularItalic","attributes":["font-weight-normal","font-style-italic","line-height-5xs","font-size-3xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-xs-default-regular-uppercase","tokenCamelCase":"labelXSDefaultRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-xs-default-bold","tokenCamelCase":"labelXSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-s","text-decoration-none","text-transform-none"]},{"token":"label-xs-default-bold-uppercase","tokenCamelCase":"labelXSDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-s","text-decoration-none","text-transform-uppercase"]},{"token":"label-xs-extensive-regular-uppercase","tokenCamelCase":"labelXSExtensiveRegularUppercase","attributes":["font-weight-normal","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]},{"token":"label-xs-extensive-bold-uppercase","tokenCamelCase":"labelXSExtensiveBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-xl","text-decoration-none","text-transform-uppercase"]}],"Button":[{"token":"button-l-default-bold-uppercase","tokenCamelCase":"buttonLDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-s","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"button-m-default-bold-uppercase","tokenCamelCase":"buttonMDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"button-s-default-bold-uppercase","tokenCamelCase":"buttonSDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-4xs","font-size-2xs","letter-spacing-l","text-decoration-none","text-transform-uppercase"]},{"token":"button-xs-default-bold-uppercase","tokenCamelCase":"buttonXSDefaultBoldUppercase","attributes":["font-weight-bold","font-style-normal","line-height-5xs","font-size-3xs","letter-spacing-l","text-decoration-none","text-transform-uppercase"]}],"Link":[{"token":"link-xl-default-regular","tokenCamelCase":"linkXLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-xl-default-regular-underlined","tokenCamelCase":"linkXLDefaultRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-xl-default-bold","tokenCamelCase":"linkXLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-xl-default-bold-underlined","tokenCamelCase":"linkXLDefaultBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-2xl","font-size-l","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-xl-compact-regular","tokenCamelCase":"linkXLCompactRegular","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-xl-compact-regular-underlined","tokenCamelCase":"linkXLCompactRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-xl-compact-bold","tokenCamelCase":"linkXLCompactBold","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-xl-compact-bold-underlined","tokenCamelCase":"linkXLCompactBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-l","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-l-default-regular","tokenCamelCase":"linkLDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-l-default-regular-underlined","tokenCamelCase":"linkLDefaultRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-l","font-size-m","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-l-default-bold","tokenCamelCase":"linkLDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-l-default-bold-underlined","tokenCamelCase":"linkLDefaultBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-l","font-size-m","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-l-compact-regular","tokenCamelCase":"linkLCompactRegular","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-l-compact-regular-underlined","tokenCamelCase":"linkLCompactRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-l-compact-bold","tokenCamelCase":"linkLCompactBold","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-l-compact-bold-underlined","tokenCamelCase":"linkLCompactBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-s","font-size-m","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-m-default-regular","tokenCamelCase":"linkMDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-m","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-m-default-regular-underlined","tokenCamelCase":"linkMDefaultRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-m","font-size-s","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-m-default-bold","tokenCamelCase":"linkMDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-m","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-m-default-bold-underlined","tokenCamelCase":"linkMDefaultBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-m","font-size-s","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-m-compact-regular","tokenCamelCase":"linkMCompactRegular","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-m-compact-regular-underlined","tokenCamelCase":"linkMCompactRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-m-compact-bold","tokenCamelCase":"linkMCompactBold","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-m-compact-bold-underlined","tokenCamelCase":"linkMCompactBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-s","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-s-default-regular","tokenCamelCase":"linkSDefaultRegular","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-s-default-regular-underlined","tokenCamelCase":"linkSDefaultRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-s-default-bold","tokenCamelCase":"linkSDefaultBold","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-s-default-bold-underlined","tokenCamelCase":"linkSDefaultBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-xs","font-size-xs","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-s-compact-regular","tokenCamelCase":"linkSCompactRegular","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-s-compact-regular-underlined","tokenCamelCase":"linkSCompactRegularUnderlined","attributes":["font-weight-normal","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-underline","text-transform-none"]},{"token":"link-s-compact-bold","tokenCamelCase":"linkSCompactBold","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-none","text-transform-none"]},{"token":"link-s-compact-bold-underlined","tokenCamelCase":"linkSCompactBoldUnderlined","attributes":["font-weight-bold","font-style-normal","line-height-2xs","font-size-xs","letter-spacing-xs","text-decoration-underline","text-transform-none"]}]}
+{
+  "tokens": [
+    {
+      "token": "-display-heading-m-regular",
+      "tokenCamelCase": "DisplayHeadingMRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-4xl",
+        "font-size-4xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-display-heading-m-bold",
+      "tokenCamelCase": "DisplayHeadingMBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-4xl",
+        "font-size-4xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-display-heading-s-regular",
+      "tokenCamelCase": "DisplayHeadingSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-3xl",
+        "font-size-3xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-display-heading-s-bold",
+      "tokenCamelCase": "DisplayHeadingSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-3xl",
+        "font-size-3xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-display-heading-xs-regular",
+      "tokenCamelCase": "DisplayHeadingXSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-2xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-display-heading-xs-bold",
+      "tokenCamelCase": "DisplayHeadingXSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-2xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-page-heading-m-bold",
+      "tokenCamelCase": "PageHeadingMBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-xl",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-page-heading-s-bold",
+      "tokenCamelCase": "PageHeadingSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-xl-regular",
+      "tokenCamelCase": "HeadingXLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xl",
+        "font-size-xl",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-xl-regular-uppercase",
+      "tokenCamelCase": "HeadingXLRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xl",
+        "font-size-xl",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-heading-xl-bold",
+      "tokenCamelCase": "HeadingXLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xl",
+        "font-size-xl",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-xl-bold-uppercase",
+      "tokenCamelCase": "HeadingXLBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xl",
+        "font-size-xl",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-heading-l-regular",
+      "tokenCamelCase": "HeadingLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-l-regular-uppercase",
+      "tokenCamelCase": "HeadingLRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-heading-l-bold",
+      "tokenCamelCase": "HeadingLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-l-bold-uppercase",
+      "tokenCamelCase": "HeadingLBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-heading-m-regular",
+      "tokenCamelCase": "HeadingMRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-m-regular-uppercase",
+      "tokenCamelCase": "HeadingMRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-heading-m-bold",
+      "tokenCamelCase": "HeadingMBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-m-bold-uppercase",
+      "tokenCamelCase": "HeadingMBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-heading-s-regular",
+      "tokenCamelCase": "HeadingSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-s-regular-uppercase",
+      "tokenCamelCase": "HeadingSRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-heading-s-bold",
+      "tokenCamelCase": "HeadingSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-s-bold-uppercase",
+      "tokenCamelCase": "HeadingSBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-heading-xs-regular",
+      "tokenCamelCase": "HeadingXSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-xs-regular-uppercase",
+      "tokenCamelCase": "HeadingXSRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-heading-xs-bold",
+      "tokenCamelCase": "HeadingXSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-heading-xs-bold-uppercase",
+      "tokenCamelCase": "HeadingXSBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-xl-regular",
+      "tokenCamelCase": "TextXLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-regular-italic",
+      "tokenCamelCase": "TextXLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-regular-underlined",
+      "tokenCamelCase": "TextXLRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-regular-uppercase",
+      "tokenCamelCase": "TextXLRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-xl-bold",
+      "tokenCamelCase": "TextXLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-bold-italic",
+      "tokenCamelCase": "TextXLBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-bold-underlined",
+      "tokenCamelCase": "TextXLBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-bold-uppercase",
+      "tokenCamelCase": "TextXLBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-xl-compact-regular",
+      "tokenCamelCase": "TextXLCompactRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-compact-regular-italic",
+      "tokenCamelCase": "TextXLCompactRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-compact-regular-underlined",
+      "tokenCamelCase": "TextXLCompactRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-compact-regular-uppercase",
+      "tokenCamelCase": "TextXLCompactRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-xl-compact-bold",
+      "tokenCamelCase": "TextXLCompactBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-compact-bold-italic",
+      "tokenCamelCase": "TextXLCompactBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-compact-bold-underlined",
+      "tokenCamelCase": "TextXLCompactBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-xl-compact-bold-uppercase",
+      "tokenCamelCase": "TextXLCompactBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-l-regular",
+      "tokenCamelCase": "TextLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-regular-italic",
+      "tokenCamelCase": "TextLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-regular-underlined",
+      "tokenCamelCase": "TextLRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-regular-uppercase",
+      "tokenCamelCase": "TextLRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-l-bold",
+      "tokenCamelCase": "TextLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-bold-italic",
+      "tokenCamelCase": "TextLBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-bold-underlined",
+      "tokenCamelCase": "TextLBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-bold-uppercase",
+      "tokenCamelCase": "TextLBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-l-compact-regular",
+      "tokenCamelCase": "TextLCompactRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-compact-regular-italic",
+      "tokenCamelCase": "TextLCompactRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-compact-regular-underlined",
+      "tokenCamelCase": "TextLCompactRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-compact-regular-uppercase",
+      "tokenCamelCase": "TextLCompactRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-l-compact-bold",
+      "tokenCamelCase": "TextLCompactBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-compact-bold-italic",
+      "tokenCamelCase": "TextLCompactBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-compact-bold-underlined",
+      "tokenCamelCase": "TextLCompactBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-l-compact-bold-uppercase",
+      "tokenCamelCase": "TextLCompactBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-m-regular",
+      "tokenCamelCase": "TextMRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-regular-italic",
+      "tokenCamelCase": "TextMRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-regular-underlined",
+      "tokenCamelCase": "TextMRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-regular-uppercase",
+      "tokenCamelCase": "TextMRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-m-bold",
+      "tokenCamelCase": "TextMBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-bold-italic",
+      "tokenCamelCase": "TextMBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-bold-underlined",
+      "tokenCamelCase": "TextMBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-bold-uppercase",
+      "tokenCamelCase": "TextMBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-m-compact-regular",
+      "tokenCamelCase": "TextMCompactRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-compact-regular-italic",
+      "tokenCamelCase": "TextMCompactRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-compact-regular-underlined",
+      "tokenCamelCase": "TextMCompactRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-compact-regular-uppercase",
+      "tokenCamelCase": "TextMCompactRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-m-compact-bold",
+      "tokenCamelCase": "TextMCompactBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-compact-bold-italic",
+      "tokenCamelCase": "TextMCompactBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-compact-bold-underlined",
+      "tokenCamelCase": "TextMCompactBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-m-compact-bold-uppercase",
+      "tokenCamelCase": "TextMCompactBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-s-regular",
+      "tokenCamelCase": "TextSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-regular-italic",
+      "tokenCamelCase": "TextSRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-regular-underlined",
+      "tokenCamelCase": "TextSRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-regular-uppercase",
+      "tokenCamelCase": "TextSRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-s-bold",
+      "tokenCamelCase": "TextSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-bold-italic",
+      "tokenCamelCase": "TextSBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-bold-underlined",
+      "tokenCamelCase": "TextSBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-bold-uppercase",
+      "tokenCamelCase": "TextSBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-s-compact-regular",
+      "tokenCamelCase": "TextSCompactRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-compact-regular-italic",
+      "tokenCamelCase": "TextSCompactRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-compact-regular-underlined",
+      "tokenCamelCase": "TextSCompactRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-compact-regular-uppercase",
+      "tokenCamelCase": "TextSCompactRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-text-s-compact-bold",
+      "tokenCamelCase": "TextSCompactBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-compact-bold-italic",
+      "tokenCamelCase": "TextSCompactBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-compact-bold-underlined",
+      "tokenCamelCase": "TextSCompactBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-text-s-compact-bold-uppercase",
+      "tokenCamelCase": "TextSCompactBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-xl-regular",
+      "tokenCamelCase": "InfoXLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xl-regular-italic",
+      "tokenCamelCase": "InfoXLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xl-bold",
+      "tokenCamelCase": "InfoXLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xl-bold-italic",
+      "tokenCamelCase": "InfoXLBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xl-extensive-regular",
+      "tokenCamelCase": "InfoXLExtensiveRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xl-extensive-regular-italic",
+      "tokenCamelCase": "InfoXLExtensiveRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xl-extensive-regular-uppercase",
+      "tokenCamelCase": "InfoXLExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-xl-extensive-bold",
+      "tokenCamelCase": "InfoXLExtensiveBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xl-extensive-bold-italic",
+      "tokenCamelCase": "InfoXLExtensiveBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xl-extensive-bold-uppercase",
+      "tokenCamelCase": "InfoXLExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-l-regular",
+      "tokenCamelCase": "InfoLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-l-regular-italic",
+      "tokenCamelCase": "InfoLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-l-bold",
+      "tokenCamelCase": "InfoLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-l-bold-italic",
+      "tokenCamelCase": "InfoLBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-l-extensive-regular",
+      "tokenCamelCase": "InfoLExtensiveRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-l-extensive-regular-italic",
+      "tokenCamelCase": "InfoLExtensiveRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-l-extensive-regular-uppercase",
+      "tokenCamelCase": "InfoLExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-l-extensive-bold",
+      "tokenCamelCase": "InfoLExtensiveBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-l-extensive-bold-italic",
+      "tokenCamelCase": "InfoLExtensiveBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-l-extensive-bold-uppercase",
+      "tokenCamelCase": "InfoLExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-m-regular",
+      "tokenCamelCase": "InfoMRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-m-regular-italic",
+      "tokenCamelCase": "InfoMRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-m-bold",
+      "tokenCamelCase": "InfoMBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-m-bold-italic",
+      "tokenCamelCase": "InfoMBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-m-extensive-regular",
+      "tokenCamelCase": "InfoMExtensiveRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-m-extensive-regular-italic",
+      "tokenCamelCase": "InfoMExtensiveRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-m-extensive-regular-uppercase",
+      "tokenCamelCase": "InfoMExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-m-extensive-bold",
+      "tokenCamelCase": "InfoMExtensiveBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-m-extensive-bold-italic",
+      "tokenCamelCase": "InfoMExtensiveBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-m-extensive-bold-uppercase",
+      "tokenCamelCase": "InfoMExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-s-regular",
+      "tokenCamelCase": "InfoSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-s-regular-italic",
+      "tokenCamelCase": "InfoSRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-s-bold",
+      "tokenCamelCase": "InfoSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-s-bold-italic",
+      "tokenCamelCase": "InfoSBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-s-extensive-regular",
+      "tokenCamelCase": "InfoSExtensiveRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-s-extensive-regular-italic",
+      "tokenCamelCase": "InfoSExtensiveRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-s-extensive-regular-uppercase",
+      "tokenCamelCase": "InfoSExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-s-extensive-bold",
+      "tokenCamelCase": "InfoSExtensiveBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-s-extensive-bold-italic",
+      "tokenCamelCase": "InfoSExtensiveBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-s-extensive-bold-uppercase",
+      "tokenCamelCase": "InfoSExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-xs-regular",
+      "tokenCamelCase": "InfoXSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xs-regular-italic",
+      "tokenCamelCase": "InfoXSRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xs-bold",
+      "tokenCamelCase": "InfoXSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xs-bold-italic",
+      "tokenCamelCase": "InfoXSBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-m",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xs-extensive-regular",
+      "tokenCamelCase": "InfoXSExtensiveRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xs-extensive-regular-italic",
+      "tokenCamelCase": "InfoXSExtensiveRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xs-extensive-regular-uppercase",
+      "tokenCamelCase": "InfoXSExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-info-xs-extensive-bold",
+      "tokenCamelCase": "InfoXSExtensiveBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xs-extensive-bold-italic",
+      "tokenCamelCase": "InfoXSExtensiveBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-info-xs-extensive-bold-uppercase",
+      "tokenCamelCase": "InfoXSExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-form-label-l-regular",
+      "tokenCamelCase": "FormLabelLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-label-l-regular-italic",
+      "tokenCamelCase": "FormLabelLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-label-l-bold",
+      "tokenCamelCase": "FormLabelLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-label-m-regular",
+      "tokenCamelCase": "FormLabelMRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-label-m-regular-italic",
+      "tokenCamelCase": "FormLabelMRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-label-m-bold",
+      "tokenCamelCase": "FormLabelMBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-label-s-regular",
+      "tokenCamelCase": "FormLabelSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-label-s-regular-italic",
+      "tokenCamelCase": "FormLabelSRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-label-s-bold",
+      "tokenCamelCase": "FormLabelSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-xl-regular",
+      "tokenCamelCase": "FormTextXLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-5xl",
+        "font-size-5xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-xl-regular-italic",
+      "tokenCamelCase": "FormTextXLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-5xl",
+        "font-size-5xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-xl-bold",
+      "tokenCamelCase": "FormTextXLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-5xl",
+        "font-size-5xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-xl-bold-italic",
+      "tokenCamelCase": "FormTextXLBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-5xl",
+        "font-size-5xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-xl-extensive-regular",
+      "tokenCamelCase": "FormTextXLExtensiveRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-6xl",
+        "font-size-5xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-xl-extensive-regular-italic",
+      "tokenCamelCase": "FormTextXLExtensiveRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-6xl",
+        "font-size-5xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-xl-extensive-bold",
+      "tokenCamelCase": "FormTextXLExtensiveBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-6xl",
+        "font-size-5xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-xl-extensive-bold-italic",
+      "tokenCamelCase": "FormTextXLExtensiveBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-6xl",
+        "font-size-5xl",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-l-regular",
+      "tokenCamelCase": "FormTextLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-l-regular-italic",
+      "tokenCamelCase": "FormTextLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-m",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-l-bold",
+      "tokenCamelCase": "FormTextLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-l-bold-italic",
+      "tokenCamelCase": "FormTextLBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-m",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-l-extensive-regular",
+      "tokenCamelCase": "FormTextLExtensiveRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-l-extensive-regular-italic",
+      "tokenCamelCase": "FormTextLExtensiveRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-l-extensive-bold",
+      "tokenCamelCase": "FormTextLExtensiveBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-l-extensive-bold-italic",
+      "tokenCamelCase": "FormTextLExtensiveBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-m-regular",
+      "tokenCamelCase": "FormTextMRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-m-regular-italic",
+      "tokenCamelCase": "FormTextMRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-m-bold",
+      "tokenCamelCase": "FormTextMBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-m-bold-italic",
+      "tokenCamelCase": "FormTextMBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-m-extensive-regular",
+      "tokenCamelCase": "FormTextMExtensiveRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-m-extensive-regular-italic",
+      "tokenCamelCase": "FormTextMExtensiveRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-m",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-m-extensive-bold",
+      "tokenCamelCase": "FormTextMExtensiveBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-m-extensive-bold-italic",
+      "tokenCamelCase": "FormTextMExtensiveBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-m",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-s-regular",
+      "tokenCamelCase": "FormTextSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-s-regular-italic",
+      "tokenCamelCase": "FormTextSRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-s-bold",
+      "tokenCamelCase": "FormTextSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-s-bold-italic",
+      "tokenCamelCase": "FormTextSBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-s-extensive-regular",
+      "tokenCamelCase": "FormTextSExtensiveRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-s-extensive-regular-italic",
+      "tokenCamelCase": "FormTextSExtensiveRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-s-extensive-bold",
+      "tokenCamelCase": "FormTextSExtensiveBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-text-s-extensive-bold-italic",
+      "tokenCamelCase": "FormTextSExtensiveBoldItalic",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-italic",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-caption-m-regular",
+      "tokenCamelCase": "FormCaptionMRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-caption-m-regular-italic",
+      "tokenCamelCase": "FormCaptionMRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-caption-s-regular",
+      "tokenCamelCase": "FormCaptionSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-form-caption-s-regular-italic",
+      "tokenCamelCase": "FormCaptionSRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-2-xl-regular",
+      "tokenCamelCase": "Label2XLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-xl",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-2-xl-regular-italic",
+      "tokenCamelCase": "Label2XLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-l",
+        "font-size-xl",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-2-xl-regular-uppercase",
+      "tokenCamelCase": "Label2XLRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-xl",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-2-xl-bold",
+      "tokenCamelCase": "Label2XLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-xl",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-2-xl-bold-uppercase",
+      "tokenCamelCase": "Label2XLBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-xl",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-2-xl-extensive-regular-uppercase",
+      "tokenCamelCase": "Label2XLExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-xl",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-2-xl-extensive-bold-uppercase",
+      "tokenCamelCase": "Label2XLExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-xl",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-xl-regular",
+      "tokenCamelCase": "LabelXLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-xl-regular-italic",
+      "tokenCamelCase": "LabelXLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-xl-regular-uppercase",
+      "tokenCamelCase": "LabelXLRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-xl-bold",
+      "tokenCamelCase": "LabelXLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-xl-bold-uppercase",
+      "tokenCamelCase": "LabelXLBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-xl-extensive-regular-uppercase",
+      "tokenCamelCase": "LabelXLExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-xl-extensive-bold-uppercase",
+      "tokenCamelCase": "LabelXLExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-l-regular",
+      "tokenCamelCase": "LabelLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-l-regular-italic",
+      "tokenCamelCase": "LabelLRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-l-regular-uppercase",
+      "tokenCamelCase": "LabelLRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-l-bold",
+      "tokenCamelCase": "LabelLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-l-bold-uppercase",
+      "tokenCamelCase": "LabelLBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-l-extensive-regular-uppercase",
+      "tokenCamelCase": "LabelLExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-l-extensive-bold-uppercase",
+      "tokenCamelCase": "LabelLExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-m-regular",
+      "tokenCamelCase": "LabelMRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-m-regular-italic",
+      "tokenCamelCase": "LabelMRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-m-regular-uppercase",
+      "tokenCamelCase": "LabelMRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-m-bold",
+      "tokenCamelCase": "LabelMBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-m-bold-uppercase",
+      "tokenCamelCase": "LabelMBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-m-extensive-regular-uppercase",
+      "tokenCamelCase": "LabelMExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-m-extensive-bold-uppercase",
+      "tokenCamelCase": "LabelMExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-3xs",
+        "font-size-xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-s-regular",
+      "tokenCamelCase": "LabelSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-s-regular-italic",
+      "tokenCamelCase": "LabelSRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-s-regular-uppercase",
+      "tokenCamelCase": "LabelSRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-s-bold",
+      "tokenCamelCase": "LabelSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-s-bold-uppercase",
+      "tokenCamelCase": "LabelSBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-s-extensive-regular-uppercase",
+      "tokenCamelCase": "LabelSExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-s-extensive-bold-uppercase",
+      "tokenCamelCase": "LabelSExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-xs-regular",
+      "tokenCamelCase": "LabelXSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-xs-regular-italic",
+      "tokenCamelCase": "LabelXSRegularItalic",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-italic",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-xs-regular-uppercase",
+      "tokenCamelCase": "LabelXSRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-xs-bold",
+      "tokenCamelCase": "LabelXSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-label-xs-bold-uppercase",
+      "tokenCamelCase": "LabelXSBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-s",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-xs-extensive-regular-uppercase",
+      "tokenCamelCase": "LabelXSExtensiveRegularUppercase",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-label-xs-extensive-bold-uppercase",
+      "tokenCamelCase": "LabelXSExtensiveBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-xl",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-button-l-bold-uppercase",
+      "tokenCamelCase": "ButtonLBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-s",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-button-m-bold-uppercase",
+      "tokenCamelCase": "ButtonMBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-button-s-bold-uppercase",
+      "tokenCamelCase": "ButtonSBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-4xs",
+        "font-size-2xs",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-button-xs-bold-uppercase",
+      "tokenCamelCase": "ButtonXSBoldUppercase",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-5xs",
+        "font-size-3xs",
+        "letter-spacing-l",
+        "text-decoration-none",
+        "text-transform-uppercase"
+      ]
+    },
+    {
+      "token": "-link-xl-regular",
+      "tokenCamelCase": "LinkXLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-xl-regular-underlined",
+      "tokenCamelCase": "LinkXLRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-xl-bold",
+      "tokenCamelCase": "LinkXLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-xl-bold-underlined",
+      "tokenCamelCase": "LinkXLBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xl",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-xl-compact-regular",
+      "tokenCamelCase": "LinkXLCompactRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-xl-compact-regular-underlined",
+      "tokenCamelCase": "LinkXLCompactRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-xl-compact-bold",
+      "tokenCamelCase": "LinkXLCompactBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-xl-compact-bold-underlined",
+      "tokenCamelCase": "LinkXLCompactBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-l",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-l-regular",
+      "tokenCamelCase": "LinkLRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-l-regular-underlined",
+      "tokenCamelCase": "LinkLRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-l-bold",
+      "tokenCamelCase": "LinkLBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-l-bold-underlined",
+      "tokenCamelCase": "LinkLBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-l",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-l-compact-regular",
+      "tokenCamelCase": "LinkLCompactRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-l-compact-regular-underlined",
+      "tokenCamelCase": "LinkLCompactRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-l-compact-bold",
+      "tokenCamelCase": "LinkLCompactBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-l-compact-bold-underlined",
+      "tokenCamelCase": "LinkLCompactBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-s",
+        "font-size-m",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-m-regular",
+      "tokenCamelCase": "LinkMRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-m-regular-underlined",
+      "tokenCamelCase": "LinkMRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-m-bold",
+      "tokenCamelCase": "LinkMBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-m-bold-underlined",
+      "tokenCamelCase": "LinkMBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-m",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-m-compact-regular",
+      "tokenCamelCase": "LinkMCompactRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-m-compact-regular-underlined",
+      "tokenCamelCase": "LinkMCompactRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-m-compact-bold",
+      "tokenCamelCase": "LinkMCompactBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-m-compact-bold-underlined",
+      "tokenCamelCase": "LinkMCompactBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-s",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-s-regular",
+      "tokenCamelCase": "LinkSRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-s-regular-underlined",
+      "tokenCamelCase": "LinkSRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-s-bold",
+      "tokenCamelCase": "LinkSBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-s-bold-underlined",
+      "tokenCamelCase": "LinkSBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-s-compact-regular",
+      "tokenCamelCase": "LinkSCompactRegular",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-s-compact-regular-underlined",
+      "tokenCamelCase": "LinkSCompactRegularUnderlined",
+      "attributes": [
+        "font-weight-normal",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-s-compact-bold",
+      "tokenCamelCase": "LinkSCompactBold",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-none",
+        "text-transform-none"
+      ]
+    },
+    {
+      "token": "-link-s-compact-bold-underlined",
+      "tokenCamelCase": "LinkSCompactBoldUnderlined",
+      "attributes": [
+        "font-weight-bold",
+        "font-style-normal",
+        "line-height-2xs",
+        "font-size-xs",
+        "letter-spacing-xs",
+        "text-decoration-underline",
+        "text-transform-none"
+      ]
+    }
+  ]
+}
