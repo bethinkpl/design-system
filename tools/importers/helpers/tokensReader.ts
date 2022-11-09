@@ -49,7 +49,9 @@ export const recursiveTokensReader = (obj, keyResult: string): Array<ITypography
 
 	let results: Array<ITypographyToken> = [];
 	for (let key in obj) {
-		let temporaryKey: string = (keyResult + ' ' + key).replace(/\-+/g, ' ');
+		console.log(key);
+		let newSuffix: string = !key.includes('default') ? key : '';
+		let temporaryKey: string = (keyResult + ' ' + newSuffix).replace(/\-+/g, ' ');
 		let result: Array<ITypographyToken> = recursiveTokensReader(obj[key], temporaryKey);
 		results.push(...result);
 	}
