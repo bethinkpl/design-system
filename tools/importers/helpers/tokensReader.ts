@@ -1,7 +1,12 @@
 import { ITypographyToken } from './structures';
 
 import { camelize } from './modifiers';
-import { fontFamilyProperty, fontWeightKey, transformCssProperty } from './typographyVariables';
+import {
+	fontFamilyProperty,
+	fontWeightKey,
+	transformCssProperty,
+	tokenPartDisabled,
+} from './typographyVariables';
 
 export const recursiveTokensReader = (obj, keyResult: string): Array<ITypographyToken> => {
 	if ('value' in obj) {
@@ -49,8 +54,7 @@ export const recursiveTokensReader = (obj, keyResult: string): Array<ITypography
 
 	let results: Array<ITypographyToken> = [];
 	for (let key in obj) {
-		console.log(key);
-		let newSuffix: string = !key.includes('default') ? key : '';
+		let newSuffix: string = !key.includes(tokenPartDisabled) ? key : '';
 		let temporaryKey: string = (keyResult + ' ' + newSuffix).replace(/\-+/g, ' ');
 		let result: Array<ITypographyToken> = recursiveTokensReader(obj[key], temporaryKey);
 		results.push(...result);

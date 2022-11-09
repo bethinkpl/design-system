@@ -3,6 +3,7 @@ export const tokensKey: string = 'TypographyTokens';
 export const excludedKeys: Array<string> = ['fontFamilies', 'TypographyTokens'];
 export const fontFamilyProperty: string = 'font-families';
 export const fontWeightKey: string = 'fontWeight';
+export const tokenPartDisabled: string = 'default';
 export const transformCssProperty: { [key: string]: string } = {
 	'-regular': '-normal',
 };
