@@ -2,6 +2,15 @@ export interface Dict<V> {
 	[key: string]: V;
 }
 
+export interface JsonAttributeValues {
+	value: string;
+	type: string;
+}
+
+export interface JsonAttribute<JsonAttributeValues> {
+	[key: string]: JsonAttributeValues;
+}
+
 export interface ITokenJsonObject {
 	id: string;
 	label: string;
@@ -14,24 +23,40 @@ export interface IResultJsonObject {
 	value: string;
 }
 
-export interface ConfigFileObject {
-	destinationVariables: string;
-	destinationVariablesCss: string;
-	destinationVariablesCssJson: string;
-	destinationJson: string;
-	destination: string;
+export interface TypographyBinFiles {
+	variablesRaw: {
+		destinationVariables: string;
+		destinationVariablesCss: string;
+		destinationVariablesCssJson: string;
+	};
+	tokens: {
+		destination: string;
+		destinationJson: string;
+	};
 }
 
-interface ConfigFileFile {
-	variablesRaw: any;
-	tokens: any;
-}
-
-export interface ConfigFileBin {
+export interface TypographyConfigFileBin {
 	id: string;
+	files: TypographyBinFiles;
+}
+
+export interface ColorsBinFiles {
+	variablesRaw: {
+		destination: string;
+		destinationJson: string;
+	};
+	tokens: {
+		destination: string;
+		destinationJson: string;
+		destinationVariables: string;
+	};
+}
+
+export interface ColorsConfigFileBin {
 	name: string;
+	id: string;
+	files: ColorsBinFiles;
 	isTheme: boolean;
-	files: ConfigFileFile;
 }
 
 export interface ITypographyToken {

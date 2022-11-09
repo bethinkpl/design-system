@@ -6,7 +6,7 @@
       "name": "wnl",
       "isTheme": false,
       "files": {
-        "colorsRaw": {
+        "variablesRaw": {
           "destination": "_raw.scss",
           "destinationJson": "_raw.json"
         },
@@ -22,7 +22,7 @@
       "name": "wnl",
       "isTheme": true,
       "files": {
-        "colorsRaw": {
+        "variablesRaw": {
           "destination": "_raw-wnl.scss",
           "destinationJson": "_raw-wnl.json"
         },
@@ -38,7 +38,7 @@
       "name": "bodywork",
       "isTheme": true,
       "files": {
-        "colorsRaw": {
+        "variablesRaw": {
           "destination": "_raw-bodywork.scss",
           "destinationJson": "_raw-bodywork.json"
         },

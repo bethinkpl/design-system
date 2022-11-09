@@ -1,30 +1,30 @@
-const typographyPrefix: string = 'typography-';
-const tokensKey: string = 'TypographyTokens';
-const excludedKeys: Array<string> = ['fontFamilies', 'TypographyTokens'];
-const fontFamilyProperty: string = 'font-families';
-const fontWeightKey: string = 'fontWeight';
-const transformCssProperty: { [key: string]: string } = {
+export const typographyPrefix: string = 'typography-';
+export const tokensKey: string = 'TypographyTokens';
+export const excludedKeys: Array<string> = ['fontFamilies', 'TypographyTokens'];
+export const fontFamilyProperty: string = 'font-families';
+export const fontWeightKey: string = 'fontWeight';
+export const transformCssProperty: { [key: string]: string } = {
 	'text-case': 'text-transform',
 	'-regular': '-normal',
 };
-const importVariables: string = "@import 'variables';";
-const jsonAttributeToCssProperty: { [key: string]: string } = {
+export const importVariables: string = "@import 'variables';";
+export const jsonAttributeToCssProperty: { [key: string]: string } = {
 	lineHeight: 'line-height',
 	fontWeight: 'font-weight',
 	fontSize: 'font-size',
 	letterSpacing: 'letter-spacing',
-	textCase: 'text-transform',
+	textTransform: 'text-transform',
 	textDecoration: 'text-decoration',
 };
-const resultCssAdditionalLines: Array<string> = [
-	'--typography-font-weight-normal: normal;',
-	'--typography-font-weight-bold: bold;',
-	'--typography-font-weight-light: lighter;',
+export const resultCssAdditionalLines: Array<string> = [
+	'--typography-font-weight-normal: 400;',
+	'--typography-font-weight-bold: 700;',
+	'--typography-font-weight-light: 300;',
 	'--typography-font-style-normal: normal;',
 	'--typography-font-style-italic: italic;',
 	'}',
 ];
-const resultScssAdditionalLines: Array<string> = [
+export const resultScssAdditionalLines: Array<string> = [
 	'$typography-font-weight-normal: var(--typography-font-weight-normal);',
 	'$typography-font-weight-bold: var(--typography-font-weight-bold);',
 	'$typography-font-weight-light: var(--typography-font-weight-light);',
@@ -32,22 +32,10 @@ const resultScssAdditionalLines: Array<string> = [
 	'$typography-font-style-italic: var(--typography-font-style-italic);',
 ];
 
-const tokensTypographyInputAttributes = {
+export const tokensTypographyInputAttributes = {
 	fontSize: 'fontSize',
 	lineHeight: 'lineHeight',
 	letterSpacing: 'letterSpacing',
-	textCase: 'textCase',
+	textTransform: 'textTransform',
 	textDecoration: 'textDecoration',
 } as const;
-
-exports.typographyPrefix = typographyPrefix;
-exports.tokensKey = tokensKey;
-exports.excludedKeys = excludedKeys;
-exports.fontFamilyProperty = fontFamilyProperty;
-exports.fontWeightKey = fontWeightKey;
-exports.transformCssProperty = transformCssProperty;
-exports.jsonAttributeToCssProperty = jsonAttributeToCssProperty;
-exports.importVariables = importVariables;
-exports.resultCssAdditionalLines = resultCssAdditionalLines;
-exports.resultScssAdditionalLines = resultScssAdditionalLines;
-exports.tokensTypographyInputAttributes = tokensTypographyInputAttributes;

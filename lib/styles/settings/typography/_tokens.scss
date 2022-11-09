@@ -1,6 +1,8 @@
 @import 'variables';
 
 @mixin displayHeadingMDefaultRegular() {
+	--token: display-heading-m-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xl;
@@ -11,6 +13,8 @@
 }
 
 @mixin displayHeadingMDefaultBold() {
+	--token: display-heading-m-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xl;
@@ -21,6 +25,8 @@
 }
 
 @mixin displayHeadingSDefaultRegular() {
+	--token: display-heading-s-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xl;
@@ -31,6 +37,8 @@
 }
 
 @mixin displayHeadingSDefaultBold() {
+	--token: display-heading-s-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xl;
@@ -41,6 +49,8 @@
 }
 
 @mixin displayHeadingXSDefaultRegular() {
+	--token: display-heading-xs-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -51,6 +61,8 @@
 }
 
 @mixin displayHeadingXSDefaultBold() {
+	--token: display-heading-xs-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -61,6 +73,8 @@
 }
 
 @mixin pageHeadingMDefaultBold() {
+	--token: page-heading-m-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -71,6 +85,8 @@
 }
 
 @mixin pageHeadingSDefaultBold() {
+	--token: page-heading-s-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -81,6 +97,8 @@
 }
 
 @mixin headingXLDefaultRegular() {
+	--token: heading-xl-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xl;
@@ -91,6 +109,8 @@
 }
 
 @mixin headingXLDefaultRegularUppercase() {
+	--token: heading-xl-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xl;
@@ -101,6 +121,8 @@
 }
 
 @mixin headingXLDefaultBold() {
+	--token: heading-xl-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xl;
@@ -111,6 +133,8 @@
 }
 
 @mixin headingXLDefaultBoldUppercase() {
+	--token: heading-xl-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xl;
@@ -121,6 +145,8 @@
 }
 
 @mixin headingLDefaultRegular() {
+	--token: heading-l-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -131,6 +157,8 @@
 }
 
 @mixin headingLDefaultRegularUppercase() {
+	--token: heading-l-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -141,6 +169,8 @@
 }
 
 @mixin headingLDefaultBold() {
+	--token: heading-l-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -151,6 +181,8 @@
 }
 
 @mixin headingLDefaultBoldUppercase() {
+	--token: heading-l-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -161,6 +193,8 @@
 }
 
 @mixin headingMDefaultRegular() {
+	--token: heading-m-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -171,6 +205,8 @@
 }
 
 @mixin headingMDefaultRegularUppercase() {
+	--token: heading-m-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -181,6 +217,8 @@
 }
 
 @mixin headingMDefaultBold() {
+	--token: heading-m-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -191,6 +229,8 @@
 }
 
 @mixin headingMDefaultBoldUppercase() {
+	--token: heading-m-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -201,6 +241,8 @@
 }
 
 @mixin headingSDefaultRegular() {
+	--token: heading-s-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -211,6 +253,8 @@
 }
 
 @mixin headingSDefaultRegularUppercase() {
+	--token: heading-s-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -221,6 +265,8 @@
 }
 
 @mixin headingSDefaultBold() {
+	--token: heading-s-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -231,6 +277,8 @@
 }
 
 @mixin headingSDefaultBoldUppercase() {
+	--token: heading-s-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -241,6 +289,8 @@
 }
 
 @mixin headingXSDefaultRegular() {
+	--token: heading-xs-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -251,6 +301,8 @@
 }
 
 @mixin headingXSDefaultRegularUppercase() {
+	--token: heading-xs-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -261,6 +313,8 @@
 }
 
 @mixin headingXSDefaultBold() {
+	--token: heading-xs-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -271,6 +325,8 @@
 }
 
 @mixin headingXSDefaultBoldUppercase() {
+	--token: heading-xs-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -281,6 +337,8 @@
 }
 
 @mixin textXLDefaultRegular() {
+	--token: text-xl-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -291,6 +349,8 @@
 }
 
 @mixin textXLDefaultRegularItalic() {
+	--token: text-xl-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xl;
@@ -301,6 +361,8 @@
 }
 
 @mixin textXLDefaultRegularUnderlined() {
+	--token: text-xl-default-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -311,6 +373,8 @@
 }
 
 @mixin textXLDefaultRegularUppercase() {
+	--token: text-xl-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -321,6 +385,8 @@
 }
 
 @mixin textXLDefaultBold() {
+	--token: text-xl-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -331,6 +397,8 @@
 }
 
 @mixin textXLDefaultBoldItalic() {
+	--token: text-xl-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xl;
@@ -341,6 +409,8 @@
 }
 
 @mixin textXLDefaultBoldUnderlined() {
+	--token: text-xl-default-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -351,6 +421,8 @@
 }
 
 @mixin textXLDefaultBoldUppercase() {
+	--token: text-xl-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -361,6 +433,8 @@
 }
 
 @mixin textXLCompactRegular() {
+	--token: text-xl-compact-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -371,6 +445,8 @@
 }
 
 @mixin textXLCompactRegularItalic() {
+	--token: text-xl-compact-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
@@ -381,6 +457,8 @@
 }
 
 @mixin textXLCompactRegularUnderlined() {
+	--token: text-xl-compact-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -391,6 +469,8 @@
 }
 
 @mixin textXLCompactRegularUppercase() {
+	--token: text-xl-compact-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -401,6 +481,8 @@
 }
 
 @mixin textXLCompactBold() {
+	--token: text-xl-compact-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -411,6 +493,8 @@
 }
 
 @mixin textXLCompactBoldItalic() {
+	--token: text-xl-compact-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
@@ -421,6 +505,8 @@
 }
 
 @mixin textXLCompactBoldUnderlined() {
+	--token: text-xl-compact-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -431,6 +517,8 @@
 }
 
 @mixin textXLCompactBoldUppercase() {
+	--token: text-xl-compact-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -441,6 +529,8 @@
 }
 
 @mixin textLDefaultRegular() {
+	--token: text-l-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -451,6 +541,8 @@
 }
 
 @mixin textLDefaultRegularItalic() {
+	--token: text-l-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
@@ -461,6 +553,8 @@
 }
 
 @mixin textLDefaultRegularUnderlined() {
+	--token: text-l-default-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -471,6 +565,8 @@
 }
 
 @mixin textLDefaultRegularUppercase() {
+	--token: text-l-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -481,6 +577,8 @@
 }
 
 @mixin textLDefaultBold() {
+	--token: text-l-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -491,6 +589,8 @@
 }
 
 @mixin textLDefaultBoldItalic() {
+	--token: text-l-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
@@ -501,6 +601,8 @@
 }
 
 @mixin textLDefaultBoldUnderlined() {
+	--token: text-l-default-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -511,6 +613,8 @@
 }
 
 @mixin textLDefaultBoldUppercase() {
+	--token: text-l-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -521,6 +625,8 @@
 }
 
 @mixin textLCompactRegular() {
+	--token: text-l-compact-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -531,6 +637,8 @@
 }
 
 @mixin textLCompactRegularItalic() {
+	--token: text-l-compact-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -541,6 +649,8 @@
 }
 
 @mixin textLCompactRegularUnderlined() {
+	--token: text-l-compact-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -551,6 +661,8 @@
 }
 
 @mixin textLCompactRegularUppercase() {
+	--token: text-l-compact-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -561,6 +673,8 @@
 }
 
 @mixin textLCompactBold() {
+	--token: text-l-compact-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -571,6 +685,8 @@
 }
 
 @mixin textLCompactBoldItalic() {
+	--token: text-l-compact-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -581,6 +697,8 @@
 }
 
 @mixin textLCompactBoldUnderlined() {
+	--token: text-l-compact-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -591,6 +709,8 @@
 }
 
 @mixin textLCompactBoldUppercase() {
+	--token: text-l-compact-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -601,6 +721,8 @@
 }
 
 @mixin textMDefaultRegular() {
+	--token: text-m-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -611,6 +733,8 @@
 }
 
 @mixin textMDefaultRegularItalic() {
+	--token: text-m-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
@@ -621,6 +745,8 @@
 }
 
 @mixin textMDefaultRegularUnderlined() {
+	--token: text-m-default-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -631,6 +757,8 @@
 }
 
 @mixin textMDefaultRegularUppercase() {
+	--token: text-m-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -641,6 +769,8 @@
 }
 
 @mixin textMDefaultBold() {
+	--token: text-m-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -651,6 +781,8 @@
 }
 
 @mixin textMDefaultBoldItalic() {
+	--token: text-m-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
@@ -661,6 +793,8 @@
 }
 
 @mixin textMDefaultBoldUnderlined() {
+	--token: text-m-default-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -671,6 +805,8 @@
 }
 
 @mixin textMDefaultBoldUppercase() {
+	--token: text-m-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -681,6 +817,8 @@
 }
 
 @mixin textMCompactRegular() {
+	--token: text-m-compact-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -691,6 +829,8 @@
 }
 
 @mixin textMCompactRegularItalic() {
+	--token: text-m-compact-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
@@ -701,6 +841,8 @@
 }
 
 @mixin textMCompactRegularUnderlined() {
+	--token: text-m-compact-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -711,6 +853,8 @@
 }
 
 @mixin textMCompactRegularUppercase() {
+	--token: text-m-compact-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -721,6 +865,8 @@
 }
 
 @mixin textMCompactBold() {
+	--token: text-m-compact-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -731,6 +877,8 @@
 }
 
 @mixin textMCompactBoldItalic() {
+	--token: text-m-compact-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
@@ -741,6 +889,8 @@
 }
 
 @mixin textMCompactBoldUnderlined() {
+	--token: text-m-compact-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -751,6 +901,8 @@
 }
 
 @mixin textMCompactBoldUppercase() {
+	--token: text-m-compact-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -761,6 +913,8 @@
 }
 
 @mixin textSDefaultRegular() {
+	--token: text-s-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -771,6 +925,8 @@
 }
 
 @mixin textSDefaultRegularItalic() {
+	--token: text-s-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
@@ -781,6 +937,8 @@
 }
 
 @mixin textSDefaultRegularUnderlined() {
+	--token: text-s-default-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -791,6 +949,8 @@
 }
 
 @mixin textSDefaultRegularUppercase() {
+	--token: text-s-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -801,6 +961,8 @@
 }
 
 @mixin textSDefaultBold() {
+	--token: text-s-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -811,6 +973,8 @@
 }
 
 @mixin textSDefaultBoldItalic() {
+	--token: text-s-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
@@ -821,6 +985,8 @@
 }
 
 @mixin textSDefaultBoldUnderlined() {
+	--token: text-s-default-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -831,6 +997,8 @@
 }
 
 @mixin textSDefaultBoldUppercase() {
+	--token: text-s-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -841,6 +1009,8 @@
 }
 
 @mixin textSCompactRegular() {
+	--token: text-s-compact-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -851,6 +1021,8 @@
 }
 
 @mixin textSCompactRegularItalic() {
+	--token: text-s-compact-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -861,6 +1033,8 @@
 }
 
 @mixin textSCompactRegularUnderlined() {
+	--token: text-s-compact-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -871,6 +1045,8 @@
 }
 
 @mixin textSCompactRegularUppercase() {
+	--token: text-s-compact-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -881,6 +1057,8 @@
 }
 
 @mixin textSCompactBold() {
+	--token: text-s-compact-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -891,6 +1069,8 @@
 }
 
 @mixin textSCompactBoldItalic() {
+	--token: text-s-compact-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -901,6 +1081,8 @@
 }
 
 @mixin textSCompactBoldUnderlined() {
+	--token: text-s-compact-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -911,6 +1093,8 @@
 }
 
 @mixin textSCompactBoldUppercase() {
+	--token: text-s-compact-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -921,6 +1105,8 @@
 }
 
 @mixin infoXLDefaultRegular() {
+	--token: info-xl-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -931,6 +1117,8 @@
 }
 
 @mixin infoXLDefaultRegularItalic() {
+	--token: info-xl-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -941,6 +1129,8 @@
 }
 
 @mixin infoXLDefaultBold() {
+	--token: info-xl-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -951,6 +1141,8 @@
 }
 
 @mixin infoXLDefaultBoldItalic() {
+	--token: info-xl-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -961,6 +1153,8 @@
 }
 
 @mixin infoXLExtensiveRegular() {
+	--token: info-xl-extensive-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -971,6 +1165,8 @@
 }
 
 @mixin infoXLExtensiveRegularItalic() {
+	--token: info-xl-extensive-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -981,6 +1177,8 @@
 }
 
 @mixin infoXLExtensiveRegularUppercase() {
+	--token: info-xl-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -991,6 +1189,8 @@
 }
 
 @mixin infoXLExtensiveBold() {
+	--token: info-xl-extensive-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1001,6 +1201,8 @@
 }
 
 @mixin infoXLExtensiveBoldItalic() {
+	--token: info-xl-extensive-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -1011,6 +1213,8 @@
 }
 
 @mixin infoXLExtensiveBoldUppercase() {
+	--token: info-xl-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1021,6 +1225,8 @@
 }
 
 @mixin infoLDefaultRegular() {
+	--token: info-l-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1031,6 +1237,8 @@
 }
 
 @mixin infoLDefaultRegularItalic() {
+	--token: info-l-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -1041,6 +1249,8 @@
 }
 
 @mixin infoLDefaultBold() {
+	--token: info-l-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1051,6 +1261,8 @@
 }
 
 @mixin infoLDefaultBoldItalic() {
+	--token: info-l-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -1061,6 +1273,8 @@
 }
 
 @mixin infoLExtensiveRegular() {
+	--token: info-l-extensive-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1071,6 +1285,8 @@
 }
 
 @mixin infoLExtensiveRegularItalic() {
+	--token: info-l-extensive-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -1081,6 +1297,8 @@
 }
 
 @mixin infoLExtensiveRegularUppercase() {
+	--token: info-l-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1091,6 +1309,8 @@
 }
 
 @mixin infoLExtensiveBold() {
+	--token: info-l-extensive-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1101,6 +1321,8 @@
 }
 
 @mixin infoLExtensiveBoldItalic() {
+	--token: info-l-extensive-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -1111,6 +1333,8 @@
 }
 
 @mixin infoLExtensiveBoldUppercase() {
+	--token: info-l-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1121,6 +1345,8 @@
 }
 
 @mixin infoMDefaultRegular() {
+	--token: info-m-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -1131,6 +1357,8 @@
 }
 
 @mixin infoMDefaultRegularItalic() {
+	--token: info-m-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
@@ -1141,6 +1369,8 @@
 }
 
 @mixin infoMDefaultBold() {
+	--token: info-m-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -1151,6 +1381,8 @@
 }
 
 @mixin infoMDefaultBoldItalic() {
+	--token: info-m-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
@@ -1161,6 +1393,8 @@
 }
 
 @mixin infoMExtensiveRegular() {
+	--token: info-m-extensive-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -1171,6 +1405,8 @@
 }
 
 @mixin infoMExtensiveRegularItalic() {
+	--token: info-m-extensive-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
@@ -1181,6 +1417,8 @@
 }
 
 @mixin infoMExtensiveRegularUppercase() {
+	--token: info-m-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -1191,6 +1429,8 @@
 }
 
 @mixin infoMExtensiveBold() {
+	--token: info-m-extensive-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -1201,6 +1441,8 @@
 }
 
 @mixin infoMExtensiveBoldItalic() {
+	--token: info-m-extensive-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
@@ -1211,6 +1453,8 @@
 }
 
 @mixin infoMExtensiveBoldUppercase() {
+	--token: info-m-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -1221,6 +1465,8 @@
 }
 
 @mixin infoSDefaultRegular() {
+	--token: info-s-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -1231,6 +1477,8 @@
 }
 
 @mixin infoSDefaultRegularItalic() {
+	--token: info-s-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
@@ -1241,6 +1489,8 @@
 }
 
 @mixin infoSDefaultBold() {
+	--token: info-s-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -1251,6 +1501,8 @@
 }
 
 @mixin infoSDefaultBoldItalic() {
+	--token: info-s-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
@@ -1261,6 +1513,8 @@
 }
 
 @mixin infoSExtensiveRegular() {
+	--token: info-s-extensive-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -1271,6 +1525,8 @@
 }
 
 @mixin infoSExtensiveRegularItalic() {
+	--token: info-s-extensive-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
@@ -1281,6 +1537,8 @@
 }
 
 @mixin infoSExtensiveRegularUppercase() {
+	--token: info-s-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -1291,6 +1549,8 @@
 }
 
 @mixin infoSExtensiveBold() {
+	--token: info-s-extensive-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -1301,6 +1561,8 @@
 }
 
 @mixin infoSExtensiveBoldItalic() {
+	--token: info-s-extensive-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
@@ -1311,6 +1573,8 @@
 }
 
 @mixin infoSExtensiveBoldUppercase() {
+	--token: info-s-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -1321,6 +1585,8 @@
 }
 
 @mixin infoXSDefaultRegular() {
+	--token: info-xs-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -1331,6 +1597,8 @@
 }
 
 @mixin infoXSDefaultRegularItalic() {
+	--token: info-xs-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
@@ -1341,6 +1609,8 @@
 }
 
 @mixin infoXSDefaultBold() {
+	--token: info-xs-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -1351,6 +1621,8 @@
 }
 
 @mixin infoXSDefaultBoldItalic() {
+	--token: info-xs-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
@@ -1361,6 +1633,8 @@
 }
 
 @mixin infoXSExtensiveRegular() {
+	--token: info-xs-extensive-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -1371,6 +1645,8 @@
 }
 
 @mixin infoXSExtensiveRegularItalic() {
+	--token: info-xs-extensive-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
@@ -1381,6 +1657,8 @@
 }
 
 @mixin infoXSExtensiveRegularUppercase() {
+	--token: info-xs-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -1391,6 +1669,8 @@
 }
 
 @mixin infoXSExtensiveBold() {
+	--token: info-xs-extensive-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -1401,6 +1681,8 @@
 }
 
 @mixin infoXSExtensiveBoldItalic() {
+	--token: info-xs-extensive-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
@@ -1411,6 +1693,8 @@
 }
 
 @mixin infoXSExtensiveBoldUppercase() {
+	--token: info-xs-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -1421,6 +1705,8 @@
 }
 
 @mixin formLabelLDefaultRegular() {
+	--token: form-label-l-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1431,6 +1717,8 @@
 }
 
 @mixin formLabelLDefaultRegularItalic() {
+	--token: form-label-l-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -1441,6 +1729,8 @@
 }
 
 @mixin formLabelLDefaultBold() {
+	--token: form-label-l-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1451,6 +1741,8 @@
 }
 
 @mixin formLabelMDefaultRegular() {
+	--token: form-label-m-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1461,6 +1753,8 @@
 }
 
 @mixin formLabelMDefaultRegularItalic() {
+	--token: form-label-m-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -1471,6 +1765,8 @@
 }
 
 @mixin formLabelMDefaultBold() {
+	--token: form-label-m-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1481,6 +1777,8 @@
 }
 
 @mixin formLabelSDefaultRegular() {
+	--token: form-label-s-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -1491,6 +1789,8 @@
 }
 
 @mixin formLabelSDefaultRegularItalic() {
+	--token: form-label-s-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
@@ -1501,6 +1801,8 @@
 }
 
 @mixin formLabelSDefaultBold() {
+	--token: form-label-s-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -1511,6 +1813,8 @@
 }
 
 @mixin formTextXLDefaultRegular() {
+	--token: form-text-xl-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xl;
@@ -1521,6 +1825,8 @@
 }
 
 @mixin formTextXLDefaultRegularItalic() {
+	--token: form-text-xl-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xl;
@@ -1531,6 +1837,8 @@
 }
 
 @mixin formTextXLDefaultBold() {
+	--token: form-text-xl-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xl;
@@ -1541,6 +1849,8 @@
 }
 
 @mixin formTextXLDefaultBoldItalic() {
+	--token: form-text-xl-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xl;
@@ -1551,6 +1861,8 @@
 }
 
 @mixin formTextXLExtensiveRegular() {
+	--token: form-text-xl-extensive-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-6xl;
@@ -1561,6 +1873,8 @@
 }
 
 @mixin formTextXLExtensiveRegularItalic() {
+	--token: form-text-xl-extensive-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-6xl;
@@ -1571,6 +1885,8 @@
 }
 
 @mixin formTextXLExtensiveBold() {
+	--token: form-text-xl-extensive-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-6xl;
@@ -1581,6 +1897,8 @@
 }
 
 @mixin formTextXLExtensiveBoldItalic() {
+	--token: form-text-xl-extensive-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-6xl;
@@ -1591,6 +1909,8 @@
 }
 
 @mixin formTextLDefaultRegular() {
+	--token: form-text-l-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -1601,6 +1921,8 @@
 }
 
 @mixin formTextLDefaultRegularItalic() {
+	--token: form-text-l-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
@@ -1611,6 +1933,8 @@
 }
 
 @mixin formTextLDefaultBold() {
+	--token: form-text-l-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -1621,6 +1945,8 @@
 }
 
 @mixin formTextLDefaultBoldItalic() {
+	--token: form-text-l-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
@@ -1631,6 +1957,8 @@
 }
 
 @mixin formTextLExtensiveRegular() {
+	--token: form-text-l-extensive-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -1641,6 +1969,8 @@
 }
 
 @mixin formTextLExtensiveRegularItalic() {
+	--token: form-text-l-extensive-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
@@ -1651,6 +1981,8 @@
 }
 
 @mixin formTextLExtensiveBold() {
+	--token: form-text-l-extensive-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -1661,6 +1993,8 @@
 }
 
 @mixin formTextLExtensiveBoldItalic() {
+	--token: form-text-l-extensive-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
@@ -1671,6 +2005,8 @@
 }
 
 @mixin formTextMDefaultRegular() {
+	--token: form-text-m-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1681,6 +2017,8 @@
 }
 
 @mixin formTextMDefaultRegularItalic() {
+	--token: form-text-m-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -1691,6 +2029,8 @@
 }
 
 @mixin formTextMDefaultBold() {
+	--token: form-text-m-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1701,6 +2041,8 @@
 }
 
 @mixin formTextMDefaultBoldItalic() {
+	--token: form-text-m-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -1711,6 +2053,8 @@
 }
 
 @mixin formTextMExtensiveRegular() {
+	--token: form-text-m-extensive-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -1721,6 +2065,8 @@
 }
 
 @mixin formTextMExtensiveRegularItalic() {
+	--token: form-text-m-extensive-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
@@ -1731,6 +2077,8 @@
 }
 
 @mixin formTextMExtensiveBold() {
+	--token: form-text-m-extensive-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -1741,6 +2089,8 @@
 }
 
 @mixin formTextMExtensiveBoldItalic() {
+	--token: form-text-m-extensive-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-m;
@@ -1751,6 +2101,8 @@
 }
 
 @mixin formTextSDefaultRegular() {
+	--token: form-text-s-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1761,6 +2113,8 @@
 }
 
 @mixin formTextSDefaultRegularItalic() {
+	--token: form-text-s-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -1771,6 +2125,8 @@
 }
 
 @mixin formTextSDefaultBold() {
+	--token: form-text-s-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -1781,6 +2137,8 @@
 }
 
 @mixin formTextSDefaultBoldItalic() {
+	--token: form-text-s-default-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -1791,6 +2149,8 @@
 }
 
 @mixin formTextSExtensiveRegular() {
+	--token: form-text-s-extensive-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -1801,6 +2161,8 @@
 }
 
 @mixin formTextSExtensiveRegularItalic() {
+	--token: form-text-s-extensive-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
@@ -1811,6 +2173,8 @@
 }
 
 @mixin formTextSExtensiveBold() {
+	--token: form-text-s-extensive-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -1821,6 +2185,8 @@
 }
 
 @mixin formTextSExtensiveBoldItalic() {
+	--token: form-text-s-extensive-bold-italic;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-xs;
@@ -1831,6 +2197,8 @@
 }
 
 @mixin formCaptionMDefaultRegular() {
+	--token: form-caption-m-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -1841,6 +2209,8 @@
 }
 
 @mixin formCaptionMDefaultRegularItalic() {
+	--token: form-caption-m-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
@@ -1851,6 +2221,8 @@
 }
 
 @mixin formCaptionSDefaultRegular() {
+	--token: form-caption-s-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -1861,6 +2233,8 @@
 }
 
 @mixin formCaptionSDefaultRegularItalic() {
+	--token: form-caption-s-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
@@ -1871,6 +2245,8 @@
 }
 
 @mixin label2XLDefaultRegular() {
+	--token: label-2-xl-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -1881,6 +2257,8 @@
 }
 
 @mixin label2XLDefaultRegularItalic() {
+	--token: label-2-xl-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-l;
@@ -1891,6 +2269,8 @@
 }
 
 @mixin label2XLDefaultRegularUppercase() {
+	--token: label-2-xl-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -1901,6 +2281,8 @@
 }
 
 @mixin label2XLDefaultBold() {
+	--token: label-2-xl-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -1911,6 +2293,8 @@
 }
 
 @mixin label2XLDefaultBoldUppercase() {
+	--token: label-2-xl-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -1921,6 +2305,8 @@
 }
 
 @mixin label2XLExtensiveRegularUppercase() {
+	--token: label-2-xl-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -1931,6 +2317,8 @@
 }
 
 @mixin label2XLExtensiveBoldUppercase() {
+	--token: label-2-xl-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -1941,6 +2329,8 @@
 }
 
 @mixin labelXLDefaultRegular() {
+	--token: label-xl-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1951,6 +2341,8 @@
 }
 
 @mixin labelXLDefaultRegularItalic() {
+	--token: label-xl-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-s;
@@ -1961,6 +2353,8 @@
 }
 
 @mixin labelXLDefaultRegularUppercase() {
+	--token: label-xl-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1971,6 +2365,8 @@
 }
 
 @mixin labelXLDefaultBold() {
+	--token: label-xl-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1981,6 +2377,8 @@
 }
 
 @mixin labelXLDefaultBoldUppercase() {
+	--token: label-xl-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -1991,6 +2389,8 @@
 }
 
 @mixin labelXLExtensiveRegularUppercase() {
+	--token: label-xl-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -2001,6 +2401,8 @@
 }
 
 @mixin labelXLExtensiveBoldUppercase() {
+	--token: label-xl-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -2011,6 +2413,8 @@
 }
 
 @mixin labelLDefaultRegular() {
+	--token: label-l-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2021,6 +2425,8 @@
 }
 
 @mixin labelLDefaultRegularItalic() {
+	--token: label-l-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-2xs;
@@ -2031,6 +2437,8 @@
 }
 
 @mixin labelLDefaultRegularUppercase() {
+	--token: label-l-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2041,6 +2449,8 @@
 }
 
 @mixin labelLDefaultBold() {
+	--token: label-l-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2051,6 +2461,8 @@
 }
 
 @mixin labelLDefaultBoldUppercase() {
+	--token: label-l-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2061,6 +2473,8 @@
 }
 
 @mixin labelLExtensiveRegularUppercase() {
+	--token: label-l-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2071,6 +2485,8 @@
 }
 
 @mixin labelLExtensiveBoldUppercase() {
+	--token: label-l-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2081,6 +2497,8 @@
 }
 
 @mixin labelMDefaultRegular() {
+	--token: label-m-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -2091,6 +2509,8 @@
 }
 
 @mixin labelMDefaultRegularItalic() {
+	--token: label-m-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-3xs;
@@ -2101,6 +2521,8 @@
 }
 
 @mixin labelMDefaultRegularUppercase() {
+	--token: label-m-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -2111,6 +2533,8 @@
 }
 
 @mixin labelMDefaultBold() {
+	--token: label-m-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -2121,6 +2545,8 @@
 }
 
 @mixin labelMDefaultBoldUppercase() {
+	--token: label-m-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -2131,6 +2557,8 @@
 }
 
 @mixin labelMExtensiveRegularUppercase() {
+	--token: label-m-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -2141,6 +2569,8 @@
 }
 
 @mixin labelMExtensiveBoldUppercase() {
+	--token: label-m-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-3xs;
@@ -2151,6 +2581,8 @@
 }
 
 @mixin labelSDefaultRegular() {
+	--token: label-s-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -2161,6 +2593,8 @@
 }
 
 @mixin labelSDefaultRegularItalic() {
+	--token: label-s-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-4xs;
@@ -2171,6 +2605,8 @@
 }
 
 @mixin labelSDefaultRegularUppercase() {
+	--token: label-s-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -2181,6 +2617,8 @@
 }
 
 @mixin labelSDefaultBold() {
+	--token: label-s-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -2191,6 +2629,8 @@
 }
 
 @mixin labelSDefaultBoldUppercase() {
+	--token: label-s-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -2201,6 +2641,8 @@
 }
 
 @mixin labelSExtensiveRegularUppercase() {
+	--token: label-s-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -2211,6 +2653,8 @@
 }
 
 @mixin labelSExtensiveBoldUppercase() {
+	--token: label-s-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -2221,6 +2665,8 @@
 }
 
 @mixin labelXSDefaultRegular() {
+	--token: label-xs-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -2231,6 +2677,8 @@
 }
 
 @mixin labelXSDefaultRegularItalic() {
+	--token: label-xs-default-regular-italic;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
 	line-height: $typography-line-height-5xs;
@@ -2241,6 +2689,8 @@
 }
 
 @mixin labelXSDefaultRegularUppercase() {
+	--token: label-xs-default-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -2251,6 +2701,8 @@
 }
 
 @mixin labelXSDefaultBold() {
+	--token: label-xs-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -2261,6 +2713,8 @@
 }
 
 @mixin labelXSDefaultBoldUppercase() {
+	--token: label-xs-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -2271,6 +2725,8 @@
 }
 
 @mixin labelXSExtensiveRegularUppercase() {
+	--token: label-xs-extensive-regular-uppercase;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -2281,6 +2737,8 @@
 }
 
 @mixin labelXSExtensiveBoldUppercase() {
+	--token: label-xs-extensive-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -2291,6 +2749,8 @@
 }
 
 @mixin buttonLDefaultBoldUppercase() {
+	--token: button-l-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2301,6 +2761,8 @@
 }
 
 @mixin buttonMDefaultBoldUppercase() {
+	--token: button-m-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2311,6 +2773,8 @@
 }
 
 @mixin buttonSDefaultBoldUppercase() {
+	--token: button-s-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-4xs;
@@ -2321,6 +2785,8 @@
 }
 
 @mixin buttonXSDefaultBoldUppercase() {
+	--token: button-xs-default-bold-uppercase;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-5xs;
@@ -2331,6 +2797,8 @@
 }
 
 @mixin linkXLDefaultRegular() {
+	--token: link-xl-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -2341,6 +2809,8 @@
 }
 
 @mixin linkXLDefaultRegularUnderlined() {
+	--token: link-xl-default-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -2351,6 +2821,8 @@
 }
 
 @mixin linkXLDefaultBold() {
+	--token: link-xl-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -2361,6 +2833,8 @@
 }
 
 @mixin linkXLDefaultBoldUnderlined() {
+	--token: link-xl-default-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xl;
@@ -2371,6 +2845,8 @@
 }
 
 @mixin linkXLCompactRegular() {
+	--token: link-xl-compact-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -2381,6 +2857,8 @@
 }
 
 @mixin linkXLCompactRegularUnderlined() {
+	--token: link-xl-compact-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -2391,6 +2869,8 @@
 }
 
 @mixin linkXLCompactBold() {
+	--token: link-xl-compact-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -2401,6 +2881,8 @@
 }
 
 @mixin linkXLCompactBoldUnderlined() {
+	--token: link-xl-compact-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -2411,6 +2893,8 @@
 }
 
 @mixin linkLDefaultRegular() {
+	--token: link-l-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -2421,6 +2905,8 @@
 }
 
 @mixin linkLDefaultRegularUnderlined() {
+	--token: link-l-default-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -2431,6 +2917,8 @@
 }
 
 @mixin linkLDefaultBold() {
+	--token: link-l-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -2441,6 +2929,8 @@
 }
 
 @mixin linkLDefaultBoldUnderlined() {
+	--token: link-l-default-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-l;
@@ -2451,6 +2941,8 @@
 }
 
 @mixin linkLCompactRegular() {
+	--token: link-l-compact-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -2461,6 +2953,8 @@
 }
 
 @mixin linkLCompactRegularUnderlined() {
+	--token: link-l-compact-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -2471,6 +2965,8 @@
 }
 
 @mixin linkLCompactBold() {
+	--token: link-l-compact-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -2481,6 +2977,8 @@
 }
 
 @mixin linkLCompactBoldUnderlined() {
+	--token: link-l-compact-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-s;
@@ -2491,6 +2989,8 @@
 }
 
 @mixin linkMDefaultRegular() {
+	--token: link-m-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -2501,6 +3001,8 @@
 }
 
 @mixin linkMDefaultRegularUnderlined() {
+	--token: link-m-default-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -2511,6 +3013,8 @@
 }
 
 @mixin linkMDefaultBold() {
+	--token: link-m-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -2521,6 +3025,8 @@
 }
 
 @mixin linkMDefaultBoldUnderlined() {
+	--token: link-m-default-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-m;
@@ -2531,6 +3037,8 @@
 }
 
 @mixin linkMCompactRegular() {
+	--token: link-m-compact-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -2541,6 +3049,8 @@
 }
 
 @mixin linkMCompactRegularUnderlined() {
+	--token: link-m-compact-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -2551,6 +3061,8 @@
 }
 
 @mixin linkMCompactBold() {
+	--token: link-m-compact-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -2561,6 +3073,8 @@
 }
 
 @mixin linkMCompactBoldUnderlined() {
+	--token: link-m-compact-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -2571,6 +3085,8 @@
 }
 
 @mixin linkSDefaultRegular() {
+	--token: link-s-default-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -2581,6 +3097,8 @@
 }
 
 @mixin linkSDefaultRegularUnderlined() {
+	--token: link-s-default-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -2591,6 +3109,8 @@
 }
 
 @mixin linkSDefaultBold() {
+	--token: link-s-default-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -2601,6 +3121,8 @@
 }
 
 @mixin linkSDefaultBoldUnderlined() {
+	--token: link-s-default-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-xs;
@@ -2611,6 +3133,8 @@
 }
 
 @mixin linkSCompactRegular() {
+	--token: link-s-compact-regular;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2621,6 +3145,8 @@
 }
 
 @mixin linkSCompactRegularUnderlined() {
+	--token: link-s-compact-regular-underlined;
+
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2631,6 +3157,8 @@
 }
 
 @mixin linkSCompactBold() {
+	--token: link-s-compact-bold;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;
@@ -2641,6 +3169,8 @@
 }
 
 @mixin linkSCompactBoldUnderlined() {
+	--token: link-s-compact-bold-underlined;
+
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
 	line-height: $typography-line-height-2xs;

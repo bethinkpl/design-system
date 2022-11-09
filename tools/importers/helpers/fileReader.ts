@@ -1,6 +1,12 @@
 const modifiers = require('./modifiers');
 
-const recursiveTokenReader = (obj, keyResult: string, result: Array<any>, importerVariables) => {
+const {
+	fontFamilyProperty,
+	fontWeightKey,
+	transformCssProperty,
+} = require('../helpers/typographyVariables');
+
+const recursiveTokenReader = (obj, keyResult: string, result: Array<any>) => {
 	if ('value' in obj) {
 		return;
 	}
@@ -8,7 +14,7 @@ const recursiveTokenReader = (obj, keyResult: string, result: Array<any>, import
 	for (let key in obj) {
 		let temporaryKey = (keyResult + ' ' + key).replace(/\-+/g, ' ');
 
-		let resultToPush = recursiveTokenReader(obj[key], temporaryKey, result, importerVariables);
+		let resultToPush = recursiveTokenReader(obj[key], temporaryKey, result);
 
 		if (resultToPush === undefined) {
 			let attributes: string[] = [];
@@ -20,11 +26,11 @@ const recursiveTokenReader = (obj, keyResult: string, result: Array<any>, import
 					.toLowerCase();
 
 				attrValue = attrValue
-					.replace('text-case', importerVariables.transformCssProperty['text-case'])
-					.replace('-regular', importerVariables.transformCssProperty['-regular']);
+					.replace('text-case', transformCssProperty['text-case'])
+					.replace('-regular', transformCssProperty['-regular']);
 
-				if (attrValue && !attrValue.includes(importerVariables.fontFamilyProperty)) {
-					if (attrKey === importerVariables.fontWeightKey) {
+				if (attrValue && !attrValue.includes(fontFamilyProperty)) {
+					if (attrKey === fontWeightKey) {
 						if (attrValue.includes('bold')) {
 							attributes.push('font-weight-bold');
 						} else if (attrValue.includes('light')) {
