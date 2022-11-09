@@ -3,7 +3,7 @@ import { ITypographyToken } from './structures';
 import { camelize } from './modifiers';
 import { fontFamilyProperty, fontWeightKey, transformCssProperty } from './typographyVariables';
 
-export const recursiveTokenReader = (obj, keyResult: string): Array<ITypographyToken> => {
+export const recursiveTokensReader = (obj, keyResult: string): Array<ITypographyToken> => {
 	if ('value' in obj) {
 		let attributes: string[] = [];
 		for (let attrKey in obj.value) {
@@ -50,7 +50,7 @@ export const recursiveTokenReader = (obj, keyResult: string): Array<ITypographyT
 	let results: Array<ITypographyToken> = [];
 	for (let key in obj) {
 		let temporaryKey: string = (keyResult + ' ' + key).replace(/\-+/g, ' ');
-		let result: Array<ITypographyToken> = recursiveTokenReader(obj[key], temporaryKey);
+		let result: Array<ITypographyToken> = recursiveTokensReader(obj[key], temporaryKey);
 		results.push(...result);
 	}
 

@@ -1,7 +1,7 @@
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeTypographyTokensConfig.json');
 import { arrayToMixinFile, arrayToFile, jsonToFile } from './helpers/fileWriter';
-import { recursiveTokenReader } from './helpers/fileReader';
+import { recursiveTokensReader } from './helpers/tokensReader';
 import {
 	typographyPrefix,
 	tokensKey,
@@ -117,7 +117,7 @@ const ImportTypographyRaw = (binFilesConfig: TypographyBinFiles, jsonTypography:
 };
 
 const ImportTypographyTokensRaw = (binConfig: TypographyBinFiles, jsonTypography: any) => {
-	let resultScss: Array<ITypographyToken> = recursiveTokenReader(jsonTypography[tokensKey], '');
+	let resultScss: Array<ITypographyToken> = recursiveTokensReader(jsonTypography[tokensKey], '');
 
 	arrayToMixinFile(tokensFilesConfig.destinationPath + binConfig.tokens.destination, [
 		importVariables,
@@ -150,6 +150,7 @@ function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<str
 }
 
 const SynchronizeTypographyTokensBin = async () => {
+	console.log('Import in progress...');
 	let requestResponse = await requestForBin(tokensFilesConfig.bin);
 
 	ImportTypographyRaw(
@@ -183,4 +184,6 @@ const requestForBin = async (binConfig: TypographyConfigFileBin) => {
 	return requestResponse;
 };
 
-SynchronizeTypographyTokensBin().then(() => console.log('Import in progress...'));
+SynchronizeTypographyTokensBin().finally(() => {
+	console.log('The importer has completed the work.');
+});
