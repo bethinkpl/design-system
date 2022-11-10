@@ -11,7 +11,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../styles/settings/colors/tokens';
+@import '../../styles/components/tokens';
 </style>
 
 <script lang="ts">

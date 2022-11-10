@@ -99,9 +99,9 @@ const ImportColorsRaw = (
 		tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destination,
 		result,
 	);
-	if (binFilesConfig.tokens.destinationJson) {
+	if (binFilesConfig.variablesRaw.destinationJson) {
 		jsonToFile(
-			tokensFilesConfig.destinationPath + binFilesConfig.tokens.destinationJson,
+			tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destinationJson,
 			resultColorsJson,
 		);
 	}
@@ -189,7 +189,7 @@ const ImportSingleTokenFile = (
 		throw new Error('ERROR! No colors to save');
 	}
 
-	arrayToFile(tokensFilesConfig.destinationPath + binValues.variablesRaw.destination, result);
+	arrayToFile(tokensFilesConfig.destinationPath + binValues.tokens.destination, result);
 	jsonToFile(
 		tokensFilesConfig.destinationPath + binValues.tokens.destinationJson,
 		resultJsonTokens,
