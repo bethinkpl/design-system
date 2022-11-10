@@ -171,7 +171,7 @@ const SynchronizeTypographyTokensBin = async () => {
 const requestForBin = async (binConfig: TypographyConfigFileBin) => {
 	const requestConfig = {
 		headers: {
-			'X-Master-Key': process.env.JSON_BIN_X_MASTER_KEY,
+			'X-Access-Key': process.env.JSON_BIN_X_MASTER_KEY,
 		},
 	};
 	const requestResponse = await axios.get(
