@@ -81,7 +81,10 @@ const ImportTypographyVariables = (binFilesConfig: TypographyBinFiles, jsonTypog
 					resultScss.push('$' + propertyName + ': var(--' + propertyName + ');');
 
 					const resultJsonObject: ITokenJsonObject = {
-						id: binFilesConfig.tokens.destinationJson + '_' + propertyName,
+						id: (binFilesConfig.tokens.destinationJson + '_' + propertyName).replace(
+							/[^a-zA-Z ]/g,
+							'',
+						),
 						label: propertyName,
 						value: propertyValue,
 					};
@@ -118,7 +121,24 @@ const ImportTypographyVariables = (binFilesConfig: TypographyBinFiles, jsonTypog
 
 const ImportTypographyTokens = (binConfig: TypographyBinFiles, jsonTypography: any) => {
 	let resultScss: Array<ITypographyToken> = recursiveTokensReader(jsonTypography[tokensKey], '');
-	let resultJsonCss: Dict<Array<ITypographyToken>> = { tokens: resultScss };
+	let resultJsonCss: Dict<Array<ITypographyToken>> = {};
+	let tokensCategories: Array<string> = Object.keys(jsonTypography[tokensKey]);
+
+	resultScss.forEach(function (item) {
+		let splitted = item.token.split('-', 2);
+		let splittedUpper = splitted.map((element) => {
+			return element.charAt(0).toUpperCase() + element.slice(1);
+		});
+		if (tokensCategories.includes(splittedUpper[0])) {
+			item.category = splittedUpper[0];
+		} else if (tokensCategories.includes(splittedUpper[0] + splittedUpper[1])) {
+			item.category = splittedUpper[0] + splittedUpper[1];
+		}
+		if (!resultJsonCss[item.category]) {
+			resultJsonCss[item.category] = [];
+		}
+		resultJsonCss[item.category].push(item);
+	});
 
 	arrayToMixinFile(tokensFilesConfig.destinationPath + binConfig.tokens.destination, [
 		importVariables,

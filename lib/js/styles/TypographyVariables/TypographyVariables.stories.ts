@@ -5,7 +5,7 @@ import source from '../../../styles/settings/typography/_variables-css.json';
 import { TOKENS_TYPES } from '../TokenTypes.consts';
 
 export default {
-	title: 'foundations/Design Tokens/Typography Tokens/Variables WNL',
+	title: 'foundations/Typography/Variables',
 	component: ItemsList,
 } as Meta<typeof ItemsList>;
 
@@ -16,16 +16,16 @@ const StoryTemplate: StoryFn<typeof ItemsList> = (argTypes) => ({
 		<items-list :items-lists="itemsLists" :type="type"></items-list>`,
 });
 
-export const VariablesWNL = StoryTemplate.bind({});
+export const Variables = StoryTemplate.bind({});
 
 const args = {
-	itemsLists: [{ title: 'Variables WNL', list: source, class: 'theme-wnl' }],
+	itemsLists: [{ title: 'Variables', list: source, class: 'theme-wnl' }],
 	type: TOKENS_TYPES.TYPOGRAPHY,
 } as Args;
 
-VariablesWNL.args = args;
+Variables.args = args;
 
-VariablesWNL.parameters = {
+Variables.parameters = {
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/file/ABEasgiwLLs91MISXwV7Vs/LMS-TypographyTokens---experiments-v2?node-id=0%3A1',

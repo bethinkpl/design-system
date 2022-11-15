@@ -19,28 +19,11 @@
 					:key="itemCategory"
 					class="itemsList__row"
 				>
-					<h3 :id="'category-' + itemCategory">{{ itemCategory }}</h3>
+					<h3 :id="'category-' + itemCategory" class="itemsList__category">{{
+						itemCategory
+					}}</h3>
 					<item-color v-if="type === TOKENS_TYPES.COLORS" :items="items" />
-
-					<!-- @todo replace content for ItemTypography -->
-					<template v-if="type === TOKENS_TYPES.TYPOGRAPHY">
-						<div v-for="item in items" :key="item.id" class="itemDefinition">
-							<div v-if="item.label" class="itemDefinition__id">{{ item.label }}</div>
-							<div v-if="item.value" class="itemDefinition__value">{{
-								item.value
-							}}</div>
-							<div v-if="item.token">{{ item.token }}</div>
-							<div v-if="item.attributes">
-								<div v-for="attribute in item.attributes" :key="attribute">{{
-									attribute
-								}}</div>
-							</div>
-							<div v-if="item.attributes">
-								<div :style="attributesAsStyle(item.attributes)">Lorem ipsum</div>
-							</div>
-						</div>
-						<item-typography items="" />
-					</template>
+					<item-typography v-if="type === TOKENS_TYPES.TYPOGRAPHY" :items="items" />
 				</div>
 			</div>
 		</div>
@@ -54,6 +37,12 @@
 
 	&__title {
 		margin-top: 0;
+	}
+
+	&__category {
+		font-weight: var(--typography-font-weight-bold);
+		font-size: var(--typography-font-size-2xl);
+		line-height: var(--typography-line-height-3xl);
 	}
 
 	&__row {
@@ -147,12 +136,6 @@ export default {
 				}
 			}
 		});
-	},
-	methods: {
-		attributesAsStyle(attributes) {
-			console.log(attributes);
-			return 'color:red;';
-		},
 	},
 };
 </script>

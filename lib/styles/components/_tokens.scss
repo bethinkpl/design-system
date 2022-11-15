@@ -3,6 +3,8 @@
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
+	border-top: 1px solid var(--color-neutral-border-strong);
+	padding: 24px 0;
 
 	&__id,
 	&__value,
@@ -26,11 +28,40 @@
 	&__value {
 		color: #707070;
 		flex: 1 1 auto;
-		width: 200px;
+	}
+
+	&__token {
+		align-self: start;
+		font-size: var(--typography-font-size-m);
+		font-weight: var(--typography-font-weight-bold);
+		line-height: var(--typography-line-height-3xl);
+		width: 25%;
+	}
+
+	&__attributes {
+		align-self: start;
+		color: var(--color-neutral-data-medium);
+		font-style: var(--typography-font-style-italic);
+		font-size: var(--typography-font-size-xs);
+		line-height: var(--typography-line-height-s);
+		width: 25%;
+
+		strong {
+			font-weight: var(--typography-font-weight-bold);
+		}
 	}
 
 	&__id {
 		flex: 1 1 auto;
 		width: 200px;
+	}
+
+	&__quarter {
+		width: 25%;
+	}
+
+	&__example {
+		width: 50%;
+		align-self: start;
 	}
 }

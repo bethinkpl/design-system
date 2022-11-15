@@ -1,7 +1,7 @@
 @import 'variables';
 
 @mixin DisplayHeadingMRegular() {
-	--token: -display-heading-m-regular;
+	--token: display-heading-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -13,7 +13,7 @@
 }
 
 @mixin DisplayHeadingMBold() {
-	--token: -display-heading-m-bold;
+	--token: display-heading-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -25,7 +25,7 @@
 }
 
 @mixin DisplayHeadingSRegular() {
-	--token: -display-heading-s-regular;
+	--token: display-heading-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -37,7 +37,7 @@
 }
 
 @mixin DisplayHeadingSBold() {
-	--token: -display-heading-s-bold;
+	--token: display-heading-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -49,7 +49,7 @@
 }
 
 @mixin DisplayHeadingXSRegular() {
-	--token: -display-heading-xs-regular;
+	--token: display-heading-xs-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -61,7 +61,7 @@
 }
 
 @mixin DisplayHeadingXSBold() {
-	--token: -display-heading-xs-bold;
+	--token: display-heading-xs-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -73,7 +73,7 @@
 }
 
 @mixin PageHeadingMBold() {
-	--token: -page-heading-m-bold;
+	--token: page-heading-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -85,7 +85,7 @@
 }
 
 @mixin PageHeadingSBold() {
-	--token: -page-heading-s-bold;
+	--token: page-heading-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -97,7 +97,7 @@
 }
 
 @mixin HeadingXLRegular() {
-	--token: -heading-xl-regular;
+	--token: heading-xl-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -109,7 +109,7 @@
 }
 
 @mixin HeadingXLRegularUppercase() {
-	--token: -heading-xl-regular-uppercase;
+	--token: heading-xl-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -121,7 +121,7 @@
 }
 
 @mixin HeadingXLBold() {
-	--token: -heading-xl-bold;
+	--token: heading-xl-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -133,7 +133,7 @@
 }
 
 @mixin HeadingXLBoldUppercase() {
-	--token: -heading-xl-bold-uppercase;
+	--token: heading-xl-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -145,7 +145,7 @@
 }
 
 @mixin HeadingLRegular() {
-	--token: -heading-l-regular;
+	--token: heading-l-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -157,7 +157,7 @@
 }
 
 @mixin HeadingLRegularUppercase() {
-	--token: -heading-l-regular-uppercase;
+	--token: heading-l-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -169,7 +169,7 @@
 }
 
 @mixin HeadingLBold() {
-	--token: -heading-l-bold;
+	--token: heading-l-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -181,7 +181,7 @@
 }
 
 @mixin HeadingLBoldUppercase() {
-	--token: -heading-l-bold-uppercase;
+	--token: heading-l-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -193,7 +193,7 @@
 }
 
 @mixin HeadingMRegular() {
-	--token: -heading-m-regular;
+	--token: heading-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -205,7 +205,7 @@
 }
 
 @mixin HeadingMRegularUppercase() {
-	--token: -heading-m-regular-uppercase;
+	--token: heading-m-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -217,7 +217,7 @@
 }
 
 @mixin HeadingMBold() {
-	--token: -heading-m-bold;
+	--token: heading-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -229,7 +229,7 @@
 }
 
 @mixin HeadingMBoldUppercase() {
-	--token: -heading-m-bold-uppercase;
+	--token: heading-m-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -241,7 +241,7 @@
 }
 
 @mixin HeadingSRegular() {
-	--token: -heading-s-regular;
+	--token: heading-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -253,7 +253,7 @@
 }
 
 @mixin HeadingSRegularUppercase() {
-	--token: -heading-s-regular-uppercase;
+	--token: heading-s-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -265,7 +265,7 @@
 }
 
 @mixin HeadingSBold() {
-	--token: -heading-s-bold;
+	--token: heading-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -277,7 +277,7 @@
 }
 
 @mixin HeadingSBoldUppercase() {
-	--token: -heading-s-bold-uppercase;
+	--token: heading-s-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -289,7 +289,7 @@
 }
 
 @mixin HeadingXSRegular() {
-	--token: -heading-xs-regular;
+	--token: heading-xs-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -301,7 +301,7 @@
 }
 
 @mixin HeadingXSRegularUppercase() {
-	--token: -heading-xs-regular-uppercase;
+	--token: heading-xs-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -313,7 +313,7 @@
 }
 
 @mixin HeadingXSBold() {
-	--token: -heading-xs-bold;
+	--token: heading-xs-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -325,7 +325,7 @@
 }
 
 @mixin HeadingXSBoldUppercase() {
-	--token: -heading-xs-bold-uppercase;
+	--token: heading-xs-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -337,7 +337,7 @@
 }
 
 @mixin TextXLRegular() {
-	--token: -text-xl-regular;
+	--token: text-xl-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -349,7 +349,7 @@
 }
 
 @mixin TextXLRegularItalic() {
-	--token: -text-xl-regular-italic;
+	--token: text-xl-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -361,7 +361,7 @@
 }
 
 @mixin TextXLRegularUnderlined() {
-	--token: -text-xl-regular-underlined;
+	--token: text-xl-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -373,7 +373,7 @@
 }
 
 @mixin TextXLRegularUppercase() {
-	--token: -text-xl-regular-uppercase;
+	--token: text-xl-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -385,7 +385,7 @@
 }
 
 @mixin TextXLBold() {
-	--token: -text-xl-bold;
+	--token: text-xl-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -397,7 +397,7 @@
 }
 
 @mixin TextXLBoldItalic() {
-	--token: -text-xl-bold-italic;
+	--token: text-xl-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -409,7 +409,7 @@
 }
 
 @mixin TextXLBoldUnderlined() {
-	--token: -text-xl-bold-underlined;
+	--token: text-xl-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -421,7 +421,7 @@
 }
 
 @mixin TextXLBoldUppercase() {
-	--token: -text-xl-bold-uppercase;
+	--token: text-xl-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -433,7 +433,7 @@
 }
 
 @mixin TextXLCompactRegular() {
-	--token: -text-xl-compact-regular;
+	--token: text-xl-compact-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -445,7 +445,7 @@
 }
 
 @mixin TextXLCompactRegularItalic() {
-	--token: -text-xl-compact-regular-italic;
+	--token: text-xl-compact-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -457,7 +457,7 @@
 }
 
 @mixin TextXLCompactRegularUnderlined() {
-	--token: -text-xl-compact-regular-underlined;
+	--token: text-xl-compact-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -469,7 +469,7 @@
 }
 
 @mixin TextXLCompactRegularUppercase() {
-	--token: -text-xl-compact-regular-uppercase;
+	--token: text-xl-compact-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -481,7 +481,7 @@
 }
 
 @mixin TextXLCompactBold() {
-	--token: -text-xl-compact-bold;
+	--token: text-xl-compact-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -493,7 +493,7 @@
 }
 
 @mixin TextXLCompactBoldItalic() {
-	--token: -text-xl-compact-bold-italic;
+	--token: text-xl-compact-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -505,7 +505,7 @@
 }
 
 @mixin TextXLCompactBoldUnderlined() {
-	--token: -text-xl-compact-bold-underlined;
+	--token: text-xl-compact-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -517,7 +517,7 @@
 }
 
 @mixin TextXLCompactBoldUppercase() {
-	--token: -text-xl-compact-bold-uppercase;
+	--token: text-xl-compact-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -529,7 +529,7 @@
 }
 
 @mixin TextLRegular() {
-	--token: -text-l-regular;
+	--token: text-l-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -541,7 +541,7 @@
 }
 
 @mixin TextLRegularItalic() {
-	--token: -text-l-regular-italic;
+	--token: text-l-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -553,7 +553,7 @@
 }
 
 @mixin TextLRegularUnderlined() {
-	--token: -text-l-regular-underlined;
+	--token: text-l-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -565,7 +565,7 @@
 }
 
 @mixin TextLRegularUppercase() {
-	--token: -text-l-regular-uppercase;
+	--token: text-l-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -577,7 +577,7 @@
 }
 
 @mixin TextLBold() {
-	--token: -text-l-bold;
+	--token: text-l-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -589,7 +589,7 @@
 }
 
 @mixin TextLBoldItalic() {
-	--token: -text-l-bold-italic;
+	--token: text-l-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -601,7 +601,7 @@
 }
 
 @mixin TextLBoldUnderlined() {
-	--token: -text-l-bold-underlined;
+	--token: text-l-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -613,7 +613,7 @@
 }
 
 @mixin TextLBoldUppercase() {
-	--token: -text-l-bold-uppercase;
+	--token: text-l-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -625,7 +625,7 @@
 }
 
 @mixin TextLCompactRegular() {
-	--token: -text-l-compact-regular;
+	--token: text-l-compact-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -637,7 +637,7 @@
 }
 
 @mixin TextLCompactRegularItalic() {
-	--token: -text-l-compact-regular-italic;
+	--token: text-l-compact-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -649,7 +649,7 @@
 }
 
 @mixin TextLCompactRegularUnderlined() {
-	--token: -text-l-compact-regular-underlined;
+	--token: text-l-compact-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -661,7 +661,7 @@
 }
 
 @mixin TextLCompactRegularUppercase() {
-	--token: -text-l-compact-regular-uppercase;
+	--token: text-l-compact-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -673,7 +673,7 @@
 }
 
 @mixin TextLCompactBold() {
-	--token: -text-l-compact-bold;
+	--token: text-l-compact-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -685,7 +685,7 @@
 }
 
 @mixin TextLCompactBoldItalic() {
-	--token: -text-l-compact-bold-italic;
+	--token: text-l-compact-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -697,7 +697,7 @@
 }
 
 @mixin TextLCompactBoldUnderlined() {
-	--token: -text-l-compact-bold-underlined;
+	--token: text-l-compact-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -709,7 +709,7 @@
 }
 
 @mixin TextLCompactBoldUppercase() {
-	--token: -text-l-compact-bold-uppercase;
+	--token: text-l-compact-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -721,7 +721,7 @@
 }
 
 @mixin TextMRegular() {
-	--token: -text-m-regular;
+	--token: text-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -733,7 +733,7 @@
 }
 
 @mixin TextMRegularItalic() {
-	--token: -text-m-regular-italic;
+	--token: text-m-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -745,7 +745,7 @@
 }
 
 @mixin TextMRegularUnderlined() {
-	--token: -text-m-regular-underlined;
+	--token: text-m-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -757,7 +757,7 @@
 }
 
 @mixin TextMRegularUppercase() {
-	--token: -text-m-regular-uppercase;
+	--token: text-m-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -769,7 +769,7 @@
 }
 
 @mixin TextMBold() {
-	--token: -text-m-bold;
+	--token: text-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -781,7 +781,7 @@
 }
 
 @mixin TextMBoldItalic() {
-	--token: -text-m-bold-italic;
+	--token: text-m-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -793,7 +793,7 @@
 }
 
 @mixin TextMBoldUnderlined() {
-	--token: -text-m-bold-underlined;
+	--token: text-m-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -805,7 +805,7 @@
 }
 
 @mixin TextMBoldUppercase() {
-	--token: -text-m-bold-uppercase;
+	--token: text-m-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -817,7 +817,7 @@
 }
 
 @mixin TextMCompactRegular() {
-	--token: -text-m-compact-regular;
+	--token: text-m-compact-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -829,7 +829,7 @@
 }
 
 @mixin TextMCompactRegularItalic() {
-	--token: -text-m-compact-regular-italic;
+	--token: text-m-compact-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -841,7 +841,7 @@
 }
 
 @mixin TextMCompactRegularUnderlined() {
-	--token: -text-m-compact-regular-underlined;
+	--token: text-m-compact-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -853,7 +853,7 @@
 }
 
 @mixin TextMCompactRegularUppercase() {
-	--token: -text-m-compact-regular-uppercase;
+	--token: text-m-compact-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -865,7 +865,7 @@
 }
 
 @mixin TextMCompactBold() {
-	--token: -text-m-compact-bold;
+	--token: text-m-compact-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -877,7 +877,7 @@
 }
 
 @mixin TextMCompactBoldItalic() {
-	--token: -text-m-compact-bold-italic;
+	--token: text-m-compact-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -889,7 +889,7 @@
 }
 
 @mixin TextMCompactBoldUnderlined() {
-	--token: -text-m-compact-bold-underlined;
+	--token: text-m-compact-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -901,7 +901,7 @@
 }
 
 @mixin TextMCompactBoldUppercase() {
-	--token: -text-m-compact-bold-uppercase;
+	--token: text-m-compact-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -913,7 +913,7 @@
 }
 
 @mixin TextSRegular() {
-	--token: -text-s-regular;
+	--token: text-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -925,7 +925,7 @@
 }
 
 @mixin TextSRegularItalic() {
-	--token: -text-s-regular-italic;
+	--token: text-s-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -937,7 +937,7 @@
 }
 
 @mixin TextSRegularUnderlined() {
-	--token: -text-s-regular-underlined;
+	--token: text-s-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -949,7 +949,7 @@
 }
 
 @mixin TextSRegularUppercase() {
-	--token: -text-s-regular-uppercase;
+	--token: text-s-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -961,7 +961,7 @@
 }
 
 @mixin TextSBold() {
-	--token: -text-s-bold;
+	--token: text-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -973,7 +973,7 @@
 }
 
 @mixin TextSBoldItalic() {
-	--token: -text-s-bold-italic;
+	--token: text-s-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -985,7 +985,7 @@
 }
 
 @mixin TextSBoldUnderlined() {
-	--token: -text-s-bold-underlined;
+	--token: text-s-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -997,7 +997,7 @@
 }
 
 @mixin TextSBoldUppercase() {
-	--token: -text-s-bold-uppercase;
+	--token: text-s-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1009,7 +1009,7 @@
 }
 
 @mixin TextSCompactRegular() {
-	--token: -text-s-compact-regular;
+	--token: text-s-compact-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1021,7 +1021,7 @@
 }
 
 @mixin TextSCompactRegularItalic() {
-	--token: -text-s-compact-regular-italic;
+	--token: text-s-compact-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1033,7 +1033,7 @@
 }
 
 @mixin TextSCompactRegularUnderlined() {
-	--token: -text-s-compact-regular-underlined;
+	--token: text-s-compact-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1045,7 +1045,7 @@
 }
 
 @mixin TextSCompactRegularUppercase() {
-	--token: -text-s-compact-regular-uppercase;
+	--token: text-s-compact-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1057,7 +1057,7 @@
 }
 
 @mixin TextSCompactBold() {
-	--token: -text-s-compact-bold;
+	--token: text-s-compact-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1069,7 +1069,7 @@
 }
 
 @mixin TextSCompactBoldItalic() {
-	--token: -text-s-compact-bold-italic;
+	--token: text-s-compact-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1081,7 +1081,7 @@
 }
 
 @mixin TextSCompactBoldUnderlined() {
-	--token: -text-s-compact-bold-underlined;
+	--token: text-s-compact-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1093,7 +1093,7 @@
 }
 
 @mixin TextSCompactBoldUppercase() {
-	--token: -text-s-compact-bold-uppercase;
+	--token: text-s-compact-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1105,7 +1105,7 @@
 }
 
 @mixin InfoXLRegular() {
-	--token: -info-xl-regular;
+	--token: info-xl-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1117,7 +1117,7 @@
 }
 
 @mixin InfoXLRegularItalic() {
-	--token: -info-xl-regular-italic;
+	--token: info-xl-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1129,7 +1129,7 @@
 }
 
 @mixin InfoXLBold() {
-	--token: -info-xl-bold;
+	--token: info-xl-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1141,7 +1141,7 @@
 }
 
 @mixin InfoXLBoldItalic() {
-	--token: -info-xl-bold-italic;
+	--token: info-xl-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1153,7 +1153,7 @@
 }
 
 @mixin InfoXLExtensiveRegular() {
-	--token: -info-xl-extensive-regular;
+	--token: info-xl-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1165,7 +1165,7 @@
 }
 
 @mixin InfoXLExtensiveRegularItalic() {
-	--token: -info-xl-extensive-regular-italic;
+	--token: info-xl-extensive-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1177,7 +1177,7 @@
 }
 
 @mixin InfoXLExtensiveRegularUppercase() {
-	--token: -info-xl-extensive-regular-uppercase;
+	--token: info-xl-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1189,7 +1189,7 @@
 }
 
 @mixin InfoXLExtensiveBold() {
-	--token: -info-xl-extensive-bold;
+	--token: info-xl-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1201,7 +1201,7 @@
 }
 
 @mixin InfoXLExtensiveBoldItalic() {
-	--token: -info-xl-extensive-bold-italic;
+	--token: info-xl-extensive-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1213,7 +1213,7 @@
 }
 
 @mixin InfoXLExtensiveBoldUppercase() {
-	--token: -info-xl-extensive-bold-uppercase;
+	--token: info-xl-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1225,7 +1225,7 @@
 }
 
 @mixin InfoLRegular() {
-	--token: -info-l-regular;
+	--token: info-l-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1237,7 +1237,7 @@
 }
 
 @mixin InfoLRegularItalic() {
-	--token: -info-l-regular-italic;
+	--token: info-l-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1249,7 +1249,7 @@
 }
 
 @mixin InfoLBold() {
-	--token: -info-l-bold;
+	--token: info-l-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1261,7 +1261,7 @@
 }
 
 @mixin InfoLBoldItalic() {
-	--token: -info-l-bold-italic;
+	--token: info-l-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1273,7 +1273,7 @@
 }
 
 @mixin InfoLExtensiveRegular() {
-	--token: -info-l-extensive-regular;
+	--token: info-l-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1285,7 +1285,7 @@
 }
 
 @mixin InfoLExtensiveRegularItalic() {
-	--token: -info-l-extensive-regular-italic;
+	--token: info-l-extensive-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1297,7 +1297,7 @@
 }
 
 @mixin InfoLExtensiveRegularUppercase() {
-	--token: -info-l-extensive-regular-uppercase;
+	--token: info-l-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1309,7 +1309,7 @@
 }
 
 @mixin InfoLExtensiveBold() {
-	--token: -info-l-extensive-bold;
+	--token: info-l-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1321,7 +1321,7 @@
 }
 
 @mixin InfoLExtensiveBoldItalic() {
-	--token: -info-l-extensive-bold-italic;
+	--token: info-l-extensive-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1333,7 +1333,7 @@
 }
 
 @mixin InfoLExtensiveBoldUppercase() {
-	--token: -info-l-extensive-bold-uppercase;
+	--token: info-l-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1345,7 +1345,7 @@
 }
 
 @mixin InfoMRegular() {
-	--token: -info-m-regular;
+	--token: info-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1357,7 +1357,7 @@
 }
 
 @mixin InfoMRegularItalic() {
-	--token: -info-m-regular-italic;
+	--token: info-m-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1369,7 +1369,7 @@
 }
 
 @mixin InfoMBold() {
-	--token: -info-m-bold;
+	--token: info-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1381,7 +1381,7 @@
 }
 
 @mixin InfoMBoldItalic() {
-	--token: -info-m-bold-italic;
+	--token: info-m-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1393,7 +1393,7 @@
 }
 
 @mixin InfoMExtensiveRegular() {
-	--token: -info-m-extensive-regular;
+	--token: info-m-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1405,7 +1405,7 @@
 }
 
 @mixin InfoMExtensiveRegularItalic() {
-	--token: -info-m-extensive-regular-italic;
+	--token: info-m-extensive-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1417,7 +1417,7 @@
 }
 
 @mixin InfoMExtensiveRegularUppercase() {
-	--token: -info-m-extensive-regular-uppercase;
+	--token: info-m-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1429,7 +1429,7 @@
 }
 
 @mixin InfoMExtensiveBold() {
-	--token: -info-m-extensive-bold;
+	--token: info-m-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1441,7 +1441,7 @@
 }
 
 @mixin InfoMExtensiveBoldItalic() {
-	--token: -info-m-extensive-bold-italic;
+	--token: info-m-extensive-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1453,7 +1453,7 @@
 }
 
 @mixin InfoMExtensiveBoldUppercase() {
-	--token: -info-m-extensive-bold-uppercase;
+	--token: info-m-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1465,7 +1465,7 @@
 }
 
 @mixin InfoSRegular() {
-	--token: -info-s-regular;
+	--token: info-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1477,7 +1477,7 @@
 }
 
 @mixin InfoSRegularItalic() {
-	--token: -info-s-regular-italic;
+	--token: info-s-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1489,7 +1489,7 @@
 }
 
 @mixin InfoSBold() {
-	--token: -info-s-bold;
+	--token: info-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1501,7 +1501,7 @@
 }
 
 @mixin InfoSBoldItalic() {
-	--token: -info-s-bold-italic;
+	--token: info-s-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1513,7 +1513,7 @@
 }
 
 @mixin InfoSExtensiveRegular() {
-	--token: -info-s-extensive-regular;
+	--token: info-s-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1525,7 +1525,7 @@
 }
 
 @mixin InfoSExtensiveRegularItalic() {
-	--token: -info-s-extensive-regular-italic;
+	--token: info-s-extensive-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1537,7 +1537,7 @@
 }
 
 @mixin InfoSExtensiveRegularUppercase() {
-	--token: -info-s-extensive-regular-uppercase;
+	--token: info-s-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1549,7 +1549,7 @@
 }
 
 @mixin InfoSExtensiveBold() {
-	--token: -info-s-extensive-bold;
+	--token: info-s-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1561,7 +1561,7 @@
 }
 
 @mixin InfoSExtensiveBoldItalic() {
-	--token: -info-s-extensive-bold-italic;
+	--token: info-s-extensive-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1573,7 +1573,7 @@
 }
 
 @mixin InfoSExtensiveBoldUppercase() {
-	--token: -info-s-extensive-bold-uppercase;
+	--token: info-s-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1585,7 +1585,7 @@
 }
 
 @mixin InfoXSRegular() {
-	--token: -info-xs-regular;
+	--token: info-xs-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1597,7 +1597,7 @@
 }
 
 @mixin InfoXSRegularItalic() {
-	--token: -info-xs-regular-italic;
+	--token: info-xs-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1609,7 +1609,7 @@
 }
 
 @mixin InfoXSBold() {
-	--token: -info-xs-bold;
+	--token: info-xs-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1621,7 +1621,7 @@
 }
 
 @mixin InfoXSBoldItalic() {
-	--token: -info-xs-bold-italic;
+	--token: info-xs-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1633,7 +1633,7 @@
 }
 
 @mixin InfoXSExtensiveRegular() {
-	--token: -info-xs-extensive-regular;
+	--token: info-xs-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1645,7 +1645,7 @@
 }
 
 @mixin InfoXSExtensiveRegularItalic() {
-	--token: -info-xs-extensive-regular-italic;
+	--token: info-xs-extensive-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1657,7 +1657,7 @@
 }
 
 @mixin InfoXSExtensiveRegularUppercase() {
-	--token: -info-xs-extensive-regular-uppercase;
+	--token: info-xs-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1669,7 +1669,7 @@
 }
 
 @mixin InfoXSExtensiveBold() {
-	--token: -info-xs-extensive-bold;
+	--token: info-xs-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1681,7 +1681,7 @@
 }
 
 @mixin InfoXSExtensiveBoldItalic() {
-	--token: -info-xs-extensive-bold-italic;
+	--token: info-xs-extensive-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1693,7 +1693,7 @@
 }
 
 @mixin InfoXSExtensiveBoldUppercase() {
-	--token: -info-xs-extensive-bold-uppercase;
+	--token: info-xs-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1705,7 +1705,7 @@
 }
 
 @mixin FormLabelLRegular() {
-	--token: -form-label-l-regular;
+	--token: form-label-l-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1717,7 +1717,7 @@
 }
 
 @mixin FormLabelLRegularItalic() {
-	--token: -form-label-l-regular-italic;
+	--token: form-label-l-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1729,7 +1729,7 @@
 }
 
 @mixin FormLabelLBold() {
-	--token: -form-label-l-bold;
+	--token: form-label-l-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1741,7 +1741,7 @@
 }
 
 @mixin FormLabelMRegular() {
-	--token: -form-label-m-regular;
+	--token: form-label-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1753,7 +1753,7 @@
 }
 
 @mixin FormLabelMRegularItalic() {
-	--token: -form-label-m-regular-italic;
+	--token: form-label-m-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1765,7 +1765,7 @@
 }
 
 @mixin FormLabelMBold() {
-	--token: -form-label-m-bold;
+	--token: form-label-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1777,7 +1777,7 @@
 }
 
 @mixin FormLabelSRegular() {
-	--token: -form-label-s-regular;
+	--token: form-label-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1789,7 +1789,7 @@
 }
 
 @mixin FormLabelSRegularItalic() {
-	--token: -form-label-s-regular-italic;
+	--token: form-label-s-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1801,7 +1801,7 @@
 }
 
 @mixin FormLabelSBold() {
-	--token: -form-label-s-bold;
+	--token: form-label-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1813,7 +1813,7 @@
 }
 
 @mixin FormTextXLRegular() {
-	--token: -form-text-xl-regular;
+	--token: form-text-xl-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1825,7 +1825,7 @@
 }
 
 @mixin FormTextXLRegularItalic() {
-	--token: -form-text-xl-regular-italic;
+	--token: form-text-xl-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1837,7 +1837,7 @@
 }
 
 @mixin FormTextXLBold() {
-	--token: -form-text-xl-bold;
+	--token: form-text-xl-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1849,7 +1849,7 @@
 }
 
 @mixin FormTextXLBoldItalic() {
-	--token: -form-text-xl-bold-italic;
+	--token: form-text-xl-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1861,7 +1861,7 @@
 }
 
 @mixin FormTextXLExtensiveRegular() {
-	--token: -form-text-xl-extensive-regular;
+	--token: form-text-xl-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1873,7 +1873,7 @@
 }
 
 @mixin FormTextXLExtensiveRegularItalic() {
-	--token: -form-text-xl-extensive-regular-italic;
+	--token: form-text-xl-extensive-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1885,7 +1885,7 @@
 }
 
 @mixin FormTextXLExtensiveBold() {
-	--token: -form-text-xl-extensive-bold;
+	--token: form-text-xl-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1897,7 +1897,7 @@
 }
 
 @mixin FormTextXLExtensiveBoldItalic() {
-	--token: -form-text-xl-extensive-bold-italic;
+	--token: form-text-xl-extensive-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1909,7 +1909,7 @@
 }
 
 @mixin FormTextLRegular() {
-	--token: -form-text-l-regular;
+	--token: form-text-l-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1921,7 +1921,7 @@
 }
 
 @mixin FormTextLRegularItalic() {
-	--token: -form-text-l-regular-italic;
+	--token: form-text-l-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1933,7 +1933,7 @@
 }
 
 @mixin FormTextLBold() {
-	--token: -form-text-l-bold;
+	--token: form-text-l-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1945,7 +1945,7 @@
 }
 
 @mixin FormTextLBoldItalic() {
-	--token: -form-text-l-bold-italic;
+	--token: form-text-l-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1957,7 +1957,7 @@
 }
 
 @mixin FormTextLExtensiveRegular() {
-	--token: -form-text-l-extensive-regular;
+	--token: form-text-l-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1969,7 +1969,7 @@
 }
 
 @mixin FormTextLExtensiveRegularItalic() {
-	--token: -form-text-l-extensive-regular-italic;
+	--token: form-text-l-extensive-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1981,7 +1981,7 @@
 }
 
 @mixin FormTextLExtensiveBold() {
-	--token: -form-text-l-extensive-bold;
+	--token: form-text-l-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1993,7 +1993,7 @@
 }
 
 @mixin FormTextLExtensiveBoldItalic() {
-	--token: -form-text-l-extensive-bold-italic;
+	--token: form-text-l-extensive-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2005,7 +2005,7 @@
 }
 
 @mixin FormTextMRegular() {
-	--token: -form-text-m-regular;
+	--token: form-text-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2017,7 +2017,7 @@
 }
 
 @mixin FormTextMRegularItalic() {
-	--token: -form-text-m-regular-italic;
+	--token: form-text-m-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2029,7 +2029,7 @@
 }
 
 @mixin FormTextMBold() {
-	--token: -form-text-m-bold;
+	--token: form-text-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2041,7 +2041,7 @@
 }
 
 @mixin FormTextMBoldItalic() {
-	--token: -form-text-m-bold-italic;
+	--token: form-text-m-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2053,7 +2053,7 @@
 }
 
 @mixin FormTextMExtensiveRegular() {
-	--token: -form-text-m-extensive-regular;
+	--token: form-text-m-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2065,7 +2065,7 @@
 }
 
 @mixin FormTextMExtensiveRegularItalic() {
-	--token: -form-text-m-extensive-regular-italic;
+	--token: form-text-m-extensive-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2077,7 +2077,7 @@
 }
 
 @mixin FormTextMExtensiveBold() {
-	--token: -form-text-m-extensive-bold;
+	--token: form-text-m-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2089,7 +2089,7 @@
 }
 
 @mixin FormTextMExtensiveBoldItalic() {
-	--token: -form-text-m-extensive-bold-italic;
+	--token: form-text-m-extensive-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2101,7 +2101,7 @@
 }
 
 @mixin FormTextSRegular() {
-	--token: -form-text-s-regular;
+	--token: form-text-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2113,7 +2113,7 @@
 }
 
 @mixin FormTextSRegularItalic() {
-	--token: -form-text-s-regular-italic;
+	--token: form-text-s-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2125,7 +2125,7 @@
 }
 
 @mixin FormTextSBold() {
-	--token: -form-text-s-bold;
+	--token: form-text-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2137,7 +2137,7 @@
 }
 
 @mixin FormTextSBoldItalic() {
-	--token: -form-text-s-bold-italic;
+	--token: form-text-s-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2149,7 +2149,7 @@
 }
 
 @mixin FormTextSExtensiveRegular() {
-	--token: -form-text-s-extensive-regular;
+	--token: form-text-s-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2161,7 +2161,7 @@
 }
 
 @mixin FormTextSExtensiveRegularItalic() {
-	--token: -form-text-s-extensive-regular-italic;
+	--token: form-text-s-extensive-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2173,7 +2173,7 @@
 }
 
 @mixin FormTextSExtensiveBold() {
-	--token: -form-text-s-extensive-bold;
+	--token: form-text-s-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2185,7 +2185,7 @@
 }
 
 @mixin FormTextSExtensiveBoldItalic() {
-	--token: -form-text-s-extensive-bold-italic;
+	--token: form-text-s-extensive-bold-italic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2197,7 +2197,7 @@
 }
 
 @mixin FormCaptionMRegular() {
-	--token: -form-caption-m-regular;
+	--token: form-caption-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2209,7 +2209,7 @@
 }
 
 @mixin FormCaptionMRegularItalic() {
-	--token: -form-caption-m-regular-italic;
+	--token: form-caption-m-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2221,7 +2221,7 @@
 }
 
 @mixin FormCaptionSRegular() {
-	--token: -form-caption-s-regular;
+	--token: form-caption-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2233,7 +2233,7 @@
 }
 
 @mixin FormCaptionSRegularItalic() {
-	--token: -form-caption-s-regular-italic;
+	--token: form-caption-s-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2245,7 +2245,7 @@
 }
 
 @mixin Label2XLRegular() {
-	--token: -label-2-xl-regular;
+	--token: label-2-xl-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2257,7 +2257,7 @@
 }
 
 @mixin Label2XLRegularItalic() {
-	--token: -label-2-xl-regular-italic;
+	--token: label-2-xl-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2269,7 +2269,7 @@
 }
 
 @mixin Label2XLRegularUppercase() {
-	--token: -label-2-xl-regular-uppercase;
+	--token: label-2-xl-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2281,7 +2281,7 @@
 }
 
 @mixin Label2XLBold() {
-	--token: -label-2-xl-bold;
+	--token: label-2-xl-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2293,7 +2293,7 @@
 }
 
 @mixin Label2XLBoldUppercase() {
-	--token: -label-2-xl-bold-uppercase;
+	--token: label-2-xl-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2305,7 +2305,7 @@
 }
 
 @mixin Label2XLExtensiveRegularUppercase() {
-	--token: -label-2-xl-extensive-regular-uppercase;
+	--token: label-2-xl-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2317,7 +2317,7 @@
 }
 
 @mixin Label2XLExtensiveBoldUppercase() {
-	--token: -label-2-xl-extensive-bold-uppercase;
+	--token: label-2-xl-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2329,7 +2329,7 @@
 }
 
 @mixin LabelXLRegular() {
-	--token: -label-xl-regular;
+	--token: label-xl-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2341,7 +2341,7 @@
 }
 
 @mixin LabelXLRegularItalic() {
-	--token: -label-xl-regular-italic;
+	--token: label-xl-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2353,7 +2353,7 @@
 }
 
 @mixin LabelXLRegularUppercase() {
-	--token: -label-xl-regular-uppercase;
+	--token: label-xl-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2365,7 +2365,7 @@
 }
 
 @mixin LabelXLBold() {
-	--token: -label-xl-bold;
+	--token: label-xl-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2377,7 +2377,7 @@
 }
 
 @mixin LabelXLBoldUppercase() {
-	--token: -label-xl-bold-uppercase;
+	--token: label-xl-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2389,7 +2389,7 @@
 }
 
 @mixin LabelXLExtensiveRegularUppercase() {
-	--token: -label-xl-extensive-regular-uppercase;
+	--token: label-xl-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2401,7 +2401,7 @@
 }
 
 @mixin LabelXLExtensiveBoldUppercase() {
-	--token: -label-xl-extensive-bold-uppercase;
+	--token: label-xl-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2413,7 +2413,7 @@
 }
 
 @mixin LabelLRegular() {
-	--token: -label-l-regular;
+	--token: label-l-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2425,7 +2425,7 @@
 }
 
 @mixin LabelLRegularItalic() {
-	--token: -label-l-regular-italic;
+	--token: label-l-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2437,7 +2437,7 @@
 }
 
 @mixin LabelLRegularUppercase() {
-	--token: -label-l-regular-uppercase;
+	--token: label-l-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2449,7 +2449,7 @@
 }
 
 @mixin LabelLBold() {
-	--token: -label-l-bold;
+	--token: label-l-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2461,7 +2461,7 @@
 }
 
 @mixin LabelLBoldUppercase() {
-	--token: -label-l-bold-uppercase;
+	--token: label-l-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2473,7 +2473,7 @@
 }
 
 @mixin LabelLExtensiveRegularUppercase() {
-	--token: -label-l-extensive-regular-uppercase;
+	--token: label-l-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2485,7 +2485,7 @@
 }
 
 @mixin LabelLExtensiveBoldUppercase() {
-	--token: -label-l-extensive-bold-uppercase;
+	--token: label-l-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2497,7 +2497,7 @@
 }
 
 @mixin LabelMRegular() {
-	--token: -label-m-regular;
+	--token: label-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2509,7 +2509,7 @@
 }
 
 @mixin LabelMRegularItalic() {
-	--token: -label-m-regular-italic;
+	--token: label-m-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2521,7 +2521,7 @@
 }
 
 @mixin LabelMRegularUppercase() {
-	--token: -label-m-regular-uppercase;
+	--token: label-m-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2533,7 +2533,7 @@
 }
 
 @mixin LabelMBold() {
-	--token: -label-m-bold;
+	--token: label-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2545,7 +2545,7 @@
 }
 
 @mixin LabelMBoldUppercase() {
-	--token: -label-m-bold-uppercase;
+	--token: label-m-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2557,7 +2557,7 @@
 }
 
 @mixin LabelMExtensiveRegularUppercase() {
-	--token: -label-m-extensive-regular-uppercase;
+	--token: label-m-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2569,7 +2569,7 @@
 }
 
 @mixin LabelMExtensiveBoldUppercase() {
-	--token: -label-m-extensive-bold-uppercase;
+	--token: label-m-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2581,7 +2581,7 @@
 }
 
 @mixin LabelSRegular() {
-	--token: -label-s-regular;
+	--token: label-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2593,7 +2593,7 @@
 }
 
 @mixin LabelSRegularItalic() {
-	--token: -label-s-regular-italic;
+	--token: label-s-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2605,7 +2605,7 @@
 }
 
 @mixin LabelSRegularUppercase() {
-	--token: -label-s-regular-uppercase;
+	--token: label-s-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2617,7 +2617,7 @@
 }
 
 @mixin LabelSBold() {
-	--token: -label-s-bold;
+	--token: label-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2629,7 +2629,7 @@
 }
 
 @mixin LabelSBoldUppercase() {
-	--token: -label-s-bold-uppercase;
+	--token: label-s-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2641,7 +2641,7 @@
 }
 
 @mixin LabelSExtensiveRegularUppercase() {
-	--token: -label-s-extensive-regular-uppercase;
+	--token: label-s-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2653,7 +2653,7 @@
 }
 
 @mixin LabelSExtensiveBoldUppercase() {
-	--token: -label-s-extensive-bold-uppercase;
+	--token: label-s-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2665,7 +2665,7 @@
 }
 
 @mixin LabelXSRegular() {
-	--token: -label-xs-regular;
+	--token: label-xs-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2677,7 +2677,7 @@
 }
 
 @mixin LabelXSRegularItalic() {
-	--token: -label-xs-regular-italic;
+	--token: label-xs-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2689,7 +2689,7 @@
 }
 
 @mixin LabelXSRegularUppercase() {
-	--token: -label-xs-regular-uppercase;
+	--token: label-xs-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2701,7 +2701,7 @@
 }
 
 @mixin LabelXSBold() {
-	--token: -label-xs-bold;
+	--token: label-xs-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2713,7 +2713,7 @@
 }
 
 @mixin LabelXSBoldUppercase() {
-	--token: -label-xs-bold-uppercase;
+	--token: label-xs-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2725,7 +2725,7 @@
 }
 
 @mixin LabelXSExtensiveRegularUppercase() {
-	--token: -label-xs-extensive-regular-uppercase;
+	--token: label-xs-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2737,7 +2737,7 @@
 }
 
 @mixin LabelXSExtensiveBoldUppercase() {
-	--token: -label-xs-extensive-bold-uppercase;
+	--token: label-xs-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2749,7 +2749,7 @@
 }
 
 @mixin ButtonLBoldUppercase() {
-	--token: -button-l-bold-uppercase;
+	--token: button-l-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2761,7 +2761,7 @@
 }
 
 @mixin ButtonMBoldUppercase() {
-	--token: -button-m-bold-uppercase;
+	--token: button-m-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2773,7 +2773,7 @@
 }
 
 @mixin ButtonSBoldUppercase() {
-	--token: -button-s-bold-uppercase;
+	--token: button-s-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2785,7 +2785,7 @@
 }
 
 @mixin ButtonXSBoldUppercase() {
-	--token: -button-xs-bold-uppercase;
+	--token: button-xs-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2797,7 +2797,7 @@
 }
 
 @mixin LinkXLRegular() {
-	--token: -link-xl-regular;
+	--token: link-xl-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2809,7 +2809,7 @@
 }
 
 @mixin LinkXLRegularUnderlined() {
-	--token: -link-xl-regular-underlined;
+	--token: link-xl-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2821,7 +2821,7 @@
 }
 
 @mixin LinkXLBold() {
-	--token: -link-xl-bold;
+	--token: link-xl-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2833,7 +2833,7 @@
 }
 
 @mixin LinkXLBoldUnderlined() {
-	--token: -link-xl-bold-underlined;
+	--token: link-xl-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2845,7 +2845,7 @@
 }
 
 @mixin LinkXLCompactRegular() {
-	--token: -link-xl-compact-regular;
+	--token: link-xl-compact-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2857,7 +2857,7 @@
 }
 
 @mixin LinkXLCompactRegularUnderlined() {
-	--token: -link-xl-compact-regular-underlined;
+	--token: link-xl-compact-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2869,7 +2869,7 @@
 }
 
 @mixin LinkXLCompactBold() {
-	--token: -link-xl-compact-bold;
+	--token: link-xl-compact-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2881,7 +2881,7 @@
 }
 
 @mixin LinkXLCompactBoldUnderlined() {
-	--token: -link-xl-compact-bold-underlined;
+	--token: link-xl-compact-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2893,7 +2893,7 @@
 }
 
 @mixin LinkLRegular() {
-	--token: -link-l-regular;
+	--token: link-l-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2905,7 +2905,7 @@
 }
 
 @mixin LinkLRegularUnderlined() {
-	--token: -link-l-regular-underlined;
+	--token: link-l-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2917,7 +2917,7 @@
 }
 
 @mixin LinkLBold() {
-	--token: -link-l-bold;
+	--token: link-l-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2929,7 +2929,7 @@
 }
 
 @mixin LinkLBoldUnderlined() {
-	--token: -link-l-bold-underlined;
+	--token: link-l-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2941,7 +2941,7 @@
 }
 
 @mixin LinkLCompactRegular() {
-	--token: -link-l-compact-regular;
+	--token: link-l-compact-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2953,7 +2953,7 @@
 }
 
 @mixin LinkLCompactRegularUnderlined() {
-	--token: -link-l-compact-regular-underlined;
+	--token: link-l-compact-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2965,7 +2965,7 @@
 }
 
 @mixin LinkLCompactBold() {
-	--token: -link-l-compact-bold;
+	--token: link-l-compact-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2977,7 +2977,7 @@
 }
 
 @mixin LinkLCompactBoldUnderlined() {
-	--token: -link-l-compact-bold-underlined;
+	--token: link-l-compact-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2989,7 +2989,7 @@
 }
 
 @mixin LinkMRegular() {
-	--token: -link-m-regular;
+	--token: link-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -3001,7 +3001,7 @@
 }
 
 @mixin LinkMRegularUnderlined() {
-	--token: -link-m-regular-underlined;
+	--token: link-m-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -3013,7 +3013,7 @@
 }
 
 @mixin LinkMBold() {
-	--token: -link-m-bold;
+	--token: link-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -3025,7 +3025,7 @@
 }
 
 @mixin LinkMBoldUnderlined() {
-	--token: -link-m-bold-underlined;
+	--token: link-m-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -3037,7 +3037,7 @@
 }
 
 @mixin LinkMCompactRegular() {
-	--token: -link-m-compact-regular;
+	--token: link-m-compact-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -3049,7 +3049,7 @@
 }
 
 @mixin LinkMCompactRegularUnderlined() {
-	--token: -link-m-compact-regular-underlined;
+	--token: link-m-compact-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -3061,7 +3061,7 @@
 }
 
 @mixin LinkMCompactBold() {
-	--token: -link-m-compact-bold;
+	--token: link-m-compact-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -3073,7 +3073,7 @@
 }
 
 @mixin LinkMCompactBoldUnderlined() {
-	--token: -link-m-compact-bold-underlined;
+	--token: link-m-compact-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -3085,7 +3085,7 @@
 }
 
 @mixin LinkSRegular() {
-	--token: -link-s-regular;
+	--token: link-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -3097,7 +3097,7 @@
 }
 
 @mixin LinkSRegularUnderlined() {
-	--token: -link-s-regular-underlined;
+	--token: link-s-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -3109,7 +3109,7 @@
 }
 
 @mixin LinkSBold() {
-	--token: -link-s-bold;
+	--token: link-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -3121,7 +3121,7 @@
 }
 
 @mixin LinkSBoldUnderlined() {
-	--token: -link-s-bold-underlined;
+	--token: link-s-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -3133,7 +3133,7 @@
 }
 
 @mixin LinkSCompactRegular() {
-	--token: -link-s-compact-regular;
+	--token: link-s-compact-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -3145,7 +3145,7 @@
 }
 
 @mixin LinkSCompactRegularUnderlined() {
-	--token: -link-s-compact-regular-underlined;
+	--token: link-s-compact-regular-underlined;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -3157,7 +3157,7 @@
 }
 
 @mixin LinkSCompactBold() {
-	--token: -link-s-compact-bold;
+	--token: link-s-compact-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -3169,7 +3169,7 @@
 }
 
 @mixin LinkSCompactBoldUnderlined() {
-	--token: -link-s-compact-bold-underlined;
+	--token: link-s-compact-bold-underlined;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;

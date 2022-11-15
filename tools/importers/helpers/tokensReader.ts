@@ -11,13 +11,19 @@ import {
 export const recursiveTokensReader = (obj, keyResult: string): Array<ITypographyToken> => {
 	if ('value' in obj) {
 		let attributes: string[] = [];
+		let attributesRaw: Array<Object> = [];
 		for (let attrKey in obj.value) {
 			let attrValue = obj.value[attrKey]
 				.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
 				.replace(/\.+/g, '-')
 				.slice(1, -1)
 				.toLowerCase();
+			let attrKeyRaw = attrKey
+				.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+				.replace(/\.+/g, '-')
+				.toLowerCase();
 
+			attributesRaw.push({ property: attrKeyRaw, value: attrValue });
 			attrValue = attrValue.replace('-regular', transformCssProperty['-regular']);
 
 			if (attrValue && !attrValue.includes(fontFamilyProperty)) {
@@ -40,14 +46,19 @@ export const recursiveTokensReader = (obj, keyResult: string): Array<ITypography
 			}
 		}
 
+		let token = keyResult
+			.trim()
+			.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+			.replace(/\s+/g, '-')
+			.toLowerCase();
 		return [
 			{
-				token: keyResult
-					.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
-					.replace(/\s+/g, '-')
-					.toLowerCase(),
+				id: token.replace(/\-+/g, ''),
+				category: '',
+				token,
 				tokenCamelCase: camelize(keyResult),
 				attributes,
+				attributesRaw,
 			},
 		];
 	}
