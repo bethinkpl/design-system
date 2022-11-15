@@ -224,6 +224,4 @@ export const requestForBin = async (binConfig: TypographyConfigFileBin, jsonBinA
 	return requestResponse;
 };
 
-SynchronizeTypographyTokensBin().finally(() => {
-	console.log('The importer has completed the work.');
-});
+SynchronizeTypographyTokensBin().finally(() => {});

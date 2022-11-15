@@ -252,9 +252,10 @@ const SynchronizeSingleBin = async (bin: ColorsConfigFileBin) => {
 };
 
 const SynchronizeColorsTokens = async () => {
+	console.log('Import in progress...');
 	tokensFilesConfig.bins.forEach((bin: ColorsConfigFileBin) => {
 		SynchronizeSingleBin(bin);
 	});
 };
 
-SynchronizeColorsTokens().then(() => console.log('Import in progress...'));
+SynchronizeColorsTokens().finally(() => {});
