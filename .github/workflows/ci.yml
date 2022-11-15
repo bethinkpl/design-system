@@ -27,7 +27,7 @@ jobs:
       - name: Make envfile
         uses: SpicyPizza/create-envfile@v1.3
         with:
-          JSON_BIN_X_MASTER_KEY: ${{ secrets.JSON_BIN_X_MASTER_KEY }}
+          envkey_JSON_BIN_X_MASTER_KEY: ${{ secrets.JSON_BIN_X_MASTER_KEY }}
       - name: Run unit tests
         run: yarn test
       - name: Lint TS/JS/Vue files
