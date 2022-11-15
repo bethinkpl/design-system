@@ -1,0 +1,19 @@
+{
+  "destinationPath": "tools/importers/.cache/",
+  "bin":
+  {
+    "id": "633d96230e6a79321e1dec41",
+    "files": {
+      "variablesRaw": {
+        "destinationVariables": "_variables.scss",
+        "destinationVariablesCss": "_variables-css.scss",
+        "destinationVariablesCssJson": "_variables-css.json"
+      },
+      "tokens": {
+        "destination": "_tokens.scss",
+        "destinationJson": "_tokens.json"
+      }
+    }
+  },
+  "jsonBinApiUrl": "https://api.jsonbin.io/v3/b/"
+}

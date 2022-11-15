@@ -1,5 +1,5 @@
 const axios = require('axios');
-const tokensFilesConfig = require('./configs/SynchronizeTypographyTokensConfig.json');
+
 import { arrayToMixinFile, arrayToFile, jsonToFile } from './helpers/fileWriter';
 import { recursiveTokensReader } from './helpers/tokensReader';
 import {
@@ -24,15 +24,18 @@ import {
 	ITokenJsonObject,
 	IResultJsonObject,
 	ITypographyToken,
+	TypographyConfigFile,
 	TypographyConfigFileBin,
-	TypographyBinFiles,
 	JsonAttribute,
 	JsonAttributeValues,
 } from './helpers/structures';
 
 dotenv.config();
 
-const ImportTypographyVariables = (binFilesConfig: TypographyBinFiles, jsonTypography: Object) => {
+export const ImportTypographyVariables = (
+	typographyConfigFile: TypographyConfigFile,
+	jsonTypography: Object,
+) => {
 	let resultCss: Array<string> = [];
 	let resultScss: Array<string> = [];
 	let resultJsonCss: Dict<Array<IResultJsonObject>> = {};
@@ -81,10 +84,11 @@ const ImportTypographyVariables = (binFilesConfig: TypographyBinFiles, jsonTypog
 					resultScss.push('$' + propertyName + ': var(--' + propertyName + ');');
 
 					const resultJsonObject: ITokenJsonObject = {
-						id: (binFilesConfig.tokens.destinationJson + '_' + propertyName).replace(
-							/[^a-zA-Z ]/g,
-							'',
-						),
+						id: (
+							typographyConfigFile.bin.files.tokens.destinationJson +
+							'_' +
+							propertyName
+						).replace(/[^a-zA-Z ]/g, ''),
 						label: propertyName,
 						value: propertyValue,
 					};
@@ -106,20 +110,26 @@ const ImportTypographyVariables = (binFilesConfig: TypographyBinFiles, jsonTypog
 	});
 
 	arrayToFile(
-		tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destinationVariablesCss,
+		typographyConfigFile.destinationPath +
+			typographyConfigFile.bin.files.variablesRaw.destinationVariablesCss,
 		resultCss,
 	);
 	arrayToFile(
-		tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destinationVariables,
+		typographyConfigFile.destinationPath +
+			typographyConfigFile.bin.files.variablesRaw.destinationVariables,
 		resultScss,
 	);
 	jsonToFile(
-		tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destinationVariablesCssJson,
+		typographyConfigFile.destinationPath +
+			typographyConfigFile.bin.files.variablesRaw.destinationVariablesCssJson,
 		resultJsonCss,
 	);
 };
 
-const ImportTypographyTokens = (binConfig: TypographyBinFiles, jsonTypography: any) => {
+export const ImportTypographyTokens = (
+	typographyConfigFile: TypographyConfigFile,
+	jsonTypography: any,
+) => {
 	let resultScss: Array<ITypographyToken> = recursiveTokensReader(jsonTypography[tokensKey], '');
 	let resultJsonCss: Dict<Array<ITypographyToken>> = {};
 	let tokensCategories: Array<string> = Object.keys(jsonTypography[tokensKey]);
@@ -140,11 +150,15 @@ const ImportTypographyTokens = (binConfig: TypographyBinFiles, jsonTypography: a
 		resultJsonCss[item.category].push(item);
 	});
 
-	arrayToMixinFile(tokensFilesConfig.destinationPath + binConfig.tokens.destination, [
-		importVariables,
-		...buildTypographyTokensMixins(resultScss.flat()),
-	]);
-	jsonToFile(tokensFilesConfig.destinationPath + binConfig.tokens.destinationJson, resultJsonCss);
+	arrayToMixinFile(
+		typographyConfigFile.destinationPath + typographyConfigFile.bin.files.tokens.destination,
+		[importVariables, ...buildTypographyTokensMixins(resultScss.flat())],
+	);
+	jsonToFile(
+		typographyConfigFile.destinationPath +
+			typographyConfigFile.bin.files.tokens.destinationJson,
+		resultJsonCss,
+	);
 };
 
 function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<string> {
@@ -173,29 +187,33 @@ function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<str
 
 const SynchronizeTypographyTokensBin = async () => {
 	console.log('Import in progress...');
-	let requestResponse = await requestForBin(tokensFilesConfig.bin);
+	const tokensFilesConfig = require('./configs/SynchronizeTypographyTokensConfig.json');
+	let requestResponse = await requestForBin(
+		tokensFilesConfig.bin,
+		tokensFilesConfig.jsonBinApiUrl,
+	);
 
 	ImportTypographyVariables(
-		tokensFilesConfig.bin.files,
+		tokensFilesConfig,
 		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);
 
 	ImportTypographyTokens(
-		tokensFilesConfig.bin.files,
+		tokensFilesConfig,
 		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);
 
 	console.log('The import was successful for bin: ' + tokensFilesConfig.bin.id);
 };
 
-const requestForBin = async (binConfig: TypographyConfigFileBin) => {
+export const requestForBin = async (binConfig: TypographyConfigFileBin, jsonBinApiUrl: string) => {
 	const requestConfig = {
 		headers: {
 			'X-Access-Key': process.env.JSON_BIN_X_MASTER_KEY,
 		},
 	};
 	const requestResponse = await axios.get(
-		tokensFilesConfig.jsonBinApiUrl + binConfig.id + '/latest',
+		jsonBinApiUrl + binConfig.id + '/latest',
 		requestConfig,
 	);
 

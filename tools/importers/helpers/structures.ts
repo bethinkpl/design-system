@@ -40,6 +40,12 @@ export interface TypographyConfigFileBin {
 	files: TypographyBinFiles;
 }
 
+export interface TypographyConfigFile {
+	destinationPath: string;
+	jsonBinApiUrl: string;
+	bin: TypographyConfigFileBin;
+}
+
 export interface ColorsBinFiles {
 	variablesRaw: {
 		destination: string;
