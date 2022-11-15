@@ -13,10 +13,10 @@ import {
 	tokensTypographyInputAttributes,
 } from './helpers/typographyVariables';
 import {
-	cssFileFirstLine,
 	mixinNameLine,
 	tokenAsCssPropertyLine,
 	closeBracketLine,
+	cssFileRootFirstLine,
 } from './helpers/modifiers';
 import * as dotenv from 'dotenv';
 import {
@@ -37,7 +37,7 @@ const ImportTypographyVariables = (binFilesConfig: TypographyBinFiles, jsonTypog
 	let resultScss: Array<string> = [];
 	let resultJsonCss: Dict<Array<IResultJsonObject>> = {};
 
-	resultCss.push(cssFileFirstLine(false, undefined));
+	resultCss.push(cssFileRootFirstLine());
 
 	for (let key in jsonTypography) {
 		if (!excludedKeys.includes(key)) {
@@ -66,7 +66,7 @@ const ImportTypographyVariables = (binFilesConfig: TypographyBinFiles, jsonTypog
 							variableKey
 						].value.replace(/[^0-9/.]/g, '');
 						const temporaryValueAsNumber: number = +temporaryValueAsString * 0.01;
-						propertyValue = temporaryValueAsNumber + '';
+						propertyValue = temporaryValueAsNumber.toString();
 						if (propertyOptions[variableKey].value !== '0') {
 							propertyValue += 'em';
 						}

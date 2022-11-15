@@ -1,6 +1,6 @@
 import { ITypographyToken } from './structures';
 
-import { camelize } from './modifiers';
+import { pascalCase } from './modifiers';
 import {
 	fontFamilyProperty,
 	fontWeightKey,
@@ -47,7 +47,6 @@ export const recursiveTokensReader = (obj, keyResult: string): Array<ITypography
 		}
 
 		let token = keyResult
-			.trim()
 			.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
 			.replace(/\s+/g, '-')
 			.toLowerCase();
@@ -56,7 +55,7 @@ export const recursiveTokensReader = (obj, keyResult: string): Array<ITypography
 				id: token.replace(/\-+/g, ''),
 				category: '',
 				token,
-				tokenCamelCase: camelize(keyResult),
+				tokenCamelCase: pascalCase(keyResult),
 				attributes,
 				attributesRaw,
 			},
@@ -66,7 +65,10 @@ export const recursiveTokensReader = (obj, keyResult: string): Array<ITypography
 	let results: Array<ITypographyToken> = [];
 	for (let key in obj) {
 		let newSuffix: string = !key.includes(tokenPartDisabled) ? key : '';
-		let temporaryKey: string = (keyResult + ' ' + newSuffix).replace(/\-+/g, ' ');
+		let temporaryKey: string = (keyResult ? keyResult + ' ' + newSuffix : newSuffix).replace(
+			/\-+/g,
+			' ',
+		);
 		let result: Array<ITypographyToken> = recursiveTokensReader(obj[key], temporaryKey);
 		results.push(...result);
 	}

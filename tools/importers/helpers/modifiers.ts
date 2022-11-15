@@ -1,13 +1,17 @@
-export const camelize = (str: string) => {
+export const pascalCase = (str: string) => {
 	return str
-		.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
-			return index === 0 ? word.toLowerCase() : word.toUpperCase();
+		.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word) {
+			return word.toUpperCase();
 		})
 		.replace(/\s+/g, '');
 };
 
 export const cssFileFirstLine = (isTheme: boolean, themeName: string | undefined) => {
-	return isTheme ? '.theme-' + themeName + ' {' : ':root {';
+	return isTheme ? '.theme-' + themeName + ' {' : cssFileRootFirstLine();
+};
+
+export const cssFileRootFirstLine = () => {
+	return ':root {';
 };
 
 export const mixinNameLine = (token: string) => {
