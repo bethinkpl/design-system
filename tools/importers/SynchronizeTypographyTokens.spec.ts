@@ -77,4 +77,39 @@ describe('Typography Tokens', () => {
 		expect(variableFileSplit.DisplayHeading[0].token).toBe('display-heading-m-regular');
 		expect(variableFileSplit.DisplayHeading[0].attributes).toContain('font-size-4xl');
 	});
+	it('unlink temporary files', async () => {
+		fs.unlink(
+			tokensFilesConfig.destinationPath +
+				tokensFilesConfig.bin.files.variablesRaw.destinationVariables,
+			(err) => {
+				if (err) throw err;
+			},
+		);
+		fs.unlink(
+			tokensFilesConfig.destinationPath +
+				tokensFilesConfig.bin.files.variablesRaw.destinationVariablesCss,
+			(err) => {
+				if (err) throw err;
+			},
+		);
+		fs.unlink(
+			tokensFilesConfig.destinationPath +
+				tokensFilesConfig.bin.files.variablesRaw.destinationVariablesCssJson,
+			(err) => {
+				if (err) throw err;
+			},
+		);
+		fs.unlink(
+			tokensFilesConfig.destinationPath + tokensFilesConfig.bin.files.tokens.destination,
+			(err) => {
+				if (err) throw err;
+			},
+		);
+		fs.unlink(
+			tokensFilesConfig.destinationPath + tokensFilesConfig.bin.files.tokens.destinationJson,
+			(err) => {
+				if (err) throw err;
+			},
+		);
+	});
 });
