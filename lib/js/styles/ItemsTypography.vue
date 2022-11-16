@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<!-- @todo fill component -->
 		<div v-for="item in items" :key="item.id" class="itemDefinition">
 			<div v-if="item.label" class="itemDefinition__label">{{ item.label }}</div>
 			<div v-if="item.value" class="itemDefinition__value">{{ item.value }}</div>
@@ -10,9 +9,7 @@
 					<strong>{{ attribute.property }}</strong
 					>:
 					<span>
-						<span v-pre>{</span>
-						{{ attribute.value }}
-						<span v-pre>}</span>
+						<template v-pre>{</template>{{ attribute.value }}<template v-pre>}</template>
 					</span>
 				</div>
 			</div>
@@ -31,11 +28,13 @@
 </style>
 
 <script lang="ts">
+import { TypographyToken } from './TokenTypes';
+
 export default {
-	name: 'ItemTypography',
+	name: 'ItemsTypography',
 	props: {
 		items: {
-			type: Array,
+      type: Array as () => Array<TypographyToken>,
 			required: true,
 		},
 	},
@@ -45,8 +44,6 @@ export default {
 			attributes.forEach((item) => {
 				result += item.property + ': var(--typography-' + item.value + ');';
 			});
-
-			console.log(result);
 
 			return result;
 		},

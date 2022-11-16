@@ -15,11 +15,13 @@
 </style>
 
 <script lang="ts">
+import { ColorToken } from './TokenTypes';
+
 export default {
-	name: 'ItemColor',
+	name: 'ItemsColor',
 	props: {
 		items: {
-			type: Array,
+			type: Array as () => Array<ColorToken>,
 			required: true,
 		},
 	},

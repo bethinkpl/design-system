@@ -1,16 +1,18 @@
+@import '../../styles/settings/spacings';
+
 .itemDefinition {
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
 	border-top: 1px solid var(--color-neutral-border-strong);
-	padding: 24px 0;
+	padding: $space-m 0;
 
 	&__id,
 	&__value,
 	&__color {
 		min-width: 200px;
-		padding: 10px;
+		padding: $space-xs;
 	}
 
 	&__color {
@@ -20,7 +22,7 @@
 	&__tile {
 		box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
 		display: block;
-		height: 40px;
+		height: $space-xl;
 		width: 100%;
 	}
 
@@ -53,10 +55,6 @@
 	&__id {
 		flex: 1 1 auto;
 		width: 200px;
-	}
-
-	&__quarter {
-		width: 25%;
 	}
 
 	&__example {

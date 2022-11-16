@@ -1,9 +1,9 @@
 import { Args, Meta, StoryFn } from '@storybook/vue';
 
 import ItemsList from './../ItemsList.vue';
-import source from '../../../styles/settings/colors/_raw-wnl.json';
-import sourceSecond from '../../../styles/settings/colors/_raw-bodywork.json';
-import { TOKENS_TYPES } from '../TokenTypes.consts';
+import rawWnlColorsList from '../../../styles/settings/colors/_raw-wnl.json';
+import rawBodyworkColorsList from '../../../styles/settings/colors/_raw-bodywork.json';
+import { TOKENS_TYPES } from '../TokenTypes';
 
 export default {
 	title: 'foundations/Colors/Theme',
@@ -21,10 +21,10 @@ export const Theme = StoryTemplate.bind({});
 
 const args = {
 	itemsLists: [
-		{ title: 'WNL', list: source, class: 'theme-wnl', disabled: 'default' },
+		{ title: 'WNL', list: rawWnlColorsList, class: 'theme-wnl', disabled: 'default' },
 		{
 			title: 'Bodywork',
-			list: sourceSecond,
+			list: rawBodyworkColorsList,
 			class: 'theme-bodywork',
 			disabled: 'default',
 		},

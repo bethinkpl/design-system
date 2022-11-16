@@ -1,9 +1,12 @@
 {
-  "destinationPath": "tools/importers/.cache/",
+  "destinationPath": "tools/importers/temp/",
   "bin":
   {
     "id": "633d96230e6a79321e1dec41",
     "files": {
+      "input": {
+        "name": "tokens.json"
+      },
       "variablesRaw": {
         "destinationVariables": "_variables.scss",
         "destinationVariablesCss": "_variables-css.scss",

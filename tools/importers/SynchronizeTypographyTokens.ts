@@ -206,7 +206,7 @@ const SynchronizeTypographyTokensBin = async () => {
 	console.log('The import was successful for bin: ' + tokensFilesConfig.bin.id);
 };
 
-export const requestForBin = async (binConfig: TypographyConfigFileBin, jsonBinApiUrl: string) => {
+const requestForBin = async (binConfig: TypographyConfigFileBin, jsonBinApiUrl: string) => {
 	const requestConfig = {
 		headers: {
 			'X-Access-Key': process.env.JSON_BIN_X_MASTER_KEY,

@@ -62,7 +62,7 @@ const ImportColorsRaw = (
 			const colorNameSplitted = colorName.split('-');
 			const category = colorNameSplitted[1] === undefined ? 'default' : colorNameSplitted[0];
 			const resultJsonObject: IResultJsonObject = {
-				id: binFilesConfig.tokens.destination + '_' + colorName,
+				id: binFilesConfig.variablesRaw.destination + '_' + colorName,
 				label: colorName,
 				value: obj.values.hex,
 			};
@@ -166,7 +166,7 @@ const ImportSingleTokenFile = (
 			const tokenNameSplitted = tokenName.split('-');
 			const category = tokenNameSplitted[2];
 			const resultJsonObject: ITokenJsonObject = {
-				id: binValues.variablesRaw.destination + '_' + tokenName,
+				id: binValues.tokens.destination + '_' + tokenName,
 				label: tokenName,
 				value:
 					obj.values.alpha == 1
