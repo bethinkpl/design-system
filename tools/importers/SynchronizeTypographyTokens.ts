@@ -209,7 +209,7 @@ const SynchronizeTypographyTokensBin = async () => {
 const requestForBin = async (binConfig: TypographyConfigFileBin, jsonBinApiUrl: string) => {
 	const requestConfig = {
 		headers: {
-			'X-Access-Key': process.env.JSON_BIN_X_MASTER_KEY,
+			'X-Access-Key': process.env.JSON_BIN_X_ACCESS_KEY,
 		},
 	};
 	const requestResponse = await axios.get(

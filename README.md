@@ -11,7 +11,7 @@ DS requires access to font-awesome PRO. Add `.npmrc` file to root catalog. File 
 
 ### JSON BIN X-Master-Key
 1. Create `.env` file in the project root folder
-2. Add key `JSON_BIN_X_MASTER_KEY`
+2. Add key `JSON_BIN_X_ACCESS_KEY`
 3. Value for the key take from https://app.passwd.team/secrets/NlslG9EzC1xGCtw9l2n0
 
 ## Developing together with other project
