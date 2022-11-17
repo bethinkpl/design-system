@@ -8,7 +8,7 @@
 						<li
 							v-for="(items, itemCategory) in itemsList.list"
 							:key="itemCategory"
-							class="itemDefinition__category"
+							class="itemsListItem__category"
 						>
 							{{ itemCategory }}
 						</li>
@@ -31,32 +31,7 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../styles/settings/spacings';
-
-.itemsList {
-	margin: 0 auto;
-	width: 80%;
-
-	&__title {
-		margin-top: 0;
-	}
-
-	&__category {
-		font-weight: var(--typography-font-weight-bold);
-		font-size: var(--typography-font-size-2xl);
-		line-height: var(--typography-line-height-3xl);
-	}
-
-	&__row {
-		border: 1px solid var(--raw-gray-100);
-		margin-bottom: $space-m;
-		padding: $space-m;
-	}
-
-	&__categories {
-		line-height: var(--typography-line-height-xl);
-	}
-}
+@import '../../styles/components/items-list';
 </style>
 
 <script lang="ts">

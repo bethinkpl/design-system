@@ -1,9 +1,7 @@
-import { WriteStream } from 'fs';
-
-const fs = require('fs');
+import { WriteStream, createWriteStream } from 'fs';
 
 export const arrayToFile = (filepath: string, content: Array<string>) => {
-	let file: WriteStream = fs.createWriteStream(filepath);
+	let file: WriteStream = createWriteStream(filepath);
 	file.on('error', function (err) {
 		console.error(err);
 	});
@@ -23,7 +21,7 @@ export const arrayToFile = (filepath: string, content: Array<string>) => {
 };
 
 export const arrayToMixinFile = (filepath: string, content: Array<string>) => {
-	let file: WriteStream = fs.createWriteStream(filepath);
+	let file: WriteStream = createWriteStream(filepath);
 	file.on('error', function (err) {
 		console.error(err);
 	});
@@ -41,7 +39,7 @@ export const arrayToMixinFile = (filepath: string, content: Array<string>) => {
 };
 
 export const jsonToFile = (filepath: string, content: Object) => {
-	let file = fs.createWriteStream(filepath);
+	let file = createWriteStream(filepath);
 	file.on('error', function (err) {
 		console.error(err);
 	});
