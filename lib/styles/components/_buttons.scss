@@ -1,10 +1,10 @@
 @import '../settings/animations';
 @import '../settings/spacings';
 @import '../settings/radiuses';
-@import '../settings/typography';
 @import '../settings/buttons';
 @import '../settings/shadows';
 @import '../settings/icons';
+@import '../settings/typography/tokens';
 
 @mixin setButtonColor($color, $color-hovered: null, $color-focused: null, $color-disabled: null) {
 	color: $color;
@@ -144,7 +144,7 @@ $button-disabled-alpha: 0.6;
 .a-button {
 	$self: &;
 
-	@include buttonM;
+	@include ButtonMBoldUppercase();
 
 	@each $color-name, $color-map in $icon-button-colors {
 		&.-color-#{$color-name} {
@@ -180,7 +180,6 @@ $button-disabled-alpha: 0.6;
 	outline: none;
 	padding: $space-xxxxs $space-s;
 	position: relative;
-	text-transform: uppercase;
 	transform-style: preserve-3d;
 	transition: color ease-in-out $default-transition-time,
 		border-color ease-in-out $default-transition-time,
@@ -219,7 +218,7 @@ $button-disabled-alpha: 0.6;
 	}
 
 	&.-large {
-		@include buttonL;
+		@include ButtonLBoldUppercase();
 
 		min-height: $button-large-min-height;
 		padding-left: $space-m;
@@ -273,7 +272,7 @@ $button-disabled-alpha: 0.6;
 	}
 
 	&.-small {
-		@include buttonS;
+		@include ButtonSBoldUppercase();
 
 		min-height: $button-small-min-height;
 	}
