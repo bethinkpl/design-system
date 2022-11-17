@@ -8,9 +8,7 @@
 				<div v-for="attribute in item.attributesRaw" :key="item.id + attribute.value">
 					<strong>{{ attribute.property }}</strong
 					>:
-					<span>
-						<template v-pre>{</template>{{ attribute.value }}<template v-pre>}</template>
-					</span>
+					<span>{ {{ attribute.value }} }</span>
 				</div>
 			</div>
 			<div v-if="item.attributes" class="itemDefinition__example">
