@@ -32,7 +32,7 @@ export default {
 	name: 'ItemsTypography',
 	props: {
 		items: {
-      type: Array as () => Array<TypographyToken>,
+			type: Array as () => Array<TypographyToken>,
 			required: true,
 		},
 	},

@@ -90,20 +90,20 @@ export default {
 			TOKENS_TYPES: Object.freeze(TOKENS_TYPES),
 		};
 	},
-  computed: {
-    getItemsLocal() {
-      this.itemsLocal.forEach((list, index) => {
-        if (list.disabled) {
-          for (let key in list.list) {
-            if (key === list.disabled) {
-              delete this.itemsLocal[index].list[key];
-            }
-          }
-        }
-      });
+	computed: {
+		getItemsLocal() {
+			this.itemsLocal.forEach((list, index) => {
+				if (list.disabled) {
+					for (let key in list.list) {
+						if (key === list.disabled) {
+							delete this.itemsLocal[index].list[key];
+						}
+					}
+				}
+			});
 
-      return this.itemsLocal;
-    }
-  },
+			return this.itemsLocal;
+		},
+	},
 };
 </script>
