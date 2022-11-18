@@ -26,13 +26,14 @@
 </style>
 
 <script lang="ts">
+import { PropType } from 'vue';
 import { TypographyToken } from './TokenTypes';
 
 export default {
 	name: 'ItemsTypography',
 	props: {
 		items: {
-			type: Array as () => Array<TypographyToken>,
+			type: Array as PropType<Array<TypographyToken>>,
 			required: true,
 		},
 	},

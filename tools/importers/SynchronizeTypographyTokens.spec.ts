@@ -1,6 +1,26 @@
 import { ImportTypographyVariables, ImportTypographyTokens } from './SynchronizeTypographyTokens';
 import { promises, unlinkSync, readFileSync } from 'fs';
-const tokensFilesConfig = require('./configs/FakeSynchronizeTypographyTokensConfig.json');
+const tokensFilesConfig = {
+	destinationPath: 'tools/importers/temp/',
+	bin: {
+		id: '633d96230e6a79321e1dec41',
+		files: {
+			input: {
+				name: 'tokens.json',
+			},
+			variablesRaw: {
+				destinationVariables: '_variables.scss',
+				destinationVariablesCss: '_variables-css.scss',
+				destinationVariablesCssJson: '_variables-css.json',
+			},
+			tokens: {
+				destination: '_tokens.scss',
+				destinationJson: '_tokens.json',
+			},
+		},
+	},
+	jsonBinApiUrl: 'https://api.jsonbin.io/v3/b/',
+};
 
 describe('Typography Tokens', () => {
 	let inputTokensRaw: Buffer = readFileSync(

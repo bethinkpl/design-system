@@ -39,6 +39,7 @@ import { TOKENS_TYPES } from './TokenTypes';
 import { Value } from '../utils/type.utils';
 import ItemsColor from './ItemsColor.vue';
 import ItemsTypography from './ItemsTypography.vue';
+import { PropType } from "vue";
 
 export default {
 	name: 'ItemsList',
@@ -48,7 +49,7 @@ export default {
 	},
 	props: {
 		itemsLists: {
-			type: Array,
+			type: Array as PropType<Array<Array<Object>>>,
 			required: true,
 		},
 		type: {
