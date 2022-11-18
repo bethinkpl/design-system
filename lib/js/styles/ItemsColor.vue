@@ -16,13 +16,13 @@
 
 <script lang="ts">
 import { ColorToken } from './TokenTypes';
-import { PropType } from "vue";
+import { PropType } from 'vue';
 
 export default {
 	name: 'ItemsColor',
 	props: {
 		items: {
-      type: Array as PropType<Array<ColorToken>>,
+			type: Array as PropType<Array<ColorToken>>,
 			required: true,
 		},
 	},
