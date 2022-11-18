@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-for="itemsList in getModifiedItemsLists" :key="itemsList.title">
+		<div v-for="itemsList in filteredItemsLists" :key="itemsList.title">
 			<div class="itemsList" :class="{ [itemsList.class]: itemsList.class }">
 				<div class="itemsList__row">
 					<h2 class="itemsList__title">{{ itemsList.title }}</h2>
@@ -60,7 +60,7 @@
 </style>
 
 <script lang="ts">
-import { TOKENS_TYPES } from './TokenTypes';
+import { ItemsListsItem, TOKENS_TYPES } from './TokenTypes';
 import { Value } from '../utils/type.utils';
 import ItemsColor from './ItemsColor.vue';
 import ItemsTypography from './ItemsTypography.vue';
@@ -74,7 +74,7 @@ export default {
 	},
 	props: {
 		itemsLists: {
-			type: Array as PropType<Array<Array<Object>>>,
+			type: Array as PropType<Array<ItemsListsItem>>,
 			required: true,
 		},
 		type: {
@@ -91,8 +91,8 @@ export default {
 		};
 	},
 	computed: {
-		getModifiedItemsLists() {
-			let itemsLocal: Array<Array<Object>> = [];
+		filteredItemsLists() {
+			let itemsLocal: Array<ItemsListsItem> = [];
 			this.itemsLists.forEach((list, index) => {
 				if (list.disabled) {
 					for (let key in list.list) {

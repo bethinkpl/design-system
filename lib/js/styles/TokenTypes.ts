@@ -1,3 +1,5 @@
+import { Dict } from '../../../tools/importers/helpers/structures';
+
 export const TOKENS_TYPES = {
 	COLORS: 'colors',
 	TYPOGRAPHY: 'typography',
@@ -21,4 +23,10 @@ export interface TypographyToken {
 	token: string;
 	attributes: Array<string>;
 	attributesRaw: Array<AttributeRaw>;
+}
+
+export interface ItemsListsItem {
+	title: string;
+	class: string;
+	list: Dict<object>;
 }
