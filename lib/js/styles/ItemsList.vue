@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-for="itemsList in getItemsLists" :key="itemsList.title">
+		<div v-for="itemsList in getModifiedItemsLists" :key="itemsList.title">
 			<div class="itemsList" :class="{ [itemsList.class]: itemsList.class }">
 				<div class="itemsList__row">
 					<h2 class="itemsList__title">{{ itemsList.title }}</h2>
@@ -66,18 +66,21 @@ export default {
 		};
 	},
 	computed: {
-		getItemsLists() {
+		getModifiedItemsLists() {
+			let itemsLocal: Array<Array<Object>> = [];
 			this.itemsLists.forEach((list, index) => {
 				if (list.disabled) {
 					for (let key in list.list) {
-						if (key === list.disabled) {
-							delete this.itemsLists[index].list[key];
+						if (key !== list.disabled) {
+							itemsLocal.push(this.itemsLists[index]);
 						}
 					}
+				} else {
+					itemsLocal.push(this.itemsLists[index]);
 				}
 			});
 
-			return this.itemsLists;
+			return itemsLocal;
 		},
 	},
 };
