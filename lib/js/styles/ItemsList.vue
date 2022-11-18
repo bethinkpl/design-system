@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-for="itemsList in getItemsLocal" :key="itemsList.title">
+		<div v-for="itemsList in getItemsLists" :key="itemsList.title">
 			<div class="itemsList" :class="{ [itemsList.class]: itemsList.class }">
 				<div class="itemsList__row">
 					<h2 class="itemsList__title">{{ itemsList.title }}</h2>
@@ -62,23 +62,22 @@ export default {
 	},
 	data() {
 		return {
-			itemsLocal: this.itemsLists,
 			TOKENS_TYPES: Object.freeze(TOKENS_TYPES),
 		};
 	},
 	computed: {
-		getItemsLocal() {
-			this.itemsLocal.forEach((list, index) => {
+		getItemsLists() {
+			this.itemsLists.forEach((list, index) => {
 				if (list.disabled) {
 					for (let key in list.list) {
 						if (key === list.disabled) {
-							delete this.itemsLocal[index].list[key];
+							delete this.itemsLists[index].list[key];
 						}
 					}
 				}
 			});
 
-			return this.itemsLocal;
+			return this.itemsLists;
 		},
 	},
 };
