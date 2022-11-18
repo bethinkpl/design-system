@@ -62,7 +62,7 @@
 @import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/typography/tokens';
 
 @mixin setIconButtonAdditions($ripple: null, $border: null, $icon: null) {
 	@if $ripple != null {
@@ -175,10 +175,9 @@
 	}
 
 	&__label {
-		@include buttonM;
+		@include ButtonMBoldUppercase();
 
 		display: none;
-		font-weight: bold;
 		margin-right: $space-xs;
 		text-transform: uppercase;
 
@@ -227,7 +226,7 @@
 		}
 
 		#{$self}__label {
-			@include buttonXS;
+			@include ButtonXSBoldUppercase();
 		}
 	}
 
@@ -238,7 +237,7 @@
 		}
 
 		#{$self}__label {
-			@include buttonXS;
+			@include ButtonXSBoldUppercase();
 		}
 	}
 
@@ -249,7 +248,7 @@
 		}
 
 		#{$self}__label {
-			@include buttonS;
+			@include ButtonSBoldUppercase();
 		}
 	}
 
@@ -258,6 +257,9 @@
 			height: $icon-button-large-size;
 			width: $icon-button-large-size;
 		}
+    #{$self}__label {
+      @include ButtonLBoldUppercase();
+    }
 	}
 
 	&.-touchable {

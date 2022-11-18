@@ -37,10 +37,10 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 
 .popOver {
 	background-color: $color-default-background;
@@ -120,7 +120,7 @@
 	}
 
 	&__content {
-		@include textM;
+		@include TextMRegular();
 
 		color: $color-neutral-text-heavy;
 		padding: $space-s;
@@ -129,10 +129,9 @@
 	}
 
 	&__title {
-		@include headlineS;
+		@include HeadingMBold();
 
 		color: $color-default-text;
-		font-weight: bold;
 		margin-bottom: $space-xxs;
 	}
 

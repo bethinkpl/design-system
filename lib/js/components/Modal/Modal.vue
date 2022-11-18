@@ -30,18 +30,19 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/z-indexes';
-@import '../../../styles/settings/typography';
+
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 .m-modal {
+  @include TextLRegular();
+
 	align-items: center;
 	background-color: rgba(10, 10, 10, 0.85);
 	bottom: 0;
 	display: flex;
-	font-size: $font-size-text-l;
 	justify-content: center;
 	left: 0;
-	line-height: $line-height-text-l;
 	position: fixed;
 	right: 0;
 	top: 0;
@@ -66,6 +67,8 @@
 	}
 
 	&__header {
+    @include DisplayHeadingXSRegular();
+
 		align-items: center;
 		box-shadow: 0 $space-xxxxs $space-xxxxs var(--raw-white);
 		display: flex;

@@ -14,16 +14,17 @@
 @import '../../../styles/settings/icons';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 .a-numberInCircle {
+  @include Label2XLRegular();
+
 	align-items: center;
 	border-radius: 50%;
 	border-width: 1px;
 	border-style: solid;
 	display: inline-flex;
-	font-size: $font-size-headline-m;
 	height: $icon-xl;
 	justify-content: center;
 	line-height: 1;
@@ -32,7 +33,6 @@
 	text-align: center;
 
 	@media #{breakpoint-s()} {
-		font-size: $font-size-headline-xl;
 		height: $icon-xxl;
 		min-width: $icon-xxl;
 	}
@@ -78,8 +78,9 @@
 	}
 
 	&.-medium {
+    @include LabelMRegular();
+
 		height: $icon-l;
-		font-size: $font-size-text-m;
 		min-width: $icon-l;
 	}
 }

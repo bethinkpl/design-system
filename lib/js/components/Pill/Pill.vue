@@ -25,10 +25,11 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
+$pill-min-height: 16px;
 $pill-colors: (
 	'neutral': (
 		'label': $color-neutral-text-strong,
@@ -95,7 +96,7 @@ $pill-colors: (
 	padding: $space-xxxxxs $space-xxxxxs $space-xxxxxs $space-xxs;
 
 	&__label {
-		@include textInfoM;
+		@include LabelSBold();
 
 		font-weight: bold;
 		overflow: hidden;
@@ -110,13 +111,14 @@ $pill-colors: (
 
 	&.-x-small {
 		padding-left: $space-xxxs;
+    min-height: $pill-min-height;
 
 		#{$self}__leftIcon {
 			margin-right: $space-xxxxxs;
 		}
 
 		#{$self}__label {
-			@include textInfoS;
+      @include LabelXSBold();
 
 			margin: 0 $space-xxxxs 0 0;
 		}

@@ -14,17 +14,17 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 
+$badge-min-height: 20px;
+
 .badge {
   align-items: center;
 	border-radius: $radius-s;
 	display: flex;
-  min-height: 20px;
+  min-height: $badge-min-height;
 	padding: $space-xxxxs $space-xxs;
 
 	&__label {
-		@include LabelXSBold();
-
-		text-transform: uppercase;
+		@include LabelXSBoldUppercase();
 	}
 
 	&.-neutral {

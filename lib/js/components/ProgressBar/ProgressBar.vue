@@ -49,9 +49,9 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/shadows';
 
 $progress-bar-height: 16px;
@@ -145,7 +145,7 @@ $progress-bar-layers: (
 
 	&.-compact {
 		#{$self}__labelText {
-			@include headlineXXS();
+			@include FormLabelSBold();
 		}
 		#{$self}__label {
 			margin-bottom: $space-xxxs;
@@ -164,8 +164,11 @@ $progress-bar-layers: (
 		}
 
 		&.-xsmall {
-			box-shadow: $shadow-inset-s;
 			height: $progress-bar-xs-height;
+
+      &::after {
+        box-shadow: $shadow-inset-s;
+      }
 		}
 
 		&.-noRadius {
@@ -191,25 +194,23 @@ $progress-bar-layers: (
 		margin-bottom: $space-xxxs;
 
 		@media #{breakpoint-s()} {
-			margin-bottom: $space-xxs;
+			margin-bottom: $space-xxxs;
 		}
 	}
 
 	&__labelText {
-		@include headlineXXS();
-		@include textBold;
+		@include FormLabelSBold();
 
 		color: $color-neutral-text-heavy;
 		max-width: $progress-bar-label-text-max-width;
 
 		@media #{breakpoint-s()} {
-			@include headlineXS();
+      @include LabelLBold();
 		}
 	}
 
 	&__labelDataWrapper {
-		@include textS();
-		@include textBold;
+    @include LabelMBold();
 
 		align-items: baseline;
 		color: $color-neutral-text-heavy;
@@ -217,6 +218,7 @@ $progress-bar-layers: (
 		flex-wrap: wrap;
 		justify-content: right;
 		margin-left: $space-xxs;
+    margin-bottom: $space-xxxxxs;
 		max-width: $progress-bar-label-data-max-width;
 	}
 
@@ -231,7 +233,7 @@ $progress-bar-layers: (
 	}
 
 	&__labelDataSuffix {
-		@include textXS;
+		@include LabelSRegular();
 
 		color: $color-neutral-text-weak;
 		margin-left: $space-xxxxs;
