@@ -98,7 +98,6 @@ $pill-colors: (
 	&__label {
 		@include LabelSBold();
 
-		font-weight: bold;
 		overflow: hidden;
 		margin: $space-xxxxxs $space-xxxs $space-xxxxxs 0;
 		text-overflow: ellipsis;

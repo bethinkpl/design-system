@@ -179,7 +179,6 @@
 
 		display: none;
 		margin-right: $space-xs;
-		text-transform: uppercase;
 
 		@media #{breakpoint-s()} {
 			display: initial;

@@ -182,8 +182,7 @@ $tile-colors: (
 		@include InfoMBold();
 
 		&.-uppercase {
-			/* @todo Add InfoMBoldUppercase when it appears in JSON */
-			@include InfoMBold();
+			@include InfoMExtensiveBoldUppercase();
 		}
 	}
 

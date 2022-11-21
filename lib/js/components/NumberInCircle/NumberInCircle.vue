@@ -27,7 +27,6 @@
 	display: inline-flex;
 	height: $icon-xl;
 	justify-content: center;
-	line-height: 1;
 	min-width: $icon-xl;
 	padding: 0 $space-xxxs;
 	text-align: center;

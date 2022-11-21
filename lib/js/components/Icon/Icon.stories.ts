@@ -12,7 +12,10 @@ const StoryTemplate: StoryFn<typeof Icon> = (argTypes) => ({
 	components: { Icon },
 	props: Object.keys(argTypes),
 	template:
-		'<div class="iconList__singleIcon"><wnl-icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
+		'<div class="iconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
+	created() {
+		this.ICONS = ICONS;
+	},
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -51,3 +54,22 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34963',
 	},
 };
+
+const StoryAllIconsTemplate: StoryFn<typeof Icon> = (argTypes) => ({
+	components: { Icon },
+	props: Object.keys(argTypes),
+	template:
+		'<div class="iconList">' +
+		'<div v-for="(icon, iconName) in ICONS" :key="iconName" class="iconList__icon">' +
+		'<icon :icon="icon" />' +
+		'<div>{{iconName}}</div>' +
+		'</div>' +
+		'</div>',
+	created() {
+		this.ICONS = ICONS;
+	},
+});
+
+export const AllIcons = StoryAllIconsTemplate.bind({});
+AllIcons.argTypes = argTypes;
+AllIcons.args = args;
