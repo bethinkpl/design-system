@@ -11,9 +11,9 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/icons';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 $tab-item-width: (2 * $space-s) + $icon-xs;
 

@@ -36,10 +36,10 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 $tile-colors: (
 	'neutral': (
@@ -163,7 +163,7 @@ $tile-colors: (
 	}
 
 	&__additionalText {
-		@include textXS;
+		@include InfoSRegular();
 
 		color: $color-neutral-text;
 		flex-grow: 1;
@@ -173,26 +173,25 @@ $tile-colors: (
 	}
 
 	&__center {
-		@include textBold;
-
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
 	}
 
 	&__eyebrowText {
-		@include textS;
+		@include InfoMBold();
 
 		&.-uppercase {
-			text-transform: uppercase;
+      /* @todo Add InfoMBoldUppercase when it appears in JSON */
+			@include InfoMBold();
 		}
 	}
 
 	&__text {
-		@include textM;
+		@include TextMBold();
 
 		color: $color-neutral-text-heavy;
-		margin-top: $space-xxxxxs;
+		margin-top: $space-xxxxs;
 	}
 
 	&__iconLeft {

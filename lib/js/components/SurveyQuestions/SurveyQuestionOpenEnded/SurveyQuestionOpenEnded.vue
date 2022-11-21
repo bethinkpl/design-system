@@ -47,13 +47,11 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/buttons';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 
 .surveyQuestionOpenEnded {
 	&__header {
-		@include headlineS();
-
 		display: flex;
 		// header without explanation iconButton has to be the same size as with iconButton
 		min-height: $icon-button-medium-size;
@@ -62,6 +60,8 @@
 	}
 
 	&__title {
+    @include HeadingMRegular();
+
 		align-self: center;
 	}
 

@@ -38,8 +38,8 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/animations';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/shadows';
 
@@ -103,7 +103,7 @@ $toggle-button-colors: (
 }
 
 .toggleButton {
-	@include headlineXS;
+	@include LabelLBold();
 
 	@each $color-name, $color-map in $toggle-button-colors {
 		&.-color-#{$color-name} {
@@ -157,7 +157,6 @@ $toggle-button-colors: (
 	// value it big enough to make circle when text is short
 	border-radius: 100px;
 	display: flex;
-	font-weight: bold;
 	justify-content: center;
 	min-height: $toggle-button-size-medium;
 	min-width: $toggle-button-size-medium;

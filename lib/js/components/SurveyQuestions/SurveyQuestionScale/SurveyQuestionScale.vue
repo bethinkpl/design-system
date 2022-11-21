@@ -82,12 +82,12 @@
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 
 .surveyQuestionScale {
 	&__header {
-		@include headlineS();
+		@include HeadingMRegular();
 
 		display: flex;
 		// title without explanation iconButton has to be the same size as with iconButton
@@ -149,7 +149,7 @@
 	}
 
 	&__elaborationLabel {
-		@include headlineXS();
+		@include FormLabelMRegular();
 	}
 
 	&__elaborationInput {

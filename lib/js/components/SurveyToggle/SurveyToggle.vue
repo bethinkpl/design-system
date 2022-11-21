@@ -35,8 +35,8 @@
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 $survey-toggle-size: 48px;
 
@@ -199,8 +199,7 @@ $survey-toggle-colors: (
 	}
 
 	&__content {
-		@include headlineXS();
-		@include textBold();
+		@include LabelLBold();
 
 		transition: color ease-in-out $default-transition-time;
 	}
@@ -211,8 +210,7 @@ $survey-toggle-colors: (
 	}
 
 	&__label {
-		@include textInfoS();
-		@include textBold();
+		@include LabelXSBold();
 
 		color: $color-neutral-text;
 		text-align: center;
@@ -221,9 +219,7 @@ $survey-toggle-colors: (
 		max-width: 100%;
 
 		@media #{breakpoint-s()} {
-			@include textInfoM();
-
-			font-weight: normal;
+      @include LabelXSRegular();
 		}
 	}
 }
