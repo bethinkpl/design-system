@@ -13,7 +13,8 @@ const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes) => ({
 	components: { SurveyQuestionScale },
 	props: Object.keys(argTypes),
 	data() {
-		return { selectedValue: null, elaborationData: this.elaborationValue };
+		/* @todo revert elaborationData */
+		return { selectedValue: null };
 	},
 	watch: {
 		elaborationValue() {
@@ -95,7 +96,8 @@ const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes
 	components: { SurveyQuestionScale },
 	props: Object.keys(argTypes),
 	data() {
-		return { selectedValue: null, elaborationData: this.elaboration };
+		/* @todo revert elaborationData */
+		return { selectedValue: null };
 	},
 	watch: {
 		elaboration() {

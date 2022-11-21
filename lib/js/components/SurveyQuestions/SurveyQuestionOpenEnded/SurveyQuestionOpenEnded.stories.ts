@@ -12,7 +12,8 @@ const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (argTypes) => ({
 	components: { SurveyQuestionOpenEnded },
 	props: Object.keys(argTypes),
 	data() {
-		return { valueData: this.value };
+		/* @todo revert valueData */
+		return {};
 	},
 	watch: {
 		value() {
