@@ -219,7 +219,7 @@ $survey-toggle-colors: (
 		max-width: 100%;
 
 		@media #{breakpoint-s()} {
-      @include LabelXSRegular();
+			@include LabelXSRegular();
 		}
 	}
 }

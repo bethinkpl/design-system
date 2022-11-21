@@ -30,12 +30,11 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/z-indexes';
-
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 
 .m-modal {
-  @include TextLRegular();
+	@include TextLRegular();
 
 	align-items: center;
 	background-color: rgba(10, 10, 10, 0.85);
@@ -67,7 +66,7 @@
 	}
 
 	&__header {
-    @include DisplayHeadingXSRegular();
+		@include DisplayHeadingXSRegular();
 
 		align-items: center;
 		box-shadow: 0 $space-xxxxs $space-xxxxs var(--raw-white);

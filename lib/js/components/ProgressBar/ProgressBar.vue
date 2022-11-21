@@ -166,9 +166,9 @@ $progress-bar-layers: (
 		&.-xsmall {
 			height: $progress-bar-xs-height;
 
-      &::after {
-        box-shadow: $shadow-inset-s;
-      }
+			&::after {
+				box-shadow: $shadow-inset-s;
+			}
 		}
 
 		&.-noRadius {
@@ -205,12 +205,12 @@ $progress-bar-layers: (
 		max-width: $progress-bar-label-text-max-width;
 
 		@media #{breakpoint-s()} {
-      @include LabelLBold();
+			@include LabelLBold();
 		}
 	}
 
 	&__labelDataWrapper {
-    @include LabelMBold();
+		@include LabelMBold();
 
 		align-items: baseline;
 		color: $color-neutral-text-heavy;
@@ -218,7 +218,7 @@ $progress-bar-layers: (
 		flex-wrap: wrap;
 		justify-content: right;
 		margin-left: $space-xxs;
-    margin-bottom: $space-xxxxxs;
+		margin-bottom: $space-xxxxxs;
 		max-width: $progress-bar-label-data-max-width;
 	}
 

@@ -17,10 +17,10 @@
 $badge-min-height: 20px;
 
 .badge {
-  align-items: center;
+	align-items: center;
 	border-radius: $radius-s;
 	display: flex;
-  min-height: $badge-min-height;
+	min-height: $badge-min-height;
 	padding: $space-xxxxs $space-xxs;
 
 	&__label {

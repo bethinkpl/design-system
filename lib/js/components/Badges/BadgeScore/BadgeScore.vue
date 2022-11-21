@@ -130,23 +130,23 @@ $badge-score-colors: (
 	}
 
 	&.-small {
-    @include LabelXLBold();
+		@include LabelXLBold();
 
 		padding: $space-xxs $space-xxs;
 		min-width: $badge-score-small-min-width;
 		#{$self}__suffix {
-      @include LabelLBold();
+			@include LabelLBold();
 		}
 	}
 
 	&.-xsmall {
-    @include LabelSBold();
+		@include LabelSBold();
 
 		min-width: $badge-score-x-small-min-width;
 		padding: $space-xxxs;
 
 		#{$self}__suffix {
-      @include LabelSBold();
+			@include LabelSBold();
 		}
 	}
 

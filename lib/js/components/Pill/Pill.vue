@@ -111,14 +111,14 @@ $pill-colors: (
 
 	&.-x-small {
 		padding-left: $space-xxxs;
-    min-height: $pill-min-height;
+		min-height: $pill-min-height;
 
 		#{$self}__leftIcon {
 			margin-right: $space-xxxxxs;
 		}
 
 		#{$self}__label {
-      @include LabelXSBold();
+			@include LabelXSBold();
 
 			margin: 0 $space-xxxxs 0 0;
 		}

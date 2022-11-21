@@ -257,9 +257,9 @@
 			height: $icon-button-large-size;
 			width: $icon-button-large-size;
 		}
-    #{$self}__label {
-      @include ButtonLBoldUppercase();
-    }
+		#{$self}__label {
+			@include ButtonLBoldUppercase();
+		}
 	}
 
 	&.-touchable {

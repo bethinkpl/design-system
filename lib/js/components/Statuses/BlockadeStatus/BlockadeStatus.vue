@@ -30,7 +30,7 @@
 	}
 
 	&__text {
-    @include LabelSBoldUppercase();
+		@include LabelSBoldUppercase();
 	}
 }
 </style>

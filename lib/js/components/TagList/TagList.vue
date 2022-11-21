@@ -41,29 +41,27 @@
 		}
 	}
 
-  &__icon {
-    margin-right: $space-xxxs;
-  }
+	&__icon {
+		margin-right: $space-xxxs;
+	}
 
 	&.-xSmall {
 		@include LabelSRegular();
-    #{$root}__icon {
-      margin-right: $space-xxxxs;
-    }
+		#{$root}__icon {
+			margin-right: $space-xxxxs;
+		}
 	}
 
 	&.-small {
 		@include LabelMRegular();
-    #{$root}__icon {
-      margin-top: $space-xxxxxs;
-    }
+		#{$root}__icon {
+			margin-top: $space-xxxxxs;
+		}
 	}
 
 	&.-medium {
 		@include LabelLRegular();
 	}
-
-
 }
 </style>
 
@@ -111,13 +109,13 @@ export default {
 		tagNamesConcatenated(): string {
 			return this.tagNames.join(', ');
 		},
-    iconSize(): string {
-      if ([TAG_LIST_SIZES.SMALL, TAG_LIST_SIZES.X_SMALL].includes(this.size)) {
-        return ICON_SIZES.XX_SMALL;
-      }
+		iconSize(): string {
+			if ([TAG_LIST_SIZES.SMALL, TAG_LIST_SIZES.X_SMALL].includes(this.size)) {
+				return ICON_SIZES.XX_SMALL;
+			}
 
-      return ICON_SIZES.X_SMALL;
-    },
-  },
+			return ICON_SIZES.X_SMALL;
+		},
+	},
 };
 </script>
