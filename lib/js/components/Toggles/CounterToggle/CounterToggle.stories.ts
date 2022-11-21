@@ -20,7 +20,7 @@ const StoryTemplate: StoryFn<typeof CounterToggle> = (argTypes) => ({
 		this.ICONS = ICONS;
 	},
 	computed: {
-		isInverted () {
+		isInverted() {
 			return this.color === 'inverted';
 		},
 	},
