@@ -15,6 +15,7 @@
 
 // Mixins
 @import 'mixins/layout';
+@import 'mixins/scrollbars';
 
 // Components
 @import 'components/buttons';
@@ -48,8 +49,17 @@ textarea {
 	font-family: $font-family;
 }
 
+html.thick-scrollbar {
+	@include scrollbar(15px, var(--raw-gray-100));
+}
+
 html {
 	box-sizing: border-box;
+
+	// Scrollbars
+	@include scrollbar(2px, var(--raw-gray-100));
+
+	overflow-y: auto; // Without this style, we always display a scrollbar that covers the scrollbar in a container that is full-width. eg. scrollable-main-container
 }
 
 *,

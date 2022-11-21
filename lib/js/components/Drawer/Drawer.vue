@@ -1,8 +1,27 @@
 <template>
-	<div class="drawer" :class="{ [positionClassName]: true }">
-		<slot name="header" />
-		<slot />
-		<slot name="footer" />
+	<div class="drawer scrollable-container" :class="{ [positionClassName]: true }">
+		<div v-if="$slots.header && stickyHeader" class="drawer__header">
+			<slot name="header" />
+		</div>
+		<div
+			class="drawer__content"
+			:class="{
+				'scrollable-container': stickyHeader || stickyFooter,
+				'-scrollable': stickyHeader || stickyFooter,
+				'-fullHeight': stickyFooter,
+			}"
+		>
+			<div v-if="$slots.header && !stickyHeader" class="drawer__header">
+				<slot name="header" />
+			</div>
+			<slot />
+			<div v-if="$slots.footer && !stickyFooter" class="drawer__footer">
+				<slot name="footer" />
+			</div>
+		</div>
+		<div v-if="$slots.footer && stickyFooter" class="drawer__footer">
+			<slot name="footer" />
+		</div>
 	</div>
 </template>
 
@@ -14,7 +33,10 @@
 	border-color: $color-neutral-border-weak;
 	border-style: solid;
 	border-width: 0;
+	display: flex;
+	flex-direction: column;
 	height: 100%;
+	overflow-y: auto;
 
 	@media #{breakpoint-s()} {
 		&.-positionLeft {
@@ -23,6 +45,21 @@
 
 		&.-positionRight {
 			border-left-width: 1px;
+		}
+	}
+
+	&__header,
+	&__footer {
+		flex-shrink: 0;
+	}
+
+	&__content {
+		&.-scrollable {
+			overflow-y: auto;
+		}
+
+		&.-fullHeight {
+			flex-grow: 1;
 		}
 	}
 }
@@ -42,6 +79,14 @@ export default {
 			validate(position) {
 				return Object.values(DRAWER_POSITIONS).includes(position);
 			},
+		},
+		stickyHeader: {
+			type: Boolean,
+			default: true,
+		},
+		stickyFooter: {
+			type: Boolean,
+			default: true,
 		},
 	},
 	computed: {
