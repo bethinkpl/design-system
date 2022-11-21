@@ -1,0 +1,27 @@
+export const pascalCase = (str: string) => {
+	return str
+		.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word) {
+			return word.toUpperCase();
+		})
+		.replace(/\s+/g, '');
+};
+
+export const cssFileFirstLine = (isTheme: boolean, themeName: string | undefined) => {
+	return isTheme ? '.theme-' + themeName + ' {' : cssFileRootFirstLine();
+};
+
+export const cssFileRootFirstLine = () => {
+	return ':root {';
+};
+
+export const mixinNameLine = (token: string) => {
+	return '\n@mixin ' + token + '() {';
+};
+
+export const tokenAsCssPropertyLine = (token: string) => {
+	return '--token: ' + token + ';\n';
+};
+
+export const closeBracketLine = () => {
+	return '}';
+};

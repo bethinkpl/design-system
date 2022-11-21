@@ -9,6 +9,11 @@ DS requires access to font-awesome PRO. Add `.npmrc` file to root catalog. File 
 //npm.fontawesome.com/:_authToken=<TOKEN>
 ```
 
+### JSON BIN X-Master-Key
+1. Create `.env` file in the project root folder
+2. Add key `JSON_BIN_X_ACCESS_KEY`
+3. Value for the key take from https://app.passwd.team/secrets/NlslG9EzC1xGCtw9l2n0
+
 ## Developing together with other project
 > For development, a package can be linked into another project. This is often useful to test out new features or when trying to debug an issue in a package that manifests itself in another project.
 

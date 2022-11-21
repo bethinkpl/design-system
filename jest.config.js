@@ -8,7 +8,7 @@ module.exports = {
 		'^design-system/images/(.*)$': '<rootDir>/lib/images/$1',
 		'vue-ripple-directive': '<rootDir>/lib/js/tests/emptyModule.ts',
 	},
-	testMatch: ['<rootDir>/lib/js/**/*.spec.ts'],
+	testMatch: ['<rootDir>/lib/js/**/*.spec.ts', '<rootDir>/tools/importers/*.spec.ts'],
 	transform: {
 		'^.+\\.js$': 'babel-jest',
 		'^.+\\.ts$': 'ts-jest',

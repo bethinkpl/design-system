@@ -1,0 +1,3181 @@
+@import 'variables';
+
+@mixin DisplayHeadingMRegular() {
+	--token: display-heading-m-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xl;
+	font-size: $typography-font-size-4xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin DisplayHeadingMBold() {
+	--token: display-heading-m-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xl;
+	font-size: $typography-font-size-4xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin DisplayHeadingSRegular() {
+	--token: display-heading-s-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xl;
+	font-size: $typography-font-size-3xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin DisplayHeadingSBold() {
+	--token: display-heading-s-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xl;
+	font-size: $typography-font-size-3xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin DisplayHeadingXSRegular() {
+	--token: display-heading-xs-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-2xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin DisplayHeadingXSBold() {
+	--token: display-heading-xs-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-2xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin PageHeadingMBold() {
+	--token: page-heading-m-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin PageHeadingSBold() {
+	--token: page-heading-s-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingXLRegular() {
+	--token: heading-xl-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xl;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingXLRegularUppercase() {
+	--token: heading-xl-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xl;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin HeadingXLBold() {
+	--token: heading-xl-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xl;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingXLBoldUppercase() {
+	--token: heading-xl-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xl;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin HeadingLRegular() {
+	--token: heading-l-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingLRegularUppercase() {
+	--token: heading-l-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin HeadingLBold() {
+	--token: heading-l-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingLBoldUppercase() {
+	--token: heading-l-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin HeadingMRegular() {
+	--token: heading-m-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingMRegularUppercase() {
+	--token: heading-m-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin HeadingMBold() {
+	--token: heading-m-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingMBoldUppercase() {
+	--token: heading-m-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin HeadingSRegular() {
+	--token: heading-s-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingSRegularUppercase() {
+	--token: heading-s-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin HeadingSBold() {
+	--token: heading-s-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingSBoldUppercase() {
+	--token: heading-s-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin HeadingXSRegular() {
+	--token: heading-xs-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingXSRegularUppercase() {
+	--token: heading-xs-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin HeadingXSBold() {
+	--token: heading-xs-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin HeadingXSBoldUppercase() {
+	--token: heading-xs-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextXLRegular() {
+	--token: text-xl-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLRegularItalic() {
+	--token: text-xl-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLRegularUnderlined() {
+	--token: text-xl-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLRegularUppercase() {
+	--token: text-xl-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextXLBold() {
+	--token: text-xl-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLBoldItalic() {
+	--token: text-xl-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLBoldUnderlined() {
+	--token: text-xl-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLBoldUppercase() {
+	--token: text-xl-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextXLCompactRegular() {
+	--token: text-xl-compact-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLCompactRegularItalic() {
+	--token: text-xl-compact-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLCompactRegularUnderlined() {
+	--token: text-xl-compact-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLCompactRegularUppercase() {
+	--token: text-xl-compact-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextXLCompactBold() {
+	--token: text-xl-compact-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLCompactBoldItalic() {
+	--token: text-xl-compact-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLCompactBoldUnderlined() {
+	--token: text-xl-compact-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextXLCompactBoldUppercase() {
+	--token: text-xl-compact-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextLRegular() {
+	--token: text-l-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLRegularItalic() {
+	--token: text-l-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLRegularUnderlined() {
+	--token: text-l-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLRegularUppercase() {
+	--token: text-l-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextLBold() {
+	--token: text-l-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLBoldItalic() {
+	--token: text-l-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLBoldUnderlined() {
+	--token: text-l-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLBoldUppercase() {
+	--token: text-l-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextLCompactRegular() {
+	--token: text-l-compact-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLCompactRegularItalic() {
+	--token: text-l-compact-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLCompactRegularUnderlined() {
+	--token: text-l-compact-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLCompactRegularUppercase() {
+	--token: text-l-compact-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextLCompactBold() {
+	--token: text-l-compact-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLCompactBoldItalic() {
+	--token: text-l-compact-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLCompactBoldUnderlined() {
+	--token: text-l-compact-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextLCompactBoldUppercase() {
+	--token: text-l-compact-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextMRegular() {
+	--token: text-m-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMRegularItalic() {
+	--token: text-m-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMRegularUnderlined() {
+	--token: text-m-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMRegularUppercase() {
+	--token: text-m-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextMBold() {
+	--token: text-m-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMBoldItalic() {
+	--token: text-m-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMBoldUnderlined() {
+	--token: text-m-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMBoldUppercase() {
+	--token: text-m-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextMCompactRegular() {
+	--token: text-m-compact-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMCompactRegularItalic() {
+	--token: text-m-compact-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMCompactRegularUnderlined() {
+	--token: text-m-compact-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMCompactRegularUppercase() {
+	--token: text-m-compact-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextMCompactBold() {
+	--token: text-m-compact-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMCompactBoldItalic() {
+	--token: text-m-compact-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMCompactBoldUnderlined() {
+	--token: text-m-compact-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextMCompactBoldUppercase() {
+	--token: text-m-compact-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextSRegular() {
+	--token: text-s-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSRegularItalic() {
+	--token: text-s-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSRegularUnderlined() {
+	--token: text-s-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSRegularUppercase() {
+	--token: text-s-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextSBold() {
+	--token: text-s-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSBoldItalic() {
+	--token: text-s-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSBoldUnderlined() {
+	--token: text-s-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSBoldUppercase() {
+	--token: text-s-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextSCompactRegular() {
+	--token: text-s-compact-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSCompactRegularItalic() {
+	--token: text-s-compact-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSCompactRegularUnderlined() {
+	--token: text-s-compact-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSCompactRegularUppercase() {
+	--token: text-s-compact-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin TextSCompactBold() {
+	--token: text-s-compact-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSCompactBoldItalic() {
+	--token: text-s-compact-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSCompactBoldUnderlined() {
+	--token: text-s-compact-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin TextSCompactBoldUppercase() {
+	--token: text-s-compact-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoXLRegular() {
+	--token: info-xl-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXLRegularItalic() {
+	--token: info-xl-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXLBold() {
+	--token: info-xl-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXLBoldItalic() {
+	--token: info-xl-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXLExtensiveRegular() {
+	--token: info-xl-extensive-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXLExtensiveRegularItalic() {
+	--token: info-xl-extensive-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXLExtensiveRegularUppercase() {
+	--token: info-xl-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoXLExtensiveBold() {
+	--token: info-xl-extensive-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXLExtensiveBoldItalic() {
+	--token: info-xl-extensive-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXLExtensiveBoldUppercase() {
+	--token: info-xl-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoLRegular() {
+	--token: info-l-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoLRegularItalic() {
+	--token: info-l-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoLBold() {
+	--token: info-l-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoLBoldItalic() {
+	--token: info-l-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoLExtensiveRegular() {
+	--token: info-l-extensive-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoLExtensiveRegularItalic() {
+	--token: info-l-extensive-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoLExtensiveRegularUppercase() {
+	--token: info-l-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoLExtensiveBold() {
+	--token: info-l-extensive-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoLExtensiveBoldItalic() {
+	--token: info-l-extensive-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoLExtensiveBoldUppercase() {
+	--token: info-l-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoMRegular() {
+	--token: info-m-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoMRegularItalic() {
+	--token: info-m-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoMBold() {
+	--token: info-m-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoMBoldItalic() {
+	--token: info-m-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoMExtensiveRegular() {
+	--token: info-m-extensive-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoMExtensiveRegularItalic() {
+	--token: info-m-extensive-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoMExtensiveRegularUppercase() {
+	--token: info-m-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoMExtensiveBold() {
+	--token: info-m-extensive-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoMExtensiveBoldItalic() {
+	--token: info-m-extensive-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoMExtensiveBoldUppercase() {
+	--token: info-m-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoSRegular() {
+	--token: info-s-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoSRegularItalic() {
+	--token: info-s-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoSBold() {
+	--token: info-s-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoSBoldItalic() {
+	--token: info-s-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoSExtensiveRegular() {
+	--token: info-s-extensive-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoSExtensiveRegularItalic() {
+	--token: info-s-extensive-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoSExtensiveRegularUppercase() {
+	--token: info-s-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoSExtensiveBold() {
+	--token: info-s-extensive-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoSExtensiveBoldItalic() {
+	--token: info-s-extensive-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoSExtensiveBoldUppercase() {
+	--token: info-s-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoXSRegular() {
+	--token: info-xs-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXSRegularItalic() {
+	--token: info-xs-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXSBold() {
+	--token: info-xs-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXSBoldItalic() {
+	--token: info-xs-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-m;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXSExtensiveRegular() {
+	--token: info-xs-extensive-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXSExtensiveRegularItalic() {
+	--token: info-xs-extensive-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXSExtensiveRegularUppercase() {
+	--token: info-xs-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin InfoXSExtensiveBold() {
+	--token: info-xs-extensive-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXSExtensiveBoldItalic() {
+	--token: info-xs-extensive-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin InfoXSExtensiveBoldUppercase() {
+	--token: info-xs-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin FormLabelLRegular() {
+	--token: form-label-l-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormLabelLRegularItalic() {
+	--token: form-label-l-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormLabelLBold() {
+	--token: form-label-l-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormLabelMRegular() {
+	--token: form-label-m-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormLabelMRegularItalic() {
+	--token: form-label-m-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormLabelMBold() {
+	--token: form-label-m-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormLabelSRegular() {
+	--token: form-label-s-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormLabelSRegularItalic() {
+	--token: form-label-s-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormLabelSBold() {
+	--token: form-label-s-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextXLRegular() {
+	--token: form-text-xl-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xl;
+	font-size: $typography-font-size-5xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextXLRegularItalic() {
+	--token: form-text-xl-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-5xl;
+	font-size: $typography-font-size-5xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextXLBold() {
+	--token: form-text-xl-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xl;
+	font-size: $typography-font-size-5xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextXLBoldItalic() {
+	--token: form-text-xl-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-5xl;
+	font-size: $typography-font-size-5xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextXLExtensiveRegular() {
+	--token: form-text-xl-extensive-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-6xl;
+	font-size: $typography-font-size-5xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextXLExtensiveRegularItalic() {
+	--token: form-text-xl-extensive-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-6xl;
+	font-size: $typography-font-size-5xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextXLExtensiveBold() {
+	--token: form-text-xl-extensive-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-6xl;
+	font-size: $typography-font-size-5xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextXLExtensiveBoldItalic() {
+	--token: form-text-xl-extensive-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-6xl;
+	font-size: $typography-font-size-5xl;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextLRegular() {
+	--token: form-text-l-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextLRegularItalic() {
+	--token: form-text-l-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextLBold() {
+	--token: form-text-l-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextLBoldItalic() {
+	--token: form-text-l-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextLExtensiveRegular() {
+	--token: form-text-l-extensive-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextLExtensiveRegularItalic() {
+	--token: form-text-l-extensive-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextLExtensiveBold() {
+	--token: form-text-l-extensive-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextLExtensiveBoldItalic() {
+	--token: form-text-l-extensive-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextMRegular() {
+	--token: form-text-m-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextMRegularItalic() {
+	--token: form-text-m-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextMBold() {
+	--token: form-text-m-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextMBoldItalic() {
+	--token: form-text-m-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextMExtensiveRegular() {
+	--token: form-text-m-extensive-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextMExtensiveRegularItalic() {
+	--token: form-text-m-extensive-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextMExtensiveBold() {
+	--token: form-text-m-extensive-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextMExtensiveBoldItalic() {
+	--token: form-text-m-extensive-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextSRegular() {
+	--token: form-text-s-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextSRegularItalic() {
+	--token: form-text-s-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextSBold() {
+	--token: form-text-s-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextSBoldItalic() {
+	--token: form-text-s-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextSExtensiveRegular() {
+	--token: form-text-s-extensive-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextSExtensiveRegularItalic() {
+	--token: form-text-s-extensive-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextSExtensiveBold() {
+	--token: form-text-s-extensive-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormTextSExtensiveBoldItalic() {
+	--token: form-text-s-extensive-bold-italic;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormCaptionMRegular() {
+	--token: form-caption-m-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormCaptionMRegularItalic() {
+	--token: form-caption-m-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormCaptionSRegular() {
+	--token: form-caption-s-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin FormCaptionSRegularItalic() {
+	--token: form-caption-s-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin Label2XLRegular() {
+	--token: label-2-xl-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin Label2XLRegularItalic() {
+	--token: label-2-xl-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin Label2XLRegularUppercase() {
+	--token: label-2-xl-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin Label2XLBold() {
+	--token: label-2-xl-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin Label2XLBoldUppercase() {
+	--token: label-2-xl-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin Label2XLExtensiveRegularUppercase() {
+	--token: label-2-xl-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin Label2XLExtensiveBoldUppercase() {
+	--token: label-2-xl-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-xl;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelXLRegular() {
+	--token: label-xl-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelXLRegularItalic() {
+	--token: label-xl-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelXLRegularUppercase() {
+	--token: label-xl-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelXLBold() {
+	--token: label-xl-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelXLBoldUppercase() {
+	--token: label-xl-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelXLExtensiveRegularUppercase() {
+	--token: label-xl-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelXLExtensiveBoldUppercase() {
+	--token: label-xl-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelLRegular() {
+	--token: label-l-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelLRegularItalic() {
+	--token: label-l-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelLRegularUppercase() {
+	--token: label-l-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelLBold() {
+	--token: label-l-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelLBoldUppercase() {
+	--token: label-l-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelLExtensiveRegularUppercase() {
+	--token: label-l-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelLExtensiveBoldUppercase() {
+	--token: label-l-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelMRegular() {
+	--token: label-m-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelMRegularItalic() {
+	--token: label-m-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelMRegularUppercase() {
+	--token: label-m-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelMBold() {
+	--token: label-m-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelMBoldUppercase() {
+	--token: label-m-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelMExtensiveRegularUppercase() {
+	--token: label-m-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelMExtensiveBoldUppercase() {
+	--token: label-m-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-3xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelSRegular() {
+	--token: label-s-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelSRegularItalic() {
+	--token: label-s-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelSRegularUppercase() {
+	--token: label-s-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelSBold() {
+	--token: label-s-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelSBoldUppercase() {
+	--token: label-s-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelSExtensiveRegularUppercase() {
+	--token: label-s-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelSExtensiveBoldUppercase() {
+	--token: label-s-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelXSRegular() {
+	--token: label-xs-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelXSRegularItalic() {
+	--token: label-xs-regular-italic;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-italic;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelXSRegularUppercase() {
+	--token: label-xs-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelXSBold() {
+	--token: label-xs-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LabelXSBoldUppercase() {
+	--token: label-xs-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-s;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelXSExtensiveRegularUppercase() {
+	--token: label-xs-extensive-regular-uppercase;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LabelXSExtensiveBoldUppercase() {
+	--token: label-xs-extensive-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-xl;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin ButtonLBoldUppercase() {
+	--token: button-l-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin ButtonMBoldUppercase() {
+	--token: button-m-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin ButtonSBoldUppercase() {
+	--token: button-s-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-4xs;
+	font-size: $typography-font-size-2xs;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin ButtonXSBoldUppercase() {
+	--token: button-xs-bold-uppercase;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-5xs;
+	font-size: $typography-font-size-3xs;
+	letter-spacing: $typography-letter-spacing-l;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-uppercase;
+}
+
+@mixin LinkXLRegular() {
+	--token: link-xl-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkXLRegularUnderlined() {
+	--token: link-xl-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkXLBold() {
+	--token: link-xl-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkXLBoldUnderlined() {
+	--token: link-xl-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xl;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkXLCompactRegular() {
+	--token: link-xl-compact-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkXLCompactRegularUnderlined() {
+	--token: link-xl-compact-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkXLCompactBold() {
+	--token: link-xl-compact-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkXLCompactBoldUnderlined() {
+	--token: link-xl-compact-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-l;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkLRegular() {
+	--token: link-l-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkLRegularUnderlined() {
+	--token: link-l-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkLBold() {
+	--token: link-l-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkLBoldUnderlined() {
+	--token: link-l-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-l;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkLCompactRegular() {
+	--token: link-l-compact-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkLCompactRegularUnderlined() {
+	--token: link-l-compact-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkLCompactBold() {
+	--token: link-l-compact-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkLCompactBoldUnderlined() {
+	--token: link-l-compact-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-s;
+	font-size: $typography-font-size-m;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkMRegular() {
+	--token: link-m-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkMRegularUnderlined() {
+	--token: link-m-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkMBold() {
+	--token: link-m-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkMBoldUnderlined() {
+	--token: link-m-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-m;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkMCompactRegular() {
+	--token: link-m-compact-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkMCompactRegularUnderlined() {
+	--token: link-m-compact-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkMCompactBold() {
+	--token: link-m-compact-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkMCompactBoldUnderlined() {
+	--token: link-m-compact-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-s;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkSRegular() {
+	--token: link-s-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkSRegularUnderlined() {
+	--token: link-s-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkSBold() {
+	--token: link-s-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkSBoldUnderlined() {
+	--token: link-s-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkSCompactRegular() {
+	--token: link-s-compact-regular;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkSCompactRegularUnderlined() {
+	--token: link-s-compact-regular-underlined;
+
+	font-weight: $typography-font-weight-normal;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkSCompactBold() {
+	--token: link-s-compact-bold;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-none;
+	text-transform: $typography-text-transform-none;
+}
+
+@mixin LinkSCompactBoldUnderlined() {
+	--token: link-s-compact-bold-underlined;
+
+	font-weight: $typography-font-weight-bold;
+	font-style: $typography-font-style-normal;
+	line-height: $typography-line-height-2xs;
+	font-size: $typography-font-size-xs;
+	letter-spacing: $typography-letter-spacing-xs;
+	text-decoration: $typography-text-decoration-underline;
+	text-transform: $typography-text-transform-none;
+}

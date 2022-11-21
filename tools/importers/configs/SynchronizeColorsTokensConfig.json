@@ -6,14 +6,14 @@
       "name": "wnl",
       "isTheme": false,
       "files": {
-        "colorsRaw": {
+        "variablesRaw": {
           "destination": "_raw.scss",
           "destinationJson": "_raw.json"
         },
         "tokens": {
           "destination": "_tokens.scss",
           "destinationJson": "_tokens.json",
-          "destinationTokensVariables": "_tokens-variables.scss"
+          "destinationVariables": "_tokens-variables.scss"
         }
       }
     },
@@ -22,14 +22,14 @@
       "name": "wnl",
       "isTheme": true,
       "files": {
-        "colorsRaw": {
+        "variablesRaw": {
           "destination": "_raw-wnl.scss",
           "destinationJson": "_raw-wnl.json"
         },
         "tokens": {
           "destination": "_tokens-wnl.scss",
           "destinationJson": "_tokens-wnl.json",
-          "destinationTokensVariables": "_tokens-wnl-variables.scss"
+          "destinationVariables": "_tokens-wnl-variables.scss"
         }
       }
     },
@@ -38,14 +38,14 @@
       "name": "bodywork",
       "isTheme": true,
       "files": {
-        "colorsRaw": {
+        "variablesRaw": {
           "destination": "_raw-bodywork.scss",
           "destinationJson": "_raw-bodywork.json"
         },
         "tokens": {
           "destination": "_tokens-bodywork.scss",
           "destinationJson": "_tokens-bodywork.json",
-          "destinationTokensVariables": "_tokens-bodywork-variables.scss"
+          "destinationVariables": "_tokens-bodywork-variables.scss"
         }
       }
     }
