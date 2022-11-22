@@ -1,6 +1,6 @@
 <template>
 	<div class="drawer scrollable-container" :class="{ [positionClassName]: true }">
-		<div v-if="$slots.header && stickyHeader" class="drawer__header">
+		<div v-if="$slots.header && stickyHeader" class="drawer__header -sticky">
 			<slot name="header" />
 		</div>
 		<div
@@ -19,7 +19,7 @@
 				<slot name="footer" />
 			</div>
 		</div>
-		<div v-if="$slots.footer && stickyFooter" class="drawer__footer">
+		<div v-if="$slots.footer && stickyFooter" class="drawer__footer -sticky">
 			<slot name="footer" />
 		</div>
 	</div>
@@ -51,6 +51,11 @@
 	&__header,
 	&__footer {
 		flex-shrink: 0;
+
+		&.-sticky {
+			// Display above __content to correctly show shadows in __header and __footer
+			z-index: 1;
+		}
 	}
 
 	&__content {
