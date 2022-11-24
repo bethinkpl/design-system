@@ -51,8 +51,8 @@ export { default as Dropdown } from './components/Dropdown';
 export * from './components/Dropdown/Dropdown.consts';
 export { default as ProgressBar } from './components/ProgressBar';
 export * from './components/ProgressBar/ProgressBar.consts';
-export { default as TagList } from './components/TagList';
-export * from './components/TagList/TagList.consts';
+export { default as IconList } from './components/IconList';
+export * from './components/IconList/IconList.consts';
 
 export {
 	initialize as initializeIcons,

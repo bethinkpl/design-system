@@ -1,15 +1,15 @@
 <template>
 	<div
 		:class="{
-			tagList: true,
-			'-neutralWeak': color === TAG_LIST_COLORS.NEUTRAL_WEAK,
-			'-neutralStrong': color === TAG_LIST_COLORS.NEUTRAL_STRONG,
-			'-xSmall': size === TAG_LIST_SIZES.X_SMALL,
-			'-small': size === TAG_LIST_SIZES.SMALL,
-			'-medium': size === TAG_LIST_SIZES.MEDIUM,
+			iconList: true,
+			'-neutralWeak': color === ICON_LIST_COLORS.NEUTRAL_WEAK,
+			'-neutralStrong': color === ICON_LIST_COLORS.NEUTRAL_STRONG,
+			'-xSmall': size === ICON_LIST_SIZES.X_SMALL,
+			'-small': size === ICON_LIST_SIZES.SMALL,
+			'-medium': size === ICON_LIST_SIZES.MEDIUM,
 		}"
 	>
-		<icon class="tagList__icon" :icon="ICONS.FA_TAGS" :size="ICON_SIZES.X_SMALL" />
+		<icon class="iconList__icon" :icon="ICONS.FA_TAGS" :size="ICON_SIZES.X_SMALL" />
 		<div>{{ tagNamesConcatenated }}</div>
 	</div>
 </template>
@@ -19,7 +19,7 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 
-.tagList {
+.iconList {
 	$root: &;
 
 	align-items: flex-start;
@@ -61,26 +61,26 @@
 
 <script lang="ts">
 import Icon, { ICON_SIZES, ICONS } from '../Icon';
-import { TAG_LIST_COLORS, TAG_LIST_SIZES } from './TagList.consts';
+import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
 
 export default {
-	name: 'TagList',
+	name: 'IconList',
 	components: {
 		Icon,
 	},
 	props: {
 		color: {
 			type: String,
-			default: TAG_LIST_COLORS.NEUTRAL_WEAK,
+			default: ICON_LIST_COLORS.NEUTRAL_WEAK,
 			validator(color) {
-				return Object.values(TAG_LIST_COLORS).includes(color);
+				return Object.values(ICON_LIST_COLORS).includes(color);
 			},
 		},
 		size: {
 			type: String,
-			default: TAG_LIST_SIZES.X_SMALL,
+			default: ICON_LIST_SIZES.X_SMALL,
 			validator(size) {
-				return Object.values(TAG_LIST_SIZES).includes(size);
+				return Object.values(ICON_LIST_SIZES).includes(size);
 			},
 		},
 		tagNames: {
@@ -95,8 +95,8 @@ export default {
 		return {
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
-			TAG_LIST_COLORS: Object.freeze(TAG_LIST_COLORS),
-			TAG_LIST_SIZES: Object.freeze(TAG_LIST_SIZES),
+			ICON_LIST_COLORS: Object.freeze(ICON_LIST_COLORS),
+			ICON_LIST_SIZES: Object.freeze(ICON_LIST_SIZES),
 		};
 	},
 	computed: {

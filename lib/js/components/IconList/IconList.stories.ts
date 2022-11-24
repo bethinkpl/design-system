@@ -1,16 +1,16 @@
 import { ArgTypes, Meta, StoryFn } from '@storybook/vue';
-import TagList from './TagList.vue';
-import { TAG_LIST_COLORS, TAG_LIST_SIZES } from './TagList.consts';
+import IconList from './IconList.vue';
+import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
 
 export default {
-	title: 'Components/TagList',
-	component: TagList,
-} as Meta<typeof TagList>;
+	title: 'Components/IconList',
+	component: IconList,
+} as Meta<typeof IconList>;
 
-const StoryTemplate: StoryFn<typeof TagList> = (argTypes) => ({
-	components: { TagList },
+const StoryTemplate: StoryFn<typeof IconList> = (argTypes) => ({
+	components: { IconList },
 	props: Object.keys(argTypes),
-	template: `<tag-list v-bind=$props></tag-list>`,
+	template: `<icon-list v-bind=$props></icon-list>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -18,13 +18,13 @@ export const Interactive = StoryTemplate.bind({});
 const argTypes = {
 	color: {
 		control: { type: 'select' },
-		options: Object.values(TAG_LIST_COLORS),
-		defaultValue: TAG_LIST_COLORS.NEUTRAL_WEAK,
+		options: Object.values(ICON_LIST_COLORS),
+		defaultValue: ICON_LIST_COLORS.NEUTRAL_WEAK,
 	},
 	size: {
 		control: { type: 'select' },
-		options: Object.values(TAG_LIST_SIZES),
-		defaultValue: TAG_LIST_SIZES.X_SMALL,
+		options: Object.values(ICON_LIST_SIZES),
+		defaultValue: ICON_LIST_SIZES.X_SMALL,
 	},
 	tagNames: {
 		control: { type: 'array' },
