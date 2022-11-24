@@ -94,7 +94,7 @@ export default {
 		},
 		icon: {
 			type: Object as Prop<VueConstructor>,
-			default: null,
+			required: true,
 			validate: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
 		},
 	},
