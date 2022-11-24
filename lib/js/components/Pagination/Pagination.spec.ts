@@ -115,6 +115,7 @@ describe('Pagination', () => {
 		const component = createComponent(props);
 		const elements = [];
 		component.findAll('.pagination__itemWrapper').wrappers.forEach((element) => {
+			// @ts-ignore
 			elements.push(element.text().trim());
 		});
 		expect(elements).toEqual(expected);
