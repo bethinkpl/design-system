@@ -4,6 +4,24 @@
 			pagination: true,
 			'-compact': layout === PAGINATION_LAYOUTS.COMPACT,
 		}">
+		<div class='pagination__items -default'>
+			<template v-for='(n, index) in items'>
+				<div
+					:key='index'
+					class='pagination__itemWrapper'>
+					<a
+						v-if='isPage(n)'
+						class='pagination__item'
+						:class="{'-selected': page === n }"
+						@click.prevent.stop='changePage(n)'>
+						{{ n }}
+					</a>
+
+					<span v-else class='pagination__ellipsis'>&hellip;</span>
+				</div>
+			</template>
+		</div>
+
 		<div class='pagination__items -compact'>
 			<icon-button
 				:size='ICON_BUTTON_SIZES.MEDIUM'
@@ -18,7 +36,7 @@
 					:min='1'
 					:step='1'
 					:max='lastPage'
-					@input='changePage($event.target.value)'
+					@input='onInputValueChange'
 				/>
 				<span class='pagination__text'>z {{ lastPage }}</span>
 			</div>
@@ -31,27 +49,7 @@
 				@click.native='changePage(page + 1)' />
 		</div>
 
-		<div class='pagination__items -default'>
-			<template v-for='(n, index) in items'>
-				<div
-					v-if='isPage(n)'
-					:key='index'
-					class='pagination__itemWrapper'>
-					<a
-						class='pagination__item'
-						:class="{'-selected': page === n }"
-						@click.prevent.stop='changePage(n)'>
-						{{ n }}
-					</a>
-				</div>
-				<div
-					v-else
-					:key='index' class='pagination__itemWrapper'>
-					<span class='pagination__ellipsis'>&hellip;</span>
-				</div>
-			</template>
-		</div>
-		<div class='pagination__accessory'>
+		<div class='pagination__accessorySlot'>
 			<slot name='accessory' />
 		</div>
 	</div>
@@ -75,11 +73,10 @@ $pagination-item-height: 32px;
 	@include centeredSpread();
 
 	flex-direction: row;
-	background: lightblue; // TODO remove
 
 	&.-compact {
 		#{$self}__items.-compact {
-			display: flex;
+			display: flex !important;
 		}
 
 		#{$self}__items.-default {
@@ -87,37 +84,38 @@ $pagination-item-height: 32px;
 		}
 	}
 
-
 	&__items {
 		display: none;
 		flex-direction: row;
 		align-items: center;
 		padding: 0;
 
-		&.-compact {
-			display: flex;
-		}
-
 		@media #{breakpoint-s()} {
-			&.-compact {
-				display: none;
-			}
-
 			&.-default {
 				display: flex;
 			}
+
+			&.-compact {
+				display: none !important;
+			}
+		}
+
+		&.-compact {
+			display: flex;
 		}
 	}
 
 	&__input {
-		// TODO
-		padding: 6px 8px;
-		width: 48px;
+		padding: $space-xxxs $space-xxs;
 		background: $color-default-background;
 		border: 1px solid $color-neutral-border-strong;
-		box-shadow: inset 0px 1px 3px $color-neutral-border-strong;
-		border-radius: 4px;
+		box-shadow: inset 0 1px 3px $color-neutral-border-strong;
+		border-radius: $radius-s;
 		height: $pagination-item-height;
+
+		&:focus {
+			outline: none;
+		}
 	}
 
 	&__text {
@@ -136,6 +134,7 @@ $pagination-item-height: 32px;
 
 	&__itemWrapper {
 		@include textM();
+
 		text-align: center;
 		padding: $space-xxxxs;
 	}
@@ -160,7 +159,9 @@ $pagination-item-height: 32px;
 			color: $color-neutral-text-heavy;
 		}
 
-		&:active, &:focus, &:hover {
+		&:active,
+		&:focus,
+		&:hover {
 			outline: none;
 		}
 
@@ -192,9 +193,9 @@ import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ICONS } from '../Icon';
 
-const fill = 'ellipsis';
+const MAX_DISPLAYED_ITEMS = 7;
+const ELLIPSIS_FILL = 'ellipsis';
 const FIRST_PAGE_NUMBER = 1;
-const ADJACENT_ITEMS = 1;
 
 export default {
 	name: 'Pagination',
@@ -228,7 +229,7 @@ export default {
 		},
 		itemsTotalAmount: {
 			type: Number,
-			default: 600, // todo
+			required: true,
 		},
 	},
 	data() {
@@ -256,59 +257,50 @@ export default {
 			return this.currentPage;
 		},
 		items() {
-			let items: Array<number | string> = [];
-
-			let adjacentLeft = Math.min(this.page - this.initialPage, ADJACENT_ITEMS) + (ADJACENT_ITEMS - Math.min(this.lastPage - this.page, ADJACENT_ITEMS));
-			console.log(adjacentLeft);
-			let adjacentRight = Math.min(this.lastPage - this.page, ADJACENT_ITEMS) + (ADJACENT_ITEMS - Math.min(this.page - this.initialPage, ADJACENT_ITEMS));
-			let displayInitial = this.page - adjacentLeft > this.initialPage;
-			let displayLast = this.page + adjacentRight < this.lastPage;
-			let hasLeftEllipsis = this.page - adjacentLeft > this.initialPage + 1;
-			let hasRightEllipsis = this.page + adjacentRight < this.lastPage - 1;
-
-			// Add extra item for not displayed ellipsis and initial and last pages
-			adjacentLeft = adjacentLeft + !hasRightEllipsis + !displayLast;
-			adjacentRight = adjacentRight + !hasLeftEllipsis + !displayInitial;
-
-			// And now, calculate it again...
-			displayInitial = this.page - adjacentLeft > this.initialPage;
-			displayLast = this.page + adjacentRight < this.lastPage;
-			hasLeftEllipsis = this.page - adjacentLeft > this.initialPage + 1;
-			hasRightEllipsis = this.page + adjacentRight < this.lastPage - 1;
-
-			if (displayInitial) {
-				items.push(this.initialPage);
+			let delta: number;
+			if (this.lastPage <= MAX_DISPLAYED_ITEMS) {
+				// delta === 7: [1 2 3 4 5 6 7]
+				delta = 7;
+			} else {
+				// delta === 2: [1 ... 4 5 6 ... 10]
+				// delta === 4: [1 2 3 4 5 ... 10]
+				delta = this.currentPage > 4 && this.currentPage < this.lastPage - 3 ? 2 : 4;
 			}
 
-			if (hasLeftEllipsis) {
-				items.push(fill);
+			const range = {
+				start: Math.round(this.currentPage - delta / 2),
+				end: Math.round(this.currentPage + delta / 2),
+			};
+
+			if (range.start - 1 === 1 || range.end + 1 === this.lastPage) {
+				range.start += 1;
+				range.end += 1;
 			}
 
-			if (adjacentLeft > 0) {
-				for (let n = Math.max(this.page - adjacentLeft, this.initialPage); n < this.page; n++) {
-					items.push(n);
-				}
+			let pages: any =
+				this.currentPage > delta
+					? this.getRange(Math.min(range.start, this.lastPage - delta), Math.min(range.end, this.lastPage))
+					: this.getRange(1, Math.min(this.lastPage, delta + 1));
+
+			const withDots = (value, pair) => (pages.length + 1 !== this.lastPage ? pair : [value]);
+
+			if (pages[0] !== 1) {
+				pages = withDots(1, [1, ELLIPSIS_FILL]).concat(pages);
 			}
 
-			items.push(this.page);
-
-			if (adjacentRight > 0) {
-				for (let n = this.page + 1; n <= Math.min(this.page + adjacentRight, this.lastPage); n++) {
-					items.push(n);
-				}
+			if (pages[pages.length - 1] < this.lastPage) {
+				pages = pages.concat(withDots(this.lastPage, [ELLIPSIS_FILL, this.lastPage]));
 			}
 
-			if (hasRightEllipsis) {
-				items.push(fill);
-			}
-			if (displayLast) {
-				items.push(this.lastPage);
-			}
-
-			return items;
+			return pages;
 		},
 	},
 	methods: {
+		getRange(start: number, end: number) {
+			return Array(end - start + 1)
+				.fill()
+				.map((v, i) => i + start);
+		},
 		async changePage(page) {
 			if (this.page === page) {
 				return;
@@ -324,6 +316,18 @@ export default {
 		},
 		pageIsLargerThanLastPage(page) {
 			return page > this.lastPage;
+		},
+		onInputValueChange(event) {
+			const page = +event.target.value;
+			if (this.pageIsSmallerThanFirstPage(page)) {
+				return this.changePage(FIRST_PAGE_NUMBER);
+			}
+
+			if (this.pageIsLargerThanLastPage(page)) {
+				return this.changePage(this.lastPage);
+			}
+
+			this.changePage(page);
 		},
 	},
 };
