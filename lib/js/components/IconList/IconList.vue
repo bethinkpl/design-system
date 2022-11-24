@@ -9,7 +9,7 @@
 			'-medium': size === ICON_LIST_SIZES.MEDIUM,
 		}"
 	>
-		<icon class="iconList__icon" :icon="ICONS.FA_TAGS" :size="ICON_SIZES.X_SMALL" />
+		<icon v-if="icon" class="iconList__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
 		<div>{{ tagNamesConcatenated }}</div>
 	</div>
 </template>
@@ -62,6 +62,8 @@
 <script lang="ts">
 import Icon, { ICON_SIZES, ICONS } from '../Icon';
 import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
+import { VueConstructor } from 'vue';
+import { Prop } from 'vue/types/options';
 
 export default {
 	name: 'IconList',
@@ -90,10 +92,14 @@ export default {
 				return !tagNames.some((tagName) => typeof tagName !== 'string');
 			},
 		},
+		icon: {
+			type: Object as Prop<VueConstructor>,
+			default: null,
+			validate: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
+		},
 	},
 	data() {
 		return {
-			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			ICON_LIST_COLORS: Object.freeze(ICON_LIST_COLORS),
 			ICON_LIST_SIZES: Object.freeze(ICON_LIST_SIZES),
@@ -101,6 +107,7 @@ export default {
 	},
 	computed: {
 		tagNamesConcatenated(): string {
+			console.debug(this.tagNames);
 			return this.tagNames.join(', ');
 		},
 	},
