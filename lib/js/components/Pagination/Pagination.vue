@@ -329,14 +329,6 @@ export default {
 			return pages;
 		},
 	},
-	watch: {
-		currentPage(newVal) {
-			this.validatePage(newVal);
-		},
-	},
-	async mounted() {
-		await this.validatePage(this.currentPage);
-	},
 	methods: {
 		getRange(start: number, end: number) {
 			return Array(end - start + 1)
@@ -370,15 +362,6 @@ export default {
 			}
 
 			this.changePage(page);
-		},
-		async validatePage(page) {
-			if (this.pageIsSmallerThanFirstPage(page)) {
-				await this.changePage(FIRST_PAGE_NUMBER);
-			}
-
-			if (this.pageIsLargerThanLastPage(page)) {
-				await this.changePage(this.lastPage);
-			}
 		},
 	},
 };
