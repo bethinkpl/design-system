@@ -81,6 +81,7 @@ $pagination-item-height: 32px;
 
 	@include centeredSpread();
 
+	flex-grow: 1;
 	flex-direction: row;
 	align-items: stretch;
 
