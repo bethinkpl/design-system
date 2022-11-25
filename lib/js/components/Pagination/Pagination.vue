@@ -220,7 +220,7 @@ $pagination-item-height: 32px;
 </style>
 
 <script lang="ts">
-import { PAGINATION_LAYOUTS } from './Pagination.consts';
+import { PAGINATION_DEFAULT_ITEMS_PER_PAGE, PAGINATION_LAYOUTS } from './Pagination.consts';
 import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ICONS } from '../Icon';
@@ -249,7 +249,7 @@ export default {
 		},
 		itemsPerPage: {
 			type: Number,
-			default: 30,
+			default: PAGINATION_DEFAULT_ITEMS_PER_PAGE,
 		},
 		initialPage: {
 			type: Number,
