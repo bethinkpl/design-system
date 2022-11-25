@@ -6,63 +6,65 @@
 			'-centered': isCentered,
 		}"
 	>
-		<div class='pagination__itemsWrapper'>
-			<div class='pagination__items -default'>
-				<template v-for='(n, index) in items'>
-					<div :key='index' class='pagination__itemWrapper'>
+		<div class="pagination__itemsWrapper">
+			<div class="pagination__items -default">
+				<template v-for="(n, index) in items">
+					<div :key="index" class="pagination__itemWrapper">
 						<a
-							v-if='isPage(n)'
-							class='pagination__item'
+							v-if="isPage(n)"
+							class="pagination__item"
 							:class="{ '-selected': page === n }"
-							@click.prevent.stop='changePage(n)'
+							@click.prevent.stop="changePage(n)"
 						>
 							{{ n }}
 						</a>
 
-						<span v-else class='pagination__ellipsis'>&hellip;</span>
+						<span v-else class="pagination__ellipsis">&hellip;</span>
 					</div>
 				</template>
 			</div>
 
-			<div class='pagination__items -compact'>
+			<div class="pagination__items -compact">
 				<icon-button
-					:size='ICON_BUTTON_SIZES.MEDIUM'
-					:color='ICON_BUTTON_COLORS.NEUTRAL'
-					:icon='ICONS.FA_ANGLE_LEFT'
-					:state='page <= 1 ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT'
-					@click.native='changePage(page - 1)'
+					:size="ICON_BUTTON_SIZES.MEDIUM"
+					:color="ICON_BUTTON_COLORS.NEUTRAL"
+					:icon="ICONS.FA_ANGLE_LEFT"
+					:state="page <= 1 ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT"
+					@click.native="changePage(page - 1)"
 				/>
 
-				<div class='pagination__compactItem'>
+				<div class="pagination__compactItem">
 					<input
-						class='pagination__input'
-						type='number'
-						:value='page'
-						:min='1'
-						:step='1'
-						:max='lastPage'
-						@input='onInputValueChange'
+						class="pagination__input"
+						type="number"
+						:value="page"
+						:min="1"
+						:step="1"
+						:max="lastPage"
+						@input="onInputValueChange"
 					/>
-					<span class='pagination__text'>z {{ lastPage }}</span>
+					<span class="pagination__text">z {{ lastPage }}</span>
 				</div>
 
 				<icon-button
-					:size='ICON_BUTTON_SIZES.MEDIUM'
-					:color='ICON_BUTTON_COLORS.NEUTRAL'
-					:icon='ICONS.FA_ANGLE_RIGHT'
-					:state='page >= lastPage ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT'
-					@click.native='changePage(page + 1)'
+					:size="ICON_BUTTON_SIZES.MEDIUM"
+					:color="ICON_BUTTON_COLORS.NEUTRAL"
+					:icon="ICONS.FA_ANGLE_RIGHT"
+					:state="
+						page >= lastPage ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT
+					"
+					@click.native="changePage(page + 1)"
 				/>
 			</div>
 		</div>
 
-		<div class='pagination__accessorySlot'>
-			<slot name='accessory' />
+		<div class="pagination__accessorySlot">
+			<slot name="accessory" />
 		</div>
 	</div>
 </template>
 
-<style scoped lang='scss'>
+<style scoped lang="scss">
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography';
 @import '../../../styles/settings/media-queries';
@@ -216,7 +218,7 @@ $pagination-item-height: 32px;
 }
 </style>
 
-<script lang='ts'>
+<script lang="ts">
 import { PAGINATION_LAYOUTS } from './Pagination.consts';
 import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
@@ -309,9 +311,9 @@ export default {
 			let pages: any =
 				this.currentPage > delta
 					? this.getRange(
-						Math.min(range.start, this.lastPage - delta),
-						Math.min(range.end, this.lastPage),
-					)
+							Math.min(range.start, this.lastPage - delta),
+							Math.min(range.end, this.lastPage),
+					  )
 					: this.getRange(1, Math.min(this.lastPage, delta + 1));
 
 			const withDots = (value, pair) => (pages.length + 1 !== this.lastPage ? pair : [value]);
