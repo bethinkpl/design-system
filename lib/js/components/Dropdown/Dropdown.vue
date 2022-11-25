@@ -12,7 +12,14 @@
 		@hide="$emit('hide')"
 		@show="$emit('show')"
 	>
-		<div class="popper dsDropdown">
+		<div
+			class="popper dsDropdown"
+			:class="{
+				'-radiusBottom': radius === DROPDOWN_RADIUS.BOTTOM,
+				'-radiusTop': radius === DROPDOWN_RADIUS.TOP,
+				'-radiusBottom -radiusTop': radius === DROPDOWN_RADIUS.BOTH,
+			}"
+		>
 			<slot :close="close" />
 		</div>
 
@@ -31,12 +38,22 @@
 .dsDropdown {
 	background-color: $color-default-background;
 	border: 0;
-	border-radius: 0 0 $radius-s $radius-s;
+	border-radius: 0;
 	box-shadow: $shadow-m;
 	max-width: 100%;
 	min-width: 128px;
 	padding: 0;
 	text-align: left;
+
+	&.-radiusBottom {
+		border-bottom-left-radius: $radius-s;
+		border-bottom-right-radius: $radius-s;
+	}
+
+	&.-radiusTop {
+		border-top-left-radius: $radius-s;
+		border-top-right-radius: $radius-s;
+	}
 
 	&[x-placement^='bottom'] {
 		margin-top: $space-xxxxs;
@@ -51,7 +68,7 @@
 <script lang="ts">
 import VuePopper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
-import { DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
+import { DROPDOWN_RADIUS, DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
 
 export default {
 	name: 'Dropdown',
@@ -78,10 +95,18 @@ export default {
 				return Object.values(DROPDOWN_TRIGGER_ACTIONS).includes(triggerAction);
 			},
 		},
+		radius: {
+			type: String,
+			default: DROPDOWN_RADIUS.BOTH,
+			validate(radius) {
+				return Object.values(DROPDOWN_RADIUS).includes(radius);
+			},
+		},
 	},
 	data() {
 		return {
 			key: 1,
+			DROPDOWN_RADIUS: Object.freeze(DROPDOWN_RADIUS),
 		};
 	},
 	computed: {
