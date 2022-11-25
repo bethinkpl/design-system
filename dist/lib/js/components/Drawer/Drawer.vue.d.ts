@@ -8,6 +8,14 @@ declare const _default: {
             default: "right";
             validate(position: any): boolean;
         };
+        stickyHeader: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        stickyFooter: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     };
     computed: {
         positionClassName(): string;
