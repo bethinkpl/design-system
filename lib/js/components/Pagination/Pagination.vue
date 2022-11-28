@@ -10,14 +10,15 @@
 			<div class="ds-pagination__items -default">
 				<template v-for="(navigationItem, index) in navigationItems">
 					<div :key="index" class="ds-pagination__itemWrapper">
-						<a
+						<span
 							v-if="isPage(navigationItem)"
 							class="ds-pagination__item"
 							:class="{ '-selected': currentPageSanitized === navigationItem }"
+							role="link"
 							@click.prevent.stop="changePage(navigationItem)"
 						>
 							{{ navigationItem }}
-						</a>
+						</span>
 
 						<span v-else class="ds-pagination__ellipsis">&hellip;</span>
 					</div>
@@ -180,19 +181,12 @@ $pagination-item-height: 32px;
 		background: $color-neutral-background-weak;
 		border-radius: $radius-xs;
 		color: $color-neutral-text;
-		text-decoration: none;
 
 		&.-selected {
 			@include textBold();
 
 			background: $color-neutral-background-medium;
 			color: $color-neutral-text-heavy;
-		}
-
-		&:active,
-		&:focus,
-		&:hover {
-			outline: none;
 		}
 
 		&:hover:not(.-selected) {
