@@ -1,5 +1,4 @@
 import Pagination from './Pagination.vue';
-import { PAGINATION_LAYOUTS } from './Pagination.consts';
 
 import { ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
@@ -27,11 +26,8 @@ const StoryTemplate: StoryFn<typeof Pagination> = (argTypes, { updateArgs }) => 
 export const Interactive = StoryTemplate.bind({});
 
 const argTypes = {
-	layout: {
-		control: { type: 'select', options: Object.values(PAGINATION_LAYOUTS) },
-		defaultValue: PAGINATION_LAYOUTS.DEFAULT,
-	},
 	currentPage: { control: { type: 'number', min: 1 }, defaultValue: 1 },
+	forceCompact: { control: { type: 'boolean' }, defaultValue: false },
 	initialPage: { control: { type: 'number', min: 1 }, defaultValue: 1 },
 	isCentered: { control: { type: 'boolean' }, defaultValue: false },
 	itemsTotalAmount: { control: { type: 'number', min: 1 }, defaultValue: 600 },

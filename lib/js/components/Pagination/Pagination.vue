@@ -2,7 +2,7 @@
 	<div
 		class="ds-pagination"
 		:class="{
-			'-compact': layout === PAGINATION_LAYOUTS.COMPACT,
+			'-forceCompact': forceCompact,
 			'-centered': isCentered && !$slots.accessory,
 		}"
 	>
@@ -100,7 +100,7 @@ $pagination-ellipsis-width: 22px;
 		justify-content: center;
 	}
 
-	&.-compact {
+	&.-forceCompact {
 		#{$self}__items.-compact {
 			display: flex !important;
 		}
@@ -220,7 +220,7 @@ $pagination-ellipsis-width: 22px;
 </style>
 
 <script lang="ts">
-import { PAGINATION_DEFAULT_ITEMS_PER_PAGE, PAGINATION_LAYOUTS } from './Pagination.consts';
+import { PAGINATION_DEFAULT_ITEMS_PER_PAGE } from './Pagination.consts';
 import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ICONS } from '../Icon';
@@ -233,13 +233,6 @@ export default {
 	name: 'Pagination',
 	components: { IconButton },
 	props: {
-		layout: {
-			type: String,
-			default: PAGINATION_LAYOUTS.DEFAULT,
-			validator(layout) {
-				return Object.values(PAGINATION_LAYOUTS).includes(layout);
-			},
-		},
 		currentPage: {
 			type: Number,
 			default: FIRST_PAGE_NUMBER,
@@ -247,13 +240,17 @@ export default {
 				return page > 0;
 			},
 		},
-		itemsPerPage: {
-			type: Number,
-			default: PAGINATION_DEFAULT_ITEMS_PER_PAGE,
+		forceCompact: {
+			type: Boolean,
+			default: false,
 		},
 		isCentered: {
 			type: Boolean,
 			default: false,
+		},
+		itemsPerPage: {
+			type: Number,
+			default: PAGINATION_DEFAULT_ITEMS_PER_PAGE,
 		},
 		itemsTotalAmount: {
 			type: Number,
@@ -262,7 +259,6 @@ export default {
 	},
 	data() {
 		return {
-			PAGINATION_LAYOUTS: Object.freeze(PAGINATION_LAYOUTS),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
