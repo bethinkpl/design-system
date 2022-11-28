@@ -113,9 +113,8 @@ describe('Pagination', () => {
 		},
 	])('should calculate correct pagination for %s', ({ props, expected }) => {
 		const component = createComponent(props);
-		const elements = [];
+		const elements: Array<string> = [];
 		component.findAll('.pagination__itemWrapper').wrappers.forEach((element) => {
-			// @ts-ignore
 			elements.push(element.text().trim());
 		});
 		expect(elements).toEqual(expected);
