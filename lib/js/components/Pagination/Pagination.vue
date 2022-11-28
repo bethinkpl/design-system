@@ -81,6 +81,7 @@
 @import '../../../styles/mixins/layout';
 
 $pagination-item-min-width: 32px;
+$pagination-input-height: 32px;
 
 .ds-pagination {
 	$self: &;
@@ -142,6 +143,7 @@ $pagination-item-min-width: 32px;
 		border: 1px solid $color-neutral-border-strong;
 		box-shadow: inset 0 1px 3px $color-neutral-border-strong;
 		border-radius: $radius-s;
+		height: $pagination-input-height;
 
 		&:focus {
 			outline: none;
