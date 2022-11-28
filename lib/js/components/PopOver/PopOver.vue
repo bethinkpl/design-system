@@ -171,7 +171,7 @@ export default {
 			type: String,
 			default: POP_OVER_PLACEMENTS.BOTTOM,
 			validator(placement) {
-				return Object.values(POP_OVER_TRIGGER_ACTIONS).includes(placement);
+				return Object.values(POP_OVER_PLACEMENTS).includes(placement);
 			},
 		},
 		forceShow: {
