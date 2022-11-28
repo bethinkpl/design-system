@@ -117,14 +117,14 @@ export default {
 		iconLeft: {
 			type: Object,
 			default: null,
-			validate(icon: VueConstructor) {
+			validator(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
-			validate(icon: VueConstructor) {
+			validator(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},

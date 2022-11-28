@@ -81,7 +81,7 @@ export default {
 		position: {
 			type: String as PropType<DrawerPosition>,
 			default: DRAWER_POSITIONS.RIGHT,
-			validate(position) {
+			validator(position) {
 				return Object.values(DRAWER_POSITIONS).includes(position);
 			},
 		},
