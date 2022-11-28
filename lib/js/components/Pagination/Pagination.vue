@@ -3,7 +3,7 @@
 		class="ds-pagination"
 		:class="{
 			'-compact': layout === PAGINATION_LAYOUTS.COMPACT,
-			'-centered': isCentered,
+			'-centered': isCentered && !$slots.accessory,
 		}"
 	>
 		<div class="ds-pagination__itemsWrapper">
