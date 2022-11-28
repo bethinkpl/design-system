@@ -276,10 +276,10 @@ export default {
 		};
 	},
 	computed: {
-		lastPage() {
+		lastPage(): number {
 			return Math.ceil(this.itemsTotalAmount / this.itemsPerPage);
 		},
-		currentPageSanitized() {
+		currentPageSanitized(): number {
 			if (this.pageIsSmallerThanFirstPage(this.currentPage)) {
 				return FIRST_PAGE_NUMBER;
 			}
@@ -290,7 +290,7 @@ export default {
 
 			return this.currentPage;
 		},
-		items() {
+		items(): Array<number | string> {
 			let delta: number;
 			if (this.lastPage <= MAX_DISPLAYED_ITEMS) {
 				// delta === 7: [1 2 3 4 5 6 7]
@@ -311,7 +311,7 @@ export default {
 				range.end += 1;
 			}
 
-			let pages: any =
+			let pages: Array<number> =
 				this.currentPage > delta
 					? this.getRange(
 							Math.min(range.start, this.lastPage - delta),
@@ -333,28 +333,28 @@ export default {
 		},
 	},
 	methods: {
-		getRange(start: number, end: number) {
+		getRange(start: number, end: number): Array<number> {
 			return Array(end - start + 1)
 				.fill(null)
 				.map((_v, i) => i + start);
 		},
-		async changePage(page) {
+		changePage(page): void {
 			if (this.currentPageSanitized === page) {
 				return;
 			}
 
 			this.$emit('change-page', page);
 		},
-		isPage(item) {
+		isPage(item): boolean {
 			return typeof item === 'number';
 		},
-		pageIsSmallerThanFirstPage(page) {
+		pageIsSmallerThanFirstPage(page): boolean {
 			return page < FIRST_PAGE_NUMBER || page % FIRST_PAGE_NUMBER !== 0;
 		},
-		pageIsLargerThanLastPage(page) {
+		pageIsLargerThanLastPage(page): boolean {
 			return page > this.lastPage;
 		},
-		onInputValueChange(event) {
+		onInputValueChange(event): void {
 			const page = +event.target.value;
 			if (this.pageIsSmallerThanFirstPage(page)) {
 				return this.changePage(FIRST_PAGE_NUMBER);
