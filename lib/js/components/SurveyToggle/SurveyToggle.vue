@@ -210,7 +210,7 @@ $survey-toggle-colors: (
 	}
 
 	&__label {
-		@include LabelXSBold();
+		@include LabelXSRegular();
 
 		color: $color-neutral-text;
 		text-align: center;
@@ -219,7 +219,7 @@ $survey-toggle-colors: (
 		max-width: 100%;
 
 		@media #{breakpoint-s()} {
-			@include LabelXSRegular();
+			@include LabelSRegular();
 		}
 	}
 }

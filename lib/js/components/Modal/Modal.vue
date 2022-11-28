@@ -66,8 +66,6 @@
 	}
 
 	&__header {
-		@include DisplayHeadingXSRegular();
-
 		align-items: center;
 		box-shadow: 0 $space-xxxxs $space-xxxxs var(--raw-white);
 		display: flex;

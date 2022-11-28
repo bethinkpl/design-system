@@ -65,3 +65,7 @@ html {
 		color: $color-default-icon;
 	}
 }
+
+.modalHeader {
+	@include DisplayHeadingXSRegular();
+}

@@ -145,7 +145,7 @@ $progress-bar-layers: (
 
 	&.-compact {
 		#{$self}__labelText {
-			@include FormLabelSBold();
+			@include FormLabelMBold();
 		}
 		#{$self}__label {
 			margin-bottom: $space-xxxs;
@@ -199,7 +199,7 @@ $progress-bar-layers: (
 	}
 
 	&__labelText {
-		@include FormLabelSBold();
+		@include FormLabelMBold();
 
 		color: $color-neutral-text-heavy;
 		max-width: $progress-bar-label-text-max-width;

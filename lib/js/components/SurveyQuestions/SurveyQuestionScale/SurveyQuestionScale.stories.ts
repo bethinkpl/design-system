@@ -35,7 +35,7 @@ const args = {
 	elaborationLabel: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę',
 	elaborationValue: '',
 	explanation:
-		'<h3 class="-headlineL -textRegular" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
+		'<h3 style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
 	scaleOptions: [
 		{
@@ -118,7 +118,7 @@ LimitedWidth.args = {
 	elaborationLabel: 'Jeśli chcesz, uzasadnij lub rozwiń swoją ocenę',
 	elaborationValue: '',
 	explanation:
-		'<h3 class="-headlineL -textRegular" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
+		'<h3 class="modalHeader" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
 	scaleOptions: [
 		{
