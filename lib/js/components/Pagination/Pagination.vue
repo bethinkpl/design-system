@@ -1,30 +1,30 @@
 <template>
 	<div
+		class="ds-pagination"
 		:class="{
-			pagination: true,
 			'-compact': layout === PAGINATION_LAYOUTS.COMPACT,
 			'-centered': isCentered,
 		}"
 	>
-		<div class="pagination__itemsWrapper">
-			<div class="pagination__items -default">
+		<div class="ds-pagination__itemsWrapper">
+			<div class="ds-pagination__items -default">
 				<template v-for="(n, index) in items">
-					<div :key="index" class="pagination__itemWrapper">
+					<div :key="index" class="ds-pagination__itemWrapper">
 						<a
 							v-if="isPage(n)"
-							class="pagination__item"
+							class="ds-pagination__item"
 							:class="{ '-selected': page === n }"
 							@click.prevent.stop="changePage(n)"
 						>
 							{{ n }}
 						</a>
 
-						<span v-else class="pagination__ellipsis">&hellip;</span>
+						<span v-else class="ds-pagination__ellipsis">&hellip;</span>
 					</div>
 				</template>
 			</div>
 
-			<div class="pagination__items -compact">
+			<div class="ds-pagination__items -compact">
 				<icon-button
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
@@ -33,9 +33,9 @@
 					@click.native="changePage(page - 1)"
 				/>
 
-				<div class="pagination__compactItem">
+				<div class="ds-pagination__compactItem">
 					<input
-						class="pagination__input"
+						class="ds-pagination__input"
 						type="number"
 						:value="page"
 						:min="1"
@@ -43,7 +43,7 @@
 						:max="lastPage"
 						@input="onInputValueChange"
 					/>
-					<span class="pagination__text">z {{ lastPage }}</span>
+					<span class="ds-pagination__text">z {{ lastPage }}</span>
 				</div>
 
 				<icon-button
@@ -58,7 +58,7 @@
 			</div>
 		</div>
 
-		<div class="pagination__accessorySlot">
+		<div class="ds-pagination__accessorySlot">
 			<slot name="accessory" />
 		</div>
 	</div>
@@ -76,7 +76,7 @@
 $pagination-item-width: 32px;
 $pagination-item-height: 32px;
 
-.pagination {
+.ds-pagination {
 	$self: &;
 
 	@include centeredSpread();
