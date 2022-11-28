@@ -107,7 +107,6 @@ export default {
 	},
 	computed: {
 		tagNamesConcatenated(): string {
-			console.debug(this.tagNames);
 			return this.tagNames.join(', ');
 		},
 	},
