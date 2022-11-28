@@ -7,7 +7,10 @@
 		}"
 	>
 		<div class="ds-pagination__itemsWrapper">
-			<div v-if="!forceCompact" class="ds-pagination__items -default">
+			<div
+				v-if="navigationItems.length > 1 && !forceCompact"
+				class="ds-pagination__items -default"
+			>
 				<template v-for="(navigationItem, index) in navigationItems">
 					<div :key="index" class="ds-pagination__itemWrapper">
 						<span
@@ -25,7 +28,7 @@
 				</template>
 			</div>
 
-			<div class="ds-pagination__items -compact">
+			<div v-if="navigationItems.length > 1" class="ds-pagination__items -compact">
 				<icon-button
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
