@@ -74,7 +74,7 @@ export default {
 		triggerAction: {
 			type: String,
 			default: DROPDOWN_TRIGGER_ACTIONS.CLICK,
-			validate(triggerAction) {
+			validator(triggerAction) {
 				return Object.values(DROPDOWN_TRIGGER_ACTIONS).includes(triggerAction);
 			},
 		},

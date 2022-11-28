@@ -20,7 +20,7 @@ declare const _default: Meta<{
         triggerAction: {
             type: StringConstructor;
             default: "click";
-            validate(triggerAction: any): boolean;
+            validator(triggerAction: any): boolean;
         };
     };
     data(): {
@@ -61,7 +61,7 @@ export declare const Interactive: StoryFn<{
         triggerAction: {
             type: StringConstructor;
             default: "click";
-            validate(triggerAction: any): boolean;
+            validator(triggerAction: any): boolean;
         };
     };
     data(): {

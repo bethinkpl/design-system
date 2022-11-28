@@ -230,14 +230,14 @@ export default {
 		iconLeft: {
 			type: Object,
 			default: null,
-			validate(iconLeft: VueConstructor) {
+			validator(iconLeft: VueConstructor) {
 				return Object.values(ICONS).includes(iconLeft);
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
-			validate(iconRight: VueConstructor) {
+			validator(iconRight: VueConstructor) {
 				return Object.values(ICONS).includes(iconRight);
 			},
 		},
@@ -256,7 +256,7 @@ export default {
 		color: {
 			type: String,
 			default: TILE_COLORS.NEUTRAL,
-			validate(color) {
+			validator(color) {
 				return Object.values(TILE_COLORS).includes(color);
 			},
 		},

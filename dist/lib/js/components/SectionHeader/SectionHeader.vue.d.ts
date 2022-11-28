@@ -11,7 +11,7 @@ declare const _default: {
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;
@@ -59,7 +59,7 @@ declare const _default: {
         iconLeft: {
             type: () => IconItem;
             default: null;
-            validate(iconLeft: IconItem): boolean;
+            validator(iconLeft: IconItem): boolean;
         };
         isExpanded: {
             type: BooleanConstructor;
@@ -68,7 +68,7 @@ declare const _default: {
         size: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         slotPadding: {
             type: BooleanConstructor;

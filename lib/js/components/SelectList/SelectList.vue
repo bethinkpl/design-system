@@ -108,7 +108,7 @@ export default {
 		size: {
 			type: String,
 			required: true,
-			validate(size) {
+			validator(size) {
 				return Object.values(SELECT_LIST_SIZES).includes(size);
 			},
 		},

@@ -294,14 +294,14 @@ export default {
 		color: {
 			type: String,
 			default: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
-			validate(color) {
+			validator(color) {
 				return Object.values(COUNTER_TOGGLE_COLORS).includes(color);
 			},
 		},
 		icon: {
 			type: Object,
 			required: true,
-			validate(icon: VueConstructor) {
+			validator(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},

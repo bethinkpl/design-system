@@ -180,21 +180,21 @@ export default {
 		color: {
 			type: String,
 			required: true,
-			validate(color) {
+			validator(color) {
 				return Object.values(BADGE_SCORE_COLORS).includes(color);
 			},
 		},
 		icon: {
 			type: Object,
 			default: null,
-			validate(icon: VueConstructor) {
+			validator(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
 		size: {
 			type: String,
 			default: BADGE_SCORE_SIZES.MEDIUM,
-			validate(size) {
+			validator(size) {
 				return Object.values(BADGE_SCORE_SIZES).includes(size);
 			},
 		},

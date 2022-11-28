@@ -20,7 +20,7 @@ declare const _default: {
         triggerAction: {
             type: StringConstructor;
             default: "click";
-            validate(triggerAction: any): boolean;
+            validator(triggerAction: any): boolean;
         };
     };
     data(): {

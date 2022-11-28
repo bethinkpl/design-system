@@ -8,7 +8,7 @@ declare const _default: {
         icon: {
             type: ObjectConstructor;
             required: boolean;
-            validate(icon: VueConstructor): boolean;
+            validator(icon: VueConstructor): boolean;
         };
         size: {
             type: StringConstructor;

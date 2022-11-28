@@ -6,22 +6,22 @@ declare const _default: Meta<{
         numberOfLayers: {
             type: NumberConstructor;
             default: number;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         colorScheme: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         color: {
             type: StringConstructor;
             default: "info";
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         ranges: {
             type: import("vue").PropType<ProgressBarRange[]>;
@@ -30,12 +30,12 @@ declare const _default: Meta<{
         radius: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         layout: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         labelText: {
             type: StringConstructor;
@@ -97,22 +97,22 @@ export declare const Interactive: StoryFn<{
         numberOfLayers: {
             type: NumberConstructor;
             default: number;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         colorScheme: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         color: {
             type: StringConstructor;
             default: "info";
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         ranges: {
             type: import("vue").PropType<ProgressBarRange[]>;
@@ -121,12 +121,12 @@ export declare const Interactive: StoryFn<{
         radius: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         layout: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         labelText: {
             type: StringConstructor;
@@ -187,22 +187,22 @@ export declare const WithoutLabels: StoryFn<{
         numberOfLayers: {
             type: NumberConstructor;
             default: number;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         colorScheme: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         color: {
             type: StringConstructor;
             default: "info";
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         ranges: {
             type: import("vue").PropType<ProgressBarRange[]>;
@@ -211,12 +211,12 @@ export declare const WithoutLabels: StoryFn<{
         radius: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         layout: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         labelText: {
             type: StringConstructor;
@@ -277,22 +277,22 @@ export declare const TwoLayers: StoryFn<{
         numberOfLayers: {
             type: NumberConstructor;
             default: number;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         colorScheme: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         color: {
             type: StringConstructor;
             default: "info";
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         ranges: {
             type: import("vue").PropType<ProgressBarRange[]>;
@@ -301,12 +301,12 @@ export declare const TwoLayers: StoryFn<{
         radius: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         layout: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         labelText: {
             type: StringConstructor;
@@ -367,22 +367,22 @@ export declare const WithGaps: StoryFn<{
         numberOfLayers: {
             type: NumberConstructor;
             default: number;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         colorScheme: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         color: {
             type: StringConstructor;
             default: "info";
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         ranges: {
             type: import("vue").PropType<ProgressBarRange[]>;
@@ -391,12 +391,12 @@ export declare const WithGaps: StoryFn<{
         radius: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         layout: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         labelText: {
             type: StringConstructor;
@@ -457,22 +457,22 @@ export declare const Compact: StoryFn<{
         numberOfLayers: {
             type: NumberConstructor;
             default: number;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         colorScheme: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         color: {
             type: StringConstructor;
             default: "info";
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         ranges: {
             type: import("vue").PropType<ProgressBarRange[]>;
@@ -481,12 +481,12 @@ export declare const Compact: StoryFn<{
         radius: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         layout: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         labelText: {
             type: StringConstructor;

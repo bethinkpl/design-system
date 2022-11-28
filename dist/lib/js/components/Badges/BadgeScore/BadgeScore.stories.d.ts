@@ -11,7 +11,7 @@ declare const _default: Meta<{
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;
@@ -60,17 +60,17 @@ declare const _default: Meta<{
         color: {
             type: StringConstructor;
             required: boolean;
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         icon: {
             type: ObjectConstructor;
             default: null;
-            validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+            validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         fullWidth: {
             type: BooleanConstructor;

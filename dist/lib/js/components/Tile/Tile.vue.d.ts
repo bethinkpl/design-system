@@ -13,7 +13,7 @@ declare const _default: {
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: VueConstructor<import("vue").default>): boolean;
+                    validator(icon: VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;
@@ -57,7 +57,7 @@ declare const _default: {
                 color: {
                     type: StringConstructor;
                     default: string;
-                    validate(color: any): boolean;
+                    validator(color: any): boolean;
                 };
                 disable: {
                     type: BooleanConstructor;
@@ -86,12 +86,12 @@ declare const _default: {
         iconLeft: {
             type: ObjectConstructor;
             default: null;
-            validate(iconLeft: VueConstructor): boolean;
+            validator(iconLeft: VueConstructor): boolean;
         };
         iconRight: {
             type: ObjectConstructor;
             default: null;
-            validate(iconRight: VueConstructor): boolean;
+            validator(iconRight: VueConstructor): boolean;
         };
         text: {
             type: StringConstructor;
@@ -108,7 +108,7 @@ declare const _default: {
         color: {
             type: StringConstructor;
             default: "neutral";
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         isEyebrowTextUppercase: {
             type: BooleanConstructor;

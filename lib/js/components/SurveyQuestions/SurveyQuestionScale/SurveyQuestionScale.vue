@@ -195,14 +195,14 @@ export default {
 		state: {
 			type: String,
 			default: SURVEY_QUESTION_STATES.DEFAULT,
-			validate(state) {
+			validator(state) {
 				return Object.values(SURVEY_QUESTION_STATES).includes(state);
 			},
 		},
 		scaleOptions: {
 			type: Array as Prop<Array<SurveyQuestionScaleOption>>,
 			required: true,
-			validate(scaleOptions) {
+			validator(scaleOptions) {
 				return scaleOptions.every((option) => typeof option === 'object');
 			},
 		},

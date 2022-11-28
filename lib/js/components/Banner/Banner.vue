@@ -327,7 +327,7 @@ export default {
 		icon: {
 			type: Object as Prop<VueConstructor>,
 			default: null,
-			validate: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
+			validator: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
 		},
 		buttonText: {
 			type: String,
@@ -340,7 +340,7 @@ export default {
 		color: {
 			type: String,
 			default: BANNER_COLORS.DEFAULT,
-			validate: (color) => Object.values(BANNER_COLORS).includes(color),
+			validator: (color) => Object.values(BANNER_COLORS).includes(color),
 		},
 		title: {
 			type: String,
@@ -349,7 +349,7 @@ export default {
 		layout: {
 			type: String,
 			default: BANNER_LAYOUTS.HORIZONTAL,
-			validate: (layout) => Object.values(BANNER_LAYOUTS).includes(layout),
+			validator: (layout) => Object.values(BANNER_LAYOUTS).includes(layout),
 		},
 		isExpanded: {
 			type: Boolean,

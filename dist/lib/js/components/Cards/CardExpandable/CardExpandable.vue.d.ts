@@ -48,7 +48,7 @@ declare const _default: {
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;

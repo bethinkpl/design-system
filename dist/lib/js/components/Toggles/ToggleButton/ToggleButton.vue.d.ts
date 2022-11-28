@@ -12,7 +12,7 @@ declare const _default: {
                 color: {
                     type: StringConstructor;
                     default: string;
-                    validate(color: any): boolean;
+                    validator(color: any): boolean;
                 };
                 disable: {
                     type: BooleanConstructor;
