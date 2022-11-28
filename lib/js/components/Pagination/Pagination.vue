@@ -8,15 +8,15 @@
 	>
 		<div class="ds-pagination__itemsWrapper">
 			<div class="ds-pagination__items -default">
-				<template v-for="(n, index) in items">
+				<template v-for="(navigationItem, index) in navigationItems">
 					<div :key="index" class="ds-pagination__itemWrapper">
 						<a
-							v-if="isPage(n)"
+							v-if="isPage(navigationItem)"
 							class="ds-pagination__item"
-							:class="{ '-selected': currentPageSanitized === n }"
-							@click.prevent.stop="changePage(n)"
+							:class="{ '-selected': currentPageSanitized === navigationItem }"
+							@click.prevent.stop="changePage(navigationItem)"
 						>
-							{{ n }}
+							{{ navigationItem }}
 						</a>
 
 						<span v-else class="ds-pagination__ellipsis">&hellip;</span>
@@ -231,7 +231,7 @@ import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ICONS } from '../Icon';
 
-const MAX_DISPLAYED_ITEMS = 7;
+const MAX_NAVIGATION_ITEMS = 7;
 const ELLIPSIS_FILL = 'ellipsis';
 const FIRST_PAGE_NUMBER = 1;
 
@@ -290,9 +290,9 @@ export default {
 
 			return this.currentPage;
 		},
-		items(): Array<number | string> {
+		navigationItems(): Array<number | string> {
 			let delta: number;
-			if (this.lastPage <= MAX_DISPLAYED_ITEMS) {
+			if (this.lastPage <= MAX_NAVIGATION_ITEMS) {
 				// delta === 7: [1 2 3 4 5 6 7]
 				delta = 7;
 			} else {
@@ -311,7 +311,7 @@ export default {
 				range.end += 1;
 			}
 
-			let pages: Array<number> =
+			let navigationItems: Array<number> =
 				this.currentPage > delta
 					? this.getRange(
 							Math.min(range.start, this.lastPage - delta),
@@ -319,17 +319,20 @@ export default {
 					  )
 					: this.getRange(1, Math.min(this.lastPage, delta + 1));
 
-			const withDots = (value, pair) => (pages.length + 1 !== this.lastPage ? pair : [value]);
+			const withDots = (value, pair) =>
+				navigationItems.length + 1 !== this.lastPage ? pair : [value];
 
-			if (pages[0] !== 1) {
-				pages = withDots(1, [1, ELLIPSIS_FILL]).concat(pages);
+			if (navigationItems[0] !== 1) {
+				navigationItems = withDots(1, [1, ELLIPSIS_FILL]).concat(navigationItems);
 			}
 
-			if (pages[pages.length - 1] < this.lastPage) {
-				pages = pages.concat(withDots(this.lastPage, [ELLIPSIS_FILL, this.lastPage]));
+			if (navigationItems[navigationItems.length - 1] < this.lastPage) {
+				navigationItems = navigationItems.concat(
+					withDots(this.lastPage, [ELLIPSIS_FILL, this.lastPage]),
+				);
 			}
 
-			return pages;
+			return navigationItems;
 		},
 	},
 	methods: {
