@@ -28,8 +28,8 @@ export const Interactive = StoryTemplate.bind({});
 const argTypes = {
 	currentPage: { control: { type: 'number', min: 1 }, defaultValue: 1 },
 	forceCompact: { control: { type: 'boolean' }, defaultValue: false },
-	initialPage: { control: { type: 'number', min: 1 }, defaultValue: 1 },
 	isCentered: { control: { type: 'boolean' }, defaultValue: false },
+	itemsPerPage: { control: { type: 'number', min: 1 }, defaultValue: 30 },
 	itemsTotalAmount: { control: { type: 'number', min: 1 }, defaultValue: 600 },
 	accessory: { control: { type: 'text' }, defaultValue: 'accessory slot' },
 } as ArgTypes;
