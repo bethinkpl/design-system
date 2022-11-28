@@ -7,7 +7,7 @@
 		}"
 	>
 		<div class="ds-pagination__itemsWrapper">
-			<div class="ds-pagination__items -default">
+			<div v-if="!forceCompact" class="ds-pagination__items -default">
 				<template v-for="(navigationItem, index) in navigationItems">
 					<div :key="index" class="ds-pagination__itemWrapper">
 						<span
