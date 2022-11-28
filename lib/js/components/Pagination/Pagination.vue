@@ -80,8 +80,7 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/mixins/layout';
 
-$pagination-item-width: 32px;
-$pagination-item-height: 32px;
+$pagination-item-min-width: 32px;
 
 .ds-pagination {
 	$self: &;
@@ -143,7 +142,6 @@ $pagination-item-height: 32px;
 		border: 1px solid $color-neutral-border-strong;
 		box-shadow: inset 0 1px 3px $color-neutral-border-strong;
 		border-radius: $radius-s;
-		height: $pagination-item-height;
 
 		&:focus {
 			outline: none;
@@ -176,11 +174,11 @@ $pagination-item-height: 32px;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		width: $pagination-item-width;
-		height: $pagination-item-height;
+		min-width: $pagination-item-min-width;
 		background: $color-neutral-background-weak;
 		border-radius: $radius-xs;
 		color: $color-neutral-text;
+		padding: $space-xxxs;
 
 		&.-selected {
 			@include textBold();
@@ -206,7 +204,6 @@ $pagination-item-height: 32px;
 		justify-content: center;
 		align-items: center;
 		width: 22px;
-		height: $pagination-item-height;
 		color: $color-neutral-text-weak;
 	}
 
