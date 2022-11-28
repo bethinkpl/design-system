@@ -82,6 +82,7 @@
 
 $pagination-item-min-width: 32px;
 $pagination-input-height: 32px;
+$pagination-ellipsis-width: 22px;
 
 .ds-pagination {
 	$self: &;
@@ -205,7 +206,7 @@ $pagination-input-height: 32px;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		width: 22px;
+		width: $pagination-ellipsis-width;
 		color: $color-neutral-text-weak;
 	}
 
