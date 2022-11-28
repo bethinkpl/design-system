@@ -27,14 +27,14 @@ describe('Pagination', () => {
 				currentPage: 1,
 				itemsTotalAmount: 1,
 			},
-			expected: ['1'],
+			expected: [],
 		},
 		{
 			props: {
 				currentPage: 1,
 				itemsTotalAmount: 30,
 			},
-			expected: ['1'],
+			expected: [],
 		},
 		{
 			props: {
@@ -99,7 +99,7 @@ describe('Pagination', () => {
 			},
 			expected: ['1', '…', '6', '7', '8', '9', '10'],
 		},
-	])('should calculate correct pagination for %s', ({ props, expected }) => {
+	])('should calculate correct pagination for %o', ({ props, expected }) => {
 		const component = createComponent(props);
 		const elements: Array<string> = [];
 		component.findAll('.ds-pagination__itemWrapper').wrappers.forEach((element) => {
