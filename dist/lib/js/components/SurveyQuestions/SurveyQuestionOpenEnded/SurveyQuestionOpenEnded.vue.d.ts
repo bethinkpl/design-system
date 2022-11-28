@@ -39,7 +39,7 @@ declare const _default: {
                         icon: {
                             type: ObjectConstructor;
                             required: boolean;
-                            validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                            validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                         };
                         size: {
                             type: StringConstructor;
@@ -131,12 +131,12 @@ declare const _default: {
                 iconLeft: {
                     type: ObjectConstructor;
                     default: null;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 iconRight: {
                     type: ObjectConstructor;
                     default: null;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 elevation: {
                     type: StringConstructor;
@@ -411,7 +411,7 @@ declare const _default: {
                         icon: {
                             type: ObjectConstructor;
                             required: boolean;
-                            validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                            validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                         };
                         size: {
                             type: StringConstructor;
@@ -461,7 +461,7 @@ declare const _default: {
                                 icon: {
                                     type: ObjectConstructor;
                                     required: boolean;
-                                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                                 };
                                 size: {
                                     type: StringConstructor;
@@ -553,12 +553,12 @@ declare const _default: {
                         iconLeft: {
                             type: ObjectConstructor;
                             default: null;
-                            validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                            validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                         };
                         iconRight: {
                             type: ObjectConstructor;
                             default: null;
-                            validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                            validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                         };
                         elevation: {
                             type: StringConstructor;
@@ -803,7 +803,7 @@ declare const _default: {
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 color: {
                     type: StringConstructor;
@@ -1076,7 +1076,7 @@ declare const _default: {
                         icon: {
                             type: ObjectConstructor;
                             required: boolean;
-                            validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                            validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                         };
                         size: {
                             type: StringConstructor;
@@ -1141,7 +1141,7 @@ declare const _default: {
         state: {
             type: StringConstructor;
             default: "default";
-            validate(state: any): boolean;
+            validator(state: any): boolean;
         };
     };
     data(): {

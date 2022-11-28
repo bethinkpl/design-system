@@ -6,7 +6,7 @@ declare const _default: {
         position: {
             type: PropType<DrawerPosition>;
             default: "right";
-            validate(position: any): boolean;
+            validator(position: any): boolean;
         };
         stickyHeader: {
             type: BooleanConstructor;

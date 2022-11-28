@@ -11,7 +11,7 @@ declare const _default: {
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: VueConstructor<import("vue").default>): boolean;
+                    validator(icon: VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;
@@ -60,17 +60,17 @@ declare const _default: {
         color: {
             type: StringConstructor;
             required: boolean;
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         icon: {
             type: ObjectConstructor;
             default: null;
-            validate(icon: VueConstructor): boolean;
+            validator(icon: VueConstructor): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         fullWidth: {
             type: BooleanConstructor;

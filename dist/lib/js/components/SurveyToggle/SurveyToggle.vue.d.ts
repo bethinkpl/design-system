@@ -10,7 +10,7 @@ declare const _default: {
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;
@@ -61,22 +61,22 @@ declare const _default: {
         meaning: {
             type: StringConstructor;
             default: "primary";
-            validate(meaning: any): boolean;
+            validator(meaning: any): boolean;
         };
         status: {
             type: StringConstructor;
             default: "default";
-            validate(status: any): boolean;
+            validator(status: any): boolean;
         };
         state: {
             type: StringConstructor;
             default: "default";
-            validate(state: any): boolean;
+            validator(state: any): boolean;
         };
         selectedIcon: {
             type: ObjectConstructor;
             default(): import("@fortawesome/fontawesome-common-types").IconDefinition;
-            validate(selectedIcon: any): boolean;
+            validator(selectedIcon: any): boolean;
         };
     };
     data(): {
