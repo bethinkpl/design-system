@@ -273,15 +273,17 @@ export default {
 			return Math.ceil(this.itemsTotalAmount / this.itemsPerPage);
 		},
 		currentPageSanitized(): number {
-			if (this.pageIsSmallerThanFirstPage(this.currentPage)) {
+			const currentPage = Math.ceil(this.currentPage);
+
+			if (this.pageIsSmallerThanFirstPage(currentPage)) {
 				return FIRST_PAGE_NUMBER;
 			}
 
-			if (this.pageIsLargerThanLastPage(this.currentPage)) {
+			if (this.pageIsLargerThanLastPage(currentPage)) {
 				return this.lastPage;
 			}
 
-			return this.currentPage;
+			return currentPage;
 		},
 		navigationItems(): Array<number | string> {
 			let delta: number;
@@ -345,7 +347,7 @@ export default {
 			return typeof item === 'number';
 		},
 		pageIsSmallerThanFirstPage(page): boolean {
-			return page < FIRST_PAGE_NUMBER || page % FIRST_PAGE_NUMBER !== 0;
+			return page < FIRST_PAGE_NUMBER;
 		},
 		pageIsLargerThanLastPage(page): boolean {
 			return page > this.lastPage;
