@@ -236,14 +236,14 @@ export default {
 		layout: {
 			type: String,
 			default: PAGINATION_LAYOUTS.DEFAULT,
-			validate(layout) {
+			validator(layout) {
 				return Object.values(PAGINATION_LAYOUTS).includes(layout);
 			},
 		},
 		currentPage: {
 			type: Number,
 			default: FIRST_PAGE_NUMBER,
-			validate(page) {
+			validator(page) {
 				return page > 0;
 			},
 		},
