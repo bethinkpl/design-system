@@ -13,7 +13,7 @@
 						<a
 							v-if="isPage(n)"
 							class="ds-pagination__item"
-							:class="{ '-selected': page === n }"
+							:class="{ '-selected': currentPageSanitized === n }"
 							@click.prevent.stop="changePage(n)"
 						>
 							{{ n }}
@@ -29,15 +29,19 @@
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:icon="ICONS.FA_ANGLE_LEFT"
-					:state="page <= 1 ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT"
-					@click.native="changePage(page - 1)"
+					:state="
+						currentPageSanitized <= 1
+							? ICON_BUTTON_STATES.DISABLED
+							: ICON_BUTTON_STATES.DEFAULT
+					"
+					@click.native="changePage(currentPageSanitized - 1)"
 				/>
 
 				<div class="ds-pagination__compactItem">
 					<input
 						class="ds-pagination__input"
 						type="number"
-						:value="page"
+						:value="currentPageSanitized"
 						:min="1"
 						:step="1"
 						:max="lastPage"
@@ -51,9 +55,11 @@
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:icon="ICONS.FA_ANGLE_RIGHT"
 					:state="
-						page >= lastPage ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT
+						currentPageSanitized >= lastPage
+							? ICON_BUTTON_STATES.DISABLED
+							: ICON_BUTTON_STATES.DEFAULT
 					"
-					@click.native="changePage(page + 1)"
+					@click.native="changePage(currentPageSanitized + 1)"
 				/>
 			</div>
 		</div>
@@ -277,7 +283,7 @@ export default {
 		lastPage() {
 			return Math.ceil(this.itemsTotalAmount / this.itemsPerPage);
 		},
-		page() {
+		currentPageSanitized() {
 			if (this.pageIsSmallerThanFirstPage(this.currentPage)) {
 				return FIRST_PAGE_NUMBER;
 			}
@@ -337,7 +343,7 @@ export default {
 				.map((_v, i) => i + start);
 		},
 		async changePage(page) {
-			if (this.page === page) {
+			if (this.currentPageSanitized === page) {
 				return;
 			}
 
