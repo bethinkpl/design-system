@@ -257,10 +257,6 @@ export default {
 			type: Number,
 			default: PAGINATION_DEFAULT_ITEMS_PER_PAGE,
 		},
-		initialPage: {
-			type: Number,
-			default: FIRST_PAGE_NUMBER,
-		},
 		isCentered: {
 			type: Boolean,
 			default: false,
