@@ -17,9 +17,10 @@ const StoryTemplate: StoryFn<typeof Pagination> = (argTypes, { updateArgs }) => 
 		},
 	},
 	template: `
-		<Pagination v-bind=$props
-					@change-page='onChangePage'>
-		<div v-if='accessory' slot='accessory' v-html='accessory' />
+		<Pagination v-bind=$props @change-page="onChangePage">
+			<template #accessory>
+				<div v-if="accessory" v-html="accessory" />
+			</template>
 		</Pagination>`,
 });
 
