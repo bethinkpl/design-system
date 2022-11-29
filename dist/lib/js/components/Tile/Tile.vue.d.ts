@@ -119,6 +119,14 @@ declare const _default: {
             default: "default";
             validator(value: Value<typeof TILE_STATES>): boolean;
         };
+        eyebrowEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        textEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     };
     data(): {
         ICONS: Readonly<{
