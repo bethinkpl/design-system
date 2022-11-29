@@ -2245,7 +2245,7 @@
 }
 
 @mixin Label2XLRegular() {
-	--token: label-2-x-l-regular;
+	--token: label-2xl-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2257,7 +2257,7 @@
 }
 
 @mixin Label2XLRegularItalic() {
-	--token: label-2-x-l-regular-italic;
+	--token: label-2xl-regular-italic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2269,7 +2269,7 @@
 }
 
 @mixin Label2XLRegularUppercase() {
-	--token: label-2-x-l-regular-uppercase;
+	--token: label-2xl-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2281,7 +2281,7 @@
 }
 
 @mixin Label2XLBold() {
-	--token: label-2-x-l-bold;
+	--token: label-2xl-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2293,7 +2293,7 @@
 }
 
 @mixin Label2XLBoldUppercase() {
-	--token: label-2-x-l-bold-uppercase;
+	--token: label-2xl-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2305,7 +2305,7 @@
 }
 
 @mixin Label2XLExtensiveRegularUppercase() {
-	--token: label-2-x-l-extensive-regular-uppercase;
+	--token: label-2xl-extensive-regular-uppercase;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2317,7 +2317,7 @@
 }
 
 @mixin Label2XLExtensiveBoldUppercase() {
-	--token: label-2-x-l-extensive-bold-uppercase;
+	--token: label-2xl-extensive-bold-uppercase;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;

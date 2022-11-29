@@ -15,7 +15,7 @@ export const camelize = (str: string) => {
 };
 
 export const kebabize = (str) => {
-	if (str.length < 3) {
+	if (str.length < 4) {
 		return str;
 	}
 	return str
