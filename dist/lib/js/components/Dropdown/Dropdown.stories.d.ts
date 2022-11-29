@@ -22,9 +22,19 @@ declare const _default: Meta<{
             default: "click";
             validator(triggerAction: any): boolean;
         };
+        radius: {
+            type: StringConstructor;
+            default: "both";
+            validate(radius: any): boolean;
+        };
     };
     data(): {
         key: number;
+        DROPDOWN_RADIUSES: Readonly<{
+            readonly TOP: "top";
+            readonly BOTTOM: "bottom";
+            readonly BOTH: "both";
+        }>;
     };
     computed: {
         options(): any;
@@ -63,9 +73,19 @@ export declare const Interactive: StoryFn<{
             default: "click";
             validator(triggerAction: any): boolean;
         };
+        radius: {
+            type: StringConstructor;
+            default: "both";
+            validate(radius: any): boolean;
+        };
     };
     data(): {
         key: number;
+        DROPDOWN_RADIUSES: Readonly<{
+            readonly TOP: "top";
+            readonly BOTTOM: "bottom";
+            readonly BOTH: "both";
+        }>;
     };
     computed: {
         options(): any;
