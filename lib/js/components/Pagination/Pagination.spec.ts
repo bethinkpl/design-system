@@ -107,4 +107,52 @@ describe('Pagination', () => {
 		});
 		expect(elements).toEqual(expected);
 	});
+
+	test.each([
+		{
+			props: {
+				currentPage: 1,
+				itemsTotalAmount: 0,
+			},
+			expected: undefined,
+		},
+		{
+			props: {
+				currentPage: 1,
+				itemsTotalAmount: 1,
+			},
+			expected: undefined,
+		},
+		{
+			props: {
+				currentPage: 30,
+				itemsTotalAmount: 1,
+			},
+			expected: [[1]],
+		},
+		{
+			props: {
+				currentPage: -30,
+				itemsTotalAmount: 1,
+			},
+			expected: [[1]],
+		},
+		{
+			props: {
+				currentPage: 300,
+				itemsTotalAmount: 300,
+			},
+			expected: [[10]],
+		},
+		{
+			props: {
+				currentPage: -30,
+				itemsTotalAmount: 300,
+			},
+			expected: [[1]],
+		},
+	])('should validate for %o', ({ props, expected }) => {
+		const component = createComponent(props);
+		expect(component.emitted()['change-page']).toEqual(expected);
+	});
 });

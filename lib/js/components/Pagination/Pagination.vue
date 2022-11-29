@@ -18,7 +18,7 @@
 						class="ds-pagination__itemWrapper"
 						:class="{ '-touchable': currentPageSanitized !== navigationItem }"
 						role="link"
-						@click.prevent.stop="changePage(navigationItem)"
+						@click="changePage(navigationItem)"
 					>
 						<span
 							class="ds-pagination__item"
@@ -281,7 +281,7 @@ export default {
 	},
 	computed: {
 		lastPage(): number {
-			return Math.ceil(this.itemsTotalAmount / this.itemsPerPage);
+			return Math.ceil(this.itemsTotalAmount / this.itemsPerPage) || FIRST_PAGE_NUMBER;
 		},
 		currentPageSanitized(): number {
 			const currentPage = Math.ceil(this.currentPage);
@@ -342,8 +342,10 @@ export default {
 		},
 	},
 	watch: {
-		currentPage(newVal) {
-			this.validatePage(newVal);
+		currentPage(newVal, oldValue) {
+			if (newVal !== oldValue) {
+				this.validatePage(newVal);
+			}
 		},
 	},
 	mounted() {
