@@ -1,7 +1,7 @@
 @import 'variables';
 
 @mixin DisplayHeadingMRegular() {
-	--token: displayheading-m-regular;
+	--token: displayHeading-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -13,7 +13,7 @@
 }
 
 @mixin DisplayHeadingMBold() {
-	--token: displayheading-m-bold;
+	--token: displayHeading-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -25,7 +25,7 @@
 }
 
 @mixin DisplayHeadingSRegular() {
-	--token: displayheading-s-regular;
+	--token: displayHeading-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -37,7 +37,7 @@
 }
 
 @mixin DisplayHeadingSBold() {
-	--token: displayheading-s-bold;
+	--token: displayHeading-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -49,7 +49,7 @@
 }
 
 @mixin DisplayHeadingXSRegular() {
-	--token: displayheading-xs-regular;
+	--token: displayHeading-xs-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -61,7 +61,7 @@
 }
 
 @mixin DisplayHeadingXSBold() {
-	--token: displayheading-xs-bold;
+	--token: displayHeading-xs-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -73,7 +73,7 @@
 }
 
 @mixin PageHeadingMBold() {
-	--token: pageheading-m-bold;
+	--token: pageHeading-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -85,7 +85,7 @@
 }
 
 @mixin PageHeadingSBold() {
-	--token: pageheading-s-bold;
+	--token: pageHeading-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1705,7 +1705,7 @@
 }
 
 @mixin FormLabelLRegular() {
-	--token: formlabel-l-regular;
+	--token: formLabel-l-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1717,7 +1717,7 @@
 }
 
 @mixin FormLabelLRegularItalic() {
-	--token: formlabel-l-regularitalic;
+	--token: formLabel-l-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1729,7 +1729,7 @@
 }
 
 @mixin FormLabelLBold() {
-	--token: formlabel-l-bold;
+	--token: formLabel-l-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1741,7 +1741,7 @@
 }
 
 @mixin FormLabelMRegular() {
-	--token: formlabel-m-regular;
+	--token: formLabel-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1753,7 +1753,7 @@
 }
 
 @mixin FormLabelMRegularItalic() {
-	--token: formlabel-m-regularitalic;
+	--token: formLabel-m-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1765,7 +1765,7 @@
 }
 
 @mixin FormLabelMBold() {
-	--token: formlabel-m-bold;
+	--token: formLabel-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1777,7 +1777,7 @@
 }
 
 @mixin FormLabelSRegular() {
-	--token: formlabel-s-regular;
+	--token: formLabel-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1789,7 +1789,7 @@
 }
 
 @mixin FormLabelSRegularItalic() {
-	--token: formlabel-s-regularitalic;
+	--token: formLabel-s-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1801,7 +1801,7 @@
 }
 
 @mixin FormLabelSBold() {
-	--token: formlabel-s-bold;
+	--token: formLabel-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1813,7 +1813,7 @@
 }
 
 @mixin FormTextXLRegular() {
-	--token: formtext-xl-regular;
+	--token: formText-xl-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1825,7 +1825,7 @@
 }
 
 @mixin FormTextXLRegularItalic() {
-	--token: formtext-xl-regularitalic;
+	--token: formText-xl-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1837,7 +1837,7 @@
 }
 
 @mixin FormTextXLBold() {
-	--token: formtext-xl-bold;
+	--token: formText-xl-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1849,7 +1849,7 @@
 }
 
 @mixin FormTextXLBoldItalic() {
-	--token: formtext-xl-bolditalic;
+	--token: formText-xl-bolditalic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1861,7 +1861,7 @@
 }
 
 @mixin FormTextXLExtensiveRegular() {
-	--token: formtext-xl-extensive-regular;
+	--token: formText-xl-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1873,7 +1873,7 @@
 }
 
 @mixin FormTextXLExtensiveRegularItalic() {
-	--token: formtext-xl-extensive-regularitalic;
+	--token: formText-xl-extensive-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1885,7 +1885,7 @@
 }
 
 @mixin FormTextXLExtensiveBold() {
-	--token: formtext-xl-extensive-bold;
+	--token: formText-xl-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1897,7 +1897,7 @@
 }
 
 @mixin FormTextXLExtensiveBoldItalic() {
-	--token: formtext-xl-extensive-bolditalic;
+	--token: formText-xl-extensive-bolditalic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1909,7 +1909,7 @@
 }
 
 @mixin FormTextLRegular() {
-	--token: formtext-l-regular;
+	--token: formText-l-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1921,7 +1921,7 @@
 }
 
 @mixin FormTextLRegularItalic() {
-	--token: formtext-l-regularitalic;
+	--token: formText-l-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1933,7 +1933,7 @@
 }
 
 @mixin FormTextLBold() {
-	--token: formtext-l-bold;
+	--token: formText-l-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1945,7 +1945,7 @@
 }
 
 @mixin FormTextLBoldItalic() {
-	--token: formtext-l-bolditalic;
+	--token: formText-l-bolditalic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -1957,7 +1957,7 @@
 }
 
 @mixin FormTextLExtensiveRegular() {
-	--token: formtext-l-extensive-regular;
+	--token: formText-l-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -1969,7 +1969,7 @@
 }
 
 @mixin FormTextLExtensiveRegularItalic() {
-	--token: formtext-l-extensive-regularitalic;
+	--token: formText-l-extensive-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -1981,7 +1981,7 @@
 }
 
 @mixin FormTextLExtensiveBold() {
-	--token: formtext-l-extensive-bold;
+	--token: formText-l-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -1993,7 +1993,7 @@
 }
 
 @mixin FormTextLExtensiveBoldItalic() {
-	--token: formtext-l-extensive-bolditalic;
+	--token: formText-l-extensive-bolditalic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2005,7 +2005,7 @@
 }
 
 @mixin FormTextMRegular() {
-	--token: formtext-m-regular;
+	--token: formText-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2017,7 +2017,7 @@
 }
 
 @mixin FormTextMRegularItalic() {
-	--token: formtext-m-regularitalic;
+	--token: formText-m-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2029,7 +2029,7 @@
 }
 
 @mixin FormTextMBold() {
-	--token: formtext-m-bold;
+	--token: formText-m-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2041,7 +2041,7 @@
 }
 
 @mixin FormTextMBoldItalic() {
-	--token: formtext-m-bolditalic;
+	--token: formText-m-bolditalic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2053,7 +2053,7 @@
 }
 
 @mixin FormTextMExtensiveRegular() {
-	--token: formtext-m-extensive-regular;
+	--token: formText-m-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2065,7 +2065,7 @@
 }
 
 @mixin FormTextMExtensiveRegularItalic() {
-	--token: formtext-m-extensive-regularitalic;
+	--token: formText-m-extensive-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2077,7 +2077,7 @@
 }
 
 @mixin FormTextMExtensiveBold() {
-	--token: formtext-m-extensive-bold;
+	--token: formText-m-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2089,7 +2089,7 @@
 }
 
 @mixin FormTextMExtensiveBoldItalic() {
-	--token: formtext-m-extensive-bolditalic;
+	--token: formText-m-extensive-bolditalic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2101,7 +2101,7 @@
 }
 
 @mixin FormTextSRegular() {
-	--token: formtext-s-regular;
+	--token: formText-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2113,7 +2113,7 @@
 }
 
 @mixin FormTextSRegularItalic() {
-	--token: formtext-s-regularitalic;
+	--token: formText-s-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2125,7 +2125,7 @@
 }
 
 @mixin FormTextSBold() {
-	--token: formtext-s-bold;
+	--token: formText-s-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2137,7 +2137,7 @@
 }
 
 @mixin FormTextSBoldItalic() {
-	--token: formtext-s-bolditalic;
+	--token: formText-s-bolditalic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2149,7 +2149,7 @@
 }
 
 @mixin FormTextSExtensiveRegular() {
-	--token: formtext-s-extensive-regular;
+	--token: formText-s-extensive-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2161,7 +2161,7 @@
 }
 
 @mixin FormTextSExtensiveRegularItalic() {
-	--token: formtext-s-extensive-regularitalic;
+	--token: formText-s-extensive-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2173,7 +2173,7 @@
 }
 
 @mixin FormTextSExtensiveBold() {
-	--token: formtext-s-extensive-bold;
+	--token: formText-s-extensive-bold;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-normal;
@@ -2185,7 +2185,7 @@
 }
 
 @mixin FormTextSExtensiveBoldItalic() {
-	--token: formtext-s-extensive-bolditalic;
+	--token: formText-s-extensive-bolditalic;
 
 	font-weight: $typography-font-weight-bold;
 	font-style: $typography-font-style-italic;
@@ -2197,7 +2197,7 @@
 }
 
 @mixin FormCaptionMRegular() {
-	--token: formcaption-m-regular;
+	--token: formCaption-m-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2209,7 +2209,7 @@
 }
 
 @mixin FormCaptionMRegularItalic() {
-	--token: formcaption-m-regularitalic;
+	--token: formCaption-m-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
@@ -2221,7 +2221,7 @@
 }
 
 @mixin FormCaptionSRegular() {
-	--token: formcaption-s-regular;
+	--token: formCaption-s-regular;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-normal;
@@ -2233,7 +2233,7 @@
 }
 
 @mixin FormCaptionSRegularItalic() {
-	--token: formcaption-s-regularitalic;
+	--token: formCaption-s-regularitalic;
 
 	font-weight: $typography-font-weight-normal;
 	font-style: $typography-font-style-italic;
