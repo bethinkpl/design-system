@@ -3,14 +3,18 @@ const axios = require('axios');
 import { arrayToMixinFile, arrayToFile, jsonToFile } from './helpers/fileWriter';
 import { recursiveTokensReader } from './helpers/tokensReader';
 import {
-	typographyPrefix,
-	tokensKey,
 	excludedKeys,
+	fontFamilyKey,
+	fontWeightKey,
 	importVariables,
 	jsonAttributeToCssProperty,
 	resultCssAdditionalLines,
 	resultScssAdditionalLines,
+	tokensKey,
 	tokensTypographyInputAttributes,
+	tokensTypographyMissingJsonFontFamilyVariable,
+	tokensTypographyMissingJsonFontWeightVariables,
+	typographyPrefix,
 } from './helpers/typographyVariables';
 import {
 	mixinNameLine,
@@ -107,6 +111,13 @@ export const ImportTypographyVariables = (
 	});
 	resultScssAdditionalLines.forEach((item) => {
 		resultScss.push(item);
+	});
+
+	resultJsonCss[fontFamilyKey] = [];
+	resultJsonCss[fontFamilyKey].push(tokensTypographyMissingJsonFontFamilyVariable);
+	resultJsonCss[fontWeightKey] = [];
+	tokensTypographyMissingJsonFontWeightVariables.forEach(function (item) {
+		resultJsonCss[fontWeightKey].push(item);
 	});
 
 	arrayToFile(

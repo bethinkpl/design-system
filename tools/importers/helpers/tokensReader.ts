@@ -6,6 +6,8 @@ import {
 	fontWeightKey,
 	transformCssProperty,
 	tokenPartDisabled,
+	textCaseProperty,
+	textTransformProperty,
 } from './typographyVariables';
 
 export const recursiveTokensReader = (obj, keyResult: string): Array<ITypographyToken> => {
@@ -21,26 +23,35 @@ export const recursiveTokensReader = (obj, keyResult: string): Array<ITypography
 			let attrKeyRaw = attrKey
 				.replace(/([a-z0-9])([A-Z])/g, '$1-$2')
 				.replace(/\.+/g, '-')
-				.toLowerCase();
+				.toLowerCase()
+				.replace(textCaseProperty, textTransformProperty);
 
-			attributesRaw.push({ property: attrKeyRaw, value: attrValue });
 			attrValue = attrValue.replace('-regular', transformCssProperty['-regular']);
 
 			if (attrValue && !attrValue.includes(fontFamilyProperty)) {
 				if (attrKey === fontWeightKey) {
 					if (attrValue.includes('bold')) {
 						attributes.push('font-weight-bold');
+						attributesRaw.push({ property: 'font-weight', value: 'font-weight-bold' });
 					} else if (attrValue.includes('light')) {
 						attributes.push('font-weight-light');
+						attributesRaw.push({ property: 'font-weight', value: 'font-weight-light' });
 					} else {
 						attributes.push('font-weight-normal');
+						attributesRaw.push({
+							property: 'font-weight',
+							value: 'font-weight-normal',
+						});
 					}
 					if (attrValue.includes('italic')) {
 						attributes.push('font-style-italic');
+						attributesRaw.push({ property: 'font-style', value: 'font-style-italic' });
 					} else {
 						attributes.push('font-style-normal');
+						attributesRaw.push({ property: 'font-style', value: 'font-style-normal' });
 					}
 				} else {
+					attributesRaw.push({ property: attrKeyRaw, value: attrValue });
 					attributes.push(attrValue);
 				}
 			}

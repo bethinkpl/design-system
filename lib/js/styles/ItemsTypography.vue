@@ -8,7 +8,7 @@
 				<div v-for="attribute in item.attributesRaw" :key="item.id + attribute.value">
 					<strong>{{ attribute.property }}</strong
 					>:
-					<span>{ {{ attribute.value }} }</span>
+					<span>{ {{ attribute.value }} = {{ variableToValue(attribute.value) }} }</span>
 				</div>
 			</div>
 			<div v-if="item.attributes" class="itemDefinition__example">
@@ -27,6 +27,7 @@
 
 <script lang="ts">
 import { TypographyToken } from './TokenTypes';
+import variables from '../../styles/settings/typography/_variables-css.json';
 
 export default {
 	name: 'ItemsTypography',
@@ -43,6 +44,18 @@ export default {
 				result += item.property + ': var(--typography-' + item.value + ');';
 			});
 
+			console.log(result);
+			return result;
+		},
+		variableToValue(variable) {
+			let result: string = '';
+			(Object.keys(variables) as Array<keyof typeof variables>).forEach((key) => {
+				variables[key].forEach((singleVariable) => {
+					if (singleVariable.label === 'typography-' + variable) {
+						result = singleVariable.value;
+					}
+				});
+			});
 			return result;
 		},
 	},

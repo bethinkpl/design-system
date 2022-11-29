@@ -1,7 +1,12 @@
+import { ITokenJsonObject } from './structures';
+
 export const typographyPrefix: string = 'typography-';
 export const tokensKey: string = 'TypographyTokens';
 export const excludedKeys: Array<string> = ['fontFamilies', 'TypographyTokens'];
 export const fontFamilyProperty: string = 'font-families';
+export const textTransformProperty: string = 'font-transform';
+export const textCaseProperty: string = 'text-case';
+export const fontFamilyKey: string = 'fontFamily';
 export const fontWeightKey: string = 'fontWeight';
 export const tokenPartDisabled: string = 'default';
 export const transformCssProperty: { [key: string]: string } = {
@@ -39,3 +44,37 @@ export const tokensTypographyInputAttributes = {
 	textTransform: 'textTransform',
 	textDecoration: 'textDecoration',
 } as const;
+
+export const tokensTypographyMissingJsonFontFamilyVariable: ITokenJsonObject = {
+	id: 'tokensjsontypographyfontfamilylato',
+	label: 'typography-font-families-lato',
+	value: 'Lato',
+};
+
+export const tokensTypographyMissingJsonFontWeightVariables: Array<ITokenJsonObject> = [
+	{
+		id: 'tokensjsontypographyfontweightregular',
+		label: 'typography-font-weight-normal',
+		value: 'normal',
+	},
+	{
+		id: 'tokensjsontypographyfontweightbold',
+		label: 'typography-font-weight-bold',
+		value: 'bold',
+	},
+	{
+		id: 'tokensjsontypographyfontweightlight',
+		label: 'typography-font-weight-light',
+		value: 'light',
+	},
+	{
+		id: 'tokensjsontypographyfontweightstylenormal',
+		label: 'typography-font-style-normal',
+		value: 'normal',
+	},
+	{
+		id: 'tokensjsontypographyfontstyleitalic',
+		label: 'typography-font-style-italic',
+		value: 'italic',
+	},
+];
