@@ -16,7 +16,7 @@
 						v-if="isPage(navigationItem)"
 						:key="index"
 						class="ds-pagination__itemWrapper"
-						:class="{ '-selected': currentPageSanitized === navigationItem }"
+						:class="{ '-touchable': currentPageSanitized !== navigationItem }"
 						role="link"
 						@click.prevent.stop="changePage(navigationItem)"
 					>
@@ -27,7 +27,7 @@
 							{{ navigationItem }}
 						</span>
 					</div>
-					<div v-else :key="index" class="ds-pagination__ellipsisItemWrapper">
+					<div v-else :key="index" class="ds-pagination__itemWrapper">
 						<span class="ds-pagination__ellipsis">&hellip;</span>
 					</div>
 				</template>
@@ -176,19 +176,18 @@ $pagination-input-height: 32px;
 		flex-direction: row;
 	}
 
-	&__itemWrapper,
-	&__ellipsisItemWrapper {
+	&__itemWrapper {
 		@include textM();
 
 		text-align: center;
 		padding: $space-xxxxs;
-	}
 
-	&__itemWrapper:hover:not(.-selected) {
-		cursor: pointer;
+		&.-touchable:hover {
+			cursor: pointer;
 
-		#{$self}__item:not(.-selected) {
-			background: $color-neutral-background-weak-hovered;
+			#{$self}__item:not(.-selected) {
+				background: $color-neutral-background-weak-hovered;
+			}
 		}
 	}
 
