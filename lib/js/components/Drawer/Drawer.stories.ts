@@ -11,19 +11,21 @@ export default {
 const StoryTemplate: StoryFn<typeof Drawer> = (argTypes) => ({
 	components: { Drawer },
 	props: Object.keys(argTypes),
-	template: `<div style="height: 400px; width: 200px;">
-            <drawer :position="position">
-                <template v-slot:header><div style="border: 1px solid #000">Header</div></template>
-                <div style="border: 1px solid #000">Content</div>
-                <template v-slot:footer><div style="border: 1px solid #000">Footer</div></template>
-            </drawer>
-        </div>`,
+	template: `<div style="height: 300px; width: 200px;">
+		<drawer :position="position" :sticky-header="stickyHeader" :sticky-footer="stickyFooter">
+		<template v-slot:header><div style="background-color: var(--raw-gray-100)">Header<br><br></div></template>
+		<div>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br></div>
+		<template v-slot:footer><div style="background-color: var(--raw-gray-100)">Footer<br><br></div></template>
+		</drawer>
+		</div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	position: DRAWER_POSITIONS.RIGHT,
+	stickyHeader: true,
+	stickyFooter: true,
 } as Args;
 
 const argTypes = {

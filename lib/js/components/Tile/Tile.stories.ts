@@ -13,7 +13,7 @@ const StoryTemplate: StoryFn<typeof Tile> = (argTypes) => ({
 	components: { Tile },
 	props: Object.keys(argTypes),
 	template:
-		'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :is-eyebrow-text-uppercase="isEyebrowTextUppercase" :state="state" />',
+		'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :is-eyebrow-text-uppercase="isEyebrowTextUppercase" :state="state" :eyebrow-ellipsis="eyebrowEllipsis" :text-ellipsis="textEllipsis"/>',
 	created() {
 		this.ICONS = ICONS;
 	},
@@ -30,6 +30,8 @@ const args = {
 	additionalText: '',
 	isEyebrowTextUppercase: false,
 	state: TILE_STATES.DEFAULT,
+	eyebrowEllipsis: true,
+	textEllipsis: true,
 } as Args;
 
 const argTypes = {
