@@ -59,137 +59,114 @@ $font-size-button-l-DEPRECATED: 14px;
 $line-height-button-l-DEPRECATED: 16px;
 
 @mixin textInfoS-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-info-s-DEPRECATED;
 	line-height: $line-height-info-s-DEPRECATED;
 }
 
 @mixin textInfoM-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-info-m-DEPRECATED;
 	line-height: $line-height-info-m-DEPRECATED;
 }
 
 @mixin textXS-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-text-xs-DEPRECATED;
 	line-height: $line-height-text-xs-DEPRECATED;
 }
 
 @mixin textS-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-text-s-DEPRECATED;
 	line-height: $line-height-text-s-DEPRECATED;
 }
 
 @mixin textM-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-text-m-DEPRECATED;
 	line-height: $line-height-text-m-DEPRECATED;
 }
 
 @mixin textL-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-text-l-DEPRECATED;
 	line-height: $line-height-text-l-DEPRECATED;
 }
 
 @mixin textXL-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-text-xl-DEPRECATED;
 	line-height: $line-height-text-xl-DEPRECATED;
 }
 
 @mixin headlineXXS-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-headline-xxs-DEPRECATED;
 	line-height: $line-height-headline-xxs-DEPRECATED;
 }
 
 @mixin headlineXS-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-headline-xs-DEPRECATED;
 	line-height: $line-height-headline-xs-DEPRECATED;
 }
 
 @mixin headlineS-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-headline-s-DEPRECATED;
 	line-height: $line-height-headline-s-DEPRECATED;
 }
 
 @mixin headlineM-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-headline-m-DEPRECATED;
 	line-height: $line-height-headline-m-DEPRECATED;
 }
 
 @mixin headlineL-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-headline-l-DEPRECATED;
 	line-height: $line-height-headline-l-DEPRECATED;
 }
 
 @mixin headlineXL-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-headline-xl-DEPRECATED;
 	line-height: $line-height-headline-xl-DEPRECATED;
 }
 
 @mixin titleS-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-title-s-DEPRECATED;
 	line-height: $line-height-title-s-DEPRECATED;
 }
 
 @mixin titleM-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-title-m-DEPRECATED;
 	line-height: $line-height-title-m-DEPRECATED;
 }
 
 @mixin titleL-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-title-l-DEPRECATED;
 	line-height: $line-height-title-l-DEPRECATED;
 }
 
 @mixin buttonXS-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-button-xs-DEPRECATED;
 	line-height: $line-height-button-xs-DEPRECATED;
 }
 
 @mixin buttonS-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-button-s-DEPRECATED;
 	line-height: $line-height-button-s-DEPRECATED;
 }
 
 @mixin buttonM-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-button-m-DEPRECATED;
 	line-height: $line-height-button-m-DEPRECATED;
 }
 
 @mixin buttonL-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-size: $font-size-button-l-DEPRECATED;
 	line-height: $line-height-button-l-DEPRECATED;
 }
 
 @mixin textLight-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-weight: 300;
 }
 
 @mixin textMedium-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-weight: 500;
 }
 
 @mixin textBold-DEPRECATED {
-	@warn "This mixin is deprecated!";
 	font-weight: 700;
 }
 
