@@ -341,14 +341,22 @@ export default {
 			return navigationItems;
 		},
 	},
+	watch: {
+		currentPage(newVal) {
+			this.validatePage(newVal);
+		},
+	},
+	mounted() {
+		this.validatePage(this.currentPage);
+	},
 	methods: {
 		getRange(start: number, end: number): Array<number> {
 			return Array(end - start + 1)
 				.fill(null)
 				.map((_v, i) => i + start);
 		},
-		changePage(page): void {
-			if (this.currentPageSanitized === page) {
+		changePage(page, forceChange = false): void {
+			if (this.currentPageSanitized === page && !forceChange) {
 				return;
 			}
 
@@ -363,17 +371,25 @@ export default {
 		pageIsLargerThanLastPage(page): boolean {
 			return page > this.lastPage;
 		},
-		onInputValueChange(event): void {
-			const page = +event.target.value;
+		validatePage(page): boolean {
 			if (this.pageIsSmallerThanFirstPage(page)) {
-				return this.changePage(FIRST_PAGE_NUMBER);
+				this.changePage(FIRST_PAGE_NUMBER, true);
+				return false;
 			}
 
 			if (this.pageIsLargerThanLastPage(page)) {
-				return this.changePage(this.lastPage);
+				this.changePage(this.lastPage, true);
+				return false;
 			}
 
-			this.changePage(page);
+			return true;
+		},
+		onInputValueChange(event): void {
+			const page = +event.target.value;
+
+			if (this.validatePage(page)) {
+				this.changePage(page);
+			}
 		},
 	},
 };
