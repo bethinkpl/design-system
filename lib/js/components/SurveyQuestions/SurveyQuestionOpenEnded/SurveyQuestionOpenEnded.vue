@@ -116,7 +116,7 @@ export default {
 		state: {
 			type: String,
 			default: SURVEY_QUESTION_STATES.DEFAULT,
-			validate(state) {
+			validator(state) {
 				return Object.values(SURVEY_QUESTION_STATES).includes(state);
 			},
 		},

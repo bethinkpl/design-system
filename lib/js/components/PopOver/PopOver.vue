@@ -162,15 +162,15 @@ export default {
 		triggerAction: {
 			type: String,
 			default: POP_OVER_TRIGGER_ACTIONS.CLICK,
-			validate(triggerAction) {
+			validator(triggerAction) {
 				return Object.values(POP_OVER_TRIGGER_ACTIONS).includes(triggerAction);
 			},
 		},
 		placement: {
 			type: String,
 			default: POP_OVER_PLACEMENTS.BOTTOM,
-			validate(placement) {
-				return Object.values(POP_OVER_TRIGGER_ACTIONS).includes(placement);
+			validator(placement) {
+				return Object.values(POP_OVER_PLACEMENTS).includes(placement);
 			},
 		},
 		forceShow: {
@@ -180,7 +180,7 @@ export default {
 		color: {
 			type: String,
 			default: POP_OVER_COLORS.DEFAULT,
-			validate(color) {
+			validator(color) {
 				return Object.values(POP_OVER_COLORS).includes(color);
 			},
 		},

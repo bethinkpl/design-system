@@ -1,27 +1,28 @@
 <template>
 	<div>
-		<div v-for="item in items" :key="item.id" class="itemDefinition">
-			<div class="itemDefinition__id">{{ item.label }}</div>
-			<div class="itemDefinition__value">{{ item.value }}</div>
-			<div class="itemDefinition__color">
-				<span :style="{ background: item.value }" class="itemDefinition__tile" />
+		<div v-for="item in items" :key="item.id" class="itemsListItem">
+			<div class="itemsListItem__id">{{ item.label }}</div>
+			<div class="itemsListItem__value">{{ item.value }}</div>
+			<div class="itemsListItem__color">
+				<span :style="{ background: item.value }" class="itemsListItem__tile" />
 			</div>
 		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-@import '../../styles/components/tokens';
+@import '../../styles/components/items-list-item';
 </style>
 
 <script lang="ts">
 import { ColorToken } from './TokenTypes';
+import { PropType } from 'vue';
 
 export default {
 	name: 'ItemsColor',
 	props: {
 		items: {
-			type: Array as () => Array<ColorToken>,
+			type: Array as PropType<Array<ColorToken>>,
 			required: true,
 		},
 	},

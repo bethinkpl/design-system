@@ -1,0 +1,47 @@
+import { Meta, Story, Props } from '@storybook/addon-docs';
+import Drawer from './Drawer';
+import { DRAWER_POSITIONS } from './Drawer.consts';
+
+<Meta title="components/Drawer" component={Drawer} />
+
+# Drawer
+
+<Story
+	name="interactive"
+	parameters={{
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=3343%3A61189',
+		},
+	}}
+	argTypes={{
+		position: {
+			control: { type: 'select', options: Object.values(DRAWER_POSITIONS) },
+			defaultValue: DRAWER_POSITIONS.RIGHT,
+		},
+	}}
+	args={{
+		position: DRAWER_POSITIONS.RIGHT,
+		stickyHeader: true,
+		stickyFooter: true,
+	}}
+>
+	{(args) => {
+		return {
+			components: { Drawer },
+			props: Object.keys(args),
+			template:
+				'<div style="height: 300px; width: 200px;">' +
+				'<drawer :position="position" :sticky-header="stickyHeader" :sticky-footer="stickyFooter">' +
+				'<template v-slot:header><div style="background-color: var(--raw-gray-100)">Header<br><br></div></template>' +
+				'<div>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br></div>' +
+				'<template v-slot:footer><div style="background-color: var(--raw-gray-100)">Footer<br><br></div></template>' +
+				'</drawer>' +
+				'</div>',
+		};
+	}}
+</Story>
+
+## Props
+
+<Props of={Drawer} />

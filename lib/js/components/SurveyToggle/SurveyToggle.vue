@@ -254,21 +254,21 @@ export default {
 		meaning: {
 			type: String,
 			default: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-			validate(meaning) {
+			validator(meaning) {
 				return Object.values(SURVEY_TOGGLE_MEANINGS).includes(meaning);
 			},
 		},
 		status: {
 			type: String,
 			default: SURVEY_TOGGLE_STATUSES.DEFAULT,
-			validate(status) {
+			validator(status) {
 				return Object.values(SURVEY_TOGGLE_STATUSES).includes(status);
 			},
 		},
 		state: {
 			type: String,
 			default: SURVEY_TOGGLE_STATES.DEFAULT,
-			validate(state) {
+			validator(state) {
 				return Object.values(SURVEY_TOGGLE_STATES).includes(state);
 			},
 		},
@@ -277,7 +277,7 @@ export default {
 			default() {
 				return ICONS.FA_CHECK_SOLID;
 			},
-			validate(selectedIcon) {
+			validator(selectedIcon) {
 				return Object.values(ICONS).includes(selectedIcon);
 			},
 		},

@@ -17166,9 +17166,9 @@ vue-popperjs@2.3.0:
     opencollective-postinstall "^2.0.2"
     popper.js "^1.15.0"
 
-vue-ripple-directive@bethinkpl/vue-ripple-directive#2.0.2:
+vue-ripple-directive@bethinkpl/vue-ripple-directive#2.1.1:
   version "2.0.2"
-  resolved "https://codeload.github.com/bethinkpl/vue-ripple-directive/tar.gz/0ce4144e0cb4834932c5e1f40ca4d7671f07ec11"
+  resolved "https://codeload.github.com/bethinkpl/vue-ripple-directive/tar.gz/2d221996fddc6577779783bcbfc0790cdf2e171a"
   dependencies:
     vue "^2.2.1"
 

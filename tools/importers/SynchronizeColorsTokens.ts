@@ -1,6 +1,6 @@
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
-import modifiers = require('./helpers/modifiers');
+import { cssFileFirstLine } from './helpers/modifiers';
 import { makeHexShortcut } from './helpers/colorsModifiers';
 import { arrayToFile, jsonToFile } from './helpers/fileWriter';
 import {
@@ -23,7 +23,7 @@ const ImportColorsRaw = (
 	let temporaryColorsJson: Dict<Array<IResultJsonObject>> = {};
 	let resultColorsJson: Dict<Array<IResultJsonObject>> = {};
 
-	result.push(modifiers.cssFileFirstLine(isTheme, name));
+	result.push(cssFileFirstLine(isTheme, name));
 
 	jsonColors.forEach((obj) => {
 		const patternColorsToProcess = /RAW\/|theme/i;

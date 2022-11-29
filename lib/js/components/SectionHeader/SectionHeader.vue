@@ -165,7 +165,7 @@ export default {
 		iconLeft: {
 			type: Object as () => IconItem,
 			default: null,
-			validate(iconLeft: IconItem) {
+			validator(iconLeft: IconItem) {
 				return Object.values(ICONS).includes(iconLeft);
 			},
 		},
@@ -176,7 +176,7 @@ export default {
 		size: {
 			type: String,
 			default: SECTION_HEADER_SIZES.M,
-			validate(size) {
+			validator(size) {
 				return Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
 		},

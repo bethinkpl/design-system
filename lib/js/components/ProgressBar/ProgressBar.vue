@@ -265,28 +265,28 @@ export default {
 		numberOfLayers: {
 			type: Number,
 			default: PROGRESS_BAR_LAYERS.ONE,
-			validate(size) {
+			validator(size) {
 				return Object.values(PROGRESS_BAR_LAYERS).includes(size);
 			},
 		},
 		colorScheme: {
 			type: String,
 			default: PROGRESS_BAR_COLOR_SCHEMES.DEFAULT,
-			validate(size) {
+			validator(size) {
 				return Object.values(PROGRESS_BAR_COLOR_SCHEMES).includes(size);
 			},
 		},
 		color: {
 			type: String,
 			default: PROGRESS_BAR_COLORS.INFO,
-			validate(color) {
+			validator(color) {
 				return Object.values(PROGRESS_BAR_COLORS).includes(color);
 			},
 		},
 		size: {
 			type: String,
 			default: PROGRESS_BAR_SIZES.MEDIUM,
-			validate(size) {
+			validator(size) {
 				return Object.values(PROGRESS_BAR_SIZES).includes(size);
 			},
 		},
@@ -297,14 +297,14 @@ export default {
 		radius: {
 			type: String,
 			default: PROGRESS_BAR_RADII.DEFAULT,
-			validate(size) {
+			validator(size) {
 				return Object.values(PROGRESS_BAR_RADII).includes(size);
 			},
 		},
 		layout: {
 			type: String,
 			default: PROGRESS_BAR_LAYOUTS.DEFAULT,
-			validate(size) {
+			validator(size) {
 				return Object.values(PROGRESS_BAR_LAYOUTS).includes(size);
 			},
 		},

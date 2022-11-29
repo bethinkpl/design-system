@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<div v-for="itemsList in getItemsLocal" :key="itemsList.title">
+		<div v-for="itemsList in filteredItemsLists" :key="itemsList.title">
 			<div class="itemsList" :class="{ [itemsList.class]: itemsList.class }">
 				<div class="itemsList__row">
 					<h2 class="itemsList__title">{{ itemsList.title }}</h2>
@@ -8,7 +8,7 @@
 						<li
 							v-for="(items, itemCategory) in itemsList.list"
 							:key="itemCategory"
-							class="itemDefinition__category"
+							class="itemsListItem__category"
 						>
 							{{ itemCategory }}
 						</li>
@@ -60,10 +60,11 @@
 </style>
 
 <script lang="ts">
-import { TOKENS_TYPES } from './TokenTypes';
+import { ItemsListsItem, TOKENS_TYPES } from './TokenTypes';
 import { Value } from '../utils/type.utils';
 import ItemsColor from './ItemsColor.vue';
 import ItemsTypography from './ItemsTypography.vue';
+import { PropType } from 'vue';
 
 export default {
 	name: 'ItemsList',
@@ -73,7 +74,7 @@ export default {
 	},
 	props: {
 		itemsLists: {
-			type: Array,
+			type: Array as PropType<Array<ItemsListsItem>>,
 			required: true,
 		},
 		type: {
@@ -86,23 +87,25 @@ export default {
 	},
 	data() {
 		return {
-			itemsLocal: this.itemsLists,
 			TOKENS_TYPES: Object.freeze(TOKENS_TYPES),
 		};
 	},
 	computed: {
-		getItemsLocal() {
-			this.itemsLocal.forEach((list, index) => {
+		filteredItemsLists() {
+			let itemsLocal: Array<ItemsListsItem> = [];
+			this.itemsLists.forEach((list, index) => {
 				if (list.disabled) {
 					for (let key in list.list) {
-						if (key === list.disabled) {
-							delete this.itemsLocal[index].list[key];
+						if (key !== list.disabled) {
+							itemsLocal.push(this.itemsLists[index]);
 						}
 					}
+				} else {
+					itemsLocal.push(this.itemsLists[index]);
 				}
 			});
 
-			return this.itemsLocal;
+			return itemsLocal;
 		},
 	},
 };

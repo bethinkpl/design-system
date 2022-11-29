@@ -154,21 +154,21 @@ export default {
 		leftIcon: {
 			type: Object,
 			default: null,
-			validate(icon: VueConstructor) {
+			validator(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
 		size: {
 			type: String,
 			default: PILL_SIZES.SMALL,
-			validate(size) {
+			validator(size) {
 				return Object.values(PILL_SIZES).includes(size);
 			},
 		},
 		color: {
 			type: String,
 			default: PILL_COLORS.NEUTRAL,
-			validate(color) {
+			validator(color) {
 				return Object.values(PILL_COLORS).includes(color);
 			},
 		},
