@@ -14,6 +14,20 @@ export const camelize = (str: string) => {
 		.replace(/\s+/g, '');
 };
 
+export const kebabize = (str) => {
+	if (str.length < 3) {
+		return str;
+	}
+	return str
+		.split('')
+		.map((letter, idx) => {
+			return letter.toUpperCase() === letter
+				? `${idx !== 0 ? '-' : ''}${letter.toLowerCase()}`
+				: letter;
+		})
+		.join('');
+};
+
 export const cssFileFirstLine = (isTheme: boolean, themeName: string | undefined) => {
 	return isTheme ? '.theme-' + themeName + ' {' : cssFileRootFirstLine();
 };

@@ -210,7 +210,7 @@ $survey-toggle-colors: (
 	}
 
 	&__label {
-		@include LabelXSRegular();
+		@include LabelXSBold();
 
 		color: $color-neutral-text;
 		text-align: center;
