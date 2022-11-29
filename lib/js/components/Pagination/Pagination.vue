@@ -147,7 +147,12 @@ $pagination-input-height: 32px;
 		border-radius: $radius-s;
 		height: $pagination-input-height;
 
+		&:hover {
+			border-color: $color-neutral-border-strong-hovered;
+		}
+
 		&:focus {
+			border-color: $color-primary-border;
 			outline: none;
 		}
 	}
