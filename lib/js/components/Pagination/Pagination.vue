@@ -16,13 +16,13 @@
 						v-if="isPage(navigationItem)"
 						:key="index"
 						class="ds-pagination__itemWrapper"
-						:class="{ '-touchable': currentPageSanitized !== navigationItem }"
+						:class="{ '-touchable': currentPage !== navigationItem }"
 						role="link"
 						@click="changePage(navigationItem)"
 					>
 						<span
 							class="ds-pagination__item"
-							:class="{ '-selected': currentPageSanitized === navigationItem }"
+							:class="{ '-selected': currentPage === navigationItem }"
 						>
 							{{ navigationItem }}
 						</span>
@@ -39,18 +39,16 @@
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:icon="ICONS.FA_ANGLE_LEFT"
 					:state="
-						currentPageSanitized <= 1
-							? ICON_BUTTON_STATES.DISABLED
-							: ICON_BUTTON_STATES.DEFAULT
+						currentPage <= 1 ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT
 					"
-					@click.native="changePage(currentPageSanitized - 1)"
+					@click.native="changePage(currentPage - 1)"
 				/>
 
 				<div class="ds-pagination__compactItem">
 					<input
 						class="ds-pagination__input"
 						type="number"
-						:value="currentPageSanitized"
+						:value="currentPage"
 						:min="1"
 						:step="1"
 						:max="lastPage"
@@ -64,11 +62,11 @@
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:icon="ICONS.FA_ANGLE_RIGHT"
 					:state="
-						currentPageSanitized >= lastPage
+						currentPage >= lastPage
 							? ICON_BUTTON_STATES.DISABLED
 							: ICON_BUTTON_STATES.DEFAULT
 					"
-					@click.native="changePage(currentPageSanitized + 1)"
+					@click.native="changePage(currentPage + 1)"
 				/>
 			</div>
 		</div>
@@ -283,19 +281,6 @@ export default {
 		lastPage(): number {
 			return Math.ceil(this.itemsTotalAmount / this.itemsPerPage) || FIRST_PAGE_NUMBER;
 		},
-		currentPageSanitized(): number {
-			const currentPage = Math.ceil(this.currentPage);
-
-			if (this.pageIsSmallerThanFirstPage(currentPage)) {
-				return FIRST_PAGE_NUMBER;
-			}
-
-			if (this.pageIsLargerThanLastPage(currentPage)) {
-				return this.lastPage;
-			}
-
-			return currentPage;
-		},
 		navigationItems(): Array<number | string> {
 			let delta: number;
 			if (this.lastPage <= MAX_NAVIGATION_ITEMS) {
@@ -341,24 +326,14 @@ export default {
 			return navigationItems;
 		},
 	},
-	watch: {
-		currentPage(newVal, oldValue) {
-			if (newVal !== oldValue) {
-				this.validatePage(newVal);
-			}
-		},
-	},
-	mounted() {
-		this.validatePage(this.currentPage);
-	},
 	methods: {
 		getRange(start: number, end: number): Array<number> {
 			return Array(end - start + 1)
 				.fill(null)
 				.map((_v, i) => i + start);
 		},
-		changePage(page, forceChange = false): void {
-			if (this.currentPageSanitized === page && !forceChange) {
+		changePage(page): void {
+			if (this.currentPage === page) {
 				return;
 			}
 
@@ -367,31 +342,10 @@ export default {
 		isPage(item): boolean {
 			return typeof item === 'number';
 		},
-		pageIsSmallerThanFirstPage(page): boolean {
-			return page < FIRST_PAGE_NUMBER;
-		},
-		pageIsLargerThanLastPage(page): boolean {
-			return page > this.lastPage;
-		},
-		validatePage(page): boolean {
-			if (this.pageIsSmallerThanFirstPage(page)) {
-				this.changePage(FIRST_PAGE_NUMBER, true);
-				return false;
-			}
-
-			if (this.pageIsLargerThanLastPage(page)) {
-				this.changePage(this.lastPage, true);
-				return false;
-			}
-
-			return true;
-		},
 		onInputValueChange(event): void {
 			const page = +event.target.value;
 
-			if (this.validatePage(page)) {
-				this.changePage(page);
-			}
+			this.changePage(page);
 		},
 	},
 };
