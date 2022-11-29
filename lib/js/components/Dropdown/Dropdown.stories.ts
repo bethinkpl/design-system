@@ -1,5 +1,5 @@
 import Dropdown from './Dropdown.vue';
-import { DROPDOWN_RADIUS, DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
+import { DROPDOWN_RADIUSES, DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
 import SelectList, { SELECT_LIST_SIZES } from '../SelectList';
 import { ICONS } from '../Icon';
 
@@ -72,7 +72,7 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	triggerAction: DROPDOWN_TRIGGER_ACTIONS.CLICK,
-	radius: DROPDOWN_RADIUS.BOTH,
+	radius: DROPDOWN_RADIUSES.BOTH,
 	forceShow: false,
 	sameWidth: false,
 } as Args;
@@ -83,8 +83,8 @@ const argTypes = {
 		defaultValue: DROPDOWN_TRIGGER_ACTIONS.CLICK,
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(DROPDOWN_RADIUS) },
-		defaultValue: DROPDOWN_RADIUS.BOTH,
+		control: { type: 'select', options: Object.values(DROPDOWN_RADIUSES) },
+		defaultValue: DROPDOWN_RADIUSES.BOTH,
 	},
 } as ArgTypes;
 

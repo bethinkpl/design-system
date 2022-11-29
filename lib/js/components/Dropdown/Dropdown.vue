@@ -15,9 +15,9 @@
 		<div
 			class="popper dsDropdown"
 			:class="{
-				'-radiusBottom': radius === DROPDOWN_RADIUS.BOTTOM,
-				'-radiusTop': radius === DROPDOWN_RADIUS.TOP,
-				'-radiusBottom -radiusTop': radius === DROPDOWN_RADIUS.BOTH,
+				'-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
+				'-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
+				'-radiusBottom -radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
 			}"
 		>
 			<slot :close="close" />
@@ -68,7 +68,7 @@
 <script lang="ts">
 import VuePopper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
-import { DROPDOWN_RADIUS, DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
+import { DROPDOWN_RADIUSES, DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
 
 export default {
 	name: 'Dropdown',
@@ -97,16 +97,16 @@ export default {
 		},
 		radius: {
 			type: String,
-			default: DROPDOWN_RADIUS.BOTH,
+			default: DROPDOWN_RADIUSES.BOTH,
 			validate(radius) {
-				return Object.values(DROPDOWN_RADIUS).includes(radius);
+				return Object.values(DROPDOWN_RADIUSES).includes(radius);
 			},
 		},
 	},
 	data() {
 		return {
 			key: 1,
-			DROPDOWN_RADIUS: Object.freeze(DROPDOWN_RADIUS),
+			DROPDOWN_RADIUSES: Object.freeze(DROPDOWN_RADIUSES),
 		};
 	},
 	computed: {

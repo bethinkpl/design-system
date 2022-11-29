@@ -3,7 +3,7 @@ export const DROPDOWN_TRIGGER_ACTIONS = {
 	HOVER: 'hover',
 } as const;
 
-export const DROPDOWN_RADIUS = {
+export const DROPDOWN_RADIUSES = {
 	TOP: 'top',
 	BOTTOM: 'bottom',
 	BOTH: 'both',
