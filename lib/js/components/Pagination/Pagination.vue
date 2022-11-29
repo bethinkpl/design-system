@@ -12,18 +12,23 @@
 				class="ds-pagination__items -default"
 			>
 				<template v-for="(navigationItem, index) in navigationItems">
-					<div :key="index" class="ds-pagination__itemWrapper">
+					<div
+						v-if="isPage(navigationItem)"
+						:key="index"
+						class="ds-pagination__itemWrapper"
+						:class="{ '-selected': currentPageSanitized === navigationItem }"
+						role="link"
+						@click.prevent.stop="changePage(navigationItem)"
+					>
 						<span
-							v-if="isPage(navigationItem)"
 							class="ds-pagination__item"
 							:class="{ '-selected': currentPageSanitized === navigationItem }"
-							role="link"
-							@click.prevent.stop="changePage(navigationItem)"
 						>
 							{{ navigationItem }}
 						</span>
-
-						<span v-else class="ds-pagination__ellipsis">&hellip;</span>
+					</div>
+					<div v-else :key="index" class="ds-pagination__ellipsisItemWrapper">
+						<span class="ds-pagination__ellipsis">&hellip;</span>
 					</div>
 				</template>
 			</div>
@@ -171,11 +176,20 @@ $pagination-input-height: 32px;
 		flex-direction: row;
 	}
 
-	&__itemWrapper {
+	&__itemWrapper,
+	&__ellipsisItemWrapper {
 		@include textM();
 
 		text-align: center;
 		padding: $space-xxxxs;
+	}
+
+	&__itemWrapper:hover:not(.-selected) {
+		cursor: pointer;
+
+		#{$self}__item:not(.-selected) {
+			background: $color-neutral-background-weak-hovered;
+		}
 	}
 
 	&__item {
@@ -194,11 +208,6 @@ $pagination-input-height: 32px;
 
 			background: $color-neutral-background-medium;
 			color: $color-neutral-text-heavy;
-		}
-
-		&:hover:not(.-selected) {
-			background: $color-neutral-background-weak-hovered;
-			cursor: pointer;
 		}
 
 		&:active:not(.-selected) {
