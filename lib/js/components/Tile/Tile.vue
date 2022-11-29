@@ -10,10 +10,10 @@
 			<div class="a-tile__center">
 				<span
 					class="a-tile__eyebrowText"
-					:class="{ '-uppercase': isEyebrowTextUppercase }"
+					:class="{ '-uppercase': isEyebrowTextUppercase, '-ellipsis': eyebrowEllipsis }"
 					v-text="eyebrowText"
 				/>
-				<span class="a-tile__text" v-text="text" />
+				<span class="a-tile__text" :class="{ '-ellipsis': textEllipsis }" v-text="text" />
 			</div>
 			<ds-icon
 				v-if="state === TILE_STATES.LOADING"
@@ -178,6 +178,7 @@ $tile-colors: (
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
+		overflow: hidden;
 	}
 
 	&__eyebrowText {
@@ -186,6 +187,12 @@ $tile-colors: (
 		&.-uppercase {
 			text-transform: uppercase;
 		}
+
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	&__text {
@@ -193,6 +200,12 @@ $tile-colors: (
 
 		color: $color-neutral-text-heavy;
 		margin-top: $space-xxxxxs;
+
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	&__iconLeft {
@@ -270,6 +283,14 @@ export default {
 			validator(value: Value<typeof TILE_STATES>) {
 				return Object.values(TILE_STATES).includes(value);
 			},
+		},
+		eyebrowEllipsis: {
+			type: Boolean,
+			default: true,
+		},
+		textEllipsis: {
+			type: Boolean,
+			default: true,
 		},
 	},
 	data() {
