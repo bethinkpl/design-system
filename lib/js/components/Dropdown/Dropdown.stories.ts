@@ -1,5 +1,5 @@
 import Dropdown from './Dropdown.vue';
-import { DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
+import { DROPDOWN_RADIUSES, DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
 import SelectList, { SELECT_LIST_SIZES } from '../SelectList';
 import { ICONS } from '../Icon';
 
@@ -59,7 +59,7 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<div style="position: relative">' +
-		'<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth">' +
+		'<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth" :radius="radius">' +
 		'<template #reference><span>Dropdown entry point</span></template>' +
 		'<template #default="{ close }">' +
 		'<select-list v-model="value" :items="items" :size="SELECT_LIST_SIZES.MEDIUM" @input="close" />' +
@@ -72,6 +72,7 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	triggerAction: DROPDOWN_TRIGGER_ACTIONS.CLICK,
+	radius: DROPDOWN_RADIUSES.BOTH,
 	forceShow: false,
 	sameWidth: false,
 } as Args;
@@ -80,6 +81,10 @@ const argTypes = {
 	triggerAction: {
 		control: { type: 'select', options: Object.values(DROPDOWN_TRIGGER_ACTIONS) },
 		defaultValue: DROPDOWN_TRIGGER_ACTIONS.CLICK,
+	},
+	radius: {
+		control: { type: 'select', options: Object.values(DROPDOWN_RADIUSES) },
+		defaultValue: DROPDOWN_RADIUSES.BOTH,
 	},
 } as ArgTypes;
 
