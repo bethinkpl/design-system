@@ -153,6 +153,6 @@ describe('Pagination', () => {
 		},
 	])('should validate for %o', ({ props, expected }) => {
 		const component = createComponent(props);
-		expect(component.emitted()['change-page']).toBe(expected);
+		expect(component.emitted()['change-page']).toStrictEqual(expected);
 	});
 });
