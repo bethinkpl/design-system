@@ -39,7 +39,7 @@
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:icon="ICONS.FA_ANGLE_LEFT"
 					:state="
-						currentPage <= 1 ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT
+						currentPage <= FIRST_PAGE_NUMBER ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT
 					"
 					@click.native="changePage(currentPage - 1)"
 				/>
@@ -49,7 +49,7 @@
 						class="ds-pagination__input"
 						type="number"
 						:value="currentPage"
-						:min="1"
+						:min="FIRST_PAGE_NUMBER"
 						:step="1"
 						:max="lastPage"
 						@input="onInputValueChange"
@@ -263,6 +263,9 @@ export default {
 		itemsPerPage: {
 			type: Number,
 			default: PAGINATION_DEFAULT_ITEMS_PER_PAGE,
+			validator(itemsPerPage) {
+				return itemsPerPage > 0;
+			},
 		},
 		itemsTotalAmount: {
 			type: Number,
@@ -275,6 +278,7 @@ export default {
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
 			ICONS: Object.freeze(ICONS),
+			FIRST_PAGE_NUMBER,
 		};
 	},
 	computed: {
