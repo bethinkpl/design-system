@@ -15,6 +15,8 @@ export interface ITokenJsonObject {
 	id: string;
 	label: string;
 	value: string;
+	base: number | null;
+	ratio: number | null;
 }
 
 export interface IResultJsonObject {

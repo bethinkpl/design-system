@@ -14,6 +14,10 @@ export const camelize = (str: string) => {
 		.replace(/\s+/g, '');
 };
 
+export const capitalizeFirstLetter = (str: string) => {
+	return str.charAt(0).toUpperCase() + str.slice(1);
+};
+
 export const kebabize = (str) => {
 	if (str.length < 4) {
 		return str;

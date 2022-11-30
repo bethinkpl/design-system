@@ -49,6 +49,8 @@ export const tokensTypographyMissingJsonFontFamilyVariable: ITokenJsonObject = {
 	id: 'tokensjsontypographyfontfamilylato',
 	label: 'typography-font-families-lato',
 	value: 'Lato',
+	base: null,
+	ratio: null,
 };
 
 export const tokensTypographyMissingJsonFontWeightVariables: Array<ITokenJsonObject> = [
@@ -56,25 +58,35 @@ export const tokensTypographyMissingJsonFontWeightVariables: Array<ITokenJsonObj
 		id: 'tokensjsontypographyfontweightregular',
 		label: 'typography-font-weight-normal',
 		value: 'normal',
+		base: null,
+		ratio: null,
 	},
 	{
 		id: 'tokensjsontypographyfontweightbold',
 		label: 'typography-font-weight-bold',
 		value: 'bold',
+		base: null,
+		ratio: null,
 	},
 	{
 		id: 'tokensjsontypographyfontweightlight',
 		label: 'typography-font-weight-light',
 		value: 'light',
+		base: null,
+		ratio: null,
 	},
 	{
 		id: 'tokensjsontypographyfontweightstylenormal',
 		label: 'typography-font-style-normal',
 		value: 'normal',
+		base: null,
+		ratio: null,
 	},
 	{
 		id: 'tokensjsontypographyfontstyleitalic',
 		label: 'typography-font-style-italic',
 		value: 'italic',
+		base: null,
+		ratio: null,
 	},
 ];

@@ -199,11 +199,11 @@ $tile-colors: (
 		color: $color-neutral-text-heavy;
 		margin-top: $space-xxxxs;
 
-    &.-ellipsis {
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	&__iconLeft {
