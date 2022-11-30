@@ -100,7 +100,7 @@ describe('Typography Tokens', () => {
 			'utf8',
 		);
 		let variableFileJsonTokensSplit = JSON.parse(variableFileJsonTokens);
-		console.log(variableFileJsonTokensSplit);
+
 		expect(variableFileJsonTokensSplit.Displayheading[0].token).toBe(
 			'displayheading-m-regular',
 		);
