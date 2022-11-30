@@ -84,7 +84,7 @@ export const ImportTypographyVariables = (
 						propertyValue = propertyOptions[variableKey].value;
 						break;
 				}
-				console.log(propertyOptions);
+
 				if (propertyValue !== undefined) {
 					resultCss.push('--' + propertyName + ': ' + propertyValue + ';');
 					resultScss.push('$' + propertyName + ': var(--' + propertyName + ');');
