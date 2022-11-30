@@ -129,6 +129,7 @@ declare const _default: {
             };
             data(): {
                 ICONS: Readonly<{
+                    readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
                     readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
                     readonly RIBBON: VueConstructor<import("vue").default>;
                     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -144,6 +145,7 @@ declare const _default: {
                     readonly FA_ARROW_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROW_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROW_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROWS_LEFT_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROWS_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROWS_ROTATE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -536,6 +538,7 @@ declare const _default: {
                     };
                     data(): {
                         ICONS: Readonly<{
+                            readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
                             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
                             readonly RIBBON: VueConstructor<import("vue").default>;
                             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -551,6 +554,7 @@ declare const _default: {
                             readonly FA_ARROW_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ARROW_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ARROW_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                            readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ARROWS_LEFT_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ARROWS_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ARROWS_ROTATE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -803,6 +807,7 @@ declare const _default: {
             data(): {
                 hovered: boolean;
                 ICONS: Readonly<{
+                    readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
                     readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
                     readonly RIBBON: VueConstructor<import("vue").default>;
                     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -818,6 +823,7 @@ declare const _default: {
                     readonly FA_ARROW_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROW_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROW_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROWS_LEFT_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROWS_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ARROWS_ROTATE: import("@fortawesome/fontawesome-common-types").IconDefinition;
