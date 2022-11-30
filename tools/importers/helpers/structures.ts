@@ -14,6 +14,7 @@ export interface JsonAttribute<JsonAttributeValues> {
 export interface ITokenJsonObject {
 	id: string;
 	label: string;
+	labelFull: string;
 	value: string;
 	base: number | null;
 	ratio: number | null;
@@ -22,6 +23,7 @@ export interface ITokenJsonObject {
 export interface IResultJsonObject {
 	id: string;
 	label: string;
+	labelFull: string;
 	value: string;
 }
 

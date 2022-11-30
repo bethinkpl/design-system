@@ -50,15 +50,15 @@ export default {
 			return result;
 		},
 		variableToValue(variable) {
-			let result: string = '';
+			let result: string | undefined;
 
-			(Object.values(variables) as Array<Array<IResultJsonObject>>).forEach((value) => {
-				value.every((singleVariable) => {
-					if (singleVariable.label === 'typography-' + variable) {
+			(Object.values(variables) as Array<Array<IResultJsonObject>>).find((value) => {
+				return value.some((singleVariable) => {
+					if (singleVariable.labelFull === 'typography-' + variable) {
 						result = singleVariable.value;
-						return false;
+						return true;
 					}
-					return true;
+					return false;
 				});
 			});
 

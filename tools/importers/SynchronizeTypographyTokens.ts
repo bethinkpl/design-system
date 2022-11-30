@@ -96,7 +96,8 @@ export const ImportTypographyVariables = (
 							'_' +
 							propertyName
 						).replace(/[^a-zA-Z0-9 ]/g, ''),
-						label: propertyNameSplit.slice(-1).pop() + '',
+						label: propertyNameSplit.slice(-1).pop() || '',
+						labelFull: propertyName,
 						value: propertyValue,
 						base: propertyBase,
 						ratio: valueMultiplier,
