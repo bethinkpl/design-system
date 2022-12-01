@@ -5,6 +5,7 @@ import { recursiveTokensReader } from './helpers/tokensReader';
 import {
 	excludedKeys,
 	fontFamilyKey,
+	fontStyleKey,
 	fontWeightKey,
 	importVariables,
 	jsonAttributeToCssProperty,
@@ -13,6 +14,7 @@ import {
 	tokensKey,
 	tokensTypographyInputAttributes,
 	tokensTypographyMissingJsonFontFamilyVariable,
+	tokensTypographyMissingJsonFontStyleVariables,
 	tokensTypographyMissingJsonFontWeightVariables,
 	typographyPrefix,
 } from './helpers/typographyVariables';
@@ -124,6 +126,10 @@ export const ImportTypographyVariables = (
 	resultJsonCss[fontWeightKey] = [];
 	tokensTypographyMissingJsonFontWeightVariables.forEach(function (item) {
 		resultJsonCss[fontWeightKey].push(item);
+	});
+	resultJsonCss[fontStyleKey] = [];
+	tokensTypographyMissingJsonFontStyleVariables.forEach(function (item) {
+		resultJsonCss[fontStyleKey].push(item);
 	});
 
 	arrayToFile(
