@@ -104,6 +104,39 @@ Interactive.parameters = {
 	},
 };
 
+const argTypesDisabled = {
+	size: {
+		control: { type: null },
+	},
+	type: {
+		control: { type: null },
+	},
+	radius: {
+		control: { type: null },
+	},
+	icon: {
+		control: { type: null },
+	},
+	color: {
+		control: { type: null },
+	},
+	colorScheme: {
+		control: { type: null },
+	},
+	elevation: {
+		control: { type: null },
+	},
+	state: {
+		control: { type: null },
+	},
+	touchable: {
+		control: { type: null },
+	},
+	default: {
+		control: { type: null },
+	},
+} as ArgTypes;
+
 const StoryFilledWithLabelTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 	components: { IconButton },
 	props: Object.keys(argTypes),
@@ -118,6 +151,7 @@ const StoryFilledWithLabelTemplate: StoryFn<typeof IconButton> = (argTypes) => (
 });
 
 export const FilledWithLabel = StoryFilledWithLabelTemplate.bind({});
+FilledWithLabel.argTypes = argTypesDisabled;
 
 const StoryOutlinedRoundedTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 	components: { IconButton },
@@ -134,6 +168,7 @@ const StoryOutlinedRoundedTemplate: StoryFn<typeof IconButton> = (argTypes) => (
 });
 
 export const OutlinedRounded = StoryOutlinedRoundedTemplate.bind({});
+OutlinedRounded.argTypes = argTypesDisabled;
 
 const StoryFilledPrimaryTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 	components: { IconButton },
@@ -151,6 +186,7 @@ const StoryFilledPrimaryTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 });
 
 export const FilledPrimary = StoryFilledPrimaryTemplate.bind({});
+FilledPrimary.argTypes = argTypesDisabled;
 
 const StoryIconOnlyInfoTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 	components: { IconButton },
@@ -167,10 +203,14 @@ const StoryIconOnlyInfoTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 });
 
 export const IconOnlyInfo = StoryIconOnlyInfoTemplate.bind({});
+IconOnlyInfo.argTypes = argTypesDisabled;
 
 const StoryIconOnlyWarningTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 	components: { IconButton },
 	props: Object.keys(argTypes),
+	parameters: {
+		controls: { exclude: /^ele*/ },
+	},
 	template:
 		'<icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 	data() {
@@ -183,3 +223,6 @@ const StoryIconOnlyWarningTemplate: StoryFn<typeof IconButton> = (argTypes) => (
 });
 
 export const IconOnlyWarning = StoryIconOnlyWarningTemplate.bind({});
+
+IconOnlyWarning.argTypes = argTypesDisabled;
+IconOnlyWarning.args = {} as Args;

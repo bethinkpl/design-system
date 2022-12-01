@@ -5,7 +5,7 @@ import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
 export default {
-	title: 'Components/SurveyQuestions/SurveyQuestionScaleTS',
+	title: 'Components/SurveyQuestions/SurveyQuestionScale',
 	component: SurveyQuestionScale,
 } as Meta<typeof SurveyQuestionScale>;
 
@@ -85,6 +85,19 @@ Interactive.parameters = {
 	},
 };
 
+const argTypesDisabled = {
+	elaborationValue: { control: false },
+	explanation: { control: false },
+	selectedValue: { control: false },
+	scaleOptions: { control: false },
+	state: { control: false },
+	placeholder: { control: false },
+	elaborationLabel: { control: false },
+	title: { control: false },
+	'elaboration-change': { control: false },
+	'select-change': { control: false },
+} as ArgTypes;
+
 const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes) => ({
 	components: { SurveyQuestionScale },
 	props: Object.keys(argTypes),
@@ -98,6 +111,7 @@ const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes
 });
 
 export const LimitedWidth = StoryLimitedWidthTemplate.bind({});
+LimitedWidth.argTypes = argTypesDisabled;
 
 LimitedWidth.args = {
 	title: "Main question write here if it's long it will collapse.",
@@ -197,3 +211,4 @@ const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes
 });
 
 export const SevenOptions = StorySevenOptionsTemplate.bind({});
+SevenOptions.argTypes = argTypesDisabled;
