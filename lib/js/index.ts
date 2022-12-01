@@ -53,6 +53,8 @@ export { default as ProgressBar } from './components/ProgressBar';
 export * from './components/ProgressBar/ProgressBar.consts';
 export { default as TagList } from './components/TagList';
 export * from './components/TagList/TagList.consts';
+export { default as Pagination } from './components/Pagination';
+export * from './components/Pagination/Pagination.consts';
 
 export {
 	initialize as initializeIcons,
