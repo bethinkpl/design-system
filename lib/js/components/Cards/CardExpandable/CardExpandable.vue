@@ -58,7 +58,7 @@
 	}
 
 	&__expanderLabel {
-		@include LabelSExtensiveBoldUppercase();
+		@include label-s-extensive-bold-uppercase();
 
 		color: $color-primary-text;
 		margin-right: $space-xxxxs;

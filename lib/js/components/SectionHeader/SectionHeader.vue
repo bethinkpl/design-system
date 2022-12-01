@@ -103,7 +103,7 @@ $icons-and-slot-min-height-l: 50px;
 
 	&.-size-l {
 		#{$root}__titleWrapper {
-			@include HeadingXLBold();
+			@include heading-xl-bold();
 		}
 
 		#{$root}__iconLeft {
@@ -126,7 +126,7 @@ $icons-and-slot-min-height-l: 50px;
 
 	&.-size-m {
 		#{$root}__titleWrapper {
-			@include HeadingLBold();
+			@include heading-l-bold();
 		}
 
 		#{$root}__iconLeft {

@@ -263,7 +263,7 @@ $counter-toggle-colors: (
 	}
 
 	&__counter {
-		@include LabelSExtensiveBoldUppercase();
+		@include label-s-extensive-bold-uppercase();
 
 		margin-left: $space-xxxxxs;
 	}

@@ -93,7 +93,7 @@ $badge-score-colors: (
 .badgeScore {
 	$self: &;
 
-	@include Label2XLBold();
+	@include label-2xl-bold();
 
 	@each $color-name, $color-map in $badge-score-colors {
 		&.-#{$color-name} {
@@ -124,29 +124,29 @@ $badge-score-colors: (
 	}
 
 	&__suffix {
-		@include LabelXLBold();
+		@include label-xl-bold();
 
 		align-self: baseline;
 	}
 
 	&.-small {
-		@include LabelXLBold();
+		@include label-xl-bold();
 
 		padding: $space-xxs $space-xxs;
 		min-width: $badge-score-small-min-width;
 		#{$self}__suffix {
-			@include LabelLBold();
+			@include label-l-bold();
 		}
 	}
 
 	&.-xsmall {
-		@include LabelSBold();
+		@include label-s-bold();
 
 		min-width: $badge-score-x-small-min-width;
 		padding: $space-xxxs;
 
 		#{$self}__suffix {
-			@include LabelSBold();
+			@include label-s-bold();
 		}
 	}
 

@@ -145,7 +145,7 @@ $progress-bar-layers: (
 
 	&.-compact {
 		#{$self}__labelText {
-			@include LabelMBold();
+			@include label-m-bold();
 		}
 		#{$self}__label {
 			margin-bottom: $space-xxxs;
@@ -199,18 +199,18 @@ $progress-bar-layers: (
 	}
 
 	&__labelText {
-		@include LabelMBold();
+		@include label-m-bold();
 
 		color: $color-neutral-text-heavy;
 		max-width: $progress-bar-label-text-max-width;
 
 		@media #{breakpoint-s()} {
-			@include LabelLBold();
+			@include label-l-bold();
 		}
 	}
 
 	&__labelDataWrapper {
-		@include LabelMBold();
+		@include label-m-bold();
 
 		align-items: baseline;
 		color: $color-neutral-text-heavy;
@@ -233,7 +233,7 @@ $progress-bar-layers: (
 	}
 
 	&__labelDataSuffix {
-		@include LabelSRegular();
+		@include label-s-regular();
 
 		color: $color-neutral-text-weak;
 		margin-left: $space-xxxxs;

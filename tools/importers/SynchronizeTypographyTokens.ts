@@ -173,7 +173,7 @@ function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<str
 	let result: Array<string> = [];
 
 	for (let key in tokens) {
-		result.push(mixinNameLine(tokens[key].tokenCamelCase));
+		result.push(mixinNameLine(tokens[key].token));
 		result.push(tokenAsCssPropertyLine(tokens[key].token));
 		tokens[key].attributes.forEach((attribute) => {
 			let [cssAttributePartOne, cssAttributePartTwo] = attribute.split('-');

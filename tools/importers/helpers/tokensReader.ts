@@ -1,6 +1,6 @@
 import { ITypographyToken } from './structures';
 
-import { kebabize, pascalCase } from './modifiers';
+import { camelize, kebabize } from './modifiers';
 import {
 	fontFamilyProperty,
 	fontWeightKey,
@@ -60,14 +60,13 @@ export const recursiveTokensReader = (obj, keyResult: string): Array<ITypography
 		let tokenSplit = keyResult.replace(/\s+/g, '-').split('-');
 		let tokenUsage = tokenSplit.shift() + '';
 		tokenSplit = tokenSplit.map(kebabize);
-		let token = tokenUsage.toLowerCase() + '-' + tokenSplit.join('-').toLowerCase();
+		let token = camelize(tokenUsage) + '-' + tokenSplit.join('-').toLowerCase();
 
 		return [
 			{
 				id: token.replace(/\-+/g, ''),
 				category: '',
 				token,
-				tokenCamelCase: pascalCase(keyResult),
 				attributes,
 				attributesRaw,
 			},

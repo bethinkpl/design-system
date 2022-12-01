@@ -163,7 +163,7 @@ $tile-colors: (
 	}
 
 	&__additionalText {
-		@include InfoSRegular();
+		@include info-s-regular();
 
 		color: $color-neutral-text;
 		flex-grow: 1;
@@ -180,10 +180,10 @@ $tile-colors: (
 	}
 
 	&__eyebrowText {
-		@include InfoMBold();
+		@include info-m-bold();
 
 		&.-uppercase {
-			@include InfoMExtensiveBoldUppercase();
+			@include info-m-extensive-bold-uppercase();
 		}
 
 		&.-ellipsis {
@@ -194,7 +194,7 @@ $tile-colors: (
 	}
 
 	&__text {
-		@include TextMBold();
+		@include text-m-bold();
 
 		color: $color-neutral-text-heavy;
 		margin-top: $space-xxxxs;

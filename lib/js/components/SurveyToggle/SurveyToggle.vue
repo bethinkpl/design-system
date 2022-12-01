@@ -199,7 +199,7 @@ $survey-toggle-colors: (
 	}
 
 	&__content {
-		@include LabelLBold();
+		@include label-l-bold();
 
 		transition: color ease-in-out $default-transition-time;
 	}
@@ -210,7 +210,7 @@ $survey-toggle-colors: (
 	}
 
 	&__label {
-		@include LabelXSBold();
+		@include label-xs-bold();
 
 		color: $color-neutral-text;
 		text-align: center;
@@ -219,7 +219,7 @@ $survey-toggle-colors: (
 		max-width: 100%;
 
 		@media #{breakpoint-s()} {
-			@include LabelSRegular();
+			@include label-s-regular();
 		}
 	}
 }

@@ -175,7 +175,7 @@
 	}
 
 	&__label {
-		@include ButtonMBoldUppercase();
+		@include button-m-bold-uppercase();
 
 		display: none;
 		margin-right: $space-xs;
@@ -225,7 +225,7 @@
 		}
 
 		#{$self}__label {
-			@include ButtonXSBoldUppercase();
+			@include button-xs-bold-uppercase();
 		}
 	}
 
@@ -236,7 +236,7 @@
 		}
 
 		#{$self}__label {
-			@include ButtonXSBoldUppercase();
+			@include button-xs-bold-uppercase();
 		}
 	}
 
@@ -247,7 +247,7 @@
 		}
 
 		#{$self}__label {
-			@include ButtonSBoldUppercase();
+			@include button-s-bold-uppercase();
 		}
 	}
 
@@ -257,7 +257,7 @@
 			width: $icon-button-large-size;
 		}
 		#{$self}__label {
-			@include ButtonLBoldUppercase();
+			@include button-l-bold-uppercase();
 		}
 	}
 
@@ -282,12 +282,7 @@ import {
 	ICON_BUTTON_TYPES,
 	ICON_BUTTON_STATES,
 } from './IconButton.consts';
-import {
-	BUTTON_COLORS,
-	BUTTON_ELEVATIONS,
-	BUTTON_RADIUSES,
-	BUTTON_TYPES,
-} from '../Button/Button.consts';
+import { BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_RADIUSES, BUTTON_TYPES } from '../Button';
 import { Value } from '../../../utils/type.utils';
 
 const ICON_ONLY_ICON_SIZES_MAP = {

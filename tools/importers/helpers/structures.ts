@@ -73,7 +73,6 @@ export interface ITypographyToken {
 	id: string;
 	category: string;
 	token: string;
-	tokenCamelCase: string;
 	attributes: Array<string>;
 	attributesRaw: Array<Object>;
 }

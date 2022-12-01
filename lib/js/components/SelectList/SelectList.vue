@@ -39,7 +39,7 @@
 		}
 
 		&.-text {
-			@include LabelXLRegular();
+			@include label-xl-regular();
 
 			color: $color-neutral-text-heavy;
 			display: flex;

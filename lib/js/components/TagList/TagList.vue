@@ -46,21 +46,21 @@
 	}
 
 	&.-xSmall {
-		@include LabelSRegular();
+		@include label-s-regular();
 		#{$root}__icon {
 			margin-right: $space-xxxxs;
 		}
 	}
 
 	&.-small {
-		@include LabelMRegular();
+		@include label-m-regular();
 		#{$root}__icon {
 			margin-top: $space-xxxxxs;
 		}
 	}
 
 	&.-medium {
-		@include LabelLRegular();
+		@include label-l-regular();
 	}
 }
 </style>

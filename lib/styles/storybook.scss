@@ -19,7 +19,7 @@ body {
 	font-family: 'Lato', sans-serif;
 
 	&.styleguide {
-		@include TextLRegular();
+		@include text-l-regular();
 
 		font-family: $fontFamily;
 
@@ -67,5 +67,5 @@ html {
 }
 
 .modalHeader {
-	@include DisplayHeadingXSRegular();
+	@include displayHeading-xs-regular();
 }

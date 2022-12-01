@@ -32,5 +32,11 @@ module.exports = {
 				ignorePseudoElements: ['v-deep'],
 			},
 		],
+		'value-keyword-case': [
+			'lower',
+			{
+				ignoreKeywords: ['/^displayHeading*/'],
+			},
+		],
 	},
 };

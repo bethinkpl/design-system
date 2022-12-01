@@ -39,7 +39,7 @@
 	}
 
 	&__text {
-		@include LabelSBoldUppercase();
+		@include label-s-bold-uppercase();
 	}
 }
 </style>
