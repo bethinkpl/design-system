@@ -13,8 +13,8 @@
 <style scoped lang="scss">
 @import '../../../../styles/settings/animations';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/radiuses';
 
 $counter-toggle-colors: (
@@ -263,8 +263,7 @@ $counter-toggle-colors: (
 	}
 
 	&__counter {
-		@include textBold();
-		@include buttonS();
+		@include label-s-extensive-bold-uppercase();
 
 		margin-left: $space-xxxxxs;
 	}

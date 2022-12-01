@@ -13,7 +13,7 @@ describe('TabItem', () => {
 			propsData: {
 				icon: ICONS.FA_CALENDAR_DAYS,
 				isActive,
-				title: 'wpłynąłem na suchego przestwór oceanu',
+				title: 'Lorem ipsum dolor sit amet',
 			},
 		});
 	};

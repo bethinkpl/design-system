@@ -9,21 +9,22 @@
 
 <style lang="scss" scoped>
 @import '../../../../styles/settings/radiuses';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/components/icons';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
+
+$badge-min-height: 20px;
 
 .badge {
+	align-items: center;
 	border-radius: $radius-s;
 	display: flex;
+	min-height: $badge-min-height;
 	padding: $space-xxxxs $space-xxs;
 
 	&__label {
-		@include textInfoS();
-		@include textBold();
-
-		text-transform: uppercase;
+		@include label-xs-bold-uppercase();
 	}
 
 	&.-neutral {

@@ -30,18 +30,18 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/z-indexes';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 .m-modal {
+	@include text-l-regular();
+
 	align-items: center;
 	background-color: rgba(10, 10, 10, 0.85);
 	bottom: 0;
 	display: flex;
-	font-size: $font-size-text-l;
 	justify-content: center;
 	left: 0;
-	line-height: $line-height-text-l;
 	position: fixed;
 	right: 0;
 	top: 0;

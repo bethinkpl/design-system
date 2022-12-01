@@ -21,8 +21,8 @@
 
 <style scoped lang="scss">
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 
 $badge-score-min-width: 66px;
 $badge-score-small-min-width: 56px;
@@ -93,8 +93,7 @@ $badge-score-colors: (
 .badgeScore {
 	$self: &;
 
-	@include textBold();
-	@include headlineM();
+	@include label-2xl-bold();
 
 	@each $color-name, $color-map in $badge-score-colors {
 		&.-#{$color-name} {
@@ -113,7 +112,7 @@ $badge-score-colors: (
 	display: inline-flex;
 	justify-content: center;
 	min-width: $badge-score-min-width;
-	padding: $space-xxxs $space-xxs;
+	padding: $space-xxs $space-xxs;
 
 	&__text {
 		align-self: baseline;
@@ -125,29 +124,29 @@ $badge-score-colors: (
 	}
 
 	&__suffix {
-		@include headlineS();
+		@include label-xl-bold();
 
 		align-self: baseline;
 	}
 
 	&.-small {
-		@include headlineS();
+		@include label-xl-bold();
 
 		padding: $space-xxs $space-xxs;
 		min-width: $badge-score-small-min-width;
 		#{$self}__suffix {
-			@include headlineXS();
+			@include label-l-bold();
 		}
 	}
 
 	&.-xsmall {
-		@include textInfoM();
+		@include label-s-bold();
 
 		min-width: $badge-score-x-small-min-width;
 		padding: $space-xxxs;
 
 		#{$self}__suffix {
-			@include textInfoM();
+			@include label-s-bold();
 		}
 	}
 

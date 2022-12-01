@@ -24,8 +24,8 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 
 .selectList {
 	padding: $space-xxs 0;
@@ -39,7 +39,7 @@
 		}
 
 		&.-text {
-			@include headlineS();
+			@include label-xl-regular();
 
 			color: $color-neutral-text-heavy;
 			display: flex;

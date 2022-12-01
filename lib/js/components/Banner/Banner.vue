@@ -82,8 +82,8 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/media-queries';
 
@@ -177,14 +177,13 @@
 	}
 
 	&__title {
-		@include headlineXS;
-		@include textBold;
+		@include heading-s-bold();
 
 		color: $color-neutral-text-strong;
 	}
 
 	&__defaultText {
-		@include textM;
+		@include text-m-regular();
 
 		margin-top: $space-xxxxs;
 	}
@@ -287,7 +286,7 @@
 	}
 
 	&__expandedContainer {
-		@include textM;
+		@include text-m-regular();
 
 		margin-top: $space-xs;
 		padding: 0 $space-xxxxs $space-xxxxs;

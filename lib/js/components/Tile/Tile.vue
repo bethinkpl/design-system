@@ -36,10 +36,10 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 $tile-colors: (
 	'neutral': (
@@ -163,7 +163,7 @@ $tile-colors: (
 	}
 
 	&__additionalText {
-		@include textXS;
+		@include info-s-regular();
 
 		color: $color-neutral-text;
 		flex-grow: 1;
@@ -173,8 +173,6 @@ $tile-colors: (
 	}
 
 	&__center {
-		@include textBold;
-
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
@@ -182,10 +180,10 @@ $tile-colors: (
 	}
 
 	&__eyebrowText {
-		@include textS;
+		@include info-m-bold();
 
 		&.-uppercase {
-			text-transform: uppercase;
+			@include info-m-extensive-bold-uppercase();
 		}
 
 		&.-ellipsis {
@@ -196,10 +194,10 @@ $tile-colors: (
 	}
 
 	&__text {
-		@include textM;
+		@include text-m-bold();
 
 		color: $color-neutral-text-heavy;
-		margin-top: $space-xxxxxs;
+		margin-top: $space-xxxxs;
 
 		&.-ellipsis {
 			overflow: hidden;

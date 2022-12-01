@@ -29,10 +29,10 @@
 
 <style lang="scss" scoped>
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 
 .cardExpandable {
 	&__expandedContent {
@@ -58,11 +58,9 @@
 	}
 
 	&__expanderLabel {
-		@include buttonS;
+		@include label-s-extensive-bold-uppercase();
 
 		color: $color-primary-text;
-		text-transform: uppercase;
-		font-weight: bold;
 		margin-right: $space-xxxxs;
 	}
 

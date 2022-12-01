@@ -11,7 +11,6 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/icons';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
 

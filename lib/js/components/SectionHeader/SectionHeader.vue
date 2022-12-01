@@ -1,20 +1,24 @@
 <template>
 	<div class="sectionHeader" :class="{ '-expandable': expandable, [sizeClass]: true }">
 		<div class="sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
-			<ds-icon
-				v-if="iconLeft"
-				class="sectionHeader__iconLeft"
-				:icon="iconLeft"
-				:size="ICON_SIZES.SMALL"
-			/>
+			<div class="sectionHeader__iconWrapper">
+				<ds-icon
+					v-if="iconLeft"
+					class="sectionHeader__iconLeft"
+					:icon="iconLeft"
+					:size="ICON_SIZES.SMALL"
+				/>
+			</div>
 			<span class="sectionHeader__title">{{ title }}</span>
-			<ds-icon
-				v-if="expandable"
-				class="sectionHeader__chevron"
-				:icon="ICONS.FA_CHEVRON_DOWN"
-				:rotation="chevronRotation"
-				:size="ICON_SIZES.SMALL"
-			/>
+			<div class="sectionHeader__iconWrapper">
+				<ds-icon
+					v-if="expandable"
+					class="sectionHeader__chevron"
+					:icon="ICONS.FA_CHEVRON_DOWN"
+					:rotation="chevronRotation"
+					:size="ICON_SIZES.SMALL"
+				/>
+			</div>
 		</div>
 		<div
 			v-if="$slots.default && showSlot"
@@ -28,9 +32,12 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
+
+$icons-and-slot-min-height-m: 40px;
+$icons-and-slot-min-height-l: 50px;
 
 .sectionHeader {
 	$root: &;
@@ -45,11 +52,10 @@
 	}
 
 	&__titleWrapper {
-		@include textBold();
-
 		align-items: start;
 		display: flex;
 		width: 100%;
+		margin: $space-xxxxxs 0;
 
 		@media #{breakpoint-s()} {
 			width: auto;
@@ -88,13 +94,20 @@
 		}
 	}
 
+	&__slot,
+	&__iconWrapper {
+		min-height: $icons-and-slot-min-height-m;
+		display: flex;
+		align-items: center;
+	}
+
 	&.-size-l {
 		#{$root}__titleWrapper {
-			@include headlineL();
+			@include heading-xl-bold();
 		}
 
 		#{$root}__iconLeft {
-			margin: $space-s $space-xxs $space-s 0;
+			margin-right: $space-xxs;
 		}
 
 		#{$root}__title {
@@ -102,17 +115,22 @@
 		}
 
 		#{$root}__chevron {
-			margin: $space-s 0 $space-s $space-xxs;
+			margin-left: $space-xxs;
+		}
+
+		#{$root}__slot,
+		#{$root}__iconWrapper {
+			min-height: $icons-and-slot-min-height-l;
 		}
 	}
 
 	&.-size-m {
 		#{$root}__titleWrapper {
-			@include headlineM();
+			@include heading-l-bold();
 		}
 
 		#{$root}__iconLeft {
-			margin: $space-xs $space-xxs $space-xs 0;
+			margin: $space-xxs $space-xxs $space-xxs 0;
 		}
 
 		#{$root}__title {
@@ -120,7 +138,7 @@
 		}
 
 		#{$root}__chevron {
-			margin: $space-xs 0 $space-xs $space-xxs;
+			margin: $space-xxs 0 $space-xxs $space-xxs;
 		}
 	}
 }
