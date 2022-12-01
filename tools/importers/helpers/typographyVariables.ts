@@ -8,6 +8,7 @@ export const textTransformProperty: string = 'font-transform';
 export const textCaseProperty: string = 'text-case';
 export const fontFamilyKey: string = 'fontFamily';
 export const fontWeightKey: string = 'fontWeight';
+export const fontStyleKey: string = 'fontStyle';
 export const tokenPartDisabled: string = 'default';
 export const transformCssProperty: { [key: string]: string } = {
 	'-regular': '-normal',
@@ -79,8 +80,11 @@ export const tokensTypographyMissingJsonFontWeightVariables: Array<ITokenJsonObj
 		base: null,
 		ratio: null,
 	},
+];
+
+export const tokensTypographyMissingJsonFontStyleVariables: Array<ITokenJsonObject> = [
 	{
-		id: 'tokensjsontypographyfontweightstylenormal',
+		id: 'tokensjsontypographyfontstylenormal',
 		label: 'normal',
 		labelFull: 'typography-font-style-normal',
 		value: 'normal',
