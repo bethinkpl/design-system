@@ -1,22 +1,14 @@
 @import '../../styles/settings/spacings';
 
 .itemsListItem {
-	align-items: center;
-	display: flex;
-	justify-content: space-between;
 	width: 100%;
-	border-top: 1px solid var(--color-neutral-border-strong);
-	padding: $space-m 0;
 
-	&__id,
-	&__value,
-	&__color {
-		min-width: 200px;
-		padding: $space-xs;
+	td {
+		padding: $space-m $space-m;
 	}
 
-	&__color {
-		width: 40%;
+	&__row {
+		border-top: 1px solid var(--color-neutral-border-strong);
 	}
 
 	&__tile {
@@ -26,19 +18,20 @@
 		width: 100%;
 	}
 
+	&__color {
+		width: 33%;
+	}
+
 	&__label {
-		flex: 1 1 auto;
-		width: 50%;
+		width: 33%;
 	}
 
 	&__value {
 		color: var(--raw-gray-600);
-		flex: 1 1 auto;
-		width: 50%;
+		width: 33%;
 	}
 
 	&__token {
-		align-self: start;
 		font-size: var(--typography-font-size-m);
 		font-weight: var(--typography-font-weight-bold);
 		line-height: var(--typography-line-height-3xl);
@@ -46,7 +39,6 @@
 	}
 
 	&__attributes {
-		align-self: start;
 		color: var(--color-neutral-data-medium);
 		font-style: var(--typography-font-style-italic);
 		font-size: var(--typography-font-size-xs);
@@ -58,13 +50,7 @@
 		}
 	}
 
-	&__id {
-		flex: 1 1 auto;
-		width: 50%;
-	}
-
 	&__example {
 		width: 50%;
-		align-self: start;
 	}
 }

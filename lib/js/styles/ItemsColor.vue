@@ -1,13 +1,13 @@
 <template>
-	<div>
-		<div v-for="item in items" :key="item.id" class="itemsListItem">
-			<div class="itemsListItem__id">{{ item.label }}</div>
-			<div class="itemsListItem__value">{{ item.value }}</div>
-			<div class="itemsListItem__color">
+	<table class="itemsListItem">
+		<tr v-for="item in items" :key="item.id" class="itemsListItem__row">
+			<td class="itemsListItem__id">{{ item.label }}</td>
+			<td class="itemsListItem__value">{{ item.value }}</td>
+			<td class="itemsListItem__color">
 				<span :style="{ background: item.value }" class="itemsListItem__tile" />
-			</div>
-		</div>
-	</div>
+			</td>
+		</tr>
+	</table>
 </template>
 
 <style lang="scss" scoped>
