@@ -74,10 +74,21 @@ declare const _default: {
             default: boolean;
         };
     };
+    data(): {
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+    };
     computed: {
         colorClass(): string;
         hasCounter(): boolean;
     };
-    created(): void;
 };
 export default _default;

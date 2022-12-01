@@ -21,10 +21,16 @@ declare const _default: {
                     validator: (value: string) => boolean;
                 };
             };
+            data(): {
+                DIVIDER_PROMINENCES: Readonly<{
+                    DEFAULT: string;
+                    STRONG: string;
+                    WEAK: string;
+                }>;
+            };
             computed: {
                 sizeClass(): string;
             };
-            created(): void;
         };
         DsIcon: {
             name: string;

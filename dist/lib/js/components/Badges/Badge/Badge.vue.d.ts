@@ -13,6 +13,10 @@ declare const _default: {
             validator(value: Value<typeof BADGE_COLORS>): boolean;
         };
     };
-    created(): void;
+    data(): {
+        BADGE_COLORS: Readonly<{
+            readonly NEUTRAL: "neutral";
+        }>;
+    };
 };
 export default _default;
