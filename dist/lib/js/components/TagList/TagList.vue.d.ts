@@ -251,6 +251,7 @@ declare const _default: {
     };
     computed: {
         tagNamesConcatenated(): string;
+        iconSize(): string;
     };
 };
 export default _default;

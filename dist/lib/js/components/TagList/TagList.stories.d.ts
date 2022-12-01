@@ -252,6 +252,7 @@ declare const _default: Meta<{
     };
     computed: {
         tagNamesConcatenated(): string;
+        iconSize(): string;
     };
 }>;
 export default _default;
@@ -508,5 +509,6 @@ export declare const Interactive: StoryFn<{
     };
     computed: {
         tagNamesConcatenated(): string;
+        iconSize(): string;
     };
 }>;
