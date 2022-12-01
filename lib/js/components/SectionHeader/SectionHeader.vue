@@ -46,6 +46,7 @@ $icons-and-slot-min-height-l: 50px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
+	margin: $space-xxxxxs 0;
 
 	@media #{breakpoint-s()} {
 		flex-wrap: nowrap;
@@ -55,7 +56,6 @@ $icons-and-slot-min-height-l: 50px;
 		align-items: start;
 		display: flex;
 		width: 100%;
-		margin: $space-xxxxxs 0;
 
 		@media #{breakpoint-s()} {
 			width: auto;
@@ -84,21 +84,27 @@ $icons-and-slot-min-height-l: 50px;
 		color: $color-neutral-text;
 	}
 
+	&__slot,
+	&__iconWrapper {
+		display: flex;
+		align-items: center;
+	}
+
+	&__iconWrapper {
+		min-height: $icons-and-slot-min-height-m;
+	}
+
 	&__slot {
+		min-height: auto;
+
 		@media #{breakpoint-s()} {
 			margin-left: $space-s;
+			min-height: $icons-and-slot-min-height-m;
 		}
 
 		&.-withPadding {
 			padding: $space-xxs 0;
 		}
-	}
-
-	&__slot,
-	&__iconWrapper {
-		min-height: $icons-and-slot-min-height-m;
-		display: flex;
-		align-items: center;
 	}
 
 	&.-size-l {
@@ -118,9 +124,14 @@ $icons-and-slot-min-height-l: 50px;
 			margin-left: $space-xxs;
 		}
 
-		#{$root}__slot,
 		#{$root}__iconWrapper {
 			min-height: $icons-and-slot-min-height-l;
+		}
+
+		#{$root}__slot {
+			@media #{breakpoint-s()} {
+				min-height: $icons-and-slot-min-height-l;
+			}
 		}
 	}
 
