@@ -14,8 +14,10 @@ const StoryTemplate: StoryFn<typeof Tile> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :is-eyebrow-text-uppercase="isEyebrowTextUppercase" :state="state" :eyebrow-ellipsis="eyebrowEllipsis" :text-ellipsis="textEllipsis"/>',
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 
@@ -68,8 +70,10 @@ const StoryStaticTemplate: StoryFn<typeof Tile> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :state="state" />',
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 

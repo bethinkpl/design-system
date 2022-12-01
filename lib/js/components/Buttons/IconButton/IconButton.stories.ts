@@ -24,9 +24,11 @@ const StoryTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 			return this.color === 'inverted';
 		},
 	},
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+		};
 	},
 	template: `<div :class="{ contrastBackground: isInverted }">
 	<icon-button
@@ -107,9 +109,11 @@ const StoryFilledWithLabelTemplate: StoryFn<typeof IconButton> = (argTypes) => (
 	props: Object.keys(argTypes),
 	template:
 		'<icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</icon-button>',
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_TYPES: Object.freeze(ICON_BUTTON_TYPES),
+		};
 	},
 });
 
@@ -120,10 +124,12 @@ const StoryOutlinedRoundedTemplate: StoryFn<typeof IconButton> = (argTypes) => (
 	props: Object.keys(argTypes),
 	template:
 		'<icon-button :icon="ICONS.FA_CHEVRON_RIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" />',
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-		this.BUTTON_RADIUSES = BUTTON_RADIUSES;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_TYPES: Object.freeze(ICON_BUTTON_TYPES),
+			BUTTON_RADIUSES: Object.freeze(BUTTON_RADIUSES),
+		};
 	},
 });
 
@@ -134,11 +140,13 @@ const StoryFilledPrimaryTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.PRIMARY" :size="ICON_BUTTON_SIZES.X_SMALL" />',
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_BUTTON_TYPES = ICON_BUTTON_TYPES;
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_TYPES: Object.freeze(ICON_BUTTON_TYPES),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+		};
 	},
 });
 
@@ -149,10 +157,12 @@ const StoryIconOnlyInfoTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.INFO" :size="ICON_BUTTON_SIZES.MEDIUM" />',
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+		};
 	},
 });
 
@@ -163,10 +173,12 @@ const StoryIconOnlyWarningTemplate: StoryFn<typeof IconButton> = (argTypes) => (
 	props: Object.keys(argTypes),
 	template:
 		'<icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+		};
 	},
 });
 

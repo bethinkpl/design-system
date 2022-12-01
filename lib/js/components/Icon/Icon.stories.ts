@@ -13,8 +13,10 @@ const StoryTemplate: StoryFn<typeof Icon> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<div class="iconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 
@@ -65,8 +67,10 @@ const StoryAllIconsTemplate: StoryFn<typeof Icon> = (argTypes) => ({
 		'<div>{{iconName}}</div>' +
 		'</div>' +
 		'</div>',
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 

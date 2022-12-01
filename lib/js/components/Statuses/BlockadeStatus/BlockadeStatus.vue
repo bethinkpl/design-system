@@ -51,6 +51,12 @@ export default {
 			required: true,
 		},
 	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+		};
+	},
 	computed: {
 		icon() {
 			if (this.status === COURSE_BLOCKADE_ACCESS_STATUS.ACTIVE) {
@@ -70,10 +76,6 @@ export default {
 			}
 			return 'Blokada zakończona';
 		},
-	},
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
 	},
 };
 </script>

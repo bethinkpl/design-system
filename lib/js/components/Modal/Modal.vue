@@ -117,9 +117,11 @@ export default {
 			default: false,
 		},
 	},
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+		};
 	},
 };
 </script>

@@ -18,8 +18,10 @@ const StoryTemplate: StoryFn<typeof SurveyToggle> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<div style="background-color:#f6f6f8"><survey-toggle :label="label"  :meaning="meaning" :content-text="contentText" :selected-icon="ICONS[selectedIcon]" :status="status" :state="state" /></div>',
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 

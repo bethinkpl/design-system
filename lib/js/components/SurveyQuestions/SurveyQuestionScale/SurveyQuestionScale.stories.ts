@@ -13,17 +13,10 @@ const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes) => ({
 	components: { SurveyQuestionScale },
 	props: Object.keys(argTypes),
 	data() {
-		/* @todo revert elaborationData */
 		return { selectedValue: null };
 	},
-	watch: {
-		elaborationValue() {
-			// elaboration is a prop here, Vue don't like modifying props, so we wrap it into valueData
-			this.elaborationData = this.elaborationValue;
-		},
-	},
 	template:
-		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationData" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationData = $event">' +
+		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationValue = $event">' +
 		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 		'</survey-question-scale>',
 });
@@ -96,17 +89,10 @@ const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes
 	components: { SurveyQuestionScale },
 	props: Object.keys(argTypes),
 	data() {
-		/* @todo revert elaborationData */
 		return { selectedValue: null };
 	},
-	watch: {
-		elaboration() {
-			// elaboration is a prop here, Vue don't like modifying props, so we wrap it into valueData
-			this.elaborationData = this.elaboration;
-		},
-	},
 	template:
-		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationData" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationData = $event">' +
+		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationValue = $event">' +
 		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 		'</survey-question-scale></div>',
 });

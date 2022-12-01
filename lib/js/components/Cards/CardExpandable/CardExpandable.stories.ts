@@ -16,7 +16,7 @@ const StoryTemplate: StoryFn<typeof CardExpandable> = (argTypes) => ({
 		        <div v-html="content" /><div v-if="isExpandedInternal">Dodatkowa treść w slocie <code>content</code> widoczna po rozwinięciu</div>
 		    </template>' +
 		    <template #expandedContent><div v-html="expandedContent"></div></template>
-		</card-expandable>'`,
+		</card-expandable>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

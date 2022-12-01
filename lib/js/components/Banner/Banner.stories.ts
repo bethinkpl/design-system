@@ -12,8 +12,10 @@ export default {
 const StoryTemplate: StoryFn<typeof Banner> = (argTypes, { updateArgs }) => ({
 	components: { Banner },
 	props: Object.keys(argTypes),
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 	methods: {
 		onIsExpandedUpdated(isExpanded) {

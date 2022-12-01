@@ -65,8 +65,10 @@ export default {
 			},
 		},
 	},
-	created() {
-		this.BADGE_COLORS = BADGE_COLORS;
+	data() {
+		return {
+			BADGE_COLORS: Object.freeze(BADGE_COLORS),
+		};
 	},
 };
 </script>

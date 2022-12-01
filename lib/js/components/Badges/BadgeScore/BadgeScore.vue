@@ -202,6 +202,13 @@ export default {
 			default: false,
 		},
 	},
+	data() {
+		return {
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			BADGE_SCORE_COLORS: Object.freeze(BADGE_SCORE_COLORS),
+			BADGE_SCORE_SIZES: Object.freeze(BADGE_SCORE_SIZES),
+		};
+	},
 	computed: {
 		iconSize(): string {
 			if (this.size === BADGE_SCORE_SIZES.SMALL) {
@@ -213,11 +220,6 @@ export default {
 
 			return ICON_SIZES.SMALL;
 		},
-	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
-		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
-		this.BADGE_SCORE_SIZES = BADGE_SCORE_SIZES;
 	},
 };
 </script>

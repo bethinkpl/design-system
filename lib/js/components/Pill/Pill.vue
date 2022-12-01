@@ -177,6 +177,15 @@ export default {
 			default: false,
 		},
 	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			BUTTON_ELEVATIONS: Object.freeze(BUTTON_ELEVATIONS),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			PILL_SIZES: Object.freeze(PILL_SIZES),
+		};
+	},
 	computed: {
 		colorClassName(): string {
 			return `-color-${this.color}`;
@@ -185,13 +194,6 @@ export default {
 		iconButtonColor(): string {
 			return PILL_ICON_BUTTONS_COLOR_MAP[this.color] || ICON_BUTTON_COLORS.PRIMARY;
 		},
-	},
-	created() {
-		this.ICONS = ICONS;
-		this.BUTTON_ELEVATIONS = BUTTON_ELEVATIONS;
-		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-		this.ICON_SIZES = ICON_SIZES;
-		this.PILL_SIZES = PILL_SIZES;
 	},
 };
 </script>
