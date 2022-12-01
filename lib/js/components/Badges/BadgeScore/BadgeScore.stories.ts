@@ -22,8 +22,10 @@ const StoryTemplate: StoryFn<{
 	props: Object.keys(argTypes),
 	template:
 		'<badge-score :color="color" :suffix="suffix" :text="text" :size="size" :icon="ICONS[icon]" :fullWidth="fullWidth" />',
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 
@@ -65,8 +67,10 @@ const StaticStoryTemplate: StoryFn<{}> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="1" :full-width="fullWidth" />',
-	created() {
-		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
+	data() {
+		return {
+			BADGE_SCORE_COLORS: Object.freeze(BADGE_SCORE_COLORS),
+		};
 	},
 });
 

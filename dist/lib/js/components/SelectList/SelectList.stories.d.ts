@@ -20,10 +20,16 @@ declare const _default: Meta<{
                     validator: (value: string) => boolean;
                 };
             };
+            data(): {
+                DIVIDER_PROMINENCES: Readonly<{
+                    DEFAULT: string;
+                    STRONG: string;
+                    WEAK: string;
+                }>;
+            };
             computed: {
                 sizeClass(): string;
             };
-            created(): void;
         };
         DsIcon: {
             name: string;
@@ -127,10 +133,16 @@ export declare const Interactive: StoryFn<{
                     validator: (value: string) => boolean;
                 };
             };
+            data(): {
+                DIVIDER_PROMINENCES: Readonly<{
+                    DEFAULT: string;
+                    STRONG: string;
+                    WEAK: string;
+                }>;
+            };
             computed: {
                 sizeClass(): string;
             };
-            created(): void;
         };
         DsIcon: {
             name: string;

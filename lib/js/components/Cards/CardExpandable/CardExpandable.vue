@@ -113,6 +113,8 @@ export default {
 	data() {
 		return {
 			isExpandedInternal: false,
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},
 	computed: {
@@ -129,10 +131,6 @@ export default {
 			},
 			immediate: true,
 		},
-	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
-		this.ICONS = ICONS;
 	},
 	methods: {
 		onExpanderClick() {

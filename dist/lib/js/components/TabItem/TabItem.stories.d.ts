@@ -62,7 +62,18 @@ declare const _default: Meta<{
             required: boolean;
         };
     };
-    created(): void;
+    data(): {
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+    };
 }>;
 export default _default;
 export declare const Interactive: StoryFn<{
@@ -128,5 +139,16 @@ export declare const Interactive: StoryFn<{
             required: boolean;
         };
     };
-    created(): void;
+    data(): {
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+    };
 }>;

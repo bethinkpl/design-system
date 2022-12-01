@@ -82,6 +82,29 @@ declare const _default: Meta<{
     };
     data(): {
         hovered: boolean;
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+        SURVEY_TOGGLE_MEANING: Readonly<{
+            readonly PRIMARY: "primary";
+            readonly NEUTRAL: "neutral";
+        }>;
+        SURVEY_TOGGLE_STATUSES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly SELECTED: "selected";
+        }>;
+        SURVEY_TOGGLE_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly DISABLED: "disabled";
+        }>;
     };
     computed: {
         isPrimarySelected(): boolean;
@@ -90,7 +113,6 @@ declare const _default: Meta<{
         isNeutralSelected(): boolean;
         isHoveredState(): any;
     };
-    created(): void;
     methods: {
         onClick(): void;
     };
@@ -179,6 +201,29 @@ export declare const Interactive: StoryFn<{
     };
     data(): {
         hovered: boolean;
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+        SURVEY_TOGGLE_MEANING: Readonly<{
+            readonly PRIMARY: "primary";
+            readonly NEUTRAL: "neutral";
+        }>;
+        SURVEY_TOGGLE_STATUSES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly SELECTED: "selected";
+        }>;
+        SURVEY_TOGGLE_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly DISABLED: "disabled";
+        }>;
     };
     computed: {
         isPrimarySelected(): boolean;
@@ -187,7 +232,6 @@ export declare const Interactive: StoryFn<{
         isNeutralSelected(): boolean;
         isHoveredState(): any;
     };
-    created(): void;
     methods: {
         onClick(): void;
     };

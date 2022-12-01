@@ -313,6 +313,11 @@ export default {
 			default: false,
 		},
 	},
+	data() {
+		return {
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+		};
+	},
 	computed: {
 		colorClass(): string {
 			return `-color-${this.color}`;
@@ -320,9 +325,6 @@ export default {
 		hasCounter(): boolean {
 			return this.counter !== null && this.counter !== '' && this.counter !== undefined;
 		},
-	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
 	},
 };
 </script>

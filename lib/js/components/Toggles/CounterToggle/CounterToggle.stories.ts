@@ -16,8 +16,10 @@ const StoryTemplate: StoryFn<typeof CounterToggle> = (argTypes) => ({
 		'<div :class="{ contrastBackground: isInverted }">' +
 		'<counter-toggle :color="color" :counter="counter" :icon="ICONS[icon]" :isSelected="isSelected" :isDisabled="isDisabled" />' +
 		'</div>',
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 	computed: {
 		isInverted() {

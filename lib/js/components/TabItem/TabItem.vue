@@ -64,8 +64,10 @@ export default {
 			required: true,
 		},
 	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
+	data() {
+		return {
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+		};
 	},
 };
 </script>

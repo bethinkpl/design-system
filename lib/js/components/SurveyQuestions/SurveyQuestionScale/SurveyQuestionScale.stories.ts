@@ -5,27 +5,25 @@ import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
 export default {
-	title: 'Components/SurveyQuestions/SurveyQuestionScaleTS',
+	title: 'Components/SurveyQuestions/SurveyQuestionScale',
 	component: SurveyQuestionScale,
 } as Meta<typeof SurveyQuestionScale>;
 
-const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes, { updateArgs }) => ({
 	components: { SurveyQuestionScale },
 	props: Object.keys(argTypes),
 	data() {
-		/* @todo revert elaborationData */
 		return { selectedValue: null };
 	},
-	watch: {
-		elaborationValue() {
-			// elaboration is a prop here, Vue don't like modifying props, so we wrap it into valueData
-			this.elaborationData = this.elaborationValue;
-		},
-	},
 	template:
-		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationData" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationData = $event">' +
+		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationUpdate">' +
 		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 		'</survey-question-scale>',
+	methods: {
+		elaborationUpdate(elaborationValue) {
+			updateArgs({ elaborationValue });
+		},
+	},
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -92,26 +90,41 @@ Interactive.parameters = {
 	},
 };
 
-const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes) => ({
+const argTypesDisabled = {
+	elaborationValue: { control: false },
+	explanation: { control: false },
+	selectedValue: { control: false },
+	scaleOptions: { control: false },
+	state: { control: false },
+	placeholder: { control: false },
+	elaborationLabel: { control: false },
+	title: { control: false },
+	'elaboration-change': { control: false },
+	'select-change': { control: false },
+} as ArgTypes;
+
+const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (
+	argTypes,
+	{ updateArgs },
+) => ({
 	components: { SurveyQuestionScale },
 	props: Object.keys(argTypes),
 	data() {
-		/* @todo revert elaborationData */
 		return { selectedValue: null };
 	},
-	watch: {
-		elaboration() {
-			// elaboration is a prop here, Vue don't like modifying props, so we wrap it into valueData
-			this.elaborationData = this.elaboration;
-		},
-	},
 	template:
-		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationData" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationData = $event">' +
+		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationUpdate">' +
 		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 		'</survey-question-scale></div>',
+	methods: {
+		elaborationUpdate(elaborationValue) {
+			updateArgs({ elaborationValue });
+		},
+	},
 });
 
 export const LimitedWidth = StoryLimitedWidthTemplate.bind({});
+LimitedWidth.argTypes = argTypesDisabled;
 
 LimitedWidth.args = {
 	title: "Main question write here if it's long it will collapse.",
@@ -211,3 +224,4 @@ const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes
 });
 
 export const SevenOptions = StorySevenOptionsTemplate.bind({});
+SevenOptions.argTypes = argTypesDisabled;

@@ -20,10 +20,16 @@ declare const _default: Meta<{
                     validator: (value: string) => boolean;
                 };
             };
+            data(): {
+                DIVIDER_PROMINENCES: Readonly<{
+                    DEFAULT: string;
+                    STRONG: string;
+                    WEAK: string;
+                }>;
+            };
             computed: {
                 sizeClass(): string;
             };
-            created(): void;
         };
     };
     props: {
@@ -59,10 +65,16 @@ export declare const Interactive: StoryFn<{
                     validator: (value: string) => boolean;
                 };
             };
+            data(): {
+                DIVIDER_PROMINENCES: Readonly<{
+                    DEFAULT: string;
+                    STRONG: string;
+                    WEAK: string;
+                }>;
+            };
             computed: {
                 sizeClass(): string;
             };
-            created(): void;
         };
     };
     props: {

@@ -14,8 +14,10 @@ const StoryTemplate: StoryFn<typeof Pill> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<pill :label="label" :left-icon="ICONS[leftIcon]" :has-delete="hasDelete" :size="size" :color="color" />',
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 

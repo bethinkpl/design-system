@@ -12,8 +12,10 @@ const StoryTemplate: StoryFn<typeof TabItem> = (argTypes) => ({
 	components: { TabItem },
 	props: Object.keys(argTypes),
 	template: '<tab-item :icon="ICONS[icon]" :is-active="isActive" :title="title" />',
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 

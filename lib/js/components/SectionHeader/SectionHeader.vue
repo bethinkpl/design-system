@@ -200,6 +200,12 @@ export default {
 			required: true,
 		},
 	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+		};
+	},
 	computed: {
 		chevronRotation(): number | null {
 			return this.isExpanded ? 180 : null;
@@ -210,10 +216,6 @@ export default {
 		sizeClass(): string {
 			return `-size-${this.size}`;
 		},
-	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
-		this.ICONS = ICONS;
 	},
 	methods: {
 		onTitleWrapperClicked(): void {

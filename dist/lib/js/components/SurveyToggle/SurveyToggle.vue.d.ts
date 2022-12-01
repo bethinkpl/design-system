@@ -81,6 +81,29 @@ declare const _default: {
     };
     data(): {
         hovered: boolean;
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+        SURVEY_TOGGLE_MEANING: Readonly<{
+            readonly PRIMARY: "primary";
+            readonly NEUTRAL: "neutral";
+        }>;
+        SURVEY_TOGGLE_STATUSES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly SELECTED: "selected";
+        }>;
+        SURVEY_TOGGLE_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly DISABLED: "disabled";
+        }>;
     };
     computed: {
         isPrimarySelected(): boolean;
@@ -89,7 +112,6 @@ declare const _default: {
         isNeutralSelected(): boolean;
         isHoveredState(): any;
     };
-    created(): void;
     methods: {
         onClick(): void;
     };

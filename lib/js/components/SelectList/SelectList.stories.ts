@@ -54,10 +54,8 @@ const StoryTemplate: StoryFn<typeof SelectList> = (argTypes) => ({
 				},
 			],
 			value: 'part-2',
+			ICONS: Object.freeze(ICONS),
 		};
-	},
-	created() {
-		this.ICONS = ICONS;
 	},
 });
 
