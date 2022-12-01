@@ -23,7 +23,9 @@ const StoryTemplate: StoryFn = (argTypes) => ({
 	components: {},
 	props: Object.keys(argTypes),
 	data() {
-		return { spacings };
+		return {
+			spacings: Object.freeze(spacings),
+		};
 	},
 	methods: {
 		getStyles(spacing) {

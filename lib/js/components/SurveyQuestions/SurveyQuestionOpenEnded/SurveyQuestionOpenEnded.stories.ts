@@ -8,13 +8,21 @@ export default {
 	component: SurveyQuestionOpenEnded,
 } as Meta<typeof SurveyQuestionOpenEnded>;
 
-const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (argTypes, { updateArgs }) => ({
 	components: { SurveyQuestionOpenEnded },
 	props: Object.keys(argTypes),
+	setup() {
+		return { args };
+	},
 	template:
-		'<survey-question-open-ended  :title="title" v-model="value" :state="state" :placeholder="placeholder">' +
+		'<survey-question-open-ended  :title="title" v-model="value" :state="state" :placeholder="placeholder" @input="explanationUpdate">' +
 		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 		'</survey-question-open-ended>',
+	methods: {
+		explanationUpdate(value) {
+			updateArgs({ ...args, value });
+		},
+	},
 });
 
 export const Interactive = StoryTemplate.bind({});

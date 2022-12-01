@@ -208,9 +208,6 @@ IconOnlyInfo.argTypes = argTypesDisabled;
 const StoryIconOnlyWarningTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 	components: { IconButton },
 	props: Object.keys(argTypes),
-	parameters: {
-		controls: { exclude: /^ele*/ },
-	},
 	template:
 		'<icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 	data() {
