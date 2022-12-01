@@ -12,8 +12,10 @@ export default {
 const StoryTemplate: StoryFn<typeof SectionHeader> = (argTypes, { updateArgs }) => ({
 	components: { SectionHeader },
 	props: Object.keys(argTypes),
-	created() {
-		this.ICONS = ICONS;
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 	methods: {
 		onIsExpandedUpdated(isExpanded) {

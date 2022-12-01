@@ -285,6 +285,10 @@ export default {
 	data() {
 		return {
 			hovered: false,
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			SURVEY_TOGGLE_MEANING: Object.freeze(SURVEY_TOGGLE_MEANINGS),
+			SURVEY_TOGGLE_STATUSES: Object.freeze(SURVEY_TOGGLE_STATUSES),
+			SURVEY_TOGGLE_STATES: Object.freeze(SURVEY_TOGGLE_STATES),
 		};
 	},
 	computed: {
@@ -322,12 +326,6 @@ export default {
 			}
 			return this.hovered;
 		},
-	},
-	created() {
-		this.SURVEY_TOGGLE_MEANING = SURVEY_TOGGLE_MEANINGS;
-		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
-		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
-		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
 		onClick() {

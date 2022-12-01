@@ -74,6 +74,11 @@ export default {
 			validator: (value: string) => Object.values(DIVIDER_SIZES).includes(value),
 		},
 	},
+	data() {
+		return {
+			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
+		};
+	},
 	computed: {
 		sizeClass() {
 			return {
@@ -82,9 +87,6 @@ export default {
 				[DIVIDER_SIZES.L]: '-large-' + (this.isVertical ? 'vertical' : 'horizontal'),
 			}[this.size];
 		},
-	},
-	created() {
-		this.DIVIDER_PROMINENCES = DIVIDER_PROMINENCES;
 	},
 };
 </script>

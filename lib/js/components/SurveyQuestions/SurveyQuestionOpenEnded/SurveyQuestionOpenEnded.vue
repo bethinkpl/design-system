@@ -125,14 +125,12 @@ export default {
 		return {
 			showModal: false,
 			inputId: 'survey-question-' + randomString(8),
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
 		};
-	},
-	created() {
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-		this.BUTTON_TYPES = BUTTON_TYPES;
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
-		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
 	},
 };
 </script>

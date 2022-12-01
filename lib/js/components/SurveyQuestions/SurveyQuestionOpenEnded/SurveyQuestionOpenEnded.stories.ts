@@ -8,23 +8,21 @@ export default {
 	component: SurveyQuestionOpenEnded,
 } as Meta<typeof SurveyQuestionOpenEnded>;
 
-const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (argTypes, { updateArgs }) => ({
 	components: { SurveyQuestionOpenEnded },
 	props: Object.keys(argTypes),
-	data() {
-		/* @todo revert valueData */
-		return {};
-	},
-	watch: {
-		value() {
-			// value is a prop here, Vue don't like modifying props, so we wrap it into valueData
-			this.valueData = this.value;
-		},
+	setup() {
+		return { args };
 	},
 	template:
-		'<survey-question-open-ended  :title="title" v-model="valueData" :state="state" :placeholder="placeholder">' +
+		'<survey-question-open-ended  :title="title" :value="value" :state="state" :placeholder="placeholder" @input="explanationUpdate">' +
 		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 		'</survey-question-open-ended>',
+	methods: {
+		explanationUpdate(value) {
+			updateArgs({ value });
+		},
+	},
 });
 
 export const Interactive = StoryTemplate.bind({});
