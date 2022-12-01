@@ -35,7 +35,7 @@ module.exports = {
 		'value-keyword-case': [
 			'lower',
 			{
-				ignoreKeywords: ['/^displayHeading*/'],
+				ignoreProperties: ['--token'],
 			},
 		],
 	},
