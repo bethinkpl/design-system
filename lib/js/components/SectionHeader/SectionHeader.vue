@@ -46,7 +46,7 @@ $icons-and-slot-min-height-l: 50px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin: $space-xxxxxs 0;
+	padding: $space-xxxxxs 0;
 
 	@media #{breakpoint-s()} {
 		flex-wrap: nowrap;
