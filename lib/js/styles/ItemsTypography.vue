@@ -3,7 +3,7 @@
 		<tr v-for="item in items" :key="item.id" class="itemsListItem__row">
 			<td v-if="item.label" class="itemsListItem__label">{{ item.label }}</td>
 			<td v-if="item.value" class="itemsListItem__value">{{ item.value }}</td>
-			<td v-if="item.ratio || item.value" class="itemsListItem__value">{{ item.ratio }}</td>
+			<td v-if="item.ratio" class="itemsListItem__value">{{ item.ratio }}</td>
 			<td v-if="item.token" class="itemsListItem__token">{{ item.token }}</td>
 			<td v-if="item.attributesRaw" class="itemsListItem__attributes">
 				<div v-for="attribute in item.attributesRaw" :key="item.id + attribute.value">
