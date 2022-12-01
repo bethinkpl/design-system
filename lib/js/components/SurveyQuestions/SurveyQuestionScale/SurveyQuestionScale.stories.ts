@@ -9,16 +9,21 @@ export default {
 	component: SurveyQuestionScale,
 } as Meta<typeof SurveyQuestionScale>;
 
-const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes, { updateArgs }) => ({
 	components: { SurveyQuestionScale },
 	props: Object.keys(argTypes),
 	data() {
 		return { selectedValue: null };
 	},
 	template:
-		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationValue = $event">' +
+		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationUpdate">' +
 		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 		'</survey-question-scale>',
+	methods: {
+		elaborationUpdate(elaborationValue) {
+			updateArgs({ elaborationValue });
+		},
+	},
 });
 
 export const Interactive = StoryTemplate.bind({});

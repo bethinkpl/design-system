@@ -15,12 +15,12 @@ const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (argTypes, { upda
 		return { args };
 	},
 	template:
-		'<survey-question-open-ended  :title="title" v-model="value" :state="state" :placeholder="placeholder" @input="explanationUpdate">' +
+		'<survey-question-open-ended  :title="title" :value="value" :state="state" :placeholder="placeholder" @input="explanationUpdate">' +
 		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 		'</survey-question-open-ended>',
 	methods: {
 		explanationUpdate(value) {
-			updateArgs({ ...args, value });
+			updateArgs({ value });
 		},
 	},
 });
