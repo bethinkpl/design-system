@@ -3,7 +3,7 @@
 		<div v-for="item in items" :key="item.id" class="itemsListItem">
 			<div v-if="item.label" class="itemsListItem__label">{{ item.label }}</div>
 			<div v-if="item.value" class="itemsListItem__value">{{ item.value }}</div>
-			<div v-if="item.ratio" class="itemsListItem__value">{{ item.ratio }}</div>
+			<div v-if="item.ratio || item.value" class="itemsListItem__value">{{ item.ratio }}</div>
 			<div v-if="item.token" class="itemsListItem__token">{{ item.token }}</div>
 			<div v-if="item.attributesRaw" class="itemsListItem__attributes">
 				<div v-for="attribute in item.attributesRaw" :key="item.id + attribute.value">
