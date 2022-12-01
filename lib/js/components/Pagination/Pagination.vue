@@ -39,7 +39,9 @@
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:icon="ICONS.FA_ANGLE_LEFT"
 					:state="
-						currentPage <= FIRST_PAGE_NUMBER ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT
+						currentPage <= FIRST_PAGE_NUMBER
+							? ICON_BUTTON_STATES.DISABLED
+							: ICON_BUTTON_STATES.DEFAULT
 					"
 					@click.native="changePage(currentPage - 1)"
 				/>
