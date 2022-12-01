@@ -103,16 +103,24 @@ const argTypesDisabled = {
 	'select-change': { control: false },
 } as ArgTypes;
 
-const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes) => ({
+const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (
+	argTypes,
+	{ updateArgs },
+) => ({
 	components: { SurveyQuestionScale },
 	props: Object.keys(argTypes),
 	data() {
 		return { selectedValue: null };
 	},
 	template:
-		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationValue = $event">' +
+		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationUpdate">' +
 		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
 		'</survey-question-scale></div>',
+	methods: {
+		elaborationUpdate(elaborationValue) {
+			updateArgs({ elaborationValue });
+		},
+	},
 });
 
 export const LimitedWidth = StoryLimitedWidthTemplate.bind({});
