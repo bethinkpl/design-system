@@ -81,9 +81,9 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/mixins/layout';
@@ -163,7 +163,7 @@ $pagination-input-height: 32px;
 	}
 
 	&__text {
-		@include textM();
+		@include text-m-regular();
 
 		text-align: center;
 		color: $color-neutral-text;
@@ -177,7 +177,7 @@ $pagination-input-height: 32px;
 	}
 
 	&__itemWrapper {
-		@include textM();
+		@include text-m-regular;
 
 		text-align: center;
 		padding: $space-xxxxs;
@@ -203,7 +203,7 @@ $pagination-input-height: 32px;
 		padding: $space-xxxs;
 
 		&.-selected {
-			@include textBold();
+			@include text-m-bold();
 
 			background: $color-neutral-background-medium;
 			color: $color-neutral-text-heavy;
