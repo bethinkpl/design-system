@@ -2,7 +2,7 @@ import { Args, Meta, StoryFn } from '@storybook/vue';
 
 import ItemsList from './../ItemsList.vue';
 import source from '../../../styles/settings/typography/_variables-css.json';
-import { TOKENS_TYPES } from '../TokenTypes.consts';
+import { TOKENS_TYPES } from '../TokenTypes';
 
 export default {
 	title: 'foundations/Typography/Variables',

@@ -1,0 +1,56 @@
+@import '../../styles/settings/spacings';
+
+.itemsListItem {
+	width: 100%;
+
+	td {
+		padding: $space-m $space-m;
+	}
+
+	&__row {
+		border-top: 1px solid var(--color-neutral-border-strong);
+	}
+
+	&__tile {
+		box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
+		display: block;
+		height: $space-xl;
+		width: 100%;
+	}
+
+	&__color {
+		width: 33%;
+	}
+
+	&__label {
+		width: 33%;
+	}
+
+	&__value {
+		color: var(--raw-gray-600);
+		width: 33%;
+	}
+
+	&__token {
+		font-size: var(--typography-font-size-m);
+		font-weight: var(--typography-font-weight-bold);
+		line-height: var(--typography-line-height-3xl);
+		width: 25%;
+	}
+
+	&__attributes {
+		color: var(--color-neutral-data-medium);
+		font-style: var(--typography-font-style-italic);
+		font-size: var(--typography-font-size-xs);
+		line-height: var(--typography-line-height-s);
+		width: 25%;
+
+		strong {
+			font-weight: var(--typography-font-weight-bold);
+		}
+	}
+
+	&__example {
+		width: 50%;
+	}
+}

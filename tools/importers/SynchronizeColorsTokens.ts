@@ -1,6 +1,6 @@
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
-import modifiers = require('./helpers/modifiers');
+import { cssFileFirstLine } from './helpers/modifiers';
 import { makeHexShortcut } from './helpers/colorsModifiers';
 import { arrayToFile, jsonToFile } from './helpers/fileWriter';
 import {
@@ -23,7 +23,7 @@ const ImportColorsRaw = (
 	let temporaryColorsJson: Dict<Array<IResultJsonObject>> = {};
 	let resultColorsJson: Dict<Array<IResultJsonObject>> = {};
 
-	result.push(modifiers.cssFileFirstLine(isTheme, name));
+	result.push(cssFileFirstLine(isTheme, name));
 
 	jsonColors.forEach((obj) => {
 		const patternColorsToProcess = /RAW\/|theme/i;
@@ -62,7 +62,7 @@ const ImportColorsRaw = (
 			const colorNameSplitted = colorName.split('-');
 			const category = colorNameSplitted[1] === undefined ? 'default' : colorNameSplitted[0];
 			const resultJsonObject: IResultJsonObject = {
-				id: binFilesConfig.tokens.destination + '_' + colorName,
+				id: binFilesConfig.variablesRaw.destination + '_' + colorName,
 				label: colorName,
 				value: obj.values.hex,
 			};
@@ -166,7 +166,7 @@ const ImportSingleTokenFile = (
 			const tokenNameSplitted = tokenName.split('-');
 			const category = tokenNameSplitted[2];
 			const resultJsonObject: ITokenJsonObject = {
-				id: binValues.variablesRaw.destination + '_' + tokenName,
+				id: binValues.tokens.destination + '_' + tokenName,
 				label: tokenName,
 				value:
 					obj.values.alpha == 1

@@ -1,8 +1,8 @@
 import { Args, Meta, StoryFn } from '@storybook/vue';
 
 import ItemsList from './../ItemsList.vue';
-import source from '../../../styles/settings/colors/_tokens-bodywork.json';
-import { TOKENS_TYPES } from '../TokenTypes.consts';
+import tokensList from '../../../styles/settings/colors/_tokens-bodywork.json';
+import { TOKENS_TYPES } from '../TokenTypes';
 
 export default {
 	title: 'foundations/Design Tokens/Color Tokens/Primary Bodywork',
@@ -19,7 +19,7 @@ const StoryTemplate: StoryFn<typeof ItemsList> = (argTypes) => ({
 export const PrimaryBodywork = StoryTemplate.bind({});
 
 const args = {
-	itemsLists: [{ title: 'Primary Bodywork', list: source, class: 'theme-bodywork' }],
+	itemsLists: [{ title: 'Primary Bodywork', list: tokensList, class: 'theme-bodywork' }],
 	type: TOKENS_TYPES.COLORS,
 } as Args;
 

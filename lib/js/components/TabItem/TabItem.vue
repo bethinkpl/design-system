@@ -11,7 +11,6 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/icons';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
 
@@ -52,7 +51,7 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validate(icon: VueConstructor) {
+			validator(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
@@ -65,8 +64,10 @@ export default {
 			required: true,
 		},
 	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
+	data() {
+		return {
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+		};
 	},
 };
 </script>

@@ -7,8 +7,8 @@
 
 <style lang="scss" scoped>
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 
 .accessStatus {
 	$self: &;
@@ -39,10 +39,7 @@
 	}
 
 	&__text {
-		@include textXS;
-		@include textBold;
-
-		text-transform: uppercase;
+		@include label-s-bold-uppercase();
 	}
 }
 </style>
@@ -62,6 +59,12 @@ export default {
 			type: String,
 			required: true,
 		},
+	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+		};
 	},
 	computed: {
 		icon() {
@@ -94,10 +97,6 @@ export default {
 			}
 			return 'Zakończony';
 		},
-	},
-	created() {
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
 	},
 };
 </script>

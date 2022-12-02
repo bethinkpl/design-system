@@ -21,8 +21,8 @@
 
 <style scoped lang="scss">
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 
 $badge-score-min-width: 66px;
 $badge-score-small-min-width: 56px;
@@ -93,8 +93,7 @@ $badge-score-colors: (
 .badgeScore {
 	$self: &;
 
-	@include textBold();
-	@include headlineM();
+	@include label-2xl-bold();
 
 	@each $color-name, $color-map in $badge-score-colors {
 		&.-#{$color-name} {
@@ -113,7 +112,7 @@ $badge-score-colors: (
 	display: inline-flex;
 	justify-content: center;
 	min-width: $badge-score-min-width;
-	padding: $space-xxxs $space-xxs;
+	padding: $space-xxs $space-xxs;
 
 	&__text {
 		align-self: baseline;
@@ -125,29 +124,29 @@ $badge-score-colors: (
 	}
 
 	&__suffix {
-		@include headlineS();
+		@include label-xl-bold();
 
 		align-self: baseline;
 	}
 
 	&.-small {
-		@include headlineS();
+		@include label-xl-bold();
 
 		padding: $space-xxs $space-xxs;
 		min-width: $badge-score-small-min-width;
 		#{$self}__suffix {
-			@include headlineXS();
+			@include label-l-bold();
 		}
 	}
 
 	&.-xsmall {
-		@include textInfoM();
+		@include label-s-bold();
 
 		min-width: $badge-score-x-small-min-width;
 		padding: $space-xxxs;
 
 		#{$self}__suffix {
-			@include textInfoM();
+			@include label-s-bold();
 		}
 	}
 
@@ -180,21 +179,21 @@ export default {
 		color: {
 			type: String,
 			required: true,
-			validate(color) {
+			validator(color) {
 				return Object.values(BADGE_SCORE_COLORS).includes(color);
 			},
 		},
 		icon: {
 			type: Object,
 			default: null,
-			validate(icon: VueConstructor) {
+			validator(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
 		size: {
 			type: String,
 			default: BADGE_SCORE_SIZES.MEDIUM,
-			validate(size) {
+			validator(size) {
 				return Object.values(BADGE_SCORE_SIZES).includes(size);
 			},
 		},
@@ -202,6 +201,13 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+	},
+	data() {
+		return {
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			BADGE_SCORE_COLORS: Object.freeze(BADGE_SCORE_COLORS),
+			BADGE_SCORE_SIZES: Object.freeze(BADGE_SCORE_SIZES),
+		};
 	},
 	computed: {
 		iconSize(): string {
@@ -214,11 +220,6 @@ export default {
 
 			return ICON_SIZES.SMALL;
 		},
-	},
-	created() {
-		this.ICON_SIZES = ICON_SIZES;
-		this.BADGE_SCORE_COLORS = BADGE_SCORE_COLORS;
-		this.BADGE_SCORE_SIZES = BADGE_SCORE_SIZES;
 	},
 };
 </script>

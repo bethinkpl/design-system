@@ -9,15 +9,15 @@
 			'-medium': size === TAG_LIST_SIZES.MEDIUM,
 		}"
 	>
-		<icon class="tagList__icon" :icon="ICONS.FA_TAGS" :size="ICON_SIZES.X_SMALL" />
+		<icon class="tagList__icon" :icon="ICONS.FA_TAGS" :size="iconSize" />
 		<div>{{ tagNamesConcatenated }}</div>
 	</div>
 </template>
 
 <style scoped lang="scss">
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 
 .tagList {
 	$root: &;
@@ -41,20 +41,26 @@
 		}
 	}
 
+	&__icon {
+		margin-right: $space-xxxs;
+	}
+
 	&.-xSmall {
-		@include textInfoM();
+		@include label-s-regular();
+		#{$root}__icon {
+			margin-right: $space-xxxxs;
+		}
 	}
 
 	&.-small {
-		@include textS();
+		@include label-m-regular();
+		#{$root}__icon {
+			margin-top: $space-xxxxxs;
+		}
 	}
 
 	&.-medium {
-		@include textM();
-	}
-
-	&__icon {
-		margin-right: $space-xxs;
+		@include label-l-regular();
 	}
 }
 </style>
@@ -102,6 +108,13 @@ export default {
 	computed: {
 		tagNamesConcatenated(): string {
 			return this.tagNames.join(', ');
+		},
+		iconSize(): string {
+			if ([TAG_LIST_SIZES.SMALL, TAG_LIST_SIZES.X_SMALL].includes(this.size)) {
+				return ICON_SIZES.XX_SMALL;
+			}
+
+			return ICON_SIZES.X_SMALL;
 		},
 	},
 };

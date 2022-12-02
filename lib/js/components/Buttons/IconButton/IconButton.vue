@@ -62,7 +62,7 @@
 @import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
+@import '../../../../styles/settings/typography/tokens';
 
 @mixin setIconButtonAdditions($ripple: null, $border: null, $icon: null) {
 	@if $ripple != null {
@@ -175,12 +175,10 @@
 	}
 
 	&__label {
-		@include buttonM;
+		@include button-m-bold-uppercase();
 
 		display: none;
-		font-weight: bold;
 		margin-right: $space-xs;
-		text-transform: uppercase;
 
 		@media #{breakpoint-s()} {
 			display: initial;
@@ -227,7 +225,7 @@
 		}
 
 		#{$self}__label {
-			@include buttonXS;
+			@include button-xs-bold-uppercase();
 		}
 	}
 
@@ -238,7 +236,7 @@
 		}
 
 		#{$self}__label {
-			@include buttonXS;
+			@include button-xs-bold-uppercase();
 		}
 	}
 
@@ -249,7 +247,7 @@
 		}
 
 		#{$self}__label {
-			@include buttonS;
+			@include button-s-bold-uppercase();
 		}
 	}
 
@@ -257,6 +255,9 @@
 		#{$self}__button {
 			height: $icon-button-large-size;
 			width: $icon-button-large-size;
+		}
+		#{$self}__label {
+			@include button-l-bold-uppercase();
 		}
 	}
 
@@ -281,12 +282,7 @@ import {
 	ICON_BUTTON_TYPES,
 	ICON_BUTTON_STATES,
 } from './IconButton.consts';
-import {
-	BUTTON_COLORS,
-	BUTTON_ELEVATIONS,
-	BUTTON_RADIUSES,
-	BUTTON_TYPES,
-} from '../Button/Button.consts';
+import { BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_RADIUSES, BUTTON_TYPES } from '../Button';
 import { Value } from '../../../utils/type.utils';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
@@ -328,7 +324,7 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validate(icon: VueConstructor) {
+			validator(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},

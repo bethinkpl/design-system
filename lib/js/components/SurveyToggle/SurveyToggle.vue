@@ -35,8 +35,8 @@
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/shadows';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 $survey-toggle-size: 48px;
 
@@ -199,8 +199,7 @@ $survey-toggle-colors: (
 	}
 
 	&__content {
-		@include headlineXS();
-		@include textBold();
+		@include label-l-bold();
 
 		transition: color ease-in-out $default-transition-time;
 	}
@@ -211,8 +210,7 @@ $survey-toggle-colors: (
 	}
 
 	&__label {
-		@include textInfoS();
-		@include textBold();
+		@include label-xs-bold();
 
 		color: $color-neutral-text;
 		text-align: center;
@@ -221,9 +219,7 @@ $survey-toggle-colors: (
 		max-width: 100%;
 
 		@media #{breakpoint-s()} {
-			@include textInfoM();
-
-			font-weight: normal;
+			@include label-s-regular();
 		}
 	}
 }
@@ -258,21 +254,21 @@ export default {
 		meaning: {
 			type: String,
 			default: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-			validate(meaning) {
+			validator(meaning) {
 				return Object.values(SURVEY_TOGGLE_MEANINGS).includes(meaning);
 			},
 		},
 		status: {
 			type: String,
 			default: SURVEY_TOGGLE_STATUSES.DEFAULT,
-			validate(status) {
+			validator(status) {
 				return Object.values(SURVEY_TOGGLE_STATUSES).includes(status);
 			},
 		},
 		state: {
 			type: String,
 			default: SURVEY_TOGGLE_STATES.DEFAULT,
-			validate(state) {
+			validator(state) {
 				return Object.values(SURVEY_TOGGLE_STATES).includes(state);
 			},
 		},
@@ -281,7 +277,7 @@ export default {
 			default() {
 				return ICONS.FA_CHECK_SOLID;
 			},
-			validate(selectedIcon) {
+			validator(selectedIcon) {
 				return Object.values(ICONS).includes(selectedIcon);
 			},
 		},
@@ -289,6 +285,10 @@ export default {
 	data() {
 		return {
 			hovered: false,
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			SURVEY_TOGGLE_MEANING: Object.freeze(SURVEY_TOGGLE_MEANINGS),
+			SURVEY_TOGGLE_STATUSES: Object.freeze(SURVEY_TOGGLE_STATUSES),
+			SURVEY_TOGGLE_STATES: Object.freeze(SURVEY_TOGGLE_STATES),
 		};
 	},
 	computed: {
@@ -326,12 +326,6 @@ export default {
 			}
 			return this.hovered;
 		},
-	},
-	created() {
-		this.SURVEY_TOGGLE_MEANING = SURVEY_TOGGLE_MEANINGS;
-		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
-		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
-		this.ICON_SIZES = ICON_SIZES;
 	},
 	methods: {
 		onClick() {

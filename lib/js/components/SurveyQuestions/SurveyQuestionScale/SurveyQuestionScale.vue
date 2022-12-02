@@ -82,12 +82,12 @@
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 
 .surveyQuestionScale {
 	&__header {
-		@include headlineS();
+		@include heading-m-regular();
 
 		display: flex;
 		// title without explanation iconButton has to be the same size as with iconButton
@@ -149,7 +149,7 @@
 	}
 
 	&__elaborationLabel {
-		@include headlineXS();
+		@include formLabel-m-regular();
 	}
 
 	&__elaborationInput {
@@ -195,14 +195,14 @@ export default {
 		state: {
 			type: String,
 			default: SURVEY_QUESTION_STATES.DEFAULT,
-			validate(state) {
+			validator(state) {
 				return Object.values(SURVEY_QUESTION_STATES).includes(state);
 			},
 		},
 		scaleOptions: {
 			type: Array as Prop<Array<SurveyQuestionScaleOption>>,
 			required: true,
-			validate(scaleOptions) {
+			validator(scaleOptions) {
 				return scaleOptions.every((option) => typeof option === 'object');
 			},
 		},
@@ -227,17 +227,15 @@ export default {
 		return {
 			showModal: false,
 			inputId: 'survey-question-' + randomString(8),
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			SURVEY_TOGGLE_COLORS: Object.freeze(SURVEY_TOGGLE_MEANINGS),
+			SURVEY_TOGGLE_STATES: Object.freeze(SURVEY_TOGGLE_STATES),
+			SURVEY_TOGGLE_STATUSES: Object.freeze(SURVEY_TOGGLE_STATUSES),
+			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
 		};
-	},
-	created() {
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-		this.BUTTON_TYPES = BUTTON_TYPES;
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
-		this.SURVEY_TOGGLE_COLORS = SURVEY_TOGGLE_MEANINGS;
-		this.SURVEY_TOGGLE_STATES = SURVEY_TOGGLE_STATES;
-		this.SURVEY_TOGGLE_STATUSES = SURVEY_TOGGLE_STATUSES;
-		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
 	},
 	methods: {
 		onToggleClick(value: string) {

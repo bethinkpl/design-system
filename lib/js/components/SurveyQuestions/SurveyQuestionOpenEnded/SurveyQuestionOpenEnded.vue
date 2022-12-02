@@ -47,13 +47,11 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/buttons';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
 
 .surveyQuestionOpenEnded {
 	&__header {
-		@include headlineS();
-
 		display: flex;
 		// header without explanation iconButton has to be the same size as with iconButton
 		min-height: $icon-button-medium-size;
@@ -62,6 +60,8 @@
 	}
 
 	&__title {
+		@include heading-m-regular();
+
 		align-self: center;
 	}
 
@@ -116,7 +116,7 @@ export default {
 		state: {
 			type: String,
 			default: SURVEY_QUESTION_STATES.DEFAULT,
-			validate(state) {
+			validator(state) {
 				return Object.values(SURVEY_QUESTION_STATES).includes(state);
 			},
 		},
@@ -125,14 +125,12 @@ export default {
 		return {
 			showModal: false,
 			inputId: 'survey-question-' + randomString(8),
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
 		};
-	},
-	created() {
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-		this.BUTTON_TYPES = BUTTON_TYPES;
-		this.ICONS = ICONS;
-		this.ICON_SIZES = ICON_SIZES;
-		this.SURVEY_QUESTION_STATES = SURVEY_QUESTION_STATES;
 	},
 };
 </script>
