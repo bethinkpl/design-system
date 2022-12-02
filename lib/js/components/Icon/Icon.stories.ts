@@ -12,7 +12,7 @@ const StoryTemplate: StoryFn<typeof Icon> = (argTypes) => ({
 	components: { Icon },
 	props: Object.keys(argTypes),
 	template:
-		'<div class="iconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
+		'<div class="sbIconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -61,8 +61,8 @@ const StoryAllIconsTemplate: StoryFn<typeof Icon> = (argTypes) => ({
 	components: { Icon },
 	props: Object.keys(argTypes),
 	template:
-		'<div class="iconList">' +
-		'<div v-for="(icon, iconName) in ICONS" :key="iconName" class="iconList__icon">' +
+		'<div class="sbIconList">' +
+		'<div v-for="(icon, iconName) in ICONS" :key="iconName" class="sbIconList__icon">' +
 		'<icon :icon="icon" />' +
 		'<div>{{iconName}}</div>' +
 		'</div>' +
