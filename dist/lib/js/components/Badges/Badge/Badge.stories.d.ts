@@ -12,7 +12,11 @@ declare const _default: Meta<{
             validator(value: "neutral"): boolean;
         };
     };
-    created(): void;
+    data(): {
+        BADGE_COLORS: Readonly<{
+            readonly NEUTRAL: "neutral";
+        }>;
+    };
 }>;
 export default _default;
 export declare const Interactive: StoryFn<{
@@ -28,5 +32,9 @@ export declare const Interactive: StoryFn<{
             validator(value: "neutral"): boolean;
         };
     };
-    created(): void;
+    data(): {
+        BADGE_COLORS: Readonly<{
+            readonly NEUTRAL: "neutral";
+        }>;
+    };
 }>;

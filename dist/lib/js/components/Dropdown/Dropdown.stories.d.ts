@@ -20,11 +20,21 @@ declare const _default: Meta<{
         triggerAction: {
             type: StringConstructor;
             default: "click";
-            validate(triggerAction: any): boolean;
+            validator(triggerAction: any): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "both";
+            validate(radius: any): boolean;
         };
     };
     data(): {
         key: number;
+        DROPDOWN_RADIUSES: Readonly<{
+            readonly TOP: "top";
+            readonly BOTTOM: "bottom";
+            readonly BOTH: "both";
+        }>;
     };
     computed: {
         options(): any;
@@ -61,11 +71,21 @@ export declare const Interactive: StoryFn<{
         triggerAction: {
             type: StringConstructor;
             default: "click";
-            validate(triggerAction: any): boolean;
+            validator(triggerAction: any): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "both";
+            validate(radius: any): boolean;
         };
     };
     data(): {
         key: number;
+        DROPDOWN_RADIUSES: Readonly<{
+            readonly TOP: "top";
+            readonly BOTTOM: "bottom";
+            readonly BOTH: "both";
+        }>;
     };
     computed: {
         options(): any;

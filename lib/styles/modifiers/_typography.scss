@@ -1,111 +1,111 @@
-.-textLight {
+.-textLight-DEPRECATED {
 	font-weight: 300;
 }
 
-.-textRegular {
+.-textRegular-DEPRECATED {
 	font-weight: 400;
 }
 
-.-textMedium {
+.-textMedium-DEPRECATED {
 	font-weight: 500;
 }
 
-.-textBold {
+.-textBold-DEPRECATED {
 	font-weight: 700;
 }
 
-.-textItalic {
+.-textItalic-DEPRECATED {
 	font-style: italic;
 }
 
-.-textUnderline {
+.-textUnderline-DEPRECATED {
 	text-decoration: underline;
 }
 
-.-textUppercase {
+.-textUppercase-DEPRECATED {
 	text-transform: uppercase;
 }
 
-.-textCenter {
+.-textCenter-DEPRECATED {
 	text-align: center;
 }
 
-.-textInfoS {
-	@include textInfoS;
+.-textInfoS-DEPRECATED {
+	@include textInfoS-DEPRECATED;
 }
 
-.-textInfoM {
-	@include textInfoM;
+.-textInfoM-DEPRECATED {
+	@include textInfoM-DEPRECATED;
 }
 
-.-textXS {
-	@include textXS;
+.-textXS-DEPRECATED {
+	@include textXS-DEPRECATED;
 }
 
-.-textS {
-	@include textS;
+.-textS-DEPRECATED {
+	@include textS-DEPRECATED;
 }
 
 .-textM {
-	@include textM;
+	@include textM-DEPRECATED;
 }
 
 .-textL {
-	@include textL;
+	@include textL-DEPRECATED;
 }
 
 .-textXL {
-	@include textXL;
+	@include textXL-DEPRECATED;
 }
 
 .-headlineXXS {
-	@include headlineXXS;
+	@include headlineXXS-DEPRECATED;
 }
 
 .-headlineXS {
-	@include headlineXS;
+	@include headlineXS-DEPRECATED;
 }
 
 .-headlineS {
-	@include headlineS;
+	@include headlineS-DEPRECATED;
 }
 
 .-headlineM {
-	@include headlineM;
+	@include headlineM-DEPRECATED;
 }
 
 .-headlineL {
-	@include headlineL;
+	@include headlineL-DEPRECATED;
 }
 
 .-headlineXL {
-	@include headlineXL;
+	@include headlineXL-DEPRECATED;
 }
 
 .-titleS {
-	@include titleS;
+	@include titleS-DEPRECATED;
 }
 
 .-titleM {
-	@include titleM;
+	@include titleM-DEPRECATED;
 }
 
 .-titleL {
-	@include titleL;
+	@include titleL-DEPRECATED;
 }
 
 .-buttonXS {
-	@include buttonXS;
+	@include buttonXS-DEPRECATED;
 }
 
 .-buttonS {
-	@include buttonS;
+	@include buttonS-DEPRECATED;
 }
 
 .-buttonM {
-	@include buttonM;
+	@include buttonM-DEPRECATED;
 }
 
 .-buttonL {
-	@include buttonL;
+	@include buttonL-DEPRECATED;
 }

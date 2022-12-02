@@ -37,10 +37,10 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 
 .popOver {
 	background-color: $color-default-background;
@@ -120,7 +120,7 @@
 	}
 
 	&__content {
-		@include textM;
+		@include text-m-regular();
 
 		color: $color-neutral-text-heavy;
 		padding: $space-s;
@@ -129,10 +129,9 @@
 	}
 
 	&__title {
-		@include headlineS;
+		@include heading-m-bold();
 
 		color: $color-default-text;
-		font-weight: bold;
 		margin-bottom: $space-xxs;
 	}
 
@@ -163,15 +162,15 @@ export default {
 		triggerAction: {
 			type: String,
 			default: POP_OVER_TRIGGER_ACTIONS.CLICK,
-			validate(triggerAction) {
+			validator(triggerAction) {
 				return Object.values(POP_OVER_TRIGGER_ACTIONS).includes(triggerAction);
 			},
 		},
 		placement: {
 			type: String,
 			default: POP_OVER_PLACEMENTS.BOTTOM,
-			validate(placement) {
-				return Object.values(POP_OVER_TRIGGER_ACTIONS).includes(placement);
+			validator(placement) {
+				return Object.values(POP_OVER_PLACEMENTS).includes(placement);
 			},
 		},
 		forceShow: {
@@ -181,7 +180,7 @@ export default {
 		color: {
 			type: String,
 			default: POP_OVER_COLORS.DEFAULT,
-			validate(color) {
+			validator(color) {
 				return Object.values(POP_OVER_COLORS).includes(color);
 			},
 		},

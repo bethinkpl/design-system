@@ -12,11 +12,11 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 .surveyQuestionTextarea {
-	@include textM;
+	@include formText-s-regular();
 
 	border: 1px solid $color-neutral-border-weak;
 	box-sizing: border-box;

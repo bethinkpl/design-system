@@ -10,7 +10,7 @@ declare const _default: {
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;
@@ -61,26 +61,49 @@ declare const _default: {
         meaning: {
             type: StringConstructor;
             default: "primary";
-            validate(meaning: any): boolean;
+            validator(meaning: any): boolean;
         };
         status: {
             type: StringConstructor;
             default: "default";
-            validate(status: any): boolean;
+            validator(status: any): boolean;
         };
         state: {
             type: StringConstructor;
             default: "default";
-            validate(state: any): boolean;
+            validator(state: any): boolean;
         };
         selectedIcon: {
             type: ObjectConstructor;
             default(): import("@fortawesome/fontawesome-common-types").IconDefinition;
-            validate(selectedIcon: any): boolean;
+            validator(selectedIcon: any): boolean;
         };
     };
     data(): {
         hovered: boolean;
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+        SURVEY_TOGGLE_MEANING: Readonly<{
+            readonly PRIMARY: "primary";
+            readonly NEUTRAL: "neutral";
+        }>;
+        SURVEY_TOGGLE_STATUSES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly SELECTED: "selected";
+        }>;
+        SURVEY_TOGGLE_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly DISABLED: "disabled";
+        }>;
     };
     computed: {
         isPrimarySelected(): boolean;
@@ -89,7 +112,6 @@ declare const _default: {
         isNeutralSelected(): boolean;
         isHoveredState(): any;
     };
-    created(): void;
     methods: {
         onClick(): void;
     };

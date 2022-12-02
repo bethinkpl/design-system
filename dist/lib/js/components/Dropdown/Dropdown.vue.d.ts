@@ -20,11 +20,21 @@ declare const _default: {
         triggerAction: {
             type: StringConstructor;
             default: "click";
-            validate(triggerAction: any): boolean;
+            validator(triggerAction: any): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "both";
+            validate(radius: any): boolean;
         };
     };
     data(): {
         key: number;
+        DROPDOWN_RADIUSES: Readonly<{
+            readonly TOP: "top";
+            readonly BOTTOM: "bottom";
+            readonly BOTH: "both";
+        }>;
     };
     computed: {
         options(): any;

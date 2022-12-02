@@ -3,20 +3,27 @@ const axios = require('axios');
 import { arrayToMixinFile, arrayToFile, jsonToFile } from './helpers/fileWriter';
 import { recursiveTokensReader } from './helpers/tokensReader';
 import {
-	typographyPrefix,
-	tokensKey,
 	excludedKeys,
+	fontFamilyKey,
+	fontStyleKey,
+	fontWeightKey,
 	importVariables,
 	jsonAttributeToCssProperty,
 	resultCssAdditionalLines,
 	resultScssAdditionalLines,
+	tokensKey,
 	tokensTypographyInputAttributes,
+	tokensTypographyMissingJsonFontFamilyVariable,
+	tokensTypographyMissingJsonFontStyleVariables,
+	tokensTypographyMissingJsonFontWeightVariables,
+	typographyPrefix,
 } from './helpers/typographyVariables';
 import {
 	mixinNameLine,
 	tokenAsCssPropertyLine,
 	closeBracketLine,
 	cssFileRootFirstLine,
+	capitalizeFirstLetter,
 } from './helpers/modifiers';
 import * as dotenv from 'dotenv';
 import {
@@ -50,19 +57,19 @@ export const ImportTypographyVariables = (
 				const propertyName: string =
 					typographyPrefix + jsonAttributeToCssProperty[key] + '-' + variableKey;
 				let propertyValue: string | undefined;
+				let propertyBase: number | null = null;
+				let valueMultiplier: number | null = null;
 
 				switch (key) {
 					case tokensTypographyInputAttributes.fontSize:
 					case tokensTypographyInputAttributes.lineHeight:
-						const valueBase: number = parseInt(
-							propertyOptions.base.value.replace(/[^0-9]/g, ''),
-						);
+						propertyBase = parseInt(propertyOptions.base.value.replace(/[^0-9]/g, ''));
 						const valueSplit: Array<string> =
 							propertyOptions[variableKey].value.split('*');
-						const valueMultiplier: number = +valueSplit[1];
+						valueMultiplier = +valueSplit[1];
 						propertyValue = valueMultiplier
-							? valueBase * valueMultiplier + 'px'
-							: valueBase + 'px';
+							? propertyBase * valueMultiplier + 'px'
+							: propertyBase + 'px';
 						break;
 					case tokensTypographyInputAttributes.letterSpacing:
 						const temporaryValueAsString: string = propertyOptions[
@@ -79,18 +86,23 @@ export const ImportTypographyVariables = (
 						propertyValue = propertyOptions[variableKey].value;
 						break;
 				}
+
 				if (propertyValue !== undefined) {
 					resultCss.push('--' + propertyName + ': ' + propertyValue + ';');
 					resultScss.push('$' + propertyName + ': var(--' + propertyName + ');');
 
+					const propertyNameSplit = propertyName.split('-');
 					const resultJsonObject: ITokenJsonObject = {
 						id: (
 							typographyConfigFile.bin.files.tokens.destinationJson +
 							'_' +
 							propertyName
-						).replace(/[^a-zA-Z ]/g, ''),
-						label: propertyName,
+						).replace(/[^a-zA-Z0-9 ]/g, ''),
+						label: propertyNameSplit.slice(-1).pop() || '',
+						labelFull: propertyName,
 						value: propertyValue,
+						base: propertyBase,
+						ratio: valueMultiplier,
 					};
 
 					if (resultJsonCss[key] === undefined) {
@@ -107,6 +119,17 @@ export const ImportTypographyVariables = (
 	});
 	resultScssAdditionalLines.forEach((item) => {
 		resultScss.push(item);
+	});
+
+	resultJsonCss[fontFamilyKey] = [];
+	resultJsonCss[fontFamilyKey].push(tokensTypographyMissingJsonFontFamilyVariable);
+	resultJsonCss[fontWeightKey] = [];
+	tokensTypographyMissingJsonFontWeightVariables.forEach(function (item) {
+		resultJsonCss[fontWeightKey].push(item);
+	});
+	resultJsonCss[fontStyleKey] = [];
+	tokensTypographyMissingJsonFontStyleVariables.forEach(function (item) {
+		resultJsonCss[fontStyleKey].push(item);
 	});
 
 	arrayToFile(
@@ -132,22 +155,13 @@ export const ImportTypographyTokens = (
 ) => {
 	let resultScss: Array<ITypographyToken> = recursiveTokensReader(jsonTypography[tokensKey], '');
 	let resultJsonCss: Dict<Array<ITypographyToken>> = {};
-	let tokensCategories: Array<string> = Object.keys(jsonTypography[tokensKey]);
 
 	resultScss.forEach(function (item) {
-		let splitted = item.token.split('-', 2);
-		let splittedUpper = splitted.map((element) => {
-			return element.charAt(0).toUpperCase() + element.slice(1);
-		});
-		if (tokensCategories.includes(splittedUpper[0])) {
-			item.category = splittedUpper[0];
-		} else if (tokensCategories.includes(splittedUpper[0] + splittedUpper[1])) {
-			item.category = splittedUpper[0] + splittedUpper[1];
+		let category = capitalizeFirstLetter(item.token.split('-', 1).slice().toString());
+		if (!resultJsonCss[category]) {
+			resultJsonCss[category] = [];
 		}
-		if (!resultJsonCss[item.category]) {
-			resultJsonCss[item.category] = [];
-		}
-		resultJsonCss[item.category].push(item);
+		resultJsonCss[category].push(item);
 	});
 
 	arrayToMixinFile(
@@ -165,7 +179,7 @@ function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<str
 	let result: Array<string> = [];
 
 	for (let key in tokens) {
-		result.push(mixinNameLine(tokens[key].tokenCamelCase));
+		result.push(mixinNameLine(tokens[key].token));
 		result.push(tokenAsCssPropertyLine(tokens[key].token));
 		tokens[key].attributes.forEach((attribute) => {
 			let [cssAttributePartOne, cssAttributePartTwo] = attribute.split('-');

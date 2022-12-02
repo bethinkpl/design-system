@@ -14,12 +14,16 @@ export interface JsonAttribute<JsonAttributeValues> {
 export interface ITokenJsonObject {
 	id: string;
 	label: string;
+	labelFull: string;
 	value: string;
+	base: number | null;
+	ratio: number | null;
 }
 
 export interface IResultJsonObject {
 	id: string;
 	label: string;
+	labelFull: string;
 	value: string;
 }
 
@@ -69,7 +73,6 @@ export interface ITypographyToken {
 	id: string;
 	category: string;
 	token: string;
-	tokenCamelCase: string;
 	attributes: Array<string>;
 	attributesRaw: Array<Object>;
 }

@@ -11,7 +11,7 @@ declare const _default: {
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: VueConstructor<import("vue").default>): boolean;
+                    validator(icon: VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;
@@ -58,12 +58,12 @@ declare const _default: {
         color: {
             type: StringConstructor;
             default: string;
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         icon: {
             type: ObjectConstructor;
             required: boolean;
-            validate(icon: VueConstructor): boolean;
+            validator(icon: VueConstructor): boolean;
         };
         isSelected: {
             type: BooleanConstructor;
@@ -74,10 +74,21 @@ declare const _default: {
             default: boolean;
         };
     };
+    data(): {
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+    };
     computed: {
         colorClass(): string;
         hasCounter(): boolean;
     };
-    created(): void;
 };
 export default _default;

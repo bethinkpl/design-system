@@ -11,7 +11,7 @@ declare const _default: Meta<{
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;
@@ -60,27 +60,51 @@ declare const _default: Meta<{
         color: {
             type: StringConstructor;
             required: boolean;
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         icon: {
             type: ObjectConstructor;
             default: null;
-            validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+            validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         fullWidth: {
             type: BooleanConstructor;
             default: boolean;
         };
     };
+    data(): {
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+        BADGE_SCORE_COLORS: Readonly<{
+            readonly SUCCESS: "success";
+            readonly WARNING: "warning";
+            readonly FAIL: "fail";
+            readonly INVERTED: "inverted";
+            readonly NEUTRAL: "neutral";
+            readonly NEUTRAL_WEAK: "neutral-weak";
+        }>;
+        BADGE_SCORE_SIZES: Readonly<{
+            readonly MEDIUM: "medium";
+            readonly SMALL: "small";
+            readonly XSMALL: "extra small";
+        }>;
+    };
     computed: {
         iconSize(): string;
     };
-    created(): void;
 }>;
 export default _default;
 export declare const Interactive: StoryFn<{

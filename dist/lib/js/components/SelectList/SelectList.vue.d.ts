@@ -21,10 +21,16 @@ declare const _default: {
                     validator: (value: string) => boolean;
                 };
             };
+            data(): {
+                DIVIDER_PROMINENCES: Readonly<{
+                    DEFAULT: string;
+                    STRONG: string;
+                    WEAK: string;
+                }>;
+            };
             computed: {
                 sizeClass(): string;
             };
-            created(): void;
         };
         DsIcon: {
             name: string;
@@ -35,7 +41,7 @@ declare const _default: {
                 icon: {
                     type: ObjectConstructor;
                     required: boolean;
-                    validate(icon: import("vue").VueConstructor<import("vue").default>): boolean;
+                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
                 };
                 size: {
                     type: StringConstructor;
@@ -82,7 +88,7 @@ declare const _default: {
         size: {
             type: StringConstructor;
             required: boolean;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         value: {
             type: StringConstructor;

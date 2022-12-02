@@ -10,10 +10,10 @@
 			<div class="a-tile__center">
 				<span
 					class="a-tile__eyebrowText"
-					:class="{ '-uppercase': isEyebrowTextUppercase }"
+					:class="{ '-uppercase': isEyebrowTextUppercase, '-ellipsis': eyebrowEllipsis }"
 					v-text="eyebrowText"
 				/>
-				<span class="a-tile__text" v-text="text" />
+				<span class="a-tile__text" :class="{ '-ellipsis': textEllipsis }" v-text="text" />
 			</div>
 			<ds-icon
 				v-if="state === TILE_STATES.LOADING"
@@ -36,10 +36,10 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 $tile-colors: (
 	'neutral': (
@@ -163,7 +163,7 @@ $tile-colors: (
 	}
 
 	&__additionalText {
-		@include textXS;
+		@include info-s-regular();
 
 		color: $color-neutral-text;
 		flex-grow: 1;
@@ -173,26 +173,37 @@ $tile-colors: (
 	}
 
 	&__center {
-		@include textBold;
-
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
+		overflow: hidden;
 	}
 
 	&__eyebrowText {
-		@include textS;
+		@include info-m-bold();
 
 		&.-uppercase {
-			text-transform: uppercase;
+			@include info-m-extensive-bold-uppercase();
+		}
+
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
 		}
 	}
 
 	&__text {
-		@include textM;
+		@include text-m-bold();
 
 		color: $color-neutral-text-heavy;
-		margin-top: $space-xxxxxs;
+		margin-top: $space-xxxxs;
+
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	&__iconLeft {
@@ -230,14 +241,14 @@ export default {
 		iconLeft: {
 			type: Object,
 			default: null,
-			validate(iconLeft: VueConstructor) {
+			validator(iconLeft: VueConstructor) {
 				return Object.values(ICONS).includes(iconLeft);
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
-			validate(iconRight: VueConstructor) {
+			validator(iconRight: VueConstructor) {
 				return Object.values(ICONS).includes(iconRight);
 			},
 		},
@@ -256,7 +267,7 @@ export default {
 		color: {
 			type: String,
 			default: TILE_COLORS.NEUTRAL,
-			validate(color) {
+			validator(color) {
 				return Object.values(TILE_COLORS).includes(color);
 			},
 		},
@@ -270,6 +281,14 @@ export default {
 			validator(value: Value<typeof TILE_STATES>) {
 				return Object.values(TILE_STATES).includes(value);
 			},
+		},
+		eyebrowEllipsis: {
+			type: Boolean,
+			default: true,
+		},
+		textEllipsis: {
+			type: Boolean,
+			default: true,
 		},
 	},
 	data() {

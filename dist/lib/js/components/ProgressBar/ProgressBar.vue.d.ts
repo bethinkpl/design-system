@@ -6,22 +6,22 @@ declare const _default: {
         numberOfLayers: {
             type: NumberConstructor;
             default: number;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         colorScheme: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         color: {
             type: StringConstructor;
             default: "info";
-            validate(color: any): boolean;
+            validator(color: any): boolean;
         };
         size: {
             type: StringConstructor;
             default: "medium";
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         ranges: {
             type: PropType<ProgressBarRange[]>;
@@ -30,12 +30,12 @@ declare const _default: {
         radius: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         layout: {
             type: StringConstructor;
             default: string;
-            validate(size: any): boolean;
+            validator(size: any): boolean;
         };
         labelText: {
             type: StringConstructor;

@@ -82,8 +82,8 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/media-queries';
 
@@ -177,14 +177,13 @@
 	}
 
 	&__title {
-		@include headlineXS;
-		@include textBold;
+		@include heading-s-bold();
 
 		color: $color-neutral-text-strong;
 	}
 
 	&__defaultText {
-		@include textM;
+		@include text-m-regular();
 
 		margin-top: $space-xxxxs;
 	}
@@ -287,7 +286,7 @@
 	}
 
 	&__expandedContainer {
-		@include textM;
+		@include text-m-regular();
 
 		margin-top: $space-xs;
 		padding: 0 $space-xxxxs $space-xxxxs;
@@ -327,7 +326,7 @@ export default {
 		icon: {
 			type: Object as Prop<VueConstructor>,
 			default: null,
-			validate: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
+			validator: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
 		},
 		buttonText: {
 			type: String,
@@ -340,7 +339,7 @@ export default {
 		color: {
 			type: String,
 			default: BANNER_COLORS.DEFAULT,
-			validate: (color) => Object.values(BANNER_COLORS).includes(color),
+			validator: (color) => Object.values(BANNER_COLORS).includes(color),
 		},
 		title: {
 			type: String,
@@ -349,7 +348,7 @@ export default {
 		layout: {
 			type: String,
 			default: BANNER_LAYOUTS.HORIZONTAL,
-			validate: (layout) => Object.values(BANNER_LAYOUTS).includes(layout),
+			validator: (layout) => Object.values(BANNER_LAYOUTS).includes(layout),
 		},
 		isExpanded: {
 			type: Boolean,
@@ -363,6 +362,14 @@ export default {
 	data() {
 		return {
 			isExpandedInternal: false,
+			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
+			BUTTON_RADIUSES: Object.freeze(BUTTON_RADIUSES),
+			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+			ICONS: Object.freeze(ICONS),
 		};
 	},
 	computed: {
@@ -390,16 +397,6 @@ export default {
 			},
 			immediate: true,
 		},
-	},
-	created() {
-		this.BUTTON_COLORS = BUTTON_COLORS;
-		this.BUTTON_RADIUSES = BUTTON_RADIUSES;
-		this.BUTTON_SIZES = BUTTON_SIZES;
-		this.BUTTON_TYPES = BUTTON_TYPES;
-		this.DIVIDER_PROMINENCES = DIVIDER_PROMINENCES;
-		this.ICON_BUTTON_COLORS = ICON_BUTTON_COLORS;
-		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-		this.ICONS = ICONS;
 	},
 	methods: {
 		toggleExpandedText() {

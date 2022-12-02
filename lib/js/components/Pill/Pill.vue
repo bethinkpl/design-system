@@ -25,10 +25,11 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/typography';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
+$pill-min-height: 16px;
 $pill-colors: (
 	'neutral': (
 		'label': $color-neutral-text-strong,
@@ -95,9 +96,8 @@ $pill-colors: (
 	padding: $space-xxxxxs $space-xxxxxs $space-xxxxxs $space-xxs;
 
 	&__label {
-		@include textInfoM;
+		@include label-s-bold();
 
-		font-weight: bold;
 		overflow: hidden;
 		margin: $space-xxxxxs $space-xxxs $space-xxxxxs 0;
 		text-overflow: ellipsis;
@@ -110,13 +110,14 @@ $pill-colors: (
 
 	&.-x-small {
 		padding-left: $space-xxxs;
+		min-height: $pill-min-height;
 
 		#{$self}__leftIcon {
 			margin-right: $space-xxxxxs;
 		}
 
 		#{$self}__label {
-			@include textInfoS;
+			@include label-xs-bold();
 
 			margin: 0 $space-xxxxs 0 0;
 		}
@@ -153,21 +154,21 @@ export default {
 		leftIcon: {
 			type: Object,
 			default: null,
-			validate(icon: VueConstructor) {
+			validator(icon: VueConstructor) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
 		size: {
 			type: String,
 			default: PILL_SIZES.SMALL,
-			validate(size) {
+			validator(size) {
 				return Object.values(PILL_SIZES).includes(size);
 			},
 		},
 		color: {
 			type: String,
 			default: PILL_COLORS.NEUTRAL,
-			validate(color) {
+			validator(color) {
 				return Object.values(PILL_COLORS).includes(color);
 			},
 		},
@@ -175,6 +176,15 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			BUTTON_ELEVATIONS: Object.freeze(BUTTON_ELEVATIONS),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			PILL_SIZES: Object.freeze(PILL_SIZES),
+		};
 	},
 	computed: {
 		colorClassName(): string {
@@ -184,13 +194,6 @@ export default {
 		iconButtonColor(): string {
 			return PILL_ICON_BUTTONS_COLOR_MAP[this.color] || ICON_BUTTON_COLORS.PRIMARY;
 		},
-	},
-	created() {
-		this.ICONS = ICONS;
-		this.BUTTON_ELEVATIONS = BUTTON_ELEVATIONS;
-		this.ICON_BUTTON_SIZES = ICON_BUTTON_SIZES;
-		this.ICON_SIZES = ICON_SIZES;
-		this.PILL_SIZES = PILL_SIZES;
 	},
 };
 </script>

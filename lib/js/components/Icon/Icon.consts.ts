@@ -1,3 +1,4 @@
+import ClipboardAdd from '../../../images/icons/clipboard-add.svg';
 import HeadWithQuestionMark from '../../../images/icons/head-with-question-mark.svg';
 import Ribbon from '../../../images/icons/ribbon.svg';
 import { FONTAWESOME_ICONS } from '../../icons/fontawesome';
@@ -14,6 +15,7 @@ export const ICON_SIZES = {
 };
 
 const BETHINK_ICONS = {
+	CLIPBOARD_ADD: ClipboardAdd,
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
 	RIBBON: Ribbon,
 } as const;

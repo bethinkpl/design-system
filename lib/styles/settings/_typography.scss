@@ -1,176 +1,176 @@
-$font-size-info-s: 8px;
-$line-height-info-s: 12px;
+$font-size-info-s-DEPRECATED: 8px;
+$line-height-info-s-DEPRECATED: 12px;
 
-$font-size-info-m: 10px;
-$line-height-info-m: 12px;
+$font-size-info-m-DEPRECATED: 10px;
+$line-height-info-m-DEPRECATED: 12px;
 
-$font-size-text-xs: 10px;
-$line-height-text-xs: 14px;
+$font-size-text-xs-DEPRECATED: 10px;
+$line-height-text-xs-DEPRECATED: 14px;
 
-$font-size-text-s: 12px;
-$line-height-text-s: 18px;
+$font-size-text-s-DEPRECATED: 12px;
+$line-height-text-s-DEPRECATED: 18px;
 
-$font-size-text-m: 14px;
-$line-height-text-m: 20px;
+$font-size-text-m-DEPRECATED: 14px;
+$line-height-text-m-DEPRECATED: 20px;
 
-$font-size-text-l: 16px;
-$line-height-text-l: 24px;
+$font-size-text-l-DEPRECATED: 16px;
+$line-height-text-l-DEPRECATED: 24px;
 
-$font-size-text-xl: 18px;
-$line-height-text-xl: 26px;
+$font-size-text-xl-DEPRECATED: 18px;
+$line-height-text-xl-DEPRECATED: 26px;
 
-$font-size-headline-xxs: 12px;
-$line-height-headline-xxs: 16px;
+$font-size-headline-xxs-DEPRECATED: 12px;
+$line-height-headline-xxs-DEPRECATED: 16px;
 
-$font-size-headline-xs: 14px;
-$line-height-headline-xs: 16px;
+$font-size-headline-xs-DEPRECATED: 14px;
+$line-height-headline-xs-DEPRECATED: 16px;
 
-$font-size-headline-s: 16px;
-$line-height-headline-s: 20px;
+$font-size-headline-s-DEPRECATED: 16px;
+$line-height-headline-s-DEPRECATED: 20px;
 
-$font-size-headline-m: 20px;
-$line-height-headline-m: 28px;
+$font-size-headline-m-DEPRECATED: 20px;
+$line-height-headline-m-DEPRECATED: 28px;
 
-$font-size-headline-l: 24px;
-$line-height-headline-l: 32px;
+$font-size-headline-l-DEPRECATED: 24px;
+$line-height-headline-l-DEPRECATED: 32px;
 
-$font-size-headline-xl: 28px;
-$line-height-headline-xl: 38px;
+$font-size-headline-xl-DEPRECATED: 28px;
+$line-height-headline-xl-DEPRECATED: 38px;
 
-$font-size-title-s: 36px;
-$line-height-title-s: 52px;
+$font-size-title-s-DEPRECATED: 36px;
+$line-height-title-s-DEPRECATED: 52px;
 
-$font-size-title-m: 44px;
-$line-height-title-m: 58px;
+$font-size-title-m-DEPRECATED: 44px;
+$line-height-title-m-DEPRECATED: 58px;
 
-$font-size-title-l: 52px;
-$line-height-title-l: 68px;
+$font-size-title-l-DEPRECATED: 52px;
+$line-height-title-l-DEPRECATED: 68px;
 
-$font-size-button-xs: 8px;
-$line-height-button-xs: 10px;
+$font-size-button-xs-DEPRECATED: 8px;
+$line-height-button-xs-DEPRECATED: 10px;
 
-$font-size-button-s: 10px;
-$line-height-button-s: 12px;
+$font-size-button-s-DEPRECATED: 10px;
+$line-height-button-s-DEPRECATED: 12px;
 
-$font-size-button-m: 12px;
-$line-height-button-m: 16px;
+$font-size-button-m-DEPRECATED: 12px;
+$line-height-button-m-DEPRECATED: 16px;
 
-$font-size-button-l: 14px;
-$line-height-button-l: 16px;
+$font-size-button-l-DEPRECATED: 14px;
+$line-height-button-l-DEPRECATED: 16px;
 
-@mixin textInfoS {
-	font-size: $font-size-info-s;
-	line-height: $line-height-info-s;
+@mixin textInfoS-DEPRECATED {
+	font-size: $font-size-info-s-DEPRECATED;
+	line-height: $line-height-info-s-DEPRECATED;
 }
 
-@mixin textInfoM {
-	font-size: $font-size-info-m;
-	line-height: $line-height-info-m;
+@mixin textInfoM-DEPRECATED {
+	font-size: $font-size-info-m-DEPRECATED;
+	line-height: $line-height-info-m-DEPRECATED;
 }
 
-@mixin textXS {
-	font-size: $font-size-text-xs;
-	line-height: $line-height-text-xs;
+@mixin textXS-DEPRECATED {
+	font-size: $font-size-text-xs-DEPRECATED;
+	line-height: $line-height-text-xs-DEPRECATED;
 }
 
-@mixin textS {
-	font-size: $font-size-text-s;
-	line-height: $line-height-text-s;
+@mixin textS-DEPRECATED {
+	font-size: $font-size-text-s-DEPRECATED;
+	line-height: $line-height-text-s-DEPRECATED;
 }
 
-@mixin textM {
-	font-size: $font-size-text-m;
-	line-height: $line-height-text-m;
+@mixin textM-DEPRECATED {
+	font-size: $font-size-text-m-DEPRECATED;
+	line-height: $line-height-text-m-DEPRECATED;
 }
 
-@mixin textL {
-	font-size: $font-size-text-l;
-	line-height: $line-height-text-l;
+@mixin textL-DEPRECATED {
+	font-size: $font-size-text-l-DEPRECATED;
+	line-height: $line-height-text-l-DEPRECATED;
 }
 
-@mixin textXL {
-	font-size: $font-size-text-xl;
-	line-height: $line-height-text-xl;
+@mixin textXL-DEPRECATED {
+	font-size: $font-size-text-xl-DEPRECATED;
+	line-height: $line-height-text-xl-DEPRECATED;
 }
 
-@mixin headlineXXS {
-	font-size: $font-size-headline-xxs;
-	line-height: $line-height-headline-xxs;
+@mixin headlineXXS-DEPRECATED {
+	font-size: $font-size-headline-xxs-DEPRECATED;
+	line-height: $line-height-headline-xxs-DEPRECATED;
 }
 
-@mixin headlineXS {
-	font-size: $font-size-headline-xs;
-	line-height: $line-height-headline-xs;
+@mixin headlineXS-DEPRECATED {
+	font-size: $font-size-headline-xs-DEPRECATED;
+	line-height: $line-height-headline-xs-DEPRECATED;
 }
 
-@mixin headlineS {
-	font-size: $font-size-headline-s;
-	line-height: $line-height-headline-s;
+@mixin headlineS-DEPRECATED {
+	font-size: $font-size-headline-s-DEPRECATED;
+	line-height: $line-height-headline-s-DEPRECATED;
 }
 
-@mixin headlineM {
-	font-size: $font-size-headline-m;
-	line-height: $line-height-headline-m;
+@mixin headlineM-DEPRECATED {
+	font-size: $font-size-headline-m-DEPRECATED;
+	line-height: $line-height-headline-m-DEPRECATED;
 }
 
-@mixin headlineL {
-	font-size: $font-size-headline-l;
-	line-height: $line-height-headline-l;
+@mixin headlineL-DEPRECATED {
+	font-size: $font-size-headline-l-DEPRECATED;
+	line-height: $line-height-headline-l-DEPRECATED;
 }
 
-@mixin headlineXL {
-	font-size: $font-size-headline-xl;
-	line-height: $line-height-headline-xl;
+@mixin headlineXL-DEPRECATED {
+	font-size: $font-size-headline-xl-DEPRECATED;
+	line-height: $line-height-headline-xl-DEPRECATED;
 }
 
-@mixin titleS {
-	font-size: $font-size-title-s;
-	line-height: $line-height-title-s;
+@mixin titleS-DEPRECATED {
+	font-size: $font-size-title-s-DEPRECATED;
+	line-height: $line-height-title-s-DEPRECATED;
 }
 
-@mixin titleM {
-	font-size: $font-size-title-m;
-	line-height: $line-height-title-m;
+@mixin titleM-DEPRECATED {
+	font-size: $font-size-title-m-DEPRECATED;
+	line-height: $line-height-title-m-DEPRECATED;
 }
 
-@mixin titleL {
-	font-size: $font-size-title-l;
-	line-height: $line-height-title-l;
+@mixin titleL-DEPRECATED {
+	font-size: $font-size-title-l-DEPRECATED;
+	line-height: $line-height-title-l-DEPRECATED;
 }
 
-@mixin buttonXS {
-	font-size: $font-size-button-xs;
-	line-height: $line-height-button-xs;
+@mixin buttonXS-DEPRECATED {
+	font-size: $font-size-button-xs-DEPRECATED;
+	line-height: $line-height-button-xs-DEPRECATED;
 }
 
-@mixin buttonS {
-	font-size: $font-size-button-s;
-	line-height: $line-height-button-s;
+@mixin buttonS-DEPRECATED {
+	font-size: $font-size-button-s-DEPRECATED;
+	line-height: $line-height-button-s-DEPRECATED;
 }
 
-@mixin buttonM {
-	font-size: $font-size-button-m;
-	line-height: $line-height-button-m;
+@mixin buttonM-DEPRECATED {
+	font-size: $font-size-button-m-DEPRECATED;
+	line-height: $line-height-button-m-DEPRECATED;
 }
 
-@mixin buttonL {
-	font-size: $font-size-button-l;
-	line-height: $line-height-button-l;
+@mixin buttonL-DEPRECATED {
+	font-size: $font-size-button-l-DEPRECATED;
+	line-height: $line-height-button-l-DEPRECATED;
 }
 
-@mixin textLight {
+@mixin textLight-DEPRECATED {
 	font-weight: 300;
 }
 
-@mixin textMedium {
+@mixin textMedium-DEPRECATED {
 	font-weight: 500;
 }
 
-@mixin textBold {
+@mixin textBold-DEPRECATED {
 	font-weight: 700;
 }
 
-@mixin titleLevel4 {
-	@include textBold;
-	@include headlineL;
+@mixin titleLevel4-DEPRECATED {
+	@include textBold-DEPRECATED;
+	@include headlineL-DEPRECATED;
 }
