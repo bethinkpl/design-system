@@ -116,7 +116,7 @@ export default {
 			return this.tagNames.join(', ');
 		},
 		iconSize(): string {
-			if ([TAG_LIST_SIZES.SMALL, TAG_LIST_SIZES.X_SMALL].includes(this.size)) {
+			if ([ICON_LIST_SIZES.SMALL, ICON_LIST_SIZES.X_SMALL].includes(this.size)) {
 				return ICON_SIZES.XX_SMALL;
 			}
 
