@@ -17158,10 +17158,9 @@ vue-loader@^15.9.6:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-popperjs@2.3.0:
+vue-popperjs@catalystio/vue-popper#master:
   version "2.3.0"
-  resolved "https://registry.yarnpkg.com/vue-popperjs/-/vue-popperjs-2.3.0.tgz#9cfa052878a3b47b670339ea81e05edcb863200f"
-  integrity sha512-925QEeNjlMtb3eDHl5ZlODJzqnQL0nQPEKpr9aQ3XBg21DyqAdfLgD/At4svsPwFeIkpdF1gvHarENon47L9Cg==
+  resolved "https://codeload.github.com/catalystio/vue-popper/tar.gz/8ebb46a24d5377056a8d3ee5b8cdafe1e59b80cd"
   dependencies:
     opencollective-postinstall "^2.0.2"
     popper.js "^1.15.0"

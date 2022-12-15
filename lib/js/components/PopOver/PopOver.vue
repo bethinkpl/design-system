@@ -29,9 +29,9 @@
 			</ds-button>
 		</div>
 
-		<!-- TODO IT-4909 -->
-		<!-- eslint-disable-next-line vue/no-deprecated-slot-attribute -->
-		<slot slot="reference" name="reference" />
+		<template #reference>
+			<slot name="reference" />
+		</template>
 	</vue-popper>
 </template>
 
