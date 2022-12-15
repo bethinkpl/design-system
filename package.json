@@ -74,7 +74,7 @@
     "typescript": "4.6.4",
     "vue": "^2.6.11",
     "vue-jest": "^4.0.1",
-    "vue-loader": "^15.9.6",
+    "vue-loader": "^17.0.1",
     "vue-popperjs": "catalystio/vue-popper#master",
     "vue-ripple-directive": "bethinkpl/vue-ripple-directive#2.1.1",
     "vue-svg-loader": "^0.16.0",
