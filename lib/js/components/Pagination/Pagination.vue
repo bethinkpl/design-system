@@ -54,7 +54,7 @@
 						:min="FIRST_PAGE_NUMBER"
 						:step="1"
 						:max="lastPage"
-						@blur="onInputValueConfirmed"
+						@change="onInputValueConfirmed"
 						@keyup.enter="onInputValueConfirmed"
 					/>
 					<span class="ds-pagination__text">z {{ lastPage }}</span>
