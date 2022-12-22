@@ -897,7 +897,7 @@ declare const _default: Meta<{
         getRange(start: number, end: number): number[];
         changePage(page: any): void;
         isPage(item: any): boolean;
-        onInputValueChange(event: any): void;
+        onInputValueConfirmed(event: any): void;
     };
 }>;
 export default _default;
@@ -1799,6 +1799,6 @@ export declare const Interactive: StoryFn<{
         getRange(start: number, end: number): number[];
         changePage(page: any): void;
         isPage(item: any): boolean;
-        onInputValueChange(event: any): void;
+        onInputValueConfirmed(event: any): void;
     };
 }>;
