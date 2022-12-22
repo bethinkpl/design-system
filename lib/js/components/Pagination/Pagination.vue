@@ -54,7 +54,8 @@
 						:min="FIRST_PAGE_NUMBER"
 						:step="1"
 						:max="lastPage"
-						@input="onInputValueChange"
+						@blur="onInputValueConfirmed"
+						@keyup.enter="onInputValueConfirmed"
 					/>
 					<span class="ds-pagination__text">z {{ lastPage }}</span>
 				</div>
@@ -348,7 +349,7 @@ export default {
 		isPage(item): boolean {
 			return typeof item === 'number';
 		},
-		onInputValueChange(event): void {
+		onInputValueConfirmed(event): void {
 			const page = +event.target.value;
 
 			this.changePage(page);
