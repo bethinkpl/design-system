@@ -27,7 +27,7 @@ const args = {
 	color: POP_OVER_COLORS.DEFAULT,
 	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
 	titleText: 'Lorem ipsum',
-	subtitleText: 'subLorem ipsum',
+	subtitleText: 'Dolor sit amet',
 	buttonText: 'button text',
 	forceShow: false,
 	headerImageUrl: 'https://lek.wiecejnizlek.pl/images/lesson-status-onboarding-inprogress.png',
