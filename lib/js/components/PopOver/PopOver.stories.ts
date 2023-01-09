@@ -13,7 +13,7 @@ const StoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 600px">' +
-		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl">' +
+		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<div>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork. </div>' +
 		'</pop-over>' +
@@ -27,6 +27,7 @@ const args = {
 	color: POP_OVER_COLORS.DEFAULT,
 	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
 	titleText: 'Lorem ipsum',
+	subtitleText: 'Dolor sit amet',
 	buttonText: 'button text',
 	forceShow: false,
 	headerImageUrl: 'https://lek.wiecejnizlek.pl/images/lesson-status-onboarding-inprogress.png',

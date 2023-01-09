@@ -16,6 +16,7 @@
 			<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
 			<div class="popOver__content">
 				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
+				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
 				<slot :close="close" />
 			</div>
 			<ds-button
@@ -135,6 +136,13 @@
 		margin-bottom: $space-xxs;
 	}
 
+	&__subtitle {
+		@include heading-s-regular();
+
+		color: $color-neutral-text;
+		margin-bottom: $space-xxs;
+	}
+
 	&__button {
 		margin: 0 $space-s $space-xs;
 		align-self: flex-end;
@@ -185,6 +193,10 @@ export default {
 			},
 		},
 		titleText: {
+			type: String,
+			default: null,
+		},
+		subtitleText: {
 			type: String,
 			default: null,
 		},
