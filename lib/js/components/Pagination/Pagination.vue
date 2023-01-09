@@ -164,7 +164,7 @@ $pagination-input-height: 32px;
 	}
 
 	&__text {
-		@include text-m-regular();
+		@include text-m-default-regular;
 
 		text-align: center;
 		color: $color-neutral-text;
@@ -178,7 +178,7 @@ $pagination-input-height: 32px;
 	}
 
 	&__itemWrapper {
-		@include text-m-regular;
+		@include text-m-default-regular;
 
 		text-align: center;
 		padding: $space-xxxxs;
@@ -204,7 +204,7 @@ $pagination-input-height: 32px;
 		padding: $space-xxxs;
 
 		&.-selected {
-			@include text-m-bold();
+			@include text-m-default-bold;
 
 			background: $color-neutral-background-medium;
 			color: $color-neutral-text-heavy;

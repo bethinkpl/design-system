@@ -144,7 +144,7 @@ $button-disabled-alpha: 0.6;
 .a-button {
 	$self: &;
 
-	@include button-m-bold-uppercase();
+	@include button-m-default-bold-uppercase;
 
 	@each $color-name, $color-map in $icon-button-colors {
 		&.-color-#{$color-name} {
@@ -217,7 +217,7 @@ $button-disabled-alpha: 0.6;
 	}
 
 	&.-large {
-		@include button-l-bold-uppercase();
+		@include button-l-default-bold-uppercase;
 
 		min-height: $button-large-min-height;
 		padding-left: $space-m;
@@ -271,7 +271,7 @@ $button-disabled-alpha: 0.6;
 	}
 
 	&.-small {
-		@include button-s-bold-uppercase();
+		@include button-s-default-bold-uppercase;
 
 		min-height: $button-small-min-height;
 	}

@@ -24,7 +24,7 @@ $badge-min-height: 20px;
 	padding: $space-xxxxs $space-xxs;
 
 	&__label {
-		@include label-xs-bold-uppercase();
+		@include label-xs-default-bold-uppercase;
 	}
 
 	&.-neutral {

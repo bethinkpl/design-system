@@ -120,7 +120,7 @@
 	}
 
 	&__content {
-		@include text-m-regular();
+		@include text-m-default-regular;
 
 		color: $color-neutral-text-heavy;
 		padding: $space-s;
@@ -129,7 +129,7 @@
 	}
 
 	&__title {
-		@include heading-m-bold();
+		@include heading-m-default-bold;
 
 		color: $color-default-text;
 		margin-bottom: $space-xxs;
