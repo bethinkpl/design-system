@@ -266,6 +266,7 @@ declare const _default: Meta<{
             readonly FA_SQUARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_CARET_RIGHT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_SQUARE_CHECK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_LIST: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STAR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -606,6 +607,7 @@ export declare const Interactive: StoryFn<{
             readonly FA_SQUARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_CARET_RIGHT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_SQUARE_CHECK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_LIST: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STAR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
