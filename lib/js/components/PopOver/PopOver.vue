@@ -137,7 +137,7 @@
 	}
 
 	&__subtitle {
-		@include heading-s-regular();
+		@include heading-s-default-regular;
 
 		color: $color-neutral-text;
 		margin-bottom: $space-xxs;
