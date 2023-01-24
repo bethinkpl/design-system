@@ -6,14 +6,14 @@
 			'-danger': color === FEATURE_ICON_COLOR.DANGER,
 			'-info': color === FEATURE_ICON_COLOR.INFO,
 			'-neutral': color === FEATURE_ICON_COLOR.NEUTRAL,
-			'-neutral-weak': color === FEATURE_ICON_COLOR.NEUTRAL_WEAK,
+			'-neutralWeak': color === FEATURE_ICON_COLOR.NEUTRAL_WEAK,
 			'-primary': color === FEATURE_ICON_COLOR.PRIMARY,
 			'-success': color === FEATURE_ICON_COLOR.SUCCESS,
 			'-warning': color === FEATURE_ICON_COLOR.WARNING,
 			'-small': size === FEATURE_ICON_SIZES.SMALL,
 			'-medium': size === FEATURE_ICON_SIZES.MEDIUM,
 			'-large': size === FEATURE_ICON_SIZES.LARGE,
-			'-x-large': size === FEATURE_ICON_SIZES.X_LARGE,
+			'-xLarge': size === FEATURE_ICON_SIZES.X_LARGE,
 		}"
 	>
 		<wnl-icon class="featureIcon__icon" :icon="icon" :size="iconSize" />
@@ -31,7 +31,7 @@ $feature-icon-colors: (
 		'border': $color-neutral-background,
 		'icon': $color-neutral-icon,
 	),
-	'neutral-weak': (
+	'neutralWeak': (
 		'background': $color-neutral-background-medium,
 		'border': $color-neutral-background,
 		'icon': $color-neutral-icon-weak,
@@ -143,13 +143,13 @@ export default {
 		color: {
 			type: String,
 			required: true,
-			validator(color) {
+			validator(color: string) {
 				return Object.values(FEATURE_ICON_COLOR).includes(color);
 			},
 		},
 		doubleBackground: {
 			type: Boolean,
-			default: true,
+			default: false,
 		},
 	},
 	data() {
@@ -159,9 +159,6 @@ export default {
 		};
 	},
 	computed: {
-		sizeClassName() {
-			return `-${this.size}`;
-		},
 		iconSize(): string {
 			if (this.size === FEATURE_ICON_SIZES.SMALL) {
 				return ICON_SIZES.X_SMALL;
