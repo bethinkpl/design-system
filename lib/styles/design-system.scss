@@ -1,7 +1,6 @@
 // Settings
 @import 'settings/animations';
 @import 'settings/buttons';
-@import 'settings/colors';
 @import 'settings/fonts';
 @import 'settings/icons';
 @import 'settings/media-queries';
@@ -12,17 +11,18 @@
 @import 'settings/colors/raw';
 @import 'settings/colors/raw-wnl';
 @import 'settings/colors/raw-bodywork';
+@import 'settings/typography/variables-css';
 
 // Mixins
 @import 'mixins/layout';
+@import 'mixins/scrollbars';
 
-// Atoms
-@import 'atoms/buttons';
-@import 'atoms/icons';
-@import 'atoms/links';
+// Components
+@import 'components/buttons';
+@import 'components/icons';
+@import 'components/links';
 
 // Modifiers
-@import 'modifiers/colors';
 @import 'modifiers/layout';
 @import 'modifiers/media-queries';
 @import 'modifiers/shadows';
@@ -37,7 +37,7 @@
 html,
 body {
 	// TODO add font-size when wnl-platform is ready
-	color: var($color-default-text);
+	color: $color-default-text;
 }
 
 html,
@@ -49,8 +49,16 @@ textarea {
 	font-family: $font-family;
 }
 
+html.thick-scrollbar {
+	@include scrollbar(15px, var(--raw-gray-100));
+}
+
 html {
+	// Scrollbars
+	@include scrollbar(2px, var(--raw-gray-100));
+
 	box-sizing: border-box;
+	overflow-y: auto; // Without this style, we always display a scrollbar that covers the scrollbar in a container that is full-width. eg. scrollable-main-container
 }
 
 *,

@@ -1,32 +1,19 @@
-const fsT = require('fs');
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
-
-interface Dict<V> {
-	[key: string]: V;
-}
-
-interface IResultJsonObject {
-	id: string;
-	label: string;
-	value: string;
-}
-
-interface configFileObject {
-	destination: string;
-	destinationJson: string;
-	destinationTokensVariables: string;
-}
-
-interface ITokenJsonObject {
-	id: string;
-	label: string;
-	value: string;
-}
+import { cssFileFirstLine } from './helpers/modifiers';
+import { makeHexShortcut } from './helpers/colorsModifiers';
+import { arrayToFile, jsonToFile } from './helpers/fileWriter';
+import {
+	Dict,
+	ITokenJsonObject,
+	IResultJsonObject,
+	ColorsBinFiles,
+	ColorsConfigFileBin,
+} from './helpers/structures';
 
 const ImportColorsRaw = (
 	name: string,
-	binValues: configFileObject,
+	binFilesConfig: ColorsBinFiles,
 	jsonColors: Array<any>,
 	isTheme: boolean,
 ) => {
@@ -36,11 +23,7 @@ const ImportColorsRaw = (
 	let temporaryColorsJson: Dict<Array<IResultJsonObject>> = {};
 	let resultColorsJson: Dict<Array<IResultJsonObject>> = {};
 
-	if (isTheme) {
-		result.push('.theme-' + name + ' {');
-	} else {
-		result.push(':root {');
-	}
+	result.push(cssFileFirstLine(isTheme, name));
 
 	jsonColors.forEach((obj) => {
 		const patternColorsToProcess = /RAW\/|theme/i;
@@ -79,7 +62,7 @@ const ImportColorsRaw = (
 			const colorNameSplitted = colorName.split('-');
 			const category = colorNameSplitted[1] === undefined ? 'default' : colorNameSplitted[0];
 			const resultJsonObject: IResultJsonObject = {
-				id: binValues.destination + '_' + colorName,
+				id: binFilesConfig.variablesRaw.destination + '_' + colorName,
 				label: colorName,
 				value: obj.values.hex,
 			};
@@ -112,16 +95,22 @@ const ImportColorsRaw = (
 		});
 	});
 
-	arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-	if (binValues.destinationJson) {
-		jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultColorsJson);
+	arrayToFile(
+		tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destination,
+		result,
+	);
+	if (binFilesConfig.variablesRaw.destinationJson) {
+		jsonToFile(
+			tokensFilesConfig.destinationPath + binFilesConfig.variablesRaw.destinationJson,
+			resultColorsJson,
+		);
 	}
 
 	return hexToCssVariable;
 };
 
 const ImportSingleTokenFile = (
-	binValues: configFileObject,
+	binValues: ColorsBinFiles,
 	jsonColors: Array<any>,
 	hexToCssVariable: Dict<string>,
 	themeName: string,
@@ -177,7 +166,7 @@ const ImportSingleTokenFile = (
 			const tokenNameSplitted = tokenName.split('-');
 			const category = tokenNameSplitted[2];
 			const resultJsonObject: ITokenJsonObject = {
-				id: binValues.destination + '_' + tokenName,
+				id: binValues.tokens.destination + '_' + tokenName,
 				label: tokenName,
 				value:
 					obj.values.alpha == 1
@@ -200,21 +189,17 @@ const ImportSingleTokenFile = (
 		throw new Error('ERROR! No colors to save');
 	}
 
-	arrayToFile(tokensFilesConfig.destinationPath + binValues.destination, result);
-	jsonToFile(tokensFilesConfig.destinationPath + binValues.destinationJson, resultJsonTokens);
-	if (binValues.destinationTokensVariables) {
+	arrayToFile(tokensFilesConfig.destinationPath + binValues.tokens.destination, result);
+	jsonToFile(
+		tokensFilesConfig.destinationPath + binValues.tokens.destinationJson,
+		resultJsonTokens,
+	);
+	if (binValues.tokens.destinationVariables) {
 		arrayToFile(
-			tokensFilesConfig.destinationPath + binValues.destinationTokensVariables,
+			tokensFilesConfig.destinationPath + binValues.tokens.destinationVariables,
 			resultVariables,
 		);
 	}
-};
-
-const makeHexShortcut = (hex: string) => {
-	if (hex.split('').every((char) => char === hex[1] || char === '#')) {
-		hex = '#' + `${hex[1]}${hex[2]}${hex[3]}`;
-	}
-	return hex;
 };
 
 const hexToRgb = (hex: string) => {
@@ -236,47 +221,18 @@ const hexToRgb = (hex: string) => {
 		: null;
 };
 
-const arrayToFile = (filepath: string, content: Array<string>) => {
-	let file = fsT.createWriteStream(filepath);
-	file.on('error', function (err) {
-		console.log(err);
-	});
-
-	const patternTheme = /root|}/i;
-	let hasFileIndentation = false;
-	content.forEach(function (v) {
-		if (v.match(patternTheme)) {
-			hasFileIndentation = true;
-			file.write(v.toLowerCase() + '\n');
-		} else {
-			const hasLineIndentation = hasFileIndentation ? '\t' : '';
-			file.write(hasLineIndentation + v.toLowerCase() + '\n');
-		}
-	});
-	file.end();
-};
-
-const jsonToFile = (filepath: string, content: Object) => {
-	let file = fsT.createWriteStream(filepath);
-	file.on('error', function (err) {
-		console.log(err);
-	});
-	file.write(JSON.stringify(content));
-	file.end();
-};
-
-const SynchronizeSingleBin = async (bin) => {
+const SynchronizeSingleBin = async (bin: ColorsConfigFileBin) => {
 	const response = await axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');
 	let hexToCssVariable;
 
-	if (!response.data.colors) {
+	if (!response.data.record.colors) {
 		throw new TypeError('Response structure has no colors!');
 	}
 
 	hexToCssVariable = ImportColorsRaw(
 		bin.name,
-		bin.files.colorsRaw,
-		response.data.colors,
+		bin.files,
+		response.data.record.colors,
 		bin.isTheme,
 	);
 	if (typeof hexToCssVariable !== 'object') {
@@ -285,8 +241,8 @@ const SynchronizeSingleBin = async (bin) => {
 
 	if (bin.files.tokens) {
 		ImportSingleTokenFile(
-			bin.files.tokens,
-			response.data.colors,
+			bin.files,
+			response.data.record.colors,
 			hexToCssVariable,
 			bin.name,
 			bin.isTheme,
@@ -296,9 +252,10 @@ const SynchronizeSingleBin = async (bin) => {
 };
 
 const SynchronizeColorsTokens = async () => {
-	tokensFilesConfig.bins.forEach((bin) => {
+	console.log('Import in progress...');
+	tokensFilesConfig.bins.forEach((bin: ColorsConfigFileBin) => {
 		SynchronizeSingleBin(bin);
 	});
 };
 
-SynchronizeColorsTokens();
+SynchronizeColorsTokens().finally(() => {});

@@ -1,8 +1,8 @@
 import 'design-system/lib/styles/_normalize.scss';
 import 'design-system/lib/styles/design-system.scss';
 import 'design-system/lib/styles/storybook.scss';
-import 'design-system/lib/styles/theme-varaibles.scss';
 
+import { useArgs } from '@storybook/client-api';
 import { initialize } from 'design-system/lib/js/icons/fontawesome';
 
 const customViewports = {
@@ -88,5 +88,13 @@ export const parameters = {
 		},
 	},
 };
+
+// See https://craigbaldwin.com/blog/updating-args-storybook-vue/
+export const decorators = [
+	(story, context) => {
+		const [_, updateArgs] = useArgs();
+		return story({ ...context, updateArgs });
+	},
+];
 
 initialize();

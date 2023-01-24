@@ -1,0 +1,21 @@
+@import '../settings/colors/tokens';
+
+.a-link {
+	cursor: pointer;
+	color: $color-primary-text;
+
+	&:hover {
+		color: $color-primary-text;
+	}
+}
+
+.a-linkInText {
+	cursor: pointer;
+	color: inherit;
+	text-decoration: underline;
+
+	&:hover {
+		// We need this override for the old styleguide
+		color: currentColor;
+	}
+}

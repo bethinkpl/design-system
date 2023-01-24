@@ -1,6 +1,11 @@
 module.exports = {
 	plugins: ['import', '@typescript-eslint'],
-	extends: ['eslint:recommended', 'plugin:vue/recommended', 'prettier', 'prettier/vue'],
+	extends: [
+		'eslint:recommended',
+		'plugin:vue/recommended',
+		'prettier',
+		'plugin:storybook/recommended',
+	],
 	env: {
 		browser: true,
 		node: true,
@@ -15,14 +20,25 @@ module.exports = {
 		parser: '@typescript-eslint/parser',
 	},
 	rules: {
-		'key-spacing': ['error', { afterColon: true }],
+		'key-spacing': [
+			'error',
+			{
+				afterColon: true,
+			},
+		],
 		'keyword-spacing': ['error'],
 		'linebreak-style': ['error', 'unix'],
 		'no-unused-vars': 'off',
 		'object-curly-spacing': ['error', 'always'],
 		'object-shorthand': ['error', 'always'],
 		'quote-props': ['error', 'as-needed'],
-		yoda: ['error', 'never', { exceptRange: true }],
+		yoda: [
+			'error',
+			'never',
+			{
+				exceptRange: true,
+			},
+		],
 		'brace-style': [
 			'error',
 			'1tbs',
@@ -45,11 +61,20 @@ module.exports = {
 		'no-void': 'error',
 		// @typescript-eslint/parser doesn't work well with import/no-relative-parent-imports
 		// https://github.com/benmosher/eslint-plugin-import/issues/1610
-		'no-else-return': ['error', { allowElseIf: false }],
-
+		'no-else-return': [
+			'error',
+			{
+				allowElseIf: false,
+			},
+		],
 		// typescript
 		'@typescript-eslint/adjacent-overload-signatures': ['error'],
-		'@typescript-eslint/array-type': ['error', { default: 'generic' }],
+		'@typescript-eslint/array-type': [
+			'error',
+			{
+				default: 'generic',
+			},
+		],
 		'@typescript-eslint/ban-tslint-comment': ['error'],
 		'@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 		'@typescript-eslint/no-empty-interface': 'error',
@@ -58,7 +83,6 @@ module.exports = {
 		'@typescript-eslint/no-misused-new': 'error',
 		'@typescript-eslint/prefer-as-const': 'error',
 		'@typescript-eslint/no-non-null-assertion': 'error',
-
 		// Plugins
 		'import/no-restricted-imports': 0,
 		'import/no-relative-parent-imports': 0,
@@ -76,7 +100,6 @@ module.exports = {
 		// The two below don't seem useful
 		'vue/singleline-html-element-content-newline': ['off'],
 		'vue/multiline-html-element-content-newline': ['off'],
-
 		'vue/no-useless-mustaches': 'error',
 		'vue/no-useless-v-bind': 'error',
 		'vue/padding-line-between-blocks': 'error',
@@ -100,12 +123,7 @@ module.exports = {
 			},
 		],
 		'vue/v-for-delimiter-style': 'error',
-		'vue/no-unregistered-components': [
-			'error',
-			{
-				ignorePatterns: ['router-link', 'router-view'],
-			},
-		],
+		'vue/no-undef-components': 'error',
 		'vue/multi-word-component-names': 0,
 
 		// Required for Vue 3 migration

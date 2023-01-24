@@ -1,0 +1,336 @@
+@import '../settings/animations';
+@import '../settings/spacings';
+@import '../settings/radiuses';
+@import '../settings/buttons';
+@import '../settings/shadows';
+@import '../settings/icons';
+@import '../settings/typography/tokens';
+
+@mixin setButtonColor($color, $color-hovered: null, $color-focused: null, $color-disabled: null) {
+	color: $color;
+
+	&:hover,
+	&.-hovered,
+	&:active,
+	&.-active {
+		color: $color-hovered;
+	}
+
+	&:focus,
+	&.-focused {
+		color: $color-focused;
+	}
+
+	&.-disabled {
+		color: $color-disabled;
+	}
+}
+
+@mixin setButtonBackground(
+	$background,
+	$background-hover,
+	$background-focus,
+	$background-disabled
+) {
+	@if $background == null {
+		background-color: transparent;
+	}
+
+	background-color: $background;
+
+	&:hover,
+	&.-hovered,
+	&:active,
+	&.-active {
+		background-color: $background-hover;
+	}
+
+	&:focus,
+	&.-focused {
+		background-color: $background-focus;
+	}
+
+	&:disabled,
+	&.-disabled {
+		background-color: $background-disabled;
+	}
+}
+
+@mixin setButtonDisabled(
+	$disabled-color: null,
+	$disabled-icon: null,
+	$disabled-background: null,
+	$disabled-border: null
+) {
+	&:disabled,
+	&.-disabled {
+		border-color: $disabled-border;
+		color: $disabled-color;
+		background-color: $disabled-background;
+
+		.a-button__icon {
+			color: $disabled-icon;
+		}
+	}
+}
+
+@mixin setButtonAdditions(
+	$ripple: null,
+	$border: null,
+	$icon: null,
+	$icon-hovered: null,
+	$icon-focused: null,
+	$icon-disabled: null
+) {
+	@if $ripple == null {
+		.ripple {
+			display: none;
+		}
+	}
+
+	@if $border != null {
+		border: 1px solid $border;
+	}
+
+	.ripple {
+		background-color: $ripple !important;
+	}
+
+	.a-button {
+		&__icon,
+		&__loadingIcon {
+			color: $icon;
+		}
+	}
+
+	&.-hovered,
+	&:hover {
+		.a-button {
+			&__icon,
+			&__loadingIcon {
+				color: $icon-hovered;
+			}
+		}
+	}
+
+	&.-focused,
+	&:focus {
+		.a-button {
+			&__icon,
+			&__loadingIcon {
+				color: $icon-focused;
+			}
+		}
+	}
+
+	&.-disabled {
+		.a-button {
+			&__icon,
+			&__loadingIcon {
+				color: $icon-disabled;
+			}
+		}
+	}
+}
+
+$button-small-min-height: 28px;
+$button-medium-min-height: 32px;
+$button-large-min-height: 48px;
+
+$button-hover-alpha: 0.12;
+$button-focus-alpha: 0.24;
+$button-disabled-alpha: 0.6;
+
+.a-button {
+	$self: &;
+
+	@include button-m-bold-uppercase();
+
+	@each $color-name, $color-map in $icon-button-colors {
+		&.-color-#{$color-name} {
+			@include setButtonColor(map-get($color-map, 'filled', 'color'));
+			@include setButtonBackground(
+				map-get($color-map, 'filled', 'background'),
+				map-get($color-map, 'filled', 'background-hovered'),
+				map-get($color-map, 'filled', 'background-focused'),
+				map-get($color-map, 'filled', 'background-disabled')
+			);
+			@include setButtonDisabled(
+				map-get($color-map, 'filled', 'disabled', 'color'),
+				map-get($color-map, 'filled', 'disabled', 'icon'),
+				map-get($color-map, 'filled', 'disabled', 'background')
+			);
+			@include setButtonAdditions(
+				map-get($color-map, 'filled', 'ripple'),
+				null,
+				map-get($color-map, 'filled', 'icon')
+			);
+		}
+	}
+
+	align-items: center;
+	background-color: transparent; // override defaut <button> background color
+	border: 0;
+	border-radius: 100px;
+	cursor: pointer;
+	display: inline-flex;
+	min-height: $button-medium-min-height;
+	justify-content: center;
+	outline: none;
+	padding: $space-xxxxs $space-s;
+	position: relative;
+	transform-style: preserve-3d;
+	transition: color ease-in-out $default-transition-time,
+		border-color ease-in-out $default-transition-time,
+		background-color ease-in-out $default-transition-time;
+	user-select: none;
+
+	&:disabled,
+	&.-disabled {
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+
+	&.-outlined {
+		@each $color-name, $color-map in $icon-button-colors {
+			&.-color-#{$color-name} {
+				@include setButtonColor(map-get($color-map, 'outlined', 'color'));
+				@include setButtonBackground(
+					map-get($color-map, 'outlined', 'background'),
+					map-get($color-map, 'outlined', 'background-hovered'),
+					map-get($color-map, 'outlined', 'background-focused'),
+					map-get($color-map, 'outlined', 'background-disabled')
+				);
+				@include setButtonDisabled(
+					map-get($color-map, 'outlined', 'disabled', 'color'),
+					map-get($color-map, 'outlined', 'disabled', 'icon'),
+					map-get($color-map, 'outlined', 'disabled', 'background'),
+					map-get($color-map, 'outlined', 'disabled', 'border')
+				);
+				@include setButtonAdditions(
+					map-get($color-map, 'outlined', 'ripple'),
+					map-get($color-map, 'outlined', 'border'),
+					map-get($color-map, 'outlined', 'icon')
+				);
+			}
+		}
+	}
+
+	&.-large {
+		@include button-l-bold-uppercase();
+
+		min-height: $button-large-min-height;
+		padding-left: $space-m;
+		padding-right: $space-m;
+	}
+
+	&.-text {
+		@each $color-name, $color-map in $icon-button-colors {
+			&.-color-#{$color-name} {
+				@include setButtonColor(
+					map-get($color-map, 'text', 'color'),
+					map-get($color-map, 'text', 'color-hovered'),
+					map-get($color-map, 'text', 'color-focused'),
+					map-get($color-map, 'text', 'color-disabled')
+				);
+				@include setButtonBackground(null, null, null, null);
+				@include setButtonDisabled(
+					map-get($color-map, 'text', 'disabled', 'color'),
+					map-get($color-map, 'text', 'disabled', 'icon')
+				);
+				@include setButtonAdditions(
+					null,
+					null,
+					map-get($color-map, 'text', 'icon'),
+					map-get($color-map, 'text', 'icon-hovered'),
+					map-get($color-map, 'text', 'icon-focused'),
+					map-get($color-map, 'text', 'disabled', 'icon')
+				);
+			}
+		}
+
+		border: none;
+		border-radius: 0;
+		padding-left: 0;
+		padding-right: 0;
+	}
+
+	&:not(.-text) {
+		min-width: 100px;
+
+		&.-rounded {
+			border-radius: $radius-s;
+			padding-left: $space-xs;
+			padding-right: $space-xs;
+
+			&.-large {
+				padding-left: $space-s;
+				padding-right: $space-s;
+			}
+		}
+	}
+
+	&.-small {
+		@include button-s-bold-uppercase();
+
+		min-height: $button-small-min-height;
+	}
+
+	&.-loading {
+		pointer-events: none;
+
+		#{$self}__content {
+			opacity: 0;
+		}
+	}
+
+	&.-elevation-x-small,
+	&.-elevation-small {
+		&.-outlined {
+			&::before {
+				background: $color-default-background;
+				border-radius: 100px;
+				bottom: 0;
+				content: '';
+				display: block;
+				left: 0;
+				position: absolute;
+				right: 0;
+				top: 0;
+				transform: translateZ(-1px);
+			}
+		}
+
+		&.-rounded {
+			&::before {
+				border-radius: $radius-s;
+			}
+		}
+	}
+
+	&.-elevation-small {
+		&:not(.-text) {
+			box-shadow: $shadow-l;
+		}
+	}
+
+	&__content {
+		align-items: center;
+		display: inline-flex;
+	}
+
+	&__icon {
+		&.-left {
+			margin-right: $space-xxxxs;
+		}
+
+		&.-right {
+			margin-left: $space-xxxxs;
+		}
+	}
+
+	&__loadingIcon {
+		animation: $animation-fade-in, $animation-spin;
+		position: absolute;
+	}
+}
