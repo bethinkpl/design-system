@@ -9,7 +9,34 @@ module.exports = {
 		'@storybook/addon-viewport',
 		'storybook-addon-designs',
 	],
+	core: {
+		builder: 'webpack5',
+	},
 	webpackFinal: async (config) => {
+		config.resolve.alias.vue = '/var/www/bethink/design-system/node_modules/@vue/compat';
+
+		let vueLoaderRule = config.module.rules.find(
+			(r) =>
+				// it can be another rule with file loader
+				// we should get only svg related
+				r.test &&
+				r.test.toString().includes('vue') &&
+				// file-loader might be resolved to js file path so "endsWith" is not reliable enough
+				r.loader &&
+				r.loader.includes('vue-loader'),
+		);
+
+		vueLoaderRule.options = {
+			compilerOptions: {
+				compatConfig: {
+					MODE: 2,
+				},
+			},
+		};
+
+		// TODO loader for stories.ts uses vue-compat
+		console.log(config.module.rules);
+
 		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
 		// You can change the configuration based on that.
 		// 'PRODUCTION' is used when building the static version of storybook.
@@ -22,8 +49,8 @@ module.exports = {
 				r.test &&
 				r.test.toString().includes('svg') &&
 				// file-loader might be resolved to js file path so "endsWith" is not reliable enough
-				r.loader &&
-				r.loader.includes('file-loader'),
+				r.type &&
+				r.type === 'asset/resource',
 		);
 		fileLoaderRule.test = new RegExp(
 			fileLoaderRule.test.source.replace('svg|', ''),

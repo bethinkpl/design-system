@@ -8,12 +8,17 @@ export default {
 	component: NumberInCircle,
 } as Meta<typeof NumberInCircle>;
 
-const StoryTemplate: StoryFn<typeof NumberInCircle> = (argTypes) => ({
-	components: { NumberInCircle },
-	props: Object.keys(argTypes),
-	template:
-		'<number-in-circle :index="index" :color="color" :medium="medium">{{slotText}}</number-in-circle>',
-});
+const StoryTemplate: StoryFn<typeof NumberInCircle> = (argTypes) => {
+	console.log(argTypes);
+	return {
+		components: { NumberInCircle },
+		setup() {
+			return { ...argTypes };
+		},
+		template:
+			'<number-in-circle :index="index" :color="color" :medium="medium">{{slotText}}</number-in-circle>',
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 
