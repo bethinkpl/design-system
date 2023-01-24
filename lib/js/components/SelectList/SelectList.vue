@@ -3,7 +3,6 @@
 		<div
 			v-for="(item, index) in items"
 			:key="`${JSON.stringify(item)}-${index}`"
-			v-ripple
 			class="selectList__item"
 			:class="getClassNamesForItem(item)"
 			@click="onItemClick(item)"
@@ -83,7 +82,6 @@
 
 <script lang="ts">
 import { PropType } from 'vue';
-import Ripple from 'vue-ripple-directive';
 
 import { SELECT_LIST_SIZES } from './SelectList.consts';
 import DsIcon, { ICON_SIZES } from '../Icon';
@@ -95,9 +93,6 @@ export default {
 	components: {
 		Divider,
 		DsIcon,
-	},
-	directives: {
-		ripple: Ripple,
 	},
 	props: {
 		items: {

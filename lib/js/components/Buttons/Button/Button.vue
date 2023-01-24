@@ -110,22 +110,14 @@ export default {
 		iconLeft: {
 			type: Object,
 			default: null,
-<<<<<<< HEAD:lib/js/atoms/Button/Button.vue
-			validate(icon) {
-=======
-			validator(icon: VueConstructor) {
->>>>>>> origin/master:lib/js/components/Buttons/Button/Button.vue
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
-<<<<<<< HEAD:lib/js/atoms/Button/Button.vue
-			validate(icon) {
-=======
-			validator(icon: VueConstructor) {
->>>>>>> origin/master:lib/js/components/Buttons/Button/Button.vue
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},

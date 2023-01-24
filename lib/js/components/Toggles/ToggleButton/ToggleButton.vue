@@ -303,14 +303,14 @@ export default {
 		// iconLeft: {
 		// 	type: Object,
 		// 	default: null,
-		// 	validator(icon: VueConstructor) {
+		// 	validator(icon) {
 		// 		return Object.values(ICONS).includes(icon);
 		// 	},
 		// },
 		// iconRight: {
 		// 	type: Object,
 		// 	default: null,
-		// 	validator(icon: VueConstructor) {
+		// 	validator(icon) {
 		// 		return Object.values(ICONS).includes(icon);
 		// 	},
 		// },

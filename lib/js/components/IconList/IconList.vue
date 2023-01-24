@@ -47,6 +47,7 @@
 
 	&.-xSmall {
 		@include label-s-regular();
+
 		#{$root}__icon {
 			margin-right: $space-xxxxs;
 		}
@@ -54,6 +55,7 @@
 
 	&.-small {
 		@include label-m-regular();
+
 		#{$root}__icon {
 			margin-top: $space-xxxxxs;
 		}
@@ -68,8 +70,6 @@
 <script lang="ts">
 import Icon, { ICON_SIZES, ICONS } from '../Icon';
 import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
-import { VueConstructor } from 'vue';
-import { Prop } from 'vue/types/options';
 
 export default {
 	name: 'IconList',
@@ -99,9 +99,9 @@ export default {
 			},
 		},
 		icon: {
-			type: Object as Prop<VueConstructor>,
+			type: Object,
 			required: true,
-			validate: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
+			validate: (icon) => Object.values(ICONS).includes(icon),
 		},
 	},
 	data() {

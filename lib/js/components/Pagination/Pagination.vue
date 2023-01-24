@@ -27,7 +27,7 @@
 							{{ navigationItem }}
 						</span>
 					</div>
-					<div v-else :key="index" class="ds-pagination__itemWrapper">
+					<div v-else :key="`ellipsis${index}`" class="ds-pagination__itemWrapper">
 						<span class="ds-pagination__ellipsis">&hellip;</span>
 					</div>
 				</template>

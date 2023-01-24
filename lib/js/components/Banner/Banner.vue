@@ -299,9 +299,6 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
-
-import { Prop } from 'vue/types/options';
 import DsButton, {
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
@@ -324,9 +321,9 @@ export default {
 	},
 	props: {
 		icon: {
-			type: Object as Prop<VueConstructor>,
+			type: Object,
 			default: null,
-			validator: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
+			validator: (icon) => Object.values(ICONS).includes(icon),
 		},
 		buttonText: {
 			type: String,

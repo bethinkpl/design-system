@@ -130,7 +130,6 @@ import { PILL_SIZES, PILL_COLORS } from './Pill.consts';
 import IconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_COLORS } from '../Buttons/IconButton';
 import Icon, { ICONS, ICON_SIZES } from '../Icon';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
-import { VueConstructor } from 'vue';
 
 const PILL_ICON_BUTTONS_COLOR_MAP = {
 	[PILL_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
@@ -154,7 +153,7 @@ export default {
 		leftIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
