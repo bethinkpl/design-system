@@ -1,7 +1,7 @@
 import Dropdown from './Dropdown.vue';
 import { DROPDOWN_RADIUSES, DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
 import SelectList, { SELECT_LIST_SIZES } from '../SelectList';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 

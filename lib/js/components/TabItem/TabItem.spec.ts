@@ -1,7 +1,7 @@
 import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import TabItem from './TabItem.vue';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 describe('TabItem', () => {
 	const createComponent = ({ isActive = false } = {}) => {

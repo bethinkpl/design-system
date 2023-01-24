@@ -6,7 +6,7 @@
 			'-danger': color === FEATURE_ICON_COLOR.DANGER,
 			'-info': color === FEATURE_ICON_COLOR.INFO,
 			'-neutral': color === FEATURE_ICON_COLOR.NEUTRAL,
-			'-neutralWeak': color === FEATURE_ICON_COLOR.NEUTRAL_WEAK,
+			'-neutral-weak': color === FEATURE_ICON_COLOR.NEUTRAL_WEAK,
 			'-primary': color === FEATURE_ICON_COLOR.PRIMARY,
 			'-success': color === FEATURE_ICON_COLOR.SUCCESS,
 			'-warning': color === FEATURE_ICON_COLOR.WARNING,

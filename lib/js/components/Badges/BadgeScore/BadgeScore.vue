@@ -158,7 +158,7 @@ $badge-score-colors: (
 
 <script lang="ts">
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
-import WnlIcon, { ICONS, ICON_SIZES } from '../../Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import { VueConstructor } from 'vue';
 
 export default {

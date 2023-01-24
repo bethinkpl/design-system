@@ -2,7 +2,7 @@ import { shallowMount } from '@vue/test-utils';
 
 import Pill from './Pill.vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 import { PILL_COLORS, PILL_SIZES } from './Pill.consts';
 
 interface createComponentOptions {

@@ -1,6 +1,6 @@
 import Pill from './Pill.vue';
 import { PILL_COLORS, PILL_SIZES } from './Pill.consts';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 

@@ -157,7 +157,7 @@ $icons-and-slot-min-height-l: 50px;
 
 <script lang="ts">
 import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
-import DsIcon, { IconItem, ICONS, ICON_SIZES } from '../Icon';
+import DsIcon, { IconItem, ICONS, ICON_SIZES } from '../Icons/Icon';
 
 export default {
 	name: 'SectionHeader',

@@ -231,7 +231,7 @@ import {
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from './SurveyToggle.consts';
-import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import Ripple from 'vue-ripple-directive';
 
 export default {

@@ -163,7 +163,7 @@ import { Prop } from 'vue/types/options';
 
 import DsCard from '../../Cards/Card';
 import IconButton from '../../Buttons/IconButton';
-import { ICON_SIZES, ICONS } from '../../Icon';
+import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
 import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import DsModal from '../../Modal';

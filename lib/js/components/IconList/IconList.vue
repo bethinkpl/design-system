@@ -66,7 +66,7 @@
 </style>
 
 <script lang="ts">
-import Icon, { ICON_SIZES, ICONS } from '../Icon';
+import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
 import { VueConstructor } from 'vue';
 import { Prop } from 'vue/types/options';

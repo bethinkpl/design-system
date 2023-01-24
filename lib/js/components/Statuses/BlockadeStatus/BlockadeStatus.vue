@@ -36,8 +36,8 @@
 </style>
 
 <script lang="ts">
-import Icon from '../../Icon';
-import { ICONS, ICON_SIZES } from '../../Icon';
+import Icon from '../../Icons/Icon';
+import { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import { COURSE_BLOCKADE_ACCESS_STATUS } from '../../../consts/user';
 
 export default {

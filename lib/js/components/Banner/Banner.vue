@@ -309,9 +309,9 @@ import DsButton, {
 	BUTTON_SIZES,
 } from '../Buttons/Button';
 import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
-import DsIcon from '../Icon';
+import DsIcon from '../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
 
 export default {

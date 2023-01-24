@@ -86,7 +86,7 @@ import { PropType } from 'vue';
 import Ripple from 'vue-ripple-directive';
 
 import { SELECT_LIST_SIZES } from './SelectList.consts';
-import DsIcon, { ICON_SIZES } from '../Icon';
+import DsIcon, { ICON_SIZES } from '../Icons/Icon';
 import { SelectListItem } from './SelectList.domain';
 import Divider from '../Divider/Divider.vue';
 

@@ -86,7 +86,7 @@ import DsCard from '../../Cards/Card';
 import DsModal from '../../Modal';
 import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
 import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
-import { ICON_SIZES, ICONS } from '../../Icon';
+import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
 import { randomString } from '../../../utils/string';

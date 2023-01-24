@@ -102,7 +102,7 @@
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
+import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
 export default {
 	name: 'Modal',
