@@ -1,5 +1,6 @@
 <template>
 	<div
+		v-ripple
 		class="counterToggle"
 		:class="[{ '-selected': isSelected, '-disabled': isDisabled }, colorClass]"
 	>
@@ -269,6 +270,7 @@ $counter-toggle-colors: (
 </style>
 
 <script lang="ts">
+import Ripple from 'vue-ripple-directive';
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import Icon, { ICON_SIZES, ICONS } from '../../Icon';
 
@@ -276,6 +278,9 @@ export default {
 	name: 'CounterToggle',
 	components: {
 		Icon,
+	},
+	directives: {
+		Ripple,
 	},
 	props: {
 		counter: {

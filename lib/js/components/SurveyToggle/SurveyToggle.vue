@@ -10,7 +10,12 @@
 			'-hovered': isHoveredState,
 		}"
 	>
-		<div class="surveyToggle__toggle" @mouseover="hovered = true" @mouseleave="hovered = false">
+		<div
+			v-ripple
+			class="surveyToggle__toggle"
+			@mouseover="hovered = true"
+			@mouseleave="hovered = false"
+		>
 			<div class="surveyToggle__ring">
 				<span v-if="isPrimarySelected || isNeutralSelected" class="surveyToggle__icon">
 					<ds-icon :icon="selectedIcon" :size="ICON_SIZES.X_SMALL" />
@@ -223,6 +228,7 @@ $survey-toggle-colors: (
 </style>
 
 <script lang="ts">
+import Ripple from 'vue-ripple-directive';
 import {
 	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
@@ -234,6 +240,9 @@ export default {
 	name: 'SurveyToggle',
 	components: {
 		DsIcon,
+	},
+	directives: {
+		Ripple,
 	},
 	props: {
 		label: {

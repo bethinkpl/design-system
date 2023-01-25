@@ -1,11 +1,9 @@
 <template>
 	<div>
-		<div v-if="!disableRipple" class="rippleWrapper" :class="{ [colorClass]: true }">
+		<div v-if="!disableRipple" v-ripple class="rippleWrapper" :class="{ [colorClass]: true }">
 			<slot />
 		</div>
-		<div v-else>
-			<slot />
-		</div>
+		<div v-else><slot /></div>
 	</div>
 </template>
 
@@ -56,10 +54,15 @@
 </style>
 
 <script lang="ts">
+import RippleDirective from 'vue-ripple-directive';
+
 import { RIPPLE_COLORS } from './Ripple.consts';
 
 export default {
 	name: 'Ripple',
+	directives: {
+		ripple: RippleDirective,
+	},
 	props: {
 		color: {
 			type: String,
