@@ -81,6 +81,12 @@ $feature-icon-padding-large: 10px;
 .featureIcon {
 	$self: &;
 
+  border-radius: 100%;
+  border-style: solid;
+  border-width: $space-xxxs;
+  display:inline-flex;
+  padding: $space-xxxs;
+
 	@each $color-name, $color-map in $feature-icon-colors {
 		&.-#{$color-name} {
 			@include setFeatureIconColor(
@@ -94,12 +100,6 @@ $feature-icon-padding-large: 10px;
 		}
 	}
 
-	border-radius: 100%;
-	border-style: solid;
-	border-width: $space-xxxs;
-	display: inline-block;
-	padding: $space-xxxs;
-
 	&.-small {
 		border-width: $space-xxxxs;
 		padding: $space-xxxxs;
@@ -110,7 +110,7 @@ $feature-icon-padding-large: 10px;
 		padding: $feature-icon-padding-large;
 	}
 
-	&.-x-large {
+	&.-xLarge {
 		border-width: $space-xxs;
 		padding: $space-xs;
 	}
