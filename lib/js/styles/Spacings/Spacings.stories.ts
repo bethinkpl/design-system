@@ -19,11 +19,7 @@ const spacings = [
 	{ name: 'space-xxxxxs', value: 2 },
 ];
 
-const StoryTemplate: StoryFn = (argTypes) => ({
-	components: {},
-	setup() {
-		return { ...args };
-	},
+const StoryTemplate: StoryFn = () => ({
 	data() {
 		return {
 			spacings: Object.freeze(spacings),
@@ -40,15 +36,15 @@ const StoryTemplate: StoryFn = (argTypes) => ({
 		},
 	},
 	template: `
-      <div>
-      <div v-for="spacing in spacings">
-        <h2>{{spacing.name}}</h2>
-        <code>
-          \${{spacing.name}}: {{spacing.value}}px
-        </code>
-        <div :style="getStyles(spacing)"></div>
-      </div>
-      </div>
+			<div>
+			<div v-for="spacing in spacings">
+				<h2>{{ spacing.name }}</h2>
+				<code>
+					\${{ spacing.name }}: {{ spacing.value }}px
+				</code>
+				<div :style="getStyles(spacing)"></div>
+			</div>
+			</div>
     `,
 });
 
