@@ -1,22 +1,22 @@
 import SurveyQuestionOpenEnded from './SurveyQuestionOpenEnded.vue';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/SurveyQuestions/SurveyQuestionOpenEnded',
 	component: SurveyQuestionOpenEnded,
 } as Meta<typeof SurveyQuestionOpenEnded>;
 
-const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (argTypes, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (args, { updateArgs }) => ({
 	components: { SurveyQuestionOpenEnded },
-	props: Object.keys(argTypes),
 	setup() {
-		return { args };
+		return { ...args };
 	},
+	// TODO typing in textarea looses focus
 	template:
 		'<survey-question-open-ended  :title="title" :value="value" :state="state" :placeholder="placeholder" @input="explanationUpdate">' +
-		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
+		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 		'</survey-question-open-ended>',
 	methods: {
 		explanationUpdate(value) {

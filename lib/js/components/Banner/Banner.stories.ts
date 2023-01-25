@@ -2,16 +2,19 @@ import Banner from './Banner.vue';
 import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
 import { ICONS } from '../Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Banner',
 	component: Banner,
 } as Meta<typeof Banner>;
 
-const StoryTemplate: StoryFn<typeof Banner> = (argTypes, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof Banner> = (args, { updateArgs }) => ({
 	components: { Banner },
-	props: Object.keys(argTypes),
+	setup() {
+		console.log(args);
+		return { ...args };
+	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -24,25 +27,26 @@ const StoryTemplate: StoryFn<typeof Banner> = (argTypes, { updateArgs }) => ({
 			});
 		},
 	},
-	template: `<banner
-              :closable='closable'
-              :icon='ICONS[icon]'
-              :color='color'
-              :title='title'
-              :buttonText='buttonText'
-              :layout='layout'
-              :is-expanded='isExpanded'
-              :is-icon-hidden-on-mobile='isIconHiddenOnMobile'
-              @update:isExpanded='onIsExpandedUpdated'
-          >
-          <template v-slot:defaultText><span v-if='defaultText' v-html='defaultText'/></template>
-          <template v-slot:expandedText>
-            <div v-if='expandedText' v-html='expandedText'/>
-          </template>
-          <template v-slot:rightSlot>
-            <div v-if='rightSlot' v-html='rightSlot'/>
-          </template>
-          </banner>`,
+	template: `
+			<banner
+					:closable="closable"
+					:icon="ICONS[icon]"
+					:color="color"
+					:title="title"
+					:buttonText="buttonText"
+					:layout="layout"
+					:is-expanded="isExpanded"
+					:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
+					@update:isExpanded="onIsExpandedUpdated"
+			>
+			<template #defaultText><span v-html="defaultText" /></template>
+			<template v-if="expandedText" #expandedText>
+				<div v-html="expandedText" />
+			</template>
+			<template v-if="rightSlot" #rightSlot>
+				<div v-html="rightSlot" />
+			</template>
+			</banner>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

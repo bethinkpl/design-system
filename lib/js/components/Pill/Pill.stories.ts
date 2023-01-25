@@ -2,16 +2,18 @@ import Pill from './Pill.vue';
 import { PILL_COLORS, PILL_SIZES } from './Pill.consts';
 import { ICONS } from '../Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Pill',
 	component: Pill,
 } as Meta<typeof Pill>;
 
-const StoryTemplate: StoryFn<typeof Pill> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Pill> = (args) => ({
 	components: { Pill },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<pill :label="label" :left-icon="ICONS[leftIcon]" :has-delete="hasDelete" :size="size" :color="color" />',
 	data() {

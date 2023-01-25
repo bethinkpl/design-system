@@ -19,7 +19,7 @@
 			:size="ICON_BUTTON_SIZES.XX_SMALL"
 			:icon="ICONS.FA_XMARK"
 			:elevation="BUTTON_ELEVATIONS.X_SMALL"
-			@click.native="$emit('delete')"
+			@click="$emit('delete')"
 		/>
 	</div>
 </template>

@@ -322,6 +322,7 @@ export default {
 			},
 		},
 	},
+	emits: ['click'],
 	data() {
 		return {
 			TOGGLE_BUTTON_COLORS: Object.freeze(TOGGLE_BUTTON_COLORS),

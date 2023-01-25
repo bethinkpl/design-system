@@ -2,7 +2,6 @@
 	<div
 		class="counterToggle"
 		:class="[{ '-selected': isSelected, '-disabled': isDisabled }, colorClass]"
-		@click="$emit('click')"
 	>
 		<icon class="counterToggle__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
 		<span v-if="hasCounter" class="counterToggle__counter">{{ counter }}</span>

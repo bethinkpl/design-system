@@ -2,16 +2,18 @@ import Tile from './Tile.vue';
 import { TILE_COLORS, TILE_STATES } from './Tile.consts';
 import { ICONS } from '../Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Tile',
 	component: Tile,
 } as Meta<typeof Tile>;
 
-const StoryTemplate: StoryFn<typeof Tile> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Tile> = (args) => ({
 	components: { Tile },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :is-eyebrow-text-uppercase="isEyebrowTextUppercase" :state="state" :eyebrow-ellipsis="eyebrowEllipsis" :text-ellipsis="textEllipsis"/>',
 	data() {
@@ -65,9 +67,11 @@ Interactive.parameters = {
 	},
 };
 
-const StoryStaticTemplate: StoryFn<typeof Tile> = (argTypes) => ({
+const StoryStaticTemplate: StoryFn<typeof Tile> = (args) => ({
 	components: { Tile },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :state="state" />',
 	data() {

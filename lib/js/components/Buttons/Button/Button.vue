@@ -20,7 +20,6 @@
 			'-elevation-x-small': elevation === ELEVATIONS.X_SMALL,
 			'-elevation-small': elevation === ELEVATIONS.SMALL,
 		}"
-		@click="$emit('click')"
 	>
 		<span class="a-button__content">
 			<wnl-icon

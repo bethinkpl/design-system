@@ -9,16 +9,18 @@ import {
 import { BUTTON_ELEVATIONS, BUTTON_RADIUSES } from '../Button';
 import { ICONS } from '../../Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Buttons/IconButton',
 	component: IconButton,
 } as Meta<typeof IconButton>;
 
-const StoryTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	computed: {
 		isInverted() {
 			return this.color === 'inverted';
@@ -137,9 +139,11 @@ const argTypesDisabled = {
 	},
 } as ArgTypes;
 
-const StoryFilledWithLabelTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
+const StoryFilledWithLabelTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</icon-button>',
 	data() {
@@ -153,9 +157,11 @@ const StoryFilledWithLabelTemplate: StoryFn<typeof IconButton> = (argTypes) => (
 export const FilledWithLabel = StoryFilledWithLabelTemplate.bind({});
 FilledWithLabel.argTypes = argTypesDisabled;
 
-const StoryOutlinedRoundedTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
+const StoryOutlinedRoundedTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<icon-button :icon="ICONS.FA_CHEVRON_RIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" />',
 	data() {
@@ -170,9 +176,11 @@ const StoryOutlinedRoundedTemplate: StoryFn<typeof IconButton> = (argTypes) => (
 export const OutlinedRounded = StoryOutlinedRoundedTemplate.bind({});
 OutlinedRounded.argTypes = argTypesDisabled;
 
-const StoryFilledPrimaryTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
+const StoryFilledPrimaryTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.PRIMARY" :size="ICON_BUTTON_SIZES.X_SMALL" />',
 	data() {
@@ -188,9 +196,11 @@ const StoryFilledPrimaryTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 export const FilledPrimary = StoryFilledPrimaryTemplate.bind({});
 FilledPrimary.argTypes = argTypesDisabled;
 
-const StoryIconOnlyInfoTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
+const StoryIconOnlyInfoTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.INFO" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 	data() {
@@ -205,9 +215,11 @@ const StoryIconOnlyInfoTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
 export const IconOnlyInfo = StoryIconOnlyInfoTemplate.bind({});
 IconOnlyInfo.argTypes = argTypesDisabled;
 
-const StoryIconOnlyWarningTemplate: StoryFn<typeof IconButton> = (argTypes) => ({
+const StoryIconOnlyWarningTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',
 	data() {

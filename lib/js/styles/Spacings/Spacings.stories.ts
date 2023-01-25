@@ -1,4 +1,4 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'foundations/Spacings',
@@ -21,7 +21,9 @@ const spacings = [
 
 const StoryTemplate: StoryFn = (argTypes) => ({
 	components: {},
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	data() {
 		return {
 			spacings: Object.freeze(spacings),

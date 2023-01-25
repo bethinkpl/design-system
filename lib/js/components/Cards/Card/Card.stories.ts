@@ -1,17 +1,29 @@
 import Card from './Card.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Cards/Card',
 	component: Card,
 } as Meta<typeof Card>;
 
-const StoryTemplate: StoryFn<typeof Card> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Card> = (args) => ({
 	components: { Card },
-	props: Object.keys(argTypes),
-	template:
-		'<card :header-has-padding="headerHasPadding" :divider-under-header="dividerUnderHeader"><div v-if="header" slot="header" v-html="header" /><div v-if="content" slot="content" v-html="content" /><div slot="footer" v-html="footer" /></card>',
+	setup() {
+		return { ...args };
+	},
+	template: `
+			<card :header-has-padding="headerHasPadding" :divider-under-header="dividerUnderHeader">
+			<template v-if="header" #header>
+				<div v-html="header" />
+			</template>
+			<template v-if="content" #content>
+				<div v-html="content" />
+			</template>
+			<template v-if="footer" #footer>
+				<div v-html="footer" />
+			</template>
+			</card>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

@@ -1,4 +1,4 @@
-import { ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import IconList from './IconList.vue';
 import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
 import { ICONS } from '../Icon';
@@ -13,10 +13,13 @@ const StoryTemplate: StoryFn<{
 	size: string;
 	tagNames: Array<string>;
 	icon: string | null;
-}> = (argTypes) => ({
+}> = (args) => ({
 	components: { IconList },
-	props: Object.keys(argTypes),
-	template: `<icon-list :color="color" :size="size" :tag-names="tagNames" :icon="ICONS[icon]" ></icon-list>`,
+	setup() {
+		return { ...args };
+	},
+	template: `
+		<icon-list :color="color" :size="size" :tag-names="tagNames" :icon="ICONS[icon]"></icon-list>`,
 	created() {
 		this.ICONS = ICONS;
 	},

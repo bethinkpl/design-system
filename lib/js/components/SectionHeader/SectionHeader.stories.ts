@@ -2,16 +2,18 @@ import SectionHeader from './SectionHeader.vue';
 import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
 import { ICONS } from '../Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/SectionHeader',
 	component: SectionHeader,
 } as Meta<typeof SectionHeader>;
 
-const StoryTemplate: StoryFn<typeof SectionHeader> = (argTypes, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => ({
 	components: { SectionHeader },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

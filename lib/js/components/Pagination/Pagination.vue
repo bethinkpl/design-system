@@ -43,7 +43,7 @@
 							? ICON_BUTTON_STATES.DISABLED
 							: ICON_BUTTON_STATES.DEFAULT
 					"
-					@click.native="changePage(currentPage - 1)"
+					@click="changePage(currentPage - 1)"
 				/>
 
 				<div class="ds-pagination__compactItem">
@@ -69,7 +69,7 @@
 							? ICON_BUTTON_STATES.DISABLED
 							: ICON_BUTTON_STATES.DEFAULT
 					"
-					@click.native="changePage(currentPage + 1)"
+					@click="changePage(currentPage + 1)"
 				/>
 			</div>
 		</div>

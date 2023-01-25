@@ -9,30 +9,33 @@ import {
 } from './Button.consts';
 import { ICONS } from '../../Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Buttons/Button',
 	component: Button,
 } as Meta<typeof Button>;
 
-const StoryTemplate: StoryFn<typeof Button> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Button> = (args) => ({
 	components: { Button },
-	props: Object.keys(argTypes),
-	template: `<div :class="{ contrastBackground: isInverted }">
-		<Button
-			:size="size"
-			:type="type"
-			:state="state"
-			:radius="radius"
-			:color="color"
-			:elevation="elevation"
-			:icon-left="ICONS[$props.iconLeft]"
-			:icon-right="ICONS[$props.iconRight]"
-		>
-			{{slotText}}
-		</Button>
-	</div>`,
+	setup() {
+		return { ...args };
+	},
+	template: `
+			<div :class="{ contrastBackground: isInverted }">
+			<Button
+					:size="size"
+					:type="type"
+					:state="state"
+					:radius="radius"
+					:color="color"
+					:elevation="elevation"
+					:icon-left="ICONS[iconLeft]"
+					:icon-right="ICONS[iconRight]"
+			>
+				{{ slotText }}
+			</Button>
+			</div>`,
 	computed: {
 		isInverted() {
 			return this.color === 'inverted';

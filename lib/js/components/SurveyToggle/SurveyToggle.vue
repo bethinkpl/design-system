@@ -9,7 +9,6 @@
 			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
 			'-hovered': isHoveredState,
 		}"
-		@click="onClick"
 	>
 		<div class="surveyToggle__toggle" @mouseover="hovered = true" @mouseleave="hovered = false">
 			<div class="surveyToggle__ring">
@@ -319,11 +318,6 @@ export default {
 				return true;
 			}
 			return this.hovered;
-		},
-	},
-	methods: {
-		onClick() {
-			this.$emit('click');
 		},
 	},
 };

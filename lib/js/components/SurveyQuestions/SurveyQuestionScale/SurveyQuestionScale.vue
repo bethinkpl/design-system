@@ -4,7 +4,7 @@
 			<slot name="explanation" />
 			<template #footer>
 				<div>
-					<ds-button :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
+					<ds-button :type="BUTTON_TYPES.OUTLINED" @click="showModal = false">
 						OK, rozumiem
 					</ds-button>
 				</div>
@@ -21,7 +21,7 @@
 						:icon="ICONS.FA_CIRCLE_QUESTION"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
-						@click.native="showModal = true"
+						@click="showModal = true"
 					/>
 				</div>
 				<div class="surveyQuestionScale__content">

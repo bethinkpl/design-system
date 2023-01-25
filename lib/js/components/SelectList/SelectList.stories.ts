@@ -2,16 +2,18 @@ import SelectList from './SelectList.vue';
 import { SELECT_LIST_SIZES } from './SelectList.consts';
 import { ICONS } from '../Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/SelectList',
 	component: SelectList,
 } as Meta<typeof SelectList>;
 
-const StoryTemplate: StoryFn<typeof SelectList> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof SelectList> = (args) => ({
 	components: { SelectList },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: '<select-list v-model="value" :items="items" :size="size"></select-list>',
 	data() {
 		return {

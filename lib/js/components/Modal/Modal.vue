@@ -8,7 +8,7 @@
 					:icon="ICONS.FA_XMARK"
 					class="m-modal__header__close"
 					:size="ICON_SIZES.SMALL"
-					@click.native.stop="$emit('close-modal')"
+					@click.stop="$emit('close-modal')"
 				/>
 			</div>
 			<div

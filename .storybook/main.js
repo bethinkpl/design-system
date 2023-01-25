@@ -13,7 +13,7 @@ module.exports = {
 		builder: 'webpack5',
 	},
 	webpackFinal: async (config) => {
-		config.resolve.alias.vue = '/var/www/bethink/design-system/node_modules/@vue/compat';
+		config.resolve.alias.vue = '@vue/compat';
 
 		let vueLoaderRule = config.module.rules.find(
 			(r) =>
@@ -33,9 +33,6 @@ module.exports = {
 				},
 			},
 		};
-
-		// TODO loader for stories.ts uses vue-compat
-		console.log(config.module.rules);
 
 		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
 		// You can change the configuration based on that.

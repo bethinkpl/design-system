@@ -1,10 +1,5 @@
 <template>
-	<div
-		class="a-tabItem"
-		:title="title"
-		:class="{ '-isActive': isActive }"
-		@click="$emit('click')"
-	>
+	<div class="a-tabItem" :title="title" :class="{ '-isActive': isActive }">
 		<wnl-icon :icon="icon" :size="ICON_SIZES.X_SMALL" />
 	</div>
 </template>
