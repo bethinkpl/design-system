@@ -16,7 +16,6 @@
 			'-xLarge': size === FEATURE_ICON_SIZES.X_LARGE,
 		}"
 	>
-		<span v-if="doubleBackground" class="featureIcon__doubleBackground"></span>
 		<wnl-icon class="featureIcon__icon" :icon="icon" :size="iconSize" />
 	</div>
 </template>
@@ -28,61 +27,51 @@
 
 $feature-icon-colors: (
 	'neutral': (
-		'background': $color-neutral-background,
-		'secondBackground': $color-neutral-background-medium,
+		'background': $color-neutral-background-medium,
+		'border': $color-neutral-background,
 		'icon': $color-neutral-icon,
 	),
 	'neutralWeak': (
-		'background': $color-neutral-background,
-		'secondBackground': $color-neutral-background-medium,
+		'background': $color-neutral-background-medium,
+		'border': $color-neutral-background,
 		'icon': $color-neutral-icon-weak,
 	),
 	'primary': (
-		'background': $color-primary-background,
-		'secondBackground': $color-primary-background-medium,
+		'background': $color-primary-background-medium,
+		'border': $color-primary-background,
 		'icon': $color-primary-icon,
 	),
 	'success': (
-		'background': $color-success-background,
-		'secondBackground': $color-success-background-medium,
+		'background': $color-success-background-medium,
+		'border': $color-success-background,
 		'icon': $color-success-icon,
 	),
 	'danger': (
-		'background': $color-danger-background,
-		'secondBackground': $color-danger-background-medium,
+		'background': $color-danger-background-medium,
+		'border': $color-danger-background,
 		'icon': $color-danger-icon,
 	),
 	'warning': (
-		'background': $color-warning-background,
-		'secondBackground': $color-warning-background-medium,
+		'background': $color-warning-background-medium,
+		'border': $color-warning-background,
 		'icon': $color-warning-icon,
 	),
 	'info': (
-		'background': $color-info-background,
-		'secondBackground': $color-info-background-medium,
+		'background': $color-info-background-medium,
+		'border': $color-info-background,
 		'icon': $color-info-icon,
 	),
 );
 
-$feature-icon-xl-size: 88px;
-$feature-icon-xl-second-background-size: 72px;
-$feature-icon-l-size: 64px;
-$feature-icon-l-second-background-size: 52px;
-$feature-icon-m-size: 48px;
-$feature-icon-m-second-background-size: 36px;
-$feature-icon-s-size: 32px;
-$feature-icon-s-second-background-size: 24px;
+$feature-icon-padding-large: 10px;
 
-@mixin setSecondBackgroundColor($self, $background, $doubleBackground) {
-	background-color: $background;
-
-	#{$self}__doubleBackground {
-		background-color: $doubleBackground;
-	}
+@mixin setBorderColor($border) {
+	border-color: $border;
 }
 
 @mixin setFeatureIconColor($self, $background, $icon) {
 	background-color: $background;
+	border-color: $background;
 
 	#{$self}__icon {
 		color: $icon;
@@ -92,73 +81,38 @@ $feature-icon-s-second-background-size: 24px;
 .featureIcon {
 	$self: &;
 
+  border-radius: 100%;
+  border-style: solid;
+  border-width: $space-xxxs;
+  display:inline-flex;
+  padding: $space-xxxs;
+
 	@each $color-name, $color-map in $feature-icon-colors {
 		&.-#{$color-name} {
 			@include setFeatureIconColor(
 				$self,
-				map-get($color-map, 'secondBackground'),
+				map-get($color-map, 'background'),
 				map-get($color-map, 'icon')
 			);
 		}
 		&.-#{$color-name}.-doubleBackground {
-			@include setSecondBackgroundColor(
-				$self,
-				map-get($color-map, 'background'),
-				map-get($color-map, 'secondBackground')
-			);
+			@include setBorderColor(map-get($color-map, 'border'));
 		}
-	}
-
-	position: relative;
-	align-items: center;
-	border-radius: 100%;
-	display: flex;
-	justify-content: center;
-	width: $feature-icon-m-size;
-	height: $feature-icon-m-size;
-
-	&__doubleBackground {
-		display: block;
-		width: $feature-icon-m-second-background-size;
-		height: $feature-icon-m-second-background-size;
-		position: absolute;
-		border-radius: 100%;
-		top: 0;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		margin: auto;
-	}
-
-	&__icon {
-		position: relative;
 	}
 
 	&.-small {
-		width: $feature-icon-s-size;
-		height: $feature-icon-s-size;
-		#{$self}__doubleBackground {
-			width: $feature-icon-s-second-background-size;
-			height: $feature-icon-s-second-background-size;
-		}
+		border-width: $space-xxxxs;
+		padding: $space-xxxxs;
 	}
 
 	&.-large {
-		width: $feature-icon-l-size;
-		height: $feature-icon-l-size;
-		#{$self}__doubleBackground {
-			width: $feature-icon-l-second-background-size;
-			height: $feature-icon-l-second-background-size;
-		}
+		border-width: $space-xxxs;
+		padding: $feature-icon-padding-large;
 	}
 
 	&.-xLarge {
-		width: $feature-icon-xl-size;
-		height: $feature-icon-xl-size;
-		#{$self}__doubleBackground {
-			width: $feature-icon-xl-second-background-size;
-			height: $feature-icon-xl-second-background-size;
-		}
+		border-width: $space-xxs;
+		padding: $space-xs;
 	}
 }
 </style>
