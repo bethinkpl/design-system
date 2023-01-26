@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import Tile from './Tile.vue';
 import { ICONS } from '../Icon';
@@ -13,11 +13,8 @@ const createComponent = function ({
 	iconRight = null,
 	isEyebrowTextUppercase = false,
 }: createComponentOptions) {
-	const localVue = createLocalVue();
 	return shallowMount(Tile, {
-		localVue,
-		mocks: {},
-		propsData: {
+		props: {
 			text,
 			eyebrowText,
 			interactive,

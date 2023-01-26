@@ -22,7 +22,7 @@ describe('Pill', () => {
 		color = PILL_COLORS.NEUTRAL,
 	}: createComponentOptions = {}) => {
 		return shallowMount(Pill, {
-			propsData: {
+			props: {
 				label,
 				leftIcon,
 				hasDelete,

@@ -1,18 +1,13 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import Modal from './Modal.vue';
 
 describe('Modal', () => {
 	const createComponent = ({ headerSlot = '', slot = '', showHeader = true } = {}) => {
-		const localVue = createLocalVue();
-
 		return shallowMount(Modal, {
-			localVue,
-			mocks: {},
-			propsData: {
+			props: {
 				showHeader,
 			},
-			stubs: {},
 			slots: {
 				header: headerSlot,
 				slot,

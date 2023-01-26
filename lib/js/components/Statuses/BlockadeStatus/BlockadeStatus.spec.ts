@@ -1,20 +1,16 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import BlockadeStatus from './BlockadeStatus.vue';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
 import { ICONS } from '../../Icon';
+import Icon from '../../Icon/Icon.vue';
 
 describe('BlockadeStatus', () => {
 	const createComponent = (status) => {
-		const localVue = createLocalVue();
-
 		return shallowMount(BlockadeStatus, {
-			localVue,
-			mocks: {},
-			propsData: {
+			props: {
 				status,
 			},
-			stubs: {},
 		});
 	};
 
@@ -33,6 +29,6 @@ describe('BlockadeStatus', () => {
 		const component = createComponent(status);
 
 		expect(component.text()).toBe(expectedText);
-		expect(component.find('icon-stub').props().icon).toBe(expectedIcon);
+		expect(component.findComponent(Icon).props().icon).toBe(expectedIcon);
 	});
 });

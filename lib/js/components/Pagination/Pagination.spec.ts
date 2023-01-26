@@ -1,14 +1,11 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import Pagination from './Pagination.vue';
 
 describe('Pagination', () => {
 	const createComponent = ({ currentPage = 1, itemsTotalAmount = 30 } = {}) => {
-		const localVue = createLocalVue();
-
 		return shallowMount(Pagination, {
-			localVue,
-			propsData: {
+			props: {
 				currentPage,
 				itemsTotalAmount,
 			},
