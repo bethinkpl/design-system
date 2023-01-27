@@ -180,7 +180,7 @@ $counter-toggle-colors: (
 }
 
 @mixin setCounterToggleAdditions($ripple, $icon) {
-	&::v-deep .ripple {
+	&:deep(.ripple) {
 		background-color: $ripple !important;
 	}
 

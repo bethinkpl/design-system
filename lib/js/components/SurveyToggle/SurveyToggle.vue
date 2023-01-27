@@ -98,7 +98,7 @@ $survey-toggle-colors: (
 	#{$self}__toggle {
 		background-color: $background;
 
-		&::v-deep .ripple {
+		&:deep(.ripple) {
 			background-color: $ripple !important;
 		}
 	}

@@ -54,7 +54,7 @@
 			background-color: $color-neutral-background-hovered;
 		}
 
-		&::v-deep .ripple {
+		&:deep(.ripple) {
 			background-color: $color-default-ripple !important;
 		}
 	}
