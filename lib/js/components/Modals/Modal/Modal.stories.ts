@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof Modal> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :color="color" :danger="danger" ' +
-		':headerTitleSize="headerTitleSize" :headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :headerCentered="headerCentered" :headerFeatureIconColor="headerFeatureIconColor" ' +
+		':headerTitleSize="headerTitleSize" :headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :contentCentered="contentCentered" :headerFeatureIconColor="headerFeatureIconColor" ' +
 		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="footerPrimaryButtonIcon" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon" ' +
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="footerTertiaryButtonIcon" ' +
@@ -36,9 +36,6 @@ const args = {
 	footerPrimaryButtonText: 'Primary M',
 	footerSecondaryButtonText: 'Secondary M',
 	footerTertiaryButtonText: 'Tertiary M',
-	footerCheckboxText: 'Checkbox',
-	headerImage:
-		'https://static.vecteezy.com/system/resources/previews/002/909/185/original/colorful-design-geometric-background-for-landing-pages-banner-placeholder-and-print-vector.jpg',
 } as Args;
 
 const argTypes = {
@@ -62,7 +59,7 @@ const argTypes = {
 		control: { type: 'select', options: Object.values(FEATURE_ICON_COLOR) },
 		defaultValue: FEATURE_ICON_COLOR.NEUTRAL,
 	},
-	headerCentered: { control: { type: 'boolean' }, defaultValue: false },
+	contentCentered: { control: { type: 'boolean' }, defaultValue: false },
 	footerPrimaryButtonText: { control: { type: 'text' } },
 	footerPrimaryButtonIcon: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
@@ -90,3 +87,44 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=5658%3A96416&t=lgUXCZhvWDuBr3qw-0',
 	},
 };
+
+const argsDanger = {
+	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
+	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
+	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
+	footerPrimaryButtonText: 'Primary M',
+	footerSecondaryButtonText: 'Secondary M',
+	danger: true,
+} as Args;
+
+export const Danger = StoryTemplate.bind({});
+Danger.argTypes = argTypes;
+Danger.args = argsDanger;
+
+const argsWithImage = {
+	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
+	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
+	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
+	footerPrimaryButtonText: 'Primary M',
+	footerSecondaryButtonText: 'Secondary M',
+	headerImage:
+		'https://wiecejnizlek.pl/wp-content/themes/uncode-child/assets/patterns/pattern-black.png',
+} as Args;
+
+export const WithImage = StoryTemplate.bind({});
+WithImage.argTypes = argTypes;
+WithImage.args = argsWithImage;
+
+const argsSmallHeaderAndCentered = {
+	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
+	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
+	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
+	footerPrimaryButtonText: 'Primary M',
+	footerSecondaryButtonText: 'Secondary M',
+	headerTitleSize: MODAL_HEADER_TITLE_SIZES.SMALL,
+	contentCentered: true,
+} as Args;
+
+export const SmallHeaderAndCentered = StoryTemplate.bind({});
+SmallHeaderAndCentered.argTypes = argTypes;
+SmallHeaderAndCentered.args = argsSmallHeaderAndCentered;
