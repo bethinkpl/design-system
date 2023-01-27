@@ -14,7 +14,7 @@ const StoryTemplate: StoryFn<typeof Modal> = (argTypes) => ({
 	components: { Modal },
 	props: Object.keys(argTypes),
 	template:
-		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :color="color" :danger="danger" ' +
+		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
 		':headerTitleSize="headerTitleSize" :headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :contentCentered="contentCentered" :headerFeatureIconColor="headerFeatureIconColor" ' +
 		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="footerPrimaryButtonIcon" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon" ' +
@@ -30,12 +30,23 @@ const StoryTemplate: StoryFn<typeof Modal> = (argTypes) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
+	size: MODAL_SIZES.MEDIUM,
+	danger: false,
+	contentCentered: false,
+	headerImage: '',
+	headerTitleSize: MODAL_HEADER_TITLE_SIZES.MEDIUM,
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
-	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
+	headerFeatureIcon: 'FA_CIRCLE_EXCLAMATION',
+	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
+	footerPrimaryButtonIcon: null,
 	footerSecondaryButtonText: 'Secondary M',
+	footerSecondaryButtonIcon: null,
 	footerTertiaryButtonText: 'Tertiary M',
+	footerTertiaryButtonIcon: null,
+	footerCheckboxText: '',
+	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 } as Args;
 
 const argTypes = {
@@ -89,12 +100,15 @@ Interactive.parameters = {
 };
 
 const argsDanger = {
+	danger: true,
+	headerImage: '',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
 	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	footerPrimaryButtonText: 'Primary M',
 	footerSecondaryButtonText: 'Secondary M',
-	danger: true,
+	footerTertiaryButtonText: '',
+	footerCheckboxText: '',
 } as Args;
 
 export const Danger = StoryTemplate.bind({});
@@ -102,13 +116,15 @@ Danger.argTypes = argTypes;
 Danger.args = argsDanger;
 
 const argsWithImage = {
+	headerImage:
+		'https://wiecejnizlek.pl/wp-content/themes/uncode-child/assets/patterns/pattern-black.png',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
 	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	footerPrimaryButtonText: 'Primary M',
 	footerSecondaryButtonText: 'Secondary M',
-	headerImage:
-		'https://wiecejnizlek.pl/wp-content/themes/uncode-child/assets/patterns/pattern-black.png',
+	footerTertiaryButtonText: '',
+	footerCheckboxText: '',
 } as Args;
 
 export const WithImage = StoryTemplate.bind({});
@@ -116,13 +132,16 @@ WithImage.argTypes = argTypes;
 WithImage.args = argsWithImage;
 
 const argsSmallHeaderAndCentered = {
+	contentCentered: true,
+	headerImage: '',
+	headerTitleSize: MODAL_HEADER_TITLE_SIZES.SMALL,
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
 	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	footerPrimaryButtonText: 'Primary M',
 	footerSecondaryButtonText: 'Secondary M',
-	headerTitleSize: MODAL_HEADER_TITLE_SIZES.SMALL,
-	contentCentered: true,
+	footerTertiaryButtonText: '',
+	footerCheckboxText: '',
 } as Args;
 
 export const SmallHeaderAndCentered = StoryTemplate.bind({});
