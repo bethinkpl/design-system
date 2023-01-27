@@ -12,7 +12,6 @@ export default {
 const StoryTemplate: StoryFn<typeof Banner> = (args, { updateArgs }) => ({
 	components: { Banner },
 	setup() {
-		console.log(args);
 		return { ...args };
 	},
 	data() {
