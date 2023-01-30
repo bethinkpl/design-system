@@ -18,7 +18,7 @@ const StoryTemplate: StoryFn<typeof ModalDialog> = (argTypes) => ({
 		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="footerPrimaryButtonIcon" ' +
 		':headerImage="headerImage" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon">' +
-		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.' +
+		'{{ defaultSlot }}' +
 		'</modal-dialog>',
 	data() {
 		return {
@@ -30,7 +30,10 @@ const StoryTemplate: StoryFn<typeof ModalDialog> = (argTypes) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
+	defaultSlot:
+		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	danger: false,
+	headerImage: '',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
 	headerFeatureIcon: 'FA_CIRCLE_EXCLAMATION',
@@ -39,7 +42,6 @@ const args = {
 	footerPrimaryButtonIcon: null,
 	footerSecondaryButtonText: 'Secondary M',
 	footerSecondaryButtonIcon: null,
-	headerImage: '',
 } as Args;
 
 const argTypes = {
@@ -86,6 +88,7 @@ const argsDanger = {
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerSecondaryButtonText: 'Secondary M',
+	defaultSlot: '',
 } as Args;
 
 export const Danger = StoryTemplate.bind({});
@@ -103,6 +106,7 @@ const argsWithImage = {
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerSecondaryButtonText: 'Secondary M',
+	defaultSlot: '',
 } as Args;
 
 export const WithImage = StoryTemplate.bind({});

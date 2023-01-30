@@ -20,7 +20,7 @@ const StoryTemplate: StoryFn<typeof Modal> = (argTypes) => ({
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon" ' +
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="footerTertiaryButtonIcon" ' +
 		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage">' +
-		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.' +
+		'{{ defaultSlot }}' +
 		'</modal>',
 	data() {
 		return {
@@ -32,6 +32,8 @@ const StoryTemplate: StoryFn<typeof Modal> = (argTypes) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
+	defaultSlot:
+		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	size: MODAL_SIZES.MEDIUM,
 	danger: false,
 	contentCentered: false,
@@ -85,7 +87,7 @@ const argTypes = {
 	footerTertiaryButtonText: { control: { type: 'text' } },
 	footerTertiaryButtonIcon: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: 'FA_CHART_COLUMN',
+		defaultValue: ICONS['FA_CHART_COLUMN'],
 	},
 	footerCheckboxText: { control: { type: 'text' } },
 } as ArgTypes;
@@ -105,7 +107,8 @@ const argsDanger = {
 	headerImage: '',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
-	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
+	defaultSlot:
+		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	footerPrimaryButtonText: 'Primary M',
 	footerSecondaryButtonText: 'Secondary M',
 	footerTertiaryButtonText: '',
@@ -121,11 +124,13 @@ const argsWithImage = {
 		'https://wiecejnizlek.pl/wp-content/themes/uncode-child/assets/patterns/pattern-black.png',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
-	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
+	defaultSlot:
+		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	footerPrimaryButtonText: 'Primary M',
 	footerSecondaryButtonText: 'Secondary M',
 	footerTertiaryButtonText: '',
 	footerCheckboxText: '',
+	headerFeatureIcon: null,
 } as Args;
 
 export const WithImage = StoryTemplate.bind({});
@@ -133,18 +138,20 @@ WithImage.argTypes = argTypes;
 WithImage.args = argsWithImage;
 
 const argsSmallHeaderAndCentered = {
+	size: MODAL_SIZES.SMALL,
 	contentCentered: true,
 	headerImage: '',
 	headerTitleSize: MODAL_HEADER_TITLE_SIZES.SMALL,
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
-	slot: 'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
+	defaultSlot:
+		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	footerPrimaryButtonText: 'Primary M',
 	footerSecondaryButtonText: 'Secondary M',
 	footerTertiaryButtonText: '',
 	footerCheckboxText: '',
 } as Args;
 
-export const SmallHeaderAndCentered = StoryTemplate.bind({});
-SmallHeaderAndCentered.argTypes = argTypes;
-SmallHeaderAndCentered.args = argsSmallHeaderAndCentered;
+export const SizeSAndCentered = StoryTemplate.bind({});
+SizeSAndCentered.argTypes = argTypes;
+SizeSAndCentered.args = argsSmallHeaderAndCentered;

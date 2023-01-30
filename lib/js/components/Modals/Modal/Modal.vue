@@ -140,10 +140,15 @@ $image-height-small: 140px;
 			#{$self}__image {
 				height: $image-height-small;
 			}
+
 			#{$self}__content {
 				padding-left: $space-m;
 				padding-right: $space-m;
 			}
+
+      #{$self}__headerTitle {
+        @include heading-xl-default-bold;
+      }
 		}
 	}
 
@@ -193,7 +198,7 @@ $image-height-small: 140px;
 	&__textContent {
 		@include text-m-default-regular;
 
-		margin-bottom: $space-s;
+		margin-bottom: $space-xs;
 	}
 
 	&__checkbox {
@@ -215,8 +220,8 @@ $image-height-small: 140px;
 		border-radius: 100%;
 		color: $color-neutral-icon-weak;
 		position: absolute;
-		right: $space-xs;
-		top: $space-xs;
+		right: $space-xxxs;
+		top: $space-xxxs;
 	}
 
 	&__image {

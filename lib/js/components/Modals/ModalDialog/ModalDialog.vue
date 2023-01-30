@@ -14,8 +14,8 @@
 			:footer-primary-button-icon="footerPrimaryButtonIcon"
 			:footer-secondary-button-text="footerSecondaryButtonText"
 			:footer-secondary-button-icon="footerSecondaryButtonIcon"
-		>
-		</wnl-modal>
+		><slot/>
+    </wnl-modal>
 	</div>
 </template>
 
