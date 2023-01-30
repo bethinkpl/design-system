@@ -238,7 +238,7 @@ $pagination-input-height: 32px;
 import { PAGINATION_DEFAULT_ITEMS_PER_PAGE } from './Pagination.consts';
 import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 const MAX_NAVIGATION_ITEMS = 7;
 const ELLIPSIS_FILL = 'ellipsis';

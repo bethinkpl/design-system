@@ -4,7 +4,7 @@ import { ICON_SIZES, ICONS } from './Icon.consts';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
 export default {
-	title: 'Components/Icon',
+	title: 'Components/Icons/Icon',
 	component: Icon,
 } as Meta<typeof Icon>;
 

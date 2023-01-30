@@ -273,7 +273,7 @@
 <script lang="ts">
 import { VueConstructor } from 'vue';
 
-import WnlIcon, { ICONS, ICON_SIZES } from '../../Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import WnlButton from '../Button';
 import {
 	ICON_BUTTON_COLOR_SCHEMES,

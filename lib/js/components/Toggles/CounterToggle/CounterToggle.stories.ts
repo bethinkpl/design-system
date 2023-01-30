@@ -1,6 +1,6 @@
 import CounterToggle from './CounterToggle.vue';
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
-import { ICONS } from '../../Icon';
+import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 

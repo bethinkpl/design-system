@@ -1,6 +1,6 @@
 import BadgeScore from './BadgeScore.vue';
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
-import { ICONS } from '../../Icon';
+import { ICONS } from '../../Icons/Icon';
 
 import { Meta, StoryFn } from '@storybook/vue';
 

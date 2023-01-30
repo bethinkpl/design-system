@@ -7,7 +7,7 @@ import {
 	BUTTON_RADIUSES,
 	BUTTON_ELEVATIONS,
 } from './Button.consts';
-import { ICONS } from '../../Icon';
+import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 

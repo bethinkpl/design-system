@@ -222,7 +222,7 @@ $tile-colors: (
 
 <script lang="ts">
 import DsRipple, { RIPPLE_COLORS } from '../Ripple';
-import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { VueConstructor } from 'vue';
 import { TILE_COLORS, TILE_STATES } from './Tile.consts';
 import { Value } from '../../utils/type.utils';

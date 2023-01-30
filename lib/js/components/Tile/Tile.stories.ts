@@ -1,6 +1,6 @@
 import Tile from './Tile.vue';
 import { TILE_COLORS, TILE_STATES } from './Tile.consts';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 

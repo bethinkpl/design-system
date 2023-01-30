@@ -1,6 +1,6 @@
 import SelectList from './SelectList.vue';
 import { SELECT_LIST_SIZES } from './SelectList.consts';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
