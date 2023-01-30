@@ -17,11 +17,8 @@ module.exports = {
 
 		let vueLoaderRule = config.module.rules.find(
 			(r) =>
-				// it can be another rule with file loader
-				// we should get only svg related
 				r.test &&
 				r.test.toString().includes('vue') &&
-				// file-loader might be resolved to js file path so "endsWith" is not reliable enough
 				r.loader &&
 				r.loader.includes('vue-loader'),
 		);
@@ -38,14 +35,11 @@ module.exports = {
 		// You can change the configuration based on that.
 		// 'PRODUCTION' is used when building the static version of storybook.
 
-		// // Storybook provides file-loader rule for svg. We have to disable it to make vue-svg-loader working
+		// // Storybook provides assets rule for svg. We have to disable it to make vue-svg-loader working
 		let fileLoaderRule = config.module.rules.find(
 			(r) =>
-				// it can be another rule with file loader
-				// we should get only svg related
 				r.test &&
 				r.test.toString().includes('svg') &&
-				// file-loader might be resolved to js file path so "endsWith" is not reliable enough
 				r.type &&
 				r.type === 'asset/resource',
 		);
