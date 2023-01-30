@@ -175,7 +175,7 @@
 	}
 
 	&__label {
-		@include button-m-bold-uppercase();
+		@include button-m-default-bold-uppercase;
 
 		display: none;
 		margin-right: $space-xs;
@@ -225,7 +225,7 @@
 		}
 
 		#{$self}__label {
-			@include button-xs-bold-uppercase();
+			@include button-xs-default-bold-uppercase;
 		}
 	}
 
@@ -236,7 +236,7 @@
 		}
 
 		#{$self}__label {
-			@include button-xs-bold-uppercase();
+			@include button-xs-default-bold-uppercase;
 		}
 	}
 
@@ -247,7 +247,7 @@
 		}
 
 		#{$self}__label {
-			@include button-s-bold-uppercase();
+			@include button-s-default-bold-uppercase;
 		}
 	}
 
@@ -257,7 +257,7 @@
 			width: $icon-button-large-size;
 		}
 		#{$self}__label {
-			@include button-l-bold-uppercase();
+			@include button-l-default-bold-uppercase;
 		}
 	}
 

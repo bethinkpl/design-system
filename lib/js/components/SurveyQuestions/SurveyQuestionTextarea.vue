@@ -16,7 +16,7 @@
 @import '../../../styles/settings/typography/tokens';
 
 .surveyQuestionTextarea {
-	@include formText-s-regular();
+	@include formText-s-default-regular;
 
 	border: 1px solid $color-neutral-border-weak;
 	box-sizing: border-box;

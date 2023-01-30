@@ -163,7 +163,7 @@ $tile-colors: (
 	}
 
 	&__additionalText {
-		@include info-s-regular();
+		@include info-s-default-regular;
 
 		color: $color-neutral-text;
 		flex-grow: 1;
@@ -180,7 +180,7 @@ $tile-colors: (
 	}
 
 	&__eyebrowText {
-		@include info-m-bold();
+		@include info-m-default-bold;
 
 		&.-uppercase {
 			@include info-m-extensive-bold-uppercase();
@@ -194,7 +194,7 @@ $tile-colors: (
 	}
 
 	&__text {
-		@include text-m-bold();
+		@include text-m-default-bold;
 
 		color: $color-neutral-text-heavy;
 		margin-top: $space-xxxxs;

@@ -60,7 +60,7 @@
 	}
 
 	&__title {
-		@include heading-m-regular();
+		@include heading-m-default-regular;
 
 		align-self: center;
 	}

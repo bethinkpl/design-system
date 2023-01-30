@@ -34,7 +34,7 @@
 @import '../../../styles/settings/typography/tokens';
 
 .m-modal {
-	@include text-l-regular();
+	@include text-l-default-regular;
 
 	align-items: center;
 	background-color: rgba(10, 10, 10, 0.85);

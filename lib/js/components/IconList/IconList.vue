@@ -46,21 +46,21 @@
 	}
 
 	&.-xSmall {
-		@include label-s-regular();
+		@include label-s-default-regular;
 		#{$root}__icon {
 			margin-right: $space-xxxxs;
 		}
 	}
 
 	&.-small {
-		@include label-m-regular();
+		@include label-m-default-regular;
 		#{$root}__icon {
 			margin-top: $space-xxxxxs;
 		}
 	}
 
 	&.-medium {
-		@include label-l-regular();
+		@include label-l-default-regular;
 	}
 }
 </style>

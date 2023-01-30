@@ -96,7 +96,7 @@ $pill-colors: (
 	padding: $space-xxxxxs $space-xxxxxs $space-xxxxxs $space-xxs;
 
 	&__label {
-		@include label-s-bold();
+		@include label-s-default-bold;
 
 		overflow: hidden;
 		margin: $space-xxxxxs $space-xxxs $space-xxxxxs 0;
@@ -117,7 +117,7 @@ $pill-colors: (
 		}
 
 		#{$self}__label {
-			@include label-xs-bold();
+			@include label-xs-default-bold;
 
 			margin: 0 $space-xxxxs 0 0;
 		}

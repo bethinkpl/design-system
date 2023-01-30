@@ -30,7 +30,7 @@
 	}
 
 	&__text {
-		@include label-s-bold-uppercase();
+		@include label-s-default-bold-uppercase;
 	}
 }
 </style>

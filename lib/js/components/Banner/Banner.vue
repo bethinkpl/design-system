@@ -177,13 +177,13 @@
 	}
 
 	&__title {
-		@include heading-s-bold();
+		@include heading-s-default-bold;
 
 		color: $color-neutral-text-strong;
 	}
 
 	&__defaultText {
-		@include text-m-regular();
+		@include text-m-default-regular;
 
 		margin-top: $space-xxxxs;
 	}
@@ -286,7 +286,7 @@
 	}
 
 	&__expandedContainer {
-		@include text-m-regular();
+		@include text-m-default-regular;
 
 		margin-top: $space-xs;
 		padding: 0 $space-xxxxs $space-xxxxs;

@@ -87,7 +87,7 @@
 
 .surveyQuestionScale {
 	&__header {
-		@include heading-m-regular();
+		@include heading-m-default-regular;
 
 		display: flex;
 		// title without explanation iconButton has to be the same size as with iconButton
@@ -149,7 +149,7 @@
 	}
 
 	&__elaborationLabel {
-		@include formLabel-m-regular();
+		@include formLabel-m-default-regular;
 	}
 
 	&__elaborationInput {
