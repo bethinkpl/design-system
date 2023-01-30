@@ -99,7 +99,7 @@ describe('Pagination', () => {
 	])('should calculate correct pagination for %o', ({ props, expected }) => {
 		const component = createComponent(props);
 		const elements: Array<string> = [];
-		component.findAll('.ds-pagination__itemWrapper').wrappers.forEach((element) => {
+		component.findAll('.ds-pagination__itemWrapper').forEach((element) => {
 			elements.push(element.text().trim());
 		});
 		expect(elements).toEqual(expected);

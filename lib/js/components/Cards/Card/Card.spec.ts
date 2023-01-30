@@ -16,9 +16,9 @@ describe('Card', () => {
 				dividerUnderHeader,
 			},
 			slots: {
-				header: headerSlot,
-				content: contentSlot,
-				footer: footerSlot,
+				...(headerSlot !== '' && { header: headerSlot }),
+				...(contentSlot !== '' && { content: contentSlot }),
+				...(footerSlot !== '' && { footer: footerSlot }),
 			},
 		});
 	};

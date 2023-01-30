@@ -21,7 +21,7 @@ describe('SurveyQuestionScale', () => {
 				elaborationValue,
 			},
 			slots: {
-				explanation,
+				...(explanation !== '' && { explanation }),
 			},
 		});
 	};

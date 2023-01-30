@@ -38,9 +38,9 @@ describe('CounterToggle', () => {
 
 	it('should render icon', () => {
 		const icon = createComponent({ icon: ICONS.FA_XMARK });
-		let iconElement = icon.find('.counterToggle__icon');
+		let iconElement = icon.findComponent('.counterToggle__icon');
 		expect(iconElement.exists()).toBe(true);
-		expect(iconElement.props().icon).toBe(ICONS.FA_XMARK);
+		expect(iconElement.props().icon).toEqual(ICONS.FA_XMARK);
 	});
 
 	test.each([

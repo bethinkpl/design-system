@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 
 import Tile from './Tile.vue';
 import { ICONS } from '../Icon';
@@ -13,7 +13,7 @@ const createComponent = function ({
 	iconRight = null,
 	isEyebrowTextUppercase = false,
 }: createComponentOptions) {
-	return shallowMount(Tile, {
+	return mount(Tile, {
 		props: {
 			text,
 			eyebrowText,

@@ -3,6 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 import AccessStatus from './AccessStatus.vue';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
 import { ICONS } from '../../Icon';
+import Icon from '../../Icon/Icon.vue';
 
 describe('AccessStatus', () => {
 	const createComponent = (status) => {

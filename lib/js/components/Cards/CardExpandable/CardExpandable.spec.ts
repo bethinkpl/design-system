@@ -1,4 +1,4 @@
-import { shallowMount } from '@vue/test-utils';
+import { mount, shallowMount } from '@vue/test-utils';
 
 import CardExpandable from './CardExpandable.vue';
 
@@ -20,16 +20,16 @@ describe('CardExpandable', () => {
 		contentSlot = '',
 		expandedContentSlot = '',
 	}: createComponentOptions = {}) => {
-		return shallowMount(CardExpandable, {
+		return mount(CardExpandable, {
 			props: {
 				isExpanded,
 				...(expanderTextExpanded && { expanderTextExpanded }),
 				...(expanderTextCollapsed && { expanderTextCollapsed }),
 			},
 			slots: {
-				header: headerSlot,
-				content: contentSlot,
-				expandedContent: expandedContentSlot,
+				...(headerSlot !== '' && { header: headerSlot }),
+				...(contentSlot !== '' && { content: contentSlot }),
+				...(expandedContentSlot !== '' && { expandedContent: expandedContentSlot }),
 			},
 		});
 	};
