@@ -57,9 +57,9 @@ declare const _default: Meta<{
             default: boolean;
         };
         iconLeft: {
-            type: () => import("../Icon").IconItem;
+            type: () => import("../Icons/Icon").IconItem;
             default: null;
-            validator(iconLeft: import("../Icon").IconItem): boolean;
+            validator(iconLeft: import("../Icons/Icon").IconItem): boolean;
         };
         isExpanded: {
             type: BooleanConstructor;
@@ -325,9 +325,9 @@ export declare const Interactive: StoryFn<{
             default: boolean;
         };
         iconLeft: {
-            type: () => import("../Icon").IconItem;
+            type: () => import("../Icons/Icon").IconItem;
             default: null;
-            validator(iconLeft: import("../Icon").IconItem): boolean;
+            validator(iconLeft: import("../Icons/Icon").IconItem): boolean;
         };
         isExpanded: {
             type: BooleanConstructor;
