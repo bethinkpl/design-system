@@ -1,23 +1,23 @@
 <template>
 	<div
-		class="modal"
+		class="ds-modal"
 		:class="{
 			'-danger': danger,
 		}"
 		@click.stop="$emit('close-modal')"
 	>
-		<div class="modal__wrapper" :class="{ '-small': size === MODAL_SIZES.SMALL }">
+		<div class="ds-modal__wrapper" :class="{ '-small': size === MODAL_SIZES.SMALL }">
 			<div
 				v-if="headerImage"
-				class="modal__image"
+				class="ds-modal__image"
 				:style="{ backgroundImage: 'url(' + headerImage + ')' }"
 			></div>
-			<div class="modal__content" :class="{ '-centered': contentCentered }">
-				<div class="modal__header">
+			<div class="ds-modal__content" :class="{ '-centered': contentCentered }">
+				<div class="ds-modal__header">
 					<wnl-icon-button
 						touchable
 						:icon="ICONS.FA_XMARK"
-						class="modal__close"
+						class="ds-modal__close"
 						:size="ICON_SIZES.SMALL"
 						:elevation="BUTTON_ELEVATIONS.X_SMALL"
 						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
@@ -25,45 +25,45 @@
 					/>
 					<feature-icon
 						v-if="headerFeatureIcon"
-						class="modal__headerFeatureIcon"
+						class="ds-modal__headerFeatureIcon"
 						:color="calcHeaderFeatureIconColor"
 						:icon="headerFeatureIcon"
 						:size="FEATURE_ICON_SIZES.X_LARGE"
-						:double-background="true"
+						double-background
 					/>
-					<h3
-						class="modal__headerTitle"
+					<h4
+						class="ds-modal__headerTitle"
 						:class="{ '-small': headerTitleSize === MODAL_HEADER_TITLE_SIZES.SMALL }"
-						>{{ headerTitle }}</h3
+						>{{ headerTitle }}</h4
 					>
-					<h6 v-if="headerSubtitle" class="modal__headerSubtitle">{{
+					<h5 v-if="headerSubtitle" class="ds-modal__headerSubtitle">{{
 						headerSubtitle
-					}}</h6>
+					}}</h5>
 				</div>
-				<div v-if="$slots.default" class="modal__textContent">
+				<div v-if="$slots.default" class="ds-modal__slotContent">
 					<slot />
 				</div>
-				<div class="modal__footer" :class="{ '-singleColumn': calcSingleColumn }">
+				<div class="ds-modal__footer" :class="{ '-singleColumn': calcSingleColumn }">
 					<div
 						v-if="footerTertiaryButtonText || footerCheckboxText"
-						class="modal__footerColumn --ctaSecondary"
+						class="ds-modal__footerColumn --ctaSecondary"
 					>
-						<div v-if="footerCheckboxText" ref="button" class="modal__checkbox">
+						<div v-if="footerCheckboxText" class="ds-modal__checkbox">
 							<input
-								id="modal__checkboxInput"
+								id="ds-modal__checkboxInput"
 								type="checkbox"
 								:checked="false"
-								class="modal__checkboxInput"
-								@change="$emit('checkbox-change')"
+								class="ds-modal__checkboxInput"
+                @change="$emit('checkbox-change', $event.target.checked)"
 							/>
-							<label for="modal__checkboxInput" class="modal__checkboxLabel">
+							<label for="ds-modal__checkboxInput" class="ds-modal__checkboxLabel">
 								{{ footerCheckboxText }}
 							</label>
 						</div>
 						<wnl-button
 							v-if="footerTertiaryButtonText"
 							ref="button"
-							class="modal__buttonSecondary"
+							class="ds-modal__buttonSecondary"
 							:type="BUTTON_TYPES.TEXT"
 							:color="BUTTON_COLORS.NEUTRAL"
 							:icon-left="ICONS[footerTertiaryButtonIcon]"
@@ -73,12 +73,12 @@
 					</div>
 					<div
 						v-if="footerSecondaryButtonText || footerPrimaryButtonText"
-						class="modal__footerColumn --cta"
+						class="ds-modal__footerColumn --cta"
 					>
 						<wnl-button
 							v-if="footerSecondaryButtonText"
 							ref="button"
-							class="modal__buttonSecondary"
+							class="ds-modal__buttonSecondary"
 							:type="BUTTON_TYPES.OUTLINED"
 							:color="calcFooterSecondaryButtonColor"
 							:icon-right="ICONS[footerSecondaryButtonIcon]"
@@ -88,7 +88,7 @@
 						<wnl-button
 							v-if="footerPrimaryButtonText"
 							ref="button"
-							class="modal__buttonPrimary"
+							class="ds-modal__buttonPrimary"
 							:color="calcFooterPrimaryButtonColor"
 							:icon-right="ICONS[footerPrimaryButtonIcon]"
 						>
@@ -115,10 +115,16 @@ $modal-small-width: 460px;
 $image-height: 200px;
 $image-height-small: 140px;
 
-.modal {
+.ds-modal {
 	$self: &;
 
-	background: $color-default-overlay;
+  background: $color-default-overlay;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
 	padding: $space-l $space-s;
 
 	@media #{breakpoint-s()} {
@@ -130,9 +136,9 @@ $image-height-small: 140px;
 		border-radius: $radius-m;
 		box-shadow: $shadow-xl;
 		margin: 0 auto;
+    max-width: $modal-medium-width;
 		overflow: hidden;
 		position: relative;
-		max-width: $modal-medium-width;
 
 		&.-small {
 			max-width: $modal-small-width;
@@ -161,7 +167,7 @@ $image-height-small: 140px;
 
 		&.-centered {
 			#{$self}__header,
-			#{$self}__textContent {
+			#{$self}__slotContent {
 				text-align: center;
 			}
 		}
@@ -195,7 +201,7 @@ $image-height-small: 140px;
 		margin-top: 0;
 	}
 
-	&__textContent {
+	&__slotContent {
 		@include text-m-default-regular;
 
 		margin-bottom: $space-xs;
@@ -217,8 +223,6 @@ $image-height-small: 140px;
 	}
 
 	&__close {
-		border-radius: 100%;
-		color: $color-neutral-icon-weak;
 		position: absolute;
 		right: $space-xxxs;
 		top: $space-xxxs;
