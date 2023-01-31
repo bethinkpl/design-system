@@ -1,17 +1,15 @@
 <template>
 	<div
 		class="ds-modal"
-		:class="{
-			'-danger': danger,
-		}"
 		@click.stop="$emit('close-modal')"
 	>
 		<div class="ds-modal__wrapper" :class="{ '-small': size === MODAL_SIZES.SMALL }">
-			<div
+			<img
 				v-if="headerImage"
 				class="ds-modal__image"
-				:style="{ backgroundImage: 'url(' + headerImage + ')' }"
-			></div>
+				:src="headerImage"
+			  alt=""
+      />
 			<div class="ds-modal__content" :class="{ '-centered': contentCentered }">
 				<div class="ds-modal__header">
 					<wnl-icon-button
@@ -43,7 +41,7 @@
 				<div v-if="$slots.default" class="ds-modal__slotContent">
 					<slot />
 				</div>
-				<div class="ds-modal__footer" :class="{ '-singleColumn': calcSingleColumn }">
+				<div v-if="displayFooter" class="ds-modal__footer" :class="{ '-singleColumn': calcSingleColumn }">
 					<div
 						v-if="footerTertiaryButtonText || footerCheckboxText"
 						class="ds-modal__footerColumn --ctaSecondary"
@@ -54,15 +52,13 @@
 								type="checkbox"
 								:checked="false"
 								class="ds-modal__checkboxInput"
-                @change="$emit('checkbox-change', $event.target.checked)"
-							/>
+                @change="$emit('checkbox-change', $event.target.checked)"/>
 							<label for="ds-modal__checkboxInput" class="ds-modal__checkboxLabel">
 								{{ footerCheckboxText }}
 							</label>
 						</div>
 						<wnl-button
 							v-if="footerTertiaryButtonText"
-							ref="button"
 							class="ds-modal__buttonSecondary"
 							:type="BUTTON_TYPES.TEXT"
 							:color="BUTTON_COLORS.NEUTRAL"
@@ -77,7 +73,6 @@
 					>
 						<wnl-button
 							v-if="footerSecondaryButtonText"
-							ref="button"
 							class="ds-modal__buttonSecondary"
 							:type="BUTTON_TYPES.OUTLINED"
 							:color="calcFooterSecondaryButtonColor"
@@ -87,7 +82,6 @@
 						</wnl-button>
 						<wnl-button
 							v-if="footerPrimaryButtonText"
-							ref="button"
 							class="ds-modal__buttonPrimary"
 							:color="calcFooterPrimaryButtonColor"
 							:icon-right="ICONS[footerPrimaryButtonIcon]"
@@ -109,6 +103,7 @@
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/media-queries';
+@import '../../../../styles/settings/z-indexes';
 
 $modal-medium-width: 700px;
 $modal-small-width: 460px;
@@ -118,13 +113,16 @@ $image-height-small: 140px;
 .ds-modal {
 	$self: &;
 
-  background: $color-default-overlay;
-  height: 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
-
-
+  background: $color-default-overlay;
+  display: flex;
+  height: 100%;
+  justify-content: center;
+  z-index: $z-index-modal;
+  position: fixed;
+  width: 100%;
+  top:0;
+  left:0;
 	padding: $space-l $space-s;
 
 	@media #{breakpoint-s()} {
@@ -136,16 +134,18 @@ $image-height-small: 140px;
 		border-radius: $radius-m;
 		box-shadow: $shadow-xl;
 		margin: 0 auto;
+    max-height: 80vh;
     max-width: $modal-medium-width;
-		overflow: hidden;
+    overflow-x: auto;
+		overflow-y: hidden;
 		position: relative;
 
 		&.-small {
 			max-width: $modal-small-width;
 
-			#{$self}__image {
-				height: $image-height-small;
-			}
+			//#{$self}__image {
+			//	height: $image-height-small;
+			//}
 
 			#{$self}__content {
 				padding-left: $space-m;
@@ -211,6 +211,12 @@ $image-height-small: 140px;
 		cursor: pointer;
 		display: flex;
 		align-items: center;
+    margin-top: $space-s;
+
+    @media #{breakpoint-s()} {
+      margin-top: 0;
+    }
+
 	}
 
 	&__checkboxLabel {
@@ -219,7 +225,7 @@ $image-height-small: 140px;
 		margin-left: $space-xxs;
 
 		/** align vertical middle fix */
-		margin-top: -$space-xxxxxs;
+		margin-top: -$space-xxxxs;
 	}
 
 	&__close {
@@ -229,8 +235,8 @@ $image-height-small: 140px;
 	}
 
 	&__image {
-		height: $image-height;
-		background-size: cover;
+		width: 100%;
+    display: block;
 	}
 
 	&__footer {
@@ -254,9 +260,10 @@ $image-height-small: 140px;
 	&__footerColumn {
 		display: flex;
 		gap: 0 $space-s;
+    flex-direction: column-reverse;
 
 		&.--cta {
-			flex-direction: column-reverse;
+
 			margin-bottom: $space-xs;
 
 			@media #{breakpoint-s()} {
@@ -266,11 +273,13 @@ $image-height-small: 140px;
 		}
 
 		&.--ctaSecondary {
+      align-items: center;
 			gap: 0 $space-m;
 			justify-content: center;
 
 			@media #{breakpoint-s()} {
 				justify-content: left;
+        flex-direction: row;
 			}
 		}
 	}
@@ -295,7 +304,7 @@ import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../..
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 
 export default {
-	name: 'Modal',
+	name: 'DsModal',
 	components: { FeatureIcon, WnlButton, WnlIconButton },
 	props: {
 		size: {
@@ -421,6 +430,9 @@ export default {
 				(this.footerSecondaryButtonText || this.footerPrimaryButtonText)
 			);
 		},
+    displayFooter() {
+      return this.footerTertiaryButtonText || this.footerCheckboxText || this.footerSecondaryButtonText || this.footerPrimaryButtonText;
+    }
 	},
 };
 </script>

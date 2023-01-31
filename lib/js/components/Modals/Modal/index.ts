@@ -1,4 +1,4 @@
-import Modal from './Modal.vue';
+import DsModal from './Modal.vue';
 
 export * from './Modal.consts';
-export default Modal;
+export default DsModal;
