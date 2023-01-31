@@ -213,6 +213,7 @@ $image-height-small: 140px;
 
 	&__checkboxLabel {
 		@include formLabel-s-default-regular;
+
 		color: $color-neutral-text-heavy;
 		cursor: pointer;
 		margin-left: $space-xxs;
