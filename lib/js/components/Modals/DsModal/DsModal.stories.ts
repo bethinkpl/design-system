@@ -154,17 +154,23 @@ WithImage.argTypes = argTypes;
 WithImage.args = argsWithImage;
 
 const argsSmallHeaderAndCentered = {
+	defaultSlot:
+		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	size: MODAL_SIZES.SMALL,
+	danger: false,
 	contentCentered: true,
 	headerImage: '',
 	headerTitleSize: MODAL_HEADER_TITLE_SIZES.SMALL,
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
-	defaultSlot:
-		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
+	headerFeatureIcon: 'FA_CIRCLE_EXCLAMATION',
+	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
+	footerPrimaryButtonIcon: null,
 	footerSecondaryButtonText: 'Secondary M',
-	footerTertiaryButtonText: '',
+	footerSecondaryButtonIcon: null,
+	footerTertiaryButtonText: 'Tertiary M',
+	footerTertiaryButtonIcon: null,
 	footerCheckboxText: '',
 } as Args;
 
