@@ -59,7 +59,7 @@
 							class="ds-modal__buttonSecondary"
 							:type="BUTTON_TYPES.TEXT"
 							:color="BUTTON_COLORS.NEUTRAL"
-							:icon-left="ICONS[footerTertiaryButtonIcon]"
+							:icon-left="footerTertiaryButtonIcon"
 						>
 							{{ footerTertiaryButtonText }}
 						</wnl-button>
@@ -73,7 +73,7 @@
 							class="ds-modal__buttonSecondary"
 							:type="BUTTON_TYPES.OUTLINED"
 							:color="calcFooterSecondaryButtonColor"
-							:icon-right="ICONS[footerSecondaryButtonIcon]"
+							:icon-right="footerSecondaryButtonIcon"
 						>
 							{{ footerSecondaryButtonText }}
 						</wnl-button>
@@ -81,7 +81,7 @@
 							v-if="footerPrimaryButtonText"
 							class="ds-modal__buttonPrimary"
 							:color="calcFooterPrimaryButtonColor"
-							:icon-right="ICONS[footerPrimaryButtonIcon]"
+							:icon-right="footerPrimaryButtonIcon"
 						>
 							{{ footerPrimaryButtonText }}
 						</wnl-button>
