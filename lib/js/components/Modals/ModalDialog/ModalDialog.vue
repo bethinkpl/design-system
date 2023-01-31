@@ -1,6 +1,6 @@
 <template>
 	<div class="modalDialog">
-		<wnl-modal
+		<ds-modal
 			:size="MODAL_SIZES.SMALL"
 			:danger="danger"
 			:content-centered="true"
@@ -14,13 +14,14 @@
 			:footer-primary-button-icon="footerPrimaryButtonIcon"
 			:footer-secondary-button-text="footerSecondaryButtonText"
 			:footer-secondary-button-icon="footerSecondaryButtonIcon"
-			><slot />
-		</wnl-modal>
+		>
+			<slot />
+		</ds-modal>
 	</div>
 </template>
 
 <script lang="ts">
-import WnlModal from '../Modal/DsModal.vue';
+import DsModal from '../Modal/Modal.vue';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from '../Modal';
 import { VueConstructor } from 'vue';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon';
@@ -30,7 +31,7 @@ import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 
 export default {
 	name: 'ModalDialog',
-	components: { WnlModal },
+	components: { DsModal },
 	props: {
 		danger: {
 			type: Boolean,

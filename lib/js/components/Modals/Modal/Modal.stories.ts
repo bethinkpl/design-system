@@ -1,7 +1,7 @@
-import Modal from './DsModal.vue';
+import Modal from './Modal.vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
-import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './DsModal.consts';
+import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 

@@ -212,7 +212,7 @@ $image-height-small: 140px;
 	}
 
 	&__checkboxLabel {
-    @include formLabel-s-default-regular;
+		@include formLabel-s-default-regular;
 		color: $color-neutral-text-heavy;
 		cursor: pointer;
 		margin-left: $space-xxs;
@@ -285,7 +285,7 @@ $image-height-small: 140px;
 
 <script lang="ts">
 import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
-import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './DsModal.consts';
+import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
 import { VueConstructor } from 'vue';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
@@ -293,7 +293,7 @@ import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../..
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 
 export default {
-	name: 'DsModal',
+	name: 'Modal',
 	components: { FeatureIcon, WnlButton, WnlIconButton },
 	props: {
 		size: {
