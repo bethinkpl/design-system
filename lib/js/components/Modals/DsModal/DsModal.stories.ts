@@ -103,15 +103,23 @@ Interactive.parameters = {
 };
 
 const argsDanger = {
-	danger: true,
-	headerImage: '',
-	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
-	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
 	defaultSlot:
 		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
+	size: MODAL_SIZES.MEDIUM,
+	danger: true,
+	contentCentered: false,
+	headerImage: '',
+	headerTitleSize: MODAL_HEADER_TITLE_SIZES.MEDIUM,
+	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
+	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
+	headerFeatureIcon: 'FA_CIRCLE_EXCLAMATION',
+	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
+	footerPrimaryButtonIcon: null,
 	footerSecondaryButtonText: 'Secondary M',
+	footerSecondaryButtonIcon: null,
 	footerTertiaryButtonText: '',
+	footerTertiaryButtonIcon: null,
 	footerCheckboxText: '',
 } as Args;
 
@@ -120,17 +128,25 @@ Danger.argTypes = argTypes;
 Danger.args = argsDanger;
 
 const argsWithImage = {
-	headerImage:
-		'https://wiecejnizlek.pl/wp-content/uploads/2022/10/WNL-Strona-cover-dla-filmu-2-1.jpg',
-	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
-	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
 	defaultSlot:
 		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
-	footerPrimaryButtonText: 'Primary M',
-	footerSecondaryButtonText: 'Secondary M',
-	footerTertiaryButtonText: '',
-	footerCheckboxText: '',
+	size: MODAL_SIZES.MEDIUM,
+	danger: false,
+	contentCentered: false,
+	headerImage:
+		'https://wiecejnizlek.pl/wp-content/uploads/2022/10/WNL-Strona-cover-dla-filmu-2-1.jpg',
+	headerTitleSize: MODAL_HEADER_TITLE_SIZES.MEDIUM,
+	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
+	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
 	headerFeatureIcon: null,
+	headerFeatureIconColor: null,
+	footerPrimaryButtonText: 'Primary M',
+	footerPrimaryButtonIcon: null,
+	footerSecondaryButtonText: 'Secondary M',
+	footerSecondaryButtonIcon: null,
+	footerTertiaryButtonText: '',
+	footerTertiaryButtonIcon: null,
+	footerCheckboxText: '',
 } as Args;
 
 export const WithImage = StoryTemplate.bind({});

@@ -46,7 +46,13 @@ const args = {
 
 const argTypes = {
 	danger: { control: { type: 'boolean' }, defaultValue: false },
-	headerImage: { control: { type: 'text' } },
+	headerImage: {
+		control: { type: 'text' },
+		table: {
+			type: { summary: 'string' },
+			defaultValue: { summary: 'Hello' },
+		},
+	},
 	headerTitle: { control: { type: 'text' } },
 	headerSubtitle: { control: { type: 'text' } },
 	headerFeatureIcon: {
@@ -80,6 +86,8 @@ Interactive.parameters = {
 };
 
 const argsDanger = {
+	defaultSlot:
+		'Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.',
 	danger: true,
 	headerImage: '',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
@@ -87,8 +95,9 @@ const argsDanger = {
 	headerFeatureIcon: 'FA_CIRCLE_EXCLAMATION',
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
+	footerPrimaryButtonIcon: null,
 	footerSecondaryButtonText: 'Secondary M',
-	defaultSlot: '',
+	footerSecondaryButtonIcon: null,
 } as Args;
 
 export const Danger = StoryTemplate.bind({});
@@ -97,7 +106,8 @@ Danger.argTypes = argTypes;
 Danger.args = argsDanger;
 
 const argsWithImage = {
-	danger: true,
+	defaultSlot: '',
+	danger: false,
 	headerImage:
 		'https://wiecejnizlek.pl/wp-content/uploads/2022/10/WNL-Strona-cover-dla-filmu-2-1.jpg',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
@@ -105,8 +115,9 @@ const argsWithImage = {
 	headerFeatureIcon: 'FA_CIRCLE_EXCLAMATION',
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
+	footerPrimaryButtonIcon: null,
 	footerSecondaryButtonText: 'Secondary M',
-	defaultSlot: '',
+	footerSecondaryButtonIcon: null,
 } as Args;
 
 export const WithImage = StoryTemplate.bind({});
