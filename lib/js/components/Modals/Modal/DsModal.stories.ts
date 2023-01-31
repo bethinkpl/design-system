@@ -1,4 +1,4 @@
-import DsModal from './DsModal.vue';
+import Modal from './DsModal.vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './DsModal.consts';
@@ -6,22 +6,22 @@ import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './DsModal.consts';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
 export default {
-	title: 'Components/Modals/DsModal',
-	component: DsModal,
-} as Meta<typeof DsModal>;
+	title: 'Components/Modals/Modal',
+	component: Modal,
+} as Meta<typeof Modal>;
 
-const StoryTemplate: StoryFn<typeof DsModal> = (argTypes) => ({
-	components: { DsModal },
+const StoryTemplate: StoryFn<typeof Modal> = (argTypes) => ({
+	components: { Modal },
 	props: Object.keys(argTypes),
 	template:
-		'<ds-modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
+		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
 		':headerTitleSize="headerTitleSize" :headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :contentCentered="contentCentered" :headerFeatureIconColor="headerFeatureIconColor" ' +
 		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="footerPrimaryButtonIcon" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon" ' +
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="footerTertiaryButtonIcon" ' +
 		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage">' +
 		'{{ defaultSlot }}' +
-		'</ds-modal>',
+		'</modal>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

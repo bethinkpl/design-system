@@ -1,25 +1,27 @@
 <template>
-  <ds-modal
-    :size="MODAL_SIZES.SMALL"
-    :danger="danger"
-    :content-centered="true"
-    :header-image="headerImage"
-    :header-title-size="MODAL_HEADER_TITLE_SIZES.SMALL"
-    :header-feature-icon="headerFeatureIcon"
-    :header-feature-icon-color="headerFeatureIconColor"
-    :header-title="headerTitle"
-    :header-subtitle="headerSubtitle"
-    :footer-primary-button-text="footerPrimaryButtonText"
-    :footer-primary-button-icon="footerPrimaryButtonIcon"
-    :footer-secondary-button-text="footerSecondaryButtonText"
-    :footer-secondary-button-icon="footerSecondaryButtonIcon"
-    ><slot />
-  </ds-modal>
+	<div class="modalDialog">
+		<wnl-modal
+			:size="MODAL_SIZES.SMALL"
+			:danger="danger"
+			:content-centered="true"
+			:header-image="headerImage"
+			:header-title-size="MODAL_HEADER_TITLE_SIZES.SMALL"
+			:header-feature-icon="headerFeatureIcon"
+			:header-feature-icon-color="headerFeatureIconColor"
+			:header-title="headerTitle"
+			:header-subtitle="headerSubtitle"
+			:footer-primary-button-text="footerPrimaryButtonText"
+			:footer-primary-button-icon="footerPrimaryButtonIcon"
+			:footer-secondary-button-text="footerSecondaryButtonText"
+			:footer-secondary-button-icon="footerSecondaryButtonIcon"
+			><slot />
+		</wnl-modal>
+	</div>
 </template>
 
 <script lang="ts">
-import DsModal from '../DsModal/DsModal.vue';
-import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from '../DsModal';
+import WnlModal from '../Modal/DsModal.vue';
+import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from '../Modal';
 import { VueConstructor } from 'vue';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
@@ -27,8 +29,8 @@ import { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../../Buttons/Bu
 import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 
 export default {
-	name: 'DsModalDialog',
-	components: { DsModal },
+	name: 'ModalDialog',
+	components: { WnlModal },
 	props: {
 		danger: {
 			type: Boolean,
