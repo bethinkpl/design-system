@@ -131,11 +131,15 @@ $image-height-small: 140px;
 		border-radius: $radius-m;
 		box-shadow: $shadow-xl;
 		margin: 0 auto;
-		max-height: 80vh;
+		max-height: calc(100vh - #{2 * $space-l});
 		max-width: $modal-medium-width;
 		overflow-x: auto;
 		overflow-y: hidden;
 		position: relative;
+
+		@media #{breakpoint-s()} {
+			max-height: 84vh;
+		}
 
 		&.-small {
 			max-width: $modal-small-width;
