@@ -1,23 +1,22 @@
 <template>
-	<div class="modalDialog">
-		<ds-modal
-			:size="MODAL_SIZES.SMALL"
-			:danger="danger"
-			:content-centered="true"
-			:header-image="headerImage"
-			:header-title-size="MODAL_HEADER_TITLE_SIZES.SMALL"
-			:header-feature-icon="headerFeatureIcon"
-			:header-feature-icon-color="headerFeatureIconColor"
-			:header-title="headerTitle"
-			:header-subtitle="headerSubtitle"
-			:footer-primary-button-text="footerPrimaryButtonText"
-			:footer-primary-button-icon="footerPrimaryButtonIcon"
-			:footer-secondary-button-text="footerSecondaryButtonText"
-			:footer-secondary-button-icon="footerSecondaryButtonIcon"
-		>
-			<slot />
-		</ds-modal>
-	</div>
+	<ds-modal
+		class="modalDialog"
+		:size="MODAL_SIZES.SMALL"
+		:danger="danger"
+		:content-centered="true"
+		:header-image="headerImage"
+		:header-title-size="MODAL_HEADER_TITLE_SIZES.SMALL"
+		:header-feature-icon="headerFeatureIcon"
+		:header-feature-icon-color="headerFeatureIconColor"
+		:header-title="headerTitle"
+		:header-subtitle="headerSubtitle"
+		:footer-primary-button-text="footerPrimaryButtonText"
+		:footer-primary-button-icon="footerPrimaryButtonIcon"
+		:footer-secondary-button-text="footerSecondaryButtonText"
+		:footer-secondary-button-icon="footerSecondaryButtonIcon"
+	>
+		<slot />
+	</ds-modal>
 </template>
 
 <script lang="ts">
