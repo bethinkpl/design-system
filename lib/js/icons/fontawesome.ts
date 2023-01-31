@@ -328,7 +328,7 @@ export const FONTAWESOME_ICONS = {
 	FA_UNLOCK_KEYHOLE: faUnlockKeyhole,
 	FA_UPLOAD: faUpload,
 	FA_USER: faUser,
-	FA_USER_DOCTOR: fasUserDoctor,
+	FA_USER_DOCTOR_SOLID: fasUserDoctor,
 	FA_VIDEO_SOLID: fasVideo,
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
