@@ -23,10 +23,8 @@
 import DsModal from '../Modal/Modal.vue';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from '../Modal';
 import { VueConstructor } from 'vue';
-import { ICONS, ICON_SIZES } from '../../Icons/Icon';
-import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
-import { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../../Buttons/Button';
-import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
+import { ICONS } from '../../Icons/Icon';
+import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
 
 export default {
 	name: 'ModalDialog',
@@ -87,15 +85,8 @@ export default {
 	},
 	data() {
 		return {
-			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
-			BUTTON_ELEVATIONS: Object.freeze(BUTTON_ELEVATIONS),
-			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
-			ICONS: Object.freeze(ICONS),
-			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
 			MODAL_SIZES: Object.freeze(MODAL_SIZES),
 			MODAL_HEADER_TITLE_SIZES: Object.freeze(MODAL_HEADER_TITLE_SIZES),
-			FEATURE_ICON_SIZES: Object.freeze(FEATURE_ICON_SIZES),
 		};
 	},
 };
