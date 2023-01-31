@@ -1,25 +1,25 @@
-import ModalDialog from './ModalDialog.vue';
+import DsModalDialog from './DsModalDialog.vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
 export default {
-	title: 'Components/Modals/ModalDialog',
-	component: ModalDialog,
-} as Meta<typeof ModalDialog>;
+	title: 'Components/Modals/DsModalDialog',
+	component: DsModalDialog,
+} as Meta<typeof DsModalDialog>;
 
-const StoryTemplate: StoryFn<typeof ModalDialog> = (argTypes) => ({
-	components: { ModalDialog },
+const StoryTemplate: StoryFn<typeof DsModalDialog> = (argTypes) => ({
+	components: { DsModalDialog },
 	props: Object.keys(argTypes),
 	template:
-		'<modal-dialog :headerFeatureIcon="ICONS[headerFeatureIcon]" :danger="danger" ' +
+		'<ds-modal-dialog :headerFeatureIcon="ICONS[headerFeatureIcon]" :danger="danger" ' +
 		':headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :headerFeatureIconColor="headerFeatureIconColor" ' +
 		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="footerPrimaryButtonIcon" ' +
 		':headerImage="headerImage" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon">' +
 		'{{ defaultSlot }}' +
-		'</modal-dialog>',
+		'</ds-modal-dialog>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -99,7 +99,7 @@ Danger.args = argsDanger;
 const argsWithImage = {
 	danger: true,
 	headerImage:
-		'https://wiecejnizlek.pl/wp-content/themes/uncode-child/assets/patterns/pattern-black.png',
+		'https://wiecejnizlek.pl/wp-content/uploads/2022/10/WNL-Strona-cover-dla-filmu-2-1.jpg',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
 	headerFeatureIcon: 'FA_CIRCLE_EXCLAMATION',
