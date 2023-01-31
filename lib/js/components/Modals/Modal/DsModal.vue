@@ -1,15 +1,7 @@
 <template>
-	<div
-		class="ds-modal"
-		@click.stop="$emit('close-modal')"
-	>
+	<div class="ds-modal" @click.stop="$emit('close-modal')">
 		<div class="ds-modal__wrapper" :class="{ '-small': size === MODAL_SIZES.SMALL }">
-			<img
-				v-if="headerImage"
-				class="ds-modal__image"
-				:src="headerImage"
-			  alt=""
-      />
+			<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
 			<div class="ds-modal__content" :class="{ '-centered': contentCentered }">
 				<div class="ds-modal__header">
 					<wnl-icon-button
@@ -41,7 +33,11 @@
 				<div v-if="$slots.default" class="ds-modal__slotContent">
 					<slot />
 				</div>
-				<div v-if="displayFooter" class="ds-modal__footer" :class="{ '-singleColumn': calcSingleColumn }">
+				<div
+					v-if="displayFooter"
+					class="ds-modal__footer"
+					:class="{ '-singleColumn': calcSingleColumn }"
+				>
 					<div
 						v-if="footerTertiaryButtonText || footerCheckboxText"
 						class="ds-modal__footerColumn --ctaSecondary"
@@ -52,7 +48,8 @@
 								type="checkbox"
 								:checked="false"
 								class="ds-modal__checkboxInput"
-                @change="$emit('checkbox-change', $event.target.checked)"/>
+								@change="$emit('checkbox-change', $event.target.checked)"
+							/>
 							<label for="ds-modal__checkboxInput" class="ds-modal__checkboxLabel">
 								{{ footerCheckboxText }}
 							</label>
@@ -113,16 +110,16 @@ $image-height-small: 140px;
 .ds-modal {
 	$self: &;
 
-  align-items: center;
-  background: $color-default-overlay;
-  display: flex;
-  height: 100%;
-  justify-content: center;
-  z-index: $z-index-modal;
-  position: fixed;
-  width: 100%;
-  top:0;
-  left:0;
+	align-items: center;
+	background: $color-default-overlay;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	z-index: $z-index-modal;
+	position: fixed;
+	width: 100%;
+	top: 0;
+	left: 0;
 	padding: $space-l $space-s;
 
 	@media #{breakpoint-s()} {
@@ -134,27 +131,23 @@ $image-height-small: 140px;
 		border-radius: $radius-m;
 		box-shadow: $shadow-xl;
 		margin: 0 auto;
-    max-height: 80vh;
-    max-width: $modal-medium-width;
-    overflow-x: auto;
+		max-height: 80vh;
+		max-width: $modal-medium-width;
+		overflow-x: auto;
 		overflow-y: hidden;
 		position: relative;
 
 		&.-small {
 			max-width: $modal-small-width;
 
-			//#{$self}__image {
-			//	height: $image-height-small;
-			//}
-
 			#{$self}__content {
 				padding-left: $space-m;
 				padding-right: $space-m;
 			}
 
-      #{$self}__headerTitle {
-        @include heading-xl-default-bold;
-      }
+			#{$self}__headerTitle {
+				@include heading-xl-default-bold;
+			}
 		}
 	}
 
@@ -211,12 +204,11 @@ $image-height-small: 140px;
 		cursor: pointer;
 		display: flex;
 		align-items: center;
-    margin-top: $space-s;
+		margin-top: $space-s;
 
-    @media #{breakpoint-s()} {
-      margin-top: 0;
-    }
-
+		@media #{breakpoint-s()} {
+			margin-top: 0;
+		}
 	}
 
 	&__checkboxLabel {
@@ -236,7 +228,7 @@ $image-height-small: 140px;
 
 	&__image {
 		width: 100%;
-    display: block;
+		display: block;
 	}
 
 	&__footer {
@@ -260,10 +252,9 @@ $image-height-small: 140px;
 	&__footerColumn {
 		display: flex;
 		gap: 0 $space-s;
-    flex-direction: column-reverse;
+		flex-direction: column-reverse;
 
 		&.--cta {
-
 			margin-bottom: $space-xs;
 
 			@media #{breakpoint-s()} {
@@ -273,13 +264,13 @@ $image-height-small: 140px;
 		}
 
 		&.--ctaSecondary {
-      align-items: center;
+			align-items: center;
 			gap: 0 $space-m;
 			justify-content: center;
 
 			@media #{breakpoint-s()} {
 				justify-content: left;
-        flex-direction: row;
+				flex-direction: row;
 			}
 		}
 	}
@@ -296,7 +287,7 @@ $image-height-small: 140px;
 
 <script lang="ts">
 import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
-import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
+import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './DsModal.consts';
 import { VueConstructor } from 'vue';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
@@ -430,9 +421,14 @@ export default {
 				(this.footerSecondaryButtonText || this.footerPrimaryButtonText)
 			);
 		},
-    displayFooter() {
-      return this.footerTertiaryButtonText || this.footerCheckboxText || this.footerSecondaryButtonText || this.footerPrimaryButtonText;
-    }
+		displayFooter() {
+			return (
+				this.footerTertiaryButtonText ||
+				this.footerCheckboxText ||
+				this.footerSecondaryButtonText ||
+				this.footerPrimaryButtonText
+			);
+		},
 	},
 };
 </script>

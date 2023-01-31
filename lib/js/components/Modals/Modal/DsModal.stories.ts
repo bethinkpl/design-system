@@ -1,7 +1,7 @@
-import Modal from './Modal.vue';
+import Modal from './DsModal.vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
-import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
+import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './DsModal.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
@@ -87,7 +87,7 @@ const argTypes = {
 	footerTertiaryButtonText: { control: { type: 'text' } },
 	footerTertiaryButtonIcon: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: ICONS['FA_CHART_COLUMN'],
+		defaultValue: ICONS.FA_CHART_COLUMN,
 	},
 	footerCheckboxText: { control: { type: 'text' } },
 } as ArgTypes;

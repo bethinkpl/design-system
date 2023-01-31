@@ -14,13 +14,13 @@
 			:footer-primary-button-icon="footerPrimaryButtonIcon"
 			:footer-secondary-button-text="footerSecondaryButtonText"
 			:footer-secondary-button-icon="footerSecondaryButtonIcon"
-		><slot/>
-    </wnl-modal>
+			><slot />
+		</wnl-modal>
 	</div>
 </template>
 
 <script lang="ts">
-import WnlModal from '../Modal/Modal.vue';
+import WnlModal from '../Modal/DsModal.vue';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from '../Modal';
 import { VueConstructor } from 'vue';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon';

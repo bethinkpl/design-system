@@ -19,7 +19,7 @@ export { default as IconButton } from './components/Buttons/IconButton';
 export * from './components/Buttons/IconButton/IconButton.consts';
 export { default as Modal } from './components/Modal';
 export { default as DsModal } from './components/Modals/Modal';
-export * from './components/Modals/Modal/Modal.consts';
+export * from './components/Modals/Modal/DsModal.consts';
 export { default as ModalDialog } from './components/Modals/ModalDialog';
 export { default as NumberInCircle } from './components/NumberInCircle';
 export * from './components/NumberInCircle/NumberInCircle.consts';
