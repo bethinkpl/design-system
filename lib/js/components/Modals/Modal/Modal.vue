@@ -128,17 +128,22 @@ $image-height-small: 140px;
 
 	&__wrapper {
 		background: $color-default-background;
+		// keep in sync with margin on scrollbar
 		border-radius: $radius-m;
 		box-shadow: $shadow-xl;
 		margin: 0 auto;
 		max-height: calc(100vh - #{2 * $space-l});
 		max-width: $modal-medium-width;
-		overflow-x: auto;
-		overflow-y: hidden;
+		overflow-y: auto;
 		position: relative;
 
 		@media #{breakpoint-s()} {
 			max-height: 84vh;
+		}
+
+		&::-webkit-scrollbar-track {
+			// add vertical margin on scrollbars to avoid them being rendered beyond rounded corners of container
+			margin: $radius-m 0;
 		}
 
 		&.-small {
