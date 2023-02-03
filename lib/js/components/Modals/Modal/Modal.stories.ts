@@ -169,7 +169,7 @@ const argsSmallHeaderAndCentered = {
 	footerPrimaryButtonIcon: null,
 	footerSecondaryButtonText: 'Secondary M',
 	footerSecondaryButtonIcon: null,
-	footerTertiaryButtonText: 'Tertiary M',
+	footerTertiaryButtonText: '',
 	footerTertiaryButtonIcon: null,
 	footerCheckboxText: '',
 } as Args;

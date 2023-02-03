@@ -145,9 +145,11 @@ $image-height-small: 140px;
 		&.-small {
 			max-width: $modal-small-width;
 
-			#{$self}__content {
-				padding-left: $space-m;
-				padding-right: $space-m;
+			@media #{breakpoint-s()} {
+				#{$self}__content {
+					padding-left: $space-m;
+					padding-right: $space-m;
+				}
 			}
 
 			#{$self}__headerTitle {
@@ -191,10 +193,14 @@ $image-height-small: 140px;
 	}
 
 	&__headerTitle {
-		@include displayHeading-xs-default-bold;
+		@include heading-xl-default-bold;
 
 		margin-bottom: $space-xs;
 		margin-top: 0;
+
+		@media #{breakpoint-s()} {
+			@include displayHeading-xs-default-bold;
+		}
 
 		&.-small {
 			@include heading-xl-default-bold;
@@ -268,7 +274,10 @@ $image-height-small: 140px;
 		flex-direction: column-reverse;
 
 		&.--cta {
-			margin-bottom: $space-xs;
+			&:not(:first-child) {
+				// first-child because of reverse order in flex-direction
+				margin-bottom: $space-xs;
+			}
 
 			@media #{breakpoint-s()} {
 				flex-direction: row;
@@ -289,7 +298,10 @@ $image-height-small: 140px;
 	}
 
 	&__buttonPrimary {
-		margin-bottom: $space-s;
+		&:not(:first-child) {
+			// first-child because of reverse order in flex-direction
+			margin-bottom: $space-s;
+		}
 
 		@media #{breakpoint-s()} {
 			margin-bottom: 0;
