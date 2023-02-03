@@ -274,14 +274,17 @@ $image-height-small: 140px;
 		flex-direction: column-reverse;
 
 		&.--cta {
+			@media #{breakpoint-s()} {
+				flex-direction: row;
+			}
+
 			&:not(:first-child) {
 				// first-child because of reverse order in flex-direction
 				margin-bottom: $space-xs;
-			}
 
-			@media #{breakpoint-s()} {
-				flex-direction: row;
-				margin-bottom: 0;
+				@media #{breakpoint-s()} {
+					margin-bottom: 0;
+				}
 			}
 		}
 
@@ -301,10 +304,10 @@ $image-height-small: 140px;
 		&:not(:first-child) {
 			// first-child because of reverse order in flex-direction
 			margin-bottom: $space-s;
-		}
 
-		@media #{breakpoint-s()} {
-			margin-bottom: 0;
+			@media #{breakpoint-s()} {
+				margin-bottom: 0;
+			}
 		}
 	}
 }
