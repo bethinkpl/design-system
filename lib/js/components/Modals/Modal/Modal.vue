@@ -1,0 +1,462 @@
+<template>
+	<div class="ds-modal" @click.stop="$emit('close-modal')">
+		<div class="ds-modal__wrapper" :class="{ '-small': size === MODAL_SIZES.SMALL }">
+			<wnl-icon-button
+				touchable
+				:icon="ICONS.FA_XMARK"
+				class="ds-modal__close"
+				:size="ICON_SIZES.SMALL"
+				:elevation="BUTTON_ELEVATIONS.X_SMALL"
+				:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
+				@click.native.stop="$emit('close-modal')"
+			/>
+			<div class="ds-modal__scrollableWrapper">
+				<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
+				<div class="ds-modal__content" :class="{ '-centered': contentCentered }">
+					<div class="ds-modal__header">
+						<feature-icon
+							v-if="headerFeatureIcon"
+							class="ds-modal__headerFeatureIcon"
+							:color="calcHeaderFeatureIconColor"
+							:icon="headerFeatureIcon"
+							:size="FEATURE_ICON_SIZES.X_LARGE"
+							double-background
+						/>
+						<h4
+							class="ds-modal__headerTitle"
+							:class="{
+								'-small': headerTitleSize === MODAL_HEADER_TITLE_SIZES.SMALL,
+							}"
+							>{{ headerTitle }}</h4
+						>
+						<h5 v-if="headerSubtitle" class="ds-modal__headerSubtitle">{{
+							headerSubtitle
+						}}</h5>
+					</div>
+					<div v-if="$slots.default" class="ds-modal__slotContent">
+						<slot />
+					</div>
+					<div
+						v-if="displayFooter"
+						class="ds-modal__footer"
+						:class="{ '-singleColumn': calcSingleColumn }"
+					>
+						<div
+							v-if="footerTertiaryButtonText || footerCheckboxText"
+							class="ds-modal__footerColumn --ctaSecondary"
+						>
+							<div v-if="footerCheckboxText" class="ds-modal__checkbox">
+								<input
+									id="ds-modal__checkboxInput"
+									type="checkbox"
+									:checked="false"
+									class="ds-modal__checkboxInput"
+									@change="$emit('checkbox-change', $event.target.checked)"
+								/>
+								<label
+									for="ds-modal__checkboxInput"
+									class="ds-modal__checkboxLabel"
+								>
+									{{ footerCheckboxText }}
+								</label>
+							</div>
+							<wnl-button
+								v-if="footerTertiaryButtonText"
+								class="ds-modal__buttonSecondary"
+								:type="BUTTON_TYPES.TEXT"
+								:color="BUTTON_COLORS.NEUTRAL"
+								:icon-left="footerTertiaryButtonIcon"
+							>
+								{{ footerTertiaryButtonText }}
+							</wnl-button>
+						</div>
+						<div
+							v-if="footerSecondaryButtonText || footerPrimaryButtonText"
+							class="ds-modal__footerColumn --cta"
+						>
+							<wnl-button
+								v-if="footerSecondaryButtonText"
+								class="ds-modal__buttonSecondary"
+								:type="BUTTON_TYPES.OUTLINED"
+								:color="calcFooterSecondaryButtonColor"
+								:icon-right="footerSecondaryButtonIcon"
+							>
+								{{ footerSecondaryButtonText }}
+							</wnl-button>
+							<wnl-button
+								v-if="footerPrimaryButtonText"
+								class="ds-modal__buttonPrimary"
+								:color="calcFooterPrimaryButtonColor"
+								:icon-right="footerPrimaryButtonIcon"
+							>
+								{{ footerPrimaryButtonText }}
+							</wnl-button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<style lang="scss" scoped>
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/radiuses';
+@import '../../../../styles/settings/shadows';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/icons';
+@import '../../../../styles/settings/media-queries';
+@import '../../../../styles/settings/z-indexes';
+
+$modal-medium-width: 700px;
+$modal-small-width: 460px;
+$image-height: 200px;
+$image-height-small: 140px;
+
+.ds-modal {
+	$self: &;
+
+	align-items: center;
+	background: $color-default-overlay;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	left: 0;
+	padding: $space-l $space-s;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: $z-index-modal;
+
+	@media #{breakpoint-s()} {
+		padding: $space-l;
+	}
+
+	&__wrapper {
+		background: $color-default-background;
+		border-radius: $radius-m;
+		box-shadow: $shadow-xl;
+		margin: 0 auto;
+		max-width: $modal-medium-width;
+		overflow: hidden;
+		position: relative;
+
+		&.-small {
+			max-width: $modal-small-width;
+
+			@media #{breakpoint-s()} {
+				#{$self}__content {
+					padding-left: $space-m;
+					padding-right: $space-m;
+				}
+			}
+
+			#{$self}__headerTitle {
+				@include heading-xl-default-bold;
+			}
+		}
+	}
+
+	&__scrollableWrapper {
+		max-height: calc(100vh - #{2 * $space-l});
+		overflow-y: auto;
+
+		@media #{breakpoint-s()} {
+			max-height: 84vh;
+		}
+	}
+
+	&__content {
+		padding: $space-l $space-s;
+
+		@media #{breakpoint-s()} {
+			padding: $space-l $space-xl;
+		}
+
+		&.-centered {
+			#{$self}__header,
+			#{$self}__slotContent {
+				text-align: center;
+			}
+		}
+	}
+
+	&__header {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__headerFeatureIcon {
+		align-self: center;
+		margin-bottom: $space-m;
+	}
+
+	&__headerTitle {
+		@include heading-xl-default-bold;
+
+		margin-bottom: $space-xs;
+		margin-top: 0;
+
+		@media #{breakpoint-s()} {
+			@include displayHeading-xs-default-bold;
+		}
+
+		&.-small {
+			@include heading-xl-default-bold;
+		}
+	}
+
+	&__headerSubtitle {
+		@include heading-m-default-regular;
+
+		margin-bottom: $space-s;
+		margin-top: 0;
+	}
+
+	&__slotContent {
+		@include text-m-default-regular;
+
+		margin-bottom: $space-xs;
+	}
+
+	&__checkbox {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		margin-top: $space-s;
+
+		@media #{breakpoint-s()} {
+			margin-top: 0;
+		}
+	}
+
+	&__checkboxLabel {
+		@include formLabel-s-default-regular;
+
+		color: $color-neutral-text-heavy;
+		cursor: pointer;
+		margin-left: $space-xxs;
+	}
+
+	&__close {
+		position: absolute;
+		right: $space-xxxs;
+		top: $space-xxxs;
+	}
+
+	&__image {
+		width: 100%;
+		display: block;
+	}
+
+	&__footer {
+		display: flex;
+		justify-content: space-between;
+		flex-direction: column-reverse;
+		padding-top: $space-m;
+
+		@media #{breakpoint-s()} {
+			flex-direction: row;
+		}
+
+		&.-singleColumn {
+			#{$self}__footerColumn {
+				width: 100%;
+				justify-content: center;
+			}
+		}
+	}
+
+	&__footerColumn {
+		display: flex;
+		gap: 0 $space-s;
+		flex-direction: column-reverse;
+
+		&.--cta {
+			@media #{breakpoint-s()} {
+				flex-direction: row;
+			}
+
+			&:not(:first-child) {
+				// first-child because of reverse order in flex-direction
+				margin-bottom: $space-xs;
+
+				@media #{breakpoint-s()} {
+					margin-bottom: 0;
+				}
+			}
+		}
+
+		&.--ctaSecondary {
+			align-items: center;
+			gap: 0 $space-m;
+			justify-content: center;
+
+			@media #{breakpoint-s()} {
+				justify-content: left;
+				flex-direction: row;
+			}
+		}
+	}
+
+	&__buttonPrimary {
+		&:not(:first-child) {
+			// first-child because of reverse order in flex-direction
+			margin-bottom: $space-s;
+
+			@media #{breakpoint-s()} {
+				margin-bottom: 0;
+			}
+		}
+	}
+}
+</style>
+
+<script lang="ts">
+import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
+import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
+import { VueConstructor } from 'vue';
+import { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
+import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../../Buttons/Button';
+import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
+
+export default {
+	name: 'Modal',
+	components: { FeatureIcon, WnlButton, WnlIconButton },
+	props: {
+		size: {
+			type: String,
+			default: MODAL_SIZES.MEDIUM,
+			validator: (value: string) => Object.values(MODAL_SIZES).includes(value),
+		},
+		danger: {
+			type: Boolean,
+			default: false,
+		},
+		headerTitleSize: {
+			type: String,
+			default: MODAL_HEADER_TITLE_SIZES.MEDIUM,
+			validator: (value: string) => Object.values(MODAL_HEADER_TITLE_SIZES).includes(value),
+		},
+		headerTitle: {
+			type: String,
+			required: true,
+		},
+		headerSubtitle: {
+			type: String,
+			default: null,
+		},
+		headerFeatureIcon: {
+			type: Object,
+			default: null,
+			validator(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
+		},
+		headerFeatureIconColor: {
+			type: String,
+			default: FEATURE_ICON_COLOR.NEUTRAL,
+			validator(color: string) {
+				return Object.values(FEATURE_ICON_COLOR).includes(color);
+			},
+		},
+		contentCentered: {
+			type: Boolean,
+			default: false,
+		},
+		headerImage: {
+			type: String,
+			default: null,
+		},
+		footerPrimaryButtonText: {
+			type: String,
+			default: null,
+		},
+		footerPrimaryButtonIcon: {
+			type: Object,
+			default: null,
+			validator(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
+		},
+		footerSecondaryButtonText: {
+			type: String,
+			default: null,
+		},
+		footerSecondaryButtonIcon: {
+			type: Object,
+			default: null,
+			validator(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
+		},
+		footerTertiaryButtonText: {
+			type: String,
+			default: null,
+		},
+		footerTertiaryButtonIcon: {
+			type: Object,
+			default: null,
+			validator(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
+		},
+		footerCheckboxText: {
+			type: String,
+			default: null,
+		},
+	},
+	data() {
+		return {
+			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
+			BUTTON_ELEVATIONS: Object.freeze(BUTTON_ELEVATIONS),
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			MODAL_SIZES: Object.freeze(MODAL_SIZES),
+			MODAL_HEADER_TITLE_SIZES: Object.freeze(MODAL_HEADER_TITLE_SIZES),
+			FEATURE_ICON_SIZES: Object.freeze(FEATURE_ICON_SIZES),
+		};
+	},
+	computed: {
+		calcHeaderFeatureIconColor() {
+			if (this.danger) {
+				return FEATURE_ICON_COLOR.DANGER;
+			}
+
+			return this.headerFeatureIconColor;
+		},
+		calcFooterPrimaryButtonColor() {
+			if (this.danger) {
+				return BUTTON_COLORS.NEUTRAL;
+			}
+
+			return BUTTON_COLORS.PRIMARY;
+		},
+		calcFooterSecondaryButtonColor() {
+			if (this.danger) {
+				return BUTTON_COLORS.DANGER;
+			}
+
+			return BUTTON_COLORS.NEUTRAL;
+		},
+		calcSingleColumn() {
+			return !(
+				(this.footerTertiaryButtonText || this.footerCheckboxText) &&
+				(this.footerSecondaryButtonText || this.footerPrimaryButtonText)
+			);
+		},
+		displayFooter() {
+			return (
+				this.footerTertiaryButtonText ||
+				this.footerCheckboxText ||
+				this.footerSecondaryButtonText ||
+				this.footerPrimaryButtonText
+			);
+		},
+	},
+};
+</script>

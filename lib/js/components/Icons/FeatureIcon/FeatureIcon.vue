@@ -97,7 +97,7 @@ $feature-icon-padding-large: 10px;
 	border-radius: 100%;
 	border-style: solid;
 	border-width: $space-xxxs;
-	display: inline-block;
+	display: inline-flex;
 	padding: $space-xxxs;
 
 	&.-small {
@@ -110,7 +110,7 @@ $feature-icon-padding-large: 10px;
 		padding: $feature-icon-padding-large;
 	}
 
-	&.-x-large {
+	&.-xLarge {
 		border-width: $space-xxs;
 		padding: $space-xs;
 	}
