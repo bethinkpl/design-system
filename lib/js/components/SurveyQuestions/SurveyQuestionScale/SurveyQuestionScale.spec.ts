@@ -13,7 +13,6 @@ describe('SurveyQuestionScale', () => {
 		explanation = '',
 	} = {}) => {
 		return mount(SurveyQuestionScale, {
-			mocks: {},
 			props: {
 				scaleOptions,
 				title,

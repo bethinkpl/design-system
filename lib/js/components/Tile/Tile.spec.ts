@@ -23,7 +23,6 @@ const createComponent = function ({
 			iconRight,
 			isEyebrowTextUppercase,
 		},
-		stubs: {},
 	});
 };
 

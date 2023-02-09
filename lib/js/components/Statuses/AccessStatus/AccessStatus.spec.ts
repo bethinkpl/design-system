@@ -8,11 +8,9 @@ import Icon from '../../Icon/Icon.vue';
 describe('AccessStatus', () => {
 	const createComponent = (status) => {
 		return shallowMount(AccessStatus, {
-			mocks: {},
 			props: {
 				status,
 			},
-			stubs: {},
 		});
 	};
 
