@@ -121,6 +121,7 @@ export default {
 			},
 		},
 	},
+	emits: ['input'],
 	data() {
 		return {
 			showModal: false,
@@ -132,6 +133,5 @@ export default {
 			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
 		};
 	},
-	emits: ['input'],
 };
 </script>

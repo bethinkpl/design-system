@@ -13,7 +13,7 @@ import { ICONS } from '../../Icon';
 describe('Button', () => {
 	const createComponent = (props = {}) => {
 		return shallowMount(Button, {
-			props: props,
+			props,
 			slots: {
 				default: 'Hello',
 			},
