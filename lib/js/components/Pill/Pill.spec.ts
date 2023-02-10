@@ -22,7 +22,7 @@ describe('Pill', () => {
 		color = PILL_COLORS.NEUTRAL,
 	}: createComponentOptions = {}) => {
 		return shallowMount(Pill, {
-			propsData: {
+			props: {
 				label,
 				leftIcon,
 				hasDelete,
@@ -55,7 +55,9 @@ describe('Pill', () => {
 		const component = createComponent({ leftIcon: ICONS.FA_TAG });
 
 		expect(component.find('.pill__leftIcon').exists()).toBe(true);
-		expect(component.find('.pill__leftIcon').props().icon).toBe(ICONS.FA_TAG);
+		expect(component.findComponent<typeof Pill>('.pill__leftIcon').props().icon).toEqual(
+			ICONS.FA_TAG,
+		);
 	});
 
 	it("doesn't render leftIcon by default", () => {
@@ -67,7 +69,7 @@ describe('Pill', () => {
 	it('renders delete', () => {
 		const component = createComponent({ hasDelete: true });
 
-		const deleteButton = component.find('.pill__delete');
+		const deleteButton = component.findComponent<typeof Pill>('.pill__delete');
 		expect(deleteButton.exists()).toBe(true);
 		expect(deleteButton.props().icon).toBe(ICONS.FA_XMARK);
 

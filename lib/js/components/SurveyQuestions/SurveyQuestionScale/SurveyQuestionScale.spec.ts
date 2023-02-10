@@ -1,4 +1,4 @@
-import { createLocalVue, mount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 
 import SurveyQuestionScale from './SurveyQuestionScale.vue';
 import { SURVEY_TOGGLE_MEANINGS } from '../../SurveyToggle';
@@ -9,24 +9,18 @@ describe('SurveyQuestionScale', () => {
 		elaborationLabel = '',
 		elaborationValue = '',
 		title = '',
-		content = '',
-		scaleOptions = [] as Array<unknown>,
+		scaleOptions = [] as Array<SurveyQuestionScaleOption>,
 		explanation = '',
 	} = {}) => {
-		const localVue = createLocalVue();
-
 		return mount(SurveyQuestionScale, {
-			localVue,
-			mocks: {},
-			propsData: {
-				content,
+			props: {
 				scaleOptions,
 				title,
 				elaborationLabel,
 				elaborationValue,
 			},
 			slots: {
-				explanation,
+				...(explanation !== '' && { explanation }),
 			},
 		});
 	};
@@ -36,19 +30,16 @@ describe('SurveyQuestionScale', () => {
 			value: '1',
 			label: 'Nie zgadzam się',
 			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-			content: '1',
 		},
 		{
 			value: '2',
 			label: 'Trochę się nie zgadzam',
 			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-			content: '2',
 		},
 		{
 			value: '3',
 			label: 'Trochę się zgadzam',
 			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-			content: '3',
 		},
 		{
 			value: '4',

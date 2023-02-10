@@ -1,14 +1,11 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import Pagination from './Pagination.vue';
 
 describe('Pagination', () => {
 	const createComponent = ({ currentPage = 1, itemsTotalAmount = 30 } = {}) => {
-		const localVue = createLocalVue();
-
 		return shallowMount(Pagination, {
-			localVue,
-			propsData: {
+			props: {
 				currentPage,
 				itemsTotalAmount,
 			},
@@ -102,7 +99,7 @@ describe('Pagination', () => {
 	])('should calculate correct pagination for %o', ({ props, expected }) => {
 		const component = createComponent(props);
 		const elements: Array<string> = [];
-		component.findAll('.ds-pagination__itemWrapper').wrappers.forEach((element) => {
+		component.findAll('.ds-pagination__itemWrapper').forEach((element) => {
 			elements.push(element.text().trim());
 		});
 		expect(elements).toEqual(expected);

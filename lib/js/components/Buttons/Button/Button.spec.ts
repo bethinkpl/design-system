@@ -13,7 +13,7 @@ import { ICONS } from '../../Icon';
 describe('Button', () => {
 	const createComponent = (props = {}) => {
 		return shallowMount(Button, {
-			propsData: props,
+			props,
 			slots: {
 				default: 'Hello',
 			},
@@ -54,11 +54,15 @@ describe('Button', () => {
 	it('should render icon', () => {
 		const leftIcon = createComponent({ 'icon-left': ICONS.FA_XMARK });
 		expect(leftIcon.find('.a-button__icon.-left').exists()).toBe(true);
-		expect(leftIcon.find('.a-button__icon.-left').props().icon).toBe(ICONS.FA_XMARK);
+		expect(leftIcon.findComponent<typeof Button>('.a-button__icon.-left').props().icon).toEqual(
+			ICONS.FA_XMARK,
+		);
 
 		const rightIcon = createComponent({ 'icon-right': ICONS.FA_CLOCK });
 		expect(rightIcon.find('.a-button__icon.-right').exists()).toBe(true);
-		expect(rightIcon.find('.a-button__icon.-right').props().icon).toBe(ICONS.FA_CLOCK);
+		expect(
+			rightIcon.findComponent<typeof Button>('.a-button__icon.-right').props().icon,
+		).toEqual(ICONS.FA_CLOCK);
 	});
 
 	it('correct slot content', () => {

@@ -26,10 +26,10 @@ module.exports = {
 		indentation: 'tab',
 		'value-list-comma-newline-after': null,
 		'declaration-colon-newline-after': null,
-		'selector-pseudo-element-no-unknown': [
+		'selector-pseudo-class-no-unknown': [
 			true,
 			{
-				ignorePseudoElements: ['v-deep'],
+				ignorePseudoClasses: ['deep'],
 			},
 		],
 		'value-keyword-case': [
