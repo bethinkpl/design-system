@@ -8,7 +8,7 @@
 				:size="ICON_SIZES.SMALL"
 				:elevation="BUTTON_ELEVATIONS.X_SMALL"
 				:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
-				@click.native.stop="$emit('close-modal')"
+				@click.stop="$emit('close-modal')"
 			/>
 			<div class="ds-modal__scrollableWrapper">
 				<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
