@@ -1,18 +1,20 @@
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+
 import Modal from './Modal.vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
-
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
 export default {
 	title: 'Components/Modals/Modal',
 	component: Modal,
 } as Meta<typeof Modal>;
 
-const StoryTemplate: StoryFn<typeof Modal> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 	components: { Modal },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
 		':headerTitleSize="headerTitleSize" :headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :contentCentered="contentCentered" :headerFeatureIconColor="headerFeatureIconColor" ' +
