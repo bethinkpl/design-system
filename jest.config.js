@@ -19,12 +19,6 @@ module.exports = {
 	moduleFileExtensions: ['js', 'vue', 'json', 'ts'],
 
 	setupFilesAfterEnv: ['<rootDir>/lib/js/typings.d.ts', '<rootDir>/lib/js/tests/globals.ts'],
-	globals: {
-		'ts-jest': {
-			tsconfig: './tsconfig.json',
-			isolatedModules: true,
-		},
-	},
 	testEnvironmentOptions: {
 		customExportConditions: ['node', 'node-addons'],
 	},
