@@ -1,7 +1,7 @@
 import { ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import IconList from './IconList.vue';
 import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 export default {
 	title: 'Components/IconList',

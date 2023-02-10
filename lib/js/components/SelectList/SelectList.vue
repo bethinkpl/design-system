@@ -39,7 +39,7 @@
 		}
 
 		&.-text {
-			@include label-xl-regular();
+			@include label-xl-default-regular;
 
 			color: $color-neutral-text-heavy;
 			display: flex;
@@ -86,7 +86,7 @@ import Ripple from 'vue-ripple-directive';
 import { PropType } from 'vue';
 
 import { SELECT_LIST_SIZES } from './SelectList.consts';
-import DsIcon, { ICON_SIZES } from '../Icon';
+import DsIcon, { ICON_SIZES } from '../Icons/Icon';
 import { SelectListItem } from './SelectList.domain';
 import Divider from '../Divider/Divider.vue';
 

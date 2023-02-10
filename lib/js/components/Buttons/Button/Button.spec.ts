@@ -8,7 +8,7 @@ import {
 	BUTTON_STATES,
 	BUTTON_TYPES,
 } from './Button.consts';
-import { ICONS } from '../../Icon';
+import { ICONS } from '../../Icons/Icon';
 
 describe('Button', () => {
 	const createComponent = (props = {}) => {

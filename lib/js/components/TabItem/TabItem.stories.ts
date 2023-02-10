@@ -1,5 +1,5 @@
 import TabItem from './TabItem.vue';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 

@@ -103,7 +103,7 @@ $toggle-button-colors: (
 }
 
 .toggleButton {
-	@include label-l-bold();
+	@include label-l-default-bold;
 
 	@each $color-name, $color-map in $toggle-button-colors {
 		&.-color-#{$color-name} {

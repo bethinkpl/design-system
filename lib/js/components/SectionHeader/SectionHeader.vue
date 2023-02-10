@@ -109,7 +109,7 @@ $icons-and-slot-min-height-l: 50px;
 
 	&.-size-l {
 		#{$root}__titleWrapper {
-			@include heading-xl-bold();
+			@include heading-xl-default-bold;
 		}
 
 		#{$root}__iconLeft {
@@ -137,7 +137,7 @@ $icons-and-slot-min-height-l: 50px;
 
 	&.-size-m {
 		#{$root}__titleWrapper {
-			@include heading-l-bold();
+			@include heading-l-default-bold;
 		}
 
 		#{$root}__iconLeft {
@@ -157,7 +157,7 @@ $icons-and-slot-min-height-l: 50px;
 
 <script lang="ts">
 import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
-import DsIcon, { IconItem, ICONS, ICON_SIZES } from '../Icon';
+import DsIcon, { IconItem, ICONS, ICON_SIZES } from '../Icons/Icon';
 
 export default {
 	name: 'SectionHeader',

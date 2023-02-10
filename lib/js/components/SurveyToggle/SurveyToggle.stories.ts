@@ -4,7 +4,7 @@ import {
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from './SurveyToggle.consts';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 

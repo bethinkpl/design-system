@@ -46,7 +46,7 @@
 	}
 
 	&.-xSmall {
-		@include label-s-regular();
+		@include label-s-default-regular;
 
 		#{$root}__icon {
 			margin-right: $space-xxxxs;
@@ -54,7 +54,7 @@
 	}
 
 	&.-small {
-		@include label-m-regular();
+		@include label-m-default-regular;
 
 		#{$root}__icon {
 			margin-top: $space-xxxxxs;
@@ -62,13 +62,13 @@
 	}
 
 	&.-medium {
-		@include label-l-regular();
+		@include label-l-default-regular;
 	}
 }
 </style>
 
 <script lang="ts">
-import Icon, { ICON_SIZES, ICONS } from '../Icon';
+import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
 
 export default {

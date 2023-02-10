@@ -377,6 +377,7 @@ declare const _default: Meta<{
                             readonly FA_UNLOCK_KEYHOLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_UPLOAD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_USER: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                            readonly FA_USER_DOCTOR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_VIDEO_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_VOLUME_HIGH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -647,6 +648,7 @@ declare const _default: Meta<{
                     readonly FA_UNLOCK_KEYHOLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_UPLOAD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_USER: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_USER_DOCTOR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_VIDEO_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_VOLUME_HIGH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -903,6 +905,7 @@ declare const _default: Meta<{
             readonly FA_UNLOCK_KEYHOLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_UPLOAD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_USER: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_USER_DOCTOR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_VIDEO_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_VOLUME_HIGH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1321,6 +1324,7 @@ export declare const Interactive: StoryFn<{
                             readonly FA_UNLOCK_KEYHOLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_UPLOAD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_USER: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                            readonly FA_USER_DOCTOR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_VIDEO_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_VOLUME_HIGH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1591,6 +1595,7 @@ export declare const Interactive: StoryFn<{
                     readonly FA_UNLOCK_KEYHOLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_UPLOAD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_USER: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_USER_DOCTOR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_VIDEO_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_VOLUME_HIGH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1847,6 +1852,7 @@ export declare const Interactive: StoryFn<{
             readonly FA_UNLOCK_KEYHOLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_UPLOAD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_USER: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_USER_DOCTOR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_VIDEO_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_VOLUME_HIGH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_WAND_MAGIC_SPARKLES: import("@fortawesome/fontawesome-common-types").IconDefinition;

@@ -16,7 +16,7 @@
 </template>
 
 <style lang="scss">
-@import '../../../styles/components/icons';
+@import '../../../../styles/components/icons';
 </style>
 
 <script lang="ts">

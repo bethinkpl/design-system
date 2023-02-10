@@ -89,7 +89,7 @@ describe('Typography Tokens', () => {
 		);
 		let variableFileTokensSplit = variableFileTokens.split(/\r?\n/);
 		expect(variableFileTokensSplit[0]).toBe("@import 'variables';");
-		expect(variableFileTokensSplit[3]).toBe('\t--token: displayHeading-m-regular;');
+		expect(variableFileTokensSplit[3]).toBe('\t--token: displayHeading-m-default-regular;');
 
 		unlinkSync(
 			tokensFilesConfig.destinationPath + tokensFilesConfig.bin.files.tokens.destination,
@@ -102,7 +102,7 @@ describe('Typography Tokens', () => {
 		let variableFileJsonTokensSplit = JSON.parse(variableFileJsonTokens);
 
 		expect(variableFileJsonTokensSplit.DisplayHeading[0].token).toBe(
-			'displayHeading-m-regular',
+			'displayHeading-m-default-regular',
 		);
 		expect(variableFileJsonTokensSplit.DisplayHeading[0].attributes).toContain('font-size-4xl');
 

@@ -54,7 +54,7 @@
 import Ripple from 'vue-ripple-directive';
 import { Value } from '../../../utils/type.utils';
 
-import WnlIcon, { ICONS, ICON_SIZES } from '../../Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,

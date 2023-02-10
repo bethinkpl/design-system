@@ -96,7 +96,7 @@ $pill-colors: (
 	padding: $space-xxxxxs $space-xxxxxs $space-xxxxxs $space-xxs;
 
 	&__label {
-		@include label-s-bold();
+		@include label-s-default-bold;
 
 		overflow: hidden;
 		margin: $space-xxxxxs $space-xxxs $space-xxxxxs 0;
@@ -117,7 +117,7 @@ $pill-colors: (
 		}
 
 		#{$self}__label {
-			@include label-xs-bold();
+			@include label-xs-default-bold;
 
 			margin: 0 $space-xxxxs 0 0;
 		}
@@ -128,7 +128,7 @@ $pill-colors: (
 <script lang="ts">
 import { PILL_SIZES, PILL_COLORS } from './Pill.consts';
 import IconButton, { ICON_BUTTON_SIZES, ICON_BUTTON_COLORS } from '../Buttons/IconButton';
-import Icon, { ICONS, ICON_SIZES } from '../Icon';
+import Icon, { ICONS, ICON_SIZES } from '../Icons/Icon';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 
 const PILL_ICON_BUTTONS_COLOR_MAP = {

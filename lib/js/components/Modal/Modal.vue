@@ -34,7 +34,7 @@
 @import '../../../styles/settings/typography/tokens';
 
 .m-modal {
-	@include text-l-regular();
+	@include text-l-default-regular;
 
 	align-items: center;
 	background-color: rgba(10, 10, 10, 0.85);
@@ -102,7 +102,7 @@
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
+import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
 export default {
 	name: 'Modal',

@@ -1,6 +1,6 @@
 import Banner from './Banner.vue';
 import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
-import { ICONS } from '../Icon';
+import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 

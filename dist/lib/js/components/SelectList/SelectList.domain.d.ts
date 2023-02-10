@@ -1,4 +1,4 @@
-import { IconItem } from '../Icon';
+import { IconItem } from '../Icons/Icon';
 interface SelectListItemDivider {
     type: 'divider';
 }

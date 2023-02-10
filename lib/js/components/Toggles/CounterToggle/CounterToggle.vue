@@ -272,7 +272,7 @@ $counter-toggle-colors: (
 <script lang="ts">
 import Ripple from 'vue-ripple-directive';
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
-import Icon, { ICON_SIZES, ICONS } from '../../Icon';
+import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
 export default {
 	name: 'CounterToggle',

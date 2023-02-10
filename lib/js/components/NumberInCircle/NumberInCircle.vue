@@ -18,7 +18,7 @@
 @import '../../../styles/settings/typography/tokens';
 
 .a-numberInCircle {
-	@include label-2xl-regular();
+	@include label-2xl-default-regular;
 
 	align-items: center;
 	border-radius: 50%;
@@ -77,7 +77,7 @@
 	}
 
 	&.-medium {
-		@include label-m-regular();
+		@include label-m-default-regular;
 
 		height: $icon-l;
 		min-width: $icon-l;

@@ -163,7 +163,7 @@ $tile-colors: (
 	}
 
 	&__additionalText {
-		@include info-s-regular();
+		@include info-s-default-regular;
 
 		color: $color-neutral-text;
 		flex-grow: 1;
@@ -180,7 +180,7 @@ $tile-colors: (
 	}
 
 	&__eyebrowText {
-		@include info-m-bold();
+		@include info-m-default-bold;
 
 		&.-uppercase {
 			@include info-m-extensive-bold-uppercase();
@@ -194,7 +194,7 @@ $tile-colors: (
 	}
 
 	&__text {
-		@include text-m-bold();
+		@include text-m-default-bold;
 
 		color: $color-neutral-text-heavy;
 		margin-top: $space-xxxxs;
@@ -222,7 +222,7 @@ $tile-colors: (
 
 <script lang="ts">
 import DsRipple, { RIPPLE_COLORS } from '../Ripple';
-import DsIcon, { ICON_SIZES, ICONS } from '../Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { TILE_COLORS, TILE_STATES } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
 

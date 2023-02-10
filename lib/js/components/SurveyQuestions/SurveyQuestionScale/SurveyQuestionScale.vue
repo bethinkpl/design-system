@@ -86,7 +86,7 @@
 
 .surveyQuestionScale {
 	&__header {
-		@include heading-m-regular();
+		@include heading-m-default-regular;
 
 		display: flex;
 		// title without explanation iconButton has to be the same size as with iconButton
@@ -148,7 +148,7 @@
 	}
 
 	&__elaborationLabel {
-		@include formLabel-m-regular();
+		@include formLabel-m-default-regular;
 	}
 
 	&__elaborationInput {
@@ -160,7 +160,7 @@
 <script lang="ts">
 import DsCard from '../../Cards/Card';
 import IconButton from '../../Buttons/IconButton';
-import { ICON_SIZES, ICONS } from '../../Icon';
+import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
 import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import DsModal from '../../Modal';

@@ -5,7 +5,6 @@ import {
 	fontFamilyProperty,
 	fontWeightKey,
 	transformCssProperty,
-	tokenPartDisabled,
 	textCaseProperty,
 	textTransformProperty,
 } from './typographyVariables';
@@ -75,11 +74,7 @@ export const recursiveTokensReader = (obj, keyResult: string): Array<ITypography
 
 	let results: Array<ITypographyToken> = [];
 	for (let key in obj) {
-		let newSuffix: string = !key.includes(tokenPartDisabled) ? key : '';
-		let temporaryKey: string = (keyResult ? keyResult + ' ' + newSuffix : newSuffix).replace(
-			/\-+/g,
-			' ',
-		);
+		let temporaryKey: string = (keyResult ? keyResult + ' ' + key : key).replace(/\-+/g, ' ');
 		let result: Array<ITypographyToken> = recursiveTokensReader(obj[key], temporaryKey);
 		results.push(...result);
 	}
