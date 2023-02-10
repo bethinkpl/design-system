@@ -3,7 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 import BlockadeStatus from './BlockadeStatus.vue';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
 import { ICONS } from '../../Icons/Icon';
-import Icon from '../../Icons/Icon.vue';
+import Icon from '../../Icons/Icon/Icon.vue';
 
 describe('BlockadeStatus', () => {
 	const createComponent = (status) => {
