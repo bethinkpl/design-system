@@ -1,17 +1,19 @@
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+
 import FeatureIcon from './FeatureIcon.vue';
 import { ICONS } from '../Icon';
 import { FEATURE_ICON_SIZES, FEATURE_ICON_COLOR } from './FeatureIcon.consts';
-
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
 export default {
 	title: 'Components/Icons/FeatureIcon',
 	component: FeatureIcon,
 } as Meta<typeof FeatureIcon>;
 
-const StoryTemplate: StoryFn<typeof FeatureIcon> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof FeatureIcon> = (args) => ({
 	components: { FeatureIcon },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<feature-icon :icon="ICONS[icon]" :size="size" :color="color" :doubleBackground="doubleBackground" />',
 	data() {
