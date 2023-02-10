@@ -63,7 +63,7 @@
 			}
 		}
 
-		&::v-deep .ripple {
+		&:deep(.ripple) {
 			background-color: $color-neutral-ripple !important;
 		}
 	}

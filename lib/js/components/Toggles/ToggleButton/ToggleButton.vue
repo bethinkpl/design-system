@@ -93,11 +93,11 @@ $toggle-button-colors: (
 .toggleButtonWrapper {
 	display: inline-block;
 
-	&::v-deep .ripple-container {
+	&:deep(.ripple-container) {
 		border-radius: 100px !important;
 	}
 
-	&.-rounded::v-deep .ripple-container {
+	&.-rounded:deep(.ripple-container) {
 		border-radius: $radius-s !important;
 	}
 }

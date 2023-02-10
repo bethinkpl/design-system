@@ -54,7 +54,7 @@
 	padding: 0;
 	max-width: 320px;
 
-	&.-color-neutral ::v-deep .popper__arrow {
+	&.-color-neutral :deep(.popper__arrow) {
 		border-color: $color-neutral-background transparent !important;
 	}
 
@@ -65,7 +65,7 @@
 	&[x-placement^='bottom'] {
 		margin-top: $space-s;
 
-		::v-deep .popper__arrow {
+		:deep(.popper__arrow) {
 			border-color: transparent transparent $color-inverted-border transparent;
 			border-width: 0 $space-xs $space-s $space-xs;
 			left: calc(50% - #{$space-xs});
@@ -78,7 +78,7 @@
 	&[x-placement^='top'] {
 		margin-bottom: $space-s;
 
-		::v-deep .popper__arrow {
+		:deep(.popper__arrow) {
 			border-color: $color-inverted-border transparent transparent transparent;
 			border-width: $space-s $space-xs 0 $space-xs;
 			bottom: -$space-s;
@@ -91,7 +91,7 @@
 	&[x-placement^='right'] {
 		margin-left: $space-s;
 
-		::v-deep .popper__arrow {
+		:deep(.popper__arrow) {
 			border-color: transparent $color-inverted-border transparent transparent;
 			border-width: $space-xs $space-s $space-xs 0;
 			left: -$space-s;
@@ -104,7 +104,7 @@
 	&[x-placement^='left'] {
 		margin-right: $space-s;
 
-		::v-deep .popper__arrow {
+		:deep(.popper__arrow) {
 			border-color: transparent transparent transparent $color-inverted-border;
 			border-width: $space-xs 0 $space-xs $space-s;
 			margin-left: 0;
