@@ -13,7 +13,7 @@ const StoryTemplate: StoryFn<typeof Pill> = (argTypes) => ({
 	components: { Pill },
 	props: Object.keys(argTypes),
 	template:
-		'<pill :label="label" :left-icon="ICONS[leftIcon]" :has-delete="hasDelete" :size="size" :color="color" />',
+		'<pill :label="label" :left-icon="ICONS[leftIcon]" :has-delete="hasDelete" :size="size" :color="color" :is-disabled="isDisabled"/>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -29,6 +29,7 @@ const args = {
 	hasDelete: false,
 	size: PILL_SIZES.SMALL,
 	color: PILL_COLORS.NEUTRAL,
+	isDisabled: false,
 } as Args;
 
 const argTypes = {
