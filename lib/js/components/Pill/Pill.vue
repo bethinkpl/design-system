@@ -191,7 +191,11 @@ $pill-colors: (
 
 <script lang="ts">
 import { PILL_COLORS, PILL_SIZES } from './Pill.consts';
-import IconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
+import IconButton, {
+	ICON_BUTTON_COLORS,
+	ICON_BUTTON_SIZES,
+	ICON_BUTTON_STATES,
+} from '../Buttons/IconButton';
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 import { VueConstructor } from 'vue';
