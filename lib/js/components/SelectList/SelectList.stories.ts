@@ -17,7 +17,7 @@ const StoryTemplate: StoryFn<typeof SelectList> = (args) => ({
 	template: '<select-list v-model="value" :items="items" :size="size"></select-list>',
 	data() {
 		return {
-			items: [
+			items: Object.freeze([
 				{
 					type: 'text',
 					label: 'Wróć do listy poleceń',
@@ -31,19 +31,19 @@ const StoryTemplate: StoryFn<typeof SelectList> = (args) => ({
 					type: 'text',
 					label: 'POLECENIE 1 / 3',
 					value: 'part-1',
-					icon: ICONS.FA_CIRCLE,
+					icon: Object.freeze(ICONS.FA_CIRCLE),
 				},
 				{
 					type: 'text',
 					label: 'POLECENIE 2 / 3',
 					value: 'part-2',
-					icon: ICONS.FA_CIRCLE,
+					icon: Object.freeze(ICONS.FA_CIRCLE),
 				},
 				{
 					type: 'text',
 					label: 'POLECENIE 3 / 3',
 					value: 'part-3',
-					icon: ICONS.FA_CIRCLE_CHECK,
+					icon: Object.freeze(ICONS.FA_CIRCLE_CHECK),
 				},
 				{
 					type: 'divider',
@@ -54,7 +54,7 @@ const StoryTemplate: StoryFn<typeof SelectList> = (args) => ({
 					value: 'lipsum',
 					icon: null,
 				},
-			],
+			]),
 			value: 'part-2',
 			ICONS: Object.freeze(ICONS),
 		};
