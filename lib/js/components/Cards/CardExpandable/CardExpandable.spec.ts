@@ -25,7 +25,7 @@ describe('CardExpandable', () => {
 				isExpanded,
 				...(expanderTextExpanded && { expanderTextExpanded }),
 				...(expanderTextCollapsed && { expanderTextCollapsed }),
-			},
+			} as any,
 			slots: {
 				...(headerSlot !== '' && { header: headerSlot }),
 				...(contentSlot !== '' && { content: contentSlot }),

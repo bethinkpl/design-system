@@ -8,7 +8,7 @@ describe('Pagination', () => {
 			props: {
 				currentPage,
 				itemsTotalAmount,
-			},
+			} as any,
 		});
 	};
 

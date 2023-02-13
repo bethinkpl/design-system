@@ -11,7 +11,7 @@ import {
 import { ICONS } from '../../Icons/Icon';
 
 describe('Button', () => {
-	const createComponent = (props = {}) => {
+	const createComponent = (props = {} as any) => {
 		return shallowMount(Button, {
 			props,
 			slots: {

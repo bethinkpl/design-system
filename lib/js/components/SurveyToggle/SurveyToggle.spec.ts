@@ -22,7 +22,7 @@ describe('SurveyToggle', () => {
 				contentText,
 				state,
 				status,
-			},
+			} as any,
 		});
 	};
 

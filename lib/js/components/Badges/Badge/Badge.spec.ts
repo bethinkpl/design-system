@@ -9,7 +9,7 @@ describe('Badge', () => {
 			props: {
 				label,
 				color: BADGE_COLORS.NEUTRAL,
-			},
+			} as any,
 		});
 	};
 

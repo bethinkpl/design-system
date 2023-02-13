@@ -28,7 +28,7 @@ describe('Pill', () => {
 				hasDelete,
 				size,
 				color,
-			},
+			} as any,
 		});
 	};
 

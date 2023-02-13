@@ -7,7 +7,7 @@ describe('Modal', () => {
 		return shallowMount(Modal, {
 			props: {
 				showHeader,
-			},
+			} as any,
 			slots: {
 				header: headerSlot,
 				slot,

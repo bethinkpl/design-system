@@ -18,7 +18,7 @@ describe('SurveyQuestionScale', () => {
 				title,
 				elaborationLabel,
 				elaborationValue,
-			},
+			} as any,
 			slots: {
 				...(explanation !== '' && { explanation }),
 			},

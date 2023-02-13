@@ -22,7 +22,7 @@ const createComponent = function ({
 			iconLeft,
 			iconRight,
 			isEyebrowTextUppercase,
-		},
+		} as any,
 	});
 };
 

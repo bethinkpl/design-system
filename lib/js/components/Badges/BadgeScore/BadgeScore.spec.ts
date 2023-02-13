@@ -14,7 +14,7 @@ describe('BadgeScore', () => {
 				color,
 				size,
 				text,
-			},
+			} as any,
 		});
 	};
 

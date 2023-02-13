@@ -9,7 +9,7 @@ const DEFAULT_ICON = Object.freeze(ICONS.FA_XMARK);
 describe('CounterToggle', () => {
 	const createComponent = (props = {}) => {
 		return shallowMount(CounterToggle, {
-			props: { icon: DEFAULT_ICON, ...props },
+			props: { icon: DEFAULT_ICON, ...props } as any,
 		});
 	};
 
