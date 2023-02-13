@@ -22,7 +22,6 @@
 <script lang="ts">
 import DsModal from '../Modal/Modal.vue';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from '../Modal';
-import { VueConstructor } from 'vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
 
@@ -45,7 +44,7 @@ export default {
 		headerFeatureIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
@@ -67,7 +66,7 @@ export default {
 		footerPrimaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
@@ -78,7 +77,7 @@ export default {
 		footerSecondaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},

@@ -316,7 +316,6 @@ $image-height-small: 140px;
 <script lang="ts">
 import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
-import { VueConstructor } from 'vue';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
 import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../../Buttons/Button';
@@ -351,7 +350,7 @@ export default {
 		headerFeatureIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
@@ -377,7 +376,7 @@ export default {
 		footerPrimaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
@@ -388,7 +387,7 @@ export default {
 		footerSecondaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
@@ -399,7 +398,7 @@ export default {
 		footerTertiaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
+			validator(icon) {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
