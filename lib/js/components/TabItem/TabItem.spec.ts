@@ -7,7 +7,7 @@ describe('TabItem', () => {
 	const createComponent = ({ isActive = false } = {}) => {
 		return shallowMount(TabItem, {
 			props: {
-				icon: ICONS.FA_CALENDAR_DAYS,
+				icon: Object.freeze(ICONS.FA_CALENDAR_DAYS),
 				isActive,
 				title: 'Lorem ipsum dolor sit amet',
 			},

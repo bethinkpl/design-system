@@ -52,7 +52,7 @@ describe('Pill', () => {
 	});
 
 	it('renders leftIcon', () => {
-		const component = createComponent({ leftIcon: ICONS.FA_TAG });
+		const component = createComponent({ leftIcon: Object.freeze(ICONS.FA_TAG) });
 
 		expect(component.find('.pill__leftIcon').exists()).toBe(true);
 		expect(component.findComponent<typeof Pill>('.pill__leftIcon').props().icon).toEqual(
