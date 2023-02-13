@@ -17,7 +17,7 @@ const StoryTemplate: StoryFn<typeof SelectList> = (args) => ({
 	template: '<select-list v-model="value" :items="items" :size="size"></select-list>',
 	data() {
 		return {
-			items: Object.freeze([
+			items: [
 				{
 					type: 'text',
 					label: 'Wróć do listy poleceń',
@@ -54,7 +54,7 @@ const StoryTemplate: StoryFn<typeof SelectList> = (args) => ({
 					value: 'lipsum',
 					icon: null,
 				},
-			]),
+			],
 			value: 'part-2',
 			ICONS: Object.freeze(ICONS),
 		};
