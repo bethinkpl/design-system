@@ -4,7 +4,7 @@
 		:class="{
 			'-x-small': size === PILL_SIZES.X_SMALL,
 			[colorClassName]: true,
-			'-disabled': isDisabled,
+			'-disabled': state === PILL_STATES.DISABLED,
 		}"
 		:title="label"
 	>
@@ -19,7 +19,11 @@
 			v-if="size !== PILL_SIZES.X_SMALL && hasDelete"
 			class="pill__delete"
 			:touchable="false"
-			:state="isDisabled ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT"
+			:state="
+				state === PILL_STATES.DISABLED
+					? ICON_BUTTON_STATES.DISABLED
+					: ICON_BUTTON_STATES.DEFAULT
+			"
 			:color="iconButtonColor"
 			:size="ICON_BUTTON_SIZES.XX_SMALL"
 			:icon="ICONS.FA_XMARK"
@@ -133,7 +137,6 @@ $pill-colors: (
 				color: map-get($color-map, 'label');
 			}
 
-			&:disabled,
 			&.-disabled {
 				background-color: map-get(map-get($color-map, 'disabled'), 'background');
 
@@ -153,9 +156,7 @@ $pill-colors: (
 	display: inline-flex;
 	padding: $space-xxxxxs $space-xxxxxs $space-xxxxxs $space-xxs;
 
-	&:disabled,
 	&.-disabled {
-		cursor: not-allowed;
 		pointer-events: none;
 	}
 
@@ -190,7 +191,7 @@ $pill-colors: (
 </style>
 
 <script lang="ts">
-import { PILL_COLORS, PILL_SIZES } from './Pill.consts';
+import { PILL_COLORS, PILL_SIZES, PILL_STATES } from './Pill.consts';
 import IconButton, {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
@@ -199,6 +200,7 @@ import IconButton, {
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 import { VueConstructor } from 'vue';
+import { Value } from '../../utils/type.utils';
 
 const PILL_ICON_BUTTONS_COLOR_MAP = {
 	[PILL_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
@@ -240,11 +242,14 @@ export default {
 				return Object.values(PILL_COLORS).includes(color);
 			},
 		},
-		hasDelete: {
-			type: Boolean,
-			default: false,
+		state: {
+			type: String,
+			default: PILL_STATES.DEFAULT,
+			validator(value: Value<typeof PILL_STATES>) {
+				return Object.values(PILL_STATES).includes(value);
+			},
 		},
-		isDisabled: {
+		hasDelete: {
 			type: Boolean,
 			default: false,
 		},
@@ -257,6 +262,7 @@ export default {
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			PILL_SIZES: Object.freeze(PILL_SIZES),
+			PILL_STATES: Object.freeze(PILL_STATES),
 		};
 	},
 	computed: {

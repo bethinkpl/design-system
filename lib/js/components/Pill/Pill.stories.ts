@@ -1,5 +1,5 @@
 import Pill from './Pill.vue';
-import { PILL_COLORS, PILL_SIZES } from './Pill.consts';
+import { PILL_COLORS, PILL_SIZES, PILL_STATES } from './Pill.consts';
 import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
@@ -13,7 +13,7 @@ const StoryTemplate: StoryFn<typeof Pill> = (argTypes) => ({
 	components: { Pill },
 	props: Object.keys(argTypes),
 	template:
-		'<pill :label="label" :left-icon="ICONS[leftIcon]" :has-delete="hasDelete" :size="size" :color="color" :is-disabled="isDisabled"/>',
+		'<pill :label="label" :left-icon="ICONS[leftIcon]" :has-delete="hasDelete" :size="size" :color="color" :state="state"/>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -41,6 +41,10 @@ const argTypes = {
 	},
 	color: {
 		control: { type: 'select', options: Object.values(PILL_COLORS) },
+	},
+	state: {
+		control: { type: 'select', options: Object.values(PILL_STATES) },
+		defaultValue: PILL_STATES.DEFAULT,
 	},
 } as ArgTypes;
 

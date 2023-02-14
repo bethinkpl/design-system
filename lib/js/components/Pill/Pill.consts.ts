@@ -13,3 +13,8 @@ export const PILL_COLORS = {
 	WARNING: 'warning',
 	INFO: 'info',
 } as const;
+
+export const PILL_STATES = {
+	DEFAULT: 'default',
+	DISABLED: 'disabled',
+} as const;
