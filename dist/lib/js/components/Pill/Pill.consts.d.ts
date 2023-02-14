@@ -12,3 +12,7 @@ export declare const PILL_COLORS: {
     readonly WARNING: "warning";
     readonly INFO: "info";
 };
+export declare const PILL_STATES: {
+    readonly DEFAULT: "default";
+    readonly DISABLED: "disabled";
+};

@@ -740,6 +740,14 @@ declare const _default: Meta<{
             default: "neutral";
             validator(color: any): boolean;
         };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import("../../utils/type.utils").Value<{
+                readonly DEFAULT: "default";
+                readonly DISABLED: "disabled";
+            }>): boolean;
+        };
         hasDelete: {
             type: BooleanConstructor;
             default: boolean;
@@ -918,6 +926,13 @@ declare const _default: Meta<{
             readonly X_SMALL: "x-small";
             readonly SMALL: "small";
         }>;
+        ICON_BUTTON_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly FOCUSED: "focused";
+            readonly DISABLED: "disabled";
+            readonly LOADING: "loading";
+        }>;
         ICON_BUTTON_SIZES: Readonly<{
             readonly XX_SMALL: "xx-small";
             readonly X_SMALL: "x-small";
@@ -938,6 +953,10 @@ declare const _default: Meta<{
         PILL_SIZES: Readonly<{
             readonly X_SMALL: "x-small";
             readonly SMALL: "small";
+        }>;
+        PILL_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly DISABLED: "disabled";
         }>;
     };
     computed: {
@@ -1687,6 +1706,14 @@ export declare const Interactive: StoryFn<{
             default: "neutral";
             validator(color: any): boolean;
         };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import("../../utils/type.utils").Value<{
+                readonly DEFAULT: "default";
+                readonly DISABLED: "disabled";
+            }>): boolean;
+        };
         hasDelete: {
             type: BooleanConstructor;
             default: boolean;
@@ -1865,6 +1892,13 @@ export declare const Interactive: StoryFn<{
             readonly X_SMALL: "x-small";
             readonly SMALL: "small";
         }>;
+        ICON_BUTTON_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly FOCUSED: "focused";
+            readonly DISABLED: "disabled";
+            readonly LOADING: "loading";
+        }>;
         ICON_BUTTON_SIZES: Readonly<{
             readonly XX_SMALL: "xx-small";
             readonly X_SMALL: "x-small";
@@ -1885,6 +1919,10 @@ export declare const Interactive: StoryFn<{
         PILL_SIZES: Readonly<{
             readonly X_SMALL: "x-small";
             readonly SMALL: "small";
+        }>;
+        PILL_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly DISABLED: "disabled";
         }>;
     };
     computed: {
