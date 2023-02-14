@@ -34,7 +34,7 @@ const args = {
 
 const argTypes = {
 	leftIcon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
+		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 	},
 	size: {
 		control: { type: 'select', options: Object.values(PILL_SIZES) },
