@@ -222,6 +222,7 @@
 		#{$self}__button {
 			height: $icon-button-xx-small-size;
 			width: $icon-button-xx-small-size;
+			padding: $space-xxxxs;
 		}
 
 		#{$self}__label {
@@ -233,6 +234,7 @@
 		#{$self}__button {
 			height: $icon-button-x-small-size;
 			width: $icon-button-x-small-size;
+			padding: $space-xxxxs;
 		}
 
 		#{$self}__label {
@@ -273,16 +275,15 @@
 <script lang="ts">
 import { VueConstructor } from 'vue';
 
-import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
-import WnlButton from '../Button';
+import WnlIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
+import WnlButton, { BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_RADIUSES, BUTTON_TYPES } from '../Button';
 import {
 	ICON_BUTTON_COLOR_SCHEMES,
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
-	ICON_BUTTON_TYPES,
 	ICON_BUTTON_STATES,
+	ICON_BUTTON_TYPES,
 } from './IconButton.consts';
-import { BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_RADIUSES, BUTTON_TYPES } from '../Button';
 import { Value } from '../../../utils/type.utils';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
