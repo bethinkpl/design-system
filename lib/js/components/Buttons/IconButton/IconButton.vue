@@ -276,7 +276,12 @@
 import { VueConstructor } from 'vue';
 
 import WnlIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import WnlButton, { BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_RADIUSES, BUTTON_TYPES } from '../Button';
+import WnlButton, {
+	BUTTON_COLORS,
+	BUTTON_ELEVATIONS,
+	BUTTON_RADIUSES,
+	BUTTON_TYPES,
+} from '../Button';
 import {
 	ICON_BUTTON_COLOR_SCHEMES,
 	ICON_BUTTON_COLORS,
