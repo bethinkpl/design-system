@@ -131,6 +131,7 @@ declare const _default: Meta<{
                     readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
                     readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
                     readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
+                    readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
                     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -548,6 +549,7 @@ declare const _default: Meta<{
                             readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
                             readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
                             readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
+                            readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
                             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -819,6 +821,7 @@ declare const _default: Meta<{
                     readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
                     readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
                     readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
+                    readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
                     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1177,6 +1180,7 @@ declare const _default: Meta<{
             readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
             readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
             readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
+            readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1488,6 +1492,7 @@ export declare const Interactive: StoryFn<{
                     readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
                     readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
                     readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
+                    readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
                     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1905,6 +1910,7 @@ export declare const Interactive: StoryFn<{
                             readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
                             readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
                             readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
+                            readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
                             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -2176,6 +2182,7 @@ export declare const Interactive: StoryFn<{
                     readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
                     readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
                     readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
+                    readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
                     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -2534,6 +2541,7 @@ export declare const Interactive: StoryFn<{
             readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
             readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
             readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
+            readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;

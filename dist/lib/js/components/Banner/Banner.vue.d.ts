@@ -132,6 +132,7 @@ declare const _default: {
                     readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
                     readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
                     readonly RIBBON: VueConstructor<import("vue").default>;
+                    readonly SLIDERS_SEARCH: VueConstructor<import("vue").default>;
                     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -549,6 +550,7 @@ declare const _default: {
                             readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
                             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
                             readonly RIBBON: VueConstructor<import("vue").default>;
+                            readonly SLIDERS_SEARCH: VueConstructor<import("vue").default>;
                             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -820,6 +822,7 @@ declare const _default: {
                     readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
                     readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
                     readonly RIBBON: VueConstructor<import("vue").default>;
+                    readonly SLIDERS_SEARCH: VueConstructor<import("vue").default>;
                     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1178,6 +1181,7 @@ declare const _default: {
             readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
             readonly RIBBON: VueConstructor<import("vue").default>;
+            readonly SLIDERS_SEARCH: VueConstructor<import("vue").default>;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
