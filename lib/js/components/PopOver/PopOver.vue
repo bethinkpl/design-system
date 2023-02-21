@@ -4,10 +4,11 @@
 		:key="key"
 		:boundaries-selector="boundariesSelector"
 		:force-show="forceShow"
-		:options="{ placement }"
+		:options="{ placement, modifiers }"
 		:trigger="triggerAction"
 		:delay-on-mouse-over="300"
 		:delay-on-mouse-out="300"
+		:append-to-body="appendToBody"
 	>
 		<div
 			class="popper popOver"
@@ -121,7 +122,7 @@
 	}
 
 	&__content {
-		@include text-m-default-regular;
+		@include text-m-regular();
 
 		color: $color-neutral-text-heavy;
 		padding: $space-s;
@@ -130,14 +131,14 @@
 	}
 
 	&__title {
-		@include heading-m-default-bold;
+		@include heading-m-bold();
 
 		color: $color-default-text;
 		margin-bottom: $space-xxs;
 	}
 
 	&__subtitle {
-		@include heading-s-default-regular;
+		@include heading-s-regular();
 
 		color: $color-neutral-text;
 		margin-bottom: $space-xxs;
@@ -208,6 +209,16 @@ export default {
 			type: String,
 			default: null,
 		},
+		appendToBody: {
+			type: Boolean,
+			default: false
+		},
+		modifiers: {
+			type: Object,
+			default () {
+				return {}
+			}
+		}
 	},
 	data() {
 		return {
