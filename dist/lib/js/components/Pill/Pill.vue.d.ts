@@ -1,4 +1,6 @@
+import { PILL_STATES } from './Pill.consts';
 import { VueConstructor } from 'vue';
+import { Value } from '../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
@@ -148,7 +150,7 @@ declare const _default: {
                         size: {
                             type: StringConstructor;
                             default: "medium";
-                            validator(value: import("../../utils/type.utils").Value<{
+                            validator(value: Value<{
                                 readonly SMALL: "small";
                                 readonly MEDIUM: "medium";
                                 readonly LARGE: "large";
@@ -157,7 +159,7 @@ declare const _default: {
                         type: {
                             type: StringConstructor;
                             default: "filled";
-                            validator(value: import("../../utils/type.utils").Value<{
+                            validator(value: Value<{
                                 readonly FILLED: "filled";
                                 readonly OUTLINED: "outlined";
                                 readonly TEXT: "text";
@@ -166,7 +168,7 @@ declare const _default: {
                         color: {
                             type: StringConstructor;
                             default: "primary";
-                            validator(value: import("../../utils/type.utils").Value<{
+                            validator(value: Value<{
                                 readonly PRIMARY: "primary";
                                 readonly NEUTRAL: "neutral";
                                 readonly NEUTRAL_WEAK: "neutral-weak";
@@ -181,7 +183,7 @@ declare const _default: {
                         radius: {
                             type: StringConstructor;
                             default: "capsule";
-                            validator(value: import("../../utils/type.utils").Value<{
+                            validator(value: Value<{
                                 readonly CAPSULE: "capsule";
                                 readonly ROUNDED: "rounded";
                             }>): boolean;
@@ -189,7 +191,7 @@ declare const _default: {
                         state: {
                             type: StringConstructor;
                             default: "default";
-                            validator(value: import("../../utils/type.utils").Value<{
+                            validator(value: Value<{
                                 readonly DEFAULT: "default";
                                 readonly HOVERED: "hovered";
                                 readonly FOCUSED: "focused";
@@ -210,7 +212,7 @@ declare const _default: {
                         elevation: {
                             type: StringConstructor;
                             default: "none";
-                            validator(value: import("../../utils/type.utils").Value<{
+                            validator(value: Value<{
                                 readonly NONE: "none";
                                 readonly X_SMALL: "x-small";
                                 readonly SMALL: "small";
@@ -222,6 +224,7 @@ declare const _default: {
                             readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
                             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
                             readonly RIBBON: VueConstructor<import("vue").default>;
+                            readonly SLIDERS_SEARCH: VueConstructor<import("vue").default>;
                             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -478,7 +481,7 @@ declare const _default: {
                 state: {
                     type: StringConstructor;
                     default: "default";
-                    validator(value: import("../../utils/type.utils").Value<{
+                    validator(value: Value<{
                         readonly DEFAULT: "default";
                         readonly HOVERED: "hovered";
                         readonly FOCUSED: "focused";
@@ -493,6 +496,7 @@ declare const _default: {
                     readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
                     readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
                     readonly RIBBON: VueConstructor<import("vue").default>;
+                    readonly SLIDERS_SEARCH: VueConstructor<import("vue").default>;
                     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -740,6 +744,11 @@ declare const _default: {
             default: "neutral";
             validator(color: any): boolean;
         };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: Value<typeof PILL_STATES>): boolean;
+        };
         hasDelete: {
             type: BooleanConstructor;
             default: boolean;
@@ -750,6 +759,7 @@ declare const _default: {
             readonly CLIPBOARD_ADD: VueConstructor<import("vue").default>;
             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
             readonly RIBBON: VueConstructor<import("vue").default>;
+            readonly SLIDERS_SEARCH: VueConstructor<import("vue").default>;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -918,6 +928,13 @@ declare const _default: {
             readonly X_SMALL: "x-small";
             readonly SMALL: "small";
         }>;
+        ICON_BUTTON_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly FOCUSED: "focused";
+            readonly DISABLED: "disabled";
+            readonly LOADING: "loading";
+        }>;
         ICON_BUTTON_SIZES: Readonly<{
             readonly XX_SMALL: "xx-small";
             readonly X_SMALL: "x-small";
@@ -938,6 +955,10 @@ declare const _default: {
         PILL_SIZES: Readonly<{
             readonly X_SMALL: "x-small";
             readonly SMALL: "small";
+        }>;
+        PILL_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly DISABLED: "disabled";
         }>;
     };
     computed: {
