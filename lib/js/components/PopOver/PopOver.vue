@@ -211,14 +211,14 @@ export default {
 		},
 		appendToBody: {
 			type: Boolean,
-			default: false
+			default: false,
 		},
 		modifiers: {
 			type: Object,
-			default () {
-				return {}
-			}
-		}
+			default() {
+				return {};
+			},
+		},
 	},
 	data() {
 		return {
