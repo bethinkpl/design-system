@@ -4,10 +4,11 @@
 		:key="key"
 		:boundaries-selector="boundariesSelector"
 		:force-show="forceShow"
-		:options="{ placement }"
+		:options="{ placement, modifiers }"
 		:trigger="triggerAction"
 		:delay-on-mouse-over="300"
 		:delay-on-mouse-out="300"
+		:append-to-body="appendToBody"
 	>
 		<div
 			class="popper popOver"
@@ -208,6 +209,16 @@ export default {
 			type: String,
 			default: null,
 		},
+		appendToBody: {
+			type: Boolean,
+			default: true
+		},
+		modifiers: {
+			type: Object,
+			default() {
+            	return {}
+        	}
+		}
 	},
 	data() {
 		return {
@@ -215,7 +226,7 @@ export default {
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
 			key: 1,
-		};
+		}
 	},
 	watch: {
 		triggerAction() {
