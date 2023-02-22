@@ -14,8 +14,6 @@ module.exports = {
 		builder: 'webpack5',
 	},
 	webpackFinal: async (config) => {
-		config.resolve.alias.vue = '@vue/compat';
-
 		let vueLoaderRule = config.module.rules.find(
 			(r) =>
 				r.test &&
@@ -23,14 +21,6 @@ module.exports = {
 				r.loader &&
 				r.loader.includes('vue-loader'),
 		);
-
-		vueLoaderRule.options = {
-			compilerOptions: {
-				compatConfig: {
-					MODE: 2,
-				},
-			},
-		};
 
 		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
 		// You can change the configuration based on that.

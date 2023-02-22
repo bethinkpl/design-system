@@ -51,7 +51,6 @@
     "@vue/cli-plugin-typescript": "5.0.4",
     "@vue/cli-plugin-unit-jest": "5.0.4",
     "@vue/cli-service": "5.0.4",
-    "@vue/compat": "3.2.31",
     "@vue/compiler-sfc": "3.2.31",
     "@vue/test-utils": "2.2.7",
     "@vue/vue3-jest": "29.2.2",
