@@ -4,10 +4,11 @@
 		:key="key"
 		:boundaries-selector="boundariesSelector"
 		:force-show="forceShow"
-		:options="{ placement }"
+		:options="{ placement, modifiers }"
 		:trigger="triggerAction"
 		:delay-on-mouse-over="300"
 		:delay-on-mouse-out="300"
+		:append-to-body="appendToBody"
 	>
 		<div
 			class="popper popOver"
@@ -207,6 +208,14 @@ export default {
 		headerImageUrl: {
 			type: String,
 			default: null,
+		},
+		appendToBody: {
+			type: Boolean,
+			default: false,
+		},
+		modifiers: {
+			type: Object,
+			default: () => ({}),
 		},
 	},
 	data() {
