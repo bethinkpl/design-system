@@ -215,9 +215,7 @@ export default {
 		},
 		modifiers: {
 			type: Object,
-			default() {
-				return {};
-			},
+			default: () => ({}),
 		},
 	},
 	data() {
