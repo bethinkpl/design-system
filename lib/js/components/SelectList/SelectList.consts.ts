@@ -1,5 +1,6 @@
 export const SELECT_LIST_SIZES = {
 	MEDIUM: 'medium',
+	SMALL: 'small',
 };
 
 export const SELECT_LIST_ITEM_STATES = {

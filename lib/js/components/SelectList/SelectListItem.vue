@@ -1,5 +1,5 @@
 <template>
-	<div v-ripple class="selectListItem" :class="{ '-selected': isSelected }">
+	<div v-ripple class="selectListItem" :class="{ '-selected': isSelected, [`-${size}`]: true }">
 		<ds-icon
 			v-if="iconLeft"
 			class="selectListItem__icon"
@@ -17,7 +17,7 @@
 @import '../../../styles/settings/spacings';
 
 .selectListItem {
-	@include label-xl-default-regular;
+	@include label-l-default-regular;
 
 	background-color: $color-neutral-background-ghost;
 	color: $color-neutral-text-heavy;
@@ -27,6 +27,10 @@
 
 	&.-selected {
 		background-color: $color-neutral-background;
+	}
+
+	&.-medium {
+		@include label-xl-default-regular;
 	}
 
 	&:not(.-selected) {
@@ -89,10 +93,9 @@ export default {
 			type: String,
 			required: true,
 		},
-		// Unused for now but we want clients to specify size explicitly
 		size: {
 			type: String,
-			required: true,
+			default: SELECT_LIST_SIZES.SMALL,
 			validator(size) {
 				return Object.values(SELECT_LIST_SIZES).includes(size);
 			},

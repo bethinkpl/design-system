@@ -49,10 +49,9 @@ export default {
 			type: String,
 			required: true,
 		},
-		// Unused for now but we want clients to specify size explicitly
 		size: {
 			type: String,
-			required: true,
+			default: SELECT_LIST_SIZES.SMALL,
 			validator(size) {
 				return Object.values(SELECT_LIST_SIZES).includes(size);
 			},

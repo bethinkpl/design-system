@@ -16,14 +16,12 @@ const StoryTemplate: StoryFn<typeof SelectList> = (argTypes) => ({
 	components: { SelectList, SelectListItem, SelectListItemDivider, SelectListItemToggle },
 	props: Object.keys(argTypes),
 	template: `<select-list>
-		<select-list-item label="Wróc do listy poleceń" :size="SELECT_LIST_SIZES.MEDIUM" />
+		<select-list-item label="Small" :size="SELECT_LIST_SIZES.SMALL" />
+		<select-list-item :icon-left="ICONS.FA_BAN" label="Medium" :size="SELECT_LIST_SIZES.MEDIUM" is-selected />
 		<select-list-item-divider />
-		<select-list-item :icon-left="ICONS.FA_CIRCLE" label="POLECENIE 1 / 2" :size="SELECT_LIST_SIZES.MEDIUM" is-selected />
-		<select-list-item :icon-left="ICONS.FA_CIRCLE" label="POLECENIE 2 / 2" :size="SELECT_LIST_SIZES.MEDIUM" />
-		<select-list-item-divider />
-		<select-list-item-toggle :icon-off="ICONS.FA_STAR" :icon-on="ICONS.FA_STAR_SOLID" is-on label-on="Usuń z kolekcji" label-off="Dodaj do kolekcji" :size="SELECT_LIST_SIZES.MEDIUM" />
-		<select-list-item-toggle :icon-off="ICONS.FA_STAR" :icon-on="ICONS.FA_STAR_SOLID" label-on="Usuń z kolekcji" label-off="Dodaj do kolekcji" :size="SELECT_LIST_SIZES.MEDIUM" />
-		<select-list-item-toggle :icon-off="ICONS.FA_STAR" :icon-on="ICONS.FA_STAR_SOLID" is-loading label-on="Usuń z kolekcji" label-off="Dodaj do kolekcji" :size="SELECT_LIST_SIZES.MEDIUM" />
+		<select-list-item-toggle :icon-off="ICONS.FA_STAR" :icon-on="ICONS.FA_STAR_SOLID" is-on label-on="Usuń z kolekcji" label-off="Dodaj do kolekcji" />
+		<select-list-item-toggle :icon-off="ICONS.FA_STAR" :icon-on="ICONS.FA_STAR_SOLID" label-on="Usuń z kolekcji" label-off="Dodaj do kolekcji" />
+		<select-list-item-toggle :icon-off="ICONS.FA_STAR" :icon-on="ICONS.FA_STAR_SOLID" is-loading label-on="Usuń z kolekcji" label-off="Dodaj do kolekcji" />
 	</select-list>`,
 	data() {
 		return {
