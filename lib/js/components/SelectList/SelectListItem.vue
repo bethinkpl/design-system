@@ -1,9 +1,9 @@
 <template>
 	<div v-ripple class="selectListItem" :class="{ '-selected': isSelected }">
 		<ds-icon
-			v-if="icon"
+			v-if="iconLeft"
 			class="selectListItem__icon"
-			:icon="icon"
+			:icon="iconLeft"
 			:size="ICON_SIZES.X_SMALL"
 			:spinning="state === SELECT_LIST_ITEM_STATES.LOADING"
 		/>
@@ -74,7 +74,7 @@ export default {
 		ripple: Ripple,
 	},
 	props: {
-		icon: {
+		iconLeft: {
 			type: Object,
 			default: null,
 			validator(icon) {

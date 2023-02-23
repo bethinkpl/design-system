@@ -17,8 +17,8 @@ const StoryTemplate: StoryFn<typeof SelectList> = (argTypes) => ({
 	template: `<select-list>
 		<select-list-item label="Wróc do listy poleceń" :size="SELECT_LIST_SIZES.MEDIUM" />
 		<select-list-item-divider />
-		<select-list-item :icon="ICONS.FA_CIRCLE" label="POLECENIE 1 / 2" :size="SELECT_LIST_SIZES.MEDIUM" is-selected />
-		<select-list-item :icon="ICONS.FA_CIRCLE" label="POLECENIE 2 / 2" :size="SELECT_LIST_SIZES.MEDIUM" />
+		<select-list-item :icon-left="ICONS.FA_CIRCLE" label="POLECENIE 1 / 2" :size="SELECT_LIST_SIZES.MEDIUM" is-selected />
+		<select-list-item :icon-left="ICONS.FA_CIRCLE" label="POLECENIE 2 / 2" :size="SELECT_LIST_SIZES.MEDIUM" />
 	</select-list>`,
 	data() {
 		return {
