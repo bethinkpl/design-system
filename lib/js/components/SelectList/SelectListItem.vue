@@ -1,6 +1,12 @@
 <template>
 	<div v-ripple class="selectListItem" :class="{ '-selected': isSelected }">
-		<ds-icon v-if="icon" class="selectListItem__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
+		<ds-icon
+			v-if="icon"
+			class="selectListItem__icon"
+			:icon="icon"
+			:size="ICON_SIZES.X_SMALL"
+			:spinning="state === SELECT_LIST_ITEM_STATES.LOADING"
+		/>
 		<span class="selectListItem__text">{{ label }}</span>
 	</div>
 </template>
@@ -56,7 +62,7 @@
 <script lang="ts">
 import Ripple from 'vue-ripple-directive';
 
-import { SELECT_LIST_SIZES } from './SelectList.consts';
+import { SELECT_LIST_ITEM_STATES, SELECT_LIST_SIZES } from './SelectList.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
 export default {
@@ -91,10 +97,18 @@ export default {
 				return Object.values(SELECT_LIST_SIZES).includes(size);
 			},
 		},
+		state: {
+			type: String,
+			default: SELECT_LIST_ITEM_STATES.DEFAULT,
+			validator(state) {
+				return Object.values(SELECT_LIST_ITEM_STATES).includes(state);
+			},
+		},
 	},
 	data() {
 		return {
 			ICON_SIZES: Object.freeze(ICON_SIZES),
+			SELECT_LIST_ITEM_STATES: Object.freeze(SELECT_LIST_ITEM_STATES),
 		};
 	},
 };
