@@ -18,21 +18,8 @@ jobs:
       startsWith(github.event.comment.body, '/build')
 
     steps:
-      - name: Get PR SHA
-        id: comment-pr-sha
-        uses: actions/github-script@v6
-        with:
-          result-encoding: string
-          script: |
-            const pr = await github.rest.pulls.get({
-              owner: context.issue.owner,
-              repo: context.issue.repo,
-              pull_number: context.issue.number,
-            });
-            return pr.data.head.sha
-
       - name: Get PR branch name
-        id: comment-pr-short-ref
+        id: comment-pr-ref
         uses: actions/github-script@v6
         with:
           result-encoding: string
@@ -42,11 +29,11 @@ jobs:
               repo: context.issue.repo,
               pull_number: context.issue.number,
             });
-            return pr.data.head.short_ref
+            return pr.data.head.ref
 
       - name: Debug
         run: |
-          echo "pr sha: ${{ steps.comment-pr-sha.outputs.result }} ; pr short ref: ${{ steps.comment-pr-short-ref.outputs.result }}"
+          echo "pr ref: ${{ steps.comment-pr-ref.outputs.result }}"
           exit 1
 
       - name: Checkout PR code based on trigger comment
