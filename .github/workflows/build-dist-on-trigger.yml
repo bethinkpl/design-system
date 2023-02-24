@@ -55,3 +55,4 @@ jobs:
           branch: ${{ steps.comment-pr-ref.outputs.result }}-dist
           commit_message: Build dist
           create_branch: true
+          push_options: '--force'
