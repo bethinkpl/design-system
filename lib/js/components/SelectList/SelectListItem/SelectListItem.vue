@@ -12,9 +12,9 @@
 </template>
 
 <style scoped lang="scss">
-@import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/typography/tokens';
-@import '../../../styles/settings/spacings';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/spacings';
 
 .selectListItem {
 	@include label-l-default-regular;
@@ -66,8 +66,8 @@
 <script lang="ts">
 import Ripple from 'vue-ripple-directive';
 
-import { SELECT_LIST_ITEM_STATES, SELECT_LIST_SIZES } from './SelectList.consts';
-import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import { SELECT_LIST_ITEM_STATES, SELECT_LIST_SIZES } from '../SelectList.consts';
+import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
 export default {
 	name: 'SelectListItem',

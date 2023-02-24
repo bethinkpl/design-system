@@ -3,9 +3,9 @@ import { SELECT_LIST_SIZES } from './SelectList.consts';
 import { ICONS } from '../Icons/Icon';
 
 import { Meta, StoryFn } from '@storybook/vue';
-import SelectListItem from './SelectListItem.vue';
-import SelectListItemDivider from './SelectListItemDivider.vue';
-import SelectListItemToggle from './SelectListItemToggle.vue';
+import SelectListItem from './SelectListItem/SelectListItem.vue';
+import SelectListItemDivider from './SelectListItemDivider/SelectListItemDivider.vue';
+import SelectListItemToggle from './SelectListItemToggle/SelectListItemToggle.vue';
 
 export default {
 	title: 'Components/SelectList',

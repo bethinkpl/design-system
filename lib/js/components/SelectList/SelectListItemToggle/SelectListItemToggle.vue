@@ -9,9 +9,9 @@
 </template>
 
 <script lang="ts">
-import { SELECT_LIST_ITEM_STATES, SELECT_LIST_SIZES } from './SelectList.consts';
-import { IconItem, ICONS } from '../Icons/Icon';
-import SelectListItem from './SelectListItem.vue';
+import { SELECT_LIST_ITEM_STATES, SELECT_LIST_SIZES } from '../SelectList.consts';
+import { IconItem, ICONS } from '../../Icons/Icon';
+import SelectListItem from '../SelectListItem/SelectListItem.vue';
 
 export default {
 	name: 'SelectListItemToggle',
