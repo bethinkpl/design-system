@@ -3,6 +3,7 @@
 		v-ripple
 		class="selectListItem"
 		:class="{ '-loading': isLoading, '-selected': isSelected, [`-${size}`]: true }"
+		:title="label"
 	>
 		<ds-icon
 			v-if="iconLeft || isLoading"
