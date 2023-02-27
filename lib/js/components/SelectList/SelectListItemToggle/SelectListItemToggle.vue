@@ -8,14 +8,6 @@
 	/>
 </template>
 
-<style scoped lang="scss">
-@import '../../../../styles/settings/colors/tokens';
-
-.selectListItemToggle {
-	background-color: $color-neutral-background-ghost;
-}
-</style>
-
 <script lang="ts">
 import {
 	SELECT_LIST_ITEM_STATES,

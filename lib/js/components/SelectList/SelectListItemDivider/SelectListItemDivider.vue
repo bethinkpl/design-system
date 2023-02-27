@@ -5,9 +5,11 @@
 </template>
 
 <style scoped lang="scss">
+@import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/spacings';
 
 .selectListItemDivider {
+	background-color: $color-neutral-background-ghost;
 	padding: $space-xxs 0;
 }
 </style>
