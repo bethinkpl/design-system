@@ -33,7 +33,6 @@
 	color: $color-neutral-text-heavy;
 	cursor: pointer;
 	display: flex;
-	justify-content: space-between;
 	padding: $space-xs;
 
 	&:focus {
