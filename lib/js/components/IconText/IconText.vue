@@ -7,6 +7,7 @@
 			'-xSmall': size === ICON_TEXT_SIZES.X_SMALL,
 			'-small': size === ICON_TEXT_SIZES.SMALL,
 			'-medium': size === ICON_TEXT_SIZES.MEDIUM,
+			'-bold': isLabelBold,
 		}"
 	>
 		<icon v-if="icon" class="iconText__icon" :icon="icon" :size="iconSize" />
@@ -41,26 +42,36 @@
 		}
 	}
 
-	&__icon {
-		margin-right: $space-xxxs;
-	}
-
 	&.-xSmall {
 		@include label-s-default-regular;
-		#{$root}__icon {
-			margin-right: $space-xxxxs;
+
+		&.-bold {
+			@include label-s-default-bold;
 		}
 	}
 
 	&.-small {
 		@include label-m-default-regular;
-		#{$root}__icon {
-			margin-top: $space-xxxxxs;
+
+		&.-bold {
+			@include label-m-default-bold;
 		}
 	}
 
 	&.-medium {
 		@include label-l-default-regular;
+
+		&.-bold {
+			@include label-l-default-bold;
+		}
+
+		#{$root}__icon {
+			margin-right: $space-xxxs;
+		}
+	}
+
+	&__icon {
+		margin-right: $space-xxxxs;
 	}
 }
 </style>
