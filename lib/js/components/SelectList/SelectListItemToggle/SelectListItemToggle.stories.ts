@@ -2,7 +2,7 @@ import SelectListItemToggle from './SelectListItemToggle.vue';
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
-import { SELECT_LIST_SIZES } from '../SelectList.consts';
+import { SELECT_LIST_ITEM_SIZES } from '../SelectListItem/SelectListItem.consts';
 
 export default {
 	title: 'Components/SelectList/SelectListItemToggle',
@@ -50,7 +50,7 @@ const StoryTemplate: StoryFn<typeof SelectListItemToggle> = (argTypes, { updateA
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	size: SELECT_LIST_SIZES.SMALL,
+	size: SELECT_LIST_ITEM_SIZES.SMALL,
 	labelOff: 'Label off',
 	labelOn: 'Label on',
 	iconOff: 'FA_STAR',
@@ -67,7 +67,7 @@ const argTypes = {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 	},
 	size: {
-		control: { type: 'select', options: Object.values(SELECT_LIST_SIZES) },
+		control: { type: 'select', options: Object.values(SELECT_LIST_ITEM_SIZES) },
 	},
 } as ArgTypes;
 

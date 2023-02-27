@@ -70,7 +70,7 @@
 <script lang="ts">
 import Ripple from 'vue-ripple-directive';
 
-import { SELECT_LIST_ITEM_STATES, SELECT_LIST_SIZES } from '../SelectList.consts';
+import { SELECT_LIST_ITEM_STATES, SELECT_LIST_ITEM_SIZES } from './SelectListItem.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
 export default {
@@ -99,9 +99,9 @@ export default {
 		},
 		size: {
 			type: String,
-			default: SELECT_LIST_SIZES.SMALL,
+			default: SELECT_LIST_ITEM_SIZES.SMALL,
 			validator(size) {
-				return Object.values(SELECT_LIST_SIZES).includes(size);
+				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size);
 			},
 		},
 		state: {

@@ -9,7 +9,10 @@
 </template>
 
 <script lang="ts">
-import { SELECT_LIST_ITEM_STATES, SELECT_LIST_SIZES } from '../SelectList.consts';
+import {
+	SELECT_LIST_ITEM_STATES,
+	SELECT_LIST_ITEM_SIZES,
+} from '../SelectListItem/SelectListItem.consts';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import SelectListItem from '../SelectListItem/SelectListItem.vue';
 
@@ -51,9 +54,9 @@ export default {
 		},
 		size: {
 			type: String,
-			default: SELECT_LIST_SIZES.SMALL,
+			default: SELECT_LIST_ITEM_SIZES.SMALL,
 			validator(size) {
-				return Object.values(SELECT_LIST_SIZES).includes(size);
+				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size);
 			},
 		},
 	},

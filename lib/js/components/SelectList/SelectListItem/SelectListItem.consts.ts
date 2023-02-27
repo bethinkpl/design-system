@@ -1,4 +1,4 @@
-export const SELECT_LIST_SIZES = {
+export const SELECT_LIST_ITEM_SIZES = {
 	MEDIUM: 'medium',
 	SMALL: 'small',
 };
