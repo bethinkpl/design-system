@@ -50,7 +50,6 @@ export { default as SelectListItem } from './components/SelectList/SelectListIte
 export { default as SelectListItemDivider } from './components/SelectList/SelectListItemDivider/SelectListItemDivider.vue';
 export { default as SelectListItemToggle } from './components/SelectList/SelectListItemToggle/SelectListItemToggle.vue';
 export * from './components/SelectList/SelectList.consts';
-export * from './components/SelectList/SelectList.consts';
 export { default as PopOver } from './components/PopOver';
 export * from './components/PopOver/PopOver.consts';
 export { default as Dropdown } from './components/Dropdown';
