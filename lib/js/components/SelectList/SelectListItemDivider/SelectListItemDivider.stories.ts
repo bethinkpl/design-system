@@ -7,9 +7,8 @@ export default {
 	component: SelectListItemDivider,
 } as Meta<typeof SelectListItemDivider>;
 
-const StoryTemplate: StoryFn<typeof SelectListItemDivider> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof SelectListItemDivider> = () => ({
 	components: { SelectListItemDivider },
-	props: Object.keys(argTypes),
 	template: `<select-list-item-divider />`,
 });
 
