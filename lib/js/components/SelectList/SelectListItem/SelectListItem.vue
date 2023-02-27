@@ -1,11 +1,11 @@
 <template>
 	<div v-ripple class="selectListItem" :class="{ '-selected': isSelected, [`-${size}`]: true }">
 		<ds-icon
-			v-if="iconLeft"
+			v-if="iconLeft || isLoading"
 			class="selectListItem__icon"
-			:icon="iconLeft"
+			:icon="isLoading ? ICONS.FAD_SPINNER_THIRD : iconLeft"
 			:size="ICON_SIZES.X_SMALL"
-			:spinning="state === SELECT_LIST_ITEM_STATES.LOADING"
+			:spinning="isLoading"
 		/>
 		<span class="selectListItem__text">{{ label }}</span>
 	</div>
@@ -111,8 +111,14 @@ export default {
 	data() {
 		return {
 			ICON_SIZES: Object.freeze(ICON_SIZES),
+			ICONS: Object.freeze(ICONS),
 			SELECT_LIST_ITEM_STATES: Object.freeze(SELECT_LIST_ITEM_STATES),
 		};
+	},
+	computed: {
+		isLoading(): boolean {
+			return this.state === SELECT_LIST_ITEM_STATES.LOADING;
+		},
 	},
 };
 </script>
