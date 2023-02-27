@@ -14,7 +14,7 @@ const StoryTemplate: StoryFn<typeof SelectListItem> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template: `
 		<select-list-item
-			:icon-left="ICONS[$props.iconLeft]"
+			:icon-left="ICONS[iconLeft]"
 			:label="label"
 			:size="size"
 			:is-selected="isSelected"

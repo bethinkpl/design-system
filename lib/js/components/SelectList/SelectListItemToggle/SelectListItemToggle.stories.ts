@@ -14,8 +14,8 @@ const StoryTemplate: StoryFn<typeof SelectListItemToggle> = (argTypes, { updateA
 	props: Object.keys(argTypes),
 	template: `
 		<select-list-item-toggle
-			:icon-off="ICONS[$props.iconOff]"
-			:icon-on="ICONS[$props.iconOn]"
+			:icon-off="ICONS[iconOff]"
+			:icon-on="ICONS[iconOn]"
 			:is-loading="isLoading"
 			:is-on="isOn"
 			:label-off="labelOff"
