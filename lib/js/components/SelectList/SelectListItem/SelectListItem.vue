@@ -6,12 +6,18 @@
 	>
 		<ds-icon
 			v-if="iconLeft || isLoading"
-			class="selectListItem__icon"
+			class="selectListItem__iconLeft"
 			:icon="isLoading ? ICONS.FAD_SPINNER_THIRD : iconLeft"
 			:size="ICON_SIZES.X_SMALL"
 			:spinning="isLoading"
 		/>
 		<span class="selectListItem__text">{{ label }}</span>
+		<ds-icon
+			v-if="isSelected"
+			class="selectListItem__iconRight"
+			:icon="ICONS.FA_CHECK_SOLID"
+			:size="ICON_SIZES.X_SMALL"
+		/>
 	</div>
 </template>
 
@@ -25,41 +31,55 @@
 
 	background-color: $color-neutral-background-ghost;
 	color: $color-neutral-text-heavy;
+	cursor: pointer;
 	display: flex;
+	justify-content: space-between;
 	padding: $space-xs;
-	pointer-events: none;
+
+	&:focus {
+		background-color: $color-neutral-background-ghost-focused;
+	}
+
+	&:hover {
+		background-color: $color-neutral-background-ghost-hovered;
+	}
 
 	&.-selected {
 		background-color: $color-neutral-background;
+
+		&:focus {
+			background-color: $color-neutral-background-focused;
+		}
+
+		&:hover {
+			background-color: $color-neutral-background-hovered;
+		}
 	}
 
 	&.-medium {
 		@include label-xl-default-regular;
 	}
 
-	&:not(.-selected, .-loading) {
-		cursor: pointer;
-		pointer-events: auto;
-
-		&:focus {
-			background-color: $color-neutral-background-ghost-focused;
-		}
-
-		&:hover {
-			background-color: $color-neutral-background-ghost-hovered;
-		}
+	&.-loading {
+		pointer-events: none;
 	}
 
 	&::v-deep .ripple {
 		background-color: $color-neutral-ripple !important;
 	}
 
-	&__icon {
+	&__iconLeft {
 		color: $color-neutral-icon-strong;
 		margin-right: $space-xxxs;
 	}
 
+	&__iconRight {
+		color: $color-primary-icon;
+		margin-left: $space-xxxs;
+	}
+
 	&__text {
+		flex-grow: 1;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
