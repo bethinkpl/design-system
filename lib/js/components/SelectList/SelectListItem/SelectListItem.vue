@@ -1,5 +1,9 @@
 <template>
-	<div v-ripple class="selectListItem" :class="{ '-selected': isSelected, [`-${size}`]: true }">
+	<div
+		v-ripple
+		class="selectListItem"
+		:class="{ '-loading': isLoading, '-selected': isSelected, [`-${size}`]: true }"
+	>
 		<ds-icon
 			v-if="iconLeft || isLoading"
 			class="selectListItem__icon"
@@ -33,7 +37,7 @@
 		@include label-xl-default-regular;
 	}
 
-	&:not(.-selected) {
+	&:not(.-selected, .-loading) {
 		cursor: pointer;
 		pointer-events: auto;
 
