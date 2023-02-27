@@ -1,12 +1,12 @@
 import { ArgTypes, Meta, StoryFn } from '@storybook/vue';
-import IconList from './IconList.vue';
-import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
+import IconText from './IconText.vue';
+import { ICON_TEXT_COLORS, ICON_TEXT_SIZES } from './IconText.consts';
 import { ICONS } from '../Icons/Icon';
 
 export default {
-	title: 'Components/IconList',
-	component: IconList,
-} as Meta<typeof IconList>;
+	title: 'Components/IconText',
+	component: IconText,
+} as Meta<typeof IconText>;
 
 const StoryTemplate: StoryFn<{
 	color: string;
@@ -14,9 +14,9 @@ const StoryTemplate: StoryFn<{
 	tagNames: Array<string>;
 	icon: string | null;
 }> = (argTypes) => ({
-	components: { IconList },
+	components: { IconText },
 	props: Object.keys(argTypes),
-	template: `<icon-list :color="color" :size="size" :tag-names="tagNames" :icon="ICONS[icon]" ></icon-list>`,
+	template: `<icon-text :color="color" :size="size" :tag-names="tagNames" :icon="ICONS[icon]" ></icon-text>`,
 	created() {
 		this.ICONS = ICONS;
 	},
@@ -24,8 +24,8 @@ const StoryTemplate: StoryFn<{
 
 export const Interactive = StoryTemplate.bind({});
 Interactive.args = {
-	color: ICON_LIST_COLORS.NEUTRAL_WEAK,
-	size: ICON_LIST_SIZES.X_SMALL,
+	color: ICON_TEXT_COLORS.NEUTRAL_WEAK,
+	size: ICON_TEXT_SIZES.X_SMALL,
 	tagNames: ['Tagi', 'po', 'przecinku'],
 	icon: 'FA_TAGS',
 };
@@ -33,11 +33,11 @@ Interactive.args = {
 const argTypes = {
 	color: {
 		control: { type: 'select' },
-		options: Object.values(ICON_LIST_COLORS),
+		options: Object.values(ICON_TEXT_COLORS),
 	},
 	size: {
 		control: { type: 'select' },
-		options: Object.values(ICON_LIST_SIZES),
+		options: Object.values(ICON_TEXT_SIZES),
 	},
 	tagNames: {
 		control: { type: 'array' },

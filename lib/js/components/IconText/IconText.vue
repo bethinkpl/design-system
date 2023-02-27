@@ -1,15 +1,15 @@
 <template>
 	<div
+		class="iconText"
 		:class="{
-			iconList: true,
-			'-neutralWeak': color === ICON_LIST_COLORS.NEUTRAL_WEAK,
-			'-neutralStrong': color === ICON_LIST_COLORS.NEUTRAL_STRONG,
-			'-xSmall': size === ICON_LIST_SIZES.X_SMALL,
-			'-small': size === ICON_LIST_SIZES.SMALL,
-			'-medium': size === ICON_LIST_SIZES.MEDIUM,
+			'-neutralWeak': color === ICON_TEXT_COLORS.NEUTRAL_WEAK,
+			'-neutralStrong': color === ICON_TEXT_COLORS.NEUTRAL_STRONG,
+			'-xSmall': size === ICON_TEXT_SIZES.X_SMALL,
+			'-small': size === ICON_TEXT_SIZES.SMALL,
+			'-medium': size === ICON_TEXT_SIZES.MEDIUM,
 		}"
 	>
-		<icon v-if="icon" class="iconList__icon" :icon="icon" :size="iconSize" />
+		<icon v-if="icon" class="iconText__icon" :icon="icon" :size="iconSize" />
 		<div>{{ tagNamesConcatenated }}</div>
 	</div>
 </template>
@@ -19,7 +19,7 @@
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/spacings';
 
-.iconList {
+.iconText {
 	$root: &;
 
 	align-items: flex-start;
@@ -67,28 +67,28 @@
 
 <script lang="ts">
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { ICON_LIST_COLORS, ICON_LIST_SIZES } from './IconList.consts';
+import { ICON_TEXT_COLORS, ICON_TEXT_SIZES } from './IconText.consts';
 import { VueConstructor } from 'vue';
 import { Prop } from 'vue/types/options';
 
 export default {
-	name: 'IconList',
+	name: 'IconText',
 	components: {
 		Icon,
 	},
 	props: {
 		color: {
 			type: String,
-			default: ICON_LIST_COLORS.NEUTRAL_WEAK,
+			default: ICON_TEXT_COLORS.NEUTRAL_WEAK,
 			validator(color) {
-				return Object.values(ICON_LIST_COLORS).includes(color);
+				return Object.values(ICON_TEXT_COLORS).includes(color);
 			},
 		},
 		size: {
 			type: String,
-			default: ICON_LIST_SIZES.X_SMALL,
+			default: ICON_TEXT_SIZES.X_SMALL,
 			validator(size) {
-				return Object.values(ICON_LIST_SIZES).includes(size);
+				return Object.values(ICON_TEXT_SIZES).includes(size);
 			},
 		},
 		tagNames: {
@@ -107,8 +107,8 @@ export default {
 	data() {
 		return {
 			ICON_SIZES: Object.freeze(ICON_SIZES),
-			ICON_LIST_COLORS: Object.freeze(ICON_LIST_COLORS),
-			ICON_LIST_SIZES: Object.freeze(ICON_LIST_SIZES),
+			ICON_TEXT_COLORS: Object.freeze(ICON_TEXT_COLORS),
+			ICON_TEXT_SIZES: Object.freeze(ICON_TEXT_SIZES),
 		};
 	},
 	computed: {
@@ -116,7 +116,7 @@ export default {
 			return this.tagNames.join(', ');
 		},
 		iconSize(): string {
-			if ([ICON_LIST_SIZES.SMALL, ICON_LIST_SIZES.X_SMALL].includes(this.size)) {
+			if ([ICON_TEXT_SIZES.SMALL, ICON_TEXT_SIZES.X_SMALL].includes(this.size)) {
 				return ICON_SIZES.XX_SMALL;
 			}
 
