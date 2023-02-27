@@ -1,4 +1,4 @@
-import { ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 import IconText from './IconText.vue';
 import { ICON_TEXT_COLORS, ICON_TEXT_SIZES } from './IconText.consts';
 import { ICONS } from '../Icons/Icon';
@@ -8,42 +8,38 @@ export default {
 	component: IconText,
 } as Meta<typeof IconText>;
 
-const StoryTemplate: StoryFn<{
-	color: string;
-	size: string;
-	tagNames: Array<string>;
-	icon: string | null;
-}> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof IconText> = (argTypes) => ({
 	components: { IconText },
 	props: Object.keys(argTypes),
-	template: `<icon-text :color="color" :size="size" :tag-names="tagNames" :icon="ICONS[icon]" ></icon-text>`,
-	created() {
-		this.ICONS = ICONS;
+	template: `<icon-text :color="color" :icon="ICONS[icon]" :label="label" :size="size" />`,
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
 	},
 });
 
 export const Interactive = StoryTemplate.bind({});
 Interactive.args = {
-	color: ICON_TEXT_COLORS.NEUTRAL_WEAK,
 	size: ICON_TEXT_SIZES.X_SMALL,
-	tagNames: ['Tagi', 'po', 'przecinku'],
+	color: ICON_TEXT_COLORS.NEUTRAL_WEAK,
+	label: 'Tagi lub filtry po przecinku',
+	isLabelBold: false,
 	icon: 'FA_TAGS',
-};
+	isInteractive: false,
+} as Args;
 
 const argTypes = {
 	color: {
 		control: { type: 'select' },
 		options: Object.values(ICON_TEXT_COLORS),
 	},
+	icon: {
+		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+	},
 	size: {
 		control: { type: 'select' },
 		options: Object.values(ICON_TEXT_SIZES),
-	},
-	tagNames: {
-		control: { type: 'array' },
-	},
-	icon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 	},
 } as ArgTypes;
 

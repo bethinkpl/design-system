@@ -10,7 +10,7 @@
 		}"
 	>
 		<icon v-if="icon" class="iconText__icon" :icon="icon" :size="iconSize" />
-		<div>{{ tagNamesConcatenated }}</div>
+		<div>{{ label }}</div>
 	</div>
 </template>
 
@@ -68,8 +68,6 @@
 <script lang="ts">
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { ICON_TEXT_COLORS, ICON_TEXT_SIZES } from './IconText.consts';
-import { VueConstructor } from 'vue';
-import { Prop } from 'vue/types/options';
 
 export default {
 	name: 'IconText',
@@ -84,24 +82,29 @@ export default {
 				return Object.values(ICON_TEXT_COLORS).includes(color);
 			},
 		},
+		icon: {
+			type: Object,
+			required: true,
+			validate: (icon) => Object.values(ICONS).includes(icon),
+		},
+		isInteractive: {
+			type: Boolean,
+			default: false,
+		},
+		isLabelBold: {
+			type: Boolean,
+			default: false,
+		},
+		label: {
+			type: String,
+			required: true,
+		},
 		size: {
 			type: String,
 			default: ICON_TEXT_SIZES.X_SMALL,
 			validator(size) {
 				return Object.values(ICON_TEXT_SIZES).includes(size);
 			},
-		},
-		tagNames: {
-			type: Array,
-			required: true,
-			validator(tagNames) {
-				return !tagNames.some((tagName) => typeof tagName !== 'string');
-			},
-		},
-		icon: {
-			type: Object as Prop<VueConstructor>,
-			required: true,
-			validate: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
 		},
 	},
 	data() {
@@ -112,9 +115,6 @@ export default {
 		};
 	},
 	computed: {
-		tagNamesConcatenated(): string {
-			return this.tagNames.join(', ');
-		},
 		iconSize(): string {
 			if ([ICON_TEXT_SIZES.SMALL, ICON_TEXT_SIZES.X_SMALL].includes(this.size)) {
 				return ICON_SIZES.XX_SMALL;
