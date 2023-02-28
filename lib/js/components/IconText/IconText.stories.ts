@@ -1,6 +1,6 @@
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 import IconText from './IconText.vue';
-import { ICON_TEXT_COLORS, ICON_TEXT_SIZES } from './IconText.consts';
+import { ICON_TEXT_COLORS, ICON_TEXT_SIZES, ICON_TEXT_STATES } from './IconText.consts';
 import { ICONS } from '../Icons/Icon';
 
 export default {
@@ -11,7 +11,16 @@ export default {
 const StoryTemplate: StoryFn<typeof IconText> = (argTypes) => ({
 	components: { IconText },
 	props: Object.keys(argTypes),
-	template: `<icon-text :color="color" :icon="ICONS[icon]" :label="label" :is-interactive="isInteractive" :is-label-bold="isLabelBold" :size="size" />`,
+	template: `
+		<icon-text
+			:color="color"
+			:icon="ICONS[icon]"
+			:label="label"
+			:is-interactive="isInteractive"
+			:is-label-bold="isLabelBold"
+			:size="size"
+			:state="state"
+		/>`,
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -27,6 +36,7 @@ Interactive.args = {
 	isLabelBold: false,
 	icon: 'FA_TAGS',
 	isInteractive: false,
+	state: ICON_TEXT_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
@@ -40,6 +50,10 @@ const argTypes = {
 	size: {
 		control: { type: 'select' },
 		options: Object.values(ICON_TEXT_SIZES),
+	},
+	state: {
+		control: { type: 'select' },
+		options: Object.values(ICON_TEXT_STATES),
 	},
 } as ArgTypes;
 

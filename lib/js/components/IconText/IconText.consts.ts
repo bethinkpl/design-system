@@ -8,3 +8,8 @@ export const ICON_TEXT_SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
 };
+
+export const ICON_TEXT_STATES = {
+	DEFAULT: 'default',
+	DISABLED: 'disabled',
+};
