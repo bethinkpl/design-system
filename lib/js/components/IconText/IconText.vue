@@ -30,6 +30,14 @@
 	&.-neutralWeak {
 		color: $color-neutral-text-weak;
 
+		&.-interactive:hover {
+			color: $color-neutral-text-weak-hovered;
+
+			#{$root}__icon {
+				color: $color-neutral-icon-weak-hovered;
+			}
+		}
+
 		#{$root}__icon {
 			color: $color-neutral-icon-weak;
 		}
@@ -37,6 +45,14 @@
 
 	&.-neutralStrong {
 		color: $color-neutral-text-strong;
+
+		&.-interactive:hover {
+			color: $color-neutral-text-hovered;
+
+			#{$root}__icon {
+				color: $color-neutral-icon-hovered;
+			}
+		}
 
 		#{$root}__icon {
 			color: $color-neutral-icon;
