@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof IconText> = (argTypes) => ({
 	components: { IconText },
 	props: Object.keys(argTypes),
-	template: `<icon-text :color="color" :icon="ICONS[icon]" :label="label" :is-label-bold="isLabelBold" :size="size" />`,
+	template: `<icon-text :color="color" :icon="ICONS[icon]" :label="label" :is-interactive="isInteractive" :is-label-bold="isLabelBold" :size="size" />`,
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

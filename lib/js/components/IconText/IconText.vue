@@ -8,6 +8,7 @@
 			'-small': size === ICON_TEXT_SIZES.SMALL,
 			'-medium': size === ICON_TEXT_SIZES.MEDIUM,
 			'-bold': isLabelBold,
+			'-interactive': isInteractive,
 		}"
 	>
 		<icon v-if="icon" class="iconText__icon" :icon="icon" :size="iconSize" />
@@ -68,6 +69,10 @@
 		#{$root}__icon {
 			margin-right: $space-xxxs;
 		}
+	}
+
+	&.-interactive {
+		cursor: pointer;
 	}
 
 	&__icon {
