@@ -1,6 +1,6 @@
 export const ICON_TEXT_COLORS = {
 	NEUTRAL_WEAK: 'neutralWeak',
-	NEUTRAL_STRONG: 'neutralStrong',
+	NEUTRAL: 'neutral',
 };
 
 export const ICON_TEXT_SIZES = {

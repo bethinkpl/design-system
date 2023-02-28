@@ -3,7 +3,7 @@
 		class="iconText"
 		:class="{
 			'-neutralWeak': color === ICON_TEXT_COLORS.NEUTRAL_WEAK,
-			'-neutralStrong': color === ICON_TEXT_COLORS.NEUTRAL_STRONG,
+			'-neutral': color === ICON_TEXT_COLORS.NEUTRAL,
 			'-xSmall': size === ICON_TEXT_SIZES.X_SMALL,
 			'-small': size === ICON_TEXT_SIZES.SMALL,
 			'-medium': size === ICON_TEXT_SIZES.MEDIUM,
@@ -53,8 +53,8 @@
 		}
 	}
 
-	&.-neutralStrong {
-		color: $color-neutral-text-strong;
+	&.-neutral {
+		color: $color-neutral-text;
 
 		&:hover {
 			color: $color-neutral-text-hovered;
