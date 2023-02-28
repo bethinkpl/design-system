@@ -1,5 +1,4 @@
 export const SELECT_LIST_ITEM_SELECTION_MODE = {
-	NONE: 'none',
 	SELECT_ONLY: 'selectOnly',
 	TOGGLE: 'toggle',
 };

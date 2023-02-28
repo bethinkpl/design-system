@@ -41,7 +41,7 @@ const args = {
 	label: 'Label',
 	state: SELECT_LIST_ITEM_STATES.DEFAULT,
 	isSelected: false,
-	selectionMode: SELECT_LIST_ITEM_SELECTION_MODE.NONE,
+	selectionMode: SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
 } as Args;
 
 const argTypes = {

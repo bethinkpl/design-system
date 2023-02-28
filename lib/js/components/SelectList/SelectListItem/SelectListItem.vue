@@ -4,7 +4,7 @@
 		class="selectListItem"
 		:class="{
 			'-loading': isLoading,
-			'-selected': selectionMode !== SELECT_LIST_ITEM_SELECTION_MODE.NONE && isSelected,
+			'-selected': isSelected,
 			[`-${size}`]: true,
 			[`-${selectionMode}`]: true,
 		}"
@@ -40,26 +40,22 @@
 	cursor: pointer;
 	display: flex;
 	padding: $space-xs;
-	pointer-events: none;
 
-	&.-toggle,
-	&.-selectOnly:not(.-selected) {
-		pointer-events: auto;
-
-		&:focus {
-			background-color: $color-neutral-background-ghost-focused;
-		}
-
-		&:hover {
-			background-color: $color-neutral-background-ghost-hovered;
-		}
-
-		&.-loading {
-			pointer-events: none;
-		}
+	&:focus {
+		background-color: $color-neutral-background-ghost-focused;
 	}
 
-	&.-toggle.-selected {
+	&:hover {
+		background-color: $color-neutral-background-ghost-hovered;
+	}
+
+	&.-loading {
+		pointer-events: none;
+	}
+
+	&.-selected {
+		background-color: $color-neutral-background;
+
 		&:focus {
 			background-color: $color-neutral-background-focused;
 		}
@@ -67,10 +63,10 @@
 		&:hover {
 			background-color: $color-neutral-background-hovered;
 		}
-	}
 
-	&.-selected {
-		background-color: $color-neutral-background;
+		&.-selectOnly {
+			pointer-events: none;
+		}
 	}
 
 	&.-medium {
@@ -136,7 +132,7 @@ export default {
 		},
 		selectionMode: {
 			type: String,
-			default: SELECT_LIST_ITEM_SELECTION_MODE.NONE,
+			default: SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
 			validator(selectionMode) {
 				return Object.values(SELECT_LIST_ITEM_SELECTION_MODE).includes(selectionMode);
 			},
