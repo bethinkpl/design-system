@@ -1,5 +1,8 @@
 import SelectList from './SelectList.vue';
-import { SELECT_LIST_ITEM_SIZES } from './SelectListItem/SelectListItem.consts';
+import {
+	SELECT_LIST_ITEM_SELECTION_MODE,
+	SELECT_LIST_ITEM_SIZES,
+} from './SelectListItem/SelectListItem.consts';
 import { ICONS } from '../Icons/Icon';
 
 import { Meta, StoryFn } from '@storybook/vue';
@@ -16,8 +19,8 @@ const StoryTemplate: StoryFn<typeof SelectList> = (argTypes) => ({
 	components: { SelectList, SelectListItem, SelectListItemDivider, SelectListItemToggle },
 	props: Object.keys(argTypes),
 	template: `<select-list>
-		<select-list-item label="Small" :size="SELECT_LIST_ITEM_SIZES.SMALL" />
-		<select-list-item :icon-left="ICONS.FA_BAN" label="Medium" :size="SELECT_LIST_ITEM_SIZES.MEDIUM" is-selected />
+		<select-list-item label="Small" :size="SELECT_LIST_ITEM_SIZES.SMALL" :selection-mode="SELECT_LIST_ITEM_SELECTION_MODE.TOGGLE" />
+		<select-list-item :icon-left="ICONS.FA_BAN" label="Medium" :size="SELECT_LIST_ITEM_SIZES.MEDIUM" is-selected :selection-mode="SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY" />
 		<select-list-item-divider />
 		<select-list-item-toggle :icon-off="ICONS.FA_STAR" :icon-on="ICONS.FA_STAR_SOLID" is-on label-on="Usuń z kolekcji" label-off="Dodaj do kolekcji" />
 		<select-list-item-toggle :icon-off="ICONS.FA_STAR" :icon-on="ICONS.FA_STAR_SOLID" label-on="Usuń z kolekcji" label-off="Dodaj do kolekcji" />
@@ -26,6 +29,7 @@ const StoryTemplate: StoryFn<typeof SelectList> = (argTypes) => ({
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
+			SELECT_LIST_ITEM_SELECTION_MODE: Object.freeze(SELECT_LIST_ITEM_SELECTION_MODE),
 			SELECT_LIST_ITEM_SIZES: Object.freeze(SELECT_LIST_ITEM_SIZES),
 		};
 	},

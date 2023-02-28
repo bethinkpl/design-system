@@ -2,7 +2,11 @@ import SelectListItem from './SelectListItem.vue';
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
-import { SELECT_LIST_ITEM_STATES, SELECT_LIST_ITEM_SIZES } from './SelectListItem.consts';
+import {
+	SELECT_LIST_ITEM_STATES,
+	SELECT_LIST_ITEM_SIZES,
+	SELECT_LIST_ITEM_SELECTION_MODE,
+} from './SelectListItem.consts';
 
 export default {
 	title: 'Components/SelectList/SelectListItem',
@@ -16,8 +20,9 @@ const StoryTemplate: StoryFn<typeof SelectListItem> = (argTypes) => ({
 		<select-list-item
 			:icon-left="ICONS[iconLeft]"
 			:label="label"
-			:size="size"
 			:is-selected="isSelected"
+			:selection-mode="selectionMode"
+			:size="size"
 			:state="state"
 		/>
 		`,
@@ -36,11 +41,15 @@ const args = {
 	label: 'Label',
 	state: SELECT_LIST_ITEM_STATES.DEFAULT,
 	isSelected: false,
+	selectionMode: SELECT_LIST_ITEM_SELECTION_MODE.NONE,
 } as Args;
 
 const argTypes = {
 	iconLeft: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+	},
+	selectionMode: {
+		control: { type: 'select', options: Object.values(SELECT_LIST_ITEM_SELECTION_MODE) },
 	},
 	size: {
 		control: { type: 'select', options: Object.values(SELECT_LIST_ITEM_SIZES) },

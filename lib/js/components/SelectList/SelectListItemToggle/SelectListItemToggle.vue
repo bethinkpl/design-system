@@ -4,6 +4,7 @@
 		:icon-left="icon"
 		:state="isLoading ? SELECT_LIST_ITEM_STATES.LOADING : SELECT_LIST_ITEM_STATES.DEFAULT"
 		:label="label"
+		:selection-mode="SELECT_LIST_ITEM_SELECTION_MODE.TOGGLE"
 		:size="size"
 	/>
 </template>
@@ -12,6 +13,7 @@
 import {
 	SELECT_LIST_ITEM_STATES,
 	SELECT_LIST_ITEM_SIZES,
+	SELECT_LIST_ITEM_SELECTION_MODE,
 } from '../SelectListItem/SelectListItem.consts';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import SelectListItem from '../SelectListItem/SelectListItem.vue';
@@ -62,6 +64,7 @@ export default {
 	},
 	data() {
 		return {
+			SELECT_LIST_ITEM_SELECTION_MODE: Object.freeze(SELECT_LIST_ITEM_SELECTION_MODE),
 			SELECT_LIST_ITEM_STATES: Object.freeze(SELECT_LIST_ITEM_STATES),
 		};
 	},

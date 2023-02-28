@@ -2,7 +2,12 @@
 	<div
 		v-ripple
 		class="selectListItem"
-		:class="{ '-loading': isLoading, '-selected': isSelected, [`-${size}`]: true }"
+		:class="{
+			'-loading': isLoading,
+			'-selected': selectionMode !== SELECT_LIST_ITEM_SELECTION_MODE.NONE && isSelected,
+			[`-${size}`]: true,
+			[`-${selectionMode}`]: true,
+		}"
 		:title="label"
 	>
 		<ds-icon
@@ -35,18 +40,26 @@
 	cursor: pointer;
 	display: flex;
 	padding: $space-xs;
+	pointer-events: none;
 
-	&:focus {
-		background-color: $color-neutral-background-ghost-focused;
+	&.-toggle,
+	&.-selectOnly:not(.-selected) {
+		pointer-events: auto;
+
+		&:focus {
+			background-color: $color-neutral-background-ghost-focused;
+		}
+
+		&:hover {
+			background-color: $color-neutral-background-ghost-hovered;
+		}
+
+		&.-loading {
+			pointer-events: none;
+		}
 	}
 
-	&:hover {
-		background-color: $color-neutral-background-ghost-hovered;
-	}
-
-	&.-selected {
-		background-color: $color-neutral-background;
-
+	&.-toggle.-selected {
 		&:focus {
 			background-color: $color-neutral-background-focused;
 		}
@@ -56,12 +69,12 @@
 		}
 	}
 
-	&.-medium {
-		@include label-xl-default-regular;
+	&.-selected {
+		background-color: $color-neutral-background;
 	}
 
-	&.-loading {
-		pointer-events: none;
+	&.-medium {
+		@include label-xl-default-regular;
 	}
 
 	&::v-deep .ripple {
@@ -90,7 +103,11 @@
 <script lang="ts">
 import Ripple from 'vue-ripple-directive';
 
-import { SELECT_LIST_ITEM_STATES, SELECT_LIST_ITEM_SIZES } from './SelectListItem.consts';
+import {
+	SELECT_LIST_ITEM_STATES,
+	SELECT_LIST_ITEM_SIZES,
+	SELECT_LIST_ITEM_SELECTION_MODE,
+} from './SelectListItem.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
 export default {
@@ -117,6 +134,13 @@ export default {
 			type: String,
 			required: true,
 		},
+		selectionMode: {
+			type: String,
+			default: SELECT_LIST_ITEM_SELECTION_MODE.NONE,
+			validator(selectionMode) {
+				return Object.values(SELECT_LIST_ITEM_SELECTION_MODE).includes(selectionMode);
+			},
+		},
 		size: {
 			type: String,
 			default: SELECT_LIST_ITEM_SIZES.SMALL,
@@ -136,6 +160,7 @@ export default {
 		return {
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			ICONS: Object.freeze(ICONS),
+			SELECT_LIST_ITEM_SELECTION_MODE: Object.freeze(SELECT_LIST_ITEM_SELECTION_MODE),
 			SELECT_LIST_ITEM_STATES: Object.freeze(SELECT_LIST_ITEM_STATES),
 		};
 	},
