@@ -45,7 +45,7 @@ const argTypes = {
 		options: Object.values(ICON_TEXT_COLORS),
 	},
 	icon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		control: { type: 'select', options: Object.keys(ICONS) },
 	},
 	size: {
 		control: { type: 'select' },
