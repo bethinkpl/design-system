@@ -83,6 +83,10 @@
 		&.-bold {
 			@include label-s-default-bold;
 		}
+
+		#{$root}__icon {
+			margin-right: $space-xxxxs;
+		}
 	}
 
 	&.-small {
@@ -99,10 +103,6 @@
 		&.-bold {
 			@include label-l-default-bold;
 		}
-
-		#{$root}__icon {
-			margin-right: $space-xxxs;
-		}
 	}
 
 	&.-interactive {
@@ -111,7 +111,7 @@
 	}
 
 	&__icon {
-		margin-right: $space-xxxxs;
+		margin-right: $space-xxxs;
 	}
 }
 </style>
