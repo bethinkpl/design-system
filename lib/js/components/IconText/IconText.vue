@@ -95,6 +95,10 @@
 		&.-bold {
 			@include label-m-default-bold;
 		}
+
+		#{$root}__icon {
+			padding-top: $space-xxxxxs;
+		}
 	}
 
 	&.-medium {
