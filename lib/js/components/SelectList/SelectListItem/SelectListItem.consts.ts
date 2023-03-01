@@ -4,8 +4,9 @@ export const SELECT_LIST_ITEM_SELECTION_MODE = {
 };
 
 export const SELECT_LIST_ITEM_SIZES = {
-	MEDIUM: 'medium',
+	X_SMALL: 'xSmall',
 	SMALL: 'small',
+	MEDIUM: 'medium',
 };
 
 export const SELECT_LIST_ITEM_STATES = {

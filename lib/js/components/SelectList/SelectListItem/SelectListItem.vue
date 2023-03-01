@@ -69,6 +69,10 @@
 		}
 	}
 
+	&.-xSmall {
+		@include label-m-default-regular;
+	}
+
 	&.-medium {
 		@include label-xl-default-regular;
 	}
