@@ -82,7 +82,7 @@
 	}
 
 	&__iconLeft {
-		color: $color-neutral-icon-strong;
+		color: $color-neutral-icon;
 		margin-right: $space-xxxs;
 	}
 
