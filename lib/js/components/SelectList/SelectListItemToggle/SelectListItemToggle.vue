@@ -2,7 +2,7 @@
 	<select-list-item
 		class="selectListItemToggle"
 		:icon-left="icon"
-		:state="isLoading ? SELECT_LIST_ITEM_STATES.LOADING : SELECT_LIST_ITEM_STATES.DEFAULT"
+		:state="state"
 		:label="label"
 		:selection-mode="SELECT_LIST_ITEM_SELECTION_MODE.TOGGLE"
 		:size="size"
@@ -38,10 +38,6 @@ export default {
 				return Object.values(ICONS).includes(icon);
 			},
 		},
-		isLoading: {
-			type: Boolean,
-			default: false,
-		},
 		isOn: {
 			type: Boolean,
 			default: false,
@@ -59,6 +55,13 @@ export default {
 			default: SELECT_LIST_ITEM_SIZES.SMALL,
 			validator(size) {
 				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size);
+			},
+		},
+		state: {
+			type: String,
+			default: SELECT_LIST_ITEM_STATES.DEFAULT,
+			validator(size) {
+				return Object.values(SELECT_LIST_ITEM_STATES).includes(size);
 			},
 		},
 	},
