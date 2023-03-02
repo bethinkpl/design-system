@@ -92,12 +92,12 @@
 
 	&__iconRight {
 		color: $color-primary-icon;
-		margin-left: $space-xxxs;
+		margin-left: $space-xs;
 	}
 
 	&__placeholderRight {
 		flex-shrink: 0;
-		margin-left: $space-xxxs;
+		margin-left: $space-xs;
 		width: $icon-xs;
 	}
 
