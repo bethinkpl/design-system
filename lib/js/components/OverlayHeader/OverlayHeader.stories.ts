@@ -1,6 +1,7 @@
 import OverlayHeader from './OverlayHeader.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { OVERLAY_HEADER_BORDER_COLORS } from './OverlayHeader.consts';
 
 export default {
 	title: 'Components/OverlayHeader',
@@ -14,23 +15,23 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (argTypes) => ({
 			<div style="height: 300px">
 			<overlay-header v-bind=$props>
 				<template v-if="accessorySlot" #accessory>
-					<div style="background: var(--raw-gray-300);">{{ accessorySlot }}</div>
+					<div style="background: var(--raw-gray-300); height: 100%">{{ accessorySlot }}</div>
 				</template>
 				<template v-if="eyebrowAccessorySlot" #eyebrowAccessory>
-					<div style="background: var(--raw-gray-300);">{{ eyebrowAccessorySlot }}</div>
+					<div style="background: var(--raw-gray-300); font-size: 10px">{{ eyebrowAccessorySlot }}</div>
 				</template>
-				<template v-if="leadingSlot" #leading>
-					<div style="background: var(--raw-gray-300);">{{ leadingSlot }}</div>
+				<template v-if="titleLeadingSlot" #titleLeading>
+					<div style="background: var(--raw-gray-300);">{{ titleLeadingSlot }}</div>
 				</template>
-				<template v-if="trailingSlot" #trailing>
-					<div style="background: var(--raw-gray-300);">{{ trailingSlot }}</div>
+				<template v-if="titleTrailingSlot" #titleTrailing>
+					<div style="background: var(--raw-gray-300);">{{ titleTrailingSlot }}</div>
 				</template>
 				<template v-if="actionsSlot" #actions>
-					<div style="background: var(--raw-gray-300);">{{ actionsSlot }}</div>
+					<div style="background: var(--raw-gray-300); height: 100%">{{ actionsSlot }}</div>
 				</template>
-				<template v-if="dropdownMenuSlot" #dropdownMenu>
-					<div style="background: var(--raw-gray-300);">{{ dropdownMenuSlot }}</div>
-					<div style="background: var(--raw-gray-300);">{{ dropdownMenuSlot }}</div>
+				<template v-if="dropdownSlot" #dropdown>
+					<div style="background: var(--raw-gray-300);">{{ dropdownSlot }}</div>
+					<div style="background: var(--raw-gray-300);">{{ dropdownSlot }}</div>
 				</template>
 			</overlay-header>
 			</div>`,
@@ -43,13 +44,21 @@ const args = {
 	eyebrowText: 'Eyebrow',
 	accessorySlot: 'accessory slot',
 	actionsSlot: 'actions slot',
-	dropdownMenuSlot: 'dropdown slot',
+	dropdownSlot: 'dropdown slot',
 	eyebrowAccessorySlot: 'eyebrowAccessory slot',
-	leadingSlot: 'leading slot',
-	trailingSlot: 'trailing slot',
+	titleLeadingSlot: 'leading slot',
+	titleTrailingSlot: 'trailing slot',
 } as Args;
 
-const argTypes = {} as ArgTypes;
+const argTypes = {
+	borderColor: {
+		control: {
+			type: 'select',
+			options: Object.values(OVERLAY_HEADER_BORDER_COLORS),
+			defaultValue: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
+		},
+	},
+} as ArgTypes;
 
 Interactive.argTypes = argTypes;
 Interactive.args = args;
