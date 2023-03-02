@@ -27,8 +27,8 @@ const StoryTemplate: StoryFn<typeof Button> = (argTypes) => ({
 			:radius="radius"
 			:color="color"
 			:elevation="elevation"
-			:icon-left="ICONS[$props.iconLeft]"
-			:icon-right="ICONS[$props.iconRight]"
+			:icon-left="ICONS[iconLeft]"
+			:icon-right="ICONS[iconRight]"
 		>
 			{{slotText}}
 		</Button>
