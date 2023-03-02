@@ -173,16 +173,16 @@
 		height: auto !important;
 		margin: $space-xxxxs $space-xxxs;
 
+		@media #{breakpoint-s()} {
+			margin: $space-xxxxs $space-xxs;
+		}
+
 		&.-mobileHidden {
 			display: none;
 
 			@media #{breakpoint-s()} {
 				display: block;
 			}
-		}
-
-		@media #{breakpoint-s()} {
-			margin: $space-xxxxs $space-xxs;
 		}
 	}
 
