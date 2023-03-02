@@ -13,7 +13,7 @@
 		</div>
 		<div class="ds-overlayHeader__content">
 			<div v-if="eyebrowText" class="ds-overlayHeader__eyebrow">
-				<div class="ds-overlayHeader__eyebrowText">
+				<div class="ds-overlayHeader__eyebrowText" :title="eyebrowText">
 					{{ eyebrowText }}
 				</div>
 				<div v-if="$slots.eyebrowAccessory" class="ds-overlayHeader__eyebrowAccessory">
