@@ -102,7 +102,7 @@
 
 	&__content {
 		flex-grow: 1;
-		margin-left: $space-s;
+		margin: 0 $space-xxs 0 $space-s;
 	}
 
 	&__eyebrow {
