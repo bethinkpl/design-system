@@ -40,14 +40,15 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (argTypes) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	title: 'Zadanie #123',
+	title: 'Zadanie',
+	link: '#123',
 	eyebrowText: 'Eyebrow',
-	accessorySlot: 'accessory slot',
+	accessorySlot: 'accessory',
 	actionsSlot: 'actions slot',
 	dropdownSlot: 'dropdown slot',
-	eyebrowAccessorySlot: 'eyebrowAccessory slot',
-	titleLeadingSlot: 'leading slot',
-	titleTrailingSlot: 'trailing slot',
+	eyebrowAccessorySlot: 'eyebrowAccessory',
+	titleLeadingSlot: 'leading',
+	titleTrailingSlot: 'trailing',
 } as Args;
 
 const argTypes = {
@@ -64,6 +65,7 @@ Interactive.argTypes = argTypes;
 Interactive.args = args;
 
 Interactive.parameters = {
+	layout: 'fullscreen',
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=5867%3A99215&t=gnx09suYyI8a6jHh-0',

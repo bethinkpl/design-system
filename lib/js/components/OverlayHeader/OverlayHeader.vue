@@ -27,6 +27,9 @@
 				<div class="ds-overlayHeader__title">
 					{{ title }}
 				</div>
+				<div class="ds-overlayHeader__link">
+					{{ link }}
+				</div>
 				<div v-if="$slots.titleTrailing" class="ds-overlayHeader__titleTrailing">
 					<slot name="titleTrailing" />
 				</div>
@@ -38,7 +41,7 @@
 				<slot name="actions" />
 			</div>
 			<ds-divider
-				class="ds-overlayHeader__divider"
+				class="ds-overlayHeader__divider -mobileHidden"
 				:prominence="DIVIDER_PROMINENCES.STRONG"
 				is-vertical
 			/>
@@ -72,25 +75,29 @@
 </template>
 
 <style scoped lang="scss">
-// TODO clean imports
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
-@import '../../../styles/settings/shadows';
-@import '../../../styles/settings/radiuses';
-@import '../../../styles/mixins/layout';
 
 .ds-overlayHeader {
 	align-items: center;
 	background: $color-neutral-background;
 	border-bottom: 2px solid $color-neutral-border-ghost;
 	display: flex;
-	padding: $space-xs $space-xxs $space-xs 0;
+	padding: $space-xxs $space-xxxs $space-xxs 0;
+
+	@media #{breakpoint-s()} {
+		padding: $space-xs $space-xxs $space-xs 0;
+	}
 
 	&__accessory {
 		align-self: stretch;
-		margin-left: $space-xs;
+		margin-left: $space-xxs;
+
+		@media #{breakpoint-s()} {
+			margin-left: $space-xs;
+		}
 	}
 
 	&__content {
@@ -101,7 +108,11 @@
 	&__eyebrow {
 		align-items: center;
 		display: flex;
-		margin-bottom: $space-xxs;
+		margin-bottom: $space-xxxs;
+
+		@media #{breakpoint-s()} {
+			margin-bottom: $space-xxs;
+		}
 	}
 
 	&__eyebrowText {
@@ -123,10 +134,25 @@
 		margin-right: $space-xxs;
 	}
 
-	&__title {
+	&__title,
+	&__link {
 		@include heading-m-default-bold;
 
 		color: $color-neutral-text-heavy;
+	}
+
+	&__title {
+		display: none;
+
+		@media #{breakpoint-s()} {
+			display: block;
+		}
+	}
+
+	&__link {
+		@media #{breakpoint-s()} {
+			margin-left: $space-xxxxs;
+		}
 	}
 
 	&__titleTrailing {
@@ -135,12 +161,29 @@
 
 	&__actions {
 		align-self: stretch;
+		display: none;
+
+		@media #{breakpoint-s()} {
+			display: block;
+		}
 	}
 
 	&__divider {
 		align-self: stretch;
 		height: auto !important;
-		margin: $space-xxxxs $space-xxs;
+		margin: $space-xxxxs $space-xxxs;
+
+		&.-mobileHidden {
+			display: none;
+
+			@media #{breakpoint-s()} {
+				display: block;
+			}
+		}
+
+		@media #{breakpoint-s()} {
+			margin: $space-xxxxs $space-xxs;
+		}
 	}
 
 	&.-borderNeutral {
@@ -163,7 +206,7 @@
 
 <script lang="ts">
 import IconButton from '../Buttons/IconButton/IconButton.vue';
-import DsDivider, { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../Divider';
+import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
 import DsDropdown from '../Dropdown';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
@@ -176,6 +219,10 @@ export default {
 		title: {
 			type: String,
 			required: true,
+		},
+		link: {
+			type: String,
+			default: null,
 		},
 		eyebrowText: {
 			type: String,
