@@ -102,7 +102,11 @@
 
 	&__content {
 		flex-grow: 1;
-		margin: 0 $space-xxs 0 $space-s;
+		margin: 0 $space-xxxxs 0 $space-s;
+
+		@media #{breakpoint-s()} {
+			margin-right: $space-xxs;
+		}
 	}
 
 	&__eyebrow {
