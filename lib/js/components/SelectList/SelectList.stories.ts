@@ -15,7 +15,7 @@ export default {
 	component: SelectList,
 } as Meta<typeof SelectList>;
 
-const StoryTemplate: StoryFn<typeof SelectList> = (argTypes) => ({
+export const Mix: StoryFn<typeof SelectList> = (argTypes) => ({
 	components: { SelectList, SelectListItem, SelectListItemDivider, SelectListItemToggle },
 	props: Object.keys(argTypes),
 	template: `<select-list>
@@ -35,11 +35,31 @@ const StoryTemplate: StoryFn<typeof SelectList> = (argTypes) => ({
 	},
 });
 
-export const Static = StoryTemplate.bind({});
-
-Static.parameters = {
+Mix.parameters = {
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=0%3A1',
 	},
 };
+
+export const SelectableList: StoryFn<typeof SelectList> = (argTypes) => ({
+	components: { SelectList, SelectListItem },
+	props: Object.keys(argTypes),
+	template: `<select-list>
+		<select-list-item
+			:is-selected="selected === 0"
+			label="Short text"
+			@click.native="selected = 0"
+		/>
+		<select-list-item
+			:is-selected="selected === 1"
+			label="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut malesuada commodo diam, a venenatis ipsum. Praesent vitae bibendum dolor."
+			@click.native="selected = 1"
+		/>
+	</select-list>`,
+	data() {
+		return {
+			selected: 0,
+		};
+	},
+});
