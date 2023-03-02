@@ -96,6 +96,7 @@
 	}
 
 	&__placeholderRight {
+		flex-shrink: 0;
 		margin-left: $space-xxxs;
 		width: $icon-xs;
 	}
