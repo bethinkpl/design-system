@@ -58,6 +58,8 @@ export { default as IconList } from './components/IconList';
 export * from './components/IconList/IconList.consts';
 export { default as Pagination } from './components/Pagination';
 export * from './components/Pagination/Pagination.consts';
+export { default as OverlayHeader } from './components/OverlayHeader';
+export * from './components/OverlayHeader/OverlayHeader.consts';
 
 export {
 	initialize as initializeIcons,
