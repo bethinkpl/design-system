@@ -40,8 +40,8 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (argTypes) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	title: 'Zadanie',
-	link: '#123',
+	title: 'Zadanie #123',
+	shortTitle: '#123',
 	eyebrowText: 'Eyebrow',
 	accessorySlot: 'accessory',
 	actionsSlot: 'actions slot',
@@ -49,6 +49,7 @@ const args = {
 	eyebrowAccessorySlot: 'eyebrowAccessory',
 	titleLeadingSlot: 'leading',
 	titleTrailingSlot: 'trailing',
+	titleIsLink: false,
 } as Args;
 
 const argTypes = {

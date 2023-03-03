@@ -24,11 +24,18 @@
 				<div v-if="$slots.titleLeading" class="ds-overlayHeader__titleLeading">
 					<slot name="titleLeading" />
 				</div>
-				<div class="ds-overlayHeader__title">
-					{{ title }}
-				</div>
-				<div class="ds-overlayHeader__link">
-					{{ link }}
+				<div
+					class="ds-overlayHeader__titleWrapper"
+					:title="title"
+					:class="{ '-isLink': titleIsLink }"
+					@click="onTitleClick"
+				>
+					<div class="ds-overlayHeader__title -desktop">
+						{{ title }}
+					</div>
+					<div class="ds-overlayHeader__title -mobile">
+						{{ shortTitle || title }}
+					</div>
 				</div>
 				<div v-if="$slots.titleTrailing" class="ds-overlayHeader__titleTrailing">
 					<slot name="titleTrailing" />
@@ -144,24 +151,34 @@
 		margin-right: $space-xxs;
 	}
 
-	&__title,
-	&__link {
-		@include heading-m-default-bold;
+	&__titleWrapper {
+		overflow: hidden;
 
-		color: $color-neutral-text-heavy;
-	}
-
-	&__title {
-		display: none;
-
-		@media #{breakpoint-s()} {
-			display: block;
+		&.-isLink {
+			cursor: pointer;
 		}
 	}
 
-	&__link {
-		@media #{breakpoint-s()} {
-			margin-left: $space-xxxxs;
+	&__title {
+		@include heading-m-default-bold;
+
+		color: $color-neutral-text-heavy;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		&.-desktop {
+			display: none;
+
+			@media #{breakpoint-s()} {
+				display: block;
+			}
+		}
+
+		&.-mobile {
+			@media #{breakpoint-s()} {
+				display: none;
+			}
 		}
 	}
 
@@ -231,7 +248,7 @@ export default {
 			type: String,
 			required: true,
 		},
-		link: {
+		shortTitle: {
 			type: String,
 			default: null,
 		},
@@ -244,6 +261,10 @@ export default {
 			default: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
 			validator: (value) => Object.values(OVERLAY_HEADER_BORDER_COLORS).includes(value),
 		},
+		titleIsLink: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	data() {
 		return {
@@ -253,6 +274,13 @@ export default {
 			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
 			OVERLAY_HEADER_BORDER_COLORS: Object.freeze(OVERLAY_HEADER_BORDER_COLORS),
 		};
+	},
+	methods: {
+		onTitleClick() {
+			if (this.titleIsLink) {
+				this.$emit('titleClick');
+			}
+		},
 	},
 };
 </script>
