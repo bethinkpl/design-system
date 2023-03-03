@@ -5,7 +5,7 @@
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
   "main": "./dist/design-system.umd.js",
-  "typings": "./dist/index.d.ts",
+  "typings": "./dist/lib/js/index.d.ts",
   "license": "UNLICENSED",
   "engines": {
     "yarn": "^1.22.0",
