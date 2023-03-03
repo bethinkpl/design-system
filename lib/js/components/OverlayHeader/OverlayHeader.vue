@@ -142,6 +142,11 @@ $scrollable-mask-width: 20px;
 		margin-right: $space-xxs;
 	}
 
+	&__eyebrowAccessory {
+		// We need to set min-width to allow children to apply ellipsis
+		min-width: 0;
+	}
+
 	&__main {
 		align-items: center;
 		display: flex;
