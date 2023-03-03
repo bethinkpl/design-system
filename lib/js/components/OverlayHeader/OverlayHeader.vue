@@ -12,8 +12,8 @@
 			<slot name="accessory" />
 		</div>
 		<div class="ds-overlayHeader__content">
-			<div v-if="eyebrowText" class="ds-overlayHeader__eyebrow">
-				<div class="ds-overlayHeader__eyebrowText" :title="eyebrowText">
+			<div v-if="eyebrowText || $slots.eyebrowAccessory" class="ds-overlayHeader__eyebrow">
+				<div v-if="eyebrowText" class="ds-overlayHeader__eyebrowText" :title="eyebrowText">
 					{{ eyebrowText }}
 				</div>
 				<div v-if="$slots.eyebrowAccessory" class="ds-overlayHeader__eyebrowAccessory">
@@ -139,10 +139,7 @@ $scrollable-mask-width: 20px;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-	}
-
-	&__eyebrowAccessory {
-		margin-left: $space-xxs;
+		margin-right: $space-xxs;
 	}
 
 	&__main {
