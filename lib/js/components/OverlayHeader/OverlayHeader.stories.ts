@@ -24,7 +24,7 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (argTypes) => ({
 					<div style="background: var(--raw-gray-300);">{{ titleLeadingSlot }}</div>
 				</template>
 				<template v-if="titleTrailingSlot" #titleTrailing>
-					<div style="background: var(--raw-gray-300);">{{ titleTrailingSlot }}</div>
+					<div style="background: var(--raw-gray-300); white-space: nowrap">{{ titleTrailingSlot }}</div>
 				</template>
 				<template v-if="actionsSlot" #actions>
 					<div style="background: var(--raw-gray-300); height: 100%">{{ actionsSlot }}</div>

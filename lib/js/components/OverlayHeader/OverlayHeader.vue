@@ -37,8 +37,10 @@
 						{{ shortTitle || title }}
 					</div>
 				</div>
-				<div v-if="$slots.titleTrailing" class="ds-overlayHeader__titleTrailing">
-					<slot name="titleTrailing" />
+				<div v-if="$slots.titleTrailing" class="ds-overlayHeader__titleTrailingWrapper">
+					<div class="ds-overlayHeader__titleTrailing">
+						<slot name="titleTrailing" />
+					</div>
 				</div>
 			</div>
 		</div>
@@ -86,6 +88,8 @@
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
+
+$scrollable-mask-width: 20px;
 
 .ds-overlayHeader {
 	align-items: center;
@@ -152,6 +156,7 @@
 	}
 
 	&__titleWrapper {
+		flex-shrink: 1;
 		overflow: hidden;
 
 		&.-interactive {
@@ -182,9 +187,32 @@
 		}
 	}
 
-	&__titleTrailing {
+	&__titleTrailingWrapper {
 		display: flex;
+		// flex-shrink: 2 gives some more space for title
+		flex-shrink: 2;
 		margin-left: $space-xxs;
+		overflow-x: auto;
+
+		&::after {
+			align-self: stretch;
+			background: linear-gradient(
+				90deg,
+				rgba(var(--raw-gray-50-rgb), 0) 0%,
+				$color-neutral-background 84.26%
+			);
+			content: '';
+			display: block;
+			flex-shrink: 0;
+			margin-left: -$scrollable-mask-width;
+			position: sticky;
+			right: -1px;
+			width: $scrollable-mask-width;
+		}
+	}
+
+	&__titleTrailing {
+		padding-right: $scrollable-mask-width;
 	}
 
 	&__actions {
