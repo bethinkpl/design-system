@@ -27,7 +27,7 @@
 				<div
 					class="ds-overlayHeader__titleWrapper"
 					:title="title"
-					:class="{ '-isLink': titleIsLink }"
+					:class="{ '-interactive': isTitleInteractive }"
 					@click="onTitleClick"
 				>
 					<div class="ds-overlayHeader__title -desktop">
@@ -154,7 +154,7 @@
 	&__titleWrapper {
 		overflow: hidden;
 
-		&.-isLink {
+		&.-interactive {
 			cursor: pointer;
 		}
 	}
@@ -261,7 +261,7 @@ export default {
 			default: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
 			validator: (value) => Object.values(OVERLAY_HEADER_BORDER_COLORS).includes(value),
 		},
-		titleIsLink: {
+		isTitleInteractive: {
 			type: Boolean,
 			default: false,
 		},
@@ -277,7 +277,7 @@ export default {
 	},
 	methods: {
 		onTitleClick() {
-			if (this.titleIsLink) {
+			if (this.isTitleInteractive) {
 				this.$emit('titleClick');
 			}
 		},
