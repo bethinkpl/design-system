@@ -46,7 +46,7 @@
 				is-vertical
 			/>
 		</template>
-		<template v-if="$slots.dropdown">
+		<template v-if="$scopedSlots.dropdown">
 			<ds-dropdown boundaries-selector="body">
 				<template #reference>
 					<icon-button
@@ -170,7 +170,7 @@
 		display: none;
 
 		@media #{breakpoint-s()} {
-			display: block;
+			display: flex;
 		}
 	}
 

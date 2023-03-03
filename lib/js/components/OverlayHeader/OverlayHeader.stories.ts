@@ -29,7 +29,7 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (argTypes) => ({
 				<template v-if="actionsSlot" #actions>
 					<div style="background: var(--raw-gray-300); height: 100%">{{ actionsSlot }}</div>
 				</template>
-				<template v-if="dropdownSlot" #dropdown>
+				<template v-if="dropdownSlot" #dropdown="{ close }">
 					<div style="background: var(--raw-gray-300);">{{ dropdownSlot }}</div>
 					<div style="background: var(--raw-gray-300);">{{ dropdownSlot }}</div>
 				</template>
