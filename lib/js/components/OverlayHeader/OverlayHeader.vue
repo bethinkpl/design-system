@@ -103,6 +103,8 @@
 	&__content {
 		flex-grow: 1;
 		margin: 0 $space-xxxxs 0 $space-s;
+		// We need to set min-width to allow children to apply ellipsis
+		min-width: 0;
 
 		@media #{breakpoint-s()} {
 			margin-right: $space-xxs;
@@ -123,6 +125,9 @@
 		@include info-s-extensive-bold-uppercase;
 
 		color: $color-neutral-text;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	&__eyebrowAccessory {
