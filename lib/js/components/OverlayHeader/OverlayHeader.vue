@@ -209,6 +209,7 @@ $scrollable-mask-width: 20px;
 	}
 
 	&__titleTrailing {
+		display: flex;
 		padding-right: $scrollable-mask-width;
 	}
 
