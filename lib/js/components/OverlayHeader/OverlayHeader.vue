@@ -135,6 +135,7 @@
 	}
 
 	&__titleLeading {
+		display: flex;
 		margin-right: $space-xxs;
 	}
 
@@ -160,6 +161,7 @@
 	}
 
 	&__titleTrailing {
+		display: flex;
 		margin-left: $space-xxs;
 	}
 
