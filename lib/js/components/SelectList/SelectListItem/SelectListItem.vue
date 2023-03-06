@@ -17,18 +17,22 @@
 			:size="ICON_SIZES.X_SMALL"
 			:spinning="isLoading"
 		/>
+
 		<span class="selectListItem__text">{{ label }}</span>
+
 		<ds-icon
 			v-if="isSelected"
 			class="selectListItem__iconRight"
 			:icon="ICONS.FA_CHECK_SOLID"
 			:size="ICON_SIZES.X_SMALL"
 		/>
+		<div v-else class="selectListItem__placeholderRight" />
 	</div>
 </template>
 
 <style scoped lang="scss">
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/spacings';
 
@@ -88,7 +92,13 @@
 
 	&__iconRight {
 		color: $color-primary-icon;
-		margin-left: $space-xxxs;
+		margin-left: $space-xs;
+	}
+
+	&__placeholderRight {
+		flex-shrink: 0;
+		margin-left: $space-xs;
+		width: $icon-xs;
 	}
 
 	&__text {
