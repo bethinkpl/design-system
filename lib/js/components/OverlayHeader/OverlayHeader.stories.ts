@@ -49,7 +49,7 @@ const args = {
 	eyebrowAccessorySlot: 'eyebrowAccessory',
 	titleLeadingSlot: 'leading',
 	titleTrailingSlot: 'trailing',
-	titleIsLink: false,
+	isTitleInteractive: false,
 } as Args;
 
 const argTypes = {
