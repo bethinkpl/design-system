@@ -221,6 +221,7 @@ $scrollable-mask-width: 20px;
 	&__actions {
 		align-self: stretch;
 		display: none;
+		flex-shrink: 0;
 
 		@media #{breakpoint-s()} {
 			display: flex;
