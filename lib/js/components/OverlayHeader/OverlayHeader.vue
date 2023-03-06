@@ -142,7 +142,8 @@
 	}
 
 	&__eyebrowAccessory {
-		// We need to set min-width to allow children to apply ellipsis
+		// We need to set flex and min-width to allow children to apply ellipsis
+		display: flex;
 		min-width: 0;
 	}
 
