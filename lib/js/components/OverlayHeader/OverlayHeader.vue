@@ -88,9 +88,7 @@
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
-@import '../../../styles/mixins/flex_overflow_mask';
-
-$scrollable-mask-width: 20px;
+@import '../../../styles/mixins/flex-overflow-mask';
 
 .ds-overlayHeader {
 	align-items: center;
