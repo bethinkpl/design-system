@@ -88,6 +88,7 @@
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
+@import '../../../styles/mixins/flex_overflow_mask';
 
 $scrollable-mask-width: 20px;
 
@@ -190,32 +191,16 @@ $scrollable-mask-width: 20px;
 	}
 
 	&__titleTrailingWrapper {
+		@include flexOverflowMask($color-neutral-background, 20px);
+
 		display: flex;
 		// flex-shrink: 2 gives some more space for title
 		flex-shrink: 2;
 		margin-left: $space-xxs;
-		overflow-x: auto;
-
-		&::after {
-			align-self: stretch;
-			background: linear-gradient(
-				90deg,
-				rgba(var(--raw-gray-50-rgb), 0) 0%,
-				$color-neutral-background 84.26%
-			);
-			content: '';
-			display: block;
-			flex-shrink: 0;
-			margin-left: -$scrollable-mask-width;
-			position: sticky;
-			right: -1px;
-			width: $scrollable-mask-width;
-		}
 	}
 
 	&__titleTrailing {
 		display: flex;
-		padding-right: $scrollable-mask-width;
 	}
 
 	&__actions {
