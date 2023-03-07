@@ -54,6 +54,8 @@
 	flex-direction: column;
 	padding: 0;
 	max-width: 320px;
+	max-height: min(30vh, 400px);
+	overflow: scroll;
 
 	&.-color-neutral ::v-deep .popper__arrow {
 		border-color: $color-neutral-background transparent !important;
