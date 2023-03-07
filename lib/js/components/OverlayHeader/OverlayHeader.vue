@@ -13,7 +13,12 @@
 		</div>
 		<div class="ds-overlayHeader__content">
 			<div v-if="eyebrowText || $slots.eyebrowAccessory" class="ds-overlayHeader__eyebrow">
-				<div v-if="eyebrowText" class="ds-overlayHeader__eyebrowText" :title="eyebrowText">
+				<div
+					v-if="eyebrowText"
+					class="ds-overlayHeader__eyebrowText"
+					:title="eyebrowText"
+					:class="{ '-withRightMargin': $slots.eyebrowAccessory }"
+				>
 					{{ eyebrowText }}
 				</div>
 				<div v-if="$slots.eyebrowAccessory" class="ds-overlayHeader__eyebrowAccessory">
@@ -103,21 +108,17 @@
 
 	&__accessory {
 		align-self: stretch;
-		margin-left: $space-xxs;
-
-		@media #{breakpoint-s()} {
-			margin-left: $space-xs;
-		}
+		margin-left: $space-xs;
 	}
 
 	&__content {
 		flex-grow: 1;
-		margin: 0 $space-xxxxs 0 $space-s;
+		margin: 0 $space-xxxxs 0 $space-xs;
 		// We need to set min-width to allow children to apply ellipsis
 		min-width: 0;
 
 		@media #{breakpoint-s()} {
-			margin-right: $space-xxs;
+			margin: 0 $space-xxs 0 $space-s;
 		}
 	}
 
@@ -138,7 +139,10 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		margin-right: $space-xxs;
+
+		&.-withRightMargin {
+			margin-right: $space-xxs;
+		}
 	}
 
 	&__eyebrowAccessory {
