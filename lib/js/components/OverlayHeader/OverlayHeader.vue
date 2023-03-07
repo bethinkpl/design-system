@@ -61,12 +61,19 @@
 			/>
 		</template>
 		<template v-if="$scopedSlots.dropdown">
-			<ds-dropdown boundaries-selector="body">
+			<ds-dropdown
+				boundaries-selector="body"
+				@show="isDropdownOpen = true"
+				@hide="isDropdownOpen = false"
+			>
 				<template #reference>
 					<icon-button
 						:icon="ICONS.FA_ELLIPSIS_VERTICAL"
 						:size="ICON_BUTTON_SIZES.MEDIUM"
 						:color="ICON_BUTTON_COLORS.NEUTRAL"
+						:state="
+							isDropdownOpen ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT
+						"
 					/>
 				</template>
 				<template #default="{ close }">
@@ -256,7 +263,7 @@
 import IconButton from '../Buttons/IconButton/IconButton.vue';
 import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
 import DsDropdown from '../Dropdown';
-import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
+import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
 import { OVERLAY_HEADER_BORDER_COLORS } from './OverlayHeader.consts';
 
@@ -290,9 +297,11 @@ export default {
 		return {
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
 			ICONS: Object.freeze(ICONS),
 			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
 			OVERLAY_HEADER_BORDER_COLORS: Object.freeze(OVERLAY_HEADER_BORDER_COLORS),
+			isDropdownOpen: false,
 		};
 	},
 	methods: {
