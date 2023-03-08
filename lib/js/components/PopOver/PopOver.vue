@@ -141,7 +141,7 @@
   		scrollbar-width: none;  /* Firefox */
 		/* Hide scrollbar for Chrome, Safari and Opera */
 		&::-webkit-scrollbar {
-			display: none !important;
+			display: none;
 		}
 	}
 
