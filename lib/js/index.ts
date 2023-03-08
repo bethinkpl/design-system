@@ -60,6 +60,8 @@ export { default as IconText } from './components/IconText';
 export * from './components/IconText/IconText.consts';
 export { default as Pagination } from './components/Pagination';
 export * from './components/Pagination/Pagination.consts';
+export { default as OverlayHeader } from './components/OverlayHeader';
+export * from './components/OverlayHeader/OverlayHeader.consts';
 
 export {
 	initialize as initializeIcons,

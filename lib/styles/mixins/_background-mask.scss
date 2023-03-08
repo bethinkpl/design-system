@@ -1,0 +1,3 @@
+@mixin backgroundMask($color) {
+	background: linear-gradient(90deg, transparent 0%, $color 84.26%);
+}
