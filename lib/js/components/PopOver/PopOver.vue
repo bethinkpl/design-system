@@ -17,7 +17,13 @@
 			<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
 			<div class="popOver__content">
 				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
+				<div v-if="$slots.titleTextSlot" class="popOver__title">
+					<slot name="titleTextSlot" />
+				</div>
 				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
+				<div v-if="$slots.subtitleTextSlot" class="popOver__subtitle">
+					<slot name="subtitleTextSlot" />
+				</div>
 				<slot :close="close" />
 			</div>
 			<ds-button
@@ -54,8 +60,6 @@
 	flex-direction: column;
 	padding: 0;
 	max-width: 320px;
-	max-height: min(30vh, 400px);
-	overflow: scroll;
 
 	&.-color-neutral ::v-deep .popper__arrow {
 		border-color: $color-neutral-background transparent !important;
@@ -130,6 +134,15 @@
 		padding: $space-s;
 		// Override popperjs styles
 		text-align: left;
+		max-height: min(30vh, 400px);
+		overflow: scroll;
+
+		-ms-overflow-style: none;  /* IE and Edge */
+  		scrollbar-width: none;  /* Firefox */
+		/* Hide scrollbar for Chrome, Safari and Opera */
+		&::-webkit-scrollbar {
+			display: none !important;
+		}
 	}
 
 	&__title {
