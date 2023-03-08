@@ -136,9 +136,9 @@
 		text-align: left;
 		max-height: min(30vh, 400px);
 		overflow: scroll;
-
 		-ms-overflow-style: none;  /* IE and Edge */
-  		scrollbar-width: none;  /* Firefox */
+		scrollbar-width: none;  /* Firefox */
+
 		/* Hide scrollbar for Chrome, Safari and Opera */
 		&::-webkit-scrollbar {
 			display: none;
