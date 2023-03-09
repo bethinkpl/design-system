@@ -63,6 +63,7 @@
 		<template v-if="$scopedSlots.dropdown">
 			<ds-dropdown
 				boundaries-selector="body"
+				:placement="DROPDOWN_PLACEMENTS.BOTTOM_END"
 				@show="isDropdownOpen = true"
 				@hide="isDropdownOpen = false"
 			>
@@ -262,7 +263,7 @@
 <script lang="ts">
 import IconButton from '../Buttons/IconButton/IconButton.vue';
 import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
-import DsDropdown from '../Dropdown';
+import DsDropdown, { DROPDOWN_PLACEMENTS } from '../Dropdown';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
 import { OVERLAY_HEADER_BORDER_COLORS } from './OverlayHeader.consts';
@@ -301,6 +302,7 @@ export default {
 			ICONS: Object.freeze(ICONS),
 			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
 			OVERLAY_HEADER_BORDER_COLORS: Object.freeze(OVERLAY_HEADER_BORDER_COLORS),
+			DROPDOWN_PLACEMENTS: Object.freeze(DROPDOWN_PLACEMENTS),
 			isDropdownOpen: false,
 		};
 	},
