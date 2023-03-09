@@ -68,7 +68,11 @@
 <script lang="ts">
 import VuePopper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
-import { DROPDOWN_RADIUSES, DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
+import {
+	DROPDOWN_PLACEMENTS,
+	DROPDOWN_RADIUSES,
+	DROPDOWN_TRIGGER_ACTIONS,
+} from './Dropdown.consts';
 
 export default {
 	name: 'Dropdown',
@@ -102,6 +106,13 @@ export default {
 				return Object.values(DROPDOWN_RADIUSES).includes(radius);
 			},
 		},
+		placement: {
+			type: String,
+			default: DROPDOWN_PLACEMENTS.BOTTOM_START,
+			validate(placement) {
+				return Object.values(DROPDOWN_PLACEMENTS).includes(placement);
+			},
+		},
 	},
 	data() {
 		return {
@@ -113,7 +124,7 @@ export default {
 		options() {
 			return {
 				modifiers: { preventOverflow: { padding: 0 } },
-				placement: 'bottom-start',
+				placement: this.placement,
 				...(this.sameWidth && {
 					// See https://github.com/floating-ui/floating-ui/issues/794
 					// We can't use onCreate because vue-popper overrides it.
@@ -133,6 +144,9 @@ export default {
 			this.updateKey();
 		},
 		boundariesSelector() {
+			this.updateKey();
+		},
+		placement() {
 			this.updateKey();
 		},
 	},
