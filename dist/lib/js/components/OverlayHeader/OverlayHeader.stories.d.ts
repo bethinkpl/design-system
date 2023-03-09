@@ -734,6 +734,11 @@ declare const _default: Meta<{
                     default: "both";
                     validate(radius: any): boolean;
                 };
+                placement: {
+                    type: StringConstructor;
+                    default: "bottom-start";
+                    validate(placement: any): boolean;
+                };
             };
             data(): {
                 key: number;
@@ -750,6 +755,7 @@ declare const _default: Meta<{
                 triggerAction(): void;
                 sameWidth(): void;
                 boundariesSelector(): void;
+                placement(): void;
             };
             methods: {
                 close(): void;
@@ -798,6 +804,13 @@ declare const _default: Meta<{
             readonly INVERTED: "inverted";
             readonly WARNING: "warning";
             readonly INFO: "info";
+        }>;
+        ICON_BUTTON_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly FOCUSED: "focused";
+            readonly DISABLED: "disabled";
+            readonly LOADING: "loading";
         }>;
         ICONS: Readonly<{
             readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
@@ -979,6 +992,11 @@ declare const _default: Meta<{
             readonly FAIL: "fail";
             readonly WARNING: "warning";
         }>;
+        DROPDOWN_PLACEMENTS: Readonly<{
+            readonly BOTTOM_START: "bottom-start";
+            readonly BOTTOM_END: "bottom-end";
+        }>;
+        isDropdownOpen: boolean;
     };
     methods: {
         onTitleClick(): void;
@@ -1720,6 +1738,11 @@ export declare const Interactive: StoryFn<{
                     default: "both";
                     validate(radius: any): boolean;
                 };
+                placement: {
+                    type: StringConstructor;
+                    default: "bottom-start";
+                    validate(placement: any): boolean;
+                };
             };
             data(): {
                 key: number;
@@ -1736,6 +1759,7 @@ export declare const Interactive: StoryFn<{
                 triggerAction(): void;
                 sameWidth(): void;
                 boundariesSelector(): void;
+                placement(): void;
             };
             methods: {
                 close(): void;
@@ -1784,6 +1808,13 @@ export declare const Interactive: StoryFn<{
             readonly INVERTED: "inverted";
             readonly WARNING: "warning";
             readonly INFO: "info";
+        }>;
+        ICON_BUTTON_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly FOCUSED: "focused";
+            readonly DISABLED: "disabled";
+            readonly LOADING: "loading";
         }>;
         ICONS: Readonly<{
             readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
@@ -1965,6 +1996,11 @@ export declare const Interactive: StoryFn<{
             readonly FAIL: "fail";
             readonly WARNING: "warning";
         }>;
+        DROPDOWN_PLACEMENTS: Readonly<{
+            readonly BOTTOM_START: "bottom-start";
+            readonly BOTTOM_END: "bottom-end";
+        }>;
+        isDropdownOpen: boolean;
     };
     methods: {
         onTitleClick(): void;

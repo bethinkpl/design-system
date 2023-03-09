@@ -27,6 +27,11 @@ declare const _default: Meta<{
             default: "both";
             validate(radius: any): boolean;
         };
+        placement: {
+            type: StringConstructor;
+            default: "bottom-start";
+            validate(placement: any): boolean;
+        };
     };
     data(): {
         key: number;
@@ -43,6 +48,7 @@ declare const _default: Meta<{
         triggerAction(): void;
         sameWidth(): void;
         boundariesSelector(): void;
+        placement(): void;
     };
     methods: {
         close(): void;
@@ -78,6 +84,11 @@ export declare const Interactive: StoryFn<{
             default: "both";
             validate(radius: any): boolean;
         };
+        placement: {
+            type: StringConstructor;
+            default: "bottom-start";
+            validate(placement: any): boolean;
+        };
     };
     data(): {
         key: number;
@@ -94,6 +105,7 @@ export declare const Interactive: StoryFn<{
         triggerAction(): void;
         sameWidth(): void;
         boundariesSelector(): void;
+        placement(): void;
     };
     methods: {
         close(): void;
