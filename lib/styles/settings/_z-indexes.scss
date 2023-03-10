@@ -1,3 +1,4 @@
 // z-index positioning
 // hardcoded
 $z-index-modal: 16777270; // 16777271 is the highest possible value in Safari, we need to make space for elements that above modal, so -1
+$z-index-pop-over: 16777269; // 16777268 is the position slide preview modal, so it has to be +1 to be visible on it, also this works with new method for attaching vue-fullscreen to body

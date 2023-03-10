@@ -17,12 +17,12 @@
 			<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
 			<div class="popOver__content">
 				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
-				<div v-if="$slots.titleTextSlot" class="popOver__title">
-					<slot name="titleTextSlot" />
+				<div v-if="$slots.titleHTML" class="popOver__title">
+					<slot name="titleHTML" />
 				</div>
 				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
-				<div v-if="$slots.subtitleTextSlot" class="popOver__subtitle">
-					<slot name="subtitleTextSlot" />
+				<div v-if="$slots.subtitleHTML" class="popOver__subtitle">
+					<slot name="subtitleHTML" />
 				</div>
 				<slot :close="close" />
 			</div>
@@ -49,6 +49,7 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/z-indexes';
 
 .popOver {
 	background-color: $color-default-background;
@@ -60,6 +61,7 @@
 	flex-direction: column;
 	padding: 0;
 	max-width: 320px;
+	z-index: $z-index-pop-over;
 
 	&.-color-neutral ::v-deep .popper__arrow {
 		border-color: $color-neutral-background transparent !important;
