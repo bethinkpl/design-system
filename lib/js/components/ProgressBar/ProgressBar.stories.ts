@@ -5,6 +5,7 @@ import {
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_RADII,
 	ProgressBarRange,
+	PROGRESS_BAR_LABEL_TEXT_SIZES,
 } from './ProgressBar.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
@@ -27,6 +28,10 @@ const argTypes = {
 	size: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_SIZES) },
 		defaultValue: PROGRESS_BAR_SIZES.MEDIUM,
+	},
+	labelTextSize: {
+		control: { type: 'select', options: Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES) },
+		defaultValue: PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
 	},
 	ranges: {
 		control: { type: 'array' },

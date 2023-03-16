@@ -6,7 +6,12 @@
 		}"
 	>
 		<div class="progressBar__label">
-			<div class="progressBar__labelText">{{ labelText }}</div>
+			<div
+				class="progressBar__labelText"
+				:class="{ '-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM }"
+			>
+				{{ labelText }}
+			</div>
 			<div v-if="labelDataExists" class="progressBar__labelDataWrapper">
 				<span v-if="labelData" class="progressBar__labelData">{{ labelData }}</span>
 				<span v-if="labelDataSupporting" class="progressBar__labelDataSupporting">
@@ -148,6 +153,14 @@ $progress-bar-range-colors: (
 		@media #{breakpoint-s()} {
 			@include label-l-default-bold;
 		}
+
+		&.-medium {
+			@include label-l-default-bold;
+
+			@media #{breakpoint-s()} {
+				@include label-xl-default-bold;
+			}
+		}
 	}
 
 	&__labelDataWrapper {
@@ -200,7 +213,6 @@ import {
 	PROGRESS_BAR_SIZES,
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_LAYOUTS,
-	PROGRESS_BAR_LAYERS,
 	ProgressBarRange,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
 } from './ProgressBar.consts';
@@ -215,7 +227,6 @@ export default {
 				return Object.values(PROGRESS_BAR_SIZES).includes(size);
 			},
 		},
-		// TODO style me
 		labelTextSize: {
 			type: String,
 			default: PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
@@ -278,7 +289,7 @@ export default {
 			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
 			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
 			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
-			PROGRESS_BAR_LAYERS: Object.freeze(PROGRESS_BAR_LAYERS),
+			PROGRESS_BAR_LABEL_TEXT_SIZES: Object.freeze(PROGRESS_BAR_LABEL_TEXT_SIZES),
 		};
 	},
 	computed: {
