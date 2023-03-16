@@ -77,6 +77,10 @@ const argTypes = {
 		control: { type: 'text' },
 		defaultValue: '(%)',
 	},
+	badgePosition: {
+		control: { type: 'number' },
+		defaultValue: 50,
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

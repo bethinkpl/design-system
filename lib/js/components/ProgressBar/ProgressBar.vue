@@ -24,20 +24,44 @@
 			</div>
 		</div>
 		<div
+			class="progressBar__barWrapper"
 			:class="{
-				progressBar__bar: true,
 				'-small': size === PROGRESS_BAR_SIZES.SMALL,
 				'-xsmall': size === PROGRESS_BAR_SIZES.XSMALL,
 				'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
 			}"
 		>
 			<div
-				v-for="(range, index) in ranges"
-				:key="index"
-				class="progressBar__range"
-				:class="`-${range.color}`"
-				:style="{ left: range.start + '%', width: range.length + '%' }"
-			/>
+				class="progressBar__bar"
+				:class="{
+					'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
+				}"
+			>
+				<div
+					v-for="(range, index) in ranges"
+					:key="index"
+					class="progressBar__range"
+					:class="`-${range.color}`"
+					:style="{ left: range.start + '%', width: range.length + '%' }"
+				/>
+			</div>
+			<div
+				v-if="badgePosition !== null"
+				class="progressBar__badge"
+				:class="{
+					'-small': size !== PROGRESS_BAR_SIZES.MEDIUM,
+				}"
+				:style="`left: ${badgePosition}%`"
+			>
+				<ds-icon
+					:icon="ICONS.FA_LOCATION_DOT"
+					:size="
+						size === PROGRESS_BAR_SIZES.MEDIUM
+							? ICON_SIZES.XX_SMALL
+							: ICON_SIZES.XXX_SMALL
+					"
+				/>
+			</div>
 		</div>
 	</div>
 </template>
@@ -57,6 +81,9 @@ $progress-bar-border-radius: 8px;
 
 $progress-bar-label-text-max-width: 70%;
 $progress-bar-label-data-max-width: 30%;
+
+$progress-bar-badge-size: 24px;
+$progress-bar-badge-size-small: 16px;
 
 $progress-bar-range-colors: (
 	'primaryMedium': $color-primary-data-medium,
@@ -98,11 +125,8 @@ $progress-bar-range-colors: (
 		}
 	}
 
-	&__bar {
-		background-color: $color-default-background;
-		border-radius: $progress-bar-border-radius;
+	&__barWrapper {
 		height: $progress-bar-height;
-		overflow: hidden;
 		position: relative;
 
 		&.-small {
@@ -111,7 +135,17 @@ $progress-bar-range-colors: (
 
 		&.-xsmall {
 			height: $progress-bar-xs-height;
+		}
+	}
 
+	&__bar {
+		background-color: $color-default-background;
+		border-radius: $progress-bar-border-radius;
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+
+		&.-xsmall {
 			&::after {
 				box-shadow: $shadow-inset-s;
 			}
@@ -204,6 +238,29 @@ $progress-bar-range-colors: (
 			}
 		}
 	}
+
+	&__badge {
+		align-items: center;
+		border-radius: 50%;
+		border: 1px solid $color-inverted-border;
+		display: flex;
+		height: $progress-bar-badge-size;
+		justify-content: center;
+		margin-left: -$progress-bar-badge-size/2;
+		margin-top: -$progress-bar-badge-size/2;
+		position: absolute;
+		top: 50%;
+		width: $progress-bar-badge-size;
+		//TODO bacground and iconColor
+		background: $color-info-background-focused;
+
+		&.-small {
+			height: $progress-bar-badge-size-small;
+			margin-left: -$progress-bar-badge-size-small/2;
+			margin-top: -$progress-bar-badge-size-small/2;
+			width: $progress-bar-badge-size-small;
+		}
+	}
 }
 </style>
 
@@ -217,8 +274,13 @@ import {
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
 } from './ProgressBar.consts';
 
+import DsIcon, { ICONS, ICON_SIZES } from '../Icons/Icon';
+
 export default {
 	name: 'ProgressBar',
+	components: {
+		DsIcon,
+	},
 	props: {
 		size: {
 			type: String,
@@ -290,6 +352,8 @@ export default {
 			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
 			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
 			PROGRESS_BAR_LABEL_TEXT_SIZES: Object.freeze(PROGRESS_BAR_LABEL_TEXT_SIZES),
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},
 	computed: {
