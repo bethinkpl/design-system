@@ -2,14 +2,6 @@
 	<div
 		:class="{
 			progressBar: true,
-			'-primary': color === PROGRESS_BAR_COLORS.PRIMARY,
-			'-warning': color === PROGRESS_BAR_COLORS.WARNING,
-			'-fail': color === PROGRESS_BAR_COLORS.FAIL,
-			'-success': color === PROGRESS_BAR_COLORS.SUCCESS,
-			'-neutral': color === PROGRESS_BAR_COLORS.NEUTRAL,
-			'-info': color === PROGRESS_BAR_COLORS.INFO,
-			'-schemeMedium': colorScheme === PROGRESS_BAR_COLOR_SCHEMES.MEDIUM,
-			'-schemeMediumNeutral': colorScheme === PROGRESS_BAR_COLOR_SCHEMES.MEDIUM_NEUTRAL,
 			'-compact': layout === PROGRESS_BAR_LAYOUTS.COMPACT,
 		}"
 	>
@@ -37,10 +29,8 @@
 			<div
 				v-for="(range, index) in ranges"
 				:key="index"
-				:class="{
-					progressBar__result: true,
-					'-secondary': range.layer === 2 && numberOfLayers === 2,
-				}"
+				class="progressBar__range"
+				:class="`-${range.color}`"
 				:style="{ left: range.start + '%', width: range.length + '%' }"
 			/>
 		</div>
@@ -63,90 +53,41 @@ $progress-bar-border-radius: 8px;
 $progress-bar-label-text-max-width: 70%;
 $progress-bar-label-data-max-width: 30%;
 
-$progress-bar-layers: (
-	'primary': (
-		'default-color-scheme-first-layer': $color-primary-data,
-		'default-color-scheme-second-layer': $color-primary-data-ghost,
-		'medium-color-scheme-first-layer': $color-primary-data-medium,
-		'medium-color-scheme-second-layer': $color-primary-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
-	),
-	'info': (
-		'default-color-scheme-first-layer': $color-info-data,
-		'default-color-scheme-second-layer': $color-info-data-ghost,
-		'medium-color-scheme-first-layer': $color-info-data-medium,
-		'medium-color-scheme-second-layer': $color-info-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
-	),
-	'neutral': (
-		'default-color-scheme-first-layer': $color-neutral-data,
-		'default-color-scheme-second-layer': $color-neutral-data-ghost,
-		'medium-color-scheme-first-layer': $color-neutral-data-medium,
-		'medium-color-scheme-second-layer': $color-neutral-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
-	),
-	'success': (
-		'default-color-scheme-first-layer': $color-success-data,
-		'default-color-scheme-second-layer': $color-success-data-ghost,
-		'medium-color-scheme-first-layer': $color-success-data-medium,
-		'medium-color-scheme-second-layer': $color-success-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
-	),
-	'warning': (
-		'default-color-scheme-first-layer': $color-warning-data,
-		'default-color-scheme-second-layer': $color-warning-data-ghost,
-		'medium-color-scheme-first-layer': $color-warning-data-medium,
-		'medium-color-scheme-second-layer': $color-warning-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
-	),
-	'fail': (
-		'default-color-scheme-first-layer': $color-fail-data,
-		'default-color-scheme-second-layer': $color-fail-data-ghost,
-		'medium-color-scheme-first-layer': $color-fail-data-medium,
-		'medium-color-scheme-second-layer': $color-fail-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
-	),
+$progress-bar-range-colors: (
+	'primaryMedium': $color-primary-data-medium,
+	'primary': $color-primary-data,
+	'primaryWeak': $color-primary-data-weak,
+	'primaryGhost': $color-primary-data-ghost,
+	'neutralMedium': $color-neutral-data-medium,
+	'neutral': $color-neutral-data,
+	'neutralWeak': $color-neutral-data-weak,
+	'neutralGhost': $color-neutral-data-ghost,
+	'infoMedium': $color-info-data-medium,
+	'info': $color-info-data,
+	'infoWeak': $color-info-data-weak,
+	'infoGhost': $color-info-data-ghost,
+	'successMedium': $color-success-data-medium,
+	'success': $color-success-data,
+	'successWeak': $color-success-data-weak,
+	'successGhost': $color-success-data-ghost,
+	'warningMedium': $color-warning-data-medium,
+	'warning': $color-warning-data,
+	'warningWeak': $color-warning-data-weak,
+	'warningGhost': $color-warning-data-ghost,
+	'failMedium': $color-fail-data-medium,
+	'fail': $color-fail-data,
+	'failWeak': $color-fail-data-weak,
+	'failGhost': $color-fail-data-ghost,
 );
 
 .progressBar {
 	$self: &;
 
-	@each $color-name, $color-map in $progress-bar-layers {
-		&.-#{$color-name} {
-			#{$self}__result {
-				background: map-get($color-map, 'default-color-scheme-first-layer');
-
-				&.-secondary {
-					background: map-get($color-map, 'default-color-scheme-second-layer');
-				}
-			}
-
-			&.-schemeMedium {
-				#{$self}__result {
-					background: map-get($color-map, 'medium-color-scheme-first-layer');
-
-					&.-secondary {
-						background: map-get($color-map, 'medium-color-scheme-second-layer');
-					}
-				}
-			}
-
-			&.-schemeMediumNeutral {
-				#{$self}__result {
-					background: map-get($color-map, 'medium-color-scheme-first-layer');
-
-					&.-secondary {
-						background: map-get($color-map, 'medium-neutral-color-scheme-second-layer');
-					}
-				}
-			}
-		}
-	}
-
 	&.-compact {
 		#{$self}__labelText {
 			@include label-m-default-bold;
 		}
+
 		#{$self}__label {
 			margin-bottom: $space-xxxs;
 		}
@@ -239,10 +180,16 @@ $progress-bar-layers: (
 		margin-left: $space-xxxxs;
 	}
 
-	&__result {
+	&__range {
 		height: 100%;
 		position: absolute;
 		top: 0;
+
+		@each $class, $color-name in $progress-bar-range-colors {
+			&.-#{$class} {
+				background: $color-name;
+			}
+		}
 	}
 }
 </style>
@@ -250,44 +197,30 @@ $progress-bar-layers: (
 <script lang="ts">
 import { PropType } from 'vue';
 import {
-	PROGRESS_BAR_COLORS,
 	PROGRESS_BAR_SIZES,
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_LAYOUTS,
-	PROGRESS_BAR_COLOR_SCHEMES,
 	PROGRESS_BAR_LAYERS,
 	ProgressBarRange,
+	PROGRESS_BAR_LABEL_TEXT_SIZES,
 } from './ProgressBar.consts';
 
 export default {
 	name: 'ProgressBar',
 	props: {
-		numberOfLayers: {
-			type: Number,
-			default: PROGRESS_BAR_LAYERS.ONE,
-			validator(size) {
-				return Object.values(PROGRESS_BAR_LAYERS).includes(size);
-			},
-		},
-		colorScheme: {
-			type: String,
-			default: PROGRESS_BAR_COLOR_SCHEMES.DEFAULT,
-			validator(size) {
-				return Object.values(PROGRESS_BAR_COLOR_SCHEMES).includes(size);
-			},
-		},
-		color: {
-			type: String,
-			default: PROGRESS_BAR_COLORS.INFO,
-			validator(color) {
-				return Object.values(PROGRESS_BAR_COLORS).includes(color);
-			},
-		},
 		size: {
 			type: String,
 			default: PROGRESS_BAR_SIZES.MEDIUM,
 			validator(size) {
 				return Object.values(PROGRESS_BAR_SIZES).includes(size);
+			},
+		},
+		// TODO style me
+		labelTextSize: {
+			type: String,
+			default: PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
+			validator(size) {
+				return Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES).includes(size);
 			},
 		},
 		ranges: {
@@ -324,15 +257,28 @@ export default {
 			type: String,
 			default: null,
 		},
+		// TODO add badge
+		badgePosition: {
+			type: Number,
+			default: null,
+			validator(position) {
+				return position >= 0 && position <= 100;
+			},
+		},
+		// TODO style me
+		badgeColor: {
+			type: String,
+			// TODO const
+			default: 'info',
+			// TODO validator
+		},
 	},
 	data() {
 		return {
-			PROGRESS_BAR_COLORS: Object.freeze(PROGRESS_BAR_COLORS),
 			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
 			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
 			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
 			PROGRESS_BAR_LAYERS: Object.freeze(PROGRESS_BAR_LAYERS),
-			PROGRESS_BAR_COLOR_SCHEMES: Object.freeze(PROGRESS_BAR_COLOR_SCHEMES),
 		};
 	},
 	computed: {

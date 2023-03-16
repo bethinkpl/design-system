@@ -1,11 +1,9 @@
 import ProgressBar from './ProgressBar.vue';
 import {
-	PROGRESS_BAR_COLORS,
+	PROGRESS_BAR_RANGE_COLORS,
 	PROGRESS_BAR_SIZES,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_RADII,
-	PROGRESS_BAR_LAYERS,
-	PROGRESS_BAR_COLOR_SCHEMES,
 	ProgressBarRange,
 } from './ProgressBar.consts';
 
@@ -19,24 +17,13 @@ export default {
 const StoryTemplate: StoryFn<typeof ProgressBar> = (argTypes) => ({
 	components: { ProgressBar },
 	props: Object.keys(argTypes),
-	template: `<ProgressBar v-bind=$props></ProgressBar>`,
+	template: `
+			<ProgressBar v-bind=$props></ProgressBar>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const argTypes = {
-	numberOfLayers: {
-		control: { type: 'select', options: Object.values(PROGRESS_BAR_LAYERS) },
-		defaultValue: PROGRESS_BAR_LAYERS.ONE,
-	},
-	colorScheme: {
-		control: { type: 'select', options: Object.values(PROGRESS_BAR_COLOR_SCHEMES) },
-		defaultValue: PROGRESS_BAR_COLOR_SCHEMES.DEFAULT,
-	},
-	color: {
-		control: { type: 'select', options: Object.values(PROGRESS_BAR_COLORS) },
-		defaultValue: PROGRESS_BAR_COLORS.INFO,
-	},
 	size: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_SIZES) },
 		defaultValue: PROGRESS_BAR_SIZES.MEDIUM,
@@ -45,17 +32,17 @@ const argTypes = {
 		control: { type: 'array' },
 		defaultValue: [
 			{
-				layer: 1,
+				color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 				start: 0,
 				length: 30,
 			} as ProgressBarRange,
 			{
-				layer: 2,
+				color: PROGRESS_BAR_RANGE_COLORS.PRIMARY_WEAK,
 				start: 30,
 				length: 10,
 			} as ProgressBarRange,
 			{
-				layer: 2,
+				color: PROGRESS_BAR_RANGE_COLORS.PRIMARY_GHOST,
 				start: 40,
 				length: 10,
 			} as ProgressBarRange,
@@ -96,90 +83,75 @@ Interactive.parameters = {
 	},
 };
 
-const argTypesColorOnly = {
-	color: {
-		control: { type: 'select', options: Object.values(PROGRESS_BAR_COLORS) },
-		defaultValue: PROGRESS_BAR_COLORS.INFO,
-	},
-} as ArgTypes;
-
 export const WithoutLabels = StoryTemplate.bind({});
 
 WithoutLabels.args = {
-	color: PROGRESS_BAR_COLORS.PRIMARY,
 	ranges: [
 		{
-			layer: 1,
+			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 			start: 0,
 			length: 30,
 		} as ProgressBarRange,
 	],
 } as Args;
-WithoutLabels.argTypes = argTypesColorOnly;
 
-export const TwoLayers = StoryTemplate.bind({});
+export const TwoColors = StoryTemplate.bind({});
 
-TwoLayers.args = {
-	color: PROGRESS_BAR_COLORS.PRIMARY,
-	numberOfLayers: 2,
+TwoColors.args = {
 	ranges: [
 		{
-			layer: 1,
+			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 			start: 0,
 			length: 30,
 		} as ProgressBarRange,
 		{
-			layer: 2,
+			color: PROGRESS_BAR_RANGE_COLORS.WARNING,
 			start: 30,
 			length: 30,
 		} as ProgressBarRange,
 	],
 } as Args;
-TwoLayers.argTypes = argTypesColorOnly;
 
 export const WithGaps = StoryTemplate.bind({});
 
 WithGaps.args = {
-	color: PROGRESS_BAR_COLORS.PRIMARY,
-	numberOfLayers: 2,
+	color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 	ranges: [
 		{
-			layer: 1,
+			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 			start: 0,
 			length: 10,
 		} as ProgressBarRange,
 		{
-			layer: 2,
+			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY_WEAK,
 			start: 20,
 			length: 10,
 		} as ProgressBarRange,
 		{
-			layer: 1,
+			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 			start: 40,
 			length: 10,
 		} as ProgressBarRange,
 		{
-			layer: 2,
+			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY_WEAK,
 			start: 50,
 			length: 10,
 		} as ProgressBarRange,
 		{
-			layer: 1,
+			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 			start: 70,
 			length: 100,
 		} as ProgressBarRange,
 	],
 } as Args;
-WithGaps.argTypes = argTypesColorOnly;
 
 export const Compact = StoryTemplate.bind({});
 
 Compact.args = {
-	color: PROGRESS_BAR_COLORS.PRIMARY,
 	layout: PROGRESS_BAR_LAYOUTS.COMPACT,
 	ranges: [
 		{
-			layer: 1,
+			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 			start: 0,
 			length: 30,
 		} as ProgressBarRange,
@@ -189,4 +161,3 @@ Compact.args = {
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
 } as Args;
-Compact.argTypes = argTypesColorOnly;
