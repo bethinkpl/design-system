@@ -3,6 +3,7 @@ export const TILE_COLORS = {
 	PRIMARY: 'primary',
 	SUCCESS: 'success',
 	FAIL: 'fail',
+	INFO: 'info',
 } as const;
 
 export const TILE_STATES = {
