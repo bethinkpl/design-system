@@ -30,6 +30,15 @@ export const PROGRESS_BAR_RANGE_COLORS = {
 	FAIL_GHOST: 'failGhost',
 } as const;
 
+export const PROGRESS_BAR_BADGE_COLORS = {
+	PRIMARY: 'primary',
+	NEUTRAL: 'neutral',
+	INFO: 'info',
+	SUCCESS: 'success',
+	WARNING: 'warning',
+	FAIL: 'fail',
+} as const;
+
 export const PROGRESS_BAR_SIZES = {
 	MEDIUM: 'medium',
 	SMALL: 'small',

@@ -50,6 +50,7 @@
 				class="progressBar__badge"
 				:class="{
 					'-small': size !== PROGRESS_BAR_SIZES.MEDIUM,
+					[`-${badgeColor}`]: true,
 				}"
 				:style="`left: ${badgePosition}%`"
 				:icon="ICONS.FA_LOCATION_DOT"
@@ -105,6 +106,33 @@ $progress-bar-range-colors: (
 	'fail': $color-fail-data,
 	'failWeak': $color-fail-data-weak,
 	'failGhost': $color-fail-data-ghost,
+);
+
+$progress-bar-badge-colors: (
+	'primary': (
+		'background': $color-primary-background-medium,
+		'icon': $color-primary-icon,
+	),
+	'neutral': (
+		'background': $color-neutral-background-medium,
+		'icon': $color-neutral-icon,
+	),
+	'info': (
+		'background': $color-info-background-medium,
+		'icon': $color-info-icon,
+	),
+	'success': (
+		'background': $color-success-background-medium,
+		'icon': $color-success-icon,
+	),
+	'warning': (
+		'background': $color-warning-background-medium,
+		'icon': $color-warning-icon,
+	),
+	'fail': (
+		'background': $color-fail-background-medium,
+		'icon': $color-fail-icon,
+	),
 );
 
 .progressBar {
@@ -241,19 +269,24 @@ $progress-bar-range-colors: (
 		display: flex;
 		height: $progress-bar-badge-size;
 		justify-content: center;
-		margin-left: -$progress-bar-badge-size/2;
-		margin-top: -$progress-bar-badge-size/2;
+		margin-left: -$progress-bar-badge-size / 2;
+		margin-top: -$progress-bar-badge-size / 2;
 		position: absolute;
 		top: 50%;
 		width: $progress-bar-badge-size;
-		//TODO bacground and iconColor
-		background: $color-info-background-focused;
 
 		&.-small {
 			height: $progress-bar-badge-size-small;
-			margin-left: -$progress-bar-badge-size-small/2;
-			margin-top: -$progress-bar-badge-size-small/2;
+			margin-left: -$progress-bar-badge-size-small / 2;
+			margin-top: -$progress-bar-badge-size-small / 2;
 			width: $progress-bar-badge-size-small;
+		}
+
+		@each $class, $colors-map in $progress-bar-badge-colors {
+			&.-#{$class} {
+				background: map-get($colors-map, 'background');
+				color: map-get($colors-map, 'icon');
+			}
 		}
 	}
 }
@@ -267,6 +300,7 @@ import {
 	PROGRESS_BAR_LAYOUTS,
 	ProgressBarRange,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
+	PROGRESS_BAR_BADGE_COLORS,
 } from './ProgressBar.consts';
 
 import DsIcon, { ICONS, ICON_SIZES } from '../Icons/Icon';
@@ -325,7 +359,6 @@ export default {
 			type: String,
 			default: null,
 		},
-		// TODO add badge
 		badgePosition: {
 			type: Number,
 			default: null,
@@ -333,12 +366,12 @@ export default {
 				return position >= 0 && position <= 100;
 			},
 		},
-		// TODO style me
 		badgeColor: {
 			type: String,
-			// TODO const
-			default: 'info',
-			// TODO validator
+			default: PROGRESS_BAR_BADGE_COLORS.INFO,
+			validator(color) {
+				return Object.values(PROGRESS_BAR_BADGE_COLORS).includes(color);
+			},
 		},
 	},
 	data() {

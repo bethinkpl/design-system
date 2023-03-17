@@ -6,6 +6,7 @@ import {
 	PROGRESS_BAR_RADII,
 	ProgressBarRange,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
+	PROGRESS_BAR_BADGE_COLORS,
 } from './ProgressBar.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
@@ -80,6 +81,10 @@ const argTypes = {
 	badgePosition: {
 		control: { type: 'number' },
 		defaultValue: 50,
+	},
+	badgeColor: {
+		control: { type: 'select', options: Object.values(PROGRESS_BAR_BADGE_COLORS) },
+		defaultValue: PROGRESS_BAR_BADGE_COLORS.INFO,
 	},
 } as ArgTypes;
 
