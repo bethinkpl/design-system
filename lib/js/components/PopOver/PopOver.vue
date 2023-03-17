@@ -12,19 +12,25 @@
 	>
 		<div
 			class="popper popOver"
-			:class="{ '-color-neutral': color === POP_OVER_COLORS.NEUTRAL }"
+			:class="{
+				'-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
+				'-small': size === POP_OVER_SIZES.SMALL,
+				'-medium': size === POP_OVER_SIZES.MEDIUM,
+			}"
 		>
 			<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
 			<div class="popOver__content">
 				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
-				<div v-if="$slots.titleHTML" class="popOver__title">
-					<slot name="titleHTML" />
-				</div>
 				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
-				<div v-if="$slots.subtitleHTML" class="popOver__subtitle">
-					<slot name="subtitleHTML" />
+				<div
+					class="popOver__contentSlot"
+					:class="{
+						'-small': size === POP_OVER_SIZES.SMALL,
+						'-medium': size === POP_OVER_SIZES.MEDIUM,
+					}"
+				>
+					<slot :close="close" />
 				</div>
-				<slot :close="close" />
 			</div>
 			<ds-button
 				v-if="buttonText"
@@ -60,8 +66,6 @@
 	display: flex;
 	flex-direction: column;
 	padding: 0;
-	max-width: 320px;
-	z-index: $z-index-pop-over;
 
 	&.-color-neutral ::v-deep .popper__arrow {
 		border-color: $color-neutral-background transparent !important;
@@ -69,6 +73,14 @@
 
 	&.-color-neutral {
 		background-color: $color-neutral-background;
+	}
+
+	&.-small {
+	max-width: 320px;
+	}
+
+	&.-medium {
+		max-width: 460px;
 	}
 
 	&[x-placement^='bottom'] {
@@ -136,14 +148,16 @@
 		padding: $space-s;
 		// Override popperjs styles
 		text-align: left;
-		max-height: min(30vh, 400px);
-		overflow: scroll;
-		-ms-overflow-style: none; /* IE and Edge */
-		scrollbar-width: none; /* Firefox */
+	}
 
-		/* Hide scrollbar for Chrome, Safari and Opera */
-		&::-webkit-scrollbar {
-			display: none;
+	&__contentSlot {
+		&.-small {
+			max-height: min(160px);
+			overflow: scroll;
+		}
+		&.-medium {
+			max-height: min(220px);
+			overflow: scroll;
 		}
 	}
 
@@ -171,7 +185,7 @@
 <script>
 import VuePopper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
-import { POP_OVER_COLORS, POP_OVER_PLACEMENTS, POP_OVER_TRIGGER_ACTIONS } from './PopOver.consts';
+import { POP_OVER_COLORS, POP_OVER_PLACEMENTS, POP_OVER_TRIGGER_ACTIONS, POP_OVER_SIZES } from './PopOver.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 
 export default {
@@ -234,10 +248,22 @@ export default {
 			type: Object,
 			default: () => ({}),
 		},
+		size: {
+			type: String,
+			default: POP_OVER_SIZES.SMALL,
+			validator(size) {
+				return Object.values(POP_OVER_SIZES).includes(size);
+			},
+		},
+		maxHeight: {
+			type: Boolean,
+			default: false,
+		}
 	},
 	data() {
 		return {
 			POP_OVER_COLORS: Object.freeze(POP_OVER_COLORS),
+			POP_OVER_SIZES: Object.freeze(POP_OVER_SIZES),
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
 			key: 1,
