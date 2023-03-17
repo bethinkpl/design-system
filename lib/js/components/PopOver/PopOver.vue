@@ -25,8 +25,8 @@
 				<div
 					class="popOver__contentSlot"
 					:class="{
-						'-small': size === POP_OVER_SIZES.SMALL,
-						'-medium': size === POP_OVER_SIZES.MEDIUM,
+						'-smallMaxHeight': size === POP_OVER_SIZES.SMALL && maxHeight,
+						'-mediumMaxHeight': size === POP_OVER_SIZES.MEDIUM && maxHeight,
 					}"
 				>
 					<slot :close="close" />
@@ -151,11 +151,11 @@
 	}
 
 	&__contentSlot {
-		&.-small {
+		&.-smallMaxHeight {
 			max-height: min(160px);
 			overflow: scroll;
 		}
-		&.-medium {
+		&.-mediumMaxHeight {
 			max-height: min(220px);
 			overflow: scroll;
 		}
