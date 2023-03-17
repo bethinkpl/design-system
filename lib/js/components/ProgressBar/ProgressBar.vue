@@ -45,23 +45,18 @@
 					:style="{ left: range.start + '%', width: range.length + '%' }"
 				/>
 			</div>
-			<div
+			<ds-icon
 				v-if="badgePosition !== null"
 				class="progressBar__badge"
 				:class="{
 					'-small': size !== PROGRESS_BAR_SIZES.MEDIUM,
 				}"
 				:style="`left: ${badgePosition}%`"
-			>
-				<ds-icon
-					:icon="ICONS.FA_LOCATION_DOT"
-					:size="
-						size === PROGRESS_BAR_SIZES.MEDIUM
-							? ICON_SIZES.XX_SMALL
-							: ICON_SIZES.XXX_SMALL
-					"
-				/>
-			</div>
+				:icon="ICONS.FA_LOCATION_DOT"
+				:size="
+					size === PROGRESS_BAR_SIZES.MEDIUM ? ICON_SIZES.XX_SMALL : ICON_SIZES.XXX_SMALL
+				"
+			/>
 		</div>
 	</div>
 </template>
