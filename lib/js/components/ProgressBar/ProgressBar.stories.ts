@@ -80,6 +80,7 @@ const argTypes = {
 		defaultValue: '(%)',
 	},
 	badgePosition: {
+		// we use `text` type, because Storybook doesn't allow empty field in `number` type which imitates null
 		control: { type: 'text' },
 		defaultValue: '50',
 	},
