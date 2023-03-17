@@ -158,6 +158,10 @@ $progress-bar-badge-colors: (
 
 		&.-xsmall {
 			height: $progress-bar-xs-height;
+
+			#{$self}__bar::after {
+				box-shadow: $shadow-inset-s;
+			}
 		}
 	}
 
@@ -167,12 +171,6 @@ $progress-bar-badge-colors: (
 		height: 100%;
 		overflow: hidden;
 		position: relative;
-
-		&.-xsmall {
-			&::after {
-				box-shadow: $shadow-inset-s;
-			}
-		}
 
 		&.-noRadius {
 			border-radius: 0;
@@ -251,18 +249,25 @@ $progress-bar-badge-colors: (
 	}
 
 	&__range {
-		height: 100%;
-		position: absolute;
-		top: 0;
-
 		@each $class, $color-name in $progress-bar-range-colors {
 			&.-#{$class} {
 				background: $color-name;
 			}
 		}
+
+		height: 100%;
+		position: absolute;
+		top: 0;
 	}
 
 	&__badge {
+		@each $class, $colors-map in $progress-bar-badge-colors {
+			&.-#{$class} {
+				background: map-get($colors-map, 'background');
+				color: map-get($colors-map, 'icon');
+			}
+		}
+
 		align-items: center;
 		border-radius: 50%;
 		border: 1px solid $color-inverted-border;
@@ -280,13 +285,6 @@ $progress-bar-badge-colors: (
 			margin-left: -$progress-bar-badge-size-small / 2;
 			margin-top: -$progress-bar-badge-size-small / 2;
 			width: $progress-bar-badge-size-small;
-		}
-
-		@each $class, $colors-map in $progress-bar-badge-colors {
-			&.-#{$class} {
-				background: map-get($colors-map, 'background');
-				color: map-get($colors-map, 'icon');
-			}
 		}
 	}
 }
