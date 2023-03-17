@@ -28,7 +28,6 @@
 			:class="{
 				'-small': size === PROGRESS_BAR_SIZES.SMALL,
 				'-xsmall': size === PROGRESS_BAR_SIZES.XSMALL,
-				'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
 			}"
 		>
 			<div
