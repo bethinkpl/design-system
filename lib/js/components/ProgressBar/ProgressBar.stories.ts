@@ -20,7 +20,8 @@ const StoryTemplate: StoryFn<typeof ProgressBar> = (argTypes) => ({
 	components: { ProgressBar },
 	props: Object.keys(argTypes),
 	template: `
-			<ProgressBar v-bind=$props></ProgressBar>`,
+			<ProgressBar v-bind=$props
+									 :badge-position="badgePosition === '' ? null : parseInt(badgePosition, 10)"></ProgressBar>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -79,8 +80,8 @@ const argTypes = {
 		defaultValue: '(%)',
 	},
 	badgePosition: {
-		control: { type: 'number' },
-		defaultValue: 50,
+		control: { type: 'text' },
+		defaultValue: '50',
 	},
 	badgeColor: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_BADGE_COLORS) },
