@@ -151,13 +151,12 @@
 	}
 
 	&__contentSlot {
+		overflow: scroll;
 		&.-smallMaxHeight {
 			max-height: min(160px);
-			overflow: scroll;
 		}
 		&.-mediumMaxHeight {
 			max-height: min(250px);
-			overflow: scroll;
 		}
 	}
 
