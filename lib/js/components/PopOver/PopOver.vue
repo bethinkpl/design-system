@@ -156,7 +156,7 @@
 			overflow: scroll;
 		}
 		&.-mediumMaxHeight {
-			max-height: min(220px);
+			max-height: min(250px);
 			overflow: scroll;
 		}
 	}
