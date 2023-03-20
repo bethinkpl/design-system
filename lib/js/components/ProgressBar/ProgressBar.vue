@@ -325,6 +325,12 @@ export default {
 		ranges: {
 			type: Array as PropType<Array<ProgressBarRange>>,
 			required: true,
+			validator(ranges) {
+				return ranges.every(
+					(range: ProgressBarRange) =>
+						range.start >= 0 && range.length >= 0 && range.start + range.length <= 100,
+				);
+			},
 		},
 		radius: {
 			type: String,

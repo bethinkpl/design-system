@@ -62,6 +62,6 @@ export const PROGRESS_BAR_LAYOUTS = {
 
 export interface ProgressBarRange {
 	color: typeof PROGRESS_BAR_RANGE_COLORS[keyof typeof PROGRESS_BAR_RANGE_COLORS];
-	start: Number;
-	length: Number;
+	start: number;
+	length: number;
 }
