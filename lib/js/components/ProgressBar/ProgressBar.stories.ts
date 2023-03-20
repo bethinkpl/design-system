@@ -133,7 +133,6 @@ TwoColors.args = {
 export const WithGaps = StoryTemplate.bind({});
 
 WithGaps.args = {
-	color: PROGRESS_BAR_RANGE_COLORS.INFO,
 	ranges: [
 		{
 			color: PROGRESS_BAR_RANGE_COLORS.INFO,
