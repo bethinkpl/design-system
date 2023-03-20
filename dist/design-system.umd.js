@@ -937,6 +937,37 @@ exports.aliases = aliases;
 
 /***/ }),
 
+/***/ "0d91":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "a", function() { return /* reexport */ render; });
+__webpack_require__.d(__webpack_exports__, "b", function() { return /* reexport */ staticRenderFns; });
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d325afd2-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./lib/js/components/ProgressBar/ProgressBar.vue?vue&type=template&id=5fd2a0ed&scoped=true&
+var render = function () {
+var _obj;
+var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:{
+		progressBar: true,
+		'-compact': _vm.layout === _vm.PROGRESS_BAR_LAYOUTS.COMPACT,
+	}},[_c('div',{staticClass:"progressBar__label"},[_c('div',{staticClass:"progressBar__labelText",class:{ '-medium': _vm.labelTextSize === _vm.PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM }},[_vm._v(" "+_vm._s(_vm.labelText)+" ")]),(_vm.labelDataExists)?_c('div',{staticClass:"progressBar__labelDataWrapper"},[(_vm.labelData)?_c('span',{staticClass:"progressBar__labelData"},[_vm._v(_vm._s(_vm.labelData))]):_vm._e(),(_vm.labelDataSupporting)?_c('span',{staticClass:"progressBar__labelDataSupporting"},[_c('span',{staticClass:"progressBar__labelDataSeparator"},[_vm._v("/")]),_vm._v(" "+_vm._s(_vm.labelDataSupporting)+" ")]):_vm._e(),(_vm.labelDataSuffix)?_c('span',{staticClass:"progressBar__labelDataSuffix"},[_vm._v(_vm._s(_vm.labelDataSuffix))]):_vm._e()]):_vm._e()]),_c('div',{staticClass:"progressBar__barWrapper",class:{
+			'-small': _vm.size === _vm.PROGRESS_BAR_SIZES.SMALL,
+			'-xsmall': _vm.size === _vm.PROGRESS_BAR_SIZES.XSMALL,
+		}},[_c('div',{staticClass:"progressBar__bar",class:{
+				'-noRadius': _vm.radius === _vm.PROGRESS_BAR_RADII.NONE,
+			}},_vm._l((_vm.ranges),function(range,index){return _c('div',{key:index,staticClass:"progressBar__range",class:("-" + (range.color)),style:({ left: range.start + '%', width: range.length + '%' })})}),0),(_vm.badgePosition !== null)?_c('ds-icon',{staticClass:"progressBar__badge",class:( _obj = {
+				'-small': _vm.size !== _vm.PROGRESS_BAR_SIZES.MEDIUM
+			}, _obj[("-" + _vm.badgeColor)] = true, _obj ),style:(("left: " + _vm.badgePosition + "%")),attrs:{"icon":_vm.ICONS.FA_LOCATION_DOT,"size":_vm.size === _vm.PROGRESS_BAR_SIZES.MEDIUM ? _vm.ICON_SIZES.XX_SMALL : _vm.ICON_SIZES.XXX_SMALL}}):_vm._e()],1)])}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./lib/js/components/ProgressBar/ProgressBar.vue?vue&type=template&id=5fd2a0ed&scoped=true&
+
+
+/***/ }),
+
 /***/ "0daf":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1289,11 +1320,37 @@ exports.aliases = aliases;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.PROGRESS_BAR_COLOR_SCHEMES = exports.PROGRESS_BAR_LAYERS = exports.PROGRESS_BAR_LAYOUTS = exports.PROGRESS_BAR_RADII = exports.PROGRESS_BAR_SIZES = exports.PROGRESS_BAR_COLORS = void 0;
-exports.PROGRESS_BAR_COLORS = {
+exports.PROGRESS_BAR_LAYOUTS = exports.PROGRESS_BAR_RADII = exports.PROGRESS_BAR_LABEL_TEXT_SIZES = exports.PROGRESS_BAR_SIZES = exports.PROGRESS_BAR_BADGE_COLORS = exports.PROGRESS_BAR_RANGE_COLORS = void 0;
+exports.PROGRESS_BAR_RANGE_COLORS = {
+    PRIMARY_MEDIUM: 'primaryMedium',
+    PRIMARY: 'primary',
+    PRIMARY_WEAK: 'primaryWeak',
+    PRIMARY_GHOST: 'primaryGhost',
+    NEUTRAL_MEDIUM: 'neutralMedium',
+    NEUTRAL: 'neutral',
+    NEUTRAL_WEAK: 'neutralWeak',
+    NEUTRAL_GHOST: 'neutralGhost',
+    INFO_MEDIUM: 'infoMedium',
+    INFO: 'info',
+    INFO_WEAK: 'infoWeak',
+    INFO_GHOST: 'infoGhost',
+    SUCCESS_MEDIUM: 'successMedium',
+    SUCCESS: 'success',
+    SUCCESS_WEAK: 'successWeak',
+    SUCCESS_GHOST: 'successGhost',
+    WARNING_MEDIUM: 'warningMedium',
+    WARNING: 'warning',
+    WARNING_WEAK: 'warningWeak',
+    WARNING_GHOST: 'warningGhost',
+    FAIL_MEDIUM: 'failMedium',
+    FAIL: 'fail',
+    FAIL_WEAK: 'failWeak',
+    FAIL_GHOST: 'failGhost',
+};
+exports.PROGRESS_BAR_BADGE_COLORS = {
+    PRIMARY: 'primary',
     NEUTRAL: 'neutral',
     INFO: 'info',
-    PRIMARY: 'primary',
     SUCCESS: 'success',
     WARNING: 'warning',
     FAIL: 'fail',
@@ -1303,6 +1360,10 @@ exports.PROGRESS_BAR_SIZES = {
     SMALL: 'small',
     XSMALL: 'extra small',
 };
+exports.PROGRESS_BAR_LABEL_TEXT_SIZES = {
+    MEDIUM: 'medium',
+    SMALL: 'small',
+};
 exports.PROGRESS_BAR_RADII = {
     DEFAULT: 'default',
     NONE: 'none',
@@ -1310,15 +1371,6 @@ exports.PROGRESS_BAR_RADII = {
 exports.PROGRESS_BAR_LAYOUTS = {
     DEFAULT: 'default',
     COMPACT: 'compact',
-};
-exports.PROGRESS_BAR_LAYERS = {
-    ONE: 1,
-    TWO: 2,
-};
-exports.PROGRESS_BAR_COLOR_SCHEMES = {
-    DEFAULT: 'default',
-    MEDIUM: 'medium',
-    MEDIUM_NEUTRAL: 'medium-neutral',
 };
 
 
@@ -3447,22 +3499,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "3593":
-/***/ (function(module, exports, __webpack_require__) {
-
-// style-loader: Adds some css to the DOM by adding a <style> tag
-
-// load the styles
-var content = __webpack_require__("d86f");
-if(content.__esModule) content = content.default;
-if(typeof content === 'string') content = [[module.i, content, '']];
-if(content.locals) module.exports = content.locals;
-// add the styles to the DOM
-var add = __webpack_require__("499e").default
-var update = add("daded658", content, true, {"sourceMap":false,"shadowMode":false});
-
-/***/ }),
-
 /***/ "35e4":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -4585,6 +4621,22 @@ exports.ligatures = aliases;
 exports.unicode = unicode;
 exports.svgPathData = svgPathData;
 exports.aliases = aliases;
+
+/***/ }),
+
+/***/ "4c7f":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("614e");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__("499e").default
+var update = add("7a959ebc", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
@@ -6033,6 +6085,20 @@ exports.default = {
 
 /***/ }),
 
+/***/ "614e":
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__("24fb");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".progressBar.-compact .progressBar__labelText[data-v-5fd2a0ed]{--token:label-m-default-bold;line-height:var(--typography-line-height-3xs);font-size:var(--typography-font-size-xs)}.progressBar.-compact .progressBar__labelText[data-v-5fd2a0ed],.progressBar.-compact .progressBar__labelText.-medium[data-v-5fd2a0ed]{font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none)}.progressBar.-compact .progressBar__labelText.-medium[data-v-5fd2a0ed]{--token:label-l-default-bold;line-height:var(--typography-line-height-2xs);font-size:var(--typography-font-size-s)}.progressBar.-compact .progressBar__label[data-v-5fd2a0ed]{margin-bottom:6px}.progressBar__barWrapper[data-v-5fd2a0ed]{height:16px;position:relative}.progressBar__barWrapper.-small[data-v-5fd2a0ed]{height:8px}.progressBar__barWrapper.-xsmall[data-v-5fd2a0ed]{height:4px}.progressBar__barWrapper.-xsmall .progressBar__bar[data-v-5fd2a0ed]:after{box-shadow:inset 0 1px 3px var(--color-default-shadow-heavy)}.progressBar__bar[data-v-5fd2a0ed]{background-color:var(--color-default-background);border-radius:8px;height:100%;overflow:hidden;position:relative}.progressBar__bar.-noRadius[data-v-5fd2a0ed]{border-radius:0}.progressBar__bar[data-v-5fd2a0ed]:after{box-shadow:inset 0 1px 4px var(--color-default-shadow-heavy);content:\"\";display:block;height:100%;left:0;position:absolute;top:0;width:100%}.progressBar__label[data-v-5fd2a0ed]{align-items:flex-end;display:flex;justify-content:space-between;margin-bottom:6px}@media(min-width:760px){.progressBar__label[data-v-5fd2a0ed]{margin-bottom:6px}}.progressBar__labelText[data-v-5fd2a0ed]{--token:label-m-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-3xs);font-size:var(--typography-font-size-xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none);color:var(--color-neutral-text-heavy);max-width:70%}@media(min-width:760px){.progressBar__labelText[data-v-5fd2a0ed]{--token:label-l-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-2xs);font-size:var(--typography-font-size-s);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none)}}.progressBar__labelText.-medium[data-v-5fd2a0ed]{--token:label-l-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-2xs);font-size:var(--typography-font-size-s);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none)}@media(min-width:760px){.progressBar__labelText.-medium[data-v-5fd2a0ed]{--token:label-xl-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-s);font-size:var(--typography-font-size-m);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none)}}.progressBar__labelDataWrapper[data-v-5fd2a0ed]{--token:label-m-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-3xs);font-size:var(--typography-font-size-xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none);align-items:baseline;color:var(--color-neutral-text-heavy);display:flex;flex-wrap:wrap;justify-content:right;margin-left:8px;margin-bottom:2px;max-width:30%}.progressBar__labelDataSupporting[data-v-5fd2a0ed]{color:var(--color-neutral-text);display:flex;margin-left:2px}.progressBar__labelDataSeparator[data-v-5fd2a0ed]{margin-right:2px}.progressBar__labelDataSuffix[data-v-5fd2a0ed]{--token:label-s-default-regular;font-weight:var(--typography-font-weight-normal);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-4xs);font-size:var(--typography-font-size-2xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none);color:var(--color-neutral-text-weak);margin-left:4px}.progressBar__range[data-v-5fd2a0ed]{height:100%;position:absolute;top:0}.progressBar__range.-primaryMedium[data-v-5fd2a0ed]{background:var(--color-primary-data-medium)}.progressBar__range.-primary[data-v-5fd2a0ed]{background:var(--color-primary-data)}.progressBar__range.-primaryWeak[data-v-5fd2a0ed]{background:var(--color-primary-data-weak)}.progressBar__range.-primaryGhost[data-v-5fd2a0ed]{background:var(--color-primary-data-ghost)}.progressBar__range.-neutralMedium[data-v-5fd2a0ed]{background:var(--color-neutral-data-medium)}.progressBar__range.-neutral[data-v-5fd2a0ed]{background:var(--color-neutral-data)}.progressBar__range.-neutralWeak[data-v-5fd2a0ed]{background:var(--color-neutral-data-weak)}.progressBar__range.-neutralGhost[data-v-5fd2a0ed]{background:var(--color-neutral-data-ghost)}.progressBar__range.-infoMedium[data-v-5fd2a0ed]{background:var(--color-info-data-medium)}.progressBar__range.-info[data-v-5fd2a0ed]{background:var(--color-info-data)}.progressBar__range.-infoWeak[data-v-5fd2a0ed]{background:var(--color-info-data-weak)}.progressBar__range.-infoGhost[data-v-5fd2a0ed]{background:var(--color-info-data-ghost)}.progressBar__range.-successMedium[data-v-5fd2a0ed]{background:var(--color-success-data-medium)}.progressBar__range.-success[data-v-5fd2a0ed]{background:var(--color-success-data)}.progressBar__range.-successWeak[data-v-5fd2a0ed]{background:var(--color-success-data-weak)}.progressBar__range.-successGhost[data-v-5fd2a0ed]{background:var(--color-success-data-ghost)}.progressBar__range.-warningMedium[data-v-5fd2a0ed]{background:var(--color-warning-data-medium)}.progressBar__range.-warning[data-v-5fd2a0ed]{background:var(--color-warning-data)}.progressBar__range.-warningWeak[data-v-5fd2a0ed]{background:var(--color-warning-data-weak)}.progressBar__range.-warningGhost[data-v-5fd2a0ed]{background:var(--color-warning-data-ghost)}.progressBar__range.-failMedium[data-v-5fd2a0ed]{background:var(--color-fail-data-medium)}.progressBar__range.-fail[data-v-5fd2a0ed]{background:var(--color-fail-data)}.progressBar__range.-failWeak[data-v-5fd2a0ed]{background:var(--color-fail-data-weak)}.progressBar__range.-failGhost[data-v-5fd2a0ed]{background:var(--color-fail-data-ghost)}.progressBar__badge[data-v-5fd2a0ed]{align-items:center;border-radius:50%;border:1px solid var(--color-inverted-border);display:flex;height:24px;justify-content:center;margin-left:-12px;margin-top:-12px;position:absolute;top:50%;width:24px}.progressBar__badge.-primary[data-v-5fd2a0ed]{background:var(--color-primary-background-medium);color:var(--color-primary-icon)}.progressBar__badge.-neutral[data-v-5fd2a0ed]{background:var(--color-neutral-background-medium);color:var(--color-neutral-icon)}.progressBar__badge.-info[data-v-5fd2a0ed]{background:var(--color-info-background-medium);color:var(--color-info-icon)}.progressBar__badge.-success[data-v-5fd2a0ed]{background:var(--color-success-background-medium);color:var(--color-success-icon)}.progressBar__badge.-warning[data-v-5fd2a0ed]{background:var(--color-warning-background-medium);color:var(--color-warning-icon)}.progressBar__badge.-fail[data-v-5fd2a0ed]{background:var(--color-fail-background-medium);color:var(--color-fail-icon)}.progressBar__badge.-small[data-v-5fd2a0ed]{height:16px;margin-left:-8px;margin-top:-8px;width:16px}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "6210":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -7071,42 +7137,58 @@ var update = add("300d818c", content, true, {"sourceMap":false,"shadowMode":fals
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 Object.defineProperty(exports, "__esModule", { value: true });
 const ProgressBar_consts_1 = __webpack_require__("1329");
+const Icon_1 = __importStar(__webpack_require__("4028"));
 exports.default = {
     name: 'ProgressBar',
+    components: {
+        DsIcon: Icon_1.default,
+    },
     props: {
-        numberOfLayers: {
-            type: Number,
-            default: ProgressBar_consts_1.PROGRESS_BAR_LAYERS.ONE,
-            validator(size) {
-                return Object.values(ProgressBar_consts_1.PROGRESS_BAR_LAYERS).includes(size);
-            },
-        },
-        colorScheme: {
-            type: String,
-            default: ProgressBar_consts_1.PROGRESS_BAR_COLOR_SCHEMES.DEFAULT,
-            validator(size) {
-                return Object.values(ProgressBar_consts_1.PROGRESS_BAR_COLOR_SCHEMES).includes(size);
-            },
-        },
-        color: {
-            type: String,
-            default: ProgressBar_consts_1.PROGRESS_BAR_COLORS.INFO,
-            validator(color) {
-                return Object.values(ProgressBar_consts_1.PROGRESS_BAR_COLORS).includes(color);
-            },
-        },
         size: {
             type: String,
-            default: ProgressBar_consts_1.PROGRESS_BAR_SIZES.MEDIUM,
+            default: ProgressBar_consts_1.PROGRESS_BAR_SIZES.SMALL,
             validator(size) {
                 return Object.values(ProgressBar_consts_1.PROGRESS_BAR_SIZES).includes(size);
+            },
+        },
+        labelTextSize: {
+            type: String,
+            default: ProgressBar_consts_1.PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
+            validator(size) {
+                return Object.values(ProgressBar_consts_1.PROGRESS_BAR_LABEL_TEXT_SIZES).includes(size);
             },
         },
         ranges: {
             type: Array,
             required: true,
+            validator(ranges) {
+                return ranges.every((range) => range.start >= 0 && range.length >= 0 && range.start + range.length <= 100);
+            },
         },
         radius: {
             type: String,
@@ -7138,15 +7220,29 @@ exports.default = {
             type: String,
             default: null,
         },
+        badgePosition: {
+            type: Number,
+            default: null,
+            validator(position) {
+                return position >= 0 && position <= 100;
+            },
+        },
+        badgeColor: {
+            type: String,
+            default: ProgressBar_consts_1.PROGRESS_BAR_BADGE_COLORS.INFO,
+            validator(color) {
+                return Object.values(ProgressBar_consts_1.PROGRESS_BAR_BADGE_COLORS).includes(color);
+            },
+        },
     },
     data() {
         return {
-            PROGRESS_BAR_COLORS: Object.freeze(ProgressBar_consts_1.PROGRESS_BAR_COLORS),
             PROGRESS_BAR_SIZES: Object.freeze(ProgressBar_consts_1.PROGRESS_BAR_SIZES),
             PROGRESS_BAR_RADII: Object.freeze(ProgressBar_consts_1.PROGRESS_BAR_RADII),
             PROGRESS_BAR_LAYOUTS: Object.freeze(ProgressBar_consts_1.PROGRESS_BAR_LAYOUTS),
-            PROGRESS_BAR_LAYERS: Object.freeze(ProgressBar_consts_1.PROGRESS_BAR_LAYERS),
-            PROGRESS_BAR_COLOR_SCHEMES: Object.freeze(ProgressBar_consts_1.PROGRESS_BAR_COLOR_SCHEMES),
+            PROGRESS_BAR_LABEL_TEXT_SIZES: Object.freeze(ProgressBar_consts_1.PROGRESS_BAR_LABEL_TEXT_SIZES),
+            ICONS: Object.freeze(Icon_1.ICONS),
+            ICON_SIZES: Object.freeze(Icon_1.ICON_SIZES),
         };
     },
     computed: {
@@ -11162,44 +11258,6 @@ var staticRenderFns = []
 
 /***/ }),
 
-/***/ "a167":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, "a", function() { return /* reexport */ render; });
-__webpack_require__.d(__webpack_exports__, "b", function() { return /* reexport */ staticRenderFns; });
-
-// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"d325afd2-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./lib/js/components/ProgressBar/ProgressBar.vue?vue&type=template&id=4f527e31&scoped=true&
-var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:{
-		progressBar: true,
-		'-primary': _vm.color === _vm.PROGRESS_BAR_COLORS.PRIMARY,
-		'-warning': _vm.color === _vm.PROGRESS_BAR_COLORS.WARNING,
-		'-fail': _vm.color === _vm.PROGRESS_BAR_COLORS.FAIL,
-		'-success': _vm.color === _vm.PROGRESS_BAR_COLORS.SUCCESS,
-		'-neutral': _vm.color === _vm.PROGRESS_BAR_COLORS.NEUTRAL,
-		'-info': _vm.color === _vm.PROGRESS_BAR_COLORS.INFO,
-		'-schemeMedium': _vm.colorScheme === _vm.PROGRESS_BAR_COLOR_SCHEMES.MEDIUM,
-		'-schemeMediumNeutral': _vm.colorScheme === _vm.PROGRESS_BAR_COLOR_SCHEMES.MEDIUM_NEUTRAL,
-		'-compact': _vm.layout === _vm.PROGRESS_BAR_LAYOUTS.COMPACT,
-	}},[_c('div',{staticClass:"progressBar__label"},[_c('div',{staticClass:"progressBar__labelText"},[_vm._v(_vm._s(_vm.labelText))]),(_vm.labelDataExists)?_c('div',{staticClass:"progressBar__labelDataWrapper"},[(_vm.labelData)?_c('span',{staticClass:"progressBar__labelData"},[_vm._v(_vm._s(_vm.labelData))]):_vm._e(),(_vm.labelDataSupporting)?_c('span',{staticClass:"progressBar__labelDataSupporting"},[_c('span',{staticClass:"progressBar__labelDataSeparator"},[_vm._v("/")]),_vm._v(" "+_vm._s(_vm.labelDataSupporting)+" ")]):_vm._e(),(_vm.labelDataSuffix)?_c('span',{staticClass:"progressBar__labelDataSuffix"},[_vm._v(_vm._s(_vm.labelDataSuffix))]):_vm._e()]):_vm._e()]),_c('div',{class:{
-			progressBar__bar: true,
-			'-small': _vm.size === _vm.PROGRESS_BAR_SIZES.SMALL,
-			'-xsmall': _vm.size === _vm.PROGRESS_BAR_SIZES.XSMALL,
-			'-noRadius': _vm.radius === _vm.PROGRESS_BAR_RADII.NONE,
-		}},_vm._l((_vm.ranges),function(range,index){return _c('div',{key:index,class:{
-				progressBar__result: true,
-				'-secondary': range.layer === 2 && _vm.numberOfLayers === 2,
-			},style:({ left: range.start + '%', width: range.length + '%' })})}),0)])}
-var staticRenderFns = []
-
-
-// CONCATENATED MODULE: ./lib/js/components/ProgressBar/ProgressBar.vue?vue&type=template&id=4f527e31&scoped=true&
-
-
-/***/ }),
-
 /***/ "a1c8":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -11741,6 +11799,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_BadgeScore_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_BadgeScore_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_BadgeScore_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_BadgeScore_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
  /* harmony default export */ __webpack_exports__["default"] = (_node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_BadgeScore_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0___default.a); 
+
+/***/ }),
+
+/***/ "ac60":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_style_index_0_id_5fd2a0ed_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("4c7f");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_style_index_0_id_5fd2a0ed_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_style_index_0_id_5fd2a0ed_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+
 
 /***/ }),
 
@@ -13185,17 +13254,6 @@ var staticRenderFns = []
 
 /***/ }),
 
-/***/ "b8da":
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_style_index_0_id_4f527e31_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("3593");
-/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_style_index_0_id_4f527e31_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressBar_vue_vue_type_style_index_0_id_4f527e31_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
-/* unused harmony reexport * */
-
-
-/***/ }),
-
 /***/ "b8ff":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -14593,20 +14651,6 @@ exports.ligatures = aliases;
 exports.unicode = unicode;
 exports.svgPathData = svgPathData;
 exports.aliases = aliases;
-
-/***/ }),
-
-/***/ "d86f":
-/***/ (function(module, exports, __webpack_require__) {
-
-// Imports
-var ___CSS_LOADER_API_IMPORT___ = __webpack_require__("24fb");
-exports = ___CSS_LOADER_API_IMPORT___(false);
-// Module
-exports.push([module.i, ".progressBar.-primary .progressBar__result[data-v-4f527e31]{background:var(--color-primary-data)}.progressBar.-primary .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-primary-data-ghost)}.progressBar.-primary.-schemeMedium .progressBar__result[data-v-4f527e31]{background:var(--color-primary-data-medium)}.progressBar.-primary.-schemeMedium .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-primary-data-weak)}.progressBar.-primary.-schemeMediumNeutral .progressBar__result[data-v-4f527e31]{background:var(--color-primary-data-medium)}.progressBar.-primary.-schemeMediumNeutral .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-neutral-data-weak)}.progressBar.-info .progressBar__result[data-v-4f527e31]{background:var(--color-info-data)}.progressBar.-info .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-info-data-ghost)}.progressBar.-info.-schemeMedium .progressBar__result[data-v-4f527e31]{background:var(--color-info-data-medium)}.progressBar.-info.-schemeMedium .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-info-data-weak)}.progressBar.-info.-schemeMediumNeutral .progressBar__result[data-v-4f527e31]{background:var(--color-info-data-medium)}.progressBar.-info.-schemeMediumNeutral .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-neutral-data-weak)}.progressBar.-neutral .progressBar__result[data-v-4f527e31]{background:var(--color-neutral-data)}.progressBar.-neutral .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-neutral-data-ghost)}.progressBar.-neutral.-schemeMedium .progressBar__result[data-v-4f527e31]{background:var(--color-neutral-data-medium)}.progressBar.-neutral.-schemeMedium .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-neutral-data-weak)}.progressBar.-neutral.-schemeMediumNeutral .progressBar__result[data-v-4f527e31]{background:var(--color-neutral-data-medium)}.progressBar.-neutral.-schemeMediumNeutral .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-neutral-data-weak)}.progressBar.-success .progressBar__result[data-v-4f527e31]{background:var(--color-success-data)}.progressBar.-success .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-success-data-ghost)}.progressBar.-success.-schemeMedium .progressBar__result[data-v-4f527e31]{background:var(--color-success-data-medium)}.progressBar.-success.-schemeMedium .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-success-data-weak)}.progressBar.-success.-schemeMediumNeutral .progressBar__result[data-v-4f527e31]{background:var(--color-success-data-medium)}.progressBar.-success.-schemeMediumNeutral .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-neutral-data-weak)}.progressBar.-warning .progressBar__result[data-v-4f527e31]{background:var(--color-warning-data)}.progressBar.-warning .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-warning-data-ghost)}.progressBar.-warning.-schemeMedium .progressBar__result[data-v-4f527e31]{background:var(--color-warning-data-medium)}.progressBar.-warning.-schemeMedium .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-warning-data-weak)}.progressBar.-warning.-schemeMediumNeutral .progressBar__result[data-v-4f527e31]{background:var(--color-warning-data-medium)}.progressBar.-warning.-schemeMediumNeutral .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-neutral-data-weak)}.progressBar.-fail .progressBar__result[data-v-4f527e31]{background:var(--color-fail-data)}.progressBar.-fail .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-fail-data-ghost)}.progressBar.-fail.-schemeMedium .progressBar__result[data-v-4f527e31]{background:var(--color-fail-data-medium)}.progressBar.-fail.-schemeMedium .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-fail-data-weak)}.progressBar.-fail.-schemeMediumNeutral .progressBar__result[data-v-4f527e31]{background:var(--color-fail-data-medium)}.progressBar.-fail.-schemeMediumNeutral .progressBar__result.-secondary[data-v-4f527e31]{background:var(--color-neutral-data-weak)}.progressBar.-compact .progressBar__labelText[data-v-4f527e31]{--token:label-m-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-3xs);font-size:var(--typography-font-size-xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none)}.progressBar.-compact .progressBar__label[data-v-4f527e31]{margin-bottom:6px}.progressBar__bar[data-v-4f527e31]{background-color:var(--color-default-background);border-radius:8px;height:16px;overflow:hidden;position:relative}.progressBar__bar.-small[data-v-4f527e31]{height:8px}.progressBar__bar.-xsmall[data-v-4f527e31]{height:4px}.progressBar__bar.-xsmall[data-v-4f527e31]:after{box-shadow:inset 0 1px 3px var(--color-default-shadow-heavy)}.progressBar__bar.-noRadius[data-v-4f527e31]{border-radius:0}.progressBar__bar[data-v-4f527e31]:after{box-shadow:inset 0 1px 4px var(--color-default-shadow-heavy);content:\"\";display:block;height:100%;left:0;position:absolute;top:0;width:100%}.progressBar__label[data-v-4f527e31]{align-items:flex-end;display:flex;justify-content:space-between;margin-bottom:6px}@media(min-width:760px){.progressBar__label[data-v-4f527e31]{margin-bottom:6px}}.progressBar__labelText[data-v-4f527e31]{--token:label-m-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-3xs);font-size:var(--typography-font-size-xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none);color:var(--color-neutral-text-heavy);max-width:70%}@media(min-width:760px){.progressBar__labelText[data-v-4f527e31]{--token:label-l-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-2xs);font-size:var(--typography-font-size-s);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none)}}.progressBar__labelDataWrapper[data-v-4f527e31]{--token:label-m-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-3xs);font-size:var(--typography-font-size-xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none);align-items:baseline;color:var(--color-neutral-text-heavy);display:flex;flex-wrap:wrap;justify-content:right;margin-left:8px;margin-bottom:2px;max-width:30%}.progressBar__labelDataSupporting[data-v-4f527e31]{color:var(--color-neutral-text);display:flex;margin-left:2px}.progressBar__labelDataSeparator[data-v-4f527e31]{margin-right:2px}.progressBar__labelDataSuffix[data-v-4f527e31]{--token:label-s-default-regular;font-weight:var(--typography-font-weight-normal);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-4xs);font-size:var(--typography-font-size-2xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none);color:var(--color-neutral-text-weak);margin-left:4px}.progressBar__result[data-v-4f527e31]{height:100%;position:absolute;top:0}", ""]);
-// Exports
-module.exports = exports;
-
 
 /***/ }),
 
@@ -22429,10 +22473,10 @@ var update = add("1242b9a6", content, true, {"sourceMap":false,"shadowMode":fals
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _ProgressBar_vue_vue_type_template_id_4f527e31_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("a167");
+/* harmony import */ var _ProgressBar_vue_vue_type_template_id_5fd2a0ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("0d91");
 /* harmony import */ var _ProgressBar_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("a814");
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ProgressBar_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ProgressBar_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _ProgressBar_vue_vue_type_style_index_0_id_4f527e31_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("b8da");
+/* harmony import */ var _ProgressBar_vue_vue_type_style_index_0_id_5fd2a0ed_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("ac60");
 /* harmony import */ var _node_modules_vue_cli_service_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("0c7c");
 
 
@@ -22444,11 +22488,11 @@ __webpack_require__.r(__webpack_exports__);
 
 var component = Object(_node_modules_vue_cli_service_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(
   _ProgressBar_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__["default"],
-  _ProgressBar_vue_vue_type_template_id_4f527e31_scoped_true___WEBPACK_IMPORTED_MODULE_0__[/* render */ "a"],
-  _ProgressBar_vue_vue_type_template_id_4f527e31_scoped_true___WEBPACK_IMPORTED_MODULE_0__[/* staticRenderFns */ "b"],
+  _ProgressBar_vue_vue_type_template_id_5fd2a0ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__[/* render */ "a"],
+  _ProgressBar_vue_vue_type_template_id_5fd2a0ed_scoped_true___WEBPACK_IMPORTED_MODULE_0__[/* staticRenderFns */ "b"],
   false,
   null,
-  "4f527e31",
+  "5fd2a0ed",
   null
   
 )
