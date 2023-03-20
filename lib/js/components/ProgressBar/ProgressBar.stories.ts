@@ -20,8 +20,10 @@ const StoryTemplate: StoryFn<typeof ProgressBar> = (argTypes) => ({
 	components: { ProgressBar },
 	props: Object.keys(argTypes),
 	template: `
-			<ProgressBar v-bind=$props
-									 :badge-position="badgePosition === '' ? null : parseInt(badgePosition, 10)"></ProgressBar>`,
+			<ProgressBar
+					v-bind=$props
+					:badge-position="(typeof ($props.badgePosition) === 'undefined' || $props.badgePosition === '') ? null : parseInt($props.badgePosition, 10)"
+			/>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -156,7 +158,7 @@ WithGaps.args = {
 		{
 			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 			start: 70,
-			length: 100,
+			length: 30,
 		} as ProgressBarRange,
 	],
 } as Args;
