@@ -102,6 +102,21 @@ $tile-colors: (
 			'icon-interactive': $color-fail-icon-disabled,
 		),
 	),
+	'info': (
+		'default': (
+			'background': $color-info-background,
+			'background-hover': $color-info-background-hovered,
+			'eyebrow-text': $color-info-text,
+			'icon': $color-info-icon,
+			'icon-interactive': $color-info-icon,
+		),
+		'disabled': (
+			'background': $color-info-background-disabled,
+			'eyebrow-text': $color-info-text-disabled,
+			'icon': $color-info-icon-disabled,
+			'icon-interactive': $color-info-icon-disabled,
+		),
+	),
 );
 
 @mixin setColors($root, $color-map) {
@@ -311,6 +326,7 @@ export default {
 				[TILE_COLORS.PRIMARY]: '-primary',
 				[TILE_COLORS.SUCCESS]: '-success',
 				[TILE_COLORS.FAIL]: '-fail',
+				[TILE_COLORS.INFO]: '-info',
 			}[this.color];
 		},
 		rippleColor() {

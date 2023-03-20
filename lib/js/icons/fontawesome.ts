@@ -21,7 +21,12 @@ import { faBook } from '@fortawesome/pro-regular-svg-icons/faBook';
 import { faBookBlank } from '@fortawesome/pro-regular-svg-icons/faBookBlank';
 import { faBookCopy } from '@fortawesome/pro-regular-svg-icons/faBookCopy';
 import { faBoxArchive } from '@fortawesome/pro-regular-svg-icons/faBoxArchive';
+import { faCalendar } from '@fortawesome/pro-regular-svg-icons/faCalendar';
 import { faCalendarDays } from '@fortawesome/pro-regular-svg-icons/faCalendarDays';
+import { faCalendarDay } from '@fortawesome/pro-regular-svg-icons/faCalendarDay';
+import { faCalendarRange } from '@fortawesome/pro-regular-svg-icons/faCalendarRange';
+import { faCalendarCircleExclamation } from '@fortawesome/pro-regular-svg-icons/faCalendarCircleExclamation';
+import { faCalendarCheck } from '@fortawesome/pro-regular-svg-icons/faCalendarCheck';
 import { faCartShopping } from '@fortawesome/pro-regular-svg-icons/faCartShopping';
 import { faChartColumn } from '@fortawesome/pro-regular-svg-icons/faChartColumn';
 import { faChartLineUp } from '@fortawesome/pro-regular-svg-icons/faChartLineUp';
@@ -39,6 +44,7 @@ import { faCircleInfo } from '@fortawesome/pro-regular-svg-icons/faCircleInfo';
 import { faCircleNotch } from '@fortawesome/pro-regular-svg-icons/faCircleNotch';
 import { faCircleQuestion } from '@fortawesome/pro-regular-svg-icons/faCircleQuestion';
 import { faCircleXmark } from '@fortawesome/pro-regular-svg-icons/faCircleXmark';
+import { faClipboardMedical } from '@fortawesome/pro-regular-svg-icons/faClipboardMedical';
 import { faClock } from '@fortawesome/pro-regular-svg-icons/faClock';
 import { faClockRotateLeft } from '@fortawesome/pro-regular-svg-icons/faClockRotateLeft';
 import { faCode } from '@fortawesome/pro-regular-svg-icons/faCode';
@@ -113,6 +119,7 @@ import { faTag } from '@fortawesome/pro-regular-svg-icons/faTag';
 import { faTags } from '@fortawesome/pro-regular-svg-icons/faTags';
 import { faThumbsUp } from '@fortawesome/pro-regular-svg-icons/faThumbsUp';
 import { faTrashCan } from '@fortawesome/pro-regular-svg-icons/faTrashCan';
+import { faTreePalm } from '@fortawesome/pro-regular-svg-icons/faTreePalm';
 import { faTriangleExclamation } from '@fortawesome/pro-regular-svg-icons/faTriangleExclamation';
 import { faTrophyStar } from '@fortawesome/pro-regular-svg-icons/faTrophyStar';
 import { faUnlockKeyhole } from '@fortawesome/pro-regular-svg-icons/faUnlockKeyhole';
@@ -196,7 +203,12 @@ export const FONTAWESOME_ICONS = {
 	FA_BOOK_SPARKLES_SOLID: fasBookSparkles,
 	FA_BOOKMARK_SOLID: fasBookmark,
 	FA_BOX_ARCHIVE: faBoxArchive,
+	FA_CALENDAR: faCalendar,
+	FA_CALENDAR_CIRCLE_EXCLAMATION: faCalendarCircleExclamation,
+	FA_CALENDAR_CHECK: faCalendarCheck,
+	FA_CALENDAR_DAY: faCalendarDay,
 	FA_CALENDAR_DAYS: faCalendarDays,
+	FA_CALENDAR_RANGE: faCalendarRange,
 	FA_CAMERA_SOLID: fasCamera,
 	FA_CARET_SQUARE_RIGHT_SOLID: fasCaretSquareRight,
 	FA_CART_SHOPPING: faCartShopping,
@@ -221,6 +233,7 @@ export const FONTAWESOME_ICONS = {
 	FA_CIRCLE_PLAY_SOLID: fasCirclePlay,
 	FA_CIRCLE_QUESTION: faCircleQuestion,
 	FA_CIRCLE_XMARK: faCircleXmark,
+	FA_CLIPBOARD_MEDICAL: faClipboardMedical,
 	FA_CLOCK: faClock,
 	FA_CLOCK_ROTATE_LEFT: faClockRotateLeft,
 	FA_CODE: faCode,
@@ -317,6 +330,7 @@ export const FONTAWESOME_ICONS = {
 	FA_THUMBS_UP_SOLID: fasThumbsUp,
 	FA_THUMBTACK_SOLID: fasThumbtack,
 	FA_TRASH_CAN: faTrashCan,
+	FA_TREE_PALM: faTreePalm,
 	FA_TRIANGLE_EXCLAMATION: faTriangleExclamation,
 	FA_TRIANGLE_EXCLAMATION_SOLID: fasTriangleExclamation,
 	FA_TROPHY_STAR: faTrophyStar,
