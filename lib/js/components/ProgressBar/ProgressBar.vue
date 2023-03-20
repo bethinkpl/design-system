@@ -310,7 +310,7 @@ export default {
 	props: {
 		size: {
 			type: String,
-			default: PROGRESS_BAR_SIZES.MEDIUM,
+			default: PROGRESS_BAR_SIZES.SMALL,
 			validator(size) {
 				return Object.values(PROGRESS_BAR_SIZES).includes(size);
 			},

@@ -31,7 +31,7 @@ export const Interactive = StoryTemplate.bind({});
 const argTypes = {
 	size: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_SIZES) },
-		defaultValue: PROGRESS_BAR_SIZES.MEDIUM,
+		defaultValue: PROGRESS_BAR_SIZES.SMALL,
 	},
 	labelTextSize: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES) },
@@ -41,17 +41,17 @@ const argTypes = {
 		control: { type: 'array' },
 		defaultValue: [
 			{
-				color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
+				color: PROGRESS_BAR_RANGE_COLORS.INFO,
 				start: 0,
 				length: 30,
 			} as ProgressBarRange,
 			{
-				color: PROGRESS_BAR_RANGE_COLORS.PRIMARY_WEAK,
+				color: PROGRESS_BAR_RANGE_COLORS.INFO_WEAK,
 				start: 30,
 				length: 10,
 			} as ProgressBarRange,
 			{
-				color: PROGRESS_BAR_RANGE_COLORS.PRIMARY_GHOST,
+				color: PROGRESS_BAR_RANGE_COLORS.INFO_GHOST,
 				start: 40,
 				length: 10,
 			} as ProgressBarRange,
@@ -106,7 +106,7 @@ export const WithoutLabels = StoryTemplate.bind({});
 WithoutLabels.args = {
 	ranges: [
 		{
-			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
+			color: PROGRESS_BAR_RANGE_COLORS.INFO,
 			start: 0,
 			length: 30,
 		} as ProgressBarRange,
@@ -118,7 +118,7 @@ export const TwoColors = StoryTemplate.bind({});
 TwoColors.args = {
 	ranges: [
 		{
-			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
+			color: PROGRESS_BAR_RANGE_COLORS.INFO,
 			start: 0,
 			length: 30,
 		} as ProgressBarRange,
@@ -133,30 +133,30 @@ TwoColors.args = {
 export const WithGaps = StoryTemplate.bind({});
 
 WithGaps.args = {
-	color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
+	color: PROGRESS_BAR_RANGE_COLORS.INFO,
 	ranges: [
 		{
-			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
+			color: PROGRESS_BAR_RANGE_COLORS.INFO,
 			start: 0,
 			length: 10,
 		} as ProgressBarRange,
 		{
-			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY_WEAK,
+			color: PROGRESS_BAR_RANGE_COLORS.INFO_WEAK,
 			start: 20,
 			length: 10,
 		} as ProgressBarRange,
 		{
-			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
+			color: PROGRESS_BAR_RANGE_COLORS.INFO,
 			start: 40,
 			length: 10,
 		} as ProgressBarRange,
 		{
-			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY_WEAK,
+			color: PROGRESS_BAR_RANGE_COLORS.INFO_WEAK,
 			start: 50,
 			length: 10,
 		} as ProgressBarRange,
 		{
-			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
+			color: PROGRESS_BAR_RANGE_COLORS.INFO,
 			start: 70,
 			length: 30,
 		} as ProgressBarRange,
@@ -169,7 +169,7 @@ Compact.args = {
 	layout: PROGRESS_BAR_LAYOUTS.COMPACT,
 	ranges: [
 		{
-			color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
+			color: PROGRESS_BAR_RANGE_COLORS.INFO,
 			start: 0,
 			length: 30,
 		} as ProgressBarRange,
