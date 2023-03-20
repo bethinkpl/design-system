@@ -140,6 +140,10 @@ $progress-bar-badge-colors: (
 	&.-compact {
 		#{$self}__labelText {
 			@include label-m-default-bold;
+
+			&.-medium {
+				@include label-l-default-bold;
+			}
 		}
 
 		#{$self}__label {
