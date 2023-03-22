@@ -14,6 +14,9 @@
 		:footer-primary-button-icon="footerPrimaryButtonIcon"
 		:footer-secondary-button-text="footerSecondaryButtonText"
 		:footer-secondary-button-icon="footerSecondaryButtonIcon"
+		@close-modal="$emit('close-modal')"
+		@primary-button-click="$emit('primary-button-click')"
+		@secondary-button-click="$emit('secondary-button-click')"
 	>
 		<slot />
 	</ds-modal>
