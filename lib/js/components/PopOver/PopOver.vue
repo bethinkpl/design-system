@@ -9,6 +9,7 @@
 		:delay-on-mouse-over="300"
 		:delay-on-mouse-out="300"
 		:append-to-body="appendToBody"
+		:visible-arrow="visibleArrow"
 	>
 		<div
 			class="popper popOver"
@@ -257,6 +258,10 @@ export default {
 		maxHeight: {
 			type: Boolean,
 			default: false,
+		},
+		visibleArrow: {
+			type: Boolean,
+			default: true
 		}
 	},
 	data() {
