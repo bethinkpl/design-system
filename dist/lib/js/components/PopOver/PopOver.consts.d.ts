@@ -12,7 +12,3 @@ export declare const POP_OVER_PLACEMENTS: {
     readonly LEFT: "left";
     readonly RIGHT: "right";
 };
-export declare const POP_OVER_SIZES: {
-    readonly SMALL: "small";
-    readonly MEDIUM: "medium";
-};
