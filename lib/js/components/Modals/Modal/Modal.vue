@@ -66,6 +66,7 @@
 								:type="BUTTON_TYPES.TEXT"
 								:color="BUTTON_COLORS.NEUTRAL"
 								:icon-left="footerTertiaryButtonIcon"
+								@click="$emit('tertiary-button-click')"
 							>
 								{{ footerTertiaryButtonText }}
 							</wnl-button>
@@ -80,6 +81,7 @@
 								:type="BUTTON_TYPES.OUTLINED"
 								:color="calcFooterSecondaryButtonColor"
 								:icon-right="footerSecondaryButtonIcon"
+								@click="$emit('secondary-button-click')"
 							>
 								{{ footerSecondaryButtonText }}
 							</wnl-button>
@@ -88,6 +90,7 @@
 								class="ds-modal__buttonPrimary"
 								:color="calcFooterPrimaryButtonColor"
 								:icon-right="footerPrimaryButtonIcon"
+								@click="$emit('primary-button-click')"
 							>
 								{{ footerPrimaryButtonText }}
 							</wnl-button>
