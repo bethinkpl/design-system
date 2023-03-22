@@ -56,7 +56,6 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/z-indexes';
 
 .popOver {
 	background-color: $color-default-background;
@@ -154,10 +153,10 @@
 	&__contentSlot {
 		overflow: scroll;
 		&.-smallMaxHeight {
-			max-height: min(160px);
+			max-height: 160px;
 		}
 		&.-mediumMaxHeight {
-			max-height: min(250px);
+			max-height: 250px;
 		}
 	}
 
