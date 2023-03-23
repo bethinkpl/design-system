@@ -25,10 +25,7 @@
 				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
 				<div
 					class="popOver__contentSlot"
-					:class="{
-						'-smallMaxHeight': size === POP_OVER_SIZES.SMALL && maxHeight,
-						'-mediumMaxHeight': size === POP_OVER_SIZES.MEDIUM && maxHeight,
-					}"
+					:class="{ '-maxHeight': maxHeight }"
 				>
 					<slot :close="close" />
 				</div>
@@ -77,10 +74,22 @@
 
 	&.-small {
 	max-width: 320px;
+
+		.popOver__contentSlot.-maxHeight {
+			max-height: 160px;
+		}
 	}
 
 	&.-medium {
 		max-width: 460px;
+
+		.popOver__contentSlot.-maxHeight {
+			max-height: 250px;
+		}
+	}
+
+	.popOver__contentSlot.-maxHeight {
+		overflow: scroll;
 	}
 
 	&[x-placement^='bottom'] {
@@ -148,16 +157,6 @@
 		padding: $space-s;
 		// Override popperjs styles
 		text-align: left;
-	}
-
-	&__contentSlot {
-		overflow: scroll;
-		&.-smallMaxHeight {
-			max-height: 160px;
-		}
-		&.-mediumMaxHeight {
-			max-height: 250px;
-		}
 	}
 
 	&__title {
