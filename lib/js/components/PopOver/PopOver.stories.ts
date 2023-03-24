@@ -59,7 +59,7 @@ Interactive.parameters = {
 	},
 };
 
-const TooltipStoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
+const PopOverSizeMMaxHeighDisabledArrowStoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 	components: { PopOver },
 	props: Object.keys(argTypes),
 	template:
@@ -71,9 +71,9 @@ const TooltipStoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 		'</div>',
 });
 
-export const Tooltip = TooltipStoryTemplate.bind({});
+export const PopOverSizeMMaxHeighDisabledArrow = PopOverSizeMMaxHeighDisabledArrowStoryTemplate.bind({});
 
-Tooltip.args = {
+PopOverSizeMMaxHeighDisabledArrow.args = {
 	placement: POP_OVER_PLACEMENTS.BOTTOM,
 	color: POP_OVER_COLORS.DEFAULT,
 	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
@@ -84,7 +84,7 @@ Tooltip.args = {
 	maxHeight: true,
 } as Args;
 
-Tooltip.argTypes = {
+PopOverSizeMMaxHeighDisabledArrow.argTypes = {
 	placement: {
 		control: { type: 'select', options: Object.values(POP_OVER_PLACEMENTS) },
 		defaultValue: POP_OVER_PLACEMENTS.BOTTOM,

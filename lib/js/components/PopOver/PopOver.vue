@@ -10,6 +10,7 @@
 		:delay-on-mouse-out="300"
 		:append-to-body="appendToBody"
 		:visible-arrow="visibleArrow"
+		:root-class="rootClass"
 	>
 		<div
 			class="popper popOver"
@@ -260,6 +261,10 @@ export default {
 		visibleArrow: {
 			type: Boolean,
 			default: true
+		},
+		rootClass: {
+			type: String,
+			default: ''
 		}
 	},
 	data() {
