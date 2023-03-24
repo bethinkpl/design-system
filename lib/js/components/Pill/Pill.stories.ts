@@ -29,7 +29,6 @@ const args = {
 	hasDelete: false,
 	size: PILL_SIZES.SMALL,
 	color: PILL_COLORS.NEUTRAL,
-	isDisabled: false,
 } as Args;
 
 const argTypes = {
