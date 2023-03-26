@@ -8,19 +8,19 @@ export default {
 	component: PopOver,
 } as Meta<typeof PopOver>;
 
-const PopoverStopyTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 	components: { PopOver },
 	props: Object.keys(argTypes),
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 600px">' +
 		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl">' +
 		'<template #reference><span>click me!</span></template>' +
-		'<template #default>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.</template>' +
+		'<div>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.</div>' +
 		'</pop-over>' +
 		'</div>',
 });
 
-export const Interactive = PopoverStopyTemplate.bind({});
+export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
 	placement: POP_OVER_PLACEMENTS.BOTTOM,
@@ -61,7 +61,7 @@ Interactive.parameters = {
 
 Interactive.argTypes = argTypes;
 
-const PopoverWithHTMLStopyTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
+const PopoverWithHTMLStoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 	components: { PopOver },
 	props: Object.keys(argTypes),
 	template:
@@ -73,7 +73,7 @@ const PopoverWithHTMLStopyTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 		'</div>',
 });
 
-export const PopOverSizeMMaxHeightDisabledArrow = PopoverWithHTMLStopyTemplate.bind({});
+export const PopOverSizeMMaxHeightDisabledArrow = PopoverWithHTMLStoryTemplate.bind({});
 
 PopOverSizeMMaxHeightDisabledArrow.args = {
 	placement: POP_OVER_PLACEMENTS.BOTTOM,
