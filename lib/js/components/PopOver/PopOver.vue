@@ -24,10 +24,7 @@
 			<div class="popOver__content">
 				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
 				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
-				<div
-					class="popOver__contentSlot"
-					:class="{ '-maxHeight': maxHeight }"
-				>
+				<div class="popOver__contentSlot" :class="{ '-maxHeight': maxHeight }">
 					<slot :close="close" />
 				</div>
 			</div>
@@ -73,8 +70,12 @@
 		background-color: $color-neutral-background;
 	}
 
+	.popOver__contentSlot.-maxHeight {
+		overflow: scroll;
+	}
+
 	&.-small {
-	max-width: 320px;
+		max-width: 320px;
 
 		.popOver__contentSlot.-maxHeight {
 			max-height: 160px;
@@ -87,10 +88,6 @@
 		.popOver__contentSlot.-maxHeight {
 			max-height: 250px;
 		}
-	}
-
-	.popOver__contentSlot.-maxHeight {
-		overflow: scroll;
 	}
 
 	&[x-placement^='bottom'] {
@@ -184,7 +181,12 @@
 <script>
 import VuePopper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
-import { POP_OVER_COLORS, POP_OVER_PLACEMENTS, POP_OVER_TRIGGER_ACTIONS, POP_OVER_SIZES } from './PopOver.consts';
+import {
+	POP_OVER_COLORS,
+	POP_OVER_PLACEMENTS,
+	POP_OVER_TRIGGER_ACTIONS,
+	POP_OVER_SIZES,
+} from './PopOver.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 
 export default {
@@ -260,12 +262,12 @@ export default {
 		},
 		visibleArrow: {
 			type: Boolean,
-			default: true
+			default: true,
 		},
 		rootClass: {
 			type: String,
-			default: ''
-		}
+			default: '',
+		},
 	},
 	data() {
 		return {

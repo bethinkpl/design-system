@@ -1,5 +1,10 @@
 import PopOver from './PopOver.vue';
-import { POP_OVER_COLORS, POP_OVER_PLACEMENTS, POP_OVER_SIZES, POP_OVER_TRIGGER_ACTIONS } from './PopOver.consts';
+import {
+	POP_OVER_COLORS,
+	POP_OVER_PLACEMENTS,
+	POP_OVER_SIZES,
+	POP_OVER_TRIGGER_ACTIONS,
+} from './PopOver.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
@@ -49,7 +54,7 @@ const argTypes = {
 	size: {
 		control: { type: 'select', options: Object.values(POP_OVER_SIZES) },
 		defaultValue: POP_OVER_SIZES.SMALL,
-	}
+	},
 } as ArgTypes;
 
 Interactive.parameters = {
@@ -84,7 +89,8 @@ PopOverSizeMMaxHeightDisabledArrow.args = {
 	size: POP_OVER_SIZES.MEDIUM,
 	forceShow: false,
 	maxHeight: true,
-	slotText: '<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.'
+	slotText:
+		'<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.',
 } as Args;
 
 PopOverSizeMMaxHeightDisabledArrow.argTypes = argTypes;
