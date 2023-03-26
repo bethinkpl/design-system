@@ -15,7 +15,7 @@ const PopoverStopyTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 		'<div style="display: flex; align-items: center; justify-content: center; height: 600px">' +
 		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl">' +
 		'<template #reference><span>click me!</span></template>' +
-		'<template #default>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.<template>' +
+		'<template #default>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.</template>' +
 		'</pop-over>' +
 		'</div>',
 });
