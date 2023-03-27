@@ -1,5 +1,5 @@
 <template>
-	<div class="ds-modal" @click.stop="$emit('close-modal')">
+	<div class="ds-modal" @click.self="$emit('close-modal')">
 		<div class="ds-modal__wrapper" :class="{ '-small': size === MODAL_SIZES.SMALL }">
 			<wnl-icon-button
 				touchable
