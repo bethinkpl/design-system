@@ -31,6 +31,10 @@ const StoryTemplate: StoryFn<typeof Modal> = (argTypes) => ({
 					 :footerCheckboxText="footerCheckboxText"
 					 :headerImage="headerImage"
 					 @close-modal="onCloseModal"
+					 @checkbox-change="onCheckboxChange"
+					 @primary-button-click="onPrimaryButtonClick"
+					 @secondary-button-click="onSecondaryButtonClick"
+					 @tertiary-button-click="onTertiaryButtonClick"
 		>
 			<div v-html="defaultSlot" />
 		</modal>`,
@@ -103,6 +107,9 @@ const argTypes = {
 	},
 	footerCheckboxText: { control: { type: 'text' } },
 	onCloseModal: { action: 'close-modal' },
+	onPrimaryButtonClick: { action: 'primary-button-click' },
+	onSecondaryButtonClick: { action: 'secondary-button-click' },
+	onTertiaryButtonClick: { action: 'tertiary-button-click' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
