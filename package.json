@@ -37,6 +37,7 @@
     "@fortawesome/pro-solid-svg-icons": "6.1.1",
     "@fortawesome/pro-duotone-svg-icons": "6.1.1",
     "@fortawesome/vue-fontawesome": "2.0.6",
+    "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-controls": "^6.5.13",
     "@storybook/addon-docs": "^6.5.13",
     "@storybook/addon-storysource": "^6.5.13",

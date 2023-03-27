@@ -13,15 +13,27 @@ export default {
 const StoryTemplate: StoryFn<typeof Modal> = (argTypes) => ({
 	components: { Modal },
 	props: Object.keys(argTypes),
-	template:
-		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
-		':headerTitleSize="headerTitleSize" :headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :contentCentered="contentCentered" :headerFeatureIconColor="headerFeatureIconColor" ' +
-		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]" ' +
-		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" ' +
-		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" ' +
-		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage">' +
-		'<div v-html="defaultSlot" />' +
-		'</modal>',
+	template: `
+		<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" 
+					 :size="size" 
+					 :danger="danger"
+					 :headerTitleSize="headerTitleSize" 
+					 :headerTitle="headerTitle" 
+					 :headerSubtitle="headerSubtitle"
+					 :contentCentered="contentCentered" 
+					 :headerFeatureIconColor="headerFeatureIconColor"
+					 :footerPrimaryButtonText="footerPrimaryButtonText" 
+					 :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]"
+					 :footerSecondaryButtonText="footerSecondaryButtonText"
+					 :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]"
+					 :footerTertiaryButtonText="footerTertiaryButtonText"
+					 :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" 
+					 :footerCheckboxText="footerCheckboxText"
+					 :headerImage="headerImage"
+					 @close-modal="onCloseModal"
+		>
+			<div v-html="defaultSlot" />
+		</modal>`,
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -90,6 +102,7 @@ const argTypes = {
 		defaultValue: ICONS.FA_CHART_COLUMN,
 	},
 	footerCheckboxText: { control: { type: 'text' } },
+	onCloseModal: { action: 'close-modal' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
