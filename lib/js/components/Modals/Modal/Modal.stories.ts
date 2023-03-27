@@ -107,6 +107,7 @@ const argTypes = {
 	},
 	footerCheckboxText: { control: { type: 'text' } },
 	onCloseModal: { action: 'close-modal' },
+	onCheckboxChange: { action: 'checkbox-change' },
 	onPrimaryButtonClick: { action: 'primary-button-click' },
 	onSecondaryButtonClick: { action: 'secondary-button-click' },
 	onTertiaryButtonClick: { action: 'tertiary-button-click' },
