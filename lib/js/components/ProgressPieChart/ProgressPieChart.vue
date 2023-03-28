@@ -95,6 +95,17 @@ $progress-pie-chart-range-colors: (
 	'failGhost': $color-fail-data-ghost,
 );
 
+@keyframes dot-flashing {
+	0% {
+		background-color: $color-neutral-text;
+	}
+
+	50%,
+	100% {
+		background-color: transparent;
+	}
+}
+
 .progressPieChart {
 	position: relative;
 	width: $progress-pie-chart-width;
@@ -125,8 +136,6 @@ $progress-pie-chart-range-colors: (
 	}
 
 	&__track {
-		stroke-dasharray: $progress-pie-chart-circle-circumference;
-
 		@for $i from 1 through 100 {
 			&[data-value='#{$i}'] {
 				stroke-dashoffset: #{$progress-pie-chart-circle-circumference -
@@ -139,6 +148,8 @@ $progress-pie-chart-range-colors: (
 				stroke: $color-name;
 			}
 		}
+
+		stroke-dasharray: $progress-pie-chart-circle-circumference;
 	}
 
 	&__loader {
@@ -162,12 +173,6 @@ $progress-pie-chart-range-colors: (
 		justify-content: center;
 		flex-wrap: wrap;
 		align-content: center;
-		color: $color-neutral-text;
-	}
-
-	&__loaderText {
-		@include info-m-default-bold;
-
 		color: $color-neutral-text;
 	}
 
@@ -221,16 +226,6 @@ $progress-pie-chart-range-colors: (
 			animation: dot-flashing 1s infinite alternate;
 			animation-delay: 1s;
 		}
-	}
-}
-
-@keyframes dot-flashing {
-	0% {
-		background-color: $color-neutral-text;
-	}
-	50%,
-	100% {
-		background-color: transparent;
 	}
 }
 </style>
