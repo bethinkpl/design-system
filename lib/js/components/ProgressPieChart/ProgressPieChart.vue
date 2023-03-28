@@ -230,7 +230,7 @@ $progress-pie-chart-range-colors: (
 	}
 	50%,
 	100% {
-		background-color: $color-default-background;
+		background-color: transparent;
 	}
 }
 </style>
