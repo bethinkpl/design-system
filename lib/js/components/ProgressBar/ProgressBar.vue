@@ -5,7 +5,7 @@
 			'-compact': layout === PROGRESS_BAR_LAYOUTS.COMPACT,
 		}"
 	>
-		<div class="progressBar__label">
+		<div v-if="labelText || labelDataExists" class="progressBar__label">
 			<div
 				class="progressBar__labelText"
 				:class="{ '-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM }"
