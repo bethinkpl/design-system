@@ -40,9 +40,7 @@
 			<div
 				v-if="state === PROGRESS_PIE_CHART_STATES.LOADING"
 				class="progressPieChart__loaderText"
-			>
-				...
-			</div>
+			/>
 			<div v-else-if="isDone && !hasOverage" class="progressPieChart__icon">
 				<ds-icon :icon="ICONS.FA_CHECK_SOLID" :size="ICON_SIZES.X_SMALL" />
 			</div>
@@ -60,6 +58,7 @@
 <style scoped lang="scss">
 @import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography/tokens';
 
 $progress-pie-chart-width: 40px;
@@ -180,6 +179,58 @@ $progress-pie-chart-range-colors: (
 		&.-success {
 			color: $color-success-text;
 		}
+	}
+
+	&__loaderText {
+		position: relative;
+		width: 2px;
+		height: 2px;
+		margin-top: $space-xxxs;
+		border-radius: 100%;
+		background-color: $color-neutral-text;
+		color: $color-neutral-text;
+		animation: dot-flashing 1s infinite linear alternate;
+		animation-delay: 0.5s;
+
+		&::before,
+		&::after {
+			content: '';
+			display: inline-block;
+			position: absolute;
+			top: 0;
+		}
+
+		&::before {
+			left: -4px;
+			width: 2px;
+			height: 2px;
+			border-radius: 100%;
+			background-color: $color-neutral-text;
+			color: $color-neutral-text;
+			animation: dot-flashing 1s infinite alternate;
+			animation-delay: 0s;
+		}
+
+		&::after {
+			left: 4px;
+			width: 2px;
+			height: 2px;
+			border-radius: 100%;
+			background-color: $color-neutral-text;
+			color: $color-neutral-text;
+			animation: dot-flashing 1s infinite alternate;
+			animation-delay: 1s;
+		}
+	}
+}
+
+@keyframes dot-flashing {
+	0% {
+		background-color: $color-neutral-text;
+	}
+	50%,
+	100% {
+		background-color: $color-default-background;
 	}
 }
 </style>
