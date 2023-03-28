@@ -9,16 +9,24 @@
 		:delay-on-mouse-over="300"
 		:delay-on-mouse-out="300"
 		:append-to-body="appendToBody"
+		:visible-arrow="visibleArrow"
+		:root-class="rootClass"
 	>
 		<div
 			class="popper popOver"
-			:class="{ '-color-neutral': color === POP_OVER_COLORS.NEUTRAL }"
+			:class="{
+				'-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
+				'-small': size === POP_OVER_SIZES.SMALL,
+				'-medium': size === POP_OVER_SIZES.MEDIUM,
+			}"
 		>
 			<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
 			<div class="popOver__content">
 				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
 				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
-				<slot :close="close" />
+				<div class="popOver__contentSlot" :class="{ '-maxHeight': maxHeight }">
+					<slot :close="close" />
+				</div>
 			</div>
 			<ds-button
 				v-if="buttonText"
@@ -53,7 +61,6 @@
 	display: flex;
 	flex-direction: column;
 	padding: 0;
-	max-width: 320px;
 
 	&.-color-neutral ::v-deep .popper__arrow {
 		border-color: $color-neutral-background transparent !important;
@@ -61,6 +68,26 @@
 
 	&.-color-neutral {
 		background-color: $color-neutral-background;
+	}
+
+	.popOver__contentSlot.-maxHeight {
+		overflow: scroll;
+	}
+
+	&.-small {
+		max-width: 320px;
+
+		.popOver__contentSlot.-maxHeight {
+			max-height: 160px;
+		}
+	}
+
+	&.-medium {
+		max-width: 460px;
+
+		.popOver__contentSlot.-maxHeight {
+			max-height: 250px;
+		}
 	}
 
 	&[x-placement^='bottom'] {
@@ -154,7 +181,12 @@
 <script>
 import VuePopper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
-import { POP_OVER_COLORS, POP_OVER_PLACEMENTS, POP_OVER_TRIGGER_ACTIONS } from './PopOver.consts';
+import {
+	POP_OVER_COLORS,
+	POP_OVER_PLACEMENTS,
+	POP_OVER_TRIGGER_ACTIONS,
+	POP_OVER_SIZES,
+} from './PopOver.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 
 export default {
@@ -217,10 +249,30 @@ export default {
 			type: Object,
 			default: () => ({}),
 		},
+		size: {
+			type: String,
+			default: POP_OVER_SIZES.SMALL,
+			validator(size) {
+				return Object.values(POP_OVER_SIZES).includes(size);
+			},
+		},
+		maxHeight: {
+			type: Boolean,
+			default: false,
+		},
+		visibleArrow: {
+			type: Boolean,
+			default: true,
+		},
+		rootClass: {
+			type: String,
+			default: '',
+		},
 	},
 	data() {
 		return {
 			POP_OVER_COLORS: Object.freeze(POP_OVER_COLORS),
+			POP_OVER_SIZES: Object.freeze(POP_OVER_SIZES),
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
 			key: 1,
