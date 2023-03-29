@@ -17,7 +17,7 @@ const StoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 	components: { PopOver },
 	props: Object.keys(argTypes),
 	template:
-		'<div style="display: flex; align-items: center; justify-content: center; height: 600px">' +
+		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
 		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<div>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.</div>' +
@@ -70,7 +70,7 @@ const PopoverWithHTMLStoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 	components: { PopOver },
 	props: Object.keys(argTypes),
 	template:
-		'<div style="display: flex; align-items: center; justify-content: center; height: 600px">' +
+		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
 		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :force-show="forceShow" :size="size" :max-height="maxHeight" :visible-arrow="visibleArrow">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<template #default><b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork. <b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.</template>' +
