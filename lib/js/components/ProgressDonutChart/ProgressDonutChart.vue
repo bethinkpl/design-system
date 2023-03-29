@@ -25,13 +25,14 @@
 			/>
 			<template v-if="state === PROGRESS_DONUT_CHART_STATES.DEFAULT">
 				<circle
-					v-for="(range, index) in ranges"
+					v-for="(range, index) in calculatedRanges"
 					:key="`circle_${index}`"
 					class="progressDonutChart__circle progressDonutChart__track"
 					cx="20"
 					cy="20"
 					r="18"
-					:data-value="range.percent"
+					:data-value="range.length"
+					:style="`transform: rotate(calc(90deg + ${range.rotate}deg));`"
 					:class="[`-${range.color}`]"
 				/>
 			</template>
@@ -256,7 +257,8 @@ export default {
 			required: true,
 			validator(ranges) {
 				return ranges.every(
-					(range: ProgressDonutChartRange) => range.percent >= 0 && range.percent <= 100,
+					(range: ProgressDonutChartRange) =>
+						range.start >= 0 && range.length >= 0 && range.start + range.length <= 100,
 				);
 			},
 		},
@@ -271,6 +273,11 @@ export default {
 	computed: {
 		labelText() {
 			return [this.hasOverage && '+', this.label].filter(Boolean).join('');
+		},
+		calculatedRanges() {
+			return this.ranges.map((range) => {
+				return { ...range, rotate: (range.start / 100) * 360 };
+			});
 		},
 	},
 };

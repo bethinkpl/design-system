@@ -45,15 +45,18 @@ const argTypes = {
 		defaultValue: [
 			{
 				color: PROGRESS_DONUT_CHART_RANGE_COLORS.FAIL_GHOST,
-				percent: 80,
+				start: 55,
+				length: 25,
 			} as ProgressDonutChartRange,
 			{
 				color: PROGRESS_DONUT_CHART_RANGE_COLORS.INFO,
-				percent: 50,
+				start: 30,
+				length: 25,
 			} as ProgressDonutChartRange,
 			{
 				color: PROGRESS_DONUT_CHART_RANGE_COLORS.SUCCESS,
-				percent: 20,
+				start: 0,
+				length: 30,
 			} as ProgressDonutChartRange,
 		],
 	},
