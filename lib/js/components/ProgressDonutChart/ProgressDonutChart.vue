@@ -125,8 +125,9 @@ $progress-donut-chart-range-colors: (
 	&__circle {
 		fill: none;
 		stroke-width: $progress-donut-chart-circle-stroke-width;
-		stroke-linecap: round;
-		stroke-linejoin: round;
+		// Disabled for v3.0
+		//stroke-linecap: round;
+		//stroke-linejoin: round;
 		transition: all $default-transition-time ease-out;
 		transform: rotate(90deg);
 		transform-origin: 50% 50%;
