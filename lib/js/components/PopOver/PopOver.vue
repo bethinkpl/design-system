@@ -51,6 +51,7 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/media-queries';
 
 .popOver {
 	background-color: $color-default-background;
@@ -83,7 +84,7 @@
 	}
 
 	&.-medium {
-		width: 460px;
+		width: min(90vw, 460px);
 
 		.popOver__contentSlot.-maxHeight {
 			max-height: 250px;
