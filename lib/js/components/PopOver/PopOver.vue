@@ -9,7 +9,7 @@
 		:delay-on-mouse-over="300"
 		:delay-on-mouse-out="300"
 		:append-to-body="appendToBody"
-		:visible-arrow="visibleArrow"
+		:visible-arrow="isArrowVisible"
 		:root-class="rootClass"
 	>
 		<div
@@ -75,7 +75,7 @@
 	}
 
 	&.-small {
-		max-width: 320px;
+		width: 320px;
 
 		.popOver__contentSlot.-maxHeight {
 			max-height: 160px;
@@ -83,7 +83,7 @@
 	}
 
 	&.-medium {
-		max-width: 460px;
+		width: 460px;
 
 		.popOver__contentSlot.-maxHeight {
 			max-height: 250px;
@@ -260,7 +260,7 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		visibleArrow: {
+		isArrowVisible: {
 			type: Boolean,
 			default: true,
 		},
