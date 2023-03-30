@@ -225,6 +225,7 @@ $progress-donut-chart-range-colors: (
 
 <script lang="ts">
 import {
+	PROGRESS_DONUT_CHART_RANGE_COLORS,
 	PROGRESS_DONUT_CHART_STATES,
 	ProgressDonutChartRange,
 	ProgressDonutChartState,
@@ -232,6 +233,7 @@ import {
 import { PropType } from 'vue';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
+const OFFSET_IN_DEGREES_OF_TRACK_START_POINT = 90; // 90 is to set starting point at the bottom
 const PROGRESS_DONUT_CHART_SIZE = 40; //  keep consider with $progress-donut-chart-size
 const PROGRESS_DONUT_CHART_STROKE_WIDTH = 4; // keep consider with $progress-donut-chart-circle-stroke-width
 const PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT = PROGRESS_DONUT_CHART_SIZE / 2;
@@ -279,9 +281,25 @@ export default {
 				.join('');
 		},
 		calculatedRanges() {
+			if (
+				this.state === PROGRESS_DONUT_CHART_STATES.DONE ||
+				this.state === PROGRESS_DONUT_CHART_STATES.OVERAGE
+			) {
+				return [
+					{
+						color: PROGRESS_DONUT_CHART_RANGE_COLORS.SUCCESS,
+						start: 0,
+						length: 100,
+						rotate: OFFSET_IN_DEGREES_OF_TRACK_START_POINT,
+					},
+				];
+			}
+
 			return this.ranges.map((range) => {
-				// `+ 90` is to set starting point at the bottom
-				return { ...range, rotate: (range.start / 100) * 360 + 90 };
+				return {
+					...range,
+					rotate: (range.start / 100) * 360 + OFFSET_IN_DEGREES_OF_TRACK_START_POINT,
+				};
 			});
 		},
 	},
