@@ -31,8 +31,7 @@
 					cx="20"
 					cy="20"
 					r="18"
-					:data-value="range.length"
-					:style="`transform: rotate(calc(90deg + ${range.rotate}deg));`"
+					:style="`--length: ${range.length}; transform: rotate(calc(90deg + ${range.rotate}deg));`"
 					:class="[`-${range.color}`]"
 				/>
 			</template>
@@ -141,13 +140,6 @@ $progress-donut-chart-range-colors: (
 	}
 
 	&__track {
-		@for $i from 1 through 100 {
-			&[data-value='#{$i}'] {
-				stroke-dashoffset: #{$progress-donut-chart-circle-circumference -
-					($progress-donut-chart-circle-circumference * ($i / 100))};
-			}
-		}
-
 		@each $class, $color-name in $progress-donut-chart-range-colors {
 			&.-#{$class} {
 				stroke: $color-name;
@@ -155,6 +147,10 @@ $progress-donut-chart-range-colors: (
 		}
 
 		stroke-dasharray: $progress-donut-chart-circle-circumference;
+		stroke-dashoffset: calc(
+			#{$progress-donut-chart-circle-circumference} - (#{$progress-donut-chart-circle-circumference} *
+			(var(--length, 0) / 100))
+		);
 	}
 
 	&__loader {
@@ -176,8 +172,8 @@ $progress-donut-chart-range-colors: (
 		width: 100%;
 		height: 100%;
 		justify-content: center;
-		flex-wrap: wrap;
-		align-content: center;
+		flex-wrap: nowrap;
+		align-items: center;
 		color: $color-neutral-text;
 	}
 
