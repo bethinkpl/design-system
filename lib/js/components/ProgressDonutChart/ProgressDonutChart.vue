@@ -70,6 +70,8 @@ $progress-donut-chart-circle-stroke-width: 4;
 $pi: 3.1416;
 $progress-donut-chart-circle-radius: 18; // (width / 2) - (stroke-width / 2)
 $circle-circumference: 2 * $pi * $progress-donut-chart-circle-radius;
+$progress-donut-chart-loading-dot-width: 2px;
+$progress-donut-chart-loading-dot-height: 2px;
 
 $progress-donut-chart-range-colors: (
 	'primaryMedium': $color-primary-data-medium,
@@ -187,8 +189,8 @@ $progress-donut-chart-range-colors: (
 
 	&__loaderText {
 		position: relative;
-		width: 2px;
-		height: 2px;
+		width: $progress-donut-chart-loading-dot-width;
+		height: $progress-donut-chart-loading-dot-height;
 		margin-top: $space-xxxs;
 		border-radius: 100%;
 		background-color: $color-neutral-text;
@@ -205,9 +207,9 @@ $progress-donut-chart-range-colors: (
 		}
 
 		&::before {
-			left: -4px;
-			width: 2px;
-			height: 2px;
+			left: -($progress-donut-chart-loading-dot-width * 2);
+			width: $progress-donut-chart-loading-dot-width;
+			height: $progress-donut-chart-loading-dot-height;
 			border-radius: 100%;
 			background-color: $color-neutral-text;
 			color: $color-neutral-text;
@@ -216,9 +218,9 @@ $progress-donut-chart-range-colors: (
 		}
 
 		&::after {
-			left: 4px;
-			width: 2px;
-			height: 2px;
+			left: $progress-donut-chart-loading-dot-width * 2;
+			width: $progress-donut-chart-loading-dot-width;
+			height: $progress-donut-chart-loading-dot-height;
 			border-radius: 100%;
 			background-color: $color-neutral-text;
 			color: $color-neutral-text;
