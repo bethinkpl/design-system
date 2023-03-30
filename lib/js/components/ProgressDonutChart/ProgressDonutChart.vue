@@ -69,7 +69,7 @@ $progress-donut-chart-height: 40px;
 $progress-donut-chart-circle-stroke-width: 4;
 $pi: 3.1416;
 $progress-donut-chart-circle-radius: 18; // (width / 2) - (stroke-width / 2)
-$progress-donut-chart-circle-circumference: 2 * $pi * $progress-donut-chart-circle-radius;
+$circle-circumference: 2 * $pi * $progress-donut-chart-circle-radius;
 
 $progress-donut-chart-range-colors: (
 	'primaryMedium': $color-primary-data-medium,
@@ -146,18 +146,16 @@ $progress-donut-chart-range-colors: (
 			}
 		}
 
-		stroke-dasharray: $progress-donut-chart-circle-circumference;
+		stroke-dasharray: $circle-circumference;
 		stroke-dashoffset: calc(
-			#{$progress-donut-chart-circle-circumference} - (#{$progress-donut-chart-circle-circumference} *
-						(var(--length, 0) / 100))
+			#{$circle-circumference} - (#{$circle-circumference} * (var(--length, 0) / 100))
 		);
 	}
 
 	&__loader {
-		stroke-dasharray: $progress-donut-chart-circle-circumference;
+		stroke-dasharray: $circle-circumference;
 		stroke: $color-neutral-background-strong;
-		stroke-dashoffset: #{$progress-donut-chart-circle-circumference -
-			($progress-donut-chart-circle-circumference * (25 / 100))};
+		stroke-dashoffset: #{$circle-circumference - ($circle-circumference * (25 / 100))};
 		animation: a-spinAround 2s infinite linear;
 		transform: rotate(0deg);
 	}
