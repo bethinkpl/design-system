@@ -41,12 +41,12 @@
 				v-if="state === PROGRESS_DONUT_CHART_STATES.LOADING"
 				class="progressDonutChart__loaderText"
 			/>
-			<div
+			<ds-icon
 				v-else-if="state === PROGRESS_DONUT_CHART_STATES.DONE"
 				class="progressDonutChart__icon"
-			>
-				<ds-icon :icon="ICONS.FA_CHECK_SOLID" :size="ICON_SIZES.X_SMALL" />
-			</div>
+				:icon="ICONS.FA_CHECK_SOLID"
+				:size="ICON_SIZES.X_SMALL"
+			/>
 			<div
 				v-else-if="label"
 				class="progressDonutChart__labelText"
