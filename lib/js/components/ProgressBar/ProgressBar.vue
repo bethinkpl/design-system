@@ -229,8 +229,8 @@ $progress-bar-badge-colors: (
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: right;
-		margin-left: $space-xxs;
 		margin-bottom: $space-xxxxxs;
+		margin-left: $space-xxs;
 		max-width: $progress-bar-label-data-max-width;
 	}
 
@@ -272,8 +272,8 @@ $progress-bar-badge-colors: (
 		}
 
 		align-items: center;
-		border-radius: 50%;
 		border: 1px solid $color-inverted-border;
+		border-radius: 50%;
 		display: flex;
 		height: $progress-bar-badge-size;
 		justify-content: center;

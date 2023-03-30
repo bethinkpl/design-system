@@ -64,9 +64,9 @@
 ) {
 	&:disabled,
 	&.-disabled {
+		background-color: $disabled-background;
 		border-color: $disabled-border;
 		color: $disabled-color;
-		background-color: $disabled-background;
 
 		.a-button__icon {
 			color: $disabled-icon;
@@ -174,8 +174,8 @@ $button-disabled-alpha: 0.6;
 	border-radius: 100px;
 	cursor: pointer;
 	display: inline-flex;
-	min-height: $button-medium-min-height;
 	justify-content: center;
+	min-height: $button-medium-min-height;
 	outline: none;
 	padding: $space-xxxxs $space-s;
 	position: relative;

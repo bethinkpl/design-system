@@ -124,8 +124,8 @@
 			}
 
 			#{$self}__rightSlot {
-				padding: $space-xs 0 $space-xs 0;
 				flex-grow: initial;
+				padding: $space-xs 0 $space-xs 0;
 			}
 		}
 	}
@@ -172,8 +172,8 @@
 	&__header {
 		display: flex;
 		justify-content: space-between;
-		width: 100%;
 		padding: 0 $space-xxxxs;
+		width: 100%;
 	}
 
 	&__title {
@@ -189,8 +189,8 @@
 	}
 
 	&__textWrapper {
-		flex: 1;
 		display: flex;
+		flex: 1;
 		flex-direction: column;
 		justify-content: space-between;
 	}
@@ -198,15 +198,15 @@
 	&__titleWrapper {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
 		flex-grow: 1;
+		justify-content: center;
 		padding: $space-xxxxs 0;
 	}
 
 	&__rightWrapper {
 		display: flex;
-		flex-wrap: nowrap;
 		flex-shrink: 0;
+		flex-wrap: nowrap;
 		padding: 0;
 	}
 
@@ -215,8 +215,8 @@
 	}
 
 	&__rightSlot {
-		padding: $space-xxs 0 0 0;
 		flex-grow: 1;
+		padding: $space-xxs 0 0 0;
 
 		&:nth-child(2) {
 			margin-left: $space-xxxxs;
@@ -224,8 +224,8 @@
 	}
 
 	&__iconContainer {
-		padding: $space-xxxxs 0;
 		margin-right: $space-s;
+		padding: $space-xxxxs 0;
 
 		&.-hideOnMobile {
 			display: none;
@@ -241,38 +241,38 @@
 		padding: $space-xxs;
 
 		&.-neutral {
-			color: $color-neutral-icon;
 			background-color: $color-neutral-background-medium;
+			color: $color-neutral-icon;
 		}
 
 		&.-default {
-			color: $color-neutral-icon;
 			background-color: $color-neutral-background-medium;
+			color: $color-neutral-icon;
 		}
 
 		&.-warning {
-			color: $color-warning-icon;
 			background-color: $color-warning-background-medium;
+			color: $color-warning-icon;
 		}
 
 		&.-success {
-			color: $color-success-icon;
 			background-color: $color-success-background-medium;
+			color: $color-success-icon;
 		}
 
 		&.-info {
-			color: $color-info-icon;
 			background-color: $color-info-background-medium;
+			color: $color-info-icon;
 		}
 
 		&.-fail {
-			color: $color-fail-icon;
 			background-color: $color-fail-background-medium;
+			color: $color-fail-icon;
 		}
 
 		&.-danger {
-			color: $color-danger-icon;
 			background-color: $color-danger-background-medium;
+			color: $color-danger-icon;
 		}
 	}
 
@@ -281,8 +281,8 @@
 	}
 
 	&__expander {
-		padding: 0;
 		margin-left: $space-xxs;
+		padding: 0;
 	}
 
 	&__expandedContainer {
