@@ -70,8 +70,7 @@ $progress-donut-chart-circle-stroke-width: 4;
 $pi: 3.1416;
 $progress-donut-chart-circle-radius: 18; // (width / 2) - (stroke-width / 2)
 $circle-circumference: 2 * $pi * $progress-donut-chart-circle-radius;
-$progress-donut-chart-loading-dot-width: 2px;
-$progress-donut-chart-loading-dot-height: 2px;
+$progress-donut-chart-loading-dot-size: 2px;
 
 $progress-donut-chart-range-colors: (
 	'primaryMedium': $color-primary-data-medium,
@@ -172,7 +171,6 @@ $progress-donut-chart-range-colors: (
 		width: 100%;
 		height: 100%;
 		justify-content: center;
-		flex-wrap: nowrap;
 		align-items: center;
 		color: $color-neutral-text;
 	}
@@ -192,8 +190,8 @@ $progress-donut-chart-range-colors: (
 
 	&__loaderText {
 		position: relative;
-		width: $progress-donut-chart-loading-dot-width;
-		height: $progress-donut-chart-loading-dot-height;
+		width: $progress-donut-chart-loading-dot-size;
+		height: $progress-donut-chart-loading-dot-size;
 		margin-top: $space-xxxs;
 		border-radius: 100%;
 		background-color: $color-neutral-text;
@@ -207,27 +205,21 @@ $progress-donut-chart-range-colors: (
 			display: inline-block;
 			position: absolute;
 			top: 0;
-		}
-
-		&::before {
-			left: -($progress-donut-chart-loading-dot-width * 2);
-			width: $progress-donut-chart-loading-dot-width;
-			height: $progress-donut-chart-loading-dot-height;
+			width: $progress-donut-chart-loading-dot-size;
+			height: $progress-donut-chart-loading-dot-size;
 			border-radius: 100%;
 			background-color: $color-neutral-text;
 			color: $color-neutral-text;
 			animation: dot-flashing 1s infinite alternate;
+		}
+
+		&::before {
+			left: -($progress-donut-chart-loading-dot-size * 2);
 			animation-delay: 0s;
 		}
 
 		&::after {
-			left: $progress-donut-chart-loading-dot-width * 2;
-			width: $progress-donut-chart-loading-dot-width;
-			height: $progress-donut-chart-loading-dot-height;
-			border-radius: 100%;
-			background-color: $color-neutral-text;
-			color: $color-neutral-text;
-			animation: dot-flashing 1s infinite alternate;
+			left: $progress-donut-chart-loading-dot-size * 2;
 			animation-delay: 1s;
 		}
 	}
@@ -235,7 +227,11 @@ $progress-donut-chart-range-colors: (
 </style>
 
 <script lang="ts">
-import { PROGRESS_DONUT_CHART_STATES, ProgressDonutChartRange } from './ProgressDonutChart.consts';
+import {
+	PROGRESS_DONUT_CHART_STATES,
+	ProgressDonutChartRange,
+	ProgressDonutChartState,
+} from './ProgressDonutChart.consts';
 import { PropType } from 'vue';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
@@ -247,7 +243,7 @@ export default {
 	props: {
 		label: { type: String, default: '' },
 		state: {
-			type: String,
+			type: String as PropType<ProgressDonutChartState>,
 			default: PROGRESS_DONUT_CHART_STATES.DEFAULT,
 			validator(state) {
 				return Object.values(PROGRESS_DONUT_CHART_STATES).includes(state);
