@@ -67,7 +67,6 @@ describe('ProgressDonutChart', () => {
 			ranges: rangesMock,
 		});
 
-		expect(component.find('.progressDonutChart__track.-success').exists()).toBeTruthy();
 		expect(component.find('ds-icon-stub').exists()).toBeTruthy();
 	});
 

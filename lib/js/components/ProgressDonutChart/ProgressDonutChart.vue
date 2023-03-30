@@ -225,7 +225,6 @@ $progress-donut-chart-range-colors: (
 
 <script lang="ts">
 import {
-	PROGRESS_DONUT_CHART_RANGE_COLORS,
 	PROGRESS_DONUT_CHART_STATES,
 	ProgressDonutChartRange,
 	ProgressDonutChartState,
@@ -281,20 +280,6 @@ export default {
 				.join('');
 		},
 		calculatedRanges() {
-			if (
-				this.state === PROGRESS_DONUT_CHART_STATES.DONE ||
-				this.state === PROGRESS_DONUT_CHART_STATES.OVERAGE
-			) {
-				return [
-					{
-						color: PROGRESS_DONUT_CHART_RANGE_COLORS.SUCCESS,
-						start: 0,
-						length: 100,
-						rotate: OFFSET_IN_DEGREES_OF_TRACK_START_POINT,
-					},
-				];
-			}
-
 			return this.ranges.map((range) => {
 				return {
 					...range,
