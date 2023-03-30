@@ -53,10 +53,10 @@
 .surveyQuestionOpenEnded {
 	&__header {
 		display: flex;
+		justify-content: space-between;
+		margin-bottom: $space-s;
 		// header without explanation iconButton has to be the same size as with iconButton
 		min-height: $icon-button-medium-size;
-		margin-bottom: $space-s;
-		justify-content: space-between;
 	}
 
 	&__title {

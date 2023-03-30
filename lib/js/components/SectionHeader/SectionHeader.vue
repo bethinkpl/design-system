@@ -86,8 +86,8 @@ $icons-and-slot-min-height-l: 50px;
 
 	&__slot,
 	&__iconWrapper {
-		display: flex;
 		align-items: center;
+		display: flex;
 	}
 
 	&__iconWrapper {

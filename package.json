@@ -1,18 +1,18 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "12.3.0",
+  "version": "15.0.3",
   "description": "Bethink universe design-system",
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
   "main": "./dist/design-system.umd.js",
-  "typings": "./dist/index.d.ts",
+  "typings": "./dist/lib/js/index.d.ts",
   "license": "UNLICENSED",
   "engines": {
     "yarn": "^1.22.0",
     "node": "^14.15.0 || ^16.13.0"
   },
   "scripts": {
-    "build": "vue-cli-service build --target lib --name design-system lib/js/index.ts",
+    "build": "vue-cli-service build --target lib --formats umd --name design-system lib/js/index.ts",
     "dev": "start-storybook -p 6006",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:fix": "yarn lint:scripts:fix && yarn lint:styles:fix",
@@ -73,7 +73,7 @@
     "storybook-addon-designs": "^6.3.1",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
-    "stylelint-order": "4.1.0",
+    "stylelint-order": "6.0.3",
     "stylelint-scss": "3.18.0",
     "ts-jest": "29.0.5",
     "ts-node": "^10.9.1",

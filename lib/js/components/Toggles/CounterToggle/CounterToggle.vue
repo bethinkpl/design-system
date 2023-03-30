@@ -170,8 +170,8 @@ $counter-toggle-colors: (
 @mixin setCounterToggleDisabled($disabled-color, $disabled-icon, $disabled-background) {
 	&:disabled,
 	&.-disabled {
-		color: $disabled-color;
 		background-color: $disabled-background;
+		color: $disabled-color;
 
 		.counterToggle__icon {
 			color: $disabled-icon;
@@ -221,13 +221,13 @@ $counter-toggle-colors: (
 	border-radius: $radius-s;
 	cursor: pointer;
 	display: inline-flex;
-	width: auto;
 	justify-content: center;
 	padding: $space-xxs;
 	position: relative;
 	transition: color ease-in-out $default-transition-time,
 		background-color ease-in-out $default-transition-time;
 	user-select: none;
+	width: auto;
 
 	&.-selected {
 		@each $color-name, $color-map in $counter-toggle-colors {

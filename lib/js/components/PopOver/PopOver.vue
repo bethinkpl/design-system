@@ -144,8 +144,8 @@
 	}
 
 	&__button {
-		margin: 0 $space-s $space-xs;
 		align-self: flex-end;
+		margin: 0 $space-s $space-xs;
 	}
 }
 </style>
