@@ -173,7 +173,7 @@ $progress-donut-chart-range-colors: (
 	}
 
 	&__icon {
-		color: $color-success-text;
+		color: $color-success-icon;
 	}
 
 	&__labelText {
