@@ -182,6 +182,9 @@ $progress-donut-chart-range-colors: (
 	}
 
 	&__labelText {
+		max-width: 80%;
+		overflow: hidden;
+
 		&.-success {
 			color: $color-success-text;
 		}
