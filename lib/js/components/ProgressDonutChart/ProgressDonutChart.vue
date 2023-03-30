@@ -6,32 +6,32 @@
 	>
 		<svg
 			class="progressDonutChart__svg"
-			width="40"
-			height="40"
+			:width="PROGRESS_DONUT_CHART_SIZE"
+			:height="PROGRESS_DONUT_CHART_SIZE"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<circle
 				class="progressDonutChart__circle progressDonutChart__thumb"
-				cx="20"
-				cy="20"
-				r="18"
+				:cx="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
+				:cy="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
+				:r="PROGRESS_DONUT_CHART_CIRCLE_RADIUS"
 			/>
 			<circle
 				v-if="state === PROGRESS_DONUT_CHART_STATES.LOADING"
 				class="progressDonutChart__circle progressDonutChart__loader"
-				cx="20"
-				cy="20"
-				r="18"
+				:cx="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
+				:cy="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
+				:r="PROGRESS_DONUT_CHART_CIRCLE_RADIUS"
 			/>
 			<template v-else>
 				<circle
 					v-for="(range, index) in calculatedRanges"
 					:key="`circle_${index}`"
 					class="progressDonutChart__circle progressDonutChart__track"
-					cx="20"
-					cy="20"
-					r="18"
-					:style="`--length: ${range.length}; transform: rotate(calc(90deg + ${range.rotate}deg));`"
+					:cx="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
+					:cy="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
+					:r="PROGRESS_DONUT_CHART_CIRCLE_RADIUS"
+					:style="`--length: ${range.length}; transform: rotate(${range.rotate}deg);`"
 					:class="[`-${range.color}`]"
 				/>
 			</template>
@@ -64,8 +64,7 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography/tokens';
 
-$progress-donut-chart-width: 40px;
-$progress-donut-chart-height: 40px;
+$progress-donut-chart-size: 40px;
 $progress-donut-chart-circle-stroke-width: 4;
 $pi: 3.1416;
 $progress-donut-chart-circle-radius: 18; // (width / 2) - (stroke-width / 2)
@@ -112,16 +111,15 @@ $progress-donut-chart-range-colors: (
 
 .progressDonutChart {
 	position: relative;
-	width: $progress-donut-chart-width;
-	height: $progress-donut-chart-height;
+	width: $progress-donut-chart-size;
+	height: $progress-donut-chart-size;
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 
 	&__svg {
-		display: block;
-		width: $progress-donut-chart-width;
-		height: $progress-donut-chart-height;
+		width: $progress-donut-chart-size;
+		height: $progress-donut-chart-size;
 	}
 
 	&__circle {
@@ -234,6 +232,11 @@ import {
 import { PropType } from 'vue';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
+const PROGRESS_DONUT_CHART_SIZE = 40; //  keep consider with $progress-donut-chart-size
+const PROGRESS_DONUT_CHART_STROKE_WIDTH = 4; // keep consider with $progress-donut-chart-circle-stroke-width
+const PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT = PROGRESS_DONUT_CHART_SIZE / 2;
+const PROGRESS_DONUT_CHART_CIRCLE_RADIUS =
+	PROGRESS_DONUT_CHART_SIZE / 2 - PROGRESS_DONUT_CHART_STROKE_WIDTH / 2;
 export default {
 	name: 'ProgressDonutChart',
 	components: {
@@ -264,6 +267,9 @@ export default {
 			PROGRESS_DONUT_CHART_STATES: Object.freeze(PROGRESS_DONUT_CHART_STATES),
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
+			PROGRESS_DONUT_CHART_SIZE,
+			PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT,
+			PROGRESS_DONUT_CHART_CIRCLE_RADIUS,
 		};
 	},
 	computed: {
@@ -274,7 +280,7 @@ export default {
 		},
 		calculatedRanges() {
 			return this.ranges.map((range) => {
-				return { ...range, rotate: (range.start / 100) * 360 };
+				return { ...range, rotate: (range.start / 100) * 360 + 90 };
 			});
 		},
 	},
