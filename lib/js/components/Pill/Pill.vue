@@ -163,8 +163,8 @@ $pill-colors: (
 	&__label {
 		@include label-s-default-bold;
 
-		overflow: hidden;
 		margin: $space-xxxxxs $space-xxxs $space-xxxxxs 0;
+		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
@@ -174,8 +174,8 @@ $pill-colors: (
 	}
 
 	&.-x-small {
-		padding-left: $space-xxxs;
 		min-height: $pill-min-height;
+		padding-left: $space-xxxs;
 
 		#{$self}__leftIcon {
 			margin-right: $space-xxxxxs;

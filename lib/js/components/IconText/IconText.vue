@@ -26,8 +26,8 @@
 	$root: &;
 
 	align-items: flex-start;
-	pointer-events: none;
 	display: flex;
+	pointer-events: none;
 
 	&.-neutralWeak {
 		color: $color-neutral-text-weak;

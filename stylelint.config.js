@@ -38,5 +38,7 @@ module.exports = {
 				ignoreProperties: ['--token'],
 			},
 		],
+		'order/properties-alphabetical-order': true,
 	},
+	ignoreFiles: ['lib/styles/settings/typography/_tokens.scss'],
 };

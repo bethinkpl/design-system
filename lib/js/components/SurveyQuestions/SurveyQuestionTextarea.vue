@@ -19,9 +19,9 @@
 	@include formText-s-default-regular;
 
 	border: 1px solid $color-neutral-border-weak;
-	box-sizing: border-box;
-	box-shadow: inset 0 1px 3px var(--raw-gray-400);
 	border-radius: $radius-s;
+	box-shadow: inset 0 1px 3px var(--raw-gray-400);
+	box-sizing: border-box;
 	min-height: 2em;
 	padding: $space-xxs;
 	resize: none;
