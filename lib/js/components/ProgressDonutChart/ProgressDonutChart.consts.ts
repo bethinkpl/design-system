@@ -33,6 +33,8 @@ export const PROGRESS_DONUT_CHART_RANGE_COLORS = {
 export const PROGRESS_DONUT_CHART_STATES = {
 	DEFAULT: 'default',
 	LOADING: 'loading',
+	DONE: 'done',
+	OVERAGE: 'overage',
 };
 
 export interface ProgressDonutChartRange {

@@ -23,7 +23,7 @@
 				cy="20"
 				r="18"
 			/>
-			<template v-if="state === PROGRESS_DONUT_CHART_STATES.DEFAULT">
+			<template v-else>
 				<circle
 					v-for="(range, index) in calculatedRanges"
 					:key="`circle_${index}`"
@@ -42,13 +42,16 @@
 				v-if="state === PROGRESS_DONUT_CHART_STATES.LOADING"
 				class="progressDonutChart__loaderText"
 			/>
-			<div v-else-if="isDone && !hasOverage" class="progressDonutChart__icon">
+			<div
+				v-else-if="state === PROGRESS_DONUT_CHART_STATES.DONE"
+				class="progressDonutChart__icon"
+			>
 				<ds-icon :icon="ICONS.FA_CHECK_SOLID" :size="ICON_SIZES.X_SMALL" />
 			</div>
 			<div
 				v-else-if="label"
 				class="progressDonutChart__labelText"
-				:class="{ '-success': hasOverage }"
+				:class="{ '-success': state === PROGRESS_DONUT_CHART_STATES.OVERAGE }"
 			>
 				{{ labelText }}
 			</div>
@@ -251,8 +254,6 @@ export default {
 				return Object.values(PROGRESS_DONUT_CHART_STATES).includes(state);
 			},
 		},
-		isDone: { type: Boolean, default: false },
-		hasOverage: { type: Boolean, default: false },
 		ranges: {
 			type: Array as PropType<Array<ProgressDonutChartRange>>,
 			required: true,
@@ -273,7 +274,9 @@ export default {
 	},
 	computed: {
 		labelText() {
-			return [this.hasOverage && '+', this.label].filter(Boolean).join('');
+			return [this.state === PROGRESS_DONUT_CHART_STATES.OVERAGE && '+', this.label]
+				.filter(Boolean)
+				.join('');
 		},
 		calculatedRanges() {
 			return this.ranges.map((range) => {

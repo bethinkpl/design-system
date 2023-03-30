@@ -32,14 +32,6 @@ const argTypes = {
 		control: { type: 'select', options: Object.values(PROGRESS_DONUT_CHART_STATES) },
 		defaultValue: PROGRESS_DONUT_CHART_STATES.DEFAULT,
 	},
-	isDone: {
-		control: { type: 'boolean' },
-		defaultValue: false,
-	},
-	hasOverage: {
-		control: { type: 'boolean' },
-		defaultValue: false,
-	},
 	ranges: {
 		control: { type: 'array' },
 		defaultValue: [
