@@ -50,7 +50,7 @@
 			<div
 				v-else-if="label"
 				class="progressDonutChart__labelText"
-				:class="{ '-success': state === PROGRESS_DONUT_CHART_STATES.OVERAGE }"
+				:class="{ '-hasOverage': state === PROGRESS_DONUT_CHART_STATES.OVERAGE }"
 			>
 				{{ labelText }}
 			</div>
@@ -180,8 +180,9 @@ $progress-donut-chart-range-colors: (
 		max-width: 80%;
 		overflow: hidden;
 
-		&.-success {
+		&.-hasOverage {
 			color: $color-success-text;
+			margin-left: -2px;
 		}
 	}
 
