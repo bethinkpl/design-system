@@ -280,6 +280,7 @@ export default {
 		},
 		calculatedRanges() {
 			return this.ranges.map((range) => {
+				// `+ 90` is to set starting point at the bottom
 				return { ...range, rotate: (range.start / 100) * 360 + 90 };
 			});
 		},
