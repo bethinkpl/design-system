@@ -97,27 +97,27 @@ $pagination-input-height: 32px;
 
 	@include centeredSpread();
 
-	flex-grow: 1;
-	flex-direction: row;
 	align-items: stretch;
+	flex-direction: row;
+	flex-grow: 1;
 
 	&__itemsWrapper {
+		align-content: center;
 		display: flex;
 		flex-wrap: nowrap;
-		align-content: center;
 		justify-content: center;
 	}
 
 	&.-centered {
 		#{$self}__itemsWrapper {
-			flex-grow: 1;
 			align-items: center;
+			flex-grow: 1;
 		}
 	}
 
 	&__items {
-		flex-direction: row;
 		align-items: center;
+		flex-direction: row;
 		padding: 0;
 
 		&.-default {
@@ -146,12 +146,12 @@ $pagination-input-height: 32px;
 	}
 
 	&__input {
-		padding: $space-xxxs $space-xxs;
 		background: $color-default-background;
 		border: 1px solid $color-neutral-border-strong;
-		box-shadow: inset 0 1px 3px $color-neutral-border-strong;
 		border-radius: $radius-s;
+		box-shadow: inset 0 1px 3px $color-neutral-border-strong;
 		height: $pagination-input-height;
+		padding: $space-xxxs $space-xxs;
 
 		&:hover {
 			border-color: $color-neutral-border-strong-hovered;
@@ -166,9 +166,9 @@ $pagination-input-height: 32px;
 	&__text {
 		@include text-m-default-regular;
 
-		text-align: center;
 		color: $color-neutral-text;
 		padding: $space-xxxs;
+		text-align: center;
 	}
 
 	&__compactItem {
@@ -180,8 +180,8 @@ $pagination-input-height: 32px;
 	&__itemWrapper {
 		@include text-m-default-regular;
 
-		text-align: center;
 		padding: $space-xxxxs;
+		text-align: center;
 
 		&.-touchable:hover {
 			cursor: pointer;
@@ -193,14 +193,14 @@ $pagination-input-height: 32px;
 	}
 
 	&__item {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
 		align-items: center;
-		min-width: $pagination-item-min-width;
 		background: $color-neutral-background-weak;
 		border-radius: $radius-xs;
 		color: $color-neutral-text;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		min-width: $pagination-item-min-width;
 		padding: $space-xxxs;
 
 		&.-selected {
@@ -217,19 +217,19 @@ $pagination-input-height: 32px;
 	}
 
 	&__ellipsis {
+		align-items: center;
+		color: $color-neutral-text-weak;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		align-items: center;
-		color: $color-neutral-text-weak;
 		padding: $space-xxxs;
 	}
 
 	&__accessorySlot {
-		display: flex;
 		align-items: center;
-		padding: 0;
+		display: flex;
 		min-height: 0;
+		padding: 0;
 	}
 }
 </style>

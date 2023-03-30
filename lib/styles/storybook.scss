@@ -14,9 +14,9 @@ $fontFamily: 'BlinkMacSystemFont', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen'
 
 html,
 body {
-	-webkit-text-size-adjust: 100%;
-	-webkit-font-smoothing: antialiased;
 	font-family: 'Lato', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
 
 	&.styleguide {
 		@include text-l-default-regular;
@@ -47,8 +47,8 @@ html {
 
 .sbIconList {
 	display: flex;
-	font-size: 10px;
 	flex-wrap: wrap;
+	font-size: 10px;
 
 	&__icon {
 		align-items: center;

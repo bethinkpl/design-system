@@ -186,10 +186,10 @@ $survey-toggle-colors: (
 	&__ring {
 		// TODO: IT-4131 mixin
 		align-items: center;
-		display: flex;
-		justify-content: center;
 		border: 3px solid $color-neutral-border;
 		border-radius: 100%;
+		display: flex;
+		justify-content: center;
 		transition: border-color ease-in-out $default-transition-time;
 		width: 100%;
 	}
@@ -205,18 +205,18 @@ $survey-toggle-colors: (
 	}
 
 	&__icon {
-		display: flex;
 		color: $color-inverted-icon;
+		display: flex;
 	}
 
 	&__label {
 		@include label-xs-default-bold;
 
 		color: $color-neutral-text;
-		text-align: center;
 		margin-top: $space-xxs;
-		min-height: 2em;
 		max-width: 100%;
+		min-height: 2em;
+		text-align: center;
 
 		@media #{breakpoint-s()} {
 			@include label-s-default-regular;

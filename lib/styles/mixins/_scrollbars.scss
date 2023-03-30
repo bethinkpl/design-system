@@ -1,7 +1,7 @@
 @mixin scrollbar($size, $foreground-color, $background-color: white) {
 	::-webkit-scrollbar {
-		width: $size;
 		height: $size;
+		width: $size;
 	}
 
 	::-webkit-scrollbar-thumb {
@@ -15,8 +15,8 @@
 
 @mixin scrollbar-on-self($size, $foreground-color, $background-color: white) {
 	&::-webkit-scrollbar {
-		width: $size;
 		height: $size;
+		width: $size;
 	}
 
 	&::-webkit-scrollbar-thumb {
