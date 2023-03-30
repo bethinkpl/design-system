@@ -116,7 +116,6 @@ $progress-donut-chart-range-colors: (
 	height: $progress-donut-chart-height;
 	padding: 0;
 	margin: 0;
-	overflow: hidden;
 	box-sizing: border-box;
 
 	&__svg {
