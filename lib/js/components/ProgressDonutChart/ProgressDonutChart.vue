@@ -182,7 +182,7 @@ $progress-donut-chart-range-colors: (
 
 		&.-hasOverage {
 			color: $color-success-text;
-			margin-left: -2px;
+			margin-left: -$space-xxxxxs;
 		}
 	}
 
