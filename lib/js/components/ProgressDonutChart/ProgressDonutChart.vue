@@ -110,27 +110,27 @@ $progress-donut-chart-range-colors: (
 }
 
 .progressDonutChart {
+	box-sizing: border-box;
+	height: $progress-donut-chart-size;
+	margin: 0;
+	padding: 0;
 	position: relative;
 	width: $progress-donut-chart-size;
-	height: $progress-donut-chart-size;
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
 
 	&__svg {
-		width: $progress-donut-chart-size;
 		height: $progress-donut-chart-size;
+		width: $progress-donut-chart-size;
 	}
 
 	&__circle {
 		fill: none;
 		stroke-width: $progress-donut-chart-circle-stroke-width;
+		transform: rotate(90deg);
+		transform-origin: 50% 50%;
 		// Disabled for v3.0
 		//stroke-linecap: round;
 		//stroke-linejoin: round;
 		transition: all $default-transition-time ease-out;
-		transform: rotate(90deg);
-		transform-origin: 50% 50%;
 	}
 
 	&__thumb {
@@ -151,25 +151,25 @@ $progress-donut-chart-range-colors: (
 	}
 
 	&__loader {
-		stroke-dasharray: $circle-circumference;
-		stroke: $color-neutral-background-strong;
-		stroke-dashoffset: #{$circle-circumference - ($circle-circumference * (25 / 100))};
 		animation: a-spinAround 2s infinite linear;
+		stroke: $color-neutral-background-strong;
+		stroke-dasharray: $circle-circumference;
+		stroke-dashoffset: #{$circle-circumference - ($circle-circumference * (25 / 100))};
 		transform: rotate(0deg);
 	}
 
 	&__label {
 		@include info-m-default-bold;
 
-		display: flex;
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		justify-content: center;
 		align-items: center;
 		color: $color-neutral-text;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
 	}
 
 	&__icon {
@@ -186,38 +186,38 @@ $progress-donut-chart-range-colors: (
 	}
 
 	&__loaderText {
-		position: relative;
-		width: $progress-donut-chart-loading-dot-size;
-		height: $progress-donut-chart-loading-dot-size;
-		margin-top: $space-xxxs;
-		border-radius: 100%;
-		background-color: $color-neutral-text;
-		color: $color-neutral-text;
 		animation: dot-flashing 1s infinite linear alternate;
 		animation-delay: 0.5s;
+		background-color: $color-neutral-text;
+		border-radius: 100%;
+		color: $color-neutral-text;
+		height: $progress-donut-chart-loading-dot-size;
+		margin-top: $space-xxxs;
+		position: relative;
+		width: $progress-donut-chart-loading-dot-size;
 
 		&::before,
 		&::after {
+			animation: dot-flashing 1s infinite alternate;
+			background-color: $color-neutral-text;
+			border-radius: 100%;
+			color: $color-neutral-text;
 			content: '';
 			display: inline-block;
+			height: $progress-donut-chart-loading-dot-size;
 			position: absolute;
 			top: 0;
 			width: $progress-donut-chart-loading-dot-size;
-			height: $progress-donut-chart-loading-dot-size;
-			border-radius: 100%;
-			background-color: $color-neutral-text;
-			color: $color-neutral-text;
-			animation: dot-flashing 1s infinite alternate;
 		}
 
 		&::before {
-			left: -($progress-donut-chart-loading-dot-size * 2);
 			animation-delay: 0s;
+			left: -($progress-donut-chart-loading-dot-size * 2);
 		}
 
 		&::after {
-			left: $progress-donut-chart-loading-dot-size * 2;
 			animation-delay: 1s;
+			left: $progress-donut-chart-loading-dot-size * 2;
 		}
 	}
 }
