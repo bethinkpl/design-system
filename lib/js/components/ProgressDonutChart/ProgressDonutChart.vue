@@ -149,7 +149,7 @@ $progress-donut-chart-range-colors: (
 		stroke-dasharray: $progress-donut-chart-circle-circumference;
 		stroke-dashoffset: calc(
 			#{$progress-donut-chart-circle-circumference} - (#{$progress-donut-chart-circle-circumference} *
-			(var(--length, 0) / 100))
+						(var(--length, 0) / 100))
 		);
 	}
 
