@@ -36,9 +36,9 @@ const argTypes = {
 		control: { type: 'array' },
 		defaultValue: [
 			{
-				color: PROGRESS_DONUT_CHART_RANGE_COLORS.FAIL_GHOST,
-				start: 55,
-				length: 25,
+				color: PROGRESS_DONUT_CHART_RANGE_COLORS.SUCCESS,
+				start: 0,
+				length: 30,
 			} as ProgressDonutChartRange,
 			{
 				color: PROGRESS_DONUT_CHART_RANGE_COLORS.INFO,
@@ -46,9 +46,9 @@ const argTypes = {
 				length: 25,
 			} as ProgressDonutChartRange,
 			{
-				color: PROGRESS_DONUT_CHART_RANGE_COLORS.SUCCESS,
-				start: 0,
-				length: 30,
+				color: PROGRESS_DONUT_CHART_RANGE_COLORS.FAIL_GHOST,
+				start: 55,
+				length: 25,
 			} as ProgressDonutChartRange,
 		],
 	},
