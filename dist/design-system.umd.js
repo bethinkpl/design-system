@@ -2655,6 +2655,49 @@ __exportStar(__webpack_require__("928f"), exports);
 
 /***/ }),
 
+/***/ "2496":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PROGRESS_DONUT_CHART_STATES = exports.PROGRESS_DONUT_CHART_RANGE_COLORS = void 0;
+exports.PROGRESS_DONUT_CHART_RANGE_COLORS = {
+    PRIMARY_MEDIUM: 'primaryMedium',
+    PRIMARY: 'primary',
+    PRIMARY_WEAK: 'primaryWeak',
+    PRIMARY_GHOST: 'primaryGhost',
+    NEUTRAL_MEDIUM: 'neutralMedium',
+    NEUTRAL: 'neutral',
+    NEUTRAL_WEAK: 'neutralWeak',
+    NEUTRAL_GHOST: 'neutralGhost',
+    INFO_MEDIUM: 'infoMedium',
+    INFO: 'info',
+    INFO_WEAK: 'infoWeak',
+    INFO_GHOST: 'infoGhost',
+    SUCCESS_MEDIUM: 'successMedium',
+    SUCCESS: 'success',
+    SUCCESS_WEAK: 'successWeak',
+    SUCCESS_GHOST: 'successGhost',
+    WARNING_MEDIUM: 'warningMedium',
+    WARNING: 'warning',
+    WARNING_WEAK: 'warningWeak',
+    WARNING_GHOST: 'warningGhost',
+    FAIL_MEDIUM: 'failMedium',
+    FAIL: 'fail',
+    FAIL_WEAK: 'failWeak',
+    FAIL_GHOST: 'failGhost',
+};
+exports.PROGRESS_DONUT_CHART_STATES = {
+    DEFAULT: 'default',
+    LOADING: 'loading',
+    DONE: 'done',
+    OVERAGE: 'overage',
+};
+
+
+/***/ }),
+
 /***/ "24ea":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3492,6 +3535,27 @@ exports.ligatures = aliases;
 exports.unicode = unicode;
 exports.svgPathData = svgPathData;
 exports.aliases = aliases;
+
+/***/ }),
+
+/***/ "31e3":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, "a", function() { return /* reexport */ render; });
+__webpack_require__.d(__webpack_exports__, "b", function() { return /* reexport */ staticRenderFns; });
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"cc3452f0-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./lib/js/components/ProgressDonutChart/ProgressDonutChart.vue?vue&type=template&id=798ca870&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{class:{
+		progressDonutChart: true,
+	}},[_c('svg',{staticClass:"progressDonutChart__svg",attrs:{"width":_vm.PROGRESS_DONUT_CHART_SIZE,"height":_vm.PROGRESS_DONUT_CHART_SIZE,"xmlns":"http://www.w3.org/2000/svg"}},[_c('circle',{staticClass:"progressDonutChart__circle progressDonutChart__thumb",attrs:{"cx":_vm.PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT,"cy":_vm.PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT,"r":_vm.PROGRESS_DONUT_CHART_CIRCLE_RADIUS}}),(_vm.state === _vm.PROGRESS_DONUT_CHART_STATES.LOADING)?_c('circle',{staticClass:"progressDonutChart__circle progressDonutChart__loader",attrs:{"cx":_vm.PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT,"cy":_vm.PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT,"r":_vm.PROGRESS_DONUT_CHART_CIRCLE_RADIUS}}):_vm._l((_vm.calculatedRanges),function(range,index){return _c('circle',{key:("circle_" + index),staticClass:"progressDonutChart__circle progressDonutChart__track",class:[("-" + (range.color))],style:(("--length: " + (range.length) + "; transform: rotate(" + (range.rotate) + "deg);")),attrs:{"cx":_vm.PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT,"cy":_vm.PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT,"r":_vm.PROGRESS_DONUT_CHART_CIRCLE_RADIUS}})})],2),_c('div',{staticClass:"progressDonutChart__label"},[(_vm.state === _vm.PROGRESS_DONUT_CHART_STATES.LOADING)?_c('div',{staticClass:"progressDonutChart__loaderText"}):(_vm.state === _vm.PROGRESS_DONUT_CHART_STATES.DONE)?_c('div',{staticClass:"progressDonutChart__icon"},[_c('ds-icon',{attrs:{"icon":_vm.ICONS.FA_CHECK_SOLID,"size":_vm.ICON_SIZES.X_SMALL}})],1):(_vm.label)?_c('div',{staticClass:"progressDonutChart__labelText",class:{ '-hasOverage': _vm.state === _vm.PROGRESS_DONUT_CHART_STATES.OVERAGE }},[_vm._v(" "+_vm._s(_vm.labelText)+" ")]):_vm._e()])])}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./lib/js/components/ProgressDonutChart/ProgressDonutChart.vue?vue&type=template&id=798ca870&scoped=true&
+
 
 /***/ }),
 
@@ -4969,6 +5033,20 @@ module.exports = exports;
 
 /***/ }),
 
+/***/ "4ec3":
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__("24fb");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, "@-webkit-keyframes a-spinAround-data-v-798ca870{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes a-spinAround-data-v-798ca870{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@-webkit-keyframes a-fadeIn-data-v-798ca870{0%{opacity:0}to{opacity:1}}@keyframes a-fadeIn-data-v-798ca870{0%{opacity:0}to{opacity:1}}@-webkit-keyframes dot-flashing-data-v-798ca870{0%{background-color:var(--color-neutral-text)}50%,to{background-color:transparent}}@keyframes dot-flashing-data-v-798ca870{0%{background-color:var(--color-neutral-text)}50%,to{background-color:transparent}}.progressDonutChart[data-v-798ca870]{box-sizing:border-box;margin:0;padding:0;position:relative}.progressDonutChart[data-v-798ca870],.progressDonutChart__svg[data-v-798ca870]{height:40px;width:40px}.progressDonutChart__circle[data-v-798ca870]{fill:none;stroke-width:4;transform:rotate(90deg);transform-origin:50% 50%;transition:all .3s ease-out}.progressDonutChart__thumb[data-v-798ca870]{stroke:var(--color-neutral-data-ghost)}.progressDonutChart__track[data-v-798ca870]{stroke-dasharray:113.0976;stroke-dashoffset:calc(113.0976 - var(--length, 0)/100*113.0976)}.progressDonutChart__track.-primaryMedium[data-v-798ca870]{stroke:var(--color-primary-data-medium)}.progressDonutChart__track.-primary[data-v-798ca870]{stroke:var(--color-primary-data)}.progressDonutChart__track.-primaryWeak[data-v-798ca870]{stroke:var(--color-primary-data-weak)}.progressDonutChart__track.-primaryGhost[data-v-798ca870]{stroke:var(--color-primary-data-ghost)}.progressDonutChart__track.-neutralMedium[data-v-798ca870]{stroke:var(--color-neutral-data-medium)}.progressDonutChart__track.-neutral[data-v-798ca870]{stroke:var(--color-neutral-data)}.progressDonutChart__track.-neutralWeak[data-v-798ca870]{stroke:var(--color-neutral-data-weak)}.progressDonutChart__track.-neutralGhost[data-v-798ca870]{stroke:var(--color-neutral-data-ghost)}.progressDonutChart__track.-infoMedium[data-v-798ca870]{stroke:var(--color-info-data-medium)}.progressDonutChart__track.-info[data-v-798ca870]{stroke:var(--color-info-data)}.progressDonutChart__track.-infoWeak[data-v-798ca870]{stroke:var(--color-info-data-weak)}.progressDonutChart__track.-infoGhost[data-v-798ca870]{stroke:var(--color-info-data-ghost)}.progressDonutChart__track.-successMedium[data-v-798ca870]{stroke:var(--color-success-data-medium)}.progressDonutChart__track.-success[data-v-798ca870]{stroke:var(--color-success-data)}.progressDonutChart__track.-successWeak[data-v-798ca870]{stroke:var(--color-success-data-weak)}.progressDonutChart__track.-successGhost[data-v-798ca870]{stroke:var(--color-success-data-ghost)}.progressDonutChart__track.-warningMedium[data-v-798ca870]{stroke:var(--color-warning-data-medium)}.progressDonutChart__track.-warning[data-v-798ca870]{stroke:var(--color-warning-data)}.progressDonutChart__track.-warningWeak[data-v-798ca870]{stroke:var(--color-warning-data-weak)}.progressDonutChart__track.-warningGhost[data-v-798ca870]{stroke:var(--color-warning-data-ghost)}.progressDonutChart__track.-failMedium[data-v-798ca870]{stroke:var(--color-fail-data-medium)}.progressDonutChart__track.-fail[data-v-798ca870]{stroke:var(--color-fail-data)}.progressDonutChart__track.-failWeak[data-v-798ca870]{stroke:var(--color-fail-data-weak)}.progressDonutChart__track.-failGhost[data-v-798ca870]{stroke:var(--color-fail-data-ghost)}.progressDonutChart__loader[data-v-798ca870]{-webkit-animation:a-spinAround-data-v-798ca870 2s linear infinite;animation:a-spinAround-data-v-798ca870 2s linear infinite;stroke:var(--color-neutral-background-strong);stroke-dasharray:113.0976;stroke-dashoffset:84.8232;transform:rotate(0deg)}.progressDonutChart__label[data-v-798ca870]{--token:info-m-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-3xs);font-size:var(--typography-font-size-xs);letter-spacing:var(--typography-letter-spacing-m);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none);align-items:center;color:var(--color-neutral-text);display:flex;height:100%;justify-content:center;left:0;position:absolute;top:0;width:100%}.progressDonutChart__icon[data-v-798ca870]{color:var(--color-success-icon)}.progressDonutChart__labelText[data-v-798ca870]{max-width:80%;overflow:hidden}.progressDonutChart__labelText.-hasOverage[data-v-798ca870]{color:var(--color-success-text);margin-left:-2px}.progressDonutChart__loaderText[data-v-798ca870]{-webkit-animation:dot-flashing-data-v-798ca870 .6s linear infinite alternate;animation:dot-flashing-data-v-798ca870 .6s linear infinite alternate;-webkit-animation-delay:.3s;animation-delay:.3s;margin-top:6px;position:relative}.progressDonutChart__loaderText[data-v-798ca870],.progressDonutChart__loaderText[data-v-798ca870]:after,.progressDonutChart__loaderText[data-v-798ca870]:before{background-color:var(--color-neutral-text);border-radius:100%;color:var(--color-neutral-text);height:2px;width:2px}.progressDonutChart__loaderText[data-v-798ca870]:after,.progressDonutChart__loaderText[data-v-798ca870]:before{-webkit-animation:dot-flashing-data-v-798ca870 .6s infinite alternate;animation:dot-flashing-data-v-798ca870 .6s infinite alternate;content:\"\";display:inline-block;position:absolute;top:0}.progressDonutChart__loaderText[data-v-798ca870]:before{-webkit-animation-delay:0s;animation-delay:0s;left:-4px}.progressDonutChart__loaderText[data-v-798ca870]:after{-webkit-animation-delay:.6s;animation-delay:.6s;left:4px}", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
 /***/ "4ef4":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5794,6 +5872,18 @@ module.exports = {
   }
 
 };
+
+/***/ }),
+
+/***/ "5a8f":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("7ab3");
+/* harmony import */ var _node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_ts_loader_index_js_ref_12_0_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_0___default.a); 
 
 /***/ }),
 
@@ -7118,7 +7208,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.initializeIconsWithDomWatcher = exports.initializeIcons = exports.OverlayHeader = exports.Pagination = exports.IconText = exports.ProgressBar = exports.Dropdown = exports.PopOver = exports.SelectListItemToggle = exports.SelectListItemDivider = exports.SelectListItem = exports.SelectList = exports.CounterToggle = exports.Pill = exports.Drawer = exports.SectionHeader = exports.Ripple = exports.SurveyQuestionOpenEnded = exports.SurveyQuestionScale = exports.SurveyToggle = exports.BlockadeStatus = exports.AccessStatus = exports.Tile = exports.TabItem = exports.NumberInCircle = exports.DsModalDialog = exports.DsModal = exports.Modal = exports.IconButton = exports.Icon = exports.Divider = exports.CardExpandable = exports.Card = exports.ToggleButton = exports.Button = exports.Banner = exports.BadgeScore = exports.Badge = void 0;
+exports.initializeIconsWithDomWatcher = exports.initializeIcons = exports.OverlayHeader = exports.Pagination = exports.IconText = exports.ProgressDonutChart = exports.ProgressBar = exports.Dropdown = exports.PopOver = exports.SelectListItemToggle = exports.SelectListItemDivider = exports.SelectListItem = exports.SelectList = exports.CounterToggle = exports.Pill = exports.Drawer = exports.SectionHeader = exports.Ripple = exports.SurveyQuestionOpenEnded = exports.SurveyQuestionScale = exports.SurveyToggle = exports.BlockadeStatus = exports.AccessStatus = exports.Tile = exports.TabItem = exports.NumberInCircle = exports.DsModalDialog = exports.DsModal = exports.Modal = exports.IconButton = exports.Icon = exports.Divider = exports.CardExpandable = exports.Card = exports.ToggleButton = exports.Button = exports.Banner = exports.BadgeScore = exports.Badge = void 0;
 var Badge_1 = __webpack_require__("2449");
 Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { return __importDefault(Badge_1).default; } });
 __exportStar(__webpack_require__("2449"), exports);
@@ -7210,6 +7300,9 @@ __exportStar(__webpack_require__("ea81"), exports);
 var ProgressBar_1 = __webpack_require__("de69");
 Object.defineProperty(exports, "ProgressBar", { enumerable: true, get: function () { return __importDefault(ProgressBar_1).default; } });
 __exportStar(__webpack_require__("1329"), exports);
+var ProgressDonutChart_1 = __webpack_require__("9d6d");
+Object.defineProperty(exports, "ProgressDonutChart", { enumerable: true, get: function () { return __importDefault(ProgressDonutChart_1).default; } });
+__exportStar(__webpack_require__("2496"), exports);
 var IconText_1 = __webpack_require__("5377");
 Object.defineProperty(exports, "IconText", { enumerable: true, get: function () { return __importDefault(IconText_1).default; } });
 __exportStar(__webpack_require__("b10d"), exports);
@@ -7791,6 +7884,94 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const OverlayHeader_vue_1 = __importDefault(__webpack_require__("f47e"));
 exports.default = OverlayHeader_vue_1.default;
 __exportStar(__webpack_require__("0104"), exports);
+
+
+/***/ }),
+
+/***/ "7ab3":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const ProgressDonutChart_consts_1 = __webpack_require__("2496");
+const Icon_1 = __importStar(__webpack_require__("4028"));
+const OFFSET_IN_DEGREES_OF_TRACK_START_POINT = 90; // 90 is to set starting point at the bottom
+const PROGRESS_DONUT_CHART_SIZE = 40; //  keep consider with $progress-donut-chart-size
+const PROGRESS_DONUT_CHART_STROKE_WIDTH = 4; // keep consider with $progress-donut-chart-circle-stroke-width
+const PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT = PROGRESS_DONUT_CHART_SIZE / 2;
+const PROGRESS_DONUT_CHART_CIRCLE_RADIUS = PROGRESS_DONUT_CHART_SIZE / 2 - PROGRESS_DONUT_CHART_STROKE_WIDTH / 2;
+exports.default = {
+    name: 'ProgressDonutChart',
+    components: {
+        DsIcon: Icon_1.default,
+    },
+    props: {
+        label: { type: String, default: '' },
+        state: {
+            type: String,
+            default: ProgressDonutChart_consts_1.PROGRESS_DONUT_CHART_STATES.DEFAULT,
+            validator(state) {
+                return Object.values(ProgressDonutChart_consts_1.PROGRESS_DONUT_CHART_STATES).includes(state);
+            },
+        },
+        ranges: {
+            type: Array,
+            required: true,
+            validator(ranges) {
+                return ranges.every((range) => range.start >= 0 && range.length >= 0 && range.start + range.length <= 100);
+            },
+        },
+    },
+    data() {
+        return {
+            PROGRESS_DONUT_CHART_STATES: Object.freeze(ProgressDonutChart_consts_1.PROGRESS_DONUT_CHART_STATES),
+            ICONS: Object.freeze(Icon_1.ICONS),
+            ICON_SIZES: Object.freeze(Icon_1.ICON_SIZES),
+            PROGRESS_DONUT_CHART_SIZE,
+            PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT,
+            PROGRESS_DONUT_CHART_CIRCLE_RADIUS,
+        };
+    },
+    computed: {
+        labelText() {
+            return [this.state === ProgressDonutChart_consts_1.PROGRESS_DONUT_CHART_STATES.OVERAGE && '+', this.label]
+                .filter(Boolean)
+                .join('');
+        },
+        calculatedRanges() {
+            return this.ranges.map((range) => {
+                return {
+                    ...range,
+                    rotate: (range.start / 100) * 360 + OFFSET_IN_DEGREES_OF_TRACK_START_POINT,
+                };
+            });
+        },
+    },
+};
 
 
 /***/ }),
@@ -11236,6 +11417,36 @@ var component = Object(_node_modules_vue_cli_service_node_modules_vue_loader_lib
 
 /***/ }),
 
+/***/ "9d6d":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const ProgressDonutChart_vue_1 = __importDefault(__webpack_require__("fef0"));
+exports.default = ProgressDonutChart_vue_1.default;
+__exportStar(__webpack_require__("2496"), exports);
+
+
+/***/ }),
+
 /***/ "9eb4":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -13559,6 +13770,17 @@ exports.ligatures = aliases;
 exports.unicode = unicode;
 exports.svgPathData = svgPathData;
 exports.aliases = aliases;
+
+/***/ }),
+
+/***/ "bc7a8":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressDonutChart_vue_vue_type_style_index_0_id_798ca870_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("f4aa");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressDonutChart_vue_vue_type_style_index_0_id_798ca870_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_ProgressDonutChart_vue_vue_type_style_index_0_id_798ca870_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+
 
 /***/ }),
 
@@ -22715,6 +22937,22 @@ var component = Object(_node_modules_vue_cli_service_node_modules_vue_loader_lib
 
 /***/ }),
 
+/***/ "f4aa":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("4ec3");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__("499e").default
+var update = add("667fc0d1", content, true, {"sourceMap":false,"shadowMode":false});
+
+/***/ }),
+
 /***/ "f4d9":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -23306,6 +23544,39 @@ exports.ligatures = aliases;
 exports.unicode = unicode;
 exports.svgPathData = svgPathData;
 exports.aliases = aliases;
+
+/***/ }),
+
+/***/ "fef0":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ProgressDonutChart_vue_vue_type_template_id_798ca870_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("31e3");
+/* harmony import */ var _ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__("5a8f");
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+/* harmony import */ var _ProgressDonutChart_vue_vue_type_style_index_0_id_798ca870_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__("bc7a8");
+/* harmony import */ var _node_modules_vue_cli_service_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__("0c7c");
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_cli_service_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"])(
+  _ProgressDonutChart_vue_vue_type_script_lang_ts___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _ProgressDonutChart_vue_vue_type_template_id_798ca870_scoped_true___WEBPACK_IMPORTED_MODULE_0__[/* render */ "a"],
+  _ProgressDonutChart_vue_vue_type_template_id_798ca870_scoped_true___WEBPACK_IMPORTED_MODULE_0__[/* staticRenderFns */ "b"],
+  false,
+  null,
+  "798ca870",
+  null
+  
+)
+
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ })
 
