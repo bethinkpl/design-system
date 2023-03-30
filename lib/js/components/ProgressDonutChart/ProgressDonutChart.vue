@@ -186,8 +186,8 @@ $progress-donut-chart-range-colors: (
 	}
 
 	&__loaderText {
-		animation: dot-flashing 1s infinite linear alternate;
-		animation-delay: 0.5s;
+		animation: dot-flashing #{2 * $default-transition-time} infinite linear alternate;
+		animation-delay: $default-transition-time;
 		background-color: $color-neutral-text;
 		border-radius: 100%;
 		color: $color-neutral-text;
@@ -198,7 +198,7 @@ $progress-donut-chart-range-colors: (
 
 		&::before,
 		&::after {
-			animation: dot-flashing 1s infinite alternate;
+			animation: dot-flashing #{2 * $default-transition-time} infinite alternate;
 			background-color: $color-neutral-text;
 			border-radius: 100%;
 			color: $color-neutral-text;
@@ -216,7 +216,7 @@ $progress-donut-chart-range-colors: (
 		}
 
 		&::after {
-			animation-delay: 1s;
+			animation-delay: 2 * $default-transition-time;
 			left: $progress-donut-chart-loading-dot-size * 2;
 		}
 	}
