@@ -5,7 +5,7 @@ on:
     types: [ created ]
 
 jobs:
-  build:
+  deploy_for_review:
     runs-on: ubuntu-latest
 
     if: |
@@ -56,6 +56,8 @@ jobs:
       - name: Push to S3 🚀
         run: s3cmd put -r -P public/storybook/* s3://${{ vars.S3_REVIEW_BUCKET }}/${{ steps.comment-pr-ref.outputs.result }}/
 
-      - name: Push to S3 🚀
-        run:
-          echo "### Your storybook is available on: https://${{ vars.S3_REVIEW_BUCKET }}.s3.amazonaws.com/${{ steps.comment-pr-ref.outputs.result }}/index.html" >> $GITHUB_STEP_SUMMARY
+      - name: Add comment with URL
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          message: |
+            Your storybook is available on: https://${{ vars.S3_REVIEW_BUCKET }}.s3.amazonaws.com/${{ steps.comment-pr-ref.outputs.result }}/index.html
