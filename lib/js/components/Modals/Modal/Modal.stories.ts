@@ -92,6 +92,11 @@ const argTypes = {
 		defaultValue: ICONS.FA_CHART_COLUMN,
 	},
 	footerCheckboxText: { control: { type: 'text' } },
+	onCloseModal: { action: 'close-modal' },
+	onCheckboxChange: { action: 'checkbox-change' },
+	onPrimaryButtonClick: { action: 'primary-button-click' },
+	onSecondaryButtonClick: { action: 'secondary-button-click' },
+	onTertiaryButtonClick: { action: 'tertiary-button-click' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

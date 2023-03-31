@@ -132,7 +132,6 @@ declare const _default: Meta<{
     };
     data(): {
         ICONS: Readonly<{
-            readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
             readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
             readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
             readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
@@ -164,7 +163,12 @@ declare const _default: Meta<{
             readonly FA_BOOK_SPARKLES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOOKMARK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOX_ARCHIVE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_DAY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR_DAYS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_RANGE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CAMERA_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CARET_SQUARE_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CART_SHOPPING: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -189,6 +193,7 @@ declare const _default: Meta<{
             readonly FA_CIRCLE_PLAY_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CIRCLE_QUESTION: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CIRCLE_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CLIPBOARD_MEDICAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLOCK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLOCK_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CODE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -285,6 +290,7 @@ declare const _default: Meta<{
             readonly FA_THUMBS_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_THUMBTACK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TRASH_CAN: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_TREE_PALM: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TRIANGLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TRIANGLE_EXCLAMATION_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TROPHY_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -456,7 +462,6 @@ export declare const Interactive: StoryFn<{
     };
     data(): {
         ICONS: Readonly<{
-            readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
             readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
             readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
             readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
@@ -488,7 +493,12 @@ export declare const Interactive: StoryFn<{
             readonly FA_BOOK_SPARKLES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOOKMARK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOX_ARCHIVE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_DAY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR_DAYS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_RANGE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CAMERA_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CARET_SQUARE_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CART_SHOPPING: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -513,6 +523,7 @@ export declare const Interactive: StoryFn<{
             readonly FA_CIRCLE_PLAY_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CIRCLE_QUESTION: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CIRCLE_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CLIPBOARD_MEDICAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLOCK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLOCK_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CODE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -609,6 +620,7 @@ export declare const Interactive: StoryFn<{
             readonly FA_THUMBS_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_THUMBTACK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TRASH_CAN: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_TREE_PALM: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TRIANGLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TRIANGLE_EXCLAMATION_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TROPHY_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -779,7 +791,6 @@ export declare const Static: StoryFn<{
     };
     data(): {
         ICONS: Readonly<{
-            readonly CLIPBOARD_ADD: import("vue").VueConstructor<import("vue").default>;
             readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
             readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
             readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
@@ -811,7 +822,12 @@ export declare const Static: StoryFn<{
             readonly FA_BOOK_SPARKLES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOOKMARK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOX_ARCHIVE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_DAY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR_DAYS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_RANGE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CAMERA_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CARET_SQUARE_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CART_SHOPPING: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -836,6 +852,7 @@ export declare const Static: StoryFn<{
             readonly FA_CIRCLE_PLAY_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CIRCLE_QUESTION: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CIRCLE_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CLIPBOARD_MEDICAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLOCK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLOCK_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CODE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -932,6 +949,7 @@ export declare const Static: StoryFn<{
             readonly FA_THUMBS_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_THUMBTACK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TRASH_CAN: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_TREE_PALM: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TRIANGLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TRIANGLE_EXCLAMATION_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TROPHY_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;

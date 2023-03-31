@@ -7,3 +7,7 @@ export declare const DROPDOWN_RADIUSES: {
     readonly BOTTOM: "bottom";
     readonly BOTH: "both";
 };
+export declare const DROPDOWN_PLACEMENTS: {
+    readonly BOTTOM_START: "bottom-start";
+    readonly BOTTOM_END: "bottom-end";
+};

@@ -27,6 +27,11 @@ declare const _default: {
             default: "both";
             validate(radius: any): boolean;
         };
+        placement: {
+            type: StringConstructor;
+            default: "bottom-start";
+            validate(placement: any): boolean;
+        };
     };
     data(): {
         key: number;
@@ -43,6 +48,7 @@ declare const _default: {
         triggerAction(): void;
         sameWidth(): void;
         boundariesSelector(): void;
+        placement(): void;
     };
     methods: {
         close(): void;
