@@ -64,7 +64,7 @@
 								:type="BUTTON_TYPES.TEXT"
 								:color="BUTTON_COLORS.NEUTRAL"
 								:icon-left="footerTertiaryButtonIcon"
-                class="ds-modal__tertiaryButton"
+								class="ds-modal__tertiaryButton"
 								@click="$emit('tertiary-button-click')"
 							>
 								{{ footerTertiaryButtonText }}
