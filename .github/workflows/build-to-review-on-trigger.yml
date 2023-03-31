@@ -5,7 +5,7 @@ on:
     types: [ created ]
 
 jobs:
-  deploy_for_review:
+  deploy-for-review:
     runs-on: ubuntu-latest
 
     if: |
