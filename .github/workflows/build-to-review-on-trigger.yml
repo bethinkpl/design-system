@@ -58,4 +58,4 @@ jobs:
 
       - name: Push to S3 🚀
         run:
-          echo "### Your storybook is available on: https://${{ secrets.S3_REVIEW_BUCKET }}.s3.amazonaws.com/${{ steps.comment-pr-ref.outputs.result }}/index.html" >> $GITHUB_STEP_SUMMARY
+          echo "### Your storybook is available on: https://${{ vars.S3_REVIEW_BUCKET }}.s3.amazonaws.com/${{ steps.comment-pr-ref.outputs.result }}/index.html" >> $GITHUB_STEP_SUMMARY
