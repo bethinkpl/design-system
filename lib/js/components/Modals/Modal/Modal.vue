@@ -43,14 +43,13 @@
 					>
 						<div
 							v-if="footerTertiaryButtonText || footerCheckboxText"
-							class="ds-modal__footerColumn --ctaSecondary"
+							class="ds-modal__footerCtaSecondary"
 						>
 							<div v-if="footerCheckboxText" class="ds-modal__checkbox">
 								<input
 									id="ds-modal__checkboxInput"
 									type="checkbox"
 									:checked="false"
-									class="ds-modal__checkboxInput"
 									@change="$emit('checkbox-change', $event.target.checked)"
 								/>
 								<label
@@ -65,6 +64,7 @@
 								:type="BUTTON_TYPES.TEXT"
 								:color="BUTTON_COLORS.NEUTRAL"
 								:icon-left="footerTertiaryButtonIcon"
+                class="ds-modal__tertiaryButton"
 								@click="$emit('tertiary-button-click')"
 							>
 								{{ footerTertiaryButtonText }}
@@ -72,7 +72,7 @@
 						</div>
 						<div
 							v-if="footerSecondaryButtonText || footerPrimaryButtonText"
-							class="ds-modal__footerColumn --cta"
+							class="ds-modal__footerCtaPrimary"
 						>
 							<wnl-button
 								v-if="footerSecondaryButtonText"
@@ -224,12 +224,7 @@ $image-height-small: 140px;
 		align-items: center;
 		cursor: pointer;
 		display: flex;
-		margin-top: $space-s;
-
-		@media #{breakpoint-s()} {
-			margin-top: 0;
-		}
-	}
+  }
 
 	&__checkboxLabel {
 		@include formLabel-s-default-regular;
@@ -268,38 +263,41 @@ $image-height-small: 140px;
 		}
 	}
 
-	&__footerColumn {
-		display: flex;
-		flex-direction: column-reverse;
-		row-gap: $space-s;
+  &__tertiaryButton:only-child {
+    margin: 0 auto;
+  }
 
-		&.--cta {
-			@media #{breakpoint-s()} {
-				flex-direction: row;
-        column-gap: $space-s;
-			}
+  &__footerCtaPrimary {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: $space-s 0;
 
-			&:not(:first-child) {
-				// first-child because of reverse order in flex-direction
-				margin-bottom: $space-xs;
+    @media #{breakpoint-s()} {
+      flex-direction: row;
+      gap: 0 $space-s;
+    }
 
-				@media #{breakpoint-s()} {
-					margin-bottom: 0;
-				}
-			}
-		}
+    &:not(:first-child) {
+      // first-child because of reverse order in flex-direction
+      margin-bottom: $space-xs;
 
-		&.--ctaSecondary {
-			align-items: center;
-			gap: 0 $space-m;
-			justify-content: center;
+      @media #{breakpoint-s()} {
+        margin-bottom: 0;
+      }
+    }
+  }
 
-			@media #{breakpoint-s()} {
-				flex-direction: row;
-				justify-content: left;
-			}
-		}
-	}
+  &__footerCtaSecondary {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @media #{breakpoint-s()} {
+      gap: 0 $space-m;
+      justify-content: left;
+    }
+  }
 }
 </style>
 
