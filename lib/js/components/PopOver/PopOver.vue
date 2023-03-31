@@ -51,7 +51,6 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/settings/media-queries';
 
 .popOver {
 	background-color: $color-default-background;
