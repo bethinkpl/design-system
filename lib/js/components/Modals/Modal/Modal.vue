@@ -185,8 +185,8 @@ $image-height-small: 140px;
 	&__header {
 		display: flex;
 		flex-direction: column;
-    margin-bottom: $space-s;
-    row-gap: $space-xs;
+		margin-bottom: $space-s;
+		row-gap: $space-xs;
 	}
 
 	&__headerFeatureIcon {
@@ -197,8 +197,8 @@ $image-height-small: 140px;
 	&__headerTitle {
 		@include heading-xl-default-bold;
 
-		margin-top: 0;
 		margin-bottom: 0;
+		margin-top: 0;
 
 		@media #{breakpoint-s()} {
 			@include displayHeading-xs-default-bold;
@@ -212,8 +212,8 @@ $image-height-small: 140px;
 	&__headerSubtitle {
 		@include heading-m-default-regular;
 
+		margin-bottom: 0;
 		margin-top: 0;
-    margin-bottom: 0;
 	}
 
 	&__slotContent {
@@ -224,7 +224,7 @@ $image-height-small: 140px;
 		align-items: center;
 		cursor: pointer;
 		display: flex;
-  }
+	}
 
 	&__checkboxLabel {
 		@include formLabel-s-default-regular;
@@ -263,41 +263,41 @@ $image-height-small: 140px;
 		}
 	}
 
-  &__tertiaryButton:only-child {
-    margin: 0 auto;
-  }
+	&__tertiaryButton:only-child {
+		margin: 0 auto;
+	}
 
-  &__footerCtaPrimary {
-    display: flex;
-    flex-direction: column-reverse;
-    gap: $space-s 0;
+	&__footerCtaPrimary {
+		display: flex;
+		flex-direction: column-reverse;
+		gap: $space-s 0;
 
-    @media #{breakpoint-s()} {
-      flex-direction: row;
-      gap: 0 $space-s;
-    }
+		@media #{breakpoint-s()} {
+			flex-direction: row;
+			gap: 0 $space-s;
+		}
 
-    &:not(:first-child) {
-      // first-child because of reverse order in flex-direction
-      margin-bottom: $space-xs;
+		&:not(:first-child) {
+			// first-child because of reverse order in flex-direction
+			margin-bottom: $space-xs;
 
-      @media #{breakpoint-s()} {
-        margin-bottom: 0;
-      }
-    }
-  }
+			@media #{breakpoint-s()} {
+				margin-bottom: 0;
+			}
+		}
+	}
 
-  &__footerCtaSecondary {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+	&__footerCtaSecondary {
+		align-items: center;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 
-    @media #{breakpoint-s()} {
-      gap: 0 $space-m;
-      justify-content: left;
-    }
-  }
+		@media #{breakpoint-s()} {
+			gap: 0 $space-m;
+			justify-content: left;
+		}
+	}
 }
 </style>
 
