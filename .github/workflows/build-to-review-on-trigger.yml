@@ -54,7 +54,7 @@ jobs:
           secret_key: ${{ secrets.S3_SECRET_KEY }}
 
       - name: Push to S3 🚀
-        run: s3cmd put -r -P public/storybook/* s3://${{ secrets.S3_REVIEW_BUCKET }}/${{ steps.comment-pr-ref.outputs.result }}/
+        run: s3cmd put -r -P public/storybook/* s3://${{ vars.S3_REVIEW_BUCKET }}/${{ steps.comment-pr-ref.outputs.result }}/
 
       - name: Push to S3 🚀
         run:
