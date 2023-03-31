@@ -62,7 +62,6 @@
 							</div>
 							<wnl-button
 								v-if="footerTertiaryButtonText"
-								class="ds-modal__buttonSecondary"
 								:type="BUTTON_TYPES.TEXT"
 								:color="BUTTON_COLORS.NEUTRAL"
 								:icon-left="footerTertiaryButtonIcon"
@@ -77,7 +76,6 @@
 						>
 							<wnl-button
 								v-if="footerSecondaryButtonText"
-								class="ds-modal__buttonSecondary"
 								:type="BUTTON_TYPES.OUTLINED"
 								:color="calcFooterSecondaryButtonColor"
 								:icon-right="footerSecondaryButtonIcon"
@@ -87,7 +85,6 @@
 							</wnl-button>
 							<wnl-button
 								v-if="footerPrimaryButtonText"
-								class="ds-modal__buttonPrimary"
 								:color="calcFooterPrimaryButtonColor"
 								:icon-right="footerPrimaryButtonIcon"
 								@click="$emit('primary-button-click')"
@@ -188,18 +185,20 @@ $image-height-small: 140px;
 	&__header {
 		display: flex;
 		flex-direction: column;
+    margin-bottom: $space-s;
+    row-gap: $space-xs;
 	}
 
 	&__headerFeatureIcon {
 		align-self: center;
-		margin-bottom: $space-m;
+		margin-bottom: $space-xs;
 	}
 
 	&__headerTitle {
 		@include heading-xl-default-bold;
 
-		margin-bottom: $space-xs;
 		margin-top: 0;
+		margin-bottom: 0;
 
 		@media #{breakpoint-s()} {
 			@include displayHeading-xs-default-bold;
@@ -213,14 +212,12 @@ $image-height-small: 140px;
 	&__headerSubtitle {
 		@include heading-m-default-regular;
 
-		margin-bottom: $space-s;
 		margin-top: 0;
+    margin-bottom: 0;
 	}
 
 	&__slotContent {
 		@include text-m-default-regular;
-
-		margin-bottom: $space-xs;
 	}
 
 	&__checkbox {
@@ -274,11 +271,12 @@ $image-height-small: 140px;
 	&__footerColumn {
 		display: flex;
 		flex-direction: column-reverse;
-		gap: 0 $space-s;
+		row-gap: $space-s;
 
 		&.--cta {
 			@media #{breakpoint-s()} {
 				flex-direction: row;
+        column-gap: $space-s;
 			}
 
 			&:not(:first-child) {
@@ -299,17 +297,6 @@ $image-height-small: 140px;
 			@media #{breakpoint-s()} {
 				flex-direction: row;
 				justify-content: left;
-			}
-		}
-	}
-
-	&__buttonPrimary {
-		&:not(:first-child) {
-			// first-child because of reverse order in flex-direction
-			margin-bottom: $space-s;
-
-			@media #{breakpoint-s()} {
-				margin-bottom: 0;
 			}
 		}
 	}
