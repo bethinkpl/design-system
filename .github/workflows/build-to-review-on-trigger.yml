@@ -1,0 +1,61 @@
+name: Build Storybook to Design Review on trigger
+
+on:
+  issue_comment:
+    types: [ created ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    if: |
+      github.event.comment &&
+      github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/review')
+
+    steps:
+      - name: Get PR branch name
+        id: comment-pr-ref
+        uses: actions/github-script@v6
+        with:
+          result-encoding: string
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.issue.owner,
+              repo: context.issue.repo,
+              pull_number: context.issue.number,
+            });
+            return pr.data.head.ref
+
+      - name: Checkout PR code based on trigger comment
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.comment-pr-ref.outputs.result }}
+
+      - name: Insert auth font awesome auth token
+        run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.13'
+          cache: 'yarn'
+
+      - name: Install and Build 🔧
+        run: |
+          yarn install --pure-lockfile
+          yarn storybook:build
+
+      - name: Set up S3cmd cli tool
+        uses: s3-actions/s3cmd@v1.4.0
+        with:
+          provider: aws
+          region: 'eu-central-1'
+          access_key: ${{ secrets.S3_ACCESS_KEY }}
+          secret_key: ${{ secrets.S3_SECRET_KEY }}
+
+      - name: Push to S3 🚀
+        run: s3cmd put -r -P public/storybook/* s3://${{ secrets.S3_REVIEW_BUCKET }}/${{ steps.comment-pr-ref.outputs.result }}/
+
+      - name: Push to S3 🚀
+        run:
+          echo "### Your storybook is available on: https://${{ secrets.S3_REVIEW_BUCKET }}.s3.amazonaws.com/${{ steps.comment-pr-ref.outputs.result }}/index.html" >> $GITHUB_STEP_SUMMARY
