@@ -18,7 +18,7 @@ const StoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
-		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl" :size="size" :is-arrow-visible="isArrowVisible">' +
+		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<div>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.</div>' +
 		'</pop-over>' +
@@ -32,13 +32,13 @@ Interactive.args = {
 	maxHeight: false,
 	placement: POP_OVER_PLACEMENTS.BOTTOM,
 	color: POP_OVER_COLORS.DEFAULT,
-	headerImageUrl: 'https://lek.wiecejnizlek.pl/images/lesson-status-onboarding-inprogress.png',
+	headerImageUrl: 'https://wnl-platform-dev-kuba.s3.eu-central-1.amazonaws.com/public/illustation-StatusLekcji.png',
 	titleText: 'Lorem ipsum',
 	subtitleText: 'Dolor sit amet',
 	buttonText: 'button text',
 	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
 	forceShow: false,
-	isArrowVisible: true,
+	isPointerVisible: true,
 } as Args;
 
 const argTypes = {
@@ -74,7 +74,7 @@ const PopoverWithHTMLStoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
-		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :force-show="forceShow" :size="size" :max-height="maxHeight" :is-arrow-visible="isArrowVisible">' +
+		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :force-show="forceShow" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<template #default><b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork. <b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.</template>' +
 		'</pop-over>' +
@@ -92,7 +92,7 @@ PopOverMMaxHeightNoPointer.args = {
 	subtitleText: 'Dolor sit amet',
 	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
 	forceShow: false,
-	isArrowVisible: false,
+	isPointerVisible: false,
 } as Args;
 
 PopOverMMaxHeightNoPointer.argTypes = argTypes;

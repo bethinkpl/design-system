@@ -9,7 +9,7 @@
 		:delay-on-mouse-over="300"
 		:delay-on-mouse-out="300"
 		:append-to-body="appendToBody"
-		:visible-arrow="isArrowVisible"
+		:visible-arrow="isPointerVisible"
 		:root-class="rootClass"
 	>
 		<div
@@ -260,7 +260,7 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		isArrowVisible: {
+		isPointerVisible: {
 			type: Boolean,
 			default: true,
 		},
