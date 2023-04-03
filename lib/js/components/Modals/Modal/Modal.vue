@@ -256,7 +256,7 @@ $image-height-small: 140px;
 		}
 
 		&.-singleColumn {
-			#{$self}__footerColumn {
+			#{$self}__footerCtaPrimary {
 				justify-content: center;
 				width: 100%;
 			}
