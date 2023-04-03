@@ -12,7 +12,7 @@
     "node": "^14.15.0 || ^16.13.0"
   },
   "scripts": {
-    "build": "vue-cli-service build --target lib --name design-system lib/js/index.ts",
+    "build": "vue-cli-service build --target lib --formats umd --name design-system lib/js/index.ts",
     "dev": "start-storybook -p 6006",
     "lint": "yarn lint:scripts && yarn lint:styles",
     "lint:fix": "yarn lint:scripts:fix && yarn lint:styles:fix",
