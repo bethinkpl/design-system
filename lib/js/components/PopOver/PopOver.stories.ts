@@ -32,7 +32,8 @@ Interactive.args = {
 	maxHeight: false,
 	placement: POP_OVER_PLACEMENTS.BOTTOM,
 	color: POP_OVER_COLORS.DEFAULT,
-	headerImageUrl: 'https://wnl-platform-dev-kuba.s3.eu-central-1.amazonaws.com/public/illustation-StatusLekcji.png',
+	headerImageUrl:
+		'https://wnl-platform-dev-kuba.s3.eu-central-1.amazonaws.com/public/illustation-StatusLekcji.png',
 	titleText: 'Lorem ipsum',
 	subtitleText: 'Dolor sit amet',
 	buttonText: 'button text',
