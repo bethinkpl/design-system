@@ -20,7 +20,7 @@ const StoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
 		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
 		'<template #reference><span>click me!</span></template>' +
-		'<div>Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.</div>' +
+		'<div>{{ definitionSlot }}</div>' +
 		'</pop-over>' +
 		'</div>',
 });
@@ -40,6 +40,7 @@ Interactive.args = {
 	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
 	forceShow: false,
 	isPointerVisible: true,
+	definitionSlot: 'Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.'
 } as Args;
 
 const argTypes = {
