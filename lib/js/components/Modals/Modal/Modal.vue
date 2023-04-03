@@ -290,11 +290,10 @@ $image-height-small: 140px;
 	&__footerCtaSecondary {
 		align-items: center;
 		display: flex;
-		flex-direction: row;
+		gap: 0 $space-m;
 		justify-content: space-between;
 
 		@media #{breakpoint-s()} {
-			gap: 0 $space-m;
 			justify-content: left;
 		}
 	}
