@@ -1,6 +1,6 @@
 import OverlayHeader from './OverlayHeader.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { OVERLAY_HEADER_BORDER_COLORS } from './OverlayHeader.consts';
 
 export default {
@@ -8,9 +8,11 @@ export default {
 	component: OverlayHeader,
 } as Meta<typeof OverlayHeader>;
 
-const StoryTemplate: StoryFn<typeof OverlayHeader> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof OverlayHeader> = (args) => ({
 	components: { OverlayHeader },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: `
 			<div style="height: 300px">
 			<overlay-header v-bind=$props>

@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import ProgressDonutChart from './ProgressDonutChart.vue';
 import {
@@ -8,14 +8,12 @@ import {
 	ProgressDonutChartState,
 } from './ProgressDonutChart.consts';
 
-const localVue = createLocalVue();
 const createComponent = function ({
 	label = '',
 	state = PROGRESS_DONUT_CHART_STATES.DEFAULT,
 	ranges = [],
 }: createComponentOptions) {
 	return shallowMount(ProgressDonutChart, {
-		localVue,
 		propsData: {
 			label,
 			state,
@@ -90,8 +88,8 @@ describe('ProgressDonutChart', () => {
 		});
 		const tracks = component.findAll('.progressDonutChart__track');
 		expect(tracks.length).toBe(3);
-		expect(tracks.at(0).attributes('style')).toBe('transform: rotate(90deg);');
-		expect(tracks.at(1).attributes('style')).toBe('transform: rotate(198deg);');
-		expect(tracks.at(2).attributes('style')).toBe('transform: rotate(288deg);');
+		expect(tracks.at(0)?.attributes('style')).toBe('--length: 30; transform: rotate(90deg);');
+		expect(tracks.at(1)?.attributes('style')).toBe('--length: 25; transform: rotate(198deg);');
+		expect(tracks.at(2)?.attributes('style')).toBe('--length: 25; transform: rotate(288deg);');
 	});
 });

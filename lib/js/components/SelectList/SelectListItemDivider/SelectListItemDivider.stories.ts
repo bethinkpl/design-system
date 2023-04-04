@@ -1,6 +1,6 @@
 import SelectListItemDivider from './SelectListItemDivider.vue';
 
-import { Meta, StoryFn } from '@storybook/vue';
+import { Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/SelectList/SelectListItemDivider',
@@ -9,7 +9,8 @@ export default {
 
 const StoryTemplate: StoryFn<typeof SelectListItemDivider> = () => ({
 	components: { SelectListItemDivider },
-	template: `<select-list-item-divider />`,
+	template: `
+			<select-list-item-divider />`,
 });
 
 export const Static = StoryTemplate.bind({});

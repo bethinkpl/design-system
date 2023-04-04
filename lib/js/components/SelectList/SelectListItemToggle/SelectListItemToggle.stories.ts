@@ -1,7 +1,7 @@
 import SelectListItemToggle from './SelectListItemToggle.vue';
 import { ICONS } from '../../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
 	SELECT_LIST_ITEM_SIZES,
 	SELECT_LIST_ITEM_STATES,
@@ -12,21 +12,23 @@ export default {
 	component: SelectListItemToggle,
 } as Meta<typeof SelectListItemToggle>;
 
-const StoryTemplate: StoryFn<typeof SelectListItemToggle> = (argTypes, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof SelectListItemToggle> = (args, { updateArgs }) => ({
 	components: { SelectListItemToggle },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: `
-		<select-list-item-toggle
-			:icon-off="ICONS[iconOff]"
-			:icon-on="ICONS[iconOn]"
-			:is-on="isOn"
-			:label-off="labelOff"
-			:label-on="labelOn"
-			:size="size"
-			:state="state"
-			@click.native="onClick"
-		/>
-		`,
+			<select-list-item-toggle
+					:icon-off="ICONS[iconOff]"
+					:icon-on="ICONS[iconOn]"
+					:is-on="isOn"
+					:label-off="labelOff"
+					:label-on="labelOn"
+					:size="size"
+					:state="state"
+					@click.native="onClick"
+			/>
+    `,
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
