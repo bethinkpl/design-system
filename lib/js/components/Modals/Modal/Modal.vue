@@ -247,7 +247,6 @@ $image-height-small: 140px;
 	}
 
 	&__footer {
-		align-items: center;
 		column-gap: $space-s;
 		display: flex;
 		flex-direction: column-reverse;
@@ -256,6 +255,7 @@ $image-height-small: 140px;
 		padding-top: $space-m;
 
 		@media #{breakpoint-s()} {
+			align-items: center;
 			flex-direction: row;
 		}
 
@@ -278,8 +278,8 @@ $image-height-small: 140px;
 	&__footerCtaPrimary {
 		display: flex;
 		flex-direction: column-reverse;
-		flex-shrink: 0;
 		gap: $space-s 0;
+		flex-shrink: 0;
 
 		@media #{breakpoint-s()} {
 			flex-direction: row;
