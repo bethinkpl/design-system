@@ -40,7 +40,7 @@ Interactive.args = {
 	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
 	forceShow: false,
 	isPointerVisible: true,
-	definitionSlot: 'Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.'
+	definitionSlot: 'Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.',
 } as Args;
 
 const argTypes = {
