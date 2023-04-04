@@ -70,6 +70,10 @@
 		background-color: $color-neutral-background;
 	}
 
+	.popOver__contentSlot {
+		word-break: break-word;
+	}
+
 	.popOver__contentSlot.-maxHeight {
 		overflow: scroll;
 		overflow-x: hidden;
