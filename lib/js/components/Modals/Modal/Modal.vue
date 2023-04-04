@@ -221,9 +221,10 @@ $image-height-small: 140px;
 	}
 
 	&__checkbox {
-		align-items: center;
+		align-items: flex-start;
 		cursor: pointer;
 		display: flex;
+		flex-flow: row;
 	}
 
 	&__checkboxLabel {
@@ -246,9 +247,12 @@ $image-height-small: 140px;
 	}
 
 	&__footer {
+		align-items: center;
+		column-gap: $space-s;
 		display: flex;
 		flex-direction: column-reverse;
 		justify-content: space-between;
+		line-break: anywhere;
 		padding-top: $space-m;
 
 		@media #{breakpoint-s()} {
@@ -263,13 +267,18 @@ $image-height-small: 140px;
 		}
 	}
 
-	&__tertiaryButton:only-child {
-		margin: 0 auto;
+	&__tertiaryButton {
+		flex-shrink: 0;
+
+		&:only-child {
+			margin: 0 auto;
+		}
 	}
 
 	&__footerCtaPrimary {
 		display: flex;
 		flex-direction: column-reverse;
+		flex-shrink: 0;
 		gap: $space-s 0;
 
 		@media #{breakpoint-s()} {
