@@ -9,6 +9,10 @@ module.exports = {
 		'order/order': [
 			[
 				{
+					name: 'use',
+					type: 'at-rule',
+				},
+				{
 					name: 'import',
 					type: 'at-rule',
 				},
@@ -38,5 +42,7 @@ module.exports = {
 				ignoreProperties: ['--token'],
 			},
 		],
+		'order/properties-alphabetical-order': true,
 	},
+	ignoreFiles: ['lib/styles/settings/typography/_tokens.scss'],
 };

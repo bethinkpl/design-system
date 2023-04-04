@@ -1,9 +1,13 @@
 import Dropdown from './Dropdown.vue';
-import { DROPDOWN_RADIUSES, DROPDOWN_TRIGGER_ACTIONS } from './Dropdown.consts';
-import SelectList, { SELECT_LIST_SIZES } from '../SelectList';
-import { ICONS } from '../Icons/Icon';
+import {
+	DROPDOWN_PLACEMENTS,
+	DROPDOWN_RADIUSES,
+	DROPDOWN_TRIGGER_ACTIONS,
+} from './Dropdown.consts';
+import SelectList from '../SelectList/SelectList.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
 
 export default {
 	title: 'Components/Dropdown',
@@ -11,63 +15,23 @@ export default {
 } as Meta<typeof Dropdown>;
 
 const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
-	components: { Dropdown, SelectList },
-	data() {
-		return {
-			items: [
-				{
-					type: 'text',
-					label: 'Wróć do listy poleceń',
-					value: 'go-back',
-					icon: null,
-				},
-				{
-					type: 'divider',
-				},
-				{
-					type: 'text',
-					label: 'POLECENIE 1 / 3',
-					value: 'part-1',
-					icon: ICONS.FA_CIRCLE,
-				},
-				{
-					type: 'text',
-					label: 'POLECENIE 2 / 3',
-					value: 'part-2',
-					icon: ICONS.FA_CIRCLE,
-				},
-				{
-					type: 'text',
-					label: 'POLECENIE 3 / 3',
-					value: 'part-3',
-					icon: ICONS.FA_CIRCLE_CHECK,
-				},
-				{
-					type: 'divider',
-				},
-				{
-					type: 'text',
-					label: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-					value: 'lipsum',
-					icon: null,
-				},
-			],
-			value: 'part-2',
-			SELECT_LIST_SIZES: Object.freeze(SELECT_LIST_SIZES),
-		};
-	},
+	components: { Dropdown, SelectList, SelectListItem },
 	setup() {
 		return { ...args };
 	},
-	template:
-		'<div style="position: relative">' +
-		'<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth" :radius="radius">' +
-		'<template #reference><span>Dropdown entry point</span></template>' +
-		'<template #default="{ close }">' +
-		'<select-list v-model="value" :items="items" :size="SELECT_LIST_SIZES.MEDIUM" @input="close" />' +
-		'</template>' +
-		'</dropdown>' +
-		'</div>',
+	template: `
+			<div style="position: relative">
+			<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth" :radius="radius"
+								:placement="placement">
+				<template #reference><span>Dropdown entry point</span></template>
+				<template #default="{ close }">
+					<select-list>
+						<select-list-item label="One" @click.native="close" />
+						<select-list-item label="Two" @click.native="close" />
+					</select-list>
+				</template>
+			</dropdown>
+			</div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -87,6 +51,10 @@ const argTypes = {
 	radius: {
 		control: { type: 'select', options: Object.values(DROPDOWN_RADIUSES) },
 		defaultValue: DROPDOWN_RADIUSES.BOTH,
+	},
+	placement: {
+		control: { type: 'select', options: Object.values(DROPDOWN_PLACEMENTS) },
+		defaultValue: DROPDOWN_PLACEMENTS.BOTTOM_START,
 	},
 } as ArgTypes;
 

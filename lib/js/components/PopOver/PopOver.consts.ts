@@ -14,3 +14,8 @@ export const POP_OVER_PLACEMENTS = {
 	LEFT: 'left',
 	RIGHT: 'right',
 } as const;
+
+export const POP_OVER_SIZES = {
+	SMALL: 'small',
+	MEDIUM: 'medium',
+} as const;

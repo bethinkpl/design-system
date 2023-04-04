@@ -1,11 +1,11 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "12.3.0",
+  "version": "15.1.1",
   "description": "Bethink universe design-system",
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
   "main": "./dist/design-system.umd.js",
-  "typings": "./dist/index.d.ts",
+  "typings": "./dist/lib/js/index.d.ts",
   "license": "UNLICENSED",
   "engines": {
     "yarn": "^1.22.0",
@@ -73,7 +73,7 @@
     "storybook-addon-designs": "^6.3.1",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
-    "stylelint-order": "4.1.0",
+    "stylelint-order": "6.0.3",
     "stylelint-scss": "3.18.0",
     "ts-jest": "29.0.5",
     "ts-node": "^10.9.1",

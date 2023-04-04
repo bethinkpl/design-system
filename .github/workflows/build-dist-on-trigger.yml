@@ -1,0 +1,58 @@
+name: Build dist on trigger
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      # Give the default GITHUB_TOKEN write permission to commit and push the changed files back to the repository.
+      contents: write
+
+    if: |
+      github.event.comment &&
+      github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/build')
+
+    steps:
+      - name: Get PR branch name
+        id: comment-pr-ref
+        uses: actions/github-script@v6
+        with:
+          result-encoding: string
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.issue.owner,
+              repo: context.issue.repo,
+              pull_number: context.issue.number,
+            });
+            return pr.data.head.ref
+
+      - name: Checkout PR code based on trigger comment
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.comment-pr-ref.outputs.result }}
+
+      - name: Insert auth font awesome auth token
+        run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.13'
+          cache: 'yarn'
+
+      - name: Install and Build 🔧
+        run: |
+          yarn install --pure-lockfile
+          yarn build
+
+      - name: Push 🚀
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          branch: ${{ steps.comment-pr-ref.outputs.result }}-dist
+          commit_message: Build dist
+          create_branch: true
+          push_options: '--force'

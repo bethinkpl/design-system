@@ -1,0 +1,23 @@
+@import 'background-mask';
+
+@mixin flexOverflowMask($mask-color, $mask-width) {
+	display: flex;
+	overflow-x: auto;
+
+	&::after {
+		@include backgroundMask($mask-color);
+
+		align-self: stretch;
+		content: '';
+		display: block;
+		flex-shrink: 0;
+		margin-left: -$mask-width;
+		position: sticky;
+		right: -1px;
+		width: $mask-width;
+	}
+
+	> *:last-child {
+		margin-right: $mask-width;
+	}
+}

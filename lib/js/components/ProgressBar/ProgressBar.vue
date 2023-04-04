@@ -2,19 +2,16 @@
 	<div
 		:class="{
 			progressBar: true,
-			'-primary': color === PROGRESS_BAR_COLORS.PRIMARY,
-			'-warning': color === PROGRESS_BAR_COLORS.WARNING,
-			'-fail': color === PROGRESS_BAR_COLORS.FAIL,
-			'-success': color === PROGRESS_BAR_COLORS.SUCCESS,
-			'-neutral': color === PROGRESS_BAR_COLORS.NEUTRAL,
-			'-info': color === PROGRESS_BAR_COLORS.INFO,
-			'-schemeMedium': colorScheme === PROGRESS_BAR_COLOR_SCHEMES.MEDIUM,
-			'-schemeMediumNeutral': colorScheme === PROGRESS_BAR_COLOR_SCHEMES.MEDIUM_NEUTRAL,
 			'-compact': layout === PROGRESS_BAR_LAYOUTS.COMPACT,
 		}"
 	>
-		<div class="progressBar__label">
-			<div class="progressBar__labelText">{{ labelText }}</div>
+		<div v-if="labelText || labelDataExists" class="progressBar__label">
+			<div
+				class="progressBar__labelText"
+				:class="{ '-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM }"
+			>
+				{{ labelText }}
+			</div>
 			<div v-if="labelDataExists" class="progressBar__labelDataWrapper">
 				<span v-if="labelData" class="progressBar__labelData">{{ labelData }}</span>
 				<span v-if="labelDataSupporting" class="progressBar__labelDataSupporting">
@@ -27,27 +24,46 @@
 			</div>
 		</div>
 		<div
+			class="progressBar__barWrapper"
 			:class="{
-				progressBar__bar: true,
 				'-small': size === PROGRESS_BAR_SIZES.SMALL,
 				'-xsmall': size === PROGRESS_BAR_SIZES.XSMALL,
-				'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
 			}"
 		>
 			<div
-				v-for="(range, index) in ranges"
-				:key="index"
+				class="progressBar__bar"
 				:class="{
-					progressBar__result: true,
-					'-secondary': range.layer === 2 && numberOfLayers === 2,
+					'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
 				}"
-				:style="{ left: range.start + '%', width: range.length + '%' }"
+			>
+				<div
+					v-for="(range, index) in ranges"
+					:key="index"
+					class="progressBar__range"
+					:class="`-${range.color}`"
+					:style="{ left: range.start + '%', width: range.length + '%' }"
+				/>
+			</div>
+			<ds-icon
+				v-if="badgePosition !== null"
+				class="progressBar__badge"
+				:class="{
+					'-small': size !== PROGRESS_BAR_SIZES.MEDIUM,
+					[`-${badgeColor}`]: true,
+				}"
+				:style="`left: ${badgePosition}%`"
+				:icon="ICONS.FA_LOCATION_DOT"
+				:size="
+					size === PROGRESS_BAR_SIZES.MEDIUM ? ICON_SIZES.XX_SMALL : ICON_SIZES.XXX_SMALL
+				"
 			/>
 		</div>
 	</div>
 </template>
 
 <style scoped lang="scss">
+@use 'sass:math';
+
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
@@ -63,100 +79,82 @@ $progress-bar-border-radius: 8px;
 $progress-bar-label-text-max-width: 70%;
 $progress-bar-label-data-max-width: 30%;
 
-$progress-bar-layers: (
+$progress-bar-badge-size: 24px;
+$progress-bar-badge-size-small: 16px;
+
+$progress-bar-range-colors: (
+	'primaryMedium': $color-primary-data-medium,
+	'primary': $color-primary-data,
+	'primaryWeak': $color-primary-data-weak,
+	'primaryGhost': $color-primary-data-ghost,
+	'neutralMedium': $color-neutral-data-medium,
+	'neutral': $color-neutral-data,
+	'neutralWeak': $color-neutral-data-weak,
+	'neutralGhost': $color-neutral-data-ghost,
+	'infoMedium': $color-info-data-medium,
+	'info': $color-info-data,
+	'infoWeak': $color-info-data-weak,
+	'infoGhost': $color-info-data-ghost,
+	'successMedium': $color-success-data-medium,
+	'success': $color-success-data,
+	'successWeak': $color-success-data-weak,
+	'successGhost': $color-success-data-ghost,
+	'warningMedium': $color-warning-data-medium,
+	'warning': $color-warning-data,
+	'warningWeak': $color-warning-data-weak,
+	'warningGhost': $color-warning-data-ghost,
+	'failMedium': $color-fail-data-medium,
+	'fail': $color-fail-data,
+	'failWeak': $color-fail-data-weak,
+	'failGhost': $color-fail-data-ghost,
+);
+
+$progress-bar-badge-colors: (
 	'primary': (
-		'default-color-scheme-first-layer': $color-primary-data,
-		'default-color-scheme-second-layer': $color-primary-data-ghost,
-		'medium-color-scheme-first-layer': $color-primary-data-medium,
-		'medium-color-scheme-second-layer': $color-primary-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
-	),
-	'info': (
-		'default-color-scheme-first-layer': $color-info-data,
-		'default-color-scheme-second-layer': $color-info-data-ghost,
-		'medium-color-scheme-first-layer': $color-info-data-medium,
-		'medium-color-scheme-second-layer': $color-info-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
+		'background': $color-primary-background-medium,
+		'icon': $color-primary-icon,
 	),
 	'neutral': (
-		'default-color-scheme-first-layer': $color-neutral-data,
-		'default-color-scheme-second-layer': $color-neutral-data-ghost,
-		'medium-color-scheme-first-layer': $color-neutral-data-medium,
-		'medium-color-scheme-second-layer': $color-neutral-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
+		'background': $color-neutral-background-medium,
+		'icon': $color-neutral-icon,
+	),
+	'info': (
+		'background': $color-info-background-medium,
+		'icon': $color-info-icon,
 	),
 	'success': (
-		'default-color-scheme-first-layer': $color-success-data,
-		'default-color-scheme-second-layer': $color-success-data-ghost,
-		'medium-color-scheme-first-layer': $color-success-data-medium,
-		'medium-color-scheme-second-layer': $color-success-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
+		'background': $color-success-background-medium,
+		'icon': $color-success-icon,
 	),
 	'warning': (
-		'default-color-scheme-first-layer': $color-warning-data,
-		'default-color-scheme-second-layer': $color-warning-data-ghost,
-		'medium-color-scheme-first-layer': $color-warning-data-medium,
-		'medium-color-scheme-second-layer': $color-warning-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
+		'background': $color-warning-background-medium,
+		'icon': $color-warning-icon,
 	),
 	'fail': (
-		'default-color-scheme-first-layer': $color-fail-data,
-		'default-color-scheme-second-layer': $color-fail-data-ghost,
-		'medium-color-scheme-first-layer': $color-fail-data-medium,
-		'medium-color-scheme-second-layer': $color-fail-data-weak,
-		'medium-neutral-color-scheme-second-layer': $color-neutral-data-weak,
+		'background': $color-fail-background-medium,
+		'icon': $color-fail-icon,
 	),
 );
 
 .progressBar {
 	$self: &;
 
-	@each $color-name, $color-map in $progress-bar-layers {
-		&.-#{$color-name} {
-			#{$self}__result {
-				background: map-get($color-map, 'default-color-scheme-first-layer');
-
-				&.-secondary {
-					background: map-get($color-map, 'default-color-scheme-second-layer');
-				}
-			}
-
-			&.-schemeMedium {
-				#{$self}__result {
-					background: map-get($color-map, 'medium-color-scheme-first-layer');
-
-					&.-secondary {
-						background: map-get($color-map, 'medium-color-scheme-second-layer');
-					}
-				}
-			}
-
-			&.-schemeMediumNeutral {
-				#{$self}__result {
-					background: map-get($color-map, 'medium-color-scheme-first-layer');
-
-					&.-secondary {
-						background: map-get($color-map, 'medium-neutral-color-scheme-second-layer');
-					}
-				}
-			}
-		}
-	}
-
 	&.-compact {
 		#{$self}__labelText {
 			@include label-m-default-bold;
+
+			&.-medium {
+				@include label-l-default-bold;
+			}
 		}
+
 		#{$self}__label {
 			margin-bottom: $space-xxxs;
 		}
 	}
 
-	&__bar {
-		background-color: $color-default-background;
-		border-radius: $progress-bar-border-radius;
+	&__barWrapper {
 		height: $progress-bar-height;
-		overflow: hidden;
 		position: relative;
 
 		&.-small {
@@ -166,10 +164,18 @@ $progress-bar-layers: (
 		&.-xsmall {
 			height: $progress-bar-xs-height;
 
-			&::after {
+			#{$self}__bar::after {
 				box-shadow: $shadow-inset-s;
 			}
 		}
+	}
+
+	&__bar {
+		background-color: $color-default-background;
+		border-radius: $progress-bar-border-radius;
+		height: 100%;
+		overflow: hidden;
+		position: relative;
 
 		&.-noRadius {
 			border-radius: 0;
@@ -207,6 +213,14 @@ $progress-bar-layers: (
 		@media #{breakpoint-s()} {
 			@include label-l-default-bold;
 		}
+
+		&.-medium {
+			@include label-l-default-bold;
+
+			@media #{breakpoint-s()} {
+				@include label-xl-default-bold;
+			}
+		}
 	}
 
 	&__labelDataWrapper {
@@ -217,8 +231,8 @@ $progress-bar-layers: (
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: right;
-		margin-left: $space-xxs;
 		margin-bottom: $space-xxxxxs;
+		margin-left: $space-xxs;
 		max-width: $progress-bar-label-data-max-width;
 	}
 
@@ -239,10 +253,44 @@ $progress-bar-layers: (
 		margin-left: $space-xxxxs;
 	}
 
-	&__result {
+	&__range {
+		@each $class, $color-name in $progress-bar-range-colors {
+			&.-#{$class} {
+				background: $color-name;
+			}
+		}
+
 		height: 100%;
 		position: absolute;
 		top: 0;
+	}
+
+	&__badge {
+		@each $class, $colors-map in $progress-bar-badge-colors {
+			&.-#{$class} {
+				background: map-get($colors-map, 'background');
+				color: map-get($colors-map, 'icon');
+			}
+		}
+
+		align-items: center;
+		border: 1px solid $color-inverted-border;
+		border-radius: 50%;
+		display: flex;
+		height: $progress-bar-badge-size;
+		justify-content: center;
+		margin-left: math.div(-$progress-bar-badge-size, 2);
+		margin-top: math.div(-$progress-bar-badge-size, 2);
+		position: absolute;
+		top: 50%;
+		width: $progress-bar-badge-size;
+
+		&.-small {
+			height: $progress-bar-badge-size-small;
+			margin-left: math.div(-$progress-bar-badge-size-small, 2);
+			margin-top: math.div(-$progress-bar-badge-size-small, 2);
+			width: $progress-bar-badge-size-small;
+		}
 	}
 }
 </style>
@@ -250,49 +298,45 @@ $progress-bar-layers: (
 <script lang="ts">
 import { PropType } from 'vue';
 import {
-	PROGRESS_BAR_COLORS,
 	PROGRESS_BAR_SIZES,
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_LAYOUTS,
-	PROGRESS_BAR_COLOR_SCHEMES,
-	PROGRESS_BAR_LAYERS,
 	ProgressBarRange,
+	PROGRESS_BAR_LABEL_TEXT_SIZES,
+	PROGRESS_BAR_BADGE_COLORS,
 } from './ProgressBar.consts';
+
+import DsIcon, { ICONS, ICON_SIZES } from '../Icons/Icon';
 
 export default {
 	name: 'ProgressBar',
+	components: {
+		DsIcon,
+	},
 	props: {
-		numberOfLayers: {
-			type: Number,
-			default: PROGRESS_BAR_LAYERS.ONE,
-			validator(size) {
-				return Object.values(PROGRESS_BAR_LAYERS).includes(size);
-			},
-		},
-		colorScheme: {
-			type: String,
-			default: PROGRESS_BAR_COLOR_SCHEMES.DEFAULT,
-			validator(size) {
-				return Object.values(PROGRESS_BAR_COLOR_SCHEMES).includes(size);
-			},
-		},
-		color: {
-			type: String,
-			default: PROGRESS_BAR_COLORS.INFO,
-			validator(color) {
-				return Object.values(PROGRESS_BAR_COLORS).includes(color);
-			},
-		},
 		size: {
 			type: String,
-			default: PROGRESS_BAR_SIZES.MEDIUM,
+			default: PROGRESS_BAR_SIZES.SMALL,
 			validator(size) {
 				return Object.values(PROGRESS_BAR_SIZES).includes(size);
+			},
+		},
+		labelTextSize: {
+			type: String,
+			default: PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
+			validator(size) {
+				return Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES).includes(size);
 			},
 		},
 		ranges: {
 			type: Array as PropType<Array<ProgressBarRange>>,
 			required: true,
+			validator(ranges) {
+				return ranges.every(
+					(range: ProgressBarRange) =>
+						range.start >= 0 && range.length >= 0 && range.start + range.length <= 100,
+				);
+			},
 		},
 		radius: {
 			type: String,
@@ -324,15 +368,29 @@ export default {
 			type: String,
 			default: null,
 		},
+		badgePosition: {
+			type: Number,
+			default: null,
+			validator(position) {
+				return position >= 0 && position <= 100;
+			},
+		},
+		badgeColor: {
+			type: String,
+			default: PROGRESS_BAR_BADGE_COLORS.INFO,
+			validator(color) {
+				return Object.values(PROGRESS_BAR_BADGE_COLORS).includes(color);
+			},
+		},
 	},
 	data() {
 		return {
-			PROGRESS_BAR_COLORS: Object.freeze(PROGRESS_BAR_COLORS),
 			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
 			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
 			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
-			PROGRESS_BAR_LAYERS: Object.freeze(PROGRESS_BAR_LAYERS),
-			PROGRESS_BAR_COLOR_SCHEMES: Object.freeze(PROGRESS_BAR_COLOR_SCHEMES),
+			PROGRESS_BAR_LABEL_TEXT_SIZES: Object.freeze(PROGRESS_BAR_LABEL_TEXT_SIZES),
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},
 	computed: {

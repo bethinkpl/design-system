@@ -119,8 +119,8 @@ $badge-score-colors: (
 	}
 
 	&__icon {
-		margin-right: $space-xxxxxs;
 		align-self: center;
+		margin-right: $space-xxxxxs;
 	}
 
 	&__suffix {
@@ -132,8 +132,8 @@ $badge-score-colors: (
 	&.-small {
 		@include label-xl-default-bold;
 
-		padding: $space-xxs $space-xxs;
 		min-width: $badge-score-small-min-width;
+		padding: $space-xxs $space-xxs;
 
 		#{$self}__suffix {
 			@include label-l-default-bold;

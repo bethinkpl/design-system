@@ -1,5 +1,5 @@
 <template>
-	<div class="ds-modal" @click.stop="$emit('close-modal')">
+	<div class="ds-modal" @click.self="$emit('close-modal')">
 		<div class="ds-modal__wrapper" :class="{ '-small': size === MODAL_SIZES.SMALL }">
 			<wnl-icon-button
 				touchable
@@ -66,6 +66,7 @@
 								:type="BUTTON_TYPES.TEXT"
 								:color="BUTTON_COLORS.NEUTRAL"
 								:icon-left="footerTertiaryButtonIcon"
+								@click="$emit('tertiary-button-click')"
 							>
 								{{ footerTertiaryButtonText }}
 							</wnl-button>
@@ -80,6 +81,7 @@
 								:type="BUTTON_TYPES.OUTLINED"
 								:color="calcFooterSecondaryButtonColor"
 								:icon-right="footerSecondaryButtonIcon"
+								@click="$emit('secondary-button-click')"
 							>
 								{{ footerSecondaryButtonText }}
 							</wnl-button>
@@ -88,6 +90,7 @@
 								class="ds-modal__buttonPrimary"
 								:color="calcFooterPrimaryButtonColor"
 								:icon-right="footerPrimaryButtonIcon"
+								@click="$emit('primary-button-click')"
 							>
 								{{ footerPrimaryButtonText }}
 							</wnl-button>
@@ -221,9 +224,9 @@ $image-height-small: 140px;
 	}
 
 	&__checkbox {
+		align-items: center;
 		cursor: pointer;
 		display: flex;
-		align-items: center;
 		margin-top: $space-s;
 
 		@media #{breakpoint-s()} {
@@ -246,14 +249,14 @@ $image-height-small: 140px;
 	}
 
 	&__image {
-		width: 100%;
 		display: block;
+		width: 100%;
 	}
 
 	&__footer {
 		display: flex;
-		justify-content: space-between;
 		flex-direction: column-reverse;
+		justify-content: space-between;
 		padding-top: $space-m;
 
 		@media #{breakpoint-s()} {
@@ -262,16 +265,16 @@ $image-height-small: 140px;
 
 		&.-singleColumn {
 			#{$self}__footerColumn {
-				width: 100%;
 				justify-content: center;
+				width: 100%;
 			}
 		}
 	}
 
 	&__footerColumn {
 		display: flex;
-		gap: 0 $space-s;
 		flex-direction: column-reverse;
+		gap: 0 $space-s;
 
 		&.--cta {
 			@media #{breakpoint-s()} {
@@ -294,8 +297,8 @@ $image-height-small: 140px;
 			justify-content: center;
 
 			@media #{breakpoint-s()} {
-				justify-content: left;
 				flex-direction: row;
+				justify-content: left;
 			}
 		}
 	}
