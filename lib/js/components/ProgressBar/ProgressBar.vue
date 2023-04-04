@@ -19,8 +19,8 @@
 					{{ labelDataSupporting }}
 				</span>
 				<span v-if="labelDataSuffix" class="progressBar__labelDataSuffix">{{
-						labelDataSuffix
-					}}</span>
+					labelDataSuffix
+				}}</span>
 			</div>
 		</div>
 		<div
@@ -62,6 +62,8 @@
 </template>
 
 <style scoped lang="scss">
+@use 'sass:math';
+
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
@@ -277,16 +279,16 @@ $progress-bar-badge-colors: (
 		display: flex;
 		height: $progress-bar-badge-size;
 		justify-content: center;
-		margin-left: -$progress-bar-badge-size / 2;
-		margin-top: -$progress-bar-badge-size / 2;
+		margin-left: math.div(-$progress-bar-badge-size, 2);
+		margin-top: math.div(-$progress-bar-badge-size, 2);
 		position: absolute;
 		top: 50%;
 		width: $progress-bar-badge-size;
 
 		&.-small {
 			height: $progress-bar-badge-size-small;
-			margin-left: -$progress-bar-badge-size-small / 2;
-			margin-top: -$progress-bar-badge-size-small / 2;
+			margin-left: math.div(-$progress-bar-badge-size-small, 2);
+			margin-top: math.div(-$progress-bar-badge-size-small, 2);
 			width: $progress-bar-badge-size-small;
 		}
 	}
