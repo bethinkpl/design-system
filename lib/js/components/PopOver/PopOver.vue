@@ -79,6 +79,7 @@
 
 		.popOver__contentSlot.-maxHeight {
 			max-height: 160px;
+			overflow-x: hidden; 
 		}
 	}
 
@@ -87,6 +88,7 @@
 
 		.popOver__contentSlot.-maxHeight {
 			max-height: 250px;
+			overflow-x: hidden; 
 		}
 	}
 
