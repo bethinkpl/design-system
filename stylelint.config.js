@@ -9,6 +9,10 @@ module.exports = {
 		'order/order': [
 			[
 				{
+					name: 'use',
+					type: 'at-rule',
+				},
+				{
 					name: 'import',
 					type: 'at-rule',
 				},
