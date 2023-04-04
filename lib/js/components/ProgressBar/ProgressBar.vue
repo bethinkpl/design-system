@@ -62,8 +62,6 @@
 </template>
 
 <style scoped lang="scss">
-@use 'sass:math';
-
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';
@@ -135,6 +133,8 @@ $progress-bar-badge-colors: (
 		'icon': $color-fail-icon,
 	),
 );
+
+@use 'sass:math';
 
 .progressBar {
 	$self: &;
