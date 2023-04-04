@@ -15,11 +15,11 @@ export default {
 const StoryTemplate: StoryFn<typeof ProgressDonutChart> = (args) => ({
 	components: { ProgressDonutChart },
 	setup() {
-		return { ...args };
+		return { args };
 	},
 	template: `
 			<ProgressDonutChart
-					v-bind=$props
+					v-bind=args
 			/>`,
 });
 
