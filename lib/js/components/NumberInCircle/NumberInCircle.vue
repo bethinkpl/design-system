@@ -22,8 +22,8 @@
 
 	align-items: center;
 	border-radius: 50%;
-	border-width: 1px;
 	border-style: solid;
+	border-width: 1px;
 	display: inline-flex;
 	height: $icon-xl;
 	justify-content: center;
@@ -39,41 +39,41 @@
 	&.-is1,
 	&.-is6,
 	&.-primary {
-		color: $color-primary-text;
 		border-color: $color-primary-border;
+		color: $color-primary-text;
 	}
 
 	&.-is5,
 	&.-is10,
 	&.-neutral {
-		color: $color-neutral-text;
 		border-color: $color-neutral-border-heavy;
+		color: $color-neutral-text;
 	}
 
 	&.-is2,
 	&.-is7,
 	&.-success {
-		color: $color-success-text;
 		border-color: $color-success-border;
+		color: $color-success-text;
 	}
 
 	&.-danger {
-		color: $color-danger-text;
 		border-color: $color-danger-border;
+		color: $color-danger-text;
 	}
 
 	&.-is4,
 	&.-is9,
 	&.-info {
-		color: $color-info-text;
 		border-color: $color-info-border;
+		color: $color-info-text;
 	}
 
 	&.-is3,
 	&.-is8,
 	&.-accent {
-		color: $color-accent-text;
 		border-color: $color-accent-border;
+		color: $color-accent-text;
 	}
 
 	&.-medium {

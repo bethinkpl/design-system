@@ -56,6 +56,8 @@ export { default as Dropdown } from './components/Dropdown';
 export * from './components/Dropdown/Dropdown.consts';
 export { default as ProgressBar } from './components/ProgressBar';
 export * from './components/ProgressBar/ProgressBar.consts';
+export { default as ProgressDonutChart } from './components/ProgressDonutChart';
+export * from './components/ProgressDonutChart/ProgressDonutChart.consts';
 export { default as IconText } from './components/IconText';
 export * from './components/IconText/IconText.consts';
 export { default as Pagination } from './components/Pagination';

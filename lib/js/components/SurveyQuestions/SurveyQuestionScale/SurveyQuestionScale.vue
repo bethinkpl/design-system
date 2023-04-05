@@ -90,10 +90,10 @@
 		@include heading-m-default-regular;
 
 		display: flex;
+		justify-content: space-between;
+		margin-bottom: $space-m;
 		// title without explanation iconButton has to be the same size as with iconButton
 		min-height: $icon-button-medium-size;
-		margin-bottom: $space-m;
-		justify-content: space-between;
 	}
 
 	&__title {
@@ -110,8 +110,8 @@
 		border-radius: $radius-s;
 		display: flex;
 		justify-content: space-between;
-		padding: $space-s $space-xxs;
 		overflow-x: auto;
+		padding: $space-s $space-xxs;
 
 		@media #{breakpoint-s()} {
 			padding: $space-s $space-l;
@@ -132,8 +132,8 @@
 		display: none;
 
 		@media #{breakpoint-s()} {
-			width: $space-l;
 			display: block;
+			width: $space-l;
 		}
 	}
 

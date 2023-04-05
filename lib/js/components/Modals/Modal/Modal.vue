@@ -43,14 +43,13 @@
 					>
 						<div
 							v-if="footerTertiaryButtonText || footerCheckboxText"
-							class="ds-modal__footerColumn --ctaSecondary"
+							class="ds-modal__footerCtaSecondary"
 						>
 							<div v-if="footerCheckboxText" class="ds-modal__checkbox">
 								<input
 									id="ds-modal__checkboxInput"
 									type="checkbox"
 									:checked="false"
-									class="ds-modal__checkboxInput"
 									@change="$emit('checkbox-change', $event.target.checked)"
 								/>
 								<label
@@ -62,10 +61,10 @@
 							</div>
 							<wnl-button
 								v-if="footerTertiaryButtonText"
-								class="ds-modal__buttonSecondary"
 								:type="BUTTON_TYPES.TEXT"
 								:color="BUTTON_COLORS.NEUTRAL"
 								:icon-left="footerTertiaryButtonIcon"
+								class="ds-modal__tertiaryButton"
 								@click="$emit('tertiary-button-click')"
 							>
 								{{ footerTertiaryButtonText }}
@@ -73,11 +72,10 @@
 						</div>
 						<div
 							v-if="footerSecondaryButtonText || footerPrimaryButtonText"
-							class="ds-modal__footerColumn --cta"
+							class="ds-modal__footerCtaPrimary"
 						>
 							<wnl-button
 								v-if="footerSecondaryButtonText"
-								class="ds-modal__buttonSecondary"
 								:type="BUTTON_TYPES.OUTLINED"
 								:color="calcFooterSecondaryButtonColor"
 								:icon-right="footerSecondaryButtonIcon"
@@ -87,7 +85,6 @@
 							</wnl-button>
 							<wnl-button
 								v-if="footerPrimaryButtonText"
-								class="ds-modal__buttonPrimary"
 								:color="calcFooterPrimaryButtonColor"
 								:icon-right="footerPrimaryButtonIcon"
 								@click="$emit('primary-button-click')"
@@ -188,17 +185,19 @@ $image-height-small: 140px;
 	&__header {
 		display: flex;
 		flex-direction: column;
+		margin-bottom: $space-s;
+		row-gap: $space-xs;
 	}
 
 	&__headerFeatureIcon {
 		align-self: center;
-		margin-bottom: $space-m;
+		margin-bottom: $space-xs;
 	}
 
 	&__headerTitle {
 		@include heading-xl-default-bold;
 
-		margin-bottom: $space-xs;
+		margin-bottom: 0;
 		margin-top: 0;
 
 		@media #{breakpoint-s()} {
@@ -213,25 +212,19 @@ $image-height-small: 140px;
 	&__headerSubtitle {
 		@include heading-m-default-regular;
 
-		margin-bottom: $space-s;
+		margin-bottom: 0;
 		margin-top: 0;
 	}
 
 	&__slotContent {
 		@include text-m-default-regular;
-
-		margin-bottom: $space-xs;
 	}
 
 	&__checkbox {
+		align-items: flex-start;
 		cursor: pointer;
 		display: flex;
-		align-items: center;
-		margin-top: $space-s;
-
-		@media #{breakpoint-s()} {
-			margin-top: 0;
-		}
+		flex-flow: row;
 	}
 
 	&__checkboxLabel {
@@ -249,68 +242,68 @@ $image-height-small: 140px;
 	}
 
 	&__image {
-		width: 100%;
 		display: block;
+		width: 100%;
 	}
 
 	&__footer {
+		column-gap: $space-s;
 		display: flex;
-		justify-content: space-between;
 		flex-direction: column-reverse;
+		justify-content: space-between;
+		line-break: anywhere;
 		padding-top: $space-m;
 
 		@media #{breakpoint-s()} {
+			align-items: center;
 			flex-direction: row;
 		}
 
 		&.-singleColumn {
-			#{$self}__footerColumn {
-				width: 100%;
+			#{$self}__footerCtaPrimary {
 				justify-content: center;
+				width: 100%;
 			}
 		}
 	}
 
-	&__footerColumn {
+	&__tertiaryButton {
+		flex-shrink: 0;
+
+		&:only-child {
+			margin: 0 auto;
+		}
+	}
+
+	&__footerCtaPrimary {
 		display: flex;
-		gap: 0 $space-s;
 		flex-direction: column-reverse;
+		flex-shrink: 0;
+		gap: $space-s 0;
 
-		&.--cta {
-			@media #{breakpoint-s()} {
-				flex-direction: row;
-			}
-
-			&:not(:first-child) {
-				// first-child because of reverse order in flex-direction
-				margin-bottom: $space-xs;
-
-				@media #{breakpoint-s()} {
-					margin-bottom: 0;
-				}
-			}
+		@media #{breakpoint-s()} {
+			flex-direction: row;
+			gap: 0 $space-s;
 		}
 
-		&.--ctaSecondary {
-			align-items: center;
-			gap: 0 $space-m;
-			justify-content: center;
-
-			@media #{breakpoint-s()} {
-				justify-content: left;
-				flex-direction: row;
-			}
-		}
-	}
-
-	&__buttonPrimary {
 		&:not(:first-child) {
 			// first-child because of reverse order in flex-direction
-			margin-bottom: $space-s;
+			margin-bottom: $space-xs;
 
 			@media #{breakpoint-s()} {
 				margin-bottom: 0;
 			}
+		}
+	}
+
+	&__footerCtaSecondary {
+		align-items: center;
+		display: flex;
+		gap: 0 $space-m;
+		justify-content: space-between;
+
+		@media #{breakpoint-s()} {
+			justify-content: left;
 		}
 	}
 }

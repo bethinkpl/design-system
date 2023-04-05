@@ -36,10 +36,10 @@ $badge-min-height: 20px;
 	}
 
 	&__slot {
-		display: flex;
 		align-items: center;
-		margin-right: $space-xxs;
+		display: flex;
 		height: $icon-xxs;
+		margin-right: $space-xxs;
 		width: $icon-xxs;
 	}
 }

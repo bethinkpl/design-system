@@ -42,8 +42,8 @@
 	}
 
 	&__category {
-		font-weight: var(--typography-font-weight-bold);
 		font-size: var(--typography-font-size-2xl);
+		font-weight: var(--typography-font-weight-bold);
 		line-height: var(--typography-line-height-3xl);
 	}
 

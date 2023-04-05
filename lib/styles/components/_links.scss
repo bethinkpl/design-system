@@ -1,8 +1,8 @@
 @import '../settings/colors/tokens';
 
 .a-link {
-	cursor: pointer;
 	color: $color-primary-text;
+	cursor: pointer;
 
 	&:hover {
 		color: $color-primary-text;
@@ -10,8 +10,8 @@
 }
 
 .a-linkInText {
-	cursor: pointer;
 	color: inherit;
+	cursor: pointer;
 	text-decoration: underline;
 
 	&:hover {

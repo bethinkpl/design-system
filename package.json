@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "15.0.3",
+  "version": "15.1.1",
   "description": "Bethink universe design-system",
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
@@ -32,10 +32,10 @@
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "6.1.1",
     "@fortawesome/free-brands-svg-icons": "6.1.1",
+    "@fortawesome/pro-duotone-svg-icons": "6.1.1",
     "@fortawesome/pro-light-svg-icons": "6.1.1",
     "@fortawesome/pro-regular-svg-icons": "6.1.1",
     "@fortawesome/pro-solid-svg-icons": "6.1.1",
-    "@fortawesome/pro-duotone-svg-icons": "6.1.1",
     "@fortawesome/vue-fontawesome": "2.0.6",
     "@storybook/addon-actions": "6.5.13",
     "@storybook/addon-controls": "^6.5.13",
@@ -68,7 +68,7 @@
     "storybook-addon-designs": "^6.3.1",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
-    "stylelint-order": "4.1.0",
+    "stylelint-order": "6.0.3",
     "stylelint-scss": "3.18.0",
     "ts-jest": "^26.5.6",
     "ts-node": "^10.9.1",
