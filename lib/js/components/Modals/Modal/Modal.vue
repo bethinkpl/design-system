@@ -278,8 +278,8 @@ $image-height-small: 140px;
 	&__footerCtaPrimary {
 		display: flex;
 		flex-direction: column-reverse;
-		gap: $space-s 0;
 		flex-shrink: 0;
+		gap: $space-s 0;
 
 		@media #{breakpoint-s()} {
 			flex-direction: row;
