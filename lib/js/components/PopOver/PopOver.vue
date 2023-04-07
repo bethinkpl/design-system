@@ -75,8 +75,7 @@
 	}
 
 	.popOver__contentSlot.-maxHeight {
-		overflow: scroll;
-		overflow-x: hidden;
+		overflow: hidden scroll;
 	}
 
 	&.-small {
