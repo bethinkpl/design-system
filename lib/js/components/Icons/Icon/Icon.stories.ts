@@ -53,6 +53,9 @@ Interactive.argTypes = argTypes;
 Interactive.args = args;
 
 Interactive.parameters = {
+	actions: {
+		handles: ['click'],
+	},
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34963',
