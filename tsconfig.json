@@ -13,7 +13,8 @@
     "noUnusedLocals": true,
     "skipLibCheck": true,
     "strictBindCallApply": true,
-    "noUnusedParameters": true,
+    // Re-enable after https://github.com/vuejs/core/issues/4668 is fixed
+    // "noUnusedParameters": true,
     "strictFunctionTypes": true,
     "target": "es2019",
     "strictNullChecks": true,
