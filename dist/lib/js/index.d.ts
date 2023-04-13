@@ -13,6 +13,8 @@ export { default as Card } from './components/Cards/Card/';
 export { default as CardExpandable } from './components/Cards/CardExpandable/';
 export { default as Divider } from './components/Divider';
 export * from './components/Divider/Divider.consts';
+export { default as FeatureIcon } from './components/Icons/FeatureIcon';
+export * from './components/Icons/FeatureIcon/FeatureIcon.consts';
 export { default as Icon } from './components/Icons/Icon';
 export * from './components/Icons/Icon/Icon.consts';
 export { default as IconButton } from './components/Buttons/IconButton';

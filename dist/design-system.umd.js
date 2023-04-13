@@ -2048,6 +2048,43 @@ exports.COUNTER_TOGGLE_COLORS = {
 
 /***/ }),
 
+/***/ "1d57":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, '__esModule', { value: true });
+var prefix = 'far';
+var iconName = 'hand-point-right';
+var width = 512;
+var height = 512;
+var aliases = [];
+var unicode = 'f0a4';
+var svgPathData = 'M320 408c0-6.428-.8457-12.66-2.434-18.6C338.2 376.7 352 353.9 352 328c0-6.428-.8457-12.66-2.434-18.6C370.2 296.7 384 273.9 384 248c0-2.705-.1484-5.373-.4414-8H440C479.7 240 512 207.7 512 168S479.7 96 440 96H243.7C227.5 76.51 203.2 64 176 64H126.1C94.02 64 64.47 81.1 49 108.6L17.65 164.5C6.104 185.1 0 208.4 0 231.8v107.9C0 417.1 64.6 480 144 480h104C287.7 480 320 447.7 320 408zM280 304c13.23 0 24 10.78 24 24S293.2 352 280 352H232.1C218.9 352 208 341.2 208 328S218.8 304 232 304H280zM312 224c13.23 0 24 10.78 24 24S325.2 272 312 272h-48c-3.029 0-5.875-.7012-8.545-1.73C260.7 259.9 264 248.4 264 236V224H312zM440 144c13.23 0 24 10.78 24 24S453.2 192 440 192h-176V152c0-2.686-.5566-5.217-.793-7.84C263.5 144.2 263.7 144 264 144H440zM48 339.7V231.8c0-15.25 3.984-30.41 11.52-43.88l31.34-55.78C97.84 119.7 111.4 112 126.1 112H176c22.06 0 40 17.94 40 40v84c0 15.44-12.56 28-28 28S160 251.4 160 236V184C160 170.8 149.3 160 136 160S112 170.8 112 184v52c0 33.23 21.58 61.25 51.36 71.54C161.3 314 160 320.9 160 328c0 5.041 1.166 9.836 2.178 14.66C137.4 354 120 378.1 120 408c0 7.684 1.557 14.94 3.836 21.87C80.56 420.9 48 383.9 48 339.7zM192 432c-13.23 0-24-10.78-24-24S178.8 384 192 384h56c13.23 0 24 10.78 24 24s-10.77 24-24 24H192z';
+
+exports.definition = {
+  prefix: prefix,
+  iconName: iconName,
+  icon: [
+    width,
+    height,
+    aliases,
+    unicode,
+    svgPathData
+  ]};
+
+exports.faHandPointRight = exports.definition;
+exports.prefix = prefix;
+exports.iconName = iconName;
+exports.width = width;
+exports.height = height;
+exports.ligatures = aliases;
+exports.unicode = unicode;
+exports.svgPathData = svgPathData;
+exports.aliases = aliases;
+
+/***/ }),
+
 /***/ "1d77":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -7178,7 +7215,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.initializeIconsWithDomWatcher = exports.initializeIcons = exports.OverlayHeader = exports.Pagination = exports.IconText = exports.ProgressDonutChart = exports.ProgressBar = exports.Dropdown = exports.PopOver = exports.SelectListItemToggle = exports.SelectListItemDivider = exports.SelectListItem = exports.SelectList = exports.CounterToggle = exports.Pill = exports.Drawer = exports.SectionHeader = exports.Ripple = exports.SurveyQuestionOpenEnded = exports.SurveyQuestionScale = exports.SurveyToggle = exports.BlockadeStatus = exports.AccessStatus = exports.Tile = exports.TabItem = exports.NumberInCircle = exports.DsModalDialog = exports.DsModal = exports.Modal = exports.IconButton = exports.Icon = exports.Divider = exports.CardExpandable = exports.Card = exports.ToggleButton = exports.Button = exports.Banner = exports.BadgeScore = exports.Badge = void 0;
+exports.initializeIconsWithDomWatcher = exports.initializeIcons = exports.OverlayHeader = exports.Pagination = exports.IconText = exports.ProgressDonutChart = exports.ProgressBar = exports.Dropdown = exports.PopOver = exports.SelectListItemToggle = exports.SelectListItemDivider = exports.SelectListItem = exports.SelectList = exports.CounterToggle = exports.Pill = exports.Drawer = exports.SectionHeader = exports.Ripple = exports.SurveyQuestionOpenEnded = exports.SurveyQuestionScale = exports.SurveyToggle = exports.BlockadeStatus = exports.AccessStatus = exports.Tile = exports.TabItem = exports.NumberInCircle = exports.DsModalDialog = exports.DsModal = exports.Modal = exports.IconButton = exports.Icon = exports.FeatureIcon = exports.Divider = exports.CardExpandable = exports.Card = exports.ToggleButton = exports.Button = exports.Banner = exports.BadgeScore = exports.Badge = void 0;
 var Badge_1 = __webpack_require__("2449");
 Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { return __importDefault(Badge_1).default; } });
 __exportStar(__webpack_require__("2449"), exports);
@@ -7202,6 +7239,9 @@ Object.defineProperty(exports, "CardExpandable", { enumerable: true, get: functi
 var Divider_1 = __webpack_require__("f757");
 Object.defineProperty(exports, "Divider", { enumerable: true, get: function () { return __importDefault(Divider_1).default; } });
 __exportStar(__webpack_require__("7ffd"), exports);
+var FeatureIcon_1 = __webpack_require__("43bc");
+Object.defineProperty(exports, "FeatureIcon", { enumerable: true, get: function () { return __importDefault(FeatureIcon_1).default; } });
+__exportStar(__webpack_require__("0e37"), exports);
 var Icon_1 = __webpack_require__("4028");
 Object.defineProperty(exports, "Icon", { enumerable: true, get: function () { return __importDefault(Icon_1).default; } });
 __exportStar(__webpack_require__("a327"), exports);
@@ -10014,6 +10054,7 @@ const faEllipsisVertical_1 = __webpack_require__("fec9");
 const faEye_1 = __webpack_require__("d17c");
 const faEyeSlash_1 = __webpack_require__("2bc9");
 const faFaceFrown_1 = __webpack_require__("fecd");
+const faFaceGrimace_1 = __webpack_require__("9f89");
 const faFaceMeh_1 = __webpack_require__("1f40");
 const faFaceSmile_1 = __webpack_require__("4a86");
 const faFileInvoiceDollar_1 = __webpack_require__("886b");
@@ -10030,6 +10071,7 @@ const faGift_1 = __webpack_require__("fcf9");
 const faGraduationCap_1 = __webpack_require__("d035");
 const faGrid_1 = __webpack_require__("1830");
 const faHandPointLeft_1 = __webpack_require__("a591");
+const faHandPointRight_1 = __webpack_require__("1d57");
 const faHeartPulse_1 = __webpack_require__("afa5");
 const faHourglass_1 = __webpack_require__("c16e");
 const faHourglassEnd_1 = __webpack_require__("2804");
@@ -10200,6 +10242,7 @@ exports.FONTAWESOME_ICONS = {
     FA_EYE: faEye_1.faEye,
     FA_EYE_SLASH: faEyeSlash_1.faEyeSlash,
     FA_FACE_FROWN: faFaceFrown_1.faFaceFrown,
+    FA_FACE_GRIMACE: faFaceGrimace_1.faFaceGrimace,
     FA_FACE_MEH: faFaceMeh_1.faFaceMeh,
     FA_FACE_SMILE: faFaceSmile_1.faFaceSmile,
     FA_FACEBOOK: faFacebook_1.faFacebook,
@@ -10223,6 +10266,7 @@ exports.FONTAWESOME_ICONS = {
     FA_GRADUATION_CAP: faGraduationCap_1.faGraduationCap,
     FA_GRID: faGrid_1.faGrid,
     FA_HAND_POINT_LEFT: faHandPointLeft_1.faHandPointLeft,
+    FA_HAND_POINT_RIGHT: faHandPointRight_1.faHandPointRight,
     FA_HAND_SPOCK_SOLID: faHandSpock_1.faHandSpock,
     FA_HANDS_SOLID: faHands_1.faHands,
     FA_HEART_PULSE: faHeartPulse_1.faHeartPulse,
@@ -11494,6 +11538,43 @@ var component = Object(_node_modules_vue_cli_service_node_modules_vue_loader_lib
 )
 
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "9f89":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, '__esModule', { value: true });
+var prefix = 'far';
+var iconName = 'face-grimace';
+var width = 512;
+var height = 512;
+var aliases = [128556,"grimace"];
+var unicode = 'f57f';
+var svgPathData = 'M344 288C374.9 288 400 313.1 400 344C400 374.9 374.9 400 344 400H168C137.1 400 112 374.9 112 344C112 313.1 137.1 288 168 288H344zM168 320C154.7 320 144 330.7 144 344C144 357.3 154.7 368 168 368H176V320H168zM208 368H240V320H208V368zM304 320H272V368H304V320zM336 368H344C357.3 368 368 357.3 368 344C368 330.7 357.3 320 344 320H336V368zM208.4 208C208.4 225.7 194 240 176.4 240C158.7 240 144.4 225.7 144.4 208C144.4 190.3 158.7 176 176.4 176C194 176 208.4 190.3 208.4 208zM304.4 208C304.4 190.3 318.7 176 336.4 176C354 176 368.4 190.3 368.4 208C368.4 225.7 354 240 336.4 240C318.7 240 304.4 225.7 304.4 208zM0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 48C141.1 48 48 141.1 48 256C48 370.9 141.1 464 256 464C370.9 464 464 370.9 464 256C464 141.1 370.9 48 256 48z';
+
+exports.definition = {
+  prefix: prefix,
+  iconName: iconName,
+  icon: [
+    width,
+    height,
+    aliases,
+    unicode,
+    svgPathData
+  ]};
+
+exports.faFaceGrimace = exports.definition;
+exports.prefix = prefix;
+exports.iconName = iconName;
+exports.width = width;
+exports.height = height;
+exports.ligatures = aliases;
+exports.unicode = unicode;
+exports.svgPathData = svgPathData;
+exports.aliases = aliases;
 
 /***/ }),
 
