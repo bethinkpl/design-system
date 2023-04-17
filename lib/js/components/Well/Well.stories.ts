@@ -1,6 +1,6 @@
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
-import Well from "./Well.vue";
-import { WELL_SIZES } from "./Well.consts";
+import Well from './Well.vue';
+import { WELL_SIZES } from './Well.consts';
 
 export default {
 	title: 'Components/Well',
@@ -10,8 +10,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Well> = (argTypes) => ({
 	components: { Well },
 	props: Object.keys(argTypes),
-	template: '<well :size="size">' +
-		'<div #default v-html="content" /></well>',
+	template: '<well :size="size"><div #default v-html="content" /></well>',
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -27,7 +26,8 @@ const argTypes = {
 	},
 	content: {
 		control: { type: 'text' },
-		defaultValue: '<h3>Content</h3>' +
+		defaultValue:
+			'<h3>Content</h3>' +
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
 	},
 } as ArgTypes;
