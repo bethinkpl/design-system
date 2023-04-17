@@ -66,6 +66,8 @@ export { default as Pagination } from './components/Pagination';
 export * from './components/Pagination/Pagination.consts';
 export { default as OverlayHeader } from './components/OverlayHeader';
 export * from './components/OverlayHeader/OverlayHeader.consts';
+export { default as Well } from './components/Well';
+export * from './components/Well/Well.consts';
 
 export {
 	initialize as initializeIcons,
