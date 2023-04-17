@@ -6,9 +6,7 @@
 			'-small': WELL_PADDINGS.SMALL === padding,
 		}"
 	>
-		<div class="well__content">
-			<slot />
-		</div>
+		<slot />
 	</div>
 </template>
 
@@ -20,6 +18,7 @@
 .well {
 	background-color: $color-neutral-background;
 	border-radius: $radius-m;
+	overflow: hidden;
 
 	&.-medium {
 		padding: $space-s;
@@ -27,10 +26,6 @@
 
 	&.-small {
 		padding: $space-xs;
-	}
-
-	&__content {
-		padding: $space-xxs $space-xxxxs;
 	}
 }
 </style>
