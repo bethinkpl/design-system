@@ -1,4 +1,4 @@
-export const WELL_SIZES = {
+export const WELL_PADDINGS = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
 };

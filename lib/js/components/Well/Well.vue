@@ -2,8 +2,8 @@
 	<div
 		class="well"
 		:class="{
-			'-medium': WELL_SIZES.MEDIUM === size,
-			'-small': WELL_SIZES.SMALL === size,
+			'-medium': WELL_PADDINGS.MEDIUM === padding,
+			'-small': WELL_PADDINGS.SMALL === padding,
 		}"
 	>
 		<div class="well__content">
@@ -36,22 +36,22 @@
 </style>
 
 <script>
-import { WELL_SIZES } from './Well.consts';
+import { WELL_PADDINGS } from './Well.consts';
 
 export default {
 	name: 'Well',
 	props: {
-		size: {
+		padding: {
 			type: String,
 			default: null,
-			validator(size) {
-				return Object.values(WELL_SIZES).includes(size);
+			validator(padding) {
+				return Object.values(WELL_PADDINGS).includes(padding);
 			},
 		},
 	},
 	data() {
 		return {
-			WELL_SIZES: Object.freeze(WELL_SIZES),
+			WELL_PADDINGS: Object.freeze(WELL_PADDINGS),
 		};
 	},
 };
