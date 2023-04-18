@@ -58,6 +58,7 @@ import { faEllipsisVertical } from '@fortawesome/pro-regular-svg-icons/faEllipsi
 import { faEye } from '@fortawesome/pro-regular-svg-icons/faEye';
 import { faEyeSlash } from '@fortawesome/pro-regular-svg-icons/faEyeSlash';
 import { faFaceFrown } from '@fortawesome/pro-regular-svg-icons/faFaceFrown';
+import { faFaceGrimace } from '@fortawesome/pro-regular-svg-icons/faFaceGrimace';
 import { faFaceMeh } from '@fortawesome/pro-regular-svg-icons/faFaceMeh';
 import { faFaceSmile } from '@fortawesome/pro-regular-svg-icons/faFaceSmile';
 import { faFileInvoiceDollar } from '@fortawesome/pro-regular-svg-icons/faFileInvoiceDollar';
@@ -74,6 +75,7 @@ import { faGift } from '@fortawesome/pro-regular-svg-icons/faGift';
 import { faGraduationCap } from '@fortawesome/pro-regular-svg-icons/faGraduationCap';
 import { faGrid } from '@fortawesome/pro-regular-svg-icons/faGrid';
 import { faHandPointLeft } from '@fortawesome/pro-regular-svg-icons/faHandPointLeft';
+import { faHandPointRight } from '@fortawesome/pro-regular-svg-icons/faHandPointRight';
 import { faHeartPulse } from '@fortawesome/pro-regular-svg-icons/faHeartPulse';
 import { faHourglass } from '@fortawesome/pro-regular-svg-icons/faHourglass';
 import { faHourglassEnd } from '@fortawesome/pro-regular-svg-icons/faHourglassEnd';
@@ -249,6 +251,7 @@ export const FONTAWESOME_ICONS = {
 	FA_EYE: faEye,
 	FA_EYE_SLASH: faEyeSlash,
 	FA_FACE_FROWN: faFaceFrown,
+	FA_FACE_GRIMACE: faFaceGrimace,
 	FA_FACE_MEH: faFaceMeh,
 	FA_FACE_SMILE: faFaceSmile,
 	FA_FACEBOOK: faFacebook,
@@ -272,6 +275,7 @@ export const FONTAWESOME_ICONS = {
 	FA_GRADUATION_CAP: faGraduationCap,
 	FA_GRID: faGrid,
 	FA_HAND_POINT_LEFT: faHandPointLeft,
+	FA_HAND_POINT_RIGHT: faHandPointRight,
 	FA_HAND_SPOCK_SOLID: fasHandSpock,
 	FA_HANDS_SOLID: fasHands,
 	FA_HEART_PULSE: faHeartPulse,

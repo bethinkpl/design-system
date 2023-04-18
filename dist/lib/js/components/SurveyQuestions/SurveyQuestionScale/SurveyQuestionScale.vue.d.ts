@@ -320,6 +320,7 @@ declare const _default: {
                             readonly FA_EYE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_EYE_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_FACE_FROWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                            readonly FA_FACE_GRIMACE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_FACE_MEH: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_FACE_SMILE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_FACEBOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -343,6 +344,7 @@ declare const _default: {
                             readonly FA_GRADUATION_CAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_GRID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_HAND_POINT_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                            readonly FA_HAND_POINT_RIGHT: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_HAND_SPOCK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_HANDS_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                             readonly FA_HEART_PULSE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -598,6 +600,7 @@ declare const _default: {
                     readonly FA_EYE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_EYE_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACE_FROWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_FACE_GRIMACE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACE_MEH: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACE_SMILE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACEBOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -621,6 +624,7 @@ declare const _default: {
                     readonly FA_GRADUATION_CAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_GRID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HAND_POINT_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_HAND_POINT_RIGHT: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HAND_SPOCK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HANDS_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HEART_PULSE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1012,6 +1016,7 @@ declare const _default: {
                     readonly FA_EYE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_EYE_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACE_FROWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_FACE_GRIMACE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACE_MEH: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACE_SMILE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACEBOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1035,6 +1040,7 @@ declare const _default: {
                     readonly FA_GRADUATION_CAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_GRID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HAND_POINT_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_HAND_POINT_RIGHT: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HAND_SPOCK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HANDS_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HEART_PULSE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1323,6 +1329,7 @@ declare const _default: {
                     readonly FA_EYE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_EYE_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACE_FROWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_FACE_GRIMACE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACE_MEH: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACE_SMILE: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_FACEBOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1346,6 +1353,7 @@ declare const _default: {
                     readonly FA_GRADUATION_CAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_GRID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HAND_POINT_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+                    readonly FA_HAND_POINT_RIGHT: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HAND_SPOCK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HANDS_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
                     readonly FA_HEART_PULSE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1582,6 +1590,7 @@ declare const _default: {
             readonly FA_EYE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_EYE_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACE_FROWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_FACE_GRIMACE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACE_MEH: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACE_SMILE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACEBOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -1605,6 +1614,7 @@ declare const _default: {
             readonly FA_GRADUATION_CAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_GRID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HAND_POINT_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_HAND_POINT_RIGHT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HAND_SPOCK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HANDS_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HEART_PULSE: import("@fortawesome/fontawesome-common-types").IconDefinition;

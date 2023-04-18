@@ -73,10 +73,6 @@ export default {
 	},
 	computed: {
 		icon(): IconItem | null {
-			if (this.isLoading) {
-				return ICONS.FAD_SPINNER_THIRD;
-			}
-
 			return this.isOn ? this.iconOn : this.iconOff;
 		},
 		label(): string {
