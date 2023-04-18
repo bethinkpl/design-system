@@ -1,4 +1,4 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import Well from './Well.vue';
 import { WELL_PADDINGS } from './Well.consts';
 
@@ -7,17 +7,15 @@ export default {
 	component: Well,
 } as Meta<typeof Well>;
 
-const StoryTemplate: StoryFn<typeof Well> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Well> = (args) => ({
 	components: { Well },
-	props: Object.keys(argTypes),
-	template: '<well :padding="padding"><div v-html="content" /></well>',
+	setup() {
+		return { args };
+	},
+	template: '<well v-bind="args"><div v-html="args.content" /></well>',
 });
 
 export const Interactive = StoryTemplate.bind({});
-
-const args = {
-	size: null,
-} as Args;
 
 const argTypes = {
 	padding: {
@@ -33,7 +31,6 @@ const argTypes = {
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
-Interactive.args = args;
 
 Interactive.parameters = {
 	design: {
