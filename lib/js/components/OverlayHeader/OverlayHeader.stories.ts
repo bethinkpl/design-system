@@ -11,29 +11,29 @@ export default {
 const StoryTemplate: StoryFn<typeof OverlayHeader> = (args) => ({
 	components: { OverlayHeader },
 	setup() {
-		return { ...args };
+		return { args };
 	},
 	template: `
 			<div style="height: 300px">
-			<overlay-header v-bind=$props>
-				<template v-if="accessorySlot" #accessory>
-					<div style="background: var(--raw-gray-300); height: 100%">{{ accessorySlot }}</div>
+			<overlay-header v-bind=args>
+				<template v-if="args.accessorySlot" #accessory>
+					<div style="background: var(--raw-gray-300); height: 100%">{{ args.accessorySlot }}</div>
 				</template>
-				<template v-if="eyebrowAccessorySlot" #eyebrowAccessory>
-					<div style="background: var(--raw-gray-300); font-size: 10px">{{ eyebrowAccessorySlot }}</div>
+				<template v-if="args.eyebrowAccessorySlot" #eyebrowAccessory>
+					<div style="background: var(--raw-gray-300); font-size: 10px">{{ args.eyebrowAccessorySlot }}</div>
 				</template>
-				<template v-if="titleLeadingSlot" #titleLeading>
-					<div style="background: var(--raw-gray-300);">{{ titleLeadingSlot }}</div>
+				<template v-if="args.titleLeadingSlot" #titleLeading>
+					<div style="background: var(--raw-gray-300);">{{ args.titleLeadingSlot }}</div>
 				</template>
-				<template v-if="titleTrailingSlot" #titleTrailing>
-					<div style="background: var(--raw-gray-300); white-space: nowrap">{{ titleTrailingSlot }}</div>
+				<template v-if="args.titleTrailingSlot" #titleTrailing>
+					<div style="background: var(--raw-gray-300); white-space: nowrap">{{ args.titleTrailingSlot }}</div>
 				</template>
-				<template v-if="actionsSlot" #actions>
-					<div style="background: var(--raw-gray-300); height: 100%">{{ actionsSlot }}</div>
+				<template v-if="args.actionsSlot" #actions>
+					<div style="background: var(--raw-gray-300); height: 100%">{{ args.actionsSlot }}</div>
 				</template>
-				<template v-if="dropdownSlot" #dropdown="{ close }">
-					<div style="background: var(--raw-gray-300);">{{ dropdownSlot }}</div>
-					<div style="background: var(--raw-gray-300);">{{ dropdownSlot }}</div>
+				<template v-if="args.dropdownSlot" #dropdown="{ close }">
+					<div style="background: var(--raw-gray-300);">{{ args.dropdownSlot }}</div>
+					<div style="background: var(--raw-gray-300);">{{ args.dropdownSlot }}</div>
 				</template>
 			</overlay-header>
 			</div>`,
