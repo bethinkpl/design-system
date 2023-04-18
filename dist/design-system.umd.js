@@ -2031,6 +2031,111 @@ var update = add("7b97495c", content, true, {"sourceMap":false,"shadowMode":fals
 
 /***/ }),
 
+/***/ "1ceb":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js?{"cacheDirectory":"node_modules/.cache/vue-loader","cacheIdentifier":"cc3452f0-vue-loader-template"}!./node_modules/@vue/cli-service/node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./lib/js/components/Well/Well.vue?vue&type=template&id=40030524&scoped=true&
+var render = function () {var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;return _c('div',{staticClass:"well",class:{
+		'-medium': _vm.WELL_PADDINGS.MEDIUM === _vm.padding,
+		'-small': _vm.WELL_PADDINGS.SMALL === _vm.padding,
+	}},[_vm._t("default")],2)}
+var staticRenderFns = []
+
+
+// CONCATENATED MODULE: ./lib/js/components/Well/Well.vue?vue&type=template&id=40030524&scoped=true&
+
+// EXTERNAL MODULE: ./lib/js/components/Well/Well.consts.ts
+var Well_consts = __webpack_require__("af89");
+
+// CONCATENATED MODULE: ./node_modules/cache-loader/dist/cjs.js??ref--0-0!./node_modules/@vue/cli-service/node_modules/vue-loader/lib??vue-loader-options!./lib/js/components/Well/Well.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ var Wellvue_type_script_lang_js_ = ({
+	name: 'Well',
+	props: {
+		padding: {
+			type: String,
+			default: null,
+			validator(padding) {
+				return Object.values(Well_consts["WELL_PADDINGS"]).includes(padding);
+			},
+		},
+	},
+	data() {
+		return {
+			WELL_PADDINGS: Object.freeze(Well_consts["WELL_PADDINGS"]),
+		};
+	},
+});
+
+// CONCATENATED MODULE: ./lib/js/components/Well/Well.vue?vue&type=script&lang=js&
+ /* harmony default export */ var Well_Wellvue_type_script_lang_js_ = (Wellvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./lib/js/components/Well/Well.vue?vue&type=style&index=0&id=40030524&scoped=true&lang=scss&
+var Wellvue_type_style_index_0_id_40030524_scoped_true_lang_scss_ = __webpack_require__("adff");
+
+// EXTERNAL MODULE: ./node_modules/@vue/cli-service/node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__("0c7c");
+
+// CONCATENATED MODULE: ./lib/js/components/Well/Well.vue
+
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  Well_Wellvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  "40030524",
+  null
+  
+)
+
+/* harmony default export */ var Well = __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
 /***/ "1d02":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -4297,6 +4402,20 @@ if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = __webpack_require__("499e").default
 var update = add("872b2cc4", content, true, {"sourceMap":false,"shadowMode":false});
+
+/***/ }),
+
+/***/ "4559":
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__("24fb");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".well[data-v-40030524]{background-color:var(--color-neutral-background);border-radius:6px}.well.-medium[data-v-40030524]{padding:16px}.well.-small[data-v-40030524]{padding:12px}", ""]);
+// Exports
+module.exports = exports;
+
 
 /***/ }),
 
@@ -7215,7 +7334,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.initializeIconsWithDomWatcher = exports.initializeIcons = exports.OverlayHeader = exports.Pagination = exports.IconText = exports.ProgressDonutChart = exports.ProgressBar = exports.Dropdown = exports.PopOver = exports.SelectListItemToggle = exports.SelectListItemDivider = exports.SelectListItem = exports.SelectList = exports.CounterToggle = exports.Pill = exports.Drawer = exports.SectionHeader = exports.Ripple = exports.SurveyQuestionOpenEnded = exports.SurveyQuestionScale = exports.SurveyToggle = exports.BlockadeStatus = exports.AccessStatus = exports.Tile = exports.TabItem = exports.NumberInCircle = exports.DsModalDialog = exports.DsModal = exports.Modal = exports.IconButton = exports.Icon = exports.FeatureIcon = exports.Divider = exports.CardExpandable = exports.Card = exports.ToggleButton = exports.Button = exports.Banner = exports.BadgeScore = exports.Badge = void 0;
+exports.initializeIconsWithDomWatcher = exports.initializeIcons = exports.Well = exports.OverlayHeader = exports.Pagination = exports.IconText = exports.ProgressDonutChart = exports.ProgressBar = exports.Dropdown = exports.PopOver = exports.SelectListItemToggle = exports.SelectListItemDivider = exports.SelectListItem = exports.SelectList = exports.CounterToggle = exports.Pill = exports.Drawer = exports.SectionHeader = exports.Ripple = exports.SurveyQuestionOpenEnded = exports.SurveyQuestionScale = exports.SurveyToggle = exports.BlockadeStatus = exports.AccessStatus = exports.Tile = exports.TabItem = exports.NumberInCircle = exports.DsModalDialog = exports.DsModal = exports.Modal = exports.IconButton = exports.Icon = exports.FeatureIcon = exports.Divider = exports.CardExpandable = exports.Card = exports.ToggleButton = exports.Button = exports.Banner = exports.BadgeScore = exports.Badge = void 0;
 var Badge_1 = __webpack_require__("2449");
 Object.defineProperty(exports, "Badge", { enumerable: true, get: function () { return __importDefault(Badge_1).default; } });
 __exportStar(__webpack_require__("2449"), exports);
@@ -7322,6 +7441,9 @@ __exportStar(__webpack_require__("7543"), exports);
 var OverlayHeader_1 = __webpack_require__("7aae");
 Object.defineProperty(exports, "OverlayHeader", { enumerable: true, get: function () { return __importDefault(OverlayHeader_1).default; } });
 __exportStar(__webpack_require__("0104"), exports);
+var Well_1 = __webpack_require__("a254");
+Object.defineProperty(exports, "Well", { enumerable: true, get: function () { return __importDefault(Well_1).default; } });
+__exportStar(__webpack_require__("af89"), exports);
 var fontawesome_1 = __webpack_require__("8f1a");
 Object.defineProperty(exports, "initializeIcons", { enumerable: true, get: function () { return fontawesome_1.initialize; } });
 Object.defineProperty(exports, "initializeIconsWithDomWatcher", { enumerable: true, get: function () { return fontawesome_1.initializeWithDomWatcher; } });
@@ -11700,6 +11822,36 @@ exports.aliases = aliases;
 
 /***/ }),
 
+/***/ "a254":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __exportStar = (this && this.__exportStar) || function(m, exports) {
+    for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const Well_vue_1 = __importDefault(__webpack_require__("1ceb"));
+__exportStar(__webpack_require__("af89"), exports);
+exports.default = Well_vue_1.default;
+
+
+/***/ }),
+
 /***/ "a28a":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -12841,6 +12993,32 @@ exports.default = {
             return this.state === SelectListItem_consts_1.SELECT_LIST_ITEM_STATES.LOADING;
         },
     },
+};
+
+
+/***/ }),
+
+/***/ "adff":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_Well_vue_vue_type_style_index_0_id_40030524_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__("f013");
+/* harmony import */ var _node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_Well_vue_vue_type_style_index_0_id_40030524_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_ref_8_oneOf_1_0_node_modules_css_loader_dist_cjs_js_ref_8_oneOf_1_1_node_modules_vue_cli_service_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_2_node_modules_postcss_loader_src_index_js_ref_8_oneOf_1_3_node_modules_sass_loader_dist_cjs_js_ref_8_oneOf_1_4_node_modules_cache_loader_dist_cjs_js_ref_0_0_node_modules_vue_cli_service_node_modules_vue_loader_lib_index_js_vue_loader_options_Well_vue_vue_type_style_index_0_id_40030524_scoped_true_lang_scss___WEBPACK_IMPORTED_MODULE_0__);
+/* unused harmony reexport * */
+
+
+/***/ }),
+
+/***/ "af89":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.WELL_PADDINGS = void 0;
+exports.WELL_PADDINGS = {
+    SMALL: 'small',
+    MEDIUM: 'medium',
 };
 
 
@@ -20011,6 +20189,22 @@ var component = Object(_node_modules_vue_cli_service_node_modules_vue_loader_lib
 )
 
 /* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "f013":
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__("4559");
+if(content.__esModule) content = content.default;
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var add = __webpack_require__("499e").default
+var update = add("0d5df766", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
