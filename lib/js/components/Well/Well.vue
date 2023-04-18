@@ -18,7 +18,6 @@
 .well {
 	background-color: $color-neutral-background;
 	border-radius: $radius-m;
-	overflow: hidden;
 
 	&.-medium {
 		padding: $space-s;
