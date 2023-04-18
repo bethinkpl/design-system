@@ -80,7 +80,7 @@
     "typescript": "4.6.4",
     "vue": "3.2.45",
     "vue-loader": "17.0.0",
-    "vue-popperjs": "bethinkpl/vue-popper#c5f4116db6d1a2928f88168d388cf8e31f5b2546",
+    "vue-popperjs": "bethinkpl/vue-popper#4714b024fda5c3b66f3f856c5ca2a470ff2cb51e",
     "vue-ripple-directive": "bethinkpl/vue-ripple-directive#3.0.0",
     "vue-svg-loader": "0.17.0-beta.2"
   }
