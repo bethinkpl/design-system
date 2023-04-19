@@ -2,7 +2,7 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import TabItem from './TabItem.vue';
 import { ICONS } from '../Icons/Icon';
-import { TAB_ITEM_SIZES } from "components/TabItem/TabItem.consts";
+import { TAB_ITEM_SIZES } from "./TabItem.consts";
 
 describe('TabItem', () => {
 	const createComponent = ({ isSelected = false } = {}) => {
