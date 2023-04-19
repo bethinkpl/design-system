@@ -291,6 +291,7 @@ import {
 	ICON_BUTTON_TYPES,
 } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
+import { toRaw } from 'vue';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.XX_SMALL]: ICON_SIZES.XXX_SMALL,
@@ -332,7 +333,7 @@ export default {
 			type: Object,
 			required: true,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		color: {

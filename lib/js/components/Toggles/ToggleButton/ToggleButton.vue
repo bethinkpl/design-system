@@ -299,21 +299,6 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		// TODO implement me in future
-		// iconLeft: {
-		// 	type: Object,
-		// 	default: null,
-		// 	validator(icon) {
-		// 		return Object.values(ICONS).includes(icon);
-		// 	},
-		// },
-		// iconRight: {
-		// 	type: Object,
-		// 	default: null,
-		// 	validator(icon) {
-		// 		return Object.values(ICONS).includes(icon);
-		// 	},
-		// },
 		elevation: {
 			type: String,
 			default: TOGGLE_BUTTON_ELEVATIONS.NONE,

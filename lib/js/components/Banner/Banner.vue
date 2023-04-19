@@ -295,6 +295,7 @@ import DsIcon from '../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
 import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Banner',
@@ -308,7 +309,7 @@ export default {
 		icon: {
 			type: Object,
 			default: null,
-			validator: (icon) => Object.values(ICONS).includes(icon),
+			validator: (icon) => Object.values(ICONS).includes(toRaw(icon)),
 		},
 		buttonText: {
 			type: String,

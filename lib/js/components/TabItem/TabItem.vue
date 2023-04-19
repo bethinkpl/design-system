@@ -34,6 +34,7 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 
 <script lang="ts">
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'TabItem',
@@ -45,7 +46,7 @@ export default {
 			type: Object,
 			required: true,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		isActive: {

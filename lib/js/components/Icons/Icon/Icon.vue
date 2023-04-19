@@ -23,6 +23,7 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import { ICON_SIZES, ICONS } from './Icon.consts';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Icon',
@@ -34,7 +35,7 @@ export default {
 			type: Object,
 			required: true,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		size: {

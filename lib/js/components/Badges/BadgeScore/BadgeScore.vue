@@ -160,6 +160,7 @@ $badge-score-colors: (
 <script lang="ts">
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'BadgeScore',
@@ -187,7 +188,7 @@ export default {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		size: {

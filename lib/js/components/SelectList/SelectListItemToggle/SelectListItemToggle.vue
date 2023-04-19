@@ -17,6 +17,7 @@ import {
 } from '../SelectListItem/SelectListItem.consts';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import SelectListItem from '../SelectListItem/SelectListItem.vue';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'SelectListItemToggle',
@@ -28,14 +29,14 @@ export default {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		iconOn: {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		isOn: {

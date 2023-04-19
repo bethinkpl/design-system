@@ -124,6 +124,7 @@
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { ICON_TEXT_COLORS, ICON_TEXT_SIZES, ICON_TEXT_STATES } from './IconText.consts';
 import { Value } from '../../utils/type.utils';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'IconText',
@@ -141,7 +142,7 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validate: (icon) => Object.values(ICONS).includes(icon),
+			validate: (icon) => Object.values(ICONS).includes(toRaw(icon)),
 		},
 		isInteractive: {
 			type: Boolean,

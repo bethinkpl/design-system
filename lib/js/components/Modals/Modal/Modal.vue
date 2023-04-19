@@ -316,6 +316,7 @@ import { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
 import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../../Buttons/Button';
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Modal',
@@ -347,7 +348,7 @@ export default {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		headerFeatureIconColor: {
@@ -373,7 +374,7 @@ export default {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		footerSecondaryButtonText: {
@@ -384,7 +385,7 @@ export default {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		footerTertiaryButtonText: {
@@ -395,7 +396,7 @@ export default {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		footerCheckboxText: {

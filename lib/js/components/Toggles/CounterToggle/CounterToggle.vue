@@ -273,6 +273,7 @@ $counter-toggle-colors: (
 import Ripple from 'vue-ripple-directive';
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'CounterToggle',
@@ -298,7 +299,7 @@ export default {
 			type: Object,
 			required: true,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		isSelected: {

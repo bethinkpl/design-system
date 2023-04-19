@@ -65,6 +65,7 @@ import {
 } from './Button.consts';
 
 import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
+import { toRaw } from 'vue';
 
 export default {
 	// eslint-disable-next-line vue/no-reserved-component-names
@@ -115,14 +116,14 @@ export default {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		elevation: {
