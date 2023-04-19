@@ -10,9 +10,9 @@
 				class="progressBar__labelText"
 				:class="{
 					'-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM,
-					'-ellipsis': labelEllipsis,
+					'-ellipsis': labelTextEllipsis,
 				}"
-				:title="labelEllipsis ? labelText : ''"
+				:title="labelTextEllipsis ? labelText : ''"
 			>
 				{{ labelText }}
 			</div>
@@ -376,7 +376,7 @@ export default {
 			type: String,
 			default: null,
 		},
-		labelEllipsis: {
+		labelTextEllipsis: {
 			type: Boolean,
 			default: false,
 		},

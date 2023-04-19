@@ -90,7 +90,7 @@ const argTypes = {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_BADGE_COLORS) },
 		defaultValue: PROGRESS_BAR_BADGE_COLORS.INFO,
 	},
-	labelEllipsis: {
+	labelTextEllipsis: {
 		control: { type: 'boolean' },
 		defaultValue: false,
 	},
@@ -181,5 +181,5 @@ Compact.args = {
 	labelData: '30',
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
-	labelEllipsis: false,
+	labelTextEllipsis: false,
 } as Args;
