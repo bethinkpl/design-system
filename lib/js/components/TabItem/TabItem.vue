@@ -1,17 +1,17 @@
 <template>
-    <div
-        class="tabItem"
-        :title="label"
-        :class="{
-          '-sizeMedium': size === TAB_ITEM_SIZES.MEDIUM,
-          '-sizeSmall': size === TAB_ITEM_SIZES.SMALL,
-          '-isSelected': isSelected,
-        }"
-        @click="$emit('click')"
-    >
-        <wnl-icon class="tabItem__icon" :icon="icon" :size="iconSize"/>
-        <span class="tabItem__label">{{ label }}</span>
-    </div>
+	<div
+		class="tabItem"
+		:title="label"
+		:class="{
+			'-sizeMedium': size === TAB_ITEM_SIZES.MEDIUM,
+			'-sizeSmall': size === TAB_ITEM_SIZES.SMALL,
+			'-isSelected': isSelected,
+		}"
+		@click="$emit('click')"
+	>
+		<wnl-icon class="tabItem__icon" :icon="icon" :size="iconSize" />
+		<span class="tabItem__label">{{ label }}</span>
+	</div>
 </template>
 
 <style scoped lang="scss">
@@ -80,39 +80,40 @@
 import { VueConstructor } from 'vue';
 
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { TAB_ITEM_SIZES } from "./TabItem.consts";
+import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 export default {
-    name: 'TabItem',
-    components: {
-        WnlIcon,
-    },
-    props: {
-        icon: {
-            type: Object,
-            required: true,
-            validator(icon: VueConstructor) {
-                return Object.values(ICONS).includes(icon);
-            },
-        },
-        isSelected: {
-            type: Boolean,
-            required: true,
-        },
-        label: {
-            type: String,
-            required: true,
-        },
-        size: {
-            type: String,
-            default: TAB_ITEM_SIZES.MEDIUM,
-        }
-    },
-    data() {
-        return {
-            iconSize: this.size === TAB_ITEM_SIZES.MEDIUM ? ICON_SIZES.X_SMALL : ICON_SIZES.XX_SMALL,
-            TAB_ITEM_SIZES: Object.freeze(TAB_ITEM_SIZES),
-        };
-    },
+	name: 'TabItem',
+	components: {
+		WnlIcon,
+	},
+	props: {
+		icon: {
+			type: Object,
+			required: true,
+			validator(icon: VueConstructor) {
+				return Object.values(ICONS).includes(icon);
+			},
+		},
+		isSelected: {
+			type: Boolean,
+			required: true,
+		},
+		label: {
+			type: String,
+			required: true,
+		},
+		size: {
+			type: String,
+			default: TAB_ITEM_SIZES.MEDIUM,
+		},
+	},
+	data() {
+		return {
+			iconSize:
+				this.size === TAB_ITEM_SIZES.MEDIUM ? ICON_SIZES.X_SMALL : ICON_SIZES.XX_SMALL,
+			TAB_ITEM_SIZES: Object.freeze(TAB_ITEM_SIZES),
+		};
+	},
 };
 </script>

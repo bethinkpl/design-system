@@ -2,7 +2,7 @@ import { createLocalVue, shallowMount } from '@vue/test-utils';
 
 import TabItem from './TabItem.vue';
 import { ICONS } from '../Icons/Icon';
-import { TAB_ITEM_SIZES } from "./TabItem.consts";
+import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 describe('TabItem', () => {
 	const createComponent = ({ isSelected = false } = {}) => {
@@ -15,7 +15,7 @@ describe('TabItem', () => {
 				icon: ICONS.FA_CALENDAR_DAYS,
 				isSelected,
 				label: 'Lorem ipsum dolor sit amet',
-				size: TAB_ITEM_SIZES.MEDIUM
+				size: TAB_ITEM_SIZES.MEDIUM,
 			},
 		});
 	};
