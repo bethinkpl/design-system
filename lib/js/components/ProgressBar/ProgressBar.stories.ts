@@ -1,12 +1,12 @@
 import ProgressBar from './ProgressBar.vue';
 import {
-	PROGRESS_BAR_RANGE_COLORS,
-	PROGRESS_BAR_SIZES,
+	PROGRESS_BAR_BADGE_COLORS,
+	PROGRESS_BAR_LABEL_TEXT_SIZES,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_RADII,
+	PROGRESS_BAR_RANGE_COLORS,
+	PROGRESS_BAR_SIZES,
 	ProgressBarRange,
-	PROGRESS_BAR_LABEL_TEXT_SIZES,
-	PROGRESS_BAR_BADGE_COLORS,
 } from './ProgressBar.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
@@ -89,6 +89,10 @@ const argTypes = {
 	badgeColor: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_BADGE_COLORS) },
 		defaultValue: PROGRESS_BAR_BADGE_COLORS.INFO,
+	},
+	labelEllipsis: {
+		control: { type: 'boolean' },
+		defaultValue: false,
 	},
 } as ArgTypes;
 
@@ -177,4 +181,5 @@ Compact.args = {
 	labelData: '30',
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
+	labelEllipsis: false,
 } as Args;
