@@ -1,38 +1,77 @@
 <template>
-	<div
-		class="a-tabItem"
-		:title="title"
-		:class="{ '-isActive': isActive }"
-		@click="$emit('click')"
-	>
-		<wnl-icon :icon="icon" :size="ICON_SIZES.X_SMALL" />
-	</div>
+    <div
+        class="tabItem"
+        :title="label"
+        :class="{
+          '-sizeMedium': size === TAB_ITEM_SIZES.MEDIUM,
+          '-sizeSmall': size === TAB_ITEM_SIZES.SMALL,
+          '-isSelected': isSelected,
+        }"
+        @click="$emit('click')"
+    >
+        <wnl-icon class="tabItem__icon" :icon="icon" :size="iconSize"/>
+        <span class="tabItem__label">{{ label }}</span>
+    </div>
 </template>
 
 <style scoped lang="scss">
-@import '../../../styles/settings/icons';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
-$tab-item-width: (2 * $space-s) + $icon-xs;
+.tabItem {
+	$self: &;
 
-.a-tabItem {
+	align-items: center;
 	border-bottom: 1px solid $color-neutral-border;
-	color: $color-neutral-icon;
 	cursor: pointer;
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
-	padding: $space-xxs $space-s;
-	width: $tab-item-width;
+
+	&__icon {
+		color: $color-neutral-icon;
+	}
+
+	&__label {
+		color: $color-neutral-text;
+	}
 
 	&:hover {
 		border-bottom-color: $color-default-border;
-		color: $color-default-icon;
+
+		#{$self}__icon {
+			color: $color-default-icon;
+		}
+
+		#{$self}__label {
+			color: $color-default-text;
+		}
 	}
 
-	&.-isActive {
+	&.-isSelected {
 		border-bottom-color: $color-primary-border;
-		color: $color-primary-icon;
+
+		#{$self}__icon {
+			color: $color-primary-icon;
+		}
+
+		#{$self}__label {
+			color: $color-primary-text;
+		}
+	}
+
+	&.-sizeSmall {
+		@include label-m-default-bold;
+
+		column-gap: $space-xxxxs;
+		padding: $space-xs;
+	}
+
+	&.-sizeMedium {
+		@include label-l-default-bold;
+
+		column-gap: $space-xxs;
+		padding: $space-xs $space-s;
 	}
 }
 </style>
@@ -41,33 +80,39 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 import { VueConstructor } from 'vue';
 
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import { TAB_ITEM_SIZES } from "./TabItem.consts";
 
 export default {
-	name: 'TabItem',
-	components: {
-		WnlIcon,
-	},
-	props: {
-		icon: {
-			type: Object,
-			required: true,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
-			},
-		},
-		isActive: {
-			type: Boolean,
-			required: true,
-		},
-		title: {
-			type: String,
-			required: true,
-		},
-	},
-	data() {
-		return {
-			ICON_SIZES: Object.freeze(ICON_SIZES),
-		};
-	},
+    name: 'TabItem',
+    components: {
+        WnlIcon,
+    },
+    props: {
+        icon: {
+            type: Object,
+            required: true,
+            validator(icon: VueConstructor) {
+                return Object.values(ICONS).includes(icon);
+            },
+        },
+        isSelected: {
+            type: Boolean,
+            required: true,
+        },
+        label: {
+            type: String,
+            required: true,
+        },
+        size: {
+            type: String,
+            default: TAB_ITEM_SIZES.MEDIUM,
+        }
+    },
+    data() {
+        return {
+            iconSize: this.size === TAB_ITEM_SIZES.MEDIUM ? ICON_SIZES.X_SMALL : ICON_SIZES.XX_SMALL,
+            TAB_ITEM_SIZES: Object.freeze(TAB_ITEM_SIZES),
+        };
+    },
 };
 </script>
