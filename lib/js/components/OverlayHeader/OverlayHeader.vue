@@ -170,7 +170,7 @@
 	}
 
 	&__titleWrapper {
-		flex-shrink: 1;
+		flex-shrink: 0;
 		overflow: hidden;
 
 		&.-interactive {
