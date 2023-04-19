@@ -53,25 +53,24 @@ declare const _default: {
             required: boolean;
             validator(icon: VueConstructor): boolean;
         };
-        isActive: {
+        isSelected: {
             type: BooleanConstructor;
             required: boolean;
         };
-        title: {
+        label: {
             type: StringConstructor;
             required: boolean;
         };
+        size: {
+            type: StringConstructor;
+            default: "M";
+        };
     };
     data(): {
-        ICON_SIZES: Readonly<{
-            XXX_SMALL: string;
-            XX_SMALL: string;
-            X_SMALL: string;
-            SMALL: string;
-            MEDIUM: string;
-            LARGE: string;
-            X_LARGE: string;
-            XX_LARGE: string;
+        iconSize: string;
+        TAB_ITEM_SIZES: Readonly<{
+            readonly SMALL: "S";
+            readonly MEDIUM: "M";
         }>;
     };
 };

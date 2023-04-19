@@ -1442,7 +1442,7 @@ declare const _default: Meta<{
             };
             computed: {
                 calcHeaderFeatureIconColor(): any;
-                calcFooterPrimaryButtonColor(): "primary" | "neutral";
+                calcFooterPrimaryButtonColor(): "neutral" | "primary";
                 calcFooterSecondaryButtonColor(): "neutral" | "danger";
                 calcSingleColumn(): boolean;
                 displayFooter(): any;
@@ -2950,7 +2950,7 @@ export declare const Interactive: StoryFn<{
             };
             computed: {
                 calcHeaderFeatureIconColor(): any;
-                calcFooterPrimaryButtonColor(): "primary" | "neutral";
+                calcFooterPrimaryButtonColor(): "neutral" | "primary";
                 calcFooterSecondaryButtonColor(): "neutral" | "danger";
                 calcSingleColumn(): boolean;
                 displayFooter(): any;
@@ -4457,7 +4457,7 @@ export declare const Danger: StoryFn<{
             };
             computed: {
                 calcHeaderFeatureIconColor(): any;
-                calcFooterPrimaryButtonColor(): "primary" | "neutral";
+                calcFooterPrimaryButtonColor(): "neutral" | "primary";
                 calcFooterSecondaryButtonColor(): "neutral" | "danger";
                 calcSingleColumn(): boolean;
                 displayFooter(): any;
@@ -5964,7 +5964,7 @@ export declare const WithImage: StoryFn<{
             };
             computed: {
                 calcHeaderFeatureIconColor(): any;
-                calcFooterPrimaryButtonColor(): "primary" | "neutral";
+                calcFooterPrimaryButtonColor(): "neutral" | "primary";
                 calcFooterSecondaryButtonColor(): "neutral" | "danger";
                 calcSingleColumn(): boolean;
                 displayFooter(): any;

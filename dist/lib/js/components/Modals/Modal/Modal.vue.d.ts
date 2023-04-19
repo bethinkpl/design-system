@@ -1439,7 +1439,7 @@ declare const _default: {
     };
     computed: {
         calcHeaderFeatureIconColor(): any;
-        calcFooterPrimaryButtonColor(): "primary" | "neutral";
+        calcFooterPrimaryButtonColor(): "neutral" | "primary";
         calcFooterSecondaryButtonColor(): "neutral" | "danger";
         calcSingleColumn(): boolean;
         displayFooter(): any;
