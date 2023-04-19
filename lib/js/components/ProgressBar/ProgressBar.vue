@@ -12,7 +12,7 @@
 					'-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM,
 					'-ellipsis': labelTextEllipsis,
 				}"
-				:title="labelTextEllipsis ? labelText : ''"
+				:title="labelTextEllipsis ? labelText : null"
 			>
 				{{ labelText }}
 			</div>
