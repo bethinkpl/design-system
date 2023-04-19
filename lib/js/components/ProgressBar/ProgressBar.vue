@@ -8,7 +8,11 @@
 		<div v-if="labelText || labelDataExists" class="progressBar__label">
 			<div
 				class="progressBar__labelText"
-				:class="{ '-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM }"
+				:class="{
+					'-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM,
+					'-ellipsis': labelTextEllipsis,
+				}"
+				:title="labelTextEllipsis ? labelText : null"
 			>
 				{{ labelText }}
 			</div>
@@ -219,6 +223,12 @@ $progress-bar-badge-colors: (
 				@include label-xl-default-bold;
 			}
 		}
+
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	&__labelDataWrapper {
@@ -296,15 +306,15 @@ $progress-bar-badge-colors: (
 <script lang="ts">
 import { PropType } from 'vue';
 import {
-	PROGRESS_BAR_SIZES,
-	PROGRESS_BAR_RADII,
-	PROGRESS_BAR_LAYOUTS,
-	ProgressBarRange,
-	PROGRESS_BAR_LABEL_TEXT_SIZES,
 	PROGRESS_BAR_BADGE_COLORS,
+	PROGRESS_BAR_LABEL_TEXT_SIZES,
+	PROGRESS_BAR_LAYOUTS,
+	PROGRESS_BAR_RADII,
+	PROGRESS_BAR_SIZES,
+	ProgressBarRange,
 } from './ProgressBar.consts';
 
-import DsIcon, { ICONS, ICON_SIZES } from '../Icons/Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
 export default {
 	name: 'ProgressBar',
@@ -365,6 +375,10 @@ export default {
 		labelDataSuffix: {
 			type: String,
 			default: null,
+		},
+		labelTextEllipsis: {
+			type: Boolean,
+			default: false,
 		},
 		badgePosition: {
 			type: Number,
