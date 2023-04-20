@@ -1,16 +1,18 @@
 import Drawer from './Drawer.vue';
 import { DRAWER_POSITIONS } from './Drawer.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Drawer',
 	component: Drawer,
 } as Meta<typeof Drawer>;
 
-const StoryTemplate: StoryFn<typeof Drawer> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Drawer> = (args) => ({
 	components: { Drawer },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: `<div style="height: 300px; width: 200px;">
 		<drawer :position="position" :sticky-header="stickyHeader" :sticky-footer="stickyFooter">
 		<template v-slot:header><div style="background-color: var(--raw-gray-100)">Header<br><br></div></template>

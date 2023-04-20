@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import SurveyToggle from './SurveyToggle.vue';
 import {
@@ -15,19 +15,14 @@ describe('SurveyToggle', () => {
 		state = SURVEY_TOGGLE_STATES.DEFAULT,
 		status = SURVEY_TOGGLE_STATUSES.DEFAULT as typeof SURVEY_TOGGLE_STATUSES[keyof typeof SURVEY_TOGGLE_STATUSES], // TODO: make an util
 	} = {}) => {
-		const localVue = createLocalVue();
-
 		return shallowMount(SurveyToggle, {
-			localVue,
-			mocks: {},
-			propsData: {
+			props: {
 				label,
 				color,
 				contentText,
 				state,
 				status,
-			},
-			stubs: {},
+			} as any,
 		});
 	};
 

@@ -2,26 +2,28 @@ import SurveyQuestionScale from './SurveyQuestionScale.vue';
 import { SURVEY_TOGGLE_MEANINGS } from '../../SurveyToggle';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/SurveyQuestions/SurveyQuestionScale',
 	component: SurveyQuestionScale,
 } as Meta<typeof SurveyQuestionScale>;
 
-const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
 	components: { SurveyQuestionScale },
-	props: Object.keys(argTypes),
-	data() {
-		return { selectedValue: null };
+	setup() {
+		return { ...args };
 	},
 	template:
-		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationUpdate">' +
-		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
+		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 		'</survey-question-scale>',
 	methods: {
 		elaborationUpdate(elaborationValue) {
 			updateArgs({ elaborationValue });
+		},
+		selectedValueUpdate(selectedValue) {
+			updateArgs({ selectedValue });
 		},
 	},
 });
@@ -71,8 +73,8 @@ const args = {
 
 const argTypes = {
 	elaborationValue: { control: { type: 'text' } },
-	explanation: { control: { type: 'text' } },
 	selectedValue: { control: false },
+	explanation: { control: { type: 'text' } },
 	scaleOptions: { control: { type: 'object' } },
 	state: {
 		control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) },
@@ -103,22 +105,21 @@ const argTypesDisabled = {
 	'select-change': { control: false },
 } as ArgTypes;
 
-const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (
-	argTypes,
-	{ updateArgs },
-) => ({
+const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
 	components: { SurveyQuestionScale },
-	props: Object.keys(argTypes),
-	data() {
-		return { selectedValue: null };
+	setup() {
+		return { ...args };
 	},
 	template:
-		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValue = $event" @elaboration-change="elaborationUpdate">' +
-		'<div v-if="explanation" slot="explanation" v-html="explanation" />' +
+		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 		'</survey-question-scale></div>',
 	methods: {
 		elaborationUpdate(elaborationValue) {
 			updateArgs({ elaborationValue });
+		},
+		selectedValueUpdate(selectedValue) {
+			updateArgs({ selectedValue });
 		},
 	},
 });
@@ -167,11 +168,13 @@ LimitedWidth.args = {
 	],
 } as Args;
 
-const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes) => ({
+const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
 	components: { SurveyQuestionScale },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	data() {
-		return { selectedValue: '', elaboration: '' };
+		return { elaboration: '' };
 	},
 	created() {
 		this.scaleOptions = [
@@ -220,7 +223,12 @@ const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (argTypes
 		];
 	},
 	template:
-		'<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" @select-change="selectedValue = $event" />',
+		'<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" @select-change="selectedValueUpdate" />',
+	methods: {
+		selectedValueUpdate(selectedValue) {
+			updateArgs({ selectedValue });
+		},
+	},
 });
 
 export const SevenOptions = StorySevenOptionsTemplate.bind({});

@@ -6,16 +6,18 @@ import {
 } from './SurveyToggle.consts';
 import { ICONS } from '../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/SurveyToggle',
 	component: SurveyToggle,
 } as Meta<typeof SurveyToggle>;
 
-const StoryTemplate: StoryFn<typeof SurveyToggle> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof SurveyToggle> = (args) => ({
 	components: { SurveyToggle },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<div style="background-color:#f6f6f8"><survey-toggle :label="label"  :meaning="meaning" :content-text="contentText" :selected-icon="ICONS[selectedIcon]" :status="status" :state="state" /></div>',
 	data() {

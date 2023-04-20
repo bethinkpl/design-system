@@ -1,16 +1,18 @@
 import TabItem from './TabItem.vue';
 import { ICONS } from '../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/TabItem',
 	component: TabItem,
 } as Meta<typeof TabItem>;
 
-const StoryTemplate: StoryFn<typeof TabItem> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof TabItem> = (args) => ({
 	components: { TabItem },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: '<tab-item :icon="ICONS[icon]" :is-active="isActive" :title="title" />',
 	data() {
 		return {

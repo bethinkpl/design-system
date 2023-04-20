@@ -27,8 +27,9 @@
 			:class="{
 				'-neutral': colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL,
 			}"
-			><slot
-		/></div>
+		>
+			<slot />
+		</div>
 		<wnl-button
 			ref="button"
 			class="a-iconButton__button"
@@ -128,6 +129,7 @@
 						}
 					}
 				}
+
 				#{$self}__label {
 					color: map-get($color-map, 'outlined', 'disabled', 'color');
 				}
@@ -258,6 +260,7 @@
 			height: $icon-button-large-size;
 			width: $icon-button-large-size;
 		}
+
 		#{$self}__label {
 			@include button-l-default-bold-uppercase;
 		}
@@ -273,8 +276,6 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
-
 import WnlIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import WnlButton, {
 	BUTTON_COLORS,
@@ -290,6 +291,7 @@ import {
 	ICON_BUTTON_TYPES,
 } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
+import { toRaw } from 'vue';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.XX_SMALL]: ICON_SIZES.XXX_SMALL,
@@ -330,8 +332,8 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		color: {

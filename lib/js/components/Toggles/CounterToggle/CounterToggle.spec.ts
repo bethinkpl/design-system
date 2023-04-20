@@ -4,12 +4,12 @@ import CounterToggle from './CounterToggle.vue';
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import { ICONS } from '../../Icons/Icon';
 
-const DEFAULT_ICON = ICONS.FA_XMARK;
+const DEFAULT_ICON = Object.freeze(ICONS.FA_XMARK);
 
 describe('CounterToggle', () => {
 	const createComponent = (props = {}) => {
 		return shallowMount(CounterToggle, {
-			propsData: { icon: DEFAULT_ICON, ...props },
+			props: { icon: DEFAULT_ICON, ...props } as any,
 		});
 	};
 
@@ -37,10 +37,10 @@ describe('CounterToggle', () => {
 	});
 
 	it('should render icon', () => {
-		const icon = createComponent({ icon: ICONS.FA_XMARK });
-		let iconElement = icon.find('.counterToggle__icon');
+		const icon = createComponent({ icon: Object.freeze(ICONS.FA_XMARK) });
+		let iconElement = icon.findComponent<typeof CounterToggle>('.counterToggle__icon');
 		expect(iconElement.exists()).toBe(true);
-		expect(iconElement.props().icon).toBe(ICONS.FA_XMARK);
+		expect(iconElement.props().icon).toEqual(Object.freeze(ICONS.FA_XMARK));
 	});
 
 	test.each([

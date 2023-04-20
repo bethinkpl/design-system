@@ -1,10 +1,5 @@
 <template>
-	<div
-		class="a-tabItem"
-		:title="title"
-		:class="{ '-isActive': isActive }"
-		@click="$emit('click')"
-	>
+	<div class="a-tabItem" :title="title" :class="{ '-isActive': isActive }">
 		<wnl-icon :icon="icon" :size="ICON_SIZES.X_SMALL" />
 	</div>
 </template>
@@ -38,9 +33,8 @@ $tab-item-width: (2 * $space-s) + $icon-xs;
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
-
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'TabItem',
@@ -51,8 +45,8 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		isActive: {

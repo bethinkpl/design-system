@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 
 import Tile from './Tile.vue';
 import { ICONS } from '../Icons/Icon';
@@ -13,11 +13,8 @@ const createComponent = function ({
 	iconRight = null,
 	isEyebrowTextUppercase = false,
 }: createComponentOptions) {
-	const localVue = createLocalVue();
-	return shallowMount(Tile, {
-		localVue,
-		mocks: {},
-		propsData: {
+	return mount(Tile, {
+		props: {
 			text,
 			eyebrowText,
 			interactive,
@@ -25,8 +22,7 @@ const createComponent = function ({
 			iconLeft,
 			iconRight,
 			isEyebrowTextUppercase,
-		},
-		stubs: {},
+		} as any,
 	});
 };
 
@@ -62,7 +58,7 @@ describe('Tile', () => {
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
 			interactive: true,
-			iconRight: ICONS.FA_CHEVRON_RIGHT,
+			iconRight: Object.freeze(ICONS.FA_CHEVRON_RIGHT),
 		};
 		const component = createComponent(props);
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
@@ -78,8 +74,8 @@ describe('Tile', () => {
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
 			interactive: true,
-			iconRight: ICONS.FA_CHEVRON_RIGHT,
-			iconLeft: ICONS.FA_BOX_ARCHIVE,
+			iconRight: Object.freeze(ICONS.FA_CHEVRON_RIGHT),
+			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		};
 		const component = createComponent(props);
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
@@ -95,7 +91,7 @@ describe('Tile', () => {
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
 			interactive: true,
-			iconLeft: ICONS.FA_BOX_ARCHIVE,
+			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
@@ -108,7 +104,7 @@ describe('Tile', () => {
 		const component = createComponent({
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
-			iconLeft: ICONS.FA_BOX_ARCHIVE,
+			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
@@ -121,8 +117,8 @@ describe('Tile', () => {
 		const component = createComponent({
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
-			iconRight: ICONS.FA_ANGLE_RIGHT,
-			iconLeft: ICONS.FA_BOX_ARCHIVE,
+			iconRight: Object.freeze(ICONS.FA_ANGLE_RIGHT),
+			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
@@ -136,7 +132,7 @@ describe('Tile', () => {
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
-			iconLeft: ICONS.FA_BOX_ARCHIVE,
+			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');
@@ -150,8 +146,8 @@ describe('Tile', () => {
 			text: 'text text',
 			eyebrowText: 'eyebrowText text',
 			additionalText: 'additionalText text',
-			iconRight: ICONS.FA_ANGLE_RIGHT,
-			iconLeft: ICONS.FA_BOX_ARCHIVE,
+			iconRight: Object.freeze(ICONS.FA_ANGLE_RIGHT),
+			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
 		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
 		expect(component.find('.a-tile__text').text()).toBe('text text');

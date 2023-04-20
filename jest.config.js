@@ -12,17 +12,14 @@ module.exports = {
 	transform: {
 		'^.+\\.js$': 'babel-jest',
 		'^.+\\.ts$': 'ts-jest',
-		'.*\\.(vue)$': 'vue-jest',
+		'.*\\.(vue)$': '@vue/vue3-jest',
 		'^.+\\.scss': '<rootDir>/lib/js/tests/emptyTransformer.ts',
 		'^.+\\.svg$': '<rootDir>/lib/js/tests/emptyTransformer.ts',
 	},
 	moduleFileExtensions: ['js', 'vue', 'json', 'ts'],
 
 	setupFilesAfterEnv: ['<rootDir>/lib/js/typings.d.ts', '<rootDir>/lib/js/tests/globals.ts'],
-	globals: {
-		'ts-jest': {
-			tsconfig: './tsconfig.json',
-			isolatedModules: true,
-		},
+	testEnvironmentOptions: {
+		customExportConditions: ['node', 'node-addons'],
 	},
 };

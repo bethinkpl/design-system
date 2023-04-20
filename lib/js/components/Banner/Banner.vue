@@ -14,10 +14,7 @@
 				<div class="ds-banner__textWrapper">
 					<div class="ds-banner__titleWrapper">
 						<div class="ds-banner__title" v-text="title" />
-						<div
-							v-if="$slots.defaultText && $slots.defaultText.length > 0"
-							class="ds-banner__defaultText"
-						>
+						<div v-if="$slots.defaultText" class="ds-banner__defaultText">
 							<slot name="defaultText" />
 						</div>
 					</div>
@@ -28,50 +25,38 @@
 								:color="BUTTON_COLORS.NEUTRAL"
 								:type="BUTTON_TYPES.OUTLINED"
 								:size="BUTTON_SIZES.SMALL"
-								@click.native="$emit('button-clicked')"
+								@click="$emit('button-clicked')"
 								>{{ buttonText }}
 							</ds-button>
 						</div>
-						<div
-							v-if="$slots.rightSlot && $slots.rightSlot.length > 0"
-							class="ds-banner__rightSlot"
-						>
+						<div v-if="$slots.rightSlot" class="ds-banner__rightSlot">
 							<slot name="rightSlot" />
 						</div>
 					</div>
 				</div>
 			</div>
-			<div
-				v-if="$slots.expandedText && $slots.expandedText.length > 0"
-				class="ds-banner__expander"
-			>
+			<div v-if="$slots.expandedText" class="ds-banner__expander">
 				<ds-icon-button
 					:size="ICON_BUTTON_SIZES.SMALL"
 					:icon="isExpandedInternal ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:radius="BUTTON_RADIUSES.CAPSULE"
 					:touchable="false"
-					@click.native="toggleExpandedText"
+					@click="toggleExpandedText"
 				/>
 			</div>
-			<div
-				v-if="!($slots.expandedText && $slots.expandedText.length > 0) && closable"
-				class="ds-banner__close"
-			>
+			<div v-if="!$slots.expandedText && closable" class="ds-banner__close">
 				<ds-icon-button
 					:size="ICON_BUTTON_SIZES.SMALL"
 					:icon="ICONS.FA_XMARK"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:radius="BUTTON_RADIUSES.CAPSULE"
 					:touchable="false"
-					@click.native="$emit('close')"
+					@click="$emit('close')"
 				/>
 			</div>
 		</div>
-		<div
-			v-if="$slots.expandedText && $slots.expandedText.length > 0 && isExpandedInternal"
-			class="ds-banner__expandedContainer"
-		>
+		<div v-if="$slots.expandedText && isExpandedInternal" class="ds-banner__expandedContainer">
 			<ds-divider :prominence="DIVIDER_PROMINENCES.STRONG" />
 			<div class="ds-banner__expandedText">
 				<slot name="expandedText" />
@@ -299,9 +284,6 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
-
-import { Prop } from 'vue/types/options';
 import DsButton, {
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
@@ -313,6 +295,7 @@ import DsIcon from '../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
 import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Banner',
@@ -324,9 +307,9 @@ export default {
 	},
 	props: {
 		icon: {
-			type: Object as Prop<VueConstructor>,
+			type: Object,
 			default: null,
-			validator: (icon: VueConstructor) => Object.values(ICONS).includes(icon),
+			validator: (icon) => Object.values(ICONS).includes(toRaw(icon)),
 		},
 		buttonText: {
 			type: String,

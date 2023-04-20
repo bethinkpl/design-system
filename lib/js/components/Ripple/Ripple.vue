@@ -11,43 +11,43 @@
 @import '../../../styles/settings/colors/tokens';
 
 .rippleWrapper {
-	&.-color-accent::v-deep .ripple {
+	&.-color-accent:deep(.ripple) {
 		background-color: $color-accent-ripple !important;
 	}
 
-	&.-color-danger::v-deep .ripple {
+	&.-color-danger:deep(.ripple) {
 		background-color: $color-danger-ripple !important;
 	}
 
-	&.-color-default::v-deep .ripple {
+	&.-color-default:deep(.ripple) {
 		background-color: $color-default-ripple !important;
 	}
 
-	&.-color-fail::v-deep .ripple {
+	&.-color-fail:deep(.ripple) {
 		background-color: $color-fail-ripple !important;
 	}
 
-	&.-color-info::v-deep .ripple {
+	&.-color-info:deep(.ripple) {
 		background-color: $color-info-ripple !important;
 	}
 
-	&.-color-inverted::v-deep .ripple {
+	&.-color-inverted:deep(.ripple) {
 		background-color: $color-inverted-ripple !important;
 	}
 
-	&.-color-neutral::v-deep .ripple {
+	&.-color-neutral:deep(.ripple) {
 		background-color: $color-neutral-ripple !important;
 	}
 
-	&.-color-primary::v-deep .ripple {
+	&.-color-primary:deep(.ripple) {
 		background-color: $color-primary-ripple !important;
 	}
 
-	&.-color-success::v-deep .ripple {
+	&.-color-success:deep(.ripple) {
 		background-color: $color-success-ripple !important;
 	}
 
-	&.-color-warning::v-deep .ripple {
+	&.-color-warning:deep(.ripple) {
 		background-color: $color-warning-ripple !important;
 	}
 }

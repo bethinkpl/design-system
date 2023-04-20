@@ -1,4 +1,4 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import IconText from './IconText.vue';
 import { ICON_TEXT_COLORS, ICON_TEXT_SIZES, ICON_TEXT_STATES } from './IconText.consts';
 import { ICONS } from '../Icons/Icon';
@@ -8,19 +8,21 @@ export default {
 	component: IconText,
 } as Meta<typeof IconText>;
 
-const StoryTemplate: StoryFn<typeof IconText> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof IconText> = (args) => ({
 	components: { IconText },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: `
-		<icon-text
-			:color="color"
-			:icon="ICONS[icon]"
-			:label="label"
-			:is-interactive="isInteractive"
-			:is-label-bold="isLabelBold"
-			:size="size"
-			:state="state"
-		/>`,
+			<icon-text
+					:color="color"
+					:icon="ICONS[icon]"
+					:label="label"
+					:is-interactive="isInteractive"
+					:is-label-bold="isLabelBold"
+					:size="size"
+					:state="state"
+			/>`,
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

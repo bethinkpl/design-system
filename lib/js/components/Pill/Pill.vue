@@ -28,7 +28,7 @@
 			:size="ICON_BUTTON_SIZES.XX_SMALL"
 			:icon="ICONS.FA_XMARK"
 			:elevation="BUTTON_ELEVATIONS.X_SMALL"
-			@click.native="$emit('delete')"
+			@click="$emit('delete')"
 		/>
 	</div>
 </template>
@@ -199,8 +199,8 @@ import IconButton, {
 } from '../Buttons/IconButton';
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
-import { VueConstructor } from 'vue';
 import { Value } from '../../utils/type.utils';
+import { toRaw } from 'vue';
 
 const PILL_ICON_BUTTONS_COLOR_MAP = {
 	[PILL_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
@@ -224,8 +224,8 @@ export default {
 		leftIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		size: {

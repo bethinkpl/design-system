@@ -8,7 +8,7 @@
 				:size="ICON_SIZES.SMALL"
 				:elevation="BUTTON_ELEVATIONS.X_SMALL"
 				:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
-				@click.native.stop="$emit('close-modal')"
+				@click.stop="$emit('close-modal')"
 			/>
 			<div class="ds-modal__scrollableWrapper">
 				<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
@@ -312,11 +312,11 @@ $image-height-small: 140px;
 <script lang="ts">
 import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
-import { VueConstructor } from 'vue';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
 import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../../Buttons/Button';
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Modal',
@@ -347,8 +347,8 @@ export default {
 		headerFeatureIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		headerFeatureIconColor: {
@@ -373,8 +373,8 @@ export default {
 		footerPrimaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		footerSecondaryButtonText: {
@@ -384,8 +384,8 @@ export default {
 		footerSecondaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		footerTertiaryButtonText: {
@@ -395,8 +395,8 @@ export default {
 		footerTertiaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		footerCheckboxText: {

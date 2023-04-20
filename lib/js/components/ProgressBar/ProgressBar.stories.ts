@@ -9,21 +9,20 @@ import {
 	ProgressBarRange,
 } from './ProgressBar.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/ProgressBar',
 	component: ProgressBar,
 } as Meta<typeof ProgressBar>;
 
-const StoryTemplate: StoryFn<typeof ProgressBar> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof ProgressBar> = (args) => ({
 	components: { ProgressBar },
-	props: Object.keys(argTypes),
+	setup() {
+		return { args };
+	},
 	template: `
-			<ProgressBar
-					v-bind=$props
-					:badge-position="(typeof ($props.badgePosition) === 'undefined' || $props.badgePosition === '') ? null : parseInt($props.badgePosition, 10)"
-			/>`,
+			<progress-bar v-bind=args></progress-bar>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

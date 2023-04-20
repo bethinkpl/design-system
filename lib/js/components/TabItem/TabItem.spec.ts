@@ -1,17 +1,13 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import TabItem from './TabItem.vue';
 import { ICONS } from '../Icons/Icon';
 
 describe('TabItem', () => {
 	const createComponent = ({ isActive = false } = {}) => {
-		const localVue = createLocalVue();
-
 		return shallowMount(TabItem, {
-			localVue,
-			mocks: {},
-			propsData: {
-				icon: ICONS.FA_CALENDAR_DAYS,
+			props: {
+				icon: Object.freeze(ICONS.FA_CALENDAR_DAYS),
 				isActive,
 				title: 'Lorem ipsum dolor sit amet',
 			},

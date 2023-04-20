@@ -4,7 +4,7 @@
 			<slot name="explanation" />
 			<template #footer>
 				<div>
-					<ds-button :type="BUTTON_TYPES.OUTLINED" @click.native="showModal = false">
+					<ds-button :type="BUTTON_TYPES.OUTLINED" @click="showModal = false">
 						OK, rozumiem
 					</ds-button>
 				</div>
@@ -21,20 +21,19 @@
 						:icon="ICONS.FA_CIRCLE_QUESTION"
 						:size="ICON_SIZES.MEDIUM"
 						:touchable="false"
-						@click.native="showModal = true"
+						@click="showModal = true"
 					/>
 				</div>
 				<div class="surveyQuestionScale__content">
-					<template v-for="(option, index) in scaleOptions">
+					<template
+						v-for="(option, index) in scaleOptions"
+						:key="`surveyQuestionScale-${index}`"
+					>
 						<div
 							v-if="option.standalone"
-							:key="`surveyQuestionScale__toggleSeparator-${index}`"
 							class="surveyQuestionScale__toggleSeparator"
 						/>
-						<div
-							:key="`surveyQuestionScale__toggle${index}`"
-							class="surveyQuestionScale__toggle"
-						>
+						<div class="surveyQuestionScale__toggle">
 							<survey-toggle
 								:meaning="option.meaning"
 								:content-text="option.content"
@@ -159,8 +158,6 @@
 </style>
 
 <script lang="ts">
-import { Prop } from 'vue/types/options';
-
 import DsCard from '../../Cards/Card';
 import IconButton from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
@@ -200,7 +197,7 @@ export default {
 			},
 		},
 		scaleOptions: {
-			type: Array as Prop<Array<SurveyQuestionScaleOption>>,
+			type: Array as () => Array<SurveyQuestionScaleOption>,
 			required: true,
 			validator(scaleOptions) {
 				return scaleOptions.every((option) => typeof option === 'object');

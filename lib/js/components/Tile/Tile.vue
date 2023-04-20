@@ -238,9 +238,9 @@ $tile-colors: (
 <script lang="ts">
 import DsRipple, { RIPPLE_COLORS } from '../Ripple';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { VueConstructor } from 'vue';
 import { TILE_COLORS, TILE_STATES } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Tile',
@@ -256,15 +256,15 @@ export default {
 		iconLeft: {
 			type: Object,
 			default: null,
-			validator(iconLeft: VueConstructor) {
-				return Object.values(ICONS).includes(iconLeft);
+			validator(iconLeft) {
+				return Object.values(ICONS).includes(toRaw(iconLeft));
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
-			validator(iconRight: VueConstructor) {
-				return Object.values(ICONS).includes(iconRight);
+			validator(iconRight) {
+				return Object.values(ICONS).includes(toRaw(iconRight));
 			},
 		},
 		text: {

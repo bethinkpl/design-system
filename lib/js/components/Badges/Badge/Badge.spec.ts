@@ -1,20 +1,15 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import Badge from './Badge.vue';
 import { BADGE_COLORS } from './Badge.consts';
 
 describe('Badge', () => {
 	const createComponent = ({ label = '' } = {}) => {
-		const localVue = createLocalVue();
-
 		return shallowMount(Badge, {
-			localVue,
-			mocks: {},
-			propsData: {
+			props: {
 				label,
 				color: BADGE_COLORS.NEUTRAL,
-			},
-			stubs: {},
+			} as any,
 		});
 	};
 

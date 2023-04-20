@@ -118,9 +118,9 @@ $feature-icon-padding-large: 10px;
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
 import WnlIcon, { ICONS, ICON_SIZES } from '../Icon';
 import { FEATURE_ICON_SIZES, FEATURE_ICON_COLOR } from './FeatureIcon.consts';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'FeatureIcon',
@@ -131,8 +131,8 @@ export default {
 		icon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		size: {

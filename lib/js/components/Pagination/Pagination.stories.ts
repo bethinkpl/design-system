@@ -1,26 +1,28 @@
 import Pagination from './Pagination.vue';
 
-import { ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Pagination',
 	component: Pagination,
 } as Meta<typeof Pagination>;
 
-const StoryTemplate: StoryFn<typeof Pagination> = (argTypes, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof Pagination> = (args, { updateArgs }) => ({
 	components: { Pagination },
-	props: Object.keys(argTypes),
+	setup() {
+		return { args };
+	},
 	methods: {
 		onChangePage(currentPage) {
 			updateArgs({ currentPage });
 		},
 	},
 	template: `
-		<Pagination v-bind=$props @change-page="onChangePage">
+			<Pagination v-bind=args @change-page="onChangePage">
 			<template #accessory>
-				<div v-if="accessory" v-html="accessory" />
+				<div v-if="args.accessory" v-html="args.accessory" />
 			</template>
-		</Pagination>`,
+			</Pagination>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

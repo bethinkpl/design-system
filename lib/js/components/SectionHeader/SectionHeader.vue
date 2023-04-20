@@ -158,6 +158,7 @@ $icons-and-slot-min-height-l: 50px;
 <script lang="ts">
 import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
 import DsIcon, { IconItem, ICONS, ICON_SIZES } from '../Icons/Icon';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'SectionHeader',
@@ -177,7 +178,7 @@ export default {
 			type: Object as () => IconItem,
 			default: null,
 			validator(iconLeft: IconItem) {
-				return Object.values(ICONS).includes(iconLeft);
+				return Object.values(ICONS).includes(toRaw(iconLeft));
 			},
 		},
 		isExpanded: {

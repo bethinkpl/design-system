@@ -134,6 +134,7 @@ $badge-score-colors: (
 
 		min-width: $badge-score-small-min-width;
 		padding: $space-xxs $space-xxs;
+
 		#{$self}__suffix {
 			@include label-l-default-bold;
 		}
@@ -159,7 +160,7 @@ $badge-score-colors: (
 <script lang="ts">
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
-import { VueConstructor } from 'vue';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'BadgeScore',
@@ -186,8 +187,8 @@ export default {
 		icon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		size: {

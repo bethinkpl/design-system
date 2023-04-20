@@ -1,16 +1,18 @@
 import NumberInCircle from './NumberInCircle.vue';
 import { NUMBER_IN_CIRCLE_COLORS } from './NumberInCircle.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/NumberInCircle',
 	component: NumberInCircle,
 } as Meta<typeof NumberInCircle>;
 
-const StoryTemplate: StoryFn<typeof NumberInCircle> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof NumberInCircle> = (args) => ({
 	components: { NumberInCircle },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<number-in-circle :index="index" :color="color" :medium="medium">{{slotText}}</number-in-circle>',
 });
