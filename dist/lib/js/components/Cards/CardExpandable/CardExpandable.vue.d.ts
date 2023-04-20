@@ -1,97 +1,12 @@
+import DsCard from '../Card/';
 declare const _default: {
     name: string;
     components: {
-        DsCard: {
-            name: string;
-            components: {
-                DsDivider: {
-                    name: string;
-                    props: {
-                        isVertical: {
-                            type: BooleanConstructor;
-                            default: boolean;
-                        };
-                        prominence: {
-                            type: StringConstructor;
-                            default: string;
-                            validator: (value: string) => boolean;
-                        };
-                        size: {
-                            type: StringConstructor;
-                            default: string;
-                            validator: (value: string) => boolean;
-                        };
-                    };
-                    data(): {
-                        DIVIDER_PROMINENCES: Readonly<{
-                            DEFAULT: string;
-                            STRONG: string;
-                            WEAK: string;
-                        }>;
-                    };
-                    computed: {
-                        sizeClass(): string;
-                    };
-                };
-            };
-            props: {
-                headerHasPadding: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                dividerUnderHeader: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-            };
-        };
-        DsIcon: {
-            name: string;
-            components: {
-                FontAwesomeIcon: import("vue").FunctionalComponentOptions<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps, import("vue/types/options").PropsDefinition<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps>> & import("vue").VueConstructor<import("vue").default>;
-            };
-            props: {
-                icon: {
-                    type: ObjectConstructor;
-                    required: boolean;
-                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
-                };
-                size: {
-                    type: StringConstructor;
-                    default: string;
-                    validator: (value: string) => boolean;
-                };
-                rotation: {
-                    type: NumberConstructor;
-                    default: null;
-                    validator(value: number): boolean;
-                };
-                flippedVertical: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                flippedHorizontal: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                touchable: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                spinning: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-            };
-            computed: {
-                sizeClassName(): string;
-                isFontawesomeIcon(): boolean;
-                rotationClass(): string | null;
-            };
-        };
+        DsCard: typeof DsCard;
+        DsIcon: typeof DsCard;
     };
     directives: {
-        ripple: import("vue").DirectiveFunction;
+        ripple: DirectiveFunction;
     };
     props: {
         isExpanded: {
@@ -122,9 +37,9 @@ declare const _default: {
     data(): {
         isExpandedInternal: boolean;
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
-            readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
-            readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
+            readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
+            readonly RIBBON: import("vue").CompatVue;
+            readonly SLIDERS_SEARCH: import("vue").CompatVue;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;

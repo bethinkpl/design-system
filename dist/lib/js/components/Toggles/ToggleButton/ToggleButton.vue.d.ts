@@ -1,37 +1,10 @@
 import { Value } from '../../../utils/type.utils';
+import DsRipple from '../../Ripple';
 import { TOGGLE_BUTTON_COLORS, TOGGLE_BUTTON_ELEVATIONS, TOGGLE_BUTTON_RADIUSES, TOGGLE_BUTTON_SIZES, TOGGLE_BUTTON_TYPES } from './ToggleButton.consts';
 declare const _default: {
     name: string;
     components: {
-        DsRipple: {
-            name: string;
-            directives: {
-                ripple: import("vue").DirectiveFunction;
-            };
-            props: {
-                color: {
-                    type: StringConstructor;
-                    default: string;
-                    validator(color: any): boolean;
-                };
-                disable: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-            };
-            data(): {
-                disableRipple: boolean;
-            };
-            computed: {
-                colorClass(): string;
-            };
-            watch: {
-                disable: {
-                    handler(value: boolean): void;
-                    immediate: boolean;
-                };
-            };
-        };
+        DsRipple: typeof DsRipple;
     };
     props: {
         text: {
@@ -72,6 +45,7 @@ declare const _default: {
             validator(value: Value<typeof TOGGLE_BUTTON_ELEVATIONS>): boolean;
         };
     };
+    emits: string[];
     data(): {
         TOGGLE_BUTTON_COLORS: Readonly<{
             readonly PRIMARY: "primary";

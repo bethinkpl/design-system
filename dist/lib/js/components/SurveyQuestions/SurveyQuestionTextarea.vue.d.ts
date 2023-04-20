@@ -14,6 +14,7 @@ declare const _default: {
             default: boolean;
         };
     };
+    emits: string[];
     watch: {
         value(): void;
     };

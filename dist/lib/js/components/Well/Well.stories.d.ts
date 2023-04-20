@@ -1,5 +1,5 @@
-import { Meta, StoryFn } from '@storybook/vue';
+import { Meta, StoryFn } from '@storybook/vue3';
 import Well from './Well.vue';
-declare const _default: Meta<import("vue").VueConstructor<Well>>;
+declare const _default: Meta<typeof Well>;
 export default _default;
-export declare const Interactive: StoryFn<import("vue").VueConstructor<Well>>;
+export declare const Interactive: StoryFn<typeof Well>;

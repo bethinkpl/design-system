@@ -1,40 +1,5 @@
-import { Meta, StoryFn } from '@storybook/vue';
-declare const _default: Meta<{
-    name: string;
-    props: {
-        label: {
-            type: StringConstructor;
-            required: boolean;
-        };
-        color: {
-            type: StringConstructor;
-            required: boolean;
-            validator(value: "neutral"): boolean;
-        };
-    };
-    data(): {
-        BADGE_COLORS: Readonly<{
-            readonly NEUTRAL: "neutral";
-        }>;
-    };
-}>;
+import Badge from './Badge.vue';
+import { Meta, StoryFn } from '@storybook/vue3';
+declare const _default: Meta<typeof Badge>;
 export default _default;
-export declare const Interactive: StoryFn<{
-    name: string;
-    props: {
-        label: {
-            type: StringConstructor;
-            required: boolean;
-        };
-        color: {
-            type: StringConstructor;
-            required: boolean;
-            validator(value: "neutral"): boolean;
-        };
-    };
-    data(): {
-        BADGE_COLORS: Readonly<{
-            readonly NEUTRAL: "neutral";
-        }>;
-    };
-}>;
+export declare const Interactive: StoryFn<typeof Badge>;

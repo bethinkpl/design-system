@@ -1,3 +1,4 @@
+/// <reference types="typings" />
 export declare const ICON_SIZES: {
     XXX_SMALL: string;
     XX_SMALL: string;
@@ -9,9 +10,9 @@ export declare const ICON_SIZES: {
     XX_LARGE: string;
 };
 export declare const ICONS: {
-    readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
-    readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
-    readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
+    readonly HEAD_WITH_QUESTION_MARK: import("*.svg").CompatVue;
+    readonly RIBBON: import("*.svg").CompatVue;
+    readonly SLIDERS_SEARCH: import("*.svg").CompatVue;
     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
