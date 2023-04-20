@@ -90,6 +90,10 @@ declare const _default: {
             type: StringConstructor;
             default: null;
         };
+        labelTextEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         badgePosition: {
             type: NumberConstructor;
             default: null;

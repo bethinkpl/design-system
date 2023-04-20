@@ -90,6 +90,10 @@ declare const _default: Meta<{
             type: StringConstructor;
             default: null;
         };
+        labelTextEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         badgePosition: {
             type: NumberConstructor;
             default: null;
@@ -401,6 +405,10 @@ export declare const Interactive: StoryFn<{
             type: StringConstructor;
             default: null;
         };
+        labelTextEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         badgePosition: {
             type: NumberConstructor;
             default: null;
@@ -710,6 +718,10 @@ export declare const WithoutLabels: StoryFn<{
         labelDataSuffix: {
             type: StringConstructor;
             default: null;
+        };
+        labelTextEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
         };
         badgePosition: {
             type: NumberConstructor;
@@ -1021,6 +1033,10 @@ export declare const TwoColors: StoryFn<{
             type: StringConstructor;
             default: null;
         };
+        labelTextEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         badgePosition: {
             type: NumberConstructor;
             default: null;
@@ -1331,6 +1347,10 @@ export declare const WithGaps: StoryFn<{
             type: StringConstructor;
             default: null;
         };
+        labelTextEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         badgePosition: {
             type: NumberConstructor;
             default: null;
@@ -1640,6 +1660,10 @@ export declare const Compact: StoryFn<{
         labelDataSuffix: {
             type: StringConstructor;
             default: null;
+        };
+        labelTextEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
         };
         badgePosition: {
             type: NumberConstructor;
