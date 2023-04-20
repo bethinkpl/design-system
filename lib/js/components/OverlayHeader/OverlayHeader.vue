@@ -170,9 +170,6 @@
 	}
 
 	&__titleWrapper {
-		flex-shrink: 0;
-		overflow: hidden;
-
 		&.-interactive {
 			cursor: pointer;
 		}
