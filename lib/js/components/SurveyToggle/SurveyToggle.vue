@@ -9,7 +9,6 @@
 			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
 			'-hovered': isHoveredState,
 		}"
-		@click="onClick"
 	>
 		<div
 			v-ripple
@@ -99,7 +98,7 @@ $survey-toggle-colors: (
 	#{$self}__toggle {
 		background-color: $background;
 
-		&::v-deep .ripple {
+		&:deep(.ripple) {
 			background-color: $ripple !important;
 		}
 	}
@@ -120,6 +119,7 @@ $survey-toggle-colors: (
 				map-get($color-map, 'color'),
 				map-get($color-map, 'ripple')
 			);
+
 			#{$self}__ring {
 				border-color: map-get($color-map, 'border');
 			}
@@ -138,9 +138,11 @@ $survey-toggle-colors: (
 						map-get($color-map, 'disabled', 'icon')
 					);
 				}
+
 				#{$self}__content {
 					color: map-get($color-map, 'disabled', 'color');
 				}
+
 				#{$self}__ring {
 					border-color: map-get($color-map, 'disabled', 'border');
 				}
@@ -226,13 +228,13 @@ $survey-toggle-colors: (
 </style>
 
 <script lang="ts">
+import Ripple from 'vue-ripple-directive';
 import {
 	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from './SurveyToggle.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import Ripple from 'vue-ripple-directive';
 
 export default {
 	name: 'SurveyToggle',
@@ -240,7 +242,7 @@ export default {
 		DsIcon,
 	},
 	directives: {
-		ripple: Ripple,
+		Ripple,
 	},
 	props: {
 		label: {
@@ -325,11 +327,6 @@ export default {
 				return true;
 			}
 			return this.hovered;
-		},
-	},
-	methods: {
-		onClick() {
-			this.$emit('click');
 		},
 	},
 };

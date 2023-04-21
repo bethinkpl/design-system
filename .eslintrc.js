@@ -129,5 +129,9 @@ module.exports = {
 		// Required for Vue 3 migration
 		'vue/no-deprecated-slot-attribute': 'error',
 		'vue/no-deprecated-slot-scope-attribute': 'error',
+
+		// https://v3-migration.vuejs.org/breaking-changes/key-attribute.html
+		'vue/no-v-for-template-key': ['off'],
+		'vue/no-v-for-template-key-on-child': 'error',
 	},
 };

@@ -77,9 +77,8 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
-
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import { toRaw } from 'vue';
 import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 export default {
@@ -91,8 +90,8 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		isSelected: {

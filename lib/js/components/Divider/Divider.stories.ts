@@ -1,17 +1,22 @@
 import Divider from './Divider.vue';
 import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from './Divider.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Divider',
 	component: Divider,
 } as Meta<typeof Divider>;
 
-const StoryTemplate: StoryFn<typeof Divider> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Divider> = (args) => ({
 	components: { Divider },
-	props: Object.keys(argTypes),
-	template: `<div style="height: 200px; width: 200px;"><divider :is-vertical="isVertical" :prominence="prominence" :size="size" /></div>`,
+	setup() {
+		return { ...args };
+	},
+	template: `
+		<div style="height: 200px; width: 200px;">
+		<divider :is-vertical="isVertical" :prominence="prominence" :size="size" />
+		</div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

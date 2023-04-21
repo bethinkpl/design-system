@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
 
 import CardExpandable from './CardExpandable.vue';
 
@@ -20,21 +20,16 @@ describe('CardExpandable', () => {
 		contentSlot = '',
 		expandedContentSlot = '',
 	}: createComponentOptions = {}) => {
-		const localVue = createLocalVue();
-
-		return shallowMount(CardExpandable, {
-			localVue,
-			mocks: {},
-			propsData: {
+		return mount(CardExpandable, {
+			props: {
 				isExpanded,
 				...(expanderTextExpanded && { expanderTextExpanded }),
 				...(expanderTextCollapsed && { expanderTextCollapsed }),
-			},
-			stubs: {},
+			} as any,
 			slots: {
-				header: headerSlot,
-				content: contentSlot,
-				expandedContent: expandedContentSlot,
+				...(headerSlot !== '' && { header: headerSlot }),
+				...(contentSlot !== '' && { content: contentSlot }),
+				...(expandedContentSlot !== '' && { expandedContent: expandedContentSlot }),
 			},
 		});
 	};

@@ -6,7 +6,7 @@ import {
 } from './Dropdown.consts';
 import SelectList from '../SelectList/SelectList.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
 
 export default {
@@ -14,9 +14,11 @@ export default {
 	component: Dropdown,
 } as Meta<typeof Dropdown>;
 
-const StoryTemplate: StoryFn<typeof Dropdown> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 	components: { Dropdown, SelectList, SelectListItem },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: `
 			<div style="position: relative">
 			<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth" :radius="radius"

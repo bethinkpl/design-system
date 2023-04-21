@@ -7,26 +7,29 @@ import {
 	TOGGLE_BUTTON_ELEVATIONS,
 } from './ToggleButton.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Toggles/ToggleButton',
 	component: ToggleButton,
 } as Meta<typeof ToggleButton>;
 
-const StoryTemplate: StoryFn<typeof ToggleButton> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 	components: { ToggleButton },
-	props: Object.keys(argTypes),
-	template: `<toggle-button
-			  :size="size"
-			  :type="type"
-			  :radius="radius"
-			  :color="color"
-			  :elevation="elevation"
-			  :text="text"
-			  :is-selected="isSelected"
-			  :is-interactive="isInteractive"
-			/>`,
+	setup() {
+		return { ...args };
+	},
+	template: `
+		<toggle-button
+			:size="size"
+			:type="type"
+			:radius="radius"
+			:color="color"
+			:elevation="elevation"
+			:text="text"
+			:is-selected="isSelected"
+			:is-interactive="isInteractive"
+		/>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

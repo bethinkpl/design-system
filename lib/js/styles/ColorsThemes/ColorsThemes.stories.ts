@@ -1,4 +1,4 @@
-import { Args, Meta, StoryFn } from '@storybook/vue';
+import { Args, Meta, StoryFn } from '@storybook/vue3';
 
 import ItemsList from './../ItemsList.vue';
 import rawWnlColorsList from '../../../styles/settings/colors/_raw-wnl.json';
@@ -10,9 +10,11 @@ export default {
 	component: ItemsList,
 } as Meta<typeof ItemsList>;
 
-const StoryTemplate: StoryFn<typeof ItemsList> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof ItemsList> = (args) => ({
 	components: { ItemsList },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: `
 		<items-list :items-lists="itemsLists" :type="type"></items-list>`,
 });

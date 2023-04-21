@@ -2,16 +2,18 @@ import CounterToggle from './CounterToggle.vue';
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import { ICONS } from '../../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Toggles/CounterToggle',
 	component: CounterToggle,
 } as Meta<typeof CounterToggle>;
 
-const StoryTemplate: StoryFn<typeof CounterToggle> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof CounterToggle> = (args) => ({
 	components: { CounterToggle },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<div :class="{ contrastBackground: isInverted }">' +
 		'<counter-toggle :color="color" :counter="counter" :icon="ICONS[icon]" :isSelected="isSelected" :isDisabled="isDisabled" />' +
@@ -64,6 +66,9 @@ Interactive.argTypes = argTypes;
 Interactive.args = args;
 
 Interactive.parameters = {
+	actions: {
+		handles: ['click'],
+	},
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=3693%3A70976',

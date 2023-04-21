@@ -20,10 +20,10 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import { ICON_SIZES, ICONS } from './Icon.consts';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Icon',
@@ -34,8 +34,8 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		size: {

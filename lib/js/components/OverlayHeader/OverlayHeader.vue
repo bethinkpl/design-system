@@ -60,7 +60,7 @@
 				is-vertical
 			/>
 		</template>
-		<template v-if="$scopedSlots.dropdown">
+		<template v-if="$slots.dropdown">
 			<ds-dropdown
 				boundaries-selector="body"
 				:placement="DROPDOWN_PLACEMENTS.BOTTOM_END"

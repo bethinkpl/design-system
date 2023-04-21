@@ -1,16 +1,18 @@
 import Badge from './Badge.vue';
 import { BADGE_COLORS } from './Badge.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Badges/Badge',
 	component: Badge,
 } as Meta<typeof Badge>;
 
-const StoryTemplate: StoryFn<typeof Badge> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof Badge> = (args) => ({
 	components: { Badge },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<div style="display: flex"><Badge :color="color" :label="label"><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></Badge></div>',
 });

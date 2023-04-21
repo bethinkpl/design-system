@@ -1,7 +1,7 @@
 import TabItem from './TabItem.vue';
 import { ICONS } from '../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 export default {
@@ -9,11 +9,12 @@ export default {
 	component: TabItem,
 } as Meta<typeof TabItem>;
 
-const StoryTemplate: StoryFn<typeof TabItem> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof TabItem> = (args) => ({
 	components: { TabItem },
-	props: Object.keys(argTypes),
-	template:
-		'<tab-item :icon="ICONS[icon]" :is-selected="isSelected" :label="label" :size="TAB_ITEM_SIZES[size]" />',
+	setup() {
+		return { ...args };
+	},
+	template: '<tab-item :icon="ICONS[icon]" :is-selected="isSelected" :label="label" :size="TAB_ITEM_SIZES[size]" />',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

@@ -21,7 +21,6 @@
 			'-elevation-x-small': elevation === ELEVATIONS.X_SMALL,
 			'-elevation-small': elevation === ELEVATIONS.SMALL,
 		}"
-		@click="$emit('click')"
 	>
 		<span class="a-button__content">
 			<wnl-icon
@@ -52,9 +51,7 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
 import Ripple from 'vue-ripple-directive';
-
 import { Value } from '../../../utils/type.utils';
 
 import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
@@ -68,6 +65,7 @@ import {
 } from './Button.consts';
 
 import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
+import { toRaw } from 'vue';
 
 export default {
 	// eslint-disable-next-line vue/no-reserved-component-names
@@ -117,15 +115,15 @@ export default {
 		iconLeft: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		elevation: {

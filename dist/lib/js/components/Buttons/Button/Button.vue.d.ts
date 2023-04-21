@@ -1,57 +1,14 @@
-import { VueConstructor } from 'vue';
 import { Value } from '../../../utils/type.utils';
+import WnlIcon from '../../Icons/Icon';
 import { BUTTON_ELEVATIONS, BUTTON_RADIUSES, BUTTON_SIZES, BUTTON_STATES, BUTTON_TYPES } from './Button.consts';
 import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
 declare const _default: {
     name: string;
     directives: {
-        ripple: import("vue").DirectiveFunction;
+        ripple: DirectiveFunction;
     };
     components: {
-        WnlIcon: {
-            name: string;
-            components: {
-                FontAwesomeIcon: import("vue").FunctionalComponentOptions<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps, import("vue/types/options").PropsDefinition<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps>> & VueConstructor<import("vue").default>;
-            };
-            props: {
-                icon: {
-                    type: ObjectConstructor;
-                    required: boolean;
-                    validator(icon: VueConstructor<import("vue").default>): boolean;
-                };
-                size: {
-                    type: StringConstructor;
-                    default: string;
-                    validator: (value: string) => boolean;
-                };
-                rotation: {
-                    type: NumberConstructor;
-                    default: null;
-                    validator(value: number): boolean;
-                };
-                flippedVertical: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                flippedHorizontal: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                touchable: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                spinning: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-            };
-            computed: {
-                sizeClassName(): string;
-                isFontawesomeIcon(): boolean;
-                rotationClass(): string | null;
-            };
-        };
+        WnlIcon: typeof WnlIcon;
     };
     props: {
         size: {
@@ -82,12 +39,12 @@ declare const _default: {
         iconLeft: {
             type: ObjectConstructor;
             default: null;
-            validator(icon: VueConstructor): boolean;
+            validator(icon: any): boolean;
         };
         iconRight: {
             type: ObjectConstructor;
             default: null;
-            validator(icon: VueConstructor): boolean;
+            validator(icon: any): boolean;
         };
         elevation: {
             type: StringConstructor;
@@ -97,9 +54,9 @@ declare const _default: {
     };
     data(): {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
-            readonly RIBBON: VueConstructor<import("vue").default>;
-            readonly SLIDERS_SEARCH: VueConstructor<import("vue").default>;
+            readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
+            readonly RIBBON: import("vue").CompatVue;
+            readonly SLIDERS_SEARCH: import("vue").CompatVue;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;

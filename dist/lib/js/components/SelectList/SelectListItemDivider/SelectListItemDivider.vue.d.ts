@@ -1,35 +1,3 @@
-declare const _default: {
-    name: string;
-    components: {
-        Divider: {
-            name: string;
-            props: {
-                isVertical: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                prominence: {
-                    type: StringConstructor;
-                    default: string;
-                    validator: (value: string) => boolean;
-                };
-                size: {
-                    type: StringConstructor;
-                    default: string;
-                    validator: (value: string) => boolean;
-                };
-            };
-            data(): {
-                DIVIDER_PROMINENCES: Readonly<{
-                    DEFAULT: string;
-                    STRONG: string;
-                    WEAK: string;
-                }>;
-            };
-            computed: {
-                sizeClass(): string;
-            };
-        };
-    };
-};
-export default _default;
+export declare function render(_ctx: any, _cache: any, $props: any, $setup: any, $data: any, $options: any): import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
+    [key: string]: any;
+}>;

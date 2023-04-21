@@ -2,7 +2,7 @@ import BadgeScore from './BadgeScore.vue';
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 import { ICONS } from '../../Icons/Icon';
 
-import { Meta, StoryFn } from '@storybook/vue';
+import { Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Badges/BadgeScore',
@@ -17,9 +17,11 @@ const StoryTemplate: StoryFn<{
 	size: string;
 	icon: string;
 	fullWidth: boolean;
-}> = (argTypes) => ({
+}> = (args) => ({
 	components: { BadgeScore },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<badge-score :color="color" :suffix="suffix" :text="text" :size="size" :icon="ICONS[icon]" :fullWidth="fullWidth" />',
 	data() {
@@ -62,9 +64,11 @@ Interactive.parameters = {
 };
 
 /* STATIC STORIES */
-const StaticStoryTemplate: StoryFn<{}> = (argTypes) => ({
+const StaticStoryTemplate: StoryFn<{}> = (args) => ({
 	components: { BadgeScore },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="1" :full-width="fullWidth" />',
 	data() {

@@ -4,7 +4,9 @@
 		:header-has-padding="headerHasPadding"
 		:divider-under-header="dividerUnderHeader"
 	>
-		<template #header><slot name="header" /></template>
+		<template #header>
+			<slot name="header" />
+		</template>
 		<template #content>
 			<slot name="content" :is-expanded="isExpandedInternal" />
 			<div v-if="isExpandedInternal" class="cardExpandable__expandedContent">
@@ -52,7 +54,7 @@
 			background-color: $color-neutral-background-hovered;
 		}
 
-		&::v-deep .ripple {
+		&:deep(.ripple) {
 			background-color: $color-default-ripple !important;
 		}
 	}
@@ -71,9 +73,9 @@
 </style>
 
 <script lang="ts">
+import Ripple from 'vue-ripple-directive';
 import DsCard from '../Card/';
 import DsIcon, { ICONS, ICON_SIZES } from '../../../components/Icons/Icon';
-import Ripple from 'vue-ripple-directive';
 
 export default {
 	name: 'CardExpandable',

@@ -1,82 +1,11 @@
-import { VueConstructor } from 'vue';
+import DsRipple from '../Ripple';
 import { TILE_STATES } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
-        DsIcon: {
-            name: string;
-            components: {
-                FontAwesomeIcon: import("vue").FunctionalComponentOptions<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps, import("vue/types/options").PropsDefinition<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps>> & VueConstructor<import("vue").default>;
-            };
-            props: {
-                icon: {
-                    type: ObjectConstructor;
-                    required: boolean;
-                    validator(icon: VueConstructor<import("vue").default>): boolean;
-                };
-                size: {
-                    type: StringConstructor;
-                    default: string;
-                    validator: (value: string) => boolean;
-                };
-                rotation: {
-                    type: NumberConstructor;
-                    default: null;
-                    validator(value: number): boolean;
-                };
-                flippedVertical: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                flippedHorizontal: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                touchable: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                spinning: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-            };
-            computed: {
-                sizeClassName(): string;
-                isFontawesomeIcon(): boolean;
-                rotationClass(): string | null;
-            };
-        };
-        DsRipple: {
-            name: string;
-            directives: {
-                ripple: import("vue").DirectiveFunction;
-            };
-            props: {
-                color: {
-                    type: StringConstructor;
-                    default: string;
-                    validator(color: any): boolean;
-                };
-                disable: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-            };
-            data(): {
-                disableRipple: boolean;
-            };
-            computed: {
-                colorClass(): string;
-            };
-            watch: {
-                disable: {
-                    handler(value: boolean): void;
-                    immediate: boolean;
-                };
-            };
-        };
+        DsIcon: typeof DsRipple;
+        DsRipple: typeof DsRipple;
     };
     props: {
         interactive: {
@@ -86,12 +15,12 @@ declare const _default: {
         iconLeft: {
             type: ObjectConstructor;
             default: null;
-            validator(iconLeft: VueConstructor): boolean;
+            validator(iconLeft: any): boolean;
         };
         iconRight: {
             type: ObjectConstructor;
             default: null;
-            validator(iconRight: VueConstructor): boolean;
+            validator(iconRight: any): boolean;
         };
         text: {
             type: StringConstructor;
@@ -130,9 +59,9 @@ declare const _default: {
     };
     data(): {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<import("vue").default>;
-            readonly RIBBON: VueConstructor<import("vue").default>;
-            readonly SLIDERS_SEARCH: VueConstructor<import("vue").default>;
+            readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
+            readonly RIBBON: import("vue").CompatVue;
+            readonly SLIDERS_SEARCH: import("vue").CompatVue;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;

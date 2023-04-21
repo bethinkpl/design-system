@@ -1,16 +1,18 @@
 import AccessStatus from './AccessStatus.vue';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Statuses/AccessStatus',
 	component: AccessStatus,
 } as Meta<typeof AccessStatus>;
 
-const StoryTemplate: StoryFn<typeof AccessStatus> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof AccessStatus> = (args) => ({
 	components: { AccessStatus },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: `<access-status :status="status" />`,
 });
 

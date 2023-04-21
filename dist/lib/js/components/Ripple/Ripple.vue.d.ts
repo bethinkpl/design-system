@@ -1,7 +1,7 @@
 declare const _default: {
     name: string;
     directives: {
-        ripple: import("vue").DirectiveFunction;
+        ripple: DirectiveFunction;
     };
     props: {
         color: {

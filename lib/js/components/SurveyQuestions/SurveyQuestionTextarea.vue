@@ -50,6 +50,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['input'],
 	watch: {
 		value() {
 			// we want to update height of textarea based on content that is inside

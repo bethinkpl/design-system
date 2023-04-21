@@ -6,16 +6,18 @@ import {
 	POP_OVER_TRIGGER_ACTIONS,
 } from './PopOver.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/PopOver',
 	component: PopOver,
 } as Meta<typeof PopOver>;
 
-const StoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof PopOver> = (args) => ({
 	components: { PopOver },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
 		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +

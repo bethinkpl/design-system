@@ -1,44 +1,5 @@
-import { Meta, StoryFn } from '@storybook/vue';
-declare const _default: Meta<{
-    name: string;
-    props: {
-        position: {
-            type: import("vue").PropType<import("./Drawer.consts").DrawerPosition>;
-            default: "right";
-            validator(position: any): boolean;
-        };
-        stickyHeader: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        stickyFooter: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-    };
-    computed: {
-        positionClassName(): string;
-    };
-}>;
+import Drawer from './Drawer.vue';
+import { Meta, StoryFn } from '@storybook/vue3';
+declare const _default: Meta<typeof Drawer>;
 export default _default;
-export declare const Interactive: StoryFn<{
-    name: string;
-    props: {
-        position: {
-            type: import("vue").PropType<import("./Drawer.consts").DrawerPosition>;
-            default: "right";
-            validator(position: any): boolean;
-        };
-        stickyHeader: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        stickyFooter: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-    };
-    computed: {
-        positionClassName(): string;
-    };
-}>;
+export declare const Interactive: StoryFn<typeof Drawer>;

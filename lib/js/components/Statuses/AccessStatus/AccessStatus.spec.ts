@@ -1,20 +1,16 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import AccessStatus from './AccessStatus.vue';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
 import { ICONS } from '../../Icons/Icon';
+import Icon from '../../Icons/Icon/Icon.vue';
 
 describe('AccessStatus', () => {
 	const createComponent = (status) => {
-		const localVue = createLocalVue();
-
 		return shallowMount(AccessStatus, {
-			localVue,
-			mocks: {},
-			propsData: {
+			props: {
 				status,
 			},
-			stubs: {},
 		});
 	};
 
@@ -43,6 +39,6 @@ describe('AccessStatus', () => {
 		const component = createComponent(status);
 
 		expect(component.text()).toBe(expectedText);
-		expect(component.find('icon-stub').props().icon).toBe(expectedIcon);
+		expect(component.findComponent(Icon).props().icon).toBe(expectedIcon);
 	});
 });

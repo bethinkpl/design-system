@@ -81,7 +81,7 @@
 		@include label-xl-default-regular;
 	}
 
-	&::v-deep .ripple {
+	&:deep(.ripple) {
 		background-color: $color-neutral-ripple !important;
 	}
 
@@ -119,6 +119,7 @@ import {
 	SELECT_LIST_ITEM_SELECTION_MODE,
 } from './SelectListItem.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'SelectListItem',
@@ -133,7 +134,7 @@ export default {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		isSelected: {

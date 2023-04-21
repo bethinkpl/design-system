@@ -93,11 +93,11 @@ $toggle-button-colors: (
 .toggleButtonWrapper {
 	display: inline-block;
 
-	&::v-deep .ripple-container {
+	&:deep(.ripple-container) {
 		border-radius: 100px !important;
 	}
 
-	&.-rounded::v-deep .ripple-container {
+	&.-rounded:deep(.ripple-container) {
 		border-radius: $radius-s !important;
 	}
 }
@@ -299,21 +299,6 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		// TODO implement me in future
-		// iconLeft: {
-		// 	type: Object,
-		// 	default: null,
-		// 	validator(icon: VueConstructor) {
-		// 		return Object.values(ICONS).includes(icon);
-		// 	},
-		// },
-		// iconRight: {
-		// 	type: Object,
-		// 	default: null,
-		// 	validator(icon: VueConstructor) {
-		// 		return Object.values(ICONS).includes(icon);
-		// 	},
-		// },
 		elevation: {
 			type: String,
 			default: TOGGLE_BUTTON_ELEVATIONS.NONE,
@@ -322,6 +307,7 @@ export default {
 			},
 		},
 	},
+	emits: ['click'],
 	data() {
 		return {
 			TOGGLE_BUTTON_COLORS: Object.freeze(TOGGLE_BUTTON_COLORS),
