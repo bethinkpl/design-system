@@ -14,7 +14,8 @@ const StoryTemplate: StoryFn<typeof TabItem> = (args) => ({
 	setup() {
 		return { ...args };
 	},
-	template: '<tab-item :icon="ICONS[icon]" :is-selected="isSelected" :label="label" :size="TAB_ITEM_SIZES[size]" />',
+	template:
+		'<tab-item :icon="ICONS[icon]" :is-selected="isSelected" :label="label" :size="TAB_ITEM_SIZES[size]" />',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
