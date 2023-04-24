@@ -28,16 +28,13 @@
 	cursor: pointer;
 	display: inline-flex;
 	justify-content: center;
-	transition: border-bottom-color ease-in-out $default-transition-time;
 
 	&__icon {
 		color: $color-neutral-icon;
-		transition: color ease-in-out $default-transition-time;
 	}
 
 	&__label {
 		color: $color-neutral-text;
-		transition: color ease-in-out $default-transition-time;
 	}
 
 	&:hover {
@@ -45,10 +42,12 @@
 
 		#{$self}__icon {
 			color: $color-default-icon;
+			transition: color ease-in-out $default-transition-time;
 		}
 
 		#{$self}__label {
 			color: $color-default-text;
+			transition: color ease-in-out $default-transition-time;
 		}
 	}
 
