@@ -28,7 +28,6 @@
 	cursor: pointer;
 	display: inline-flex;
 	justify-content: center;
-	border-bottom-color: $color-default-border;
 
 	&__icon {
 		color: $color-neutral-icon;
@@ -41,6 +40,8 @@
 	}
 
 	&:hover {
+		border-bottom-color: $color-default-border;
+
 		#{$self}__icon {
 			color: $color-default-icon;
 		}
