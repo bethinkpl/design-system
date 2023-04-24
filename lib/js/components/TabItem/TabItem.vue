@@ -9,7 +9,7 @@
 		}"
 		@click="$emit('click')"
 	>
-		<wnl-icon class="tabItem__icon" :icon="icon" :size="iconSize" />
+		<ds-icon v-if="icon !== null" class="tabItem__icon" :icon="icon" :size="iconSize" />
 		<span class="tabItem__label">{{ label }}</span>
 	</div>
 </template>
@@ -64,6 +64,7 @@
 		@include label-m-default-bold;
 
 		column-gap: $space-xxxxs;
+		min-height: 40px;
 		padding: $space-xs;
 	}
 
@@ -77,19 +78,19 @@
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { toRaw } from 'vue';
 import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 export default {
 	name: 'TabItem',
 	components: {
-		WnlIcon,
+		DsIcon,
 	},
 	props: {
 		icon: {
 			type: Object,
-			required: true,
+			default: null,
 			validator(icon) {
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
@@ -109,10 +110,13 @@ export default {
 	},
 	data() {
 		return {
-			iconSize:
-				this.size === TAB_ITEM_SIZES.MEDIUM ? ICON_SIZES.X_SMALL : ICON_SIZES.XX_SMALL,
 			TAB_ITEM_SIZES: Object.freeze(TAB_ITEM_SIZES),
 		};
 	},
+	computed: {
+		iconSize() {
+			return this.size === TAB_ITEM_SIZES.MEDIUM ? ICON_SIZES.X_SMALL : ICON_SIZES.XX_SMALL;
+		}
+	}
 };
 </script>

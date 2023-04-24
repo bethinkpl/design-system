@@ -32,8 +32,8 @@ const args = {
 
 const argTypes = {
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
-		defaultValue: 'FA_CALENDAR_DAYS',
+		control: { type: 'select', options: [ ...Object.keys(ICONS), null ] },
+		defaultValue: null,
 	},
 	size: {
 		control: { type: 'select', options: Object.keys(TAB_ITEM_SIZES) },
