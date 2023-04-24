@@ -10,7 +10,7 @@
 		@click="$emit('click')"
 	>
 		<ds-icon v-if="icon !== null" class="tabItem__icon" :icon="icon" :size="iconSize" />
-		<span class="tabItem__label">{{ label }}</span>
+		<span v-if="label !== null" class="tabItem__label">{{ label }}</span>
 	</div>
 </template>
 
@@ -18,6 +18,7 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
+@import '../../../styles/settings/animations';
 
 .tabItem {
 	$self: &;
@@ -27,13 +28,16 @@
 	cursor: pointer;
 	display: inline-flex;
 	justify-content: center;
+	transition: border-bottom-color ease-in-out $default-transition-time;
 
 	&__icon {
 		color: $color-neutral-icon;
+		transition: color ease-in-out $default-transition-time;
 	}
 
 	&__label {
 		color: $color-neutral-text;
+		transition: color ease-in-out $default-transition-time;
 	}
 
 	&:hover {
@@ -89,10 +93,10 @@ export default {
 	},
 	props: {
 		icon: {
-			type: Object,
+			type: [Object, null],
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(toRaw(icon));
+				return icon === null || Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		isSelected: {
@@ -100,8 +104,8 @@ export default {
 			required: true,
 		},
 		label: {
-			type: String,
-			required: true,
+			type: [String, null],
+			default: null,
 		},
 		size: {
 			type: String,
