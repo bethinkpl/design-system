@@ -28,6 +28,7 @@
 	cursor: pointer;
 	display: inline-flex;
 	justify-content: center;
+	transition: border-bottom-color ease-in-out $default-transition-time;
 
 	&__icon {
 		color: $color-neutral-icon;
