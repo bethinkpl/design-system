@@ -119,7 +119,7 @@ export default {
 	computed: {
 		iconSize() {
 			return this.size === TAB_ITEM_SIZES.MEDIUM ? ICON_SIZES.X_SMALL : ICON_SIZES.XX_SMALL;
-		}
-	}
+		},
+	},
 };
 </script>

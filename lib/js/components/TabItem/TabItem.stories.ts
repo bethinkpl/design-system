@@ -32,7 +32,7 @@ const args = {
 
 const argTypes = {
 	icon: {
-		control: { type: 'select', options: [ ...Object.keys(ICONS), null ] },
+		control: { type: 'select', options: [...Object.keys(ICONS), null] },
 		defaultValue: null,
 	},
 	size: {
