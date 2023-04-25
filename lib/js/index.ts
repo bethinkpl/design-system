@@ -49,6 +49,7 @@ export { default as DrawerDivider } from './components/Drawer/DrawerDivider/Draw
 export { default as DrawerListItem } from './components/Drawer/DrawerListItem/DrawerListItem.vue';
 export * from './components/Drawer/DrawerListItem/DrawerListItem.consts';
 export { default as DrawerTile } from './components/Drawer/DrawerTile/DrawerTile.vue';
+export { default as DrawerSection } from './components/Drawer/DrawerSection/DrawerSection.vue';
 export { default as Pill } from './components/Pill';
 export * from './components/Pill/Pill.consts';
 export { default as CounterToggle } from './components/Toggles/CounterToggle';
