@@ -10,7 +10,7 @@
 		@click="$emit('click')"
 	>
 		<ds-icon v-if="icon !== null" class="tabItem__icon" :icon="icon" :size="iconSize" />
-		<span v-if="label !== null" class="tabItem__label">{{ label }}</span>
+		<span v-if="label" class="tabItem__label">{{ label }}</span>
 	</div>
 </template>
 
