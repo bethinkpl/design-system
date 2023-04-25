@@ -9,8 +9,8 @@
 		}"
 		@click="$emit('click')"
 	>
-		<ds-icon v-if="icon !== null" class="tabItem__icon" :icon="icon" :size="iconSize" />
-		<span v-if="label" class="tabItem__label">{{ label }}</span>
+		<ds-icon v-if="icon !== null" class="tabItem__icon" :icon="icon" :size="ICON_SIZES.XX_SMALL" />
+		<span v-if="label" class="tabItem__label" :class="{'-ellipsis': labelEllipsis}">{{ label }}</span>
 	</div>
 </template>
 
@@ -24,11 +24,12 @@
 	$self: &;
 
 	align-items: center;
-	border-bottom: 1px solid $color-neutral-border;
+	box-shadow: inset 0 -1px 0 $color-neutral-border;
 	cursor: pointer;
 	display: inline-flex;
+	min-height: 40px;
 	justify-content: center;
-	transition: border-bottom-color ease-in-out $default-transition-time;
+	transition: box-shadow ease-in-out $default-transition-time;
 
 	&__icon {
 		color: $color-neutral-icon;
@@ -38,11 +39,16 @@
 	&__label {
 		color: $color-neutral-text;
 		transition: color ease-in-out $default-transition-time;
+
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	&:hover {
-		border-bottom-color: $color-default-border;
-
+		box-shadow: inset 0 -1px 0 $color-default-border;
 		#{$self}__icon {
 			color: $color-default-icon;
 		}
@@ -53,7 +59,7 @@
 	}
 
 	&.-isSelected {
-		border-bottom-color: $color-primary-border;
+		box-shadow: inset 0 -1px 0 $color-primary-border;
 
 		#{$self}__icon {
 			color: $color-primary-icon;
@@ -68,7 +74,6 @@
 		@include label-m-default-bold;
 
 		column-gap: $space-xxxxs;
-		min-height: 40px;
 		padding: $space-xs;
 	}
 
@@ -107,6 +112,10 @@ export default {
 			type: [String, null],
 			default: null,
 		},
+		labelEllipsis: {
+			type: Boolean,
+			default: false,
+		},
 		size: {
 			type: String,
 			default: TAB_ITEM_SIZES.MEDIUM,
@@ -115,12 +124,8 @@ export default {
 	data() {
 		return {
 			TAB_ITEM_SIZES: Object.freeze(TAB_ITEM_SIZES),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
-	},
-	computed: {
-		iconSize() {
-			return this.size === TAB_ITEM_SIZES.MEDIUM ? ICON_SIZES.X_SMALL : ICON_SIZES.XX_SMALL;
-		},
 	},
 };
 </script>

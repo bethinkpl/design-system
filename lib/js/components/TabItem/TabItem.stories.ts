@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof TabItem> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<tab-item :icon="ICONS[icon]" :is-selected="isSelected" :label="label" :size="TAB_ITEM_SIZES[size]" />',
+		'<tab-item style="max-width: 150px" :icon="ICONS[icon]" :is-selected="isSelected" :label="label" :size="TAB_ITEM_SIZES[size]" :label-ellipsis="labelEllipsis" />',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -44,6 +44,10 @@ const argTypes = {
 		defaultValue: 'Tab item',
 	},
 	isSelected: {
+		control: { type: 'boolean' },
+		defaultValue: false,
+	},
+	labelEllipsis: {
 		control: { type: 'boolean' },
 		defaultValue: false,
 	},
