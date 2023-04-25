@@ -47,6 +47,7 @@ export { default as Drawer } from './components/Drawer';
 export * from './components/Drawer/Drawer.consts';
 export { default as DrawerDivider } from './components/Drawer/DrawerDivider/DrawerDivider.vue';
 export { default as DrawerListItem } from './components/Drawer/DrawerListItem/DrawerListItem.vue';
+export { default as DrawerListItemGroup } from './components/Drawer/DrawerListItem/DrawerListItemGroup.vue';
 export * from './components/Drawer/DrawerListItem/DrawerListItem.consts';
 export { default as DrawerTile } from './components/Drawer/DrawerTile/DrawerTile.vue';
 export { default as DrawerSection } from './components/Drawer/DrawerSection/DrawerSection.vue';
