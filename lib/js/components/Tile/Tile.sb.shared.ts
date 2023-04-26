@@ -4,12 +4,12 @@ import { Args, ArgTypes } from '@storybook/vue3';
 
 export const template = (componentTag: string) => `
 		<${componentTag}
-			:additionalText="additionalText"
+			:additional-text="additionalText"
 			:color="color"
 			:eyebrow-ellipsis="eyebrowEllipsis"
-			:eyebrowText="eyebrowText"
-			:iconLeft="ICONS[iconLeft]"
-			:iconRight="ICONS[iconRight]"
+			:eyebrow-text="eyebrowText"
+			:icon-left="ICONS[iconLeft]"
+			:icon-right="ICONS[iconRight]"
 			:interactive="interactive"
 			:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
 			:state="state"
