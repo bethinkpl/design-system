@@ -9,7 +9,7 @@
 		}"
 		@click="$emit('click')"
 	>
-		<ds-icon v-if="icon !== null" class="tabItem__icon" :icon="icon" :size="ICON_SIZES.XX_SMALL" />
+		<ds-icon v-if="icon !== null" class="tabItem__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
 		<span v-if="label" class="tabItem__label" :class="{'-ellipsis': labelEllipsis}">{{ label }}</span>
 	</div>
 </template>
@@ -27,8 +27,8 @@
 	box-shadow: inset 0 -1px 0 $color-neutral-border;
 	cursor: pointer;
 	display: inline-flex;
-	min-height: 40px;
 	justify-content: center;
+	min-height: 40px;
 	transition: box-shadow ease-in-out $default-transition-time;
 
 	&__icon {
