@@ -52,8 +52,8 @@ export default {
 		state: {
 			type: String as PropType<DrawerListItemState>,
 			default: DRAWER_LIST_ITEM_STATES.DEFAULT,
-			validator(position) {
-				return Object.values(DRAWER_LIST_ITEM_STATES).includes(position);
+			validator(state) {
+				return Object.values(DRAWER_LIST_ITEM_STATES).includes(state);
 			},
 		},
 		label: {
