@@ -1,6 +1,7 @@
 import DrawerListItemGroup from './DrawerListItemGroup.vue';
 
 import { Meta, StoryFn } from '@storybook/vue3';
+import DrawerListItem from '../DrawerListItem/DrawerListItem.vue';
 
 export default {
 	title: 'Components/Drawer/DrawerListItemGroup',
@@ -8,12 +9,15 @@ export default {
 } as Meta<typeof DrawerListItemGroup>;
 
 const StoryTemplate: StoryFn<typeof DrawerListItemGroup> = (args) => ({
-	components: { DrawerListItemGroup },
+	components: { DrawerListItemGroup, DrawerListItem },
 	setup() {
 		return { ...args };
 	},
 	template: `
-    <drawer-list-item-group>SLOT</drawer-list-item-group>
+    <drawer-list-item-group>
+			<drawer-list-item value-text="1" label="Item" />
+			<drawer-list-item value-text="2" label="Item" />
+		</drawer-list-item-group>
   `,
 });
 
