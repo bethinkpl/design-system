@@ -14,7 +14,7 @@
 .sectionTitle {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	gap: $space-xxs;
 	padding: $space-xxs 0;
 
 	&__title {
