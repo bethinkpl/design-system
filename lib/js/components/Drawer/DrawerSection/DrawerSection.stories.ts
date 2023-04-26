@@ -17,7 +17,10 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args) => ({
 			:has-divider="hasDivider"
 			:is-expandable="isExpandable"
 			:title="title"
-		>SLOT</drawer-section>`,
+		>
+		Default slot
+		<template #uncollapsible>Uncollapsible slot</template>
+		</drawer-section>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

@@ -18,7 +18,10 @@
 			</div>
 			<ds-divider v-if="hasDivider" />
 		</div>
-		<slot v-if="isExpanded" />
+		<div v-if="isExpanded || !isExpandable">
+			<slot />
+		</div>
+		<div v-if="$slots.uncollapsible"><slot name="uncollapsible" /></div>
 	</div>
 </template>
 
