@@ -1,6 +1,11 @@
 <template>
 	<div class="drawerSection">
-		<div v-if="title" class="drawerSection__header">
+		<div
+			v-if="title"
+			class="drawerSection__header"
+			:class="{ '-isExpandable': isExpandable }"
+			@click="onHeaderClick"
+		>
 			<div class="drawerSection__headerTitleWrapper">
 				<div class="drawerSection__headerTitle">{{ title }}</div>
 				<ds-icon-button
@@ -8,7 +13,7 @@
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:icon="isExpanded ? ICONS.FA_ANGLE_UP : ICONS.FA_ANGLE_DOWN"
 					:size="ICON_BUTTON_SIZES.X_SMALL"
-					@click="isExpanded = !isExpanded"
+					:touchable="false"
 				/>
 			</div>
 			<ds-divider v-if="hasDivider" />
@@ -26,16 +31,15 @@
 	$root: &;
 
 	&__header {
-		&:hover {
+		&:hover,
+		&:focus {
 			#{$root}__headerTitle {
 				color: $color-neutral-text-weak-hovered;
 			}
 		}
 
-		&:focus {
-			#{$root}__headerTitle {
-				color: $color-neutral-text-weak-focused;
-			}
+		&.-isExpandable {
+			cursor: pointer;
 		}
 	}
 
@@ -88,6 +92,13 @@ export default {
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICONS: Object.freeze(ICONS),
 		};
+	},
+	methods: {
+		onHeaderClick(): void {
+			if (this.isExpandable) {
+				this.isExpanded = !this.isExpanded;
+			}
+		},
 	},
 };
 </script>
