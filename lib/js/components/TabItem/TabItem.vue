@@ -9,8 +9,15 @@
 		}"
 		@click="$emit('click')"
 	>
-		<ds-icon v-if="icon !== null" class="tabItem__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
-		<span v-if="label" class="tabItem__label" :class="{'-ellipsis': labelEllipsis}">{{ label }}</span>
+		<ds-icon
+			v-if="icon !== null"
+			class="tabItem__icon"
+			:icon="icon"
+			:size="ICON_SIZES.X_SMALL"
+		/>
+		<span v-if="label" class="tabItem__label" :class="{ '-ellipsis': labelEllipsis }">{{
+			label
+		}}</span>
 	</div>
 </template>
 
