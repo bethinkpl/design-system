@@ -11,6 +11,7 @@ describe('TabItem', () => {
 				icon: ICONS.FA_CALENDAR_DAYS,
 				isSelected,
 				label: 'Lorem ipsum dolor sit amet',
+				labelEllipsis: false,
 				size: TAB_ITEM_SIZES.MEDIUM,
 			},
 		});
