@@ -31,10 +31,10 @@
 </template>
 
 <style scoped lang="scss">
-@import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/typography/tokens';
-@import '../../../styles/settings/media-queries';
-@import '../../../styles/settings/spacings';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/media-queries';
+@import '../../../../styles/settings/spacings';
 
 $icons-and-slot-min-height-m: 40px;
 $icons-and-slot-min-height-l: 50px;
@@ -157,7 +157,7 @@ $icons-and-slot-min-height-l: 50px;
 
 <script lang="ts">
 import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
-import DsIcon, { IconItem, ICONS, ICON_SIZES } from '../Icons/Icon';
+import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import { toRaw } from 'vue';
 
 export default {
