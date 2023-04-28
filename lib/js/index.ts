@@ -43,6 +43,7 @@ export * from './components/Ripple/Ripple.consts';
 export { default as SectionHeader } from './components/SectionHeader';
 export * from './components/SectionHeader/SectionHeader.consts';
 export { default as Drawer } from './components/Drawer';
+export { default as DrawerHeader } from './components/Drawer/DrawerHeader';
 export * from './components/Drawer/Drawer.consts';
 export { default as Pill } from './components/Pill';
 export * from './components/Pill/Pill.consts';

@@ -1,0 +1,152 @@
+<template>
+	<div class="drawerHeader">
+		<div class="drawerHeader__titleWrapper">
+			<ds-button
+				v-if="isSecondLevel"
+				:icon-left="ICONS.FA_CHEVRON_LEFT"
+				:type="BUTTON_TYPES.TEXT"
+			>
+				Wróć
+			</ds-button>
+			<div v-else>
+				<span
+					v-if="eyebrowText"
+					class="drawerHeader__eyebrow"
+					:class="{ '-isInteractive': isInteractiveEyebrow }"
+					@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
+				>
+					{{ eyebrowText }}
+				</span>
+				<div class="drawerHeader__title">
+					<icon
+						v-if="leftIcon"
+						class="drawerHeader__leftIcon"
+						:icon="leftIcon"
+						:size="ICON_SIZES.X_SMALL"
+					/>
+					<span>{{ title }}</span>
+					<pill v-if="pillLabel" :label="pillLabel" />
+				</div>
+			</div>
+			<icon-button
+				v-if="isClosable"
+				:icon="ICONS.FA_XMARK"
+				:size="ICON_BUTTON_SIZES.MEDIUM"
+				@click="$emit('close')"
+			/>
+		</div>
+		<divider v-if="hasDivider" :size="DIVIDER_SIZES.L" />
+	</div>
+</template>
+
+<style lang="scss" scoped>
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/colors/tokens';
+
+.drawerHeader {
+	display: flex;
+	flex-direction: column;
+
+	&__leftIcon {
+		color: $color-neutral-icon;
+	}
+
+	&__eyebrow {
+		@include info-s-extensive-bold-uppercase;
+
+		color: $color-neutral-text-weak;
+		margin-bottom: $space-xxxxs;
+
+		&.-isInteractive:hover {
+			color: $color-neutral-text;
+			cursor: pointer;
+		}
+	}
+
+	&__title {
+		@include heading-s-default-bold-uppercase;
+
+		align-items: center;
+		display: flex;
+		column-gap: $space-xxxs;
+		color: $color-neutral-text-strong;
+	}
+
+	&__titleWrapper {
+		align-items: center;
+		column-gap: $space-xxxxs;
+		display: flex;
+		padding: $space-m $space-xs $space-m $space-s;
+		min-height: 82px;
+		justify-content: space-between;
+	}
+}
+</style>
+
+<script>
+import Button from '../../Buttons/Button/Button.vue';
+import Divider from '../../Divider/Divider.vue';
+import IconButton from '../../Buttons/IconButton/IconButton.vue';
+import Pill from '../../Pill/Pill.vue';
+import Icon from '../../Icons/Icon/Icon.vue';
+import { BUTTON_TYPES } from '../../Buttons/Button';
+import { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import { DIVIDER_SIZES } from '../../Divider';
+import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
+
+export default {
+	name: 'DrawerHeader',
+	components: {
+		DsButton: Button,
+		Divider,
+		Icon,
+		IconButton,
+		Pill,
+	},
+	props: {
+		title: {
+			type: String,
+			required: true,
+		},
+		eyebrowText: {
+			type: String,
+			default: null,
+		},
+		pillLabel: {
+			type: String,
+			default: null,
+		},
+		leftIcon: {
+			type: [Object, null],
+			default: null,
+		},
+		isClosable: {
+			type: Boolean,
+			default: true,
+		},
+		isSecondLevel: {
+			type: Boolean,
+			default: false,
+		},
+		isInteractiveEyebrow: {
+			type: Boolean,
+			default: false,
+		},
+		hasDivider: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	emits: ['close', 'eyebrowClicked'],
+	data() {
+		return {
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			DIVIDER_SIZES: Object.freeze(DIVIDER_SIZES),
+			ICONS: Object.freeze(ICONS),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+		};
+	},
+};
+</script>
