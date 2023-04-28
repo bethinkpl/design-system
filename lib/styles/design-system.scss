@@ -50,7 +50,7 @@ textarea {
 }
 
 html.thick-scrollbar {
-	@media #{breakpoint-s()} {
+	@media #{breakpoint-m()} {
 		@include scrollbar(15px, var(--raw-gray-100));
 	}
 }
