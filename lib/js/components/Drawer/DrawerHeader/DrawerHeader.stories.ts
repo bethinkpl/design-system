@@ -18,8 +18,16 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 			ICONS: Object.freeze(ICONS),
 		};
 	},
-	template:
-		'<div style="max-width: 200px"><drawer-header :title="title" :eyebrow-text="eyebrowText" :pill-label="pillLabel" :left-icon="ICONS[leftIcon]" :has-divider="hasDivider" :is-closable="isClosable" :is-interactive-eyebrow="isInteractiveEyebrow" :is-second-level="isSecondLevel" /></div>',
+	template: `
+      <div style="display: inline-flex;">
+      <div style="max-width: 200px;">
+        <drawer-header :title="title" :eyebrow-text="eyebrowText" :pill-label="pillLabel"
+                       :left-icon="ICONS[leftIcon]"
+                       :has-divider="hasDivider" :is-closable="isClosable"
+                       :is-interactive-eyebrow="isInteractiveEyebrow" :is-second-level="isSecondLevel"
+                       :eyebrow-ellipsis="eyebrowEllipsis" :title-ellipsis="titleEllipsis"/>
+      </div>
+      </div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -38,6 +46,8 @@ const argTypes = {
 		control: { type: 'select', options: [...Object.keys(ICONS), null] },
 		defaultValue: null,
 	},
+	eyebrowEllipsis: { control: { type: 'boolean' }, defaultValue: false },
+	titleEllipsis: { control: { type: 'boolean' }, defaultValue: false },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

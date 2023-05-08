@@ -3,16 +3,20 @@
 		<div class="drawerHeader__titleWrapper">
 			<ds-button
 				v-if="isSecondLevel"
+				class="drawerHeader__secondLevel"
 				:icon-left="ICONS.FA_CHEVRON_LEFT"
 				:type="BUTTON_TYPES.TEXT"
 			>
 				Wróć
 			</ds-button>
-			<div v-else>
+			<div class="drawerHeader__firstLevel" :class="{ '-hidden': isSecondLevel }">
 				<span
 					v-if="eyebrowText"
 					class="drawerHeader__eyebrow"
-					:class="{ '-isInteractive': isInteractiveEyebrow }"
+					:class="{
+						'-isInteractive': isInteractiveEyebrow,
+						'-ellipsis': eyebrowEllipsis,
+					}"
 					@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
 				>
 					{{ eyebrowText }}
@@ -24,7 +28,7 @@
 						:icon="leftIcon"
 						:size="ICON_SIZES.X_SMALL"
 					/>
-					<span>{{ title }}</span>
+					<span v-if="title" :class="{ '-ellipsis': titleEllipsis }">{{ title }}</span>
 					<pill v-if="pillLabel" :label="pillLabel" />
 				</div>
 			</div>
@@ -48,8 +52,22 @@
 	display: flex;
 	flex-direction: column;
 
+	&__secondLevel {
+		position: absolute !important; //it is required so firstLevel content does not make component wider when hidden, and important is needed so component does not change its width when button was clicked
+	}
+
 	&__leftIcon {
 		color: $color-neutral-icon;
+	}
+
+	&__firstLevel {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+
+		&.-hidden {
+			visibility: hidden; //by this we make sure that height does not change when switching to second level
+		}
 	}
 
 	&__eyebrow {
@@ -62,24 +80,36 @@
 			color: $color-neutral-text;
 			cursor: pointer;
 		}
+
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	&__title {
 		@include heading-s-default-bold-uppercase;
 
 		align-items: center;
-		display: flex;
-		column-gap: $space-xxxs;
 		color: $color-neutral-text-strong;
+		column-gap: $space-xxxs;
+		display: flex;
+
+		.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	&__titleWrapper {
 		align-items: center;
 		column-gap: $space-xxxxs;
 		display: flex;
-		padding: $space-m $space-xs $space-m $space-s;
-		min-height: 82px;
 		justify-content: space-between;
+		min-height: 82px;
+		padding: $space-m $space-xs $space-m $space-s;
 	}
 }
 </style>
@@ -134,6 +164,14 @@ export default {
 			default: false,
 		},
 		hasDivider: {
+			type: Boolean,
+			default: false,
+		},
+		eyebrowEllipsis: {
+			type: Boolean,
+			default: false,
+		},
+		titleEllipsis: {
 			type: Boolean,
 			default: false,
 		},
