@@ -3,20 +3,20 @@
 		<div class="drawerHeader__titleWrapper">
 			<ds-button
 				v-if="isSecondLevel"
-				class="drawerHeader__secondLevel"
 				:icon-left="ICONS.FA_CHEVRON_LEFT"
 				:type="BUTTON_TYPES.TEXT"
+				class="drawerHeader__secondLevel"
 			>
 				Wróć
 			</ds-button>
-			<div class="drawerHeader__firstLevel" :class="{ '-hidden': isSecondLevel }">
+			<div :class="{ '-hidden': isSecondLevel }" class="drawerHeader__firstLevel">
 				<span
 					v-if="eyebrowText"
-					class="drawerHeader__eyebrow"
 					:class="{
 						'-isInteractive': isInteractiveEyebrow,
 						'-ellipsis': eyebrowEllipsis,
 					}"
+					class="drawerHeader__eyebrow"
 					@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
 				>
 					{{ eyebrowText }}
@@ -24,9 +24,9 @@
 				<div class="drawerHeader__title">
 					<icon
 						v-if="leftIcon"
-						class="drawerHeader__leftIcon"
 						:icon="leftIcon"
 						:size="ICON_SIZES.X_SMALL"
+						class="drawerHeader__leftIcon"
 					/>
 					<span v-if="title" :class="{ '-ellipsis': titleEllipsis }">{{ title }}</span>
 					<pill v-if="pillLabel" :label="pillLabel" />
