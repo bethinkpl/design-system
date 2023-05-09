@@ -8,7 +8,7 @@ export default {
 	component: PageHeader,
 } as Meta<typeof PageHeader>;
 
-const StoryTemplate: StoryFn<typeof PageHeader> = (args, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof PageHeader> = (args) => ({
 	components: { PageHeader },
 	setup() {
 		return { ...args };
@@ -31,8 +31,8 @@ const args = {
 	pageTitle: 'Page title',
 	supportingInfo: 'Supporting info write here',
 	divider: true,
-	actions: '<button>test</button>',
-	breadcrumbs: 'Interna > Kardiologia',
+	actions: '',
+	breadcrumbs: '',
 	mobileLayout: 'vertical',
 } as Args;
 
@@ -64,3 +64,28 @@ const argTypes = {
 
 Interactive.argTypes = argTypes;
 Interactive.args = args;
+
+export const WithButton = StoryTemplate.bind({});
+WithButton.args = {
+	pageTitle: 'Page title',
+	supportingInfo: 'Supporting info write here',
+	actions: '<button>Do zrobienia</button>',
+} as Args;
+
+export const OnlyTitle = StoryTemplate.bind({});
+OnlyTitle.args = {
+	pageTitle: 'Page title',
+} as Args;
+
+export const WithText = StoryTemplate.bind({});
+WithText.args = {
+	pageTitle: 'Page title',
+	actions: 'DOSTĘP DO KURSU <strong>DO 7 PAŹDZIERNIKA 2022</strong>',
+} as Args;
+
+export const WithButtons = StoryTemplate.bind({});
+WithButtons.args = {
+	pageTitle: 'Page title',
+	supportingInfo: 'Supporting info write here',
+	actions: '<button>Button 1</button><button>Button 2</button>',
+} as Args;
