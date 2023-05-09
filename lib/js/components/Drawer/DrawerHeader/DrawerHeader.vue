@@ -61,10 +61,10 @@
 	}
 
 	&__firstLevel {
-		row-gap: $space-xxxxs;
 		display: flex;
 		flex-direction: column;
 		min-width: 0;
+		row-gap: $space-xxxxs;
 
 		&.-hidden {
 			visibility: hidden; //by this we make sure that height does not change when switching to second level
