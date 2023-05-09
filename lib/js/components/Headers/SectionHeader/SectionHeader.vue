@@ -76,31 +76,31 @@
 
 	&__wrapper {
 		display: flex;
-		padding: 0;
 		flex-direction: column;
+		padding: 0;
 	}
 
 	&__main {
+		align-items: center;
 		display: flex;
 		flex-direction: row;
-		padding: $space-xxxxs 0;
 		gap: $space-xxs;
 		justify-content: space-between;
-		align-items: center;
+		padding: $space-xxxxs 0;
 	}
 
 	&__supportingText {
 		@include text-s-compact-regular;
 
 		color: $color-neutral-text;
-		padding: 0 0 $space-xs;
 		gap: $space-xxs;
+		padding: 0 0 $space-xs;
 	}
 
 	&__titleWrapper {
+		align-items: center;
 		display: flex;
 		width: 100%;
-		align-items: center;
 
 		@media #{breakpoint-s()} {
 			width: auto;
@@ -204,6 +204,7 @@
 
 	&__slotHorizontal {
 		display: none;
+
 		@media #{breakpoint-s()} {
 			display: block;
 		}
@@ -212,6 +213,7 @@
 	&__slotVertical {
 		display: block;
 		padding: 0 0 $space-xxxs;
+
 		@media #{breakpoint-s()} {
 			display: none;
 		}
