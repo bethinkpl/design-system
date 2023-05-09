@@ -1,7 +1,12 @@
 <template>
-	<div class="pageHeader">
+	<div
+		class="pageHeader"
+		:class="{ '-horizontal': mobileLayout === PAGE_HEADER_MOBILE_LAYOUTS.HORIZONTAL }"
+	>
 		<div class="pageHeader__wrapper">
-			<slot v-if="$slots.breadcrumbs" name="breadcrumbs" />
+			<div v-if="$slots.breadcrumbs" class="pageHeader__breadcrumbs">
+				<slot name="breadcrumbs" />
+			</div>
 			<div class="pageHeader__contentWrapper">
 				<div class="pageHeader__textWrapper">
 					<div class="pageHeader__title">{{ pageTitle }}</div>
@@ -34,16 +39,23 @@
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
-		padding: 8px 0;
-		gap: 8px;
+		padding: $space-xxs 0;
+		gap: $space-xxs;
 	}
 
 	&__contentWrapper {
 		display: flex;
-		flex-direction: row;
-		align-items: center;
 		padding: 0;
-		gap: 12px;
+		gap: $space-xs;
+		width: 100%;
+		justify-content: space-between;
+		flex-direction: column;
+		align-items: flex-start;
+
+		@media #{breakpoint-s()} {
+			flex-direction: row;
+			align-items: center;
+		}
 	}
 
 	&__textWrapper {
@@ -51,8 +63,8 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: flex-start;
-		padding: 4px 0;
-		gap: 4px;
+		padding: $space-xxxxs 0;
+		gap: $space-xxxxs;
 	}
 
 	&__title {
@@ -65,7 +77,11 @@
 		color: $color-neutral-text;
 	}
 
-	&__actions {
+	&.-horizontal {
+		#{$root}__contentWrapper {
+			flex-direction: row;
+			align-items: center;
+		}
 	}
 }
 </style>
@@ -73,6 +89,7 @@
 <script lang="ts">
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import DsDivider from '../../Divider';
+import { PAGE_HEADER_MOBILE_LAYOUTS } from './PageHeader.consts';
 
 export default {
 	name: 'PageHeader',
@@ -93,15 +110,16 @@ export default {
 			default: true,
 		},
 		mobileLayout: {
-			// TODO should we use breakpoints?
 			type: String,
-			default: 'vertical',
+			default: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
+			validator: (value) => Object.values(PAGE_HEADER_MOBILE_LAYOUTS).includes(value),
 		},
 	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
+			PAGE_HEADER_MOBILE_LAYOUTS: Object.freeze(PAGE_HEADER_MOBILE_LAYOUTS),
 		};
 	},
 };
