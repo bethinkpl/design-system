@@ -64,6 +64,11 @@ const argTypes = {
 
 Interactive.argTypes = argTypes;
 Interactive.args = args;
+Interactive.parameters = {
+	actions: {
+		handles: ['click'],
+	},
+};
 
 export const WithButton = StoryTemplate.bind({});
 WithButton.args = {

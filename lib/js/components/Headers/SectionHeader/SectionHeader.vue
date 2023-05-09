@@ -1,32 +1,65 @@
 <template>
-	<div class="sectionHeader" :class="{ '-expandable': expandable, [sizeClass]: true }">
-		<div class="sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
-			<div class="sectionHeader__iconWrapper">
-				<ds-icon
-					v-if="iconLeft"
-					class="sectionHeader__iconLeft"
-					:icon="iconLeft"
-					:size="ICON_SIZES.SMALL"
-				/>
+	<div
+		class="sectionHeader"
+		:class="{
+			'-expandable': expandable,
+			'-horizontal': mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL,
+			[sizeClass]: true,
+		}"
+	>
+		<div class="sectionHeader__wrapper">
+			<div class="sectionHeader__main">
+				<div class="sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
+					<div v-if="iconLeft" class="sectionHeader__iconWrapper sectionHeader__iconLeft">
+						<ds-icon :icon="iconLeft" :size="iconSize" />
+					</div>
+					<span class="sectionHeader__title">{{ title }}</span>
+					<div
+						v-if="iconRight"
+						class="sectionHeader__iconWrapper sectionHeader__iconRight"
+					>
+						<ds-icon :icon="iconRight" :size="iconSize" />
+					</div>
+					<div
+						v-if="expandable"
+						class="sectionHeader__iconWrapper sectionHeader__chevron"
+					>
+						<ds-icon
+							:icon="ICONS.FA_CHEVRON_DOWN"
+							:rotation="chevronRotation"
+							:size="iconSize"
+						/>
+					</div>
+					<div v-if="info" class="sectionHeader__info">
+						<ds-icon-button
+							:icon="ICONS.FA_CIRCLE_QUESTION"
+							:size="ICON_BUTTON_SIZES.X_SMALL"
+							:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
+							:touchable="false"
+							@click.prevent.stop="onInfoClicked"
+						/>
+					</div>
+				</div>
+				<div
+					v-if="$slots.default && showSlot"
+					class="sectionHeader__slotHorizontal -hideOnMobile"
+				>
+					<slot />
+				</div>
 			</div>
-			<span class="sectionHeader__title">{{ title }}</span>
-			<div class="sectionHeader__iconWrapper">
-				<ds-icon
-					v-if="expandable"
-					class="sectionHeader__chevron"
-					:icon="ICONS.FA_CHEVRON_DOWN"
-					:rotation="chevronRotation"
-					:size="ICON_SIZES.SMALL"
-				/>
+
+			<div v-if="supportingText" class="sectionHeader__supportingText"
+				>{{ supportingText }}
+			</div>
+
+			<div
+				v-if="$slots.default && showSlot"
+				class="sectionHeader__slotVertical -showOnMobile"
+			>
+				<slot />
 			</div>
 		</div>
-		<div
-			v-if="$slots.default && showSlot"
-			class="sectionHeader__slot"
-			:class="{ '-withPadding': slotPadding }"
-		>
-			<slot />
-		</div>
+		<ds-divider v-if="divider" />
 	</div>
 </template>
 
@@ -36,36 +69,51 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
 
-$icons-and-slot-min-height-m: 40px;
-$icons-and-slot-min-height-l: 50px;
-
 .sectionHeader {
 	$root: &;
 
-	align-items: center;
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	padding: $space-xxxxxs 0;
+	padding: 0;
 
-	@media #{breakpoint-s()} {
-		flex-wrap: nowrap;
+	&__wrapper {
+		display: flex;
+		padding: 0;
+		flex-direction: column;
+	}
+
+	&__main {
+		display: flex;
+		flex-direction: row;
+		padding: $space-xxxxs 0;
+		gap: $space-xxs;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	&__supportingText {
+		@include text-s-compact-regular;
+
+		color: $color-neutral-text;
+		padding: 0 0 $space-xs;
+		gap: $space-xxs;
 	}
 
 	&__titleWrapper {
-		align-items: start;
 		display: flex;
 		width: 100%;
+		align-items: center;
 
 		@media #{breakpoint-s()} {
 			width: auto;
 		}
 	}
 
-	&.-expandable &__titleWrapper:hover {
+	&.-expandable &__titleWrapper {
 		cursor: pointer;
+	}
 
+	&.-expandable &__titleWrapper:hover {
 		#{$root}__iconLeft,
+		#{$root}__iconRight,
 		#{$root}__chevron {
 			color: $color-neutral-icon-hovered;
 		}
@@ -76,94 +124,124 @@ $icons-and-slot-min-height-l: 50px;
 	}
 
 	&__iconLeft,
+	&__iconRight,
 	&__chevron {
 		color: $color-neutral-icon;
 	}
 
 	&__title {
-		color: $color-neutral-text;
+		color: $color-neutral-text-strong;
+		padding: $space-xxs 0;
 	}
 
-	&__slot,
-	&__iconWrapper {
-		align-items: center;
-		display: flex;
-	}
-
-	&__iconWrapper {
-		min-height: $icons-and-slot-min-height-m;
-	}
-
-	&__slot {
-		min-height: auto;
-
-		@media #{breakpoint-s()} {
-			margin-left: $space-s;
-			min-height: $icons-and-slot-min-height-m;
-		}
-
-		&.-withPadding {
-			padding: $space-xxs 0;
-		}
+	&__info {
+		padding: $space-xxxs $space-xxs;
 	}
 
 	&.-size-l {
 		#{$root}__titleWrapper {
-			@include heading-xl-default-bold;
+			@include heading-l-default-bold;
 		}
 
 		#{$root}__iconLeft {
 			margin-right: $space-xxs;
 		}
 
-		#{$root}__title {
-			padding: $space-xs 0;
-		}
-
+		#{$root}__iconRight,
 		#{$root}__chevron {
 			margin-left: $space-xxs;
-		}
-
-		#{$root}__iconWrapper {
-			min-height: $icons-and-slot-min-height-l;
-		}
-
-		#{$root}__slot {
-			@media #{breakpoint-s()} {
-				min-height: $icons-and-slot-min-height-l;
-			}
 		}
 	}
 
 	&.-size-m {
 		#{$root}__titleWrapper {
-			@include heading-l-default-bold;
+			@include heading-m-default-bold;
 		}
 
 		#{$root}__iconLeft {
-			margin: $space-xxs $space-xxs $space-xxs 0;
+			margin-right: $space-xxs;
 		}
 
-		#{$root}__title {
-			padding: $space-xxs 0;
-		}
-
+		#{$root}__iconRight,
 		#{$root}__chevron {
-			margin: $space-xxs 0 $space-xxs $space-xxs;
+			margin-left: $space-xxs;
+		}
+	}
+
+	&.-size-s {
+		#{$root}__titleWrapper {
+			@include heading-s-default-bold;
+		}
+
+		#{$root}__iconLeft {
+			margin-right: $space-xxxs;
+		}
+
+		#{$root}__iconRight,
+		#{$root}__chevron {
+			margin-left: $space-xxxs;
+		}
+	}
+
+	&.-size-xs {
+		#{$root}__title {
+			padding: $space-xxxs 0;
+		}
+
+		#{$root}__titleWrapper {
+			@include heading-xs-default-bold-uppercase;
+		}
+
+		#{$root}__iconLeft {
+			margin-right: $space-xxxs;
+		}
+
+		#{$root}__iconRight,
+		#{$root}__chevron {
+			margin-left: $space-xxxs;
+		}
+	}
+
+	&__slotHorizontal {
+		display: none;
+		@media #{breakpoint-s()} {
+			display: block;
+		}
+	}
+
+	&__slotVertical {
+		display: block;
+		padding: 0 0 $space-xxxs;
+		@media #{breakpoint-s()} {
+			display: none;
+		}
+	}
+
+	&.-horizontal {
+		#{$root}__slotHorizontal {
+			display: block;
+		}
+
+		#{$root}__slotVertical {
+			display: none;
 		}
 	}
 }
 </style>
 
 <script lang="ts">
-import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
+import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from './SectionHeader.consts';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
+import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
+import DsDivider from '../../Divider';
 import { toRaw } from 'vue';
 
 export default {
 	name: 'SectionHeader',
 	components: {
 		DsIcon,
+		DsIconButton,
+		DsDivider,
 	},
 	props: {
 		expandable: {
@@ -181,7 +259,18 @@ export default {
 				return Object.values(ICONS).includes(toRaw(iconLeft));
 			},
 		},
+		iconRight: {
+			type: Object as () => IconItem,
+			default: null,
+			validator(iconRight: IconItem) {
+				return Object.values(ICONS).includes(toRaw(iconRight));
+			},
+		},
 		isExpanded: {
+			type: Boolean,
+			default: false,
+		},
+		info: {
 			type: Boolean,
 			default: false,
 		},
@@ -192,19 +281,31 @@ export default {
 				return Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
 		},
-		slotPadding: {
-			type: Boolean,
-			default: true,
-		},
 		title: {
 			type: String,
 			required: true,
+		},
+		supportingText: {
+			type: String,
+			default: null,
+		},
+		divider: {
+			type: Boolean,
+			default: true,
+		},
+		mobileLayout: {
+			type: String,
+			default: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
+			validator: (value) => Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(value),
 		},
 	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
+			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
+			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
+			SECTION_HEADER_MOBILE_LAYOUTS: Object.freeze(SECTION_HEADER_MOBILE_LAYOUTS),
 		};
 	},
 	computed: {
@@ -217,8 +318,18 @@ export default {
 		sizeClass(): string {
 			return `-size-${this.size}`;
 		},
+		iconSize(): string {
+			if (this.size === SECTION_HEADER_SIZES.M || this.size === SECTION_HEADER_SIZES.L) {
+				return ICON_SIZES.X_SMALL;
+			}
+
+			return ICON_SIZES.XX_SMALL;
+		},
 	},
 	methods: {
+		onInfoClicked(): void {
+			this.$emit('info-click');
+		},
 		onTitleWrapperClicked(): void {
 			if (!this.expandable) {
 				return;

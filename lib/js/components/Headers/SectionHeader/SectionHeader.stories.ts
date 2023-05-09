@@ -1,5 +1,5 @@
 import SectionHeader from './SectionHeader.vue';
-import { SECTION_HEADER_SIZES } from './SectionHeader.consts';
+import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from './SectionHeader.consts';
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -31,10 +31,14 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => (
 		' :expandable="expandable"' +
 		' :hide-slot-when-collapsed="hideSlotWhenCollapsed"' +
 		' :icon-left="ICONS[iconLeft]"' +
+		' :icon-right="ICONS[iconRight]"' +
 		' :is-expanded="isExpanded"' +
 		' :size="size"' +
-		' :slot-padding="slotPadding"' +
+		' :info="info"' +
 		' :title="title"' +
+		' :divider="divider"' +
+		' :mobile-layout="mobileLayout"' +
+		' :supportingText="supportingText"' +
 		' @update:isExpanded="onIsExpandedUpdated"' +
 		'>' +
 		'<div style="border: 1px solid;">Slot content</div>' +
@@ -46,11 +50,16 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	expandable: false,
 	hideSlotWhenCollapsed: false,
-	iconLeft: null,
+	info: true,
+	iconLeft: ICONS.FA_PLAY,
+	iconRight: ICONS.FA_BOOK,
 	isExpanded: false,
 	size: SECTION_HEADER_SIZES.M,
-	slotPadding: true,
-	title: 'Title',
+	divider: true,
+	mobileLayout: 'vertical',
+	title: 'Section Header',
+	supportingText:
+		'Supporting text. Et doloribus aspernatur suscipit provident maiores. Natus natus et pariatur. Eligendi illo quo esse. Tenetur ad neque veniam.',
 } as Args;
 
 const argTypes = {
@@ -58,9 +67,28 @@ const argTypes = {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: null,
 	},
+	iconRight: {
+		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		defaultValue: null,
+	},
 	size: {
 		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
 		defaultValue: SECTION_HEADER_SIZES.M,
+	},
+	divider: {
+		control: { type: 'boolean' },
+		defaultValue: true,
+	},
+	info: {
+		control: { type: 'boolean' },
+		defaultValue: false,
+	},
+	mobileLayout: {
+		control: {
+			type: 'select',
+			options: Object.values(SECTION_HEADER_MOBILE_LAYOUTS),
+			defaultValue: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
+		},
 	},
 } as ArgTypes;
 
@@ -68,8 +96,7 @@ Interactive.argTypes = argTypes;
 Interactive.args = args;
 
 Interactive.parameters = {
-	design: {
-		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=3703%3A70270',
+	actions: {
+		handles: ['click'],
 	},
 };
