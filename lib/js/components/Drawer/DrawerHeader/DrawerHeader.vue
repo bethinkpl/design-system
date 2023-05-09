@@ -61,6 +61,7 @@
 	}
 
 	&__firstLevel {
+		row-gap: $space-xxxxs;
 		display: flex;
 		flex-direction: column;
 		min-width: 0;
@@ -74,7 +75,6 @@
 		@include info-s-extensive-bold-uppercase;
 
 		color: $color-neutral-text-weak;
-		margin-bottom: $space-xxxxs;
 
 		&.-isInteractive:hover {
 			color: $color-neutral-text;
