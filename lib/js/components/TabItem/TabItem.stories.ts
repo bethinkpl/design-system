@@ -2,6 +2,7 @@ import TabItem from './TabItem.vue';
 import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 export default {
 	title: 'Components/TabItem',
@@ -13,10 +14,12 @@ const StoryTemplate: StoryFn<typeof TabItem> = (args) => ({
 	setup() {
 		return { ...args };
 	},
-	template: '<tab-item :icon="ICONS[icon]" :is-active="isActive" :title="title" />',
+	template:
+		'<tab-item style="max-width: 150px" :icon="ICONS[icon]" :is-selected="isSelected" :label="label" :size="TAB_ITEM_SIZES[size]" :label-ellipsis="labelEllipsis" />',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
+			TAB_ITEM_SIZES: Object.freeze(TAB_ITEM_SIZES),
 		};
 	},
 });
@@ -24,14 +27,29 @@ const StoryTemplate: StoryFn<typeof TabItem> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	isActive: false,
-	title: 'Lorem ipsum dolor sit amet',
+	isSelected: false,
 } as Args;
 
 const argTypes = {
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
-		defaultValue: 'FA_CALENDAR_DAYS',
+		control: { type: 'select', options: [...Object.keys(ICONS), null] },
+		defaultValue: null,
+	},
+	size: {
+		control: { type: 'select', options: Object.keys(TAB_ITEM_SIZES) },
+		defaultValue: 'MEDIUM',
+	},
+	label: {
+		control: { type: 'text' },
+		defaultValue: 'Tab item',
+	},
+	isSelected: {
+		control: { type: 'boolean' },
+		defaultValue: false,
+	},
+	labelEllipsis: {
+		control: { type: 'boolean' },
+		defaultValue: false,
 	},
 } as ArgTypes;
 

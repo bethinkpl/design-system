@@ -26,6 +26,7 @@ export { default as DsModalDialog } from './components/Modals/ModalDialog';
 export { default as NumberInCircle } from './components/NumberInCircle';
 export * from './components/NumberInCircle/NumberInCircle.consts';
 export { default as TabItem } from './components/TabItem';
+export * from './components/TabItem/TabItem.consts';
 export { default as Tile } from './components/Tile';
 export * from './components/Tile/Tile.consts';
 export { default as AccessStatus } from './components/Statuses/AccessStatus/';

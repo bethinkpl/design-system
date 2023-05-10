@@ -58,6 +58,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_CIRCLE_QUESTION: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CIRCLE_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CLIPBOARD_MEDICAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_CLIPBOARD_LIST: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CLOCK: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CLOCK_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CODE: import("@fortawesome/fontawesome-common-types").IconDefinition;

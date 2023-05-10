@@ -1,25 +1,37 @@
-import WnlIcon from '../Icons/Icon';
+import DsIcon from '../Icons/Icon';
 declare const _default: {
     name: string;
     components: {
-        WnlIcon: typeof WnlIcon;
+        DsIcon: typeof DsIcon;
     };
     props: {
         icon: {
-            type: ObjectConstructor;
-            required: boolean;
+            type: (ObjectConstructor | null)[];
+            default: null;
             validator(icon: any): boolean;
         };
-        isActive: {
+        isSelected: {
             type: BooleanConstructor;
             required: boolean;
         };
-        title: {
+        label: {
+            type: (StringConstructor | null)[];
+            default: null;
+        };
+        labelEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        size: {
             type: StringConstructor;
-            required: boolean;
+            default: "M";
         };
     };
     data(): {
+        TAB_ITEM_SIZES: Readonly<{
+            readonly SMALL: "S";
+            readonly MEDIUM: "M";
+        }>;
         ICON_SIZES: Readonly<{
             XXX_SMALL: string;
             XX_SMALL: string;
