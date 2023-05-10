@@ -23,16 +23,19 @@
 	color: $color-neutral-text-strong;
 	display: flex;
 	gap: $space-xxs;
-	justify-content: space-between;
 	padding: $space-xxs 0;
 	width: 100%;
 
 	&__label {
 		@include label-m-default-regular;
+
+		overflow: hidden;
+		overflow-wrap: break-word;
+		width: 100%;
 	}
 
 	&__value {
-		@include label-m-default-bold;
+		@include info-m-default-bold;
 	}
 }
 </style>

@@ -13,7 +13,8 @@
 .sectionTitle {
 	display: flex;
 	flex-direction: column;
-	gap: $space-xxs;
+	gap: $space-xxxxs;
+	overflow-wrap: break-word;
 	padding: $space-xxs 0;
 
 	&__title {
