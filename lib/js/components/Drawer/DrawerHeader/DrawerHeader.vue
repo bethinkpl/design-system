@@ -21,7 +21,7 @@
 				>
 					{{ eyebrowText }}
 				</span>
-				<div class="drawerHeader__title">
+				<div class="drawerHeader__title" :title="title">
 					<icon
 						v-if="leftIcon"
 						:icon="leftIcon"
@@ -36,6 +36,7 @@
 				v-if="isClosable"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"
+				:touchable="false"
 				@click="$emit('close')"
 			/>
 		</div>
@@ -47,6 +48,8 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/colors/tokens';
+
+$minimal-drawer-header-height: 82px;
 
 .drawerHeader {
 	display: flex;
@@ -108,7 +111,7 @@
 		column-gap: $space-xxxxs;
 		display: flex;
 		justify-content: space-between;
-		min-height: 82px;
+		min-height: $minimal-drawer-header-height;
 		padding: $space-m $space-xs $space-m $space-s;
 	}
 }
