@@ -40,10 +40,7 @@
 						/>
 					</div>
 				</div>
-				<div
-					v-if="$slots.default && showSlot"
-					class="sectionHeader__slotHorizontal -hideOnMobile"
-				>
+				<div v-if="$slots.default && showSlot" class="sectionHeader__slotHorizontal">
 					<slot />
 				</div>
 			</div>
@@ -52,10 +49,7 @@
 				>{{ supportingText }}
 			</div>
 
-			<div
-				v-if="$slots.default && showSlot"
-				class="sectionHeader__slotVertical -showOnMobile"
-			>
+			<div v-if="$slots.default && showSlot" class="sectionHeader__slotVertical">
 				<slot />
 			</div>
 		</div>
