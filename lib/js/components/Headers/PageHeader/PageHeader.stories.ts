@@ -68,6 +68,10 @@ Interactive.parameters = {
 	actions: {
 		handles: ['click'],
 	},
+	design: {
+		type: 'figma',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6984-129837&t=P13ZB65sCLJzAvmv-4',
+	},
 };
 
 export const WithButton = StoryTemplate.bind({});

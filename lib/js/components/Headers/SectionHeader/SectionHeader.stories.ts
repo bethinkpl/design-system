@@ -99,4 +99,8 @@ Interactive.parameters = {
 	actions: {
 		handles: ['click'],
 	},
+	design: {
+		type: 'figma',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6984-136861&t=P13ZB65sCLJzAvmv-4',
+	},
 };
