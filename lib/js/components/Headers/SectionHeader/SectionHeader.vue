@@ -89,7 +89,6 @@
 		@include text-s-compact-regular;
 
 		color: $color-neutral-text;
-		gap: $space-xxs;
 		padding: 0 0 $space-xs;
 	}
 
@@ -105,17 +104,15 @@
 
 	&.-expandable &__header {
 		cursor: pointer;
-	}
 
-	&.-expandable &__header:hover {
-		#{$root}__iconLeft,
-		#{$root}__iconRight,
-		#{$root}__chevron {
-			color: $color-neutral-icon-hovered;
-		}
+		&:hover {
+			#{$root}__icon {
+				color: $color-neutral-icon-hovered;
+			}
 
-		#{$root}__title {
-			color: $color-neutral-text-hovered;
+			#{$root}__title {
+				color: $color-neutral-text-hovered;
+			}
 		}
 	}
 
