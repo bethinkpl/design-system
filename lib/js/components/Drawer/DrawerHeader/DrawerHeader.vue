@@ -21,14 +21,19 @@
 				>
 					{{ eyebrowText }}
 				</span>
-				<div class="drawerHeader__title" :title="title">
+				<div class="drawerHeader__title">
 					<icon
 						v-if="leftIcon"
 						:icon="leftIcon"
 						:size="ICON_SIZES.X_SMALL"
 						class="drawerHeader__leftIcon"
 					/>
-					<span v-if="title" :class="{ '-ellipsis': titleEllipsis }">{{ title }}</span>
+					<span
+						v-if="title"
+						:class="{ '-ellipsis': titleEllipsis }"
+						:title="titleEllipsis ? title : undefined"
+						>{{ title }}</span
+					>
 					<pill v-if="pillLabel" :label="pillLabel" />
 				</div>
 			</div>
@@ -124,7 +129,7 @@ import IconButton from '../../Buttons/IconButton/IconButton.vue';
 import Pill from '../../Pill/Pill.vue';
 import Icon from '../../Icons/Icon/Icon.vue';
 import { BUTTON_TYPES } from '../../Buttons/Button';
-import { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { DIVIDER_SIZES } from '../../Divider';
 import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 
