@@ -300,8 +300,8 @@ export default {
 		};
 	},
 	computed: {
-		chevronRotation(): number | null {
-			return this.isExpanded ? 180 : null;
+		chevronRotation(): number | undefined {
+			return this.isExpanded ? 180 : undefined;
 		},
 		showSlot(): boolean {
 			return this.isExpanded || !this.hideSlotWhenCollapsed;
