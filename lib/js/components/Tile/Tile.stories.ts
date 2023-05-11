@@ -1,8 +1,8 @@
 import Tile from './Tile.vue';
-import { TILE_COLORS, TILE_STATES } from './Tile.consts';
-import { ICONS } from '../Icons/Icon';
+import { TILE_STATES } from './Tile.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, Meta, StoryFn } from '@storybook/vue3';
+import { args, argTypes, data, template } from './Tile.sb.shared';
 
 export default {
 	title: 'Components/Tile',
@@ -14,48 +14,11 @@ const StoryTemplate: StoryFn<typeof Tile> = (args) => ({
 	setup() {
 		return { ...args };
 	},
-	template:
-		'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :is-eyebrow-text-uppercase="isEyebrowTextUppercase" :state="state" :eyebrow-ellipsis="eyebrowEllipsis" :text-ellipsis="textEllipsis"/>',
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
+	template: template('tile'),
+	data,
 });
 
 export const Interactive = StoryTemplate.bind({});
-
-const args = {
-	interactive: true,
-	iconLeft: null,
-	iconRight: null,
-	text: 'this is a text text',
-	eyebrowText: 'this is an eyebrowText text',
-	additionalText: '',
-	isEyebrowTextUppercase: false,
-	state: TILE_STATES.DEFAULT,
-	eyebrowEllipsis: true,
-	textEllipsis: true,
-} as Args;
-
-const argTypes = {
-	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
-	},
-	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
-	},
-	color: {
-		control: { type: 'select', options: [...Object.values(TILE_COLORS)] },
-		defaultValue: TILE_COLORS.NEUTRAL,
-	},
-	state: {
-		control: { type: 'select', options: [...Object.values(TILE_STATES)] },
-		defaultValue: TILE_STATES.DEFAULT,
-	},
-} as ArgTypes;
 
 Interactive.argTypes = argTypes;
 Interactive.args = args;
@@ -75,35 +38,13 @@ const StoryStaticTemplate: StoryFn<typeof Tile> = (args) => ({
 	setup() {
 		return { ...args };
 	},
-	template:
-		'<tile :text="text" :eyebrowText="eyebrowText" :interactive="interactive" :iconLeft="ICONS[iconLeft]" :additionalText="additionalText" :iconRight="ICONS[iconRight]" :color="color" :state="state" />',
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
+	template: template('tile'),
+	data,
 });
 
 export const Static = StoryStaticTemplate.bind({});
 
-Static.argTypes = {
-	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
-	},
-	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
-	},
-	color: {
-		control: { type: 'select', options: [null, ...Object.values(TILE_COLORS)] },
-		defaultValue: TILE_COLORS.NEUTRAL,
-	},
-	state: {
-		control: { type: 'select', options: [...Object.values(TILE_STATES)] },
-		defaultValue: TILE_STATES.DEFAULT,
-	},
-} as ArgTypes;
+Static.argTypes = argTypes;
 
 Static.args = {
 	interactive: false,
