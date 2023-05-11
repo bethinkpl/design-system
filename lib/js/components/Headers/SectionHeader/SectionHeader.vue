@@ -133,6 +133,10 @@
 	}
 
 	&.-size-l {
+		#{$root}__main {
+			padding: $space-xxxxxs 0;
+		}
+
 		#{$root}__titleWrapper {
 			@include heading-l-default-bold;
 		}
@@ -163,6 +167,10 @@
 	}
 
 	&.-size-s {
+		#{$root}__main {
+			padding: $space-xxxxxs 0;
+		}
+
 		#{$root}__titleWrapper {
 			@include heading-s-default-bold;
 		}
@@ -178,6 +186,10 @@
 	}
 
 	&.-size-xs {
+		#{$root}__main {
+			padding: 0 0;
+		}
+
 		#{$root}__title {
 			padding: $space-xxxs 0;
 		}
