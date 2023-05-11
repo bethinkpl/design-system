@@ -9,22 +9,24 @@
 	>
 		<div class="sectionHeader__wrapper">
 			<div class="sectionHeader__main">
-				<div class="sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
-					<div v-if="iconLeft" class="sectionHeader__iconWrapper sectionHeader__iconLeft">
-						<ds-icon :icon="iconLeft" :size="iconSize" />
-					</div>
-					<span class="sectionHeader__title">{{ title }}</span>
-					<div
-						v-if="iconRight"
-						class="sectionHeader__iconWrapper sectionHeader__iconRight"
-					>
-						<ds-icon :icon="iconRight" :size="iconSize" />
-					</div>
-					<div
-						v-if="expandable"
-						class="sectionHeader__iconWrapper sectionHeader__chevron"
-					>
+				<div class="sectionHeader__header">
+					<div class="sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
 						<ds-icon
+							v-if="iconLeft"
+							class="sectionHeader__icon"
+							:icon="iconLeft"
+							:size="iconSize"
+						/>
+						<span class="sectionHeader__title">{{ title }}</span>
+						<ds-icon
+							v-if="iconRight"
+							class="sectionHeader__icon"
+							:icon="iconRight"
+							:size="iconSize"
+						/>
+						<ds-icon
+							v-if="expandable"
+							class="sectionHeader__icon"
 							:icon="ICONS.FA_CHEVRON_DOWN"
 							:rotation="chevronRotation"
 							:size="iconSize"
@@ -91,7 +93,7 @@
 		padding: 0 0 $space-xs;
 	}
 
-	&__titleWrapper {
+	&__header {
 		align-items: center;
 		display: flex;
 		width: 100%;
@@ -101,11 +103,11 @@
 		}
 	}
 
-	&.-expandable &__titleWrapper {
+	&.-expandable &__header {
 		cursor: pointer;
 	}
 
-	&.-expandable &__titleWrapper:hover {
+	&.-expandable &__header:hover {
 		#{$root}__iconLeft,
 		#{$root}__iconRight,
 		#{$root}__chevron {
@@ -117,9 +119,12 @@
 		}
 	}
 
-	&__iconLeft,
-	&__iconRight,
-	&__chevron {
+	&__titleWrapper {
+		align-items: center;
+		display: flex;
+	}
+
+	&__icon {
 		color: $color-neutral-icon;
 	}
 
@@ -137,32 +142,22 @@
 			padding: $space-xxxxxs 0;
 		}
 
-		#{$root}__titleWrapper {
+		#{$root}__header {
 			@include heading-l-default-bold;
 		}
 
-		#{$root}__iconLeft {
-			margin-right: $space-xxs;
-		}
-
-		#{$root}__iconRight,
-		#{$root}__chevron {
-			margin-left: $space-xxs;
+		#{$root}__titleWrapper {
+			gap: $space-xxs;
 		}
 	}
 
 	&.-size-m {
-		#{$root}__titleWrapper {
+		#{$root}__header {
 			@include heading-m-default-bold;
 		}
 
-		#{$root}__iconLeft {
-			margin-right: $space-xxs;
-		}
-
-		#{$root}__iconRight,
-		#{$root}__chevron {
-			margin-left: $space-xxs;
+		#{$root}__titleWrapper {
+			gap: $space-xxs;
 		}
 	}
 
@@ -171,17 +166,12 @@
 			padding: $space-xxxxxs 0;
 		}
 
-		#{$root}__titleWrapper {
+		#{$root}__header {
 			@include heading-s-default-bold;
 		}
 
-		#{$root}__iconLeft {
-			margin-right: $space-xxxs;
-		}
-
-		#{$root}__iconRight,
-		#{$root}__chevron {
-			margin-left: $space-xxxs;
+		#{$root}__titleWrapper {
+			gap: $space-xxxs;
 		}
 	}
 
@@ -190,21 +180,16 @@
 			padding: 0 0;
 		}
 
-		#{$root}__title {
+		#{$root}__titleWrapperle {
 			padding: $space-xxxs 0;
 		}
 
-		#{$root}__titleWrapper {
+		#{$root}__header {
 			@include heading-xs-default-bold-uppercase;
 		}
 
-		#{$root}__iconLeft {
-			margin-right: $space-xxxs;
-		}
-
-		#{$root}__iconRight,
-		#{$root}__chevron {
-			margin-left: $space-xxxs;
+		#{$root}__titleWrapper {
+			gap: $space-xxxs;
 		}
 	}
 
