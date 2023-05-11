@@ -1,6 +1,6 @@
 <template>
 	<div class="layout">
-		<div class="layout__leftColumn">
+		<div v-if="sideMenuVisible" class="layout__leftColumn">
 			<div class="layout__mainMenu">mainMenu</div>
 			<div class="layout__sideNav">sideNav</div>
 		</div>
@@ -9,19 +9,36 @@
 			:class="{ '-fullWidth': isContentFullWidth, '-max900': !isContentFullWidth }"
 			>content
 		</div>
-		<template v-if="!isContentFullWidth">
-			<div class="layout__overlay" />
-			<div
-				v-if="rightColumVisible"
-				class="layout__rightColumn"
-				:class="{
-					'-medium': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
-					'-large': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
-				}"
+		<template v-if="sideBarVisible">
+			<template
+				v-if="
+					!isContentFullWidth &&
+					rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE
+				"
 			>
-				right
+				<div class="layout__overlay" />
+				<div
+					v-if="
+						rightColumVisible &&
+						rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE
+					"
+					class="layout__rightColumn"
+					:class="{
+						'-medium': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+						'-large': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
+					}"
+				>
+					right
+				</div>
+			</template>
+			<div
+				v-if="
+					rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.SIDEBAR_VISIBLE &&
+					!isContentFullWidth
+				"
+				class="layout__sideBar"
+				>sidebar
 			</div>
-			<div v-else class="layout__sideBar">sidebar</div>
 		</template>
 	</div>
 </template>
@@ -102,6 +119,7 @@
 		&.-max900 {
 			background: #9133c2;
 			max-width: 900px;
+			margin: 0 auto;
 		}
 
 		&.-fullWidth {
@@ -164,8 +182,10 @@
 import { PropType } from 'vue';
 import {
 	LAYOUT_CONTENT_SIZE,
+	LAYOUT_RIGHT_COLUMN_MODE,
 	LAYOUT_RIGHT_COLUMN_SIZE,
 	LayoutContentSize,
+	LayoutRightColumnMode,
 	LayoutRightColumnSize,
 } from './Layout.consts';
 
@@ -186,14 +206,26 @@ export default {
 				return Object.values(LAYOUT_RIGHT_COLUMN_SIZE).includes(rightColumnSize);
 			},
 		},
+		rightColumnMode: {
+			type: String as PropType<LayoutRightColumnMode>,
+			default: LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE,
+			validator(rightColumnMode) {
+				return Object.values(LAYOUT_RIGHT_COLUMN_MODE).includes(rightColumnMode);
+			},
+		},
 		sideBarVisible: {
 			type: Boolean,
 			default: false,
+		},
+		sideMenuVisible: {
+			type: Boolean,
+			default: true,
 		},
 	},
 	data() {
 		return {
 			LAYOUT_RIGHT_COLUMN_SIZE: Object.freeze(LAYOUT_RIGHT_COLUMN_SIZE),
+			LAYOUT_RIGHT_COLUMN_MODE: Object.freeze(LAYOUT_RIGHT_COLUMN_MODE),
 		};
 	},
 	computed: {
