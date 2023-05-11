@@ -289,6 +289,7 @@ export default {
 			validator: (value) => Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(value),
 		},
 	},
+	emits: ['info-click', 'update:isExpanded'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
