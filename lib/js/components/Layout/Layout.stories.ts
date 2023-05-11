@@ -1,7 +1,7 @@
 import Layout from './Layout.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { LAYOUT_CONTENT } from './Layout.consts';
+import { LAYOUT_CONTENT_SIZE, LAYOUT_RIGHT_COLUMN_SIZE } from './Layout.consts';
 
 export default {
 	title: 'Components/Layout',
@@ -15,20 +15,25 @@ const StoryTemplate: StoryFn<typeof Layout> = (args) => ({
 	},
 	template: `
 		<div style='height: 100%; width: 100%; display: flex; min-height: 100vh; border: 1px solid gray;'>
-		<layout :content='content' />
+		<layout :content-size='contentSize' :rightColumnSize='rightColumnSize' />
 		</div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	content: LAYOUT_CONTENT.MAX_900,
+	contentSize: LAYOUT_CONTENT_SIZE.MAX_900,
+	rightColumnSize: LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 } as Args;
 
 const argTypes = {
-	content: {
-		control: { type: 'select', options: Object.values(LAYOUT_CONTENT) },
-		defaultValue: LAYOUT_CONTENT.MAX_900,
+	contentSize: {
+		control: { type: 'select', options: Object.values(LAYOUT_CONTENT_SIZE) },
+		defaultValue: LAYOUT_CONTENT_SIZE.MAX_900,
+	},
+	rightColumnSize: {
+		control: { type: 'select', options: Object.values(LAYOUT_RIGHT_COLUMN_SIZE) },
+		defaultValue: LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 	},
 } as ArgTypes;
 
