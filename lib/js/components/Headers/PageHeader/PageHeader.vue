@@ -89,7 +89,6 @@
 </style>
 
 <script lang="ts">
-import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import DsDivider from '../../Divider';
 import { PAGE_HEADER_MOBILE_LAYOUTS } from './PageHeader.consts';
 
@@ -119,8 +118,6 @@ export default {
 	},
 	data() {
 		return {
-			ICONS: Object.freeze(ICONS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
 			PAGE_HEADER_MOBILE_LAYOUTS: Object.freeze(PAGE_HEADER_MOBILE_LAYOUTS),
 		};
 	},
