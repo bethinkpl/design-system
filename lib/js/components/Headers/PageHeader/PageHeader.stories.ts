@@ -28,15 +28,21 @@ const StoryTemplate: StoryFn<typeof PageHeader> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
+	breadcrumbs: '',
+	actions: '',
 	pageTitle: 'Page title',
 	supportingInfo: 'Supporting info write here',
 	divider: true,
-	actions: '',
-	breadcrumbs: '',
 	mobileLayout: 'vertical',
 } as Args;
 
 const argTypes = {
+	breadcrumbs: {
+		control: { type: 'text' },
+	},
+	actions: {
+		control: { type: 'text' },
+	},
 	pageTitle: {
 		control: { type: 'text' },
 	},
@@ -53,12 +59,6 @@ const argTypes = {
 			options: Object.values(PAGE_HEADER_MOBILE_LAYOUTS),
 			defaultValue: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
 		},
-	},
-	breadcrumbs: {
-		control: { type: 'text' },
-	},
-	actions: {
-		control: { type: 'text' },
 	},
 } as ArgTypes;
 
