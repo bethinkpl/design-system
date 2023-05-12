@@ -143,8 +143,8 @@
 	&__titleContainer {
 		display: flex;
 		flex-direction: column;
-		padding: $space-xxs 0;
 		gap: $space-xxxxxs;
+		padding: $space-xxs 0;
 	}
 
 	&__title {
@@ -157,6 +157,7 @@
 
 	&__eyebrow {
 		@include info-xs-extensive-bold-uppercase;
+
 		color: $color-neutral-text-weak;
 	}
 
@@ -220,8 +221,8 @@
 		}
 
 		#{$root}__titleWrapper {
-			padding: $space-xxxs 0;
 			gap: $space-xxxs;
+			padding: $space-xxxs 0;
 		}
 
 		#{$root}__header {
