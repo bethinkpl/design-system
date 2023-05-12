@@ -22,6 +22,7 @@ const StoryTemplate: StoryFn<typeof Layout> = (args) => ({
 			style='height: 100%; width: 100%; display: flex; min-height: 100vh; border: 1px solid gray; font-size: 12px; color: #fff;'>
 		<layout :contentColumnSize='contentColumnSize' :rightColumnSize='rightColumnSize'
 				:sideBarVisible='sideBarVisible'
+				:rightColumnVisible='rightColumnVisible'
 				:sideMenuVisible='sideMenuVisible' :rightColumnMode='rightColumnMode'
 				:contentWithoutPadding='contentWithoutPadding'>
 			<template #mainMenu>
@@ -53,6 +54,7 @@ const args = {
 	rightColumnMode: LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE,
 	contentColumnSize: LAYOUT_CONTENT_COLUMN_SIZE.MAX_900,
 	rightColumnSize: LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+	rightColumnVisible: true,
 	sideBarVisible: false,
 	sideMenuVisible: true,
 	contentWithoutPadding: false,

@@ -1,6 +1,6 @@
 <template>
 	<div class="layout">
-		<div v-if="sideMenuVisible" class="layout__leftColumn">
+		<div v-if="sideMenuVisible" class="layout__navigation">
 			<div class="layout__mainMenu">
 				<slot name="mainMenu" />
 			</div>
@@ -18,39 +18,36 @@
 		>
 			<slot />
 		</div>
-		<template v-if="sideBarVisible && $slots.rightColumn">
-			<template
-				v-if="
-					!isContentFullWidth &&
-					rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE
-				"
-			>
-				<div class="layout__overlay" />
-				<div
-					v-if="
-						rightColumVisible &&
-						rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE
-					"
-					class="layout__rightColumn"
-					:class="{
-						'-medium': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
-						'-large': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
-					}"
-				>
-					<slot name="rightColumn" />
-				</div>
-			</template>
+		<template
+			v-if="
+				$slots.rightColumn &&
+				rightColumnVisible &&
+				!isContentFullWidth &&
+				rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE
+			"
+		>
+			<div class="layout__overlay" />
 			<div
-				v-if="
-					rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.SIDEBAR_VISIBLE &&
-					!isContentFullWidth &&
-					$slots.sideBar
-				"
-				class="layout__sideBar"
+				class="layout__rightColumn"
+				:class="{
+					'-medium': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+					'-large': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
+				}"
 			>
-				<slot name="sideBar" />
+				<slot name="rightColumn" />
 			</div>
 		</template>
+		<div
+			v-if="
+				$slots.sideBar &&
+				sideBarVisible &&
+				rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.SIDEBAR_VISIBLE &&
+				!isContentFullWidth
+			"
+			class="layout__sideBar"
+		>
+			<slot name="sideBar" />
+		</div>
 	</div>
 </template>
 
@@ -67,6 +64,7 @@ $left-column-min-width: 200px;
 $left-column-max-width: 400px;
 
 $content-column-max-width: 900px;
+$content-column-full-max-width: 1280px;
 
 $right-column-medium-max-width: 400px;
 $right-column-medium-l-width: 30vw;
@@ -106,7 +104,7 @@ $side-bar-width: 66px;
 		}
 	}
 
-	&__leftColumn {
+	&__navigation {
 		display: none;
 		flex-wrap: nowrap;
 		justify-content: flex-start;
@@ -120,17 +118,18 @@ $side-bar-width: 66px;
 	}
 
 	&__mainMenu {
-		height: 100%;
+		height: auto;
 		width: $main-menu-width;
 	}
 
 	&__sideNav {
-		height: 100%;
+		height: auto;
 		width: 100%;
 	}
 
 	&__contentColumn {
 		flex: 1;
+		margin: 0 auto;
 		padding: $space-s;
 		width: auto;
 
@@ -139,17 +138,17 @@ $side-bar-width: 66px;
 		}
 
 		&.-max900 {
-			margin: 0 auto;
 			max-width: $content-column-max-width;
 		}
 
 		&.-fullWidth {
+			max-width: $content-column-full-max-width;
 			width: 100%;
 		}
 	}
 
 	&__rightColumn {
-		height: 100%;
+		height: auto;
 		position: absolute;
 		right: 0;
 		top: 0;
@@ -185,7 +184,7 @@ $side-bar-width: 66px;
 	}
 
 	&__sideBar {
-		height: 100%;
+		height: auto;
 		width: $side-bar-width;
 	}
 }
@@ -229,6 +228,10 @@ export default {
 		sideBarVisible: {
 			type: Boolean,
 			default: false,
+		},
+		rightColumnVisible: {
+			type: Boolean,
+			default: true,
 		},
 		sideMenuVisible: {
 			type: Boolean,
