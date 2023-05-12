@@ -39,13 +39,14 @@
 			</div>
 			<icon-button
 				v-if="isClosable"
+				class="drawerHeader__closeButton"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"
 				:touchable="false"
 				@click="$emit('close')"
 			/>
 		</div>
-		<divider v-if="hasDivider" :size="DIVIDER_SIZES.L" />
+		<divider v-if="hasDivider" :size="DIVIDER_SIZES.L" :prominence="DIVIDER_PROMINENCES.WEAK" />
 	</div>
 </template>
 
@@ -85,7 +86,7 @@ $minimal-drawer-header-height: 82px;
 		color: $color-neutral-text-weak;
 
 		&.-isInteractive:hover {
-			color: $color-neutral-text;
+			color: $color-neutral-text-weak-hovered;
 			cursor: pointer;
 		}
 
@@ -119,6 +120,10 @@ $minimal-drawer-header-height: 82px;
 		min-height: $minimal-drawer-header-height;
 		padding: $space-m $space-xs $space-m $space-s;
 	}
+
+	&__closeButton {
+		align-self: flex-start;
+	}
 }
 </style>
 
@@ -130,7 +135,7 @@ import Pill from '../../Pill/Pill.vue';
 import Icon from '../../Icons/Icon/Icon.vue';
 import { BUTTON_TYPES } from '../../Buttons/Button';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { DIVIDER_SIZES } from '../../Divider';
+import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 
 export default {
@@ -189,6 +194,7 @@ export default {
 		return {
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			DIVIDER_SIZES: Object.freeze(DIVIDER_SIZES),
+			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
 			ICONS: Object.freeze(ICONS),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_SIZES: Object.freeze(ICON_SIZES),

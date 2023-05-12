@@ -19,15 +19,11 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 		};
 	},
 	template: `
-      <div style="display: inline-flex;">
-      <div style="max-width: 200px;">
-        <drawer-header :title="title" :eyebrow-text="eyebrowText" :pill-label="pillLabel"
-                       :left-icon="ICONS[leftIcon]"
-                       :has-divider="hasDivider" :is-closable="isClosable"
-                       :is-interactive-eyebrow="isInteractiveEyebrow" :is-second-level="isSecondLevel"
-                       :eyebrow-ellipsis="eyebrowEllipsis" :title-ellipsis="titleEllipsis"/>
-      </div>
-      </div>`,
+		<drawer-header :title="title" :eyebrow-text="eyebrowText" :pill-label="pillLabel"
+					   :left-icon="ICONS[leftIcon]"
+					   :has-divider="hasDivider" :is-closable="isClosable"
+					   :is-interactive-eyebrow="isInteractiveEyebrow" :is-second-level="isSecondLevel"
+					   :eyebrow-ellipsis="eyebrowEllipsis" :title-ellipsis="titleEllipsis"/>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -56,6 +52,6 @@ Interactive.args = args;
 Interactive.parameters = {
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=5849-97389&t=pcGA9DXECQuFwOnG-4',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=3343-61164&t=Amd0mke9FMknuKCX-0',
 	},
 };
