@@ -1,9 +1,10 @@
-export const LAYOUT_CONTENT_SIZE = {
+export const LAYOUT_CONTENT_COLUMN_SIZE = {
 	FULL_WIDTH: 'fullWidth',
 	MAX_900: 'max900',
 } as const;
 
-export type LayoutContentSize = typeof LAYOUT_CONTENT_SIZE[keyof typeof LAYOUT_CONTENT_SIZE];
+export type LayoutContentColumnSize =
+	typeof LAYOUT_CONTENT_COLUMN_SIZE[keyof typeof LAYOUT_CONTENT_COLUMN_SIZE];
 export const LAYOUT_RIGHT_COLUMN_SIZE = {
 	MEDIUM: 'medium',
 	LARGE: 'large',

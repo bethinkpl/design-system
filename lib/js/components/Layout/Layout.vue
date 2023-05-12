@@ -1,15 +1,24 @@
 <template>
 	<div class="layout">
 		<div v-if="sideMenuVisible" class="layout__leftColumn">
-			<div class="layout__mainMenu">mainMenu</div>
-			<div class="layout__sideNav">sideNav</div>
+			<div class="layout__mainMenu">
+				<slot name="mainMenu" />
+			</div>
+			<div class="layout__sideNav">
+				<slot name="sideNav" />
+			</div>
 		</div>
 		<div
 			class="layout__contentColumn"
-			:class="{ '-fullWidth': isContentFullWidth, '-max900': !isContentFullWidth }"
-			>content
+			:class="{
+				'-fullWidth': isContentFullWidth,
+				'-max900': !isContentFullWidth,
+				'-noPadding': contentWithoutPadding,
+			}"
+		>
+			<slot />
 		</div>
-		<template v-if="sideBarVisible">
+		<template v-if="sideBarVisible && $slots.rightColumn">
 			<template
 				v-if="
 					!isContentFullWidth &&
@@ -28,23 +37,47 @@
 						'-large': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
 					}"
 				>
-					right
+					<slot name="rightColumn" />
 				</div>
 			</template>
 			<div
 				v-if="
 					rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.SIDEBAR_VISIBLE &&
-					!isContentFullWidth
+					!isContentFullWidth &&
+					$slots.sideBar
 				"
 				class="layout__sideBar"
-				>sidebar
+			>
+				<slot name="sideBar" />
 			</div>
 		</template>
 	</div>
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/spacings';
 @import '../../../styles/settings/media-queries';
+
+$overlay-background-color: rgba(0, 0, 0, 0.7);
+
+$main-menu-width: 80px;
+
+$left-column-width: 23vw;
+$left-column-min-width: 200px;
+$left-column-max-width: 400px;
+
+$content-column-max-width: 900px;
+
+$right-column-medium-max-width: 400px;
+$right-column-medium-l-width: 30vw;
+$right-column-medium-l-min-width: 320px;
+$right-column-medium-l-max-width: 400px;
+$right-column-large-max-width: 560px;
+$right-column-large-l-width: 30vw;
+$right-column-large-l-min-width: 320px;
+$right-column-large-l-max-width: 560px;
+
+$side-bar-width: 66px;
 
 .layout {
 	$root: &;
@@ -57,14 +90,9 @@
 	flex-wrap: nowrap;
 	position: relative;
 
-	// remove
-	font-size: 12px;
-	color: #fff;
-
 	&__overlay {
-		//display: block;
-		display: none;
 		background: rgba(0, 0, 0, 0.7);
+		display: none;
 		width: 100%;
 		height: 100%;
 		position: absolute;
@@ -72,41 +100,31 @@
 		@media #{breakpoint-s()} {
 			display: block;
 		}
-		@media #{breakpoint-m()} {
-			display: block;
-		}
+
 		@media #{breakpoint-l()} {
 			display: none;
 		}
 	}
 
 	&__leftColumn {
-		background: lightpink;
 		flex-wrap: nowrap;
 		justify-content: flex-start;
-		width: 23vw;
-		min-width: 200px;
-		max-width: 400px;
-
+		width: $left-column-width;
+		min-width: $left-column-min-width;
+		max-width: $left-column-max-width;
 		display: none;
 
-		@media #{breakpoint-s()} {
-		}
 		@media #{breakpoint-m()} {
 			display: flex;
-		}
-		@media #{breakpoint-l()} {
 		}
 	}
 
 	&__mainMenu {
-		background: rgba(red(#f91bd6), green(#f91bd6), blue(#f91bd6), 0.5);
-		width: 80px;
+		width: $main-menu-width;
 		height: 100%;
 	}
 
 	&__sideNav {
-		background: #f91bd6;
 		width: 100%;
 		height: 100%;
 	}
@@ -114,16 +132,18 @@
 	&__contentColumn {
 		flex: 1;
 		width: auto;
-		padding: 16px;
+		padding: $space-s;
+
+		&.-noPadding {
+			padding: 0;
+		}
 
 		&.-max900 {
-			background: #9133c2;
-			max-width: 900px;
+			max-width: $content-column-max-width;
 			margin: 0 auto;
 		}
 
 		&.-fullWidth {
-			background: #25a77a;
 			width: 100%;
 		}
 	}
@@ -135,10 +155,6 @@
 		top: 0;
 		right: 0;
 
-		@media #{breakpoint-s()} {
-		}
-		@media #{breakpoint-m()} {
-		}
 		@media #{breakpoint-l()} {
 			position: initial;
 			top: initial;
@@ -146,33 +162,30 @@
 		}
 
 		&.-medium {
-			background: #2c7bfb;
 			width: 100%;
-			max-width: 400px;
+			max-width: $right-column-medium-max-width;
 
 			@media #{breakpoint-l()} {
-				width: 30vw;
-				min-width: 320px;
-				max-width: 400px;
+				width: $right-column-medium-l-width;
+				min-width: $right-column-medium-l-min-width;
+				max-width: $right-column-medium-l-max-width;
 			}
 		}
 
 		&.-large {
-			background: #817c81;
 			width: 100%;
-			max-width: 560px;
+			max-width: $right-column-large-max-width;
 
 			@media #{breakpoint-l()} {
-				width: 30vw;
-				min-width: 320px;
-				max-width: 560px;
+				width: $right-column-large-l-width;
+				min-width: $right-column-large-l-min-width;
+				max-width: $right-column-large-l-max-width;
 			}
 		}
 	}
 
 	&__sideBar {
-		background: #ff7272;
-		width: 66px;
+		width: $side-bar-width;
 		height: 100%;
 	}
 }
@@ -181,10 +194,10 @@
 <script lang="ts">
 import { PropType } from 'vue';
 import {
-	LAYOUT_CONTENT_SIZE,
+	LAYOUT_CONTENT_COLUMN_SIZE,
 	LAYOUT_RIGHT_COLUMN_MODE,
 	LAYOUT_RIGHT_COLUMN_SIZE,
-	LayoutContentSize,
+	LayoutContentColumnSize,
 	LayoutRightColumnMode,
 	LayoutRightColumnSize,
 } from './Layout.consts';
@@ -192,11 +205,11 @@ import {
 export default {
 	name: 'Layout',
 	props: {
-		contentSize: {
-			type: String as PropType<LayoutContentSize>,
-			default: LAYOUT_CONTENT_SIZE.MAX_900,
-			validator(contentSize) {
-				return Object.values(LAYOUT_CONTENT_SIZE).includes(contentSize);
+		contentColumnSize: {
+			type: String as PropType<LayoutContentColumnSize>,
+			default: LAYOUT_CONTENT_COLUMN_SIZE.MAX_900,
+			validator(contentColumnSize) {
+				return Object.values(LAYOUT_CONTENT_COLUMN_SIZE).includes(contentColumnSize);
 			},
 		},
 		rightColumnSize: {
@@ -221,6 +234,10 @@ export default {
 			type: Boolean,
 			default: true,
 		},
+		contentWithoutPadding: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	data() {
 		return {
@@ -233,7 +250,7 @@ export default {
 			return true;
 		},
 		isContentFullWidth() {
-			return this.contentSize === LAYOUT_CONTENT_SIZE.FULL_WIDTH;
+			return this.contentColumnSize === LAYOUT_CONTENT_COLUMN_SIZE.FULL_WIDTH;
 		},
 	},
 };
