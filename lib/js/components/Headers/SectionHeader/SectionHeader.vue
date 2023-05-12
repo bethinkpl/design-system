@@ -17,7 +17,10 @@
 							:icon="iconLeft"
 							:size="iconSize"
 						/>
-						<span class="sectionHeader__title">{{ title }}</span>
+						<div class="sectionHeader__titleContainer">
+							<div v-if="eyebrow" class="sectionHeader__eyebrow">{{ eyebrow }}</div>
+							<div class="sectionHeader__title">{{ title }}</div>
+						</div>
 						<ds-icon
 							v-if="iconRight"
 							class="sectionHeader__icon"
@@ -137,13 +140,24 @@
 		color: $color-neutral-icon;
 	}
 
+	&__titleContainer {
+		display: flex;
+		flex-direction: column;
+		padding: $space-xxs 0;
+		gap: $space-xxxxxs;
+	}
+
 	&__title {
 		color: $color-neutral-text-strong;
-		padding: $space-xxs 0;
 	}
 
 	&__info {
 		padding: $space-xxxs 0 $space-xxs $space-xxs;
+	}
+
+	&__eyebrow {
+		@include info-xs-extensive-bold-uppercase;
+		color: $color-neutral-text-weak;
 	}
 
 	&.-size-large {
@@ -201,7 +215,7 @@
 			padding: 0 0;
 		}
 
-		#{$root}__title {
+		#{$root}__titleContainer {
 			padding: $space-xxxs 0;
 		}
 
@@ -303,6 +317,10 @@ export default {
 		title: {
 			type: String,
 			required: true,
+		},
+		eyebrow: {
+			type: String,
+			default: '',
 		},
 		supportingText: {
 			type: String,
