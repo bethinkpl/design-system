@@ -111,7 +111,7 @@
 			}
 
 			#{$root}__title {
-				color: $color-neutral-text-hovered;
+				color: $color-neutral-text-strong-hovered;
 			}
 		}
 	}
