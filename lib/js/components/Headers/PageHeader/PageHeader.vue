@@ -47,7 +47,7 @@
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
-		gap: $space-xs;
+		gap: $space-xxs;
 		justify-content: space-between;
 		padding: 0;
 		width: 100%;
