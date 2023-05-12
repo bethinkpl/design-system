@@ -1,0 +1,266 @@
+<template>
+	<div
+		v-ripple
+		class="outlineItem"
+		:class="{
+			'-disabled': isDisabled,
+			'-medium': size === OUTLINE_ITEM_SIZES.M,
+			'-selected': isSelected,
+			'-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
+		}"
+	>
+		<div class="outlineItem__content">
+			<span v-if="index" class="outlineItem__index" :class="{ '-active': isSelected }">
+				{{ index }}.
+			</span>
+			<ds-icon
+				v-if="iconLeft"
+				class="outlineItem__icon"
+				:class="{
+					'-active': isSelected,
+				}"
+				:icon="iconLeft"
+				:size="ICON_SIZES.X_SMALL"
+			/>
+			<span>
+				<span class="outlineItem__label" :class="{ '-uppercase': isLabelUppercase }">
+					{{ label }}
+				</span>
+				<span v-if="additionalText" class="outlineItem__additionalText">
+					{{ additionalText }}
+				</span>
+			</span>
+		</div>
+		<div v-if="$slots.default"><slot /></div>
+		<ds-icon
+			v-else-if="isDone"
+			class="outlineItem__icon -active"
+			:icon="ICONS.FA_CHECK_SOLID"
+			:size="ICON_SIZES.X_SMALL"
+		/>
+		<ds-icon
+			v-else-if="iconRight"
+			class="outlineItem__icon"
+			:class="{
+				'-active': isSelected,
+			}"
+			:icon="iconRight"
+			:size="ICON_SIZES.X_SMALL"
+			:rotation="iconRightRotation"
+		></ds-icon>
+	</div>
+</template>
+
+<style scoped lang="scss">
+@import '../../../../styles/settings/radiuses';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
+
+.outlineItem {
+	$root: &;
+
+	background-color: $color-neutral-background-weak;
+	border-radius: $radius-s;
+	display: flex;
+	justify-content: space-between;
+	padding: $space-xs;
+
+	&__content {
+		align-items: center;
+		column-gap: $space-xxs;
+		display: flex;
+	}
+
+	&__index {
+		@include label-l-default-bold;
+
+		color: $color-neutral-text-weak;
+
+		&.-active {
+			color: $color-primary-text;
+		}
+	}
+
+	&__label {
+		@include label-l-default-regular;
+
+		color: $color-neutral-text-heavy;
+
+		&.-uppercase {
+			@include label-l-default-bold-uppercase;
+		}
+	}
+
+	&__additionalText {
+		@include label-m-default-bold;
+
+		color: $color-neutral-text-weak;
+		margin-left: $space-xxxxs;
+	}
+
+	&__icon {
+		color: $color-neutral-icon-weak;
+
+		&.-active {
+			color: $color-primary-icon;
+		}
+	}
+
+	&:hover {
+		background-color: $color-neutral-background-weak-hovered;
+		cursor: pointer;
+	}
+
+	&.-selected {
+		border-radius: $radius-xs $radius-s $radius-s $radius-xs;
+		box-shadow: -2px 0 0 $color-primary-border;
+	}
+
+	&.-disabled {
+		pointer-events: none;
+
+		#{$root}.-selected {
+			box-shadow: -2px 0 0 $color-primary-border-disabled;
+		}
+
+		#{$root}__icon {
+			color: $color-neutral-icon-weak-disabled;
+
+			&.-active {
+				color: $color-primary-icon-disabled;
+			}
+		}
+
+		#{$root}__index {
+			color: $color-neutral-text-weak-disabled;
+
+			&.-active {
+				color: $color-primary-text-disabled;
+			}
+		}
+
+		#{$root}__label {
+			color: $color-neutral-text-heavy-disabled;
+		}
+	}
+
+	&.-medium {
+		padding: $space-s $space-xs;
+
+		#{$root}__content {
+			column-gap: $space-xxxs;
+		}
+	}
+
+	&.-backgroundNeutral {
+		background-color: $color-neutral-background;
+
+		&:hover {
+			background-color: $color-neutral-background-hovered;
+		}
+	}
+}
+</style>
+
+<script lang="ts">
+import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
+import { toRaw } from 'vue';
+import {
+	OUTLINE_ITEM_BACKGROUND_COLORS,
+	OUTLINE_ITEM_SIZES,
+	OUTLINE_ITEM_STATES,
+} from './OutlineItem.consts';
+import Ripple from 'vue-ripple-directive';
+
+export default {
+	name: 'OutlineItem',
+	components: {
+		DsIcon,
+	},
+	directives: {
+		ripple: Ripple,
+	},
+	props: {
+		size: {
+			type: Object,
+			default: OUTLINE_ITEM_SIZES.S,
+			validator(size) {
+				return Object.values(OUTLINE_ITEM_SIZES).includes(size);
+			},
+		},
+		backgroundColor: {
+			type: String,
+			default: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
+			validator(color) {
+				return Object.values(OUTLINE_ITEM_BACKGROUND_COLORS).includes(color);
+			},
+		},
+		iconLeft: {
+			type: Object,
+			default: null,
+			validator(icon) {
+				return icon == null || Object.values(ICONS).includes(toRaw(icon));
+			},
+		},
+		iconRight: {
+			type: Object,
+			default: null,
+			validator(icon) {
+				return icon == null || Object.values(ICONS).includes(toRaw(icon));
+			},
+		},
+		iconRightRotation: {
+			type: Number,
+			default: null,
+			validator(value: number) {
+				return [90, 180, 270].includes(value);
+			},
+		},
+		index: {
+			type: Number,
+			default: null,
+		},
+		label: {
+			type: String,
+			required: true,
+		},
+		isLabelUppercase: {
+			type: Boolean,
+			default: false,
+		},
+		additionalText: {
+			type: String,
+			default: null,
+		},
+		state: {
+			type: String,
+			default: OUTLINE_ITEM_STATES.DEFAULT,
+			validator(state) {
+				return Object.values(OUTLINE_ITEM_STATES).includes(state);
+			},
+		},
+		isSelected: {
+			type: Boolean,
+			default: false,
+		},
+		isDone: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			OUTLINE_ITEM_BACKGROUND_COLORS: Object.freeze(OUTLINE_ITEM_BACKGROUND_COLORS),
+			OUTLINE_ITEM_SIZES: Object.freeze(OUTLINE_ITEM_SIZES),
+		};
+	},
+	computed: {
+		isDisabled() {
+			return this.state === OUTLINE_ITEM_STATES.DISABLED;
+		},
+	},
+};
+</script>
