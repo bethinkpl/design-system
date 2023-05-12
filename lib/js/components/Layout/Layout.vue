@@ -148,13 +148,14 @@ $side-bar-width: 66px;
 	}
 
 	&__rightColumn {
-		height: auto;
+		height: 100%;
 		position: absolute;
 		right: 0;
 		top: 0;
 		width: 100%;
 
 		@media #{breakpoint-l()} {
+			height: auto;
 			position: initial;
 			right: initial;
 			top: initial;
