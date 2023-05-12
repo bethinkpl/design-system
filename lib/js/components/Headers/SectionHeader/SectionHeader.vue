@@ -87,7 +87,6 @@
 		align-items: center;
 		display: flex;
 		flex-direction: row;
-		gap: $space-xxs;
 		justify-content: space-between;
 		padding: $space-xxxxs 0;
 	}
