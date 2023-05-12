@@ -82,20 +82,20 @@ $side-bar-width: 66px;
 .layout {
 	$root: &;
 
-	width: 100%;
-	height: auto;
-	padding: 0;
 	display: flex;
-	justify-content: space-between;
 	flex-wrap: nowrap;
+	height: auto;
+	justify-content: space-between;
+	padding: 0;
 	position: relative;
+	width: 100%;
 
 	&__overlay {
 		background: rgba(0, 0, 0, 0.7);
 		display: none;
-		width: 100%;
 		height: 100%;
 		position: absolute;
+		width: 100%;
 
 		@media #{breakpoint-s()} {
 			display: block;
@@ -107,12 +107,12 @@ $side-bar-width: 66px;
 	}
 
 	&__leftColumn {
+		display: none;
 		flex-wrap: nowrap;
 		justify-content: flex-start;
-		width: $left-column-width;
-		min-width: $left-column-min-width;
 		max-width: $left-column-max-width;
-		display: none;
+		min-width: $left-column-min-width;
+		width: $left-column-width;
 
 		@media #{breakpoint-m()} {
 			display: flex;
@@ -120,27 +120,27 @@ $side-bar-width: 66px;
 	}
 
 	&__mainMenu {
-		width: $main-menu-width;
 		height: 100%;
+		width: $main-menu-width;
 	}
 
 	&__sideNav {
-		width: 100%;
 		height: 100%;
+		width: 100%;
 	}
 
 	&__contentColumn {
 		flex: 1;
-		width: auto;
 		padding: $space-s;
+		width: auto;
 
 		&.-noPadding {
 			padding: 0;
 		}
 
 		&.-max900 {
-			max-width: $content-column-max-width;
 			margin: 0 auto;
+			max-width: $content-column-max-width;
 		}
 
 		&.-fullWidth {
@@ -149,44 +149,44 @@ $side-bar-width: 66px;
 	}
 
 	&__rightColumn {
-		width: 100%;
 		height: 100%;
 		position: absolute;
-		top: 0;
 		right: 0;
+		top: 0;
+		width: 100%;
 
 		@media #{breakpoint-l()} {
 			position: initial;
-			top: initial;
 			right: initial;
+			top: initial;
 		}
 
 		&.-medium {
-			width: 100%;
 			max-width: $right-column-medium-max-width;
+			width: 100%;
 
 			@media #{breakpoint-l()} {
-				width: $right-column-medium-l-width;
-				min-width: $right-column-medium-l-min-width;
 				max-width: $right-column-medium-l-max-width;
+				min-width: $right-column-medium-l-min-width;
+				width: $right-column-medium-l-width;
 			}
 		}
 
 		&.-large {
-			width: 100%;
 			max-width: $right-column-large-max-width;
+			width: 100%;
 
 			@media #{breakpoint-l()} {
-				width: $right-column-large-l-width;
-				min-width: $right-column-large-l-min-width;
 				max-width: $right-column-large-l-max-width;
+				min-width: $right-column-large-l-min-width;
+				width: $right-column-large-l-width;
 			}
 		}
 	}
 
 	&__sideBar {
-		width: $side-bar-width;
 		height: 100%;
+		width: $side-bar-width;
 	}
 }
 </style>
