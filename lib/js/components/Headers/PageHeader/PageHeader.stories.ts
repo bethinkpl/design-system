@@ -70,7 +70,7 @@ Interactive.parameters = {
 	},
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6984-129837&t=P13ZB65sCLJzAvmv-4',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6984-129711&t=ivzu5dM9vSgW20Re-0',
 	},
 };
 

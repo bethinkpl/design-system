@@ -36,6 +36,7 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => (
 		' :size="size"' +
 		' :info="info"' +
 		' :title="title"' +
+		' :eyebrow="eyebrow"' +
 		' :divider="divider"' +
 		' :mobile-layout="mobileLayout"' +
 		' :supportingText="supportingText"' +
@@ -48,18 +49,19 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => (
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	expandable: false,
-	hideSlotWhenCollapsed: false,
-	info: true,
-	iconLeft: ICONS.FA_PLAY,
-	iconRight: ICONS.FA_BOOK,
-	isExpanded: false,
 	size: SECTION_HEADER_SIZES.MEDIUM,
-	divider: true,
-	mobileLayout: 'vertical',
 	title: 'Section Header',
 	supportingText:
 		'Supporting text. Et doloribus aspernatur suscipit provident maiores. Natus natus et pariatur. Eligendi illo quo esse. Tenetur ad neque veniam.',
+	eyebrow: 'eyebrow text',
+	iconLeft: ICONS.FA_PLAY,
+	iconRight: ICONS.FA_BOOK,
+	info: true,
+	divider: true,
+	expandable: false,
+	isExpanded: false,
+	hideSlotWhenCollapsed: false,
+	mobileLayout: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
 } as Args;
 
 const argTypes = {
@@ -101,6 +103,6 @@ Interactive.parameters = {
 	},
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6984-136861&t=P13ZB65sCLJzAvmv-4',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6984-129711&t=ivzu5dM9vSgW20Re-0',
 	},
 };
