@@ -47,7 +47,10 @@
 				</div>
 			</div>
 
-			<div v-if="supportingText" class="sectionHeader__supportingText"
+			<div
+				v-if="supportingText"
+				class="sectionHeader__supportingText"
+				:class="{ '-withoutPadding': !divider }"
 				>{{ supportingText }}
 			</div>
 
@@ -90,6 +93,12 @@
 
 		color: $color-neutral-text;
 		padding: 0 0 $space-xs;
+
+		@media #{breakpoint-s()} {
+			&.-withoutPadding {
+				padding: 0;
+			}
+		}
 	}
 
 	&__header {
@@ -131,7 +140,7 @@
 	}
 
 	&__info {
-		padding: $space-xxxs $space-xxs;
+		padding: $space-xxxs 0 $space-xxs $space-xxs;
 	}
 
 	&.-size-large {
@@ -146,6 +155,10 @@
 		#{$root}__titleWrapper {
 			gap: $space-xxs;
 		}
+
+		#{$root}__info {
+			padding: $space-xxs 0 $space-xxs $space-xxs;
+		}
 	}
 
 	&.-size-medium {
@@ -155,6 +168,10 @@
 
 		#{$root}__titleWrapper {
 			gap: $space-xxs;
+		}
+
+		#{$root}__info {
+			padding: $space-xxs 0 $space-xxs $space-xxs;
 		}
 	}
 
@@ -170,11 +187,19 @@
 		#{$root}__titleWrapper {
 			gap: $space-xxxs;
 		}
+
+		#{$root}__info {
+			padding: $space-xxs 0 $space-xxs $space-xxs;
+		}
 	}
 
 	&.-size-x-small {
 		#{$root}__main {
 			padding: 0 0;
+		}
+
+		#{$root}__title {
+			padding: $space-xxxs 0;
 		}
 
 		#{$root}__titleWrapper {
