@@ -54,7 +54,11 @@
 				>{{ supportingText }}
 			</div>
 
-			<div v-if="$slots.default && showSlot" class="sectionHeader__slotVertical">
+			<div
+				v-if="$slots.default && showSlot"
+				class="sectionHeader__slotVertical"
+				:class="{ '-withoutPadding': !divider }"
+			>
 				<slot />
 			</div>
 		</div>
@@ -226,6 +230,10 @@
 
 		@media #{breakpoint-s()} {
 			display: none;
+		}
+
+		&.-withoutPadding {
+			padding: 0;
 		}
 	}
 
