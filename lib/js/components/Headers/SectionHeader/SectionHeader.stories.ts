@@ -54,7 +54,7 @@ const args = {
 	iconLeft: ICONS.FA_PLAY,
 	iconRight: ICONS.FA_BOOK,
 	isExpanded: false,
-	size: SECTION_HEADER_SIZES.M,
+	size: SECTION_HEADER_SIZES.MEDIUM,
 	divider: true,
 	mobileLayout: 'vertical',
 	title: 'Section Header',
@@ -73,7 +73,7 @@ const argTypes = {
 	},
 	size: {
 		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
-		defaultValue: SECTION_HEADER_SIZES.M,
+		defaultValue: SECTION_HEADER_SIZES.MEDIUM,
 	},
 	divider: {
 		control: { type: 'boolean' },

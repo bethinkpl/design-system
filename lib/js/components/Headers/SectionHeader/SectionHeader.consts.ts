@@ -1,8 +1,8 @@
 export const SECTION_HEADER_SIZES = {
-	XS: 'xs',
-	S: 's',
-	M: 'm',
-	L: 'l',
+	X_SMALL: 'x-small',
+	SMALL: 'small',
+	MEDIUM: 'medium',
+	LARGE: 'large',
 };
 export const SECTION_HEADER_MOBILE_LAYOUTS = {
 	VERTICAL: 'vertical',

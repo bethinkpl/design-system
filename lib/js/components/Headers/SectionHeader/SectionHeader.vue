@@ -266,7 +266,7 @@ export default {
 		},
 		size: {
 			type: String,
-			default: SECTION_HEADER_SIZES.M,
+			default: SECTION_HEADER_SIZES.MEDIUM,
 			validator(size) {
 				return Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
@@ -310,7 +310,10 @@ export default {
 			return `-size-${this.size}`;
 		},
 		iconSize(): string {
-			if (this.size === SECTION_HEADER_SIZES.M || this.size === SECTION_HEADER_SIZES.L) {
+			if (
+				this.size === SECTION_HEADER_SIZES.MEDIUM ||
+				this.size === SECTION_HEADER_SIZES.LARGE
+			) {
 				return ICON_SIZES.X_SMALL;
 			}
 
