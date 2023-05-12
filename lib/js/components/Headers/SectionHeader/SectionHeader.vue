@@ -134,7 +134,7 @@
 		padding: $space-xxxs $space-xxs;
 	}
 
-	&.-size-l {
+	&.-size-large {
 		#{$root}__main {
 			padding: $space-xxxxxs 0;
 		}
@@ -148,7 +148,7 @@
 		}
 	}
 
-	&.-size-m {
+	&.-size-medium {
 		#{$root}__header {
 			@include heading-m-default-bold;
 		}
@@ -158,7 +158,7 @@
 		}
 	}
 
-	&.-size-s {
+	&.-size-small {
 		#{$root}__main {
 			padding: $space-xxxxxs 0;
 		}
@@ -172,21 +172,18 @@
 		}
 	}
 
-	&.-size-xs {
+	&.-size-x-small {
 		#{$root}__main {
 			padding: 0 0;
 		}
 
-		#{$root}__titleWrapperle {
+		#{$root}__titleWrapper {
 			padding: $space-xxxs 0;
+			gap: $space-xxxs;
 		}
 
 		#{$root}__header {
 			@include heading-xs-default-bold-uppercase;
-		}
-
-		#{$root}__titleWrapper {
-			gap: $space-xxxs;
 		}
 	}
 
