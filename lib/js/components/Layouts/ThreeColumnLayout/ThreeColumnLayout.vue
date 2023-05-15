@@ -28,8 +28,8 @@
 		<div
 			class="layout__rightColumn"
 			:class="{
-				'-medium': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
-				'-large': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
+				'-medium': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+				'-large': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
 				'-desktopVisible': rightColumnVisible || rightColumnVisibleLocal,
 				'-mobileVisible': rightColumnVisibleLocal,
 			}"
@@ -40,9 +40,9 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../styles/settings/spacings';
-@import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/media-queries';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/media-queries';
 
 $left-column-width: 23vw;
 $left-column-min-width: 200px;
@@ -188,16 +188,21 @@ $right-column-large-l-max-width: 560px;
 
 <script lang="ts">
 import { PropType } from 'vue';
-import { LAYOUT_RIGHT_COLUMN_SIZE, LayoutRightColumnSize } from './Layout.consts';
+import {
+	THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE,
+	ThreeColumnLayoutRightColumnSize,
+} from './ThreeColumnLayout.consts';
 
 export default {
-	name: 'Layout',
+	name: 'ThreeColumnLayout',
 	props: {
 		rightColumnSize: {
-			type: String as PropType<LayoutRightColumnSize>,
-			default: LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+			type: String as PropType<ThreeColumnLayoutRightColumnSize>,
+			default: THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 			validator(rightColumnSize) {
-				return Object.values(LAYOUT_RIGHT_COLUMN_SIZE).includes(rightColumnSize);
+				return Object.values(THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE).includes(
+					rightColumnSize,
+				);
 			},
 		},
 		rightColumnVisible: {
@@ -223,7 +228,9 @@ export default {
 	},
 	data() {
 		return {
-			LAYOUT_RIGHT_COLUMN_SIZE: Object.freeze(LAYOUT_RIGHT_COLUMN_SIZE),
+			THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE: Object.freeze(
+				THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE,
+			),
 		};
 	},
 };

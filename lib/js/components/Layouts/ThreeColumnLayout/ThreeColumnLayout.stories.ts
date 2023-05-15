@@ -1,22 +1,22 @@
-import Layout from './Layout.vue';
+import ThreeColumnLayout from './ThreeColumnLayout.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { LAYOUT_RIGHT_COLUMN_SIZE } from './Layout.consts';
+import { THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE } from './ThreeColumnLayout.consts';
 
 export default {
-	title: 'Components/Layout',
-	component: Layout,
-} as Meta<typeof Layout>;
+	title: 'Components/Layouts/ThreeColumnLayout',
+	component: ThreeColumnLayout,
+} as Meta<typeof ThreeColumnLayout>;
 
-const StoryTemplate: StoryFn<typeof Layout> = (args) => ({
-	components: { Layout },
+const StoryTemplate: StoryFn<typeof ThreeColumnLayout> = (args) => ({
+	components: { ThreeColumnLayout },
 	setup() {
 		return { ...args };
 	},
 	template: `
 		<div
 			style='display: flex; min-height: 100vh; font-size: 12px; color: #fff;'>
-		<layout :rightColumnSize='rightColumnSize'
+		<three-column-layout :rightColumnSize='rightColumnSize'
 				:rightColumnVisible='rightColumnVisible'
 				:sideMenuVisible='sideMenuVisible'
 				:rightColumnMode='rightColumnMode'
@@ -35,7 +35,7 @@ const StoryTemplate: StoryFn<typeof Layout> = (args) => ({
 			<div style='width: 100%; height: 100%; background: #9133c2;'>
 				content
 			</div>
-		</layout>
+		</three-column-layout>
 		</div>`,
 });
 
@@ -47,13 +47,13 @@ const args = {
 	sideMenuVisible: true,
 	sideMenuVisibleLocal: false,
 	contentWithoutPadding: false,
-	rightColumnSize: LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+	rightColumnSize: THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 } as Args;
 
 const argTypes = {
 	rightColumnSize: {
-		control: { type: 'select', options: Object.values(LAYOUT_RIGHT_COLUMN_SIZE) },
-		defaultValue: LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+		control: { type: 'select', options: Object.values(THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE) },
+		defaultValue: THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 	},
 	sideMenuVisible: { control: { type: 'boolean' } },
 	rightColumnVisible: { control: { type: 'boolean' } },
