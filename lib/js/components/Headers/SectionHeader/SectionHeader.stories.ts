@@ -28,7 +28,7 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => (
 	},
 	template:
 		'<section-header' +
-		' :expandable="expandable"' +
+		' :is-expandable="isExpandable"' +
 		' :hide-slot-when-collapsed="hideSlotWhenCollapsed"' +
 		' :icon-left="ICONS[iconLeft]"' +
 		' :icon-right="ICONS[iconRight]"' +
@@ -58,7 +58,7 @@ const args = {
 	iconRight: ICONS.FA_BOOK,
 	info: true,
 	divider: true,
-	expandable: false,
+	isExpandable: false,
 	isExpanded: false,
 	hideSlotWhenCollapsed: false,
 	mobileLayout: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
