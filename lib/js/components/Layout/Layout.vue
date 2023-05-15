@@ -1,6 +1,18 @@
 <template>
 	<div class="layout">
-		<div v-if="sideMenuVisible" class="layout__navigation">
+		<div
+			class="layout__overlay"
+			:class="{
+				'-visible': rightColumnVisibleLocal || sideMenuVisibleLocal,
+			}"
+		/>
+		<div
+			class="layout__navigation"
+			:class="{
+				'-desktopVisible': sideMenuVisible || sideMenuVisibleLocal,
+				'-mobileVisible': sideMenuVisibleLocal,
+			}"
+		>
 			<slot name="leftColumn" />
 		</div>
 		<div class="layout__contentColumn">
@@ -13,20 +25,17 @@
 				<slot />
 			</div>
 		</div>
-		<template
-			v-if="rightColumnVisible && rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE"
+		<div
+			class="layout__rightColumn"
+			:class="{
+				'-medium': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+				'-large': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
+				'-desktopVisible': rightColumnVisible || rightColumnVisibleLocal,
+				'-mobileVisible': rightColumnVisibleLocal,
+			}"
 		>
-			<div class="layout__overlay" />
-			<div
-				class="layout__rightColumn"
-				:class="{
-					'-medium': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
-					'-large': rightColumnSize === LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
-				}"
-			>
-				<slot name="rightColumn" />
-			</div>
-		</template>
+			<slot name="rightColumn" />
+		</div>
 	</div>
 </template>
 
@@ -34,8 +43,6 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/media-queries';
-
-$main-menu-width: 80px;
 
 $left-column-width: 23vw;
 $left-column-min-width: 200px;
@@ -69,7 +76,9 @@ $right-column-large-l-max-width: 560px;
 		width: 100%;
 
 		@media #{breakpoint-s()} {
-			display: block;
+			&.-visible {
+				display: block;
+			}
 		}
 
 		@media #{breakpoint-l()} {
@@ -79,14 +88,34 @@ $right-column-large-l-max-width: 560px;
 
 	&__navigation {
 		display: none;
-		flex-wrap: nowrap;
-		justify-content: flex-start;
+		height: 100%;
+		left: 0;
 		max-width: $left-column-max-width;
-		min-width: $left-column-min-width;
-		width: $left-column-width;
+		position: absolute;
+		top: 0;
+		width: 100%;
 
-		@media #{breakpoint-m()} {
-			display: flex;
+		@media #{breakpoint-l()} {
+			&.-desktopVisible {
+				display: initial;
+			}
+		}
+
+		@media #{breakpoint-s()} {
+			// TODO 23vw as min width on S looks weird
+			min-width: $left-column-min-width;
+			width: $left-column-width;
+		}
+
+		@media #{breakpoint-l()} {
+			height: auto;
+			left: initial;
+			position: initial;
+			top: initial;
+		}
+
+		&.-mobileVisible {
+			display: initial;
 		}
 	}
 
@@ -97,8 +126,8 @@ $right-column-large-l-max-width: 560px;
 
 	&__content {
 		margin: 0 auto;
-		padding: $space-s;
 		max-width: $content-column-max-width;
+		padding: $space-s;
 
 		&.-noPadding {
 			padding: 0;
@@ -106,6 +135,7 @@ $right-column-large-l-max-width: 560px;
 	}
 
 	&__rightColumn {
+		display: none;
 		height: 100%;
 		position: absolute;
 		right: 0;
@@ -113,10 +143,20 @@ $right-column-large-l-max-width: 560px;
 		width: 100%;
 
 		@media #{breakpoint-l()} {
+			&.-desktopVisible {
+				display: initial;
+			}
+		}
+
+		@media #{breakpoint-l()} {
 			height: auto;
 			position: initial;
 			right: initial;
 			top: initial;
+		}
+
+		&.-mobileVisible {
+			display: initial;
 		}
 
 		&.-medium {
@@ -148,12 +188,7 @@ $right-column-large-l-max-width: 560px;
 
 <script lang="ts">
 import { PropType } from 'vue';
-import {
-	LAYOUT_RIGHT_COLUMN_MODE,
-	LAYOUT_RIGHT_COLUMN_SIZE,
-	LayoutRightColumnMode,
-	LayoutRightColumnSize,
-} from './Layout.consts';
+import { LAYOUT_RIGHT_COLUMN_SIZE, LayoutRightColumnSize } from './Layout.consts';
 
 export default {
 	name: 'Layout',
@@ -165,13 +200,6 @@ export default {
 				return Object.values(LAYOUT_RIGHT_COLUMN_SIZE).includes(rightColumnSize);
 			},
 		},
-		rightColumnMode: {
-			type: String as PropType<LayoutRightColumnMode>,
-			default: LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE,
-			validator(rightColumnMode) {
-				return Object.values(LAYOUT_RIGHT_COLUMN_MODE).includes(rightColumnMode);
-			},
-		},
 		rightColumnVisible: {
 			type: Boolean,
 			default: true,
@@ -179,6 +207,14 @@ export default {
 		sideMenuVisible: {
 			type: Boolean,
 			default: true,
+		},
+		rightColumnVisibleLocal: {
+			type: Boolean,
+			default: false,
+		},
+		sideMenuVisibleLocal: {
+			type: Boolean,
+			default: false,
 		},
 		contentWithoutPadding: {
 			type: Boolean,
@@ -188,7 +224,6 @@ export default {
 	data() {
 		return {
 			LAYOUT_RIGHT_COLUMN_SIZE: Object.freeze(LAYOUT_RIGHT_COLUMN_SIZE),
-			LAYOUT_RIGHT_COLUMN_MODE: Object.freeze(LAYOUT_RIGHT_COLUMN_MODE),
 		};
 	},
 };
