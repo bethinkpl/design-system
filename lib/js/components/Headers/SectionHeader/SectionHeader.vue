@@ -110,6 +110,7 @@
 	&__header {
 		align-items: center;
 		display: flex;
+		gap: $space-xxs;
 		width: 100%;
 
 		@media #{breakpoint-s()} {
@@ -152,7 +153,7 @@
 	}
 
 	&__info {
-		padding: $space-xxxs 0 $space-xxs $space-xxs;
+		padding: $space-xxxs 0;
 	}
 
 	&__eyebrow {
@@ -175,7 +176,7 @@
 		}
 
 		#{$root}__info {
-			padding: $space-xxs 0 $space-xxs $space-xxs;
+			padding: $space-xxs 0;
 		}
 	}
 
@@ -189,7 +190,7 @@
 		}
 
 		#{$root}__info {
-			padding: $space-xxs 0 $space-xxs $space-xxs;
+			padding: $space-xxs 0;
 		}
 	}
 
@@ -207,7 +208,7 @@
 		}
 
 		#{$root}__info {
-			padding: $space-xxs 0 $space-xxs $space-xxs;
+			padding: $space-xxs 0;
 		}
 	}
 
