@@ -2,7 +2,7 @@
 	<div
 		class="sectionHeader"
 		:class="{
-			'-expandable': expandable,
+			'-expandable': isExpandable,
 			'-horizontal': mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL,
 			[sizeClass]: true,
 		}"
@@ -28,7 +28,7 @@
 							:size="iconSize"
 						/>
 						<ds-icon
-							v-if="expandable"
+							v-if="isExpandable"
 							class="sectionHeader__icon"
 							:icon="ICONS.FA_CHEVRON_DOWN"
 							:rotation="chevronRotation"
@@ -278,7 +278,7 @@ export default {
 		DsDivider,
 	},
 	props: {
-		expandable: {
+		isExpandable: {
 			type: Boolean,
 			default: false,
 		},
@@ -373,7 +373,7 @@ export default {
 			this.$emit('info-click');
 		},
 		onTitleWrapperClicked(): void {
-			if (!this.expandable) {
+			if (!this.isExpandable) {
 				return;
 			}
 			this.$emit('update:isExpanded', !this.isExpanded);
