@@ -53,7 +53,11 @@
 			<div
 				v-if="supportingText"
 				class="sectionHeader__supportingText"
-				:class="{ '-withoutPadding': !divider }"
+				:class="{
+					'-withoutPadding':
+						!divider ||
+						(!divider && mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL),
+				}"
 				>{{ supportingText }}
 			</div>
 
@@ -100,10 +104,8 @@
 		color: $color-neutral-text;
 		padding: 0 0 $space-xs;
 
-		@media #{breakpoint-s()} {
-			&.-withoutPadding {
-				padding: 0;
-			}
+		&.-withoutPadding {
+			padding: 0;
 		}
 	}
 
