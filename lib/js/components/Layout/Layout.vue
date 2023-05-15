@@ -120,8 +120,11 @@ $right-column-large-l-max-width: 560px;
 		}
 
 		&.-medium {
-			max-width: $right-column-medium-max-width;
 			width: 100%;
+
+			@media #{breakpoint-s()} {
+				max-width: $right-column-medium-max-width;
+			}
 
 			@media #{breakpoint-l()} {
 				max-width: $right-column-medium-l-max-width;
@@ -131,8 +134,11 @@ $right-column-large-l-max-width: 560px;
 		}
 
 		&.-large {
-			max-width: $right-column-large-max-width;
 			width: 100%;
+
+			@media #{breakpoint-s()} {
+				max-width: $right-column-large-max-width;
+			}
 
 			@media #{breakpoint-l()} {
 				max-width: $right-column-large-l-max-width;
