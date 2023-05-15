@@ -37,17 +37,6 @@
 				<slot name="rightColumn" />
 			</div>
 		</template>
-		<div
-			v-if="
-				$slots.sideBar &&
-				sideBarVisible &&
-				rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.SIDEBAR_VISIBLE &&
-				!isContentFullWidth
-			"
-			class="layout__sideBar"
-		>
-			<slot name="sideBar" />
-		</div>
 	</div>
 </template>
 
@@ -183,11 +172,6 @@ $side-bar-width: 66px;
 			}
 		}
 	}
-
-	&__sideBar {
-		height: auto;
-		width: $side-bar-width;
-	}
 }
 </style>
 
@@ -226,10 +210,6 @@ export default {
 				return Object.values(LAYOUT_RIGHT_COLUMN_MODE).includes(rightColumnMode);
 			},
 		},
-		sideBarVisible: {
-			type: Boolean,
-			default: false,
-		},
 		rightColumnVisible: {
 			type: Boolean,
 			default: true,
@@ -250,9 +230,6 @@ export default {
 		};
 	},
 	computed: {
-		rightColumVisible() {
-			return true;
-		},
 		isContentFullWidth() {
 			return this.contentColumnSize === LAYOUT_CONTENT_COLUMN_SIZE.FULL_WIDTH;
 		},
