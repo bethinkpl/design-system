@@ -15,10 +15,11 @@ const StoryTemplate: StoryFn<typeof Layout> = (args) => ({
 	},
 	template: `
 		<div
-			style='height: 100%; width: 100%; display: flex; min-height: 100vh; border: 1px solid gray; font-size: 12px; color: #fff;'>
+			style='display: flex; min-height: 100vh; font-size: 12px; color: #fff;'>
 		<layout :rightColumnSize='rightColumnSize'
 				:rightColumnVisible='rightColumnVisible'
-				:sideMenuVisible='sideMenuVisible' :rightColumnMode='rightColumnMode'
+				:sideMenuVisible='sideMenuVisible'
+				:rightColumnMode='rightColumnMode'
 				:contentWithoutPadding='contentWithoutPadding'>
 			<template #leftColumn>
 				<div style='width: 100%; height: 100%; background: rgba(249, 27, 214, 0.5);'>leftColumn</div>
@@ -66,6 +67,7 @@ Interactive.argTypes = argTypes;
 Interactive.args = args;
 
 Interactive.parameters = {
+	layout: 'fullscreen',
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/file/AYTmGtcujVq9subNrTpHnX/Layout---nowa-koncepcja?type=design&node-id=1-7&t=ANHJptt0VBE6JEs4-4',
