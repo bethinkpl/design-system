@@ -1,11 +1,7 @@
 import Layout from './Layout.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import {
-	LAYOUT_CONTENT_COLUMN_SIZE,
-	LAYOUT_RIGHT_COLUMN_MODE,
-	LAYOUT_RIGHT_COLUMN_SIZE,
-} from './Layout.consts';
+import { LAYOUT_RIGHT_COLUMN_MODE, LAYOUT_RIGHT_COLUMN_SIZE } from './Layout.consts';
 
 export default {
 	title: 'Components/Layout',
@@ -20,8 +16,7 @@ const StoryTemplate: StoryFn<typeof Layout> = (args) => ({
 	template: `
 		<div
 			style='height: 100%; width: 100%; display: flex; min-height: 100vh; border: 1px solid gray; font-size: 12px; color: #fff;'>
-		<layout :contentColumnSize='contentColumnSize' :rightColumnSize='rightColumnSize'
-				:sideBarVisible='sideBarVisible'
+		<layout :rightColumnSize='rightColumnSize'
 				:rightColumnVisible='rightColumnVisible'
 				:sideMenuVisible='sideMenuVisible' :rightColumnMode='rightColumnMode'
 				:contentWithoutPadding='contentWithoutPadding'>
@@ -33,12 +28,8 @@ const StoryTemplate: StoryFn<typeof Layout> = (args) => ({
 					 :style='{"background": (rightColumnSize === "medium" ? "#2c7bfb" : "#817c81")}'>rightColumn
 				</div>
 			</template>
-			<template #sidebar>
-				<div style='width: 100%; height: 100%; background: #ff7272;'>sidebar TODO</div>
-			</template>
 
-			<div style='width: 100%; height: 100%;'
-				 :style='{"background":contentColumnSize === "max900" ? "#9133c2" : "#25a77a"}'>
+			<div style='width: 100%; height: 100%; background: #9133c2;'>
 				content
 			</div>
 		</layout>
@@ -49,19 +40,13 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	rightColumnMode: LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE,
-	contentColumnSize: LAYOUT_CONTENT_COLUMN_SIZE.MAX_900,
 	rightColumnSize: LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 	rightColumnVisible: true,
-	sideBarVisible: false,
 	sideMenuVisible: true,
 	contentWithoutPadding: false,
 } as Args;
 
 const argTypes = {
-	contentColumnSize: {
-		control: { type: 'select', options: Object.values(LAYOUT_CONTENT_COLUMN_SIZE) },
-		defaultValue: LAYOUT_CONTENT_COLUMN_SIZE.MAX_900,
-	},
 	rightColumnSize: {
 		control: { type: 'select', options: Object.values(LAYOUT_RIGHT_COLUMN_SIZE) },
 		defaultValue: LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
@@ -69,9 +54,6 @@ const argTypes = {
 	rightColumnMode: {
 		control: { type: 'select', options: Object.values(LAYOUT_RIGHT_COLUMN_MODE) },
 		defaultValue: LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE,
-	},
-	sideBarVisible: {
-		control: { type: 'boolean' },
 	},
 	sideMenuVisible: {
 		control: {

@@ -7,8 +7,6 @@
 			<div
 				class="layout__content"
 				:class="{
-					'-fullWidth': isContentFullWidth,
-					'-max900': !isContentFullWidth,
 					'-noPadding': contentWithoutPadding,
 				}"
 			>
@@ -16,12 +14,7 @@
 			</div>
 		</div>
 		<template
-			v-if="
-				$slots.rightColumn &&
-				rightColumnVisible &&
-				!isContentFullWidth &&
-				rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE
-			"
+			v-if="rightColumnVisible && rightColumnMode === LAYOUT_RIGHT_COLUMN_MODE.COLUMN_VISIBLE"
 		>
 			<div class="layout__overlay" />
 			<div
@@ -39,9 +32,8 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/media-queries';
-
-$overlay-background-color: rgba(0, 0, 0, 0.7);
 
 $main-menu-width: 80px;
 
@@ -50,7 +42,6 @@ $left-column-min-width: 200px;
 $left-column-max-width: 400px;
 
 $content-column-max-width: 900px;
-$content-column-full-max-width: 1280px;
 
 $right-column-medium-max-width: 400px;
 $right-column-medium-l-width: 30vw;
@@ -67,13 +58,11 @@ $right-column-large-l-max-width: 560px;
 	display: flex;
 	flex-wrap: nowrap;
 	height: auto;
-	justify-content: space-between;
-	padding: 0;
 	position: relative;
 	width: 100%;
 
 	&__overlay {
-		background: rgba(0, 0, 0, 0.7);
+		background: $color-default-overlay;
 		display: none;
 		height: 100%;
 		position: absolute;
@@ -103,21 +92,16 @@ $right-column-large-l-max-width: 560px;
 
 	&__contentColumn {
 		flex: 1;
+		width: auto;
+	}
+
+	&__content {
 		margin: 0 auto;
 		padding: $space-s;
-		width: auto;
+		max-width: $content-column-max-width;
 
 		&.-noPadding {
 			padding: 0;
-		}
-
-		&.-max900 {
-			max-width: $content-column-max-width;
-		}
-
-		&.-fullWidth {
-			max-width: $content-column-full-max-width;
-			width: 100%;
 		}
 	}
 
@@ -163,10 +147,8 @@ $right-column-large-l-max-width: 560px;
 <script lang="ts">
 import { PropType } from 'vue';
 import {
-	LAYOUT_CONTENT_COLUMN_SIZE,
 	LAYOUT_RIGHT_COLUMN_MODE,
 	LAYOUT_RIGHT_COLUMN_SIZE,
-	LayoutContentColumnSize,
 	LayoutRightColumnMode,
 	LayoutRightColumnSize,
 } from './Layout.consts';
@@ -174,13 +156,6 @@ import {
 export default {
 	name: 'Layout',
 	props: {
-		contentColumnSize: {
-			type: String as PropType<LayoutContentColumnSize>,
-			default: LAYOUT_CONTENT_COLUMN_SIZE.MAX_900,
-			validator(contentColumnSize) {
-				return Object.values(LAYOUT_CONTENT_COLUMN_SIZE).includes(contentColumnSize);
-			},
-		},
 		rightColumnSize: {
 			type: String as PropType<LayoutRightColumnSize>,
 			default: LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
@@ -213,11 +188,6 @@ export default {
 			LAYOUT_RIGHT_COLUMN_SIZE: Object.freeze(LAYOUT_RIGHT_COLUMN_SIZE),
 			LAYOUT_RIGHT_COLUMN_MODE: Object.freeze(LAYOUT_RIGHT_COLUMN_MODE),
 		};
-	},
-	computed: {
-		isContentFullWidth() {
-			return this.contentColumnSize === LAYOUT_CONTENT_COLUMN_SIZE.FULL_WIDTH;
-		},
 	},
 };
 </script>
