@@ -25,11 +25,8 @@ const StoryTemplate: StoryFn<typeof Layout> = (args) => ({
 				:rightColumnVisible='rightColumnVisible'
 				:sideMenuVisible='sideMenuVisible' :rightColumnMode='rightColumnMode'
 				:contentWithoutPadding='contentWithoutPadding'>
-			<template #mainMenu>
-				<div style='width: 100%; height: 100%; background: rgba(249, 27, 214, 0.5);'>mainMenu</div>
-			</template>
-			<template #sideNav>
-				<div style='width: 100%; height: 100%; background: #f91bd6;'>sideNav</div>
+			<template #leftColumn>
+				<div style='width: 100%; height: 100%; background: rgba(249, 27, 214, 0.5);'>leftColumn</div>
 			</template>
 			<template #rightColumn>
 				<div style='width: 100%; height: 100%;'

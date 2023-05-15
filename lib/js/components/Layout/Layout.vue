@@ -1,22 +1,19 @@
 <template>
 	<div class="layout">
 		<div v-if="sideMenuVisible" class="layout__navigation">
-			<div class="layout__mainMenu">
-				<slot name="mainMenu" />
-			</div>
-			<div class="layout__sideNav">
-				<slot name="sideNav" />
-			</div>
+			<slot name="leftColumn" />
 		</div>
-		<div
-			class="layout__contentColumn"
-			:class="{
-				'-fullWidth': isContentFullWidth,
-				'-max900': !isContentFullWidth,
-				'-noPadding': contentWithoutPadding,
-			}"
-		>
-			<slot />
+		<div class="layout__contentColumn">
+			<div
+				class="layout__content"
+				:class="{
+					'-fullWidth': isContentFullWidth,
+					'-max900': !isContentFullWidth,
+					'-noPadding': contentWithoutPadding,
+				}"
+			>
+				<slot />
+			</div>
 		</div>
 		<template
 			v-if="
@@ -64,8 +61,6 @@ $right-column-large-l-width: 30vw;
 $right-column-large-l-min-width: 320px;
 $right-column-large-l-max-width: 560px;
 
-$side-bar-width: 66px;
-
 .layout {
 	$root: &;
 
@@ -104,16 +99,6 @@ $side-bar-width: 66px;
 		@media #{breakpoint-m()} {
 			display: flex;
 		}
-	}
-
-	&__mainMenu {
-		height: auto;
-		width: $main-menu-width;
-	}
-
-	&__sideNav {
-		height: auto;
-		width: 100%;
 	}
 
 	&__contentColumn {
