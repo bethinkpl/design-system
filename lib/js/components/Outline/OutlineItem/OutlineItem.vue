@@ -33,7 +33,7 @@
 		</div>
 		<div v-if="$slots.default"><slot /></div>
 		<ds-icon
-			v-else-if="isDone"
+			v-if="isDone"
 			class="outlineItem__icon -active"
 			:icon="ICONS.FA_CHECK_SOLID"
 			:size="ICON_SIZES.X_SMALL"
