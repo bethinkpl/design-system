@@ -120,8 +120,6 @@ $right-column-large-l-max-width: 560px;
 		}
 
 		&.-medium {
-			width: 100%;
-
 			@media #{breakpoint-s()} {
 				max-width: $right-column-medium-max-width;
 			}
@@ -134,8 +132,6 @@ $right-column-large-l-max-width: 560px;
 		}
 
 		&.-large {
-			width: 100%;
-
 			@media #{breakpoint-s()} {
 				max-width: $right-column-large-max-width;
 			}
