@@ -17,7 +17,7 @@
 				v-if="iconLeft"
 				class="outlineItem__icon"
 				:class="{
-					'-active': isSelected,
+					'-active': isSelected && isSelectedIconsColor,
 				}"
 				:icon="iconLeft"
 				:size="ICON_SIZES.X_SMALL"
@@ -31,23 +31,25 @@
 				</span>
 			</span>
 		</div>
-		<div v-if="$slots.default"><slot /></div>
-		<ds-icon
-			v-if="isDone"
-			class="outlineItem__icon -active"
-			:icon="ICONS.FA_CHECK_SOLID"
-			:size="ICON_SIZES.X_SMALL"
-		/>
-		<ds-icon
-			v-else-if="iconRight"
-			class="outlineItem__icon"
-			:class="{
-				'-active': isSelected,
-			}"
-			:icon="iconRight"
-			:size="ICON_SIZES.X_SMALL"
-			:rotation="iconRightRotation"
-		></ds-icon>
+		<div class="outlineItem__rightContent">
+			<div v-if="$slots.default"><slot /></div>
+			<ds-icon
+				v-if="isDone"
+				class="outlineItem__icon -active"
+				:icon="ICONS.FA_CHECK_SOLID"
+				:size="ICON_SIZES.X_SMALL"
+			/>
+			<ds-icon
+				v-else-if="iconRight"
+				class="outlineItem__icon"
+				:class="{
+					'-active': isSelected && isSelectedIconsColor,
+				}"
+				:icon="iconRight"
+				:size="ICON_SIZES.X_SMALL"
+				:rotation="iconRightRotation"
+			></ds-icon>
+		</div>
 	</div>
 </template>
 
@@ -66,6 +68,7 @@
 	justify-content: space-between;
 	padding: $space-xs;
 
+	&__rightContent,
 	&__content {
 		align-items: center;
 		column-gap: $space-xxs;
@@ -247,6 +250,10 @@ export default {
 		isDone: {
 			type: Boolean,
 			default: false,
+		},
+		isSelectedIconsColor: {
+			type: Boolean,
+			default: true,
 		},
 	},
 	data() {

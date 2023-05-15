@@ -25,16 +25,15 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 			OUTLINE_ITEM_STATES: Object.freeze(OUTLINE_ITEM_STATES),
 		};
 	},
-	template: `<outline-item :label="label" :additional-text="additionalText" :size="OUTLINE_ITEM_SIZES[size]" :state="OUTLINE_ITEM_STATES[state]" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone" :is-selected="isSelected" :background-color="OUTLINE_ITEM_BACKGROUND_COLORS[backgroundColor]" :index="index" :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation" />`,
+	template: `<outline-item :label="label" :additional-text="additionalText" :size="OUTLINE_ITEM_SIZES[size]" :state="OUTLINE_ITEM_STATES[state]" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone" :is-selected="isSelected" :background-color="OUTLINE_ITEM_BACKGROUND_COLORS[backgroundColor]" :index="index" :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation" :is-selected-icons-color="isSelectedIconsColor"><div v-html="defaultSlot"></div></outline-item>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
-const args = {
-	defaultSlot: null,
-} as Args;
+const args = {} as Args;
 
 const argTypes = {
+	defaultSlot: { control: { type: 'text' }, defaultValue: 'Default slot' },
 	size: {
 		control: { type: 'select', options: Object.keys(OUTLINE_ITEM_SIZES) },
 		defaultValue: 'S',
@@ -76,6 +75,10 @@ const argTypes = {
 	isDone: {
 		control: { type: 'boolean' },
 		defaultValue: false,
+	},
+	isSelectedIconsColor: {
+		control: { type: 'boolean' },
+		defaultValue: true,
 	},
 } as ArgTypes;
 
