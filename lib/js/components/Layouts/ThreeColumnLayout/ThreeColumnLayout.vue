@@ -7,7 +7,7 @@
 			}"
 		/>
 		<div
-			class="layout__navigation"
+			class="layout__sideMenu"
 			:class="{
 				'-desktopVisible': sideMenuVisible || sideMenuVisibleLocal,
 				'-mobileVisible': sideMenuVisibleLocal,
@@ -86,7 +86,7 @@ $right-column-large-l-max-width: 560px;
 		}
 	}
 
-	&__navigation {
+	&__sideMenu {
 		display: none;
 		height: 100%;
 		left: 0;
