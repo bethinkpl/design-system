@@ -82,7 +82,9 @@ $right-column-large-l-max-width: 560px;
 		}
 
 		@media #{breakpoint-l()} {
-			display: none;
+			&.-visible {
+				display: none;
+			}
 		}
 	}
 
@@ -90,7 +92,6 @@ $right-column-large-l-max-width: 560px;
 		display: none;
 		height: 100%;
 		left: 0;
-		max-width: $left-column-max-width;
 		position: absolute;
 		top: 0;
 		width: 100%;
@@ -102,7 +103,7 @@ $right-column-large-l-max-width: 560px;
 		}
 
 		@media #{breakpoint-s()} {
-			// TODO 23vw as min width on S looks weird
+			max-width: $left-column-max-width;
 			min-width: $left-column-min-width;
 			width: $left-column-width;
 		}
