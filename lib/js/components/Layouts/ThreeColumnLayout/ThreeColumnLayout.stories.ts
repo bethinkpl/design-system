@@ -18,10 +18,10 @@ const StoryTemplate: StoryFn<typeof ThreeColumnLayout> = (args) => ({
 			style='display: flex; min-height: 100vh; font-size: 12px; color: #fff;'>
 		<three-column-layout :rightColumnSize='rightColumnSize'
 				:rightColumnVisible='rightColumnVisible'
-				:sideMenuVisible='sideMenuVisible'
+				:leftColumnVisible='leftColumnVisible'
 				:rightColumnMode='rightColumnMode'
 				:rightColumnVisibleLocal='rightColumnVisibleLocal'
-				:sideMenuVisibleLocal='sideMenuVisibleLocal'
+				:leftColumnVisibleLocal='leftColumnVisibleLocal'
 				:contentWithoutPadding='contentWithoutPadding'>
 			<template #leftColumn>
 				<div style='width: 100%; height: 100%; background: rgb(249, 27, 214);'>leftColumn</div>
@@ -44,8 +44,8 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	rightColumnVisible: true,
 	rightColumnVisibleLocal: true,
-	sideMenuVisible: true,
-	sideMenuVisibleLocal: false,
+	leftColumnVisible: true,
+	leftColumnVisibleLocal: false,
 	contentWithoutPadding: false,
 	rightColumnSize: THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 } as Args;
@@ -55,9 +55,9 @@ const argTypes = {
 		control: { type: 'select', options: Object.values(THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE) },
 		defaultValue: THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 	},
-	sideMenuVisible: { control: { type: 'boolean' } },
+	leftColumnVisible: { control: { type: 'boolean' } },
 	rightColumnVisible: { control: { type: 'boolean' } },
-	sideMenuVisibleLocal: { control: { type: 'boolean' } },
+	leftColumnVisibleLocal: { control: { type: 'boolean' } },
 	rightColumnVisibleLocal: { control: { type: 'boolean' } },
 	contentWithoutPadding: { control: { type: 'boolean' } },
 } as ArgTypes;

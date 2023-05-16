@@ -3,14 +3,14 @@
 		<div
 			class="layout__overlay"
 			:class="{
-				'-visible': rightColumnVisibleLocal || sideMenuVisibleLocal,
+				'-visible': rightColumnVisibleLocal || leftColumnVisibleLocal,
 			}"
 		/>
 		<div
-			class="layout__sideMenu"
+			class="layout__leftColumn"
 			:class="{
-				'-desktopVisible': sideMenuVisible || sideMenuVisibleLocal,
-				'-mobileVisible': sideMenuVisibleLocal,
+				'-desktopVisible': leftColumnVisible || leftColumnVisibleLocal,
+				'-mobileVisible': leftColumnVisibleLocal,
 			}"
 		>
 			<slot name="leftColumn" />
@@ -86,7 +86,7 @@ $right-column-large-l-max-width: 560px;
 		}
 	}
 
-	&__sideMenu {
+	&__leftColumn {
 		display: none;
 		height: 100%;
 		left: 0;
@@ -209,7 +209,7 @@ export default {
 			type: Boolean,
 			default: true,
 		},
-		sideMenuVisible: {
+		leftColumnVisible: {
 			type: Boolean,
 			default: true,
 		},
@@ -217,7 +217,7 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		sideMenuVisibleLocal: {
+		leftColumnVisibleLocal: {
 			type: Boolean,
 			default: false,
 		},
