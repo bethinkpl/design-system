@@ -1,5 +1,5 @@
 <template>
-	<div class="selectListSectionTitle" :class="{ '-isCaption': isCaption }">{{ label }}</div>
+	<div class="selectListSectionTitle" :class="{ '-isUppercase': isUppercase }">{{ label }}</div>
 </template>
 
 <style scoped lang="scss">
@@ -8,13 +8,13 @@
 @import '../../../../styles/settings/typography/tokens';
 
 .selectListSectionTitle {
-	@include info-m-extensive-bold-uppercase;
+	@include info-m-default-regular;
 
 	color: $color-neutral-text;
 	padding: $space-xxs $space-xs;
 
-	&.-isCaption {
-		@include info-m-default-regular;
+	&.-isUppercase {
+		@include info-m-extensive-bold-uppercase;
 	}
 }
 </style>
@@ -27,7 +27,7 @@ export default {
 			type: String,
 			required: true,
 		},
-		isCaption: {
+		isUppercase: {
 			type: Boolean,
 			default: false,
 		},

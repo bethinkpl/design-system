@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof SelectListSectionTitle> = (args) => ({
 	},
 	template: `
 			<select-list>
-				<select-list-section-title :label="label" :is-caption="isCaption" /> 
+				<select-list-section-title :label="label" :is-uppercase="isUppercase" /> 
 			</select-list>`,
 });
 
@@ -26,7 +26,7 @@ const argTypes = {
 		control: { type: 'text' },
 		defaultValue: 'Select List Section Title',
 	},
-	isCaption: {
+	isUppercase: {
 		control: { type: 'boolean' },
 		defaultValue: false,
 	},
