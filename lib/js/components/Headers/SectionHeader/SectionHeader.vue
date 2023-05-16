@@ -180,6 +180,10 @@
 		#{$root}__info {
 			padding: $space-xxs 0;
 		}
+
+		#{$root}__eyebrow {
+			@include info-s-extensive-bold-uppercase;
+		}
 	}
 
 	&.-size-medium {
@@ -193,6 +197,10 @@
 
 		#{$root}__info {
 			padding: $space-xxs 0;
+		}
+
+		#{$root}__eyebrow {
+			@include info-s-extensive-bold-uppercase;
 		}
 	}
 
