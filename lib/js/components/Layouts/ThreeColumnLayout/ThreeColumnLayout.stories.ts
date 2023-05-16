@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof ThreeColumnLayout> = (args) => ({
 	},
 	template: `
 		<div
-			style='display: flex; min-height: 100vh; font-size: 12px; color: #fff;'>
+			style='display: flex; width: 100vw; height: 100vh; font-size: 12px; color: #fff;'>
 		<three-column-layout :rightColumnSize='rightColumnSize'
 				:rightColumnVisible='rightColumnVisible'
 				:leftColumnVisible='leftColumnVisible'

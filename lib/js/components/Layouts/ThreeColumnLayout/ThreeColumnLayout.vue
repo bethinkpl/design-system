@@ -64,7 +64,8 @@ $right-column-large-l-max-width: 560px;
 
 	display: flex;
 	flex-wrap: nowrap;
-	height: auto;
+	height: 100%;
+	overflow: hidden;
 	position: relative;
 	width: 100%;
 
