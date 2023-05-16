@@ -28,7 +28,7 @@ const argTypes = {
 	},
 	isUppercase: {
 		control: { type: 'boolean' },
-		defaultValue: false,
+		defaultValue: true,
 	},
 } as ArgTypes;
 export const Interactive = StoryTemplate.bind({});
