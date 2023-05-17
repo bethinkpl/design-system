@@ -122,6 +122,7 @@ $right-column-large-l-max-width: 560px;
 	&__contentColumn {
 		flex: 1;
 		width: auto;
+		overflow-x: auto;
 	}
 
 	&__content {
