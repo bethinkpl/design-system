@@ -97,11 +97,11 @@
 </template>
 
 <style scoped lang="scss">
-@import '../../../styles/settings/spacings';
-@import '../../../styles/settings/media-queries';
-@import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/typography/tokens';
-@import '../../../styles/mixins/flex-overflow-mask';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/media-queries';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/mixins/flex-overflow-mask';
 
 .ds-overlayHeader {
 	align-items: center;
@@ -258,11 +258,15 @@
 </style>
 
 <script lang="ts">
-import IconButton from '../Buttons/IconButton/IconButton.vue';
-import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
-import DsDropdown, { DROPDOWN_PLACEMENTS } from '../Dropdown';
-import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
-import { ICONS } from '../Icons/Icon';
+import IconButton from '../../Buttons/IconButton/IconButton.vue';
+import DsDivider, { DIVIDER_PROMINENCES } from '../../Divider';
+import DsDropdown, { DROPDOWN_PLACEMENTS } from '../../Dropdown';
+import {
+	ICON_BUTTON_COLORS,
+	ICON_BUTTON_SIZES,
+	ICON_BUTTON_STATES,
+} from '../../Buttons/IconButton';
+import { ICONS } from '../../Icons/Icon';
 import { OVERLAY_HEADER_BORDER_COLORS } from './OverlayHeader.consts';
 
 export default {
