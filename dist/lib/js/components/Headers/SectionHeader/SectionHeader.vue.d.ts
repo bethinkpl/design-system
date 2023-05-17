@@ -1,44 +1,67 @@
-import Divider from '../../Divider';
+import DsIcon, { IconItem } from '../../Icons/Icon';
 declare const _default: {
     name: string;
     components: {
-        DsIconButton: typeof Divider;
-        DsDivider: typeof Divider;
+        DsIcon: typeof DsIcon;
+        DsIconButton: typeof DsIcon;
+        DsDivider: typeof DsIcon;
     };
     props: {
-        hasDivider: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
         isExpandable: {
             type: BooleanConstructor;
             default: boolean;
         };
+        hideSlotWhenCollapsed: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        iconLeft: {
+            type: () => IconItem;
+            default: null;
+            validator(iconLeft: IconItem): boolean;
+        };
+        iconRight: {
+            type: () => IconItem;
+            default: null;
+            validator(iconRight: IconItem): boolean;
+        };
+        isExpanded: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        info: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator(size: any): boolean;
+        };
         title: {
+            type: StringConstructor;
+            required: boolean;
+        };
+        eyebrow: {
+            type: StringConstructor;
+            default: string;
+        };
+        supportingText: {
             type: StringConstructor;
             default: null;
         };
+        divider: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        mobileLayout: {
+            type: StringConstructor;
+            default: "vertical";
+            validator: (value: any) => boolean;
+        };
     };
+    emits: string[];
     data(): {
-        isExpanded: boolean;
-        ICON_BUTTON_COLORS: Readonly<{
-            readonly PRIMARY: "primary";
-            readonly NEUTRAL: "neutral";
-            readonly NEUTRAL_WEAK: "neutral-weak";
-            readonly FAIL: "fail";
-            readonly DANGER: "danger";
-            readonly SUCCESS: "success";
-            readonly INVERTED: "inverted";
-            readonly WARNING: "warning";
-            readonly INFO: "info";
-        }>;
-        ICON_BUTTON_SIZES: Readonly<{
-            readonly XX_SMALL: "xx-small";
-            readonly X_SMALL: "x-small";
-            readonly SMALL: "small";
-            readonly MEDIUM: "medium";
-            readonly LARGE: "large";
-        }>;
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
             readonly RIBBON: import("vue").CompatVue;
@@ -216,9 +239,48 @@ declare const _default: {
             readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
         }>;
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+        ICON_BUTTON_SIZES: Readonly<{
+            readonly XX_SMALL: "xx-small";
+            readonly X_SMALL: "x-small";
+            readonly SMALL: "small";
+            readonly MEDIUM: "medium";
+            readonly LARGE: "large";
+        }>;
+        ICON_BUTTON_COLORS: Readonly<{
+            readonly PRIMARY: "primary";
+            readonly NEUTRAL: "neutral";
+            readonly NEUTRAL_WEAK: "neutral-weak";
+            readonly FAIL: "fail";
+            readonly DANGER: "danger";
+            readonly SUCCESS: "success";
+            readonly INVERTED: "inverted";
+            readonly WARNING: "warning";
+            readonly INFO: "info";
+        }>;
+        SECTION_HEADER_MOBILE_LAYOUTS: Readonly<{
+            readonly VERTICAL: "vertical";
+            readonly HORIZONTAL: "horizontal";
+        }>;
+    };
+    computed: {
+        chevronRotation(): number | undefined;
+        showSlot(): boolean;
+        sizeClass(): string;
+        iconSize(): string;
     };
     methods: {
-        onHeaderClick(): void;
+        onInfoClicked(): void;
+        onTitleWrapperClicked(): void;
     };
 };
 export default _default;

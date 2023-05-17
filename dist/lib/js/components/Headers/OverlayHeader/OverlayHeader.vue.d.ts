@@ -1,26 +1,42 @@
-import Divider from '../../Divider';
+import IconButton from '../../Buttons/IconButton/IconButton.vue';
 declare const _default: {
     name: string;
     components: {
-        DsIconButton: typeof Divider;
-        DsDivider: typeof Divider;
+        IconButton: typeof IconButton;
+        DsDivider: typeof IconButton;
+        DsDropdown: typeof IconButton;
     };
     props: {
-        hasDivider: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        isExpandable: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
         title: {
+            type: StringConstructor;
+            required: boolean;
+        };
+        shortTitle: {
             type: StringConstructor;
             default: null;
         };
+        eyebrowText: {
+            type: StringConstructor;
+            default: null;
+        };
+        borderColor: {
+            type: StringConstructor;
+            default: "neutralGhost";
+            validator: (value: any) => boolean;
+        };
+        isTitleInteractive: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     };
     data(): {
-        isExpanded: boolean;
+        ICON_BUTTON_SIZES: Readonly<{
+            readonly XX_SMALL: "xx-small";
+            readonly X_SMALL: "x-small";
+            readonly SMALL: "small";
+            readonly MEDIUM: "medium";
+            readonly LARGE: "large";
+        }>;
         ICON_BUTTON_COLORS: Readonly<{
             readonly PRIMARY: "primary";
             readonly NEUTRAL: "neutral";
@@ -32,12 +48,12 @@ declare const _default: {
             readonly WARNING: "warning";
             readonly INFO: "info";
         }>;
-        ICON_BUTTON_SIZES: Readonly<{
-            readonly XX_SMALL: "xx-small";
-            readonly X_SMALL: "x-small";
-            readonly SMALL: "small";
-            readonly MEDIUM: "medium";
-            readonly LARGE: "large";
+        ICON_BUTTON_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly FOCUSED: "focused";
+            readonly DISABLED: "disabled";
+            readonly LOADING: "loading";
         }>;
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
@@ -216,9 +232,26 @@ declare const _default: {
             readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
         }>;
+        DIVIDER_PROMINENCES: Readonly<{
+            DEFAULT: string;
+            STRONG: string;
+            WEAK: string;
+        }>;
+        OVERLAY_HEADER_BORDER_COLORS: Readonly<{
+            readonly NEUTRAL_GHOST: "neutralGhost";
+            readonly NEUTRAL: "neutral";
+            readonly SUCCESS: "success";
+            readonly FAIL: "fail";
+            readonly WARNING: "warning";
+        }>;
+        DROPDOWN_PLACEMENTS: Readonly<{
+            readonly BOTTOM_START: "bottom-start";
+            readonly BOTTOM_END: "bottom-end";
+        }>;
+        isDropdownOpen: boolean;
     };
     methods: {
-        onHeaderClick(): void;
+        onTitleClick(): void;
     };
 };
 export default _default;
