@@ -3,14 +3,14 @@
 		<div
 			class="threeColumnLayout__overlay"
 			:class="{
-				'-visible': rightColumnVisibleLocal || leftColumnVisibleLocal,
+				'-visible': rightColumnVisibleMobile || leftColumnVisibleMobile,
 			}"
 		/>
 		<div
 			class="threeColumnLayout__leftColumn"
 			:class="{
-				'-desktopVisible': leftColumnVisible || leftColumnVisibleLocal,
-				'-mobileVisible': leftColumnVisibleLocal,
+				'-desktopVisible': leftColumnVisible || leftColumnVisibleMobile,
+				'-mobileVisible': leftColumnVisibleMobile,
 			}"
 		>
 			<slot name="leftColumn" />
@@ -30,8 +30,8 @@
 			:class="{
 				'-medium': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 				'-large': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
-				'-desktopVisible': rightColumnVisible || rightColumnVisibleLocal,
-				'-mobileVisible': rightColumnVisibleLocal,
+				'-desktopVisible': rightColumnVisible || rightColumnVisibleMobile,
+				'-mobileVisible': rightColumnVisibleMobile,
 			}"
 		>
 			<slot name="rightColumn" />
@@ -97,12 +97,6 @@ $right-column-large-l-max-width: 560px;
 		top: 0;
 		width: 100%;
 
-		@media #{breakpoint-l()} {
-			&.-desktopVisible {
-				display: initial;
-			}
-		}
-
 		@media #{breakpoint-s()} {
 			max-width: $left-column-max-width;
 			min-width: $left-column-min-width;
@@ -114,6 +108,10 @@ $right-column-large-l-max-width: 560px;
 			left: initial;
 			position: initial;
 			top: initial;
+
+			&.-desktopVisible {
+				display: initial;
+			}
 		}
 
 		&.-mobileVisible {
@@ -145,16 +143,14 @@ $right-column-large-l-max-width: 560px;
 		width: 100%;
 
 		@media #{breakpoint-l()} {
-			&.-desktopVisible {
-				display: initial;
-			}
-		}
-
-		@media #{breakpoint-l()} {
 			height: auto;
 			position: initial;
 			right: initial;
 			top: initial;
+
+			&.-desktopVisible {
+				display: initial;
+			}
 		}
 
 		&.-mobileVisible {
@@ -215,11 +211,11 @@ export default {
 			type: Boolean,
 			default: true,
 		},
-		rightColumnVisibleLocal: {
+		initialMobileRightColumnVisibleState: {
 			type: Boolean,
 			default: false,
 		},
-		leftColumnVisibleLocal: {
+		initialMobileLeftColumnVisibleState: {
 			type: Boolean,
 			default: false,
 		},
@@ -233,7 +229,26 @@ export default {
 			THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE: Object.freeze(
 				THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE,
 			),
+
+			leftColumnVisibleMobile: false,
+			rightColumnVisibleMobile: false,
 		};
+	},
+	watch: {
+		leftColumnVisible(state) {
+			if (this.leftColumnVisibleMobile !== state) {
+				this.leftColumnVisibleMobile = state;
+			}
+		},
+		rightColumnVisible(state) {
+			if (this.rightColumnVisibleMobile !== state) {
+				this.rightColumnVisibleMobile = state;
+			}
+		},
+	},
+	created() {
+		this.leftColumnVisibleMobile = this.initialMobileLeftColumnVisibleState;
+		this.rightColumnVisibleMobile = this.initialMobileRightColumnVisibleState;
 	},
 };
 </script>

@@ -17,20 +17,19 @@ const StoryTemplate: StoryFn<typeof ThreeColumnLayout> = (args) => ({
 		<div
 			style='display: flex; width: 100vw; height: 100vh; font-size: 12px; color: #fff;'>
 		<three-column-layout :rightColumnSize='rightColumnSize'
-				:rightColumnVisible='rightColumnVisible'
-				:leftColumnVisible='leftColumnVisible'
-				:rightColumnMode='rightColumnMode'
-				:rightColumnVisibleLocal='rightColumnVisibleLocal'
-				:leftColumnVisibleLocal='leftColumnVisibleLocal'
-				:contentWithoutPadding='contentWithoutPadding'>
-			<template #leftColumn>
-				<div style='width: 100%; height: 100%; background: rgb(249, 27, 214);'>leftColumn</div>
-			</template>
-			<template #rightColumn>
-				<div style='width: 100%; height: 100%;'
-					 :style='{"background": (rightColumnSize === "medium" ? "#2c7bfb" : "#817c81")}'>rightColumn
-				</div>
-			</template>
+							 :rightColumnVisible='rightColumnVisible'
+							 :leftColumnVisible='leftColumnVisible'
+							 :initialMobileRightColumnVisibleState='initialMobileRightColumnVisibleState'
+							 :initialMobileLeftColumnVisibleState='initialMobileLeftColumnVisibleState'
+							 :contentWithoutPadding='contentWithoutPadding'>
+		<template #leftColumn>
+			<div style='width: 100%; height: 100%; background: rgb(249, 27, 214);'>leftColumn</div>
+		</template>
+		<template #rightColumn>
+			<div style='width: 100%; height: 100%;'
+				 :style='{"background": (rightColumnSize === "medium" ? "#2c7bfb" : "#817c81")}'>rightColumn
+			</div>
+		</template>
 
 			<div style='width: 100%; height: 100%; background: #9133c2;'>
 				content
@@ -43,9 +42,9 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	rightColumnVisible: true,
-	rightColumnVisibleLocal: true,
+	initialMobileRightColumnVisibleState: true,
 	leftColumnVisible: true,
-	leftColumnVisibleLocal: false,
+	initialMobileLeftColumnVisibleState: false,
 	contentWithoutPadding: false,
 	rightColumnSize: THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 } as Args;
@@ -57,8 +56,8 @@ const argTypes = {
 	},
 	leftColumnVisible: { control: { type: 'boolean' } },
 	rightColumnVisible: { control: { type: 'boolean' } },
-	leftColumnVisibleLocal: { control: { type: 'boolean' } },
-	rightColumnVisibleLocal: { control: { type: 'boolean' } },
+	initialMobileRightColumnVisibleState: { control: { type: 'boolean' } },
+	initialMobileLeftColumnVisibleState: { control: { type: 'boolean' } },
 	contentWithoutPadding: { control: { type: 'boolean' } },
 } as ArgTypes;
 
