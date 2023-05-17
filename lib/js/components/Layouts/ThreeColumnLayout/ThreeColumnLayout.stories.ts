@@ -15,12 +15,10 @@ export default {
 	],
 } as Meta<typeof ThreeColumnLayout>;
 
-const StoryTemplate: StoryFn<typeof ThreeColumnLayout> = (args, context) => ({
+const StoryTemplate: StoryFn<typeof ThreeColumnLayout> = (args) => ({
 	components: { ThreeColumnLayout },
 	setup() {
-		return {
-			...args,
-		};
+		return { ...args };
 	},
 	template: `
 		<three-column-layout :rightColumnSize='rightColumnSize'
