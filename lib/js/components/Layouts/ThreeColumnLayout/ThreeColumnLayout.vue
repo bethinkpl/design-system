@@ -1,13 +1,13 @@
 <template>
-	<div class="layout">
+	<div class="threeColumnLayout">
 		<div
-			class="layout__overlay"
+			class="threeColumnLayout__overlay"
 			:class="{
 				'-visible': rightColumnVisibleLocal || leftColumnVisibleLocal,
 			}"
 		/>
 		<div
-			class="layout__leftColumn"
+			class="threeColumnLayout__leftColumn"
 			:class="{
 				'-desktopVisible': leftColumnVisible || leftColumnVisibleLocal,
 				'-mobileVisible': leftColumnVisibleLocal,
@@ -15,9 +15,9 @@
 		>
 			<slot name="leftColumn" />
 		</div>
-		<div class="layout__contentColumn">
+		<div class="threeColumnLayout__contentColumn">
 			<div
-				class="layout__content"
+				class="threeColumnLayout__content"
 				:class="{
 					'-noPadding': contentWithoutPadding,
 				}"
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 		<div
-			class="layout__rightColumn"
+			class="threeColumnLayout__rightColumn"
 			:class="{
 				'-medium': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 				'-large': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
@@ -59,7 +59,7 @@ $right-column-large-l-width: 30vw;
 $right-column-large-l-min-width: 320px;
 $right-column-large-l-max-width: 560px;
 
-.layout {
+.threeColumnLayout {
 	$root: &;
 
 	display: flex;
