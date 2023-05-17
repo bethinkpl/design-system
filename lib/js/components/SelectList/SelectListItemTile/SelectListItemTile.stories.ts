@@ -1,11 +1,11 @@
 import SelectListItemTile from './SelectListItemTile.vue';
-import { TILE_STATES } from './../../Tile/Tile.consts';
+import { TILE_STATES } from '../../Tile';
 
 import { Args, Meta, StoryFn } from '@storybook/vue3';
-import { args, argTypes, data, template } from './../../Tile/Tile.sb.shared';
+import { args, argTypes, data, template } from '../../Tile/Tile.sb.shared';
 
 export default {
-	title: 'Components/SelectListItemTile',
+	title: 'Components/SelectList/SelectListItemTile',
 	component: SelectListItemTile,
 } as Meta<typeof SelectListItemTile>;
 

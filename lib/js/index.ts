@@ -61,6 +61,8 @@ export { default as SelectList } from './components/SelectList/SelectList.vue';
 export { default as SelectListItem } from './components/SelectList/SelectListItem/SelectListItem.vue';
 export { default as SelectListItemDivider } from './components/SelectList/SelectListItemDivider/SelectListItemDivider.vue';
 export { default as SelectListItemToggle } from './components/SelectList/SelectListItemToggle/SelectListItemToggle.vue';
+export { default as SelectListItemTile } from './components/SelectList/SelectListItemTile/SelectListItemTile.vue';
+export { default as SelectListSectionTitle } from './components/SelectList/SelectListSectionTitle/SelectListSectionTitle.vue';
 export * from './components/SelectList/SelectListItem/SelectListItem.consts';
 export { default as PopOver } from './components/PopOver';
 export * from './components/PopOver/PopOver.consts';
