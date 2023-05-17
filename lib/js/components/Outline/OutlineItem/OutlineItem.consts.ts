@@ -1,6 +1,6 @@
 export const OUTLINE_ITEM_SIZES = {
-	S: 'small',
-	M: 'medium',
+	SMALL: 'small',
+	MEDIUM: 'medium',
 };
 export const OUTLINE_ITEM_STATES = {
 	DEFAULT: 'default',
@@ -8,6 +8,6 @@ export const OUTLINE_ITEM_STATES = {
 };
 
 export const OUTLINE_ITEM_BACKGROUND_COLORS = {
-	NEUTRAL_WEAK: 'neutral_weak',
+	NEUTRAL_WEAK: 'neutralWeak',
 	NEUTRAL: 'neutral',
 };

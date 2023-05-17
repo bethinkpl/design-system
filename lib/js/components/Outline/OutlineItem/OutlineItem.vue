@@ -4,7 +4,7 @@
 		class="outlineItem"
 		:class="{
 			'-disabled': isDisabled,
-			'-medium': size === OUTLINE_ITEM_SIZES.M,
+			'-medium': size === OUTLINE_ITEM_SIZES.MEDIUM,
 			'-selected': isSelected,
 			'-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
 		}"
@@ -187,7 +187,7 @@ export default {
 	props: {
 		size: {
 			type: Object,
-			default: OUTLINE_ITEM_SIZES.S,
+			default: OUTLINE_ITEM_SIZES.SMALL,
 			validator(size) {
 				return Object.values(OUTLINE_ITEM_SIZES).includes(size);
 			},

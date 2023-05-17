@@ -36,7 +36,7 @@ const argTypes = {
 	defaultSlot: { control: { type: 'text' }, defaultValue: 'Default slot' },
 	size: {
 		control: { type: 'select', options: Object.keys(OUTLINE_ITEM_SIZES) },
-		defaultValue: 'S',
+		defaultValue: 'SMALL',
 	},
 	backgroundColor: {
 		control: { type: 'select', options: Object.keys(OUTLINE_ITEM_BACKGROUND_COLORS) },
