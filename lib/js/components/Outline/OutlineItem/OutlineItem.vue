@@ -61,6 +61,7 @@
 
 .outlineItem {
 	$root: &;
+	$border-width: 2px;
 
 	background-color: $color-neutral-background-weak;
 	border-radius: $radius-s;
@@ -116,15 +117,16 @@
 	}
 
 	&.-selected {
+		border-left: $border-width solid $color-primary-border;
 		border-radius: $radius-xs $radius-s $radius-s $radius-xs;
-		box-shadow: 2px 0 0 inset $color-primary-border;
+		padding-left: $space-xs - $border-width;
 	}
 
 	&.-disabled {
 		pointer-events: none;
 
-		#{$root}.-selected {
-			box-shadow: -2px 0 0 $color-primary-border-disabled;
+		&.-selected {
+			border-left: $border-width solid $color-primary-border-disabled;
 		}
 
 		#{$root}__icon {
