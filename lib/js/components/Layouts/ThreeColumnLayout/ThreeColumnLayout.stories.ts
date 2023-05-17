@@ -14,7 +14,7 @@ export default {
 		}),
 	],
 } as Meta<typeof ThreeColumnLayout>;
-const key = 1231;
+
 const StoryTemplate: StoryFn<typeof ThreeColumnLayout> = (args, context) => ({
 	components: { ThreeColumnLayout },
 	setup() {
