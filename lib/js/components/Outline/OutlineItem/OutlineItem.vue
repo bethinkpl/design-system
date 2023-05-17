@@ -117,7 +117,7 @@
 
 	&.-selected {
 		border-radius: $radius-xs $radius-s $radius-s $radius-xs;
-		box-shadow: -2px 0 0 $color-primary-border;
+		box-shadow: 2px 0 0 inset $color-primary-border;
 	}
 
 	&.-disabled {
