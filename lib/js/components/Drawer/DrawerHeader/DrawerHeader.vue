@@ -6,6 +6,7 @@
 				:icon-left="ICONS.FA_CHEVRON_LEFT"
 				:type="BUTTON_TYPES.TEXT"
 				class="drawerHeader__secondLevel"
+				@click="$emit('backClicked')"
 			>
 				Wróć
 			</ds-button>
@@ -189,7 +190,7 @@ export default {
 			default: false,
 		},
 	},
-	emits: ['close', 'eyebrowClicked'],
+	emits: ['backClicked', 'close', 'eyebrowClicked'],
 	data() {
 		return {
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
