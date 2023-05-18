@@ -42,6 +42,8 @@ export { default as Ripple } from './components/Ripple';
 export * from './components/Ripple/Ripple.consts';
 export { default as SectionHeader } from './components/Headers/SectionHeader';
 export * from './components/Headers/SectionHeader/SectionHeader.consts';
+export { default as PageHeader } from './components/Headers/PageHeader';
+export * from './components/Headers/PageHeader/PageHeader.consts';
 export { default as SectionTitle } from './components/SectionTitle/SectionTitle.vue';
 export * from './components/SectionTitle/SectionTitle.consts';
 export { default as Drawer } from './components/Drawer';
