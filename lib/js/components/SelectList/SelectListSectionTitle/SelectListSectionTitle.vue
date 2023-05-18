@@ -11,10 +11,12 @@
 	@include info-m-default-regular;
 
 	color: $color-neutral-text;
-	padding: $space-xxs $space-xs;
+	padding: $space-xxxs $space-xs;
 
 	&.-isUppercase {
 		@include info-m-extensive-bold-uppercase;
+
+		padding: $space-xs $space-xs;
 	}
 }
 </style>
