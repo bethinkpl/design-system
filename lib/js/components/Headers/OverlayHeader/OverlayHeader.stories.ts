@@ -4,7 +4,7 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { OVERLAY_HEADER_BORDER_COLORS } from './OverlayHeader.consts';
 
 export default {
-	title: 'Components/OverlayHeader',
+	title: 'Components/Headers/OverlayHeader',
 	component: OverlayHeader,
 } as Meta<typeof OverlayHeader>;
 
