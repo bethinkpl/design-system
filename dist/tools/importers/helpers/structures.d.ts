@@ -11,15 +11,15 @@ export interface JsonAttribute<JsonAttributeValues> {
 export interface ITokenJsonObject {
     id: string;
     label: string;
-    labelFull: string;
+    labelFull?: string;
     value: string;
-    base: number | null;
-    ratio: number | null;
+    base?: number | null;
+    ratio?: number | null;
 }
 export interface IResultJsonObject {
     id: string;
     label: string;
-    labelFull: string;
+    labelFull?: string;
     value: string;
 }
 export interface TypographyBinFiles {
