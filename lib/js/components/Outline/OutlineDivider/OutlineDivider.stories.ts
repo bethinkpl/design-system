@@ -24,7 +24,7 @@ const argTypes = {
 	},
 	size: {
 		control: { type: 'select', options: Object.values(DIVIDER_SIZES) },
-		defaultValue: DIVIDER_SIZES.L,
+		defaultValue: DIVIDER_SIZES.S,
 	},
 } as ArgTypes;
 
