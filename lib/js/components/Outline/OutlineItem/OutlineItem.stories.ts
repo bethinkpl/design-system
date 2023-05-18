@@ -20,12 +20,9 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
-			OUTLINE_ITEM_BACKGROUND_COLORS: Object.freeze(OUTLINE_ITEM_BACKGROUND_COLORS),
-			OUTLINE_ITEM_SIZES: Object.freeze(OUTLINE_ITEM_SIZES),
-			OUTLINE_ITEM_STATES: Object.freeze(OUTLINE_ITEM_STATES),
 		};
 	},
-	template: `<outline-item :label="label" :additional-text="additionalText" :size="OUTLINE_ITEM_SIZES[size]" :state="OUTLINE_ITEM_STATES[state]" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone" :is-selected="isSelected" :background-color="OUTLINE_ITEM_BACKGROUND_COLORS[backgroundColor]" :index="index" :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation" :is-selected-icons-color="isSelectedIconsColor"><div v-html="defaultSlot"></div></outline-item>`,
+	template: `<outline-item :label="label" :additional-text="additionalText" :size="size" :state="state" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone" :is-selected="isSelected" :background-color="backgroundColor" :index="index" :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation" :is-selected-icons-color="isSelectedIconsColor"><div v-html="defaultSlot"></div></outline-item>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -35,12 +32,12 @@ const args = {} as Args;
 const argTypes = {
 	defaultSlot: { control: { type: 'text' }, defaultValue: 'Default slot' },
 	size: {
-		control: { type: 'select', options: Object.keys(OUTLINE_ITEM_SIZES) },
-		defaultValue: 'SMALL',
+		control: { type: 'select', options: Object.values(OUTLINE_ITEM_SIZES) },
+		defaultValue: OUTLINE_ITEM_SIZES.SMALL,
 	},
 	backgroundColor: {
-		control: { type: 'select', options: Object.keys(OUTLINE_ITEM_BACKGROUND_COLORS) },
-		defaultValue: 'NEUTRAL_WEAK',
+		control: { type: 'select', options: Object.values(OUTLINE_ITEM_BACKGROUND_COLORS) },
+		defaultValue: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
 	},
 	iconLeft: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
@@ -65,8 +62,8 @@ const argTypes = {
 	},
 	additionalText: { control: { type: 'text' } },
 	state: {
-		control: { type: 'select', options: Object.keys(OUTLINE_ITEM_STATES) },
-		defaultValue: 'DEFAULT',
+		control: { type: 'select', options: Object.values(OUTLINE_ITEM_STATES) },
+		defaultValue: OUTLINE_ITEM_STATES.DEFAULT,
 	},
 	isSelected: {
 		control: { type: 'boolean' },
