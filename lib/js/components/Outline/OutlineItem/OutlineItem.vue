@@ -17,12 +17,12 @@
 				v-if="iconLeft"
 				class="outlineItem__icon"
 				:class="{
-					'-active': isSelected && isSelectedIconsColor,
+					'-active': isSelected && hasSelectedIconsColorPrimary,
 				}"
 				:icon="iconLeft"
 				:size="ICON_SIZES.X_SMALL"
 			/>
-			<span>
+			<span class="outlineItem__text">
 				<span class="outlineItem__label" :class="{ '-uppercase': isLabelUppercase }">
 					{{ label }}
 				</span>
@@ -32,7 +32,7 @@
 			</span>
 		</div>
 		<div class="outlineItem__rightContent">
-			<div v-if="$slots.default"><slot /></div>
+			<template v-if="$slots.default"><slot /></template>
 			<ds-icon
 				v-if="isDone"
 				class="outlineItem__icon -active"
@@ -43,7 +43,7 @@
 				v-else-if="iconRight"
 				class="outlineItem__icon"
 				:class="{
-					'-active': isSelected && isSelectedIconsColor,
+					'-active': isSelected && hasSelectedIconsColorPrimary,
 				}"
 				:icon="iconRight"
 				:size="ICON_SIZES.X_SMALL"
@@ -65,6 +65,7 @@
 
 	background-color: $color-neutral-background-weak;
 	border-radius: $radius-s;
+	column-gap: $space-xxs;
 	display: flex;
 	justify-content: space-between;
 	padding: $space-xs;
@@ -73,7 +74,7 @@
 	&__content {
 		align-items: center;
 		column-gap: $space-xxs;
-		display: flex;
+		display: inline-flex;
 	}
 
 	&__index {
@@ -86,13 +87,18 @@
 		}
 	}
 
+	&__text {
+		align-items: flex-end;
+		display: flex;
+	}
+
 	&__label {
 		@include label-l-default-regular;
 
 		color: $color-neutral-text-heavy;
 
 		&.-uppercase {
-			@include label-l-default-bold-uppercase;
+			@include label-l-default-regular-uppercase;
 		}
 	}
 
@@ -104,6 +110,7 @@
 	}
 
 	&__icon {
+		align-self: flex-start;
 		color: $color-neutral-icon-weak;
 
 		&.-active {
@@ -155,6 +162,14 @@
 
 		#{$root}__content {
 			column-gap: $space-xxxs;
+		}
+
+		&__label {
+			@include label-l-default-bold;
+
+			&.-uppercase {
+				@include label-l-default-bold-uppercase;
+			}
 		}
 	}
 
@@ -253,7 +268,7 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		isSelectedIconsColor: {
+		hasSelectedIconsColorPrimary: {
 			type: Boolean,
 			default: true,
 		},

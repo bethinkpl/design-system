@@ -22,7 +22,7 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 			ICONS: Object.freeze(ICONS),
 		};
 	},
-	template: `<outline-item :label="label" :additional-text="additionalText" :size="size" :state="state" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone" :is-selected="isSelected" :background-color="backgroundColor" :index="index" :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation" :is-selected-icons-color="isSelectedIconsColor"><div v-html="defaultSlot"></div></outline-item>`,
+	template: `<outline-item :label="label" :additional-text="additionalText" :size="size" :state="state" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone" :is-selected="isSelected" :background-color="backgroundColor" :index="index" :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation" :has-selected-icons-color-primary="hasSelectedIconsColorPrimary"><div v-if="defaultSlot && defaultSlot.length > 0" v-html="defaultSlot" style="font-size: 14px; line-height: 16px;"></div></outline-item>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -73,7 +73,7 @@ const argTypes = {
 		control: { type: 'boolean' },
 		defaultValue: false,
 	},
-	isSelectedIconsColor: {
+	hasSelectedIconsColorPrimary: {
 		control: { type: 'boolean' },
 		defaultValue: true,
 	},
