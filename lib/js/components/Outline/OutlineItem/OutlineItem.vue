@@ -80,6 +80,7 @@
 	&__index {
 		@include label-l-default-bold;
 
+		align-self: flex-start;
 		color: $color-neutral-text-weak;
 
 		&.-active {
