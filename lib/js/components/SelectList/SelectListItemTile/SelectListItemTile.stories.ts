@@ -29,7 +29,7 @@ Interactive.parameters = {
 	},
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1923%3A34378',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=5367-94239&t=GqiOb5BFRTyJrsv8-4',
 	},
 };
 
