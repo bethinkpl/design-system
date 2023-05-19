@@ -10,7 +10,11 @@
 		}"
 	>
 		<div class="outlineItem__content">
-			<span v-if="index" class="outlineItem__index" :class="{ '-active': isSelected }">
+			<span
+				v-if="index !== null"
+				class="outlineItem__index"
+				:class="{ '-active': isSelected }"
+			>
 				{{ index }}.
 			</span>
 			<ds-icon
