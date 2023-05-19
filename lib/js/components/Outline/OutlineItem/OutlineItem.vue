@@ -6,6 +6,7 @@
 			'-disabled': isDisabled,
 			'-medium': size === OUTLINE_ITEM_SIZES.MEDIUM,
 			'-selected': isSelected,
+			'-hover': !isSelected || isSelectedInteractive,
 			'-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
 		}"
 	>
@@ -123,9 +124,11 @@
 		}
 	}
 
-	&:hover {
-		background-color: $color-neutral-background-weak-hovered;
-		cursor: pointer;
+	&.-hover {
+		&:hover {
+			background-color: $color-neutral-background-weak-hovered;
+			cursor: pointer;
+		}
 	}
 
 	&.-selected {
@@ -182,8 +185,10 @@
 	&.-backgroundNeutral {
 		background-color: $color-neutral-background;
 
-		&:hover {
-			background-color: $color-neutral-background-hovered;
+		&.-hover {
+			&:hover {
+				background-color: $color-neutral-background-hovered;
+			}
 		}
 	}
 }
