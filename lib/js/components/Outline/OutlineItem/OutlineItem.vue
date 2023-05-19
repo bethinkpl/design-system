@@ -209,7 +209,7 @@ export default {
 	},
 	props: {
 		size: {
-			type: Object,
+			type: String,
 			default: OUTLINE_ITEM_SIZES.SMALL,
 			validator(size) {
 				return Object.values(OUTLINE_ITEM_SIZES).includes(size);
