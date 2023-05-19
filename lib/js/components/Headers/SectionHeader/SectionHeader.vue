@@ -156,6 +156,7 @@
 	}
 
 	&__info {
+		line-height: 0;
 		padding: $space-xxxs 0;
 	}
 
