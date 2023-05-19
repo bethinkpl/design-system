@@ -125,6 +125,7 @@
 	}
 
 	&.-selected {
+		background-color: $color-neutral-background;
 		border-left: $border-width solid $color-primary-border;
 		border-radius: $radius-xs $radius-s $radius-s $radius-xs;
 		padding-left: $space-xs - $border-width;
