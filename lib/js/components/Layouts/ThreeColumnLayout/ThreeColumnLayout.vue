@@ -80,7 +80,7 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 		position: fixed;
 		top: 0;
 		width: 100%;
-		z-index: $z-index-overlay;
+		z-index: $z-index-overlay + 1;
 
 		@media #{breakpoint-s()} {
 			&.-visible {
@@ -102,7 +102,7 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 		position: fixed;
 		top: 0;
 		width: 100%;
-		z-index: $z-index-overlay + 1;
+		z-index: $z-index-overlay + 2;
 
 		@media #{breakpoint-s()} {
 			max-width: $left-column-max-width;
@@ -149,13 +149,14 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 		right: 0;
 		top: 0;
 		width: 100%;
-		z-index: $z-index-overlay + 1;
+		z-index: $z-index-overlay + 2;
 
 		@media #{breakpoint-l()} {
 			height: auto;
 			position: initial;
 			right: initial;
 			top: initial;
+			z-index: initial;
 
 			&.-desktopVisible {
 				display: initial;
