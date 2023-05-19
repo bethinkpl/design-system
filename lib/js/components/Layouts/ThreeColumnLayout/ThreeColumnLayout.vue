@@ -46,7 +46,7 @@
 @import '../../../../styles/settings/z-indexes';
 
 $left-column-width: 23vw;
-$left-column-min-width: 200px;
+$left-column-min-width: 250px;
 $left-column-max-width: 400px;
 
 $content-column-max-width: 900px;
@@ -55,7 +55,7 @@ $right-column-medium-max-width: 400px;
 $right-column-medium-l-width: 30vw;
 $right-column-medium-l-min-width: 320px;
 $right-column-medium-l-max-width: 400px;
-$right-column-large-max-width: 560px;
+$right-column-large-max-width: 500px;
 $right-column-large-l-width: 30vw;
 $right-column-large-l-min-width: 320px;
 $right-column-large-l-max-width: 560px;
