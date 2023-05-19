@@ -1,6 +1,6 @@
 <template>
 	<div
-		v-ripple
+		v-ripple:disabled="isSelected && !isSelectedInteractive"
 		class="outlineItem"
 		:class="{
 			'-disabled': isDisabled,
@@ -277,6 +277,10 @@ export default {
 		hasSelectedIconsColorPrimary: {
 			type: Boolean,
 			default: true,
+		},
+		isSelectedInteractive: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	data() {

@@ -22,7 +22,7 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 			ICONS: Object.freeze(ICONS),
 		};
 	},
-	template: `<outline-item :label="label" :additional-text="additionalText" :size="size" :state="state" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone" :is-selected="isSelected" :background-color="backgroundColor" :index="index" :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation" :has-selected-icons-color-primary="hasSelectedIconsColorPrimary"><div v-if="defaultSlot && defaultSlot.length > 0" v-html="defaultSlot" style="font-size: 14px; line-height: 16px;"></div></outline-item>`,
+	template: `<outline-item :label="label" :additional-text="additionalText" :size="size" :state="state" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone" :is-selected="isSelected" :background-color="backgroundColor" :index="index" :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation" :has-selected-icons-color-primary="hasSelectedIconsColorPrimary" :is-selected-interactive="isSelectedInteractive"><div v-if="defaultSlot && defaultSlot.length > 0" v-html="defaultSlot" style="font-size: 14px; line-height: 16px;"></div></outline-item>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -76,6 +76,10 @@ const argTypes = {
 	hasSelectedIconsColorPrimary: {
 		control: { type: 'boolean' },
 		defaultValue: true,
+	},
+	isSelectedInteractive: {
+		control: { type: 'boolean' },
+		defaultValue: false,
 	},
 } as ArgTypes;
 
