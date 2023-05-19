@@ -51,14 +51,16 @@ $left-column-max-width: 400px;
 
 $content-column-max-width: 900px;
 
+$right-column-min-width: 320px;
 $right-column-medium-max-width: 400px;
 $right-column-medium-l-width: 30vw;
-$right-column-medium-l-min-width: 320px;
-$right-column-medium-l-max-width: 400px;
+$right-column-medium-l-min-width: $right-column-min-width;
+$right-column-medium-l-max-width: $right-column-medium-max-width;
+
 $right-column-large-max-width: 500px;
 $right-column-large-l-width: 30vw;
-$right-column-large-l-min-width: 320px;
-$right-column-large-l-max-width: 560px;
+$right-column-large-l-min-width: $right-column-min-width;
+$right-column-large-l-max-width: $right-column-large-max-width;
 
 .threeColumnLayout {
 	$root: &;
