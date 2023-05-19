@@ -1,3 +1,4 @@
 // z-index positioning
 // hardcoded
 $z-index-modal: 16777270; // 16777271 is the highest possible value in Safari, we need to make space for elements that above modal, so -1
+$z-index-overlay: 50; // 51 based on settings from platform $z-index-overlay: $z-index-top-nav + 1;, where $z-index-top-nav = 50

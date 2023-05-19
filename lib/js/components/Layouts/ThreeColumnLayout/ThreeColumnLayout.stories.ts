@@ -10,7 +10,15 @@ export default {
 		(story) => ({
 			components: { story },
 			template:
-				"<div style='display: flex; width: 100vw; height: 100vh; font-size: 12px; color: #fff;'><story /></div>",
+				"<div style='display: flex; width: 100vw; height: 100vh;  background: lightgray; flex-direction: column;'>" +
+				'<div style="padding: 16px; background: lightcoral; z-index: 1">Example header</div>' +
+				'<story />' +
+				'</div>',
+		}),
+		(story) => ({
+			components: { story },
+			template:
+				"<div style='display: flex; width: 100%; height: 100%; font-size: 12px; color: #fff;'><story /></div>",
 		}),
 	],
 } as Meta<typeof ThreeColumnLayout>;

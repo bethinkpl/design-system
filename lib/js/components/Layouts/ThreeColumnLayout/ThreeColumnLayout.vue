@@ -43,6 +43,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/media-queries';
+@import '../../../../styles/settings/z-indexes';
 
 $left-column-width: 23vw;
 $left-column-min-width: 200px;
@@ -73,8 +74,11 @@ $right-column-large-l-max-width: 560px;
 		background: $color-default-overlay;
 		display: none;
 		height: 100%;
-		position: absolute;
+		position: fixed;
+		top: 0;
+		left: 0;
 		width: 100%;
+		z-index: $z-index-overlay;
 
 		@media #{breakpoint-s()} {
 			&.-visible {
@@ -93,9 +97,10 @@ $right-column-large-l-max-width: 560px;
 		display: none;
 		height: 100%;
 		left: 0;
-		position: absolute;
+		position: fixed;
 		top: 0;
 		width: 100%;
+		z-index: $z-index-overlay + 1;
 
 		@media #{breakpoint-s()} {
 			max-width: $left-column-max-width;
@@ -138,10 +143,11 @@ $right-column-large-l-max-width: 560px;
 	&__rightColumn {
 		display: none;
 		height: 100%;
-		position: absolute;
+		position: fixed;
 		right: 0;
 		top: 0;
 		width: 100%;
+		z-index: $z-index-overlay + 1;
 
 		@media #{breakpoint-l()} {
 			height: auto;
