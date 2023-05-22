@@ -1,30 +1,77 @@
 import { PropType } from 'vue';
-import { DrawerListItemState } from './DrawerListItem.consts';
-import Icon from '../../Icons/Icon';
+import Button from '../../Buttons/Button/Button.vue';
+import { DrawerHeaderTitleColor } from './DrawerHeader.consts';
 declare const _default: {
     name: string;
     components: {
-        DsIcon: typeof Icon;
+        DsButton: typeof Button;
+        Divider: typeof Button;
+        Icon: typeof Button;
+        IconButton: typeof Button;
+        Pill: typeof Button;
     };
     props: {
-        state: {
-            type: PropType<DrawerListItemState>;
-            default: "default";
-            validator(state: any): boolean;
-        };
-        label: {
+        title: {
             type: StringConstructor;
             required: boolean;
         };
-        valueText: {
+        eyebrowText: {
             type: StringConstructor;
-            required: boolean;
+            default: null;
+        };
+        pillLabel: {
+            type: StringConstructor;
+            default: null;
+        };
+        leftIcon: {
+            type: (ObjectConstructor | null)[];
+            default: null;
+        };
+        isClosable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSecondLevel: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isInteractiveEyebrow: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        hasDivider: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        eyebrowEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        titleEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        titleColor: {
+            type: PropType<DrawerHeaderTitleColor>;
+            default: "neutralStrong";
         };
     };
+    emits: string[];
     data(): {
-        DRAWER_LIST_ITEM_STATES: Readonly<{
-            readonly DEFAULT: "default";
-            readonly LOADING: "loading";
+        BUTTON_TYPES: Readonly<{
+            readonly FILLED: "filled";
+            readonly OUTLINED: "outlined";
+            readonly TEXT: "text";
+        }>;
+        DIVIDER_SIZES: Readonly<{
+            S: string;
+            M: string;
+            L: string;
+        }>;
+        DIVIDER_PROMINENCES: Readonly<{
+            DEFAULT: string;
+            STRONG: string;
+            WEAK: string;
         }>;
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
@@ -202,6 +249,13 @@ declare const _default: {
             readonly FA_WINDOW_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
+        }>;
+        ICON_BUTTON_SIZES: Readonly<{
+            readonly XX_SMALL: "xx-small";
+            readonly X_SMALL: "x-small";
+            readonly SMALL: "small";
+            readonly MEDIUM: "medium";
+            readonly LARGE: "large";
         }>;
         ICON_SIZES: Readonly<{
             XXX_SMALL: string;

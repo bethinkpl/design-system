@@ -10343,17 +10343,17 @@ exports.DRAWER_POSITIONS = {
 
 /***/ }),
 
-/***/ 12098:
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ 93016:
+/***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const DrawerHeader_vue_1 = __importDefault(__webpack_require__(87577));
-exports["default"] = DrawerHeader_vue_1.default;
+exports.DRAWER_HEADER_TITLE_COLORS = void 0;
+exports.DRAWER_HEADER_TITLE_COLORS = {
+    NEUTRAL_STRONG: 'neutralStrong',
+    NEUTRAL_WEAK: 'neutralWeak',
+};
 
 
 /***/ }),
@@ -12224,7 +12224,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.Well = exports.OverlayHeader = exports.Pagination = exports.IconText = exports.ProgressDonutChart = exports.ProgressBar = exports.Dropdown = exports.PopOver = exports.SelectListSectionTitle = exports.SelectListItemTile = exports.SelectListItemToggle = exports.SelectListItemDivider = exports.SelectListItem = exports.SelectList = exports.CounterToggle = exports.Pill = exports.DrawerSection = exports.DrawerTile = exports.DrawerListItemGroup = exports.DrawerListItem = exports.DrawerDivider = exports.DrawerContent = exports.DrawerHeader = exports.Drawer = exports.SectionTitle = exports.PageHeader = exports.SectionHeader = exports.Ripple = exports.SurveyQuestionOpenEnded = exports.SurveyQuestionScale = exports.SurveyToggle = exports.BlockadeStatus = exports.AccessStatus = exports.Tile = exports.TabItem = exports.NumberInCircle = exports.DsModalDialog = exports.DsModal = exports.Modal = exports.IconButton = exports.Icon = exports.FeatureIcon = exports.Divider = exports.CardExpandable = exports.Card = exports.ToggleButton = exports.Button = exports.Banner = exports.BadgeScore = exports.Badge = void 0;
+exports.Well = exports.OverlayHeader = exports.Pagination = exports.IconText = exports.ProgressDonutChart = exports.ProgressBar = exports.Dropdown = exports.PopOver = exports.SelectListSectionTitle = exports.SelectListItemTile = exports.SelectListItemToggle = exports.SelectListItemDivider = exports.SelectListItem = exports.SelectList = exports.CounterToggle = exports.Pill = exports.DrawerSection = exports.DrawerTile = exports.DrawerListItemGroup = exports.DrawerListItem = exports.DrawerHeader = exports.DrawerDivider = exports.DrawerContent = exports.Drawer = exports.SectionTitle = exports.PageHeader = exports.SectionHeader = exports.Ripple = exports.SurveyQuestionOpenEnded = exports.SurveyQuestionScale = exports.SurveyToggle = exports.BlockadeStatus = exports.AccessStatus = exports.Tile = exports.TabItem = exports.NumberInCircle = exports.DsModalDialog = exports.DsModal = exports.Modal = exports.IconButton = exports.Icon = exports.FeatureIcon = exports.Divider = exports.CardExpandable = exports.Card = exports.ToggleButton = exports.Button = exports.Banner = exports.BadgeScore = exports.Badge = void 0;
 exports.initializeIconsWithDomWatcher = exports.initializeIcons = void 0;
 var Badge_1 = __webpack_require__(14042);
 Object.defineProperty(exports, "Badge", ({ enumerable: true, get: function () { return __importDefault(Badge_1).default; } }));
@@ -12302,13 +12302,14 @@ Object.defineProperty(exports, "SectionTitle", ({ enumerable: true, get: functio
 __exportStar(__webpack_require__(46365), exports);
 var Drawer_1 = __webpack_require__(62070);
 Object.defineProperty(exports, "Drawer", ({ enumerable: true, get: function () { return __importDefault(Drawer_1).default; } }));
-var DrawerHeader_1 = __webpack_require__(12098);
-Object.defineProperty(exports, "DrawerHeader", ({ enumerable: true, get: function () { return __importDefault(DrawerHeader_1).default; } }));
 __exportStar(__webpack_require__(23461), exports);
 var DrawerContent_vue_1 = __webpack_require__(20714);
 Object.defineProperty(exports, "DrawerContent", ({ enumerable: true, get: function () { return __importDefault(DrawerContent_vue_1).default; } }));
 var DrawerDivider_vue_1 = __webpack_require__(4016);
 Object.defineProperty(exports, "DrawerDivider", ({ enumerable: true, get: function () { return __importDefault(DrawerDivider_vue_1).default; } }));
+var DrawerHeader_vue_1 = __webpack_require__(33671);
+Object.defineProperty(exports, "DrawerHeader", ({ enumerable: true, get: function () { return __importDefault(DrawerHeader_vue_1).default; } }));
+__exportStar(__webpack_require__(93016), exports);
 var DrawerListItem_vue_1 = __webpack_require__(58075);
 Object.defineProperty(exports, "DrawerListItem", ({ enumerable: true, get: function () { return __importDefault(DrawerListItem_vue_1).default; } }));
 var DrawerListItemGroup_vue_1 = __webpack_require__(41182);
@@ -13232,6 +13233,96 @@ exports["default"] = {
             default: Divider_1.DIVIDER_SIZES.S,
             validator: (value) => Object.values(Divider_1.DIVIDER_SIZES).includes(value),
         },
+    },
+};
+
+
+/***/ }),
+
+/***/ 47060:
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const Button_vue_1 = __importDefault(__webpack_require__(16393));
+const Divider_vue_1 = __importDefault(__webpack_require__(27471));
+const IconButton_vue_1 = __importDefault(__webpack_require__(53811));
+const Pill_vue_1 = __importDefault(__webpack_require__(48704));
+const Icon_vue_1 = __importDefault(__webpack_require__(15934));
+const Button_1 = __webpack_require__(30255);
+const Icon_1 = __webpack_require__(66093);
+const Divider_1 = __webpack_require__(94588);
+const IconButton_1 = __webpack_require__(26221);
+const DrawerHeader_consts_1 = __webpack_require__(93016);
+exports["default"] = {
+    name: 'DrawerHeader',
+    components: {
+        DsButton: Button_vue_1.default,
+        Divider: Divider_vue_1.default,
+        Icon: Icon_vue_1.default,
+        IconButton: IconButton_vue_1.default,
+        Pill: Pill_vue_1.default,
+    },
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+        eyebrowText: {
+            type: String,
+            default: null,
+        },
+        pillLabel: {
+            type: String,
+            default: null,
+        },
+        leftIcon: {
+            type: [Object, null],
+            default: null,
+        },
+        isClosable: {
+            type: Boolean,
+            default: true,
+        },
+        isSecondLevel: {
+            type: Boolean,
+            default: false,
+        },
+        isInteractiveEyebrow: {
+            type: Boolean,
+            default: false,
+        },
+        hasDivider: {
+            type: Boolean,
+            default: false,
+        },
+        eyebrowEllipsis: {
+            type: Boolean,
+            default: false,
+        },
+        titleEllipsis: {
+            type: Boolean,
+            default: false,
+        },
+        titleColor: {
+            type: String,
+            default: DrawerHeader_consts_1.DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
+        },
+    },
+    emits: ['close', 'eyebrowClicked'],
+    data() {
+        return {
+            BUTTON_TYPES: Object.freeze(Button_1.BUTTON_TYPES),
+            DIVIDER_SIZES: Object.freeze(Divider_1.DIVIDER_SIZES),
+            DIVIDER_PROMINENCES: Object.freeze(Divider_1.DIVIDER_PROMINENCES),
+            ICONS: Object.freeze(Icon_1.ICONS),
+            ICON_BUTTON_SIZES: Object.freeze(IconButton_1.ICON_BUTTON_SIZES),
+            ICON_SIZES: Object.freeze(Icon_1.ICON_SIZES),
+        };
     },
 };
 
@@ -16708,6 +16799,104 @@ exports.s = render;
 
 /***/ }),
 
+/***/ 14637:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+var __webpack_unused_export__;
+
+__webpack_unused_export__ = ({ value: true });
+exports.s = void 0;
+const vue_1 = __webpack_require__(77203);
+const _withScopeId = n => ((0, vue_1.pushScopeId)("data-v-19a057d4"), n = n(), (0, vue_1.popScopeId)(), n);
+const _hoisted_1 = { class: "drawerHeader" };
+const _hoisted_2 = { class: "drawerHeader__titleWrapper" };
+const _hoisted_3 = ["title"];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_ds_button = (0, vue_1.resolveComponent)("ds-button");
+    const _component_icon = (0, vue_1.resolveComponent)("icon");
+    const _component_pill = (0, vue_1.resolveComponent)("pill");
+    const _component_icon_button = (0, vue_1.resolveComponent)("icon-button");
+    const _component_divider = (0, vue_1.resolveComponent)("divider");
+    return ((0, vue_1.openBlock)(), (0, vue_1.createElementBlock)("div", _hoisted_1, [
+        (0, vue_1.createElementVNode)("div", _hoisted_2, [
+            ($props.isSecondLevel)
+                ? ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_ds_button, {
+                    key: 0,
+                    "icon-left": $data.ICONS.FA_CHEVRON_LEFT,
+                    type: $data.BUTTON_TYPES.TEXT,
+                    class: "drawerHeader__secondLevel"
+                }, {
+                    default: (0, vue_1.withCtx)(() => [
+                        (0, vue_1.createTextVNode)(" Wróć ")
+                    ]),
+                    _: 1
+                }, 8, ["icon-left", "type"]))
+                : (0, vue_1.createCommentVNode)("", true),
+            (0, vue_1.createElementVNode)("div", {
+                class: (0, vue_1.normalizeClass)([{ '-hidden': $props.isSecondLevel }, "drawerHeader__firstLevel"])
+            }, [
+                ($props.eyebrowText)
+                    ? ((0, vue_1.openBlock)(), (0, vue_1.createElementBlock)("span", {
+                        key: 0,
+                        class: (0, vue_1.normalizeClass)([{
+                                '-isInteractive': $props.isInteractiveEyebrow,
+                                '-ellipsis': $props.eyebrowEllipsis,
+                            }, "drawerHeader__eyebrow"]),
+                        onClick: _cache[0] || (_cache[0] = ($event) => ($props.isInteractiveEyebrow && _ctx.$emit('eyebrowClicked')))
+                    }, (0, vue_1.toDisplayString)($props.eyebrowText), 3))
+                    : (0, vue_1.createCommentVNode)("", true),
+                (0, vue_1.createElementVNode)("div", {
+                    class: (0, vue_1.normalizeClass)(["drawerHeader__title", { [`-${$props.titleColor}`]: true }])
+                }, [
+                    ($props.leftIcon)
+                        ? ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_icon, {
+                            key: 0,
+                            icon: $props.leftIcon,
+                            size: $data.ICON_SIZES.X_SMALL,
+                            class: "drawerHeader__leftIcon"
+                        }, null, 8, ["icon", "size"]))
+                        : (0, vue_1.createCommentVNode)("", true),
+                    ($props.title)
+                        ? ((0, vue_1.openBlock)(), (0, vue_1.createElementBlock)("span", {
+                            key: 1,
+                            class: (0, vue_1.normalizeClass)({ '-ellipsis': $props.titleEllipsis }),
+                            title: $props.titleEllipsis ? $props.title : undefined
+                        }, (0, vue_1.toDisplayString)($props.title), 11, _hoisted_3))
+                        : (0, vue_1.createCommentVNode)("", true),
+                    ($props.pillLabel)
+                        ? ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_pill, {
+                            key: 2,
+                            label: $props.pillLabel
+                        }, null, 8, ["label"]))
+                        : (0, vue_1.createCommentVNode)("", true)
+                ], 2)
+            ], 2),
+            ($props.isClosable)
+                ? ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_icon_button, {
+                    key: 1,
+                    class: "drawerHeader__closeButton",
+                    icon: $data.ICONS.FA_XMARK,
+                    size: $data.ICON_BUTTON_SIZES.MEDIUM,
+                    touchable: false,
+                    onClick: _cache[1] || (_cache[1] = ($event) => (_ctx.$emit('close')))
+                }, null, 8, ["icon", "size"]))
+                : (0, vue_1.createCommentVNode)("", true)
+        ]),
+        ($props.hasDivider)
+            ? ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_divider, {
+                key: 0,
+                size: $data.DIVIDER_SIZES.L,
+                prominence: $data.DIVIDER_PROMINENCES.WEAK
+            }, null, 8, ["size", "prominence"]))
+            : (0, vue_1.createCommentVNode)("", true)
+    ]));
+}
+exports.s = render;
+
+
+/***/ }),
+
 /***/ 60987:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
@@ -19064,7 +19253,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, ".drawerDivider[data-v-6bf03b17]{paddin
 
 /***/ }),
 
-/***/ 78117:
+/***/ 48483:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -19081,7 +19270,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_vue_cli_service_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_vue_cli_service_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, ".drawerHeader[data-v-28d76332]{display:flex;flex-direction:column}.drawerHeader__secondLevel[data-v-28d76332]{position:absolute!important}.drawerHeader__leftIcon[data-v-28d76332]{color:var(--color-neutral-icon)}.drawerHeader__firstLevel[data-v-28d76332]{display:flex;flex-direction:column;min-width:0;row-gap:4px}.drawerHeader__firstLevel.-hidden[data-v-28d76332]{visibility:hidden}.drawerHeader__eyebrow[data-v-28d76332]{--token:info-s-extensive-bold-uppercase;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-4xs);font-size:var(--typography-font-size-2xs);letter-spacing:var(--typography-letter-spacing-xl);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-uppercase);color:var(--color-neutral-text-weak)}.drawerHeader__eyebrow.-isInteractive[data-v-28d76332]:hover{color:var(--color-neutral-text-weak-hovered);cursor:pointer}.drawerHeader__eyebrow.-ellipsis[data-v-28d76332]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.drawerHeader__title[data-v-28d76332]{--token:heading-s-default-bold-uppercase;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-xs);font-size:var(--typography-font-size-s);letter-spacing:var(--typography-letter-spacing-l);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-uppercase);align-items:center;color:var(--color-neutral-text-strong);-moz-column-gap:6px;column-gap:6px;display:flex}.drawerHeader__title .-ellipsis[data-v-28d76332]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.drawerHeader__titleWrapper[data-v-28d76332]{align-items:center;-moz-column-gap:4px;column-gap:4px;display:flex;justify-content:space-between;min-height:82px;padding:24px 12px 24px 16px}.drawerHeader__closeButton[data-v-28d76332]{align-self:flex-start}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, ".drawerHeader[data-v-19a057d4]{display:flex;flex-direction:column}.drawerHeader__secondLevel[data-v-19a057d4]{position:absolute!important}.drawerHeader__leftIcon[data-v-19a057d4]{color:var(--color-neutral-icon)}.drawerHeader__firstLevel[data-v-19a057d4]{display:flex;flex-direction:column;min-width:0;row-gap:4px}.drawerHeader__firstLevel.-hidden[data-v-19a057d4]{visibility:hidden}.drawerHeader__eyebrow[data-v-19a057d4]{--token:info-s-extensive-bold-uppercase;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-4xs);font-size:var(--typography-font-size-2xs);letter-spacing:var(--typography-letter-spacing-xl);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-uppercase);color:var(--color-neutral-text-weak)}.drawerHeader__eyebrow.-isInteractive[data-v-19a057d4]:hover{color:var(--color-neutral-text-weak-hovered);cursor:pointer}.drawerHeader__eyebrow.-ellipsis[data-v-19a057d4]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.drawerHeader__title[data-v-19a057d4]{--token:heading-s-default-bold-uppercase;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-xs);font-size:var(--typography-font-size-s);letter-spacing:var(--typography-letter-spacing-l);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-uppercase);align-items:center;-moz-column-gap:6px;column-gap:6px;display:flex}.drawerHeader__title.-neutralStrong[data-v-19a057d4]{color:var(--color-neutral-text-strong)}.drawerHeader__title.-neutralWeak[data-v-19a057d4]{color:var(--color-neutral-text-weak)}.drawerHeader__title .-ellipsis[data-v-19a057d4]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.drawerHeader__titleWrapper[data-v-19a057d4]{align-items:center;-moz-column-gap:4px;column-gap:4px;display:flex;justify-content:space-between;min-height:82px;padding:24px 12px 24px 16px}.drawerHeader__closeButton[data-v-19a057d4]{align-self:flex-start}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20460,213 +20649,21 @@ const __exports__ = /*#__PURE__*/(0,_home_runner_work_design_system_design_syste
 
 /***/ }),
 
-/***/ 87577:
+/***/ 33671:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "default": () => (/* binding */ DrawerHeader)
-});
-
-// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
-var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__(77203);
-;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./lib/js/components/Drawer/DrawerHeader/DrawerHeader.vue?vue&type=template&id=28d76332&scoped=true
-
-
-const _withScopeId = n => (_pushScopeId("data-v-28d76332"),n=n(),_popScopeId(),n)
-const _hoisted_1 = { class: "drawerHeader" }
-const _hoisted_2 = { class: "drawerHeader__titleWrapper" }
-const _hoisted_3 = { class: "drawerHeader__title" }
-const _hoisted_4 = ["title"]
-
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_ds_button = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("ds-button")
-  const _component_icon = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("icon")
-  const _component_pill = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("pill")
-  const _component_icon_button = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("icon-button")
-  const _component_divider = (0,external_commonjs_vue_commonjs2_vue_root_Vue_.resolveComponent)("divider")
-
-  return ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("div", _hoisted_1, [
-    (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("div", _hoisted_2, [
-      ($props.isSecondLevel)
-        ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createBlock)(_component_ds_button, {
-            key: 0,
-            "icon-left": $data.ICONS.FA_CHEVRON_LEFT,
-            type: $data.BUTTON_TYPES.TEXT,
-            class: "drawerHeader__secondLevel"
-          }, {
-            default: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.withCtx)(() => [
-              (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createTextVNode)(" Wróć ")
-            ]),
-            _: 1
-          }, 8, ["icon-left", "type"]))
-        : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true),
-      (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("div", {
-        class: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.normalizeClass)([{ '-hidden': $props.isSecondLevel }, "drawerHeader__firstLevel"])
-      }, [
-        ($props.eyebrowText)
-          ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("span", {
-              key: 0,
-              class: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.normalizeClass)([{
-						'-isInteractive': $props.isInteractiveEyebrow,
-						'-ellipsis': $props.eyebrowEllipsis,
-					}, "drawerHeader__eyebrow"]),
-              onClick: _cache[0] || (_cache[0] = $event => ($props.isInteractiveEyebrow && _ctx.$emit('eyebrowClicked')))
-            }, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.toDisplayString)($props.eyebrowText), 3))
-          : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true),
-        (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementVNode)("div", _hoisted_3, [
-          ($props.leftIcon)
-            ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createBlock)(_component_icon, {
-                key: 0,
-                icon: $props.leftIcon,
-                size: $data.ICON_SIZES.X_SMALL,
-                class: "drawerHeader__leftIcon"
-              }, null, 8, ["icon", "size"]))
-            : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true),
-          ($props.title)
-            ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("span", {
-                key: 1,
-                class: (0,external_commonjs_vue_commonjs2_vue_root_Vue_.normalizeClass)({ '-ellipsis': $props.titleEllipsis }),
-                title: $props.titleEllipsis ? $props.title : undefined
-              }, (0,external_commonjs_vue_commonjs2_vue_root_Vue_.toDisplayString)($props.title), 11, _hoisted_4))
-            : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true),
-          ($props.pillLabel)
-            ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createBlock)(_component_pill, {
-                key: 2,
-                label: $props.pillLabel
-              }, null, 8, ["label"]))
-            : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true)
-        ])
-      ], 2),
-      ($props.isClosable)
-        ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createBlock)(_component_icon_button, {
-            key: 1,
-            class: "drawerHeader__closeButton",
-            icon: $data.ICONS.FA_XMARK,
-            size: $data.ICON_BUTTON_SIZES.MEDIUM,
-            touchable: false,
-            onClick: _cache[1] || (_cache[1] = $event => (_ctx.$emit('close')))
-          }, null, 8, ["icon", "size"]))
-        : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true)
-    ]),
-    ($props.hasDivider)
-      ? ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createBlock)(_component_divider, {
-          key: 0,
-          size: $data.DIVIDER_SIZES.L,
-          prominence: $data.DIVIDER_PROMINENCES.WEAK
-        }, null, 8, ["size", "prominence"]))
-      : (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createCommentVNode)("", true)
-  ]))
-}
-;// CONCATENATED MODULE: ./lib/js/components/Drawer/DrawerHeader/DrawerHeader.vue?vue&type=template&id=28d76332&scoped=true
-
-// EXTERNAL MODULE: ./lib/js/components/Buttons/Button/Button.vue
-var Button = __webpack_require__(16393);
-// EXTERNAL MODULE: ./lib/js/components/Divider/Divider.vue + 3 modules
-var Divider = __webpack_require__(27471);
-// EXTERNAL MODULE: ./lib/js/components/Buttons/IconButton/IconButton.vue
-var IconButton = __webpack_require__(53811);
-// EXTERNAL MODULE: ./lib/js/components/Pill/Pill.vue
-var Pill = __webpack_require__(48704);
-// EXTERNAL MODULE: ./lib/js/components/Icons/Icon/Icon.vue + 3 modules
-var Icon = __webpack_require__(15934);
-// EXTERNAL MODULE: ./lib/js/components/Buttons/Button/index.ts
-var Buttons_Button = __webpack_require__(30255);
-// EXTERNAL MODULE: ./lib/js/components/Icons/Icon/index.ts
-var Icons_Icon = __webpack_require__(66093);
-// EXTERNAL MODULE: ./lib/js/components/Divider/index.ts
-var components_Divider = __webpack_require__(94588);
-// EXTERNAL MODULE: ./lib/js/components/Buttons/IconButton/index.ts
-var Buttons_IconButton = __webpack_require__(26221);
-;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./lib/js/components/Drawer/DrawerHeader/DrawerHeader.vue?vue&type=script&lang=js
-
-
-
-
-
-
-
-
-
-
-
-/* harmony default export */ const DrawerHeadervue_type_script_lang_js = ({
-	name: 'DrawerHeader',
-	components: {
-		DsButton: Button["default"],
-		Divider: Divider["default"],
-		Icon: Icon["default"],
-		IconButton: IconButton["default"],
-		Pill: Pill["default"],
-	},
-	props: {
-		title: {
-			type: String,
-			required: true,
-		},
-		eyebrowText: {
-			type: String,
-			default: null,
-		},
-		pillLabel: {
-			type: String,
-			default: null,
-		},
-		leftIcon: {
-			type: [Object, null],
-			default: null,
-		},
-		isClosable: {
-			type: Boolean,
-			default: true,
-		},
-		isSecondLevel: {
-			type: Boolean,
-			default: false,
-		},
-		isInteractiveEyebrow: {
-			type: Boolean,
-			default: false,
-		},
-		hasDivider: {
-			type: Boolean,
-			default: false,
-		},
-		eyebrowEllipsis: {
-			type: Boolean,
-			default: false,
-		},
-		titleEllipsis: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	emits: ['close', 'eyebrowClicked'],
-	data() {
-		return {
-			BUTTON_TYPES: Object.freeze(Buttons_Button.BUTTON_TYPES),
-			DIVIDER_SIZES: Object.freeze(components_Divider.DIVIDER_SIZES),
-			DIVIDER_PROMINENCES: Object.freeze(components_Divider.DIVIDER_PROMINENCES),
-			ICONS: Object.freeze(Icons_Icon.ICONS),
-			ICON_BUTTON_SIZES: Object.freeze(Buttons_IconButton.ICON_BUTTON_SIZES),
-			ICON_SIZES: Object.freeze(Icons_Icon.ICON_SIZES),
-		};
-	},
-});
-
-;// CONCATENATED MODULE: ./lib/js/components/Drawer/DrawerHeader/DrawerHeader.vue?vue&type=script&lang=js
- 
-// EXTERNAL MODULE: ./node_modules/vue-style-loader/index.js??clonedRuleSet-22.use[0]!./node_modules/@vue/cli-service/node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[4]!./node_modules/@vue/cli-service/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./lib/js/components/Drawer/DrawerHeader/DrawerHeader.vue?vue&type=style&index=0&id=28d76332&lang=scss&scoped=true
-var DrawerHeadervue_type_style_index_0_id_28d76332_lang_scss_scoped_true = __webpack_require__(27442);
-;// CONCATENATED MODULE: ./lib/js/components/Drawer/DrawerHeader/DrawerHeader.vue?vue&type=style&index=0&id=28d76332&lang=scss&scoped=true
-
-// EXTERNAL MODULE: ./node_modules/@vue/cli-service/node_modules/vue-loader/dist/exportHelper.js
-var exportHelper = __webpack_require__(48118);
-;// CONCATENATED MODULE: ./lib/js/components/Drawer/DrawerHeader/DrawerHeader.vue
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DrawerHeader_vue_vue_type_template_id_19a057d4_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(3636);
+/* harmony import */ var _DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(62708);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _DrawerHeader_vue_vue_type_style_index_0_id_19a057d4_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(68424);
+/* harmony import */ var _home_runner_work_design_system_design_system_node_modules_vue_cli_service_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(48118);
 
 
 
@@ -20674,9 +20671,9 @@ var exportHelper = __webpack_require__(48118);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(DrawerHeadervue_type_script_lang_js, [['render',render],['__scopeId',"data-v-28d76332"]])
+const __exports__ = /*#__PURE__*/(0,_home_runner_work_design_system_design_system_node_modules_vue_cli_service_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z)(_DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DrawerHeader_vue_vue_type_template_id_19a057d4_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__/* .render */ .s],['__scopeId',"data-v-19a057d4"]])
 
-/* harmony default export */ const DrawerHeader = (__exports__);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
 /***/ }),
 
@@ -22296,6 +22293,23 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ 62708:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport default from dynamic */ _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0___default.a)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(47060);
+/* harmony import */ var _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+ 
+
+/***/ }),
+
 /***/ 80402:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -22890,6 +22904,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ 3636:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "s": () => (/* reexport safe */ _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_template_id_19a057d4_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__.s)
+/* harmony export */ });
+/* harmony import */ var _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_template_id_19a057d4_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(14637);
+
+
+/***/ }),
+
 /***/ 6224:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -23316,6 +23342,16 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 /* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerDivider_vue_vue_type_style_index_0_id_6bf03b17_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7286);
 /* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerDivider_vue_vue_type_style_index_0_id_6bf03b17_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerDivider_vue_vue_type_style_index_0_id_6bf03b17_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/***/ }),
+
+/***/ 68424:
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_style_index_0_id_19a057d4_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(63065);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_style_index_0_id_19a057d4_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DrawerHeader_vue_vue_type_style_index_0_id_19a057d4_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -26760,19 +26796,19 @@ var update = add("adc3fcf6", content, true, {"sourceMap":false,"shadowMode":fals
 
 /***/ }),
 
-/***/ 27442:
+/***/ 63065:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(78117);
+var content = __webpack_require__(48483);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.id, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = (__webpack_require__(54402)/* ["default"] */ .Z)
-var update = add("d393f472", content, true, {"sourceMap":false,"shadowMode":false});
+var update = add("08a514b3", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
