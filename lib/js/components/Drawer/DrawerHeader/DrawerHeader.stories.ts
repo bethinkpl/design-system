@@ -2,6 +2,7 @@ import DrawerHeader from './DrawerHeader.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
+import { DRAWER_HEADER_TITLE_COLORS } from './DrawerHeader.consts';
 
 export default {
 	title: 'Components/Drawer/DrawerHeader',
@@ -19,11 +20,19 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 		};
 	},
 	template: `
-		<drawer-header :title="title" :eyebrow-text="eyebrowText" :pill-label="pillLabel"
-					   :left-icon="ICONS[leftIcon]"
-					   :has-divider="hasDivider" :is-closable="isClosable"
-					   :is-interactive-eyebrow="isInteractiveEyebrow" :is-second-level="isSecondLevel"
-					   :eyebrow-ellipsis="eyebrowEllipsis" :title-ellipsis="titleEllipsis"/>`,
+		<drawer-header
+			:eyebrow-ellipsis="eyebrowEllipsis"
+			:eyebrow-text="eyebrowText"
+			:has-divider="hasDivider"
+			:is-closable="isClosable"
+			:is-interactive-eyebrow="isInteractiveEyebrow"
+			:is-second-level="isSecondLevel"
+			:left-icon="ICONS[leftIcon]"
+			:pill-label="pillLabel"
+			:title-color="titleColor"
+			:title-ellipsis="titleEllipsis"
+			:title="title"
+		/>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -44,6 +53,10 @@ const argTypes = {
 	},
 	eyebrowEllipsis: { control: { type: 'boolean' }, defaultValue: false },
 	titleEllipsis: { control: { type: 'boolean' }, defaultValue: false },
+	titleColor: {
+		control: { type: 'select', options: Object.values(DRAWER_HEADER_TITLE_COLORS) },
+		defaultValue: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
