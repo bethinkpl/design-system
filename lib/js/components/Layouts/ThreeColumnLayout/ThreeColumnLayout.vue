@@ -5,6 +5,7 @@
 			:class="{
 				'-visible': rightColumnVisibleMobile || leftColumnVisibleMobile,
 			}"
+			@click="$emit('overlay-clicked')"
 		/>
 		<div
 			class="threeColumnLayout__leftColumn"
