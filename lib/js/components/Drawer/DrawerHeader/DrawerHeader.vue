@@ -21,7 +21,7 @@
 				>
 					{{ eyebrowText }}
 				</span>
-				<div class="drawerHeader__title">
+				<div class="drawerHeader__title" :class="{ [`-${titleColor}`]: true }">
 					<icon
 						v-if="leftIcon"
 						:icon="leftIcon"
@@ -101,9 +101,16 @@ $minimal-drawer-header-height: 82px;
 		@include heading-s-default-bold-uppercase;
 
 		align-items: center;
-		color: $color-neutral-text-strong;
 		column-gap: $space-xxxs;
 		display: flex;
+
+		&.-neutralStrong {
+			color: $color-neutral-text-strong;
+		}
+
+		&.-neutralWeak {
+			color: $color-neutral-text-weak;
+		}
 
 		.-ellipsis {
 			overflow: hidden;
@@ -127,7 +134,9 @@ $minimal-drawer-header-height: 82px;
 }
 </style>
 
-<script>
+<script lang="ts">
+import { PropType } from 'vue';
+
 import Button from '../../Buttons/Button/Button.vue';
 import Divider from '../../Divider/Divider.vue';
 import IconButton from '../../Buttons/IconButton/IconButton.vue';
@@ -137,6 +146,7 @@ import { BUTTON_TYPES } from '../../Buttons/Button';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
+import { DRAWER_HEADER_TITLE_COLORS, DrawerHeaderTitleColor } from './DrawerHeader.consts';
 
 export default {
 	name: 'DrawerHeader',
@@ -187,6 +197,10 @@ export default {
 		titleEllipsis: {
 			type: Boolean,
 			default: false,
+		},
+		titleColor: {
+			type: String as PropType<DrawerHeaderTitleColor>,
+			default: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
 		},
 	},
 	emits: ['close', 'eyebrowClicked'],

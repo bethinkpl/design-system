@@ -29,6 +29,7 @@
 	&__label {
 		@include label-m-default-regular;
 
+		flex-shrink: 1;
 		overflow: hidden;
 		overflow-wrap: break-word;
 		width: 100%;
@@ -36,6 +37,9 @@
 
 	&__value {
 		@include info-m-default-bold;
+
+		flex-shrink: 0;
+		max-width: 50%;
 	}
 }
 </style>
