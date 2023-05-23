@@ -90,7 +90,7 @@ export default {
 	},
 	data() {
 		return {
-			isExpanded: false,
+			isExpanded: true,
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICONS: Object.freeze(ICONS),

@@ -47,10 +47,11 @@ export * from './components/Headers/PageHeader/PageHeader.consts';
 export { default as SectionTitle } from './components/SectionTitle/SectionTitle.vue';
 export * from './components/SectionTitle/SectionTitle.consts';
 export { default as Drawer } from './components/Drawer';
-export { default as DrawerHeader } from './components/Drawer/DrawerHeader';
 export * from './components/Drawer/Drawer.consts';
 export { default as DrawerContent } from './components/Drawer/DrawerContent/DrawerContent.vue';
 export { default as DrawerDivider } from './components/Drawer/DrawerDivider/DrawerDivider.vue';
+export { default as DrawerHeader } from './components/Drawer/DrawerHeader/DrawerHeader.vue';
+export * from './components/Drawer/DrawerHeader/DrawerHeader.consts';
 export { default as DrawerListItem } from './components/Drawer/DrawerListItem/DrawerListItem.vue';
 export { default as DrawerListItemGroup } from './components/Drawer/DrawerListItemGroup/DrawerListItemGroup.vue';
 export * from './components/Drawer/DrawerListItem/DrawerListItem.consts';
@@ -68,6 +69,8 @@ export { default as SelectList } from './components/SelectList/SelectList.vue';
 export { default as SelectListItem } from './components/SelectList/SelectListItem/SelectListItem.vue';
 export { default as SelectListItemDivider } from './components/SelectList/SelectListItemDivider/SelectListItemDivider.vue';
 export { default as SelectListItemToggle } from './components/SelectList/SelectListItemToggle/SelectListItemToggle.vue';
+export { default as SelectListItemTile } from './components/SelectList/SelectListItemTile/SelectListItemTile.vue';
+export { default as SelectListSectionTitle } from './components/SelectList/SelectListSectionTitle/SelectListSectionTitle.vue';
 export * from './components/SelectList/SelectListItem/SelectListItem.consts';
 export { default as PopOver } from './components/PopOver';
 export * from './components/PopOver/PopOver.consts';
@@ -85,6 +88,8 @@ export { default as OverlayHeader } from './components/Headers/OverlayHeader';
 export * from './components/Headers/OverlayHeader/OverlayHeader.consts';
 export { default as Well } from './components/Well';
 export * from './components/Well/Well.consts';
+export { default as ThreeColumnLayout } from './components/Layouts/ThreeColumnLayout';
+export * from './components/Layouts/ThreeColumnLayout/ThreeColumnLayout.consts';
 
 export {
 	initialize as initializeIcons,
