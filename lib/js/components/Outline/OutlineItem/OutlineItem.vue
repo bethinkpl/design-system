@@ -93,18 +93,13 @@
 		}
 	}
 
-	&__text {
-		align-items: flex-end;
-		display: flex;
-	}
-
 	&__label {
-		@include label-l-default-regular;
+		@include label-l-default-bold;
 
 		color: $color-neutral-text-heavy;
 
 		&.-uppercase {
-			@include label-l-default-regular-uppercase;
+			@include label-l-default-bold-uppercase;
 		}
 	}
 
