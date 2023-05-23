@@ -84,4 +84,6 @@ export { default as OverlayHeader } from './components/Headers/OverlayHeader';
 export * from './components/Headers/OverlayHeader/OverlayHeader.consts';
 export { default as Well } from './components/Well';
 export * from './components/Well/Well.consts';
+export { default as ThreeColumnLayout } from './components/Layouts/ThreeColumnLayout';
+export * from './components/Layouts/ThreeColumnLayout/ThreeColumnLayout.consts';
 export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, IconDefinition, } from './icons/fontawesome';
