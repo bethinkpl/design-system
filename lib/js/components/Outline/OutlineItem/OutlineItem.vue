@@ -27,7 +27,7 @@
 				:icon="iconLeft"
 				:size="ICON_SIZES.X_SMALL"
 			/>
-			<span class="outlineItem__text">
+			<span>
 				<span class="outlineItem__label" :class="{ '-uppercase': isLabelUppercase }">
 					{{ label }}
 				</span>
@@ -85,7 +85,6 @@
 	&__index {
 		@include label-l-default-bold;
 
-		align-self: flex-start;
 		color: $color-neutral-text-weak;
 
 		&.-active {
@@ -111,7 +110,6 @@
 	}
 
 	&__icon {
-		align-self: flex-start;
 		color: $color-neutral-icon-weak;
 
 		&.-active {
