@@ -37,7 +37,9 @@
 			</span>
 		</div>
 		<div class="outlineItem__rightContent">
-			<template v-if="$slots.default"><slot /></template>
+			<template v-if="$slots.default">
+				<slot />
+			</template>
 			<ds-icon
 				v-if="isDone"
 				class="outlineItem__icon -active"
@@ -94,8 +96,7 @@
 	}
 
 	&__text {
-		align-items: flex-end;
-		display: flex;
+		@include label-l-default-regular; //it fixes whole component height
 	}
 
 	&__label {
