@@ -171,7 +171,7 @@
 			column-gap: $space-xxxs;
 		}
 
-		&__label {
+		#{$root}__label {
 			@include label-l-default-bold;
 
 			&.-uppercase {
