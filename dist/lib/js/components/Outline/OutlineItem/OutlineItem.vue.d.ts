@@ -1,31 +1,77 @@
-import { PropType } from 'vue';
-import { DrawerListItemState } from './DrawerListItem.consts';
-import Icon from '../../Icons/Icon';
+import DsIcon from '../../Icons/Icon';
 declare const _default: {
     name: string;
     components: {
-        DsIcon: typeof Icon;
+        DsIcon: typeof DsIcon;
+    };
+    directives: {
+        ripple: DirectiveFunction;
     };
     props: {
-        state: {
-            type: PropType<DrawerListItemState>;
-            default: "default";
-            validator(state: any): boolean;
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator(size: any): boolean;
+        };
+        backgroundColor: {
+            type: StringConstructor;
+            default: string;
+            validator(color: any): boolean;
+        };
+        iconLeft: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: any): boolean;
+        };
+        iconRight: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: any): boolean;
+        };
+        iconRightRotation: {
+            type: NumberConstructor;
+            default: null;
+            validator(value: number): boolean;
+        };
+        index: {
+            type: NumberConstructor;
+            default: null;
         };
         label: {
             type: StringConstructor;
             required: boolean;
         };
-        valueText: {
+        isLabelUppercase: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        additionalText: {
             type: StringConstructor;
-            required: boolean;
+            default: null;
+        };
+        state: {
+            type: StringConstructor;
+            default: string;
+            validator(state: any): boolean;
+        };
+        isSelected: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isDone: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        hasSelectedIconsColorPrimary: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSelectedInteractive: {
+            type: BooleanConstructor;
+            default: boolean;
         };
     };
     data(): {
-        DRAWER_LIST_ITEM_STATES: Readonly<{
-            readonly DEFAULT: "default";
-            readonly LOADING: "loading";
-        }>;
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
             readonly RIBBON: import("vue").CompatVue;
@@ -213,6 +259,17 @@ declare const _default: {
             X_LARGE: string;
             XX_LARGE: string;
         }>;
+        OUTLINE_ITEM_BACKGROUND_COLORS: Readonly<{
+            NEUTRAL_WEAK: string;
+            NEUTRAL: string;
+        }>;
+        OUTLINE_ITEM_SIZES: Readonly<{
+            SMALL: string;
+            MEDIUM: string;
+        }>;
+    };
+    computed: {
+        isDisabled(): boolean;
     };
 };
 export default _default;

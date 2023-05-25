@@ -1,8 +1,8 @@
-import Divider from '../../Divider';
+import DsDivider from '../../Divider';
 declare const _default: {
     name: string;
     components: {
-        DsDivider: typeof Divider;
+        DsDivider: typeof DsDivider;
     };
     props: {
         prominence: {

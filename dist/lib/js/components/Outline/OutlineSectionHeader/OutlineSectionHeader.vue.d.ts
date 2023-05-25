@@ -1,13 +1,9 @@
 declare const _default: {
     name: string;
     props: {
-        label: {
+        title: {
             type: StringConstructor;
             required: boolean;
-        };
-        isUppercase: {
-            type: BooleanConstructor;
-            default: boolean;
         };
     };
 };
