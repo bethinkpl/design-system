@@ -79,6 +79,7 @@ declare const _default: {
             default: null;
         };
     };
+    emits: string[];
     data(): {
         BUTTON_COLORS: Readonly<{
             readonly PRIMARY: "primary";

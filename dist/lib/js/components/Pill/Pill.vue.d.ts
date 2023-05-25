@@ -37,6 +37,7 @@ declare const _default: {
             default: boolean;
         };
     };
+    emits: string[];
     data(): {
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;

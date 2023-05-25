@@ -33,6 +33,7 @@ declare const _default: {
             validate(placement: any): boolean;
         };
     };
+    emits: string[];
     data(): {
         key: number;
         DROPDOWN_RADIUSES: Readonly<{

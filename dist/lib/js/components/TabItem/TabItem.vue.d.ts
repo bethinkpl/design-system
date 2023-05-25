@@ -27,6 +27,7 @@ declare const _default: {
             default: "M";
         };
     };
+    emits: string[];
     data(): {
         TAB_ITEM_SIZES: Readonly<{
             readonly SMALL: "S";

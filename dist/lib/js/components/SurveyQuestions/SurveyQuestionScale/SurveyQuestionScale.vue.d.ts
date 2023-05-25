@@ -42,6 +42,7 @@ declare const _default: {
             default: null;
         };
     };
+    emits: string[];
     data(): {
         showModal: boolean;
         inputId: string;

@@ -29,6 +29,7 @@ declare const _default: {
             default: boolean;
         };
     };
+    emits: string[];
     data(): {
         ICON_BUTTON_SIZES: Readonly<{
             readonly XX_SMALL: "xx-small";

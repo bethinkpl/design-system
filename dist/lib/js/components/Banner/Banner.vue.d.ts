@@ -44,6 +44,7 @@ declare const _default: {
             default: boolean;
         };
     };
+    emits: string[];
     data(): {
         isExpandedInternal: boolean;
         BUTTON_COLORS: Readonly<{

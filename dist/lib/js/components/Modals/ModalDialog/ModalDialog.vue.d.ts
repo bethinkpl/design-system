@@ -50,6 +50,7 @@ declare const _default: {
             validator(icon: any): boolean;
         };
     };
+    emits: string[];
     data(): {
         MODAL_SIZES: Readonly<{
             SMALL: string;

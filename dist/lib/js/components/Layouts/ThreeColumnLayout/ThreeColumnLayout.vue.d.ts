@@ -29,6 +29,7 @@ declare const _default: {
             default: boolean;
         };
     };
+    emits: string[];
     data(): {
         THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE: Readonly<{
             readonly MEDIUM: "medium";
