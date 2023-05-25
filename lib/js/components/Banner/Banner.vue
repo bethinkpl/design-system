@@ -342,6 +342,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['button-clicked', 'close', 'update:isExpanded'],
 	data() {
 		return {
 			isExpandedInternal: false,

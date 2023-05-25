@@ -128,6 +128,7 @@ export default {
 			default: TAB_ITEM_SIZES.MEDIUM,
 		},
 	},
+	emits: ['click'],
 	data() {
 		return {
 			TAB_ITEM_SIZES: Object.freeze(TAB_ITEM_SIZES),

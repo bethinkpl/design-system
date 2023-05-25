@@ -86,6 +86,7 @@ export default {
 			},
 		},
 	},
+	emits: ['close-modal', 'primary-button-click', 'secondary-button-click'],
 	data() {
 		return {
 			MODAL_SIZES: Object.freeze(MODAL_SIZES),

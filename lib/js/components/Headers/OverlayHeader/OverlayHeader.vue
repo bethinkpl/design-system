@@ -295,6 +295,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['close', 'titleClick'],
 	data() {
 		return {
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),

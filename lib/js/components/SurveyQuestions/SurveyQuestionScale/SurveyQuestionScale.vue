@@ -220,6 +220,7 @@ export default {
 			default: null,
 		},
 	},
+	emits: ['elaboration-change', 'select-change'],
 	data() {
 		return {
 			showModal: false,

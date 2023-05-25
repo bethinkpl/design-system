@@ -404,6 +404,13 @@ export default {
 			default: null,
 		},
 	},
+	emits: [
+		'tertiary-button-click',
+		'checkbox-change',
+		'close-modal',
+		'secondary-button-click',
+		'primary-button-click',
+	],
 	data() {
 		return {
 			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
