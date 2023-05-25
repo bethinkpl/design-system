@@ -179,6 +179,10 @@
 				@include label-l-default-bold-uppercase;
 			}
 		}
+
+		&.-selected {
+			padding-left: $space-xs - $border-width;
+		}
 	}
 
 	&.-backgroundNeutral {
