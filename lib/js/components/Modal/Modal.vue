@@ -117,6 +117,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['close-modal'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

@@ -273,6 +273,7 @@ export default {
 			default: '',
 		},
 	},
+	emits: ['button-click'],
 	data() {
 		return {
 			POP_OVER_COLORS: Object.freeze(POP_OVER_COLORS),

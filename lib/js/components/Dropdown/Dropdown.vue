@@ -114,6 +114,7 @@ export default {
 			},
 		},
 	},
+	emits: ['document-click', 'hide', 'show'],
 	data() {
 		return {
 			key: 1,
