@@ -112,6 +112,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['update:isExpanded'],
 	data() {
 		return {
 			isExpandedInternal: false,

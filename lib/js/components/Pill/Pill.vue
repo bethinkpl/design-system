@@ -254,6 +254,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['delete'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

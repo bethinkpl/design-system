@@ -275,6 +275,7 @@ export default {
 			required: true,
 		},
 	},
+	emits: ['change-page'],
 	data() {
 		return {
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),

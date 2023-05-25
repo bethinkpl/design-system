@@ -235,6 +235,7 @@ export default {
 			default: false,
 		},
 	},
+	emits: ['overlay-clicked'],
 	data() {
 		return {
 			THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE: Object.freeze(
