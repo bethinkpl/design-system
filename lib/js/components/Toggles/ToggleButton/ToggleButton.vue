@@ -26,7 +26,7 @@
 			@click="isInteractive && $emit('click')"
 		>
 			<ds-icon v-if="iconLeft" class="toggleButton__icon" :icon="iconLeft" :size="iconSize" />
-			<span class="toggleButton__content">{{ text }}</span>
+			<span v-if="text" class="toggleButton__content">{{ text }}</span>
 			<ds-icon
 				v-if="iconRight"
 				class="toggleButton__icon"
