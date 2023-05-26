@@ -14,7 +14,7 @@
 				'-medium': size === TOGGLE_BUTTON_SIZES.MEDIUM,
 				'-large': size === TOGGLE_BUTTON_SIZES.LARGE,
 
-				'-long': isLong,
+				'-hasSmallHorizontalPadding': hasSmallHorizontalPadding,
 
 				'-rounded': radius === TOGGLE_BUTTON_RADIUSES.ROUNDED,
 
@@ -159,26 +159,20 @@ $toggle-button-colors: (
 	&.-small {
 		min-height: $toggle-button-size-small;
 		min-width: $toggle-button-size-small;
-		padding: $space-xxxs;
+		padding: $space-xxxs $space-xs;
 
-		&.-long {
-			padding: $space-xxxs $space-xs;
+		&.-hasSmallHorizontalPadding {
+			padding: $space-xxxs $space-xxxxxs;
 		}
 	}
 
 	&.-medium {
 		min-height: $toggle-button-size-medium;
 		min-width: $toggle-button-size-medium;
-		// vertical padding is smaller than designed, but we compensate that with `min-height`.
-		// This shortcut allows us to use the same padding on .filled and .outlined versions, so number of variants is cut by half
-		padding: $space-xxs;
+		padding: $space-xxs $space-xs;
 
-		&.-long {
-			padding: $space-xxs $space-xs;
-
-			&.-rounded {
-				padding: $space-xxxs $space-xs;
-			}
+		&.-hasSmallHorizontalPadding {
+			padding: $space-xxs $space-xxxxxs;
 		}
 	}
 
@@ -186,10 +180,10 @@ $toggle-button-colors: (
 		border: 2px solid;
 		min-height: $toggle-button-size-large;
 		min-width: $toggle-button-size-large;
-		padding: $space-xxs;
+		padding: $space-xs $space-s;
 
-		&.-long {
-			padding: $space-xs $space-s;
+		&.-hasSmallHorizontalPadding {
+			padding: $space-xxs $space-xxxxxs;
 		}
 	}
 }
@@ -221,6 +215,10 @@ export default {
 			validator(value: Value<typeof TOGGLE_BUTTON_COLORS>) {
 				return Object.values(TOGGLE_BUTTON_COLORS).includes(value);
 			},
+		},
+		hasSmallHorizontalPadding: {
+			type: Boolean,
+			default: false,
 		},
 		iconLeft: {
 			type: Object as PropType<IconItem>,
@@ -289,9 +287,6 @@ export default {
 				[TOGGLE_BUTTON_COLORS.NEUTRAL]: RIPPLE_COLORS.NEUTRAL,
 				[TOGGLE_BUTTON_COLORS.PRIMARY]: RIPPLE_COLORS.PRIMARY,
 			}[this.color];
-		},
-		isLong() {
-			return this.text.length > 1;
 		},
 	},
 };

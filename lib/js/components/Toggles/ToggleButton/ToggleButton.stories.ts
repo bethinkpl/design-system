@@ -29,6 +29,7 @@ const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 			:radius="radius"
 			:color="color"
 			:text="text"
+			:has-small-horizontal-padding="hasSmallHorizontalPadding"
 			:icon-left="ICONS[iconLeft]"
 			:icon-right="ICONS[iconRight]"
 			:is-selected="isSelected"
@@ -43,6 +44,7 @@ const args = {
 	color: TOGGLE_BUTTON_COLORS.PRIMARY,
 	radius: TOGGLE_BUTTON_RADIUSES.CAPSULE,
 	text: '1',
+	hasSmallHorizontalPadding: false,
 	isSelected: false,
 	isInteractive: true,
 } as Args;
