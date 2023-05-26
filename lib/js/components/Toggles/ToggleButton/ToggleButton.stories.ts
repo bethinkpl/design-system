@@ -1,7 +1,6 @@
 import ToggleButton from './ToggleButton.vue';
 import {
 	TOGGLE_BUTTON_SIZES,
-	TOGGLE_BUTTON_TYPES,
 	TOGGLE_BUTTON_COLORS,
 	TOGGLE_BUTTON_RADIUSES,
 } from './ToggleButton.consts';
@@ -27,7 +26,6 @@ const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 	template: `
 		<toggle-button
 			:size="size"
-			:type="type"
 			:radius="radius"
 			:color="color"
 			:text="text"
@@ -42,7 +40,6 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	size: TOGGLE_BUTTON_SIZES.MEDIUM,
-	type: TOGGLE_BUTTON_TYPES.FILLED,
 	color: TOGGLE_BUTTON_COLORS.PRIMARY,
 	radius: TOGGLE_BUTTON_RADIUSES.CAPSULE,
 	text: '1',
@@ -54,10 +51,6 @@ const argTypes = {
 	size: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_SIZES) },
 		defaultValue: TOGGLE_BUTTON_SIZES.MEDIUM,
-	},
-	type: {
-		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_TYPES) },
-		defaultValue: TOGGLE_BUTTON_TYPES.FILLED,
 	},
 	color: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_COLORS) },

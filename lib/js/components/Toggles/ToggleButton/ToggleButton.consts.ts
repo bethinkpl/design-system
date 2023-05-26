@@ -4,11 +4,6 @@ export const TOGGLE_BUTTON_SIZES = {
 	LARGE: 'large',
 } as const;
 
-export const TOGGLE_BUTTON_TYPES = {
-	FILLED: 'filled',
-	OUTLINED: 'outlined',
-} as const;
-
 export const TOGGLE_BUTTON_COLORS = {
 	PRIMARY: 'primary',
 	NEUTRAL: 'neutral',
