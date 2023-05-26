@@ -4,6 +4,7 @@ import {
 	TOGGLE_BUTTON_COLORS,
 	TOGGLE_BUTTON_RADIUSES,
 	TOGGLE_BUTTON_LABEL_SIZES,
+	TOGGLE_BUTTON_STATES,
 } from './ToggleButton.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -37,6 +38,7 @@ const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 			:label-size="labelSize"
 			:radius="radius"
 			:size="size"
+			:state="state"
 		/>`,
 });
 
@@ -54,6 +56,7 @@ const args = {
 	isInteractive: true,
 	iconLeft: null,
 	iconRight: null,
+	state: TOGGLE_BUTTON_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
@@ -72,6 +75,10 @@ const argTypes = {
 	labelSize: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_LABEL_SIZES) },
 		defaultValue: TOGGLE_BUTTON_LABEL_SIZES.SMALL,
+	},
+	state: {
+		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_STATES) },
+		defaultValue: TOGGLE_BUTTON_STATES.DEFAULT,
 	},
 	iconLeft: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },

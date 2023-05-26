@@ -4,7 +4,7 @@
 		:class="{
 			'-rounded': radius === TOGGLE_BUTTON_RADIUSES.ROUNDED,
 		}"
-		:disable="!isInteractive"
+		:disable="!isInteractiveComputed"
 		:color="rippleColor"
 	>
 		<div
@@ -20,10 +20,11 @@
 
 				[colorClassName]: true,
 
-				'-interactive': isInteractive,
+				'-disabled': state === TOGGLE_BUTTON_STATES.DISABLED,
+				'-interactive': isInteractiveComputed,
 				'-selected': isSelected,
 			}"
-			@click="isInteractive && $emit('click')"
+			@click="isInteractiveComputed && $emit('click')"
 		>
 			<ds-icon v-if="iconLeft" class="toggleButton__icon" :icon="iconLeft" :size="iconSize" />
 			<span
@@ -72,6 +73,12 @@ $toggle-button-colors: (
 		'background-focused': $color-neutral-background-ghost-focused,
 		'icon': $color-neutral-icon-weak,
 		'outline': $color-neutral-background-ghost-hovered,
+		'disabled': (
+			'color': $color-neutral-text-disabled,
+			'border': $color-neutral-border-disabled,
+			'background': $color-neutral-background-ghost-disabled,
+			'icon': $color-neutral-icon-weak-disabled,
+		),
 		'selected': (
 			'color': $color-neutral-text-heavy,
 			'border': $color-primary-border,
@@ -82,6 +89,12 @@ $toggle-button-colors: (
 			'background-focused': $color-primary-background-focused,
 			'icon': $color-primary-icon,
 			'outline': $color-primary-background-ghost-hovered,
+			'disabled': (
+				'color': $color-neutral-text-heavy-disabled,
+				'border': $color-primary-border-disabled,
+				'background': $color-primary-background-disabled,
+				'icon': $color-primary-icon-disabled,
+			),
 		),
 	),
 	'neutralHeavy': (
@@ -94,6 +107,12 @@ $toggle-button-colors: (
 		'background-focused': $color-neutral-background-ghost-focused,
 		'icon': $color-neutral-icon,
 		'outline': $color-neutral-background-ghost-hovered,
+		'disabled': (
+			'color': $color-neutral-text-disabled,
+			'border': $color-neutral-border-heavy-disabled,
+			'background': $color-neutral-background-ghost-disabled,
+			'icon': $color-neutral-icon-weak-disabled,
+		),
 		'selected': (
 			'color': $color-neutral-text-heavy,
 			'background': $color-primary-background,
@@ -104,6 +123,12 @@ $toggle-button-colors: (
 			'border-focused': $color-primary-border-focused,
 			'icon': $color-primary-icon,
 			'outline': $color-primary-background-ghost-hovered,
+			'disabled': (
+				'color': $color-neutral-text-heavy-disabled,
+				'border': $color-primary-border-disabled,
+				'background': $color-primary-background-disabled,
+				'icon': $color-primary-icon-disabled,
+			),
 		),
 	),
 	'neutralStrong': (
@@ -116,6 +141,12 @@ $toggle-button-colors: (
 		'background-focused': $color-neutral-background-ghost-focused,
 		'icon': $color-neutral-icon,
 		'outline': $color-neutral-background-ghost-hovered,
+		'disabled': (
+			'color': $color-neutral-text-disabled,
+			'border': $color-neutral-border-strong-disabled,
+			'background': $color-neutral-background-ghost-disabled,
+			'icon': $color-neutral-icon-disabled,
+		),
 		'selected': (
 			'color': $color-inverted-text,
 			'background': $color-neutral-background-strong,
@@ -126,6 +157,12 @@ $toggle-button-colors: (
 			'border-focused': $color-neutral-background-strong-focused,
 			'icon': $color-inverted-icon,
 			'outline': $color-neutral-background-ghost-hovered,
+			'disabled': (
+				'color': $color-inverted-text-disabled,
+				'border': $color-neutral-background-strong-disabled,
+				'background': $color-neutral-background-strong-disabled,
+				'icon': $color-inverted-icon-disabled,
+			),
 		),
 	),
 	'primary': (
@@ -138,6 +175,12 @@ $toggle-button-colors: (
 		'background-focused': $color-primary-background-ghost-focused,
 		'icon': $color-primary-icon-weak,
 		'outline': $color-primary-background-ghost-hovered,
+		'disabled': (
+			'color': $color-primary-text-disabled,
+			'border': $color-primary-border-disabled,
+			'background': $color-neutral-background-ghost-disabled,
+			'icon': $color-primary-icon-weak-disabled,
+		),
 		'selected': (
 			'color': $color-inverted-text,
 			'background': $color-primary-background-strong,
@@ -148,6 +191,12 @@ $toggle-button-colors: (
 			'border-focused': $color-primary-background-strong-focused,
 			'icon': $color-inverted-icon,
 			'outline': $color-primary-background-ghost-hovered,
+			'disabled': (
+				'color': $color-inverted-text-disabled,
+				'border': $color-primary-background-strong-disabled,
+				'background': $color-primary-background-strong-disabled,
+				'icon': $color-inverted-icon-disabled,
+			),
 		),
 	),
 );
@@ -214,6 +263,26 @@ $toggle-button-colors: (
 
 				#{$root}__icon {
 					color: map-get($color-map, 'selected', 'icon');
+				}
+			}
+
+			&.-disabled {
+				background-color: map-get($color-map, 'disabled', 'background');
+				border-color: map-get($color-map, 'disabled', 'border');
+				color: map-get($color-map, 'disabled', 'color');
+
+				#{$root}__icon {
+					color: map-get($color-map, 'disabled', 'icon');
+				}
+			}
+
+			&.-disabled.-selected {
+				background-color: map-get($color-map, 'selected', 'disabled', 'background');
+				border-color: map-get($color-map, 'selected', 'disabled', 'border');
+				color: map-get($color-map, 'selected', 'disabled', 'color');
+
+				#{$root}__icon {
+					color: map-get($color-map, 'selected', 'disabled', 'icon');
 				}
 			}
 
@@ -319,10 +388,12 @@ import {
 	TOGGLE_BUTTON_LABEL_SIZES,
 	TOGGLE_BUTTON_RADIUSES,
 	TOGGLE_BUTTON_SIZES,
+	TOGGLE_BUTTON_STATES,
 	ToggleButtonColor,
 	ToggleButtonLabelSize,
 	ToggleButtonRadius,
 	ToggleButtonSize,
+	ToggleButtonState,
 } from './ToggleButton.consts';
 import { ICON_SIZES, IconItem, ICONS, IconSize } from '../../Icons/Icon';
 import DsIcon from '../../Icons/Icon/Icon.vue';
@@ -393,14 +464,22 @@ export default {
 				return Object.values(TOGGLE_BUTTON_SIZES).includes(value);
 			},
 		},
+		state: {
+			type: String as PropType<ToggleButtonState>,
+			default: TOGGLE_BUTTON_STATES.DEFAULT,
+			validator(value: Value<typeof TOGGLE_BUTTON_STATES>) {
+				return Object.values(TOGGLE_BUTTON_STATES).includes(value);
+			},
+		},
 	},
 	emits: ['click'],
 	data() {
 		return {
 			TOGGLE_BUTTON_COLORS: Object.freeze(TOGGLE_BUTTON_COLORS),
 			TOGGLE_BUTTON_LABEL_SIZES: Object.freeze(TOGGLE_BUTTON_LABEL_SIZES),
-			TOGGLE_BUTTON_SIZES: Object.freeze(TOGGLE_BUTTON_SIZES),
 			TOGGLE_BUTTON_RADIUSES: Object.freeze(TOGGLE_BUTTON_RADIUSES),
+			TOGGLE_BUTTON_SIZES: Object.freeze(TOGGLE_BUTTON_SIZES),
+			TOGGLE_BUTTON_STATES: Object.freeze(TOGGLE_BUTTON_STATES),
 		};
 	},
 	computed: {
@@ -411,6 +490,13 @@ export default {
 			return this.size === TOGGLE_BUTTON_SIZES.LARGE
 				? ICON_SIZES.X_SMALL
 				: ICON_SIZES.XX_SMALL;
+		},
+		isInteractiveComputed(): boolean {
+			if (this.state === TOGGLE_BUTTON_STATES.DISABLED) {
+				return false;
+			}
+
+			return this.isInteractive;
 		},
 		rippleColor(): RippleColor {
 			const map = {
