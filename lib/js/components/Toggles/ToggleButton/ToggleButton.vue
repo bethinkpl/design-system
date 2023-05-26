@@ -70,6 +70,7 @@ $toggle-button-colors: (
 		'background': $color-neutral-background-ghost,
 		'background-hovered': $color-neutral-background-ghost-hovered,
 		'background-focused': $color-neutral-background-ghost-focused,
+		'icon': $color-neutral-icon-weak,
 		'outline': $color-neutral-background-ghost-hovered,
 		'selected': (
 			'color': $color-neutral-text-heavy,
@@ -79,6 +80,7 @@ $toggle-button-colors: (
 			'background': $color-primary-background,
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
+			'icon': $color-primary-icon,
 			'outline': $color-primary-background-ghost-hovered,
 		),
 	),
@@ -90,6 +92,7 @@ $toggle-button-colors: (
 		'background': $color-neutral-background-ghost,
 		'background-hovered': $color-neutral-background-ghost-hovered,
 		'background-focused': $color-neutral-background-ghost-focused,
+		'icon': $color-neutral-icon,
 		'outline': $color-neutral-background-ghost-hovered,
 		'selected': (
 			'color': $color-neutral-text-heavy,
@@ -99,6 +102,7 @@ $toggle-button-colors: (
 			'border': $color-primary-border,
 			'border-hovered': $color-primary-border-hovered,
 			'border-focused': $color-primary-border-focused,
+			'icon': $color-primary-icon,
 			'outline': $color-primary-background-ghost-hovered,
 		),
 	),
@@ -110,6 +114,7 @@ $toggle-button-colors: (
 		'background': $color-neutral-background-ghost,
 		'background-hovered': $color-neutral-background-ghost-hovered,
 		'background-focused': $color-neutral-background-ghost-focused,
+		'icon': $color-neutral-icon,
 		'outline': $color-neutral-background-ghost-hovered,
 		'selected': (
 			'color': $color-inverted-text,
@@ -119,6 +124,7 @@ $toggle-button-colors: (
 			'border': $color-neutral-background-strong,
 			'border-hovered': $color-neutral-background-strong-hovered,
 			'border-focused': $color-neutral-background-strong-focused,
+			'icon': $color-inverted-icon,
 			'outline': $color-neutral-background-ghost-hovered,
 		),
 	),
@@ -130,6 +136,7 @@ $toggle-button-colors: (
 		'background': $color-primary-background-ghost,
 		'background-hovered': $color-primary-background-ghost-hovered,
 		'background-focused': $color-primary-background-ghost-focused,
+		'icon': $color-primary-icon-weak,
 		'outline': $color-primary-background-ghost-hovered,
 		'selected': (
 			'color': $color-inverted-text,
@@ -139,6 +146,7 @@ $toggle-button-colors: (
 			'border': $color-primary-background-strong,
 			'border-hovered': $color-primary-background-strong-hovered,
 			'border-focused': $color-primary-background-strong-focused,
+			'icon': $color-inverted-icon,
 			'outline': $color-primary-background-ghost-hovered,
 		),
 	),
@@ -203,6 +211,14 @@ $toggle-button-colors: (
 					border-color: map-get($color-map, 'selected', 'border-focused');
 					outline-color: map-get($color-map, 'selected', 'outline');
 				}
+
+				#{$root}__icon {
+					color: map-get($color-map, 'selected', 'icon');
+				}
+			}
+
+			#{$root}__icon {
+				color: map-get($color-map, 'icon');
 			}
 		}
 	}
