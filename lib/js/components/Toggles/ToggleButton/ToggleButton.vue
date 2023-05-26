@@ -245,36 +245,11 @@ export default {
 		DsRipple,
 	},
 	props: {
-		text: {
-			type: String,
-			default: '',
-		},
-		size: {
-			type: String,
-			default: TOGGLE_BUTTON_SIZES.MEDIUM,
-			validator(value: Value<typeof TOGGLE_BUTTON_SIZES>) {
-				return Object.values(TOGGLE_BUTTON_SIZES).includes(value);
-			},
-		},
-		type: {
-			type: String,
-			default: TOGGLE_BUTTON_TYPES.FILLED,
-			validator(value: Value<typeof TOGGLE_BUTTON_TYPES>) {
-				return Object.values(TOGGLE_BUTTON_TYPES).includes(value);
-			},
-		},
 		color: {
 			type: String,
 			default: TOGGLE_BUTTON_COLORS.PRIMARY,
 			validator(value: Value<typeof TOGGLE_BUTTON_COLORS>) {
 				return Object.values(TOGGLE_BUTTON_COLORS).includes(value);
-			},
-		},
-		radius: {
-			type: String,
-			default: TOGGLE_BUTTON_RADIUSES.CAPSULE,
-			validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>) {
-				return Object.values(TOGGLE_BUTTON_RADIUSES).includes(value);
 			},
 		},
 		isInteractive: {
@@ -284,6 +259,31 @@ export default {
 		isSelected: {
 			type: Boolean,
 			default: false,
+		},
+		radius: {
+			type: String,
+			default: TOGGLE_BUTTON_RADIUSES.CAPSULE,
+			validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>) {
+				return Object.values(TOGGLE_BUTTON_RADIUSES).includes(value);
+			},
+		},
+		size: {
+			type: String,
+			default: TOGGLE_BUTTON_SIZES.MEDIUM,
+			validator(value: Value<typeof TOGGLE_BUTTON_SIZES>) {
+				return Object.values(TOGGLE_BUTTON_SIZES).includes(value);
+			},
+		},
+		text: {
+			type: String,
+			default: '',
+		},
+		type: {
+			type: String,
+			default: TOGGLE_BUTTON_TYPES.FILLED,
+			validator(value: Value<typeof TOGGLE_BUTTON_TYPES>) {
+				return Object.values(TOGGLE_BUTTON_TYPES).includes(value);
+			},
 		},
 	},
 	emits: ['click'],
