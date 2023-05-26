@@ -21,27 +21,43 @@
 				[colorClassName]: true,
 
 				'-disabled': state === TOGGLE_BUTTON_STATES.DISABLED,
+				'-loading': state === TOGGLE_BUTTON_STATES.LOADING,
 				'-interactive': isInteractiveComputed,
 				'-selected': isSelected,
 			}"
 			@click="isInteractiveComputed && $emit('click')"
 		>
-			<ds-icon v-if="iconLeft" class="toggleButton__icon" :icon="iconLeft" :size="iconSize" />
-			<span
-				v-if="label"
-				class="toggleButton__content"
-				:class="{
-					'-small': labelSize === TOGGLE_BUTTON_LABEL_SIZES.SMALL,
-					'-uppercase': isLabelUppercase,
-				}"
-			>
-				{{ label }}
-			</span>
+			<div class="toggleButton__contentWrapper">
+				<ds-icon
+					v-if="iconLeft"
+					class="toggleButton__icon"
+					:icon="iconLeft"
+					:size="iconSize"
+				/>
+				<span
+					v-if="label"
+					class="toggleButton__content"
+					:class="{
+						'-small': labelSize === TOGGLE_BUTTON_LABEL_SIZES.SMALL,
+						'-uppercase': isLabelUppercase,
+					}"
+				>
+					{{ label }}
+				</span>
+				<ds-icon
+					v-if="iconRight"
+					class="toggleButton__icon"
+					:icon="iconRight"
+					:size="iconSize"
+				/>
+			</div>
+
 			<ds-icon
-				v-if="iconRight"
-				class="toggleButton__icon"
-				:icon="iconRight"
+				v-if="state === TOGGLE_BUTTON_STATES.LOADING"
+				class="toggleButton__icon toggleButton__loadingSpinner"
+				:icon="ICONS.FAD_SPINNER_THIRD"
 				:size="iconSize"
+				spinning
 			/>
 		</div>
 	</ds-ripple>
@@ -298,7 +314,6 @@ $toggle-button-colors: (
 	// value it big enough to make circle when label is short
 	border-radius: 100px;
 	display: flex;
-	gap: $space-xxxxs;
 	justify-content: center;
 	outline: 6px solid transparent;
 	pointer-events: none;
@@ -306,6 +321,13 @@ $toggle-button-colors: (
 		border-color ease-in-out $default-transition-time,
 		background-color ease-in-out $default-transition-time,
 		outline-color ease-in-out $default-transition-time;
+
+	&__contentWrapper {
+		align-items: center;
+		display: flex;
+		gap: $space-xxxxs;
+		justify-content: center;
+	}
 
 	&__content {
 		@include label-l-default-bold;
@@ -326,6 +348,12 @@ $toggle-button-colors: (
 	&.-interactive {
 		cursor: pointer;
 		pointer-events: initial;
+	}
+
+	&.-loading {
+		#{$root}__contentWrapper {
+			opacity: 0;
+		}
 	}
 
 	&.-small {
@@ -374,6 +402,10 @@ $toggle-button-colors: (
 		&.-hasSmallHorizontalPadding {
 			padding: substract-border($space-xxs, 'large') substract-border($space-xxxxxs, 'large');
 		}
+	}
+
+	&__loadingSpinner {
+		position: absolute;
 	}
 }
 </style>
@@ -475,6 +507,7 @@ export default {
 	emits: ['click'],
 	data() {
 		return {
+			ICONS: Object.freeze(ICONS),
 			TOGGLE_BUTTON_COLORS: Object.freeze(TOGGLE_BUTTON_COLORS),
 			TOGGLE_BUTTON_LABEL_SIZES: Object.freeze(TOGGLE_BUTTON_LABEL_SIZES),
 			TOGGLE_BUTTON_RADIUSES: Object.freeze(TOGGLE_BUTTON_RADIUSES),
@@ -492,7 +525,7 @@ export default {
 				: ICON_SIZES.XX_SMALL;
 		},
 		isInteractiveComputed(): boolean {
-			if (this.state === TOGGLE_BUTTON_STATES.DISABLED) {
+			if (this.state !== TOGGLE_BUTTON_STATES.DEFAULT) {
 				return false;
 			}
 

@@ -34,6 +34,7 @@ export type ToggleButtonLabelSize = Value<typeof TOGGLE_BUTTON_LABEL_SIZES>;
 export const TOGGLE_BUTTON_STATES = {
 	DEFAULT: 'default',
 	DISABLED: 'disabled',
+	LOADING: 'loading',
 } as const;
 
 export type ToggleButtonState = Value<typeof TOGGLE_BUTTON_STATES>;
