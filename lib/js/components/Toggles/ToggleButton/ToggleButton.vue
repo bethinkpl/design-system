@@ -49,6 +49,9 @@ $toggle-button-size-small: 28px;
 $toggle-button-size-medium: 32px;
 $toggle-button-size-large: 40px;
 
+$toggle-button-border-size: 1px;
+$toggle-button-border-size-large: 2px;
+
 $toggle-button-colors: (
 	'primary': (
 		'text': $color-primary-text,
@@ -77,6 +80,16 @@ $toggle-button-colors: (
 		),
 	),
 );
+
+@function substract-border($padding, $size) {
+	$size-map: (
+		'small': $toggle-button-border-size,
+		'medium': $toggle-button-border-size,
+		'large': $toggle-button-border-size-large,
+	);
+
+	@return $padding - map-get($size-map, $size);
+}
 
 .toggleButtonWrapper {
 	display: inline-block;
@@ -123,7 +136,7 @@ $toggle-button-colors: (
 	}
 
 	align-items: center;
-	border: 1px solid;
+	border: $toggle-button-border-size solid;
 	// we can't use percent value because we don't want ellipse shape when text is longer
 	// value it big enough to make circle when text is short
 	border-radius: 100px;
@@ -159,31 +172,32 @@ $toggle-button-colors: (
 	&.-small {
 		min-height: $toggle-button-size-small;
 		min-width: $toggle-button-size-small;
-		padding: $space-xxxs $space-xs;
+		padding: substract-border($space-xxxs, 'small') substract-border($space-xs, 'small');
 
 		&.-hasSmallHorizontalPadding {
-			padding: $space-xxxs $space-xxxxxs;
+			padding: substract-border($space-xxxs, 'small') substract-border($space-xxxxxs, 'small');
 		}
 	}
 
 	&.-medium {
 		min-height: $toggle-button-size-medium;
 		min-width: $toggle-button-size-medium;
-		padding: $space-xxs $space-xs;
+		padding: substract-border($space-xxs, 'medium') substract-border($space-xs, 'medium');
 
 		&.-hasSmallHorizontalPadding {
-			padding: $space-xxs $space-xxxxxs;
+			padding: substract-border($space-xxs, 'medium')
+				substract-border($space-xxxxxs, 'medium');
 		}
 	}
 
 	&.-large {
-		border: 2px solid;
+		border: $toggle-button-border-size-large solid;
 		min-height: $toggle-button-size-large;
 		min-width: $toggle-button-size-large;
-		padding: $space-xs $space-s;
+		padding: substract-border($space-xs, 'large') substract-border($space-s, 'large');
 
 		&.-hasSmallHorizontalPadding {
-			padding: $space-xxs $space-xxxxxs;
+			padding: substract-border($space-xxs, 'large') substract-border($space-xxxxxs, 'large');
 		}
 	}
 }
