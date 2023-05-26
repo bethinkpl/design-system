@@ -1,4 +1,5 @@
 import OutlineItem from './OutlineItem.vue';
+import DsPill from '../..//Pill/Pill.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
 import {
@@ -13,7 +14,7 @@ export default {
 } as Meta<typeof OutlineItem>;
 
 const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
-	components: { OutlineItem },
+	components: { OutlineItem, DsPill },
 	setup() {
 		return { ...args };
 	},
@@ -22,7 +23,15 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 			ICONS: Object.freeze(ICONS),
 		};
 	},
-	template: `<outline-item :label="label" :additional-text="additionalText" :size="size" :state="state" :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone" :is-selected="isSelected" :background-color="backgroundColor" :index="index" :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation" :has-selected-icons-color-primary="hasSelectedIconsColorPrimary" :is-selected-interactive="isSelectedInteractive"><div v-if="defaultSlot && defaultSlot.length > 0" v-html="defaultSlot" style="font-size: 14px; line-height: 16px;"></div></outline-item>`,
+	template: `
+      <outline-item :label="label" :additional-text="additionalText" :size="size" :state="state"
+                    :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone"
+                    :is-selected="isSelected" :background-color="backgroundColor" :index="index"
+                    :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
+                    :has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
+                    :is-selected-interactive="isSelectedInteractive">
+      <ds-pill v-if="defaultSlot.length > 0" :label="defaultSlot" />
+      </outline-item>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -30,7 +39,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {} as Args;
 
 const argTypes = {
-	defaultSlot: { control: { type: 'text' }, defaultValue: 'Default slot' },
+	defaultSlot: { control: { type: 'text' }, defaultValue: '10 / 20' },
 	size: {
 		control: { type: 'select', options: Object.values(OUTLINE_ITEM_SIZES) },
 		defaultValue: OUTLINE_ITEM_SIZES.SMALL,
