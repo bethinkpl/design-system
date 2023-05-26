@@ -222,6 +222,9 @@ import {
 	TOGGLE_BUTTON_COLORS,
 	TOGGLE_BUTTON_RADIUSES,
 	TOGGLE_BUTTON_SIZES,
+	ToggleButtonColor,
+	ToggleButtonRadius,
+	ToggleButtonSize,
 } from './ToggleButton.consts';
 import { ICON_SIZES, IconItem, ICONS, IconSize } from '../../Icons/Icon';
 import DsIcon from '../../Icons/Icon/Icon.vue';
@@ -234,7 +237,7 @@ export default {
 	},
 	props: {
 		color: {
-			type: String,
+			type: String as PropType<ToggleButtonColor>,
 			default: TOGGLE_BUTTON_COLORS.PRIMARY,
 			validator(value: Value<typeof TOGGLE_BUTTON_COLORS>) {
 				return Object.values(TOGGLE_BUTTON_COLORS).includes(value);
@@ -271,14 +274,14 @@ export default {
 			default: false,
 		},
 		radius: {
-			type: String,
+			type: String as PropType<ToggleButtonRadius>,
 			default: TOGGLE_BUTTON_RADIUSES.CAPSULE,
 			validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>) {
 				return Object.values(TOGGLE_BUTTON_RADIUSES).includes(value);
 			},
 		},
 		size: {
-			type: String,
+			type: String as PropType<ToggleButtonSize>,
 			default: TOGGLE_BUTTON_SIZES.MEDIUM,
 			validator(value: Value<typeof TOGGLE_BUTTON_SIZES>) {
 				return Object.values(TOGGLE_BUTTON_SIZES).includes(value);
