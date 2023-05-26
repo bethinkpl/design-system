@@ -26,7 +26,7 @@
 			@click="isInteractive && $emit('click')"
 		>
 			<ds-icon v-if="iconLeft" class="toggleButton__icon" :icon="iconLeft" :size="iconSize" />
-			<span v-if="text" class="toggleButton__content">{{ text }}</span>
+			<span v-if="label" class="toggleButton__content">{{ label }}</span>
 			<ds-icon
 				v-if="iconRight"
 				class="toggleButton__icon"
@@ -54,7 +54,7 @@ $toggle-button-border-size-large: 2px;
 
 $toggle-button-colors: (
 	'primary': (
-		'text': $color-primary-text,
+		'color': $color-primary-text,
 		'outline': $color-primary-border-weak,
 		'border': $color-primary-border,
 		'background': $color-primary-background-ghost,
@@ -67,7 +67,7 @@ $toggle-button-colors: (
 		),
 	),
 	'neutral': (
-		'text': $color-neutral-text-weak,
+		'color': $color-neutral-text-weak,
 		'outline': $color-neutral-border-weak,
 		'border': $color-neutral-border-strong,
 		'background': $color-neutral-background-ghost,
@@ -110,7 +110,7 @@ $toggle-button-colors: (
 		&.-color-#{$color-name} {
 			background-color: map-get($color-map, 'background');
 			border-color: map-get($color-map, 'border');
-			color: map-get($color-map, 'text');
+			color: map-get($color-map, 'color');
 
 			&:hover {
 				background-color: map-get($color-map, 'background-hovered');
@@ -137,8 +137,8 @@ $toggle-button-colors: (
 
 	align-items: center;
 	border: $toggle-button-border-size solid;
-	// we can't use percent value because we don't want ellipse shape when text is longer
-	// value it big enough to make circle when text is short
+	// we can't use percent value because we don't want ellipse shape when label is longer
+	// value it big enough to make circle when label is short
 	border-radius: 100px;
 	display: flex;
 	gap: $space-xxxxs;
@@ -270,7 +270,7 @@ export default {
 				return Object.values(TOGGLE_BUTTON_SIZES).includes(value);
 			},
 		},
-		text: {
+		label: {
 			type: String,
 			default: '',
 		},
