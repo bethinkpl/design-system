@@ -177,7 +177,7 @@ $toggle-button-colors: (
 	}
 
 	&.-outlined {
-		border: 2px solid;
+		border: 1px solid;
 	}
 
 	&.-selected {
@@ -222,6 +222,10 @@ $toggle-button-colors: (
 
 		&.-long {
 			padding: $space-xs $space-s;
+		}
+
+		&.-outlined {
+			border: 2px solid;
 		}
 	}
 
