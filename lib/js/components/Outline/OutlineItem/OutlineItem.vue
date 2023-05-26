@@ -81,13 +81,12 @@
 	&__content {
 		align-items: center;
 		column-gap: $space-xxs;
-		display: inline-flex;
+		display: flex;
 	}
 
 	&__index {
 		@include label-l-default-bold;
 
-		align-self: flex-start;
 		color: $color-neutral-text-weak;
 
 		&.-active {
@@ -117,7 +116,6 @@
 	}
 
 	&__icon {
-		align-self: flex-start;
 		color: $color-neutral-icon-weak;
 
 		&.-active {
