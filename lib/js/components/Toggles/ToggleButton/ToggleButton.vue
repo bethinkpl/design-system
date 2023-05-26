@@ -371,6 +371,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		label: {
+			type: String,
+			default: '',
+		},
 		labelSize: {
 			type: String as PropType<ToggleButtonLabelSize>,
 			default: TOGGLE_BUTTON_SIZES.SMALL,
@@ -388,10 +392,6 @@ export default {
 			validator(value: Value<typeof TOGGLE_BUTTON_SIZES>) {
 				return Object.values(TOGGLE_BUTTON_SIZES).includes(value);
 			},
-		},
-		label: {
-			type: String,
-			default: '',
 		},
 	},
 	emits: ['click'],
