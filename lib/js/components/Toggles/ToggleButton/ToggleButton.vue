@@ -26,7 +26,13 @@
 			@click="isInteractive && $emit('click')"
 		>
 			<ds-icon v-if="iconLeft" class="toggleButton__icon" :icon="iconLeft" :size="iconSize" />
-			<span v-if="label" class="toggleButton__content">{{ label }}</span>
+			<span
+				v-if="label"
+				class="toggleButton__content"
+				:class="{ '-uppercase': isLabelUppercase }"
+			>
+				{{ label }}
+			</span>
 			<ds-icon
 				v-if="iconRight"
 				class="toggleButton__icon"
@@ -104,8 +110,6 @@ $toggle-button-colors: (
 }
 
 .toggleButton {
-	@include label-l-default-bold;
-
 	@each $color-name, $color-map in $toggle-button-colors {
 		&.-color-#{$color-name} {
 			background-color: map-get($color-map, 'background');
@@ -151,9 +155,15 @@ $toggle-button-colors: (
 		outline-color ease-in-out $default-transition-time;
 
 	&__content {
+		@include label-l-default-bold;
+
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
+
+		&.-uppercase {
+			@include label-l-default-bold-uppercase;
+		}
 	}
 
 	&.-rounded {
@@ -251,6 +261,10 @@ export default {
 		isInteractive: {
 			type: Boolean,
 			default: true,
+		},
+		isLabelUppercase: {
+			type: Boolean,
+			default: false,
 		},
 		isSelected: {
 			type: Boolean,

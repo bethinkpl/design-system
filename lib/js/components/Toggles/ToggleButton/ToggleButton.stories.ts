@@ -25,15 +25,16 @@ const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 	},
 	template: `
 		<toggle-button
-			:size="size"
-			:radius="radius"
 			:color="color"
-			:label="label"
 			:has-small-horizontal-padding="hasSmallHorizontalPadding"
 			:icon-left="ICONS[iconLeft]"
 			:icon-right="ICONS[iconRight]"
-			:is-selected="isSelected"
 			:is-interactive="isInteractive"
+			:is-label-uppercase="isLabelUppercase"
+			:is-selected="isSelected"
+			:label="label"
+			:radius="radius"
+			:size="size"
 		/>`,
 });
 
@@ -41,12 +42,15 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	size: TOGGLE_BUTTON_SIZES.MEDIUM,
+	hasSmallHorizontalPadding: false,
 	color: TOGGLE_BUTTON_COLORS.PRIMARY,
+	isSelected: false,
 	radius: TOGGLE_BUTTON_RADIUSES.CAPSULE,
 	label: '1',
-	hasSmallHorizontalPadding: false,
-	isSelected: false,
+	isLabelUppercase: false,
 	isInteractive: true,
+	iconLeft: null,
+	iconRight: null,
 } as Args;
 
 const argTypes = {
