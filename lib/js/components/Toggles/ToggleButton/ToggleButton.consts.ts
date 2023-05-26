@@ -21,3 +21,10 @@ export const TOGGLE_BUTTON_RADIUSES = {
 } as const;
 
 export type ToggleButtonRadius = Value<typeof TOGGLE_BUTTON_RADIUSES>;
+
+export const TOGGLE_BUTTON_LABEL_SIZES = {
+	SMALL: 'small',
+	MEDIUM: 'medium',
+} as const;
+
+export type ToggleButtonLabelSize = Value<typeof TOGGLE_BUTTON_LABEL_SIZES>;

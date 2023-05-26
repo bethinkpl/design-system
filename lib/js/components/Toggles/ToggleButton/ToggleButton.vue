@@ -29,7 +29,10 @@
 			<span
 				v-if="label"
 				class="toggleButton__content"
-				:class="{ '-uppercase': isLabelUppercase }"
+				:class="{
+					'-small': labelSize === TOGGLE_BUTTON_LABEL_SIZES.SMALL,
+					'-uppercase': isLabelUppercase,
+				}"
 			>
 				{{ label }}
 			</span>
@@ -110,6 +113,8 @@ $toggle-button-colors: (
 }
 
 .toggleButton {
+	$root: &;
+
 	@each $color-name, $color-map in $toggle-button-colors {
 		&.-color-#{$color-name} {
 			background-color: map-get($color-map, 'background');
@@ -187,6 +192,14 @@ $toggle-button-colors: (
 		&.-hasSmallHorizontalPadding {
 			padding: substract-border($space-xxxs, 'small') substract-border($space-xxxxxs, 'small');
 		}
+
+		#{$root}__content.-small {
+			@include label-s-default-bold;
+
+			&.-uppercase {
+				@include label-s-default-bold-uppercase;
+			}
+		}
 	}
 
 	&.-medium {
@@ -197,6 +210,14 @@ $toggle-button-colors: (
 		&.-hasSmallHorizontalPadding {
 			padding: substract-border($space-xxs, 'medium')
 				substract-border($space-xxxxxs, 'medium');
+		}
+
+		#{$root}__content.-small {
+			@include label-m-default-bold;
+
+			&.-uppercase {
+				@include label-m-default-bold-uppercase;
+			}
 		}
 	}
 
@@ -220,9 +241,11 @@ import { PropType, toRaw } from 'vue';
 
 import {
 	TOGGLE_BUTTON_COLORS,
+	TOGGLE_BUTTON_LABEL_SIZES,
 	TOGGLE_BUTTON_RADIUSES,
 	TOGGLE_BUTTON_SIZES,
 	ToggleButtonColor,
+	ToggleButtonLabelSize,
 	ToggleButtonRadius,
 	ToggleButtonSize,
 } from './ToggleButton.consts';
@@ -273,6 +296,10 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		labelSize: {
+			type: String as PropType<ToggleButtonLabelSize>,
+			default: TOGGLE_BUTTON_SIZES.SMALL,
+		},
 		radius: {
 			type: String as PropType<ToggleButtonRadius>,
 			default: TOGGLE_BUTTON_RADIUSES.CAPSULE,
@@ -296,6 +323,7 @@ export default {
 	data() {
 		return {
 			TOGGLE_BUTTON_COLORS: Object.freeze(TOGGLE_BUTTON_COLORS),
+			TOGGLE_BUTTON_LABEL_SIZES: Object.freeze(TOGGLE_BUTTON_LABEL_SIZES),
 			TOGGLE_BUTTON_SIZES: Object.freeze(TOGGLE_BUTTON_SIZES),
 			TOGGLE_BUTTON_RADIUSES: Object.freeze(TOGGLE_BUTTON_RADIUSES),
 		};
