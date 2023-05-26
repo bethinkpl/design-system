@@ -1,7 +1,7 @@
 export const TOGGLE_BUTTON_SIZES = {
-	X_SMALL: 'x-small',
 	SMALL: 'small',
 	MEDIUM: 'medium',
+	LARGE: 'large',
 } as const;
 
 export const TOGGLE_BUTTON_TYPES = {

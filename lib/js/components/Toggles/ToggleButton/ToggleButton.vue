@@ -13,8 +13,9 @@
 				'-outlined': type === TOGGLE_BUTTON_TYPES.OUTLINED,
 				'-filled': type === TOGGLE_BUTTON_TYPES.FILLED,
 
-				'-xSmall': size === TOGGLE_BUTTON_SIZES.X_SMALL,
 				'-small': size === TOGGLE_BUTTON_SIZES.SMALL,
+				'-medium': size === TOGGLE_BUTTON_SIZES.MEDIUM,
+				'-large': size === TOGGLE_BUTTON_SIZES.LARGE,
 
 				'-long': isLong,
 
@@ -43,9 +44,9 @@
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/shadows';
 
-$toggle-button-size-x-small: 28px;
-$toggle-button-size-small: 32px;
-$toggle-button-size-medium: 40px;
+$toggle-button-size-small: 28px;
+$toggle-button-size-medium: 32px;
+$toggle-button-size-large: 40px;
 
 $toggle-button-colors: (
 	'primary': (
@@ -158,12 +159,7 @@ $toggle-button-colors: (
 	border-radius: 100px;
 	display: flex;
 	justify-content: center;
-	min-height: $toggle-button-size-medium;
-	min-width: $toggle-button-size-medium;
 	outline: 6px solid transparent;
-	// vertical passing is smaller than designed, but we compensate that with `min-height`.
-	// This shortcut allows us to use the same padding on .filled and .outlined versions, so number of variants is cut by half
-	padding: $space-xxs;
 	pointer-events: none;
 	transition: color ease-in-out $default-transition-time,
 		border-color ease-in-out $default-transition-time,
@@ -174,14 +170,6 @@ $toggle-button-colors: (
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-	}
-
-	&.-long {
-		padding: $space-xxs $space-s;
-
-		&.-rounded {
-			padding: $space-xxs $space-xs;
-		}
 	}
 
 	&.-rounded {
@@ -201,32 +189,39 @@ $toggle-button-colors: (
 		pointer-events: initial;
 	}
 
-	&.-xSmall {
-		min-height: $toggle-button-size-x-small;
-		min-width: $toggle-button-size-x-small;
-		padding: $space-xxxxs;
-
-		&.-long {
-			padding: $space-xxxxs $space-xs;
-
-			&.-rounded {
-				padding: $space-xxxxs $space-xxs;
-			}
-		}
-	}
-
 	&.-small {
 		min-height: $toggle-button-size-small;
 		min-width: $toggle-button-size-small;
 		padding: $space-xxxs;
 
 		&.-long {
-			// Exception in padding rules in Figma. -capsule has the same padding as -rounded
 			padding: $space-xxxs $space-xs;
+		}
+	}
+
+	&.-medium {
+		min-height: $toggle-button-size-medium;
+		min-width: $toggle-button-size-medium;
+		// vertical padding is smaller than designed, but we compensate that with `min-height`.
+		// This shortcut allows us to use the same padding on .filled and .outlined versions, so number of variants is cut by half
+		padding: $space-xxs;
+
+		&.-long {
+			padding: $space-xxs $space-xs;
 
 			&.-rounded {
 				padding: $space-xxxs $space-xs;
 			}
+		}
+	}
+
+	&.-large {
+		min-height: $toggle-button-size-large;
+		min-width: $toggle-button-size-large;
+		padding: $space-xxs;
+
+		&.-long {
+			padding: $space-xs $space-s;
 		}
 	}
 
