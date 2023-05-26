@@ -4,7 +4,6 @@ import {
 	TOGGLE_BUTTON_TYPES,
 	TOGGLE_BUTTON_COLORS,
 	TOGGLE_BUTTON_RADIUSES,
-	TOGGLE_BUTTON_ELEVATIONS,
 } from './ToggleButton.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -25,7 +24,6 @@ const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 			:type="type"
 			:radius="radius"
 			:color="color"
-			:elevation="elevation"
 			:text="text"
 			:is-selected="isSelected"
 			:is-interactive="isInteractive"
@@ -39,7 +37,6 @@ const args = {
 	type: TOGGLE_BUTTON_TYPES.FILLED,
 	color: TOGGLE_BUTTON_COLORS.PRIMARY,
 	radius: TOGGLE_BUTTON_RADIUSES.CAPSULE,
-	elevation: TOGGLE_BUTTON_ELEVATIONS.NONE,
 	text: '1',
 	isSelected: false,
 	isInteractive: true,
@@ -61,10 +58,6 @@ const argTypes = {
 	radius: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_RADIUSES) },
 		defaultValue: TOGGLE_BUTTON_RADIUSES.CAPSULE,
-	},
-	elevation: {
-		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_ELEVATIONS) },
-		defaultValue: TOGGLE_BUTTON_ELEVATIONS.NONE,
 	},
 } as ArgTypes;
 

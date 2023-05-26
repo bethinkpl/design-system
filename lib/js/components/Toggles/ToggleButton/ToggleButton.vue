@@ -23,9 +23,6 @@
 
 				[colorClassName]: true,
 
-				'-elevationXSmall': elevation === TOGGLE_BUTTON_ELEVATIONS.X_SMALL,
-				'-elevationSmall': elevation === TOGGLE_BUTTON_ELEVATIONS.SMALL,
-
 				'-interactive': isInteractive,
 				'-selected': isSelected,
 			}"
@@ -228,15 +225,6 @@ $toggle-button-colors: (
 			border: 2px solid;
 		}
 	}
-
-	&.-elevationXSmall,
-	&.-elevationSmall {
-		background-color: $color-default-background;
-	}
-
-	&.-elevationSmall {
-		box-shadow: $shadow-l;
-	}
 }
 </style>
 
@@ -246,7 +234,6 @@ import DsRipple, { RIPPLE_COLORS } from '../../Ripple';
 
 import {
 	TOGGLE_BUTTON_COLORS,
-	TOGGLE_BUTTON_ELEVATIONS,
 	TOGGLE_BUTTON_RADIUSES,
 	TOGGLE_BUTTON_SIZES,
 	TOGGLE_BUTTON_TYPES,
@@ -298,19 +285,11 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		elevation: {
-			type: String,
-			default: TOGGLE_BUTTON_ELEVATIONS.NONE,
-			validator(value: Value<typeof TOGGLE_BUTTON_ELEVATIONS>) {
-				return Object.values(TOGGLE_BUTTON_ELEVATIONS).includes(value);
-			},
-		},
 	},
 	emits: ['click'],
 	data() {
 		return {
 			TOGGLE_BUTTON_COLORS: Object.freeze(TOGGLE_BUTTON_COLORS),
-			TOGGLE_BUTTON_ELEVATIONS: Object.freeze(TOGGLE_BUTTON_ELEVATIONS),
 			TOGGLE_BUTTON_SIZES: Object.freeze(TOGGLE_BUTTON_SIZES),
 			TOGGLE_BUTTON_TYPES: Object.freeze(TOGGLE_BUTTON_TYPES),
 			TOGGLE_BUTTON_RADIUSES: Object.freeze(TOGGLE_BUTTON_RADIUSES),
