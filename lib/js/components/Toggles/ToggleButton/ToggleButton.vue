@@ -7,7 +7,7 @@
 		:disable="!isInteractive"
 		:color="rippleColor"
 	>
-		<span
+		<div
 			class="toggleButton"
 			:class="{
 				'-outlined': type === TOGGLE_BUTTON_TYPES.OUTLINED,
@@ -28,8 +28,15 @@
 			}"
 			@click="isInteractive && $emit('click')"
 		>
+			<ds-icon v-if="iconLeft" class="toggleButton__icon" :icon="iconLeft" :size="iconSize" />
 			<span class="toggleButton__content">{{ text }}</span>
-		</span>
+			<ds-icon
+				v-if="iconRight"
+				class="toggleButton__icon"
+				:icon="iconRight"
+				:size="iconSize"
+			/>
+		</div>
 	</ds-ripple>
 </template>
 
@@ -155,6 +162,7 @@ $toggle-button-colors: (
 	// value it big enough to make circle when text is short
 	border-radius: 100px;
 	display: flex;
+	gap: $space-xxxxs;
 	justify-content: center;
 	outline: 6px solid transparent;
 	pointer-events: none;
@@ -231,6 +239,7 @@ $toggle-button-colors: (
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
 import DsRipple, { RIPPLE_COLORS } from '../../Ripple';
+import { PropType, toRaw } from 'vue';
 
 import {
 	TOGGLE_BUTTON_COLORS,
@@ -238,10 +247,13 @@ import {
 	TOGGLE_BUTTON_SIZES,
 	TOGGLE_BUTTON_TYPES,
 } from './ToggleButton.consts';
+import { ICON_SIZES, IconItem, ICONS, IconSize } from '../../Icons/Icon';
+import DsIcon from '../../Icons/Icon/Icon.vue';
 
 export default {
 	name: 'ToggleButton',
 	components: {
+		DsIcon,
 		DsRipple,
 	},
 	props: {
@@ -250,6 +262,20 @@ export default {
 			default: TOGGLE_BUTTON_COLORS.PRIMARY,
 			validator(value: Value<typeof TOGGLE_BUTTON_COLORS>) {
 				return Object.values(TOGGLE_BUTTON_COLORS).includes(value);
+			},
+		},
+		iconLeft: {
+			type: Object as PropType<IconItem>,
+			default: null,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
+			},
+		},
+		iconRight: {
+			type: Object as PropType<IconItem>,
+			default: null,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		isInteractive: {
@@ -298,6 +324,11 @@ export default {
 	computed: {
 		colorClassName(): string {
 			return `-color-${this.color}`;
+		},
+		iconSize(): IconSize {
+			return this.size === TOGGLE_BUTTON_SIZES.LARGE
+				? ICON_SIZES.X_SMALL
+				: ICON_SIZES.XX_SMALL;
 		},
 		rippleColor() {
 			if (this.isSelected) {

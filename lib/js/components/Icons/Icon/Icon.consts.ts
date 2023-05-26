@@ -14,6 +14,8 @@ export const ICON_SIZES = {
 	XX_LARGE: 'xx-large',
 };
 
+export type IconSize = typeof ICON_SIZES[keyof typeof ICON_SIZES];
+
 const BETHINK_ICONS = {
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
 	RIBBON: Ribbon,

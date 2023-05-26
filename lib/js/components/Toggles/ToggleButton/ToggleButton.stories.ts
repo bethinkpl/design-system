@@ -7,6 +7,7 @@ import {
 } from './ToggleButton.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { ICONS } from '../../Icons/Icon';
 
 export default {
 	title: 'Components/Toggles/ToggleButton',
@@ -18,6 +19,11 @@ const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 	setup() {
 		return { ...args };
 	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
+	},
 	template: `
 		<toggle-button
 			:size="size"
@@ -25,6 +31,8 @@ const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 			:radius="radius"
 			:color="color"
 			:text="text"
+			:icon-left="ICONS[iconLeft]"
+			:icon-right="ICONS[iconRight]"
 			:is-selected="isSelected"
 			:is-interactive="isInteractive"
 		/>`,
@@ -58,6 +66,14 @@ const argTypes = {
 	radius: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_RADIUSES) },
 		defaultValue: TOGGLE_BUTTON_RADIUSES.CAPSULE,
+	},
+	iconLeft: {
+		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		defaultValue: null,
+	},
+	iconRight: {
+		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		defaultValue: null,
 	},
 } as ArgTypes;
 
