@@ -62,30 +62,84 @@ $toggle-button-border-size: 1px;
 $toggle-button-border-size-large: 2px;
 
 $toggle-button-colors: (
-	'primary': (
-		'color': $color-primary-text,
-		'outline': $color-primary-border-weak,
-		'border': $color-primary-border,
-		'background': $color-primary-background-ghost,
-		'background-hovered': $color-primary-background-ghost-hovered,
-		'background-focused': $color-primary-background-ghost-focused,
-		'selected': (
-			'background': $color-primary-background-strong,
-			'background-hovered': $color-primary-background-strong-hovered,
-			'background-focused': $color-primary-background-strong-focused,
-		),
-	),
 	'neutral': (
-		'color': $color-neutral-text-weak,
-		'outline': $color-neutral-border-weak,
-		'border': $color-neutral-border-strong,
+		'color': $color-neutral-text,
+		'border': $color-neutral-border,
+		'border-hovered': $color-neutral-border-hovered,
+		'border-focused': $color-neutral-border-focused,
 		'background': $color-neutral-background-ghost,
 		'background-hovered': $color-neutral-background-ghost-hovered,
 		'background-focused': $color-neutral-background-ghost-focused,
+		'outline': $color-neutral-background-ghost-hovered,
 		'selected': (
+			'color': $color-neutral-text-heavy,
+			'border': $color-primary-border,
+			'border-hovered': $color-primary-border-hovered,
+			'border-focused': $color-primary-border-focused,
+			'background': $color-primary-background,
+			'background-hovered': $color-primary-background-hovered,
+			'background-focused': $color-primary-background-focused,
+			'outline': $color-primary-background-ghost-hovered,
+		),
+	),
+	'neutralHeavy': (
+		'color': $color-neutral-text,
+		'border': $color-neutral-border-heavy,
+		'border-hovered': $color-neutral-border-heavy-hovered,
+		'border-focused': $color-neutral-border-heavy-focused,
+		'background': $color-neutral-background-ghost,
+		'background-hovered': $color-neutral-background-ghost-hovered,
+		'background-focused': $color-neutral-background-ghost-focused,
+		'outline': $color-neutral-background-ghost-hovered,
+		'selected': (
+			'color': $color-neutral-text-heavy,
+			'background': $color-primary-background,
+			'background-hovered': $color-primary-background-hovered,
+			'background-focused': $color-primary-background-focused,
+			'border': $color-primary-border,
+			'border-hovered': $color-primary-border-hovered,
+			'border-focused': $color-primary-border-focused,
+			'outline': $color-primary-background-ghost-hovered,
+		),
+	),
+	'neutralStrong': (
+		'color': $color-neutral-text,
+		'border': $color-neutral-border-strong,
+		'border-hovered': $color-neutral-border-strong,
+		'border-focused': $color-neutral-border-strong,
+		'background': $color-neutral-background-ghost,
+		'background-hovered': $color-neutral-background-ghost-hovered,
+		'background-focused': $color-neutral-background-ghost-focused,
+		'outline': $color-neutral-background-ghost-hovered,
+		'selected': (
+			'color': $color-inverted-text,
 			'background': $color-neutral-background-strong,
 			'background-hovered': $color-neutral-background-strong-hovered,
 			'background-focused': $color-neutral-background-strong-focused,
+			'border': $color-neutral-background-strong,
+			'border-hovered': $color-neutral-background-strong-hovered,
+			'border-focused': $color-neutral-background-strong-focused,
+			'outline': $color-neutral-background-ghost-hovered,
+		),
+	),
+	'primary': (
+		'color': $color-primary-text,
+		'border': $color-primary-border,
+		'border-hovered': $color-primary-border-hovered,
+		'border-focused': $color-primary-border-focused,
+		'background': $color-primary-background-ghost,
+		'background-hovered': $color-primary-background-ghost-hovered,
+		'background-focused': $color-primary-background-ghost-focused,
+		'outline': $color-primary-background-ghost-hovered,
+		'selected': (
+			'color': $color-inverted-text,
+			'background': $color-primary-background-strong,
+			'background-hovered': $color-primary-background-strong-hovered,
+			'background-focused': $color-primary-background-strong-focused,
+			'border': $color-primary-background-strong,
+			'border-hovered': $color-primary-background-strong-hovered,
+			'border-focused': $color-primary-background-strong-focused,
+			'outline': $color-primary-background-ghost-hovered,
 		),
 	),
 );
@@ -123,22 +177,31 @@ $toggle-button-colors: (
 
 			&:hover {
 				background-color: map-get($color-map, 'background-hovered');
+				border-color: map-get($color-map, 'border-hovered');
 				outline-color: map-get($color-map, 'outline');
 			}
 
 			&:focus {
 				background-color: map-get($color-map, 'background-focused');
+				border-color: map-get($color-map, 'border-focused');
+				outline-color: map-get($color-map, 'outline');
 			}
 
 			&.-selected {
 				background-color: map-get($color-map, 'selected', 'background');
+				border-color: map-get($color-map, 'selected', 'border');
+				color: map-get($color-map, 'selected', 'color');
 
 				&:hover {
 					background-color: map-get($color-map, 'selected', 'background-hovered');
+					border-color: map-get($color-map, 'selected', 'border-hovered');
+					outline-color: map-get($color-map, 'selected', 'outline');
 				}
 
 				&:focus {
 					background-color: map-get($color-map, 'selected', 'background-focused');
+					border-color: map-get($color-map, 'selected', 'border-focused');
+					outline-color: map-get($color-map, 'selected', 'outline');
 				}
 			}
 		}
@@ -173,10 +236,6 @@ $toggle-button-colors: (
 
 	&.-rounded {
 		border-radius: $radius-s;
-	}
-
-	&.-selected {
-		color: $color-inverted-text;
 	}
 
 	&.-interactive {
@@ -236,7 +295,7 @@ $toggle-button-colors: (
 
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
-import DsRipple, { RIPPLE_COLORS } from '../../Ripple';
+import DsRipple, { RIPPLE_COLORS, RippleColor } from '../../Ripple';
 import { PropType, toRaw } from 'vue';
 
 import {
@@ -261,7 +320,7 @@ export default {
 	props: {
 		color: {
 			type: String as PropType<ToggleButtonColor>,
-			default: TOGGLE_BUTTON_COLORS.PRIMARY,
+			default: TOGGLE_BUTTON_COLORS.NEUTRAL,
 			validator(value: Value<typeof TOGGLE_BUTTON_COLORS>) {
 				return Object.values(TOGGLE_BUTTON_COLORS).includes(value);
 			},
@@ -337,15 +396,27 @@ export default {
 				? ICON_SIZES.X_SMALL
 				: ICON_SIZES.XX_SMALL;
 		},
-		rippleColor() {
-			if (this.isSelected) {
-				return RIPPLE_COLORS.INVERTED;
-			}
+		rippleColor(): RippleColor {
+			const map = {
+				[TOGGLE_BUTTON_COLORS.NEUTRAL]: {
+					false: RIPPLE_COLORS.NEUTRAL,
+					true: RIPPLE_COLORS.PRIMARY,
+				},
+				[TOGGLE_BUTTON_COLORS.NEUTRAL_HEAVY]: {
+					false: RIPPLE_COLORS.NEUTRAL,
+					true: RIPPLE_COLORS.PRIMARY,
+				},
+				[TOGGLE_BUTTON_COLORS.NEUTRAL_STRONG]: {
+					false: RIPPLE_COLORS.NEUTRAL,
+					true: RIPPLE_COLORS.INVERTED,
+				},
+				[TOGGLE_BUTTON_COLORS.PRIMARY]: {
+					false: RIPPLE_COLORS.PRIMARY,
+					true: RIPPLE_COLORS.INVERTED,
+				},
+			};
 
-			return {
-				[TOGGLE_BUTTON_COLORS.NEUTRAL]: RIPPLE_COLORS.NEUTRAL,
-				[TOGGLE_BUTTON_COLORS.PRIMARY]: RIPPLE_COLORS.PRIMARY,
-			}[this.color];
+			return map[this.color][this.isSelected];
 		},
 	},
 };

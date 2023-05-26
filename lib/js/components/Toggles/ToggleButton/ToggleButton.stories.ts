@@ -45,7 +45,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	size: TOGGLE_BUTTON_SIZES.MEDIUM,
 	hasSmallHorizontalPadding: false,
-	color: TOGGLE_BUTTON_COLORS.PRIMARY,
+	color: TOGGLE_BUTTON_COLORS.NEUTRAL,
 	isSelected: false,
 	radius: TOGGLE_BUTTON_RADIUSES.CAPSULE,
 	label: '1',
@@ -63,7 +63,7 @@ const argTypes = {
 	},
 	color: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_COLORS) },
-		defaultValue: TOGGLE_BUTTON_COLORS.PRIMARY,
+		defaultValue: TOGGLE_BUTTON_COLORS.NEUTRAL,
 	},
 	radius: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_RADIUSES) },
