@@ -90,6 +90,8 @@ export { default as Well } from './components/Well';
 export * from './components/Well/Well.consts';
 export { default as ThreeColumnLayout } from './components/Layouts/ThreeColumnLayout';
 export * from './components/Layouts/ThreeColumnLayout/ThreeColumnLayout.consts';
+export { default as RadioButton } from './components/RadioButton/RadioButton.vue';
+export * from './components/RadioButton/RadioButton.consts';
 
 export {
 	initialize as initializeIcons,
