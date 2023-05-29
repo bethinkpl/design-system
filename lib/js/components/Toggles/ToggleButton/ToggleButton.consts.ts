@@ -10,8 +10,8 @@ export type ToggleButtonSize = Value<typeof TOGGLE_BUTTON_SIZES>;
 
 export const TOGGLE_BUTTON_COLORS = {
 	NEUTRAL: 'neutral',
-	NEUTRAL_HEAVY: 'neutralHeavy',
 	NEUTRAL_STRONG: 'neutralStrong',
+	NEUTRAL_HEAVY: 'neutralHeavy',
 	PRIMARY: 'primary',
 } as const;
 
