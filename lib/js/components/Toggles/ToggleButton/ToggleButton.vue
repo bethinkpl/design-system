@@ -88,7 +88,8 @@ $toggle-button-colors: (
 		'background-hovered': $color-neutral-background-ghost-hovered,
 		'background-focused': $color-neutral-background-ghost-focused,
 		'icon': $color-neutral-icon-weak,
-		'outline': $color-neutral-background-ghost-hovered,
+		'outline-hovered': $color-neutral-background-ghost-hovered,
+		'outline-focused': $color-neutral-background-ghost-focused,
 		'disabled': (
 			'color': $color-neutral-text-disabled,
 			'border': $color-neutral-border-disabled,
@@ -104,7 +105,8 @@ $toggle-button-colors: (
 			'background-hovered': $color-primary-background-hovered,
 			'background-focused': $color-primary-background-focused,
 			'icon': $color-primary-icon,
-			'outline': $color-primary-background-ghost-hovered,
+			'outline-hovered': $color-primary-background-ghost-hovered,
+			'outline-focused': $color-primary-background-ghost-focused,
 			'disabled': (
 				'color': $color-neutral-text-heavy-disabled,
 				'border': $color-primary-border-disabled,
@@ -122,7 +124,8 @@ $toggle-button-colors: (
 		'background-hovered': $color-neutral-background-ghost-hovered,
 		'background-focused': $color-neutral-background-ghost-focused,
 		'icon': $color-neutral-icon,
-		'outline': $color-neutral-background-ghost-hovered,
+		'outline-hovered': $color-neutral-background-ghost-hovered,
+		'outline-focused': $color-neutral-background-ghost-focused,
 		'disabled': (
 			'color': $color-neutral-text-disabled,
 			'border': $color-neutral-border-heavy-disabled,
@@ -138,7 +141,8 @@ $toggle-button-colors: (
 			'border-hovered': $color-primary-border-hovered,
 			'border-focused': $color-primary-border-focused,
 			'icon': $color-primary-icon,
-			'outline': $color-primary-background-ghost-hovered,
+			'outline-hovered': $color-primary-background-ghost-hovered,
+			'outline-focused': $color-primary-background-ghost-focused,
 			'disabled': (
 				'color': $color-neutral-text-heavy-disabled,
 				'border': $color-primary-border-disabled,
@@ -156,7 +160,8 @@ $toggle-button-colors: (
 		'background-hovered': $color-neutral-background-ghost-hovered,
 		'background-focused': $color-neutral-background-ghost-focused,
 		'icon': $color-neutral-icon,
-		'outline': $color-neutral-background-ghost-hovered,
+		'outline-hovered': $color-neutral-background-ghost-hovered,
+		'outline-focused': $color-neutral-background-ghost-focused,
 		'disabled': (
 			'color': $color-neutral-text-disabled,
 			'border': $color-neutral-border-strong-disabled,
@@ -172,7 +177,8 @@ $toggle-button-colors: (
 			'border-hovered': $color-neutral-background-strong-hovered,
 			'border-focused': $color-neutral-background-strong-focused,
 			'icon': $color-inverted-icon,
-			'outline': $color-neutral-background-ghost-hovered,
+			'outline-hovered': $color-neutral-background-ghost-hovered,
+			'outline-focused': $color-neutral-background-ghost-focused,
 			'disabled': (
 				'color': $color-inverted-text-disabled,
 				'border': $color-neutral-background-strong-disabled,
@@ -190,7 +196,8 @@ $toggle-button-colors: (
 		'background-hovered': $color-primary-background-ghost-hovered,
 		'background-focused': $color-primary-background-ghost-focused,
 		'icon': $color-primary-icon-weak,
-		'outline': $color-primary-background-ghost-hovered,
+		'outline-hovered': $color-primary-background-ghost-hovered,
+		'outline-focused': $color-primary-background-ghost-focused,
 		'disabled': (
 			'color': $color-primary-text-disabled,
 			'border': $color-primary-border-disabled,
@@ -206,7 +213,8 @@ $toggle-button-colors: (
 			'border-hovered': $color-primary-background-strong-hovered,
 			'border-focused': $color-primary-background-strong-focused,
 			'icon': $color-inverted-icon,
-			'outline': $color-primary-background-ghost-hovered,
+			'outline-hovered': $color-primary-background-ghost-hovered,
+			'outline-focused': $color-primary-background-ghost-focused,
 			'disabled': (
 				'color': $color-inverted-text-disabled,
 				'border': $color-primary-background-strong-disabled,
@@ -251,13 +259,13 @@ $toggle-button-colors: (
 			&:hover {
 				background-color: map-get($color-map, 'background-hovered');
 				border-color: map-get($color-map, 'border-hovered');
-				outline-color: map-get($color-map, 'outline');
+				outline-color: map-get($color-map, 'outline-hovered');
 			}
 
 			&:focus {
 				background-color: map-get($color-map, 'background-focused');
 				border-color: map-get($color-map, 'border-focused');
-				outline-color: map-get($color-map, 'outline');
+				outline-color: map-get($color-map, 'outline-focused');
 			}
 
 			&.-selected {
@@ -268,13 +276,13 @@ $toggle-button-colors: (
 				&:hover {
 					background-color: map-get($color-map, 'selected', 'background-hovered');
 					border-color: map-get($color-map, 'selected', 'border-hovered');
-					outline-color: map-get($color-map, 'selected', 'outline');
+					outline-color: map-get($color-map, 'selected', 'outline-hovered');
 				}
 
 				&:focus {
 					background-color: map-get($color-map, 'selected', 'background-focused');
 					border-color: map-get($color-map, 'selected', 'border-focused');
-					outline-color: map-get($color-map, 'selected', 'outline');
+					outline-color: map-get($color-map, 'selected', 'outline-focused');
 				}
 
 				#{$root}__icon {
