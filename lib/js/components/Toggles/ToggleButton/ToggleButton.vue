@@ -309,10 +309,11 @@ $toggle-button-colors: (
 	}
 
 	align-items: center;
-	border: $toggle-button-border-size solid;
 	// we can't use percent value because we don't want ellipse shape when label is longer
 	// value it big enough to make circle when label is short
 	border-radius: 100px;
+	border-style: solid;
+	border-width: $toggle-button-border-size;
 	display: flex;
 	justify-content: center;
 	outline: 6px solid transparent;
@@ -394,7 +395,7 @@ $toggle-button-colors: (
 	}
 
 	&.-large {
-		border: $toggle-button-border-size-large solid;
+		border-width: $toggle-button-border-size-large;
 		min-height: $toggle-button-size-large;
 		min-width: $toggle-button-size-large;
 		padding: substract-border($space-xs, 'large') substract-border($space-s, 'large');
