@@ -8,13 +8,20 @@ export default {
 	component: RadioButton,
 } as Meta<typeof RadioButton>;
 
-const StoryTemplate: StoryFn<typeof RadioButton> = (args) => ({
+const StoryTemplate: StoryFn<typeof RadioButton> = (args, { updateArgs }) => ({
 	components: { RadioButton },
 	setup() {
 		return { args };
 	},
+	methods: {
+		onIsSelectedUpdated(isSelected) {
+			updateArgs({
+				isSelected,
+			});
+		},
+	},
 	template: `
-		<RadioButton v-bind=args />`,
+		<RadioButton v-bind=args @toggle="onIsSelectedUpdated"/>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -38,6 +45,9 @@ Interactive.args = {
 } as Args;
 
 Interactive.parameters = {
+	actions: {
+		handles: ['click', 'toggle'],
+	},
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=1552-34962&t=Ui6dF84wekRpqsXb-0',
