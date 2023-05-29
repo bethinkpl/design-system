@@ -1,63 +1,64 @@
 <template>
-	<div
-		v-ripple:disabled="isSelected && !isSelectedInteractive"
-		class="outlineItem"
-		:class="{
-			'-disabled': isDisabled,
-			'-medium': size === OUTLINE_ITEM_SIZES.MEDIUM,
-			'-selected': isSelected,
-			'-hoverable': !isSelected || isSelectedInteractive,
-			'-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
-		}"
-	>
-		<div class="outlineItem__content">
-			<span
-				v-if="index !== null"
-				class="outlineItem__index"
-				:class="{ '-active': isSelected }"
-			>
-				{{ index }}.
-			</span>
-			<ds-icon
-				v-if="iconLeft"
-				class="outlineItem__icon"
-				:class="{
-					'-active': isSelected && hasSelectedIconsColorPrimary,
-				}"
-				:icon="iconLeft"
-				:size="ICON_SIZES.X_SMALL"
-			/>
-			<span class="outlineItem__text">
-				<span class="outlineItem__label" :class="{ '-uppercase': isLabelUppercase }">
-					{{ label }}
+	<ds-ripple :disable="isSelected && !isSelectedInteractive">
+		<div
+			class="outlineItem"
+			:class="{
+				'-disabled': isDisabled,
+				'-medium': size === OUTLINE_ITEM_SIZES.MEDIUM,
+				'-selected': isSelected,
+				'-hoverable': !isSelected || isSelectedInteractive,
+				'-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
+			}"
+		>
+			<div class="outlineItem__content">
+				<span
+					v-if="index !== null"
+					class="outlineItem__index"
+					:class="{ '-active': isSelected }"
+				>
+					{{ index }}.
 				</span>
-				<span v-if="additionalText" class="outlineItem__additionalText">
-					{{ additionalText }}
+				<ds-icon
+					v-if="iconLeft"
+					class="outlineItem__icon"
+					:class="{
+						'-active': isSelected && hasSelectedIconsColorPrimary,
+					}"
+					:icon="iconLeft"
+					:size="ICON_SIZES.X_SMALL"
+				/>
+				<span class="outlineItem__text">
+					<span class="outlineItem__label" :class="{ '-uppercase': isLabelUppercase }">
+						{{ label }}
+					</span>
+					<span v-if="additionalText" class="outlineItem__additionalText">
+						{{ additionalText }}
+					</span>
 				</span>
-			</span>
+			</div>
+			<div class="outlineItem__rightContent">
+				<template v-if="$slots.default">
+					<slot />
+				</template>
+				<ds-icon
+					v-if="isDone"
+					class="outlineItem__icon -active"
+					:icon="ICONS.FA_CHECK_SOLID"
+					:size="ICON_SIZES.X_SMALL"
+				/>
+				<ds-icon
+					v-else-if="iconRight"
+					class="outlineItem__icon"
+					:class="{
+						'-active': isSelected && hasSelectedIconsColorPrimary,
+					}"
+					:icon="iconRight"
+					:size="ICON_SIZES.X_SMALL"
+					:rotation="iconRightRotation"
+				></ds-icon>
+			</div>
 		</div>
-		<div class="outlineItem__rightContent">
-			<template v-if="$slots.default">
-				<slot />
-			</template>
-			<ds-icon
-				v-if="isDone"
-				class="outlineItem__icon -active"
-				:icon="ICONS.FA_CHECK_SOLID"
-				:size="ICON_SIZES.X_SMALL"
-			/>
-			<ds-icon
-				v-else-if="iconRight"
-				class="outlineItem__icon"
-				:class="{
-					'-active': isSelected && hasSelectedIconsColorPrimary,
-				}"
-				:icon="iconRight"
-				:size="ICON_SIZES.X_SMALL"
-				:rotation="iconRightRotation"
-			></ds-icon>
-		</div>
-	</div>
+	</ds-ripple>
 </template>
 
 <style scoped lang="scss">
@@ -201,15 +202,12 @@ import {
 	OUTLINE_ITEM_SIZES,
 	OUTLINE_ITEM_STATES,
 } from './OutlineItem.consts';
-import Ripple from 'vue-ripple-directive';
-
+import DsRipple from '../../Ripple';
 export default {
 	name: 'OutlineItem',
 	components: {
 		DsIcon,
-	},
-	directives: {
-		ripple: Ripple,
+		DsRipple,
 	},
 	props: {
 		size: {
