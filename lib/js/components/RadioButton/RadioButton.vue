@@ -175,12 +175,41 @@ $radio-button-colors: (
 						transform: scale(1);
 						// see https://cubic-bezier.com/#.23,1,.32,1
 						transition: all $default-transition-time cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+					}
+				}
+
+				&:hover {
+					#{$root}__icon::before {
 						background-color: $color-neutral-background-ghost-hovered;
 					}
 
 					&.-selected {
 						#{$root}__icon::before {
 							background-color: $color-primary-background-ghost-hovered;
+						}
+					}
+				}
+
+				&:focus {
+					#{$root}__icon::before {
+						background-color: $color-neutral-background-ghost-focused;
+					}
+
+					&.-selected {
+						#{$root}__icon::before {
+							background-color: $color-primary-background-ghost-focused;
+						}
+					}
+				}
+
+				&:active {
+					#{$root}__icon::before {
+						background-color: $color-neutral-background-ghost-pressed;
+					}
+
+					&.-selected {
+						#{$root}__icon::before {
+							background-color: $color-primary-background-ghost-pressed;
 						}
 					}
 				}
