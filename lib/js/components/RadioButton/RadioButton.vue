@@ -149,9 +149,7 @@ $radio-button-colors: (
 					}
 				}
 			}
-		}
-
-		@else {
+		} @else {
 			&.-#{$name} {
 				pointer-events: none;
 			}
@@ -189,7 +187,7 @@ $radio-button-colors: (
 	}
 
 	align-items: flex-start;
-	display: flex;
+	display: inline-flex;
 
 	&__iconWrapper {
 		display: flex;
