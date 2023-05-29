@@ -113,59 +113,30 @@ $radio-button-colors: (
 .radioButton {
 	$root: &;
 
-	display: flex;
-	align-items: flex-start;
-
-	&__iconWrapper {
-		display: flex;
-	}
-
-	&__icon {
-		position: relative;
-	}
-
-	&__label {
-		flex: 1;
-		align-self: center;
-	}
-
 	@each $name, $map in $radio-button-colors {
-		&.-#{$name} {
-			$colors: map-get($map, 'not-selected');
-
-			#{$root}__label {
-				color: map-get(map-get($colors, 'label'), 'color');
-			}
-
-			#{$root}__icon {
-				color: map-get(map-get($colors, 'icon'), 'color');
-			}
-		}
-
-		&.-selected.-#{$name} {
-			$colors: map-get($map, 'selected');
-
-			#{$root}__label {
-				color: map-get(map-get($colors, 'label'), 'color');
-			}
-
-			#{$root}__icon {
-				color: map-get(map-get($colors, 'icon'), 'color');
-			}
-		}
-
 		@if map-get($map, 'hoverable') {
 			&.-#{$name} {
+				@each $size, $map in $radio-button-sizes {
+					&.-#{$size} {
+						#{$root}__icon::before {
+							bottom: -#{map-get(map-get($map, 'icon'), 'border')};
+							left: -#{map-get(map-get($map, 'icon'), 'border')};
+							right: -#{map-get(map-get($map, 'icon'), 'border')};
+							top: -#{map-get(map-get($map, 'icon'), 'border')};
+						}
+					}
+				}
+
 				cursor: pointer;
 
 				#{$root}__icon::before {
-					content: '';
-					position: absolute;
 					background-color: transparent;
 					border-radius: 50%;
-					z-index: -1;
+					content: '';
+					position: absolute;
 					transform: scale(0);
 					transition: all $default-transition-time ease 0ms;
+					z-index: -1;
 				}
 
 				&:hover,
@@ -213,23 +184,60 @@ $radio-button-colors: (
 						}
 					}
 				}
-
-				@each $size, $map in $radio-button-sizes {
-					&.-#{$size} {
-						#{$root}__icon::before {
-							top: -#{map-get(map-get($map, 'icon'), 'border')};
-							bottom: -#{map-get(map-get($map, 'icon'), 'border')};
-							left: -#{map-get(map-get($map, 'icon'), 'border')};
-							right: -#{map-get(map-get($map, 'icon'), 'border')};
-						}
-					}
-				}
 			}
-		} @else {
+		}
+
+		@else {
 			&.-#{$name} {
 				pointer-events: none;
 			}
 		}
+
+		&.-#{$name} {
+			$colors: map-get($map, 'not-selected');
+
+			#{$root}__label {
+				color: map-get(map-get($colors, 'label'), 'color');
+			}
+
+			#{$root}__icon {
+				color: map-get(map-get($colors, 'icon'), 'color');
+			}
+		}
+
+		&.-selected.-#{$name} {
+			$colors: map-get($map, 'selected');
+
+			#{$root}__label {
+				color: map-get(map-get($colors, 'label'), 'color');
+			}
+
+			#{$root}__icon {
+				color: map-get(map-get($colors, 'icon'), 'color');
+			}
+		}
+	}
+
+	@each $size, $map in $radio-button-sizes {
+		&.-#{$size} {
+			column-gap: map-get(map-get($map, 'iconWrapper'), 'margin');
+		}
+	}
+
+	align-items: flex-start;
+	display: flex;
+
+	&__iconWrapper {
+		display: flex;
+	}
+
+	&__icon {
+		position: relative;
+	}
+
+	&__label {
+		align-self: center;
+		flex: 1;
 	}
 
 	&.-x-small {
@@ -251,12 +259,6 @@ $radio-button-colors: (
 	&.-medium {
 		#{$root}__label {
 			@include formLabel-l-default-regular;
-		}
-	}
-
-	@each $size, $map in $radio-button-sizes {
-		&.-#{$size} {
-			column-gap: map-get(map-get($map, 'iconWrapper'), 'margin');
 		}
 	}
 }
