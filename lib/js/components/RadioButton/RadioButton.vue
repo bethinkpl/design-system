@@ -10,7 +10,7 @@
 				'-loading': state === RADIO_BUTTON_STATE.LOADING,
 			},
 		]"
-		@click="$emit('toggle', !isSelected)"
+		@click="onToggle"
 	>
 		<div class="radioButton__iconWrapper">
 			<icon :icon="icon" :size="iconSize" class="radioButton__icon" />
@@ -149,10 +149,6 @@ $radio-button-colors: (
 					}
 				}
 			}
-		} @else {
-			&.-#{$name} {
-				pointer-events: none;
-			}
 		}
 
 		&.-#{$name} {
@@ -285,6 +281,18 @@ export default {
 			}
 
 			return ICON_SIZES.SMALL;
+		},
+	},
+	methods: {
+		onToggle() {
+			if (
+				this.state === RADIO_BUTTON_STATE.DISABLED ||
+				this.state === RADIO_BUTTON_STATE.LOADING
+			) {
+				return;
+			}
+
+			this.$emit('toggle', !this.isSelected);
 		},
 	},
 };

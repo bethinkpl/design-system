@@ -10,7 +10,7 @@
 				'-loading': state === CHECKBOX_STATE.LOADING,
 			},
 		]"
-		@click="$emit('toggle', !isSelected)"
+		@click="onToggle"
 	>
 		<div class="checkbox__iconWrapper">
 			<icon :icon="icon" :size="iconSize" class="checkbox__icon" />
@@ -149,10 +149,6 @@ $radio-button-colors: (
 					}
 				}
 			}
-		} @else {
-			&.-#{$name} {
-				pointer-events: none;
-			}
 		}
 
 		&.-#{$name} {
@@ -280,6 +276,15 @@ export default {
 			}
 
 			return ICON_SIZES.SMALL;
+		},
+	},
+	methods: {
+		onToggle() {
+			if (this.state === CHECKBOX_STATE.DISABLED || this.state === CHECKBOX_STATE.LOADING) {
+				return;
+			}
+
+			this.$emit('toggle', !this.isSelected);
 		},
 	},
 };
