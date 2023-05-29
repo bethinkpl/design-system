@@ -36,7 +36,7 @@ $radio-button-sizes: (
 	),
 	'small': (
 		'iconWrapper': (
-			'margin': $space-xxxs,
+			'margin': $space-xxs,
 		),
 		'icon': (
 			'border': $space-xxxs,
@@ -44,7 +44,7 @@ $radio-button-sizes: (
 	),
 	'medium': (
 		'iconWrapper': (
-			'margin': $space-xxxxs,
+			'margin': $space-xxs,
 		),
 		'icon': (
 			'border': $space-xxs,
@@ -185,9 +185,7 @@ $radio-button-colors: (
 					}
 				}
 			}
-		}
-
-		@else {
+		} @else {
 			&.-#{$name} {
 				pointer-events: none;
 			}
