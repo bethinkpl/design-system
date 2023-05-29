@@ -489,7 +489,7 @@ export default {
 		},
 		labelSize: {
 			type: String as PropType<ToggleButtonLabelSize>,
-			default: TOGGLE_BUTTON_SIZES.SMALL,
+			default: TOGGLE_BUTTON_SIZES.MEDIUM,
 		},
 		radius: {
 			type: String as PropType<ToggleButtonRadius>,

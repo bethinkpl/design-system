@@ -52,7 +52,7 @@ const args = {
 	radius: TOGGLE_BUTTON_RADIUSES.CAPSULE,
 	label: '1',
 	isLabelUppercase: false,
-	labelSize: TOGGLE_BUTTON_LABEL_SIZES.SMALL,
+	labelSize: TOGGLE_BUTTON_LABEL_SIZES.MEDIUM,
 	isInteractive: true,
 	iconLeft: null,
 	iconRight: null,
@@ -74,7 +74,7 @@ const argTypes = {
 	},
 	labelSize: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_LABEL_SIZES) },
-		defaultValue: TOGGLE_BUTTON_LABEL_SIZES.SMALL,
+		defaultValue: TOGGLE_BUTTON_LABEL_SIZES.MEDIUM,
 	},
 	state: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_STATES) },
