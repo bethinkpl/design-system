@@ -3,9 +3,7 @@ declare const _default: {
     name: string;
     components: {
         DsIcon: typeof DsIcon;
-    };
-    directives: {
-        ripple: DirectiveFunction;
+        DsRipple: typeof DsIcon;
     };
     props: {
         size: {
