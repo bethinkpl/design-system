@@ -150,8 +150,8 @@ $toggle-button-colors: (
 	'neutralStrong': (
 		'color': $color-neutral-text,
 		'border': $color-neutral-border-strong,
-		'border-hovered': $color-neutral-border-strong,
-		'border-focused': $color-neutral-border-strong,
+		'border-hovered': $color-neutral-border-strong-hovered,
+		'border-focused': $color-neutral-border-strong-focused,
 		'background': $color-neutral-background-ghost,
 		'background-hovered': $color-neutral-background-ghost-hovered,
 		'background-focused': $color-neutral-background-ghost-focused,
