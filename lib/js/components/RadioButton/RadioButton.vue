@@ -149,7 +149,9 @@ $radio-button-colors: (
 					}
 				}
 			}
-		} @else {
+		}
+
+		@else {
 			&.-#{$name} {
 				pointer-events: none;
 			}
