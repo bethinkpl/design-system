@@ -27,85 +27,49 @@
 
 $radio-button-sizes: (
 	'x-small': (
-		'iconWrapper': (
-			'margin': $space-xxxxs,
-		),
-		'icon': (
-			'border': $space-xxxs,
-		),
+		'iconWrapperMargin': $space-xxxxs,
+		'iconBorder': $space-xxxs,
 	),
 	'small': (
-		'iconWrapper': (
-			'margin': $space-xxs,
-		),
-		'icon': (
-			'border': $space-xxxs,
-		),
+		'iconWrapperMargin': $space-xxs,
+		'iconBorder': $space-xxxs,
 	),
 	'medium': (
-		'iconWrapper': (
-			'margin': $space-xxs,
-		),
-		'icon': (
-			'border': $space-xxs,
-		),
+		'iconWrapperMargin': $space-xxs,
+		'iconBorder': $space-xxs,
 	),
 );
 
 $radio-button-colors: (
 	'default': (
 		'not-selected': (
-			'label': (
-				'color': $color-neutral-text-heavy,
-			),
-			'icon': (
-				'color': $color-neutral-icon,
-			),
+			'label': $color-neutral-text-heavy,
+			'icon': $color-neutral-icon,
 		),
 		'selected': (
-			'label': (
-				'color': $color-neutral-text-heavy,
-			),
-			'icon': (
-				'color': $color-primary-icon,
-			),
+			'label': $color-neutral-text-heavy,
+			'icon': $color-primary-icon,
 		),
 		'hoverable': true,
 	),
 	'disabled': (
 		'not-selected': (
-			'label': (
-				'color': $color-neutral-text-heavy-disabled,
-			),
-			'icon': (
-				'color': $color-neutral-icon-disabled,
-			),
+			'label': $color-neutral-text-heavy-disabled,
+			'icon': $color-neutral-icon-disabled,
 		),
 		'selected': (
-			'label': (
-				'color': $color-neutral-text-heavy-disabled,
-			),
-			'icon': (
-				'color': $color-primary-icon-disabled,
-			),
+			'label': $color-neutral-text-heavy-disabled,
+			'icon': $color-primary-icon-disabled,
 		),
 	),
 	'loading': (
 		'not-selected': (
-			'label': (
-				'color': $color-neutral-text-heavy-disabled,
-			),
-			'icon': (
-				'color': $color-neutral-icon-disabled,
-			),
+			'label': $color-neutral-text-heavy-disabled,
+			'icon': $color-neutral-icon-disabled,
 		),
 		'selected': (
-			'label': (
-				'color': $color-neutral-text-heavy-disabled,
-			),
-			'icon': (
-				'color': $color-primary-icon-disabled,
-			),
+			'label': $color-neutral-text-heavy-disabled,
+			'icon': $color-primary-icon-disabled,
 		),
 	),
 );
@@ -119,10 +83,10 @@ $radio-button-colors: (
 				@each $size, $map in $radio-button-sizes {
 					&.-#{$size} {
 						#{$root}__icon::before {
-							bottom: -#{map-get(map-get($map, 'icon'), 'border')};
-							left: -#{map-get(map-get($map, 'icon'), 'border')};
-							right: -#{map-get(map-get($map, 'icon'), 'border')};
-							top: -#{map-get(map-get($map, 'icon'), 'border')};
+							bottom: -#{map-get($map, 'iconBorder')};
+							left: -#{map-get($map, 'iconBorder')};
+							right: -#{map-get($map, 'iconBorder')};
+							top: -#{map-get($map, 'iconBorder')};
 						}
 					}
 				}
@@ -195,11 +159,11 @@ $radio-button-colors: (
 			$colors: map-get($map, 'not-selected');
 
 			#{$root}__label {
-				color: map-get(map-get($colors, 'label'), 'color');
+				color: map-get($colors, 'label');
 			}
 
 			#{$root}__icon {
-				color: map-get(map-get($colors, 'icon'), 'color');
+				color: map-get($colors, 'icon');
 			}
 		}
 
@@ -207,18 +171,18 @@ $radio-button-colors: (
 			$colors: map-get($map, 'selected');
 
 			#{$root}__label {
-				color: map-get(map-get($colors, 'label'), 'color');
+				color: map-get($colors, 'label');
 			}
 
 			#{$root}__icon {
-				color: map-get(map-get($colors, 'icon'), 'color');
+				color: map-get($colors, 'icon');
 			}
 		}
 	}
 
 	@each $size, $map in $radio-button-sizes {
 		&.-#{$size} {
-			column-gap: map-get(map-get($map, 'iconWrapper'), 'margin');
+			column-gap: map-get($map, 'iconWrapperMargin');
 		}
 	}
 
