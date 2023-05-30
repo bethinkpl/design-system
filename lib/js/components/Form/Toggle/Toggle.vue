@@ -15,7 +15,9 @@
 		<div class="toggle__iconWrapper">
 			<icon :icon="icon" :size="iconSize" class="toggle__icon" />
 		</div>
-		<div v-if="label" class="toggle__label">{{ label }}</div>
+		<div v-if="label" class="toggle__labelWrapper">
+			<div class="toggle__label">{{ label }}</div>
+		</div>
 	</div>
 </template>
 
@@ -27,15 +29,21 @@
 
 $toggle-sizes: (
 	'x-small': (
-		'iconWrapperMargin': $space-xxxxs,
+		'gap': $space-xxxxs,
+		'iconWrapperPadding': $space-xxxs,
+		'labelWrapperPadding': $space-xxxxs,
 		'iconBorder': $space-xxxs,
 	),
 	'small': (
-		'iconWrapperMargin': $space-xxs,
+		'gap': $space-xxs,
+		'iconWrapperPadding': $space-xxxs,
+		'labelWrapperPadding': $space-xxxs,
 		'iconBorder': $space-xxxs,
 	),
 	'medium': (
-		'iconWrapperMargin': $space-xxs,
+		'gap': $space-xxs,
+		'iconWrapperPadding': $space-xxs,
+		'labelWrapperPadding': $space-xxs,
 		'iconBorder': $space-xxs,
 	),
 );
@@ -178,7 +186,15 @@ $toggle-colors: (
 
 	@each $size, $map in $toggle-sizes {
 		&.-#{$size} {
-			column-gap: map-get($map, 'iconWrapperMargin');
+			column-gap: map-get($map, 'gap');
+
+			#{$root}__iconWrapper {
+				padding: map-get($map, 'iconWrapperPadding') 0;
+			}
+
+			#{$root}__labelWrapper {
+				padding: map-get($map, 'labelWrapperPadding') 0;
+			}
 		}
 	}
 
@@ -189,22 +205,17 @@ $toggle-colors: (
 		display: flex;
 	}
 
-	&__icon {
-		position: relative;
+	&__labelWrapper {
+		display: flex;
 	}
 
-	&__label {
-		align-self: center;
-		flex: 1;
+	&__icon {
+		position: relative;
 	}
 
 	&.-x-small {
 		#{$root}__label {
 			@include formLabel-s-default-regular;
-		}
-
-		#{$root}__iconWrapper {
-			padding: $space-xxxxxs;
 		}
 	}
 
