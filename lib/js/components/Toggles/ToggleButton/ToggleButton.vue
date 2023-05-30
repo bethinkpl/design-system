@@ -346,7 +346,7 @@ $toggle-button-colors: (
 		white-space: nowrap;
 
 		&.-uppercase {
-			@include label-l-extensive-bold-uppercase;
+			@include label-l-default-bold-uppercase;
 		}
 	}
 
@@ -378,7 +378,7 @@ $toggle-button-colors: (
 			@include label-s-default-bold;
 
 			&.-uppercase {
-				@include label-s-extensive-bold-uppercase;
+				@include label-s-default-bold-uppercase;
 			}
 		}
 	}
@@ -397,7 +397,7 @@ $toggle-button-colors: (
 			@include label-m-default-bold;
 
 			&.-uppercase {
-				@include label-m-extensive-bold-uppercase;
+				@include label-m-default-bold-uppercase;
 			}
 		}
 	}
