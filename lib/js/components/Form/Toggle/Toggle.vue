@@ -1,31 +1,31 @@
 <template>
 	<div
-		class="checkbox"
+		class="toggle"
 		:class="[
 			`-${size}`,
 			{
 				'-selected': isSelected,
-				'-default': state === CHECKBOX_STATE.DEFAULT,
-				'-disabled': state === CHECKBOX_STATE.DISABLED,
-				'-loading': state === CHECKBOX_STATE.LOADING,
+				'-default': state === TOGGLE_STATE.DEFAULT,
+				'-disabled': state === TOGGLE_STATE.DISABLED,
+				'-loading': state === TOGGLE_STATE.LOADING,
 			},
 		]"
 		@click="onToggle"
 	>
-		<div class="checkbox__iconWrapper">
-			<icon :icon="icon" :size="iconSize" class="checkbox__icon" />
+		<div class="toggle__iconWrapper">
+			<icon :icon="icon" :size="iconSize" class="toggle__icon" />
 		</div>
-		<div v-if="label" class="checkbox__label">{{ label }}</div>
+		<div v-if="label" class="toggle__label">{{ label }}</div>
 	</div>
 </template>
 
 <style scoped lang="scss">
-@import '../../../styles/settings/animations';
-@import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/spacings';
-@import '../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/animations';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/typography/tokens';
 
-$radio-button-sizes: (
+$toggle-sizes: (
 	'x-small': (
 		'iconWrapperMargin': $space-xxxxs,
 		'iconBorder': $space-xxxs,
@@ -40,7 +40,7 @@ $radio-button-sizes: (
 	),
 );
 
-$radio-button-colors: (
+$toggle-colors: (
 	'default': (
 		'not-selected': (
 			'label': $color-neutral-text-heavy,
@@ -74,13 +74,13 @@ $radio-button-colors: (
 	),
 );
 
-.checkbox {
+.toggle {
 	$root: &;
 
-	@each $name, $map in $radio-button-colors {
+	@each $name, $map in $toggle-colors {
 		@if map-get($map, 'hoverable') {
 			&.-#{$name} {
-				@each $size, $map in $radio-button-sizes {
+				@each $size, $map in $toggle-sizes {
 					&.-#{$size} {
 						#{$root}__icon::before {
 							bottom: -#{map-get($map, 'iconBorder')};
@@ -176,7 +176,7 @@ $radio-button-colors: (
 		}
 	}
 
-	@each $size, $map in $radio-button-sizes {
+	@each $size, $map in $toggle-sizes {
 		&.-#{$size} {
 			column-gap: map-get($map, 'iconWrapperMargin');
 		}
@@ -223,20 +223,20 @@ $radio-button-colors: (
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
-import { CHECKBOX_SIZE, CHECKBOX_STATE, CheckboxSize, CheckboxState } from './Checkbox.consts';
-import Icon from '../Icons/Icon/Icon.vue';
-import { ICON_SIZES, ICONS } from '../Icons/Icon';
+import { PropType, toRaw } from 'vue';
+import { TOGGLE_SIZE, TOGGLE_STATE, ToggleSize, ToggleState } from './Toggle.consts';
+import Icon from '../../Icons/Icon/Icon.vue';
+import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
 export default {
-	name: 'Checkbox',
+	name: 'Toggle',
 	components: { Icon },
 	props: {
 		size: {
-			type: String as PropType<CheckboxSize>,
-			default: CHECKBOX_SIZE.SMALL,
+			type: String as PropType<ToggleSize>,
+			default: TOGGLE_SIZE.SMALL,
 			validator(size) {
-				return Object.values(CHECKBOX_SIZE).includes(size);
+				return Object.values(TOGGLE_SIZE).includes(size);
 			},
 		},
 		label: {
@@ -248,30 +248,44 @@ export default {
 			default: false,
 		},
 		state: {
-			type: String as PropType<CheckboxState>,
-			default: CHECKBOX_STATE.DEFAULT,
+			type: String as PropType<ToggleState>,
+			default: TOGGLE_STATE.DEFAULT,
 			validator(state) {
-				return Object.values(CHECKBOX_STATE).includes(state);
+				return Object.values(TOGGLE_STATE).includes(state);
+			},
+		},
+		selectedIcon: {
+			type: Object,
+			required: true,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
+			},
+		},
+		notSelectedIcon: {
+			type: Object,
+			required: true,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 	},
 	emits: ['toggle'],
 	data() {
 		return {
-			CHECKBOX_SIZE: Object.freeze(CHECKBOX_SIZE),
-			CHECKBOX_STATE: Object.freeze(CHECKBOX_STATE),
+			TOGGLE_SIZE: Object.freeze(TOGGLE_SIZE),
+			TOGGLE_STATE: Object.freeze(TOGGLE_STATE),
 		};
 	},
 	computed: {
 		icon() {
-			return this.isSelected ? ICONS.FA_SQUARE_CHECK_SOLID : ICONS.FA_SQUARE;
+			return this.isSelected ? this.selectedIcon : this.notSelectedIcon;
 		},
 		iconSize() {
-			if (this.size === CHECKBOX_SIZE.X_SMALL) {
+			if (this.size === TOGGLE_SIZE.X_SMALL) {
 				return ICON_SIZES.XX_SMALL;
 			}
 
-			if (this.size === CHECKBOX_SIZE.SMALL) {
+			if (this.size === TOGGLE_SIZE.SMALL) {
 				return ICON_SIZES.X_SMALL;
 			}
 
@@ -280,7 +294,7 @@ export default {
 	},
 	methods: {
 		onToggle() {
-			if (this.state === CHECKBOX_STATE.DISABLED || this.state === CHECKBOX_STATE.LOADING) {
+			if (this.state === TOGGLE_STATE.DISABLED || this.state === TOGGLE_STATE.LOADING) {
 				return;
 			}
 

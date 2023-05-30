@@ -1,10 +1,11 @@
 import RadioButton from './RadioButton.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Meta, StoryFn } from '@storybook/vue3';
+import { args, argTypes, template } from '../Toggle/Toggle.sb.shared';
 import { RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE } from './RadioButton.consts';
 
 export default {
-	title: 'Components/RadioButton',
+	title: 'Components/Form/RadioButton',
 	component: RadioButton,
 } as Meta<typeof RadioButton>;
 
@@ -20,29 +21,14 @@ const StoryTemplate: StoryFn<typeof RadioButton> = (args, { updateArgs }) => ({
 			});
 		},
 	},
-	template: `
-		<RadioButton v-bind=args @toggle="onIsSelectedUpdated"/>`,
+	template: template('radio-button'),
 });
 
 export const Interactive = StoryTemplate.bind({});
 
-Interactive.argTypes = {
-	size: {
-		control: { type: 'select', options: Object.values(RADIO_BUTTON_SIZE) },
-		defaultValue: RADIO_BUTTON_SIZE.SMALL,
-	},
-	label: { control: { type: 'text' } },
-	isSelected: { control: { type: 'boolean' } },
-	state: {
-		control: { type: 'select', options: Object.values(RADIO_BUTTON_STATE) },
-		defaultValue: RADIO_BUTTON_STATE.DEFAULT,
-	},
-} as ArgTypes;
+Interactive.argTypes = argTypes(RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE);
 
-Interactive.args = {
-	label: 'Example label',
-	isSelected: false,
-} as Args;
+Interactive.args = args;
 
 Interactive.parameters = {
 	actions: {

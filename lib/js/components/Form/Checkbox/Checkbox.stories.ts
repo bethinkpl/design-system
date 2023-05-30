@@ -1,10 +1,11 @@
 import Checkbox from './Checkbox.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Meta, StoryFn } from '@storybook/vue3';
+import { args, argTypes, template } from '../Toggle/Toggle.sb.shared';
 import { CHECKBOX_SIZE, CHECKBOX_STATE } from './Checkbox.consts';
 
 export default {
-	title: 'Components/Checkbox',
+	title: 'Components/Form/Checkbox',
 	component: Checkbox,
 } as Meta<typeof Checkbox>;
 
@@ -20,29 +21,14 @@ const StoryTemplate: StoryFn<typeof Checkbox> = (args, { updateArgs }) => ({
 			});
 		},
 	},
-	template: `
-		<Checkbox v-bind=args @toggle="onIsSelectedUpdated"/>`,
+	template: template('checkbox'),
 });
 
 export const Interactive = StoryTemplate.bind({});
 
-Interactive.argTypes = {
-	size: {
-		control: { type: 'select', options: Object.values(CHECKBOX_SIZE) },
-		defaultValue: CHECKBOX_SIZE.SMALL,
-	},
-	label: { control: { type: 'text' } },
-	isSelected: { control: { type: 'boolean' } },
-	state: {
-		control: { type: 'select', options: Object.values(CHECKBOX_STATE) },
-		defaultValue: CHECKBOX_STATE.DEFAULT,
-	},
-} as ArgTypes;
+Interactive.argTypes = argTypes(CHECKBOX_SIZE, CHECKBOX_STATE);
 
-Interactive.args = {
-	label: 'Example label',
-	isSelected: false,
-} as Args;
+Interactive.args = args;
 
 Interactive.parameters = {
 	actions: {
