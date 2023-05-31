@@ -1,7 +1,7 @@
 import Checkbox from './Checkbox.vue';
 
 import { Meta, StoryFn } from '@storybook/vue3';
-import { args, argTypes, template } from '../Toggle/Toggle.sb.shared';
+import { args, argTypes, template } from '../SelectionControl/SelectionControl.sb.shared';
 import { CHECKBOX_SIZE, CHECKBOX_STATE } from './Checkbox.consts';
 
 export default {

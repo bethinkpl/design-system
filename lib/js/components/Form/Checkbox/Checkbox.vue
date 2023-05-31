@@ -1,24 +1,24 @@
 <template>
-	<toggle
+	<selection-control
 		:size="size"
 		:label="label"
 		:is-selected="isSelected"
 		:selected-icon="ICONS.FA_SQUARE_CHECK_SOLID"
 		:not-selected-icon="ICONS.FA_SQUARE"
 		:state="state"
-		@toggle="$emit('toggle', $event)"
+		@update:isSelected="$emit('update:isSelected', $event)"
 	/>
 </template>
 
 <script lang="ts">
 import { PropType } from 'vue';
 import { CHECKBOX_SIZE, CHECKBOX_STATE, CheckboxSize, CheckboxState } from './Checkbox.consts';
-import Toggle from '../Toggle/Toggle.vue';
+import SelectionControl from '../SelectionControl/SelectionControl.vue';
 import { ICONS } from '../../Icons/Icon';
 
 export default {
 	name: 'Checkbox',
-	components: { Toggle },
+	components: { SelectionControl },
 	props: {
 		size: {
 			type: String as PropType<CheckboxSize>,
@@ -43,7 +43,7 @@ export default {
 			},
 		},
 	},
-	emits: ['toggle'],
+	emits: ['update:isSelected'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

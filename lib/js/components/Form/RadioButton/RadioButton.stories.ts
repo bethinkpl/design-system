@@ -1,7 +1,7 @@
 import RadioButton from './RadioButton.vue';
 
 import { Meta, StoryFn } from '@storybook/vue3';
-import { args, argTypes, template } from '../Toggle/Toggle.sb.shared';
+import { args, argTypes, template } from '../SelectionControl/SelectionControl.sb.shared';
 import { RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE } from './RadioButton.consts';
 
 export default {

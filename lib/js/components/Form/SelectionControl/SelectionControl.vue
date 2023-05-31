@@ -1,22 +1,22 @@
 <template>
 	<div
-		class="toggle"
+		class="selectionControl"
 		:class="[
 			`-${size}`,
 			{
 				'-selected': isSelected,
-				'-default': state === TOGGLE_STATE.DEFAULT,
-				'-disabled': state === TOGGLE_STATE.DISABLED,
-				'-loading': state === TOGGLE_STATE.LOADING,
+				'-default': state === SELECTION_CONTROL_STATE.DEFAULT,
+				'-disabled': state === SELECTION_CONTROL_STATE.DISABLED,
+				'-loading': state === SELECTION_CONTROL_STATE.LOADING,
 			},
 		]"
 		@click="onToggle"
 	>
-		<div class="toggle__iconWrapper">
-			<icon :icon="icon" :size="iconSize" class="toggle__icon" />
+		<div class="selectionControl__iconWrapper">
+			<icon :icon="icon" :size="iconSize" class="selectionControl__icon" />
 		</div>
-		<div v-if="label" class="toggle__labelWrapper">
-			<div class="toggle__label">{{ label }}</div>
+		<div v-if="label" class="selectionControl__labelWrapper">
+			<div class="selectionControl__label">{{ label }}</div>
 		</div>
 	</div>
 </template>
@@ -27,7 +27,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography/tokens';
 
-$toggle-sizes: (
+$selection-control-sizes: (
 	'x-small': (
 		'gap': $space-xxxxs,
 		'iconWrapperPadding': $space-xxxs,
@@ -48,7 +48,7 @@ $toggle-sizes: (
 	),
 );
 
-$toggle-colors: (
+$selection-control-colors: (
 	'default': (
 		'not-selected': (
 			'label': $color-neutral-text-heavy,
@@ -82,13 +82,13 @@ $toggle-colors: (
 	),
 );
 
-.toggle {
+.selectionControl {
 	$root: &;
 
-	@each $name, $map in $toggle-colors {
+	@each $name, $map in $selection-control-colors {
 		@if map-get($map, 'hoverable') {
 			&.-#{$name} {
-				@each $size, $map in $toggle-sizes {
+				@each $size, $map in $selection-control-sizes {
 					&.-#{$size} {
 						#{$root}__icon::before {
 							bottom: -#{map-get($map, 'iconBorder')};
@@ -184,7 +184,7 @@ $toggle-colors: (
 		}
 	}
 
-	@each $size, $map in $toggle-sizes {
+	@each $size, $map in $selection-control-sizes {
 		&.-#{$size} {
 			column-gap: map-get($map, 'gap');
 
@@ -235,19 +235,24 @@ $toggle-colors: (
 
 <script lang="ts">
 import { PropType, toRaw } from 'vue';
-import { TOGGLE_SIZE, TOGGLE_STATE, ToggleSize, ToggleState } from './Toggle.consts';
+import {
+	SELECTION_CONTROL_SIZE,
+	SELECTION_CONTROL_STATE,
+	SelectionControlSize,
+	SelectionControlState,
+} from './SelectionControl.consts';
 import Icon from '../../Icons/Icon/Icon.vue';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
 export default {
-	name: 'Toggle',
+	name: 'SelectionControl',
 	components: { Icon },
 	props: {
 		size: {
-			type: String as PropType<ToggleSize>,
-			default: TOGGLE_SIZE.SMALL,
+			type: String as PropType<SelectionControlSize>,
+			default: SELECTION_CONTROL_SIZE.SMALL,
 			validator(size) {
-				return Object.values(TOGGLE_SIZE).includes(size);
+				return Object.values(SELECTION_CONTROL_SIZE).includes(size);
 			},
 		},
 		label: {
@@ -259,10 +264,10 @@ export default {
 			default: false,
 		},
 		state: {
-			type: String as PropType<ToggleState>,
-			default: TOGGLE_STATE.DEFAULT,
+			type: String as PropType<SelectionControlState>,
+			default: SELECTION_CONTROL_STATE.DEFAULT,
 			validator(state) {
-				return Object.values(TOGGLE_STATE).includes(state);
+				return Object.values(SELECTION_CONTROL_STATE).includes(state);
 			},
 		},
 		selectedIcon: {
@@ -280,11 +285,10 @@ export default {
 			},
 		},
 	},
-	emits: ['toggle'],
+	emits: ['update:isSelected'],
 	data() {
 		return {
-			TOGGLE_SIZE: Object.freeze(TOGGLE_SIZE),
-			TOGGLE_STATE: Object.freeze(TOGGLE_STATE),
+			SELECTION_CONTROL_STATE: Object.freeze(SELECTION_CONTROL_STATE),
 		};
 	},
 	computed: {
@@ -292,11 +296,11 @@ export default {
 			return this.isSelected ? this.selectedIcon : this.notSelectedIcon;
 		},
 		iconSize() {
-			if (this.size === TOGGLE_SIZE.X_SMALL) {
+			if (this.size === SELECTION_CONTROL_SIZE.X_SMALL) {
 				return ICON_SIZES.XX_SMALL;
 			}
 
-			if (this.size === TOGGLE_SIZE.SMALL) {
+			if (this.size === SELECTION_CONTROL_SIZE.SMALL) {
 				return ICON_SIZES.X_SMALL;
 			}
 
@@ -305,11 +309,14 @@ export default {
 	},
 	methods: {
 		onToggle() {
-			if (this.state === TOGGLE_STATE.DISABLED || this.state === TOGGLE_STATE.LOADING) {
+			if (
+				this.state === SELECTION_CONTROL_STATE.DISABLED ||
+				this.state === SELECTION_CONTROL_STATE.LOADING
+			) {
 				return;
 			}
 
-			this.$emit('toggle', !this.isSelected);
+			this.$emit('update:isSelected', !this.isSelected);
 		},
 	},
 };

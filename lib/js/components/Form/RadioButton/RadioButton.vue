@@ -1,12 +1,12 @@
 <template>
-	<toggle
+	<selection-control
 		:size="size"
 		:label="label"
 		:is-selected="isSelected"
 		:selected-icon="ICONS.FA_DOT_CIRCLE_SOLID"
 		:not-selected-icon="ICONS.FA_CIRCLE"
 		:state="state"
-		@toggle="$emit('toggle', $event)"
+		@update:isSelected="$emit('update:isSelected', $event)"
 	/>
 </template>
 
@@ -18,12 +18,12 @@ import {
 	RadioButtonSize,
 	RadioButtonState,
 } from './RadioButton.consts';
-import Toggle from '../Toggle/Toggle.vue';
+import SelectionControl from '../SelectionControl/SelectionControl.vue';
 import { ICONS } from '../../Icons/Icon';
 
 export default {
 	name: 'RadioButton',
-	components: { Toggle },
+	components: { SelectionControl },
 	props: {
 		size: {
 			type: String as PropType<RadioButtonSize>,
@@ -48,7 +48,7 @@ export default {
 			},
 		},
 	},
-	emits: ['toggle'],
+	emits: ['update:isSelected'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
