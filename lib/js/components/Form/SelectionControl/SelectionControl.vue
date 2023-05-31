@@ -67,7 +67,6 @@ $selection-control-colors: (
 			'label': $color-neutral-text-heavy,
 			'icon': $color-primary-icon,
 		),
-		'hoverable': true,
 	),
 	'disabled': (
 		'not-selected': (
@@ -95,81 +94,6 @@ $selection-control-colors: (
 	$root: &;
 
 	@each $name, $map in $selection-control-colors {
-		@if map-get($map, 'hoverable') {
-			&.-#{$name} {
-				@each $size, $map in $selection-control-sizes {
-					&.-#{$size} {
-						#{$root}__icon::before {
-							bottom: -#{map-get($map, 'iconBorder')};
-							left: -#{map-get($map, 'iconBorder')};
-							right: -#{map-get($map, 'iconBorder')};
-							top: -#{map-get($map, 'iconBorder')};
-						}
-					}
-				}
-
-				cursor: pointer;
-
-				#{$root}__icon::before {
-					background-color: transparent;
-					border-radius: 50%;
-					content: '';
-					position: absolute;
-					transform: scale(0);
-					transition: all $default-transition-time ease 0ms;
-					z-index: -1;
-				}
-
-				&:hover,
-				&:focus,
-				&:active,
-				&.-focused {
-					#{$root}__icon::before {
-						transform: scale(1);
-						// see https://cubic-bezier.com/#.23,1,.32,1
-						transition: all $default-transition-time cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-					}
-				}
-
-				&:hover {
-					#{$root}__icon::before {
-						background-color: $color-neutral-background-ghost-hovered;
-					}
-
-					&.-selected {
-						#{$root}__icon::before {
-							background-color: $color-primary-background-ghost-hovered;
-						}
-					}
-				}
-
-				&:focus,
-				&.-focused {
-					#{$root}__icon::before {
-						background-color: $color-neutral-background-ghost-focused;
-					}
-
-					&.-selected {
-						#{$root}__icon::before {
-							background-color: $color-primary-background-ghost-focused;
-						}
-					}
-				}
-
-				&:active {
-					#{$root}__icon::before {
-						background-color: $color-neutral-background-ghost-pressed;
-					}
-
-					&.-selected {
-						#{$root}__icon::before {
-							background-color: $color-primary-background-ghost-pressed;
-						}
-					}
-				}
-			}
-		}
-
 		&.-#{$name} {
 			$colors: map-get($map, 'not-selected');
 
@@ -212,6 +136,79 @@ $selection-control-colors: (
 	align-items: center;
 	display: inline-flex;
 	position: relative;
+
+	&.-default {
+		@each $size, $map in $selection-control-sizes {
+			&.-#{$size} {
+				#{$root}__icon::before {
+					bottom: -#{map-get($map, 'iconBorder')};
+					left: -#{map-get($map, 'iconBorder')};
+					right: -#{map-get($map, 'iconBorder')};
+					top: -#{map-get($map, 'iconBorder')};
+				}
+			}
+		}
+
+		cursor: pointer;
+
+		#{$root}__icon::before {
+			background-color: transparent;
+			border-radius: 50%;
+			content: '';
+			position: absolute;
+			transform: scale(0);
+			transition: all $default-transition-time ease 0ms;
+			z-index: -1;
+		}
+
+		&:hover,
+		&:focus,
+		&:active,
+		&.-focused {
+			#{$root}__icon::before {
+				transform: scale(1);
+				// see https://cubic-bezier.com/#.23,1,.32,1
+				transition: all $default-transition-time cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+			}
+		}
+
+		&:hover {
+			#{$root}__icon::before {
+				background-color: $color-neutral-background-ghost-hovered;
+			}
+
+			&.-selected {
+				#{$root}__icon::before {
+					background-color: $color-primary-background-ghost-hovered;
+				}
+			}
+		}
+
+		&:focus,
+		&.-focused {
+			#{$root}__icon::before {
+				background-color: $color-neutral-background-ghost-focused;
+			}
+
+			&.-selected {
+				#{$root}__icon::before {
+					background-color: $color-primary-background-ghost-focused;
+				}
+			}
+		}
+
+		&:active {
+			#{$root}__icon::before {
+				background-color: $color-neutral-background-ghost-pressed;
+			}
+
+			&.-selected {
+				#{$root}__icon::before {
+					background-color: $color-primary-background-ghost-pressed;
+				}
+			}
+		}
+	}
 
 	&__iconWrapper {
 		display: flex;
