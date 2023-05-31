@@ -11756,28 +11756,30 @@ exports["default"] = CounterToggle_vue_1.default;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.TOGGLE_BUTTON_ELEVATIONS = exports.TOGGLE_BUTTON_RADIUSES = exports.TOGGLE_BUTTON_COLORS = exports.TOGGLE_BUTTON_TYPES = exports.TOGGLE_BUTTON_SIZES = void 0;
+exports.TOGGLE_BUTTON_STATES = exports.TOGGLE_BUTTON_LABEL_SIZES = exports.TOGGLE_BUTTON_RADIUSES = exports.TOGGLE_BUTTON_COLORS = exports.TOGGLE_BUTTON_SIZES = void 0;
 exports.TOGGLE_BUTTON_SIZES = {
-    X_SMALL: 'x-small',
     SMALL: 'small',
     MEDIUM: 'medium',
-};
-exports.TOGGLE_BUTTON_TYPES = {
-    FILLED: 'filled',
-    OUTLINED: 'outlined',
+    LARGE: 'large',
 };
 exports.TOGGLE_BUTTON_COLORS = {
-    PRIMARY: 'primary',
     NEUTRAL: 'neutral',
+    NEUTRAL_STRONG: 'neutralStrong',
+    NEUTRAL_HEAVY: 'neutralHeavy',
+    PRIMARY: 'primary',
 };
 exports.TOGGLE_BUTTON_RADIUSES = {
     CAPSULE: 'capsule',
     ROUNDED: 'rounded',
 };
-exports.TOGGLE_BUTTON_ELEVATIONS = {
-    NONE: 'none',
-    X_SMALL: 'x-small',
+exports.TOGGLE_BUTTON_LABEL_SIZES = {
     SMALL: 'small',
+    MEDIUM: 'medium',
+};
+exports.TOGGLE_BUTTON_STATES = {
+    DEFAULT: 'default',
+    DISABLED: 'disabled',
+    LOADING: 'loading',
 };
 
 
@@ -16531,39 +16533,66 @@ var __importStar = (this && this.__importStar) || function (mod) {
     __setModuleDefault(result, mod);
     return result;
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const Ripple_1 = __importStar(__webpack_require__(20141));
+const vue_1 = __webpack_require__(77203);
 const ToggleButton_consts_1 = __webpack_require__(44452);
+const Icon_1 = __webpack_require__(66093);
+const Icon_vue_1 = __importDefault(__webpack_require__(15934));
 exports["default"] = {
     name: 'ToggleButton',
     components: {
+        DsIcon: Icon_vue_1.default,
         DsRipple: Ripple_1.default,
     },
     props: {
-        text: {
-            type: String,
-            default: '',
-        },
-        size: {
-            type: String,
-            default: ToggleButton_consts_1.TOGGLE_BUTTON_SIZES.MEDIUM,
-            validator(value) {
-                return Object.values(ToggleButton_consts_1.TOGGLE_BUTTON_SIZES).includes(value);
-            },
-        },
-        type: {
-            type: String,
-            default: ToggleButton_consts_1.TOGGLE_BUTTON_TYPES.FILLED,
-            validator(value) {
-                return Object.values(ToggleButton_consts_1.TOGGLE_BUTTON_TYPES).includes(value);
-            },
-        },
         color: {
             type: String,
-            default: ToggleButton_consts_1.TOGGLE_BUTTON_COLORS.PRIMARY,
+            default: ToggleButton_consts_1.TOGGLE_BUTTON_COLORS.NEUTRAL,
             validator(value) {
                 return Object.values(ToggleButton_consts_1.TOGGLE_BUTTON_COLORS).includes(value);
             },
+        },
+        hasSmallHorizontalPadding: {
+            type: Boolean,
+            default: false,
+        },
+        iconLeft: {
+            type: Object,
+            default: null,
+            validator(icon) {
+                return Object.values(Icon_1.ICONS).includes((0, vue_1.toRaw)(icon));
+            },
+        },
+        iconRight: {
+            type: Object,
+            default: null,
+            validator(icon) {
+                return Object.values(Icon_1.ICONS).includes((0, vue_1.toRaw)(icon));
+            },
+        },
+        isInteractive: {
+            type: Boolean,
+            default: true,
+        },
+        isLabelUppercase: {
+            type: Boolean,
+            default: false,
+        },
+        isSelected: {
+            type: Boolean,
+            default: false,
+        },
+        label: {
+            type: String,
+            default: '',
+        },
+        labelSize: {
+            type: String,
+            default: ToggleButton_consts_1.TOGGLE_BUTTON_SIZES.MEDIUM,
         },
         radius: {
             type: String,
@@ -16572,47 +16601,67 @@ exports["default"] = {
                 return Object.values(ToggleButton_consts_1.TOGGLE_BUTTON_RADIUSES).includes(value);
             },
         },
-        isInteractive: {
-            type: Boolean,
-            default: true,
-        },
-        isSelected: {
-            type: Boolean,
-            default: false,
-        },
-        elevation: {
+        size: {
             type: String,
-            default: ToggleButton_consts_1.TOGGLE_BUTTON_ELEVATIONS.NONE,
+            default: ToggleButton_consts_1.TOGGLE_BUTTON_SIZES.MEDIUM,
             validator(value) {
-                return Object.values(ToggleButton_consts_1.TOGGLE_BUTTON_ELEVATIONS).includes(value);
+                return Object.values(ToggleButton_consts_1.TOGGLE_BUTTON_SIZES).includes(value);
+            },
+        },
+        state: {
+            type: String,
+            default: ToggleButton_consts_1.TOGGLE_BUTTON_STATES.DEFAULT,
+            validator(value) {
+                return Object.values(ToggleButton_consts_1.TOGGLE_BUTTON_STATES).includes(value);
             },
         },
     },
     emits: ['click'],
     data() {
         return {
+            ICONS: Object.freeze(Icon_1.ICONS),
             TOGGLE_BUTTON_COLORS: Object.freeze(ToggleButton_consts_1.TOGGLE_BUTTON_COLORS),
-            TOGGLE_BUTTON_ELEVATIONS: Object.freeze(ToggleButton_consts_1.TOGGLE_BUTTON_ELEVATIONS),
-            TOGGLE_BUTTON_SIZES: Object.freeze(ToggleButton_consts_1.TOGGLE_BUTTON_SIZES),
-            TOGGLE_BUTTON_TYPES: Object.freeze(ToggleButton_consts_1.TOGGLE_BUTTON_TYPES),
+            TOGGLE_BUTTON_LABEL_SIZES: Object.freeze(ToggleButton_consts_1.TOGGLE_BUTTON_LABEL_SIZES),
             TOGGLE_BUTTON_RADIUSES: Object.freeze(ToggleButton_consts_1.TOGGLE_BUTTON_RADIUSES),
+            TOGGLE_BUTTON_SIZES: Object.freeze(ToggleButton_consts_1.TOGGLE_BUTTON_SIZES),
+            TOGGLE_BUTTON_STATES: Object.freeze(ToggleButton_consts_1.TOGGLE_BUTTON_STATES),
         };
     },
     computed: {
         colorClassName() {
             return `-color-${this.color}`;
         },
-        rippleColor() {
-            if (this.isSelected) {
-                return Ripple_1.RIPPLE_COLORS.INVERTED;
-            }
-            return {
-                [ToggleButton_consts_1.TOGGLE_BUTTON_COLORS.NEUTRAL]: Ripple_1.RIPPLE_COLORS.NEUTRAL,
-                [ToggleButton_consts_1.TOGGLE_BUTTON_COLORS.PRIMARY]: Ripple_1.RIPPLE_COLORS.PRIMARY,
-            }[this.color];
+        iconSize() {
+            return this.size === ToggleButton_consts_1.TOGGLE_BUTTON_SIZES.LARGE
+                ? Icon_1.ICON_SIZES.X_SMALL
+                : Icon_1.ICON_SIZES.XX_SMALL;
         },
-        isLong() {
-            return this.text.length > 1;
+        isInteractiveComputed() {
+            if (this.state !== ToggleButton_consts_1.TOGGLE_BUTTON_STATES.DEFAULT) {
+                return false;
+            }
+            return this.isInteractive;
+        },
+        rippleColor() {
+            const map = {
+                [ToggleButton_consts_1.TOGGLE_BUTTON_COLORS.NEUTRAL]: {
+                    false: Ripple_1.RIPPLE_COLORS.NEUTRAL,
+                    true: Ripple_1.RIPPLE_COLORS.PRIMARY,
+                },
+                [ToggleButton_consts_1.TOGGLE_BUTTON_COLORS.NEUTRAL_HEAVY]: {
+                    false: Ripple_1.RIPPLE_COLORS.NEUTRAL,
+                    true: Ripple_1.RIPPLE_COLORS.PRIMARY,
+                },
+                [ToggleButton_consts_1.TOGGLE_BUTTON_COLORS.NEUTRAL_STRONG]: {
+                    false: Ripple_1.RIPPLE_COLORS.NEUTRAL,
+                    true: Ripple_1.RIPPLE_COLORS.INVERTED,
+                },
+                [ToggleButton_consts_1.TOGGLE_BUTTON_COLORS.PRIMARY]: {
+                    false: Ripple_1.RIPPLE_COLORS.PRIMARY,
+                    true: Ripple_1.RIPPLE_COLORS.INVERTED,
+                },
+            };
+            return map[this.color][this.isSelected];
         },
     },
 };
@@ -19514,7 +19563,7 @@ exports.s = render;
 
 /***/ }),
 
-/***/ 83380:
+/***/ 32114:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -19523,35 +19572,70 @@ var __webpack_unused_export__;
 __webpack_unused_export__ = ({ value: true });
 exports.s = void 0;
 const vue_1 = __webpack_require__(77203);
-const _withScopeId = n => ((0, vue_1.pushScopeId)("data-v-40b71248"), n = n(), (0, vue_1.popScopeId)(), n);
-const _hoisted_1 = { class: "toggleButton__content" };
+const _withScopeId = n => ((0, vue_1.pushScopeId)("data-v-6217436a"), n = n(), (0, vue_1.popScopeId)(), n);
+const _hoisted_1 = { class: "toggleButton__contentWrapper" };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_ds_icon = (0, vue_1.resolveComponent)("ds-icon");
     const _component_ds_ripple = (0, vue_1.resolveComponent)("ds-ripple");
     return ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_ds_ripple, {
         class: (0, vue_1.normalizeClass)(["toggleButtonWrapper", {
                 '-rounded': $props.radius === $data.TOGGLE_BUTTON_RADIUSES.ROUNDED,
             }]),
-        disable: !$props.isInteractive,
+        disable: !$options.isInteractiveComputed,
         color: $options.rippleColor
     }, {
         default: (0, vue_1.withCtx)(() => [
-            (0, vue_1.createElementVNode)("span", {
+            (0, vue_1.createElementVNode)("div", {
                 class: (0, vue_1.normalizeClass)(["toggleButton", {
-                        '-outlined': $props.type === $data.TOGGLE_BUTTON_TYPES.OUTLINED,
-                        '-filled': $props.type === $data.TOGGLE_BUTTON_TYPES.FILLED,
-                        '-xSmall': $props.size === $data.TOGGLE_BUTTON_SIZES.X_SMALL,
                         '-small': $props.size === $data.TOGGLE_BUTTON_SIZES.SMALL,
-                        '-long': $options.isLong,
+                        '-medium': $props.size === $data.TOGGLE_BUTTON_SIZES.MEDIUM,
+                        '-large': $props.size === $data.TOGGLE_BUTTON_SIZES.LARGE,
+                        '-hasSmallHorizontalPadding': $props.hasSmallHorizontalPadding,
                         '-rounded': $props.radius === $data.TOGGLE_BUTTON_RADIUSES.ROUNDED,
                         [$options.colorClassName]: true,
-                        '-elevationXSmall': $props.elevation === $data.TOGGLE_BUTTON_ELEVATIONS.X_SMALL,
-                        '-elevationSmall': $props.elevation === $data.TOGGLE_BUTTON_ELEVATIONS.SMALL,
-                        '-interactive': $props.isInteractive,
+                        '-disabled': $props.state === $data.TOGGLE_BUTTON_STATES.DISABLED,
+                        '-loading': $props.state === $data.TOGGLE_BUTTON_STATES.LOADING,
+                        '-interactive': $options.isInteractiveComputed,
                         '-selected': $props.isSelected,
                     }]),
-                onClick: _cache[0] || (_cache[0] = ($event) => ($props.isInteractive && _ctx.$emit('click')))
+                onClick: _cache[0] || (_cache[0] = ($event) => ($options.isInteractiveComputed && _ctx.$emit('click')))
             }, [
-                (0, vue_1.createElementVNode)("span", _hoisted_1, (0, vue_1.toDisplayString)($props.text), 1)
+                (0, vue_1.createElementVNode)("div", _hoisted_1, [
+                    ($props.iconLeft)
+                        ? ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_ds_icon, {
+                            key: 0,
+                            class: "toggleButton__icon",
+                            icon: $props.iconLeft,
+                            size: $options.iconSize
+                        }, null, 8, ["icon", "size"]))
+                        : (0, vue_1.createCommentVNode)("", true),
+                    ($props.label)
+                        ? ((0, vue_1.openBlock)(), (0, vue_1.createElementBlock)("span", {
+                            key: 1,
+                            class: (0, vue_1.normalizeClass)(["toggleButton__content", {
+                                    '-small': $props.labelSize === $data.TOGGLE_BUTTON_LABEL_SIZES.SMALL,
+                                    '-uppercase': $props.isLabelUppercase,
+                                }])
+                        }, (0, vue_1.toDisplayString)($props.label), 3))
+                        : (0, vue_1.createCommentVNode)("", true),
+                    ($props.iconRight)
+                        ? ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_ds_icon, {
+                            key: 2,
+                            class: "toggleButton__icon",
+                            icon: $props.iconRight,
+                            size: $options.iconSize
+                        }, null, 8, ["icon", "size"]))
+                        : (0, vue_1.createCommentVNode)("", true)
+                ]),
+                ($props.state === $data.TOGGLE_BUTTON_STATES.LOADING)
+                    ? ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_ds_icon, {
+                        key: 0,
+                        class: "toggleButton__icon toggleButton__loadingSpinner",
+                        icon: $data.ICONS.FAD_SPINNER_THIRD,
+                        size: $options.iconSize,
+                        spinning: ""
+                    }, null, 8, ["icon", "size"]))
+                    : (0, vue_1.createCommentVNode)("", true)
             ], 2)
         ]),
         _: 1
@@ -20833,7 +20917,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, "@keyframes a-spinAround-2cc46116{0%{tr
 
 /***/ }),
 
-/***/ 81017:
+/***/ 67545:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -20850,7 +20934,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_vue_cli_service_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_vue_cli_service_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "@keyframes a-spinAround-40b71248{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes a-fadeIn-40b71248{0%{opacity:0}to{opacity:1}}.toggleButtonWrapper[data-v-40b71248]{display:inline-block}.toggleButtonWrapper[data-v-40b71248] .ripple-container{border-radius:100px!important}.toggleButtonWrapper.-rounded[data-v-40b71248] .ripple-container{border-radius:4px!important}.toggleButton[data-v-40b71248]{--token:label-l-default-bold;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-2xs);font-size:var(--typography-font-size-s);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-none);align-items:center;border-radius:100px;display:flex;justify-content:center;min-height:40px;min-width:40px;outline:6px solid transparent;padding:8px;pointer-events:none;transition:color .3s ease-in-out,border-color .3s ease-in-out,background-color .3s ease-in-out,outline-color .3s ease-in-out}.toggleButton.-color-primary[data-v-40b71248]{color:var(--color-primary-text)}.toggleButton.-color-primary[data-v-40b71248]:hover{outline-color:var(--color-primary-border-weak)}.toggleButton.-color-primary.-filled[data-v-40b71248]{background-color:var(--color-primary-background-medium)}.toggleButton.-color-primary.-filled[data-v-40b71248]:hover{background-color:var(--color-primary-background-medium-hovered)}.toggleButton.-color-primary.-filled[data-v-40b71248]:focus{background-color:var(--color-primary-background-medium-focused)}.toggleButton.-color-primary.-outlined[data-v-40b71248]{background-color:var(--color-primary-background-ghost);border-color:var(--color-primary-border)}.toggleButton.-color-primary.-outlined[data-v-40b71248]:hover{background-color:var(--color-primary-background-ghost-hovered)}.toggleButton.-color-primary.-outlined[data-v-40b71248]:focus{background-color:var(--color-primary-background-ghost-focused)}.toggleButton.-color-primary.-selected[data-v-40b71248]{background-color:var(--color-primary-background-strong)}.toggleButton.-color-primary.-selected[data-v-40b71248]:hover{background-color:var(--color-primary-background-strong-hovered)}.toggleButton.-color-primary.-selected[data-v-40b71248]:focus{background-color:var(--color-primary-background-strong-focused)}.toggleButton.-color-neutral[data-v-40b71248]{color:var(--color-neutral-text-weak)}.toggleButton.-color-neutral[data-v-40b71248]:hover{outline-color:var(--color-neutral-border-weak)}.toggleButton.-color-neutral.-filled[data-v-40b71248]{background-color:var(--color-neutral-background-medium)}.toggleButton.-color-neutral.-filled[data-v-40b71248]:hover{background-color:var(--color-neutral-background-medium-hovered)}.toggleButton.-color-neutral.-filled[data-v-40b71248]:focus{background-color:var(--color-neutral-background-medium-focused)}.toggleButton.-color-neutral.-outlined[data-v-40b71248]{background-color:var(--color-neutral-background-ghost);border-color:var(--color-neutral-border-strong)}.toggleButton.-color-neutral.-outlined[data-v-40b71248]:hover{background-color:var(--color-neutral-background-ghost-hovered)}.toggleButton.-color-neutral.-outlined[data-v-40b71248]:focus{background-color:var(--color-neutral-background-ghost-focused)}.toggleButton.-color-neutral.-selected[data-v-40b71248]{background-color:var(--color-neutral-background-strong)}.toggleButton.-color-neutral.-selected[data-v-40b71248]:hover{background-color:var(--color-neutral-background-strong-hovered)}.toggleButton.-color-neutral.-selected[data-v-40b71248]:focus{background-color:var(--color-neutral-background-strong-focused)}.toggleButton__content[data-v-40b71248]{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.toggleButton.-long[data-v-40b71248]{padding:8px 16px}.toggleButton.-long.-rounded[data-v-40b71248]{padding:8px 12px}.toggleButton.-rounded[data-v-40b71248]{border-radius:4px}.toggleButton.-outlined[data-v-40b71248]{border:2px solid}.toggleButton.-selected[data-v-40b71248]{color:var(--color-inverted-text)}.toggleButton.-interactive[data-v-40b71248]{cursor:pointer;pointer-events:auto}.toggleButton.-xSmall[data-v-40b71248]{min-height:28px;min-width:28px;padding:4px}.toggleButton.-xSmall.-long[data-v-40b71248]{padding:4px 12px}.toggleButton.-xSmall.-long.-rounded[data-v-40b71248]{padding:4px 8px}.toggleButton.-small[data-v-40b71248]{min-height:32px;min-width:32px;padding:6px}.toggleButton.-small.-long[data-v-40b71248],.toggleButton.-small.-long.-rounded[data-v-40b71248]{padding:6px 12px}.toggleButton.-elevationSmall[data-v-40b71248],.toggleButton.-elevationXSmall[data-v-40b71248]{background-color:var(--color-default-background)}.toggleButton.-elevationSmall[data-v-40b71248]{box-shadow:0 4px 8px var(--color-default-shadow-weak),0 10px 20px var(--color-default-shadow-strong),0 0 4px var(--color-default-shadow)}", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "@keyframes a-spinAround-6217436a{0%{transform:rotate(0deg)}to{transform:rotate(1turn)}}@keyframes a-fadeIn-6217436a{0%{opacity:0}to{opacity:1}}.toggleButtonWrapper[data-v-6217436a]{display:inline-block}.toggleButtonWrapper[data-v-6217436a] .ripple-container{border-radius:100px!important}.toggleButtonWrapper.-rounded[data-v-6217436a] .ripple-container{border-radius:4px!important}.toggleButton[data-v-6217436a]{align-items:center;border-radius:100px;border-style:solid;border-width:1px;display:flex;justify-content:center;outline:6px solid transparent;pointer-events:none;transition:color .3s ease-in-out,border-color .3s ease-in-out,background-color .3s ease-in-out,outline-color .3s ease-in-out}.toggleButton.-color-neutral[data-v-6217436a]{background-color:var(--color-neutral-background-ghost);border-color:var(--color-neutral-border);color:var(--color-neutral-text)}.toggleButton.-color-neutral[data-v-6217436a]:hover{background-color:var(--color-neutral-background-ghost-hovered);border-color:var(--color-neutral-border-hovered);outline-color:var(--color-neutral-background-ghost-hovered)}.toggleButton.-color-neutral[data-v-6217436a]:focus{background-color:var(--color-neutral-background-ghost-focused);border-color:var(--color-neutral-border-focused);outline-color:var(--color-neutral-background-ghost-focused)}.toggleButton.-color-neutral.-selected[data-v-6217436a]{background-color:var(--color-primary-background);border-color:var(--color-primary-border);color:var(--color-neutral-text-heavy)}.toggleButton.-color-neutral.-selected[data-v-6217436a]:hover{background-color:var(--color-primary-background-hovered);border-color:var(--color-primary-border-hovered);outline-color:var(--color-primary-background-ghost-hovered)}.toggleButton.-color-neutral.-selected[data-v-6217436a]:focus{background-color:var(--color-primary-background-focused);border-color:var(--color-primary-border-focused);outline-color:var(--color-primary-background-ghost-focused)}.toggleButton.-color-neutral.-selected .toggleButton__icon[data-v-6217436a]{color:var(--color-primary-icon)}.toggleButton.-color-neutral.-disabled[data-v-6217436a]{background-color:var(--color-neutral-background-ghost-disabled);border-color:var(--color-neutral-border-disabled);color:var(--color-neutral-text-disabled)}.toggleButton.-color-neutral.-disabled .toggleButton__icon[data-v-6217436a]{color:var(--color-neutral-icon-weak-disabled)}.toggleButton.-color-neutral.-disabled.-selected[data-v-6217436a]{background-color:var(--color-primary-background-disabled);border-color:var(--color-primary-border-disabled);color:var(--color-neutral-text-heavy-disabled)}.toggleButton.-color-neutral.-disabled.-selected .toggleButton__icon[data-v-6217436a]{color:var(--color-primary-icon-disabled)}.toggleButton.-color-neutral .toggleButton__icon[data-v-6217436a]{color:var(--color-neutral-icon-weak)}.toggleButton.-color-neutralHeavy[data-v-6217436a]{background-color:var(--color-neutral-background-ghost);border-color:var(--color-neutral-border-heavy);color:var(--color-neutral-text)}.toggleButton.-color-neutralHeavy[data-v-6217436a]:hover{background-color:var(--color-neutral-background-ghost-hovered);border-color:var(--color-neutral-border-heavy-hovered);outline-color:var(--color-neutral-background-ghost-hovered)}.toggleButton.-color-neutralHeavy[data-v-6217436a]:focus{background-color:var(--color-neutral-background-ghost-focused);border-color:var(--color-neutral-border-heavy-focused);outline-color:var(--color-neutral-background-ghost-focused)}.toggleButton.-color-neutralHeavy.-selected[data-v-6217436a]{background-color:var(--color-primary-background);border-color:var(--color-primary-border);color:var(--color-neutral-text-heavy)}.toggleButton.-color-neutralHeavy.-selected[data-v-6217436a]:hover{background-color:var(--color-primary-background-hovered);border-color:var(--color-primary-border-hovered);outline-color:var(--color-primary-background-ghost-hovered)}.toggleButton.-color-neutralHeavy.-selected[data-v-6217436a]:focus{background-color:var(--color-primary-background-focused);border-color:var(--color-primary-border-focused);outline-color:var(--color-primary-background-ghost-focused)}.toggleButton.-color-neutralHeavy.-selected .toggleButton__icon[data-v-6217436a]{color:var(--color-primary-icon)}.toggleButton.-color-neutralHeavy.-disabled[data-v-6217436a]{background-color:var(--color-neutral-background-ghost-disabled);border-color:var(--color-neutral-border-heavy-disabled);color:var(--color-neutral-text-disabled)}.toggleButton.-color-neutralHeavy.-disabled .toggleButton__icon[data-v-6217436a]{color:var(--color-neutral-icon-weak-disabled)}.toggleButton.-color-neutralHeavy.-disabled.-selected[data-v-6217436a]{background-color:var(--color-primary-background-disabled);border-color:var(--color-primary-border-disabled);color:var(--color-neutral-text-heavy-disabled)}.toggleButton.-color-neutralHeavy.-disabled.-selected .toggleButton__icon[data-v-6217436a]{color:var(--color-primary-icon-disabled)}.toggleButton.-color-neutralHeavy .toggleButton__icon[data-v-6217436a]{color:var(--color-neutral-icon)}.toggleButton.-color-neutralStrong[data-v-6217436a]{background-color:var(--color-neutral-background-ghost);border-color:var(--color-neutral-border-strong);color:var(--color-neutral-text)}.toggleButton.-color-neutralStrong[data-v-6217436a]:hover{background-color:var(--color-neutral-background-ghost-hovered);border-color:var(--color-neutral-border-strong-hovered);outline-color:var(--color-neutral-background-ghost-hovered)}.toggleButton.-color-neutralStrong[data-v-6217436a]:focus{background-color:var(--color-neutral-background-ghost-focused);border-color:var(--color-neutral-border-strong-focused);outline-color:var(--color-neutral-background-ghost-focused)}.toggleButton.-color-neutralStrong.-selected[data-v-6217436a]{background-color:var(--color-neutral-background-strong);border-color:var(--color-neutral-background-strong);color:var(--color-inverted-text)}.toggleButton.-color-neutralStrong.-selected[data-v-6217436a]:hover{background-color:var(--color-neutral-background-strong-hovered);border-color:var(--color-neutral-background-strong-hovered);outline-color:var(--color-neutral-background-ghost-hovered)}.toggleButton.-color-neutralStrong.-selected[data-v-6217436a]:focus{background-color:var(--color-neutral-background-strong-focused);border-color:var(--color-neutral-background-strong-focused);outline-color:var(--color-neutral-background-ghost-focused)}.toggleButton.-color-neutralStrong.-selected .toggleButton__icon[data-v-6217436a]{color:var(--color-inverted-icon)}.toggleButton.-color-neutralStrong.-disabled[data-v-6217436a]{background-color:var(--color-neutral-background-ghost-disabled);border-color:var(--color-neutral-border-strong-disabled);color:var(--color-neutral-text-disabled)}.toggleButton.-color-neutralStrong.-disabled .toggleButton__icon[data-v-6217436a]{color:var(--color-neutral-icon-disabled)}.toggleButton.-color-neutralStrong.-disabled.-selected[data-v-6217436a]{background-color:var(--color-neutral-background-strong-disabled);border-color:var(--color-neutral-background-strong-disabled);color:var(--color-inverted-text-disabled)}.toggleButton.-color-neutralStrong.-disabled.-selected .toggleButton__icon[data-v-6217436a]{color:var(--color-inverted-icon-disabled)}.toggleButton.-color-neutralStrong .toggleButton__icon[data-v-6217436a]{color:var(--color-neutral-icon)}.toggleButton.-color-primary[data-v-6217436a]{background-color:var(--color-primary-background-ghost);border-color:var(--color-primary-border);color:var(--color-primary-text)}.toggleButton.-color-primary[data-v-6217436a]:hover{background-color:var(--color-primary-background-ghost-hovered);border-color:var(--color-primary-border-hovered);outline-color:var(--color-primary-background-ghost-hovered)}.toggleButton.-color-primary[data-v-6217436a]:focus{background-color:var(--color-primary-background-ghost-focused);border-color:var(--color-primary-border-focused);outline-color:var(--color-primary-background-ghost-focused)}.toggleButton.-color-primary.-selected[data-v-6217436a]{background-color:var(--color-primary-background-strong);border-color:var(--color-primary-background-strong);color:var(--color-inverted-text)}.toggleButton.-color-primary.-selected[data-v-6217436a]:hover{background-color:var(--color-primary-background-strong-hovered);border-color:var(--color-primary-background-strong-hovered);outline-color:var(--color-primary-background-ghost-hovered)}.toggleButton.-color-primary.-selected[data-v-6217436a]:focus{background-color:var(--color-primary-background-strong-focused);border-color:var(--color-primary-background-strong-focused);outline-color:var(--color-primary-background-ghost-focused)}.toggleButton.-color-primary.-selected .toggleButton__icon[data-v-6217436a]{color:var(--color-inverted-icon)}.toggleButton.-color-primary.-disabled[data-v-6217436a]{background-color:var(--color-neutral-background-ghost-disabled);border-color:var(--color-primary-border-disabled);color:var(--color-primary-text-disabled)}.toggleButton.-color-primary.-disabled .toggleButton__icon[data-v-6217436a]{color:var(--color-primary-icon-weak-disabled)}.toggleButton.-color-primary.-disabled.-selected[data-v-6217436a]{background-color:var(--color-primary-background-strong-disabled);border-color:var(--color-primary-background-strong-disabled);color:var(--color-inverted-text-disabled)}.toggleButton.-color-primary.-disabled.-selected .toggleButton__icon[data-v-6217436a]{color:var(--color-inverted-icon-disabled)}.toggleButton.-color-primary .toggleButton__icon[data-v-6217436a]{color:var(--color-primary-icon-weak)}.toggleButton__contentWrapper[data-v-6217436a]{align-items:center;display:flex;gap:4px;justify-content:center}.toggleButton__content[data-v-6217436a]{--token:label-l-default-bold;text-transform:var(--typography-text-transform-none);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.toggleButton__content[data-v-6217436a],.toggleButton__content.-uppercase[data-v-6217436a]{font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-2xs);font-size:var(--typography-font-size-s);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none)}.toggleButton__content.-uppercase[data-v-6217436a]{--token:label-l-default-bold-uppercase;text-transform:var(--typography-text-transform-uppercase)}.toggleButton.-rounded[data-v-6217436a]{border-radius:4px}.toggleButton.-interactive[data-v-6217436a]{cursor:pointer;pointer-events:auto}.toggleButton.-loading .toggleButton__contentWrapper[data-v-6217436a]{opacity:0}.toggleButton.-small[data-v-6217436a]{min-height:28px;min-width:28px;padding:5px 11px}.toggleButton.-small.-hasSmallHorizontalPadding[data-v-6217436a]{padding:5px 1px}.toggleButton.-small .toggleButton__content.-small[data-v-6217436a]{--token:label-s-default-bold;text-transform:var(--typography-text-transform-none)}.toggleButton.-small .toggleButton__content.-small[data-v-6217436a],.toggleButton.-small .toggleButton__content.-small.-uppercase[data-v-6217436a]{font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-4xs);font-size:var(--typography-font-size-2xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none)}.toggleButton.-small .toggleButton__content.-small.-uppercase[data-v-6217436a]{--token:label-s-default-bold-uppercase;text-transform:var(--typography-text-transform-uppercase)}.toggleButton.-medium[data-v-6217436a]{min-height:32px;min-width:32px;padding:7px 11px}.toggleButton.-medium.-hasSmallHorizontalPadding[data-v-6217436a]{padding:7px 1px}.toggleButton.-medium .toggleButton__content.-small[data-v-6217436a]{--token:label-m-default-bold;text-transform:var(--typography-text-transform-none)}.toggleButton.-medium .toggleButton__content.-small[data-v-6217436a],.toggleButton.-medium .toggleButton__content.-small.-uppercase[data-v-6217436a]{font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-3xs);font-size:var(--typography-font-size-xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none)}.toggleButton.-medium .toggleButton__content.-small.-uppercase[data-v-6217436a]{--token:label-m-default-bold-uppercase;text-transform:var(--typography-text-transform-uppercase)}.toggleButton.-large[data-v-6217436a]{border-width:2px;min-height:40px;min-width:40px;padding:10px 14px}.toggleButton.-large.-hasSmallHorizontalPadding[data-v-6217436a]{padding:6px 0}.toggleButton__loadingSpinner[data-v-6217436a]{position:absolute}", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -22934,12 +23018,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ToggleButton_vue_vue_type_template_id_40b71248_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(79360);
+/* harmony import */ var _ToggleButton_vue_vue_type_template_id_6217436a_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(57312);
 /* harmony import */ var _ToggleButton_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(17141);
 /* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
 /* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _ToggleButton_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _ToggleButton_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
 /* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
-/* harmony import */ var _ToggleButton_vue_vue_type_style_index_0_id_40b71248_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(91310);
+/* harmony import */ var _ToggleButton_vue_vue_type_style_index_0_id_6217436a_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(4197);
 /* harmony import */ var _home_runner_work_design_system_design_system_node_modules_vue_cli_service_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(48118);
 
 
@@ -22948,7 +23032,7 @@ __webpack_require__.r(__webpack_exports__);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,_home_runner_work_design_system_design_system_node_modules_vue_cli_service_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z)(_ToggleButton_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ToggleButton_vue_vue_type_template_id_40b71248_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__/* .render */ .s],['__scopeId',"data-v-40b71248"]])
+const __exports__ = /*#__PURE__*/(0,_home_runner_work_design_system_design_system_node_modules_vue_cli_service_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z)(_ToggleButton_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_ToggleButton_vue_vue_type_template_id_6217436a_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__/* .render */ .s],['__scopeId',"data-v-6217436a"]])
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
@@ -24177,14 +24261,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 79360:
+/***/ 57312:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "s": () => (/* reexport safe */ _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_template_id_40b71248_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__.s)
+/* harmony export */   "s": () => (/* reexport safe */ _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_template_id_6217436a_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__.s)
 /* harmony export */ });
-/* harmony import */ var _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_template_id_40b71248_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(83380);
+/* harmony import */ var _node_modules_vue_cli_plugin_typescript_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_template_id_6217436a_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(32114);
 
 
 /***/ }),
@@ -24559,12 +24643,12 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 91310:
+/***/ 4197:
 /***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
 "use strict";
-/* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_style_index_0_id_40b71248_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(82948);
-/* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_style_index_0_id_40b71248_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_style_index_0_id_40b71248_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_style_index_0_id_6217436a_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(31906);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_style_index_0_id_6217436a_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_style_index_0_id_6217436a_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -28369,19 +28453,19 @@ var update = add("8076d904", content, true, {"sourceMap":false,"shadowMode":fals
 
 /***/ }),
 
-/***/ 82948:
+/***/ 31906:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(81017);
+var content = __webpack_require__(67545);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.id, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = (__webpack_require__(54402)/* ["default"] */ .Z)
-var update = add("9a52589c", content, true, {"sourceMap":false,"shadowMode":false});
+var update = add("1e1777c8", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 

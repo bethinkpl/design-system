@@ -1,3 +1,4 @@
+import { Value } from '../../utils/type.utils';
 export declare const RIPPLE_COLORS: {
     ACCENT: string;
     DANGER: string;
@@ -10,3 +11,4 @@ export declare const RIPPLE_COLORS: {
     SUCCESS: string;
     WARNING: string;
 };
+export declare type RippleColor = Value<typeof RIPPLE_COLORS>;

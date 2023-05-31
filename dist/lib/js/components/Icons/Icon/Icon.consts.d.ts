@@ -1,4 +1,5 @@
 /// <reference types="typings" />
+import { Value } from '../../../utils/type.utils';
 export declare const ICON_SIZES: {
     XXX_SMALL: string;
     XX_SMALL: string;
@@ -9,6 +10,7 @@ export declare const ICON_SIZES: {
     X_LARGE: string;
     XX_LARGE: string;
 };
+export declare type IconSize = Value<typeof ICON_SIZES>;
 export declare const ICONS: {
     readonly HEAD_WITH_QUESTION_MARK: import("*.svg").CompatVue;
     readonly RIBBON: import("*.svg").CompatVue;
