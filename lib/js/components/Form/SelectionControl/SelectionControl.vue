@@ -20,10 +20,10 @@
 			<div class="selectionControl__label">{{ label }}</div>
 		</div>
 		<input
-			type="checkbox"
+			:type="type === SELECTION_CONTROL_TYPE.CHECKBOX ? 'checkbox' : 'radio'"
 			class="selectionControl__checkbox"
 			:value="isSelected"
-			@change="onToggle"
+			@input="onToggle"
 			@focus="onFocus"
 			@blur="onBlur"
 		/>
@@ -233,8 +233,10 @@ import { PropType, toRaw } from 'vue';
 import {
 	SELECTION_CONTROL_SIZE,
 	SELECTION_CONTROL_STATE,
+	SELECTION_CONTROL_TYPE,
 	SelectionControlSize,
 	SelectionControlState,
+	SelectionControlType,
 } from './SelectionControl.consts';
 import Icon from '../../Icons/Icon/Icon.vue';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
@@ -279,12 +281,20 @@ export default {
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
+		type: {
+			type: String as PropType<SelectionControlType>,
+			required: true,
+			validator(type) {
+				return Object.values(SELECTION_CONTROL_TYPE).includes(type);
+			},
+		},
 	},
 	emits: ['update:isSelected'],
 	data() {
 		return {
 			isFocused: false,
 			SELECTION_CONTROL_STATE: Object.freeze(SELECTION_CONTROL_STATE),
+			SELECTION_CONTROL_TYPE: Object.freeze(SELECTION_CONTROL_TYPE),
 		};
 	},
 	computed: {
@@ -309,6 +319,10 @@ export default {
 				this.state === SELECTION_CONTROL_STATE.DISABLED ||
 				this.state === SELECTION_CONTROL_STATE.LOADING
 			) {
+				return;
+			}
+
+			if (this.type === SELECTION_CONTROL_TYPE.RADIO_BUTTON && this.isSelected) {
 				return;
 			}
 
