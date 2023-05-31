@@ -8,6 +8,7 @@
 				'-default': state === SELECTION_CONTROL_STATE.DEFAULT,
 				'-disabled': state === SELECTION_CONTROL_STATE.DISABLED,
 				'-loading': state === SELECTION_CONTROL_STATE.LOADING,
+				'-focused': isFocused,
 			},
 		]"
 		@click="onToggle"
@@ -18,6 +19,14 @@
 		<div v-if="label" class="selectionControl__labelWrapper">
 			<div class="selectionControl__label">{{ label }}</div>
 		</div>
+		<input
+			type="checkbox"
+			class="selectionControl__checkbox"
+			:value="isSelected"
+			@change="onToggle"
+			@focus="onFocus"
+			@blur="onBlur"
+		/>
 	</div>
 </template>
 
@@ -72,12 +81,12 @@ $selection-control-colors: (
 	),
 	'loading': (
 		'not-selected': (
-			'label': $color-neutral-text-heavy-disabled,
-			'icon': $color-neutral-icon-disabled,
+			'label': $color-neutral-text-heavy,
+			'icon': $color-neutral-icon,
 		),
 		'selected': (
-			'label': $color-neutral-text-heavy-disabled,
-			'icon': $color-primary-icon-disabled,
+			'label': $color-neutral-text-heavy,
+			'icon': $color-primary-icon,
 		),
 	),
 );
@@ -113,7 +122,8 @@ $selection-control-colors: (
 
 				&:hover,
 				&:focus,
-				&:active {
+				&:active,
+				&.-focused {
 					#{$root}__icon::before {
 						transform: scale(1);
 						// see https://cubic-bezier.com/#.23,1,.32,1
@@ -133,7 +143,8 @@ $selection-control-colors: (
 					}
 				}
 
-				&:focus {
+				&:focus,
+				&.-focused {
 					#{$root}__icon::before {
 						background-color: $color-neutral-background-ghost-focused;
 					}
@@ -200,6 +211,7 @@ $selection-control-colors: (
 
 	align-items: flex-start;
 	display: inline-flex;
+	position: relative;
 
 	&__iconWrapper {
 		display: flex;
@@ -229,6 +241,16 @@ $selection-control-colors: (
 		#{$root}__label {
 			@include formLabel-l-default-regular;
 		}
+	}
+
+	&__checkbox {
+		height: 0;
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+		width: 0;
+		z-index: -1;
 	}
 }
 </style>
@@ -288,6 +310,7 @@ export default {
 	emits: ['update:isSelected'],
 	data() {
 		return {
+			isFocused: false,
 			SELECTION_CONTROL_STATE: Object.freeze(SELECTION_CONTROL_STATE),
 		};
 	},
@@ -317,6 +340,12 @@ export default {
 			}
 
 			this.$emit('update:isSelected', !this.isSelected);
+		},
+		onFocus() {
+			this.isFocused = true;
+		},
+		onBlur() {
+			this.isFocused = false;
 		},
 	},
 };
