@@ -41,19 +41,19 @@ $selection-control-sizes: (
 		'gap': $space-xxxxs,
 		'iconWrapperPadding': $space-xxxs,
 		'labelWrapperPadding': $space-xxxxs,
-		'iconBorder': $space-xxxs,
+		'iconOutlinePadding': $space-xxxs,
 	),
 	'small': (
 		'gap': $space-xxs,
 		'iconWrapperPadding': $space-xxxs,
 		'labelWrapperPadding': $space-xxxs,
-		'iconBorder': $space-xxxs,
+		'iconOutlinePadding': $space-xxxs,
 	),
 	'medium': (
 		'gap': $space-xxs,
 		'iconWrapperPadding': $space-xxs,
 		'labelWrapperPadding': $space-xxs,
-		'iconBorder': $space-xxs,
+		'iconOutlinePadding': $space-xxs,
 	),
 );
 
@@ -141,10 +141,10 @@ $selection-control-colors: (
 		@each $size, $map in $selection-control-sizes {
 			&.-#{$size} {
 				#{$root}__icon::before {
-					bottom: -#{map-get($map, 'iconBorder')};
-					left: -#{map-get($map, 'iconBorder')};
-					right: -#{map-get($map, 'iconBorder')};
-					top: -#{map-get($map, 'iconBorder')};
+					bottom: -#{map-get($map, 'iconOutlinePadding')};
+					left: -#{map-get($map, 'iconOutlinePadding')};
+					right: -#{map-get($map, 'iconOutlinePadding')};
+					top: -#{map-get($map, 'iconOutlinePadding')};
 				}
 			}
 		}
