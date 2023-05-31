@@ -209,7 +209,7 @@ $selection-control-colors: (
 		}
 	}
 
-	align-items: flex-start;
+	align-items: center;
 	display: inline-flex;
 	position: relative;
 
