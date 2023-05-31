@@ -57,67 +57,8 @@ $selection-control-sizes: (
 	),
 );
 
-$selection-control-colors: (
-	'default': (
-		'not-selected': (
-			'label': $color-neutral-text-heavy,
-			'icon': $color-neutral-icon,
-		),
-		'selected': (
-			'label': $color-neutral-text-heavy,
-			'icon': $color-primary-icon,
-		),
-	),
-	'disabled': (
-		'not-selected': (
-			'label': $color-neutral-text-heavy-disabled,
-			'icon': $color-neutral-icon-disabled,
-		),
-		'selected': (
-			'label': $color-neutral-text-heavy-disabled,
-			'icon': $color-primary-icon-disabled,
-		),
-	),
-	'loading': (
-		'not-selected': (
-			'label': $color-neutral-text-heavy,
-			'icon': $color-neutral-icon,
-		),
-		'selected': (
-			'label': $color-neutral-text-heavy,
-			'icon': $color-primary-icon,
-		),
-	),
-);
-
 .selectionControl {
 	$root: &;
-
-	@each $name, $map in $selection-control-colors {
-		&.-#{$name} {
-			$colors: map-get($map, 'not-selected');
-
-			#{$root}__label {
-				color: map-get($colors, 'label');
-			}
-
-			#{$root}__icon {
-				color: map-get($colors, 'icon');
-			}
-		}
-
-		&.-selected.-#{$name} {
-			$colors: map-get($map, 'selected');
-
-			#{$root}__label {
-				color: map-get($colors, 'label');
-			}
-
-			#{$root}__icon {
-				color: map-get($colors, 'icon');
-			}
-		}
-	}
 
 	@each $size, $map in $selection-control-sizes {
 		&.-#{$size} {
@@ -218,8 +159,23 @@ $selection-control-colors: (
 		display: flex;
 	}
 
+	&__label {
+		color: $color-neutral-text-heavy;
+	}
+
 	&__icon {
+		color: $color-neutral-icon;
 		position: relative;
+	}
+
+	&.-selected {
+		#{$root}__label {
+			color: $color-neutral-text-heavy;
+		}
+
+		#{$root}__icon {
+			color: $color-primary-icon;
+		}
 	}
 
 	&.-x-small {
@@ -237,6 +193,26 @@ $selection-control-colors: (
 	&.-medium {
 		#{$root}__label {
 			@include formLabel-l-default-regular;
+		}
+	}
+
+	&.-disabled {
+		#{$root}__label {
+			color: $color-neutral-text-heavy-disabled;
+		}
+
+		#{$root}__icon {
+			color: $color-neutral-icon-disabled;
+		}
+
+		&.-selected {
+			#{$root}__label {
+				color: $color-neutral-text-heavy-disabled;
+			}
+
+			#{$root}__icon {
+				color: $color-primary-icon-disabled;
+			}
 		}
 	}
 
