@@ -2,6 +2,7 @@ import HeadWithQuestionMark from '../../../../images/icons/head-with-question-ma
 import Ribbon from '../../../../images/icons/ribbon.svg';
 import SlidersSearch from '../../../../images/icons/sliders-search.svg';
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
+import { Value } from '../../../utils/type.utils';
 
 export const ICON_SIZES = {
 	XXX_SMALL: 'xxx-small',
@@ -13,6 +14,8 @@ export const ICON_SIZES = {
 	X_LARGE: 'x-large',
 	XX_LARGE: 'xx-large',
 };
+
+export type IconSize = Value<typeof ICON_SIZES>;
 
 const BETHINK_ICONS = {
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,

@@ -1,13 +1,14 @@
 import ToggleButton from './ToggleButton.vue';
 import {
 	TOGGLE_BUTTON_SIZES,
-	TOGGLE_BUTTON_TYPES,
 	TOGGLE_BUTTON_COLORS,
 	TOGGLE_BUTTON_RADIUSES,
-	TOGGLE_BUTTON_ELEVATIONS,
+	TOGGLE_BUTTON_LABEL_SIZES,
+	TOGGLE_BUTTON_STATES,
 } from './ToggleButton.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { ICONS } from '../../Icons/Icon';
 
 export default {
 	title: 'Components/Toggles/ToggleButton',
@@ -19,16 +20,25 @@ const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 	setup() {
 		return { ...args };
 	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
+	},
 	template: `
 		<toggle-button
-			:size="size"
-			:type="type"
-			:radius="radius"
 			:color="color"
-			:elevation="elevation"
-			:text="text"
-			:is-selected="isSelected"
+			:has-small-horizontal-padding="hasSmallHorizontalPadding"
+			:icon-left="ICONS[iconLeft]"
+			:icon-right="ICONS[iconRight]"
 			:is-interactive="isInteractive"
+			:is-label-uppercase="isLabelUppercase"
+			:is-selected="isSelected"
+			:label="label"
+			:label-size="labelSize"
+			:radius="radius"
+			:size="size"
+			:state="state"
 		/>`,
 });
 
@@ -36,13 +46,17 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	size: TOGGLE_BUTTON_SIZES.MEDIUM,
-	type: TOGGLE_BUTTON_TYPES.FILLED,
-	color: TOGGLE_BUTTON_COLORS.PRIMARY,
-	radius: TOGGLE_BUTTON_RADIUSES.CAPSULE,
-	elevation: TOGGLE_BUTTON_ELEVATIONS.NONE,
-	text: '1',
+	hasSmallHorizontalPadding: false,
+	color: TOGGLE_BUTTON_COLORS.NEUTRAL,
 	isSelected: false,
+	radius: TOGGLE_BUTTON_RADIUSES.CAPSULE,
+	label: '1',
+	isLabelUppercase: false,
+	labelSize: TOGGLE_BUTTON_LABEL_SIZES.MEDIUM,
 	isInteractive: true,
+	iconLeft: null,
+	iconRight: null,
+	state: TOGGLE_BUTTON_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
@@ -50,21 +64,29 @@ const argTypes = {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_SIZES) },
 		defaultValue: TOGGLE_BUTTON_SIZES.MEDIUM,
 	},
-	type: {
-		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_TYPES) },
-		defaultValue: TOGGLE_BUTTON_TYPES.FILLED,
-	},
 	color: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_COLORS) },
-		defaultValue: TOGGLE_BUTTON_COLORS.PRIMARY,
+		defaultValue: TOGGLE_BUTTON_COLORS.NEUTRAL,
 	},
 	radius: {
 		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_RADIUSES) },
 		defaultValue: TOGGLE_BUTTON_RADIUSES.CAPSULE,
 	},
-	elevation: {
-		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_ELEVATIONS) },
-		defaultValue: TOGGLE_BUTTON_ELEVATIONS.NONE,
+	labelSize: {
+		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_LABEL_SIZES) },
+		defaultValue: TOGGLE_BUTTON_LABEL_SIZES.MEDIUM,
+	},
+	state: {
+		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_STATES) },
+		defaultValue: TOGGLE_BUTTON_STATES.DEFAULT,
+	},
+	iconLeft: {
+		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		defaultValue: null,
+	},
+	iconRight: {
+		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		defaultValue: null,
 	},
 } as ArgTypes;
 
