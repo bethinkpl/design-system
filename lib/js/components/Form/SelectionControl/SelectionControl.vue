@@ -1,5 +1,5 @@
 <template>
-	<div
+	<label
 		class="selectionControl"
 		:class="[
 			`-${size}`,
@@ -11,23 +11,22 @@
 				'-focused': isFocused,
 			},
 		]"
-		@click="onToggle"
 	>
-		<div class="selectionControl__iconWrapper">
+		<span class="selectionControl__iconWrapper">
 			<icon :icon="icon" :size="iconSize" class="selectionControl__icon" />
-		</div>
-		<div v-if="label" class="selectionControl__labelWrapper">
-			<div class="selectionControl__label">{{ label }}</div>
-		</div>
+		</span>
+		<span v-if="label" class="selectionControl__labelWrapper">
+			<span class="selectionControl__label">{{ label }}</span>
+		</span>
 		<input
 			:type="type === SELECTION_CONTROL_TYPE.CHECKBOX ? 'checkbox' : 'radio'"
 			class="selectionControl__checkbox"
 			:value="isSelected"
-			@input="onToggle"
+			@change="onToggle"
 			@focus="onFocus"
 			@blur="onBlur"
 		/>
-	</div>
+	</label>
 </template>
 
 <style scoped lang="scss">
@@ -152,6 +151,7 @@ $selection-control-sizes: (
 	}
 
 	&__iconWrapper {
+		align-self: flex-start;
 		display: flex;
 	}
 
@@ -319,10 +319,6 @@ export default {
 				this.state === SELECTION_CONTROL_STATE.DISABLED ||
 				this.state === SELECTION_CONTROL_STATE.LOADING
 			) {
-				return;
-			}
-
-			if (this.type === SELECTION_CONTROL_TYPE.RADIO_BUTTON && this.isSelected) {
 				return;
 			}
 
