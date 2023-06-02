@@ -36,9 +36,13 @@
 				</div>
 			</div>
 		</div>
-		<div v-if="icon" class="selectionTile__icon" @click.stop="$emit('icon-click')">
+		<div
+			v-if="icon || isLoading"
+			class="selectionTile__icon"
+			@click.stop="isLoading ? null : $emit('icon-click')"
+		>
 			<icon
-				:icon="state === SELECTION_TILE_STATE.LOADING ? ICONS.FAD_SPINNER_THIRD : icon"
+				:icon="isLoading ? ICONS.FAD_SPINNER_THIRD : icon"
 				:size="ICON_SIZES.X_SMALL"
 				:spinning="state === SELECTION_TILE_STATE.LOADING"
 			/>
@@ -54,22 +58,23 @@
 
 .selectionTile {
 	$root: &;
-	outline: 1px solid $color-neutral-border;
-	border-radius: $radius-s;
-	padding: $space-xs;
-	display: flex;
-	background-color: $color-neutral-background-weak;
-	cursor: pointer;
-	min-height: 48px;
+
 	align-items: center;
-	justify-content: space-between;
+	background-color: $color-neutral-background-weak;
+	border-radius: $radius-s;
 	column-gap: $space-xxs;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	min-height: 48px;
+	outline: 1px solid $color-neutral-border;
+	padding: $space-xs;
 	width: 100%;
 
 	&__wrapper {
-		display: flex;
 		align-items: center;
 		column-gap: $space-xxs;
+		display: flex;
 	}
 
 	&__selectionControl {
@@ -95,22 +100,22 @@
 	}
 
 	&__icon {
-		display: flex;
 		color: $color-neutral-icon;
+		display: flex;
 	}
 
 	&:hover {
-		outline-color: $color-neutral-border-hovered;
 		background-color: $color-neutral-background-hovered;
+		outline-color: $color-neutral-border-hovered;
 	}
 
 	&.-selected {
-		outline-color: $color-primary-border;
 		background-color: $color-primary-background;
+		outline-color: $color-primary-border;
 
 		&:hover {
-			outline-color: $color-primary-border-hovered;
 			background-color: $color-primary-background-hovered;
+			outline-color: $color-primary-border-hovered;
 		}
 
 		#{$root}__icon {
@@ -120,9 +125,9 @@
 
 	&.-disabled,
 	&.-disabled:hover {
+		background-color: $color-neutral-background-weak-disabled;
 		cursor: initial;
 		outline-color: $color-neutral-border-disabled;
-		background-color: $color-neutral-background-weak-disabled;
 
 		#{$root}__title {
 			color: $color-neutral-text-heavy-disabled;
@@ -137,8 +142,8 @@
 		}
 
 		&.-selected {
-			outline-color: $color-primary-border-disabled;
 			background-color: $color-primary-background-disabled;
+			outline-color: $color-primary-border-disabled;
 
 			#{$root}__icon {
 				color: $color-primary-icon-disabled;
@@ -162,7 +167,6 @@ import { RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE } from '../Form/RadioButton/Radio
 import Icon from '../Icons/Icon/Icon.vue';
 import Checkbox from '../Form/Checkbox/Checkbox.vue';
 import { CHECKBOX_SIZE, CHECKBOX_STATE } from '../Form/Checkbox/Checkbox.consts';
-import { ICON_BUTTON_COLORS, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 
 const RADIO_BUTTON_STATE_MAP = {
 	[SELECTION_TILE_STATE.DEFAULT]: RADIO_BUTTON_STATE.DEFAULT,
@@ -226,16 +230,13 @@ export default defineComponent({
 		};
 	},
 	computed: {
-		ICON_BUTTON_COLORS() {
-			return ICON_BUTTON_COLORS;
-		},
-		ICON_BUTTON_STATES() {
-			return ICON_BUTTON_STATES;
-		},
 		selectionControlState() {
 			return this.type === SELECTION_TILE_TYPE.RADIO_BUTTON
 				? RADIO_BUTTON_STATE_MAP[this.state]
 				: CHECKBOX_STATE_MAP[this.state];
+		},
+		isLoading() {
+			return this.state === SELECTION_TILE_STATE.LOADING;
 		},
 	},
 });
