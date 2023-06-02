@@ -14,3 +14,11 @@ export const SELECTION_CONTROL_STATE = {
 
 export type SelectionControlState =
 	typeof SELECTION_CONTROL_STATE[keyof typeof SELECTION_CONTROL_STATE];
+
+export const SELECTION_CONTROL_TYPE = {
+	RADIO_BUTTON: 'radioButton',
+	CHECKBOX: 'checkbox',
+} as const;
+
+export type SelectionControlType =
+	typeof SELECTION_CONTROL_TYPE[keyof typeof SELECTION_CONTROL_TYPE];

@@ -6,6 +6,7 @@
 		:selected-icon="ICONS.FA_DOT_CIRCLE_SOLID"
 		:not-selected-icon="ICONS.FA_CIRCLE"
 		:state="state"
+		:type="SELECTION_CONTROL_TYPE.RADIO_BUTTON"
 		@update:isSelected="$emit('update:isSelected', $event)"
 	/>
 </template>
@@ -20,6 +21,7 @@ import {
 } from './RadioButton.consts';
 import SelectionControl from '../SelectionControl/SelectionControl.vue';
 import { ICONS } from '../../Icons/Icon';
+import { SELECTION_CONTROL_TYPE } from '../SelectionControl/SelectionControl.consts';
 
 export default {
 	name: 'RadioButton',
@@ -52,6 +54,7 @@ export default {
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
+			SELECTION_CONTROL_TYPE: Object.freeze(SELECTION_CONTROL_TYPE),
 		};
 	},
 };

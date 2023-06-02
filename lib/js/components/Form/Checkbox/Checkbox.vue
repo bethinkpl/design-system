@@ -6,6 +6,7 @@
 		:selected-icon="ICONS.FA_SQUARE_CHECK_SOLID"
 		:not-selected-icon="ICONS.FA_SQUARE"
 		:state="state"
+		:type="SELECTION_CONTROL_TYPE.CHECKBOX"
 		@update:isSelected="$emit('update:isSelected', $event)"
 	/>
 </template>
@@ -15,6 +16,7 @@ import { PropType } from 'vue';
 import { CHECKBOX_SIZE, CHECKBOX_STATE, CheckboxSize, CheckboxState } from './Checkbox.consts';
 import SelectionControl from '../SelectionControl/SelectionControl.vue';
 import { ICONS } from '../../Icons/Icon';
+import { SELECTION_CONTROL_TYPE } from '../SelectionControl/SelectionControl.consts';
 
 export default {
 	name: 'Checkbox',
@@ -46,6 +48,7 @@ export default {
 	emits: ['update:isSelected'],
 	data() {
 		return {
+			SELECTION_CONTROL_TYPE: Object.freeze(SELECTION_CONTROL_TYPE),
 			ICONS: Object.freeze(ICONS),
 		};
 	},
