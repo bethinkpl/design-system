@@ -56,6 +56,8 @@
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/radiuses';
 
+$selection-tile-min-height: 48px;
+
 .selectionTile {
 	$root: &;
 
@@ -66,7 +68,7 @@
 	cursor: pointer;
 	display: flex;
 	justify-content: space-between;
-	min-height: 48px;
+	min-height: $selection-tile-min-height;
 	outline: 1px solid $color-neutral-border;
 	padding: $space-xs;
 	width: 100%;
