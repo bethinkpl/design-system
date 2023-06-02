@@ -9,7 +9,7 @@
 				'-loading': state === SELECTION_TILE_STATE.LOADING,
 			},
 		]"
-		@click="$emit('update:isSelected', !isSelected)"
+		@click="isLoading ? null : $emit('update:isSelected', !isSelected)"
 	>
 		<div class="selectionTile__wrapper">
 			<div class="selectionTile__selectionControl">
@@ -18,14 +18,14 @@
 					:size="RADIO_BUTTON_SIZE.X_SMALL"
 					:is-selected="isSelected"
 					:state="selectionControlState"
-					@update:isSelected="$emit('update:isSelected', $event)"
+					@update:isSelected="isLoading ? null : $emit('update:isSelected', $event)"
 				/>
 				<checkbox
 					v-else
 					:size="CHECKBOX_SIZE.X_SMALL"
 					:is-selected="isSelected"
 					:state="selectionControlState"
-					@update:isSelected="$emit('update:isSelected', $event)"
+					@update:isSelected="isLoading ? null : $emit('update:isSelected', $event)"
 				/>
 			</div>
 			<div class="selectionTile__textWrapper">
@@ -71,6 +71,10 @@
 	padding: $space-xs;
 	width: 100%;
 
+	&.-loading {
+		cursor: initial;
+	}
+
 	&__wrapper {
 		align-items: center;
 		column-gap: $space-xxs;
@@ -104,7 +108,7 @@
 		display: flex;
 	}
 
-	&:hover {
+	&:hover:not(.-loading) {
 		background-color: $color-neutral-background-hovered;
 		outline-color: $color-neutral-border-hovered;
 	}
@@ -113,7 +117,7 @@
 		background-color: $color-primary-background;
 		outline-color: $color-primary-border;
 
-		&:hover {
+		&:hover:not(.-loading) {
 			background-color: $color-primary-background-hovered;
 			outline-color: $color-primary-border-hovered;
 		}
