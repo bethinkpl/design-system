@@ -9,7 +9,7 @@
 				'-loading': state === SELECTION_TILE_STATE.LOADING,
 			},
 		]"
-		@click="isLoading ? null : $emit('update:isSelected', !isSelected)"
+		@click="updateIsSelected(!isSelected)"
 	>
 		<div class="selectionTile__wrapper">
 			<div class="selectionTile__selectionControl">
@@ -18,14 +18,14 @@
 					:size="RADIO_BUTTON_SIZE.X_SMALL"
 					:is-selected="isSelected"
 					:state="selectionControlState"
-					@update:isSelected="isLoading ? null : $emit('update:isSelected', $event)"
+					@update:isSelected="updateIsSelected($event)"
 				/>
 				<checkbox
 					v-else
 					:size="CHECKBOX_SIZE.X_SMALL"
 					:is-selected="isSelected"
 					:state="selectionControlState"
-					@update:isSelected="isLoading ? null : $emit('update:isSelected', $event)"
+					@update:isSelected="updateIsSelected($event)"
 				/>
 			</div>
 			<div class="selectionTile__textWrapper">
@@ -243,6 +243,15 @@ export default defineComponent({
 		},
 		isLoading() {
 			return this.state === SELECTION_TILE_STATE.LOADING;
+		},
+	},
+	methods: {
+		updateIsSelected(value: boolean) {
+			if (this.isLoading || this.state === SELECTION_TILE_STATE.DISABLED) {
+				return;
+			}
+
+			this.$emit('update:isSelected', value);
 		},
 	},
 });
