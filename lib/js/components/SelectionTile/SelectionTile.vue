@@ -9,6 +9,7 @@
 				'-loading': state === SELECTION_TILE_STATE.LOADING,
 			},
 		]"
+		@click="$emit('update:isSelected', !isSelected)"
 	>
 		<div class="selectionTile__wrapper">
 			<div class="selectionTile__selectionControl">
@@ -35,44 +36,50 @@
 				</div>
 			</div>
 		</div>
-		<div v-if="icon" class="selectionTile__icon">
-			<icon :icon="icon" :size="ICON_SIZES.X_SMALL" />
+		<div v-if="icon" class="selectionTile__icon" @click.stop="$emit('icon-click')">
+			<icon
+				:icon="state === SELECTION_TILE_STATE.LOADING ? ICONS.FAD_SPINNER_THIRD : icon"
+				:size="ICON_SIZES.X_SMALL"
+				:spinning="state === SELECTION_TILE_STATE.LOADING"
+			/>
 		</div>
 	</div>
 </template>
 
 <style scoped lang="scss">
-@import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography/tokens';
+@import '../../../styles/settings/radiuses';
 
 .selectionTile {
 	$root: &;
-	border: 1px solid $color-neutral-border;
-	border-radius: 4px;
-	padding: 12px;
+	outline: 1px solid $color-neutral-border;
+	border-radius: $radius-s;
+	padding: $space-xs;
 	display: flex;
 	background-color: $color-neutral-background-weak;
 	cursor: pointer;
 	min-height: 48px;
 	align-items: center;
 	justify-content: space-between;
-	column-gap: 8px;
+	column-gap: $space-xxs;
+	width: 100%;
 
 	&__wrapper {
 		display: flex;
 		align-items: center;
-		column-gap: 8px;
+		column-gap: $space-xxs;
 	}
 
 	&__selectionControl {
+		display: flex;
 	}
 
 	&__textWrapper {
 		display: flex;
 		flex-direction: column;
-		row-gap: 4px;
+		row-gap: $space-xxxxs;
 	}
 
 	&__title {
@@ -88,20 +95,21 @@
 	}
 
 	&__icon {
+		display: flex;
 		color: $color-neutral-icon;
 	}
 
 	&:hover {
-		border-color: $color-neutral-border-hovered;
+		outline-color: $color-neutral-border-hovered;
 		background-color: $color-neutral-background-hovered;
 	}
 
 	&.-selected {
-		border-color: $color-primary-border;
+		outline-color: $color-primary-border;
 		background-color: $color-primary-background;
 
 		&:hover {
-			border-color: $color-primary-border-hovered;
+			outline-color: $color-primary-border-hovered;
 			background-color: $color-primary-background-hovered;
 		}
 
@@ -113,7 +121,7 @@
 	&.-disabled,
 	&.-disabled:hover {
 		cursor: initial;
-		border-color: $color-neutral-border-disabled;
+		outline-color: $color-neutral-border-disabled;
 		background-color: $color-neutral-background-weak-disabled;
 
 		#{$root}__title {
@@ -129,7 +137,7 @@
 		}
 
 		&.-selected {
-			border-color: $color-primary-border-disabled;
+			outline-color: $color-primary-border-disabled;
 			background-color: $color-primary-background-disabled;
 
 			#{$root}__icon {
@@ -150,10 +158,23 @@ import {
 } from './SelectionTile.consts';
 import { ICON_SIZES, IconItem, ICONS } from '../Icons/Icon';
 import RadioButton from '../Form/RadioButton/RadioButton.vue';
-import { RADIO_BUTTON_SIZE } from '../Form/RadioButton/RadioButton.consts';
+import { RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE } from '../Form/RadioButton/RadioButton.consts';
 import Icon from '../Icons/Icon/Icon.vue';
 import Checkbox from '../Form/Checkbox/Checkbox.vue';
-import { CHECKBOX_SIZE } from '../Form/Checkbox/Checkbox.consts';
+import { CHECKBOX_SIZE, CHECKBOX_STATE } from '../Form/Checkbox/Checkbox.consts';
+import { ICON_BUTTON_COLORS, ICON_BUTTON_STATES } from '../Buttons/IconButton';
+
+const RADIO_BUTTON_STATE_MAP = {
+	[SELECTION_TILE_STATE.DEFAULT]: RADIO_BUTTON_STATE.DEFAULT,
+	[SELECTION_TILE_STATE.LOADING]: RADIO_BUTTON_STATE.LOADING,
+	[SELECTION_TILE_STATE.DISABLED]: RADIO_BUTTON_STATE.DISABLED,
+};
+
+const CHECKBOX_STATE_MAP = {
+	[SELECTION_TILE_STATE.DEFAULT]: CHECKBOX_STATE.DEFAULT,
+	[SELECTION_TILE_STATE.LOADING]: CHECKBOX_STATE.LOADING,
+	[SELECTION_TILE_STATE.DISABLED]: CHECKBOX_STATE.DISABLED,
+};
 
 export default defineComponent({
 	name: 'SelectionTile',
@@ -193,9 +214,10 @@ export default defineComponent({
 			},
 		},
 	},
-	emits: ['update:isSelected'],
+	emits: ['update:isSelected', 'icon-click'],
 	data() {
 		return {
+			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			RADIO_BUTTON_SIZE: Object.freeze(RADIO_BUTTON_SIZE),
 			SELECTION_TILE_STATE: Object.freeze(SELECTION_TILE_STATE),
@@ -204,8 +226,16 @@ export default defineComponent({
 		};
 	},
 	computed: {
+		ICON_BUTTON_COLORS() {
+			return ICON_BUTTON_COLORS;
+		},
+		ICON_BUTTON_STATES() {
+			return ICON_BUTTON_STATES;
+		},
 		selectionControlState() {
-			return this.state;
+			return this.type === SELECTION_TILE_TYPE.RADIO_BUTTON
+				? RADIO_BUTTON_STATE_MAP[this.state]
+				: CHECKBOX_STATE_MAP[this.state];
 		},
 	},
 });

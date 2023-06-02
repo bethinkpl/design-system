@@ -7,12 +7,28 @@ import { ICONS } from '../Icons/Icon';
 export default {
 	title: 'Components/SelectionTile',
 	component: SelectionTile,
+	decorators: [
+		(story) => ({
+			components: { story },
+			template: "<div style='display: flex; max-width: 300px;'><story /></div>",
+		}),
+	],
 } as Meta<typeof SelectionTile>;
 
-const StoryTemplate: StoryFn<typeof SelectionTile> = (args) => ({
+const StoryTemplate: StoryFn<typeof SelectionTile> = (args, { updateArgs }) => ({
 	components: { SelectionTile },
 	setup() {
 		return { ...args };
+	},
+	methods: {
+		onIsSelectedUpdated(isSelected) {
+			updateArgs({
+				isSelected,
+			});
+		},
+		onIconClick() {
+			alert('Klik w ikonę');
+		},
 	},
 	data() {
 		return {
@@ -27,6 +43,8 @@ const StoryTemplate: StoryFn<typeof SelectionTile> = (args) => ({
 			:icon="ICONS[icon]"
 			:is-selected="isSelected"
 			:state="state"
+			@icon-click="onIconClick"
+			@update:isSelected="onIsSelectedUpdated"
 		/>`,
 });
 
@@ -59,8 +77,11 @@ Interactive.args = {
 } as Args;
 
 Interactive.parameters = {
+	actions: {
+		handles: ['click'],
+	},
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6085-110808&t=QdcqN4Bz8t78w7Lh-0',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6085-110809&t=436AgbJEEFBphXVn-0',
 	},
 };
