@@ -98,7 +98,6 @@ $selection-control-sizes: (
 			position: absolute;
 			transform: scale(0);
 			transition: all $default-transition-time ease 0ms;
-			z-index: -1;
 		}
 
 		&:hover,
