@@ -36,15 +36,12 @@
 				</div>
 			</div>
 		</div>
-		<div
-			v-if="icon || isLoading"
-			class="selectionTile__icon"
-			@click.stop="isLoading ? null : $emit('icon-click')"
-		>
+		<div v-if="icon || isLoading" class="selectionTile__icon">
 			<icon
 				:icon="isLoading ? ICONS.FAD_SPINNER_THIRD : icon"
 				:size="ICON_SIZES.X_SMALL"
-				:spinning="state === SELECTION_TILE_STATE.LOADING"
+				:spinning="isLoading"
+				@click="onIconClick"
 			/>
 		</div>
 	</div>
@@ -252,6 +249,12 @@ export default defineComponent({
 			}
 
 			this.$emit('update:isSelected', value);
+		},
+		onIconClick(event: Event) {
+			if (!this.isLoading) {
+				event.stopPropagation();
+				this.$emit('icon-click');
+			}
 		},
 	},
 });
