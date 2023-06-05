@@ -102,7 +102,7 @@ $selection-tile-min-height: 48px;
 	}
 
 	&:hover:not(.-loading) {
-		background-color: $color-neutral-background-hovered;
+		background-color: $color-neutral-background-weak-hovered;
 		outline-color: $color-neutral-border-hovered;
 	}
 
