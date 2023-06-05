@@ -1,3 +1,5 @@
+import { Value } from '../../utils/type.utils';
+
 export const RIPPLE_COLORS = {
 	ACCENT: 'accent',
 	DANGER: 'danger',
@@ -10,3 +12,5 @@ export const RIPPLE_COLORS = {
 	SUCCESS: 'success',
 	WARNING: 'warning',
 };
+
+export type RippleColor = Value<typeof RIPPLE_COLORS>;

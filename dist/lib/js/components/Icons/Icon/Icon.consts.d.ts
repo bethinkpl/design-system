@@ -1,4 +1,5 @@
 /// <reference types="typings" />
+import { Value } from '../../../utils/type.utils';
 export declare const ICON_SIZES: {
     XXX_SMALL: string;
     XX_SMALL: string;
@@ -9,6 +10,7 @@ export declare const ICON_SIZES: {
     X_LARGE: string;
     XX_LARGE: string;
 };
+export declare type IconSize = Value<typeof ICON_SIZES>;
 export declare const ICONS: {
     readonly HEAD_WITH_QUESTION_MARK: import("*.svg").CompatVue;
     readonly RIBBON: import("*.svg").CompatVue;
@@ -81,6 +83,7 @@ export declare const ICONS: {
     readonly FA_COMMENT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_COMMENTS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_COMPRESS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_DOT_CIRCLE_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_EARTH_AMERICAS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ELLIPSIS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ELLIPSIS_VERTICAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
