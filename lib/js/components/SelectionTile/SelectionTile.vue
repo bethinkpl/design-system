@@ -46,6 +46,7 @@
 </template>
 
 <style scoped lang="scss">
+@import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography/tokens';
@@ -66,6 +67,9 @@ $selection-tile-min-height: 48px;
 	min-height: $selection-tile-min-height;
 	outline: 1px solid $color-neutral-border;
 	padding: $space-xs;
+	transition: color ease-in-out $default-transition-time,
+		outline-color ease-in-out $default-transition-time,
+		background-color ease-in-out $default-transition-time;
 	width: 100%;
 
 	&.-loading {
