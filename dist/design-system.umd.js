@@ -8385,6 +8385,43 @@ exports.aliases = aliases;
 
 /***/ }),
 
+/***/ 39837:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var prefix = 'fas';
+var iconName = 'circle-dot';
+var width = 512;
+var height = 512;
+var aliases = [128280,"dot-circle"];
+var unicode = 'f192';
+var svgPathData = 'M0 256C0 114.6 114.6 0 256 0C397.4 0 512 114.6 512 256C512 397.4 397.4 512 256 512C114.6 512 0 397.4 0 256zM256 352C309 352 352 309 352 256C352 202.1 309 160 256 160C202.1 160 160 202.1 160 256C160 309 202.1 352 256 352z';
+
+exports.definition = {
+  prefix: prefix,
+  iconName: iconName,
+  icon: [
+    width,
+    height,
+    aliases,
+    unicode,
+    svgPathData
+  ]};
+
+exports.faCircleDot = exports.definition;
+exports.prefix = prefix;
+exports.iconName = iconName;
+exports.width = width;
+exports.height = height;
+exports.ligatures = aliases;
+exports.unicode = unicode;
+exports.svgPathData = svgPathData;
+exports.aliases = aliases;
+
+/***/ }),
+
 /***/ 6508:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -12139,6 +12176,7 @@ const faTriangleExclamation_2 = __webpack_require__(54854);
 const faUserDoctor_1 = __webpack_require__(49085);
 const faVideo_1 = __webpack_require__(22570);
 const faVolumeHigh_1 = __webpack_require__(50540);
+const faCircleDot_1 = __webpack_require__(39837);
 const faChevronLeft_2 = __webpack_require__(39575);
 const faChevronRight_2 = __webpack_require__(40853);
 const faSpinnerThird_1 = __webpack_require__(15176);
@@ -12212,6 +12250,7 @@ exports.FONTAWESOME_ICONS = {
     FA_COMMENT_SOLID: faComment_2.faComment,
     FA_COMMENTS: faComments_1.faComments,
     FA_COMPRESS: faCompress_1.faCompress,
+    FA_DOT_CIRCLE_SOLID: faCircleDot_1.faCircleDot,
     FA_EARTH_AMERICAS: faEarthAmericas_1.faEarthAmericas,
     FA_ELLIPSIS: faEllipsis_1.faEllipsis,
     FA_ELLIPSIS_VERTICAL: faEllipsisVertical_1.faEllipsisVertical,
