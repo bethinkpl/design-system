@@ -169,6 +169,7 @@ import { faTriangleExclamation as fasTriangleExclamation } from '@fortawesome/pr
 import { faUserDoctor as fasUserDoctor } from '@fortawesome/pro-solid-svg-icons/faUserDoctor';
 import { faVideo as fasVideo } from '@fortawesome/pro-solid-svg-icons/faVideo';
 import { faVolumeHigh as fasVolumeHigh } from '@fortawesome/pro-solid-svg-icons/faVolumeHigh';
+import { faCircleDot as fasCircleDot } from '@fortawesome/pro-solid-svg-icons/faCircleDot';
 
 import { faChevronLeft as falChevronLeft } from '@fortawesome/pro-light-svg-icons/faChevronLeft';
 import { faChevronRight as falChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
@@ -246,6 +247,7 @@ export const FONTAWESOME_ICONS = {
 	FA_COMMENT_SOLID: fasComment,
 	FA_COMMENTS: faComments,
 	FA_COMPRESS: faCompress,
+	FA_DOT_CIRCLE_SOLID: fasCircleDot,
 	FA_EARTH_AMERICAS: faEarthAmericas,
 	FA_ELLIPSIS: faEllipsis,
 	FA_ELLIPSIS_VERTICAL: faEllipsisVertical,
