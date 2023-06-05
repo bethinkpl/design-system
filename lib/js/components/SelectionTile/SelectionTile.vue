@@ -12,22 +12,20 @@
 		@click="updateIsSelected(!isSelected)"
 	>
 		<div class="selectionTile__wrapper">
-			<div class="selectionTile__selectionControl">
-				<radio-button
-					v-if="type === SELECTION_TILE_TYPE.RADIO_BUTTON"
-					:size="RADIO_BUTTON_SIZE.X_SMALL"
-					:is-selected="isSelected"
-					:state="selectionControlState"
-					@update:isSelected="updateIsSelected($event)"
-				/>
-				<checkbox
-					v-else
-					:size="CHECKBOX_SIZE.X_SMALL"
-					:is-selected="isSelected"
-					:state="selectionControlState"
-					@update:isSelected="updateIsSelected($event)"
-				/>
-			</div>
+			<radio-button
+				v-if="type === SELECTION_TILE_TYPE.RADIO_BUTTON"
+				:size="RADIO_BUTTON_SIZE.X_SMALL"
+				:is-selected="isSelected"
+				:state="selectionControlState"
+				@update:isSelected="updateIsSelected($event)"
+			/>
+			<checkbox
+				v-else
+				:size="CHECKBOX_SIZE.X_SMALL"
+				:is-selected="isSelected"
+				:state="selectionControlState"
+				@update:isSelected="updateIsSelected($event)"
+			/>
 			<div class="selectionTile__textWrapper">
 				<div class="selectionTile__title">{{ title }}</div>
 
@@ -77,10 +75,6 @@ $selection-tile-min-height: 48px;
 	&__wrapper {
 		align-items: center;
 		column-gap: $space-xxs;
-		display: flex;
-	}
-
-	&__selectionControl {
 		display: flex;
 	}
 
