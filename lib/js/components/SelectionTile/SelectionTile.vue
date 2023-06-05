@@ -16,14 +16,14 @@
 				v-if="type === SELECTION_TILE_TYPE.RADIO_BUTTON"
 				:size="RADIO_BUTTON_SIZE.X_SMALL"
 				:is-selected="isSelected"
-				:state="selectionControlState"
+				:state="SELECTION_CONTROL_STATE_MAP[state]"
 				@update:isSelected="updateIsSelected($event)"
 			/>
 			<checkbox
 				v-else
 				:size="CHECKBOX_SIZE.X_SMALL"
 				:is-selected="isSelected"
-				:state="selectionControlState"
+				:state="SELECTION_CONTROL_STATE_MAP[state]"
 				@update:isSelected="updateIsSelected($event)"
 			/>
 			<div class="selectionTile__textWrapper">
@@ -160,21 +160,16 @@ import {
 } from './SelectionTile.consts';
 import { ICON_SIZES, IconItem, ICONS } from '../Icons/Icon';
 import RadioButton from '../Form/RadioButton/RadioButton.vue';
-import { RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE } from '../Form/RadioButton/RadioButton.consts';
+import { RADIO_BUTTON_SIZE } from '../Form/RadioButton/RadioButton.consts';
 import Icon from '../Icons/Icon/Icon.vue';
 import Checkbox from '../Form/Checkbox/Checkbox.vue';
-import { CHECKBOX_SIZE, CHECKBOX_STATE } from '../Form/Checkbox/Checkbox.consts';
+import { CHECKBOX_SIZE } from '../Form/Checkbox/Checkbox.consts';
+import { SELECTION_CONTROL_STATE } from '../Form/SelectionControl/SelectionControl.consts';
 
-const RADIO_BUTTON_STATE_MAP = {
-	[SELECTION_TILE_STATE.DEFAULT]: RADIO_BUTTON_STATE.DEFAULT,
-	[SELECTION_TILE_STATE.LOADING]: RADIO_BUTTON_STATE.LOADING,
-	[SELECTION_TILE_STATE.DISABLED]: RADIO_BUTTON_STATE.DISABLED,
-};
-
-const CHECKBOX_STATE_MAP = {
-	[SELECTION_TILE_STATE.DEFAULT]: CHECKBOX_STATE.DEFAULT,
-	[SELECTION_TILE_STATE.LOADING]: CHECKBOX_STATE.LOADING,
-	[SELECTION_TILE_STATE.DISABLED]: CHECKBOX_STATE.DISABLED,
+const SELECTION_CONTROL_STATE_MAP = {
+	[SELECTION_TILE_STATE.DEFAULT]: SELECTION_CONTROL_STATE.DEFAULT,
+	[SELECTION_TILE_STATE.LOADING]: SELECTION_CONTROL_STATE.LOADING,
+	[SELECTION_TILE_STATE.DISABLED]: SELECTION_CONTROL_STATE.DISABLED,
 };
 
 export default defineComponent({
@@ -224,14 +219,10 @@ export default defineComponent({
 			SELECTION_TILE_STATE: Object.freeze(SELECTION_TILE_STATE),
 			SELECTION_TILE_TYPE: Object.freeze(SELECTION_TILE_TYPE),
 			CHECKBOX_SIZE: Object.freeze(CHECKBOX_SIZE),
+			SELECTION_CONTROL_STATE_MAP,
 		};
 	},
 	computed: {
-		selectionControlState() {
-			return this.type === SELECTION_TILE_TYPE.RADIO_BUTTON
-				? RADIO_BUTTON_STATE_MAP[this.state]
-				: CHECKBOX_STATE_MAP[this.state];
-		},
 		isLoading() {
 			return this.state === SELECTION_TILE_STATE.LOADING;
 		},
