@@ -12,16 +12,9 @@
 		@click="updateIsSelected(!isSelected)"
 	>
 		<div class="selectionTile__wrapper">
-			<radio-button
-				v-if="type === SELECTION_TILE_TYPE.RADIO_BUTTON"
-				:size="RADIO_BUTTON_SIZE.X_SMALL"
-				:is-selected="isSelected"
-				:state="SELECTION_CONTROL_STATE_MAP[state]"
-				@update:isSelected="updateIsSelected($event)"
-			/>
-			<checkbox
-				v-else
-				:size="CHECKBOX_SIZE.X_SMALL"
+			<component
+				:is="type === SELECTION_TILE_TYPE.RADIO_BUTTON ? 'radio-button' : 'checkbox'"
+				:size="SELECTION_CONTROL_SIZE.X_SMALL"
 				:is-selected="isSelected"
 				:state="SELECTION_CONTROL_STATE_MAP[state]"
 				@update:isSelected="updateIsSelected($event)"
@@ -155,7 +148,7 @@ $selection-tile-min-height: 48px;
 </style>
 
 <script lang="ts">
-import { defineComponent, PropType, toRaw } from 'vue';
+import { defineAsyncComponent, defineComponent, PropType, toRaw } from 'vue';
 import {
 	SELECTION_TILE_STATE,
 	SELECTION_TILE_TYPE,
@@ -163,12 +156,11 @@ import {
 	SelectionTileType,
 } from './SelectionTile.consts';
 import { ICON_SIZES, IconItem, ICONS } from '../Icons/Icon';
-import RadioButton from '../Form/RadioButton/RadioButton.vue';
-import { RADIO_BUTTON_SIZE } from '../Form/RadioButton/RadioButton.consts';
 import Icon from '../Icons/Icon/Icon.vue';
-import Checkbox from '../Form/Checkbox/Checkbox.vue';
-import { CHECKBOX_SIZE } from '../Form/Checkbox/Checkbox.consts';
-import { SELECTION_CONTROL_STATE } from '../Form/SelectionControl/SelectionControl.consts';
+import {
+	SELECTION_CONTROL_SIZE,
+	SELECTION_CONTROL_STATE,
+} from '../Form/SelectionControl/SelectionControl.consts';
 
 const SELECTION_CONTROL_STATE_MAP = {
 	[SELECTION_TILE_STATE.DEFAULT]: SELECTION_CONTROL_STATE.DEFAULT,
@@ -178,7 +170,11 @@ const SELECTION_CONTROL_STATE_MAP = {
 
 export default defineComponent({
 	name: 'SelectionTile',
-	components: { Checkbox, Icon, RadioButton },
+	components: {
+		Icon,
+		Checkbox: defineAsyncComponent(() => import('../Form/Checkbox/Checkbox.vue')),
+		RadioButton: defineAsyncComponent(() => import('../Form/RadioButton/RadioButton.vue')),
+	},
 	props: {
 		type: {
 			type: String as PropType<SelectionTileType>,
@@ -219,10 +215,9 @@ export default defineComponent({
 		return {
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
-			RADIO_BUTTON_SIZE: Object.freeze(RADIO_BUTTON_SIZE),
+			SELECTION_CONTROL_SIZE: Object.freeze(SELECTION_CONTROL_SIZE),
 			SELECTION_TILE_STATE: Object.freeze(SELECTION_TILE_STATE),
 			SELECTION_TILE_TYPE: Object.freeze(SELECTION_TILE_TYPE),
-			CHECKBOX_SIZE: Object.freeze(CHECKBOX_SIZE),
 			SELECTION_CONTROL_STATE_MAP,
 		};
 	},
