@@ -8,6 +8,8 @@
 		:state="state"
 		:type="SELECTION_CONTROL_TYPE.CHECKBOX"
 		@update:isSelected="$emit('update:isSelected', $event)"
+		@input:focus="$emit('input:focus')"
+		@input:blur="$emit('input:blur')"
 	/>
 </template>
 
@@ -45,7 +47,7 @@ export default {
 			},
 		},
 	},
-	emits: ['update:isSelected'],
+	emits: ['update:isSelected', 'input:focus', 'input:blur'],
 	data() {
 		return {
 			SELECTION_CONTROL_TYPE: Object.freeze(SELECTION_CONTROL_TYPE),

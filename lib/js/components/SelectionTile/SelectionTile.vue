@@ -6,7 +6,8 @@
 				'-selected': isSelected,
 				'-default': state === SELECTION_TILE_STATE.DEFAULT,
 				'-disabled': state === SELECTION_TILE_STATE.DISABLED,
-				'-loading': state === SELECTION_TILE_STATE.LOADING,
+				'-loading': isLoading,
+				'-focused': inputIsFocused && !isLoading,
 			},
 		]"
 		@click="updateIsSelected(!isSelected)"
@@ -18,6 +19,8 @@
 				:is-selected="isSelected"
 				:state="SELECTION_CONTROL_STATE_MAP[state]"
 				@update:isSelected="updateIsSelected($event)"
+				@input:focus="onInputFocus"
+				@input:blur="onInputBlur"
 			/>
 			<div class="selectionTile__textWrapper">
 				<div class="selectionTile__title">{{ title }}</div>
@@ -98,7 +101,8 @@ $selection-tile-min-height: 48px;
 		display: flex;
 	}
 
-	&:hover:not(.-loading) {
+	&:hover:not(.-loading),
+	&.-focused {
 		background-color: $color-neutral-background-weak-hovered;
 		outline-color: $color-neutral-border-hovered;
 	}
@@ -107,7 +111,8 @@ $selection-tile-min-height: 48px;
 		background-color: $color-primary-background;
 		outline-color: $color-primary-border;
 
-		&:hover:not(.-loading) {
+		&:hover:not(.-loading),
+		&.-focused {
 			background-color: $color-primary-background-hovered;
 			outline-color: $color-primary-border-hovered;
 		}
@@ -161,6 +166,7 @@ import {
 	SELECTION_CONTROL_SIZE,
 	SELECTION_CONTROL_STATE,
 } from '../Form/SelectionControl/SelectionControl.consts';
+import SelectionControl from '../Form/SelectionControl/SelectionControl.vue';
 
 const SELECTION_CONTROL_STATE_MAP = {
 	[SELECTION_TILE_STATE.DEFAULT]: SELECTION_CONTROL_STATE.DEFAULT,
@@ -171,6 +177,7 @@ const SELECTION_CONTROL_STATE_MAP = {
 export default defineComponent({
 	name: 'SelectionTile',
 	components: {
+		SelectionControl,
 		Icon,
 		Checkbox: defineAsyncComponent(() => import('../Form/Checkbox/Checkbox.vue')),
 		RadioButton: defineAsyncComponent(() => import('../Form/RadioButton/RadioButton.vue')),
@@ -219,6 +226,7 @@ export default defineComponent({
 			SELECTION_TILE_STATE: Object.freeze(SELECTION_TILE_STATE),
 			SELECTION_TILE_TYPE: Object.freeze(SELECTION_TILE_TYPE),
 			SELECTION_CONTROL_STATE_MAP,
+			inputIsFocused: false,
 		};
 	},
 	computed: {
@@ -239,6 +247,12 @@ export default defineComponent({
 				event.stopPropagation();
 				this.$emit('icon-click');
 			}
+		},
+		onInputFocus() {
+			this.inputIsFocused = true;
+		},
+		onInputBlur() {
+			this.inputIsFocused = false;
 		},
 	},
 });
