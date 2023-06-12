@@ -27,14 +27,14 @@
 				</div>
 			</div>
 		</div>
-		<div v-if="icon || isLoading" class="selectionTile__icon">
-			<icon
-				:icon="isLoading ? ICONS.FAD_SPINNER_THIRD : icon"
-				:size="ICON_SIZES.X_SMALL"
-				:spinning="isLoading"
-				@click="onIconClick"
-			/>
-		</div>
+		<icon
+			v-if="icon || isLoading"
+			class="selectionTile__icon"
+			:icon="isLoading ? ICONS.FAD_SPINNER_THIRD : icon"
+			:size="ICON_SIZES.X_SMALL"
+			:spinning="isLoading"
+			@click="onIconClick"
+		/>
 	</div>
 </template>
 
