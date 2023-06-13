@@ -288,7 +288,7 @@ export default {
 			},
 		},
 	},
-	emits: ['update:isSelected'],
+	emits: ['update:isSelected', 'input:focus', 'input:blur'],
 	data() {
 		return {
 			isFocused: false,
@@ -325,9 +325,11 @@ export default {
 		},
 		onFocus() {
 			this.isFocused = true;
+			this.$emit('input:focus');
 		},
 		onBlur() {
 			this.isFocused = false;
+			this.$emit('input:blur');
 		},
 	},
 };

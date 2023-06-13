@@ -72,6 +72,8 @@ export { default as SelectListItemToggle } from './components/SelectList/SelectL
 export { default as SelectListItemTile } from './components/SelectList/SelectListItemTile/SelectListItemTile.vue';
 export { default as SelectListSectionTitle } from './components/SelectList/SelectListSectionTitle/SelectListSectionTitle.vue';
 export * from './components/SelectList/SelectListItem/SelectListItem.consts';
+export { default as SelectionTile } from './components/SelectionTile';
+export * from './components/SelectionTile';
 export { default as PopOver } from './components/PopOver';
 export * from './components/PopOver/PopOver.consts';
 export { default as Dropdown } from './components/Dropdown';
