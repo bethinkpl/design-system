@@ -13,9 +13,3 @@ declare module '*.svg' {
 	const { configureCompat } = Vue;
 	export { configureCompat };
 }
-
-declare module 'vue-ripple-directive' {
-	// TODO does it work?
-	import { DirectiveFunction } from 'vue/types/options';
-	export default {} as DirectiveFunction;
-}

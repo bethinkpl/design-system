@@ -1,11 +1,9 @@
 <template>
-	<ds-ripple
+	<div
 		class="toggleButtonWrapper"
 		:class="{
 			'-rounded': radius === TOGGLE_BUTTON_RADIUSES.ROUNDED,
 		}"
-		:disable="!isInteractiveComputed"
-		:color="rippleColor"
 	>
 		<div
 			class="toggleButton"
@@ -60,7 +58,7 @@
 				spinning
 			/>
 		</div>
-	</ds-ripple>
+	</div>
 </template>
 
 <style lang="scss" scoped>
@@ -237,14 +235,6 @@ $toggle-button-colors: (
 
 .toggleButtonWrapper {
 	display: inline-block;
-
-	&:deep(.ripple-container) {
-		border-radius: 100px !important;
-	}
-
-	&.-rounded:deep(.ripple-container) {
-		border-radius: $radius-s !important;
-	}
 }
 
 .toggleButton {
@@ -421,7 +411,6 @@ $toggle-button-colors: (
 
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
-import DsRipple, { RIPPLE_COLORS, RippleColor } from '../../Ripple';
 import { PropType, toRaw } from 'vue';
 
 import {
@@ -443,7 +432,6 @@ export default {
 	name: 'ToggleButton',
 	components: {
 		DsIcon,
-		DsRipple,
 	},
 	props: {
 		color: {
@@ -539,28 +527,6 @@ export default {
 			}
 
 			return this.isInteractive;
-		},
-		rippleColor(): RippleColor {
-			const map = {
-				[TOGGLE_BUTTON_COLORS.NEUTRAL]: {
-					false: RIPPLE_COLORS.NEUTRAL,
-					true: RIPPLE_COLORS.PRIMARY,
-				},
-				[TOGGLE_BUTTON_COLORS.NEUTRAL_HEAVY]: {
-					false: RIPPLE_COLORS.NEUTRAL,
-					true: RIPPLE_COLORS.PRIMARY,
-				},
-				[TOGGLE_BUTTON_COLORS.NEUTRAL_STRONG]: {
-					false: RIPPLE_COLORS.NEUTRAL,
-					true: RIPPLE_COLORS.INVERTED,
-				},
-				[TOGGLE_BUTTON_COLORS.PRIMARY]: {
-					false: RIPPLE_COLORS.PRIMARY,
-					true: RIPPLE_COLORS.INVERTED,
-				},
-			};
-
-			return map[this.color][this.isSelected];
 		},
 	},
 };

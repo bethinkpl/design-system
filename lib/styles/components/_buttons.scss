@@ -75,25 +75,14 @@
 }
 
 @mixin setButtonAdditions(
-	$ripple: null,
 	$border: null,
 	$icon: null,
 	$icon-hovered: null,
 	$icon-focused: null,
 	$icon-disabled: null
 ) {
-	@if $ripple == null {
-		.ripple {
-			display: none;
-		}
-	}
-
 	@if $border != null {
 		border: 1px solid $border;
-	}
-
-	.ripple {
-		background-color: $ripple !important;
 	}
 
 	.a-button {
@@ -161,7 +150,6 @@ $button-disabled-alpha: 0.6;
 				map-get($color-map, 'filled', 'disabled', 'background')
 			);
 			@include setButtonAdditions(
-				map-get($color-map, 'filled', 'ripple'),
 				null,
 				map-get($color-map, 'filled', 'icon')
 			);
@@ -208,7 +196,6 @@ $button-disabled-alpha: 0.6;
 					map-get($color-map, 'outlined', 'disabled', 'border')
 				);
 				@include setButtonAdditions(
-					map-get($color-map, 'outlined', 'ripple'),
 					map-get($color-map, 'outlined', 'border'),
 					map-get($color-map, 'outlined', 'icon')
 				);
@@ -239,7 +226,6 @@ $button-disabled-alpha: 0.6;
 					map-get($color-map, 'text', 'disabled', 'icon')
 				);
 				@include setButtonAdditions(
-					null,
 					null,
 					map-get($color-map, 'text', 'icon'),
 					map-get($color-map, 'text', 'icon-hovered'),

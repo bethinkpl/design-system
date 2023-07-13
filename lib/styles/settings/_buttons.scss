@@ -23,7 +23,6 @@ $only-icon-button-colors: (
 			'background-hovered': $color-neutral-background-strong-hovered,
 			'background-focused': $color-neutral-background-strong-focused,
 			'background-disabled': $color-neutral-background-strong-disabled,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text,
 				'icon': $color-inverted-icon,
@@ -40,7 +39,6 @@ $only-icon-button-colors: (
 			'background-hovered': $color-neutral-background-ghost-hovered,
 			'background-focused': $color-neutral-background-ghost-focused,
 			'background-disabled': $color-neutral-background-ghost-disabled,
-			'ripple': $color-neutral-ripple,
 			'disabled': (
 				'color': $color-neutral-text-weak-disabled,
 				'border': $color-neutral-border-strong-disabled,
@@ -58,7 +56,6 @@ $only-icon-button-colors: (
 			'disabled': (
 				'color': $color-neutral-text-weak-disabled,
 				'icon': $color-neutral-icon-weak-disabled,
-				'ripple': $color-neutral-ripple,
 			),
 		),
 	),
@@ -70,7 +67,6 @@ $only-icon-button-colors: (
 			'background-hovered': $color-warning-background-strong-hovered,
 			'background-focused': $color-warning-background-strong-focused,
 			'background-disabled': $color-warning-background-strong-disabled,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text,
 				'icon': $color-inverted-icon,
@@ -85,7 +81,6 @@ $only-icon-button-colors: (
 			'background-hovered': $color-warning-background-ghost-hovered,
 			'background-focused': $color-warning-background-ghost-focused,
 			'background-disabled': $color-warning-background-ghost-disabled,
-			'ripple': $color-warning-ripple,
 			'disabled': (
 				'color': $color-warning-text-weak,
 				'border': $color-warning-border-disabled,
@@ -103,7 +98,6 @@ $only-icon-button-colors: (
 			'disabled': (
 				'color': $color-warning-text-weak,
 				'icon': $color-warning-icon-disabled,
-				'ripple': $color-warning-ripple,
 			),
 		),
 	),
@@ -115,7 +109,6 @@ $only-icon-button-colors: (
 			'background-hovered': $color-info-background-strong-hovered,
 			'background-focused': $color-info-background-strong-focused,
 			'background-disabled': $color-info-background-strong-disabled,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text,
 				'icon': $color-inverted-icon,
@@ -130,7 +123,6 @@ $only-icon-button-colors: (
 			'background-hovered': $color-info-background-ghost-hovered,
 			'background-focused': $color-info-background-ghost-focused,
 			'background-disabled': $color-info-background-ghost-disabled,
-			'ripple': $color-info-ripple,
 			'disabled': (
 				'color': $color-info-text,
 				'border': $color-info-border-disabled,
@@ -148,7 +140,6 @@ $only-icon-button-colors: (
 			'disabled': (
 				'color': $color-info-text,
 				'icon': $color-info-icon-disabled,
-				'ripple': $color-info-ripple,
 			),
 		),
 	),
@@ -160,7 +151,6 @@ $only-icon-button-colors: (
 			'background-hovered': $color-fail-background-strong-hovered,
 			'background-focused': $color-fail-background-strong-focused,
 			'background-disabled': $color-fail-background-strong-disabled,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text,
 				'icon': $color-inverted-icon,
@@ -175,7 +165,6 @@ $only-icon-button-colors: (
 			'background-hovered': $color-fail-background-ghost-hovered,
 			'background-focused': $color-fail-background-ghost-focused,
 			'background-disabled': $color-fail-background-ghost-disabled,
-			'ripple': $color-fail-ripple,
 			'disabled': (
 				'color': $color-fail-text,
 				'border': $color-fail-border-disabled,
@@ -193,7 +182,6 @@ $only-icon-button-colors: (
 			'disabled': (
 				'color': $color-fail-text,
 				'icon': $color-fail-icon-disabled,
-				'ripple': $color-fail-ripple,
 			),
 		),
 	),
@@ -210,7 +198,6 @@ $button-colors: (
 			'background-hovered': $color-primary-background-strong-hovered,
 			'background-focused': $color-primary-background-strong-focused,
 			'background-disabled': $color-primary-background-strong-disabled,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text,
 				'icon': $color-inverted-icon,
@@ -227,7 +214,6 @@ $button-colors: (
 			'background-hovered': $color-primary-background-ghost-hovered,
 			'background-focused': $color-primary-background-ghost-focused,
 			'background-disabled': $color-primary-background-ghost-disabled,
-			'ripple': $color-primary-ripple,
 			'disabled': (
 				'color': $color-primary-text-disabled,
 				'border': $color-primary-border-disabled,
@@ -260,7 +246,6 @@ $button-colors: (
 			'background-hovered': $color-neutral-background-heavy-hovered,
 			'background-focused': $color-neutral-background-heavy-focused,
 			'background-disabled': $color-neutral-background-heavy-disabled,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text,
 				'icon': $color-inverted-icon,
@@ -277,7 +262,6 @@ $button-colors: (
 			'background-hovered': $color-neutral-background-ghost-hovered,
 			'background-focused': $color-neutral-background-ghost-focused,
 			'background-disabled': $color-neutral-background-ghost-disabled,
-			'ripple': $color-neutral-ripple,
 			'disabled': (
 				'color': $color-neutral-text-disabled,
 				'border': $color-neutral-border-heavy-disabled,
@@ -308,7 +292,6 @@ $button-colors: (
 			'background-hovered': $color-danger-background-strong-hovered,
 			'background-focused': $color-danger-background-strong-focused,
 			'background-disabled': $color-danger-background-strong-disabled,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text,
 				'icon': $color-inverted-icon,
@@ -323,7 +306,6 @@ $button-colors: (
 			'background-hovered': $color-danger-background-ghost-hovered,
 			'background-focused': $color-danger-background-ghost-focused,
 			'background-disabled': $color-danger-background-ghost-disabled,
-			'ripple': $color-danger-ripple,
 			'disabled': (
 				'color': $color-danger-text-disabled,
 				'border': $color-danger-border-disabled,
@@ -354,7 +336,6 @@ $button-colors: (
 			'background-hovered': $color-success-background-strong-hovered,
 			'background-focused': $color-success-background-strong-focused,
 			'background-disabled': $color-success-background-strong-disabled,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text,
 				'icon': $color-inverted-icon,
@@ -369,7 +350,6 @@ $button-colors: (
 			'background-hovered': $color-success-background-ghost-hovered,
 			'background-focused': $color-success-background-ghost-focused,
 			'background-disabled': $color-success-background-ghost-disabled,
-			'ripple': $color-success-ripple,
 			'disabled': (
 				'color': $color-success-text-disabled,
 				'border': $color-success-border-disabled,
@@ -400,7 +380,6 @@ $button-colors: (
 			'background-hovered': $color-default-background,
 			'background-focused': $color-default-background,
 			'background-disabled': $color-default-background,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text,
 				'icon': $color-inverted-icon,
@@ -415,7 +394,6 @@ $button-colors: (
 			'background-hovered': $color-default-background-ghost-hovered,
 			'background-focused': $color-default-background-ghost-focused,
 			'background-disabled': $color-default-background-ghost-disabled,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text-disabled,
 				'border': $color-inverted-border-disabled,

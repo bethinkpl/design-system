@@ -14,7 +14,7 @@
 			</div>
 		</template>
 		<template v-if="isExpanderVisible" #footer>
-			<div v-ripple class="cardExpandable__expander" @click="onExpanderClick">
+			<div class="cardExpandable__expander" @click="onExpanderClick">
 				<span class="cardExpandable__expanderLabel">
 					{{ isExpandedInternal ? expanderTextExpanded : expanderTextCollapsed }}
 				</span>
@@ -53,10 +53,6 @@
 		&:hover {
 			background-color: $color-neutral-background-hovered;
 		}
-
-		&:deep(.ripple) {
-			background-color: $color-default-ripple !important;
-		}
 	}
 
 	&__expanderLabel {
@@ -73,7 +69,6 @@
 </style>
 
 <script lang="ts">
-import Ripple from 'vue-ripple-directive';
 import DsCard from '../Card/';
 import DsIcon, { ICONS, ICON_SIZES } from '../../../components/Icons/Icon';
 
@@ -82,9 +77,6 @@ export default {
 	components: {
 		DsCard,
 		DsIcon,
-	},
-	directives: {
-		ripple: Ripple,
 	},
 	props: {
 		isExpanded: {

@@ -1,6 +1,5 @@
 <template>
 	<div
-		v-ripple
 		class="selectListItem"
 		:class="{
 			'-loading': isLoading,
@@ -81,10 +80,6 @@
 		@include label-xl-default-regular;
 	}
 
-	&:deep(.ripple) {
-		background-color: $color-neutral-ripple !important;
-	}
-
 	&__iconLeft {
 		color: $color-neutral-icon;
 		margin-right: $space-xxxs;
@@ -111,8 +106,6 @@
 </style>
 
 <script lang="ts">
-import Ripple from 'vue-ripple-directive';
-
 import {
 	SELECT_LIST_ITEM_STATES,
 	SELECT_LIST_ITEM_SIZES,
@@ -125,9 +118,6 @@ export default {
 	name: 'SelectListItem',
 	components: {
 		DsIcon,
-	},
-	directives: {
-		ripple: Ripple,
 	},
 	props: {
 		iconLeft: {
