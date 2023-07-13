@@ -149,10 +149,7 @@ $button-disabled-alpha: 0.6;
 				map-get($color-map, 'filled', 'disabled', 'icon'),
 				map-get($color-map, 'filled', 'disabled', 'background')
 			);
-			@include setButtonAdditions(
-				null,
-				map-get($color-map, 'filled', 'icon')
-			);
+			@include setButtonAdditions(null, map-get($color-map, 'filled', 'icon'));
 		}
 	}
 
