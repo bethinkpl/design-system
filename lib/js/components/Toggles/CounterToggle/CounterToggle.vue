@@ -1,6 +1,5 @@
 <template>
 	<div
-		v-ripple
 		class="counterToggle"
 		:class="[{ '-selected': isSelected, '-disabled': isDisabled }, colorClass]"
 	>
@@ -25,7 +24,6 @@ $counter-toggle-colors: (
 			'background-focused': $color-primary-background-ghost-focused,
 			'background-pressed': $color-primary-background-ghost-pressed,
 			'icon': $color-primary-icon,
-			'ripple': $color-primary-ripple,
 			'disabled': (
 				'color': $color-primary-text-disabled,
 				'icon': $color-primary-icon-disabled,
@@ -39,7 +37,6 @@ $counter-toggle-colors: (
 			'background-focused': $color-primary-background-focused,
 			'background-pressed': $color-primary-background-pressed,
 			'icon': $color-primary-icon,
-			'ripple': $color-primary-ripple,
 			'disabled': (
 				'color': $color-primary-text-disabled,
 				'icon': $color-primary-icon-disabled,
@@ -55,7 +52,6 @@ $counter-toggle-colors: (
 			'background-focused': $color-neutral-background-ghost-focused,
 			'background-pressed': $color-neutral-background-ghost-pressed,
 			'icon': $color-neutral-icon,
-			'ripple': $color-neutral-ripple,
 			'disabled': (
 				'color': $color-neutral-text-disabled,
 				'icon': $color-neutral-icon-disabled,
@@ -69,7 +65,6 @@ $counter-toggle-colors: (
 			'background-focused': $color-primary-background-focused,
 			'background-pressed': $color-primary-background-pressed,
 			'icon': $color-primary-icon,
-			'ripple': $color-primary-ripple,
 			'disabled': (
 				'color': $color-primary-text-disabled,
 				'icon': $color-primary-icon-disabled,
@@ -85,7 +80,6 @@ $counter-toggle-colors: (
 			'background-focused': $color-neutral-background-ghost-focused,
 			'background-pressed': $color-neutral-background-ghost-pressed,
 			'icon': $color-neutral-icon-strong,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-neutral-text-strong-disabled,
 				'icon': $color-neutral-icon-strong-disabled,
@@ -99,7 +93,6 @@ $counter-toggle-colors: (
 			'background-focused': $color-primary-background-focused,
 			'background-pressed': $color-primary-background-pressed,
 			'icon': $color-primary-icon,
-			'ripple': $color-primary-ripple,
 			'disabled': (
 				'color': $color-primary-text-disabled,
 				'icon': $color-primary-icon-disabled,
@@ -115,7 +108,6 @@ $counter-toggle-colors: (
 			'background-focused': $color-default-background-ghost-focused,
 			'background-pressed': $color-default-background-ghost-pressed,
 			'icon': $color-inverted-icon,
-			'ripple': $color-inverted-ripple,
 			'disabled': (
 				'color': $color-inverted-text-disabled,
 				'icon': $color-inverted-icon-disabled,
@@ -129,7 +121,6 @@ $counter-toggle-colors: (
 			'background-focused': $color-primary-background-focused,
 			'background-pressed': $color-primary-background-pressed,
 			'icon': $color-primary-icon,
-			'ripple': $color-primary-ripple,
 			'disabled': (
 				'color': $color-primary-text-disabled,
 				'icon': $color-primary-icon-disabled,
@@ -179,11 +170,7 @@ $counter-toggle-colors: (
 	}
 }
 
-@mixin setCounterToggleAdditions($ripple, $icon) {
-	&:deep(.ripple) {
-		background-color: $ripple !important;
-	}
-
+@mixin setCounterToggleAdditions($icon) {
 	.counterToggle {
 		&__icon {
 			color: $icon;
@@ -208,10 +195,7 @@ $counter-toggle-colors: (
 				map-get($color-map, 'default', 'disabled', 'icon'),
 				map-get($color-map, 'default', 'disabled', 'background')
 			);
-			@include setCounterToggleAdditions(
-				map-get($color-map, 'default', 'ripple'),
-				map-get($color-map, 'default', 'icon')
-			);
+			@include setCounterToggleAdditions(map-get($color-map, 'default', 'icon'));
 		}
 	}
 
@@ -244,10 +228,7 @@ $counter-toggle-colors: (
 					map-get($color-map, 'selected', 'disabled', 'icon'),
 					map-get($color-map, 'selected', 'disabled', 'background')
 				);
-				@include setCounterToggleAdditions(
-					map-get($color-map, 'selected', 'ripple'),
-					map-get($color-map, 'selected', 'icon')
-				);
+				@include setCounterToggleAdditions(map-get($color-map, 'selected', 'icon'));
 			}
 		}
 	}
@@ -270,7 +251,6 @@ $counter-toggle-colors: (
 </style>
 
 <script lang="ts">
-import Ripple from 'vue-ripple-directive';
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { toRaw } from 'vue';
@@ -279,9 +259,6 @@ export default {
 	name: 'CounterToggle',
 	components: {
 		Icon,
-	},
-	directives: {
-		Ripple,
 	},
 	props: {
 		counter: {

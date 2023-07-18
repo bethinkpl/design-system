@@ -10,12 +10,7 @@
 			'-hovered': isHoveredState,
 		}"
 	>
-		<div
-			v-ripple
-			class="surveyToggle__toggle"
-			@mouseover="hovered = true"
-			@mouseleave="hovered = false"
-		>
+		<div class="surveyToggle__toggle" @mouseover="hovered = true" @mouseleave="hovered = false">
 			<div class="surveyToggle__ring">
 				<span v-if="isPrimarySelected || isNeutralSelected" class="surveyToggle__icon">
 					<ds-icon :icon="selectedIcon" :size="ICON_SIZES.X_SMALL" />
@@ -45,7 +40,6 @@ $survey-toggle-colors: (
 		'border': $color-primary-border,
 		'color': $color-primary-text,
 		'background-hovered': $color-primary-background-weak-hovered,
-		'ripple': $color-primary-ripple,
 		'disabled': (
 			'border': $color-primary-border-disabled,
 			'color': $color-primary-text-disabled,
@@ -57,7 +51,6 @@ $survey-toggle-colors: (
 		'border': $color-inverted-border,
 		'color': $color-inverted-text,
 		'background-hovered': $color-primary-background-strong-hovered,
-		'ripple': $color-inverted-ripple,
 		'disabled': (
 			'background': $color-primary-background-strong-disabled,
 		),
@@ -67,7 +60,6 @@ $survey-toggle-colors: (
 		'border': $color-neutral-border-strong,
 		'color': $color-neutral-text-weak,
 		'background-hovered': $color-neutral-background-weak-hovered,
-		'ripple': $color-neutral-ripple,
 		'disabled': (
 			'border': $color-neutral-border-strong-disabled,
 			'color': $color-neutral-text-weak-disabled,
@@ -79,7 +71,6 @@ $survey-toggle-colors: (
 		'border': $color-inverted-border,
 		'color': $color-inverted-text,
 		'background-hovered': $color-neutral-background-strong-hovered,
-		'ripple': $color-inverted-ripple,
 		'disabled': (
 			'background': $color-neutral-background-strong-disabled,
 		),
@@ -94,13 +85,9 @@ $survey-toggle-colors: (
 	}
 }
 
-@mixin setSurveyToggleNormalState($self, $background, $text, $ripple) {
+@mixin setSurveyToggleNormalState($self, $background, $text) {
 	#{$self}__toggle {
 		background-color: $background;
-
-		&:deep(.ripple) {
-			background-color: $ripple !important;
-		}
 	}
 
 	#{$self}__content {
@@ -116,8 +103,7 @@ $survey-toggle-colors: (
 			@include setSurveyToggleNormalState(
 				$self,
 				map-get($color-map, 'background'),
-				map-get($color-map, 'color'),
-				map-get($color-map, 'ripple')
+				map-get($color-map, 'color')
 			);
 
 			#{$self}__ring {
@@ -164,8 +150,7 @@ $survey-toggle-colors: (
 		@include setSurveyToggleNormalState(
 			$self,
 			map-get($survey-toggle-colors, 'primary', 'background'),
-			map-get($survey-toggle-colors, 'primary', 'color'),
-			map-get($survey-toggle-colors, 'primary', 'ripple')
+			map-get($survey-toggle-colors, 'primary', 'color')
 		);
 
 		border-radius: 100%;
@@ -228,7 +213,6 @@ $survey-toggle-colors: (
 </style>
 
 <script lang="ts">
-import Ripple from 'vue-ripple-directive';
 import {
 	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
@@ -240,9 +224,6 @@ export default {
 	name: 'SurveyToggle',
 	components: {
 		DsIcon,
-	},
-	directives: {
-		Ripple,
 	},
 	props: {
 		label: {

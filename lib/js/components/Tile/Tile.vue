@@ -1,38 +1,36 @@
 <template>
-	<ds-ripple :disable="rippleDisabled" :color="rippleColor">
-		<div :class="[tileColor, tileState, { '-interactive': interactive }]" class="a-tile">
-			<ds-icon
-				v-if="iconLeft"
-				:icon="iconLeft"
-				:size="ICON_SIZES.SMALL"
-				class="a-tile__iconLeft"
+	<div :class="[tileColor, tileState, { '-interactive': interactive }]" class="a-tile">
+		<ds-icon
+			v-if="iconLeft"
+			:icon="iconLeft"
+			:size="ICON_SIZES.SMALL"
+			class="a-tile__iconLeft"
+		/>
+		<div class="a-tile__center">
+			<span
+				class="a-tile__eyebrowText"
+				:class="{ '-uppercase': isEyebrowTextUppercase, '-ellipsis': eyebrowEllipsis }"
+				v-text="eyebrowText"
 			/>
-			<div class="a-tile__center">
-				<span
-					class="a-tile__eyebrowText"
-					:class="{ '-uppercase': isEyebrowTextUppercase, '-ellipsis': eyebrowEllipsis }"
-					v-text="eyebrowText"
-				/>
-				<span class="a-tile__text" :class="{ '-ellipsis': textEllipsis }" v-text="text" />
-			</div>
-			<ds-icon
-				v-if="state === TILE_STATES.LOADING"
-				class="a-tile__iconRight"
-				:icon="ICONS.FAD_SPINNER_THIRD"
-				:size="ICON_SIZES.SMALL"
-				spinning
-			/>
-			<ds-icon
-				v-else-if="iconRight"
-				class="a-tile__iconRight"
-				:icon="iconRight"
-				:size="ICON_SIZES.SMALL"
-			/>
-			<div v-else-if="additionalText" class="a-tile__additionalText">
-				{{ additionalText }}
-			</div>
+			<span class="a-tile__text" :class="{ '-ellipsis': textEllipsis }" v-text="text" />
 		</div>
-	</ds-ripple>
+		<ds-icon
+			v-if="state === TILE_STATES.LOADING"
+			class="a-tile__iconRight"
+			:icon="ICONS.FAD_SPINNER_THIRD"
+			:size="ICON_SIZES.SMALL"
+			spinning
+		/>
+		<ds-icon
+			v-else-if="iconRight"
+			class="a-tile__iconRight"
+			:icon="iconRight"
+			:size="ICON_SIZES.SMALL"
+		/>
+		<div v-else-if="additionalText" class="a-tile__additionalText">
+			{{ additionalText }}
+		</div>
+	</div>
 </template>
 
 <style lang="scss" scoped>
@@ -236,7 +234,6 @@ $tile-colors: (
 </style>
 
 <script lang="ts">
-import DsRipple, { RIPPLE_COLORS } from '../Ripple';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { TILE_COLORS, TILE_STATES } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
@@ -246,7 +243,6 @@ export default {
 	name: 'Tile',
 	components: {
 		DsIcon,
-		DsRipple,
 	},
 	props: {
 		interactive: {
@@ -314,12 +310,6 @@ export default {
 		};
 	},
 	computed: {
-		rippleDisabled() {
-			return (
-				!this.interactive ||
-				[TILE_STATES.DISABLED, TILE_STATES.LOADING].includes(this.state)
-			);
-		},
 		tileColor() {
 			return {
 				[TILE_COLORS.NEUTRAL]: '-neutral',
@@ -327,14 +317,6 @@ export default {
 				[TILE_COLORS.SUCCESS]: '-success',
 				[TILE_COLORS.FAIL]: '-fail',
 				[TILE_COLORS.INFO]: '-info',
-			}[this.color];
-		},
-		rippleColor() {
-			return {
-				[TILE_COLORS.NEUTRAL]: RIPPLE_COLORS.NEUTRAL,
-				[TILE_COLORS.PRIMARY]: RIPPLE_COLORS.PRIMARY,
-				[TILE_COLORS.SUCCESS]: RIPPLE_COLORS.SUCCESS,
-				[TILE_COLORS.FAIL]: RIPPLE_COLORS.FAIL,
 			}[this.color];
 		},
 		tileState() {

@@ -19,7 +19,6 @@
 		:style="{ color: computedColor }"
 		@mouseover="hovered = true"
 		@mouseleave="hovered = false"
-		@click="onClick"
 	>
 		<div
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
@@ -65,19 +64,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography/tokens';
 
-@mixin setIconButtonAdditions($ripple: null, $border: null, $icon: null) {
-	@if $ripple != null {
-		.ripple {
-			background-color: $ripple !important;
-		}
-	}
-
-	@if $ripple == null {
-		.ripple {
-			display: none;
-		}
-	}
-
+@mixin setIconButtonAdditions($border: null, $icon: null) {
 	@if $border != null {
 		border: 1px solid $border;
 	}
@@ -97,11 +84,7 @@
 
 	@each $color-name, $color-map in $icon-button-colors {
 		&.-color-#{$color-name} {
-			@include setIconButtonAdditions(
-				map-get($color-map, 'filled', 'ripple'),
-				null,
-				map-get($color-map, 'filled', 'icon')
-			);
+			@include setIconButtonAdditions(null, map-get($color-map, 'filled', 'icon'));
 
 			#{$self}__label {
 				color: map-get($color-map, 'outlined', 'color');
@@ -137,7 +120,6 @@
 
 			.-outlined {
 				@include setIconButtonAdditions(
-					map-get($color-map, 'outlined', 'ripple'),
 					map-get($color-map, 'outlined', 'border'),
 					map-get($color-map, 'outlined', 'icon')
 				);
@@ -418,18 +400,6 @@ export default {
 		},
 		colorClassName(): string {
 			return `-color-${this.color}`;
-		},
-	},
-	methods: {
-		onClick(evt): void {
-			if (evt.target.closest('.a-iconButton__button')) {
-				// click on button, ripple effect was triggered by component
-				return;
-			}
-
-			// trigger ripple effect
-			this.$refs.button.$el.dispatchEvent(new MouseEvent('mousedown'));
-			this.$refs.button.$el.dispatchEvent(new MouseEvent('mouseup'));
 		},
 	},
 };
