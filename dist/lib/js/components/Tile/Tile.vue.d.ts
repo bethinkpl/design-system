@@ -1,11 +1,10 @@
-import DsRipple from '../Ripple';
+import DsIcon from '../Icons/Icon';
 import { TILE_STATES } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
-        DsIcon: typeof DsRipple;
-        DsRipple: typeof DsRipple;
+        DsIcon: typeof DsIcon;
     };
     props: {
         interactive: {
@@ -253,9 +252,7 @@ declare const _default: {
         }>;
     };
     computed: {
-        rippleDisabled(): boolean;
         tileColor(): any;
-        rippleColor(): any;
         tileState(): any;
     };
 };

@@ -4,9 +4,6 @@ declare const _default: {
     components: {
         Icon: typeof Icon;
     };
-    directives: {
-        Ripple: DirectiveFunction;
-    };
     props: {
         counter: {
             type: (StringConstructor | NumberConstructor)[];

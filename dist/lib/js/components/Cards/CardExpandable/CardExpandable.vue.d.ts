@@ -5,9 +5,6 @@ declare const _default: {
         DsCard: typeof DsCard;
         DsIcon: typeof DsCard;
     };
-    directives: {
-        ripple: DirectiveFunction;
-    };
     props: {
         isExpanded: {
             type: BooleanConstructor;

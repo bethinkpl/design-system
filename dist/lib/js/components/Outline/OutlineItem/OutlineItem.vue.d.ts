@@ -3,7 +3,6 @@ declare const _default: {
     name: string;
     components: {
         DsIcon: typeof DsIcon;
-        DsRipple: typeof DsIcon;
     };
     props: {
         size: {

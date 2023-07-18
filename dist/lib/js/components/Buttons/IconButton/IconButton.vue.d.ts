@@ -292,8 +292,5 @@ declare const _default: {
         isButtonColor(): boolean;
         colorClassName(): string;
     };
-    methods: {
-        onClick(evt: any): void;
-    };
 };
 export default _default;

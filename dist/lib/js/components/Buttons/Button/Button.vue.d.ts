@@ -4,9 +4,6 @@ import { BUTTON_ELEVATIONS, BUTTON_RADIUSES, BUTTON_SIZES, BUTTON_STATES, BUTTON
 import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
 declare const _default: {
     name: string;
-    directives: {
-        ripple: DirectiveFunction;
-    };
     components: {
         WnlIcon: typeof WnlIcon;
     };

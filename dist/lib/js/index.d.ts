@@ -38,8 +38,6 @@ export { default as SurveyQuestionScale } from './components/SurveyQuestions/Sur
 export { default as SurveyQuestionOpenEnded } from './components/SurveyQuestions/SurveyQuestionOpenEnded/';
 export * from './components/SurveyQuestions/SurveyQuestion.consts';
 export * from './components/SurveyQuestions/SurveyQuestion.domain';
-export { default as Ripple } from './components/Ripple';
-export * from './components/Ripple/Ripple.consts';
 export { default as SectionHeader } from './components/Headers/SectionHeader';
 export * from './components/Headers/SectionHeader/SectionHeader.consts';
 export { default as PageHeader } from './components/Headers/PageHeader';

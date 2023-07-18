@@ -1,13 +1,12 @@
 import { Value } from '../../../utils/type.utils';
-import DsRipple, { RippleColor } from '../../Ripple';
 import { PropType } from 'vue';
 import { TOGGLE_BUTTON_COLORS, TOGGLE_BUTTON_RADIUSES, TOGGLE_BUTTON_SIZES, TOGGLE_BUTTON_STATES, ToggleButtonColor, ToggleButtonLabelSize, ToggleButtonRadius, ToggleButtonSize, ToggleButtonState } from './ToggleButton.consts';
 import { IconItem, IconSize } from '../../Icons/Icon';
+import DsIcon from '../../Icons/Icon/Icon.vue';
 declare const _default: {
     name: string;
     components: {
-        DsIcon: typeof DsRipple;
-        DsRipple: typeof DsRipple;
+        DsIcon: typeof DsIcon;
     };
     props: {
         color: {
@@ -274,7 +273,6 @@ declare const _default: {
         colorClassName(): string;
         iconSize(): IconSize;
         isInteractiveComputed(): boolean;
-        rippleColor(): RippleColor;
     };
 };
 export default _default;

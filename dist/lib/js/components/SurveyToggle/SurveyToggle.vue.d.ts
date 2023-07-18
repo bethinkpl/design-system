@@ -4,9 +4,6 @@ declare const _default: {
     components: {
         DsIcon: typeof DsIcon;
     };
-    directives: {
-        Ripple: DirectiveFunction;
-    };
     props: {
         label: {
             type: StringConstructor;
