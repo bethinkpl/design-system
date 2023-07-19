@@ -1,8 +1,9 @@
 name: Build and Deploy Storybook
 on:
   push:
-    branches:
-      - master
+#    TODO
+#    branches:
+#      - master
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -20,9 +21,10 @@ jobs:
           yarn install --pure-lockfile
           yarn storybook:build
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+        uses: JamesIves/github-pages-deploy-action@4.4.3
         with:
-          branch: master # The branch the action should deploy to.
+          # TODO
+          branch: test # The branch the action should deploy to.
           folder: public/storybook # The folder that the build-storybook script generates files.
           clean: true # Automatically remove deleted files from the deploy branch
           target-folder: docs # The folder that we serve our Storybook files from
