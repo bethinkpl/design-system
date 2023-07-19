@@ -1,5 +1,7 @@
 <template>
-	<ds-tile v-bind="$attrs" class="drawerTile" />
+	<div class="drawerTile">
+		<ds-tile v-bind="$attrs" />
+	</div>
 </template>
 
 <style lang="scss" scoped>
