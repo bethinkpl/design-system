@@ -20,7 +20,7 @@ jobs:
           yarn install --pure-lockfile
           yarn storybook:build
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: master # The branch the action should deploy to.
           folder: public/storybook # The folder that the build-storybook script generates files.
