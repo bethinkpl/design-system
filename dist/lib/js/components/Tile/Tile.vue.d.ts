@@ -1,6 +1,4 @@
 import DsIcon from '../Icons/Icon';
-import { TILE_STATES } from './Tile.consts';
-import { Value } from '../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
@@ -45,7 +43,11 @@ declare const _default: {
         state: {
             type: StringConstructor;
             default: "default";
-            validator(value: Value<typeof TILE_STATES>): boolean;
+            validator(value: import("../../utils/type.utils").Value<{
+                readonly DEFAULT: "default";
+                readonly DISABLED: "disabled";
+                readonly LOADING: "loading";
+            }>): boolean;
         };
         eyebrowEllipsis: {
             type: BooleanConstructor;
