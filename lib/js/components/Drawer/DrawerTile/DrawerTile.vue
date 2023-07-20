@@ -1,6 +1,6 @@
 <template>
 	<div class="drawerTile">
-		<ds-tile v-bind="$attrs" @click="$emit('click')" />
+		<ds-tile v-bind="props" @click="$emit('click')" />
 	</div>
 </template>
 
@@ -13,12 +13,24 @@
 </style>
 
 <script lang="ts">
-import Tile from '../../Tile/Tile.vue';
+import Tile, { props } from '../../Tile/Tile.vue';
 
+const camelToKebabCase = (str) => str.replace(/[A-Z]/g, '-$&').toLowerCase();
 export default {
 	name: 'DrawerTile',
 	components: {
 		DsTile: Tile,
+	},
+	computed: {
+		props() {
+			// Only allow props that are supported by Tile
+			return Object.keys(props)
+				.map(camelToKebabCase)
+				.reduce((newObj, property) => {
+					newObj[property] = this.$attrs[property];
+					return newObj;
+				}, {});
+		},
 	},
 	emits: ['click'],
 };
