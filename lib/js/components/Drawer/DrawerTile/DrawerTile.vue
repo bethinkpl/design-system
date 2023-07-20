@@ -21,6 +21,7 @@ export default {
 	components: {
 		DsTile: Tile,
 	},
+	emits: ['click'],
 	computed: {
 		props() {
 			// Only allow props that are supported by Tile
@@ -32,6 +33,5 @@ export default {
 				}, {});
 		},
 	},
-	emits: ['click'],
 };
 </script>
