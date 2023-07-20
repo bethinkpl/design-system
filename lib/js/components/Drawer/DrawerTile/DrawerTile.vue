@@ -13,7 +13,8 @@
 </style>
 
 <script lang="ts">
-import Tile, { props } from '../../Tile/Tile.vue';
+import Tile from '../../Tile/Tile.vue';
+import { props } from '../../Tile/Tile.shared';
 
 export default {
 	name: 'DrawerTile',
