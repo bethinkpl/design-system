@@ -1,6 +1,6 @@
 <template>
 	<div class="drawerTile">
-		<ds-tile v-bind="$attrs" />
+		<ds-tile v-bind="$attrs" @click="$emit('click')" />
 	</div>
 </template>
 
@@ -20,5 +20,6 @@ export default {
 	components: {
 		DsTile: Tile,
 	},
+	emits: ['click'],
 };
 </script>
