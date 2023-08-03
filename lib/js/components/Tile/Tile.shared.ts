@@ -28,7 +28,7 @@ export const props = {
 	},
 	eyebrowText: {
 		type: String,
-		required: true,
+		default: null,
 	},
 	additionalText: {
 		type: String,
