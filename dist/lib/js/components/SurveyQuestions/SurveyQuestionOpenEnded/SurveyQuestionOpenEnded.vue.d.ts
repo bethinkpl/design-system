@@ -173,6 +173,7 @@ declare const _default: {
             readonly FA_PLUS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_PRINT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_REPLY: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHIELD_HALVED: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SIGNAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
