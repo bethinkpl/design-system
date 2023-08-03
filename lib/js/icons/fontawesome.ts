@@ -107,6 +107,7 @@ import { faPlay } from '@fortawesome/pro-regular-svg-icons/faPlay';
 import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
 import { faPrint } from '@fortawesome/pro-regular-svg-icons/faPrint';
 import { faReply } from '@fortawesome/pro-regular-svg-icons/faReply';
+import { faRotateLeft } from '@fortawesome/pro-regular-svg-icons/faRotateLeft';
 import { faShare } from '@fortawesome/pro-regular-svg-icons/faShare';
 import { faShieldHalved } from '@fortawesome/pro-regular-svg-icons/faShieldHalved';
 import { faSignal } from '@fortawesome/pro-regular-svg-icons/faSignal';
@@ -317,6 +318,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PLUS: faPlus,
 	FA_PRINT: faPrint,
 	FA_REPLY: faReply,
+	FA_ROTATE_LEFT: faRotateLeft,
 	FA_SHARE: faShare,
 	FA_SHIELD_HALVED: faShieldHalved,
 	FA_SIGNAL: faSignal,
