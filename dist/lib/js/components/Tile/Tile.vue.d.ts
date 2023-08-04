@@ -25,7 +25,7 @@ declare const _default: {
         };
         eyebrowText: {
             type: StringConstructor;
-            required: boolean;
+            default: null;
         };
         additionalText: {
             type: StringConstructor;

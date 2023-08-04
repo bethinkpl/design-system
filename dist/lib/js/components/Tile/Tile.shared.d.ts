@@ -21,7 +21,7 @@ export declare const props: {
     };
     eyebrowText: {
         type: StringConstructor;
-        required: boolean;
+        default: null;
     };
     additionalText: {
         type: StringConstructor;
