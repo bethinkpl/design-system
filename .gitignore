@@ -6,3 +6,5 @@ yarn-error.log
 .stylelintcache
 .npmrc
 public
+.env*
+**/*.swp
