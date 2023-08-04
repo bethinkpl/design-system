@@ -8,6 +8,7 @@
 		/>
 		<div class="a-tile__center">
 			<span
+				v-if="eyebrowText"
 				class="a-tile__eyebrowText"
 				:class="{ '-uppercase': isEyebrowTextUppercase, '-ellipsis': eyebrowEllipsis }"
 				v-text="eyebrowText"
@@ -159,6 +160,7 @@ $tile-colors: (
 	border-radius: $radius-s;
 	display: flex;
 	flex-direction: row;
+	min-height: 48px;
 	padding: $space-xxs $space-xs;
 
 	&.-disabled {
@@ -195,6 +197,8 @@ $tile-colors: (
 	&__eyebrowText {
 		@include info-m-default-bold;
 
+		margin-bottom: $space-xxxxs;
+
 		&.-uppercase {
 			@include info-m-extensive-bold-uppercase();
 		}
@@ -210,7 +214,6 @@ $tile-colors: (
 		@include text-m-default-bold;
 
 		color: $color-neutral-text-heavy;
-		margin-top: $space-xxxxs;
 
 		&.-ellipsis {
 			overflow: hidden;
