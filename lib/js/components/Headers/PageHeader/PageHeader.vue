@@ -79,6 +79,10 @@
 		color: $color-neutral-text;
 	}
 
+	&__actions {
+		flex-shrink: 0;
+	}
+
 	&.-horizontal {
 		#{$root}__contentWrapper {
 			align-items: center;
