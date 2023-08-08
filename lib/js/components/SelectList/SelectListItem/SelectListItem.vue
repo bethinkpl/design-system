@@ -23,7 +23,7 @@
 			v-if="isSelected"
 			class="selectListItem__iconRight"
 			:icon="ICONS.FA_CHECK_SOLID"
-			:size="ICON_SIZES.X_SMALL"
+			:size="ICON_SIZES.XX_SMALL"
 		/>
 		<div v-else class="selectListItem__placeholderRight" />
 	</div>
