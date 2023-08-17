@@ -1,7 +1,7 @@
 declare const _default: {
     name: string;
     components: {
-        FontAwesomeIcon: import("vue").ComponentPublicInstance<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps, {}, {}, {}, {}, {}, import("@fortawesome/vue-fontawesome").FontAwesomeIconProps, {}, false, import("vue").ComponentOptionsBase<any, any, any, any, any, any, any, any, any, {}, {}, string>, {}>;
+        FontAwesomeIcon: import("vue").DefineComponent<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps>, {}>;
     };
     props: {
         icon: {
