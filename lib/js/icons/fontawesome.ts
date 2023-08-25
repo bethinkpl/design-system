@@ -132,7 +132,8 @@ import { faUser } from '@fortawesome/pro-regular-svg-icons/faUser';
 import { faWandMagicSparkles } from '@fortawesome/pro-regular-svg-icons/faWandMagicSparkles';
 import { faWindowMaximize } from '@fortawesome/pro-regular-svg-icons/faWindowMaximize';
 import { faXmark } from '@fortawesome/pro-regular-svg-icons/faXmark';
-
+import { faCommentsQuestion } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestion';
+import { faCommentsQuestionCheck } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestionCheck';
 import { faArrowDown as fasArrowDown } from '@fortawesome/pro-solid-svg-icons/faArrowDown';
 import { faArrowLeft as fasArrowLeft } from '@fortawesome/pro-solid-svg-icons/faArrowLeft';
 import { faArrowRight as fasArrowRight } from '@fortawesome/pro-solid-svg-icons/faArrowRight';
@@ -247,6 +248,8 @@ export const FONTAWESOME_ICONS = {
 	FA_COMMENT_DOTS: faCommentDots,
 	FA_COMMENT_SOLID: fasComment,
 	FA_COMMENTS: faComments,
+	FA_COMMENTS_QUESTION: faCommentsQuestion,
+	FA_COMMENTS_QUESTION_CHECK: faCommentsQuestionCheck,
 	FA_COMPRESS: faCompress,
 	FA_DOT_CIRCLE_SOLID: fasCircleDot,
 	FA_EARTH_AMERICAS: faEarthAmericas,
