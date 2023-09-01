@@ -20,6 +20,7 @@ import { faBellSlash } from '@fortawesome/pro-regular-svg-icons/faBellSlash';
 import { faBook } from '@fortawesome/pro-regular-svg-icons/faBook';
 import { faBookBlank } from '@fortawesome/pro-regular-svg-icons/faBookBlank';
 import { faBookCopy } from '@fortawesome/pro-regular-svg-icons/faBookCopy';
+import { faBox } from '@fortawesome/pro-regular-svg-icons/faBox';
 import { faBoxArchive } from '@fortawesome/pro-regular-svg-icons/faBoxArchive';
 import { faCalendar } from '@fortawesome/pro-regular-svg-icons/faCalendar';
 import { faCalendarDays } from '@fortawesome/pro-regular-svg-icons/faCalendarDays';
@@ -208,6 +209,7 @@ export const FONTAWESOME_ICONS = {
 	FA_BOOK_COPY: faBookCopy,
 	FA_BOOK_SPARKLES_SOLID: fasBookSparkles,
 	FA_BOOKMARK_SOLID: fasBookmark,
+	FA_BOX: faBox,
 	FA_BOX_ARCHIVE: faBoxArchive,
 	FA_CALENDAR: faCalendar,
 	FA_CALENDAR_CIRCLE_EXCLAMATION: faCalendarCircleExclamation,
