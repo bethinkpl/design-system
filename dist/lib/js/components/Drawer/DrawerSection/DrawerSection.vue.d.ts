@@ -70,6 +70,7 @@ declare const _default: {
             readonly FA_BOOK_COPY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOOK_SPARKLES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOOKMARK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_BOX: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOX_ARCHIVE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
