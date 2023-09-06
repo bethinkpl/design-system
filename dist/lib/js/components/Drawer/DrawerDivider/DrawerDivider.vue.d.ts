@@ -1,3 +1,20 @@
-export declare function render(_ctx: any, _cache: any, $props: any, $setup: any, $data: any, $options: any): import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
-    [key: string]: any;
-}>;
+import Divider from '../../Divider';
+declare const _default: {
+    name: string;
+    components: {
+        DsDivider: typeof Divider;
+    };
+    props: {
+        prominence: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+    };
+};
+export default _default;
