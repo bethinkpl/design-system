@@ -38,6 +38,7 @@
 
 .selectListItem {
 	$self: &;
+
 	@include label-l-default-regular;
 
 	background-color: $color-neutral-background-ghost;
