@@ -2,6 +2,7 @@
 	<div
 		class="selectListItem"
 		:class="{
+			'-disabled': isDisabled,
 			'-loading': isLoading,
 			'-selected': isSelected,
 			[`-${size}`]: true,
@@ -36,6 +37,8 @@
 @import '../../../../styles/settings/spacings';
 
 .selectListItem {
+	$self: &;
+
 	@include label-l-default-regular;
 
 	background-color: $color-neutral-background-ghost;
@@ -52,12 +55,17 @@
 		background-color: $color-neutral-background-ghost-hovered;
 	}
 
-	&.-loading {
+	&.-loading,
+	&.-disabled {
 		pointer-events: none;
 	}
 
 	&.-selected {
 		background-color: $color-neutral-background;
+
+		&.-disabled {
+			background-color: $color-neutral-background-disabled;
+		}
 
 		&:focus {
 			background-color: $color-neutral-background-focused;
@@ -102,14 +110,28 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
+
+	&.-disabled {
+		#{$self}__iconLeft {
+			color: $color-neutral-icon-disabled;
+		}
+
+		#{$self}__iconRight {
+			color: $color-primary-icon-disabled;
+		}
+
+		#{$self}__text {
+			color: $color-neutral-text-heavy-disabled;
+		}
+	}
 }
 </style>
 
 <script lang="ts">
 import {
-	SELECT_LIST_ITEM_STATES,
-	SELECT_LIST_ITEM_SIZES,
 	SELECT_LIST_ITEM_SELECTION_MODE,
+	SELECT_LIST_ITEM_SIZES,
+	SELECT_LIST_ITEM_STATES,
 } from './SelectListItem.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { toRaw } from 'vue';
@@ -168,6 +190,9 @@ export default {
 	computed: {
 		isLoading(): boolean {
 			return this.state === SELECT_LIST_ITEM_STATES.LOADING;
+		},
+		isDisabled(): boolean {
+			return this.state === SELECT_LIST_ITEM_STATES.DISABLED;
 		},
 	},
 };
