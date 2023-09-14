@@ -1,6 +1,7 @@
 import HeadWithQuestionMark from '../../../../images/icons/head-with-question-mark.svg';
 import Ribbon from '../../../../images/icons/ribbon.svg';
 import SlidersSearch from '../../../../images/icons/sliders-search.svg';
+import CommentsCheck from '../../../../images/icons/comments-check.svg';
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
 import { Value } from '../../../utils/type.utils';
 
@@ -21,6 +22,7 @@ const BETHINK_ICONS = {
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
 	RIBBON: Ribbon,
 	SLIDERS_SEARCH: SlidersSearch,
+	COMMENTS_CHECK: CommentsCheck,
 } as const;
 
 export const ICONS = {
