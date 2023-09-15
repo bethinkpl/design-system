@@ -8090,6 +8090,7 @@ exports.ICONS = exports.ICON_SIZES = void 0;
 const head_with_question_mark_svg_1 = __importDefault(__webpack_require__(40439));
 const ribbon_svg_1 = __importDefault(__webpack_require__(61233));
 const sliders_search_svg_1 = __importDefault(__webpack_require__(63151));
+const comments_check_svg_1 = __importDefault(__webpack_require__(90023));
 const fontawesome_1 = __webpack_require__(51061);
 exports.ICON_SIZES = {
     XXX_SMALL: 'xxx-small',
@@ -8105,6 +8106,7 @@ const BETHINK_ICONS = {
     HEAD_WITH_QUESTION_MARK: head_with_question_mark_svg_1.default,
     RIBBON: ribbon_svg_1.default,
     SLIDERS_SEARCH: sliders_search_svg_1.default,
+    COMMENTS_CHECK: comments_check_svg_1.default,
 };
 exports.ICONS = {
     ...fontawesome_1.FONTAWESOME_ICONS,
@@ -25192,6 +25194,51 @@ exports.Z = (sfc, props) => {
     return target;
 };
 
+
+/***/ }),
+
+/***/ 90023:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  "default": () => (/* binding */ comments_check)
+});
+
+// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
+var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__(77203);
+;// CONCATENATED MODULE: ./node_modules/@vue/cli-service/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/vue-loader/dist/index.js!./node_modules/vue-svg-loader/index.js!./lib/images/icons/comments-check.svg?vue&type=template&id=576222fd
+
+
+const _hoisted_1 = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 64 64"
+}
+const _hoisted_2 = /*#__PURE__*/(0,external_commonjs_vue_commonjs2_vue_root_Vue_.createStaticVNode)("<g fill=\"currentColor\" clip-path=\"url(#a)\"><path d=\"M20.823 6c11.394 0 20.789 8.023 20.789 17.875 0 9.953-9.395 17.875-20.79 17.875-1.898 0-3.697-.203-5.496-.61C12.327 43.07 7.93 45 2.433 45c-1 0-1.9-.508-2.2-1.523-.399-.914-.299-1.93.4-2.743.1 0 2.3-2.437 3.899-5.687C1.733 32 .034 28.14.034 23.875.034 14.023 9.329 6 20.823 6zm-4.398 30.367c1.5.406 2.899.508 4.398.508 8.795 0 15.991-5.79 15.991-13 0-7.11-7.196-13-15.991-13-8.895 0-15.992 5.89-15.992 13 0 3.656 1.7 6.297 3.199 7.82l2.398 2.54-1.599 3.148c-.4.61-.8 1.32-1.2 2.031 1.8-.508 3.5-1.32 5.198-2.437l1.7-1.016 1.898.406zm27.686-17.265C55.205 19.508 64 27.328 64 36.875c0 4.266-1.799 8.125-4.598 11.172 1.6 3.25 3.798 5.687 3.898 5.687.7.813.8 1.828.4 2.743C63.4 57.492 62.5 58 61.501 58c-5.497 0-9.894-1.93-12.893-3.86-1.799.407-3.598.61-5.397.61-8.196 0-15.292-4.063-18.69-9.953 1.699-.203 3.398-.61 4.897-1.219 2.799 3.86 7.896 6.297 13.793 6.297 1.4 0 2.799-.102 4.298-.508l1.899-.406 1.699 1.016c1.699 1.117 3.398 1.93 5.197 2.437-.4-.71-.8-1.422-1.2-2.031l-1.598-3.149 2.398-2.539c1.5-1.523 3.298-4.164 3.298-7.82 0-6.703-6.396-12.188-14.492-12.898l.1-.102c0-1.625-.3-3.25-.7-4.773z\"></path><path d=\"M19.746 29.73c-.6.61-1.699.61-2.298 0l-3.998-4.062c-.6-.61-.6-1.727 0-2.336.6-.61 1.699-.61 2.299 0l2.898 2.945 7.596-7.82c.6-.61 1.7-.61 2.299 0 .6.61.6 1.727 0 2.336l-8.796 8.938z\"></path></g><defs><clipPath id=\"a\"><path fill=\"currentColor\" d=\"M0 0h64v64H0z\"></path></clipPath></defs>", 2)
+const _hoisted_4 = [
+  _hoisted_2
+]
+
+function render(_ctx, _cache) {
+  return ((0,external_commonjs_vue_commonjs2_vue_root_Vue_.openBlock)(), (0,external_commonjs_vue_commonjs2_vue_root_Vue_.createElementBlock)("svg", _hoisted_1, _hoisted_4))
+}
+;// CONCATENATED MODULE: ./lib/images/icons/comments-check.svg?vue&type=template&id=576222fd
+
+// EXTERNAL MODULE: ./node_modules/vue-loader/dist/exportHelper.js
+var exportHelper = __webpack_require__(83744);
+;// CONCATENATED MODULE: ./lib/images/icons/comments-check.svg
+
+const script = {}
+
+;
+const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(script, [['render',render]])
+
+/* harmony default export */ const comments_check = (__exports__);
 
 /***/ }),
 

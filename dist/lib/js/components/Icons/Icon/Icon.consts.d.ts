@@ -15,6 +15,7 @@ export declare const ICONS: {
     readonly HEAD_WITH_QUESTION_MARK: import("*.svg").CompatVue;
     readonly RIBBON: import("*.svg").CompatVue;
     readonly SLIDERS_SEARCH: import("*.svg").CompatVue;
+    readonly COMMENTS_CHECK: import("*.svg").CompatVue;
     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
