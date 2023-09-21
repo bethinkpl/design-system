@@ -26,7 +26,7 @@
 		</div>
 
 		<template #reference>
-			<slot name="reference" :is-opened="forceShow ? true : isOpened" />
+			<slot name="reference" :is-opened="isOpened" />
 		</template>
 	</vue-popper>
 </template>
@@ -164,6 +164,7 @@ export default {
 	},
 	methods: {
 		close() {
+			this.isOpened = false;
 			this.$refs.popper.doClose();
 		},
 		updateKey() {
