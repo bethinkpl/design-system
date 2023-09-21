@@ -9,8 +9,8 @@
 		:trigger="triggerAction"
 		:delay-on-mouse-out="300"
 		@document-click="$emit('document-click')"
-		@hide="$emit('hide')"
-		@show="$emit('show')"
+		@hide="onHide"
+		@show="onShow"
 	>
 		<div
 			class="popper dsDropdown"
@@ -24,7 +24,7 @@
 		</div>
 
 		<template #reference>
-			<slot name="reference" />
+			<slot name="reference" :is-opened="isOpened" />
 		</template>
 	</vue-popper>
 </template>
@@ -118,6 +118,7 @@ export default {
 	data() {
 		return {
 			key: 1,
+			isOpened: false,
 			DROPDOWN_RADIUSES: Object.freeze(DROPDOWN_RADIUSES),
 		};
 	},
@@ -159,6 +160,14 @@ export default {
 			// Force component rerender to apply new vue-popperjs options.
 			// vue-popperjs doesn't support changing props in existing component
 			this.key++;
+		},
+		onHide() {
+			this.isOpened = false;
+			this.$emit('hide', this.isOpened);
+		},
+		onShow() {
+			this.isOpened = true;
+			this.$emit('show', this.isOpened);
 		},
 	},
 };
