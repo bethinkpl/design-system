@@ -38,14 +38,10 @@
 							"
 						>
 							<template #reference="{ isOpened }">
-								<div
-									:class="`ds-pagination__itemWrapper -touchable dropdownItem__trigger-${index}`"
-								>
+								<div class="ds-pagination__itemWrapper -touchable">
 									<span
 										class="ds-pagination__item"
-										:class="{
-											'-selected': isOpened,
-										}"
+										:class="{ '-selected': isOpened }"
 										>&hellip;</span
 									>
 								</div>
