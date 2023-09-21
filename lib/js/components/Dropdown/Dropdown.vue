@@ -20,7 +20,7 @@
 				'-radiusBottom -radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
 				'-heightLimited': maxHeight,
 			}"
-			:style="maxHeight ? { maxHeight } : null"
+			:style="styles"
 		>
 			<slot :close="close" />
 		</div>
@@ -133,6 +133,11 @@ export default {
 		};
 	},
 	computed: {
+		styles() {
+			return {
+				...(this.maxHeight && { maxHeight: this.maxHeight }),
+			};
+		},
 		options() {
 			return {
 				modifiers: { preventOverflow: { padding: 0 } },
