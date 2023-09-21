@@ -163,11 +163,11 @@ export default {
 		},
 		onHide() {
 			this.isOpened = false;
-			this.$emit('hide', this.isOpened);
+			this.$emit('hide');
 		},
 		onShow() {
 			this.isOpened = true;
-			this.$emit('show', this.isOpened);
+			this.$emit('show');
 		},
 	},
 };
