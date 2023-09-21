@@ -20,10 +20,11 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 		return { ...args };
 	},
 	template: `
-			<div style="position: relative">
+		<div style="position: relative">
 			<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth" :radius="radius"
 								:placement="placement">
-				<template #reference><span>Dropdown entry point</span></template>
+				<template #reference="{isOpened}"><span>Dropdown entry point {{ isOpened ? 'opened' : 'closed' }}</span>
+				</template>
 				<template #default="{ close }">
 					<select-list>
 						<select-list-item label="One" @click.native="close" />
@@ -31,7 +32,7 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 					</select-list>
 				</template>
 			</dropdown>
-			</div>`,
+		</div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
