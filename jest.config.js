@@ -6,6 +6,7 @@ module.exports = {
 		'^design-system/lib/(.*)$': '<rootDir>/lib/$1',
 		'^design-system/styles/(.*)$': '<rootDir>/lib/styles/$1',
 		'^design-system/images/(.*)$': '<rootDir>/lib/images/$1',
+		'^vue-popperjs/dist/vue-popper.css': '<rootDir>/lib/js/tests/emptyModule.ts',
 	},
 	testMatch: ['<rootDir>/lib/js/**/*.spec.ts', '<rootDir>/tools/importers/*.spec.ts'],
 	transform: {
