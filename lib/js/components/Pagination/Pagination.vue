@@ -367,11 +367,7 @@ export default {
 			return navigationItems;
 		},
 		navigationItemsForDropdown() {
-			if (this.lastPage <= FIRST_PAGE_NUMBER) {
-				return [];
-			}
-
-			return this.getRange(1, this.lastPage).map((item) => ({
+			return this.getRange(FIRST_PAGE_NUMBER, this.lastPage).map((item: number) => ({
 				label: `${item} (${(item - 1) * this.itemsPerPage + 1} - ${
 					this.itemsPerPage * item
 				})`,
