@@ -265,7 +265,8 @@ import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
 
-import Dropdown, { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../Dropdown';
+import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../Dropdown/Dropdown.consts';
+import Dropdown from '../Dropdown/Dropdown.vue';
 
 import SelectList from '../SelectList/SelectList.vue';
 import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
@@ -315,8 +316,6 @@ export default {
 			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
 			ICONS: Object.freeze(ICONS),
 			FIRST_PAGE_NUMBER,
-			dropdownVisible: false,
-			visibleDropdownIndex: -1,
 		};
 	},
 	computed: {
@@ -407,24 +406,6 @@ export default {
 		onDropdownClick(page: number, close: () => void) {
 			this.changePage(page);
 			close();
-		},
-		onDropdownHide(index: number) {
-			console.log('onDropdownHide');
-			this.dropdownVisible = false;
-			this.visibleDropdownIndex = -1;
-		},
-		onDropdownShow(index: number) {
-			console.log('onDropdownShow');
-			this.dropdownVisible = true;
-			this.visibleDropdownIndex = index;
-		},
-		onDropdownTriggerClick(index: number) {
-			console.log('onDropdownTriggerClick', index, this.visibleDropdownIndex);
-			if (this.visibleDropdownIndex === index) {
-				this.visibleDropdownIndex = -1;
-				return;
-			}
-			this.visibleDropdownIndex = index;
 		},
 	},
 };
