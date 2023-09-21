@@ -30,6 +30,7 @@
 					<div v-else :key="`ellipsis${index}`">
 						<dropdown
 							:radius="DROPDOWN_RADIUSES.BOTTOM"
+							max-height="250px"
 							:placement="
 								ellipsisAsSecond(index)
 									? DROPDOWN_PLACEMENTS.BOTTOM_START
@@ -51,7 +52,7 @@
 							</template>
 
 							<template #default="{ close }">
-								<select-list class="ds-pagination__dropdownList">
+								<select-list>
 									<select-list-item
 										v-for="(
 											dropdownNavigationItem, dropdownIndex
@@ -258,11 +259,6 @@ $pagination-input-height: 32px;
 		display: flex;
 		min-height: 0;
 		padding: 0;
-	}
-
-	&__dropdownList {
-		max-height: 250px;
-		overflow: auto;
 	}
 }
 </style>

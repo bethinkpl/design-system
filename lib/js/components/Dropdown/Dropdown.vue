@@ -18,7 +18,9 @@
 				'-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
 				'-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
 				'-radiusBottom -radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
+				'-heightLimited': !!maxHeight,
 			}"
+			:style="maxHeight ? { maxHeight } : null"
 		>
 			<slot :close="close" />
 		</div>
@@ -61,6 +63,10 @@
 
 	&[x-placement^='top'] {
 		margin-bottom: $space-xxxxs;
+	}
+
+	&.-heightLimited {
+		overflow-y: auto;
 	}
 }
 </style>
@@ -112,6 +118,10 @@ export default {
 			validate(placement) {
 				return Object.values(DROPDOWN_PLACEMENTS).includes(placement);
 			},
+		},
+		maxHeight: {
+			type: String,
+			default: null,
 		},
 	},
 	emits: ['document-click', 'hide', 'show'],
