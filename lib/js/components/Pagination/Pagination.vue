@@ -56,7 +56,7 @@
 										:key="dropdownIndex"
 										:label="dropdownNavigationItem.label"
 										:is-selected="currentPage === dropdownNavigationItem.value"
-										@click.native="
+										@click="
 											onDropdownClick(dropdownNavigationItem.value, close)
 										"
 									/>
