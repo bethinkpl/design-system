@@ -27,8 +27,45 @@
 							{{ navigationItem }}
 						</span>
 					</div>
-					<div v-else :key="`ellipsis${index}`" class="ds-pagination__itemWrapper">
-						<span class="ds-pagination__ellipsis">&hellip;</span>
+					<div v-else :key="`ellipsis${index}`">
+						<dropdown
+							:radius="DROPDOWN_RADIUSES.BOTTOM"
+							:placement="
+								ellipsisAsSecond(index)
+									? DROPDOWN_PLACEMENTS.BOTTOM_START
+									: DROPDOWN_PLACEMENTS.BOTTOM_END
+							"
+						>
+							<template #reference="{ isOpened }">
+								<div
+									:class="`ds-pagination__itemWrapper -touchable dropdownItem__trigger-${index}`"
+								>
+									<span
+										class="ds-pagination__item"
+										:class="{
+											'-selected': isOpened,
+										}"
+										>&hellip;</span
+									>
+								</div>
+							</template>
+
+							<template #default="{ close }">
+								<select-list class="ds-pagination__dropdownList">
+									<select-list-item
+										v-for="(
+											dropdownNavigationItem, dropdownIndex
+										) in navigationItemsForDropdown"
+										:key="dropdownIndex"
+										:label="dropdownNavigationItem.label"
+										:is-selected="currentPage === dropdownNavigationItem.value"
+										@click.native="
+											onDropdownClick(dropdownNavigationItem.value, close)
+										"
+									/>
+								</select-list>
+							</template>
+						</dropdown>
 					</div>
 				</template>
 			</div>
@@ -216,20 +253,16 @@ $pagination-input-height: 32px;
 		}
 	}
 
-	&__ellipsis {
-		align-items: center;
-		color: $color-neutral-text-weak;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding: $space-xxxs;
-	}
-
 	&__accessorySlot {
 		align-items: center;
 		display: flex;
 		min-height: 0;
 		padding: 0;
+	}
+
+	&__dropdownList {
+		max-height: 250px;
+		overflow: auto;
 	}
 }
 </style>
@@ -240,13 +273,18 @@ import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
 
+import Dropdown, { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../Dropdown';
+
+import SelectList from '../SelectList/SelectList.vue';
+import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
+
 const MAX_NAVIGATION_ITEMS = 7;
 const ELLIPSIS_FILL = 'ellipsis';
 const FIRST_PAGE_NUMBER = 1;
 
 export default {
 	name: 'Pagination',
-	components: { IconButton },
+	components: { IconButton, Dropdown, SelectListItem, SelectList },
 	props: {
 		currentPage: {
 			type: Number,
@@ -278,11 +316,15 @@ export default {
 	emits: ['change-page'],
 	data() {
 		return {
+			DROPDOWN_PLACEMENTS: Object.freeze(DROPDOWN_PLACEMENTS),
+			DROPDOWN_RADIUSES: Object.freeze(DROPDOWN_RADIUSES),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
 			ICONS: Object.freeze(ICONS),
 			FIRST_PAGE_NUMBER,
+			dropdownVisible: false,
+			visibleDropdownIndex: -1,
 		};
 	},
 	computed: {
@@ -333,8 +375,19 @@ export default {
 
 			return navigationItems;
 		},
+		navigationItemsForDropdown() {
+			return this.getRange(1, this.lastPage).map((item) => ({
+				label: `${item} (${(item - 1) * this.itemsPerPage + 1} - ${
+					this.itemsPerPage * item
+				})`,
+				value: item,
+			}));
+		},
 	},
 	methods: {
+		ellipsisAsSecond(index: number) {
+			return index === 1;
+		},
 		getRange(start: number, end: number): Array<number> {
 			return Array(end - start + 1)
 				.fill(null)
@@ -354,6 +407,28 @@ export default {
 			const page = +event.target.value;
 
 			this.changePage(page);
+		},
+		onDropdownClick(page: number, close: () => void) {
+			this.changePage(page);
+			close();
+		},
+		onDropdownHide(index: number) {
+			console.log('onDropdownHide');
+			this.dropdownVisible = false;
+			this.visibleDropdownIndex = -1;
+		},
+		onDropdownShow(index: number) {
+			console.log('onDropdownShow');
+			this.dropdownVisible = true;
+			this.visibleDropdownIndex = index;
+		},
+		onDropdownTriggerClick(index: number) {
+			console.log('onDropdownTriggerClick', index, this.visibleDropdownIndex);
+			if (this.visibleDropdownIndex === index) {
+				this.visibleDropdownIndex = -1;
+				return;
+			}
+			this.visibleDropdownIndex = index;
 		},
 	},
 };
