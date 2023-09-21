@@ -48,7 +48,7 @@
 							</template>
 
 							<template #default="{ close }">
-								<select-list>
+								<select-list v-if="navigationItemsForDropdown.length">
 									<select-list-item
 										v-for="(
 											dropdownNavigationItem, dropdownIndex
@@ -368,6 +368,10 @@ export default {
 			return navigationItems;
 		},
 		navigationItemsForDropdown() {
+			if (this.lastPage <= FIRST_PAGE_NUMBER) {
+				return [];
+			}
+
 			return this.getRange(1, this.lastPage).map((item) => ({
 				label: `${item} (${(item - 1) * this.itemsPerPage + 1} - ${
 					this.itemsPerPage * item
