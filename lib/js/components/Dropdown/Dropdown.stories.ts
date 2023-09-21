@@ -23,7 +23,7 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 		<div style="position: relative">
 			<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth" :radius="radius"
 								:placement="placement">
-				<template #reference="{isOpened}"><span>Dropdown entry point {{ isOpened ? 'opened' : 'closed' }}</span>
+				<template #reference="{ isOpened }"><span>Dropdown entry point {{ isOpened ? 'opened' : 'closed' }}</span>
 				</template>
 				<template #default="{ close }">
 					<select-list>

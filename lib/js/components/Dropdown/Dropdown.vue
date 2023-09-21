@@ -24,7 +24,7 @@
 		</div>
 
 		<template #reference>
-			<slot name="reference" :is-opened="forceShow ?? isOpened" />
+			<slot name="reference" :is-opened="forceShow ? true : isOpened" />
 		</template>
 	</vue-popper>
 </template>
