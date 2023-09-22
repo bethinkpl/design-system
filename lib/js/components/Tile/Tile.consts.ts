@@ -1,8 +1,10 @@
 export const TILE_COLORS = {
 	NEUTRAL: 'neutral',
+	NEUTRAL_WEAK: 'neutralWeak',
 	PRIMARY: 'primary',
 	SUCCESS: 'success',
 	FAIL: 'fail',
+	WARNING: 'warning',
 	INFO: 'info',
 } as const;
 

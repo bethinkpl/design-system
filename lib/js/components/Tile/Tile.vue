@@ -35,6 +35,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/animations';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
@@ -52,6 +53,21 @@ $tile-colors: (
 		'disabled': (
 			'background': $color-neutral-background-disabled,
 			'eyebrow-text': $color-neutral-text-weak-disabled,
+			'icon': $color-neutral-icon-disabled,
+			'icon-interactive': $color-primary-icon-disabled,
+		),
+	),
+	'neutralWeak': (
+		'default': (
+			'background': $color-neutral-background-weak,
+			'background-hover': $color-neutral-background-weak-hovered,
+			'eyebrow-text': $color-neutral-text,
+			'icon': $color-neutral-icon,
+			'icon-interactive': $color-primary-icon,
+		),
+		'disabled': (
+			'background': $color-neutral-background-weak-disabled,
+			'eyebrow-text': $color-neutral-text-disabled,
 			'icon': $color-neutral-icon-disabled,
 			'icon-interactive': $color-primary-icon-disabled,
 		),
@@ -99,6 +115,21 @@ $tile-colors: (
 			'eyebrow-text': $color-fail-text-disabled,
 			'icon': $color-fail-icon-disabled,
 			'icon-interactive': $color-fail-icon-disabled,
+		),
+	),
+	'warning': (
+		'default': (
+			'background': $color-warning-background,
+			'background-hover': $color-warning-background-hovered,
+			'eyebrow-text': $color-warning-text,
+			'icon': $color-warning-icon,
+			'icon-interactive': $color-warning-icon,
+		),
+		'disabled': (
+			'background': $color-warning-background-disabled,
+			'eyebrow-text': $color-warning-text-disabled,
+			'icon': $color-warning-icon-disabled,
+			'icon-interactive': $color-warning-icon-disabled,
 		),
 	),
 	'info': (
@@ -162,6 +193,7 @@ $tile-colors: (
 	flex-direction: row;
 	min-height: 48px;
 	padding: $space-xxs $space-xs;
+	transition: background-color ease-in-out $default-transition-time;
 
 	&.-disabled {
 		@each $color-name, $color-map in $tile-colors {
@@ -258,9 +290,11 @@ export default {
 		tileColor() {
 			return {
 				[TILE_COLORS.NEUTRAL]: '-neutral',
+				[TILE_COLORS.NEUTRAL_WEAK]: '-neutralWeak',
 				[TILE_COLORS.PRIMARY]: '-primary',
 				[TILE_COLORS.SUCCESS]: '-success',
 				[TILE_COLORS.FAIL]: '-fail',
+				[TILE_COLORS.WARNING]: '-warning',
 				[TILE_COLORS.INFO]: '-info',
 			}[this.color];
 		},
