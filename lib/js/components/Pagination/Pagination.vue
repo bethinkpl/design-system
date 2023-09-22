@@ -367,14 +367,16 @@ export default {
 			return navigationItems;
 		},
 		navigationItemsForDropdown() {
-			return this.getRange(FIRST_PAGE_NUMBER, this.lastPage).map((item: number) => {
-				const startItem = (item - 1) * this.itemsPerPage;
+			return this.getRange(FIRST_PAGE_NUMBER, this.lastPage).map((pageNumber: number) => {
+				const startItem = (pageNumber - 1) * this.itemsPerPage;
 				const endItem =
-					item < this.lastPage ? startItem + this.itemsPerPage : this.itemsTotalAmount;
+					pageNumber < this.lastPage
+						? startItem + this.itemsPerPage
+						: this.itemsTotalAmount;
 
 				return {
-					label: `${item} (${startItem + 1} - ${endItem})`,
-					value: item,
+					label: `${pageNumber} (${startItem + 1} - ${endItem})`,
+					value: pageNumber,
 				};
 			});
 		},
