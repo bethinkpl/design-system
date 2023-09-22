@@ -9,7 +9,7 @@
   "license": "UNLICENSED",
   "engines": {
     "yarn": "^1.22.0",
-    "node": "^14.15.0 || ^16.13.0"
+    "node": "^14.15.0 || ^16.13.0 || ^18.17.0"
   },
   "scripts": {
     "build": "vue-cli-service build --target lib --formats umd --name design-system lib/js/index.ts",
