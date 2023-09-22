@@ -46,6 +46,7 @@
 
 .selectListItem {
 	$self: &;
+	$minHeight: 40px;
 
 	@include label-l-default-regular;
 
@@ -53,6 +54,7 @@
 	color: $color-neutral-text-heavy;
 	cursor: pointer;
 	display: flex;
+	min-height: $minHeight;
 	padding: $space-xs;
 
 	&:focus {
