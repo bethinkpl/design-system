@@ -18,11 +18,15 @@
 				'-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
 				'-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
 				'-radiusBottom -radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
-				'-heightLimited': maxHeight,
 			}"
-			:style="styles"
 		>
-			<slot :close="close" />
+			<div
+				class="dsDropdown__scrollableWrapper"
+				:class="{ '-heightLimited': !!maxHeight }"
+				:style="scrollableWrapperStyles"
+			>
+				<slot :close="close" />
+			</div>
 		</div>
 
 		<template #reference>
@@ -44,6 +48,7 @@
 	box-shadow: $shadow-m;
 	max-width: 100%;
 	min-width: 128px;
+	overflow: hidden;
 	padding: 0;
 	text-align: left;
 
@@ -65,8 +70,10 @@
 		margin-bottom: $space-xxxxs;
 	}
 
-	&.-heightLimited {
-		overflow-y: auto;
+	&__scrollableWrapper {
+		&.-heightLimited {
+			overflow-y: auto;
+		}
 	}
 }
 </style>
@@ -133,7 +140,7 @@ export default {
 		};
 	},
 	computed: {
-		styles() {
+		scrollableWrapperStyles() {
 			return {
 				...(this.maxHeight && { maxHeight: this.maxHeight }),
 			};
