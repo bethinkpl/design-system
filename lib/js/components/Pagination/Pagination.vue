@@ -198,10 +198,10 @@ $pagination-input-height: 32px;
 	}
 
 	&__text {
-		@include text-m-default-regular;
+		@include label-l-default-regular;
 
 		color: $color-neutral-text;
-		padding: $space-xxxs;
+		padding: $space-xxs $space-xxxs;
 		text-align: center;
 	}
 
@@ -212,7 +212,7 @@ $pagination-input-height: 32px;
 	}
 
 	&__itemWrapper {
-		@include text-m-default-regular;
+		@include label-l-default-regular;
 
 		padding: $space-xxxxs;
 		text-align: center;
@@ -235,10 +235,10 @@ $pagination-input-height: 32px;
 		flex-direction: column;
 		justify-content: center;
 		min-width: $pagination-item-min-width;
-		padding: $space-xxxs;
+		padding: $space-xxs;
 
 		&.-selected {
-			@include text-m-default-bold;
+			@include label-l-default-bold;
 
 			background: $color-neutral-background-medium;
 			color: $color-neutral-text-heavy;
