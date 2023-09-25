@@ -61,7 +61,7 @@ $tile-colors: (
 		'default': (
 			'background': $color-neutral-background-weak,
 			'background-hover': $color-neutral-background-weak-hovered,
-			'eyebrow-text': $color-neutral-text,
+			'eyebrow-text': $color-neutral-text-weak,
 			'icon': $color-neutral-icon,
 			'icon-interactive': $color-primary-icon,
 		),
