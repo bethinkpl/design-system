@@ -3,6 +3,9 @@ declare const _default: {
     name: string;
     components: {
         IconButton: typeof IconButton;
+        Dropdown: typeof IconButton;
+        SelectListItem: typeof IconButton;
+        SelectList: typeof IconButton;
     };
     props: {
         currentPage: {
@@ -30,6 +33,15 @@ declare const _default: {
     };
     emits: string[];
     data(): {
+        DROPDOWN_PLACEMENTS: Readonly<{
+            readonly BOTTOM_START: "bottom-start";
+            readonly BOTTOM_END: "bottom-end";
+        }>;
+        DROPDOWN_RADIUSES: Readonly<{
+            readonly TOP: "top";
+            readonly BOTTOM: "bottom";
+            readonly BOTH: "both";
+        }>;
         ICON_BUTTON_SIZES: Readonly<{
             readonly XX_SMALL: "xx-small";
             readonly X_SMALL: "x-small";
@@ -243,12 +255,15 @@ declare const _default: {
     computed: {
         lastPage(): number;
         navigationItems(): Array<number | string>;
+        navigationItemsForDropdown(): any;
     };
     methods: {
+        ellipsisAsSecond(index: number): boolean;
         getRange(start: number, end: number): Array<number>;
         changePage(page: any): void;
         isPage(item: any): boolean;
         onInputValueConfirmed(event: any): void;
+        onDropdownClick(page: number, close: () => void): void;
     };
 };
 export default _default;
