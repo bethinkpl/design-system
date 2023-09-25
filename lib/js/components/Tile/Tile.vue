@@ -67,7 +67,7 @@ $tile-colors: (
 		),
 		'disabled': (
 			'background': $color-neutral-background-weak-disabled,
-			'eyebrow-text': $color-neutral-text-disabled,
+			'eyebrow-text': $color-neutral-text-weak-disabled,
 			'icon': $color-neutral-icon-disabled,
 			'icon-interactive': $color-primary-icon-disabled,
 		),
