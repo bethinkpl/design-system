@@ -18,7 +18,15 @@
 			:spinning="isLoading"
 		/>
 
-		<span class="selectListItem__text">{{ label }}</span>
+		<span class="selectListItem__textWrapper">
+			<span
+				v-if="eyebrowText"
+				class="selectListItem__eyebrowText"
+				:class="{ '-uppercase': isEyebrowTextUppercase }"
+				>{{ eyebrowText }}</span
+			>
+			<span class="selectListItem__text">{{ label }}</span>
+		</span>
 
 		<ds-icon
 			v-if="isSelected"
@@ -38,6 +46,7 @@
 
 .selectListItem {
 	$self: &;
+	$minHeight: 40px;
 
 	@include label-l-default-regular;
 
@@ -45,6 +54,7 @@
 	color: $color-neutral-text-heavy;
 	cursor: pointer;
 	display: flex;
+	min-height: $minHeight;
 	padding: $space-xs;
 
 	&:focus {
@@ -104,11 +114,30 @@
 		width: $icon-xs;
 	}
 
-	&__text {
+	&__textWrapper {
+		display: flex;
+		flex-direction: column;
 		flex-grow: 1;
+		gap: $space-xxxxxs;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	&__text {
 		overflow: hidden;
 		text-overflow: ellipsis;
-		white-space: nowrap;
+	}
+
+	&__eyebrowText {
+		@include info-s-default-bold;
+
+		color: $color-neutral-text-weak;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&.-uppercase {
+			@include info-s-extensive-bold-uppercase;
+		}
 	}
 
 	&.-disabled {
@@ -122,6 +151,10 @@
 
 		#{$self}__text {
 			color: $color-neutral-text-heavy-disabled;
+		}
+
+		#{$self}__eyebrowText {
+			color: $color-neutral-text-weak-disabled;
 		}
 	}
 }
@@ -156,6 +189,14 @@ export default {
 		label: {
 			type: String,
 			required: true,
+		},
+		eyebrowText: {
+			type: String,
+			default: '',
+		},
+		isEyebrowTextUppercase: {
+			type: Boolean,
+			default: false,
 		},
 		selectionMode: {
 			type: String,
