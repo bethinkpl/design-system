@@ -154,7 +154,7 @@
 		}
 
 		#{$self}__eyebrowText {
-			color: $color-neutral-text-weak;
+			color: $color-neutral-text-weak-disabled;
 		}
 	}
 }
