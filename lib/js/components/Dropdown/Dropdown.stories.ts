@@ -20,18 +20,23 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 		return { ...args };
 	},
 	template: `
-			<div style="position: relative">
-			<dropdown :trigger-action="triggerAction" :force-show="forceShow" :same-width="sameWidth" :radius="radius"
-								:placement="placement">
-				<template #reference><span>Dropdown entry point</span></template>
-				<template #default="{ close }">
-					<select-list>
-						<select-list-item label="One" @click.native="close" />
-						<select-list-item label="Two" @click.native="close" />
-					</select-list>
-				</template>
-			</dropdown>
-			</div>`,
+    <div style="position: relative">
+      <dropdown :trigger-action="triggerAction"
+                :force-show="forceShow"
+                :same-width="sameWidth"
+                :radius="radius"
+                :placement="placement"
+                :max-height="maxHeight">
+        <template #reference="{ isOpened }"><span>Dropdown entry point {{ isOpened ? 'opened' : 'closed' }}</span>
+        </template>
+        <template #default="{ close }">
+          <select-list>
+            <select-list-item label="One" @click.native="close" />
+            <select-list-item label="Two" @click.native="close" />
+          </select-list>
+        </template>
+      </dropdown>
+    </div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -41,6 +46,7 @@ const args = {
 	radius: DROPDOWN_RADIUSES.BOTH,
 	forceShow: false,
 	sameWidth: false,
+	maxHeight: '',
 } as Args;
 
 const argTypes = {
@@ -55,6 +61,10 @@ const argTypes = {
 	placement: {
 		control: { type: 'select', options: Object.values(DROPDOWN_PLACEMENTS) },
 		defaultValue: DROPDOWN_PLACEMENTS.BOTTOM_START,
+	},
+	maxHeight: {
+		control: { type: 'text' },
+		defaultValue: '',
 	},
 } as ArgTypes;
 
