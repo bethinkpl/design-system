@@ -1,18 +1,19 @@
 <template>
-	<ds-tile
-		class="selectListItemTile"
-		:interactive="interactive"
-		:icon-left="iconLeft"
-		:icon-right="iconRight"
-		:text="text"
-		:eyebrow-text="eyebrowText"
-		:additional-text="additionalText"
-		:color="color"
-		:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
-		:state="state"
-		:eyebrow-ellipsis="eyebrowEllipsis"
-		:text-ellipsis="textEllipsis"
-	/>
+	<div class="selectListItemTile">
+		<ds-tile
+			:interactive="interactive"
+			:icon-left="iconLeft"
+			:icon-right="iconRight"
+			:text="text"
+			:eyebrow-text="eyebrowText"
+			:additional-text="additionalText"
+			:color="color"
+			:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
+			:state="state"
+			:eyebrow-ellipsis="eyebrowEllipsis"
+			:text-ellipsis="textEllipsis"
+		/>
+	</div>
 </template>
 
 <style scoped lang="scss">
