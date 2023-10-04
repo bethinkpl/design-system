@@ -1,5 +1,4 @@
-import Tile, { TILE_STATES } from '../../Tile';
-import { Value } from 'utils/type.utils';
+import Tile from '../../Tile';
 declare const _default: {
     name: string;
     components: {
@@ -26,7 +25,7 @@ declare const _default: {
         };
         eyebrowText: {
             type: StringConstructor;
-            required: boolean;
+            default: null;
         };
         additionalText: {
             type: StringConstructor;
@@ -44,7 +43,11 @@ declare const _default: {
         state: {
             type: StringConstructor;
             default: "default";
-            validator(value: Value<typeof TILE_STATES>): boolean;
+            validator(value: import("../../../utils/type.utils").Value<{
+                readonly DEFAULT: "default";
+                readonly DISABLED: "disabled";
+                readonly LOADING: "loading";
+            }>): boolean;
         };
         eyebrowEllipsis: {
             type: BooleanConstructor;
