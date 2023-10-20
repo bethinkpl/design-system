@@ -245,6 +245,7 @@
 
 	&__slotHorizontal {
 		display: none;
+		flex-shrink: 0;
 
 		@media #{breakpoint-s()} {
 			display: block;
