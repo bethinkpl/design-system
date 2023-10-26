@@ -18,7 +18,7 @@ jobs:
         run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.13'
+          node-version: '20.9.0'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --pure-lockfile

@@ -9,7 +9,7 @@
   "license": "UNLICENSED",
   "engines": {
     "yarn": "^1.22.0",
-    "node": "^14.15.0 || ^16.13.0 || ^18.17.0"
+    "node": "^16.13.0 || ^18.17.0 || ^20.9.0"
   },
   "scripts": {
     "build": "vue-cli-service build --target lib --formats umd --name design-system lib/js/index.ts",
@@ -48,9 +48,9 @@
     "@types/node": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "5.18.0",
     "@typescript-eslint/parser": "5.18.0",
-    "@vue/cli-plugin-typescript": "5.0.4",
-    "@vue/cli-plugin-unit-jest": "5.0.4",
-    "@vue/cli-service": "5.0.4",
+    "@vue/cli-plugin-typescript": "5.0.8",
+    "@vue/cli-plugin-unit-jest": "5.0.8",
+    "@vue/cli-service": "5.0.8",
     "@vue/compiler-sfc": "3.2.31",
     "@vue/test-utils": "2.2.7",
     "@vue/vue3-jest": "29.2.2",
