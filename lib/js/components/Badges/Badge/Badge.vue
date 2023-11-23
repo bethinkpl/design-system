@@ -36,6 +36,14 @@ $badge-min-height: 20px;
 		@include label-xs-default-bold-uppercase;
 	}
 
+	&__icon {
+		align-items: center;
+		display: flex;
+		height: $icon-xxs;
+		margin-right: $space-xxs;
+		width: $icon-xxs;
+	}
+
 	&.-neutral {
 		background-color: $color-neutral-background-medium;
 
@@ -67,23 +75,15 @@ $badge-min-height: 20px;
 		margin-right: $space-xxs;
 		width: $icon-xxs;
 	}
-
-	&__icon {
-		align-items: center;
-		display: flex;
-		height: $icon-xxs;
-		margin-right: $space-xxs;
-		width: $icon-xxs;
-	}
 }
 </style>
 
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
-
 import { BADGE_COLORS } from './Badge.consts';
 import Icon from '../../Icons/Icon/Icon.vue';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon/Icon.consts';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Badge',
@@ -110,7 +110,7 @@ export default {
 		size: {
 			type: String,
 			required: true,
-			validate: (icon) => Object.values(ICON_SIZES).includes(toRaw(size)),
+			validate: (size) => Object.values(ICON_SIZES).includes(toRaw(size)),
 		},
 	},
 	data() {
