@@ -229,13 +229,9 @@
 			padding: 0 0;
 		}
 
-		#{$root}__titleContainer {
-			padding: $space-xxxs 0;
-		}
-
 		#{$root}__titleWrapper {
 			gap: $space-xxxs;
-			padding: $space-xxxs 0;
+			padding: $space-xxxxxs 0;
 		}
 
 		#{$root}__header {
