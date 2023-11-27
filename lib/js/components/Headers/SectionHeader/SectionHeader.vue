@@ -226,12 +226,11 @@
 
 	&.-size-x-small {
 		#{$root}__main {
-			padding: 0 0;
+			padding: $space-xxxxxs 0;
 		}
 
 		#{$root}__titleWrapper {
 			gap: $space-xxxs;
-			padding: $space-xxxxxs 0;
 		}
 
 		#{$root}__header {
