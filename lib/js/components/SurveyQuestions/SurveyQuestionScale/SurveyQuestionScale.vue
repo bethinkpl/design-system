@@ -54,7 +54,7 @@
 					</template>
 				</div>
 
-				<template v-if="selectedValue !== null">
+				<template v-if="selectedValue !== null && elaborationLabel !== null">
 					<hr class="surveyQuestionScale__separator" />
 					<div class="surveyQuestionScale__elaboration">
 						<label class="surveyQuestionScale__elaborationLabel" :for="inputId">
@@ -205,7 +205,7 @@ export default {
 		},
 		elaborationLabel: {
 			type: String,
-			required: true,
+			default: null,
 		},
 		elaborationValue: {
 			type: String,
