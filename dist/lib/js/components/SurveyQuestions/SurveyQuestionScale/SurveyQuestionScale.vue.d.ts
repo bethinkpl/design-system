@@ -27,7 +27,7 @@ declare const _default: {
         };
         elaborationLabel: {
             type: StringConstructor;
-            required: boolean;
+            default: null;
         };
         elaborationValue: {
             type: StringConstructor;
