@@ -52,7 +52,7 @@ $badge-min-height: 20px;
 		}
 
 		.badge__icon {
-			color: $color-neutral-text;
+			color: $color-neutral-icon;
 		}
 	}
 
@@ -64,7 +64,7 @@ $badge-min-height: 20px;
 		}
 
 		.badge__icon {
-			color: $color-primary-text;
+			color: $color-primary-icon;
 		}
 	}
 
