@@ -6,7 +6,7 @@
 			'-primary': color === BADGE_COLORS.PRIMARY,
 		}"
 	>
-		<ds-icon v-if="icon" class="badge__icon" :icon="icon" :size="'xx-small'" />
+		<ds-icon v-if="icon" class="badge__icon" :icon="icon" size="xx-small" />
 		<div v-else-if="$slots.default" class="badge__slot">
 			<slot />
 		</div>
