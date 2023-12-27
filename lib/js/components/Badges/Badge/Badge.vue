@@ -37,9 +37,7 @@ $badge-min-height: 20px;
 	&__icon {
 		align-items: center;
 		display: flex;
-		height: $icon-xxs;
 		margin-right: $space-xxs;
-		width: $icon-xxs;
 	}
 
 	&.-neutral {
