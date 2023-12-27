@@ -100,7 +100,7 @@ export default {
 		},
 		icon: {
 			type: String,
-			required: false,
+			default: ICONS.FA_SHARE_NODES,
 			validate: (icon) => Object.values(ICONS).includes(toRaw(icon)),
 		},
 	},
