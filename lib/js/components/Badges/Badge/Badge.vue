@@ -102,7 +102,7 @@ export default {
 		},
 		icon: {
 			type: String,
-			required: true,
+			required: false,
 			validate: (icon) => Object.values(ICONS).includes(toRaw(icon)),
 		},
 	},
