@@ -6,7 +6,7 @@
 			'-primary': color === BADGE_COLORS.PRIMARY,
 		}"
 	>
-		<icon v-if="icon" class="badge__icon" :icon="icon" :size="'xx-small'" />
+		<ds-icon v-if="icon" class="badge__icon" :icon="icon" :size="'xx-small'" />
 		<div v-else-if="$slots.default" class="badge__slot">
 			<slot />
 		</div>
@@ -77,14 +77,14 @@ $badge-min-height: 20px;
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
 import { BADGE_COLORS } from './Badge.consts';
-import Icon from '../../Icons/Icon/Icon.vue';
+import DsIcon from '../../Icons/Icon';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon/Icon.consts';
 import { toRaw } from 'vue';
 
 export default {
 	name: 'Badge',
 	components: {
-		Icon,
+		DsIcon,
 	},
 	props: {
 		label: {
