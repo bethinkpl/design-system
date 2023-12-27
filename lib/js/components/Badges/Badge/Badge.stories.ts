@@ -1,6 +1,6 @@
 import Badge from './Badge.vue';
 import { BADGE_COLORS } from './Badge.consts';
-import { ICON_SIZES, ICONS } from '../../Icons/Icon/Icon.consts';
+import { ICONS } from '../../Icons/Icon/Icon.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof Badge> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]" :size="size"><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></Badge></div>',
+		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></Badge></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -27,7 +27,6 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	iconUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
-	size: ICON_SIZES.XX_SMALL,
 } as Args;
 
 const argTypes = {
@@ -41,10 +40,6 @@ const argTypes = {
 	},
 	icon: {
 		control: { type: 'select', options: Object.keys(ICONS) },
-	},
-	size: {
-		control: { type: 'select' },
-		options: Object.values(ICON_SIZES),
 	},
 } as ArgTypes;
 

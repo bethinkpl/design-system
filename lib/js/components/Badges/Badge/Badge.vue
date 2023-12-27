@@ -7,7 +7,7 @@
 		}"
 	>
 		<div v-if="icon" class="badge__icon">
-			<icon :icon="icon" :size="size" />
+			<icon :icon="icon" :size="'xx-small'" />
 		</div>
 		<div v-else-if="$slots.default" class="badge__slot">
 			<slot />
@@ -106,11 +106,6 @@ export default {
 			type: String,
 			required: true,
 			validate: (icon) => Object.values(ICONS).includes(toRaw(icon)),
-		},
-		size: {
-			type: String,
-			required: true,
-			validate: (size) => Object.values(ICON_SIZES).includes(toRaw(size)),
 		},
 	},
 	data() {
