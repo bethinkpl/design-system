@@ -94,6 +94,7 @@ export default {
 		color: {
 			type: String,
 			required: true,
+			default: BADGE_COLORS.NEUTRAL,
 			validator(value: Value<typeof BADGE_COLORS>) {
 				return Object.values(BADGE_COLORS).includes(value);
 			},
