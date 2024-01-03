@@ -6,7 +6,7 @@
 			'-primary': color === BADGE_COLORS.PRIMARY,
 		}"
 	>
-		<ds-icon v-if="icon" class="badge__icon" :icon="icon" size="xx-small" />
+		<ds-icon v-if="icon" class="badge__icon" :icon="icon" :size="ICON_SIZES.XX_SMALL" />
 		<div v-else-if="$slots.default" class="badge__slot">
 			<slot />
 		</div>
@@ -100,13 +100,14 @@ export default {
 		},
 		icon: {
 			type: String,
-			default: ICONS.FA_SHARE_NODES,
+			default: null,
 			validate: (icon) => Object.values(ICONS).includes(toRaw(icon)),
 		},
 	},
 	data() {
 		return {
 			BADGE_COLORS: Object.freeze(BADGE_COLORS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},
 };
