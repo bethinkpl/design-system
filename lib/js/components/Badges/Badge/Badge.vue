@@ -7,7 +7,7 @@
 		}"
 	>
 		<ds-icon v-if="icon" class="badge__icon" :icon="icon" :size="ICON_SIZES.XX_SMALL" />
-		<div v-else-if="$slots.default" class="badge__slot">
+		<div v-if="$slots.default" class="badge__slot">
 			<slot />
 		</div>
 		<div class="badge__label">{{ label }}</div>
