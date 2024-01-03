@@ -81,6 +81,5 @@ const argTypesWithIcon = {
 	},
 } as ArgTypes;
 
-
 export const WithoutSlot = StoryWithoutSlot.bind({});
 WithoutSlot.argTypes = argTypesWithIcon;
