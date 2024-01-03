@@ -52,3 +52,35 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34953',
 	},
 };
+
+const StoryWithoutSlot: StoryFn<typeof Badge> = (args) => ({
+	components: { Badge },
+	setup() {
+		return { ...args };
+	},
+	template:
+		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"></Badge></div>',
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
+	},
+});
+
+const argTypesWithIcon = {
+	label: {
+		control: { type: 'text' },
+		defaultValue: 'Komentarz zespołu',
+	},
+	color: {
+		control: { type: 'select', options: Object.values(BADGE_COLORS) },
+		defaultValue: BADGE_COLORS.NEUTRAL,
+	},
+	icon: {
+		control: { type: 'select', options: Object.keys(ICONS) },
+	},
+} as ArgTypes;
+
+
+export const WithoutSlot = StoryWithoutSlot.bind({});
+WithoutSlot.argTypes = argTypesWithIcon;
