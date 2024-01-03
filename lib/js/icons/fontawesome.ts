@@ -326,7 +326,7 @@ export const FONTAWESOME_ICONS = {
 	FA_REPLY: faReply,
 	FA_ROTATE_LEFT: faRotateLeft,
 	FA_SHARE: faShare,
-	FE_SHARE_NODES: faShareNodes,
+	FA_SHARE_NODES: faShareNodes,
 	FA_SHIELD_HALVED: faShieldHalved,
 	FA_SIGNAL: faSignal,
 	FA_SITEMAP: faSitemap,
