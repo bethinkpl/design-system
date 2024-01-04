@@ -59,7 +59,7 @@ const StoryWithoutSlot: StoryFn<typeof Badge> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"></Badge></div>',
+		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]" /></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
