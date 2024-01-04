@@ -9,7 +9,7 @@
 			'-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
 		}"
 	>
-		<div class="outlineItem__content">
+		<div class="outlineItem__content" :class="{ '--centerContent': slotIsNotEmpty }">
 			<span
 				v-if="index !== null"
 				class="outlineItem__index"
@@ -35,10 +35,10 @@
 				</span>
 			</span>
 		</div>
-		<div class="outlineItem__rightContent">
-			<template v-if="$slots.default">
+		<div class="outlineItem__rightContent" :class="{ '--centerContent': slotIsNotEmpty }">
+			<div v-if="$slots.default" ref="defaultSlotWrapper" class="outlineItem__slotWrapper">
 				<slot />
-			</template>
+			</div>
 			<ds-icon
 				v-if="isDone"
 				class="outlineItem__icon -active"
@@ -78,8 +78,17 @@
 
 	&__rightContent,
 	&__content {
-		align-items: center;
+		align-items: flex-start;
 		column-gap: $space-xxs;
+		display: flex;
+
+		&.--centerContent {
+			align-items: center;
+		}
+	}
+
+	&__slotWrapper {
+		// this rule is needed because div's block display is making whole component height bigger
 		display: flex;
 	}
 
@@ -283,6 +292,7 @@ export default {
 	},
 	data() {
 		return {
+			slotIsNotEmpty: false,
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			OUTLINE_ITEM_BACKGROUND_COLORS: Object.freeze(OUTLINE_ITEM_BACKGROUND_COLORS),
@@ -293,6 +303,10 @@ export default {
 		isDisabled() {
 			return this.state === OUTLINE_ITEM_STATES.DISABLED;
 		},
+	},
+	mounted() {
+		console.debug(this.$refs.defaultSlotWrapper);
+		this.slotIsNotEmpty = this.$refs.defaultSlotWrapper?.textContent.length > 0;
 	},
 };
 </script>
