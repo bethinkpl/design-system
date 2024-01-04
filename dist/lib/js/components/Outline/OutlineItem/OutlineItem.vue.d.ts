@@ -69,6 +69,7 @@ declare const _default: {
         };
     };
     data(): {
+        slotIsNotEmpty: boolean;
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
             readonly RIBBON: import("vue").CompatVue;
@@ -274,5 +275,6 @@ declare const _default: {
     computed: {
         isDisabled(): boolean;
     };
+    mounted(): void;
 };
 export default _default;
