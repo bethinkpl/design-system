@@ -305,7 +305,6 @@ export default {
 		},
 	},
 	mounted() {
-		console.debug(this.$refs.defaultSlotWrapper);
 		this.slotIsNotEmpty = this.$refs.defaultSlotWrapper?.textContent.length > 0;
 	},
 };
