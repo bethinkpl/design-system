@@ -24,14 +24,16 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 		};
 	},
 	template: `
-      <outline-item :label="label" :additional-text="additionalText" :size="size" :state="state"
-                    :icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone"
-                    :is-selected="isSelected" :background-color="backgroundColor" :index="index"
-                    :is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
-                    :has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
-                    :is-selected-interactive="isSelectedInteractive">
-      <ds-pill v-if="defaultSlot.length > 0" :label="defaultSlot" />
-      </outline-item>`,
+		<outline-item :label="label" :additional-text="additionalText" :size="size" :state="state"
+									:icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone"
+									:is-selected="isSelected" :background-color="backgroundColor" :index="index"
+									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
+									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
+									:is-selected-interactive="isSelectedInteractive">
+			<template #default v-if="defaultSlot.length > 0">
+				<ds-pill :label="defaultSlot" />
+			</template>
+		</outline-item>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

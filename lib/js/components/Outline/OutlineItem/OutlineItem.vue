@@ -9,7 +9,7 @@
 			'-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
 		}"
 	>
-		<div class="outlineItem__content" :class="{ '--centerContent': slotIsNotEmpty }">
+		<div class="outlineItem__content" :class="{ '--centerContent': $slots.default }">
 			<span
 				v-if="index !== null"
 				class="outlineItem__index"
@@ -35,10 +35,10 @@
 				</span>
 			</span>
 		</div>
-		<div class="outlineItem__rightContent" :class="{ '--centerContent': slotIsNotEmpty }">
-			<div v-if="$slots.default" ref="defaultSlotWrapper" class="outlineItem__slotWrapper">
+		<div class="outlineItem__rightContent" :class="{ '--centerContent': $slots.default }">
+			<template v-if="$slots.default">
 				<slot />
-			</div>
+			</template>
 			<ds-icon
 				v-if="isDone"
 				class="outlineItem__icon -active"
@@ -292,7 +292,6 @@ export default {
 	},
 	data() {
 		return {
-			slotIsNotEmpty: false,
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			OUTLINE_ITEM_BACKGROUND_COLORS: Object.freeze(OUTLINE_ITEM_BACKGROUND_COLORS),
@@ -303,9 +302,6 @@ export default {
 		isDisabled() {
 			return this.state === OUTLINE_ITEM_STATES.DISABLED;
 		},
-	},
-	mounted() {
-		this.slotIsNotEmpty = this.$refs.defaultSlotWrapper?.textContent.length > 0;
 	},
 };
 </script>
