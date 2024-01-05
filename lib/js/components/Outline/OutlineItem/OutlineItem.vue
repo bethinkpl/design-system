@@ -87,11 +87,6 @@
 		}
 	}
 
-	&__slotWrapper {
-		// this rule is needed because div's block display is making whole component height bigger
-		display: flex;
-	}
-
 	&__index {
 		@include label-l-default-bold;
 
