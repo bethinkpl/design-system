@@ -9,7 +9,7 @@
 			'-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
 		}"
 	>
-		<div class="outlineItem__content" :class="{ '--centerContent': $slots.default }">
+		<div class="outlineItem__content" :class="{ '-centeredContent': $slots.default }">
 			<span
 				v-if="index !== null"
 				class="outlineItem__index"
@@ -35,7 +35,7 @@
 				</span>
 			</span>
 		</div>
-		<div class="outlineItem__rightContent" :class="{ '--centerContent': $slots.default }">
+		<div class="outlineItem__rightContent" :class="{ '-centeredContent': $slots.default }">
 			<template v-if="$slots.default">
 				<slot />
 			</template>
@@ -82,7 +82,7 @@
 		column-gap: $space-xxs;
 		display: flex;
 
-		&.--centerContent {
+		&.-centeredContent {
 			align-items: center;
 		}
 	}
