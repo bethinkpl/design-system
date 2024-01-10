@@ -138,12 +138,12 @@
 		background: $color-neutral-background;
 		border-radius: $radius-s;
 		display: flex;
-		justify-content: space-between;
 		overflow-x: auto;
 		padding: $space-s $space-xxs;
 
 		@media #{breakpoint-s()} {
-			gap: $space-l;
+			overflow-x: initial;
+			justify-content: center;
 			padding: $space-s $space-l;
 		}
 	}
@@ -151,11 +151,6 @@
 	&__toggle {
 		display: flex;
 		justify-content: center;
-		margin-right: $space-xxs;
-
-		&:last-child {
-			margin-right: 0;
-		}
 	}
 
 	&__toggleSeparator {
@@ -190,12 +185,10 @@
 		display: flex;
 		flex: 1;
 		flex-direction: row;
-		justify-content: space-between;
+		gap: $space-l;
 
-		@media #{breakpoint-s()} {
-			flex: 0;
-			gap: $space-l;
-			justify-content: initial;
+		&:last-child {
+			justify-content: flex-end;
 		}
 
 		&.-hideOnMobile {
