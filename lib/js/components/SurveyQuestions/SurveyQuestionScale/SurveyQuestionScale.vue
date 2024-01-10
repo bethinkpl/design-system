@@ -188,14 +188,14 @@
 
 	&__container {
 		display: flex;
-		flex-direction: row;
 		flex: 1;
+		flex-direction: row;
 		justify-content: space-between;
 
 		@media #{breakpoint-s()} {
 			flex: 0;
-			justify-content: initial;
 			gap: $space-l;
+			justify-content: initial;
 		}
 
 		&.-hideOnMobile {
