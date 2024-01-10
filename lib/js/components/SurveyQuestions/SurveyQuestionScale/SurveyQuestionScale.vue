@@ -25,33 +25,63 @@
 					/>
 				</div>
 				<div class="surveyQuestionScale__content">
-					<template
-						v-for="(option, index) in scaleOptions"
-						:key="`surveyQuestionScale-${index}`"
+					<div class="surveyQuestionScale__container">
+						<template
+							v-for="(option, index) in scaleOptions"
+							:key="`surveyQuestionScale-${index}`"
+						>
+							<div
+								class="surveyQuestionScale__toggle"
+								:class="{ '-visibleOnMobile': option.standalone }"
+							>
+								<survey-toggle
+									:meaning="option.meaning"
+									:content-text="option.content"
+									:label="option.label"
+									:status="
+										selectedValue === option.value
+											? SURVEY_TOGGLE_STATUSES.SELECTED
+											: SURVEY_TOGGLE_STATUSES.DEFAULT
+									"
+									:state="
+										state === SURVEY_QUESTION_STATES.DISABLED
+											? SURVEY_TOGGLE_STATES.DISABLED
+											: SURVEY_TOGGLE_STATES.DEFAULT
+									"
+									@click="onToggleClick(option.value)"
+								/>
+							</div>
+						</template>
+					</div>
+
+					<div
+						v-if="standaloneOptions.length > 0"
+						class="surveyQuestionScale__container -hideOnMobile"
 					>
-						<div
-							v-if="option.standalone"
-							class="surveyQuestionScale__toggleSeparator"
-						/>
-						<div class="surveyQuestionScale__toggle">
-							<survey-toggle
-								:meaning="option.meaning"
-								:content-text="option.content"
-								:label="option.label"
-								:status="
-									selectedValue === option.value
-										? SURVEY_TOGGLE_STATUSES.SELECTED
-										: SURVEY_TOGGLE_STATUSES.DEFAULT
-								"
-								:state="
-									state === SURVEY_QUESTION_STATES.DISABLED
-										? SURVEY_TOGGLE_STATES.DISABLED
-										: SURVEY_TOGGLE_STATES.DEFAULT
-								"
-								@click="onToggleClick(option.value)"
-							/>
-						</div>
-					</template>
+						<template
+							v-for="(option, index) in standaloneOptions"
+							:key="`surveyQuestionScale-standalone-${index}`"
+						>
+							<div class="surveyQuestionScale__toggle">
+								<survey-toggle
+									:meaning="option.meaning"
+									:content-text="option.content"
+									:label="option.label"
+									:status="
+										selectedValue === option.value
+											? SURVEY_TOGGLE_STATUSES.SELECTED
+											: SURVEY_TOGGLE_STATUSES.DEFAULT
+									"
+									:state="
+										state === SURVEY_QUESTION_STATES.DISABLED
+											? SURVEY_TOGGLE_STATES.DISABLED
+											: SURVEY_TOGGLE_STATES.DEFAULT
+									"
+									@click="onToggleClick(option.value)"
+								/>
+							</div>
+						</template>
+					</div>
 				</div>
 
 				<template v-if="selectedValue !== null && elaborationLabel !== null">
@@ -113,6 +143,7 @@
 		padding: $space-s $space-xxs;
 
 		@media #{breakpoint-s()} {
+			gap: $space-l;
 			padding: $space-s $space-l;
 		}
 	}
@@ -154,15 +185,43 @@
 	&__elaborationInput {
 		margin-top: $space-xxs;
 	}
+
+	&__container {
+		display: flex;
+		flex-direction: row;
+		flex: 1;
+		justify-content: space-between;
+
+		@media #{breakpoint-s()} {
+			flex: 0;
+			justify-content: initial;
+			gap: $space-l;
+		}
+
+		&.-hideOnMobile {
+			display: none;
+
+			@media #{breakpoint-s()} {
+				display: flex;
+			}
+		}
+	}
+}
+
+.-visibleOnMobile {
+	display: flex;
+
+	@media #{breakpoint-s()} {
+		display: none;
+	}
 }
 </style>
 
 <script lang="ts">
 import DsCard from '../../Cards/Card';
-import IconButton from '../../Buttons/IconButton';
+import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
-import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import DsModal from '../../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_MEANINGS,
@@ -234,6 +293,13 @@ export default {
 			SURVEY_TOGGLE_STATUSES: Object.freeze(SURVEY_TOGGLE_STATUSES),
 			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
 		};
+	},
+	computed: {
+		standaloneOptions() {
+			return this.scaleOptions.filter(
+				(option: SurveyQuestionScaleOption) => option.standalone,
+			);
+		},
 	},
 	methods: {
 		onToggleClick(value: string) {
