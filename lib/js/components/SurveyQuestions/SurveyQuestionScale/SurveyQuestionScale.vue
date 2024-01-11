@@ -176,15 +176,6 @@
 		justify-content: center;
 	}
 
-	&__toggleSeparator {
-		display: none;
-
-		@media #{breakpoint-s()} {
-			display: block;
-			width: $space-l;
-		}
-	}
-
 	&__separator {
 		border-bottom: none;
 		border-top: 1px solid $color-neutral-border-weak;
