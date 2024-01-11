@@ -26,14 +26,14 @@
 				v-if="iconLeft"
 				class="a-button__icon -left"
 				:icon="iconLeft"
-				:size="ICON_SIZES.X_SMALL"
+				:size="iconSize"
 			/>
 			<slot />
 			<wnl-icon
 				v-if="iconRight"
 				class="a-button__icon -right"
 				:icon="iconRight"
-				:size="ICON_SIZES.X_SMALL"
+				:size="iconSize"
 			/>
 		</span>
 		<wnl-icon
@@ -52,7 +52,7 @@
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
 
-import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import WnlIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
@@ -142,6 +142,12 @@ export default {
 		};
 	},
 	computed: {
+		iconSize(): string {
+			if (this.size === this.SIZES.SMALL || this.size === this.SIZES.MEDIUM) {
+				return ICON_SIZES.XX_SMALL;
+			}
+			return ICON_SIZES.X_SMALL;
+		},
 		colorClassName(): string {
 			return `-color-${this.color}`;
 		},
