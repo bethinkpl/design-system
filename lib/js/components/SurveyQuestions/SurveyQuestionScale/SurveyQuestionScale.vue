@@ -24,15 +24,27 @@
 						@click="showModal = true"
 					/>
 				</div>
-				<div class="surveyQuestionScale__content">
-					<div class="surveyQuestionScale__container">
+				<div
+					class="surveyQuestionScale__content"
+					:class="{ '-oneContainer': containers === SURVEY_QUESTION_CONTAINERS.ONE }"
+				>
+					<div
+						class="surveyQuestionScale__container"
+						:class="{
+							'-oneContainer': containers === SURVEY_QUESTION_CONTAINERS.ONE,
+						}"
+					>
 						<template
 							v-for="(option, index) in scaleOptions"
 							:key="`surveyQuestionScale-${index}`"
 						>
 							<div
 								class="surveyQuestionScale__toggle"
-								:class="{ '-visibleOnMobile': option.standalone }"
+								:class="{
+									'-visibleOnMobile':
+										option.standalone &&
+										containers === SURVEY_QUESTION_CONTAINERS.TWO,
+								}"
 							>
 								<survey-toggle
 									:meaning="option.meaning"
@@ -55,8 +67,11 @@
 					</div>
 
 					<div
-						v-if="standaloneOptions.length > 0"
-						class="surveyQuestionScale__container -hideOnMobile"
+						v-if="
+							standaloneOptions.length > 0 &&
+							containers === SURVEY_QUESTION_CONTAINERS.TWO
+						"
+						class="surveyQuestionScale__container -justifyEnd -hideOnMobile"
 					>
 						<template
 							v-for="(option, index) in standaloneOptions"
@@ -142,9 +157,17 @@
 		padding: $space-s $space-xxs;
 
 		@media #{breakpoint-s()} {
-			overflow-x: initial;
-			justify-content: center;
+			gap: $space-l;
 			padding: $space-s $space-l;
+
+			&:not(.-oneContainer) {
+				justify-content: center;
+				overflow-x: initial;
+			}
+		}
+
+		&.-oneContainer {
+			overflow-x: auto;
 		}
 	}
 
@@ -187,8 +210,12 @@
 		flex-direction: row;
 		gap: $space-l;
 
-		&:last-child {
+		&.-justifyEnd {
 			justify-content: flex-end;
+		}
+
+		&.-oneContainer {
+			justify-content: space-between;
 		}
 
 		&.-hideOnMobile {
@@ -221,7 +248,7 @@ import SurveyToggle, {
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from '../../SurveyToggle';
-import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import { SURVEY_QUESTION_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
@@ -271,6 +298,13 @@ export default {
 			type: String,
 			default: null,
 		},
+		containers: {
+			type: String,
+			default: SURVEY_QUESTION_CONTAINERS.TWO,
+			validator(containers) {
+				return Object.values(SURVEY_QUESTION_CONTAINERS).includes(containers);
+			},
+		},
 	},
 	emits: ['elaboration-change', 'select-change'],
 	data() {
@@ -285,6 +319,7 @@ export default {
 			SURVEY_TOGGLE_STATES: Object.freeze(SURVEY_TOGGLE_STATES),
 			SURVEY_TOGGLE_STATUSES: Object.freeze(SURVEY_TOGGLE_STATUSES),
 			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
+			SURVEY_QUESTION_CONTAINERS: Object.freeze(SURVEY_QUESTION_CONTAINERS),
 		};
 	},
 	computed: {

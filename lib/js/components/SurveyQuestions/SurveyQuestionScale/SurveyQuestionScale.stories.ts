@@ -1,6 +1,6 @@
 import SurveyQuestionScale from './SurveyQuestionScale.vue';
 import { SURVEY_TOGGLE_MEANINGS } from '../../SurveyToggle';
-import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import { SURVEY_QUESTION_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }
 		return { ...args };
 	},
 	template:
-		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" :containers="containers" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
 		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 		'</survey-question-scale>',
 	methods: {
@@ -69,6 +69,7 @@ const args = {
 			standalone: true,
 		},
 	],
+	containers: SURVEY_QUESTION_CONTAINERS.TWO,
 } as Args;
 
 const argTypes = {
@@ -76,6 +77,10 @@ const argTypes = {
 	selectedValue: { control: false },
 	explanation: { control: { type: 'text' } },
 	scaleOptions: { control: { type: 'object' } },
+	containers: {
+		control: { type: 'select' },
+		options: Object.values(SURVEY_QUESTION_CONTAINERS),
+	},
 	state: {
 		control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) },
 		defaultValue: SURVEY_QUESTION_STATES.DEFAULT,
@@ -111,7 +116,7 @@ const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { 
 		return { ...args };
 	},
 	template:
-		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :containers="containers" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
 		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 		'</survey-question-scale></div>',
 	methods: {
@@ -125,7 +130,13 @@ const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { 
 });
 
 export const LimitedWidth = StoryLimitedWidthTemplate.bind({});
-LimitedWidth.argTypes = argTypesDisabled;
+LimitedWidth.argTypes = {
+	...argTypesDisabled,
+	containers: {
+		control: { type: 'select' },
+		options: Object.values(SURVEY_QUESTION_CONTAINERS),
+	},
+} as ArgTypes;
 
 LimitedWidth.args = {
 	title: "Main question write here if it's long it will collapse.",
@@ -166,6 +177,7 @@ LimitedWidth.args = {
 			standalone: true,
 		},
 	],
+	containers: SURVEY_QUESTION_CONTAINERS.TWO,
 } as Args;
 
 const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
@@ -223,7 +235,7 @@ const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { 
 		];
 	},
 	template:
-		'<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" @select-change="selectedValueUpdate" />',
+		'<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" :containers="containers" @select-change="selectedValueUpdate" />',
 	methods: {
 		selectedValueUpdate(selectedValue) {
 			updateArgs({ selectedValue });
@@ -232,4 +244,14 @@ const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { 
 });
 
 export const SevenOptions = StorySevenOptionsTemplate.bind({});
-SevenOptions.argTypes = argTypesDisabled;
+SevenOptions.argTypes = {
+	...argTypesDisabled,
+	containers: {
+		control: { type: 'select' },
+		options: Object.values(SURVEY_QUESTION_CONTAINERS),
+	},
+} as ArgTypes;
+
+SevenOptions.args = {
+	containers: SURVEY_QUESTION_CONTAINERS.ONE,
+} as Args;
