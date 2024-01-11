@@ -1,6 +1,14 @@
 import RichListItem from './RichListItem.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import {
+	RICH_LIST_ITEM_BORDER_COLOR,
+	RICH_LIST_ITEM_ICON_COLOR,
+	RICH_LIST_ITEM_SIZE,
+	RICH_LIST_ITEM_STATE,
+	RICH_LIST_ITEM_TYPE,
+} from './RichListItem.consts';
+import { ICONS } from '../../Icons/Icon';
 
 export default {
 	title: 'Components/RichList/RichListItem',
@@ -18,15 +26,97 @@ const StoryTemplate: StoryFn<typeof RichListItem> = (args) => ({
 	setup() {
 		return { ...args };
 	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
+	},
 	template: `
-    <rich-list-item></rich-list-item>`,
+    <rich-list-item
+      :size="size"
+      :type="type"
+      :is-draggable="isDraggable"
+      :icon="ICONS[icon]"
+      :icon-color="iconColor"
+      :icon-color-hex="iconColorHex"
+      :is-dimmed="isDimmed"
+      :border-color="borderColor"
+      :border-color-hex="borderColorHex"
+      :state="state"
+    >
+      <template v-if="content" #content>
+        <div v-html="content" />
+      </template>
+      <template v-if="meta" #meta>
+        <div v-html="meta" />
+      </template>
+      <template v-if="trailing" #trailing>
+        <div v-html="trailing" />
+      </template>
+    </rich-list-item>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
-const args = {} as Args;
+const args = {
+	// TODO order
+	size: RICH_LIST_ITEM_SIZE.MEDIUM,
+	type: RICH_LIST_ITEM_TYPE.DEFAULT,
+	isDraggable: true,
+	icon: null,
+	iconColor: null,
+	iconColorHex: null,
+	isDimmed: false,
+	borderColor: null,
+	borderColorHex: null,
+	state: RICH_LIST_ITEM_STATE.DEFAULT,
 
-const argTypes = {} as ArgTypes;
+	content: 'Content Slot',
+	meta: 'Meta Slot',
+	trailing: 'Tailing Slot',
+} as Args;
+
+const argTypes = {
+	type: {
+		options: Object.values(RICH_LIST_ITEM_TYPE),
+		control: { type: 'select' },
+	},
+	size: {
+		options: Object.values(RICH_LIST_ITEM_SIZE),
+		control: { type: 'select' },
+	},
+	state: {
+		options: Object.values(RICH_LIST_ITEM_STATE),
+		control: { type: 'select' },
+	},
+	iconColor: {
+		options: [null, ...Object.values(RICH_LIST_ITEM_ICON_COLOR)],
+		control: { type: 'select' },
+	},
+	borderColor: {
+		options: [null, ...Object.values(RICH_LIST_ITEM_BORDER_COLOR)],
+		control: { type: 'select' },
+	},
+	icon: {
+		options: [null, ...Object.keys(ICONS)],
+		control: { type: 'select' },
+	},
+	iconColorHex: {
+		control: { type: 'color' },
+	},
+	borderColorHex: {
+		control: { type: 'color' },
+	},
+	content: {
+		control: { type: 'text' },
+	},
+	meta: {
+		control: { type: 'text' },
+	},
+	trailing: {
+		control: { type: 'text' },
+	},
+} as ArgTypes;
 
 Interactive.argTypes = argTypes;
 Interactive.args = args;
