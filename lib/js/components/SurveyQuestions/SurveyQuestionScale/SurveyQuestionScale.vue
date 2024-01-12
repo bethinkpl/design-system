@@ -24,34 +24,79 @@
 						@click="showModal = true"
 					/>
 				</div>
-				<div class="surveyQuestionScale__content">
-					<template
-						v-for="(option, index) in scaleOptions"
-						:key="`surveyQuestionScale-${index}`"
+				<div
+					class="surveyQuestionScale__content"
+					:class="{ '-oneContainer': containers === SURVEY_QUESTION_CONTAINERS.ONE }"
+				>
+					<div
+						class="surveyQuestionScale__container"
+						:class="{
+							'-oneContainer': containers === SURVEY_QUESTION_CONTAINERS.ONE,
+						}"
 					>
-						<div
-							v-if="option.standalone"
-							class="surveyQuestionScale__toggleSeparator"
-						/>
-						<div class="surveyQuestionScale__toggle">
-							<survey-toggle
-								:meaning="option.meaning"
-								:content-text="option.content"
-								:label="option.label"
-								:status="
-									selectedValue === option.value
-										? SURVEY_TOGGLE_STATUSES.SELECTED
-										: SURVEY_TOGGLE_STATUSES.DEFAULT
-								"
-								:state="
-									state === SURVEY_QUESTION_STATES.DISABLED
-										? SURVEY_TOGGLE_STATES.DISABLED
-										: SURVEY_TOGGLE_STATES.DEFAULT
-								"
-								@click="onToggleClick(option.value)"
-							/>
-						</div>
-					</template>
+						<template
+							v-for="(option, index) in scaleOptions"
+							:key="`surveyQuestionScale-${index}`"
+						>
+							<div
+								class="surveyQuestionScale__toggle"
+								:class="{
+									'-hideOnDesktop':
+										option.standalone &&
+										containers === SURVEY_QUESTION_CONTAINERS.TWO,
+								}"
+							>
+								<survey-toggle
+									:meaning="option.meaning"
+									:content-text="option.content"
+									:label="option.label"
+									:status="
+										selectedValue === option.value
+											? SURVEY_TOGGLE_STATUSES.SELECTED
+											: SURVEY_TOGGLE_STATUSES.DEFAULT
+									"
+									:state="
+										state === SURVEY_QUESTION_STATES.DISABLED
+											? SURVEY_TOGGLE_STATES.DISABLED
+											: SURVEY_TOGGLE_STATES.DEFAULT
+									"
+									@click="onToggleClick(option.value)"
+								/>
+							</div>
+						</template>
+					</div>
+
+					<div
+						v-if="
+							standaloneOptions.length > 0 &&
+							containers === SURVEY_QUESTION_CONTAINERS.TWO
+						"
+						class="surveyQuestionScale__container -justifyEnd -hideOnMobile"
+					>
+						<template
+							v-for="(option, index) in standaloneOptions"
+							:key="`surveyQuestionScale-standalone-${index}`"
+						>
+							<div class="surveyQuestionScale__toggle">
+								<survey-toggle
+									:meaning="option.meaning"
+									:content-text="option.content"
+									:label="option.label"
+									:status="
+										selectedValue === option.value
+											? SURVEY_TOGGLE_STATUSES.SELECTED
+											: SURVEY_TOGGLE_STATUSES.DEFAULT
+									"
+									:state="
+										state === SURVEY_QUESTION_STATES.DISABLED
+											? SURVEY_TOGGLE_STATES.DISABLED
+											: SURVEY_TOGGLE_STATES.DEFAULT
+									"
+									@click="onToggleClick(option.value)"
+								/>
+							</div>
+						</template>
+					</div>
 				</div>
 
 				<template v-if="selectedValue !== null && elaborationLabel !== null">
@@ -108,31 +153,34 @@
 		background: $color-neutral-background;
 		border-radius: $radius-s;
 		display: flex;
-		justify-content: space-between;
 		overflow-x: auto;
 		padding: $space-s $space-xxs;
 
 		@media #{breakpoint-s()} {
+			gap: $space-l;
 			padding: $space-s $space-l;
+
+			&:not(.-oneContainer) {
+				justify-content: center;
+				overflow-x: initial;
+			}
+		}
+
+		&.-oneContainer {
+			overflow-x: auto;
 		}
 	}
 
 	&__toggle {
 		display: flex;
 		justify-content: center;
-		margin-right: $space-xxs;
 
-		&:last-child {
-			margin-right: 0;
-		}
-	}
+		&.-hideOnDesktop {
+			display: flex;
 
-	&__toggleSeparator {
-		display: none;
-
-		@media #{breakpoint-s()} {
-			display: block;
-			width: $space-l;
+			@media #{breakpoint-s()} {
+				display: none;
+			}
 		}
 	}
 
@@ -154,22 +202,44 @@
 	&__elaborationInput {
 		margin-top: $space-xxs;
 	}
+
+	&__container {
+		display: flex;
+		flex: 1;
+		flex-direction: row;
+		gap: $space-l;
+
+		&.-justifyEnd {
+			justify-content: flex-end;
+		}
+
+		&.-oneContainer {
+			justify-content: space-between;
+		}
+
+		&.-hideOnMobile {
+			display: none;
+
+			@media #{breakpoint-s()} {
+				display: flex;
+			}
+		}
+	}
 }
 </style>
 
 <script lang="ts">
 import DsCard from '../../Cards/Card';
-import IconButton from '../../Buttons/IconButton';
+import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
-import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import DsModal from '../../Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from '../../SurveyToggle';
-import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import { SURVEY_QUESTION_SCALE_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
@@ -219,6 +289,13 @@ export default {
 			type: String,
 			default: null,
 		},
+		containers: {
+			type: String,
+			default: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
+			validator(containers) {
+				return Object.values(SURVEY_QUESTION_SCALE_CONTAINERS).includes(containers);
+			},
+		},
 	},
 	emits: ['elaboration-change', 'select-change'],
 	data() {
@@ -233,7 +310,15 @@ export default {
 			SURVEY_TOGGLE_STATES: Object.freeze(SURVEY_TOGGLE_STATES),
 			SURVEY_TOGGLE_STATUSES: Object.freeze(SURVEY_TOGGLE_STATUSES),
 			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
+			SURVEY_QUESTION_CONTAINERS: Object.freeze(SURVEY_QUESTION_SCALE_CONTAINERS),
 		};
+	},
+	computed: {
+		standaloneOptions() {
+			return this.scaleOptions.filter(
+				(option: SurveyQuestionScaleOption) => option.standalone,
+			);
+		},
 	},
 	methods: {
 		onToggleClick(value: string) {
