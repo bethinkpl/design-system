@@ -21,6 +21,17 @@ export type RichListItemSize = typeof RICH_LIST_ITEM_SIZE[keyof typeof RICH_LIST
 
 export const RICH_LIST_ITEM_ICON_COLOR = {
 	DEFAULT: 'default',
+	INVERTED: 'inverted',
+	PRIMARY: 'primary',
+	PRIMARY_WEAK: 'primary-weak',
+	NEUTRAL: 'neutral',
+	NEUTRAL_WEAK: 'neutral-weak',
+	DANGER: 'danger',
+	FAIL: 'fail',
+	WARNING: 'warning',
+	SUCCESS: 'success',
+	INFO: 'info',
+	ACCENT: 'accent',
 } as const;
 
 export type RichListItemIconColor =

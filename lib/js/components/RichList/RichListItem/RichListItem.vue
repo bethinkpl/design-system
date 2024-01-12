@@ -5,6 +5,7 @@
 			'-flat': type === RICH_LIST_ITEM_TYPE.FLAT,
 			'-loading': state === RICH_LIST_ITEM_STATE.LOADING,
 			'-dimmed': isDimmed,
+			'-interactive': isInteractive,
 			'-small': size === RICH_LIST_ITEM_SIZE.SMALL,
 			[borderColorClass]: !!borderColor,
 		}"
@@ -22,7 +23,17 @@
 					/>
 				</div>
 				<div v-if="icon" class="richListItem__iconWrapper">
-					<ds-icon :icon="icon" class="richListItem__icon" :size="ICON_SIZES.X_SMALL" />
+					<ds-icon
+						:icon="icon"
+						class="richListItem__icon"
+						:size="ICON_SIZES.X_SMALL"
+						:class="{
+							[iconColorClass]: !!iconColor,
+						}"
+						:style="{
+							color: iconColorHex ? iconColorHex : null,
+						}"
+					/>
 				</div>
 				<div class="richListItem__content">
 					<slot name="content" />
@@ -49,96 +60,76 @@
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
 
+$rich-list-item-border-colors: (
+	default: $color-default-border,
+	inverted: $color-inverted-border,
+	primary: $color-primary-border,
+	primary-weak: $color-primary-border-weak,
+	neutral-heavy: $color-neutral-border-heavy,
+	neutral-strong: $color-neutral-border-strong,
+	neutral: $color-neutral-border,
+	neutral-weak: $color-neutral-border-weak,
+	neutral-ghost: $color-neutral-border-ghost,
+	danger: $color-danger-border,
+	danger-weak: $color-danger-border-weak,
+	fail: $color-fail-border,
+	fail-weak: $color-fail-border-weak,
+	warning: $color-warning-border,
+	warning-weak: $color-warning-border-weak,
+	success: $color-success-border,
+	success-weak: $color-success-border-weak,
+	info: $color-info-border,
+	info-weak: $color-info-border-weak,
+	accent: $color-accent-border,
+	accent-weak: $color-accent-border-weak,
+);
+
+$rich-list-item-icon-colors: (
+	default: $color-default-icon,
+	inverted: $color-inverted-icon,
+	primary: $color-primary-icon,
+	primary-weak: $color-primary-icon-weak,
+	neutral: $color-neutral-icon,
+	neutral-weak: $color-neutral-icon-weak,
+	danger: $color-danger-icon,
+	fail: $color-fail-icon,
+	warning: $color-warning-icon,
+	success: $color-success-icon,
+	info: $color-info-icon,
+	accent: $color-accent-icon,
+);
+
 .richListItem {
+	$root: &;
+
 	background: $color-neutral-background;
 	border-radius: $radius-s;
 	display: flex;
 	min-height: 62px;
 	flex: 1;
-	border-left: 4px solid $color-default-border;
+	cursor: pointer;
 
-	&.-border-default {
-		border-color: $color-default-border;
+	&:not(.-interactive) {
+		cursor: default;
+		pointer-events: none;
 	}
 
-	&.-border-inverted {
-		border-color: $color-inverted-border;
+	&.-dimmed {
+		opacity: 50%;
 	}
 
-	&.-border-primary {
-		border-color: $color-primary-border;
+	&:hover {
+		background: $color-neutral-background-hovered;
 	}
 
-	&.-border-primary-weak {
-		border-color: $color-primary-border-weak;
-	}
+	&:not(.-flat) {
+		border-left: 4px solid $color-default-border;
 
-	&.-border-neutral-heavy {
-		border-color: $color-neutral-border-heavy;
-	}
-
-	&.-border-neutral-strong {
-		border-color: $color-neutral-border-strong;
-	}
-
-	&.-border-neutral {
-		border-color: $color-neutral-border;
-	}
-
-	&.-border-neutral-weak {
-		border-color: $color-neutral-border-weak;
-	}
-
-	&.-border-neutral-ghost {
-		border-color: $color-neutral-border-ghost;
-	}
-
-	&.-border-danger {
-		border-color: $color-danger-border;
-	}
-
-	&.-border-danger-weak {
-		border-color: $color-danger-border-weak;
-	}
-
-	&.-border-fail {
-		border-color: $color-fail-border;
-	}
-
-	&.-border-fail-weak {
-		border-color: $color-fail-border-weak;
-	}
-
-	&.-border-warning {
-		border-color: $color-warning-border;
-	}
-
-	&.-border-warning-weak {
-		border-color: $color-warning-border-weak;
-	}
-
-	&.-border-success {
-		border-color: $color-success-border;
-	}
-
-	&.-border-success-weak {
-		border-color: $color-success-border-weak;
-	}
-
-	&.-border-info {
-		border-color: $color-info-border;
-	}
-
-	&.-border-info-weak {
-		border-color: $color-info-border-weak;
-	}
-
-	&.-border-accent {
-		border-color: $color-accent-border;
-	}
-
-	&.-border-accent-weak {
-		border-color: $color-accent-border-weak;
+		@each $color, $value in $rich-list-item-border-colors {
+			&.-border-#{$color} {
+				border-left-color: $value;
+			}
+		}
 	}
 
 	&__wrapper {
@@ -218,6 +209,12 @@
 
 	&__icon {
 		color: $color-neutral-icon-weak;
+
+		@each $color, $value in $rich-list-item-icon-colors {
+			&.-icon-color-#{$color} {
+				color: $value;
+			}
+		}
 	}
 
 	&__dragAndDropIcon {
@@ -230,6 +227,14 @@
 
 		&:active {
 			cursor: grabbing;
+		}
+	}
+
+	&.-flat {
+		background: $color-neutral-background-ghost;
+
+		#{$root}__wrapper {
+			border: none;
 		}
 	}
 }
@@ -278,6 +283,10 @@ export default {
 				return Object.values(RICH_LIST_ITEM_SIZE).includes(size);
 			},
 		},
+		isInteractive: {
+			type: Boolean,
+			default: true,
+		},
 		isDimmed: {
 			type: Boolean,
 			default: false,
@@ -323,6 +332,12 @@ export default {
 		};
 	},
 	computed: {
+		iconColorClass() {
+			if (!this.iconColor || this.iconColorHex) {
+				return;
+			}
+			return `-icon-color-${this.iconColor}`;
+		},
 		borderColorClass() {
 			if (!this.borderColor || this.borderColorHex) {
 				return;

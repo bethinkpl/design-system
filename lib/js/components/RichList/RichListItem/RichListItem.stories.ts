@@ -35,6 +35,7 @@ const StoryTemplate: StoryFn<typeof RichListItem> = (args) => ({
     <rich-list-item
       :size="size"
       :type="type"
+			:is-interactive="isInteractive"
       :is-draggable="isDraggable"
       :icon="ICONS[icon]"
       :icon-color="iconColor"
@@ -62,13 +63,14 @@ const args = {
 	// TODO order
 	size: RICH_LIST_ITEM_SIZE.MEDIUM,
 	type: RICH_LIST_ITEM_TYPE.DEFAULT,
+	isInteractive: true,
 	isDraggable: true,
 	icon: null,
 	iconColor: null,
-	iconColorHex: null,
+	iconColorHex: '',
 	isDimmed: false,
 	borderColor: null,
-	borderColorHex: null,
+	borderColorHex: '',
 	state: RICH_LIST_ITEM_STATE.DEFAULT,
 
 	content: 'Content Slot',
