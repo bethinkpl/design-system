@@ -37,6 +37,7 @@ const args = {
 	explanation:
 		'<h3 style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
+	containers: SURVEY_QUESTION_CONTAINERS.TWO,
 	scaleOptions: [
 		{
 			value: '1',
@@ -69,18 +70,17 @@ const args = {
 			standalone: true,
 		},
 	],
-	containers: SURVEY_QUESTION_CONTAINERS.TWO,
 } as Args;
 
 const argTypes = {
 	elaborationValue: { control: { type: 'text' } },
 	selectedValue: { control: false },
 	explanation: { control: { type: 'text' } },
-	scaleOptions: { control: { type: 'object' } },
 	containers: {
 		control: { type: 'select' },
 		options: Object.values(SURVEY_QUESTION_CONTAINERS),
 	},
+	scaleOptions: { control: { type: 'object' } },
 	state: {
 		control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) },
 		defaultValue: SURVEY_QUESTION_STATES.DEFAULT,
@@ -145,6 +145,7 @@ LimitedWidth.args = {
 	explanation:
 		'<h3 class="modalHeader" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
+	containers: SURVEY_QUESTION_CONTAINERS.TWO,
 	scaleOptions: [
 		{
 			value: '1',
@@ -177,7 +178,6 @@ LimitedWidth.args = {
 			standalone: true,
 		},
 	],
-	containers: SURVEY_QUESTION_CONTAINERS.TWO,
 } as Args;
 
 const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
@@ -187,52 +187,6 @@ const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { 
 	},
 	data() {
 		return { elaboration: '' };
-	},
-	created() {
-		this.scaleOptions = [
-			{
-				value: '1',
-				label: 'Nie zgadzam się',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '1',
-			},
-			{
-				value: '2',
-				label: '',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '2',
-			},
-			{
-				value: '3',
-				label: '',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '3',
-			},
-			{
-				value: '4',
-				label: 'Trochę',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '4',
-			},
-			{
-				value: '5',
-				label: '',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '5',
-			},
-			{
-				value: '6',
-				label: '',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '6',
-			},
-			{
-				value: '7',
-				label: 'Zgadzam się',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '7',
-			},
-		];
 	},
 	template:
 		'<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" :containers="containers" @select-change="selectedValueUpdate" />',
@@ -254,4 +208,48 @@ SevenOptions.argTypes = {
 
 SevenOptions.args = {
 	containers: SURVEY_QUESTION_CONTAINERS.ONE,
+	scaleOptions: [
+		{
+			value: '1',
+			label: 'Nie zgadzam się',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '1',
+		},
+		{
+			value: '2',
+			label: '',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '2',
+		},
+		{
+			value: '3',
+			label: '',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '3',
+		},
+		{
+			value: '4',
+			label: 'Trochę',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '4',
+		},
+		{
+			value: '5',
+			label: '',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '5',
+		},
+		{
+			value: '6',
+			label: '',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '6',
+		},
+		{
+			value: '7',
+			label: 'Zgadzam się',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '7',
+		},
+	],
 } as Args;
