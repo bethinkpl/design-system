@@ -3,7 +3,7 @@ export const SURVEY_QUESTION_STATES = {
 	DISABLED: 'disabled',
 } as const;
 
-export const SURVEY_QUESTION_CONTAINERS = {
+export const SURVEY_QUESTION_SCALE_CONTAINERS = {
 	ONE: 'one',
 	TWO: 'two',
 } as const;

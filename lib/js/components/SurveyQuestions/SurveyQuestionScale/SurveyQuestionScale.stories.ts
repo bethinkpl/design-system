@@ -1,6 +1,6 @@
 import SurveyQuestionScale from './SurveyQuestionScale.vue';
 import { SURVEY_TOGGLE_MEANINGS } from '../../SurveyToggle';
-import { SURVEY_QUESTION_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import { SURVEY_QUESTION_SCALE_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
@@ -37,7 +37,7 @@ const args = {
 	explanation:
 		'<h3 style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
-	containers: SURVEY_QUESTION_CONTAINERS.TWO,
+	containers: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
 	scaleOptions: [
 		{
 			value: '1',
@@ -78,7 +78,7 @@ const argTypes = {
 	explanation: { control: { type: 'text' } },
 	containers: {
 		control: { type: 'select' },
-		options: Object.values(SURVEY_QUESTION_CONTAINERS),
+		options: Object.values(SURVEY_QUESTION_SCALE_CONTAINERS),
 	},
 	scaleOptions: { control: { type: 'object' } },
 	state: {
@@ -134,7 +134,7 @@ LimitedWidth.argTypes = {
 	...argTypesDisabled,
 	containers: {
 		control: { type: 'select' },
-		options: Object.values(SURVEY_QUESTION_CONTAINERS),
+		options: Object.values(SURVEY_QUESTION_SCALE_CONTAINERS),
 	},
 } as ArgTypes;
 
@@ -145,7 +145,7 @@ LimitedWidth.args = {
 	explanation:
 		'<h3 class="modalHeader" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
-	containers: SURVEY_QUESTION_CONTAINERS.TWO,
+	containers: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
 	scaleOptions: [
 		{
 			value: '1',
@@ -202,12 +202,12 @@ SevenOptions.argTypes = {
 	...argTypesDisabled,
 	containers: {
 		control: { type: 'select' },
-		options: Object.values(SURVEY_QUESTION_CONTAINERS),
+		options: Object.values(SURVEY_QUESTION_SCALE_CONTAINERS),
 	},
 } as ArgTypes;
 
 SevenOptions.args = {
-	containers: SURVEY_QUESTION_CONTAINERS.ONE,
+	containers: SURVEY_QUESTION_SCALE_CONTAINERS.ONE,
 	scaleOptions: [
 		{
 			value: '1',

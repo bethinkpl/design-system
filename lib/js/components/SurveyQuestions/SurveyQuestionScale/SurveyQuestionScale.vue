@@ -41,7 +41,7 @@
 							<div
 								class="surveyQuestionScale__toggle"
 								:class="{
-									'-visibleOnMobile':
+									'-hideOnDesktop':
 										option.standalone &&
 										containers === SURVEY_QUESTION_CONTAINERS.TWO,
 								}"
@@ -174,6 +174,14 @@
 	&__toggle {
 		display: flex;
 		justify-content: center;
+
+		&.-hideOnDesktop {
+			display: flex;
+
+			@media #{breakpoint-s()} {
+				display: none;
+			}
+		}
 	}
 
 	&__separator {
@@ -218,14 +226,6 @@
 		}
 	}
 }
-
-.-visibleOnMobile {
-	display: flex;
-
-	@media #{breakpoint-s()} {
-		display: none;
-	}
-}
 </style>
 
 <script lang="ts">
@@ -239,7 +239,7 @@ import SurveyToggle, {
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from '../../SurveyToggle';
-import { SURVEY_QUESTION_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import { SURVEY_QUESTION_SCALE_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
@@ -291,9 +291,9 @@ export default {
 		},
 		containers: {
 			type: String,
-			default: SURVEY_QUESTION_CONTAINERS.TWO,
+			default: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
 			validator(containers) {
-				return Object.values(SURVEY_QUESTION_CONTAINERS).includes(containers);
+				return Object.values(SURVEY_QUESTION_SCALE_CONTAINERS).includes(containers);
 			},
 		},
 	},
@@ -310,7 +310,7 @@ export default {
 			SURVEY_TOGGLE_STATES: Object.freeze(SURVEY_TOGGLE_STATES),
 			SURVEY_TOGGLE_STATUSES: Object.freeze(SURVEY_TOGGLE_STATUSES),
 			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
-			SURVEY_QUESTION_CONTAINERS: Object.freeze(SURVEY_QUESTION_CONTAINERS),
+			SURVEY_QUESTION_CONTAINERS: Object.freeze(SURVEY_QUESTION_SCALE_CONTAINERS),
 		};
 	},
 	computed: {
