@@ -109,16 +109,16 @@ $rich-list-item-icon-colors: (
 	$root: &;
 
 	background: $color-neutral-background;
+	cursor: default;
 	display: flex;
 	flex: 1;
-	max-width: 100%;
-	min-height: 62px;
-	position: relative;
-	padding: $space-xxxxs $space-xxxxs $space-xxxxs 0;
 	flex-direction: column;
 	justify-content: center;
-	cursor: default;
+	max-width: 100%;
+	min-height: 62px;
+	padding: $space-xxxxs $space-xxxxs $space-xxxxs 0;
 	pointer-events: none;
+	position: relative;
 
 	@media #{breakpoint-s()} {
 		padding: 0 $space-xxxxs;
@@ -133,21 +133,19 @@ $rich-list-item-icon-colors: (
 		opacity: 0.5;
 	}
 
-	&:hover {
-		opacity: 1;
-		background: $color-neutral-background-hovered;
-	}
-
 	&.-flat {
+		background: $color-neutral-background-ghost;
+
 		&:hover {
 			background: $color-neutral-background-ghost-hovered;
+		}
+
+		#{$root}__wrapper {
+			border: none;
 		}
 	}
 
 	&:not(.-flat) {
-		border-radius: $radius-s;
-		border: 1px solid $color-neutral-border-weak;
-
 		@each $color, $value in $rich-list-item-border-colors {
 			&.-border-#{$color} {
 				#{$root}__border {
@@ -156,20 +154,28 @@ $rich-list-item-icon-colors: (
 			}
 		}
 
+		border: 1px solid $color-neutral-border-weak;
+		border-radius: $radius-s;
+
+		&:hover {
+			background: $color-neutral-background-hovered;
+			opacity: 1;
+		}
+
 		#{$root}__border {
-			position: absolute;
-			width: $space-xxxxs;
+			border-radius: $radius-s 0 0 $radius-s;
 			height: calc(100% + 2px);
 			left: -1px;
+			position: absolute;
 			top: -1px;
-			border-radius: $radius-s 0 0 $radius-s;
+			width: $space-xxxxs;
 		}
 	}
 
 	&__container {
-		width: 100%;
-		display: flex;
 		align-items: flex-start;
+		display: flex;
+		width: 100%;
 
 		@media #{breakpoint-s()} {
 			align-items: center;
@@ -178,9 +184,9 @@ $rich-list-item-icon-colors: (
 
 	&__dragAndDrop,
 	&__iconWrapper {
+		align-items: center;
 		display: flex;
 		padding: $space-xs $space-xxxs 0 $space-xs;
-		align-items: center;
 
 		@media #{breakpoint-s()} {
 			padding: $space-xxxs $space-xxxs $space-xxxs $space-s;
@@ -189,8 +195,8 @@ $rich-list-item-icon-colors: (
 
 	&__content {
 		flex: 2 0 0;
-		padding: 0 $space-xxs 0 $space-xxxs;
 		min-width: 0;
+		padding: 0 $space-xxs 0 $space-xxxs;
 
 		@media #{breakpoint-s()} {
 			padding: 0 $space-xxs;
@@ -198,14 +204,14 @@ $rich-list-item-icon-colors: (
 	}
 
 	&__metaData {
+		align-items: center;
 		display: flex;
 		flex: 1;
-		align-items: center;
 		padding-left: $space-xs;
 
 		@media #{breakpoint-s()} {
-			padding: 0;
 			justify-content: flex-start;
+			padding: 0;
 		}
 
 		&.-hideOnMobile {
@@ -226,30 +232,31 @@ $rich-list-item-icon-colors: (
 	}
 
 	&__trailingSlot {
+		align-items: center;
 		display: flex;
 		padding: 0;
-		align-items: center;
+
 		@media #{breakpoint-s()} {
 			padding-left: $space-xxs;
 		}
 	}
 
 	&__icon {
-		color: $color-neutral-icon-weak;
-
 		@each $color, $value in $rich-list-item-icon-colors {
 			&.-icon-color-#{$color} {
 				color: $value;
 			}
 		}
+
+		color: $color-neutral-icon-weak;
 	}
 
 	&__dragAndDropIcon {
 		color: $color-neutral-icon-weak;
 
 		&:hover {
-			cursor: grab;
 			color: $color-neutral-icon-weak-hovered;
+			cursor: grab;
 		}
 
 		&:active {
@@ -257,17 +264,9 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
-	&.-flat {
-		background: $color-neutral-background-ghost;
-
-		#{$root}__wrapper {
-			border: none;
-		}
-	}
-
 	&.-loading {
-		opacity: 0.5;
 		cursor: initial;
+		opacity: 0.5;
 		pointer-events: none;
 	}
 

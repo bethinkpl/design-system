@@ -44,19 +44,19 @@
 .richListItemBasic {
 	&__content {
 		display: flex;
-		padding: $space-xxs 0;
 		flex-direction: column;
-		justify-content: center;
 		gap: $space-xxxxs;
+		justify-content: center;
+		padding: $space-xxs 0;
 	}
 
 	&__eyebrow {
 		@include info-s-extensive-bold;
 
-		overflow: hidden;
 		color: $color-neutral-text-weak;
-		white-space: nowrap;
+		overflow: hidden;
 		text-overflow: ellipsis;
+		white-space: nowrap;
 
 		&.-uppercase {
 			@include info-s-extensive-bold-uppercase;
@@ -66,11 +66,11 @@
 	&__text {
 		@include text-m-compact-bold;
 
-		overflow: hidden;
 		color: $color-neutral-text;
+		min-width: 0;
+		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		min-width: 0;
 	}
 }
 </style>
