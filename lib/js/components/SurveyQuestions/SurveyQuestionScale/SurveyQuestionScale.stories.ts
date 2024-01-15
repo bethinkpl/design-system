@@ -1,6 +1,6 @@
 import SurveyQuestionScale from './SurveyQuestionScale.vue';
 import { SURVEY_TOGGLE_MEANINGS } from '../../SurveyToggle';
-import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import { SURVEY_QUESTION_SCALE_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }
 		return { ...args };
 	},
 	template:
-		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" :containers="containers" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
 		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 		'</survey-question-scale>',
 	methods: {
@@ -37,6 +37,7 @@ const args = {
 	explanation:
 		'<h3 style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
+	containers: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
 	scaleOptions: [
 		{
 			value: '1',
@@ -75,6 +76,10 @@ const argTypes = {
 	elaborationValue: { control: { type: 'text' } },
 	selectedValue: { control: false },
 	explanation: { control: { type: 'text' } },
+	containers: {
+		control: { type: 'select' },
+		options: Object.values(SURVEY_QUESTION_SCALE_CONTAINERS),
+	},
 	scaleOptions: { control: { type: 'object' } },
 	state: {
 		control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) },
@@ -111,7 +116,7 @@ const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { 
 		return { ...args };
 	},
 	template:
-		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :containers="containers" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
 		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 		'</survey-question-scale></div>',
 	methods: {
@@ -125,7 +130,13 @@ const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { 
 });
 
 export const LimitedWidth = StoryLimitedWidthTemplate.bind({});
-LimitedWidth.argTypes = argTypesDisabled;
+LimitedWidth.argTypes = {
+	...argTypesDisabled,
+	containers: {
+		control: { type: 'select' },
+		options: Object.values(SURVEY_QUESTION_SCALE_CONTAINERS),
+	},
+} as ArgTypes;
 
 LimitedWidth.args = {
 	title: "Main question write here if it's long it will collapse.",
@@ -134,6 +145,7 @@ LimitedWidth.args = {
 	explanation:
 		'<h3 class="modalHeader" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
+	containers: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
 	scaleOptions: [
 		{
 			value: '1',
@@ -176,54 +188,8 @@ const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { 
 	data() {
 		return { elaboration: '' };
 	},
-	created() {
-		this.scaleOptions = [
-			{
-				value: '1',
-				label: 'Nie zgadzam się',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '1',
-			},
-			{
-				value: '2',
-				label: '',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '2',
-			},
-			{
-				value: '3',
-				label: '',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '3',
-			},
-			{
-				value: '4',
-				label: 'Trochę',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '4',
-			},
-			{
-				value: '5',
-				label: '',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '5',
-			},
-			{
-				value: '6',
-				label: '',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '6',
-			},
-			{
-				value: '7',
-				label: 'Zgadzam się',
-				meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-				content: '7',
-			},
-		];
-	},
 	template:
-		'<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" @select-change="selectedValueUpdate" />',
+		'<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" :containers="containers" @select-change="selectedValueUpdate" />',
 	methods: {
 		selectedValueUpdate(selectedValue) {
 			updateArgs({ selectedValue });
@@ -232,4 +198,58 @@ const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { 
 });
 
 export const SevenOptions = StorySevenOptionsTemplate.bind({});
-SevenOptions.argTypes = argTypesDisabled;
+SevenOptions.argTypes = {
+	...argTypesDisabled,
+	containers: {
+		control: { type: 'select' },
+		options: Object.values(SURVEY_QUESTION_SCALE_CONTAINERS),
+	},
+} as ArgTypes;
+
+SevenOptions.args = {
+	containers: SURVEY_QUESTION_SCALE_CONTAINERS.ONE,
+	scaleOptions: [
+		{
+			value: '1',
+			label: 'Nie zgadzam się',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '1',
+		},
+		{
+			value: '2',
+			label: '',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '2',
+		},
+		{
+			value: '3',
+			label: '',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '3',
+		},
+		{
+			value: '4',
+			label: 'Trochę',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '4',
+		},
+		{
+			value: '5',
+			label: '',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '5',
+		},
+		{
+			value: '6',
+			label: '',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '6',
+		},
+		{
+			value: '7',
+			label: 'Zgadzam się',
+			meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+			content: '7',
+		},
+	],
+} as Args;

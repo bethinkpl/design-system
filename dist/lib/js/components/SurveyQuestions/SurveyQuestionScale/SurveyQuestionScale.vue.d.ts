@@ -41,6 +41,11 @@ declare const _default: {
             type: StringConstructor;
             default: null;
         };
+        containers: {
+            type: StringConstructor;
+            default: "two";
+            validator(containers: any): boolean;
+        };
     };
     emits: string[];
     data(): {
@@ -272,6 +277,13 @@ declare const _default: {
             readonly DEFAULT: "default";
             readonly DISABLED: "disabled";
         }>;
+        SURVEY_QUESTION_CONTAINERS: Readonly<{
+            readonly ONE: "one";
+            readonly TWO: "two";
+        }>;
+    };
+    computed: {
+        standaloneOptions(): any;
     };
     methods: {
         onToggleClick(value: string): void;

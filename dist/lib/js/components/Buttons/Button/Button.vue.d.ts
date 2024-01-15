@@ -278,6 +278,7 @@ declare const _default: {
         }>;
     };
     computed: {
+        iconSize(): string;
         colorClassName(): string;
         loadingIconSize(): string;
     };
