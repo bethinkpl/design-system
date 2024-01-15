@@ -39,7 +39,6 @@ export type RichListItemIconColor =
 
 export const RICH_LIST_ITEM_BORDER_COLOR = {
 	DEFAULT: 'default',
-	INVERTED: 'inverted',
 	PRIMARY: 'primary',
 	PRIMARY_WEAK: 'primary-weak',
 	NEUTRAL_HEAVY: 'neutral-heavy',

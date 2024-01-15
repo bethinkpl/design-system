@@ -13,43 +13,50 @@
 			borderColor: borderColorHex ? borderColorHex : null,
 		}"
 	>
-		<div class="richListItem__wrapper">
-			<div class="richListItem__container">
-				<div v-if="isDraggable" class="richListItem__dragAndDrop">
-					<ds-icon
-						:icon="ICONS.FA_BARS"
-						class="richListItem__dragAndDropIcon"
-						:size="ICON_SIZES.X_SMALL"
-					/>
-				</div>
-				<div v-if="icon" class="richListItem__iconWrapper">
-					<ds-icon
-						:icon="icon"
-						class="richListItem__icon"
-						:size="ICON_SIZES.X_SMALL"
-						:class="{
-							[iconColorClass]: !!iconColor,
-						}"
-						:style="{
-							color: iconColorHex ? iconColorHex : null,
-						}"
-					/>
-				</div>
-				<div class="richListItem__content">
-					<slot name="content" />
-				</div>
-				<div v-if="$slots.meta" class="richListItem__metaData -hideOnMobile">
-					<slot name="meta" />
-				</div>
-				<div v-if="$slots.trailing" class="richListItem__trailingSlot">
-					<slot name="trailing" />
-				</div>
+		<div class="richListItem__container">
+			<div v-if="isDraggable" class="richListItem__dragAndDrop">
+				<ds-icon
+					:icon="ICONS.FA_BARS"
+					class="richListItem__dragAndDropIcon"
+					:size="
+						size === RICH_LIST_ITEM_SIZE.SMALL
+							? ICON_SIZES.XX_SMALL
+							: ICON_SIZES.X_SMALL
+					"
+				/>
 			</div>
-
-			<div v-if="$slots.meta" class="richListItem__metaData -visibleOnMobile">
+			<div v-if="icon" class="richListItem__iconWrapper">
+				<ds-icon
+					:icon="icon"
+					class="richListItem__icon"
+					:size="
+						size === RICH_LIST_ITEM_SIZE.SMALL
+							? ICON_SIZES.XX_SMALL
+							: ICON_SIZES.X_SMALL
+					"
+					:class="{
+						[iconColorClass]: !!iconColor,
+					}"
+					:style="{
+						color: iconColorHex ? iconColorHex : null,
+					}"
+				/>
+			</div>
+			<div class="richListItem__content">
+				<slot name="content" />
+			</div>
+			<div v-if="$slots.meta" class="richListItem__metaData -hideOnMobile">
 				<slot name="meta" />
 			</div>
+			<div v-if="$slots.trailing" class="richListItem__trailingSlot">
+				<slot name="trailing" />
+			</div>
 		</div>
+
+		<div v-if="$slots.meta" class="richListItem__metaData -visibleOnMobile">
+			<slot name="meta" />
+		</div>
+		<div v-if="borderColor" class="richListItem__border" />
 	</div>
 </template>
 
@@ -86,7 +93,6 @@ $rich-list-item-border-colors: (
 
 $rich-list-item-icon-colors: (
 	default: $color-default-icon,
-	inverted: $color-inverted-icon,
 	primary: $color-primary-icon,
 	primary-weak: $color-primary-icon-weak,
 	neutral: $color-neutral-icon,
@@ -103,50 +109,59 @@ $rich-list-item-icon-colors: (
 	$root: &;
 
 	background: $color-neutral-background;
-	border-radius: $radius-s;
 	display: flex;
-	min-height: 62px;
 	flex: 1;
-	cursor: pointer;
+	min-height: 62px;
+	position: relative;
+	padding: $space-xxxxs $space-xxxxs $space-xxxxs 0;
+	flex-direction: column;
+	justify-content: center;
+	cursor: default;
+	pointer-events: none;
 
-	&:not(.-interactive) {
-		cursor: default;
-		pointer-events: none;
+	@media #{breakpoint-s()} {
+		padding: 0 $space-xxxxs;
+	}
+
+	&.-interactive {
+		cursor: pointer;
+		pointer-events: initial;
 	}
 
 	&.-dimmed {
-		opacity: 50%;
+		opacity: 0.5;
 	}
 
 	&:hover {
+		opacity: 1;
 		background: $color-neutral-background-hovered;
 	}
 
-	&:not(.-flat) {
-		border-left: 4px solid $color-default-border;
-
-		@each $color, $value in $rich-list-item-border-colors {
-			&.-border-#{$color} {
-				border-left-color: $value;
-			}
+	&.-flat {
+		&:hover {
+			background: $color-neutral-background-ghost-hovered;
 		}
 	}
 
-	&__wrapper {
-		display: flex;
-		flex: 1;
-		border-radius: 0 $radius-s $radius-s 0;
-		padding: $space-xxxxs $space-xxxxs $space-xxxxs 0;
-		flex-direction: column;
-		align-items: flex-start;
-		justify-content: center;
+	&:not(.-flat) {
+		border-radius: $radius-s;
+		border: 1px solid $color-neutral-border-weak;
 
-		border-top: 1px solid $color-neutral-border-weak;
-		border-bottom: 1px solid $color-neutral-border-weak;
-		border-right: 1px solid $color-neutral-border-weak;
+		@each $color, $value in $rich-list-item-border-colors {
+			&.-border-#{$color} {
+				#{$root}__border {
+					background-color: $value;
+				}
+			}
+		}
 
-		@media #{breakpoint-s()} {
-			padding: 0 $space-xxxxs;
+		#{$root}__border {
+			position: absolute;
+			width: $space-xxxxs;
+			height: calc(100% + 2px);
+			left: -1px;
+			top: -1px;
+			border-radius: $radius-s 0 0 $radius-s;
 		}
 	}
 
@@ -169,18 +184,21 @@ $rich-list-item-icon-colors: (
 
 	&__content {
 		flex: 2 0 0;
-		padding: 0 $space-xxs;
+		padding: 0 $space-xxs 0 $space-xxxs;
+
+		@media #{breakpoint-s()} {
+			padding: 0 $space-xxs;
+		}
 	}
 
 	&__metaData {
 		display: flex;
 		flex: 1;
 		align-items: center;
-		justify-content: center;
 		padding-left: $space-xs;
 
 		@media #{breakpoint-s()} {
-			padding-left: 0;
+			padding: 0;
 			justify-content: flex-start;
 		}
 
@@ -203,8 +221,11 @@ $rich-list-item-icon-colors: (
 
 	&__trailingSlot {
 		display: flex;
-		padding-left: $space-xxs;
+		padding: 0;
 		align-items: center;
+		@media #{breakpoint-s()} {
+			padding-left: $space-xxs;
+		}
 	}
 
 	&__icon {
@@ -235,6 +256,47 @@ $rich-list-item-icon-colors: (
 
 		#{$root}__wrapper {
 			border: none;
+		}
+	}
+
+	&.-loading {
+		opacity: 0.5;
+		cursor: initial;
+		pointer-events: none;
+	}
+
+	&.-small {
+		min-height: 44px;
+		padding: $space-xxxxs $space-xxxs $space-xxxxs $space-xxxxs;
+
+		@media #{breakpoint-s()} {
+			padding: 0 $space-xxxs 0 0;
+		}
+
+		#{$root}__dragAndDrop,
+		#{$root}__iconWrapper {
+			padding: 0 0 0 $space-xs;
+
+			@media #{breakpoint-s()} {
+				padding: $space-xxxs 0 $space-xxxs $space-xs;
+			}
+		}
+
+		#{$root}__content {
+			padding: 0 $space-xxxs 0 $space-xxs;
+		}
+
+		#{$root}__metaData {
+			padding-left: $space-xs;
+
+			@media #{breakpoint-s()} {
+				padding-left: 0;
+				padding-right: $space-xxxs;
+			}
+		}
+
+		#{$root}__trailingSlot {
+			padding: 0;
 		}
 	}
 }
