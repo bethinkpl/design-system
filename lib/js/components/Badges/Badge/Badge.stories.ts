@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof Badge> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></Badge></div>',
+		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"><div v-if="useSlot"><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></div></Badge></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -27,6 +27,7 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	iconUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
+	useSlot: true,
 } as Args;
 
 const argTypes = {
@@ -52,34 +53,3 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34953',
 	},
 };
-
-const StoryWithoutSlot: StoryFn<typeof Badge> = (args) => ({
-	components: { Badge },
-	setup() {
-		return { ...args };
-	},
-	template:
-		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]" /></div>',
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
-});
-
-const argTypesWithIcon = {
-	label: {
-		control: { type: 'text' },
-		defaultValue: 'Komentarz zespołu',
-	},
-	color: {
-		control: { type: 'select', options: Object.values(BADGE_COLORS) },
-		defaultValue: BADGE_COLORS.NEUTRAL,
-	},
-	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
-	},
-} as ArgTypes;
-
-export const WithoutSlot = StoryWithoutSlot.bind({});
-WithoutSlot.argTypes = argTypesWithIcon;
