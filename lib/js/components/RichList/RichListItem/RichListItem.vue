@@ -111,6 +111,7 @@ $rich-list-item-icon-colors: (
 	background: $color-neutral-background;
 	display: flex;
 	flex: 1;
+	max-width: 100%;
 	min-height: 62px;
 	position: relative;
 	padding: $space-xxxxs $space-xxxxs $space-xxxxs 0;
@@ -168,7 +169,11 @@ $rich-list-item-icon-colors: (
 	&__container {
 		width: 100%;
 		display: flex;
-		align-items: center;
+		align-items: flex-start;
+
+		@media #{breakpoint-s()} {
+			align-items: center;
+		}
 	}
 
 	&__dragAndDrop,
@@ -185,6 +190,7 @@ $rich-list-item-icon-colors: (
 	&__content {
 		flex: 2 0 0;
 		padding: 0 $space-xxs 0 $space-xxxs;
+		min-width: 0;
 
 		@media #{breakpoint-s()} {
 			padding: 0 $space-xxs;

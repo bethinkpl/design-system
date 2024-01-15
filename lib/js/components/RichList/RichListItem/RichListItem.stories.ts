@@ -60,7 +60,6 @@ const StoryTemplate: StoryFn<typeof RichListItem> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	// TODO order
 	size: RICH_LIST_ITEM_SIZE.MEDIUM,
 	type: RICH_LIST_ITEM_TYPE.DEFAULT,
 	isInteractive: true,
