@@ -1,0 +1,144 @@
+<template>
+	<div
+		class="richListGroupItem"
+		:class="{
+			'-loading': state === RICH_LIST_GROUP_ITEM_STATE.LOADING,
+			[borderColorClass]: !!borderColor,
+		}"
+		:style="{
+			borderColor: borderColorHex ? borderColorHex : null,
+		}"
+	>
+		<div class="richListGroupItem__header">
+			<slot name="header" />
+		</div>
+		<div v-if="isExpanded" class="richListGroupItem__expanded">
+			<slot name="expanded" />
+		</div>
+		<div class="richListGroupItem__border" />
+	</div>
+</template>
+
+<style scoped lang="scss">
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/radiuses';
+@import '../../../../styles/settings/spacings';
+
+$rich-list-group-item-border-colors: (
+	default: $color-default-border,
+	primary: $color-primary-border,
+	primary-weak: $color-primary-border-weak,
+	neutral-heavy: $color-neutral-border-heavy,
+	neutral-strong: $color-neutral-border-strong,
+	neutral: $color-neutral-border,
+	neutral-weak: $color-neutral-border-weak,
+	neutral-ghost: $color-neutral-border-ghost,
+	danger: $color-danger-border,
+	danger-weak: $color-danger-border-weak,
+	fail: $color-fail-border,
+	fail-weak: $color-fail-border-weak,
+	warning: $color-warning-border,
+	warning-weak: $color-warning-border-weak,
+	success: $color-success-border,
+	success-weak: $color-success-border-weak,
+	info: $color-info-border,
+	info-weak: $color-info-border-weak,
+	accent: $color-accent-border,
+	accent-weak: $color-accent-border-weak,
+);
+
+.richListGroupItem {
+	$root: &;
+
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 100%;
+	position: relative;
+
+	border: 1px solid $color-neutral-border-weak;
+	border-radius: $radius-s;
+	overflow: hidden;
+
+	&.-loading {
+		cursor: initial;
+		opacity: 0.5;
+		pointer-events: none;
+	}
+
+	@each $color, $value in $rich-list-group-item-border-colors {
+		&.-border-#{$color} {
+			#{$root}__border {
+				background-color: $value;
+			}
+		}
+	}
+
+	&__header {
+		background: $color-neutral-background;
+	}
+
+	&__border {
+		border-radius: $radius-s 0 0 $radius-s;
+		height: calc(100% + 2px);
+		left: -1px;
+		position: absolute;
+		top: -1px;
+		width: $space-xxxxs;
+	}
+}
+</style>
+
+<script lang="ts">
+import { PropType } from 'vue';
+import {
+	RICH_LIST_GROUP_ITEM_BORDER_COLOR,
+	RICH_LIST_GROUP_ITEM_STATE,
+	RichListGroupItemBorderColor,
+	RichListGroupItemState,
+} from './RichListGroupItem.consts';
+
+export default {
+	name: 'RichListGroupItem',
+	components: {},
+	props: {
+		isExpanded: {
+			type: Boolean,
+			default: false,
+		},
+		borderColor: {
+			type: String as PropType<RichListGroupItemBorderColor>,
+			default: null,
+			validator(borderColor) {
+				return Object.values(RICH_LIST_GROUP_ITEM_BORDER_COLOR).includes(borderColor);
+			},
+		},
+		borderColorHex: {
+			type: String,
+			default: null,
+		},
+		state: {
+			type: String as PropType<RichListGroupItemState>,
+			default: RICH_LIST_GROUP_ITEM_STATE.DEFAULT,
+			validator(state) {
+				return Object.values(RICH_LIST_GROUP_ITEM_STATE).includes(state);
+			},
+		},
+	},
+	data() {
+		return {
+			RICH_LIST_GROUP_ITEM_STATE: Object.freeze(RICH_LIST_GROUP_ITEM_STATE),
+		};
+	},
+	computed: {
+		borderColorClass() {
+			if (!this.borderColor || this.borderColorHex) {
+				return;
+			}
+
+			return `-border-${this.borderColor}`;
+		},
+	},
+};
+</script>
