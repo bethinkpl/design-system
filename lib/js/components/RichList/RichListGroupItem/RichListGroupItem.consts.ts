@@ -1,11 +1,3 @@
-export const RICH_LIST_GROUP_ITEM_STATE = {
-	DEFAULT: 'default',
-	LOADING: 'loading',
-} as const;
-
-export type RichListGroupItemState =
-	typeof RICH_LIST_GROUP_ITEM_STATE[keyof typeof RICH_LIST_GROUP_ITEM_STATE];
-
 export const RICH_LIST_GROUP_ITEM_BORDER_COLOR = {
 	DEFAULT: 'default',
 	PRIMARY: 'primary',

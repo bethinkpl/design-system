@@ -2,7 +2,6 @@
 	<div
 		class="richListGroupItem"
 		:class="{
-			'-loading': state === RICH_LIST_GROUP_ITEM_STATE.LOADING,
 			[borderColorClass]: !!borderColor,
 		}"
 		:style="{
@@ -50,23 +49,6 @@ $rich-list-group-item-border-colors: (
 .richListGroupItem {
 	$root: &;
 
-	flex: 1;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	max-width: 100%;
-	position: relative;
-
-	border: 1px solid $color-neutral-border-weak;
-	border-radius: $radius-s;
-	overflow: hidden;
-
-	&.-loading {
-		cursor: initial;
-		opacity: 0.5;
-		pointer-events: none;
-	}
-
 	@each $color, $value in $rich-list-group-item-border-colors {
 		&.-border-#{$color} {
 			#{$root}__border {
@@ -74,6 +56,16 @@ $rich-list-group-item-border-colors: (
 			}
 		}
 	}
+
+	border: 1px solid $color-neutral-border-weak;
+	border-radius: $radius-s;
+	display: flex;
+	flex: 1;
+	flex-direction: column;
+	justify-content: center;
+	max-width: 100%;
+	overflow: hidden;
+	position: relative;
 
 	&__header {
 		background: $color-neutral-background;
@@ -94,9 +86,7 @@ $rich-list-group-item-border-colors: (
 import { PropType } from 'vue';
 import {
 	RICH_LIST_GROUP_ITEM_BORDER_COLOR,
-	RICH_LIST_GROUP_ITEM_STATE,
 	RichListGroupItemBorderColor,
-	RichListGroupItemState,
 } from './RichListGroupItem.consts';
 
 export default {
@@ -118,18 +108,6 @@ export default {
 			type: String,
 			default: null,
 		},
-		state: {
-			type: String as PropType<RichListGroupItemState>,
-			default: RICH_LIST_GROUP_ITEM_STATE.DEFAULT,
-			validator(state) {
-				return Object.values(RICH_LIST_GROUP_ITEM_STATE).includes(state);
-			},
-		},
-	},
-	data() {
-		return {
-			RICH_LIST_GROUP_ITEM_STATE: Object.freeze(RICH_LIST_GROUP_ITEM_STATE),
-		};
 	},
 	computed: {
 		borderColorClass() {

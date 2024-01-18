@@ -3,10 +3,7 @@ import RichListItem, { RICH_LIST_ITEM_STATE, RICH_LIST_ITEM_TYPE } from '../Rich
 import Divider from '../../Divider';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import {
-	RICH_LIST_GROUP_ITEM_BORDER_COLOR,
-	RICH_LIST_GROUP_ITEM_STATE,
-} from './RichListGroupItem.consts';
+import { RICH_LIST_GROUP_ITEM_BORDER_COLOR } from './RichListGroupItem.consts';
 
 export default {
 	title: 'Components/RichList/RichListGroupItem',
@@ -19,7 +16,7 @@ export default {
 	],
 } as Meta<typeof RichListGroupItem>;
 
-const StoryTemplate: StoryFn<typeof RichListGroupItem> = (args) => ({
+const StoryTemplate: StoryFn<typeof RichListGroupItem> = (args, { updateArgs }) => ({
 	components: { RichListGroupItem, RichListItem, Divider },
 	setup() {
 		return { ...args };
@@ -29,13 +26,19 @@ const StoryTemplate: StoryFn<typeof RichListGroupItem> = (args) => ({
 			RICH_LIST_ITEM_TYPE: Object.freeze(RICH_LIST_ITEM_TYPE),
 		};
 	},
+	methods: {
+		onClick() {
+			updateArgs({
+				isExpanded: !this.isExpanded,
+			});
+		},
+	},
 	template: `
     <rich-list-group-item
       :is-expanded="isExpanded"
       :is-dimmed="isDimmed"
       :border-color="borderColor"
       :border-color-hex="borderColorHex"
-      :state="state"
     >
       <template v-if="header" #header>
         <rich-list-item
@@ -47,6 +50,7 @@ const StoryTemplate: StoryFn<typeof RichListGroupItem> = (args) => ({
           :is-dimmed="header.isDimmed"
           :state="header.state"
           :type="RICH_LIST_ITEM_TYPE.FLAT"
+          @click="onClick"
         >
           <template #content>Content Slot</template>
           <template #meta>Meta Slot</template>
@@ -97,8 +101,6 @@ const args = {
 	isExpanded: false,
 	borderColor: null,
 	borderColorHex: '',
-	state: RICH_LIST_GROUP_ITEM_STATE.DEFAULT,
-
 	header: {
 		...defaultRichItemProps,
 	},
@@ -110,10 +112,6 @@ const args = {
 } as Args;
 
 const argTypes = {
-	state: {
-		options: Object.values(RICH_LIST_GROUP_ITEM_STATE),
-		control: { type: 'select' },
-	},
 	borderColor: {
 		options: [null, ...Object.values(RICH_LIST_GROUP_ITEM_BORDER_COLOR)],
 		control: { type: 'select' },
