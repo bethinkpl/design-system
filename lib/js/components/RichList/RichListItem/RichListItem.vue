@@ -12,12 +12,14 @@
 		:style="{
 			borderColor: borderColorHex ? borderColorHex : null,
 		}"
+		@click="$emit('click')"
 	>
 		<div class="richListItem__container">
 			<div v-if="isDraggable" class="richListItem__dragAndDrop">
 				<ds-icon
 					:icon="ICONS.FA_BARS"
 					class="richListItem__dragAndDropIcon"
+					:class="{ [draggableIconClassName]: !!draggableIconClassName }"
 					:size="
 						size === RICH_LIST_ITEM_SIZE.SMALL
 							? ICON_SIZES.XX_SMALL
@@ -40,6 +42,7 @@
 					:style="{
 						color: iconColorHex ? iconColorHex : null,
 					}"
+					@click.prevent="$emit('icon-click')"
 				/>
 			</div>
 			<div class="richListItem__content">
@@ -388,7 +391,12 @@ export default {
 			type: String,
 			default: null,
 		},
+		draggableIconClassName: {
+			type: String,
+			default: null,
+		},
 	},
+	emits: ['icon-click', 'click'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

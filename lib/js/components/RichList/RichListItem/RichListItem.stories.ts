@@ -35,7 +35,7 @@ const StoryTemplate: StoryFn<typeof RichListItem> = (args) => ({
     <rich-list-item
       :size="size"
       :type="type"
-			:is-interactive="isInteractive"
+      :is-interactive="isInteractive"
       :is-draggable="isDraggable"
       :icon="ICONS[icon]"
       :icon-color="iconColor"
@@ -43,6 +43,7 @@ const StoryTemplate: StoryFn<typeof RichListItem> = (args) => ({
       :is-dimmed="isDimmed"
       :border-color="borderColor"
       :border-color-hex="borderColorHex"
+      :draggable-icon-class-name="draggableIconClassName"
       :state="state"
     >
       <template v-if="content" #content>
@@ -71,6 +72,7 @@ const args = {
 	borderColor: null,
 	borderColorHex: '',
 	state: RICH_LIST_ITEM_STATE.DEFAULT,
+	draggableIconClassName: null,
 
 	content: 'Content Slot',
 	meta: 'Meta Slot',
@@ -117,6 +119,9 @@ const argTypes = {
 	trailing: {
 		control: { type: 'text' },
 	},
+	draggableIconClassName: {
+		control: { type: 'text' },
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
@@ -129,3 +134,5 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=8673-2345&mode=design&t=LFrFv5yjxOpcJRzE-4',
 	},
 };
+
+export const DefaultArgs = args;
