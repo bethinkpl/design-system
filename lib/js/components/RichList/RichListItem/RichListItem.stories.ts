@@ -72,11 +72,11 @@ const args = {
 	borderColor: null,
 	borderColorHex: '',
 	state: RICH_LIST_ITEM_STATE.DEFAULT,
-	draggableIconClassName: null,
+	draggableIconClassName: 'draggableIconClassName-1',
 
 	content: 'Content Slot',
 	meta: 'Meta Slot',
-	trailing: 'Tailing Slot',
+	trailing: 'X',
 } as Args;
 
 const argTypes = {

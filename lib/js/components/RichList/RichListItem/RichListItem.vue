@@ -117,9 +117,8 @@ $rich-list-item-icon-colors: (
 	flex: 1;
 	flex-direction: column;
 	justify-content: center;
-	max-width: 100%;
 	min-height: 62px;
-	padding: $space-xxxxs $space-xxxxs $space-xxxxs 0;
+	padding: $space-xxxxs;
 	pointer-events: none;
 	position: relative;
 
@@ -133,7 +132,7 @@ $rich-list-item-icon-colors: (
 	}
 
 	&.-dimmed {
-		opacity: 0.5;
+		opacity: 0.65;
 	}
 
 	&.-flat {
@@ -146,6 +145,10 @@ $rich-list-item-icon-colors: (
 		#{$root}__wrapper {
 			border: none;
 		}
+	}
+
+	&:not(.-flat):not(.-dimmed):hover {
+		background: $color-neutral-background-hovered;
 	}
 
 	&:not(.-flat) {
@@ -161,7 +164,6 @@ $rich-list-item-icon-colors: (
 		border-radius: $radius-s;
 
 		&:hover {
-			background: $color-neutral-background-hovered;
 			opacity: 1;
 		}
 
@@ -176,12 +178,14 @@ $rich-list-item-icon-colors: (
 	}
 
 	&__container {
-		align-items: flex-start;
+		align-items: center;
+		align-self: stretch;
 		display: flex;
 		width: 100%;
+		flex: 1;
 
 		@media #{breakpoint-s()} {
-			align-items: center;
+			align-self: initial;
 		}
 	}
 
@@ -189,6 +193,7 @@ $rich-list-item-icon-colors: (
 	&__iconWrapper {
 		align-items: center;
 		display: flex;
+		align-self: stretch;
 		padding: $space-xs $space-xxxs 0 $space-xs;
 
 		@media #{breakpoint-s()} {
@@ -197,9 +202,11 @@ $rich-list-item-icon-colors: (
 	}
 
 	&__content {
+		display: flex;
 		flex: 2 0 0;
 		min-width: 0;
 		padding: 0 $space-xxs 0 $space-xxxs;
+		align-items: center;
 
 		@media #{breakpoint-s()} {
 			padding: 0 $space-xxs;
@@ -208,8 +215,6 @@ $rich-list-item-icon-colors: (
 
 	&__metaData {
 		align-items: center;
-		display: flex;
-		flex: 1;
 		padding-left: $space-xs;
 
 		@media #{breakpoint-s()} {
@@ -238,6 +243,7 @@ $rich-list-item-icon-colors: (
 		align-items: center;
 		display: flex;
 		padding: 0;
+		justify-content: flex-end;
 
 		@media #{breakpoint-s()} {
 			padding-left: $space-xxs;
@@ -271,6 +277,7 @@ $rich-list-item-icon-colors: (
 		cursor: initial;
 		opacity: 0.5;
 		pointer-events: none;
+		background-color: $color-neutral-background-hovered;
 	}
 
 	&.-small {
