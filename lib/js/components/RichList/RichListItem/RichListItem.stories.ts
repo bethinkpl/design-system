@@ -134,5 +134,3 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=8673-2345&mode=design&t=LFrFv5yjxOpcJRzE-4',
 	},
 };
-
-export const DefaultArgs = args;
