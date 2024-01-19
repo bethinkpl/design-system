@@ -147,10 +147,6 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
-	&:not(.-flat):not(.-dimmed):hover {
-		background: $color-neutral-background-hovered;
-	}
-
 	&:not(.-flat) {
 		@each $color, $value in $rich-list-item-border-colors {
 			&.-border-#{$color} {
@@ -167,6 +163,10 @@ $rich-list-item-icon-colors: (
 			opacity: 1;
 		}
 
+		&:not(.-dimmed):hover {
+			background: $color-neutral-background-hovered;
+		}
+
 		#{$root}__border {
 			border-radius: $radius-s 0 0 $radius-s;
 			height: calc(100% + 2px);
@@ -181,8 +181,8 @@ $rich-list-item-icon-colors: (
 		align-items: center;
 		align-self: stretch;
 		display: flex;
-		width: 100%;
 		flex: 1;
+		width: 100%;
 
 		@media #{breakpoint-s()} {
 			align-self: initial;
@@ -192,8 +192,8 @@ $rich-list-item-icon-colors: (
 	&__dragAndDrop,
 	&__iconWrapper {
 		align-items: center;
-		display: flex;
 		align-self: stretch;
+		display: flex;
 		padding: $space-xs $space-xxxs 0 $space-xs;
 
 		@media #{breakpoint-s()} {
@@ -202,11 +202,11 @@ $rich-list-item-icon-colors: (
 	}
 
 	&__content {
+		align-items: center;
 		display: flex;
 		flex: 2 0 0;
 		min-width: 0;
 		padding: 0 $space-xxs 0 $space-xxxs;
-		align-items: center;
 
 		@media #{breakpoint-s()} {
 			padding: 0 $space-xxs;
@@ -242,8 +242,8 @@ $rich-list-item-icon-colors: (
 	&__trailingSlot {
 		align-items: center;
 		display: flex;
-		padding: 0;
 		justify-content: flex-end;
+		padding: 0;
 
 		@media #{breakpoint-s()} {
 			padding-left: $space-xxs;
@@ -274,10 +274,10 @@ $rich-list-item-icon-colors: (
 	}
 
 	&.-loading {
+		background-color: $color-neutral-background-hovered;
 		cursor: initial;
 		opacity: 0.5;
 		pointer-events: none;
-		background-color: $color-neutral-background-hovered;
 	}
 
 	&.-small {
