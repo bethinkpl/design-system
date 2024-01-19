@@ -47,7 +47,7 @@
 		flex-direction: column;
 		gap: $space-xxxxs;
 		justify-content: center;
-		padding: $space-xxs 0;
+		padding: 0 $space-xxs;
 	}
 
 	&__eyebrow {
