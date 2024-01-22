@@ -285,7 +285,7 @@ $rich-list-item-icon-colors: (
 		padding: $space-xxxxs $space-xxxs $space-xxxxs $space-xxxxs;
 
 		@media #{breakpoint-s()} {
-			padding: 0 $space-xxxs 0 0;
+			padding: 0 $space-xxxxs 0 0;
 		}
 
 		#{$root}__dragAndDrop,
