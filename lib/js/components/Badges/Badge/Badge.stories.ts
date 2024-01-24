@@ -44,7 +44,7 @@ const argTypes = {
 	useSlot: {
 		control: { type: 'boolean' },
 		defaultValue: true,
-	}
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
