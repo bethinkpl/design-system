@@ -161,18 +161,18 @@ $rich-list-item-icon-colors: (
 		}
 
 		#{$root}__border {
+			@each $color, $value in $rich-list-item-border-colors {
+				&.-border-#{$color} {
+					background-color: $value;
+				}
+			}
+
 			border-radius: $radius-s 0 0 $radius-s;
 			height: calc(100% + 2px);
 			left: -1px;
 			position: absolute;
 			top: -1px;
 			width: $space-xxxxs;
-
-			@each $color, $value in $rich-list-item-border-colors {
-				&.-border-#{$color} {
-					background-color: $value;
-				}
-			}
 		}
 	}
 
