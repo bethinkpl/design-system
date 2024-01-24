@@ -19,29 +19,7 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
-
-$rich-list-group-item-border-colors: (
-	default: $color-default-border,
-	primary: $color-primary-border,
-	primary-weak: $color-primary-border-weak,
-	neutral-heavy: $color-neutral-border-heavy,
-	neutral-strong: $color-neutral-border-strong,
-	neutral: $color-neutral-border,
-	neutral-weak: $color-neutral-border-weak,
-	neutral-ghost: $color-neutral-border-ghost,
-	danger: $color-danger-border,
-	danger-weak: $color-danger-border-weak,
-	fail: $color-fail-border,
-	fail-weak: $color-fail-border-weak,
-	warning: $color-warning-border,
-	warning-weak: $color-warning-border-weak,
-	success: $color-success-border,
-	success-weak: $color-success-border-weak,
-	info: $color-info-border,
-	info-weak: $color-info-border-weak,
-	accent: $color-accent-border,
-	accent-weak: $color-accent-border-weak,
-);
+@import '../RichListItem/border-colors';
 
 .richListGroupItem {
 	$root: &;
@@ -60,7 +38,7 @@ $rich-list-group-item-border-colors: (
 	}
 
 	&__border {
-		@each $color, $value in $rich-list-group-item-border-colors {
+		@each $color, $value in $rich-list-item-border-colors {
 			&.-border-#{$color} {
 				background-color: $value;
 			}
