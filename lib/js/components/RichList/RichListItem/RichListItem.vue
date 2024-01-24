@@ -10,7 +10,7 @@
 		}"
 		@click="$emit('click')"
 	>
-		<div class="richListItem__container">
+		<div class="richListItem__container -dimmable">
 			<div v-if="isDraggable" class="richListItem__dragAndDrop">
 				<ds-icon
 					:icon="ICONS.FA_BARS"
@@ -52,7 +52,7 @@
 			</div>
 		</div>
 
-		<div v-if="$slots.meta" class="richListItem__metaData -visibleOnMobile">
+		<div v-if="$slots.meta" class="richListItem__metaData -dimmable -visibleOnMobile">
 			<slot name="meta" />
 		</div>
 		<div
@@ -133,7 +133,9 @@ $rich-list-item-icon-colors: (
 	}
 
 	&.-dimmed {
-		opacity: 0.65;
+		.-dimmable {
+			opacity: 0.65;
+		}
 	}
 
 	&.-flat {
@@ -148,12 +150,24 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
+	&.-loading {
+		background-color: $color-neutral-background-hovered;
+		cursor: initial;
+		pointer-events: none;
+
+		.-dimmable {
+			opacity: 0.5;
+		}
+	}
+
 	&:not(.-flat) {
 		border: 1px solid $color-neutral-border-weak;
 		border-radius: $radius-s;
 
 		&:hover {
-			opacity: 1;
+			.-dimmable {
+				opacity: 1;
+			}
 		}
 
 		&:not(.-dimmed):hover {
@@ -270,13 +284,6 @@ $rich-list-item-icon-colors: (
 		&:active {
 			cursor: grabbing;
 		}
-	}
-
-	&.-loading {
-		background-color: $color-neutral-background-hovered;
-		cursor: initial;
-		opacity: 0.5;
-		pointer-events: none;
 	}
 
 	&.-small {
