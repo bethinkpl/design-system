@@ -67,10 +67,10 @@ const args = {
 	isDraggable: true,
 	icon: null,
 	iconColor: null,
-	iconColorHex: '',
+	iconColorHex: null,
 	isDimmed: false,
 	borderColor: null,
-	borderColorHex: '',
+	borderColorHex: null,
 	state: RICH_LIST_ITEM_STATE.DEFAULT,
 	draggableIconClassName: 'draggableIconClassName-1',
 
