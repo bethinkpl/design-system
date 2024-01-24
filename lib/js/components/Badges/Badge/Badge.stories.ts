@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof Badge> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"><div v-if="useSlot"><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></div></Badge></div>',
+		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]" :useSlot="useSlot"><div v-if="useSlot"><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></div></Badge></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -27,7 +27,6 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	iconUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
-	useSlot: true,
 } as Args;
 
 const argTypes = {
@@ -42,6 +41,10 @@ const argTypes = {
 	icon: {
 		control: { type: 'select', options: Object.keys(ICONS) },
 	},
+	useSlot: {
+		control: { type: 'boolean' },
+		defaultValue: true,
+	}
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
