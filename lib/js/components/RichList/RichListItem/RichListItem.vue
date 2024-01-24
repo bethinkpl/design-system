@@ -7,10 +7,6 @@
 			'-dimmed': isDimmed,
 			'-interactive': isInteractive,
 			'-small': size === RICH_LIST_ITEM_SIZE.SMALL,
-			[borderColorClass]: !!borderColor,
-		}"
-		:style="{
-			borderColor: borderColorHex ? borderColorHex : null,
 		}"
 		@click="$emit('click')"
 	>
@@ -59,7 +55,12 @@
 		<div v-if="$slots.meta" class="richListItem__metaData -visibleOnMobile">
 			<slot name="meta" />
 		</div>
-		<div v-if="borderColor" class="richListItem__border" />
+		<div
+			v-if="borderColorClass || borderColorStyle"
+			class="richListItem__border"
+			:class="borderColorClass"
+			:style="borderColorStyle"
+		/>
 	</div>
 </template>
 
@@ -148,14 +149,6 @@ $rich-list-item-icon-colors: (
 	}
 
 	&:not(.-flat) {
-		@each $color, $value in $rich-list-item-border-colors {
-			&.-border-#{$color} {
-				#{$root}__border {
-					background-color: $value;
-				}
-			}
-		}
-
 		border: 1px solid $color-neutral-border-weak;
 		border-radius: $radius-s;
 
@@ -174,6 +167,12 @@ $rich-list-item-icon-colors: (
 			position: absolute;
 			top: -1px;
 			width: $space-xxxxs;
+
+			@each $color, $value in $rich-list-item-border-colors {
+				&.-border-#{$color} {
+					background-color: $value;
+				}
+			}
 		}
 	}
 
@@ -421,10 +420,18 @@ export default {
 			return `-icon-color-${this.iconColor}`;
 		},
 		borderColorClass() {
-			if (!this.borderColor || this.borderColorHex) {
+			if (!this.borderColor) {
 				return;
 			}
 			return `-border-${this.borderColor}`;
+		},
+		borderColorStyle() {
+			if (!this.borderColorHex || this.borderColor) {
+				return;
+			}
+			return {
+				backgroundColor: this.borderColorHex,
+			};
 		},
 	},
 };
