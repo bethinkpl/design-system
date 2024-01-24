@@ -52,9 +52,9 @@ const StoryTemplate: StoryFn<typeof RichListGroupItem> = (args, { updateArgs }) 
           :type="RICH_LIST_ITEM_TYPE.FLAT"
           @click="onClick"
         >
-          <template #content>Content Slot</template>
-          <template #meta>Meta Slot</template>
-          <template #trailing>Tailing Slot</template>
+					<template #content><div v-html="header.content"/></template>
+					<template #meta><div v-html="header.meta"/></template>
+					<template #trailing><div v-html="header.trailing"/></template>
         </rich-list-item>
       </template>
       <template v-if="expanded" #expanded>
@@ -71,9 +71,9 @@ const StoryTemplate: StoryFn<typeof RichListGroupItem> = (args, { updateArgs }) 
             :state="item.state"
             :type="RICH_LIST_ITEM_TYPE.FLAT"
           >
-            <template #content>Content Slot</template>
-            <template #meta>Meta Slot</template>
-            <template #trailing>Tailing Slot</template>
+            <template #content><div v-html="item.content"/></template>
+            <template #meta><div v-html="item.meta"/></template>
+            <template #trailing><div v-html="item.trailing"/></template>
           </rich-list-item>
           <divider v-if="index < expanded.length - 1" />
         </div>
@@ -94,7 +94,7 @@ const defaultRichItemProps = {
 
 	content: 'Content Slot',
 	meta: 'Meta Slot',
-	trailing: 'Tailing Slot',
+	trailing: 'X',
 };
 
 const args = {
@@ -117,7 +117,7 @@ const argTypes = {
 		control: { type: 'select' },
 	},
 	borderColorHex: {
-		control: { type: 'color' },
+		control: { type: 'text' },
 	},
 } as ArgTypes;
 

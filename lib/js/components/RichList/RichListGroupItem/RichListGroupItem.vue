@@ -1,20 +1,17 @@
 <template>
-	<div
-		class="richListGroupItem"
-		:class="{
-			[borderColorClass]: !!borderColor,
-		}"
-		:style="{
-			borderColor: borderColorHex ? borderColorHex : null,
-		}"
-	>
+	<div class="richListGroupItem">
 		<div class="richListGroupItem__header">
 			<slot name="header" />
 		</div>
-		<div v-if="isExpanded" class="richListGroupItem__expanded">
+		<div v-if="isExpanded">
 			<slot name="expanded" />
 		</div>
-		<div class="richListGroupItem__border" />
+		<div
+			v-if="borderColorClass || borderColorStyle"
+			class="richListGroupItem__border"
+			:class="borderColorClass"
+			:style="borderColorStyle"
+		/>
 	</div>
 </template>
 
@@ -49,21 +46,12 @@ $rich-list-group-item-border-colors: (
 .richListGroupItem {
 	$root: &;
 
-	@each $color, $value in $rich-list-group-item-border-colors {
-		&.-border-#{$color} {
-			#{$root}__border {
-				background-color: $value;
-			}
-		}
-	}
-
 	border: 1px solid $color-neutral-border-weak;
 	border-radius: $radius-s;
 	display: flex;
 	flex: 1;
 	flex-direction: column;
 	justify-content: center;
-	max-width: 100%;
 	overflow: hidden;
 	position: relative;
 
@@ -72,6 +60,12 @@ $rich-list-group-item-border-colors: (
 	}
 
 	&__border {
+		@each $color, $value in $rich-list-group-item-border-colors {
+			&.-border-#{$color} {
+				background-color: $value;
+			}
+		}
+
 		border-radius: $radius-s 0 0 $radius-s;
 		height: calc(100% + 2px);
 		left: -1px;
@@ -91,7 +85,6 @@ import {
 
 export default {
 	name: 'RichListGroupItem',
-	components: {},
 	props: {
 		isExpanded: {
 			type: Boolean,
@@ -111,11 +104,18 @@ export default {
 	},
 	computed: {
 		borderColorClass() {
-			if (!this.borderColor || this.borderColorHex) {
+			if (!this.borderColor) {
 				return;
 			}
-
 			return `-border-${this.borderColor}`;
+		},
+		borderColorStyle() {
+			if (!this.borderColorHex || this.borderColor) {
+				return;
+			}
+			return {
+				backgroundColor: this.borderColorHex,
+			};
 		},
 	},
 };
