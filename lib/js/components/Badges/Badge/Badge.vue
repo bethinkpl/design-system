@@ -7,9 +7,11 @@
 		}"
 	>
 		<ds-icon v-if="icon" class="badge__icon" :icon="icon" :size="ICON_SIZES.XX_SMALL" />
-		<div v-if="useSlot" class="badge__slot">
-			<slot />
-		</div>
+		<template v-if="$slots.default">
+			<div class="badge__slot">
+				<slot />
+			</div>
+		</template>
 		<div class="badge__label">{{ label }}</div>
 	</div>
 </template>
@@ -102,10 +104,6 @@ export default {
 			type: Object,
 			default: null,
 			validate: (icon) => Object.values(ICONS).includes(toRaw(icon)),
-		},
-		useSlot: {
-			type: Boolean,
-			default: true,
 		},
 	},
 	data() {
