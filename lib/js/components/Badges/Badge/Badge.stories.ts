@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof Badge> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"><template #default><div v-html="slot"></div></template></Badge></div>',
+		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"><template v-if="slot" #default><div v-html="slot"></div></template></Badge></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
