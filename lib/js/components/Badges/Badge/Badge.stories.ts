@@ -15,7 +15,7 @@ const StoryTemplate: StoryFn<typeof Badge> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"><template v-if="useSlot" #default><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></template></Badge></div>',
+		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"><template #default><div v-html="slot"></div></template></Badge></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -26,8 +26,7 @@ const StoryTemplate: StoryFn<typeof Badge> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	iconUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
-	useSlot: true,
+	slot: '<img alt="Badge" style="width: 100%; height: 100%" src="https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg" />'
 } as Args;
 
 const argTypes = {
