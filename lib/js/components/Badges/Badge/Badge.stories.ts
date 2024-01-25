@@ -26,7 +26,7 @@ const StoryTemplate: StoryFn<typeof Badge> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	slot: '<img alt="Badge" style="width: 100%; height: 100%" src="https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg" />'
+	slot: '<img alt="Badge" style="width: 100%; height: 100%" src="https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg" />',
 } as Args;
 
 const argTypes = {
