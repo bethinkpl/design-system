@@ -7,11 +7,9 @@
 		}"
 	>
 		<ds-icon v-if="icon" class="badge__icon" :icon="icon" :size="ICON_SIZES.XX_SMALL" />
-		<template v-if="$slots.default">
-			<div class="badge__slot">
-				<slot />
-			</div>
-		</template>
+		<div v-if="$slots.default" class="badge__slot">
+			<slot />
+		</div>
 		<div class="badge__label">{{ label }}</div>
 	</div>
 </template>
