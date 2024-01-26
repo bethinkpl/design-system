@@ -142,6 +142,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_REPLY: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SHARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_SHARE_NODES: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SHIELD_HALVED: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SIGNAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SITEMAP: import("@fortawesome/fontawesome-common-types").IconDefinition;

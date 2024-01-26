@@ -4303,6 +4303,43 @@ exports.aliases = aliases;
 
 /***/ }),
 
+/***/ 56477:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var prefix = 'far';
+var iconName = 'share-nodes';
+var width = 448;
+var height = 512;
+var aliases = ["share-alt"];
+var unicode = 'f1e0';
+var svgPathData = 'M448 128c0 53-43 96-96 96c-28.9 0-54.8-12.8-72.4-33l-89.7 44.9c1.4 6.5 2.1 13.2 2.1 20.1s-.7 13.6-2.1 20.1L279.6 321c17.6-20.2 43.5-33 72.4-33c53 0 96 43 96 96s-43 96-96 96s-96-43-96-96c0-6.9 .7-13.6 2.1-20.1L168.4 319c-17.6 20.2-43.5 33-72.4 33c-53 0-96-43-96-96s43-96 96-96c28.9 0 54.8 12.8 72.4 33l89.7-44.9c-1.4-6.5-2.1-13.2-2.1-20.1c0-53 43-96 96-96s96 43 96 96zM96 304a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM400 128a48 48 0 1 0 -96 0 48 48 0 1 0 96 0zM352 432a48 48 0 1 0 0-96 48 48 0 1 0 0 96z';
+
+exports.definition = {
+  prefix: prefix,
+  iconName: iconName,
+  icon: [
+    width,
+    height,
+    aliases,
+    unicode,
+    svgPathData
+  ]};
+
+exports.faShareNodes = exports.definition;
+exports.prefix = prefix;
+exports.iconName = iconName;
+exports.width = width;
+exports.height = height;
+exports.ligatures = aliases;
+exports.unicode = unicode;
+exports.svgPathData = svgPathData;
+exports.aliases = aliases;
+
+/***/ }),
+
 /***/ 7239:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -7297,7 +7334,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.popper{width:auto;background-color:#f
 
 /***/ }),
 
-/***/ 63041:
+/***/ 23780:
 /***/ ((module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -7314,7 +7351,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_vue_cli_service_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_vue_cli_service_node_modules_css_loader_dist_runtime_noSourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.a-icon[data-v-1f2d4697]{align-items:center;display:inline-flex;transition:transform .15s}.a-icon.-touchable[data-v-1f2d4697]{align-items:center;cursor:pointer;display:flex;justify-content:center;min-height:40px;min-width:40px}.a-icon.-rotate90[data-v-1f2d4697]{transform:rotate(90deg)}.a-icon.-rotate180[data-v-1f2d4697]{transform:rotate(180deg)}.a-icon.-rotate270[data-v-1f2d4697]{transform:rotate(270deg)}.a-icon.-no-transtition[data-v-1f2d4697]{transition:initial}.a-icon.-spin[data-v-1f2d4697]{animation:a-fadeIn .3s,a-spinAround 1s linear infinite}.a-icon.-flipped-vertical[data-v-1f2d4697]{transform:rotateX(180deg)}.a-icon.-flipped-horizontal[data-v-1f2d4697]{transform:rotateY(180deg)}.a-icon .svg-inline--fa[data-v-1f2d4697],.a-icon svg[data-v-1f2d4697]{height:24px;width:24px}.a-icon.-xx-large .svg-inline--fa[data-v-1f2d4697],.a-icon.-xx-large svg[data-v-1f2d4697]{height:64px;width:64px}.a-icon.-x-large .svg-inline--fa[data-v-1f2d4697],.a-icon.-x-large svg[data-v-1f2d4697]{height:48px;width:48px}.a-icon.-large .svg-inline--fa[data-v-1f2d4697],.a-icon.-large svg[data-v-1f2d4697]{height:32px;width:32px}.a-icon.-medium .svg-inline--fa[data-v-1f2d4697],.a-icon.-medium svg[data-v-1f2d4697]{height:24px;width:24px}.a-icon.-small .svg-inline--fa[data-v-1f2d4697],.a-icon.-small svg[data-v-1f2d4697]{height:20px;width:20px}.a-icon.-x-small .svg-inline--fa[data-v-1f2d4697],.a-icon.-x-small svg[data-v-1f2d4697]{height:16px;width:16px}.a-icon.-xx-small .svg-inline--fa[data-v-1f2d4697],.a-icon.-xx-small svg[data-v-1f2d4697]{height:12px;width:12px}.a-icon.-xxx-small .svg-inline--fa[data-v-1f2d4697],.a-icon.-xxx-small svg[data-v-1f2d4697]{height:8px;width:8px}.badge[data-v-1f2d4697]{align-items:center;border-radius:4px;display:flex;min-height:20px;padding:4px 8px}.badge__label[data-v-1f2d4697]{--token:label-xs-default-bold-uppercase;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-5xs);font-size:var(--typography-font-size-3xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-uppercase)}.badge.-neutral[data-v-1f2d4697]{background-color:var(--color-neutral-background-medium)}.badge.-neutral .badge__label[data-v-1f2d4697]{color:var(--color-neutral-text)}.badge__slot[data-v-1f2d4697]{align-items:center;display:flex;height:12px;margin-right:8px;width:12px}`, ""]);
+___CSS_LOADER_EXPORT___.push([module.id, `.a-icon[data-v-60454916]{align-items:center;display:inline-flex;transition:transform .15s}.a-icon.-touchable[data-v-60454916]{align-items:center;cursor:pointer;display:flex;justify-content:center;min-height:40px;min-width:40px}.a-icon.-rotate90[data-v-60454916]{transform:rotate(90deg)}.a-icon.-rotate180[data-v-60454916]{transform:rotate(180deg)}.a-icon.-rotate270[data-v-60454916]{transform:rotate(270deg)}.a-icon.-no-transtition[data-v-60454916]{transition:initial}.a-icon.-spin[data-v-60454916]{animation:a-fadeIn .3s,a-spinAround 1s linear infinite}.a-icon.-flipped-vertical[data-v-60454916]{transform:rotateX(180deg)}.a-icon.-flipped-horizontal[data-v-60454916]{transform:rotateY(180deg)}.a-icon .svg-inline--fa[data-v-60454916],.a-icon svg[data-v-60454916]{height:24px;width:24px}.a-icon.-xx-large .svg-inline--fa[data-v-60454916],.a-icon.-xx-large svg[data-v-60454916]{height:64px;width:64px}.a-icon.-x-large .svg-inline--fa[data-v-60454916],.a-icon.-x-large svg[data-v-60454916]{height:48px;width:48px}.a-icon.-large .svg-inline--fa[data-v-60454916],.a-icon.-large svg[data-v-60454916]{height:32px;width:32px}.a-icon.-medium .svg-inline--fa[data-v-60454916],.a-icon.-medium svg[data-v-60454916]{height:24px;width:24px}.a-icon.-small .svg-inline--fa[data-v-60454916],.a-icon.-small svg[data-v-60454916]{height:20px;width:20px}.a-icon.-x-small .svg-inline--fa[data-v-60454916],.a-icon.-x-small svg[data-v-60454916]{height:16px;width:16px}.a-icon.-xx-small .svg-inline--fa[data-v-60454916],.a-icon.-xx-small svg[data-v-60454916]{height:12px;width:12px}.a-icon.-xxx-small .svg-inline--fa[data-v-60454916],.a-icon.-xxx-small svg[data-v-60454916]{height:8px;width:8px}.badge[data-v-60454916]{align-items:center;border-radius:4px;display:flex;min-height:20px;padding:4px 8px}.badge__label[data-v-60454916]{--token:label-xs-default-bold-uppercase;font-weight:var(--typography-font-weight-bold);font-style:var(--typography-font-style-normal);line-height:var(--typography-line-height-5xs);font-size:var(--typography-font-size-3xs);letter-spacing:var(--typography-letter-spacing-s);-webkit-text-decoration:var(--typography-text-decoration-none);text-decoration:var(--typography-text-decoration-none);text-transform:var(--typography-text-transform-uppercase)}.badge__icon[data-v-60454916]{align-items:center;display:flex;margin-right:8px}.badge.-neutral[data-v-60454916]{background-color:var(--color-neutral-background-medium)}.badge.-neutral .badge__label[data-v-60454916]{color:var(--color-neutral-text)}.badge.-neutral .badge__icon[data-v-60454916]{color:var(--color-neutral-icon)}.badge.-primary[data-v-60454916]{background-color:var(--color-primary-background-medium)}.badge.-primary .badge__label[data-v-60454916]{color:var(--color-primary-text)}.badge.-primary .badge__icon[data-v-60454916]{color:var(--color-primary-icon)}.badge__slot[data-v-60454916]{align-items:center;display:flex;height:12px;margin-right:8px;width:12px}`, ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -8717,34 +8754,21 @@ exports.Z = (sfc, props) => {
 
 /***/ }),
 
-/***/ 98458:
+/***/ 37537:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-// ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  __esModule: () => (/* reexport */ Badgevue_type_script_lang_ts/* __esModule */.X),
-  "default": () => (/* binding */ Badge)
-});
-
-// EXTERNAL MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-40.use[0]!./node_modules/@vue/cli-service/node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[3]!./node_modules/@vue/cli-service/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./lib/js/components/Badges/Badge/Badge.vue?vue&type=template&id=1f2d4697&scoped=true&ts=true
-var Badgevue_type_template_id_1f2d4697_scoped_true_ts_true = __webpack_require__(72972);
-;// CONCATENATED MODULE: ./lib/js/components/Badges/Badge/Badge.vue?vue&type=template&id=1f2d4697&scoped=true&ts=true
-
-// EXTERNAL MODULE: ./node_modules/ts-loader/index.js??clonedRuleSet-40.use[0]!./node_modules/@vue/cli-service/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./lib/js/components/Badges/Badge/Badge.vue?vue&type=script&lang=ts
-var Badgevue_type_script_lang_ts = __webpack_require__(87692);
-;// CONCATENATED MODULE: ./lib/js/components/Badges/Badge/Badge.vue?vue&type=script&lang=ts
- 
-// EXTERNAL MODULE: ./node_modules/vue-style-loader/index.js??clonedRuleSet-22.use[0]!./node_modules/@vue/cli-service/node_modules/css-loader/dist/cjs.js??clonedRuleSet-22.use[1]!./node_modules/@vue/cli-service/node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[2]!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-22.use[3]!./node_modules/sass-loader/dist/cjs.js??clonedRuleSet-22.use[4]!./node_modules/@vue/cli-service/node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./lib/js/components/Badges/Badge/Badge.vue?vue&type=style&index=0&id=1f2d4697&lang=scss&scoped=true
-var Badgevue_type_style_index_0_id_1f2d4697_lang_scss_scoped_true = __webpack_require__(42144);
-;// CONCATENATED MODULE: ./lib/js/components/Badges/Badge/Badge.vue?vue&type=style&index=0&id=1f2d4697&lang=scss&scoped=true
-
-// EXTERNAL MODULE: ./node_modules/@vue/cli-service/node_modules/vue-loader/dist/exportHelper.js
-var exportHelper = __webpack_require__(48118);
-;// CONCATENATED MODULE: ./lib/js/components/Badges/Badge/Badge.vue
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Badge_vue_vue_type_template_id_60454916_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(54193);
+/* harmony import */ var _Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(20962);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+/* harmony import */ var _Badge_vue_vue_type_style_index_0_id_60454916_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(34777);
+/* harmony import */ var _node_modules_vue_cli_service_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(48118);
 
 
 
@@ -8752,9 +8776,9 @@ var exportHelper = __webpack_require__(48118);
 ;
 
 
-const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(Badgevue_type_script_lang_ts/* default */.Z, [['render',Badgevue_type_template_id_1f2d4697_scoped_true_ts_true/* render */.s],['__scopeId',"data-v-1f2d4697"]])
+const __exports__ = /*#__PURE__*/(0,_node_modules_vue_cli_service_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__/* ["default"] */ .Z)(_Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Badge_vue_vue_type_template_id_60454916_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__/* .render */ .s],['__scopeId',"data-v-60454916"]])
 
-/* harmony default export */ const Badge = (__exports__);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
 
 /***/ }),
 
@@ -10819,6 +10843,23 @@ const __exports__ = /*#__PURE__*/(0,exportHelper/* default */.Z)(Wellvue_type_sc
 
 /***/ }),
 
+/***/ 20962:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport default from dynamic */ _node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0___default.a)
+/* harmony export */ });
+/* harmony import */ var _node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(87692);
+/* harmony import */ var _node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};
+/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== "default") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_script_lang_ts__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]
+/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);
+ 
+
+/***/ }),
+
 /***/ 52552:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -11550,6 +11591,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ 54193:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   s: () => (/* reexport safe */ _node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_template_id_60454916_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__.s)
+/* harmony export */ });
+/* harmony import */ var _node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_template_id_60454916_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(25739);
+
+
+/***/ }),
+
 /***/ 43079:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -12062,6 +12115,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   s: () => (/* reexport safe */ _node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_template_id_76ff1006_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__.s)
 /* harmony export */ });
 /* harmony import */ var _node_modules_ts_loader_index_js_clonedRuleSet_40_use_0_node_modules_vue_cli_service_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_3_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_ToggleButton_vue_vue_type_template_id_76ff1006_scoped_true_ts_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(79241);
+
+
+/***/ }),
+
+/***/ 34777:
+/***/ ((__unused_webpack_module, __unused_webpack___webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_style_index_0_id_60454916_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(57055);
+/* harmony import */ var _node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_style_index_0_id_60454916_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_vue_style_loader_index_js_clonedRuleSet_22_use_0_node_modules_vue_cli_service_node_modules_css_loader_dist_cjs_js_clonedRuleSet_22_use_1_node_modules_vue_cli_service_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_2_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_22_use_3_node_modules_sass_loader_dist_cjs_js_clonedRuleSet_22_use_4_node_modules_vue_cli_service_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Badge_vue_vue_type_style_index_0_id_60454916_lang_scss_scoped_true__WEBPACK_IMPORTED_MODULE_0__);
 
 
 /***/ }),
@@ -15093,6 +15156,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.BADGE_COLORS = void 0;
 exports.BADGE_COLORS = {
     NEUTRAL: 'neutral',
+    PRIMARY: 'primary',
 };
 
 
@@ -15121,7 +15185,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const Badge_vue_1 = __importDefault(__webpack_require__(98458));
+const Badge_vue_1 = __importDefault(__webpack_require__(37537));
 exports["default"] = Badge_vue_1.default;
 __exportStar(__webpack_require__(7090), exports);
 
@@ -17359,6 +17423,7 @@ const faPrint_1 = __webpack_require__(97411);
 const faReply_1 = __webpack_require__(10041);
 const faRotateLeft_1 = __webpack_require__(99149);
 const faShare_1 = __webpack_require__(84801);
+const faShareNodes_1 = __webpack_require__(56477);
 const faShieldHalved_1 = __webpack_require__(7239);
 const faSignal_1 = __webpack_require__(45080);
 const faSitemap_1 = __webpack_require__(34966);
@@ -17570,6 +17635,7 @@ exports.FONTAWESOME_ICONS = {
     FA_REPLY: faReply_1.faReply,
     FA_ROTATE_LEFT: faRotateLeft_1.faRotateLeft,
     FA_SHARE: faShare_1.faShare,
+    FA_SHARE_NODES: faShareNodes_1.faShareNodes,
     FA_SHIELD_HALVED: faShieldHalved_1.faShieldHalved,
     FA_SIGNAL: faSignal_1.faSignal,
     FA_SITEMAP: faSitemap_1.faSitemap,
@@ -17820,14 +17886,23 @@ exports.randomString = randomString;
 /***/ }),
 
 /***/ 87692:
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
 
-Object.defineProperty(exports, "X", ({ value: true }));
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
 const Badge_consts_1 = __webpack_require__(7090);
-exports.Z = {
+const Icon_1 = __importDefault(__webpack_require__(32411));
+const Icon_consts_1 = __webpack_require__(63789);
+const vue_1 = __webpack_require__(77203);
+exports["default"] = {
     name: 'Badge',
+    components: {
+        DsIcon: Icon_1.default,
+    },
     props: {
         label: {
             type: String,
@@ -17835,15 +17910,21 @@ exports.Z = {
         },
         color: {
             type: String,
-            required: true,
+            default: Badge_consts_1.BADGE_COLORS.NEUTRAL,
             validator(value) {
                 return Object.values(Badge_consts_1.BADGE_COLORS).includes(value);
             },
+        },
+        icon: {
+            type: Object,
+            default: null,
+            validate: (icon) => Object.values(Icon_consts_1.ICONS).includes((0, vue_1.toRaw)(icon)),
         },
     },
     data() {
         return {
             BADGE_COLORS: Object.freeze(Badge_consts_1.BADGE_COLORS),
+            ICON_SIZES: Object.freeze(Icon_consts_1.ICON_SIZES),
         };
     },
 };
@@ -22078,7 +22159,7 @@ exports["default"] = {
 
 /***/ }),
 
-/***/ 72972:
+/***/ 25739:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -22087,16 +22168,33 @@ var __webpack_unused_export__;
 __webpack_unused_export__ = ({ value: true });
 exports.s = void 0;
 const vue_1 = __webpack_require__(77203);
-const _withScopeId = n => ((0, vue_1.pushScopeId)("data-v-1f2d4697"), n = n(), (0, vue_1.popScopeId)(), n);
-const _hoisted_1 = { class: "badge__slot" };
+const _withScopeId = n => ((0, vue_1.pushScopeId)("data-v-60454916"), n = n(), (0, vue_1.popScopeId)(), n);
+const _hoisted_1 = {
+    key: 1,
+    class: "badge__slot"
+};
 const _hoisted_2 = { class: "badge__label" };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
+    const _component_ds_icon = (0, vue_1.resolveComponent)("ds-icon");
     return ((0, vue_1.openBlock)(), (0, vue_1.createElementBlock)("div", {
-        class: (0, vue_1.normalizeClass)(["badge", { '-neutral': $props.color === $data.BADGE_COLORS.NEUTRAL }])
+        class: (0, vue_1.normalizeClass)(["badge", {
+                '-neutral': $props.color === $data.BADGE_COLORS.NEUTRAL,
+                '-primary': $props.color === $data.BADGE_COLORS.PRIMARY,
+            }])
     }, [
-        (0, vue_1.createElementVNode)("div", _hoisted_1, [
-            (0, vue_1.renderSlot)(_ctx.$slots, "default", {}, undefined, true)
-        ]),
+        ($props.icon)
+            ? ((0, vue_1.openBlock)(), (0, vue_1.createBlock)(_component_ds_icon, {
+                key: 0,
+                class: "badge__icon",
+                icon: $props.icon,
+                size: $data.ICON_SIZES.XX_SMALL
+            }, null, 8, ["icon", "size"]))
+            : (0, vue_1.createCommentVNode)("", true),
+        (_ctx.$slots.default)
+            ? ((0, vue_1.openBlock)(), (0, vue_1.createElementBlock)("div", _hoisted_1, [
+                (0, vue_1.renderSlot)(_ctx.$slots, "default", {}, undefined, true)
+            ]))
+            : (0, vue_1.createCommentVNode)("", true),
         (0, vue_1.createElementVNode)("div", _hoisted_2, (0, vue_1.toDisplayString)($props.label), 1)
     ], 2));
 }
@@ -25495,19 +25593,19 @@ var update = add("e64037ec", content, true, {"sourceMap":false,"shadowMode":fals
 
 /***/ }),
 
-/***/ 42144:
+/***/ 57055:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(63041);
+var content = __webpack_require__(23780);
 if(content.__esModule) content = content.default;
 if(typeof content === 'string') content = [[module.id, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
 var add = (__webpack_require__(54402)/* ["default"] */ .Z)
-var update = add("239b080e", content, true, {"sourceMap":false,"shadowMode":false});
+var update = add("7acfc18a", content, true, {"sourceMap":false,"shadowMode":false});
 
 /***/ }),
 
