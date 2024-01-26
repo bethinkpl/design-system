@@ -39,7 +39,7 @@ const argTypes = {
 		defaultValue: BADGE_COLORS.NEUTRAL,
 	},
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
+		control: { type: 'select', options: ['null', ...Object.keys(ICONS)] },
 	},
 } as ArgTypes;
 
