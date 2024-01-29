@@ -33,12 +33,8 @@
 							? ICON_SIZES.XX_SMALL
 							: ICON_SIZES.X_SMALL
 					"
-					:class="{
-						[iconColorClass]: !!iconColor,
-					}"
-					:style="{
-						color: iconColorHex ? iconColorHex : null,
-					}"
+					:class="iconColorClass"
+					:style="iconColorStyle"
 					@click.prevent="$emit('icon-click')"
 				/>
 			</div>
@@ -431,19 +427,27 @@ export default {
 	},
 	computed: {
 		iconColorClass() {
-			if (!this.iconColor || this.iconColorHex) {
+			if (!this.iconColor || (this.iconColor && this.iconColorHex)) {
 				return;
 			}
 			return `-icon-color-${this.iconColor}`;
 		},
+		iconColorStyle() {
+			if (!this.iconColor || !this.iconColorHex) {
+				return;
+			}
+			return {
+				color: this.iconColorHex,
+			};
+		},
 		borderColorClass() {
-			if (!this.borderColor) {
+			if (!this.borderColor || (this.borderColor && this.borderColorHex)) {
 				return;
 			}
 			return `-border-${this.borderColor}`;
 		},
 		borderColorStyle() {
-			if (!this.borderColorHex || this.borderColor) {
+			if (!this.borderColor || !this.borderColorHex) {
 				return;
 			}
 			return {
