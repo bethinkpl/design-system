@@ -2,6 +2,7 @@
 	<div
 		class="richListItem"
 		:class="{
+			'-default': type === RICH_LIST_ITEM_TYPE.DEFAULT,
 			'-flat': type === RICH_LIST_ITEM_TYPE.FLAT,
 			'-loading': state === RICH_LIST_ITEM_STATE.LOADING,
 			'-dimmed': isDimmed,
@@ -141,8 +142,16 @@ $rich-list-item-icon-colors: (
 	&.-flat {
 		background: $color-neutral-background-ghost;
 
-		&:hover {
+		&:not(.-dimmed):hover {
 			background: $color-neutral-background-ghost-hovered;
+		}
+
+		&:hover {
+			opacity: 1;
+
+			.-dimmable {
+				opacity: 1;
+			}
 		}
 
 		#{$root}__wrapper {
@@ -160,7 +169,7 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
-	&:not(.-flat) {
+	&.-default {
 		border: 1px solid $color-neutral-border-weak;
 		border-radius: $radius-s;
 
