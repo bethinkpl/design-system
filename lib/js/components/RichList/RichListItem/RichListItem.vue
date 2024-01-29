@@ -2,6 +2,7 @@
 	<div
 		class="richListItem"
 		:class="{
+			'-default': type === RICH_LIST_ITEM_TYPE.DEFAULT,
 			'-flat': type === RICH_LIST_ITEM_TYPE.FLAT,
 			'-loading': state === RICH_LIST_ITEM_STATE.LOADING,
 			'-dimmed': isDimmed,
@@ -32,12 +33,8 @@
 							? ICON_SIZES.XX_SMALL
 							: ICON_SIZES.X_SMALL
 					"
-					:class="{
-						[iconColorClass]: !!iconColor,
-					}"
-					:style="{
-						color: iconColorHex ? iconColorHex : null,
-					}"
+					:class="iconColorClass"
+					:style="iconColorStyle"
 					@click.prevent="$emit('icon-click')"
 				/>
 			</div>
@@ -115,18 +112,6 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
-	&.-flat {
-		background: $color-neutral-background-ghost;
-
-		&:hover {
-			background: $color-neutral-background-ghost-hovered;
-		}
-
-		#{$root}__wrapper {
-			border: none;
-		}
-	}
-
 	&.-loading {
 		background-color: $color-neutral-background-hovered;
 		cursor: initial;
@@ -137,7 +122,27 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
-	&:not(.-flat) {
+	&.-flat {
+		background: $color-neutral-background-ghost;
+
+		&:hover {
+			opacity: 1;
+
+			.-dimmable {
+				opacity: 1;
+			}
+		}
+
+		&:not(.-dimmed):hover {
+			background: $color-neutral-background-ghost-hovered;
+		}
+
+		#{$root}__wrapper {
+			border: none;
+		}
+	}
+
+	&.-default {
 		border: 1px solid $color-neutral-border-weak;
 		border-radius: $radius-s;
 
@@ -181,12 +186,13 @@ $rich-list-item-icon-colors: (
 
 	&__dragAndDrop,
 	&__iconWrapper {
-		align-items: center;
+		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
 		padding: $space-xs $space-xxxs 0 $space-xs;
 
 		@media #{breakpoint-s()} {
+			align-items: center;
 			padding: $space-xxxs $space-xxxs $space-xxxs $space-s;
 		}
 	}
@@ -398,19 +404,27 @@ export default {
 	},
 	computed: {
 		iconColorClass() {
-			if (!this.iconColor || this.iconColorHex) {
+			if (!this.iconColor || (this.iconColor && this.iconColorHex)) {
 				return;
 			}
 			return `-icon-color-${this.iconColor}`;
 		},
+		iconColorStyle() {
+			if (!this.iconColor || !this.iconColorHex) {
+				return;
+			}
+			return {
+				color: this.iconColorHex,
+			};
+		},
 		borderColorClass() {
-			if (!this.borderColor) {
+			if (!this.borderColor || (this.borderColor && this.borderColorHex)) {
 				return;
 			}
 			return `-border-${this.borderColor}`;
 		},
 		borderColorStyle() {
-			if (!this.borderColorHex || this.borderColor) {
+			if (!this.borderColor || !this.borderColorHex) {
 				return;
 			}
 			return {
