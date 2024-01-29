@@ -82,13 +82,13 @@ export default {
 	},
 	computed: {
 		borderColorClass() {
-			if (!this.borderColor) {
+			if (!this.borderColor || (this.borderColor && this.borderColorHex)) {
 				return;
 			}
 			return `-border-${this.borderColor}`;
 		},
 		borderColorStyle() {
-			if (!this.borderColorHex || this.borderColor) {
+			if (!this.borderColor || !this.borderColorHex) {
 				return;
 			}
 			return {
