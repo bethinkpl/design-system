@@ -1,5 +1,6 @@
 import Badge from './Badge.vue';
 import { BADGE_COLORS } from './Badge.consts';
+import { ICONS } from '../../Icons/Icon/Icon.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
@@ -14,13 +15,18 @@ const StoryTemplate: StoryFn<typeof Badge> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<div style="display: flex"><Badge :color="color" :label="label"><img alt="Badge" style="width: 100%; height: 100%" :src="iconUrl" /></Badge></div>',
+		'<div style="display: flex"><Badge :color="color" :label="label" :icon="ICONS[icon]"><template v-if="slot" #default><div v-html="slot"></div></template></Badge></div>',
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
+	},
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	iconUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
+	slot: '<img alt="Badge" style="width: 100%; height: 100%" src="https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg" />',
 } as Args;
 
 const argTypes = {
@@ -31,6 +37,9 @@ const argTypes = {
 	color: {
 		control: { type: 'select', options: Object.values(BADGE_COLORS) },
 		defaultValue: BADGE_COLORS.NEUTRAL,
+	},
+	icon: {
+		control: { type: 'select', options: ['null', ...Object.keys(ICONS)] },
 	},
 } as ArgTypes;
 

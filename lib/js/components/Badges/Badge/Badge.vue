@@ -1,6 +1,13 @@
 <template>
-	<div class="badge" :class="{ '-neutral': color === BADGE_COLORS.NEUTRAL }">
-		<div class="badge__slot">
+	<div
+		class="badge"
+		:class="{
+			'-neutral': color === BADGE_COLORS.NEUTRAL,
+			'-primary': color === BADGE_COLORS.PRIMARY,
+		}"
+	>
+		<ds-icon v-if="icon" class="badge__icon" :icon="icon" :size="ICON_SIZES.XX_SMALL" />
+		<div v-if="$slots.default" class="badge__slot">
 			<slot />
 		</div>
 		<div class="badge__label">{{ label }}</div>
@@ -27,11 +34,33 @@ $badge-min-height: 20px;
 		@include label-xs-default-bold-uppercase;
 	}
 
+	&__icon {
+		align-items: center;
+		display: flex;
+		margin-right: $space-xxs;
+	}
+
 	&.-neutral {
 		background-color: $color-neutral-background-medium;
 
 		.badge__label {
 			color: $color-neutral-text;
+		}
+
+		.badge__icon {
+			color: $color-neutral-icon;
+		}
+	}
+
+	&.-primary {
+		background-color: $color-primary-background-medium;
+
+		.badge__label {
+			color: $color-primary-text;
+		}
+
+		.badge__icon {
+			color: $color-primary-icon;
 		}
 	}
 
@@ -47,11 +76,16 @@ $badge-min-height: 20px;
 
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
-
 import { BADGE_COLORS } from './Badge.consts';
+import DsIcon from '../../Icons/Icon';
+import { ICONS, ICON_SIZES } from '../../Icons/Icon/Icon.consts';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Badge',
+	components: {
+		DsIcon,
+	},
 	props: {
 		label: {
 			type: String,
@@ -59,15 +93,21 @@ export default {
 		},
 		color: {
 			type: String,
-			required: true,
+			default: BADGE_COLORS.NEUTRAL,
 			validator(value: Value<typeof BADGE_COLORS>) {
 				return Object.values(BADGE_COLORS).includes(value);
 			},
+		},
+		icon: {
+			type: Object,
+			default: null,
+			validate: (icon) => Object.values(ICONS).includes(toRaw(icon)),
 		},
 	},
 	data() {
 		return {
 			BADGE_COLORS: Object.freeze(BADGE_COLORS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},
 };
