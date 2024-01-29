@@ -139,12 +139,18 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
+	&.-loading {
+		background-color: $color-neutral-background-hovered;
+		cursor: initial;
+		pointer-events: none;
+
+		.-dimmable {
+			opacity: 0.5;
+		}
+	}
+
 	&.-flat {
 		background: $color-neutral-background-ghost;
-
-		&:not(.-dimmed):hover {
-			background: $color-neutral-background-ghost-hovered;
-		}
 
 		&:hover {
 			opacity: 1;
@@ -154,18 +160,12 @@ $rich-list-item-icon-colors: (
 			}
 		}
 
+		&:not(.-dimmed):hover {
+			background: $color-neutral-background-ghost-hovered;
+		}
+
 		#{$root}__wrapper {
 			border: none;
-		}
-	}
-
-	&.-loading {
-		background-color: $color-neutral-background-hovered;
-		cursor: initial;
-		pointer-events: none;
-
-		.-dimmable {
-			opacity: 0.5;
 		}
 	}
 
@@ -213,12 +213,13 @@ $rich-list-item-icon-colors: (
 
 	&__dragAndDrop,
 	&__iconWrapper {
-		align-items: center;
+		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
 		padding: $space-xs $space-xxxs 0 $space-xs;
 
 		@media #{breakpoint-s()} {
+			align-items: center;
 			padding: $space-xxxs $space-xxxs $space-xxxs $space-s;
 		}
 	}

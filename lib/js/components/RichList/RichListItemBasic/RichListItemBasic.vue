@@ -42,18 +42,22 @@
 @import '../../../../styles/settings/spacings';
 
 .richListItemBasic {
+	max-width: 100%;
+
 	&__content {
 		display: flex;
 		flex-direction: column;
 		gap: $space-xxxxs;
 		justify-content: center;
-		padding: 0 $space-xxs;
+		min-width: 0; // to prevent the component from being pushed by the ellipses
+		padding: $space-xxxxs 0;
 	}
 
 	&__eyebrow {
 		@include info-s-extensive-bold;
 
 		color: $color-neutral-text-weak;
+		min-width: 0;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
