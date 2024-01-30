@@ -35,7 +35,7 @@ export default {
           :border-color="borderColor"
           :border-color-hex="borderColorHex"
         >
-          <template #header>
+          <template #parent>
             <rich-list-item
               :is-interactive="true"
               :is-draggable="true"
@@ -49,7 +49,7 @@ export default {
               <template #trailing>Trailing slot</template>
             </rich-list-item>
           </template>
-          <template #expanded>
+          <template #children>
             <story />
           </template>
         </rich-list-group-item></div>`,

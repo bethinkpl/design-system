@@ -1,10 +1,10 @@
 <template>
 	<div class="richListGroupItem">
-		<div class="richListGroupItem__header">
-			<slot name="header" />
+		<div class="richListGroupItem__parent">
+			<slot name="parent" />
 		</div>
 		<div v-if="isExpanded">
-			<slot name="expanded" />
+			<slot name="children" />
 		</div>
 		<div
 			v-if="borderColorClass || borderColorStyle"
@@ -30,10 +30,9 @@
 	flex: 1;
 	flex-direction: column;
 	justify-content: center;
-	overflow: hidden;
 	position: relative;
 
-	&__header {
+	&__parent {
 		background: $color-neutral-background;
 	}
 
