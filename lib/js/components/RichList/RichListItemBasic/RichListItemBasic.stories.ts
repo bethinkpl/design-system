@@ -106,10 +106,10 @@ const argTypes = {
 		control: { type: 'select' },
 	},
 	iconColorHex: {
-		control: { type: 'color' },
+		control: { type: 'text' },
 	},
 	borderColorHex: {
-		control: { type: 'color' },
+		control: { type: 'text' },
 	},
 	text: {
 		control: { type: 'text' },
