@@ -50,7 +50,7 @@
 		gap: $space-xxxxs;
 		justify-content: center;
 		min-width: 0; // to prevent the component from being pushed by the ellipses
-		padding: $space-xxxxs 0;
+		padding: $space-xxs 0;
 	}
 
 	&__eyebrow {
