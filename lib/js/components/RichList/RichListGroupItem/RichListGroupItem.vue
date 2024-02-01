@@ -1,10 +1,12 @@
 <template>
 	<div class="richListGroupItem">
-		<div class="richListGroupItem__parent">
-			<slot name="parent" />
-		</div>
-		<div v-if="isExpanded">
-			<slot name="children" />
+		<div class="richListGroupItem__wrapper">
+			<div class="richListGroupItem__parent">
+				<slot name="parent" />
+			</div>
+			<div v-if="isExpanded">
+				<slot name="children" />
+			</div>
 		</div>
 		<div
 			v-if="borderColorClass || borderColorStyle"
@@ -24,13 +26,19 @@
 .richListGroupItem {
 	$root: &;
 
-	border: 1px solid $color-neutral-border-weak;
 	border-radius: $radius-s;
 	display: flex;
 	flex: 1;
 	flex-direction: column;
 	justify-content: center;
+	overflow: hidden;
 	position: relative;
+
+	&__wrapper {
+		border: 1px solid $color-neutral-border-weak;
+		border-radius: $radius-s;
+		overflow: hidden;
+	}
 
 	&__parent {
 		background: $color-neutral-background;
