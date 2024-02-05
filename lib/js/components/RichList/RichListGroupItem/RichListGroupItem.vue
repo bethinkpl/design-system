@@ -1,7 +1,7 @@
 <template>
 	<div class="richListGroupItem">
 		<div class="richListGroupItem__wrapper">
-			<div class="richListGroupItem__parent">
+			<div class="richListGroupItem__parent" :class="{ '-expanded': isExpanded }">
 				<slot name="parent" />
 			</div>
 			<div v-if="isExpanded">
@@ -40,7 +40,7 @@
 		overflow: hidden;
 	}
 
-	&__parent {
+	&__parent.-expanded {
 		background: $color-neutral-background;
 	}
 

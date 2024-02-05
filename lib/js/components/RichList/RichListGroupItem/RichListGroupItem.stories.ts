@@ -10,49 +10,8 @@ export default {
 	title: 'Components/RichList/RichListGroupItem',
 	component: RichListGroupItem,
 	decorators: [
-		(story, { args, updateArgs }) => ({
-			setup() {
-				return { ...args };
-			},
-			data() {
-				return {
-					RICH_LIST_ITEM_TYPE: Object.freeze(RICH_LIST_ITEM_TYPE),
-					ICONS: Object.freeze(ICONS),
-				};
-			},
-			methods: {
-				onClick() {
-					updateArgs({
-						isExpanded: !this.isExpanded,
-					});
-				},
-			},
-			components: { story, RichListGroupItem, RichListItem },
-			template: `<div style='display: flex;padding: 16px;'>
-        <rich-list-group-item
-          :is-expanded="isExpanded"
-          :is-dimmed="isDimmed"
-          :border-color="borderColor"
-          :border-color-hex="borderColorHex"
-        >
-          <template #parent>
-            <rich-list-item
-              :is-interactive="true"
-              :is-draggable="true"
-              :is-dimmed="false"
-              :icon="ICONS.FA_CALENDAR"
-              :type="RICH_LIST_ITEM_TYPE.FLAT"
-              @click="onClick"
-            >
-              <template #content>Content slot</template>
-              <template #meta>Meta slot</template>
-              <template #trailing>Trailing slot</template>
-            </rich-list-item>
-          </template>
-          <template #children>
-            <story />
-          </template>
-        </rich-list-group-item></div>`,
+		(story) => ({
+			template: `<div style="display: flex;padding: 16px;"><story/></div>`,
 		}),
 	],
 } as Meta<typeof RichListGroupItem>;
@@ -73,10 +32,10 @@ const argTypes = {
 	},
 } as ArgTypes;
 
-const build = (template) => {
-	const StoryTemplate: StoryFn<typeof RichListGroupItem> = (args) => {
+const build = (parent, childrens) => {
+	const StoryTemplate: StoryFn<typeof RichListGroupItem> = (args, { updateArgs }) => {
 		return {
-			components: { RichListItem, Divider },
+			components: { RichListGroupItem, RichListItem, Divider },
 			setup() {
 				return { ...args };
 			},
@@ -87,7 +46,24 @@ const build = (template) => {
 					ICONS: Object.freeze(ICONS),
 				};
 			},
-			template,
+			methods: {
+				onClick() {
+					updateArgs({
+						isExpanded: !this.isExpanded,
+					});
+				},
+			},
+			template: `
+        <rich-list-group-item :is-expanded="isExpanded" :is-dimmed="isDimmed" :border-color="borderColor"
+                              :border-color-hex="borderColorHex">
+          <template #parent>
+            ${parent}
+          </template>
+          <template #children>
+            ${childrens}
+          </template>
+        </rich-list-group-item>
+      `,
 		};
 	};
 	const instance = StoryTemplate.bind({});
@@ -104,75 +80,187 @@ const build = (template) => {
 };
 
 const slots = `<template #content>Content slot</template><template #meta>Meta slot</template><template #trailing>Trailing slot</template>`;
+const parent = `<rich-list-item :is-interactive="true" :is-draggable="true" :is-dimmed="false" :icon="ICONS.FA_CALENDAR" :type="RICH_LIST_ITEM_TYPE.FLAT" @click="onClick">${slots}</rich-list-item>`;
+export const OneChild = build(
+	parent,
+	`<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>`,
+);
+export const MultipleChild = build(
+	parent,
+	`<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>`,
+);
+export const DimmedOneChild = build(
+	parent,
+	`<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="true"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>`,
+);
+export const DimmedAllChild = build(
+	parent,
+	`<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="true"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="true"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="true"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>`,
+);
+export const LoadingOneChild = build(
+	parent,
+	`<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+				:state="RICH_LIST_ITEM_STATE.LOADING"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+			>
+				${slots}
+			</rich-list-item>`,
+);
+export const LoadingAllChild = build(
+	parent,
+	`<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+				:state="RICH_LIST_ITEM_STATE.LOADING"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+				:state="RICH_LIST_ITEM_STATE.LOADING"
+			>
+				${slots}
+			</rich-list-item>
+			<divider />
+			<rich-list-item
+				:is-interactive="true"
+				:is-draggable="true"
+				:icon="ICONS.FA_CALENDAR"
+				:is-dimmed="false"
+				:type="RICH_LIST_ITEM_TYPE.FLAT"
+				:state="RICH_LIST_ITEM_STATE.LOADING"
+			>
+				${slots}
+			</rich-list-item>`,
+);
 
-export const OneChild = build(`<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="false"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-			>
-				${slots}
-			</rich-list-item>`);
-export const MultipleChild = build(`<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="false"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-			>
-				${slots}
-			</rich-list-item>
-			<divider />
-			<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="false"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-			>
-				${slots}
-			</rich-list-item>
-			<divider />
-			<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="false"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-			>
-				${slots}
-			</rich-list-item>`);
-export const DimmedOneChild = build(`<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="false"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-			>
-				${slots}
-			</rich-list-item>
-			<divider />
-			<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="true"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-			>
-				${slots}
-			</rich-list-item>
-			<divider />
-			<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="false"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-			>
-				${slots}
-			</rich-list-item>`);
-export const DimmedAllChild = build(`<rich-list-item
+export const AllDimmed = build(
+	`<rich-list-item :is-interactive="true" :is-draggable="true" :is-dimmed="true" :icon="ICONS.FA_CALENDAR" :type="RICH_LIST_ITEM_TYPE.FLAT" @click="onClick">${slots}</rich-list-item>`,
+	`<rich-list-item
 				:is-interactive="true"
 				:is-draggable="true"
 				:icon="ICONS.FA_CALENDAR"
@@ -200,38 +288,11 @@ export const DimmedAllChild = build(`<rich-list-item
 				:type="RICH_LIST_ITEM_TYPE.FLAT"
 			>
 				${slots}
-			</rich-list-item>`);
-export const LoadingOneChild = build(`<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="false"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-			>
-				${slots}
-			</rich-list-item>
-			<divider />
-			<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="false"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-				:state="RICH_LIST_ITEM_STATE.LOADING"
-			>
-				${slots}
-			</rich-list-item>
-			<divider />
-			<rich-list-item
-				:is-interactive="true"
-				:is-draggable="true"
-				:icon="ICONS.FA_CALENDAR"
-				:is-dimmed="false"
-				:type="RICH_LIST_ITEM_TYPE.FLAT"
-			>
-				${slots}
-			</rich-list-item>`);
-export const LoadingAllChild = build(`<rich-list-item
+			</rich-list-item>`,
+);
+export const AllLoading = build(
+	`<rich-list-item :is-interactive="true" :is-draggable="true" :is-dimmed="false" :icon="ICONS.FA_CALENDAR" :type="RICH_LIST_ITEM_TYPE.FLAT" :state="RICH_LIST_ITEM_STATE.LOADING" @click="onClick">${slots}</rich-list-item>`,
+	`<rich-list-item
 				:is-interactive="true"
 				:is-draggable="true"
 				:icon="ICONS.FA_CALENDAR"
@@ -262,4 +323,5 @@ export const LoadingAllChild = build(`<rich-list-item
 				:state="RICH_LIST_ITEM_STATE.LOADING"
 			>
 				${slots}
-			</rich-list-item>`);
+			</rich-list-item>`,
+);
