@@ -67,30 +67,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
-
-$rich-list-item-border-colors: (
-	default: $color-default-border,
-	inverted: $color-inverted-border,
-	primary: $color-primary-border,
-	primary-weak: $color-primary-border-weak,
-	neutral-heavy: $color-neutral-border-heavy,
-	neutral-strong: $color-neutral-border-strong,
-	neutral: $color-neutral-border,
-	neutral-weak: $color-neutral-border-weak,
-	neutral-ghost: $color-neutral-border-ghost,
-	danger: $color-danger-border,
-	danger-weak: $color-danger-border-weak,
-	fail: $color-fail-border,
-	fail-weak: $color-fail-border-weak,
-	warning: $color-warning-border,
-	warning-weak: $color-warning-border-weak,
-	success: $color-success-border,
-	success-weak: $color-success-border-weak,
-	info: $color-info-border,
-	info-weak: $color-info-border-weak,
-	accent: $color-accent-border,
-	accent-weak: $color-accent-border-weak,
-);
+@import './border-colors';
 
 $rich-list-item-icon-colors: (
 	default: $color-default-icon,
