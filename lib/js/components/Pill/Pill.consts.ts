@@ -18,3 +18,8 @@ export const PILL_STATES = {
 	DEFAULT: 'default',
 	DISABLED: 'disabled',
 } as const;
+
+export const PILL_RADIUSES = {
+	CAPSULE: 'capsule',
+	ROUNDED: 'rounded',
+} as const;

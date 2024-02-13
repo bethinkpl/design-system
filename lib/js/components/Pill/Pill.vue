@@ -1,23 +1,29 @@
 <template>
-	<div
+	<span
 		class="pill"
 		:class="{
 			'-x-small': size === PILL_SIZES.X_SMALL,
 			[colorClassName]: true,
 			'-disabled': state === PILL_STATES.DISABLED,
+			'-uppercase': isLabelUppercase,
+			'-rounded': radius === PILL_RADIUSES.ROUNDED,
 		}"
 		:title="label"
+		:style="{backgroundColor: colorHex}"
 	>
-		<icon
-			v-if="leftIcon"
-			class="pill__leftIcon"
-			:icon="leftIcon"
-			:size="size === PILL_SIZES.X_SMALL ? ICON_SIZES.XXX_SMALL : ICON_SIZES.XX_SMALL"
-		/>
+
+		<span class="pill__leftIcon">
+			<slot name="accessory">
+				<icon
+					v-if="leftIcon"
+					:icon="leftIcon"
+					:size="size === PILL_SIZES.X_SMALL ? ICON_SIZES.XXX_SMALL : ICON_SIZES.XX_SMALL"
+				/>
+			</slot>
+		</span>
 		<span class="pill__label">{{ label }}</span>
 		<icon-button
-			v-if="size !== PILL_SIZES.X_SMALL && hasDelete"
-			class="pill__delete"
+			v-if="size !== PILL_SIZES.X_SMALL && isRemovable"
 			:touchable="false"
 			:state="
 				state === PILL_STATES.DISABLED
@@ -28,13 +34,14 @@
 			:size="ICON_BUTTON_SIZES.XX_SMALL"
 			:icon="ICONS.FA_XMARK"
 			:elevation="BUTTON_ELEVATIONS.X_SMALL"
-			@click="$emit('delete')"
+			@click="$emit('remove')"
 		/>
-	</div>
+	</span>
 </template>
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 
@@ -120,6 +127,14 @@ $pill-colors: (
 			'background': $color-default-background,
 		),
 	),
+	'invertedHex': (
+		'label': $color-inverted-text,
+		'icon': $color-neutral-icon,
+		'disabled': (
+			'label': $color-inverted-text-disabled,
+			'icon': $color-neutral-icon-disabled,
+		),
+	),
 );
 
 .pill {
@@ -152,12 +167,22 @@ $pill-colors: (
 	}
 
 	align-items: center;
-	border-radius: 100px;
+	border-radius: $radius-xl;
 	display: inline-flex;
 	padding: $space-xxxxxs $space-xxxxxs $space-xxxxxs $space-xxs;
 
 	&.-disabled {
 		pointer-events: none;
+	}
+
+	&.-rounded {
+		border-radius: $radius-xs;
+	}
+
+	&.-uppercase {
+		#{$self}__label {
+			@include label-s-default-bold-uppercase;
+		}
 	}
 
 	&__label {
@@ -170,6 +195,7 @@ $pill-colors: (
 	}
 
 	&__leftIcon {
+		display: flex;
 		margin-right: $space-xxxxs;
 	}
 
@@ -186,12 +212,18 @@ $pill-colors: (
 
 			margin: 0 $space-xxxxs 0 0;
 		}
+
+		&.-uppercase {
+			#{$self}__label {
+				@include label-xs-default-bold-uppercase;
+			}
+		}
 	}
 }
 </style>
 
 <script lang="ts">
-import { PILL_COLORS, PILL_SIZES, PILL_STATES } from './Pill.consts';
+import { PILL_COLORS, PILL_RADIUSES, PILL_SIZES, PILL_STATES } from './Pill.consts';
 import IconButton, {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
@@ -221,11 +253,22 @@ export default {
 			type: String,
 			required: true,
 		},
+		isLabelUppercase: {
+			type: Boolean,
+			default: false,
+		},
 		leftIcon: {
 			type: Object,
 			default: null,
 			validator(icon) {
 				return Object.values(ICONS).includes(toRaw(icon));
+			},
+		},
+		radius: {
+			type: String,
+			default: PILL_RADIUSES.CAPSULE,
+			validator(value: Value<typeof PILL_RADIUSES>) {
+				return Object.values(PILL_RADIUSES).includes(value);
 			},
 		},
 		size: {
@@ -242,6 +285,10 @@ export default {
 				return Object.values(PILL_COLORS).includes(color);
 			},
 		},
+		colorHex: {
+			type: String,
+			default: null,
+		},
 		state: {
 			type: String,
 			default: PILL_STATES.DEFAULT,
@@ -249,12 +296,12 @@ export default {
 				return Object.values(PILL_STATES).includes(value);
 			},
 		},
-		hasDelete: {
+		isRemovable: {
 			type: Boolean,
 			default: false,
 		},
 	},
-	emits: ['delete'],
+	emits: ['remove'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -264,14 +311,27 @@ export default {
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			PILL_SIZES: Object.freeze(PILL_SIZES),
 			PILL_STATES: Object.freeze(PILL_STATES),
+			PILL_RADIUSES: Object.freeze(PILL_RADIUSES),
 		};
 	},
 	computed: {
 		colorClassName(): string {
+			if (this.colorHex) {
+				return `-color-invertedHex`;
+			}
 			return `-color-${this.color}`;
 		},
-
+		customStyle() {
+			const styles: { backgroundColor?: string } = {};
+			if (this.colorHex) {
+				styles.backgroundColor = this.colorHex;
+			}
+			return styles;
+		},
 		iconButtonColor(): string {
+			if (this.colorHex) {
+				return ICON_BUTTON_COLORS.NEUTRAL;
+			}
 			return PILL_ICON_BUTTONS_COLOR_MAP[this.color] || ICON_BUTTON_COLORS.PRIMARY;
 		},
 	},

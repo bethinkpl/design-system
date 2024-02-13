@@ -8,7 +8,7 @@ import { PILL_COLORS, PILL_SIZES } from './Pill.consts';
 interface createComponentOptions {
 	label?: string;
 	leftIcon?: IconDefinition | null;
-	hasDelete?: boolean;
+	isRemovable?: boolean;
 	size?: string;
 	color?: string;
 }
@@ -17,7 +17,7 @@ describe('Pill', () => {
 	const createComponent = ({
 		label = 'random label',
 		leftIcon = null,
-		hasDelete = false,
+		isRemovable = false,
 		size = PILL_SIZES.SMALL,
 		color = PILL_COLORS.NEUTRAL,
 	}: createComponentOptions = {}) => {
@@ -25,7 +25,7 @@ describe('Pill', () => {
 			props: {
 				label,
 				leftIcon,
-				hasDelete,
+				isRemovable,
 				size,
 				color,
 			} as any,
@@ -61,13 +61,13 @@ describe('Pill', () => {
 	});
 
 	it("doesn't render leftIcon by default", () => {
-		const component = createComponent({ hasDelete: false });
+		const component = createComponent({ isRemovable: false });
 
 		expect(component.find('.pill__delete').exists()).toBe(false);
 	});
 
 	it('renders delete', () => {
-		const component = createComponent({ hasDelete: true });
+		const component = createComponent({ isRemovable: true });
 
 		const deleteButton = component.findComponent<typeof Pill>('.pill__delete');
 		expect(deleteButton.exists()).toBe(true);
@@ -125,7 +125,7 @@ describe('Pill', () => {
 	);
 
 	it("doesn't render delete when size x-small", () => {
-		const component = createComponent({ hasDelete: true, size: PILL_SIZES.X_SMALL });
+		const component = createComponent({ isRemovable: true, size: PILL_SIZES.X_SMALL });
 
 		const deleteButton = component.find('.pill__delete');
 		expect(deleteButton.exists()).toBe(false);
