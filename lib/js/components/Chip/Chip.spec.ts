@@ -66,15 +66,15 @@ describe('Chip', () => {
 		expect(component.find('.chip__remove').exists()).toBe(false);
 	});
 
-	it('renders delete', () => {
+	it('renders remove', () => {
 		const component = createComponent({ isRemovable: true });
 
-		const deleteButton = component.findComponent<typeof Chip>('.chip__remove');
-		expect(deleteButton.exists()).toBe(true);
-		expect(deleteButton.props().icon).toBe(ICONS.FA_XMARK);
+		const removeButton = component.findComponent<typeof Chip>('.chip__remove');
+		expect(removeButton.exists()).toBe(true);
+		expect(removeButton.props().icon).toBe(ICONS.FA_XMARK);
 
-		deleteButton.trigger('click');
-		expect(component.emitted('delete')?.length).toBe(1);
+		removeButton.trigger('click');
+		expect(component.emitted('remove')?.length).toBe(1);
 	});
 
 	it("doesn' contain x-small class by default", () => {
@@ -124,10 +124,10 @@ describe('Chip', () => {
 		},
 	);
 
-	it("doesn't render delete when size x-small", () => {
+	it("doesn't render remove when size x-small", () => {
 		const component = createComponent({ isRemovable: true, size: PILL_SIZES.X_SMALL });
 
-		const deleteButton = component.find('.chip__remove');
-		expect(deleteButton.exists()).toBe(false);
+		const removeButton = component.find('.chip__remove');
+		expect(removeButton.exists()).toBe(false);
 	});
 });
