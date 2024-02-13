@@ -23,6 +23,7 @@
 		<span class="chip__label">{{ label }}</span>
 		<icon-button
 			v-if="size !== PILL_SIZES.X_SMALL && isRemovable"
+			class="chip__remove"
 			:touchable="false"
 			:state="
 				state === PILL_STATES.DISABLED

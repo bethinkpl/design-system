@@ -63,13 +63,13 @@ describe('Chip', () => {
 	it("doesn't render leftIcon by default", () => {
 		const component = createComponent({ isRemovable: false });
 
-		expect(component.find('.chip__delete').exists()).toBe(false);
+		expect(component.find('.chip__remove').exists()).toBe(false);
 	});
 
 	it('renders delete', () => {
 		const component = createComponent({ isRemovable: true });
 
-		const deleteButton = component.findComponent<typeof Chip>('.chip__delete');
+		const deleteButton = component.findComponent<typeof Chip>('.chip__remove');
 		expect(deleteButton.exists()).toBe(true);
 		expect(deleteButton.props().icon).toBe(ICONS.FA_XMARK);
 
@@ -127,7 +127,7 @@ describe('Chip', () => {
 	it("doesn't render delete when size x-small", () => {
 		const component = createComponent({ isRemovable: true, size: PILL_SIZES.X_SMALL });
 
-		const deleteButton = component.find('.chip__delete');
+		const deleteButton = component.find('.chip__remove');
 		expect(deleteButton.exists()).toBe(false);
 	});
 });
