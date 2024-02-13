@@ -34,7 +34,8 @@ const args = {
 	size: PILL_SIZES.SMALL,
 	color: PILL_COLORS.NEUTRAL,
 	colorHex: null,
-	accessory: '<img style="height: 12px; width: 12px;" src="https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg" />',
+	accessory:
+		'<img style="height: 12px; width: 12px;" src="https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg" />',
 } as Args;
 const argTypes = {
 	leftIcon: {

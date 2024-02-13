@@ -9,9 +9,8 @@
 			'-rounded': radius === PILL_RADIUSES.ROUNDED,
 		}"
 		:title="label"
-		:style="{backgroundColor: colorHex}"
+		:style="{ backgroundColor: colorHex }"
 	>
-
 		<span v-if="$slots.accessory || leftIcon" class="chip__leftIcon">
 			<slot name="accessory">
 				<icon
