@@ -4,6 +4,7 @@ import Chip from './Chip.vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { ICONS } from '../Icons/Icon';
 import { PILL_COLORS, PILL_SIZES } from './Chip.consts';
+import Icon from '../Icons/Icon';
 
 interface createComponentOptions {
 	label?: string;
@@ -55,7 +56,7 @@ describe('Chip', () => {
 		const component = createComponent({ leftIcon: Object.freeze(ICONS.FA_TAG) });
 
 		expect(component.find('.chip__leftIcon').exists()).toBe(true);
-		expect(component.findComponent<typeof Chip>('.chip__leftIcon .a-icon').props().icon).toEqual(
+		expect(component.find('.chip__leftIcon').findComponent(Icon).props().icon).toEqual(
 			ICONS.FA_TAG,
 		);
 	});
