@@ -1,5 +1,5 @@
 import OutlineItem from './OutlineItem.vue';
-import DsPill from '../..//Pill/Pill.vue';
+import DsChip from '../..//Chip/Chip.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
 import {
@@ -14,7 +14,7 @@ export default {
 } as Meta<typeof OutlineItem>;
 
 const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
-	components: { OutlineItem, DsPill },
+	components: { OutlineItem, DsChip },
 	setup() {
 		return { ...args };
 	},
@@ -31,7 +31,7 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
 									:is-selected-interactive="isSelectedInteractive">
 			<template #default v-if="defaultSlot.length > 0">
-				<ds-pill :label="defaultSlot" />
+				<ds-chip :label="defaultSlot" />
 			</template>
 		</outline-item>`,
 });

@@ -1,23 +1,23 @@
-import Pill from './Pill.vue';
-import { PILL_COLORS, PILL_RADIUSES, PILL_SIZES, PILL_STATES } from './Pill.consts';
+import Chip from './Chip.vue';
+import { PILL_COLORS, PILL_RADIUSES, PILL_SIZES, PILL_STATES } from './Chip.consts';
 import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
-	title: 'Components/Pill',
-	component: Pill,
-} as Meta<typeof Pill>;
+	title: 'Components/Chip',
+	component: Chip,
+} as Meta<typeof Chip>;
 
-const StoryTemplate: StoryFn<typeof Pill> = (args) => ({
-	components: { Pill },
+const StoryTemplate: StoryFn<typeof Chip> = (args) => ({
+	components: { Chip },
 	setup() {
 		return { ...args };
 	},
 	template:
-		'<pill :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius">' +
+		'<chip :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius">' +
 		'<template #accessory v-if="accessory"><span style="display: flex" v-html="accessory" /></template>' +
-		'</pill>',
+		'</chip>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -27,7 +27,7 @@ const StoryTemplate: StoryFn<typeof Pill> = (args) => ({
 
 export const Interactive = StoryTemplate.bind({});
 const args = {
-	label: 'Pill z labelem',
+	label: 'Chip z labelem',
 	isLabelUppercase: false,
 	leftIcon: null,
 	isRemovable: false,

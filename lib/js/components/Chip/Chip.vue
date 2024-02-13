@@ -1,6 +1,6 @@
 <template>
 	<span
-		class="pill"
+		class="chip"
 		:class="{
 			'-x-small': size === PILL_SIZES.X_SMALL,
 			[colorClassName]: true,
@@ -12,16 +12,15 @@
 		:style="{backgroundColor: colorHex}"
 	>
 
-		<span class="pill__leftIcon">
+		<span v-if="$slots.accessory || leftIcon" class="chip__leftIcon">
 			<slot name="accessory">
 				<icon
-					v-if="leftIcon"
 					:icon="leftIcon"
 					:size="size === PILL_SIZES.X_SMALL ? ICON_SIZES.XXX_SMALL : ICON_SIZES.XX_SMALL"
 				/>
 			</slot>
 		</span>
-		<span class="pill__label">{{ label }}</span>
+		<span class="chip__label">{{ label }}</span>
 		<icon-button
 			v-if="size !== PILL_SIZES.X_SMALL && isRemovable"
 			:touchable="false"
@@ -45,8 +44,8 @@
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 
-$pill-min-height: 16px;
-$pill-colors: (
+$chip-min-height: 16px;
+$chip-colors: (
 	'neutral': (
 		'label': $color-neutral-text-strong,
 		'icon': $color-neutral-icon,
@@ -129,18 +128,18 @@ $pill-colors: (
 	),
 	'invertedHex': (
 		'label': $color-inverted-text,
-		'icon': $color-neutral-icon,
+		'icon': $color-inverted-icon,
 		'disabled': (
 			'label': $color-inverted-text-disabled,
-			'icon': $color-neutral-icon-disabled,
+			'icon': $color-inverted-icon-disabled,
 		),
 	),
 );
 
-.pill {
+.chip {
 	$self: &;
 
-	@each $color-name, $color-map in $pill-colors {
+	@each $color-name, $color-map in $chip-colors {
 		&.-color-#{$color-name} {
 			background-color: map-get($color-map, 'background');
 
@@ -200,7 +199,7 @@ $pill-colors: (
 	}
 
 	&.-x-small {
-		min-height: $pill-min-height;
+		min-height: $chip-min-height;
 		padding-left: $space-xxxs;
 
 		#{$self}__leftIcon {
@@ -223,7 +222,7 @@ $pill-colors: (
 </style>
 
 <script lang="ts">
-import { PILL_COLORS, PILL_RADIUSES, PILL_SIZES, PILL_STATES } from './Pill.consts';
+import { PILL_COLORS, PILL_RADIUSES, PILL_SIZES, PILL_STATES } from './Chip.consts';
 import IconButton, {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
@@ -246,7 +245,7 @@ const PILL_ICON_BUTTONS_COLOR_MAP = {
 };
 
 export default {
-	name: 'Pill',
+	name: 'Chip',
 	components: { Icon, IconButton },
 	props: {
 		label: {

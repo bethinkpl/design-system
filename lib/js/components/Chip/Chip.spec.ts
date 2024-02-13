@@ -1,9 +1,9 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Pill from './Pill.vue';
+import Chip from './Chip.vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { ICONS } from '../Icons/Icon';
-import { PILL_COLORS, PILL_SIZES } from './Pill.consts';
+import { PILL_COLORS, PILL_SIZES } from './Chip.consts';
 
 interface createComponentOptions {
 	label?: string;
@@ -13,7 +13,7 @@ interface createComponentOptions {
 	color?: string;
 }
 
-describe('Pill', () => {
+describe('Chip', () => {
 	const createComponent = ({
 		label = 'random label',
 		leftIcon = null,
@@ -21,7 +21,7 @@ describe('Pill', () => {
 		size = PILL_SIZES.SMALL,
 		color = PILL_COLORS.NEUTRAL,
 	}: createComponentOptions = {}) => {
-		return shallowMount(Pill, {
+		return shallowMount(Chip, {
 			props: {
 				label,
 				leftIcon,
@@ -48,14 +48,14 @@ describe('Pill', () => {
 	it("doesn't render leftIcon by default", () => {
 		const component = createComponent({ leftIcon: null });
 
-		expect(component.find('.pill__leftIcon').exists()).toBe(false);
+		expect(component.find('.chip__leftIcon').exists()).toBe(false);
 	});
 
 	it('renders leftIcon', () => {
 		const component = createComponent({ leftIcon: Object.freeze(ICONS.FA_TAG) });
 
-		expect(component.find('.pill__leftIcon').exists()).toBe(true);
-		expect(component.findComponent<typeof Pill>('.pill__leftIcon').props().icon).toEqual(
+		expect(component.find('.chip__leftIcon').exists()).toBe(true);
+		expect(component.findComponent<typeof Chip>('.chip__leftIcon').props().icon).toEqual(
 			ICONS.FA_TAG,
 		);
 	});
@@ -63,13 +63,13 @@ describe('Pill', () => {
 	it("doesn't render leftIcon by default", () => {
 		const component = createComponent({ isRemovable: false });
 
-		expect(component.find('.pill__delete').exists()).toBe(false);
+		expect(component.find('.chip__delete').exists()).toBe(false);
 	});
 
 	it('renders delete', () => {
 		const component = createComponent({ isRemovable: true });
 
-		const deleteButton = component.findComponent<typeof Pill>('.pill__delete');
+		const deleteButton = component.findComponent<typeof Chip>('.chip__delete');
 		expect(deleteButton.exists()).toBe(true);
 		expect(deleteButton.props().icon).toBe(ICONS.FA_XMARK);
 
@@ -127,7 +127,7 @@ describe('Pill', () => {
 	it("doesn't render delete when size x-small", () => {
 		const component = createComponent({ isRemovable: true, size: PILL_SIZES.X_SMALL });
 
-		const deleteButton = component.find('.pill__delete');
+		const deleteButton = component.find('.chip__delete');
 		expect(deleteButton.exists()).toBe(false);
 	});
 });
