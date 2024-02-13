@@ -55,7 +55,7 @@ describe('Chip', () => {
 		const component = createComponent({ leftIcon: Object.freeze(ICONS.FA_TAG) });
 
 		expect(component.find('.chip__leftIcon').exists()).toBe(true);
-		expect(component.findComponent<typeof Chip>('.chip__leftIcon').props().icon).toEqual(
+		expect(component.findComponent<typeof Chip>('.chip__leftIcon .a-icon').props().icon).toEqual(
 			ICONS.FA_TAG,
 		);
 	});
