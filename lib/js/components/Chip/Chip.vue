@@ -1,5 +1,5 @@
 <template>
-	<span
+	<div
 		class="chip"
 		:class="{
 			'-x-small': size === CHIP_SIZES.X_SMALL,
@@ -35,7 +35,7 @@
 			:elevation="BUTTON_ELEVATIONS.X_SMALL"
 			@click="$emit('remove')"
 		/>
-	</span>
+	</div>
 </template>
 
 <style lang="scss" scoped>
