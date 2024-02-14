@@ -1,5 +1,5 @@
 import Chip from './Chip.vue';
-import { PILL_COLORS, PILL_RADIUSES, PILL_SIZES, PILL_STATES } from './Chip.consts';
+import { CHIP_COLORS, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
 import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -31,8 +31,8 @@ const args = {
 	isLabelUppercase: false,
 	leftIcon: null,
 	isRemovable: false,
-	size: PILL_SIZES.SMALL,
-	color: PILL_COLORS.NEUTRAL,
+	size: CHIP_SIZES.SMALL,
+	color: CHIP_COLORS.NEUTRAL,
 	colorHex: null,
 	accessory:
 		'<img style="height: 12px; width: 12px;" src="https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg" />',
@@ -42,18 +42,18 @@ const argTypes = {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 	},
 	size: {
-		control: { type: 'select', options: Object.values(PILL_SIZES) },
+		control: { type: 'select', options: Object.values(CHIP_SIZES) },
 	},
 	color: {
-		control: { type: 'select', options: Object.values(PILL_COLORS) },
+		control: { type: 'select', options: Object.values(CHIP_COLORS) },
 	},
 	state: {
-		control: { type: 'select', options: Object.values(PILL_STATES) },
-		defaultValue: PILL_STATES.DEFAULT,
+		control: { type: 'select', options: Object.values(CHIP_STATES) },
+		defaultValue: CHIP_STATES.DEFAULT,
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(PILL_RADIUSES) },
-		defaultValue: PILL_RADIUSES.CAPSULE,
+		control: { type: 'select', options: Object.values(CHIP_RADIUSES) },
+		defaultValue: CHIP_RADIUSES.CAPSULE,
 	},
 	accessory: {
 		control: { type: 'text' },
