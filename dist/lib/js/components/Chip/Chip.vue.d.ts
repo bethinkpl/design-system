@@ -1,4 +1,4 @@
-import { PILL_RADIUSES, PILL_STATES } from './Chip.consts';
+import { CHIP_RADIUSES, CHIP_STATES } from './Chip.consts';
 import IconButton from '../Buttons/IconButton';
 import { Value } from '../../utils/type.utils';
 declare const _default: {
@@ -24,7 +24,7 @@ declare const _default: {
         radius: {
             type: StringConstructor;
             default: "capsule";
-            validator(value: Value<typeof PILL_RADIUSES>): boolean;
+            validator(value: Value<typeof CHIP_RADIUSES>): boolean;
         };
         size: {
             type: StringConstructor;
@@ -43,7 +43,7 @@ declare const _default: {
         state: {
             type: StringConstructor;
             default: "default";
-            validator(value: Value<typeof PILL_STATES>): boolean;
+            validator(value: Value<typeof CHIP_STATES>): boolean;
         };
         isRemovable: {
             type: BooleanConstructor;
@@ -265,15 +265,15 @@ declare const _default: {
             X_LARGE: string;
             XX_LARGE: string;
         }>;
-        PILL_SIZES: Readonly<{
+        CHIP_SIZES: Readonly<{
             readonly X_SMALL: "x-small";
             readonly SMALL: "small";
         }>;
-        PILL_STATES: Readonly<{
+        CHIP_STATES: Readonly<{
             readonly DEFAULT: "default";
             readonly DISABLED: "disabled";
         }>;
-        PILL_RADIUSES: Readonly<{
+        CHIP_RADIUSES: Readonly<{
             readonly CAPSULE: "capsule";
             readonly ROUNDED: "rounded";
         }>;

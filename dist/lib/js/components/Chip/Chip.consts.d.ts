@@ -1,8 +1,8 @@
-export declare const PILL_SIZES: {
+export declare const CHIP_SIZES: {
     readonly X_SMALL: "x-small";
     readonly SMALL: "small";
 };
-export declare const PILL_COLORS: {
+export declare const CHIP_COLORS: {
     readonly PRIMARY: "primary";
     readonly PRIMARY_STRONG: "primaryStrong";
     readonly NEUTRAL: "neutral";
@@ -12,11 +12,11 @@ export declare const PILL_COLORS: {
     readonly WARNING: "warning";
     readonly INFO: "info";
 };
-export declare const PILL_STATES: {
+export declare const CHIP_STATES: {
     readonly DEFAULT: "default";
     readonly DISABLED: "disabled";
 };
-export declare const PILL_RADIUSES: {
+export declare const CHIP_RADIUSES: {
     readonly CAPSULE: "capsule";
     readonly ROUNDED: "rounded";
 };
