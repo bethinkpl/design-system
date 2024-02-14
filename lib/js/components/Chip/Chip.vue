@@ -2,11 +2,11 @@
 	<span
 		class="chip"
 		:class="{
-			'-x-small': size === PILL_SIZES.X_SMALL,
+			'-x-small': size === CHIP_SIZES.X_SMALL,
 			[colorClassName]: true,
-			'-disabled': state === PILL_STATES.DISABLED,
+			'-disabled': state === CHIP_STATES.DISABLED,
 			'-uppercase': isLabelUppercase,
-			'-rounded': radius === PILL_RADIUSES.ROUNDED,
+			'-rounded': radius === CHIP_RADIUSES.ROUNDED,
 		}"
 		:title="label"
 		:style="{ backgroundColor: colorHex }"
@@ -15,17 +15,17 @@
 			<slot name="accessory">
 				<icon
 					:icon="leftIcon"
-					:size="size === PILL_SIZES.X_SMALL ? ICON_SIZES.XXX_SMALL : ICON_SIZES.XX_SMALL"
+					:size="size === CHIP_SIZES.X_SMALL ? ICON_SIZES.XXX_SMALL : ICON_SIZES.XX_SMALL"
 				/>
 			</slot>
 		</span>
 		<span class="chip__label">{{ label }}</span>
 		<icon-button
-			v-if="size !== PILL_SIZES.X_SMALL && isRemovable"
+			v-if="size !== CHIP_SIZES.X_SMALL && isRemovable"
 			class="chip__remove"
 			:touchable="false"
 			:state="
-				state === PILL_STATES.DISABLED
+				state === CHIP_STATES.DISABLED
 					? ICON_BUTTON_STATES.DISABLED
 					: ICON_BUTTON_STATES.DEFAULT
 			"
@@ -222,7 +222,7 @@ $chip-colors: (
 </style>
 
 <script lang="ts">
-import { PILL_COLORS, PILL_RADIUSES, PILL_SIZES, PILL_STATES } from './Chip.consts';
+import { CHIP_COLORS, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
 import IconButton, {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
@@ -233,15 +233,15 @@ import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 import { Value } from '../../utils/type.utils';
 import { toRaw } from 'vue';
 
-const PILL_ICON_BUTTONS_COLOR_MAP = {
-	[PILL_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
-	[PILL_COLORS.NEUTRAL]: ICON_BUTTON_COLORS.NEUTRAL,
-	[PILL_COLORS.PRIMARY]: ICON_BUTTON_COLORS.PRIMARY,
-	[PILL_COLORS.PRIMARY_STRONG]: ICON_BUTTON_COLORS.PRIMARY,
-	[PILL_COLORS.FAIL]: ICON_BUTTON_COLORS.FAIL,
-	[PILL_COLORS.WARNING]: ICON_BUTTON_COLORS.WARNING,
-	[PILL_COLORS.SUCCESS]: ICON_BUTTON_COLORS.SUCCESS,
-	[PILL_COLORS.INFO]: ICON_BUTTON_COLORS.INFO,
+const CHIP_ICON_BUTTONS_COLOR_MAP = {
+	[CHIP_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
+	[CHIP_COLORS.NEUTRAL]: ICON_BUTTON_COLORS.NEUTRAL,
+	[CHIP_COLORS.PRIMARY]: ICON_BUTTON_COLORS.PRIMARY,
+	[CHIP_COLORS.PRIMARY_STRONG]: ICON_BUTTON_COLORS.PRIMARY,
+	[CHIP_COLORS.FAIL]: ICON_BUTTON_COLORS.FAIL,
+	[CHIP_COLORS.WARNING]: ICON_BUTTON_COLORS.WARNING,
+	[CHIP_COLORS.SUCCESS]: ICON_BUTTON_COLORS.SUCCESS,
+	[CHIP_COLORS.INFO]: ICON_BUTTON_COLORS.INFO,
 };
 
 export default {
@@ -265,23 +265,23 @@ export default {
 		},
 		radius: {
 			type: String,
-			default: PILL_RADIUSES.CAPSULE,
-			validator(value: Value<typeof PILL_RADIUSES>) {
-				return Object.values(PILL_RADIUSES).includes(value);
+			default: CHIP_RADIUSES.CAPSULE,
+			validator(value: Value<typeof CHIP_RADIUSES>) {
+				return Object.values(CHIP_RADIUSES).includes(value);
 			},
 		},
 		size: {
 			type: String,
-			default: PILL_SIZES.SMALL,
+			default: CHIP_SIZES.SMALL,
 			validator(size) {
-				return Object.values(PILL_SIZES).includes(size);
+				return Object.values(CHIP_SIZES).includes(size);
 			},
 		},
 		color: {
 			type: String,
-			default: PILL_COLORS.NEUTRAL,
+			default: CHIP_COLORS.NEUTRAL,
 			validator(color) {
-				return Object.values(PILL_COLORS).includes(color);
+				return Object.values(CHIP_COLORS).includes(color);
 			},
 		},
 		colorHex: {
@@ -290,9 +290,9 @@ export default {
 		},
 		state: {
 			type: String,
-			default: PILL_STATES.DEFAULT,
-			validator(value: Value<typeof PILL_STATES>) {
-				return Object.values(PILL_STATES).includes(value);
+			default: CHIP_STATES.DEFAULT,
+			validator(value: Value<typeof CHIP_STATES>) {
+				return Object.values(CHIP_STATES).includes(value);
 			},
 		},
 		isRemovable: {
@@ -308,9 +308,9 @@ export default {
 			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
-			PILL_SIZES: Object.freeze(PILL_SIZES),
-			PILL_STATES: Object.freeze(PILL_STATES),
-			PILL_RADIUSES: Object.freeze(PILL_RADIUSES),
+			CHIP_SIZES: Object.freeze(CHIP_SIZES),
+			CHIP_STATES: Object.freeze(CHIP_STATES),
+			CHIP_RADIUSES: Object.freeze(CHIP_RADIUSES),
 		};
 	},
 	computed: {
@@ -331,7 +331,7 @@ export default {
 			if (this.colorHex) {
 				return ICON_BUTTON_COLORS.NEUTRAL;
 			}
-			return PILL_ICON_BUTTONS_COLOR_MAP[this.color] || ICON_BUTTON_COLORS.PRIMARY;
+			return CHIP_ICON_BUTTONS_COLOR_MAP[this.color] || ICON_BUTTON_COLORS.PRIMARY;
 		},
 	},
 };

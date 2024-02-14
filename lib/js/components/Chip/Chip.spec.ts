@@ -3,7 +3,7 @@ import { shallowMount } from '@vue/test-utils';
 import Chip from './Chip.vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { ICONS } from '../Icons/Icon';
-import { PILL_COLORS, PILL_SIZES } from './Chip.consts';
+import { CHIP_COLORS, CHIP_SIZES } from './Chip.consts';
 import Icon from '../Icons/Icon';
 
 interface createComponentOptions {
@@ -19,8 +19,8 @@ describe('Chip', () => {
 		label = 'random label',
 		leftIcon = null,
 		isRemovable = false,
-		size = PILL_SIZES.SMALL,
-		color = PILL_COLORS.NEUTRAL,
+		size = CHIP_SIZES.SMALL,
+		color = CHIP_COLORS.NEUTRAL,
 	}: createComponentOptions = {}) => {
 		return shallowMount(Chip, {
 			props: {
@@ -79,26 +79,26 @@ describe('Chip', () => {
 	});
 
 	it("doesn' contain x-small class by default", () => {
-		const component = createComponent({ size: PILL_SIZES.SMALL });
+		const component = createComponent({ size: CHIP_SIZES.SMALL });
 
 		expect(component.classes()).not.toContain('-x-small');
 	});
 
 	it('has size class when x-small', () => {
-		const component = createComponent({ size: PILL_SIZES.X_SMALL });
+		const component = createComponent({ size: CHIP_SIZES.X_SMALL });
 
 		expect(component.classes()).toContain('-x-small');
 	});
 
 	test.each([
-		[PILL_COLORS.PRIMARY, '-color-primary'],
-		[PILL_COLORS.PRIMARY_STRONG, '-color-primaryStrong'],
-		[PILL_COLORS.NEUTRAL, '-color-neutral'],
-		[PILL_COLORS.FAIL, '-color-fail'],
-		[PILL_COLORS.SUCCESS, '-color-success'],
-		[PILL_COLORS.INFO, '-color-info'],
-		[PILL_COLORS.WARNING, '-color-warning'],
-		[PILL_COLORS.INVERTED, '-color-inverted'],
+		[CHIP_COLORS.PRIMARY, '-color-primary'],
+		[CHIP_COLORS.PRIMARY_STRONG, '-color-primaryStrong'],
+		[CHIP_COLORS.NEUTRAL, '-color-neutral'],
+		[CHIP_COLORS.FAIL, '-color-fail'],
+		[CHIP_COLORS.SUCCESS, '-color-success'],
+		[CHIP_COLORS.INFO, '-color-info'],
+		[CHIP_COLORS.WARNING, '-color-warning'],
+		[CHIP_COLORS.INVERTED, '-color-inverted'],
 	])(
 		'correct class for color: %s prop, expectedClass: %s',
 		(color: string, expectedClass: string) => {
@@ -126,7 +126,7 @@ describe('Chip', () => {
 	);
 
 	it("doesn't render remove when size x-small", () => {
-		const component = createComponent({ isRemovable: true, size: PILL_SIZES.X_SMALL });
+		const component = createComponent({ isRemovable: true, size: CHIP_SIZES.X_SMALL });
 
 		const removeButton = component.find('.chip__remove');
 		expect(removeButton.exists()).toBe(false);
