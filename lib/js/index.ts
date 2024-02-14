@@ -1,8 +1,5 @@
-export { default as Badge } from './components/Badges/Badge';
-export * from './components/Badges/Badge';
-export * from './components/Badges/Badge/Badge.consts';
-export { default as BadgeScore } from './components/Badges/BadgeScore';
-export * from './components/Badges/BadgeScore/BadgeScore.consts';
+export { default as BadgeScore } from './components/BadgeScore';
+export * from './components/BadgeScore/BadgeScore.consts';
 export { default as Banner } from './components/Banner';
 export * from './components/Banner/Banner.consts';
 export { default as Button } from './components/Buttons/Button';
