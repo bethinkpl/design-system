@@ -90,4 +90,8 @@ export { default as Well } from './components/Well';
 export * from './components/Well/Well.consts';
 export { default as ThreeColumnLayout } from './components/Layouts/ThreeColumnLayout';
 export * from './components/Layouts/ThreeColumnLayout/ThreeColumnLayout.consts';
+export { default as RichListItem } from './components/RichList/RichListItem';
+export * from './components/RichList/RichListItem/RichListItem.consts';
+export { default as RichListItemBasic } from './components/RichList/RichListItemBasic';
+export { default as RichListGroupItem } from './components/RichList/RichListGroupItem';
 export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, IconDefinition, } from './icons/fontawesome';
