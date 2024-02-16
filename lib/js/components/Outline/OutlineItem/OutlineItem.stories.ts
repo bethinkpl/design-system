@@ -1,5 +1,5 @@
 import OutlineItem from './OutlineItem.vue';
-import DsChip from '../..//Chip/Chip.vue';
+import DsChip from '../../Chip/Chip.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
 import {
