@@ -145,6 +145,7 @@ $chip-colors: (
 
 			#{$self}__leftIcon {
 				color: map-get($color-map, 'icon');
+				fill: map-get($color-map, 'icon');
 			}
 
 			#{$self}__label {
@@ -156,6 +157,7 @@ $chip-colors: (
 
 				#{$self}__leftIcon {
 					color: map-get(map-get($color-map, 'disabled'), 'icon');
+					fill: map-get($color-map, 'icon');
 				}
 
 				#{$self}__label {
