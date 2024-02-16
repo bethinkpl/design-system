@@ -177,7 +177,7 @@ $chip-colors: (
 	}
 
 	&.-rounded {
-		border-radius: $radius-xs;
+		border-radius: $radius-s;
 	}
 
 	&.-uppercase {
@@ -218,6 +218,10 @@ $chip-colors: (
 			#{$self}__label {
 				@include label-xs-default-bold-uppercase;
 			}
+		}
+
+		&.-rounded {
+			border-radius: $radius-xs;
 		}
 	}
 }
