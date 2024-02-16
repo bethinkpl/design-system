@@ -43,8 +43,8 @@ const StoryTemplateWithAccessory: StoryFn<typeof Chip> = (args) => ({
 			}
 
 			return { width: '8px', height: '8px' };
-		}
-	}
+		},
+	},
 });
 
 export const Interactive = StoryTemplate.bind({});
