@@ -1,8 +1,5 @@
-export { default as Badge } from './components/Badges/Badge';
-export * from './components/Badges/Badge';
-export * from './components/Badges/Badge/Badge.consts';
-export { default as BadgeScore } from './components/Badges/BadgeScore';
-export * from './components/Badges/BadgeScore/BadgeScore.consts';
+export { default as BadgeScore } from './components/BadgeScore';
+export * from './components/BadgeScore/BadgeScore.consts';
 export { default as Banner } from './components/Banner';
 export * from './components/Banner/Banner.consts';
 export { default as Button } from './components/Buttons/Button';
@@ -90,6 +87,10 @@ export { default as Well } from './components/Well';
 export * from './components/Well/Well.consts';
 export { default as ThreeColumnLayout } from './components/Layouts/ThreeColumnLayout';
 export * from './components/Layouts/ThreeColumnLayout/ThreeColumnLayout.consts';
+export { default as RichListItem } from './components/RichList/RichListItem';
+export * from './components/RichList/RichListItem/RichListItem.consts';
+export { default as RichListItemBasic } from './components/RichList/RichListItemBasic';
+export { default as RichListGroupItem } from './components/RichList/RichListGroupItem';
 
 export {
 	initialize as initializeIcons,
