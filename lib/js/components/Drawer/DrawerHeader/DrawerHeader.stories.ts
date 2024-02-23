@@ -28,7 +28,7 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 			:is-interactive-eyebrow="isInteractiveEyebrow"
 			:is-second-level="isSecondLevel"
 			:left-icon="ICONS[leftIcon]"
-			:pill-label="pillLabel"
+			:chip-label="chipLabel"
 			:title-color="titleColor"
 			:title-ellipsis="titleEllipsis"
 			:title="title"
@@ -42,7 +42,7 @@ const args = {} as Args;
 const argTypes = {
 	title: { control: { type: 'text' }, defaultValue: 'Header Title' },
 	eyebrowText: { control: { type: 'text' }, defaultValue: 'eyebrow' },
-	pillLabel: { control: { type: 'text' }, defaultValue: 'pill' },
+	chipLabel: { control: { type: 'text' }, defaultValue: 'chip' },
 	hasDivider: { control: { type: 'boolean' }, defaultValue: false },
 	isClosable: { control: { type: 'boolean' }, defaultValue: true },
 	isSecondLevel: { control: { type: 'boolean' }, defaultValue: false },

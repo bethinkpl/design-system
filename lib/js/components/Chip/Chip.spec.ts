@@ -1,31 +1,32 @@
 import { shallowMount } from '@vue/test-utils';
 
-import Pill from './Pill.vue';
+import Chip from './Chip.vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { ICONS } from '../Icons/Icon';
-import { PILL_COLORS, PILL_SIZES } from './Pill.consts';
+import { CHIP_COLORS, CHIP_SIZES } from './Chip.consts';
+import Icon from '../Icons/Icon';
 
 interface createComponentOptions {
 	label?: string;
 	leftIcon?: IconDefinition | null;
-	hasDelete?: boolean;
+	isRemovable?: boolean;
 	size?: string;
 	color?: string;
 }
 
-describe('Pill', () => {
+describe('Chip', () => {
 	const createComponent = ({
 		label = 'random label',
 		leftIcon = null,
-		hasDelete = false,
-		size = PILL_SIZES.SMALL,
-		color = PILL_COLORS.NEUTRAL,
+		isRemovable = false,
+		size = CHIP_SIZES.SMALL,
+		color = CHIP_COLORS.NEUTRAL,
 	}: createComponentOptions = {}) => {
-		return shallowMount(Pill, {
+		return shallowMount(Chip, {
 			props: {
 				label,
 				leftIcon,
-				hasDelete,
+				isRemovable,
 				size,
 				color,
 			} as any,
@@ -48,56 +49,56 @@ describe('Pill', () => {
 	it("doesn't render leftIcon by default", () => {
 		const component = createComponent({ leftIcon: null });
 
-		expect(component.find('.pill__leftIcon').exists()).toBe(false);
+		expect(component.find('.chip__leftIcon').exists()).toBe(false);
 	});
 
 	it('renders leftIcon', () => {
 		const component = createComponent({ leftIcon: Object.freeze(ICONS.FA_TAG) });
 
-		expect(component.find('.pill__leftIcon').exists()).toBe(true);
-		expect(component.findComponent<typeof Pill>('.pill__leftIcon').props().icon).toEqual(
+		expect(component.find('.chip__leftIcon').exists()).toBe(true);
+		expect(component.find('.chip__leftIcon').findComponent(Icon).props().icon).toEqual(
 			ICONS.FA_TAG,
 		);
 	});
 
 	it("doesn't render leftIcon by default", () => {
-		const component = createComponent({ hasDelete: false });
+		const component = createComponent({ isRemovable: false });
 
-		expect(component.find('.pill__delete').exists()).toBe(false);
+		expect(component.find('.chip__remove').exists()).toBe(false);
 	});
 
-	it('renders delete', () => {
-		const component = createComponent({ hasDelete: true });
+	it('renders remove', () => {
+		const component = createComponent({ isRemovable: true });
 
-		const deleteButton = component.findComponent<typeof Pill>('.pill__delete');
-		expect(deleteButton.exists()).toBe(true);
-		expect(deleteButton.props().icon).toBe(ICONS.FA_XMARK);
+		const removeButton = component.findComponent<typeof Chip>('.chip__remove');
+		expect(removeButton.exists()).toBe(true);
+		expect(removeButton.props().icon).toBe(ICONS.FA_XMARK);
 
-		deleteButton.trigger('click');
-		expect(component.emitted('delete')?.length).toBe(1);
+		removeButton.trigger('click');
+		expect(component.emitted('remove')?.length).toBe(1);
 	});
 
 	it("doesn' contain x-small class by default", () => {
-		const component = createComponent({ size: PILL_SIZES.SMALL });
+		const component = createComponent({ size: CHIP_SIZES.SMALL });
 
 		expect(component.classes()).not.toContain('-x-small');
 	});
 
 	it('has size class when x-small', () => {
-		const component = createComponent({ size: PILL_SIZES.X_SMALL });
+		const component = createComponent({ size: CHIP_SIZES.X_SMALL });
 
 		expect(component.classes()).toContain('-x-small');
 	});
 
 	test.each([
-		[PILL_COLORS.PRIMARY, '-color-primary'],
-		[PILL_COLORS.PRIMARY_STRONG, '-color-primaryStrong'],
-		[PILL_COLORS.NEUTRAL, '-color-neutral'],
-		[PILL_COLORS.FAIL, '-color-fail'],
-		[PILL_COLORS.SUCCESS, '-color-success'],
-		[PILL_COLORS.INFO, '-color-info'],
-		[PILL_COLORS.WARNING, '-color-warning'],
-		[PILL_COLORS.INVERTED, '-color-inverted'],
+		[CHIP_COLORS.PRIMARY, '-color-primary'],
+		[CHIP_COLORS.PRIMARY_STRONG, '-color-primaryStrong'],
+		[CHIP_COLORS.NEUTRAL, '-color-neutral'],
+		[CHIP_COLORS.FAIL, '-color-fail'],
+		[CHIP_COLORS.SUCCESS, '-color-success'],
+		[CHIP_COLORS.INFO, '-color-info'],
+		[CHIP_COLORS.WARNING, '-color-warning'],
+		[CHIP_COLORS.INVERTED, '-color-inverted'],
 	])(
 		'correct class for color: %s prop, expectedClass: %s',
 		(color: string, expectedClass: string) => {
@@ -124,10 +125,10 @@ describe('Pill', () => {
 		},
 	);
 
-	it("doesn't render delete when size x-small", () => {
-		const component = createComponent({ hasDelete: true, size: PILL_SIZES.X_SMALL });
+	it("doesn't render remove when size x-small", () => {
+		const component = createComponent({ isRemovable: true, size: CHIP_SIZES.X_SMALL });
 
-		const deleteButton = component.find('.pill__delete');
-		expect(deleteButton.exists()).toBe(false);
+		const removeButton = component.find('.chip__remove');
+		expect(removeButton.exists()).toBe(false);
 	});
 });

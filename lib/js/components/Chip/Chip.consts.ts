@@ -1,9 +1,9 @@
-export const PILL_SIZES = {
+export const CHIP_SIZES = {
 	X_SMALL: 'x-small',
 	SMALL: 'small',
 } as const;
 
-export const PILL_COLORS = {
+export const CHIP_COLORS = {
 	PRIMARY: 'primary',
 	PRIMARY_STRONG: 'primaryStrong',
 	NEUTRAL: 'neutral',
@@ -14,7 +14,12 @@ export const PILL_COLORS = {
 	INFO: 'info',
 } as const;
 
-export const PILL_STATES = {
+export const CHIP_STATES = {
 	DEFAULT: 'default',
 	DISABLED: 'disabled',
+} as const;
+
+export const CHIP_RADIUSES = {
+	CAPSULE: 'capsule',
+	ROUNDED: 'rounded',
 } as const;

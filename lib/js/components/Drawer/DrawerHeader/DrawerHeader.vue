@@ -35,7 +35,7 @@
 						:title="titleEllipsis ? title : undefined"
 						>{{ title }}</span
 					>
-					<pill v-if="pillLabel" :label="pillLabel" />
+					<chip v-if="chipLabel" :label="chipLabel" />
 				</div>
 			</div>
 			<icon-button
@@ -141,7 +141,7 @@ import { PropType } from 'vue';
 import Button from '../../Buttons/Button/Button.vue';
 import Divider from '../../Divider/Divider.vue';
 import IconButton from '../../Buttons/IconButton/IconButton.vue';
-import Pill from '../../Pill/Pill.vue';
+import Chip from '../../Chip/Chip.vue';
 import Icon from '../../Icons/Icon/Icon.vue';
 import { BUTTON_TYPES } from '../../Buttons/Button';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
@@ -156,7 +156,7 @@ export default {
 		Divider,
 		Icon,
 		IconButton,
-		Pill,
+		Chip,
 	},
 	props: {
 		title: {
@@ -167,7 +167,7 @@ export default {
 			type: String,
 			default: null,
 		},
-		pillLabel: {
+		chipLabel: {
 			type: String,
 			default: null,
 		},

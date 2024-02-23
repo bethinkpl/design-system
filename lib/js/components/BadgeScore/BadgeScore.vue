@@ -20,9 +20,9 @@
 </template>
 
 <style scoped lang="scss">
-@import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/colors/tokens';
-@import '../../../../styles/settings/typography/tokens';
+@import '../../../styles/settings/spacings';
+@import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
 $badge-score-min-width: 66px;
 $badge-score-small-min-width: 56px;
@@ -159,7 +159,7 @@ $badge-score-colors: (
 
 <script lang="ts">
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
-import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import WnlIcon, { ICONS, ICON_SIZES } from '../Icons/Icon';
 import { toRaw } from 'vue';
 
 export default {
