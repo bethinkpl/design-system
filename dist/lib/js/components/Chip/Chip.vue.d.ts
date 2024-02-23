@@ -1,58 +1,57 @@
-import DsIcon from '../../Icons/Icon';
+import { CHIP_RADIUSES, CHIP_STATES } from './Chip.consts';
+import IconButton from '../Buttons/IconButton';
+import { Value } from '../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
-        DsIcon: typeof DsIcon;
+        Icon: typeof IconButton;
+        IconButton: typeof IconButton;
     };
     props: {
-        iconLeft: {
-            type: ObjectConstructor;
-            default: null;
-            validator(icon: any): boolean;
-        };
-        isSelected: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
         label: {
             type: StringConstructor;
             required: boolean;
         };
-        eyebrowText: {
-            type: StringConstructor;
-            default: string;
-        };
-        isEyebrowTextUppercase: {
+        isLabelUppercase: {
             type: BooleanConstructor;
             default: boolean;
         };
-        selectionMode: {
+        leftIcon: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: any): boolean;
+        };
+        radius: {
             type: StringConstructor;
-            default: string;
-            validator(selectionMode: any): boolean;
+            default: "capsule";
+            validator(value: Value<typeof CHIP_RADIUSES>): boolean;
         };
         size: {
             type: StringConstructor;
-            default: string;
+            default: "small";
             validator(size: any): boolean;
+        };
+        color: {
+            type: StringConstructor;
+            default: "neutral";
+            validator(color: any): boolean;
+        };
+        colorHex: {
+            type: StringConstructor;
+            default: null;
         };
         state: {
             type: StringConstructor;
-            default: string;
-            validator(state: any): boolean;
+            default: "default";
+            validator(value: Value<typeof CHIP_STATES>): boolean;
+        };
+        isRemovable: {
+            type: BooleanConstructor;
+            default: boolean;
         };
     };
+    emits: string[];
     data(): {
-        ICON_SIZES: Readonly<{
-            XXX_SMALL: string;
-            XX_SMALL: string;
-            X_SMALL: string;
-            SMALL: string;
-            MEDIUM: string;
-            LARGE: string;
-            X_LARGE: string;
-            XX_LARGE: string;
-        }>;
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
             readonly RIBBON: import("vue").CompatVue;
@@ -237,19 +236,54 @@ declare const _default: {
             readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
         }>;
-        SELECT_LIST_ITEM_SELECTION_MODE: Readonly<{
-            SELECT_ONLY: string;
-            TOGGLE: string;
+        BUTTON_ELEVATIONS: Readonly<{
+            readonly NONE: "none";
+            readonly X_SMALL: "x-small";
+            readonly SMALL: "small";
         }>;
-        SELECT_LIST_ITEM_STATES: Readonly<{
-            DEFAULT: string;
-            LOADING: string;
-            DISABLED: string;
+        ICON_BUTTON_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly HOVERED: "hovered";
+            readonly FOCUSED: "focused";
+            readonly DISABLED: "disabled";
+            readonly LOADING: "loading";
+        }>;
+        ICON_BUTTON_SIZES: Readonly<{
+            readonly XX_SMALL: "xx-small";
+            readonly X_SMALL: "x-small";
+            readonly SMALL: "small";
+            readonly MEDIUM: "medium";
+            readonly LARGE: "large";
+        }>;
+        ICON_SIZES: Readonly<{
+            XXX_SMALL: string;
+            XX_SMALL: string;
+            X_SMALL: string;
+            SMALL: string;
+            MEDIUM: string;
+            LARGE: string;
+            X_LARGE: string;
+            XX_LARGE: string;
+        }>;
+        CHIP_SIZES: Readonly<{
+            readonly X_SMALL: "x-small";
+            readonly SMALL: "small";
+        }>;
+        CHIP_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly DISABLED: "disabled";
+        }>;
+        CHIP_RADIUSES: Readonly<{
+            readonly CAPSULE: "capsule";
+            readonly ROUNDED: "rounded";
         }>;
     };
     computed: {
-        isLoading(): boolean;
-        isDisabled(): boolean;
+        colorClassName(): string;
+        customStyle(): {
+            backgroundColor?: string | undefined;
+        };
+        iconButtonColor(): string;
     };
 };
 export default _default;
