@@ -113,6 +113,7 @@ $modal-medium-width: 700px;
 $modal-small-width: 460px;
 $image-height: 200px;
 $image-height-small: 140px;
+$min-desktop-width: 400px;
 
 .ds-modal {
 	$self: &;
@@ -131,6 +132,10 @@ $image-height-small: 140px;
 
 	@media #{breakpoint-s()} {
 		padding: $space-l;
+	}
+
+	@media #{breakpoint-l()} {
+		min-width: $min-desktop-width;
 	}
 
 	&__wrapper {
