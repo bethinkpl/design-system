@@ -134,10 +134,6 @@ $min-desktop-width: 400px;
 		padding: $space-l;
 	}
 
-	@media #{breakpoint-l()} {
-		min-width: $min-desktop-width;
-	}
-
 	&__wrapper {
 		background: $color-default-background;
 		border-radius: $radius-m;
@@ -147,6 +143,10 @@ $min-desktop-width: 400px;
 		overflow: hidden;
 		position: relative;
 
+		@media #{breakpoint-l()} {
+			width: $modal-medium-width;
+		}
+
 		&.-small {
 			max-width: $modal-small-width;
 
@@ -155,6 +155,10 @@ $min-desktop-width: 400px;
 					padding-left: $space-m;
 					padding-right: $space-m;
 				}
+			}
+
+			@media #{breakpoint-l()} {
+				width: $modal-small-width;
 			}
 
 			#{$self}__headerTitle {
