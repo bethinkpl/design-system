@@ -113,7 +113,6 @@ $modal-medium-width: 700px;
 $modal-small-width: 460px;
 $image-height: 200px;
 $image-height-small: 140px;
-$min-desktop-width: 400px;
 
 .ds-modal {
 	$self: &;
