@@ -2231,6 +2231,43 @@ exports.aliases = aliases;
 
 /***/ }),
 
+/***/ 72498:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+var prefix = 'far';
+var iconName = 'copy';
+var width = 448;
+var height = 512;
+var aliases = [];
+var unicode = 'f0c5';
+var svgPathData = 'M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z';
+
+exports.definition = {
+  prefix: prefix,
+  iconName: iconName,
+  icon: [
+    width,
+    height,
+    aliases,
+    unicode,
+    svgPathData
+  ]};
+
+exports.faCopy = exports.definition;
+exports.prefix = prefix;
+exports.iconName = iconName;
+exports.width = width;
+exports.height = height;
+exports.ligatures = aliases;
+exports.unicode = unicode;
+exports.svgPathData = svgPathData;
+exports.aliases = aliases;
+
+/***/ }),
+
 /***/ 66336:
 /***/ ((__unused_webpack_module, exports) => {
 
@@ -17631,6 +17668,7 @@ const faComment_1 = __webpack_require__(42025);
 const faCommentDots_1 = __webpack_require__(26595);
 const faComments_1 = __webpack_require__(44648);
 const faCompress_1 = __webpack_require__(56721);
+const faCopy_1 = __webpack_require__(72498);
 const faEarthAmericas_1 = __webpack_require__(66336);
 const faEllipsis_1 = __webpack_require__(21081);
 const faEllipsisVertical_1 = __webpack_require__(58289);
@@ -17827,6 +17865,7 @@ exports.FONTAWESOME_ICONS = {
     FA_COMMENTS_QUESTION: faCommentsQuestion_1.faCommentsQuestion,
     FA_COMMENTS_QUESTION_CHECK: faCommentsQuestionCheck_1.faCommentsQuestionCheck,
     FA_COMPRESS: faCompress_1.faCompress,
+    FA_COPY: faCopy_1.faCopy,
     FA_DOT_CIRCLE_SOLID: faCircleDot_1.faCircleDot,
     FA_EARTH_AMERICAS: faEarthAmericas_1.faEarthAmericas,
     FA_ELLIPSIS: faEllipsis_1.faEllipsis,
