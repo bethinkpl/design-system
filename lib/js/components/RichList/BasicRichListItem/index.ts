@@ -1,3 +1,3 @@
-import RichListItemBasic from './RichListItemBasic.vue';
+import BasicRichListItem from './BasicRichListItem.vue';
 
-export default RichListItemBasic;
+export default BasicRichListItem;
