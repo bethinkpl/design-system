@@ -1,4 +1,4 @@
-import RichListItemBasic from './RichListItemBasic.vue';
+import BasicRichListItem from './BasicRichListItem.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
@@ -13,18 +13,18 @@ import {
 import { ICONS } from '../../Icons/Icon';
 
 export default {
-	title: 'Components/RichList/RichListItemBasic',
-	component: RichListItemBasic,
+	title: 'Components/RichList/BasicRichListItem',
+	component: BasicRichListItem,
 	decorators: [
 		(story) => ({
 			components: { story },
 			template: "<div style='display: flex;padding: 16px;'><story /></div>",
 		}),
 	],
-} as Meta<typeof RichListItemBasic>;
+} as Meta<typeof BasicRichListItem>;
 
-const StoryTemplate: StoryFn<typeof RichListItemBasic> = (args, { updateArgs }) => ({
-	components: { RichListItemBasic },
+const StoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updateArgs }) => ({
+	components: { BasicRichListItem },
 	setup() {
 		return { ...args };
 	},
@@ -39,7 +39,7 @@ const StoryTemplate: StoryFn<typeof RichListItemBasic> = (args, { updateArgs }) 
 		},
 	},
 	template: `
-    <rich-list-item-basic
+    <basic-rich-list-item
       :size="size"
       :type="type"
       :is-interactive="isInteractive"
@@ -68,7 +68,7 @@ const StoryTemplate: StoryFn<typeof RichListItemBasic> = (args, { updateArgs }) 
       <template v-if="actions" #actions>
         <div v-html="actions" />
       </template>
-    </rich-list-item-basic>`,
+    </basic-rich-list-item>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

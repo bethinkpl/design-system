@@ -17,19 +17,19 @@
 		:has-actions-slot-divider="hasActionsSlotDivider"
 		:is-selectable="isSelectable"
 		:is-selected="isSelected"
-		class="richListItemBasic"
+		class="basicRichListItem"
 		@update:is-selected="$emit('update:isSelected', $event)"
 	>
 		<template #content>
-			<div class="richListItemBasic__content">
+			<div class="basicRichListItem__content">
 				<div
-					class="richListItemBasic__eyebrow"
+					class="basicRichListItem__eyebrow"
 					:class="{ '-uppercase': isEyebrowUppercase }"
 				>
 					{{ eyebrow }}
 				</div>
 
-				<div class="richListItemBasic__text">
+				<div class="basicRichListItem__text">
 					{{ text }}
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/spacings';
 
-.richListItemBasic {
+.basicRichListItem {
 	max-width: 100%;
 
 	&__content {
@@ -106,7 +106,7 @@ import RichListItem, {
 import { PropType } from 'vue';
 
 export default {
-	name: 'RichListItemBasic',
+	name: 'BasicRichListItem',
 	components: {
 		RichListItem,
 	},
