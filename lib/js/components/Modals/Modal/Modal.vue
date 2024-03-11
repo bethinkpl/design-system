@@ -141,10 +141,7 @@ $image-height-small: 140px;
 		max-width: $modal-medium-width;
 		overflow: hidden;
 		position: relative;
-
-		@media #{breakpoint-l()} {
-			width: $modal-medium-width;
-		}
+		width: 100%;
 
 		&.-small {
 			max-width: $modal-small-width;
@@ -154,10 +151,6 @@ $image-height-small: 140px;
 					padding-left: $space-m;
 					padding-right: $space-m;
 				}
-			}
-
-			@media #{breakpoint-l()} {
-				width: $modal-small-width;
 			}
 
 			#{$self}__headerTitle {
