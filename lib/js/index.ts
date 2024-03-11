@@ -90,7 +90,7 @@ export * from './components/Layouts/ThreeColumnLayout/ThreeColumnLayout.consts';
 export { default as RichListItem } from './components/RichList/RichListItem';
 export * from './components/RichList/RichListItem/RichListItem.consts';
 export { default as BasicRichListItem } from './components/RichList/BasicRichListItem';
-export { default as RichListGroupItem } from './components/RichList/RichListGroupItem';
+export { default as GroupRichListItem } from './components/RichList/GroupRichListItem';
 
 export {
 	initialize as initializeIcons,

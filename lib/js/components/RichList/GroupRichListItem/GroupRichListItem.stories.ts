@@ -1,20 +1,20 @@
-import RichListGroupItem from './RichListGroupItem.vue';
+import GroupRichListItem from './GroupRichListItem.vue';
 import RichListItem, { RICH_LIST_ITEM_STATE, RICH_LIST_ITEM_TYPE } from '../RichListItem';
 import Divider from '../../Divider';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { RICH_LIST_GROUP_ITEM_BORDER_COLOR } from './RichListGroupItem.consts';
+import { GROUP_RICH_LIST_ITEM_BORDER_COLOR } from './GroupRichListItem.consts';
 import { ICONS } from '../../Icons/Icon';
 
 export default {
-	title: 'Components/RichList/RichListGroupItem',
-	component: RichListGroupItem,
+	title: 'Components/RichList/GroupRichListItem',
+	component: GroupRichListItem,
 	decorators: [
 		(story) => ({
 			template: `<div style="display: flex;padding: 16px;"><story/></div>`,
 		}),
 	],
-} as Meta<typeof RichListGroupItem>;
+} as Meta<typeof GroupRichListItem>;
 
 const args = {
 	isExpanded: false,
@@ -24,7 +24,7 @@ const args = {
 
 const argTypes = {
 	borderColor: {
-		options: [null, ...Object.values(RICH_LIST_GROUP_ITEM_BORDER_COLOR)],
+		options: [null, ...Object.values(GROUP_RICH_LIST_ITEM_BORDER_COLOR)],
 		control: { type: 'select' },
 	},
 	borderColorHex: {
@@ -33,9 +33,9 @@ const argTypes = {
 } as ArgTypes;
 
 const build = (parent, childrens) => {
-	const StoryTemplate: StoryFn<typeof RichListGroupItem> = (args, { updateArgs }) => {
+	const StoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { updateArgs }) => {
 		return {
-			components: { RichListGroupItem, RichListItem, Divider },
+			components: { GroupRichListItem, RichListItem, Divider },
 			setup() {
 				return { ...args };
 			},
@@ -54,7 +54,7 @@ const build = (parent, childrens) => {
 				},
 			},
 			template: `
-        <rich-list-group-item :is-expanded="isExpanded" :is-dimmed="isDimmed" :border-color="borderColor"
+        <group-rich-list-item :is-expanded="isExpanded" :is-dimmed="isDimmed" :border-color="borderColor"
                               :border-color-hex="borderColorHex">
           <template #parent>
             ${parent}
@@ -62,7 +62,7 @@ const build = (parent, childrens) => {
           <template #children>
             ${childrens}
           </template>
-        </rich-list-group-item>
+        </group-rich-list-item>
       `,
 		};
 	};
