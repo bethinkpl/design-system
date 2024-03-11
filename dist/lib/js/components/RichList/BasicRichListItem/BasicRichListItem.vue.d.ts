@@ -1,4 +1,4 @@
-import RichListItem, { RichListItemBorderColor, RichListItemIconColor, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
+import RichListItem, { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemIconColor, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
 import { PropType } from 'vue';
 declare const _default: {
     name: string;
@@ -67,6 +67,33 @@ declare const _default: {
             type: BooleanConstructor;
             default: boolean;
         };
+        backgroundColor: {
+            type: PropType<RichListItemBackgroundColor>;
+            default: "neutral";
+            validator(backgroundColor: any): boolean;
+        };
+        elevation: {
+            type: PropType<"small">;
+            default: null;
+            validator(evolution: any): boolean;
+        };
+        hasDraggableHandler: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        hasActionsSlotDivider: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSelectable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSelected: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     };
+    emits: string[];
 };
 export default _default;

@@ -51,3 +51,12 @@ export declare const RICH_LIST_ITEM_BORDER_COLOR: {
     readonly ACCENT_WEAK: "accent-weak";
 };
 export declare type RichListItemBorderColor = typeof RICH_LIST_ITEM_BORDER_COLOR[keyof typeof RICH_LIST_ITEM_BORDER_COLOR];
+export declare const RICH_LIST_ITEM_BACKGROUND_COLOR: {
+    readonly NEUTRAL: "neutral";
+    readonly NEUTRAL_WEAK: "neutral-weak";
+};
+export declare type RichListItemBackgroundColor = typeof RICH_LIST_ITEM_BACKGROUND_COLOR[keyof typeof RICH_LIST_ITEM_BACKGROUND_COLOR];
+export declare const RICH_LIST_ITEM_ELEVATION: {
+    readonly SMALL: "small";
+};
+export declare type RichListItemElevation = typeof RICH_LIST_ITEM_ELEVATION[keyof typeof RICH_LIST_ITEM_ELEVATION];

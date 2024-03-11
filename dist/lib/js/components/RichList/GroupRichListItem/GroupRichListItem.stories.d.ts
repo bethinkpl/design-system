@@ -1,0 +1,12 @@
+import GroupRichListItem from './GroupRichListItem.vue';
+import { Meta, StoryFn } from '@storybook/vue3';
+declare const _default: Meta<typeof GroupRichListItem>;
+export default _default;
+export declare const OneChild: StoryFn<typeof GroupRichListItem>;
+export declare const MultipleChild: StoryFn<typeof GroupRichListItem>;
+export declare const DimmedOneChild: StoryFn<typeof GroupRichListItem>;
+export declare const DimmedAllChild: StoryFn<typeof GroupRichListItem>;
+export declare const LoadingOneChild: StoryFn<typeof GroupRichListItem>;
+export declare const LoadingAllChild: StoryFn<typeof GroupRichListItem>;
+export declare const AllDimmed: StoryFn<typeof GroupRichListItem>;
+export declare const AllLoading: StoryFn<typeof GroupRichListItem>;

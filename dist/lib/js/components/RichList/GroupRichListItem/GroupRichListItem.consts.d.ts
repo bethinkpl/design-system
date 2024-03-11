@@ -1,5 +1,5 @@
 import { RichListItemBorderColor } from '../RichListItem';
-export declare const RICH_LIST_GROUP_ITEM_BORDER_COLOR: {
+export declare const GROUP_RICH_LIST_ITEM_BORDER_COLOR: {
     readonly DEFAULT: "default";
     readonly PRIMARY: "primary";
     readonly PRIMARY_WEAK: "primary-weak";
@@ -21,4 +21,4 @@ export declare const RICH_LIST_GROUP_ITEM_BORDER_COLOR: {
     readonly ACCENT: "accent";
     readonly ACCENT_WEAK: "accent-weak";
 };
-export declare type RichListGroupItemBorderColor = RichListItemBorderColor;
+export declare type GroupRichListItemBorderColor = RichListItemBorderColor;
