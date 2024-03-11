@@ -2,7 +2,9 @@ import RichListItemBasic from './RichListItemBasic.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
+	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
+	RICH_LIST_ITEM_ELEVATION,
 	RICH_LIST_ITEM_ICON_COLOR,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
@@ -21,7 +23,7 @@ export default {
 	],
 } as Meta<typeof RichListItemBasic>;
 
-const StoryTemplate: StoryFn<typeof RichListItemBasic> = (args) => ({
+const StoryTemplate: StoryFn<typeof RichListItemBasic> = (args, { updateArgs }) => ({
 	components: { RichListItemBasic },
 	setup() {
 		return { ...args };
@@ -30,6 +32,11 @@ const StoryTemplate: StoryFn<typeof RichListItemBasic> = (args) => ({
 		return {
 			ICONS: Object.freeze(ICONS),
 		};
+	},
+	methods: {
+		updateIsSelected(isSelected) {
+			updateArgs({ isSelected });
+		},
 	},
 	template: `
     <rich-list-item-basic
@@ -47,12 +54,19 @@ const StoryTemplate: StoryFn<typeof RichListItemBasic> = (args) => ({
       :text="text"
       :eyebrow="eyebrow"
       :is-eyebrow-uppercase="isEyebrowUppercase"
+      :background-color="backgroundColor"
+      :elevation="elevation"
+      :has-draggable-handler="hasDraggableHandler"
+      :has-actions-slot-divider="hasActionsSlotDivider"
+      :is-selectable="isSelectable"
+      :is-selected="isSelected"
+      @update:isSelected="updateIsSelected"
     >
       <template v-if="meta" #meta>
         <div v-html="meta" />
       </template>
-      <template v-if="trailing" #trailing>
-        <div v-html="trailing" />
+      <template v-if="actions" #actions>
+        <div v-html="actions" />
       </template>
     </rich-list-item-basic>`,
 });
@@ -62,22 +76,29 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	size: RICH_LIST_ITEM_SIZE.MEDIUM,
 	type: RICH_LIST_ITEM_TYPE.DEFAULT,
-	isInteractive: true,
+	backgroundColor: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
+	elevation: null,
+	isDimmed: false,
 	isDraggable: true,
+	hasDraggableHandler: true,
 	icon: null,
 	iconColor: null,
 	iconColorHex: '',
-	isDimmed: false,
+	hasActionsSlotDivider: true,
+	isSelectable: true,
+	isSelected: true,
 	borderColor: null,
 	borderColorHex: '',
 	state: RICH_LIST_ITEM_STATE.DEFAULT,
+	isInteractive: true,
+	draggableIconClassName: 'draggableIconClassName-1',
 
 	eyebrow: 'Eyebrow Uppercase',
 	text: 'Długa nazwa gdy się nie mieści Praesentium dicta sit. Molestiae unde voluptatem eaque labore.',
 	isEyebrowUppercase: false,
 
 	meta: 'Meta Slot',
-	trailing: 'Tailing Slot',
+	actions: 'ACS',
 } as Args;
 
 const argTypes = {
@@ -120,8 +141,19 @@ const argTypes = {
 	meta: {
 		control: { type: 'text' },
 	},
-	trailing: {
+	actions: {
 		control: { type: 'text' },
+	},
+	draggableIconClassName: {
+		control: { type: 'text' },
+	},
+	backgroundColor: {
+		options: [null, ...Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR)],
+		control: { type: 'select' },
+	},
+	elevation: {
+		options: [null, ...Object.values(RICH_LIST_ITEM_ELEVATION)],
+		control: { type: 'select' },
 	},
 } as ArgTypes;
 
@@ -129,6 +161,9 @@ Interactive.argTypes = argTypes;
 Interactive.args = args;
 
 Interactive.parameters = {
+	actions: {
+		handles: ['icon-click', 'click', 'update:isSelected'],
+	},
 	layout: 'fullscreen',
 	design: {
 		type: 'figma',

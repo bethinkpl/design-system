@@ -11,7 +11,14 @@
 		:border-color="borderColor"
 		:border-color-hex="borderColorHex"
 		:state="state"
+		:background-color="backgroundColor"
+		:elevation="elevation"
+		:has-draggable-handler="hasDraggableHandler"
+		:has-actions-slot-divider="hasActionsSlotDivider"
+		:is-selectable="isSelectable"
+		:is-selected="isSelected"
 		class="richListItemBasic"
+		@update:is-selected="$emit('update:isSelected', $event)"
 	>
 		<template #content>
 			<div class="richListItemBasic__content">
@@ -30,8 +37,8 @@
 		<template v-if="$slots.meta" #meta>
 			<slot name="meta" />
 		</template>
-		<template v-if="$slots.trailing" #trailing>
-			<slot name="trailing" />
+		<template v-if="$slots.actions" #actions>
+			<slot name="actions" />
 		</template>
 	</rich-list-item>
 </template>
@@ -81,12 +88,16 @@
 
 <script lang="ts">
 import RichListItem, {
+	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
+	RICH_LIST_ITEM_ELEVATION,
 	RICH_LIST_ITEM_ICON_COLOR,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
+	RichListItemBackgroundColor,
 	RichListItemBorderColor,
+	RichListItemElevation,
 	RichListItemIconColor,
 	RichListItemSize,
 	RichListItemState,
@@ -171,6 +182,37 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		backgroundColor: {
+			type: String as PropType<RichListItemBackgroundColor>,
+			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
+			validator(backgroundColor) {
+				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(backgroundColor);
+			},
+		},
+		elevation: {
+			type: String as PropType<RichListItemElevation>,
+			default: null,
+			validator(evolution) {
+				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(evolution);
+			},
+		},
+		hasDraggableHandler: {
+			type: Boolean,
+			default: true,
+		},
+		hasActionsSlotDivider: {
+			type: Boolean,
+			default: true,
+		},
+		isSelectable: {
+			type: Boolean,
+			default: true,
+		},
+		isSelected: {
+			type: Boolean,
+			default: false,
+		},
 	},
+	emits: ['update:isSelected'],
 };
 </script>
