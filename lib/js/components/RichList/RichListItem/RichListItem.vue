@@ -1,18 +1,7 @@
 <template>
-	<div
-		class="richListItem"
-		:class="{
-			'-default': type === RICH_LIST_ITEM_TYPE.DEFAULT,
-			'-flat': type === RICH_LIST_ITEM_TYPE.FLAT,
-			'-loading': state === RICH_LIST_ITEM_STATE.LOADING,
-			'-dimmed': isDimmed,
-			'-interactive': isInteractive,
-			'-small': size === RICH_LIST_ITEM_SIZE.SMALL,
-		}"
-		@click="$emit('click')"
-	>
+	<div class="richListItem" :class="classList" @click="$emit('click')">
 		<div class="richListItem__container -dimmable">
-			<div v-if="isDraggable" class="richListItem__dragAndDrop">
+			<div v-if="isDraggable && hasDraggableHandler" class="richListItem__dragAndDrop">
 				<ds-icon
 					:icon="ICONS.FA_BARS"
 					class="richListItem__dragAndDropIcon"
@@ -41,11 +30,25 @@
 			<div class="richListItem__content">
 				<slot name="content" />
 			</div>
-			<div v-if="$slots.meta" class="richListItem__metaData -hideOnMobile">
-				<slot name="meta" />
-			</div>
-			<div v-if="$slots.trailing" class="richListItem__trailingSlot">
-				<slot name="trailing" />
+			<div class="richListItem__rightContainer">
+				<div v-if="$slots.meta" class="richListItem__metaData -hideOnMobile">
+					<slot name="meta" />
+				</div>
+				<div v-if="$slots.actions" class="richListItem__actionSlot">
+					<ds-divider
+						v-if="$slots.actions && hasActionsSlotDivider"
+						is-vertical
+						class="-hideOnMobile"
+					/>
+					<slot name="actions" />
+				</div>
+				<div v-if="isSelectable" class="richListItem__checkbox">
+					<ds-divider is-vertical class="-hideOnMobile" />
+					<ds-checkbox
+						:is-selected="isSelected"
+						@update:is-selected="$emit('update:isSelected', $event)"
+					/>
+				</div>
 			</div>
 		</div>
 
@@ -67,6 +70,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/shadows';
 @import './border-colors';
 
 $rich-list-item-icon-colors: (
@@ -86,7 +90,6 @@ $rich-list-item-icon-colors: (
 .richListItem {
 	$root: &;
 
-	background: $color-neutral-background;
 	cursor: default;
 	display: flex;
 	flex: 1;
@@ -94,7 +97,6 @@ $rich-list-item-icon-colors: (
 	justify-content: center;
 	min-height: 62px;
 	padding: $space-xxxxs;
-	pointer-events: none;
 	position: relative;
 
 	@media #{breakpoint-s()} {
@@ -104,6 +106,28 @@ $rich-list-item-icon-colors: (
 	&.-interactive {
 		cursor: pointer;
 		pointer-events: initial;
+
+		&.-background-neutral.-default:not(.-dimmed):hover {
+			background: $color-neutral-background-hovered;
+		}
+
+		&.-background-neutral-weak.-default:not(.-dimmed):hover {
+			background: $color-neutral-background-weak-hovered;
+		}
+
+		&.-flat:not(.-dimmed):hover {
+			background: $color-neutral-background-ghost-hovered;
+		}
+
+		&.-draggable {
+			&:hover {
+				cursor: grab;
+			}
+
+			&:active {
+				cursor: grabbing;
+			}
+		}
 	}
 
 	&.-dimmed {
@@ -112,8 +136,27 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
+	&.-background-neutral {
+		background-color: $color-neutral-background;
+
+		&.-loading {
+			background-color: $color-neutral-background-hovered;
+		}
+	}
+
+	&.-background-neutral-weak {
+		background-color: $color-neutral-background-weak;
+
+		&.-loading {
+			background-color: $color-neutral-background-weak-hovered;
+		}
+	}
+
+	&.-elevation-small {
+		box-shadow: $shadow-s;
+	}
+
 	&.-loading {
-		background-color: $color-neutral-background-hovered;
 		cursor: initial;
 		pointer-events: none;
 
@@ -133,10 +176,6 @@ $rich-list-item-icon-colors: (
 			}
 		}
 
-		&:not(.-dimmed):hover {
-			background: $color-neutral-background-ghost-hovered;
-		}
-
 		#{$root}__wrapper {
 			border: none;
 		}
@@ -150,10 +189,6 @@ $rich-list-item-icon-colors: (
 			.-dimmable {
 				opacity: 1;
 			}
-		}
-
-		&:not(.-dimmed):hover {
-			background: $color-neutral-background-hovered;
 		}
 
 		#{$root}__border {
@@ -215,7 +250,7 @@ $rich-list-item-icon-colors: (
 
 		@media #{breakpoint-s()} {
 			justify-content: flex-start;
-			padding: 0;
+			padding-right: $space-xxxs;
 		}
 
 		&.-hideOnMobile {
@@ -235,14 +270,45 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
-	&__trailingSlot {
-		align-items: center;
+	&__rightContainer {
+		align-items: flex-start;
+		align-self: stretch;
 		display: flex;
 		justify-content: flex-end;
-		padding: 0;
 
 		@media #{breakpoint-s()} {
-			padding-left: $space-xxs;
+			align-items: center;
+			justify-content: initial;
+			padding: $space-xs 0;
+		}
+	}
+
+	&__actionSlot {
+		align-items: flex-start;
+		align-self: stretch;
+		display: flex;
+		gap: $space-xxs;
+		justify-content: flex-end;
+		padding: $space-xxxxs $space-xxxxs 0 $space-xxxxs;
+
+		@media #{breakpoint-s()} {
+			align-items: center;
+			justify-content: initial;
+			padding: 0 $space-xxxs;
+		}
+	}
+
+	&__checkbox {
+		align-items: flex-start;
+		align-self: stretch;
+		display: flex;
+		gap: $space-s;
+		justify-content: flex-end;
+		padding: $space-xxxxxs $space-xs 0 $space-xs;
+
+		@media #{breakpoint-s()} {
+			align-items: center;
+			padding: 0 $space-s 0 $space-xxxs;
 		}
 	}
 
@@ -304,18 +370,32 @@ $rich-list-item-icon-colors: (
 		}
 	}
 }
+
+.-hideOnMobile {
+	display: none;
+
+	@media #{breakpoint-s()} {
+		display: initial;
+	}
+}
 </style>
 
 <script lang="ts">
+import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
+import DsDivider from '../../../components/Divider';
 import DsIcon, { ICON_SIZES, ICONS } from '../../../components/Icons/Icon';
 import { PropType } from 'vue';
 import {
+	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
+	RICH_LIST_ITEM_ELEVATION,
 	RICH_LIST_ITEM_ICON_COLOR,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
+	RichListItemBackgroundColor,
 	RichListItemBorderColor,
+	RichListItemElevation,
 	RichListItemIconColor,
 	RichListItemSize,
 	RichListItemState,
@@ -325,6 +405,8 @@ import {
 export default {
 	name: 'RichListItem',
 	components: {
+		DsCheckbox,
+		DsDivider,
 		DsIcon,
 	},
 	props: {
@@ -391,8 +473,38 @@ export default {
 			type: String,
 			default: null,
 		},
+		backgroundColor: {
+			type: String as PropType<RichListItemBackgroundColor>,
+			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
+			validator(backgroundColor) {
+				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(backgroundColor);
+			},
+		},
+		elevation: {
+			type: String as PropType<RichListItemElevation>,
+			default: null,
+			validator(evolution) {
+				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(evolution);
+			},
+		},
+		hasDraggableHandler: {
+			type: Boolean,
+			default: true,
+		},
+		hasActionsSlotDivider: {
+			type: Boolean,
+			default: true,
+		},
+		isSelectable: {
+			type: Boolean,
+			default: true,
+		},
+		isSelected: {
+			type: Boolean,
+			default: false,
+		},
 	},
-	emits: ['icon-click', 'click'],
+	emits: ['icon-click', 'click', 'update:isSelected'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -403,6 +515,23 @@ export default {
 		};
 	},
 	computed: {
+		classList() {
+			return {
+				'-default': this.type === RICH_LIST_ITEM_TYPE.DEFAULT,
+				'-flat': this.type === RICH_LIST_ITEM_TYPE.FLAT,
+				'-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
+				'-dimmed': this.isDimmed,
+				'-interactive': this.isInteractive,
+				'-small': this.size === RICH_LIST_ITEM_SIZE.SMALL,
+				...(this.backgroundColor && {
+					[`-background-${this.backgroundColor}`]: true,
+				}),
+				...(this.elevation && {
+					[`-elevation-${this.elevation}`]: true,
+				}),
+				'-draggable': this.isDraggable && !this.hasDraggableHandler,
+			};
+		},
 		iconColorClass() {
 			if (!this.iconColor || (this.iconColor && this.iconColorHex)) {
 				return;

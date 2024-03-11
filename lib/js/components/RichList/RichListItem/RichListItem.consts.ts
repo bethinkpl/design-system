@@ -62,3 +62,18 @@ export const RICH_LIST_ITEM_BORDER_COLOR = {
 
 export type RichListItemBorderColor =
 	typeof RICH_LIST_ITEM_BORDER_COLOR[keyof typeof RICH_LIST_ITEM_BORDER_COLOR];
+
+export const RICH_LIST_ITEM_BACKGROUND_COLOR = {
+	NEUTRAL: 'neutral',
+	NEUTRAL_WEAK: 'neutral-weak',
+} as const;
+
+export type RichListItemBackgroundColor =
+	typeof RICH_LIST_ITEM_BACKGROUND_COLOR[keyof typeof RICH_LIST_ITEM_BACKGROUND_COLOR];
+
+export const RICH_LIST_ITEM_ELEVATION = {
+	SMALL: 'small',
+} as const;
+
+export type RichListItemElevation =
+	typeof RICH_LIST_ITEM_ELEVATION[keyof typeof RICH_LIST_ITEM_ELEVATION];
