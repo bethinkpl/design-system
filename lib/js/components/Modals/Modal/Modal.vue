@@ -141,6 +141,7 @@ $image-height-small: 140px;
 		max-width: $modal-medium-width;
 		overflow: hidden;
 		position: relative;
+		width: 100%;
 
 		&.-small {
 			max-width: $modal-small-width;
