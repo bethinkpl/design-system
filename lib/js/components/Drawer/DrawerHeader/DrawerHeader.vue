@@ -159,41 +159,21 @@ export default {
 		Chip,
 	},
 	props: {
-		title: {
-			type: String,
-			default: null,
-		},
 		eyebrowText: {
 			type: String,
 			default: null,
 		},
-		chipLabel: {
-			type: String,
-			default: null,
-		},
-		leftIcon: {
-			type: [Object, null],
-			default: null,
-		},
-		isClosable: {
-			type: Boolean,
-			default: true,
-		},
-		isSecondLevel: {
-			type: Boolean,
-			default: false,
-		},
 		isInteractiveEyebrow: {
-			type: Boolean,
-			default: false,
-		},
-		hasDivider: {
 			type: Boolean,
 			default: false,
 		},
 		eyebrowEllipsis: {
 			type: Boolean,
 			default: false,
+		},
+		title: {
+			type: String,
+			default: null,
 		},
 		titleEllipsis: {
 			type: Boolean,
@@ -202,6 +182,26 @@ export default {
 		titleColor: {
 			type: String as PropType<DrawerHeaderTitleColor>,
 			default: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
+		},
+		leftIcon: {
+			type: [Object, null],
+			default: null,
+		},
+		chipLabel: {
+			type: String,
+			default: null,
+		},
+		isClosable: {
+			type: Boolean,
+			default: true,
+		},
+		hasDivider: {
+			type: Boolean,
+			default: false,
+		},
+		isSecondLevel: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	emits: ['backClicked', 'close', 'eyebrowClicked'],
