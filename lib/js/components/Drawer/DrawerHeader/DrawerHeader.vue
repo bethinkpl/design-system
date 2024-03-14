@@ -47,7 +47,6 @@
 			</div>
 			<icon-button
 				v-if="isClosable"
-				class="drawerHeader__closeButton"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"
 				:touchable="false"
@@ -139,12 +138,7 @@ $minimal-drawer-header-height: 82px;
 	}
 
 	&__actions {
-		align-self: flex-start;
 		margin-left: auto;
-	}
-
-	&__closeButton {
-		align-self: flex-start;
 	}
 }
 </style>
