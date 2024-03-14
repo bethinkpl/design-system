@@ -22,7 +22,7 @@
 				>
 					{{ eyebrowText }}
 				</span>
-				<div class="drawerHeader__title" :class="{ [`-${titleColor}`]: true }">
+				<div class="drawerHeader__title">
 					<icon
 						v-if="leftIcon"
 						:icon="leftIcon"
@@ -31,12 +31,19 @@
 					/>
 					<span
 						v-if="title"
-						:class="{ '-ellipsis': titleEllipsis }"
+						class="drawerHeader__titleText"
+						:class="{ '-ellipsis': titleEllipsis, [`-${titleColor}`]: true }"
 						:title="titleEllipsis ? title : undefined"
 						>{{ title }}</span
 					>
 					<chip v-if="chipLabel" :label="chipLabel" />
+					<div v-if="$slots.titleTrailing">
+						<slot name="titleTrailing" />
+					</div>
 				</div>
+			</div>
+			<div v-if="$slots.actions" class="drawerHeader__actions">
+				<slot name="actions" />
 			</div>
 			<icon-button
 				v-if="isClosable"
@@ -99,11 +106,13 @@ $minimal-drawer-header-height: 82px;
 	}
 
 	&__title {
-		@include heading-s-default-bold-uppercase;
-
 		align-items: center;
 		column-gap: $space-xxxs;
 		display: flex;
+	}
+
+	&__titleText {
+		@include heading-s-default-bold-uppercase;
 
 		&.-neutralStrong {
 			color: $color-neutral-text-strong;
@@ -113,7 +122,7 @@ $minimal-drawer-header-height: 82px;
 			color: $color-neutral-text-weak;
 		}
 
-		.-ellipsis {
+		&.-ellipsis {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -127,6 +136,11 @@ $minimal-drawer-header-height: 82px;
 		justify-content: space-between;
 		min-height: $minimal-drawer-header-height;
 		padding: $space-m $space-xs $space-m $space-s;
+	}
+
+	&__actions {
+		align-self: flex-start;
+		margin-left: auto;
 	}
 
 	&__closeButton {
