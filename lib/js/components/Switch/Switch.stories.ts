@@ -1,7 +1,7 @@
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import DsSwitch from "./Switch.vue";
-import Icon, { ICONS } from "../Icons/Icon";
-import { SWITCH_RADIUSES, SWITCH_SIDE, SWITCH_SIZES, SWITCH_STATE } from "./Switch.consts";
+import DsSwitch from './Switch.vue';
+import Icon, { ICONS } from '../Icons/Icon';
+import { SWITCH_RADIUSES, SWITCH_SIDE, SWITCH_SIZES, SWITCH_STATE } from './Switch.consts';
 
 export default {
 	title: 'Components/Switch',

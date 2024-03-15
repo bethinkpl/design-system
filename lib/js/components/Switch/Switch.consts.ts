@@ -1,4 +1,4 @@
-import { Value } from "../../utils/type.utils";
+import { Value } from '../../utils/type.utils';
 
 export const SWITCH_SIZES = {
 	SMALL: 'small',

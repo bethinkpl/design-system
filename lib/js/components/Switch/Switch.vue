@@ -68,189 +68,188 @@
 	</div>
 </template>
 
-
 <style lang="scss" scoped>
-	@import '../../../styles/settings/animations';
-	@import '../../../styles/settings/spacings';
-	@import '../../../styles/settings/radiuses';
-	@import '../../../styles/settings/colors/tokens';
-	@import '../../../styles/settings/typography/tokens';
+@import '../../../styles/settings/animations';
+@import '../../../styles/settings/spacings';
+@import '../../../styles/settings/radiuses';
+@import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
 
-	$switch-transition: all $default-transition-time ease;
+$switch-transition: all $default-transition-time ease;
 
-	.switchWrapper {
-		display: inline-flex;
-		max-width: 100%;
-		overflow: hidden;
+.switchWrapper {
+	display: inline-flex;
+	max-width: 100%;
+	overflow: hidden;
+}
+
+.switch {
+	$root: &;
+
+	align-items: flex-start;
+	background-color: $color-default-background;
+	border: 1px solid $color-neutral-border;
+	border-radius: $radius-xs;
+	box-sizing: border-box;
+	display: inline-flex;
+	max-width: 100%;
+	position: relative;
+
+	&.-rounded {
+		border-radius: $radius-xl;
 	}
 
-	.switch {
-		$root: &;
+	&__icon {
+		color: $color-neutral-icon;
+	}
 
-		align-items: flex-start;
-		background-color: $color-default-background;
-		border: 1px solid $color-neutral-border;
+	.-selected &__icon {
+		color: $color-primary-icon;
+	}
+
+	&__label {
+		@include label-s-extensive-bold-uppercase;
+
+		color: $color-neutral-text;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	.-selected &__label {
+		color: $color-neutral-text-heavy;
+	}
+
+	&__item {
+		align-items: center;
+		background-color: $color-neutral-background-ghost;
+		border: 1px solid transparent;
 		border-radius: $radius-xs;
-		box-sizing: border-box;
-		display: inline-flex;
-		max-width: 100%;
+		cursor: pointer;
+		display: flex;
+		flex-grow: 1;
+		gap: $space-xxxs;
+		justify-content: center;
+		margin: -1px;
+		min-height: 32px;
+		min-width: 64px;
+		overflow: hidden;
+		padding: 0 $space-s;
 		position: relative;
+		transition: $switch-transition;
+		z-index: 2;
 
-		&.-rounded {
-			border-radius: $radius-xl;
+		&.-left {
+			margin: -1px 0 -1px -1px;
 		}
 
-		&__icon {
-			color: $color-neutral-icon;
+		&.right {
+			margin: -1px -1px -1px 0;
 		}
 
-		.-selected &__icon {
-			color: $color-primary-icon;
-		}
+		&.-selection {
+			background-color: $color-primary-background;
+			border: 1px solid $color-primary-border;
+			box-sizing: border-box;
+			left: 0;
+			position: absolute;
+			top: 0;
+			z-index: 1;
 
-		&__label {
-			@include label-s-extensive-bold-uppercase;
+			#{$root}__icon {
+				visibility: hidden;
+			}
 
-			color: $color-neutral-text;
-			overflow: hidden;
-			text-overflow: ellipsis;
-			white-space: nowrap;
-		}
-
-		.-selected &__label {
-			color: $color-neutral-text-heavy;
-		}
-
-		&__item {
-			align-items: center;
-			background-color: $color-neutral-background-ghost;
-			border: 1px solid transparent;
-			border-radius: $radius-xs;
-			cursor: pointer;
-			display: flex;
-			flex-grow: 1;
-			gap: $space-xxxs;
-			justify-content: center;
-			margin: -1px;
-			min-height: 32px;
-			min-width: 64px;
-			overflow: hidden;
-			padding: 0 $space-s;
-			position: relative;
-			transition: $switch-transition;
-			z-index: 2;
+			#{$root}__label {
+				overflow: hidden;
+				visibility: hidden;
+				white-space: nowrap;
+				width: max-content;
+			}
 
 			&.-left {
-				margin: -1px 0 -1px -1px;
-			}
-
-			&.right {
-				margin: -1px -1px -1px 0;
-			}
-
-			&.-selection {
-				background-color: $color-primary-background;
-				border: 1px solid $color-primary-border;
-				box-sizing: border-box;
 				left: 0;
-				position: absolute;
-				top: 0;
-				z-index: 1;
-
-				#{$root}__icon {
-					visibility: hidden;
-				}
-
-				#{$root}__label {
-					overflow: hidden;
-					visibility: hidden;
-					white-space: nowrap;
-					width: max-content;
-				}
-
-				&.-left {
-					left: 0;
-				}
-
-				&.-right {
-					left: calc(100% + 2px);
-					transform: translateX(-100%);
-				}
 			}
 
-			&.-selected,
-			&.-selection:hover {
-				cursor: default;
-				flex-grow: 0.00001;
-				flex-shrink: 0;
-				overflow: hidden;
-				text-overflow: initial;
+			&.-right {
+				left: calc(100% + 2px);
+				transform: translateX(-100%);
 			}
 		}
 
-		&.-small &__item {
-			gap: $space-xxxxs;
-			min-height: 24px;
-			min-width: 48px;
-			padding: 0 $space-xs;
-		}
-
-		&.-rounded &__item {
-			border-radius: $radius-xl;
-		}
-
-		&.-disabled &__item {
+		&.-selected,
+		&.-selection:hover {
 			cursor: default;
-
-			&.-selected {
-				background-color: $color-primary-background-disabled;
-				border-color: $color-primary-border-disabled;
-			}
+			flex-grow: 0.00001;
+			flex-shrink: 0;
+			overflow: hidden;
+			text-overflow: initial;
 		}
+	}
 
-		&.-disabled &__icon {
-			color: $color-neutral-icon-disabled;
+	&.-small &__item {
+		gap: $space-xxxxs;
+		min-height: 24px;
+		min-width: 48px;
+		padding: 0 $space-xs;
+	}
+
+	&.-rounded &__item {
+		border-radius: $radius-xl;
+	}
+
+	&.-disabled &__item {
+		cursor: default;
+
+		&.-selected {
+			background-color: $color-primary-background-disabled;
+			border-color: $color-primary-border-disabled;
 		}
+	}
 
-		&.-disabled .-selected &__icon {
-			color: $color-primary-icon-disabled;
-		}
+	&.-disabled &__icon {
+		color: $color-neutral-icon-disabled;
+	}
 
-		&.-disabled &__label {
-			color: $color-neutral-text-weak;
-		}
+	&.-disabled .-selected &__icon {
+		color: $color-primary-icon-disabled;
+	}
 
-		&.-disabled .-selected &__label {
-			color: $color-neutral-text-strong;
-		}
+	&.-disabled &__label {
+		color: $color-neutral-text-weak;
+	}
 
-		&:not(.-disabled) &__item:not(.-selected) {
-			&:hover, {
-				background-color: $color-neutral-background-ghost-hovered;
+	&.-disabled .-selected &__label {
+		color: $color-neutral-text-strong;
+	}
 
-				&::before {
-					content: '';
-					position: absolute;
-					transform: scale(0);
-				}
-			}
-		}
-
-		&__item.-pressed {
+	&:not(.-disabled) &__item:not(.-selected) {
+		&:hover {
 			background-color: $color-neutral-background-ghost-hovered;
 
 			&::before {
-				background-color: $color-neutral-ripple;
-				border-radius: 50%;
 				content: '';
-				padding-top: 100%;
 				position: absolute;
-				transform: scale(1);
-				transition: $switch-transition;
-				width: 100%;
+				transform: scale(0);
 			}
 		}
 	}
+
+	&__item.-pressed {
+		background-color: $color-neutral-background-ghost-hovered;
+
+		&::before {
+			background-color: $color-neutral-ripple;
+			border-radius: 50%;
+			content: '';
+			padding-top: 100%;
+			position: absolute;
+			transform: scale(1);
+			transition: $switch-transition;
+			width: 100%;
+		}
+	}
+}
 </style>
 
 <script lang="ts">
@@ -271,7 +270,7 @@ export default {
 	// eslint-disable-next-line vue/no-reserved-component-names
 	name: 'Switch',
 	components: {
-		DsIcon
+		DsIcon,
 	},
 	props: {
 		size: {
@@ -345,13 +344,13 @@ export default {
 			if (this.state === SWITCH_STATE.DISABLED || this.currentSide === side) {
 				return;
 			}
-			this.isPressed = true
-			setTimeout(() => this.isPressed = false, 300);
+			this.isPressed = true;
+			setTimeout(() => (this.isPressed = false), 300);
 			this.currentIcon = side === SWITCH_SIDE.LEFT ? this.iconLeft : this.iconRight;
 			this.currentLabel = side === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight;
 			this.currentSide = side;
 			this.$emit('update:selectedSide', side);
-		}
+		},
 	},
 };
 </script>
