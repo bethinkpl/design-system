@@ -25,7 +25,7 @@
 				:icon="iconLeft"
 				:size="ICON_SIZES.XX_SMALL"
 			/>
-			<div class="switch__label">
+			<div v-if="labelLeft" class="switch__label">
 				{{ labelLeft }}
 			</div>
 		</div>
@@ -44,7 +44,7 @@
 				:icon="iconRight"
 				:size="ICON_SIZES.XX_SMALL"
 			/>
-			<div class="switch__label">
+			<div v-if="labelRight" class="switch__label">
 				{{ labelRight }}
 			</div>
 		</div>
@@ -55,7 +55,7 @@
 				:icon="currentIcon"
 				:size="ICON_SIZES.XX_SMALL"
 			/>
-			<div class="switch__label">{{ currentLabel }}</div>
+			<div v-if="currentLabel" class="switch__label">{{ currentLabel }}</div>
 		</div>
 		<div ref="rightReference" class="switch__item -reference">
 			<ds-icon
@@ -64,7 +64,7 @@
 				:icon="iconRight"
 				:size="ICON_SIZES.XX_SMALL"
 			/>
-			<div class="switch__label">{{ labelRight }}</div>
+			<div v-if="labelRight" class="switch__label">{{ labelRight }}</div>
 		</div>
 	</div>
 </template>
