@@ -1,70 +1,69 @@
 <template>
-	<div
-		class="switch"
-		:class="{
-			'-small': size === SWITCH_SIZE.SMALL,
-			'-medium': size === SWITCH_SIZE.MEDIUM,
-
-			'-rounded': radius === SWITCH_RADIUSES.ROUNDED,
-
-			'-disabled': state === SWITCH_STATE.DISABLED,
-		}"
-	>
+	<div class="switchWrapper">
 		<div
-			class="switch__item -left"
+			class="switch"
 			:class="{
-				'-pressed': currentSide === SWITCH_SIDE.LEFT && isPressed,
-				'-selected': currentSide === SWITCH_SIDE.LEFT,
+				'-small': size === SWITCH_SIZE.SMALL,
+				'-medium': size === SWITCH_SIZE.MEDIUM,
+
+				'-rounded': radius === SWITCH_RADIUSES.ROUNDED,
+
+				'-disabled': state === SWITCH_STATE.DISABLED,
 			}"
-			:title="labelLeft"
-			@click="onSwitch(SWITCH_SIDE.LEFT)"
 		>
-			<ds-icon
-				v-if="iconLeft"
-				class="switch__icon"
-				:icon="iconLeft"
-				:size="ICON_SIZES.XX_SMALL"
-			/>
-			<div v-if="labelLeft" class="switch__label">
-				{{ labelLeft }}
+			<div
+				class="switch__item -left"
+				:class="{
+					'-pressed': currentSide === SWITCH_SIDE.LEFT && isPressed,
+					'-selected': currentSide === SWITCH_SIDE.LEFT,
+				}"
+				:title="labelLeft"
+				@click="onSwitch(SWITCH_SIDE.LEFT)"
+			>
+				<ds-icon
+					v-if="iconLeft"
+					class="switch__icon"
+					:icon="iconLeft"
+					:size="ICON_SIZES.XX_SMALL"
+				/>
+				<div v-if="labelLeft" class="switch__label">
+					{{ labelLeft }}
+				</div>
 			</div>
-		</div>
-		<div
-			class="switch__item -right"
-			:class="{
-				'-pressed': currentSide === SWITCH_SIDE.RIGHT && isPressed,
-				'-selected': currentSide === SWITCH_SIDE.RIGHT,
-			}"
-			:title="labelRight"
-			@click="onSwitch(SWITCH_SIDE.RIGHT)"
-		>
-			<ds-icon
-				v-if="iconRight"
-				class="switch__icon"
-				:icon="iconRight"
-				:size="ICON_SIZES.XX_SMALL"
-			/>
-			<div v-if="labelRight" class="switch__label">
-				{{ labelRight }}
+			<div
+				class="switch__item -right"
+				:class="{
+					'-pressed': currentSide === SWITCH_SIDE.RIGHT && isPressed,
+					'-selected': currentSide === SWITCH_SIDE.RIGHT,
+				}"
+				:title="labelRight"
+				@click="onSwitch(SWITCH_SIDE.RIGHT)"
+			>
+				<ds-icon
+					v-if="iconRight"
+					class="switch__icon"
+					:icon="iconRight"
+					:size="ICON_SIZES.XX_SMALL"
+				/>
+				<div v-if="labelRight" class="switch__label">
+					{{ labelRight }}
+				</div>
 			</div>
-		</div>
-		<div ref="selection" class="switch__item -selection">
-			<ds-icon
-				v-if="currentIcon"
-				class="switch__icon"
-				:icon="currentIcon"
-				:size="ICON_SIZES.XX_SMALL"
-			/>
-			<div v-if="currentLabel" class="switch__label">{{ currentLabel }}</div>
-		</div>
-		<div ref="rightReference" class="switch__item -reference">
-			<ds-icon
-				v-if="iconRight"
-				class="switch__icon"
-				:icon="iconRight"
-				:size="ICON_SIZES.XX_SMALL"
-			/>
-			<div v-if="labelRight" class="switch__label">{{ labelRight }}</div>
+			<div
+				class="switch__item -selection"
+				:class="{
+					'-left': currentSide === SWITCH_SIDE.LEFT,
+					'-right': currentSide === SWITCH_SIDE.RIGHT,
+				}"
+			>
+				<ds-icon
+					v-if="currentIcon"
+					class="switch__icon"
+					:icon="currentIcon"
+					:size="ICON_SIZES.XX_SMALL"
+				/>
+				<div v-if="currentLabel" class="switch__label">{{ currentLabel }}</div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -78,6 +77,12 @@
 	@import '../../../styles/settings/typography/tokens';
 
 	$switch-transition: all $default-transition-time ease;
+
+	.switchWrapper {
+		display: inline-flex;
+		max-width: 100%;
+		overflow: hidden;
+	}
 
 	.switch {
 		$root: &;
@@ -162,6 +167,15 @@
 					white-space: nowrap;
 					width: max-content;
 				}
+
+				&.-left {
+					left: 0;
+				}
+
+				&.-right {
+					left: calc(100% + 2px);
+					transform: translateX(-100%);
+				}
 			}
 
 			&.-selected,
@@ -171,19 +185,6 @@
 				flex-shrink: 0;
 				overflow: hidden;
 				text-overflow: initial;
-			}
-
-			&.-reference {
-				display: inline-flex;
-				left: 0;
-				position: absolute;
-				transition: none;
-				visibility: hidden;
-				z-index: 1;
-
-				#{$root}__label {
-					white-space: nowrap;
-				}
 			}
 		}
 
@@ -265,18 +266,6 @@ import {
 	SwitchState,
 } from './Switch.consts';
 import DsIcon, { ICON_SIZES, ICONS, IconItem } from '../Icons/Icon';
-import { Value } from "../../utils/type.utils";
-
-const adjustSelectionPosition = ({ rightReference, selection }, currentSide: SwitchSelection, size: SwitchSize) => {
-	const maxSize = selection.parentNode.offsetWidth;
-
-	if (currentSide === SWITCH_SIDE.LEFT) {
-		selection.style.left = '0';
-	} else {
-		const position = Math.max(maxSize - rightReference.offsetWidth, size === SWITCH_SIZES.SMALL ? 48 : 64);
-		selection.style.left = `${position}px`;
-	}
-}
 
 export default {
 	// eslint-disable-next-line vue/no-reserved-component-names
@@ -288,28 +277,28 @@ export default {
 		size: {
 			type: String as PropType<SwitchSize>,
 			default: SWITCH_SIZES.MEDIUM,
-			validator(size) {
+			validator(size: SwitchSize) {
 				return Object.values(SWITCH_SIZES).includes(size);
 			},
 		},
 		radius: {
 			type: String as PropType<SwitchRadius>,
 			default: SWITCH_RADIUSES.CAPSULE,
-			validator(value: Value<typeof SWITCH_RADIUSES>) {
+			validator(value: SwitchRadius) {
 				return Object.values(SWITCH_RADIUSES).includes(value);
 			},
 		},
 		iconLeft: {
 			type: Object as PropType<IconItem>,
 			default: null,
-			validator(icon) {
+			validator(icon: IconItem) {
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		iconRight: {
 			type: Object as PropType<IconItem>,
 			default: null,
-			validator(icon) {
+			validator(icon: IconItem) {
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
@@ -324,14 +313,14 @@ export default {
 		state: {
 			type: String as PropType<SwitchState>,
 			default: SWITCH_STATE.DEFAULT,
-			validator(state) {
+			validator(state: SwitchState) {
 				return Object.values(SWITCH_STATE).includes(state);
 			},
 		},
 		selectedSide: {
 			type: String as PropType<SwitchSelection>,
 			default: SWITCH_SIDE.LEFT,
-			validator(side) {
+			validator(side: SwitchSelection) {
 				return Object.values(SWITCH_SIDE).includes(side);
 			},
 		},
@@ -350,14 +339,6 @@ export default {
 			currentLabel: this.selectedSide === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight,
 			isPressed: false,
 		};
-	},
-	watch: {
-		currentSide(side) {
-			adjustSelectionPosition(this.$refs, side, this.size);
-		}
-	},
-	async mounted() {
-		adjustSelectionPosition(this.$refs, this.currentSide, this.size);
 	},
 	methods: {
 		onSwitch(side: SwitchSelection) {
