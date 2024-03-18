@@ -14,6 +14,7 @@
 			<div
 				class="switch__item -left"
 				:class="{
+					'-clickable': currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
 					'-selected': currentSide === SWITCH_SIDE.LEFT,
 				}"
 				:title="labelLeft"
@@ -32,6 +33,7 @@
 			<div
 				class="switch__item -right"
 				:class="{
+					'-clickable': currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
 					'-selected': currentSide === SWITCH_SIDE.RIGHT,
 				}"
 				:title="labelRight"
@@ -141,7 +143,7 @@ $switch-transition: all $default-transition-time ease-out;
 			margin: -1px 0 -1px -1px;
 		}
 
-		&.right {
+		&.-right {
 			margin: -1px -1px -1px 0;
 		}
 
@@ -170,7 +172,7 @@ $switch-transition: all $default-transition-time ease-out;
 			}
 
 			&.-right {
-				left: calc(100% + 2px);
+				left: calc(100% + 1px);
 				transform: translateX(-100%);
 			}
 		}
@@ -198,30 +200,31 @@ $switch-transition: all $default-transition-time ease-out;
 
 	&.-disabled &__item {
 		cursor: default;
+		pointer-events: none;
+
+		&__icon {
+			color: $color-neutral-icon-disabled;
+		}
+
+		&__label {
+			color: $color-neutral-text-weak;
+		}
 
 		&.-selected {
 			background-color: $color-primary-background-disabled;
 			border-color: $color-primary-border-disabled;
+
+			&__icon {
+				color: $color-primary-icon-disabled;
+			}
+
+			&__label {
+				color: $color-neutral-text-strong;
+			}
 		}
 	}
 
-	&.-disabled &__icon {
-		color: $color-neutral-icon-disabled;
-	}
-
-	&.-disabled .-selected &__icon {
-		color: $color-primary-icon-disabled;
-	}
-
-	&.-disabled &__label {
-		color: $color-neutral-text-weak;
-	}
-
-	&.-disabled .-selected &__label {
-		color: $color-neutral-text-strong;
-	}
-
-	&:not(.-disabled) &__item:not(.-selected) {
+	&__item.-clickable {
 		&:hover {
 			background-color: $color-neutral-background-ghost-hovered;
 
@@ -300,11 +303,11 @@ export default {
 		},
 		labelLeft: {
 			type: String,
-			default: null,
+			default: '',
 		},
 		labelRight: {
 			type: String,
-			default: null,
+			default: '',
 		},
 		state: {
 			type: String as PropType<SwitchState>,
@@ -322,6 +325,14 @@ export default {
 		},
 	},
 	emits: ['update:selectedSide'],
+	computed: {
+		currentIcon() {
+			return this.currentSide === SWITCH_SIDE.LEFT ? this.iconLeft : this.iconRight;
+		},
+		currentLabel() {
+			return this.currentSide === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight;
+		},
+	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -331,8 +342,6 @@ export default {
 			SWITCH_SIZE: Object.freeze(SWITCH_SIZES),
 			SWITCH_STATE: Object.freeze(SWITCH_STATE),
 			currentSide: this.selectedSide,
-			currentIcon: this.selectedSide === SWITCH_SIDE.LEFT ? this.iconLeft : this.iconRight,
-			currentLabel: this.selectedSide === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight,
 		};
 	},
 	methods: {
@@ -340,8 +349,6 @@ export default {
 			if (this.state === SWITCH_STATE.DISABLED || this.currentSide === side) {
 				return;
 			}
-			this.currentIcon = side === SWITCH_SIDE.LEFT ? this.iconLeft : this.iconRight;
-			this.currentLabel = side === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight;
 			this.currentSide = side;
 			this.$emit('update:selectedSide', side);
 		},
