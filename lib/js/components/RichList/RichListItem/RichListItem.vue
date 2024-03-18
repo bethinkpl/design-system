@@ -108,12 +108,15 @@ $rich-list-item-background-colors: (
 	flex: 1;
 	flex-direction: column;
 	justify-content: center;
-	min-height: 62px;
+	align-items: flex-start;
 	padding: $space-xxxxs;
 	position: relative;
 
 	@media #{breakpoint-s()} {
+		justify-content: initial;
+		flex-direction: initial;
 		padding: 0 $space-xxxxs;
+		align-items: center;
 	}
 
 	&.-interactive {
@@ -233,7 +236,7 @@ $rich-list-item-background-colors: (
 		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
-		padding: $space-xs $space-xxxs 0 $space-xs;
+		padding: $space-xs 0 0 $space-xs;
 
 		@media #{breakpoint-s()} {
 			align-items: center;
@@ -244,18 +247,19 @@ $rich-list-item-background-colors: (
 	&__content {
 		align-items: center;
 		display: flex;
-		flex: 2 0 0;
+		flex: 1 0 0;
 		min-width: 0;
-		padding: 0 $space-xxs 0 $space-xxxs;
+		padding: 0 $space-xxxxs 0 $space-xs;
 
 		@media #{breakpoint-s()} {
-			padding: 0 $space-xxs;
+			padding: 0 $space-xxs 0 $space-xxs;
 		}
 	}
 
 	&__metaData {
 		align-items: center;
 		padding-left: $space-xs;
+		gap: $space-xs;
 
 		@media #{breakpoint-s()} {
 			justify-content: flex-start;
@@ -296,9 +300,9 @@ $rich-list-item-background-colors: (
 		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
-		gap: $space-xxs;
 		justify-content: flex-end;
 		padding: $space-xxxxs $space-xxxxs 0 $space-xxxxs;
+		gap: $space-xxs;
 
 		@media #{breakpoint-s()} {
 			align-items: center;
@@ -311,13 +315,13 @@ $rich-list-item-background-colors: (
 		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
-		gap: $space-s;
 		justify-content: flex-end;
 		padding: $space-xxxxxs $space-xs 0 $space-xs;
+		gap: $space-s;
 
 		@media #{breakpoint-s()} {
 			align-items: center;
-			padding: 0 $space-s 0 $space-xxxs;
+			padding: 0 $space-s 0 $space-xxxxs;
 		}
 	}
 
