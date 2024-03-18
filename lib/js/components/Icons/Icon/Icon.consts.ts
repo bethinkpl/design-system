@@ -5,6 +5,24 @@ import CommentsCheck from '../../../../images/icons/comments-check.svg';
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
 import { Value } from '../../../utils/type.utils';
 
+export const ICON_COLORS = {
+	ACCENT: 'accent',
+	DANGER: 'danger',
+	DEFAULT: 'default',
+	FAIL: 'fail',
+	INFO: 'info',
+	INVERTED: 'inverted',
+	NEUTRAL: 'neutral',
+	NEUTRAL_STRONG: 'neutralStrong',
+	NEUTRAL_WEAK: 'neutralWeak',
+	PRIMARY: 'primary',
+	PRIMARY_WEAK: 'primaryWeak',
+	SUCCESS: 'success',
+	WARNING: 'warning',
+};
+
+export type IconColor = Value<typeof ICON_COLORS>;
+
 export const ICON_SIZES = {
 	XXX_SMALL: 'xxx-small',
 	XX_SMALL: 'xx-small',

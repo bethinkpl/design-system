@@ -6,6 +6,7 @@
 			'-spin': spinning,
 			'-flipped-vertical': flippedVertical,
 			'-flipped-horizontal': flippedHorizontal,
+			[colorClassName]: color,
 			[rotationClass]: rotationClass,
 			[sizeClassName]: true,
 		}"
@@ -22,7 +23,7 @@
 <script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import { ICON_SIZES, ICONS } from './Icon.consts';
+import {ICON_COLORS, ICON_SIZES, IconColor, ICONS} from './Icon.consts';
 import { toRaw } from 'vue';
 
 export default {
@@ -37,6 +38,10 @@ export default {
 			validator(icon) {
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
+		},
+		color: {
+			type: String as () => IconColor,
+			validator: (color: string) => Object.values(ICON_COLORS).includes(color),
 		},
 		size: {
 			type: String,
@@ -68,6 +73,9 @@ export default {
 		},
 	},
 	computed: {
+		colorClassName() {
+			return `-${this.color}`;
+		},
 		sizeClassName() {
 			return `-${this.size}`;
 		},

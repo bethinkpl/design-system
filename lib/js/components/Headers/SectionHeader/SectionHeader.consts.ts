@@ -1,4 +1,5 @@
 export const SECTION_HEADER_SIZES = {
+	XX_SMALL: 'xx-small',
 	X_SMALL: 'x-small',
 	SMALL: 'small',
 	MEDIUM: 'medium',

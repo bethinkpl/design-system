@@ -15,6 +15,7 @@
 							v-if="iconLeft"
 							class="sectionHeader__icon"
 							:icon="iconLeft"
+							:color="iconLeftColor"
 							:size="iconSize"
 						/>
 						<div class="sectionHeader__titleContainer">
@@ -25,6 +26,7 @@
 							v-if="iconRight"
 							class="sectionHeader__icon"
 							:icon="iconRight"
+							:color="iconRightColor"
 							:size="iconSize"
 						/>
 						<ds-icon
@@ -238,6 +240,20 @@
 		}
 	}
 
+	&.-size-xx-small {
+		#{$root}__main {
+			padding: $space-xxxxxs 0;
+		}
+
+		#{$root}__titleWrapper {
+			gap: $space-xxxs;
+		}
+
+		#{$root}__header {
+			@include info-s-extensive-bold-uppercase;
+		}
+	}
+
 	&__slotHorizontal {
 		display: none;
 		flex-shrink: 0;
@@ -274,7 +290,7 @@
 
 <script lang="ts">
 import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from './SectionHeader.consts';
-import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
+import DsIcon, {ICON_SIZES, IconColor, IconItem, ICONS, ICON_COLORS} from '../../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import DsDivider from '../../Divider';
 import { toRaw } from 'vue';
@@ -302,11 +318,25 @@ export default {
 				return Object.values(ICONS).includes(toRaw(iconLeft));
 			},
 		},
+		iconLeftColor: {
+			type: String as () => IconColor,
+			default: null,
+			validator(iconLeftColor: IconColor) {
+				return Object.values(ICON_COLORS).includes(toRaw(iconLeftColor));
+			},
+		},
 		iconRight: {
 			type: Object as () => IconItem,
 			default: null,
 			validator(iconRight: IconItem) {
 				return Object.values(ICONS).includes(toRaw(iconRight));
+			},
+		},
+		iconRightColor: {
+			type: String as () => IconColor,
+			default: null,
+			validator(iconRightColor: IconColor) {
+				return Object.values(ICON_COLORS).includes(toRaw(iconRightColor));
 			},
 		},
 		isExpanded: {

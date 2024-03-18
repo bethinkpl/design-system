@@ -1,5 +1,5 @@
 import Icon from './Icon.vue';
-import { ICON_SIZES, ICONS } from './Icon.consts';
+import {ICON_COLORS, ICON_SIZES, ICONS} from './Icon.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
@@ -14,7 +14,7 @@ const StoryTemplate: StoryFn<typeof Icon> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<div class="sbIconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
+		'<div class="sbIconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :color="color" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -27,6 +27,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	size: ICON_SIZES.MEDIUM,
 	icon: 'HEAD_WITH_QUESTION_MARK',
+	color: ICON_COLORS.DEFAULT,
 	spinning: false,
 	touchable: false,
 	rotation: null,
@@ -38,6 +39,10 @@ const argTypes = {
 	size: {
 		control: { type: 'select', options: Object.values(ICON_SIZES) },
 		defaultValue: ICON_SIZES.MEDIUM,
+	},
+	color: {
+		control: { type: 'select', options: Object.values(ICON_COLORS) },
+		defaultValue: ICON_COLORS.DEFAULT,
 	},
 	icon: {
 		control: { type: 'select', options: Object.keys(ICONS) },
