@@ -14,7 +14,6 @@
 			<div
 				class="switch__item -left"
 				:class="{
-					'-pressed': currentSide === SWITCH_SIDE.LEFT && isPressed,
 					'-selected': currentSide === SWITCH_SIDE.LEFT,
 				}"
 				:title="labelLeft"
@@ -33,7 +32,6 @@
 			<div
 				class="switch__item -right"
 				:class="{
-					'-pressed': currentSide === SWITCH_SIDE.RIGHT && isPressed,
 					'-selected': currentSide === SWITCH_SIDE.RIGHT,
 				}"
 				:title="labelRight"
@@ -75,7 +73,7 @@
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 
-$switch-transition: all $default-transition-time ease;
+$switch-transition: all $default-transition-time ease-out;
 
 .switchWrapper {
 	display: inline-flex;
@@ -228,25 +226,24 @@ $switch-transition: all $default-transition-time ease;
 			background-color: $color-neutral-background-ghost-hovered;
 
 			&::before {
+				background-color: $color-neutral-ripple;
+				border-radius: 50%;
 				content: '';
+				padding-top: 100%;
 				position: absolute;
 				transform: scale(0);
+				transition: none;
+				width: 100%;
 			}
 		}
-	}
 
-	&__item.-pressed {
-		background-color: $color-neutral-background-ghost-hovered;
-
-		&::before {
-			background-color: $color-neutral-ripple;
-			border-radius: 50%;
-			content: '';
-			padding-top: 100%;
-			position: absolute;
-			transform: scale(1);
-			transition: $switch-transition;
-			width: 100%;
+		&:active {
+			&::before {
+				content: '';
+				position: absolute;
+				transform: scale(1);
+				transition: $switch-transition;
+			}
 		}
 	}
 }
@@ -336,7 +333,6 @@ export default {
 			currentSide: this.selectedSide,
 			currentIcon: this.selectedSide === SWITCH_SIDE.LEFT ? this.iconLeft : this.iconRight,
 			currentLabel: this.selectedSide === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight,
-			isPressed: false,
 		};
 	},
 	methods: {
@@ -344,8 +340,6 @@ export default {
 			if (this.state === SWITCH_STATE.DISABLED || this.currentSide === side) {
 				return;
 			}
-			this.isPressed = true;
-			setTimeout(() => (this.isPressed = false), 300);
 			this.currentIcon = side === SWITCH_SIDE.LEFT ? this.iconLeft : this.iconRight;
 			this.currentLabel = side === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight;
 			this.currentSide = side;
