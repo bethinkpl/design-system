@@ -32,31 +32,54 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 			:title-color="titleColor"
 			:title-ellipsis="titleEllipsis"
 			:title="title"
-		/>`,
+		>
+			<template #actions v-if="actions">
+				<div v-html="actions" />
+			</template>
+			<template #titleTrailing v-if="titleTrailing">
+				<div v-html="titleTrailing" />
+			</template>
+		</drawer-header>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
-const args = {} as Args;
+const args = {
+	eyebrowText: 'eyebrow',
+	isInteractiveEyebrow: false,
+	eyebrowEllipsis: false,
+	title: 'Header Title',
+	titleEllipsis: false,
+	titleColor: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
+	leftIcon: null,
+	chipLabel: 'chip',
+	isClosable: true,
+	hasDivider: false,
+	isSecondLevel: false,
+	actions: 'actions slot',
+	titleTrailing: 'trailing slot',
+} as Args;
 
 const argTypes = {
-	title: { control: { type: 'text' }, defaultValue: 'Header Title' },
 	eyebrowText: { control: { type: 'text' }, defaultValue: 'eyebrow' },
-	chipLabel: { control: { type: 'text' }, defaultValue: 'chip' },
-	hasDivider: { control: { type: 'boolean' }, defaultValue: false },
-	isClosable: { control: { type: 'boolean' }, defaultValue: true },
-	isSecondLevel: { control: { type: 'boolean' }, defaultValue: false },
 	isInteractiveEyebrow: { control: { type: 'boolean' }, defaultValue: false },
-	leftIcon: {
-		control: { type: 'select', options: [...Object.keys(ICONS), null] },
-		defaultValue: null,
-	},
 	eyebrowEllipsis: { control: { type: 'boolean' }, defaultValue: false },
+	title: { control: { type: 'text' }, defaultValue: 'Header Title' },
 	titleEllipsis: { control: { type: 'boolean' }, defaultValue: false },
 	titleColor: {
 		control: { type: 'select', options: Object.values(DRAWER_HEADER_TITLE_COLORS) },
 		defaultValue: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
 	},
+	leftIcon: {
+		control: { type: 'select', options: [...Object.keys(ICONS), null] },
+		defaultValue: null,
+	},
+	chipLabel: { control: { type: 'text' }, defaultValue: 'chip' },
+	hasDivider: { control: { type: 'boolean' }, defaultValue: false },
+	isSecondLevel: { control: { type: 'boolean' }, defaultValue: false },
+	isClosable: { control: { type: 'boolean' }, defaultValue: true },
+	actions: { control: { type: 'text' }, defaultValue: 'actions slot' },
+	titleTrailing: { control: { type: 'text' }, defaultValue: 'trailing slot' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
