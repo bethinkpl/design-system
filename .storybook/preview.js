@@ -38,6 +38,14 @@ const customViewports = {
 		},
 		type: 'desktop',
 	},
+	breakpointXL: {
+		name: 'breakpointXL',
+		styles: {
+			height: '1024px',
+			width: '1600px',
+		},
+		type: 'desktop',
+	},
 	mobile1: {
 		name: 'Smallest supported mobile',
 		styles: {
