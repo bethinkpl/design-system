@@ -87,6 +87,19 @@ $rich-list-item-icon-colors: (
 	accent: $color-accent-icon,
 );
 
+$rich-list-item-background-colors: (
+	neutral: (
+		default: $color-neutral-background,
+		hover: $color-neutral-background-hovered,
+		loading: $color-neutral-background-hovered,
+	),
+	neutral-weak: (
+		default: $color-neutral-background-weak,
+		hover: $color-neutral-background-weak-hovered,
+		loading: $color-neutral-background-weak-hovered,
+	),
+);
+
 .richListItem {
 	$root: &;
 
@@ -107,16 +120,18 @@ $rich-list-item-icon-colors: (
 		cursor: pointer;
 		pointer-events: initial;
 
-		&.-background-neutral.-default:not(.-dimmed):hover {
-			background: $color-neutral-background-hovered;
-		}
+		&:not(.-dimmed):hover {
+			&.-default {
+				@each $color, $value in $rich-list-item-background-colors {
+					&.-background-#{$color} {
+						background-color: map-get($value, 'hover');
+					}
+				}
+			}
 
-		&.-background-neutral-weak.-default:not(.-dimmed):hover {
-			background: $color-neutral-background-weak-hovered;
-		}
-
-		&.-flat:not(.-dimmed):hover {
-			background: $color-neutral-background-ghost-hovered;
+			&.-flat {
+				background: $color-neutral-background-ghost-hovered;
+			}
 		}
 
 		&.-draggable {
@@ -136,19 +151,13 @@ $rich-list-item-icon-colors: (
 		}
 	}
 
-	&.-background-neutral {
-		background-color: $color-neutral-background;
+	@each $color, $value in $rich-list-item-background-colors {
+		&.-background-#{$color} {
+			background-color: map-get($value, 'default');
 
-		&.-loading {
-			background-color: $color-neutral-background-hovered;
-		}
-	}
-
-	&.-background-neutral-weak {
-		background-color: $color-neutral-background-weak;
-
-		&.-loading {
-			background-color: $color-neutral-background-weak-hovered;
+			&.-loading {
+				background-color: map-get($value, 'loading');
+			}
 		}
 	}
 
@@ -526,9 +535,10 @@ export default {
 				...(this.backgroundColor && {
 					[`-background-${this.backgroundColor}`]: true,
 				}),
-				...(this.elevation && {
-					[`-elevation-${this.elevation}`]: true,
-				}),
+				...(this.elevation &&
+					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
+						[`-elevation-${this.elevation}`]: true,
+					}),
 				'-draggable': this.isDraggable && !this.hasDraggableHandler,
 			};
 		},
