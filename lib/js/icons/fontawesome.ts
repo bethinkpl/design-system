@@ -50,6 +50,7 @@ import { faClipboardList } from '@fortawesome/pro-regular-svg-icons/faClipboardL
 import { faClock } from '@fortawesome/pro-regular-svg-icons/faClock';
 import { faClockRotateLeft } from '@fortawesome/pro-regular-svg-icons/faClockRotateLeft';
 import { faCode } from '@fortawesome/pro-regular-svg-icons/faCode';
+import { faCodeSimple } from '@fortawesome/pro-regular-svg-icons';
 import { faComment } from '@fortawesome/pro-regular-svg-icons/faComment';
 import { faCommentDots } from '@fortawesome/pro-regular-svg-icons/faCommentDots';
 import { faComments } from '@fortawesome/pro-regular-svg-icons/faComments';
@@ -108,6 +109,7 @@ import { faPenField } from '@fortawesome/pro-regular-svg-icons/faPenField';
 import { faPlay } from '@fortawesome/pro-regular-svg-icons/faPlay';
 import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
 import { faPrint } from '@fortawesome/pro-regular-svg-icons/faPrint';
+import { faRectangleCode } from '@fortawesome/pro-regular-svg-icons/faRectangleCode';
 import { faReply } from '@fortawesome/pro-regular-svg-icons/faReply';
 import { faRotateLeft } from '@fortawesome/pro-regular-svg-icons/faRotateLeft';
 import { faShare } from '@fortawesome/pro-regular-svg-icons/faShare';
@@ -248,6 +250,7 @@ export const FONTAWESOME_ICONS = {
 	FA_CLOCK: faClock,
 	FA_CLOCK_ROTATE_LEFT: faClockRotateLeft,
 	FA_CODE: faCode,
+	FA_CODE_SIMPLE: faCodeSimple,
 	FA_COMMENT: faComment,
 	FA_COMMENT_DOTS: faCommentDots,
 	FA_COMMENT_SOLID: fasComment,
@@ -325,6 +328,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PLAY: faPlay,
 	FA_PLUS: faPlus,
 	FA_PRINT: faPrint,
+	FA_RECTANGLE_CODE: faRectangleCode,
 	FA_REPLY: faReply,
 	FA_ROTATE_LEFT: faRotateLeft,
 	FA_SHARE: faShare,

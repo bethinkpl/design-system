@@ -103,6 +103,7 @@ declare const _default: {
             readonly FA_CLOCK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLOCK_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CODE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CODE_SIMPLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMMENT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMMENT_DOTS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMMENT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -180,6 +181,7 @@ declare const _default: {
             readonly FA_PLAY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_PLUS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_PRINT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_RECTANGLE_CODE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_REPLY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHARE: import("@fortawesome/fontawesome-common-types").IconDefinition;

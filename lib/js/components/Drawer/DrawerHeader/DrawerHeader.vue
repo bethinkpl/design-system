@@ -22,7 +22,7 @@
 				>
 					{{ eyebrowText }}
 				</span>
-				<div class="drawerHeader__title" :class="{ [`-${titleColor}`]: true }">
+				<div class="drawerHeader__title">
 					<icon
 						v-if="leftIcon"
 						:icon="leftIcon"
@@ -31,16 +31,22 @@
 					/>
 					<span
 						v-if="title"
-						:class="{ '-ellipsis': titleEllipsis }"
+						class="drawerHeader__titleText"
+						:class="{ '-ellipsis': titleEllipsis, [`-${titleColor}`]: true }"
 						:title="titleEllipsis ? title : undefined"
 						>{{ title }}</span
 					>
 					<chip v-if="chipLabel" :label="chipLabel" />
+					<div v-if="$slots.titleTrailing">
+						<slot name="titleTrailing" />
+					</div>
 				</div>
+			</div>
+			<div v-if="$slots.actions" class="drawerHeader__actions">
+				<slot name="actions" />
 			</div>
 			<icon-button
 				v-if="isClosable"
-				class="drawerHeader__closeButton"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"
 				:touchable="false"
@@ -99,11 +105,13 @@ $minimal-drawer-header-height: 82px;
 	}
 
 	&__title {
-		@include heading-s-default-bold-uppercase;
-
 		align-items: center;
 		column-gap: $space-xxxs;
 		display: flex;
+	}
+
+	&__titleText {
+		@include heading-s-default-bold-uppercase;
 
 		&.-neutralStrong {
 			color: $color-neutral-text-strong;
@@ -113,7 +121,7 @@ $minimal-drawer-header-height: 82px;
 			color: $color-neutral-text-weak;
 		}
 
-		.-ellipsis {
+		&.-ellipsis {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -129,8 +137,8 @@ $minimal-drawer-header-height: 82px;
 		padding: $space-m $space-xs $space-m $space-s;
 	}
 
-	&__closeButton {
-		align-self: flex-start;
+	&__actions {
+		margin-left: auto;
 	}
 }
 </style>
@@ -159,41 +167,21 @@ export default {
 		Chip,
 	},
 	props: {
-		title: {
-			type: String,
-			default: null,
-		},
 		eyebrowText: {
 			type: String,
 			default: null,
 		},
-		chipLabel: {
-			type: String,
-			default: null,
-		},
-		leftIcon: {
-			type: [Object, null],
-			default: null,
-		},
-		isClosable: {
-			type: Boolean,
-			default: true,
-		},
-		isSecondLevel: {
-			type: Boolean,
-			default: false,
-		},
 		isInteractiveEyebrow: {
-			type: Boolean,
-			default: false,
-		},
-		hasDivider: {
 			type: Boolean,
 			default: false,
 		},
 		eyebrowEllipsis: {
 			type: Boolean,
 			default: false,
+		},
+		title: {
+			type: String,
+			default: null,
 		},
 		titleEllipsis: {
 			type: Boolean,
@@ -202,6 +190,26 @@ export default {
 		titleColor: {
 			type: String as PropType<DrawerHeaderTitleColor>,
 			default: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
+		},
+		leftIcon: {
+			type: [Object, null],
+			default: null,
+		},
+		chipLabel: {
+			type: String,
+			default: null,
+		},
+		isClosable: {
+			type: Boolean,
+			default: true,
+		},
+		hasDivider: {
+			type: Boolean,
+			default: false,
+		},
+		isSecondLevel: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	emits: ['backClicked', 'close', 'eyebrowClicked'],
