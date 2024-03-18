@@ -29,8 +29,11 @@
 <script lang="ts">
 import { ICON_COLORS, IconColor, IconItem, ICONS } from '../../Icons/Icon';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
-import SectionHeader, { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from "../../Headers/SectionHeader";
-import { toRaw } from "vue";
+import SectionHeader, {
+	SECTION_HEADER_MOBILE_LAYOUTS,
+	SECTION_HEADER_SIZES,
+} from '../../Headers/SectionHeader';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'DrawerSection',

@@ -1,8 +1,8 @@
 import DrawerSection from './DrawerSection.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from "../../Headers/SectionHeader";
-import { ICON_COLORS, ICONS } from "../../Icons/Icon";
+import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from '../../Headers/SectionHeader';
+import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 
 export default {
 	title: 'Components/Drawer/DrawerSection',
