@@ -14,7 +14,8 @@
 			<div
 				class="switch__item -left"
 				:class="{
-					'-clickable': currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
+					'-clickable':
+						currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
 					'-selected': currentSide === SWITCH_SIDE.LEFT,
 				}"
 				:title="labelLeft"
@@ -33,7 +34,8 @@
 			<div
 				class="switch__item -right"
 				:class="{
-					'-clickable': currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
+					'-clickable':
+						currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
 					'-selected': currentSide === SWITCH_SIDE.RIGHT,
 				}"
 				:title="labelRight"
@@ -202,11 +204,11 @@ $switch-transition: all $default-transition-time ease-out;
 		cursor: default;
 		pointer-events: none;
 
-		&__icon {
+		#{$root}__icon {
 			color: $color-neutral-icon-disabled;
 		}
 
-		&__label {
+		#{$root}__label {
 			color: $color-neutral-text-weak;
 		}
 
@@ -214,11 +216,11 @@ $switch-transition: all $default-transition-time ease-out;
 			background-color: $color-primary-background-disabled;
 			border-color: $color-primary-border-disabled;
 
-			&__icon {
+			#{$root}__icon {
 				color: $color-primary-icon-disabled;
 			}
 
-			&__label {
+			#{$root}__label {
 				color: $color-neutral-text-strong;
 			}
 		}
@@ -325,14 +327,6 @@ export default {
 		},
 	},
 	emits: ['update:selectedSide'],
-	computed: {
-		currentIcon() {
-			return this.currentSide === SWITCH_SIDE.LEFT ? this.iconLeft : this.iconRight;
-		},
-		currentLabel() {
-			return this.currentSide === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight;
-		},
-	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -343,6 +337,14 @@ export default {
 			SWITCH_STATE: Object.freeze(SWITCH_STATE),
 			currentSide: this.selectedSide,
 		};
+	},
+	computed: {
+		currentIcon() {
+			return this.currentSide === SWITCH_SIDE.LEFT ? this.iconLeft : this.iconRight;
+		},
+		currentLabel() {
+			return this.currentSide === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight;
+		},
 	},
 	methods: {
 		onSwitch(side: SwitchSelection) {
