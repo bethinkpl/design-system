@@ -103,20 +103,30 @@ $rich-list-item-background-colors: (
 .richListItem {
 	$root: &;
 
+	@each $color, $value in $rich-list-item-background-colors {
+		&.-background-#{$color} {
+			background-color: map-get($value, 'default');
+
+			&.-loading {
+				background-color: map-get($value, 'loading');
+			}
+		}
+	}
+
+	align-items: flex-start;
 	cursor: default;
 	display: flex;
 	flex: 1;
 	flex-direction: column;
 	justify-content: center;
-	align-items: flex-start;
 	padding: $space-xxxxs;
 	position: relative;
 
 	@media #{breakpoint-s()} {
-		justify-content: initial;
-		flex-direction: initial;
-		padding: 0 $space-xxxxs;
 		align-items: center;
+		flex-direction: initial;
+		justify-content: initial;
+		padding: 0 $space-xxxxs;
 	}
 
 	&.-interactive {
@@ -151,16 +161,6 @@ $rich-list-item-background-colors: (
 	&.-dimmed {
 		.-dimmable {
 			opacity: 0.65;
-		}
-	}
-
-	@each $color, $value in $rich-list-item-background-colors {
-		&.-background-#{$color} {
-			background-color: map-get($value, 'default');
-
-			&.-loading {
-				background-color: map-get($value, 'loading');
-			}
 		}
 	}
 
@@ -258,8 +258,8 @@ $rich-list-item-background-colors: (
 
 	&__metaData {
 		align-items: center;
-		padding-left: $space-xs;
 		gap: $space-xs;
+		padding-left: $space-xs;
 
 		@media #{breakpoint-s()} {
 			justify-content: flex-start;
@@ -300,9 +300,9 @@ $rich-list-item-background-colors: (
 		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
+		gap: $space-xxs;
 		justify-content: flex-end;
 		padding: $space-xxxxs $space-xxxxs 0 $space-xxxxs;
-		gap: $space-xxs;
 
 		@media #{breakpoint-s()} {
 			align-items: center;
@@ -315,9 +315,9 @@ $rich-list-item-background-colors: (
 		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
+		gap: $space-s;
 		justify-content: flex-end;
 		padding: $space-xxxxxs $space-xs 0 $space-xs;
-		gap: $space-s;
 
 		@media #{breakpoint-s()} {
 			align-items: center;
