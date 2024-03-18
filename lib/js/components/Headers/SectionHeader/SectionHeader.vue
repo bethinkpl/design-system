@@ -290,7 +290,7 @@
 
 <script lang="ts">
 import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from './SectionHeader.consts';
-import DsIcon, {ICON_SIZES, IconColor, IconItem, ICONS, ICON_COLORS} from '../../Icons/Icon';
+import DsIcon, { ICON_SIZES, IconColor, IconItem, ICONS, ICON_COLORS } from '../../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import DsDivider from '../../Divider';
 import { toRaw } from 'vue';

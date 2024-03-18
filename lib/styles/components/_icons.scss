@@ -18,15 +18,15 @@ $icon-colors: (
 );
 
 .a-icon {
-	align-items: center;
-	display: inline-flex;
-	transition: transform 0.15s;
-
 	@each $color-name, $icon-color in $icon-colors {
 		&.-#{$color-name} {
 			color: $icon-color;
 		}
 	}
+
+	align-items: center;
+	display: inline-flex;
+	transition: transform 0.15s;
 
 	&.-touchable {
 		align-items: center;

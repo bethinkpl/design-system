@@ -23,7 +23,7 @@
 <script lang="ts">
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-import {ICON_COLORS, ICON_SIZES, IconColor, ICONS} from './Icon.consts';
+import { ICON_COLORS, ICON_SIZES, IconColor, ICONS } from './Icon.consts';
 import { toRaw } from 'vue';
 
 export default {
@@ -41,6 +41,7 @@ export default {
 		},
 		color: {
 			type: String as () => IconColor,
+			default: null,
 			validator: (color: string) => Object.values(ICON_COLORS).includes(color),
 		},
 		size: {

@@ -1,6 +1,6 @@
 import SectionHeader from './SectionHeader.vue';
 import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from './SectionHeader.consts';
-import {ICON_COLORS, ICONS} from '../../Icons/Icon';
+import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 

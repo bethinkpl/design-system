@@ -1,5 +1,5 @@
 import Icon from './Icon.vue';
-import {ICON_COLORS, ICON_SIZES, ICONS} from './Icon.consts';
+import { ICON_COLORS, ICON_SIZES, ICONS } from './Icon.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
