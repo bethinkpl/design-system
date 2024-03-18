@@ -2,12 +2,14 @@
 
 ### Fontawesome PRO
 
-DS requires access to font-awesome PRO. Add `.npmrc` file to root catalog. File should looks like:
+DS requires access to font-awesome PRO. Add `.npmrc` file to root catalog. File should look like:
 
 ```
 @fortawesome:registry=https://npm.fontawesome.com/
 //npm.fontawesome.com/:_authToken=<TOKEN>
 ```
+To obtain the token visit https://fontawesome.com/account/general, look for "Package Token". 
+Login credentials: https://bethink.passwd.team/secrets/5ZldBeJcdG5L4YdrovDE
 
 ### JSON BIN X-Master-Key
 1. Create `.env` file in the project root folder
