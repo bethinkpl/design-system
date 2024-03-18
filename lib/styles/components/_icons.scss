@@ -1,29 +1,7 @@
 @import '../settings/colors/tokens';
 @import '../settings/icons';
 
-$icon-colors: (
-	'accent': $color-accent-icon,
-	'danger': $color-danger-icon,
-	'default': $color-default-icon,
-	'fail': $color-fail-icon,
-	'info': $color-info-icon,
-	'inverted': $color-inverted-icon,
-	'neutral': $color-neutral-icon,
-	'neutralStrong': $color-neutral-icon-strong,
-	'neutralWeak': $color-neutral-icon-weak,
-	'primary': $color-primary-icon,
-	'primaryWeak': $color-primary-icon-weak,
-	'success': $color-success-icon,
-	'warning': $color-warning-icon,
-);
-
 .a-icon {
-	@each $color-name, $icon-color in $icon-colors {
-		&.-#{$color-name} {
-			color: $icon-color;
-		}
-	}
-
 	align-items: center;
 	display: inline-flex;
 	transition: transform 0.15s;

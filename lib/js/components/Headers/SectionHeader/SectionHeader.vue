@@ -14,8 +14,10 @@
 						<ds-icon
 							v-if="iconLeft"
 							class="sectionHeader__icon"
+							:class="{
+								[`-${iconLeftColor}`]: iconLeftColor,
+							}"
 							:icon="iconLeft"
-							:color="iconLeftColor"
 							:size="iconSize"
 						/>
 						<div class="sectionHeader__titleContainer">
@@ -25,8 +27,10 @@
 						<ds-icon
 							v-if="iconRight"
 							class="sectionHeader__icon"
+							:class="{
+								[`-${iconRightColor}`]: iconRightColor,
+							}"
 							:icon="iconRight"
-							:color="iconRightColor"
 							:size="iconSize"
 						/>
 						<ds-icon
@@ -81,8 +85,74 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
 
+$icon-colors: (
+	'accent': (
+		'color': $color-accent-icon,
+		'colorHover': $color-accent-icon-hovered,
+	),
+	'danger': (
+		'color': $color-danger-icon,
+		'colorHover': $color-danger-icon-hovered,
+	),
+	'default': (
+		'color': $color-default-icon,
+		'colorHover': $color-default-icon,
+	),
+	'fail': (
+		'color': $color-fail-icon,
+		'colorHover': $color-fail-icon-hovered,
+	),
+	'info': (
+		'color': $color-info-icon,
+		'colorHover': $color-info-icon-hovered,
+	),
+	'inverted': (
+		'color': $color-inverted-icon,
+		'colorHover': $color-inverted-icon,
+	),
+	'neutral': (
+		'color': $color-neutral-icon,
+		'colorHover': $color-neutral-icon-hovered,
+	),
+	'neutralStrong': (
+		'color': $color-neutral-icon-strong,
+		'colorHover': $color-neutral-icon-strong-hovered,
+	),
+	'neutralWeak': (
+		'color': $color-neutral-icon-weak,
+		'colorHover': $color-neutral-icon-weak-hovered,
+	),
+	'primary': (
+		'color': $color-primary-icon,
+		'colorHover': $color-primary-icon-hovered,
+	),
+	'primaryWeak': (
+		'color': $color-primary-icon-weak,
+		'colorHover': $color-primary-icon-weak-hovered,
+	),
+	'success': (
+		'color': $color-success-icon,
+		'colorHover': $color-success-icon-hovered,
+	),
+	'warning': (
+		'color': $color-warning-icon,
+		'colorHover': $color-warning-icon-hovered,
+	),
+);
+
 .sectionHeader {
 	$root: &;
+
+	@each $color-name, $color-map in $icon-colors {
+		&__icon.-#{$color-name},
+		&.-size-xx-small &__icon.-#{$color-name} {
+			color: map-get($color-map, 'color');
+		}
+		&.-expandable &__header:hover &__icon.-#{$color-name},
+		&.-expandable.-size-xx-small &__header:hover &__icon.-#{$color-name} {
+			color: map-get($color-map, 'colorHover');
+		}
+	}
 
 	padding: 0;
 
@@ -251,6 +321,24 @@
 
 		#{$root}__header {
 			@include info-s-extensive-bold-uppercase;
+		}
+
+		#{$root}__icon {
+			color: $color-neutral-icon-weak;
+		}
+
+		#{$root}__title {
+			color: $color-neutral-text-weak;
+		}
+
+		&.-expandable #{$root}__header:hover {
+			#{$root}__icon {
+				color: $color-neutral-icon-weak-hovered;
+			}
+
+			#{$root}__title {
+				color: $color-neutral-text-weak-hovered;
+			}
 		}
 	}
 
