@@ -307,7 +307,7 @@ $rich-list-item-background-colors: (
 		@media #{breakpoint-s()} {
 			align-items: center;
 			justify-content: initial;
-			padding: 0 $space-xxxs;
+			padding: 0 $space-xxxxs;
 		}
 	}
 
