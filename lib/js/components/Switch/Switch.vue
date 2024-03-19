@@ -95,14 +95,6 @@ $switch-transition: all $default-transition-time ease-out;
 	max-width: 100%;
 	position: relative;
 
-	&.-rounded {
-		border-radius: $radius-xl;
-
-		&__item {
-			border-radius: $radius-xl;
-		}
-	}
-
 	&__icon {
 		color: $color-neutral-icon;
 	}
@@ -137,6 +129,7 @@ $switch-transition: all $default-transition-time ease-out;
 		gap: $space-xxxs;
 		justify-content: center;
 		margin: -1px;
+		max-width: calc(100% - 64px);
 		min-height: 32px;
 		min-width: 64px;
 		overflow: hidden;
@@ -193,8 +186,17 @@ $switch-transition: all $default-transition-time ease-out;
 		}
 	}
 
+	&.-rounded {
+		border-radius: $radius-xl;
+
+		#{$root}__item {
+			border-radius: $radius-xl;
+		}
+	}
+
 	&.-small &__item {
 		gap: $space-xxxxs;
+		max-width: calc(100% - 48px);
 		min-height: 24px;
 		min-width: 48px;
 		padding: 0 $space-xs;
@@ -209,20 +211,22 @@ $switch-transition: all $default-transition-time ease-out;
 		}
 
 		#{$root}__label {
-			color: $color-neutral-text-weak;
+			color: $color-neutral-text-disabled;
 		}
 
 		&.-selected {
-			background-color: $color-primary-background-disabled;
-			border-color: $color-primary-border-disabled;
-
 			#{$root}__icon {
 				color: $color-primary-icon-disabled;
 			}
 
 			#{$root}__label {
-				color: $color-neutral-text-strong;
+				color: $color-neutral-text-heavy;
 			}
+		}
+
+		&.-selection {
+			background-color: $color-primary-background-disabled;
+			border-color: $color-primary-border-disabled;
 		}
 	}
 }

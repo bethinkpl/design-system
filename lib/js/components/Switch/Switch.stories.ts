@@ -50,8 +50,8 @@ const args = {
 	radius: SWITCH_RADIUSES.CAPSULE,
 	iconLeft: null,
 	iconRight: null,
-	labelLeft: '',
-	labelRight: '',
+	labelLeft: 'Left option',
+	labelRight: 'Right option',
 	state: SWITCH_STATE.DEFAULT,
 	selectedSide: SWITCH_SIDE.LEFT,
 } as Args;
