@@ -88,25 +88,23 @@ $switch-transition: all $default-transition-time ease-out;
 .switch {
 	$root: &;
 
-	align-items: flex-start;
 	background-color: $color-default-background;
 	border: 1px solid $color-neutral-border;
 	border-radius: $radius-xs;
-	box-sizing: border-box;
 	display: inline-flex;
 	max-width: 100%;
 	position: relative;
 
 	&.-rounded {
 		border-radius: $radius-xl;
+
+		&__item {
+			border-radius: $radius-xl;
+		}
 	}
 
 	&__icon {
 		color: $color-neutral-icon;
-	}
-
-	.-selected &__icon {
-		color: $color-primary-icon;
 	}
 
 	&__label {
@@ -118,8 +116,14 @@ $switch-transition: all $default-transition-time ease-out;
 		white-space: nowrap;
 	}
 
-	.-selected &__label {
-		color: $color-neutral-text-heavy;
+	.-selected {
+		#{$root}__icon {
+			color: $color-primary-icon;
+		}
+
+		#{$root}__label {
+			color: $color-neutral-text-heavy;
+		}
 	}
 
 	&__item {
@@ -152,8 +156,6 @@ $switch-transition: all $default-transition-time ease-out;
 		&.-selection {
 			background-color: $color-primary-background;
 			border: 1px solid $color-primary-border;
-			box-sizing: border-box;
-			left: 0;
 			position: absolute;
 			top: 0;
 			z-index: 1;
@@ -183,7 +185,6 @@ $switch-transition: all $default-transition-time ease-out;
 		&.-selection:hover {
 			cursor: default;
 			flex-shrink: 0;
-			overflow: hidden;
 			text-overflow: initial;
 		}
 
@@ -197,10 +198,6 @@ $switch-transition: all $default-transition-time ease-out;
 		min-height: 24px;
 		min-width: 48px;
 		padding: 0 $space-xs;
-	}
-
-	&.-rounded &__item {
-		border-radius: $radius-xl;
 	}
 
 	&.-disabled &__item {
