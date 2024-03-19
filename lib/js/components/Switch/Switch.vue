@@ -187,6 +187,10 @@ $switch-transition: all $default-transition-time ease-out;
 			overflow: hidden;
 			text-overflow: initial;
 		}
+
+		&.-clickable:hover {
+			background-color: $color-neutral-background-ghost-hovered;
+		}
 	}
 
 	&.-small &__item {
@@ -222,32 +226,6 @@ $switch-transition: all $default-transition-time ease-out;
 
 			#{$root}__label {
 				color: $color-neutral-text-strong;
-			}
-		}
-	}
-
-	&__item.-clickable {
-		&:hover {
-			background-color: $color-neutral-background-ghost-hovered;
-
-			&::before {
-				background-color: $color-neutral-ripple;
-				border-radius: 50%;
-				content: '';
-				padding-top: 100%;
-				position: absolute;
-				transform: scale(0);
-				transition: none;
-				width: 100%;
-			}
-		}
-
-		&:active {
-			&::before {
-				content: '';
-				position: absolute;
-				transform: scale(1);
-				transition: $switch-transition;
 			}
 		}
 	}
