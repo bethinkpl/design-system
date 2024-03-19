@@ -1,71 +1,69 @@
 <template>
-	<div class="switchWrapper">
+	<div
+		class="switch"
+		:class="{
+			'-small': size === SWITCH_SIZE.SMALL,
+			'-medium': size === SWITCH_SIZE.MEDIUM,
+
+			'-rounded': radius === SWITCH_RADIUSES.ROUNDED,
+
+			'-disabled': state === SWITCH_STATE.DISABLED,
+		}"
+	>
 		<div
-			class="switch"
+			class="switch__item -left"
 			:class="{
-				'-small': size === SWITCH_SIZE.SMALL,
-				'-medium': size === SWITCH_SIZE.MEDIUM,
-
-				'-rounded': radius === SWITCH_RADIUSES.ROUNDED,
-
-				'-disabled': state === SWITCH_STATE.DISABLED,
+				'-clickable':
+					currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
+				'-selected': currentSide === SWITCH_SIDE.LEFT,
+			}"
+			:title="labelLeft"
+			@click="onSwitch(SWITCH_SIDE.LEFT)"
+		>
+			<ds-icon
+				v-if="iconLeft"
+				class="switch__icon"
+				:icon="iconLeft"
+				:size="ICON_SIZES.XX_SMALL"
+			/>
+			<div v-if="labelLeft" class="switch__label">
+				{{ labelLeft }}
+			</div>
+		</div>
+		<div
+			class="switch__item -right"
+			:class="{
+				'-clickable':
+					currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
+				'-selected': currentSide === SWITCH_SIDE.RIGHT,
+			}"
+			:title="labelRight"
+			@click="onSwitch(SWITCH_SIDE.RIGHT)"
+		>
+			<ds-icon
+				v-if="iconRight"
+				class="switch__icon"
+				:icon="iconRight"
+				:size="ICON_SIZES.XX_SMALL"
+			/>
+			<div v-if="labelRight" class="switch__label">
+				{{ labelRight }}
+			</div>
+		</div>
+		<div
+			class="switch__item -selection"
+			:class="{
+				'-left': currentSide === SWITCH_SIDE.LEFT,
+				'-right': currentSide === SWITCH_SIDE.RIGHT,
 			}"
 		>
-			<div
-				class="switch__item -left"
-				:class="{
-					'-clickable':
-						currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
-					'-selected': currentSide === SWITCH_SIDE.LEFT,
-				}"
-				:title="labelLeft"
-				@click="onSwitch(SWITCH_SIDE.LEFT)"
-			>
-				<ds-icon
-					v-if="iconLeft"
-					class="switch__icon"
-					:icon="iconLeft"
-					:size="ICON_SIZES.XX_SMALL"
-				/>
-				<div v-if="labelLeft" class="switch__label">
-					{{ labelLeft }}
-				</div>
-			</div>
-			<div
-				class="switch__item -right"
-				:class="{
-					'-clickable':
-						currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
-					'-selected': currentSide === SWITCH_SIDE.RIGHT,
-				}"
-				:title="labelRight"
-				@click="onSwitch(SWITCH_SIDE.RIGHT)"
-			>
-				<ds-icon
-					v-if="iconRight"
-					class="switch__icon"
-					:icon="iconRight"
-					:size="ICON_SIZES.XX_SMALL"
-				/>
-				<div v-if="labelRight" class="switch__label">
-					{{ labelRight }}
-				</div>
-			</div>
-			<div
-				class="switch__item -selection"
-				:class="{
-					'-left': currentSide === SWITCH_SIDE.LEFT,
-					'-right': currentSide === SWITCH_SIDE.RIGHT,
-				}"
-			>
-				<ds-icon
-					v-if="currentIcon"
-					class="switch__icon"
-					:icon="currentIcon"
-					:size="ICON_SIZES.XX_SMALL"
-				/>
-				<div v-if="currentLabel" class="switch__label">{{ currentLabel }}</div>
-			</div>
+			<ds-icon
+				v-if="currentIcon"
+				class="switch__icon"
+				:icon="currentIcon"
+				:size="ICON_SIZES.XX_SMALL"
+			/>
+			<div v-if="currentLabel" class="switch__label">{{ currentLabel }}</div>
 		</div>
 	</div>
 </template>
@@ -78,12 +76,6 @@
 @import '../../../styles/settings/typography/tokens';
 
 $switch-transition: all $default-transition-time ease-out;
-
-.switchWrapper {
-	display: inline-flex;
-	max-width: 100%;
-	overflow: hidden;
-}
 
 .switch {
 	$root: &;
