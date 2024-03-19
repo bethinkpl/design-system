@@ -182,7 +182,6 @@ $switch-transition: all $default-transition-time ease-out;
 		&.-selected,
 		&.-selection:hover {
 			cursor: default;
-			flex-grow: 0.00001;
 			flex-shrink: 0;
 			overflow: hidden;
 			text-overflow: initial;
