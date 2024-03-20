@@ -303,6 +303,8 @@ export default {
 			SWITCH_SIDE: Object.freeze(SWITCH_SIDE),
 			SWITCH_SIZE: Object.freeze(SWITCH_SIZES),
 			SWITCH_STATE: Object.freeze(SWITCH_STATE),
+			// TODO: Remove currentSide when storybook is upgraded (IT-5440)
+			// This is a workaround for keeping the animation preview in storybook when prop changes
 			currentSide: this.selectedSide,
 		};
 	},
