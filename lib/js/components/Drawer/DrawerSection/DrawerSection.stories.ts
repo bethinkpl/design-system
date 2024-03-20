@@ -4,7 +4,7 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
 	SECTION_HEADER_ICON_COLORS,
 	SECTION_HEADER_MOBILE_LAYOUTS,
-	SECTION_HEADER_SIZES
+	SECTION_HEADER_SIZES,
 } from '../../Headers/SectionHeader';
 import { ICONS } from '../../Icons/Icon';
 
