@@ -1,6 +1,10 @@
 import SectionHeader from './SectionHeader.vue';
-import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from './SectionHeader.consts';
-import { ICON_COLORS, ICONS } from '../../Icons/Icon';
+import {
+	SECTION_HEADER_ICON_COLORS,
+	SECTION_HEADER_MOBILE_LAYOUTS,
+	SECTION_HEADER_SIZES,
+} from './SectionHeader.consts';
+import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
@@ -74,16 +78,16 @@ const argTypes = {
 		defaultValue: null,
 	},
 	iconLeftColor: {
-		control: { type: 'select', options: [null, ...Object.values(ICON_COLORS)] },
-		defaultValue: ICON_COLORS.NEUTRAL,
+		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
+		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
 	},
 	iconRight: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: null,
 	},
 	iconRightColor: {
-		control: { type: 'select', options: [null, ...Object.values(ICON_COLORS)] },
-		defaultValue: ICON_COLORS.NEUTRAL,
+		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
+		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
 	},
 	size: {
 		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },

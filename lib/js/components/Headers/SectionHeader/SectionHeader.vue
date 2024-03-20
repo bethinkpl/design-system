@@ -81,78 +81,13 @@
 
 <style scoped lang="scss">
 @import '../../../../styles/settings/colors/tokens';
-@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
-
-$icon-colors: (
-	'accent': (
-		'color': $color-accent-icon,
-		'colorHover': $color-accent-icon-hovered,
-	),
-	'danger': (
-		'color': $color-danger-icon,
-		'colorHover': $color-danger-icon-hovered,
-	),
-	'default': (
-		'color': $color-default-icon,
-		'colorHover': $color-default-icon,
-	),
-	'fail': (
-		'color': $color-fail-icon,
-		'colorHover': $color-fail-icon-hovered,
-	),
-	'info': (
-		'color': $color-info-icon,
-		'colorHover': $color-info-icon-hovered,
-	),
-	'inverted': (
-		'color': $color-inverted-icon,
-		'colorHover': $color-inverted-icon,
-	),
-	'neutral': (
-		'color': $color-neutral-icon,
-		'colorHover': $color-neutral-icon-hovered,
-	),
-	'neutralStrong': (
-		'color': $color-neutral-icon-strong,
-		'colorHover': $color-neutral-icon-strong-hovered,
-	),
-	'neutralWeak': (
-		'color': $color-neutral-icon-weak,
-		'colorHover': $color-neutral-icon-weak-hovered,
-	),
-	'primary': (
-		'color': $color-primary-icon,
-		'colorHover': $color-primary-icon-hovered,
-	),
-	'primaryWeak': (
-		'color': $color-primary-icon-weak,
-		'colorHover': $color-primary-icon-weak-hovered,
-	),
-	'success': (
-		'color': $color-success-icon,
-		'colorHover': $color-success-icon-hovered,
-	),
-	'warning': (
-		'color': $color-warning-icon,
-		'colorHover': $color-warning-icon-hovered,
-	),
-);
+@import '../../../../styles/settings/typography/tokens';
 
 .sectionHeader {
 	$root: &;
-
-	@each $color-name, $color-map in $icon-colors {
-		&__icon.-#{$color-name},
-		&.-size-xx-small &__icon.-#{$color-name} {
-			color: map-get($color-map, 'color');
-		}
-		&.-expandable &__header:hover &__icon.-#{$color-name},
-		&.-expandable.-size-xx-small &__header:hover &__icon.-#{$color-name} {
-			color: map-get($color-map, 'colorHover');
-		}
-	}
 
 	padding: 0;
 
@@ -193,6 +128,10 @@ $icon-colors: (
 		}
 	}
 
+	&__icon {
+		color: $color-neutral-icon;
+	}
+
 	&.-expandable &__header {
 		cursor: pointer;
 
@@ -207,13 +146,19 @@ $icon-colors: (
 		}
 	}
 
+	&__icon,
+	&.-size-xx-small &__icon {
+		@include coloredIcon();
+	}
+
+	&.-expandable &__header:hover &__icon,
+	&.-expandable.-size-xx-small &__header:hover &__icon {
+		@include coloredIcon('hovered');
+	}
+
 	&__titleWrapper {
 		align-items: center;
 		display: flex;
-	}
-
-	&__icon {
-		color: $color-neutral-icon;
 	}
 
 	&__titleContainer {
@@ -377,8 +322,13 @@ $icon-colors: (
 </style>
 
 <script lang="ts">
-import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from './SectionHeader.consts';
-import DsIcon, { ICON_SIZES, IconColor, IconItem, ICONS, ICON_COLORS } from '../../Icons/Icon';
+import {
+	SECTION_HEADER_MOBILE_LAYOUTS,
+	SECTION_HEADER_SIZES,
+	SECTION_HEADER_ICON_COLORS,
+	SectionHeaderIconColor,
+} from './SectionHeader.consts';
+import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import DsDivider from '../../Divider';
 import { toRaw } from 'vue';
@@ -407,10 +357,10 @@ export default {
 			},
 		},
 		iconLeftColor: {
-			type: String as () => IconColor,
+			type: String as () => SectionHeaderIconColor,
 			default: null,
-			validator(iconLeftColor: IconColor) {
-				return Object.values(ICON_COLORS).includes(toRaw(iconLeftColor));
+			validator(iconLeftColor: SectionHeaderIconColor) {
+				return Object.values(SECTION_HEADER_ICON_COLORS).includes(toRaw(iconLeftColor));
 			},
 		},
 		iconRight: {
@@ -421,10 +371,10 @@ export default {
 			},
 		},
 		iconRightColor: {
-			type: String as () => IconColor,
+			type: String as () => SectionHeaderIconColor,
 			default: null,
-			validator(iconRightColor: IconColor) {
-				return Object.values(ICON_COLORS).includes(toRaw(iconRightColor));
+			validator(iconRightColor: SectionHeaderIconColor) {
+				return Object.values(SECTION_HEADER_ICON_COLORS).includes(toRaw(iconRightColor));
 			},
 		},
 		isExpanded: {
