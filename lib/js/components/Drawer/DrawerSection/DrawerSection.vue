@@ -7,7 +7,7 @@
 			:icon-left-color="iconLeftColor"
 			:icon-right="iconRight"
 			:icon-right-color="iconRightColor"
-			:is-expanded="isSectionHeaderExpanded"
+			:is-expanded="isExpanded"
 			:info="info"
 			:size="size"
 			:title="title"
@@ -19,7 +19,7 @@
 			@update:isExpanded="onExpandableHeaderClick"
 		/>
 
-		<div v-if="isSectionHeaderExpanded || !isExpandable">
+		<div v-if="isExpanded || !isExpandable">
 			<slot />
 		</div>
 		<div v-if="$slots.uncollapsible"><slot name="uncollapsible" /></div>
@@ -119,16 +119,14 @@ export default {
 	emits: ['info-click', 'update:isExpanded'],
 	data() {
 		return {
-			isSectionHeaderExpanded: this.isExpanded,
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICONS: Object.freeze(ICONS),
 		};
 	},
 	methods: {
-		onExpandableHeaderClick(): void {
-			this.isSectionHeaderExpanded = !this.isSectionHeaderExpanded;
-			this.$emit('update:isExpanded', this.isSectionHeaderExpanded);
+		onExpandableHeaderClick(value): void {
+			this.$emit('update:isExpanded', value);
 		},
 		onInfoClick(): void {
 			this.$emit('info-click');

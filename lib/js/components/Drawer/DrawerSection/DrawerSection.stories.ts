@@ -13,7 +13,7 @@ export default {
 	component: DrawerSection,
 } as Meta<typeof DrawerSection>;
 
-const StoryTemplate: StoryFn<typeof DrawerSection> = (args) => ({
+const StoryTemplate: StoryFn<typeof DrawerSection> = (args, { updateArgs }) => ({
 	components: { DrawerSection },
 	setup() {
 		return { ...args };
@@ -27,6 +27,11 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args) => ({
 		infoClicked() {
 			console.log('info clicked');
 		},
+		isExpandedUpdated(isExpanded: boolean) {
+			updateArgs({
+				isExpanded: isExpanded,
+			});
+		}
 	},
 	template: `
 		<drawer-section
@@ -45,6 +50,7 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args) => ({
 			:hide-slot-when-collapsed="hideSlotWhenCollapsed"
 			:mobile-layout="mobileLayout"
 			@infoClick="infoClicked"
+			@update:isExpanded="isExpandedUpdated"
 		>
 			Default slot
 			<template #uncollapsible>Uncollapsible slot</template>
