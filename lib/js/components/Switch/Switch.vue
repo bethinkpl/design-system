@@ -13,8 +13,7 @@
 		<div
 			class="switch__item -left"
 			:class="{
-				'-clickable':
-					currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
+				'-clickable': currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
 				'-selected': currentSide === SWITCH_SIDE.LEFT,
 			}"
 			:title="labelLeft"
@@ -33,8 +32,7 @@
 		<div
 			class="switch__item -right"
 			:class="{
-				'-clickable':
-					currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
+				'-clickable': currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
 				'-selected': currentSide === SWITCH_SIDE.RIGHT,
 			}"
 			:title="labelRight"
