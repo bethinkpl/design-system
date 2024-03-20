@@ -27,11 +27,13 @@
 </template>
 
 <script lang="ts">
-import { ICON_COLORS, IconColor, IconItem, ICONS } from '../../Icons/Icon';
+import { IconItem, ICONS } from '../../Icons/Icon';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import SectionHeader, {
+	SECTION_HEADER_ICON_COLORS,
 	SECTION_HEADER_MOBILE_LAYOUTS,
 	SECTION_HEADER_SIZES,
+	SectionHeaderIconColor,
 } from '../../Headers/SectionHeader';
 import { toRaw } from 'vue';
 
@@ -57,10 +59,10 @@ export default {
 			},
 		},
 		iconLeftColor: {
-			type: String as () => IconColor,
-			default: ICON_COLORS.NEUTRAL_WEAK,
-			validator(iconLeftColor: IconColor) {
-				return Object.values(ICON_COLORS).includes(toRaw(iconLeftColor));
+			type: String as () => SectionHeaderIconColor,
+			default: SECTION_HEADER_ICON_COLORS.NEUTRAL_WEAK,
+			validator(iconLeftColor: SectionHeaderIconColor) {
+				return Object.values(SECTION_HEADER_ICON_COLORS).includes(toRaw(iconLeftColor));
 			},
 		},
 		iconRight: {
@@ -71,10 +73,10 @@ export default {
 			},
 		},
 		iconRightColor: {
-			type: String as () => IconColor,
-			default: ICON_COLORS.NEUTRAL_WEAK,
-			validator(iconRightColor: IconColor) {
-				return Object.values(ICON_COLORS).includes(toRaw(iconRightColor));
+			type: String as () => SectionHeaderIconColor,
+			default: SECTION_HEADER_ICON_COLORS.NEUTRAL_WEAK,
+			validator(iconRightColor: SectionHeaderIconColor) {
+				return Object.values(SECTION_HEADER_ICON_COLORS).includes(toRaw(iconRightColor));
 			},
 		},
 		isExpanded: {
