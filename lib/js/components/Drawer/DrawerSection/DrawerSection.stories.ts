@@ -29,9 +29,9 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args, { updateArgs }) => (
 		},
 		isExpandedUpdated(isExpanded: boolean) {
 			updateArgs({
-				isExpanded: isExpanded,
+				isExpanded,
 			});
-		}
+		},
 	},
 	template: `
 		<drawer-section
