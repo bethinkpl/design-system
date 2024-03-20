@@ -13,7 +13,7 @@
 			:title="title"
 			:eyebrow="eyebrow"
 			:supporting-text="supportingText"
-			:divider="divider"
+			:has-divider="hasDivider"
 			:mobile-layout="mobileLayout"
 			@infoClick="onInfoClick"
 			@update:isExpanded="onExpandableHeaderClick"
@@ -106,7 +106,7 @@ export default {
 			type: String,
 			default: null,
 		},
-		divider: {
+		hasDivider: {
 			type: Boolean,
 			default: true,
 		},

@@ -43,7 +43,7 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => (
 		' :info="info"' +
 		' :title="title"' +
 		' :eyebrow="eyebrow"' +
-		' :divider="divider"' +
+		' :has-divider="hasDivider"' +
 		' :mobile-layout="mobileLayout"' +
 		' :supportingText="supportingText"' +
 		' @update:isExpanded="onIsExpandedUpdated"' +
@@ -65,7 +65,7 @@ const args = {
 	iconRight: ICONS.FA_BOOK,
 	iconRightColor: null,
 	info: true,
-	divider: true,
+	hasDivider: true,
 	isExpandable: false,
 	isExpanded: false,
 	hideSlotWhenCollapsed: false,
@@ -93,7 +93,7 @@ const argTypes = {
 		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
 		defaultValue: SECTION_HEADER_SIZES.MEDIUM,
 	},
-	divider: {
+	hasDivider: {
 		control: { type: 'boolean' },
 		defaultValue: true,
 	},

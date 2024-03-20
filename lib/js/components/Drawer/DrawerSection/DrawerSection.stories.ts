@@ -44,7 +44,7 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args, { updateArgs }) => (
 			:icon-right="ICONS[iconRight]"
 			:icon-right-color="iconRightColor"
 			:info="info"
-			:divider="divider"
+			:has-divider="hasDivider"
 			:is-expandable="isExpandable"
 			:is-expanded="isExpanded"
 			:hide-slot-when-collapsed="hideSlotWhenCollapsed"
@@ -69,7 +69,7 @@ const args = {
 	iconRight: null,
 	iconRightColor: null,
 	info: false,
-	divider: true,
+	hasDivider: true,
 	isExpandable: false,
 	isExpanded: true,
 	hideSlotWhenCollapsed: false,
@@ -97,7 +97,7 @@ const argTypes = {
 		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
 		defaultValue: SECTION_HEADER_SIZES.MEDIUM,
 	},
-	divider: {
+	hasDivider: {
 		control: { type: 'boolean' },
 		defaultValue: true,
 	},

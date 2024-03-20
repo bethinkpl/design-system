@@ -61,8 +61,8 @@
 				class="sectionHeader__supportingText"
 				:class="{
 					'-withoutPadding':
-						!divider ||
-						(!divider && mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL),
+						!hasDivider ||
+						(!hasDivider && mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL),
 				}"
 				>{{ supportingText }}
 			</div>
@@ -70,12 +70,12 @@
 			<div
 				v-if="$slots.default && showSlot"
 				class="sectionHeader__slotVertical"
-				:class="{ '-withoutPadding': !divider }"
+				:class="{ '-withoutPadding': !hasDivider }"
 			>
 				<slot />
 			</div>
 		</div>
-		<ds-divider v-if="divider" />
+		<ds-divider v-if="hasDivider" />
 	</div>
 </template>
 
@@ -404,7 +404,7 @@ export default {
 			type: String,
 			default: null,
 		},
-		divider: {
+		hasDivider: {
 			type: Boolean,
 			default: true,
 		},
