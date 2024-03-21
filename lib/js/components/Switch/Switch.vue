@@ -316,6 +316,16 @@ export default {
 			return this.currentSide === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight;
 		},
 	},
+	watch: {
+		selectedSide: {
+			handler(side: SwitchSelection) {
+				if (side !== this.currentSide) {
+					this.currentSide = side;
+				}
+			},
+			immediate: true,
+		},
+	},
 	methods: {
 		onSwitch(side: SwitchSelection) {
 			if (this.state === SWITCH_STATE.DISABLED || this.currentSide === side) {
