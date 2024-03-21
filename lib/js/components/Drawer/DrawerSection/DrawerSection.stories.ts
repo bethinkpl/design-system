@@ -1,11 +1,7 @@
 import DrawerSection from './DrawerSection.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import {
-	SECTION_HEADER_ICON_COLORS,
-	SECTION_HEADER_MOBILE_LAYOUTS,
-	SECTION_HEADER_SIZES,
-} from '../../Headers/SectionHeader';
+import { SECTION_HEADER_ICON_COLORS, SECTION_HEADER_SIZES } from '../../Headers/SectionHeader';
 import { ICONS } from '../../Icons/Icon';
 
 export default {
@@ -47,8 +43,6 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args, { updateArgs }) => (
 			:has-divider="hasDivider"
 			:is-expandable="isExpandable"
 			:is-expanded="isExpanded"
-			:hide-slot-when-collapsed="hideSlotWhenCollapsed"
-			:mobile-layout="mobileLayout"
 			@infoClick="infoClicked"
 			@update:isExpanded="isExpandedUpdated"
 		>
@@ -72,8 +66,6 @@ const args = {
 	hasDivider: true,
 	isExpandable: false,
 	isExpanded: true,
-	hideSlotWhenCollapsed: false,
-	mobileLayout: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
 } as Args;
 
 const argTypes = {
@@ -104,13 +96,6 @@ const argTypes = {
 	info: {
 		control: { type: 'boolean' },
 		defaultValue: false,
-	},
-	mobileLayout: {
-		control: {
-			type: 'select',
-			options: Object.values(SECTION_HEADER_MOBILE_LAYOUTS),
-			defaultValue: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
-		},
 	},
 } as ArgTypes;
 

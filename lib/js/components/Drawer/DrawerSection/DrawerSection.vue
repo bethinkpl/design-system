@@ -1,12 +1,11 @@
 <template>
 	<div class="drawerSection">
 		<ds-section-header
-			:is-expandable="isExpandable"
-			:hide-slot-when-collapsed="hideSlotWhenCollapsed"
 			:icon-left="iconLeft"
 			:icon-left-color="iconLeftColor"
 			:icon-right="iconRight"
 			:icon-right-color="iconRightColor"
+			:is-expandable="isExpandable"
 			:is-expanded="isExpanded"
 			:info="info"
 			:size="size"
@@ -14,12 +13,11 @@
 			:eyebrow="eyebrow"
 			:supporting-text="supportingText"
 			:has-divider="hasDivider"
-			:mobile-layout="mobileLayout"
 			@infoClick="onInfoClick"
 			@update:isExpanded="onExpandableHeaderClick"
 		/>
 
-		<div v-if="isExpanded || !isExpandable">
+		<div v-if="isExpandedInternal || !isExpandable">
 			<slot />
 		</div>
 		<div v-if="$slots.uncollapsible"><slot name="uncollapsible" /></div>
@@ -31,7 +29,6 @@ import { IconItem, ICONS } from '../../Icons/Icon';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import SectionHeader, {
 	SECTION_HEADER_ICON_COLORS,
-	SECTION_HEADER_MOBILE_LAYOUTS,
 	SECTION_HEADER_SIZES,
 	SectionHeaderIconColor,
 } from '../../Headers/SectionHeader';
@@ -44,10 +41,6 @@ export default {
 	},
 	props: {
 		isExpandable: {
-			type: Boolean,
-			default: false,
-		},
-		hideSlotWhenCollapsed: {
 			type: Boolean,
 			default: false,
 		},
@@ -110,11 +103,6 @@ export default {
 			type: Boolean,
 			default: true,
 		},
-		mobileLayout: {
-			type: String,
-			default: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
-			validator: (value) => Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(value),
-		},
 	},
 	emits: ['info-click', 'update:isExpanded'],
 	data() {
@@ -122,10 +110,22 @@ export default {
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICONS: Object.freeze(ICONS),
+			isExpandedInternal: false,
 		};
+	},
+	watch: {
+		isExpanded: {
+			handler(isExpanded) {
+				if (isExpanded !== this.isExpandedInternal) {
+					this.isExpandedInternal = isExpanded;
+				}
+			},
+			immediate: true,
+		},
 	},
 	methods: {
 		onExpandableHeaderClick(value): void {
+			this.isExpandedInternal = value;
 			this.$emit('update:isExpanded', value);
 		},
 		onInfoClick(): void {

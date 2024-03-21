@@ -422,6 +422,7 @@ export default {
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			SECTION_HEADER_MOBILE_LAYOUTS: Object.freeze(SECTION_HEADER_MOBILE_LAYOUTS),
+			isExpandedInternal: false,
 		};
 	},
 	computed: {
@@ -445,6 +446,16 @@ export default {
 			return ICON_SIZES.XX_SMALL;
 		},
 	},
+	watch: {
+		isExpanded: {
+			handler(isExpanded) {
+				if (isExpanded !== this.isExpandedInternal) {
+					this.isExpandedInternal = isExpanded;
+				}
+			},
+			immediate: true,
+		},
+	},
 	methods: {
 		onInfoClicked(): void {
 			this.$emit('info-click');
@@ -453,7 +464,8 @@ export default {
 			if (!this.isExpandable) {
 				return;
 			}
-			this.$emit('update:isExpanded', !this.isExpanded);
+			this.isExpandedInternal = !this.isExpandedInternal;
+			this.$emit('update:isExpanded', this.isExpandedInternal);
 		},
 	},
 };
