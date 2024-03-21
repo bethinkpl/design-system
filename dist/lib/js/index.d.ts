@@ -91,4 +91,6 @@ export { default as RichListItem } from './components/RichList/RichListItem';
 export * from './components/RichList/RichListItem/RichListItem.consts';
 export { default as RichListItemBasic } from './components/RichList/RichListItemBasic';
 export { default as RichListGroupItem } from './components/RichList/RichListGroupItem';
+export { default as Switch } from './components/Switch';
+export * from './components/Switch/Switch.consts';
 export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, IconDefinition, } from './icons/fontawesome';
