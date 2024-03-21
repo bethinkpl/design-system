@@ -1,5 +1,9 @@
 import SectionHeader from './SectionHeader.vue';
-import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from './SectionHeader.consts';
+import {
+	SECTION_HEADER_ICON_COLORS,
+	SECTION_HEADER_MOBILE_LAYOUTS,
+	SECTION_HEADER_SIZES,
+} from './SectionHeader.consts';
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -31,13 +35,15 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => (
 		' :is-expandable="isExpandable"' +
 		' :hide-slot-when-collapsed="hideSlotWhenCollapsed"' +
 		' :icon-left="ICONS[iconLeft]"' +
+		' :icon-left-color="iconLeftColor"' +
 		' :icon-right="ICONS[iconRight]"' +
+		' :icon-right-color="iconRightColor"' +
 		' :is-expanded="isExpanded"' +
 		' :size="size"' +
 		' :info="info"' +
 		' :title="title"' +
 		' :eyebrow="eyebrow"' +
-		' :divider="divider"' +
+		' :has-divider="hasDivider"' +
 		' :mobile-layout="mobileLayout"' +
 		' :supportingText="supportingText"' +
 		' @update:isExpanded="onIsExpandedUpdated"' +
@@ -55,9 +61,11 @@ const args = {
 		'Supporting text. Et doloribus aspernatur suscipit provident maiores. Natus natus et pariatur. Eligendi illo quo esse. Tenetur ad neque veniam.',
 	eyebrow: 'eyebrow text',
 	iconLeft: ICONS.FA_PLAY,
+	iconLeftColor: null,
 	iconRight: ICONS.FA_BOOK,
+	iconRightColor: null,
 	info: true,
-	divider: true,
+	hasDivider: true,
 	isExpandable: false,
 	isExpanded: false,
 	hideSlotWhenCollapsed: false,
@@ -69,15 +77,23 @@ const argTypes = {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: null,
 	},
+	iconLeftColor: {
+		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
+		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+	},
 	iconRight: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: null,
+	},
+	iconRightColor: {
+		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
+		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
 	},
 	size: {
 		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
 		defaultValue: SECTION_HEADER_SIZES.MEDIUM,
 	},
-	divider: {
+	hasDivider: {
 		control: { type: 'boolean' },
 		defaultValue: true,
 	},
