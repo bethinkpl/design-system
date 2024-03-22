@@ -377,8 +377,8 @@ $rich-list-item-background-colors: (
 		}
 
 		#{$root}__content {
-			padding: 0 $space-xxxxs 0 $space-xxs;
 			align-items: center;
+			padding: 0 $space-xxxxs 0 $space-xxs;
 		}
 
 		#{$root}__actionSlot {
