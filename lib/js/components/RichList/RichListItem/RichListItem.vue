@@ -92,12 +92,12 @@ $rich-list-item-background-colors: (
 	neutral: (
 		default: $color-neutral-background,
 		hover: $color-neutral-background-hovered,
-		loading: $color-neutral-background-hovered,
+		loading: $color-neutral-background,
 	),
 	neutral-weak: (
 		default: $color-neutral-background-weak,
 		hover: $color-neutral-background-weak-hovered,
-		loading: $color-neutral-background-weak-hovered,
+		loading: $color-neutral-background-weak,
 	),
 );
 
