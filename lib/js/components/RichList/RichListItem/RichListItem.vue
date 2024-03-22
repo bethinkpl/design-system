@@ -253,7 +253,7 @@ $rich-list-item-background-colors: (
 		padding: 0 $space-xxxxs 0 $space-xs;
 
 		@media #{breakpoint-s()} {
-			padding: 0 $space-xxs 0 $space-xxs;
+			padding: 0 $space-xxxxs 0 $space-xxs;
 		}
 	}
 
@@ -261,10 +261,11 @@ $rich-list-item-background-colors: (
 		align-items: center;
 		gap: $space-xs;
 		padding-left: $space-xs;
+		padding-right: $space-xxxxs;
 
 		@media #{breakpoint-s()} {
 			justify-content: flex-start;
-			padding-right: $space-xxxs;
+			padding-left: 0;
 		}
 
 		&.-hideOnMobile {
@@ -350,8 +351,7 @@ $rich-list-item-background-colors: (
 	}
 
 	&.-small {
-		min-height: 44px;
-		padding: $space-xxxxs $space-xxxs $space-xxxxs $space-xxxxs;
+		padding: $space-xxxxs;
 
 		@media #{breakpoint-s()} {
 			padding: 0 $space-xxxxs 0 0;
@@ -359,28 +359,35 @@ $rich-list-item-background-colors: (
 
 		#{$root}__dragAndDrop,
 		#{$root}__iconWrapper {
-			padding: 0 0 0 $space-xs;
+			padding: $space-xxs $space-xxxxs 0 $space-xxs;
 
 			@media #{breakpoint-s()} {
 				padding: $space-xxxs 0 $space-xxxs $space-xs;
 			}
 		}
 
-		#{$root}__content {
-			padding: 0 $space-xxxs 0 $space-xxs;
-		}
-
-		#{$root}__metaData {
-			padding-left: $space-xs;
+		#{$root}__checkbox {
+			gap: $space-s;
+			padding: $space-xxxxxs $space-xxs 0 $space-xxs;
 
 			@media #{breakpoint-s()} {
-				padding-left: 0;
-				padding-right: $space-xxxs;
+				gap: $space-xs;
+				padding: 0 $space-xs 0 $space-xxxxs;
 			}
 		}
 
-		#{$root}__trailingSlot {
-			padding: 0;
+		#{$root}__content {
+			padding: 0 $space-xxxxs 0 $space-xxs;
+			align-items: center;
+		}
+
+		#{$root}__actionSlot {
+			gap: $space-xxs;
+			padding: 0 $space-xxxxs 0 $space-xxxxxs;
+
+			@media #{breakpoint-s()} {
+				padding: 0 $space-xxxxs;
+			}
 		}
 	}
 }
