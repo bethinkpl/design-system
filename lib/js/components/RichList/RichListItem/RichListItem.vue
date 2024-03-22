@@ -198,7 +198,7 @@ $rich-list-item-background-colors: (
 		border: 1px solid $color-neutral-border-weak;
 		border-radius: $radius-s;
 
-		&:hover {
+		&.-interactive:hover {
 			.-dimmable {
 				opacity: 1;
 			}
