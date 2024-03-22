@@ -1,3 +1,4 @@
+import { SectionHeaderIconColor } from './SectionHeader.consts';
 import DsIcon, { IconItem } from '../../Icons/Icon';
 declare const _default: {
     name: string;
@@ -20,10 +21,20 @@ declare const _default: {
             default: null;
             validator(iconLeft: IconItem): boolean;
         };
+        iconLeftColor: {
+            type: () => SectionHeaderIconColor;
+            default: null;
+            validator(iconLeftColor: SectionHeaderIconColor): boolean;
+        };
         iconRight: {
             type: () => IconItem;
             default: null;
             validator(iconRight: IconItem): boolean;
+        };
+        iconRightColor: {
+            type: () => SectionHeaderIconColor;
+            default: null;
+            validator(iconRightColor: SectionHeaderIconColor): boolean;
         };
         isExpanded: {
             type: BooleanConstructor;
@@ -50,7 +61,7 @@ declare const _default: {
             type: StringConstructor;
             default: null;
         };
-        divider: {
+        hasDivider: {
             type: BooleanConstructor;
             default: boolean;
         };
@@ -281,12 +292,19 @@ declare const _default: {
             readonly VERTICAL: "vertical";
             readonly HORIZONTAL: "horizontal";
         }>;
+        isExpandedInternal: boolean;
     };
     computed: {
         chevronRotation(): number | undefined;
         showSlot(): boolean;
         sizeClass(): string;
         iconSize(): string;
+    };
+    watch: {
+        isExpanded: {
+            handler(isExpanded: any): void;
+            immediate: boolean;
+        };
     };
     methods: {
         onInfoClicked(): void;

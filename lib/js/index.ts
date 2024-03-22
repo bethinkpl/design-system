@@ -91,6 +91,8 @@ export { default as RichListItem } from './components/RichList/RichListItem';
 export * from './components/RichList/RichListItem/RichListItem.consts';
 export { default as BasicRichListItem } from './components/RichList/BasicRichListItem';
 export { default as GroupRichListItem } from './components/RichList/GroupRichListItem';
+export { default as Switch } from './components/Switch';
+export * from './components/Switch/Switch.consts';
 
 export {
 	initialize as initializeIcons,

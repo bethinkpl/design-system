@@ -14,6 +14,9 @@
 						<ds-icon
 							v-if="iconLeft"
 							class="sectionHeader__icon"
+							:class="{
+								[`-${iconLeftColor}`]: iconLeftColor,
+							}"
 							:icon="iconLeft"
 							:size="iconSize"
 						/>
@@ -24,6 +27,9 @@
 						<ds-icon
 							v-if="iconRight"
 							class="sectionHeader__icon"
+							:class="{
+								[`-${iconRightColor}`]: iconRightColor,
+							}"
 							:icon="iconRight"
 							:size="iconSize"
 						/>
@@ -55,8 +61,8 @@
 				class="sectionHeader__supportingText"
 				:class="{
 					'-withoutPadding':
-						!divider ||
-						(!divider && mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL),
+						!hasDivider ||
+						(!hasDivider && mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL),
 				}"
 				>{{ supportingText }}
 			</div>
@@ -64,20 +70,21 @@
 			<div
 				v-if="$slots.default && showSlot"
 				class="sectionHeader__slotVertical"
-				:class="{ '-withoutPadding': !divider }"
+				:class="{ '-withoutPadding': !hasDivider }"
 			>
 				<slot />
 			</div>
 		</div>
-		<ds-divider v-if="divider" />
+		<ds-divider v-if="hasDivider" />
 	</div>
 </template>
 
 <style scoped lang="scss">
 @import '../../../../styles/settings/colors/tokens';
-@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/typography/tokens';
 
 .sectionHeader {
 	$root: &;
@@ -121,6 +128,10 @@
 		}
 	}
 
+	&__icon {
+		color: $color-neutral-icon;
+	}
+
 	&.-expandable &__header {
 		cursor: pointer;
 
@@ -135,13 +146,19 @@
 		}
 	}
 
+	&__icon,
+	&.-size-xx-small &__icon {
+		@include coloredIcon();
+	}
+
+	&.-expandable &__header:hover &__icon,
+	&.-expandable.-size-xx-small &__header:hover &__icon {
+		@include coloredIcon('hovered');
+	}
+
 	&__titleWrapper {
 		align-items: center;
 		display: flex;
-	}
-
-	&__icon {
-		color: $color-neutral-icon;
 	}
 
 	&__titleContainer {
@@ -238,6 +255,38 @@
 		}
 	}
 
+	&.-size-xx-small {
+		#{$root}__main {
+			padding: $space-xxxxxs 0;
+		}
+
+		#{$root}__titleWrapper {
+			gap: $space-xxxs;
+		}
+
+		#{$root}__header {
+			@include info-s-extensive-bold-uppercase;
+		}
+
+		#{$root}__icon {
+			color: $color-neutral-icon-weak;
+		}
+
+		#{$root}__title {
+			color: $color-neutral-text-weak;
+		}
+
+		&.-expandable #{$root}__header:hover {
+			#{$root}__icon {
+				color: $color-neutral-icon-weak-hovered;
+			}
+
+			#{$root}__title {
+				color: $color-neutral-text-weak-hovered;
+			}
+		}
+	}
+
 	&__slotHorizontal {
 		display: none;
 		flex-shrink: 0;
@@ -273,7 +322,12 @@
 </style>
 
 <script lang="ts">
-import { SECTION_HEADER_MOBILE_LAYOUTS, SECTION_HEADER_SIZES } from './SectionHeader.consts';
+import {
+	SECTION_HEADER_MOBILE_LAYOUTS,
+	SECTION_HEADER_SIZES,
+	SECTION_HEADER_ICON_COLORS,
+	SectionHeaderIconColor,
+} from './SectionHeader.consts';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import DsDivider from '../../Divider';
@@ -302,11 +356,25 @@ export default {
 				return Object.values(ICONS).includes(toRaw(iconLeft));
 			},
 		},
+		iconLeftColor: {
+			type: String as () => SectionHeaderIconColor,
+			default: null,
+			validator(iconLeftColor: SectionHeaderIconColor) {
+				return Object.values(SECTION_HEADER_ICON_COLORS).includes(toRaw(iconLeftColor));
+			},
+		},
 		iconRight: {
 			type: Object as () => IconItem,
 			default: null,
 			validator(iconRight: IconItem) {
 				return Object.values(ICONS).includes(toRaw(iconRight));
+			},
+		},
+		iconRightColor: {
+			type: String as () => SectionHeaderIconColor,
+			default: null,
+			validator(iconRightColor: SectionHeaderIconColor) {
+				return Object.values(SECTION_HEADER_ICON_COLORS).includes(toRaw(iconRightColor));
 			},
 		},
 		isExpanded: {
@@ -336,7 +404,7 @@ export default {
 			type: String,
 			default: null,
 		},
-		divider: {
+		hasDivider: {
 			type: Boolean,
 			default: true,
 		},
@@ -354,6 +422,7 @@ export default {
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			SECTION_HEADER_MOBILE_LAYOUTS: Object.freeze(SECTION_HEADER_MOBILE_LAYOUTS),
+			isExpandedInternal: false,
 		};
 	},
 	computed: {
@@ -377,6 +446,16 @@ export default {
 			return ICON_SIZES.XX_SMALL;
 		},
 	},
+	watch: {
+		isExpanded: {
+			handler(isExpanded) {
+				if (isExpanded !== this.isExpandedInternal) {
+					this.isExpandedInternal = isExpanded;
+				}
+			},
+			immediate: true,
+		},
+	},
 	methods: {
 		onInfoClicked(): void {
 			this.$emit('info-click');
@@ -385,7 +464,8 @@ export default {
 			if (!this.isExpandable) {
 				return;
 			}
-			this.$emit('update:isExpanded', !this.isExpanded);
+			this.isExpandedInternal = !this.isExpandedInternal;
+			this.$emit('update:isExpanded', this.isExpandedInternal);
 		},
 	},
 };

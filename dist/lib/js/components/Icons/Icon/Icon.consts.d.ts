@@ -1,5 +1,21 @@
 /// <reference types="typings" />
 import { Value } from '../../../utils/type.utils';
+export declare const ICON_COLORS: {
+    ACCENT: string;
+    DANGER: string;
+    DEFAULT: string;
+    FAIL: string;
+    INFO: string;
+    INVERTED: string;
+    NEUTRAL: string;
+    NEUTRAL_STRONG: string;
+    NEUTRAL_WEAK: string;
+    PRIMARY: string;
+    PRIMARY_WEAK: string;
+    SUCCESS: string;
+    WARNING: string;
+};
+export declare type IconColor = Value<typeof ICON_COLORS>;
 export declare const ICON_SIZES: {
     XXX_SMALL: string;
     XX_SMALL: string;
