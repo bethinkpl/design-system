@@ -83,7 +83,7 @@ const args = {
 	isDraggable: true,
 	hasDraggableHandler: true,
 	icon: null,
-	iconColor: null,
+	iconColor: RICH_LIST_ITEM_ICON_COLOR.NEUTRAL_WEAK,
 	iconColorHex: '',
 	hasActionsSlotDivider: true,
 	isSelectable: true,
@@ -113,7 +113,7 @@ const argTypes = {
 		control: { type: 'select' },
 	},
 	iconColor: {
-		options: [null, ...Object.values(RICH_LIST_ITEM_ICON_COLOR)],
+		options: Object.values(RICH_LIST_ITEM_ICON_COLOR),
 		control: { type: 'select' },
 	},
 	borderColor: {
@@ -162,6 +162,6 @@ Interactive.parameters = {
 	layout: 'fullscreen',
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=8673-2345&mode=design&t=LFrFv5yjxOpcJRzE-4',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=8507-129603&mode=design&t=dC5vBzU9RlP1j7G2-4',
 	},
 };
