@@ -85,6 +85,7 @@ $rich-list-item-icon-colors: (
 	success: $color-success-icon,
 	info: $color-info-icon,
 	accent: $color-accent-icon,
+	inverted: $color-inverted-icon,
 );
 
 $rich-list-item-background-colors: (
