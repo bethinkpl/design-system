@@ -371,6 +371,16 @@ $rich-list-item-background-colors: (
 				padding: 0 $space-xxxxs;
 			}
 		}
+
+		#{$root}__metaData {
+			padding-left: $space-xxs;
+			padding-right: $space-xxxxs;
+
+			@media #{breakpoint-s()} {
+				justify-content: flex-start;
+				padding-left: 0;
+			}
+		}
 	}
 }
 
