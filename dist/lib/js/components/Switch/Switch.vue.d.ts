@@ -267,6 +267,12 @@ declare const _default: {
         currentIcon(): any;
         currentLabel(): any;
     };
+    watch: {
+        selectedSide: {
+            handler(side: SwitchSelection): void;
+            immediate: boolean;
+        };
+    };
     methods: {
         onSwitch(side: SwitchSelection): void;
     };
