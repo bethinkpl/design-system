@@ -91,19 +91,18 @@ import RichListItem, {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
 	RICH_LIST_ITEM_ELEVATION,
-	RICH_LIST_ITEM_ICON_COLOR,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
 	RichListItemBackgroundColor,
 	RichListItemBorderColor,
 	RichListItemElevation,
-	RichListItemIconColor,
 	RichListItemSize,
 	RichListItemState,
 	RichListItemType,
 } from '../RichListItem';
 import { PropType } from 'vue';
+import { ICON_COLORS, IconColor } from '../../Icons/Icon';
 
 export default {
 	name: 'BasicRichListItem',
@@ -149,10 +148,10 @@ export default {
 			default: null,
 		},
 		iconColor: {
-			type: String as PropType<RichListItemIconColor>,
+			type: String as PropType<IconColor>,
 			default: null,
 			validator(iconColor) {
-				return Object.values(RICH_LIST_ITEM_ICON_COLOR).includes(iconColor);
+				return Object.values(ICON_COLORS).includes(iconColor);
 			},
 		},
 		iconColorHex: {

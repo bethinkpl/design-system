@@ -71,22 +71,8 @@
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/shadows';
+@import '../../../../styles/settings/icons';
 @import './border-colors';
-
-$rich-list-item-icon-colors: (
-	default: $color-default-icon,
-	primary: $color-primary-icon,
-	primary-weak: $color-primary-icon-weak,
-	neutral: $color-neutral-icon,
-	neutral-weak: $color-neutral-icon-weak,
-	danger: $color-danger-icon,
-	fail: $color-fail-icon,
-	warning: $color-warning-icon,
-	success: $color-success-icon,
-	info: $color-info-icon,
-	accent: $color-accent-icon,
-	inverted: $color-inverted-icon,
-);
 
 $rich-list-item-background-colors: (
 	neutral: (
@@ -328,11 +314,7 @@ $rich-list-item-background-colors: (
 	}
 
 	&__icon {
-		@each $color, $value in $rich-list-item-icon-colors {
-			&.-icon-color-#{$color} {
-				color: $value;
-			}
-		}
+		@include coloredIcon();
 
 		color: $color-neutral-icon-weak;
 	}
@@ -404,20 +386,18 @@ $rich-list-item-background-colors: (
 <script lang="ts">
 import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
 import DsDivider from '../../../components/Divider';
-import DsIcon, { ICON_SIZES, ICONS } from '../../../components/Icons/Icon';
+import DsIcon, { ICON_COLORS, ICON_SIZES, IconColor, ICONS } from '../../../components/Icons/Icon';
 import { PropType } from 'vue';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
 	RICH_LIST_ITEM_ELEVATION,
-	RICH_LIST_ITEM_ICON_COLOR,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
 	RichListItemBackgroundColor,
 	RichListItemBorderColor,
 	RichListItemElevation,
-	RichListItemIconColor,
 	RichListItemSize,
 	RichListItemState,
 	RichListItemType,
@@ -469,10 +449,10 @@ export default {
 			default: null,
 		},
 		iconColor: {
-			type: String as PropType<RichListItemIconColor>,
+			type: String as PropType<IconColor>,
 			default: null,
 			validator(iconColor) {
-				return Object.values(RICH_LIST_ITEM_ICON_COLOR).includes(iconColor);
+				return Object.values(ICON_COLORS).includes(iconColor);
 			},
 		},
 		iconColorHex: {
@@ -558,7 +538,7 @@ export default {
 			if (!this.iconColor || (this.iconColor && this.iconColorHex)) {
 				return;
 			}
-			return `-icon-color-${this.iconColor}`;
+			return `-${this.iconColor}`;
 		},
 		iconColorStyle() {
 			if (!this.iconColor || !this.iconColorHex) {

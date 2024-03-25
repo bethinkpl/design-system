@@ -5,12 +5,11 @@ import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
 	RICH_LIST_ITEM_ELEVATION,
-	RICH_LIST_ITEM_ICON_COLOR,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
 } from '../RichListItem';
-import { ICONS } from '../../Icons/Icon';
+import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 
 export default {
 	title: 'Components/RichList/BasicRichListItem',
@@ -115,7 +114,7 @@ const argTypes = {
 		control: { type: 'select' },
 	},
 	iconColor: {
-		options: [null, ...Object.values(RICH_LIST_ITEM_ICON_COLOR)],
+		options: [null, ...Object.values(ICON_COLORS)],
 		control: { type: 'select' },
 	},
 	borderColor: {

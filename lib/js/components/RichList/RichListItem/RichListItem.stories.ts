@@ -5,12 +5,11 @@ import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
 	RICH_LIST_ITEM_ELEVATION,
-	RICH_LIST_ITEM_ICON_COLOR,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
 } from './RichListItem.consts';
-import { ICONS } from '../../Icons/Icon';
+import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 
 export default {
 	title: 'Components/RichList/RichListItem',
@@ -83,7 +82,7 @@ const args = {
 	isDraggable: true,
 	hasDraggableHandler: true,
 	icon: null,
-	iconColor: RICH_LIST_ITEM_ICON_COLOR.NEUTRAL_WEAK,
+	iconColor: ICON_COLORS.NEUTRAL_WEAK,
 	iconColorHex: '',
 	hasActionsSlotDivider: true,
 	isSelectable: true,
@@ -113,7 +112,7 @@ const argTypes = {
 		control: { type: 'select' },
 	},
 	iconColor: {
-		options: Object.values(RICH_LIST_ITEM_ICON_COLOR),
+		options: Object.values(ICON_COLORS),
 		control: { type: 'select' },
 	},
 	borderColor: {
