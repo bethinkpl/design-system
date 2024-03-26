@@ -251,7 +251,7 @@ $rich-list-item-background-colors: (
 
 		@media #{breakpoint-s()} {
 			justify-content: flex-start;
-			padding-left: 0;
+			padding-left: $space-xxxxs;
 		}
 
 		&.-hideOnMobile {
@@ -378,7 +378,7 @@ $rich-list-item-background-colors: (
 
 			@media #{breakpoint-s()} {
 				justify-content: flex-start;
-				padding-left: 0;
+				padding-left: $space-xxxxs;
 			}
 		}
 	}
