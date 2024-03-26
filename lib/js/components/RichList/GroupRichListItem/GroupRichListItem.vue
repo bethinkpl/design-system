@@ -1,7 +1,7 @@
 <template>
-	<div class="richListGroupItem">
-		<div class="richListGroupItem__wrapper">
-			<div class="richListGroupItem__parent" :class="{ '-expanded': isExpanded }">
+	<div class="groupRichListItem">
+		<div class="groupRichListItem__wrapper">
+			<div class="groupRichListItem__parent" :class="{ '-expanded': isExpanded }">
 				<slot name="parent" />
 			</div>
 			<div v-if="isExpanded">
@@ -10,7 +10,7 @@
 		</div>
 		<div
 			v-if="borderColorClass || borderColorStyle"
-			class="richListGroupItem__border"
+			class="groupRichListItem__border"
 			:class="borderColorClass"
 			:style="borderColorStyle"
 		/>
@@ -23,7 +23,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../RichListItem/border-colors';
 
-.richListGroupItem {
+.groupRichListItem {
 	$root: &;
 
 	border-radius: $radius-s;
@@ -64,22 +64,22 @@
 <script lang="ts">
 import { PropType } from 'vue';
 import {
-	RICH_LIST_GROUP_ITEM_BORDER_COLOR,
-	RichListGroupItemBorderColor,
-} from './RichListGroupItem.consts';
+	GROUP_RICH_LIST_ITEM_BORDER_COLOR,
+	GroupRichListItemBorderColor,
+} from './GroupRichListItem.consts';
 
 export default {
-	name: 'RichListGroupItem',
+	name: 'GroupRichListItem',
 	props: {
 		isExpanded: {
 			type: Boolean,
 			default: false,
 		},
 		borderColor: {
-			type: String as PropType<RichListGroupItemBorderColor>,
+			type: String as PropType<GroupRichListItemBorderColor>,
 			default: null,
 			validator(borderColor) {
-				return Object.values(RICH_LIST_GROUP_ITEM_BORDER_COLOR).includes(borderColor);
+				return Object.values(GROUP_RICH_LIST_ITEM_BORDER_COLOR).includes(borderColor);
 			},
 		},
 		borderColorHex: {
