@@ -6,7 +6,7 @@
 			:icon-right="iconRight"
 			:icon-right-color="iconRightColor"
 			:is-expandable="isExpandable"
-			:is-expanded="isExpanded"
+			:is-expanded="isExpandedInternal"
 			:info="info"
 			:size="size"
 			:title="title"
@@ -110,7 +110,7 @@ export default {
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICONS: Object.freeze(ICONS),
-			isExpandedInternal: false,
+			isExpandedInternal: this.isExpanded,
 		};
 	},
 	watch: {
