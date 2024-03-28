@@ -306,6 +306,8 @@ export default {
 			required: true,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['change-page'],
 	data() {
 		return {

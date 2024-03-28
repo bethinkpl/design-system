@@ -392,6 +392,8 @@ export default {
 			default: null,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['icon-click', 'click'],
 	data() {
 		return {
