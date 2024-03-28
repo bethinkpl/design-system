@@ -217,6 +217,8 @@ export default defineComponent({
 			},
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['update:isSelected', 'icon-click'],
 	data() {
 		return {

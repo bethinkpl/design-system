@@ -312,10 +312,10 @@ $image-height-small: 140px;
 
 <script lang="ts">
 import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
-import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
-import { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from './Modal.consts';
+import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
-import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../../Buttons/Button';
+import WnlButton, { BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_TYPES } from '../../Buttons/Button';
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { toRaw } from 'vue';
 
@@ -405,6 +405,8 @@ export default {
 			default: null,
 		},
 	},
+	// TODO fix me when touching this file
+	/* eslint vue/require-emit-validator: 0 */
 	emits: [
 		'tertiary-button-click',
 		'checkbox-change',

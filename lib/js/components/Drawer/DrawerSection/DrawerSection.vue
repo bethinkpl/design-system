@@ -104,6 +104,8 @@ export default {
 			default: true,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['info-click', 'update:isExpanded'],
 	data() {
 		return {
