@@ -18,6 +18,9 @@
 		:is-selectable="isSelectable"
 		:is-selected="isSelected"
 		class="basicRichListItem"
+		:class="{
+			'-small': size === RICH_LIST_ITEM_SIZE.SMALL,
+		}"
 		@update:is-selected="$emit('update:isSelected', $event)"
 	>
 		<template #content>
@@ -47,6 +50,8 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/media-queries';
+@import '../../../../styles/mixins/scrollbars';
 
 .basicRichListItem {
 	max-width: 100%;
@@ -57,11 +62,11 @@
 		gap: $space-xxxxs;
 		justify-content: center;
 		min-width: 0; // to prevent the component from being pushed by the ellipses
-		padding: $space-xxs 0;
+		padding: $space-xs 0;
 	}
 
 	&__eyebrow {
-		@include info-s-extensive-bold;
+		@include info-s-default-bold;
 
 		color: $color-neutral-text-weak;
 		min-width: 0;
@@ -72,16 +77,35 @@
 		&.-uppercase {
 			@include info-s-extensive-bold-uppercase;
 		}
+
+		&:hover {
+			color: $color-neutral-text-weak-hovered;
+		}
 	}
 
 	&__text {
 		@include text-m-compact-bold;
+		@include invisible-scrollbar;
 
 		color: $color-neutral-text;
 		min-width: 0;
-		overflow: hidden;
-		text-overflow: ellipsis;
 		white-space: nowrap;
+		overflow-x: scroll;
+
+		&:hover {
+			color: $color-neutral-text-hovered;
+		}
+
+		@media #{breakpoint-s()} {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+	}
+
+	&.-small {
+		&__content {
+			padding: $space-xxxs 0;
+		}
 	}
 }
 </style>
@@ -213,5 +237,10 @@ export default {
 		},
 	},
 	emits: ['update:isSelected'],
+	data() {
+		return {
+			RICH_LIST_ITEM_SIZE: Object.freeze(RICH_LIST_ITEM_SIZE),
+		};
+	},
 };
 </script>

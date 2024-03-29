@@ -167,12 +167,16 @@ $rich-list-item-background-colors: (
 	&.-flat {
 		background: $color-neutral-background-ghost;
 
-		&:hover {
+		&:hover:not(&.-interactive) {
 			opacity: 1;
 
 			.-dimmable {
 				opacity: 1;
 			}
+		}
+
+		&.-loading {
+			background: $color-neutral-background-ghost;
 		}
 
 		#{$root}__wrapper {
@@ -361,6 +365,12 @@ $rich-list-item-background-colors: (
 		#{$root}__content {
 			align-items: center;
 			padding: 0 $space-xxxxs 0 $space-xxs;
+		}
+
+		#{$root}__rightContainer {
+			@media #{breakpoint-s()} {
+				padding: $space-xxs 0;
+			}
 		}
 
 		#{$root}__actionSlot {
