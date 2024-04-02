@@ -89,16 +89,16 @@
 
 		color: $color-neutral-text;
 		min-width: 0;
-		white-space: nowrap;
 		overflow-x: scroll;
-
-		&:hover {
-			color: $color-neutral-text-hovered;
-		}
+		white-space: nowrap;
 
 		@media #{breakpoint-s()} {
 			overflow: hidden;
 			text-overflow: ellipsis;
+		}
+
+		&:hover {
+			color: $color-neutral-text-hovered;
 		}
 	}
 

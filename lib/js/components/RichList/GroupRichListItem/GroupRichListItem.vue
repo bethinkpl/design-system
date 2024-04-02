@@ -1,10 +1,10 @@
 <template>
-	<div class="groupRichListItem">
+	<div class="groupRichListItem" :class="classList">
 		<div class="groupRichListItem__wrapper">
-			<div class="groupRichListItem__parent" :class="{ '-expanded': isExpanded }">
+			<div class="groupRichListItem__parent">
 				<slot name="parent" />
 			</div>
-			<div v-if="isExpanded">
+			<div v-if="isExpanded" class="groupRichListItem__children">
 				<slot name="children" />
 			</div>
 		</div>
@@ -23,8 +23,41 @@
 @import '../../../../styles/settings/spacings';
 @import '../RichListItem/border-colors';
 
+$group-rich-list-background-colors: (
+	neutral: (
+		parent: $color-neutral-background,
+		children: transparent,
+	),
+	neutral-weak: (
+		parent: $color-neutral-background-weak,
+		children: $color-neutral-background,
+	),
+);
+
 .groupRichListItem {
 	$root: &;
+
+	@each $color, $value in $group-rich-list-background-colors {
+		&.-background-#{$color} {
+			#{$root}__children {
+				background-color: map-get($value, 'children');
+			}
+
+			#{$root}__parent {
+				background-color: map-get($value, 'parent');
+			}
+
+			&.-loading {
+				#{$root}__children {
+					background-color: map-get($value, 'children');
+				}
+
+				#{$root}__parent {
+					background-color: map-get($value, 'parent');
+				}
+			}
+		}
+	}
 
 	border-radius: $radius-s;
 	display: flex;
@@ -38,10 +71,6 @@
 		border: 1px solid $color-neutral-border-weak;
 		border-radius: $radius-s;
 		overflow: hidden;
-	}
-
-	&__parent.-expanded {
-		background: $color-neutral-background;
 	}
 
 	&__border {
@@ -64,7 +93,9 @@
 <script lang="ts">
 import { PropType } from 'vue';
 import {
+	GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR,
 	GROUP_RICH_LIST_ITEM_BORDER_COLOR,
+	GroupRichListItemBackgroundColor,
 	GroupRichListItemBorderColor,
 } from './GroupRichListItem.consts';
 
@@ -86,8 +117,24 @@ export default {
 			type: String,
 			default: null,
 		},
+		backgroundColor: {
+			type: String as PropType<GroupRichListItemBackgroundColor>,
+			default: GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
+			validator(backgroundColor) {
+				return Object.values(GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR).includes(
+					backgroundColor,
+				);
+			},
+		},
 	},
 	computed: {
+		classList() {
+			return {
+				...(this.backgroundColor && {
+					[`-background-${this.backgroundColor}`]: true,
+				}),
+			};
+		},
 		borderColorClass() {
 			if (!this.borderColor || (this.borderColor && this.borderColorHex)) {
 				return;

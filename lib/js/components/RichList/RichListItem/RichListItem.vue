@@ -1,5 +1,5 @@
 <template>
-	<div class="richListItem" :class="classList" @click="$emit('click')">
+	<div class="richListItem" :class="classList" @click="$emit('click', $event)">
 		<div class="richListItem__container -dimmable">
 			<div v-if="isDraggable && hasDraggableHandler" class="richListItem__dragAndDrop">
 				<ds-icon
@@ -11,6 +11,7 @@
 							? ICON_SIZES.XX_SMALL
 							: ICON_SIZES.X_SMALL
 					"
+					@click.stop
 				/>
 			</div>
 			<div v-if="icon" class="richListItem__iconWrapper">
@@ -34,7 +35,7 @@
 				<div v-if="$slots.meta" class="richListItem__metaData -hideOnMobile">
 					<slot name="meta" />
 				</div>
-				<div v-if="$slots.actions" class="richListItem__actionSlot">
+				<div v-if="$slots.actions" class="richListItem__actionSlot" @click.stop>
 					<ds-divider
 						v-if="$slots.actions && hasActionsSlotDivider"
 						is-vertical
@@ -47,6 +48,7 @@
 					<ds-checkbox
 						:is-selected="isSelected"
 						@update:is-selected="$emit('update:isSelected', $event)"
+						@click.stop
 					/>
 				</div>
 			</div>
@@ -167,7 +169,7 @@ $rich-list-item-background-colors: (
 	&.-flat {
 		background: $color-neutral-background-ghost;
 
-		&:hover:not(&.-interactive) {
+		&:not(.-interactive):hover {
 			opacity: 1;
 
 			.-dimmable {
@@ -544,9 +546,10 @@ export default {
 				'-dimmed': this.isDimmed,
 				'-interactive': this.isInteractive,
 				'-small': this.size === RICH_LIST_ITEM_SIZE.SMALL,
-				...(this.backgroundColor && {
-					[`-background-${this.backgroundColor}`]: true,
-				}),
+				...(this.backgroundColor &&
+					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
+						[`-background-${this.backgroundColor}`]: true,
+					}),
 				...(this.elevation &&
 					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
 						[`-elevation-${this.elevation}`]: true,
