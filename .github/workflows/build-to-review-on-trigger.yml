@@ -41,7 +41,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.13'
+          node-version: '20.9.0'
           cache: 'yarn'
 
       - name: Install and Build 🔧
