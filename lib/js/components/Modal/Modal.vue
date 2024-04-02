@@ -8,7 +8,7 @@
 					:icon="ICONS.FA_XMARK"
 					class="m-modal__header__close"
 					:size="ICON_SIZES.SMALL"
-					@click.native.stop="$emit('close-modal')"
+					@click.stop="$emit('close-modal')"
 				/>
 			</div>
 			<div
@@ -117,6 +117,9 @@ export default {
 			default: false,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
+	emits: ['close-modal'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

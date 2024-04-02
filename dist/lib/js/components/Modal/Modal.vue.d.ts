@@ -1,50 +1,8 @@
+import WnlIcon from '../Icons/Icon';
 declare const _default: {
     name: string;
     components: {
-        WnlIcon: {
-            name: string;
-            components: {
-                FontAwesomeIcon: import("vue").FunctionalComponentOptions<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps, import("vue/types/options").PropsDefinition<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps>> & import("vue").VueConstructor<import("vue").default>;
-            };
-            props: {
-                icon: {
-                    type: ObjectConstructor;
-                    required: boolean;
-                    validator(icon: import("vue").VueConstructor<import("vue").default>): boolean;
-                };
-                size: {
-                    type: StringConstructor;
-                    default: string;
-                    validator: (value: string) => boolean;
-                };
-                rotation: {
-                    type: NumberConstructor;
-                    default: null;
-                    validator(value: number): boolean;
-                };
-                flippedVertical: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                flippedHorizontal: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                touchable: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-                spinning: {
-                    type: BooleanConstructor;
-                    default: boolean;
-                };
-            };
-            computed: {
-                sizeClassName(): string;
-                isFontawesomeIcon(): boolean;
-                rotationClass(): string | null;
-            };
-        };
+        WnlIcon: typeof WnlIcon;
     };
     props: {
         showHeader: {
@@ -56,11 +14,13 @@ declare const _default: {
             default: boolean;
         };
     };
+    emits: string[];
     data(): {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: import("vue").VueConstructor<import("vue").default>;
-            readonly RIBBON: import("vue").VueConstructor<import("vue").default>;
-            readonly SLIDERS_SEARCH: import("vue").VueConstructor<import("vue").default>;
+            readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
+            readonly RIBBON: import("vue").CompatVue;
+            readonly SLIDERS_SEARCH: import("vue").CompatVue;
+            readonly COMMENTS_CHECK: import("vue").CompatVue;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -88,6 +48,7 @@ declare const _default: {
             readonly FA_BOOK_COPY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOOK_SPARKLES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOOKMARK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_BOX: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOX_ARCHIVE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -120,14 +81,20 @@ declare const _default: {
             readonly FA_CIRCLE_QUESTION: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CIRCLE_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLIPBOARD_MEDICAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CLIPBOARD_LIST: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLOCK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CLOCK_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CODE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CODE_SIMPLE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMMENT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMMENT_DOTS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMMENT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMMENTS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_COMMENTS_QUESTION: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_COMMENTS_QUESTION_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMPRESS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_COPY: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_DOT_CIRCLE_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_EARTH_AMERICAS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ELLIPSIS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ELLIPSIS_VERTICAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -135,6 +102,7 @@ declare const _default: {
             readonly FA_EYE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_EYE_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACE_FROWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_FACE_GRIMACE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACE_MEH: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACE_SMILE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACEBOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -158,6 +126,7 @@ declare const _default: {
             readonly FA_GRADUATION_CAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_GRID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HAND_POINT_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_HAND_POINT_RIGHT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HAND_SPOCK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HANDS_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HEART_PULSE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -194,8 +163,11 @@ declare const _default: {
             readonly FA_PLAY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_PLUS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_PRINT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_RECTANGLE_CODE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_REPLY: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_SHARE_NODES: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHIELD_HALVED: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SIGNAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SITEMAP: import("@fortawesome/fontawesome-common-types").IconDefinition;

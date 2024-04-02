@@ -1,7 +1,27 @@
 import HeadWithQuestionMark from '../../../../images/icons/head-with-question-mark.svg';
 import Ribbon from '../../../../images/icons/ribbon.svg';
 import SlidersSearch from '../../../../images/icons/sliders-search.svg';
+import CommentsCheck from '../../../../images/icons/comments-check.svg';
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
+import { Value } from '../../../utils/type.utils';
+
+export const ICON_COLORS = {
+	ACCENT: 'accent',
+	DANGER: 'danger',
+	DEFAULT: 'default',
+	FAIL: 'fail',
+	INFO: 'info',
+	INVERTED: 'inverted',
+	NEUTRAL: 'neutral',
+	NEUTRAL_STRONG: 'neutralStrong',
+	NEUTRAL_WEAK: 'neutralWeak',
+	PRIMARY: 'primary',
+	PRIMARY_WEAK: 'primaryWeak',
+	SUCCESS: 'success',
+	WARNING: 'warning',
+};
+
+export type IconColor = Value<typeof ICON_COLORS>;
 
 export const ICON_SIZES = {
 	XXX_SMALL: 'xxx-small',
@@ -14,10 +34,13 @@ export const ICON_SIZES = {
 	XX_LARGE: 'xx-large',
 };
 
+export type IconSize = Value<typeof ICON_SIZES>;
+
 const BETHINK_ICONS = {
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
 	RIBBON: Ribbon,
 	SLIDERS_SEARCH: SlidersSearch,
+	COMMENTS_CHECK: CommentsCheck,
 } as const;
 
 export const ICONS = {

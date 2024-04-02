@@ -10,4 +10,5 @@ export declare const SELECT_LIST_ITEM_SIZES: {
 export declare const SELECT_LIST_ITEM_STATES: {
     DEFAULT: string;
     LOADING: string;
+    DISABLED: string;
 };

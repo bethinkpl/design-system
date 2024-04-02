@@ -1,8 +1,8 @@
 <template>
 	<div
-		v-ripple
 		class="selectListItem"
 		:class="{
+			'-disabled': isDisabled,
 			'-loading': isLoading,
 			'-selected': isSelected,
 			[`-${size}`]: true,
@@ -18,13 +18,21 @@
 			:spinning="isLoading"
 		/>
 
-		<span class="selectListItem__text">{{ label }}</span>
+		<span class="selectListItem__textWrapper">
+			<span
+				v-if="eyebrowText"
+				class="selectListItem__eyebrowText"
+				:class="{ '-uppercase': isEyebrowTextUppercase }"
+				>{{ eyebrowText }}</span
+			>
+			<span class="selectListItem__text">{{ label }}</span>
+		</span>
 
 		<ds-icon
 			v-if="isSelected"
 			class="selectListItem__iconRight"
 			:icon="ICONS.FA_CHECK_SOLID"
-			:size="ICON_SIZES.X_SMALL"
+			:size="ICON_SIZES.XX_SMALL"
 		/>
 		<div v-else class="selectListItem__placeholderRight" />
 	</div>
@@ -37,12 +45,16 @@
 @import '../../../../styles/settings/spacings';
 
 .selectListItem {
+	$self: &;
+	$minHeight: 40px;
+
 	@include label-l-default-regular;
 
 	background-color: $color-neutral-background-ghost;
 	color: $color-neutral-text-heavy;
 	cursor: pointer;
 	display: flex;
+	min-height: $minHeight;
 	padding: $space-xs;
 
 	&:focus {
@@ -53,12 +65,17 @@
 		background-color: $color-neutral-background-ghost-hovered;
 	}
 
-	&.-loading {
+	&.-loading,
+	&.-disabled {
 		pointer-events: none;
 	}
 
 	&.-selected {
 		background-color: $color-neutral-background;
+
+		&.-disabled {
+			background-color: $color-neutral-background-disabled;
+		}
 
 		&:focus {
 			background-color: $color-neutral-background-focused;
@@ -81,10 +98,6 @@
 		@include label-xl-default-regular;
 	}
 
-	&::v-deep .ripple {
-		background-color: $color-neutral-ripple !important;
-	}
-
 	&__iconLeft {
 		color: $color-neutral-icon;
 		margin-right: $space-xxxs;
@@ -101,39 +114,72 @@
 		width: $icon-xs;
 	}
 
-	&__text {
+	&__textWrapper {
+		display: flex;
+		flex-direction: column;
 		flex-grow: 1;
+		gap: $space-xxxxxs;
+		overflow: hidden;
+		white-space: nowrap;
+	}
+
+	&__text {
 		overflow: hidden;
 		text-overflow: ellipsis;
-		white-space: nowrap;
+	}
+
+	&__eyebrowText {
+		@include info-s-default-bold;
+
+		color: $color-neutral-text-weak;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&.-uppercase {
+			@include info-s-extensive-bold-uppercase;
+		}
+	}
+
+	&.-disabled {
+		#{$self}__iconLeft {
+			color: $color-neutral-icon-disabled;
+		}
+
+		#{$self}__iconRight {
+			color: $color-primary-icon-disabled;
+		}
+
+		#{$self}__text {
+			color: $color-neutral-text-heavy-disabled;
+		}
+
+		#{$self}__eyebrowText {
+			color: $color-neutral-text-weak-disabled;
+		}
 	}
 }
 </style>
 
 <script lang="ts">
-import Ripple from 'vue-ripple-directive';
-
 import {
-	SELECT_LIST_ITEM_STATES,
-	SELECT_LIST_ITEM_SIZES,
 	SELECT_LIST_ITEM_SELECTION_MODE,
+	SELECT_LIST_ITEM_SIZES,
+	SELECT_LIST_ITEM_STATES,
 } from './SelectListItem.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'SelectListItem',
 	components: {
 		DsIcon,
 	},
-	directives: {
-		ripple: Ripple,
-	},
 	props: {
 		iconLeft: {
 			type: Object,
 			default: null,
 			validator(icon) {
-				return Object.values(ICONS).includes(icon);
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		isSelected: {
@@ -143,6 +189,14 @@ export default {
 		label: {
 			type: String,
 			required: true,
+		},
+		eyebrowText: {
+			type: String,
+			default: '',
+		},
+		isEyebrowTextUppercase: {
+			type: Boolean,
+			default: false,
 		},
 		selectionMode: {
 			type: String,
@@ -177,6 +231,9 @@ export default {
 	computed: {
 		isLoading(): boolean {
 			return this.state === SELECT_LIST_ITEM_STATES.LOADING;
+		},
+		isDisabled(): boolean {
+			return this.state === SELECT_LIST_ITEM_STATES.DISABLED;
 		},
 	},
 };

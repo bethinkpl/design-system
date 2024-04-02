@@ -3,28 +3,36 @@ const path = require('path');
 module.exports = {
 	stories: ['../lib/**/*.stories.@(js|mdx|ts)'],
 	addons: [
+		'@storybook/addon-actions',
 		'@storybook/addon-docs',
 		'@storybook/addon-controls',
-		'@storybook/addon-actions',
 		'@storybook/addon-storysource',
 		'@storybook/addon-viewport',
 		'storybook-addon-designs',
 	],
+	core: {
+		builder: 'webpack5',
+	},
 	webpackFinal: async (config) => {
+		let vueLoaderRule = config.module.rules.find(
+			(r) =>
+				r.test &&
+				r.test.toString().includes('vue') &&
+				r.loader &&
+				r.loader.includes('vue-loader'),
+		);
+
 		// `configType` has a value of 'DEVELOPMENT' or 'PRODUCTION'
 		// You can change the configuration based on that.
 		// 'PRODUCTION' is used when building the static version of storybook.
 
-		// // Storybook provides file-loader rule for svg. We have to disable it to make vue-svg-loader working
+		// // Storybook provides assets rule for svg. We have to disable it to make vue-svg-loader working
 		let fileLoaderRule = config.module.rules.find(
 			(r) =>
-				// it can be another rule with file loader
-				// we should get only svg related
 				r.test &&
 				r.test.toString().includes('svg') &&
-				// file-loader might be resolved to js file path so "endsWith" is not reliable enough
-				r.loader &&
-				r.loader.includes('file-loader'),
+				r.type &&
+				r.type === 'asset/resource',
 		);
 		fileLoaderRule.test = new RegExp(
 			fileLoaderRule.test.source.replace('svg|', ''),
@@ -51,7 +59,7 @@ module.exports = {
 			},
 			{
 				test: /\.svg$/,
-				use: ['vue-svg-loader'],
+				use: ['vue-loader', 'vue-svg-loader'],
 			},
 		);
 

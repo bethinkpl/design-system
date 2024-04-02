@@ -8,7 +8,7 @@
 				:size="ICON_SIZES.SMALL"
 				:elevation="BUTTON_ELEVATIONS.X_SMALL"
 				:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
-				@click.native.stop="$emit('close-modal')"
+				@click.stop="$emit('close-modal')"
 			/>
 			<div class="ds-modal__scrollableWrapper">
 				<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
@@ -43,14 +43,13 @@
 					>
 						<div
 							v-if="footerTertiaryButtonText || footerCheckboxText"
-							class="ds-modal__footerColumn --ctaSecondary"
+							class="ds-modal__footerCtaSecondary"
 						>
 							<div v-if="footerCheckboxText" class="ds-modal__checkbox">
 								<input
 									id="ds-modal__checkboxInput"
 									type="checkbox"
 									:checked="false"
-									class="ds-modal__checkboxInput"
 									@change="$emit('checkbox-change', $event.target.checked)"
 								/>
 								<label
@@ -62,10 +61,10 @@
 							</div>
 							<wnl-button
 								v-if="footerTertiaryButtonText"
-								class="ds-modal__buttonSecondary"
 								:type="BUTTON_TYPES.TEXT"
 								:color="BUTTON_COLORS.NEUTRAL"
 								:icon-left="footerTertiaryButtonIcon"
+								class="ds-modal__tertiaryButton"
 								@click="$emit('tertiary-button-click')"
 							>
 								{{ footerTertiaryButtonText }}
@@ -73,11 +72,10 @@
 						</div>
 						<div
 							v-if="footerSecondaryButtonText || footerPrimaryButtonText"
-							class="ds-modal__footerColumn --cta"
+							class="ds-modal__footerCtaPrimary"
 						>
 							<wnl-button
 								v-if="footerSecondaryButtonText"
-								class="ds-modal__buttonSecondary"
 								:type="BUTTON_TYPES.OUTLINED"
 								:color="calcFooterSecondaryButtonColor"
 								:icon-right="footerSecondaryButtonIcon"
@@ -87,7 +85,6 @@
 							</wnl-button>
 							<wnl-button
 								v-if="footerPrimaryButtonText"
-								class="ds-modal__buttonPrimary"
 								:color="calcFooterPrimaryButtonColor"
 								:icon-right="footerPrimaryButtonIcon"
 								@click="$emit('primary-button-click')"
@@ -144,6 +141,7 @@ $image-height-small: 140px;
 		max-width: $modal-medium-width;
 		overflow: hidden;
 		position: relative;
+		width: 100%;
 
 		&.-small {
 			max-width: $modal-small-width;
@@ -188,17 +186,19 @@ $image-height-small: 140px;
 	&__header {
 		display: flex;
 		flex-direction: column;
+		margin-bottom: $space-s;
+		row-gap: $space-xs;
 	}
 
 	&__headerFeatureIcon {
 		align-self: center;
-		margin-bottom: $space-m;
+		margin-bottom: $space-xs;
 	}
 
 	&__headerTitle {
 		@include heading-xl-default-bold;
 
-		margin-bottom: $space-xs;
+		margin-bottom: 0;
 		margin-top: 0;
 
 		@media #{breakpoint-s()} {
@@ -213,25 +213,19 @@ $image-height-small: 140px;
 	&__headerSubtitle {
 		@include heading-m-default-regular;
 
-		margin-bottom: $space-s;
+		margin-bottom: 0;
 		margin-top: 0;
 	}
 
 	&__slotContent {
 		@include text-m-default-regular;
-
-		margin-bottom: $space-xs;
 	}
 
 	&__checkbox {
-		align-items: center;
+		align-items: flex-start;
 		cursor: pointer;
 		display: flex;
-		margin-top: $space-s;
-
-		@media #{breakpoint-s()} {
-			margin-top: 0;
-		}
+		flex-flow: row;
 	}
 
 	&__checkboxLabel {
@@ -254,63 +248,63 @@ $image-height-small: 140px;
 	}
 
 	&__footer {
+		column-gap: $space-s;
 		display: flex;
 		flex-direction: column-reverse;
 		justify-content: space-between;
+		line-break: anywhere;
 		padding-top: $space-m;
 
 		@media #{breakpoint-s()} {
+			align-items: center;
 			flex-direction: row;
 		}
 
 		&.-singleColumn {
-			#{$self}__footerColumn {
+			#{$self}__footerCtaPrimary {
 				justify-content: center;
 				width: 100%;
 			}
 		}
 	}
 
-	&__footerColumn {
-		display: flex;
-		flex-direction: column-reverse;
-		gap: 0 $space-s;
+	&__tertiaryButton {
+		flex-shrink: 0;
 
-		&.--cta {
-			@media #{breakpoint-s()} {
-				flex-direction: row;
-			}
-
-			&:not(:first-child) {
-				// first-child because of reverse order in flex-direction
-				margin-bottom: $space-xs;
-
-				@media #{breakpoint-s()} {
-					margin-bottom: 0;
-				}
-			}
-		}
-
-		&.--ctaSecondary {
-			align-items: center;
-			gap: 0 $space-m;
-			justify-content: center;
-
-			@media #{breakpoint-s()} {
-				flex-direction: row;
-				justify-content: left;
-			}
+		&:only-child {
+			margin: 0 auto;
 		}
 	}
 
-	&__buttonPrimary {
+	&__footerCtaPrimary {
+		display: flex;
+		flex-direction: column-reverse;
+		flex-shrink: 0;
+		gap: $space-s 0;
+
+		@media #{breakpoint-s()} {
+			flex-direction: row;
+			gap: 0 $space-s;
+		}
+
 		&:not(:first-child) {
 			// first-child because of reverse order in flex-direction
-			margin-bottom: $space-s;
+			margin-bottom: $space-xs;
 
 			@media #{breakpoint-s()} {
 				margin-bottom: 0;
 			}
+		}
+	}
+
+	&__footerCtaSecondary {
+		align-items: center;
+		display: flex;
+		gap: 0 $space-m;
+		justify-content: space-between;
+
+		@media #{breakpoint-s()} {
+			justify-content: left;
 		}
 	}
 }
@@ -318,12 +312,12 @@ $image-height-small: 140px;
 
 <script lang="ts">
 import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
-import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
-import { VueConstructor } from 'vue';
-import { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from './Modal.consts';
+import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
-import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../../Buttons/Button';
+import WnlButton, { BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_TYPES } from '../../Buttons/Button';
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'Modal',
@@ -354,8 +348,8 @@ export default {
 		headerFeatureIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		headerFeatureIconColor: {
@@ -380,8 +374,8 @@ export default {
 		footerPrimaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		footerSecondaryButtonText: {
@@ -391,8 +385,8 @@ export default {
 		footerSecondaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		footerTertiaryButtonText: {
@@ -402,8 +396,8 @@ export default {
 		footerTertiaryButtonIcon: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		footerCheckboxText: {
@@ -411,6 +405,15 @@ export default {
 			default: null,
 		},
 	},
+	// TODO fix me when touching this file
+	/* eslint vue/require-emit-validator: 0 */
+	emits: [
+		'tertiary-button-click',
+		'checkbox-change',
+		'close-modal',
+		'secondary-button-click',
+		'primary-button-click',
+	],
 	data() {
 		return {
 			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),

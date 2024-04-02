@@ -1,71 +1,139 @@
 <template>
 	<div
-		class="a-tabItem"
-		:title="title"
-		:class="{ '-isActive': isActive }"
+		class="tabItem"
+		:title="label"
+		:class="{
+			'-sizeMedium': size === TAB_ITEM_SIZES.MEDIUM,
+			'-sizeSmall': size === TAB_ITEM_SIZES.SMALL,
+			'-isSelected': isSelected,
+		}"
 		@click="$emit('click')"
 	>
-		<wnl-icon :icon="icon" :size="ICON_SIZES.X_SMALL" />
+		<ds-icon
+			v-if="icon !== null"
+			class="tabItem__icon"
+			:icon="icon"
+			:size="ICON_SIZES.X_SMALL"
+		/>
+		<span v-if="label" class="tabItem__label" :class="{ '-ellipsis': labelEllipsis }">{{
+			label
+		}}</span>
 	</div>
 </template>
 
 <style scoped lang="scss">
-@import '../../../styles/settings/icons';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
+@import '../../../styles/settings/animations';
 
-$tab-item-width: (2 * $space-s) + $icon-xs;
+.tabItem {
+	$self: &;
 
-.a-tabItem {
-	border-bottom: 1px solid $color-neutral-border;
-	color: $color-neutral-icon;
+	align-items: center;
+	box-shadow: inset 0 -1px 0 $color-neutral-border;
 	cursor: pointer;
-	display: flex;
+	display: inline-flex;
 	justify-content: center;
-	padding: $space-xxs $space-s;
-	width: $tab-item-width;
+	min-height: 40px;
+	transition: box-shadow ease-in-out $default-transition-time;
 
-	&:hover {
-		border-bottom-color: $color-default-border;
-		color: $color-default-icon;
+	&__icon {
+		color: $color-neutral-icon;
+		transition: color ease-in-out $default-transition-time;
 	}
 
-	&.-isActive {
-		border-bottom-color: $color-primary-border;
-		color: $color-primary-icon;
+	&__label {
+		color: $color-neutral-text;
+		transition: color ease-in-out $default-transition-time;
+
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
+	}
+
+	&:hover {
+		box-shadow: inset 0 -1px 0 $color-default-border;
+		#{$self}__icon {
+			color: $color-default-icon;
+		}
+
+		#{$self}__label {
+			color: $color-default-text;
+		}
+	}
+
+	&.-isSelected {
+		box-shadow: inset 0 -1px 0 $color-primary-border;
+
+		#{$self}__icon {
+			color: $color-primary-icon;
+		}
+
+		#{$self}__label {
+			color: $color-primary-text;
+		}
+	}
+
+	&.-sizeSmall {
+		@include label-m-default-bold;
+
+		column-gap: $space-xxxxs;
+		padding: $space-xs;
+	}
+
+	&.-sizeMedium {
+		@include label-l-default-bold;
+
+		column-gap: $space-xxs;
+		padding: $space-xs $space-s;
 	}
 }
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
-
-import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import { toRaw } from 'vue';
+import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 export default {
 	name: 'TabItem',
 	components: {
-		WnlIcon,
+		DsIcon,
 	},
 	props: {
 		icon: {
-			type: Object,
-			required: true,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			type: [Object, null],
+			default: null,
+			validator(icon) {
+				return icon === null || Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
-		isActive: {
+		isSelected: {
 			type: Boolean,
 			required: true,
 		},
-		title: {
+		label: {
+			type: [String, null],
+			default: null,
+		},
+		labelEllipsis: {
+			type: Boolean,
+			default: false,
+		},
+		size: {
 			type: String,
-			required: true,
+			default: TAB_ITEM_SIZES.MEDIUM,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
+	emits: ['click'],
 	data() {
 		return {
+			TAB_ITEM_SIZES: Object.freeze(TAB_ITEM_SIZES),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},

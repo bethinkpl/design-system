@@ -1,6 +1,6 @@
 import ProgressDonutChart from './ProgressDonutChart.vue';
 
-import { ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
 	PROGRESS_DONUT_CHART_RANGE_COLORS,
 	PROGRESS_DONUT_CHART_STATES,
@@ -12,13 +12,15 @@ export default {
 	component: ProgressDonutChart,
 } as Meta<typeof ProgressDonutChart>;
 
-const StoryTemplate: StoryFn<typeof ProgressDonutChart> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof ProgressDonutChart> = (args) => ({
 	components: { ProgressDonutChart },
-	props: Object.keys(argTypes),
+	setup() {
+		return { args };
+	},
 	template: `
-		<ProgressDonutChart
-			v-bind=$props
-		/>`,
+			<ProgressDonutChart
+					v-bind=args
+			/>`,
 });
 
 export const Interactive = StoryTemplate.bind({});

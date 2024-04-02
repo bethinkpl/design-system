@@ -1,19 +1,19 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import TabItem from './TabItem.vue';
 import { ICONS } from '../Icons/Icon';
+import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 describe('TabItem', () => {
-	const createComponent = ({ isActive = false } = {}) => {
-		const localVue = createLocalVue();
-
+	const createComponent = ({ isSelected = false } = {}) => {
+		//@ts-ignore
 		return shallowMount(TabItem, {
-			localVue,
-			mocks: {},
-			propsData: {
+			props: {
 				icon: ICONS.FA_CALENDAR_DAYS,
-				isActive,
-				title: 'Lorem ipsum dolor sit amet',
+				isSelected,
+				label: 'Lorem ipsum dolor sit amet',
+				labelEllipsis: false,
+				size: TAB_ITEM_SIZES.MEDIUM,
 			},
 		});
 	};
@@ -24,15 +24,15 @@ describe('TabItem', () => {
 		expect(component.exists()).toBe(true);
 	});
 
-	it('when prop isActive is set to false component should not render "isActive" class', () => {
-		const component = createComponent({ isActive: false });
+	it('when prop isSelected is set to false component should not render "isSelected" class', () => {
+		const component = createComponent({ isSelected: false });
 
-		expect(component.find('.-isActive').exists()).toBe(false);
+		expect(component.find('.-isSelected').exists()).toBe(false);
 	});
 
-	it('when prop isActive is set to true component should render "isActive" class', () => {
-		const component = createComponent({ isActive: true });
+	it('when prop isSelected is set to true component should render "isSelected" class', () => {
+		const component = createComponent({ isSelected: true });
 
-		expect(component.find('.-isActive').exists()).toBe(true);
+		expect(component.find('.-isSelected').exists()).toBe(true);
 	});
 });

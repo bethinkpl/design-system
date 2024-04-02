@@ -9,7 +9,7 @@
 		:delay-on-mouse-over="300"
 		:delay-on-mouse-out="300"
 		:append-to-body="appendToBody"
-		:visible-arrow="visibleArrow"
+		:visible-arrow="isPointerVisible"
 		:root-class="rootClass"
 	>
 		<div
@@ -62,7 +62,7 @@
 	flex-direction: column;
 	padding: 0;
 
-	&.-color-neutral ::v-deep .popper__arrow {
+	&.-color-neutral :deep(.popper__arrow) {
 		border-color: $color-neutral-background transparent !important;
 	}
 
@@ -70,12 +70,16 @@
 		background-color: $color-neutral-background;
 	}
 
+	.popOver__contentSlot {
+		word-break: break-word;
+	}
+
 	.popOver__contentSlot.-maxHeight {
-		overflow: scroll;
+		overflow: hidden scroll;
 	}
 
 	&.-small {
-		max-width: 320px;
+		width: 320px;
 
 		.popOver__contentSlot.-maxHeight {
 			max-height: 160px;
@@ -83,7 +87,7 @@
 	}
 
 	&.-medium {
-		max-width: 460px;
+		width: min(90vw, 460px);
 
 		.popOver__contentSlot.-maxHeight {
 			max-height: 250px;
@@ -93,7 +97,7 @@
 	&[x-placement^='bottom'] {
 		margin-top: $space-s;
 
-		::v-deep .popper__arrow {
+		:deep(.popper__arrow) {
 			border-color: transparent transparent $color-inverted-border transparent;
 			border-width: 0 $space-xs $space-s $space-xs;
 			left: calc(50% - #{$space-xs});
@@ -106,7 +110,7 @@
 	&[x-placement^='top'] {
 		margin-bottom: $space-s;
 
-		::v-deep .popper__arrow {
+		:deep(.popper__arrow) {
 			border-color: $color-inverted-border transparent transparent transparent;
 			border-width: $space-s $space-xs 0 $space-xs;
 			bottom: -$space-s;
@@ -119,7 +123,7 @@
 	&[x-placement^='right'] {
 		margin-left: $space-s;
 
-		::v-deep .popper__arrow {
+		:deep(.popper__arrow) {
 			border-color: transparent $color-inverted-border transparent transparent;
 			border-width: $space-xs $space-s $space-xs 0;
 			left: -$space-s;
@@ -132,7 +136,7 @@
 	&[x-placement^='left'] {
 		margin-right: $space-s;
 
-		::v-deep .popper__arrow {
+		:deep(.popper__arrow) {
 			border-color: transparent transparent transparent $color-inverted-border;
 			border-width: $space-xs 0 $space-xs $space-s;
 			margin-left: 0;
@@ -260,7 +264,7 @@ export default {
 			type: Boolean,
 			default: false,
 		},
-		visibleArrow: {
+		isPointerVisible: {
 			type: Boolean,
 			default: true,
 		},
@@ -269,6 +273,9 @@ export default {
 			default: '',
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
+	emits: ['button-click'],
 	data() {
 		return {
 			POP_OVER_COLORS: Object.freeze(POP_OVER_COLORS),

@@ -1,6 +1,6 @@
 import PopOver from './PopOver.vue';
-import { Meta, StoryFn } from '@storybook/vue';
-declare const _default: Meta<import("vue").VueConstructor<PopOver>>;
+import { Meta, StoryFn } from '@storybook/vue3';
+declare const _default: Meta<typeof PopOver>;
 export default _default;
-export declare const Interactive: StoryFn<import("vue").VueConstructor<PopOver>>;
-export declare const PopOverSizeMMaxHeightDisabledArrow: StoryFn<import("vue").VueConstructor<PopOver>>;
+export declare const Interactive: StoryFn<typeof PopOver>;
+export declare const PopOverMMaxHeightNoPointer: StoryFn<typeof PopOver>;

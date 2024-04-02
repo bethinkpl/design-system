@@ -1,14 +1,13 @@
-import { VueConstructor } from 'vue';
 declare const _default: {
     name: string;
     components: {
-        FontAwesomeIcon: import("vue").FunctionalComponentOptions<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps, import("vue/types/options").PropsDefinition<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps>> & VueConstructor<import("vue").default>;
+        FontAwesomeIcon: import("vue").DefineComponent<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps, {}, {}, import("vue").ComputedOptions, import("vue").MethodOptions, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("@fortawesome/vue-fontawesome").FontAwesomeIconProps>, {}>;
     };
     props: {
         icon: {
             type: ObjectConstructor;
             required: boolean;
-            validator(icon: VueConstructor): boolean;
+            validator(icon: any): boolean;
         };
         size: {
             type: StringConstructor;

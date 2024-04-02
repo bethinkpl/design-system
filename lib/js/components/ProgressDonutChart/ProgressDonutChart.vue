@@ -154,7 +154,7 @@ $progress-donut-chart-range-colors: (
 		animation: a-spinAround 2s infinite linear;
 		stroke: $color-neutral-background-strong;
 		stroke-dasharray: $circle-circumference;
-		stroke-dashoffset: #{$circle-circumference - ($circle-circumference * (25 / 100))};
+		stroke-dashoffset: #{$circle-circumference - ($circle-circumference * 0.25)};
 		transform: rotate(0deg);
 	}
 

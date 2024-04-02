@@ -1,6 +1,5 @@
 <template>
 	<span
-		v-ripple
 		class="a-button"
 		:class="{
 			'-outlined': type === BUTTON_TYPES.OUTLINED,
@@ -21,21 +20,20 @@
 			'-elevation-x-small': elevation === ELEVATIONS.X_SMALL,
 			'-elevation-small': elevation === ELEVATIONS.SMALL,
 		}"
-		@click="$emit('click')"
 	>
 		<span class="a-button__content">
 			<wnl-icon
 				v-if="iconLeft"
 				class="a-button__icon -left"
 				:icon="iconLeft"
-				:size="ICON_SIZES.X_SMALL"
+				:size="iconSize"
 			/>
 			<slot />
 			<wnl-icon
 				v-if="iconRight"
 				class="a-button__icon -right"
 				:icon="iconRight"
-				:size="ICON_SIZES.X_SMALL"
+				:size="iconSize"
 			/>
 		</span>
 		<wnl-icon
@@ -52,12 +50,9 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
-import Ripple from 'vue-ripple-directive';
-
 import { Value } from '../../../utils/type.utils';
 
-import WnlIcon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import WnlIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
@@ -68,13 +63,11 @@ import {
 } from './Button.consts';
 
 import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
+import { toRaw } from 'vue';
 
 export default {
 	// eslint-disable-next-line vue/no-reserved-component-names
 	name: 'Button',
-	directives: {
-		ripple: Ripple,
-	},
 	components: {
 		WnlIcon,
 	},
@@ -117,15 +110,15 @@ export default {
 		iconLeft: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		iconRight: {
 			type: Object,
 			default: null,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		elevation: {
@@ -149,6 +142,12 @@ export default {
 		};
 	},
 	computed: {
+		iconSize(): string {
+			if (this.size === this.SIZES.SMALL || this.size === this.SIZES.MEDIUM) {
+				return ICON_SIZES.XX_SMALL;
+			}
+			return ICON_SIZES.X_SMALL;
+		},
 		colorClassName(): string {
 			return `-color-${this.color}`;
 		},

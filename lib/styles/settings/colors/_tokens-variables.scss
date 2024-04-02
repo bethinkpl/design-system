@@ -76,8 +76,12 @@
 	--color-primary-border-weak-disabled: var(--theme-100);
 	--color-primary-ripple: rgba(var(--theme-500-rgb), 0.12);
 	--color-neutral-text-heavy: var(--raw-gray-900);
+	--color-neutral-text-heavy-hovered: var(--raw-black);
+	--color-neutral-text-heavy-focused: var(--raw-black);
 	--color-neutral-text-heavy-disabled: var(--raw-gray-400);
 	--color-neutral-text-strong: var(--raw-gray-800);
+	--color-neutral-text-strong-hovered: var(--raw-gray-900);
+	--color-neutral-text-strong-focused: var(--raw-gray-900);
 	--color-neutral-text-strong-disabled: var(--raw-gray-400);
 	--color-neutral-text: var(--raw-gray-700);
 	--color-neutral-text-hovered: var(--raw-gray-900);
@@ -88,6 +92,8 @@
 	--color-neutral-text-weak-focused: var(--raw-gray-700);
 	--color-neutral-text-weak-disabled: var(--raw-gray-400);
 	--color-neutral-icon-strong: var(--raw-gray-800);
+	--color-neutral-icon-strong-hovered: var(--raw-gray-900);
+	--color-neutral-icon-strong-focused: var(--raw-gray-900);
 	--color-neutral-icon-strong-disabled: var(--raw-gray-300);
 	--color-neutral-icon: var(--raw-gray-600);
 	--color-neutral-icon-hovered: var(--raw-gray-800);

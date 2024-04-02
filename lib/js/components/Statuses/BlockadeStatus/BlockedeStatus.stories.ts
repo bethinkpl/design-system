@@ -1,16 +1,18 @@
 import BlockadeStatus from './BlockadeStatus.vue';
 import { COURSE_BLOCKADE_ACCESS_STATUS } from '../../../consts/user';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Statuses/BlockadeStatus',
 	component: BlockadeStatus,
 } as Meta<typeof BlockadeStatus>;
 
-const StoryTemplate: StoryFn<typeof BlockadeStatus> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof BlockadeStatus> = (args) => ({
 	components: { BlockadeStatus },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: `<blockade-status :status="status" />`,
 });
 

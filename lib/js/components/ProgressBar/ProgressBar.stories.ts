@@ -1,29 +1,28 @@
 import ProgressBar from './ProgressBar.vue';
 import {
-	PROGRESS_BAR_RANGE_COLORS,
-	PROGRESS_BAR_SIZES,
+	PROGRESS_BAR_BADGE_COLORS,
+	PROGRESS_BAR_LABEL_TEXT_SIZES,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_RADII,
+	PROGRESS_BAR_RANGE_COLORS,
+	PROGRESS_BAR_SIZES,
 	ProgressBarRange,
-	PROGRESS_BAR_LABEL_TEXT_SIZES,
-	PROGRESS_BAR_BADGE_COLORS,
 } from './ProgressBar.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/ProgressBar',
 	component: ProgressBar,
 } as Meta<typeof ProgressBar>;
 
-const StoryTemplate: StoryFn<typeof ProgressBar> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof ProgressBar> = (args) => ({
 	components: { ProgressBar },
-	props: Object.keys(argTypes),
+	setup() {
+		return { args };
+	},
 	template: `
-			<ProgressBar
-					v-bind=$props
-					:badge-position="(typeof ($props.badgePosition) === 'undefined' || $props.badgePosition === '') ? null : parseInt($props.badgePosition, 10)"
-			/>`,
+			<progress-bar v-bind=args></progress-bar>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -89,6 +88,10 @@ const argTypes = {
 	badgeColor: {
 		control: { type: 'select', options: Object.values(PROGRESS_BAR_BADGE_COLORS) },
 		defaultValue: PROGRESS_BAR_BADGE_COLORS.INFO,
+	},
+	labelTextEllipsis: {
+		control: { type: 'boolean' },
+		defaultValue: false,
 	},
 } as ArgTypes;
 
@@ -177,4 +180,5 @@ Compact.args = {
 	labelData: '30',
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
+	labelTextEllipsis: false,
 } as Args;

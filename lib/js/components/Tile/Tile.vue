@@ -1,41 +1,41 @@
 <template>
-	<ds-ripple :disable="rippleDisabled" :color="rippleColor">
-		<div :class="[tileColor, tileState, { '-interactive': interactive }]" class="a-tile">
-			<ds-icon
-				v-if="iconLeft"
-				:icon="iconLeft"
-				:size="ICON_SIZES.SMALL"
-				class="a-tile__iconLeft"
+	<div :class="[tileColor, tileState, { '-interactive': interactive }]" class="a-tile">
+		<ds-icon
+			v-if="iconLeft"
+			:icon="iconLeft"
+			:size="ICON_SIZES.SMALL"
+			class="a-tile__iconLeft"
+		/>
+		<div class="a-tile__center">
+			<span
+				v-if="eyebrowText"
+				class="a-tile__eyebrowText"
+				:class="{ '-uppercase': isEyebrowTextUppercase, '-ellipsis': eyebrowEllipsis }"
+				v-text="eyebrowText"
 			/>
-			<div class="a-tile__center">
-				<span
-					class="a-tile__eyebrowText"
-					:class="{ '-uppercase': isEyebrowTextUppercase, '-ellipsis': eyebrowEllipsis }"
-					v-text="eyebrowText"
-				/>
-				<span class="a-tile__text" :class="{ '-ellipsis': textEllipsis }" v-text="text" />
-			</div>
-			<ds-icon
-				v-if="state === TILE_STATES.LOADING"
-				class="a-tile__iconRight"
-				:icon="ICONS.FAD_SPINNER_THIRD"
-				:size="ICON_SIZES.SMALL"
-				spinning
-			/>
-			<ds-icon
-				v-else-if="iconRight"
-				class="a-tile__iconRight"
-				:icon="iconRight"
-				:size="ICON_SIZES.SMALL"
-			/>
-			<div v-else-if="additionalText" class="a-tile__additionalText">
-				{{ additionalText }}
-			</div>
+			<span class="a-tile__text" :class="{ '-ellipsis': textEllipsis }" v-text="text" />
 		</div>
-	</ds-ripple>
+		<ds-icon
+			v-if="state === TILE_STATES.LOADING"
+			class="a-tile__iconRight"
+			:icon="ICONS.FAD_SPINNER_THIRD"
+			:size="ICON_SIZES.SMALL"
+			spinning
+		/>
+		<ds-icon
+			v-else-if="iconRight"
+			class="a-tile__iconRight"
+			:icon="iconRight"
+			:size="ICON_SIZES.SMALL"
+		/>
+		<div v-else-if="additionalText" class="a-tile__additionalText">
+			{{ additionalText }}
+		</div>
+	</div>
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/animations';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
@@ -52,6 +52,21 @@ $tile-colors: (
 		),
 		'disabled': (
 			'background': $color-neutral-background-disabled,
+			'eyebrow-text': $color-neutral-text-weak-disabled,
+			'icon': $color-neutral-icon-disabled,
+			'icon-interactive': $color-primary-icon-disabled,
+		),
+	),
+	'neutralWeak': (
+		'default': (
+			'background': $color-neutral-background-weak,
+			'background-hover': $color-neutral-background-weak-hovered,
+			'eyebrow-text': $color-neutral-text-weak,
+			'icon': $color-neutral-icon,
+			'icon-interactive': $color-primary-icon,
+		),
+		'disabled': (
+			'background': $color-neutral-background-weak-disabled,
 			'eyebrow-text': $color-neutral-text-weak-disabled,
 			'icon': $color-neutral-icon-disabled,
 			'icon-interactive': $color-primary-icon-disabled,
@@ -100,6 +115,21 @@ $tile-colors: (
 			'eyebrow-text': $color-fail-text-disabled,
 			'icon': $color-fail-icon-disabled,
 			'icon-interactive': $color-fail-icon-disabled,
+		),
+	),
+	'warning': (
+		'default': (
+			'background': $color-warning-background,
+			'background-hover': $color-warning-background-hovered,
+			'eyebrow-text': $color-warning-text,
+			'icon': $color-warning-icon,
+			'icon-interactive': $color-warning-icon,
+		),
+		'disabled': (
+			'background': $color-warning-background-disabled,
+			'eyebrow-text': $color-warning-text-disabled,
+			'icon': $color-warning-icon-disabled,
+			'icon-interactive': $color-warning-icon-disabled,
 		),
 	),
 	'info': (
@@ -161,7 +191,9 @@ $tile-colors: (
 	border-radius: $radius-s;
 	display: flex;
 	flex-direction: row;
+	min-height: 48px;
 	padding: $space-xxs $space-xs;
+	transition: background-color ease-in-out $default-transition-time;
 
 	&.-disabled {
 		@each $color-name, $color-map in $tile-colors {
@@ -197,6 +229,8 @@ $tile-colors: (
 	&__eyebrowText {
 		@include info-m-default-bold;
 
+		margin-bottom: $space-xxxxs;
+
 		&.-uppercase {
 			@include info-m-extensive-bold-uppercase();
 		}
@@ -212,7 +246,6 @@ $tile-colors: (
 		@include text-m-default-bold;
 
 		color: $color-neutral-text-heavy;
-		margin-top: $space-xxxxs;
 
 		&.-ellipsis {
 			overflow: hidden;
@@ -236,76 +269,16 @@ $tile-colors: (
 </style>
 
 <script lang="ts">
-import DsRipple, { RIPPLE_COLORS } from '../Ripple';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { VueConstructor } from 'vue';
 import { TILE_COLORS, TILE_STATES } from './Tile.consts';
-import { Value } from '../../utils/type.utils';
+import { props } from './Tile.shared';
 
 export default {
 	name: 'Tile',
 	components: {
 		DsIcon,
-		DsRipple,
 	},
-	props: {
-		interactive: {
-			type: Boolean,
-			default: false,
-		},
-		iconLeft: {
-			type: Object,
-			default: null,
-			validator(iconLeft: VueConstructor) {
-				return Object.values(ICONS).includes(iconLeft);
-			},
-		},
-		iconRight: {
-			type: Object,
-			default: null,
-			validator(iconRight: VueConstructor) {
-				return Object.values(ICONS).includes(iconRight);
-			},
-		},
-		text: {
-			type: String,
-			required: true,
-		},
-		eyebrowText: {
-			type: String,
-			required: true,
-		},
-		additionalText: {
-			type: String,
-			default: null,
-		},
-		color: {
-			type: String,
-			default: TILE_COLORS.NEUTRAL,
-			validator(color) {
-				return Object.values(TILE_COLORS).includes(color);
-			},
-		},
-		isEyebrowTextUppercase: {
-			type: Boolean,
-			default: false,
-		},
-		state: {
-			type: String,
-			default: TILE_STATES.DEFAULT,
-			validator(value: Value<typeof TILE_STATES>) {
-				return Object.values(TILE_STATES).includes(value);
-			},
-		},
-		eyebrowEllipsis: {
-			type: Boolean,
-			default: true,
-		},
-		textEllipsis: {
-			type: Boolean,
-			default: true,
-		},
-	},
+	props,
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -314,27 +287,15 @@ export default {
 		};
 	},
 	computed: {
-		rippleDisabled() {
-			return (
-				!this.interactive ||
-				[TILE_STATES.DISABLED, TILE_STATES.LOADING].includes(this.state)
-			);
-		},
 		tileColor() {
 			return {
 				[TILE_COLORS.NEUTRAL]: '-neutral',
+				[TILE_COLORS.NEUTRAL_WEAK]: '-neutralWeak',
 				[TILE_COLORS.PRIMARY]: '-primary',
 				[TILE_COLORS.SUCCESS]: '-success',
 				[TILE_COLORS.FAIL]: '-fail',
+				[TILE_COLORS.WARNING]: '-warning',
 				[TILE_COLORS.INFO]: '-info',
-			}[this.color];
-		},
-		rippleColor() {
-			return {
-				[TILE_COLORS.NEUTRAL]: RIPPLE_COLORS.NEUTRAL,
-				[TILE_COLORS.PRIMARY]: RIPPLE_COLORS.PRIMARY,
-				[TILE_COLORS.SUCCESS]: RIPPLE_COLORS.SUCCESS,
-				[TILE_COLORS.FAIL]: RIPPLE_COLORS.FAIL,
 			}[this.color];
 		},
 		tileState() {

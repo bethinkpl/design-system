@@ -1,4 +1,4 @@
-import { createLocalVue, shallowMount } from '@vue/test-utils';
+import { shallowMount } from '@vue/test-utils';
 
 import Card from './Card.vue';
 
@@ -10,20 +10,15 @@ describe('Card', () => {
 		headerHasPadding = false,
 		dividerUnderHeader = false,
 	} = {}) => {
-		const localVue = createLocalVue();
-
 		return shallowMount(Card, {
-			localVue,
-			mocks: {},
-			propsData: {
+			props: {
 				headerHasPadding,
 				dividerUnderHeader,
 			},
-			stubs: {},
 			slots: {
-				header: headerSlot,
-				content: contentSlot,
-				footer: footerSlot,
+				...(headerSlot !== '' && { header: headerSlot }),
+				...(contentSlot !== '' && { content: contentSlot }),
+				...(footerSlot !== '' && { footer: footerSlot }),
 			},
 		});
 	};

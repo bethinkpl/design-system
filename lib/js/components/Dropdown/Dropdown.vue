@@ -9,8 +9,8 @@
 		:trigger="triggerAction"
 		:delay-on-mouse-out="300"
 		@document-click="$emit('document-click')"
-		@hide="$emit('hide')"
-		@show="$emit('show')"
+		@hide="onHide"
+		@show="onShow"
 	>
 		<div
 			class="popper dsDropdown"
@@ -20,11 +20,17 @@
 				'-radiusBottom -radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
 			}"
 		>
-			<slot :close="close" />
+			<div
+				class="dsDropdown__scrollableWrapper"
+				:class="{ '-heightLimited': !!maxHeight }"
+				:style="scrollableWrapperStyles"
+			>
+				<slot :close="close" />
+			</div>
 		</div>
 
 		<template #reference>
-			<slot name="reference" />
+			<slot name="reference" :is-opened="isOpened" />
 		</template>
 	</vue-popper>
 </template>
@@ -42,6 +48,7 @@
 	box-shadow: $shadow-m;
 	max-width: 100%;
 	min-width: 128px;
+	overflow: hidden;
 	padding: 0;
 	text-align: left;
 
@@ -61,6 +68,12 @@
 
 	&[x-placement^='top'] {
 		margin-bottom: $space-xxxxs;
+	}
+
+	&__scrollableWrapper {
+		&.-heightLimited {
+			overflow-y: auto;
+		}
 	}
 }
 </style>
@@ -113,14 +126,27 @@ export default {
 				return Object.values(DROPDOWN_PLACEMENTS).includes(placement);
 			},
 		},
+		maxHeight: {
+			type: String,
+			default: null,
+		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
+	emits: ['document-click', 'hide', 'show'],
 	data() {
 		return {
 			key: 1,
+			isOpened: false,
 			DROPDOWN_RADIUSES: Object.freeze(DROPDOWN_RADIUSES),
 		};
 	},
 	computed: {
+		scrollableWrapperStyles() {
+			return {
+				...(this.maxHeight && { maxHeight: this.maxHeight }),
+			};
+		},
 		options() {
 			return {
 				modifiers: { preventOverflow: { padding: 0 } },
@@ -152,12 +178,21 @@ export default {
 	},
 	methods: {
 		close() {
+			this.isOpened = false;
 			this.$refs.popper.doClose();
 		},
 		updateKey() {
 			// Force component rerender to apply new vue-popperjs options.
 			// vue-popperjs doesn't support changing props in existing component
 			this.key++;
+		},
+		onHide() {
+			this.isOpened = false;
+			this.$emit('hide');
+		},
+		onShow() {
+			this.isOpened = true;
+			this.$emit('show');
 		},
 	},
 };

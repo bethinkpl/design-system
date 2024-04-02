@@ -1,17 +1,19 @@
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+
 import ModalDialog from './ModalDialog.vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
-
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
 
 export default {
 	title: 'Components/Modals/ModalDialog',
 	component: ModalDialog,
 } as Meta<typeof ModalDialog>;
 
-const StoryTemplate: StoryFn<typeof ModalDialog> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof ModalDialog> = (args) => ({
 	components: { ModalDialog },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template:
 		'<modal-dialog :headerFeatureIcon="ICONS[headerFeatureIcon]" :danger="danger" ' +
 		':headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :headerFeatureIconColor="headerFeatureIconColor" ' +

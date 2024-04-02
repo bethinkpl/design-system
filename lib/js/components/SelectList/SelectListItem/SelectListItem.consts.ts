@@ -12,4 +12,5 @@ export const SELECT_LIST_ITEM_SIZES = {
 export const SELECT_LIST_ITEM_STATES = {
 	DEFAULT: 'default',
 	LOADING: 'loading',
+	DISABLED: 'disabled',
 };

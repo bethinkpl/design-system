@@ -13,14 +13,14 @@ jobs:
         run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.13'
+          node-version: '20.9.0'
           cache: 'yarn'
       - name: Install and Build 🔧
         run: | # Install npm packages and build the Storybook files
           yarn install --pure-lockfile
           yarn storybook:build
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.1
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: master # The branch the action should deploy to.
           folder: public/storybook # The folder that the build-storybook script generates files.

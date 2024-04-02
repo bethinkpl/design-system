@@ -19,7 +19,6 @@
 		:style="{ color: computedColor }"
 		@mouseover="hovered = true"
 		@mouseleave="hovered = false"
-		@click="onClick"
 	>
 		<div
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
@@ -27,8 +26,9 @@
 			:class="{
 				'-neutral': colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL,
 			}"
-			><slot
-		/></div>
+		>
+			<slot />
+		</div>
 		<wnl-button
 			ref="button"
 			class="a-iconButton__button"
@@ -64,19 +64,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography/tokens';
 
-@mixin setIconButtonAdditions($ripple: null, $border: null, $icon: null) {
-	@if $ripple != null {
-		.ripple {
-			background-color: $ripple !important;
-		}
-	}
-
-	@if $ripple == null {
-		.ripple {
-			display: none;
-		}
-	}
-
+@mixin setIconButtonAdditions($border: null, $icon: null) {
 	@if $border != null {
 		border: 1px solid $border;
 	}
@@ -96,11 +84,7 @@
 
 	@each $color-name, $color-map in $icon-button-colors {
 		&.-color-#{$color-name} {
-			@include setIconButtonAdditions(
-				map-get($color-map, 'filled', 'ripple'),
-				null,
-				map-get($color-map, 'filled', 'icon')
-			);
+			@include setIconButtonAdditions(null, map-get($color-map, 'filled', 'icon'));
 
 			#{$self}__label {
 				color: map-get($color-map, 'outlined', 'color');
@@ -128,6 +112,7 @@
 						}
 					}
 				}
+
 				#{$self}__label {
 					color: map-get($color-map, 'outlined', 'disabled', 'color');
 				}
@@ -135,7 +120,6 @@
 
 			.-outlined {
 				@include setIconButtonAdditions(
-					map-get($color-map, 'outlined', 'ripple'),
 					map-get($color-map, 'outlined', 'border'),
 					map-get($color-map, 'outlined', 'icon')
 				);
@@ -258,6 +242,7 @@
 			height: $icon-button-large-size;
 			width: $icon-button-large-size;
 		}
+
 		#{$self}__label {
 			@include button-l-default-bold-uppercase;
 		}
@@ -273,8 +258,6 @@
 </style>
 
 <script lang="ts">
-import { VueConstructor } from 'vue';
-
 import WnlIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import WnlButton, {
 	BUTTON_COLORS,
@@ -290,6 +273,7 @@ import {
 	ICON_BUTTON_TYPES,
 } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
+import { toRaw } from 'vue';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.XX_SMALL]: ICON_SIZES.XXX_SMALL,
@@ -330,8 +314,8 @@ export default {
 		icon: {
 			type: Object,
 			required: true,
-			validator(icon: VueConstructor) {
-				return Object.values(ICONS).includes(icon);
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 		color: {
@@ -416,18 +400,6 @@ export default {
 		},
 		colorClassName(): string {
 			return `-color-${this.color}`;
-		},
-	},
-	methods: {
-		onClick(evt): void {
-			if (evt.target.closest('.a-iconButton__button')) {
-				// click on button, ripple effect was triggered by component
-				return;
-			}
-
-			// trigger ripple effect
-			this.$refs.button.$el.dispatchEvent(new MouseEvent('mousedown'));
-			this.$refs.button.$el.dispatchEvent(new MouseEvent('mouseup'));
 		},
 	},
 };

@@ -32,9 +32,15 @@ declare const _default: {
             default: "bottom-start";
             validate(placement: any): boolean;
         };
+        maxHeight: {
+            type: StringConstructor;
+            default: null;
+        };
     };
+    emits: string[];
     data(): {
         key: number;
+        isOpened: boolean;
         DROPDOWN_RADIUSES: Readonly<{
             readonly TOP: "top";
             readonly BOTTOM: "bottom";
@@ -42,6 +48,7 @@ declare const _default: {
         }>;
     };
     computed: {
+        scrollableWrapperStyles(): any;
         options(): any;
     };
     watch: {
@@ -53,6 +60,8 @@ declare const _default: {
     methods: {
         close(): void;
         updateKey(): void;
+        onHide(): void;
+        onShow(): void;
     };
 };
 export default _default;

@@ -4,7 +4,9 @@
 		:header-has-padding="headerHasPadding"
 		:divider-under-header="dividerUnderHeader"
 	>
-		<template #header><slot name="header" /></template>
+		<template #header>
+			<slot name="header" />
+		</template>
 		<template #content>
 			<slot name="content" :is-expanded="isExpandedInternal" />
 			<div v-if="isExpandedInternal" class="cardExpandable__expandedContent">
@@ -12,7 +14,7 @@
 			</div>
 		</template>
 		<template v-if="isExpanderVisible" #footer>
-			<div v-ripple class="cardExpandable__expander" @click="onExpanderClick">
+			<div class="cardExpandable__expander" @click="onExpanderClick">
 				<span class="cardExpandable__expanderLabel">
 					{{ isExpandedInternal ? expanderTextExpanded : expanderTextCollapsed }}
 				</span>
@@ -51,10 +53,6 @@
 		&:hover {
 			background-color: $color-neutral-background-hovered;
 		}
-
-		&::v-deep .ripple {
-			background-color: $color-default-ripple !important;
-		}
 	}
 
 	&__expanderLabel {
@@ -73,16 +71,12 @@
 <script lang="ts">
 import DsCard from '../Card/';
 import DsIcon, { ICONS, ICON_SIZES } from '../../../components/Icons/Icon';
-import Ripple from 'vue-ripple-directive';
 
 export default {
 	name: 'CardExpandable',
 	components: {
 		DsCard,
 		DsIcon,
-	},
-	directives: {
-		ripple: Ripple,
 	},
 	props: {
 		isExpanded: {
@@ -110,6 +104,9 @@ export default {
 			default: false,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
+	emits: ['update:isExpanded'],
 	data() {
 		return {
 			isExpandedInternal: false,

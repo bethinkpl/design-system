@@ -1,3 +1,5 @@
+@import 'colors/tokens';
+
 $icon-xxxs: 8px;
 $icon-xxs: 12px;
 $icon-xs: 16px;
@@ -11,3 +13,79 @@ $min-touchable-size: 40px;
 
 $animation-fade-in: a-fadeIn 300ms; /* stylelint-disable-line value-keyword-case */
 $animation-spin: a-spinAround 1s infinite linear; /* stylelint-disable-line value-keyword-case */
+
+$icon-colors: (
+	'accent': (
+		'default': $color-accent-icon,
+		'disabled': $color-accent-icon-disabled,
+		'hovered': $color-accent-icon-hovered,
+	),
+	'danger': (
+		'default': $color-danger-icon,
+		'disabled': $color-danger-icon-disabled,
+		'hovered': $color-danger-icon-hovered,
+	),
+	'default': (
+		'default': $color-default-icon,
+		'disabled': $color-default-icon,
+		'hovered': $color-default-icon,
+	),
+	'fail': (
+		'default': $color-fail-icon,
+		'disabled': $color-fail-icon-disabled,
+		'hovered': $color-fail-icon-hovered,
+	),
+	'info': (
+		'default': $color-info-icon,
+		'disabled': $color-info-icon-disabled,
+		'hovered': $color-info-icon-hovered,
+	),
+	'inverted': (
+		'default': $color-inverted-icon,
+		'disabled': $color-inverted-icon,
+		'hovered': $color-inverted-icon,
+	),
+	'neutral': (
+		'default': $color-neutral-icon,
+		'disabled': $color-neutral-icon-disabled,
+		'hovered': $color-neutral-icon-hovered,
+	),
+	'neutralStrong': (
+		'default': $color-neutral-icon-strong,
+		'disabled': $color-neutral-icon-strong-disabled,
+		'hovered': $color-neutral-icon-strong-hovered,
+	),
+	'neutralWeak': (
+		'default': $color-neutral-icon-weak,
+		'disabled': $color-neutral-icon-weak-disabled,
+		'hovered': $color-neutral-icon-weak-hovered,
+	),
+	'primary': (
+		'default': $color-primary-icon,
+		'disabled': $color-primary-icon-disabled,
+		'hovered': $color-primary-icon-hovered,
+	),
+	'primaryWeak': (
+		'default': $color-primary-icon-weak,
+		'disabled': $color-primary-icon-weak-disabled,
+		'hovered': $color-primary-icon-weak-hovered,
+	),
+	'success': (
+		'default': $color-success-icon,
+		'disabled': $color-success-icon-disabled,
+		'hovered': $color-success-icon-hovered,
+	),
+	'warning': (
+		'default': $color-warning-icon,
+		'disabled': $color-warning-icon-disabled,
+		'hovered': $color-warning-icon-hovered,
+	),
+);
+
+@mixin coloredIcon($state: 'default') {
+	@each $color-name, $color-map in $icon-colors {
+		&.-#{$color-name} {
+			color: map-get($color-map, $state);
+		}
+	}
+}

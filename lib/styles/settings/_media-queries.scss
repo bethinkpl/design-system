@@ -9,3 +9,7 @@
 @function breakpoint-l() {
 	@return '(min-width: 1280px)';
 }
+
+@function breakpoint-xl() {
+	@return '(min-width: 1600px)';
+}

@@ -27,8 +27,42 @@
 							{{ navigationItem }}
 						</span>
 					</div>
-					<div v-else :key="index" class="ds-pagination__itemWrapper">
-						<span class="ds-pagination__ellipsis">&hellip;</span>
+					<div v-else :key="`ellipsis${index}`">
+						<dropdown
+							:radius="DROPDOWN_RADIUSES.BOTTOM"
+							max-height="250px"
+							:placement="
+								ellipsisAsSecond(index)
+									? DROPDOWN_PLACEMENTS.BOTTOM_START
+									: DROPDOWN_PLACEMENTS.BOTTOM_END
+							"
+						>
+							<template #reference="{ isOpened }">
+								<div class="ds-pagination__itemWrapper -touchable">
+									<span
+										class="ds-pagination__item"
+										:class="{ '-selected': isOpened }"
+										>&hellip;</span
+									>
+								</div>
+							</template>
+
+							<template #default="{ close }">
+								<select-list v-if="navigationItemsForDropdown.length">
+									<select-list-item
+										v-for="(
+											dropdownNavigationItem, dropdownIndex
+										) in navigationItemsForDropdown"
+										:key="dropdownIndex"
+										:label="dropdownNavigationItem.label"
+										:is-selected="currentPage === dropdownNavigationItem.value"
+										@click="
+											onDropdownClick(dropdownNavigationItem.value, close)
+										"
+									/>
+								</select-list>
+							</template>
+						</dropdown>
 					</div>
 				</template>
 			</div>
@@ -43,7 +77,7 @@
 							? ICON_BUTTON_STATES.DISABLED
 							: ICON_BUTTON_STATES.DEFAULT
 					"
-					@click.native="changePage(currentPage - 1)"
+					@click="changePage(currentPage - 1)"
 				/>
 
 				<div class="ds-pagination__compactItem">
@@ -69,7 +103,7 @@
 							? ICON_BUTTON_STATES.DISABLED
 							: ICON_BUTTON_STATES.DEFAULT
 					"
-					@click.native="changePage(currentPage + 1)"
+					@click="changePage(currentPage + 1)"
 				/>
 			</div>
 		</div>
@@ -164,10 +198,10 @@ $pagination-input-height: 32px;
 	}
 
 	&__text {
-		@include text-m-default-regular;
+		@include label-l-default-regular;
 
 		color: $color-neutral-text;
-		padding: $space-xxxs;
+		padding: $space-xxs $space-xxxs;
 		text-align: center;
 	}
 
@@ -178,7 +212,7 @@ $pagination-input-height: 32px;
 	}
 
 	&__itemWrapper {
-		@include text-m-default-regular;
+		@include label-l-default-regular;
 
 		padding: $space-xxxxs;
 		text-align: center;
@@ -201,10 +235,10 @@ $pagination-input-height: 32px;
 		flex-direction: column;
 		justify-content: center;
 		min-width: $pagination-item-min-width;
-		padding: $space-xxxs;
+		padding: $space-xxs;
 
 		&.-selected {
-			@include text-m-default-bold;
+			@include label-l-default-bold;
 
 			background: $color-neutral-background-medium;
 			color: $color-neutral-text-heavy;
@@ -214,15 +248,6 @@ $pagination-input-height: 32px;
 			background: $color-neutral-background-weak-hovered;
 			box-shadow: $shadow-inset-s;
 		}
-	}
-
-	&__ellipsis {
-		align-items: center;
-		color: $color-neutral-text-weak;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		padding: $space-xxxs;
 	}
 
 	&__accessorySlot {
@@ -240,13 +265,19 @@ import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
 
+import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../Dropdown/Dropdown.consts';
+import Dropdown from '../Dropdown/Dropdown.vue';
+
+import SelectList from '../SelectList/SelectList.vue';
+import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
+
 const MAX_NAVIGATION_ITEMS = 7;
 const ELLIPSIS_FILL = 'ellipsis';
 const FIRST_PAGE_NUMBER = 1;
 
 export default {
 	name: 'Pagination',
-	components: { IconButton },
+	components: { IconButton, Dropdown, SelectListItem, SelectList },
 	props: {
 		currentPage: {
 			type: Number,
@@ -275,8 +306,13 @@ export default {
 			required: true,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
+	emits: ['change-page'],
 	data() {
 		return {
+			DROPDOWN_PLACEMENTS: Object.freeze(DROPDOWN_PLACEMENTS),
+			DROPDOWN_RADIUSES: Object.freeze(DROPDOWN_RADIUSES),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
@@ -332,8 +368,25 @@ export default {
 
 			return navigationItems;
 		},
+		navigationItemsForDropdown() {
+			return this.getRange(FIRST_PAGE_NUMBER, this.lastPage).map((pageNumber: number) => {
+				const startItem = (pageNumber - 1) * this.itemsPerPage;
+				const endItem =
+					pageNumber < this.lastPage
+						? startItem + this.itemsPerPage
+						: this.itemsTotalAmount;
+
+				return {
+					label: `${pageNumber} (${startItem + 1} - ${endItem})`,
+					value: pageNumber,
+				};
+			});
+		},
 	},
 	methods: {
+		ellipsisAsSecond(index: number) {
+			return index === 1;
+		},
 		getRange(start: number, end: number): Array<number> {
 			return Array(end - start + 1)
 				.fill(null)
@@ -353,6 +406,10 @@ export default {
 			const page = +event.target.value;
 
 			this.changePage(page);
+		},
+		onDropdownClick(page: number, close: () => void) {
+			this.changePage(page);
+			close();
 		},
 	},
 };

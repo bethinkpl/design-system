@@ -1,11 +1,11 @@
 import SelectListItem from './SelectListItem.vue';
 import { ICONS } from '../../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
-	SELECT_LIST_ITEM_STATES,
-	SELECT_LIST_ITEM_SIZES,
 	SELECT_LIST_ITEM_SELECTION_MODE,
+	SELECT_LIST_ITEM_SIZES,
+	SELECT_LIST_ITEM_STATES,
 } from './SelectListItem.consts';
 
 export default {
@@ -13,19 +13,23 @@ export default {
 	component: SelectListItem,
 } as Meta<typeof SelectListItem>;
 
-const StoryTemplate: StoryFn<typeof SelectListItem> = (argTypes) => ({
+const StoryTemplate: StoryFn<typeof SelectListItem> = (args) => ({
 	components: { SelectListItem },
-	props: Object.keys(argTypes),
+	setup() {
+		return { ...args };
+	},
 	template: `
-		<select-list-item
-			:icon-left="ICONS[iconLeft]"
-			:label="label"
-			:is-selected="isSelected"
-			:selection-mode="selectionMode"
-			:size="size"
-			:state="state"
-		/>
-		`,
+			<select-list-item
+					:icon-left="ICONS[iconLeft]"
+					:label="label"
+					:eyebrow-text="eyebrowText"
+					:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
+					:is-selected="isSelected"
+					:selection-mode="selectionMode"
+					:size="size"
+					:state="state"
+			/>
+    `,
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -39,6 +43,8 @@ const args = {
 	size: SELECT_LIST_ITEM_SIZES.SMALL,
 	iconLeft: null,
 	label: 'Label',
+	eyebrowText: 'Eyebrow Text',
+	isEyebrowTextUppercase: false,
 	state: SELECT_LIST_ITEM_STATES.DEFAULT,
 	isSelected: false,
 	selectionMode: SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
