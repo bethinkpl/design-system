@@ -414,6 +414,8 @@ export default {
 			validator: (value) => Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(value),
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['info-click', 'update:isExpanded'],
 	data() {
 		return {

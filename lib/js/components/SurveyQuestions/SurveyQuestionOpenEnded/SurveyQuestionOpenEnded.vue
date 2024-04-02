@@ -121,6 +121,8 @@ export default {
 			},
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['input'],
 	data() {
 		return {

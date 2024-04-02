@@ -128,6 +128,8 @@ export default {
 			default: TAB_ITEM_SIZES.MEDIUM,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['click'],
 	data() {
 		return {

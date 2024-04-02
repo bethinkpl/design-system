@@ -50,6 +50,8 @@ export default {
 			default: false,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['input'],
 	watch: {
 		value() {

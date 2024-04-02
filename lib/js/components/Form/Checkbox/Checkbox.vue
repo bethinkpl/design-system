@@ -47,6 +47,8 @@ export default {
 			},
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['update:isSelected', 'input:focus', 'input:blur'],
 	data() {
 		return {

@@ -267,7 +267,7 @@ declare const _default: {
             readonly FA_XMARK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FAD_SPINNER_THIRD: import("@fortawesome/fontawesome-common-types").IconDefinition;
         }>;
-        isExpandedInternal: boolean;
+        isExpandedInternal: any;
     };
     watch: {
         isExpanded: {
