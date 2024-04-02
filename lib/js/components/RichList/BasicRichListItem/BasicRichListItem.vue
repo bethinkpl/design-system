@@ -236,7 +236,9 @@ export default {
 			default: false,
 		},
 	},
-	emits: ['update:isSelected'],
+	emits: {
+		'update:isSelected': (value: boolean) => true,
+	},
 	data() {
 		return {
 			RICH_LIST_ITEM_SIZE: Object.freeze(RICH_LIST_ITEM_SIZE),

@@ -527,7 +527,11 @@ export default {
 			default: false,
 		},
 	},
-	emits: ['icon-click', 'click', 'update:isSelected'],
+	emits: {
+		'icon-click': () => true,
+		click: () => true,
+		'update:isSelected': (isSelected: boolean) => true,
+	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
