@@ -54,6 +54,7 @@
 @import '../../../../styles/mixins/scrollbars';
 
 .basicRichListItem {
+	$root: &;
 	max-width: 100%;
 
 	&__content {
@@ -103,7 +104,7 @@
 	}
 
 	&.-small {
-		&__content {
+		#{$root}__content {
 			padding: $space-xxxs 0;
 		}
 	}

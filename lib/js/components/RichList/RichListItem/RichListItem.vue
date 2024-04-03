@@ -145,6 +145,16 @@ $rich-list-item-background-colors: (
 				cursor: grabbing;
 			}
 		}
+
+		&.-flat {
+			&:hover {
+				opacity: 1;
+
+				.-dimmable {
+					opacity: 1;
+				}
+			}
+		}
 	}
 
 	&.-dimmed {
@@ -168,14 +178,6 @@ $rich-list-item-background-colors: (
 
 	&.-flat {
 		background: $color-neutral-background-ghost;
-
-		&:not(.-interactive):hover {
-			opacity: 1;
-
-			.-dimmable {
-				opacity: 1;
-			}
-		}
 
 		&.-loading {
 			background: $color-neutral-background-ghost;
