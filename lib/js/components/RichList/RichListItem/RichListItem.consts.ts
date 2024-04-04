@@ -19,24 +19,6 @@ export const RICH_LIST_ITEM_SIZE = {
 
 export type RichListItemSize = typeof RICH_LIST_ITEM_SIZE[keyof typeof RICH_LIST_ITEM_SIZE];
 
-export const RICH_LIST_ITEM_ICON_COLOR = {
-	DEFAULT: 'default',
-	INVERTED: 'inverted',
-	PRIMARY: 'primary',
-	PRIMARY_WEAK: 'primary-weak',
-	NEUTRAL: 'neutral',
-	NEUTRAL_WEAK: 'neutral-weak',
-	DANGER: 'danger',
-	FAIL: 'fail',
-	WARNING: 'warning',
-	SUCCESS: 'success',
-	INFO: 'info',
-	ACCENT: 'accent',
-} as const;
-
-export type RichListItemIconColor =
-	typeof RICH_LIST_ITEM_ICON_COLOR[keyof typeof RICH_LIST_ITEM_ICON_COLOR];
-
 export const RICH_LIST_ITEM_BORDER_COLOR = {
 	DEFAULT: 'default',
 	PRIMARY: 'primary',
@@ -62,3 +44,18 @@ export const RICH_LIST_ITEM_BORDER_COLOR = {
 
 export type RichListItemBorderColor =
 	typeof RICH_LIST_ITEM_BORDER_COLOR[keyof typeof RICH_LIST_ITEM_BORDER_COLOR];
+
+export const RICH_LIST_ITEM_BACKGROUND_COLOR = {
+	NEUTRAL: 'neutral',
+	NEUTRAL_WEAK: 'neutral-weak',
+} as const;
+
+export type RichListItemBackgroundColor =
+	typeof RICH_LIST_ITEM_BACKGROUND_COLOR[keyof typeof RICH_LIST_ITEM_BACKGROUND_COLOR];
+
+export const RICH_LIST_ITEM_ELEVATION = {
+	SMALL: 'small',
+} as const;
+
+export type RichListItemElevation =
+	typeof RICH_LIST_ITEM_ELEVATION[keyof typeof RICH_LIST_ITEM_ELEVATION];

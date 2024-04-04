@@ -11,18 +11,28 @@
 		:border-color="borderColor"
 		:border-color-hex="borderColorHex"
 		:state="state"
-		class="richListItemBasic"
+		:background-color="backgroundColor"
+		:elevation="elevation"
+		:has-draggable-handler="hasDraggableHandler"
+		:has-actions-slot-divider="hasActionsSlotDivider"
+		:is-selectable="isSelectable"
+		:is-selected="isSelected"
+		class="basicRichListItem"
+		:class="{
+			'-small': size === RICH_LIST_ITEM_SIZE.SMALL,
+		}"
+		@update:is-selected="$emit('update:isSelected', $event)"
 	>
 		<template #content>
-			<div class="richListItemBasic__content">
+			<div class="basicRichListItem__content">
 				<div
-					class="richListItemBasic__eyebrow"
+					class="basicRichListItem__eyebrow"
 					:class="{ '-uppercase': isEyebrowUppercase }"
 				>
 					{{ eyebrow }}
 				</div>
 
-				<div class="richListItemBasic__text">
+				<div class="basicRichListItem__text">
 					{{ text }}
 				</div>
 			</div>
@@ -30,8 +40,8 @@
 		<template v-if="$slots.meta" #meta>
 			<slot name="meta" />
 		</template>
-		<template v-if="$slots.trailing" #trailing>
-			<slot name="trailing" />
+		<template v-if="$slots.actions" #actions>
+			<slot name="actions" />
 		</template>
 	</rich-list-item>
 </template>
@@ -40,8 +50,12 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/media-queries';
+@import '../../../../styles/mixins/scrollbars';
 
-.richListItemBasic {
+.basicRichListItem {
+	$root: &;
+
 	max-width: 100%;
 
 	&__content {
@@ -50,11 +64,11 @@
 		gap: $space-xxxxs;
 		justify-content: center;
 		min-width: 0; // to prevent the component from being pushed by the ellipses
-		padding: $space-xxs 0;
+		padding: $space-xs 0;
 	}
 
 	&__eyebrow {
-		@include info-s-extensive-bold;
+		@include info-s-default-bold;
 
 		color: $color-neutral-text-weak;
 		min-width: 0;
@@ -65,37 +79,59 @@
 		&.-uppercase {
 			@include info-s-extensive-bold-uppercase;
 		}
+
+		&:hover {
+			color: $color-neutral-text-weak-hovered;
+		}
 	}
 
 	&__text {
 		@include text-m-compact-bold;
+		@include invisible-scrollbar;
 
 		color: $color-neutral-text;
 		min-width: 0;
-		overflow: hidden;
-		text-overflow: ellipsis;
+		overflow-x: scroll;
 		white-space: nowrap;
+
+		@media #{breakpoint-s()} {
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		&:hover {
+			color: $color-neutral-text-hovered;
+		}
+	}
+
+	&.-small {
+		#{$root}__content {
+			padding: $space-xxxs 0;
+		}
 	}
 }
 </style>
 
 <script lang="ts">
 import RichListItem, {
+	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
-	RICH_LIST_ITEM_ICON_COLOR,
+	RICH_LIST_ITEM_ELEVATION,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
+	RichListItemBackgroundColor,
 	RichListItemBorderColor,
-	RichListItemIconColor,
+	RichListItemElevation,
 	RichListItemSize,
 	RichListItemState,
 	RichListItemType,
 } from '../RichListItem';
 import { PropType } from 'vue';
+import { ICON_COLORS, IconColor } from '../../Icons/Icon';
 
 export default {
-	name: 'RichListItemBasic',
+	name: 'BasicRichListItem',
 	components: {
 		RichListItem,
 	},
@@ -138,10 +174,10 @@ export default {
 			default: null,
 		},
 		iconColor: {
-			type: String as PropType<RichListItemIconColor>,
+			type: String as PropType<IconColor>,
 			default: null,
 			validator(iconColor) {
-				return Object.values(RICH_LIST_ITEM_ICON_COLOR).includes(iconColor);
+				return Object.values(ICON_COLORS).includes(iconColor);
 			},
 		},
 		iconColorHex: {
@@ -171,6 +207,44 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		backgroundColor: {
+			type: String as PropType<RichListItemBackgroundColor>,
+			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
+			validator(backgroundColor) {
+				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(backgroundColor);
+			},
+		},
+		elevation: {
+			type: String as PropType<RichListItemElevation>,
+			default: null,
+			validator(evolution) {
+				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(evolution);
+			},
+		},
+		hasDraggableHandler: {
+			type: Boolean,
+			default: true,
+		},
+		hasActionsSlotDivider: {
+			type: Boolean,
+			default: true,
+		},
+		isSelectable: {
+			type: Boolean,
+			default: true,
+		},
+		isSelected: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	emits: {
+		'update:isSelected': (value: boolean) => true,
+	},
+	data() {
+		return {
+			RICH_LIST_ITEM_SIZE: Object.freeze(RICH_LIST_ITEM_SIZE),
+		};
 	},
 };
 </script>
