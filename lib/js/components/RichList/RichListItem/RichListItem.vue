@@ -118,9 +118,34 @@ $rich-list-item-background-colors: (
 		padding: 0 $space-xxxxs;
 	}
 
+	&.-dimmed {
+		.-dimmable {
+			opacity: 0.65;
+		}
+	}
+
+	&.-loading {
+		cursor: initial;
+		pointer-events: none;
+
+		.-dimmable {
+			opacity: 0.5;
+		}
+	}
+
 	&.-interactive {
 		cursor: pointer;
 		pointer-events: initial;
+
+		&.-flat {
+			&:hover {
+				opacity: 1;
+
+				.-dimmable {
+					opacity: 1;
+				}
+			}
+		}
 
 		&:not(.-dimmed):hover {
 			&.-default {
@@ -145,35 +170,10 @@ $rich-list-item-background-colors: (
 				cursor: grabbing;
 			}
 		}
-
-		&.-flat {
-			&:hover {
-				opacity: 1;
-
-				.-dimmable {
-					opacity: 1;
-				}
-			}
-		}
-	}
-
-	&.-dimmed {
-		.-dimmable {
-			opacity: 0.65;
-		}
 	}
 
 	&.-elevation-small {
 		box-shadow: $shadow-s;
-	}
-
-	&.-loading {
-		cursor: initial;
-		pointer-events: none;
-
-		.-dimmable {
-			opacity: 0.5;
-		}
 	}
 
 	&.-flat {

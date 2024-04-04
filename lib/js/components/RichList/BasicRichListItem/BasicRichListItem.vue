@@ -55,6 +55,7 @@
 
 .basicRichListItem {
 	$root: &;
+
 	max-width: 100%;
 
 	&__content {
