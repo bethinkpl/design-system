@@ -160,13 +160,13 @@ import {
 	SelectionTileState,
 	SelectionTileType,
 } from './SelectionTile.consts';
+import Checkbox from '../Form/Checkbox';
 import { ICON_SIZES, IconItem, ICONS } from '../Icons/Icon';
 import Icon from '../Icons/Icon/Icon.vue';
 import {
 	SELECTION_CONTROL_SIZE,
 	SELECTION_CONTROL_STATE,
 } from '../Form/SelectionControl/SelectionControl.consts';
-import SelectionControl from '../Form/SelectionControl/SelectionControl.vue';
 
 const SELECTION_CONTROL_STATE_MAP = {
 	[SELECTION_TILE_STATE.DEFAULT]: SELECTION_CONTROL_STATE.DEFAULT,
@@ -177,9 +177,8 @@ const SELECTION_CONTROL_STATE_MAP = {
 export default defineComponent({
 	name: 'SelectionTile',
 	components: {
-		SelectionControl,
 		Icon,
-		Checkbox: defineAsyncComponent(() => import('../Form/Checkbox/Checkbox.vue')),
+		Checkbox,
 		RadioButton: defineAsyncComponent(() => import('../Form/RadioButton/RadioButton.vue')),
 	},
 	props: {
