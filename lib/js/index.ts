@@ -4,6 +4,8 @@ export { default as Banner } from './components/Banner';
 export * from './components/Banner/Banner.consts';
 export { default as Button } from './components/Buttons/Button';
 export * from './components/Buttons/Button/Button.consts';
+export { default as Checkbox } from './components/Form/Checkbox';
+export * from './components/Form/Checkbox/Checkbox.consts';
 export { default as ToggleButton } from './components/Toggles/ToggleButton';
 export * from './components/Toggles/ToggleButton/ToggleButton.consts';
 export { default as Card } from './components/Cards/Card/';
