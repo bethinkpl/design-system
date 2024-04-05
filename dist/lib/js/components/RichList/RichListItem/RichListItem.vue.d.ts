@@ -1,10 +1,12 @@
-import DsIcon from '../../../components/Icons/Icon';
+import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
 import { PropType } from 'vue';
-import { RichListItemBorderColor, RichListItemIconColor, RichListItemSize, RichListItemState, RichListItemType } from './RichListItem.consts';
+import { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemSize, RichListItemState, RichListItemType } from './RichListItem.consts';
 declare const _default: {
     name: string;
     components: {
-        DsIcon: typeof DsIcon;
+        DsCheckbox: typeof DsCheckbox;
+        DsDivider: typeof DsCheckbox;
+        DsIcon: typeof DsCheckbox;
     };
     props: {
         type: {
@@ -39,7 +41,7 @@ declare const _default: {
             default: null;
         };
         iconColor: {
-            type: PropType<RichListItemIconColor>;
+            type: PropType<string>;
             default: null;
             validator(iconColor: any): boolean;
         };
@@ -60,8 +62,38 @@ declare const _default: {
             type: StringConstructor;
             default: null;
         };
+        backgroundColor: {
+            type: PropType<RichListItemBackgroundColor>;
+            default: "neutral";
+            validator(backgroundColor: any): boolean;
+        };
+        elevation: {
+            type: PropType<"small">;
+            default: null;
+            validator(evolution: any): boolean;
+        };
+        hasDraggableHandler: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        hasActionsSlotDivider: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSelectable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSelected: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     };
-    emits: string[];
+    emits: {
+        'icon-click': () => boolean;
+        click: () => boolean;
+        'update:isSelected': (isSelected: boolean) => boolean;
+    };
     data(): {
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
@@ -274,6 +306,7 @@ declare const _default: {
         }>;
     };
     computed: {
+        classList(): any;
         iconColorClass(): string | undefined;
         iconColorStyle(): {
             color: any;
