@@ -170,7 +170,7 @@ $chip-colors: (
 	align-items: center;
 	border-radius: $radius-xl;
 	display: inline-flex;
-	padding: $space-xxxxxs $space-xxxxxs $space-xxxxxs $space-xxs;
+	padding: $space-5xs $space-5xs $space-5xs $space-2xs;
 
 	&.-disabled {
 		pointer-events: none;
@@ -189,7 +189,7 @@ $chip-colors: (
 	&__label {
 		@include label-s-default-bold;
 
-		margin: $space-xxxxxs $space-xxxs $space-xxxxxs 0;
+		margin: $space-5xs $space-3xs $space-5xs 0;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -197,21 +197,21 @@ $chip-colors: (
 
 	&__leftIcon {
 		display: flex;
-		margin-right: $space-xxxxs;
+		margin-right: $space-4xs;
 	}
 
 	&.-x-small {
 		min-height: $chip-min-height;
-		padding-left: $space-xxxs;
+		padding-left: $space-3xs;
 
 		#{$self}__leftIcon {
-			margin-right: $space-xxxxxs;
+			margin-right: $space-5xs;
 		}
 
 		#{$self}__label {
 			@include label-xs-default-bold;
 
-			margin: 0 $space-xxxxs 0 0;
+			margin: 0 $space-4xs 0 0;
 		}
 
 		&.-uppercase {

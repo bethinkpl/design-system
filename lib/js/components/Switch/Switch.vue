@@ -116,7 +116,7 @@ $switch-transition: all $default-transition-time ease-out;
 		cursor: pointer;
 		display: flex;
 		flex-grow: 1;
-		gap: $space-xxxs;
+		gap: $space-3xs;
 		justify-content: center;
 		margin: -1px;
 		max-width: calc(100% - 64px);
@@ -185,7 +185,7 @@ $switch-transition: all $default-transition-time ease-out;
 	}
 
 	&.-small &__item {
-		gap: $space-xxxxs;
+		gap: $space-4xs;
 		max-width: calc(100% - 48px);
 		min-height: 24px;
 		min-width: 48px;

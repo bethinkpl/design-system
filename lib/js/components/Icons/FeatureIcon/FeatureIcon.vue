@@ -96,22 +96,22 @@ $feature-icon-padding-large: 10px;
 
 	border-radius: 100%;
 	border-style: solid;
-	border-width: $space-xxxs;
+	border-width: $space-3xs;
 	display: inline-flex;
-	padding: $space-xxxs;
+	padding: $space-3xs;
 
 	&.-small {
-		border-width: $space-xxxxs;
-		padding: $space-xxxxs;
+		border-width: $space-4xs;
+		padding: $space-4xs;
 	}
 
 	&.-large {
-		border-width: $space-xxxs;
+		border-width: $space-3xs;
 		padding: $feature-icon-padding-large;
 	}
 
 	&.-xLarge {
-		border-width: $space-xxs;
+		border-width: $space-2xs;
 		padding: $space-xs;
 	}
 }

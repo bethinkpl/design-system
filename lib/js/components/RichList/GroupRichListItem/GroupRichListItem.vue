@@ -85,7 +85,7 @@ $group-rich-list-background-colors: (
 		left: -1px;
 		position: absolute;
 		top: -1px;
-		width: $space-xxxxs;
+		width: $space-4xs;
 	}
 }
 </style>

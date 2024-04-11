@@ -205,7 +205,7 @@
 	&.-xx-small {
 		#{$self}__button {
 			height: $icon-button-xx-small-size;
-			padding: $space-xxxxs;
+			padding: $space-4xs;
 			width: $icon-button-xx-small-size;
 		}
 
@@ -217,7 +217,7 @@
 	&.-x-small {
 		#{$self}__button {
 			height: $icon-button-x-small-size;
-			padding: $space-xxxxs;
+			padding: $space-4xs;
 			width: $icon-button-x-small-size;
 		}
 

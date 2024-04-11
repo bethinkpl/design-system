@@ -13,9 +13,9 @@
 .sectionTitle {
 	display: flex;
 	flex-direction: column;
-	gap: $space-xxxxs;
+	gap: $space-4xs;
 	overflow-wrap: break-word;
-	padding: $space-xxs 0;
+	padding: $space-2xs 0;
 
 	&__title {
 		@include heading-xs-default-bold;

@@ -63,11 +63,11 @@
 	}
 
 	&[x-placement^='bottom'] {
-		margin-top: $space-xxxxs;
+		margin-top: $space-4xs;
 	}
 
 	&[x-placement^='top'] {
-		margin-bottom: $space-xxxxs;
+		margin-bottom: $space-4xs;
 	}
 
 	&__scrollableWrapper {

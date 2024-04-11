@@ -192,7 +192,7 @@ $tile-colors: (
 	display: flex;
 	flex-direction: row;
 	min-height: 48px;
-	padding: $space-xxs $space-xs;
+	padding: $space-2xs $space-xs;
 	transition: background-color ease-in-out $default-transition-time;
 
 	&.-disabled {
@@ -229,7 +229,7 @@ $tile-colors: (
 	&__eyebrowText {
 		@include info-m-default-bold;
 
-		margin-bottom: $space-xxxxs;
+		margin-bottom: $space-4xs;
 
 		&.-uppercase {
 			@include info-m-extensive-bold-uppercase();

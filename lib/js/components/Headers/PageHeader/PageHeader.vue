@@ -39,15 +39,15 @@
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
-		gap: $space-xxs;
-		padding: $space-xxs 0;
+		gap: $space-2xs;
+		padding: $space-2xs 0;
 	}
 
 	&__contentWrapper {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
-		gap: $space-xxs;
+		gap: $space-2xs;
 		justify-content: space-between;
 		padding: 0;
 		width: 100%;
@@ -62,9 +62,9 @@
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
-		gap: $space-xxxxs;
+		gap: $space-4xs;
 		justify-content: center;
-		padding: $space-xxxxs 0;
+		padding: $space-4xs 0;
 	}
 
 	&__title {

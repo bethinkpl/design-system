@@ -28,7 +28,7 @@
 	height: $icon-xl;
 	justify-content: center;
 	min-width: $icon-xl;
-	padding: 0 $space-xxxs;
+	padding: 0 $space-3xs;
 	text-align: center;
 
 	@media #{breakpoint-s()} {

@@ -71,7 +71,7 @@
 
 	background-color: $color-neutral-background-weak;
 	border-radius: $radius-s;
-	column-gap: $space-xxs;
+	column-gap: $space-2xs;
 	display: flex;
 	justify-content: space-between;
 	padding: $space-xs;
@@ -79,7 +79,7 @@
 	&__rightContent,
 	&__content {
 		align-items: flex-start;
-		column-gap: $space-xxs;
+		column-gap: $space-2xs;
 		display: flex;
 
 		&.-centeredContent {
@@ -115,7 +115,7 @@
 		@include label-m-default-bold;
 
 		color: $color-neutral-text-weak;
-		margin-left: $space-xxxxs;
+		margin-left: $space-4xs;
 	}
 
 	&__icon {
@@ -170,7 +170,7 @@
 		padding: $space-s $space-xs;
 
 		#{$root}__content {
-			column-gap: $space-xxxs;
+			column-gap: $space-3xs;
 		}
 
 		#{$root}__label {

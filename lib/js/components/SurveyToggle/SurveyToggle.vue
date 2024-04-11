@@ -143,7 +143,7 @@ $survey-toggle-colors: (
 	width: $survey-toggle-size;
 
 	@media #{breakpoint-s()} {
-		width: $survey-toggle-size + 2 * $space-xxxs;
+		width: $survey-toggle-size + 2 * $space-3xs;
 	}
 
 	&__toggle {
@@ -156,7 +156,7 @@ $survey-toggle-colors: (
 		border-radius: 100%;
 		display: flex;
 		height: $survey-toggle-size;
-		padding: $space-xxs;
+		padding: $space-2xs;
 		transition: background-color ease-in-out $default-transition-time,
 			box-shadow ease-in-out $default-transition-time;
 		width: $survey-toggle-size;
@@ -200,7 +200,7 @@ $survey-toggle-colors: (
 		@include label-xs-default-bold;
 
 		color: $color-neutral-text;
-		margin-top: $space-xxs;
+		margin-top: $space-2xs;
 		max-width: 100%;
 		min-height: 2em;
 		text-align: center;

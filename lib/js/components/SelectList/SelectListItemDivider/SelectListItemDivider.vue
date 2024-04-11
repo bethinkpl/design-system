@@ -10,7 +10,7 @@
 
 .selectListItemDivider {
 	background-color: $color-neutral-background-ghost;
-	padding: $space-xxs 0;
+	padding: $space-2xs 0;
 }
 </style>
 
