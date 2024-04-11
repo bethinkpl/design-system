@@ -379,8 +379,7 @@ $toggle-button-colors: (
 		padding: substract-border($space-2xs, 'medium') substract-border($space-xs, 'medium');
 
 		&.-hasSmallHorizontalPadding {
-			padding: substract-border($space-2xs, 'medium')
-				substract-border($space-5xs, 'medium');
+			padding: substract-border($space-2xs, 'medium') substract-border($space-5xs, 'medium');
 		}
 
 		#{$root}__content.-small {
