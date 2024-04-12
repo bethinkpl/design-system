@@ -61,7 +61,7 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
-		gap: $space-xxxxs;
+		gap: $space-4xs;
 		justify-content: center;
 		min-width: 0; // to prevent the component from being pushed by the ellipses
 		padding: $space-xs 0;
@@ -106,7 +106,7 @@
 
 	&.-small {
 		#{$root}__content {
-			padding: $space-xxxs 0;
+			padding: $space-3xs 0;
 		}
 	}
 }

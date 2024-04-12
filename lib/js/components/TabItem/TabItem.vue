@@ -80,14 +80,14 @@
 	&.-sizeSmall {
 		@include label-m-default-bold;
 
-		column-gap: $space-xxxxs;
+		column-gap: $space-4xs;
 		padding: $space-xs;
 	}
 
 	&.-sizeMedium {
 		@include label-l-default-bold;
 
-		column-gap: $space-xxs;
+		column-gap: $space-2xs;
 		padding: $space-xs $space-s;
 	}
 }

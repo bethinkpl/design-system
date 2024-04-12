@@ -108,14 +108,14 @@ $rich-list-item-background-colors: (
 	flex: 1;
 	flex-direction: column;
 	justify-content: center;
-	padding: $space-xxxxs;
+	padding: $space-4xs;
 	position: relative;
 
 	@media #{breakpoint-s()} {
 		align-items: center;
 		flex-direction: initial;
 		justify-content: initial;
-		padding: 0 $space-xxxxs;
+		padding: 0 $space-4xs;
 	}
 
 	&.-dimmed {
@@ -210,7 +210,7 @@ $rich-list-item-background-colors: (
 			left: -1px;
 			position: absolute;
 			top: -1px;
-			width: $space-xxxxs;
+			width: $space-4xs;
 		}
 	}
 
@@ -235,7 +235,7 @@ $rich-list-item-background-colors: (
 
 		@media #{breakpoint-s()} {
 			align-items: center;
-			padding: $space-xxxs $space-xxxs $space-xxxs $space-s;
+			padding: $space-3xs $space-3xs $space-3xs $space-s;
 		}
 	}
 
@@ -244,10 +244,10 @@ $rich-list-item-background-colors: (
 		display: flex;
 		flex: 1 0 0;
 		min-width: 0;
-		padding: 0 $space-xxxxs 0 $space-xs;
+		padding: 0 $space-4xs 0 $space-xs;
 
 		@media #{breakpoint-s()} {
-			padding: 0 $space-xxxxs 0 $space-xxs;
+			padding: 0 $space-4xs 0 $space-2xs;
 		}
 	}
 
@@ -255,11 +255,11 @@ $rich-list-item-background-colors: (
 		align-items: center;
 		gap: $space-xs;
 		padding-left: $space-xs;
-		padding-right: $space-xxxxs;
+		padding-right: $space-4xs;
 
 		@media #{breakpoint-s()} {
 			justify-content: flex-start;
-			padding-left: $space-xxxxs;
+			padding-left: $space-4xs;
 		}
 
 		&.-hideOnMobile {
@@ -296,14 +296,14 @@ $rich-list-item-background-colors: (
 		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
-		gap: $space-xxs;
+		gap: $space-2xs;
 		justify-content: flex-end;
-		padding: $space-xxxxs $space-xxxxs 0 $space-xxxxs;
+		padding: $space-4xs $space-4xs 0 $space-4xs;
 
 		@media #{breakpoint-s()} {
 			align-items: center;
 			justify-content: initial;
-			padding: 0 $space-xxxxs;
+			padding: 0 $space-4xs;
 		}
 	}
 
@@ -313,11 +313,11 @@ $rich-list-item-background-colors: (
 		display: flex;
 		gap: $space-s;
 		justify-content: flex-end;
-		padding: $space-xxxxxs $space-xs 0 $space-xs;
+		padding: $space-5xs $space-xs 0 $space-xs;
 
 		@media #{breakpoint-s()} {
 			align-items: center;
-			padding: 0 $space-s 0 $space-xxxxs;
+			padding: 0 $space-s 0 $space-4xs;
 		}
 	}
 
@@ -341,58 +341,58 @@ $rich-list-item-background-colors: (
 	}
 
 	&.-small {
-		padding: $space-xxxxs;
+		padding: $space-4xs;
 
 		@media #{breakpoint-s()} {
-			padding: 0 $space-xxxxs 0 0;
+			padding: 0 $space-4xs 0 0;
 		}
 
 		#{$root}__dragAndDrop,
 		#{$root}__iconWrapper {
-			padding: $space-xxs $space-xxxxs 0 $space-xxs;
+			padding: $space-2xs $space-4xs 0 $space-2xs;
 
 			@media #{breakpoint-s()} {
-				padding: $space-xxxs 0 $space-xxxs $space-xs;
+				padding: $space-3xs 0 $space-3xs $space-xs;
 			}
 		}
 
 		#{$root}__checkbox {
 			gap: $space-s;
-			padding: $space-xxxxxs $space-xxs 0 $space-xxs;
+			padding: $space-5xs $space-2xs 0 $space-2xs;
 
 			@media #{breakpoint-s()} {
 				gap: $space-xs;
-				padding: 0 $space-xs 0 $space-xxxxs;
+				padding: 0 $space-xs 0 $space-4xs;
 			}
 		}
 
 		#{$root}__content {
 			align-items: center;
-			padding: 0 $space-xxxxs 0 $space-xxs;
+			padding: 0 $space-4xs 0 $space-2xs;
 		}
 
 		#{$root}__rightContainer {
 			@media #{breakpoint-s()} {
-				padding: $space-xxs 0;
+				padding: $space-2xs 0;
 			}
 		}
 
 		#{$root}__actionSlot {
-			gap: $space-xxs;
-			padding: 0 $space-xxxxs 0 $space-xxxxxs;
+			gap: $space-2xs;
+			padding: 0 $space-4xs 0 $space-5xs;
 
 			@media #{breakpoint-s()} {
-				padding: 0 $space-xxxxs;
+				padding: 0 $space-4xs;
 			}
 		}
 
 		#{$root}__metaData {
-			padding-left: $space-xxs;
-			padding-right: $space-xxxxs;
+			padding-left: $space-2xs;
+			padding-right: $space-4xs;
 
 			@media #{breakpoint-s()} {
 				justify-content: flex-start;
-				padding-left: $space-xxxxs;
+				padding-left: $space-4xs;
 			}
 		}
 	}

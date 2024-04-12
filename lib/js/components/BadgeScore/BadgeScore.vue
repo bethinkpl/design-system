@@ -112,7 +112,7 @@ $badge-score-colors: (
 	display: inline-flex;
 	justify-content: center;
 	min-width: $badge-score-min-width;
-	padding: $space-xxs $space-xxs;
+	padding: $space-2xs $space-2xs;
 
 	&__text {
 		align-self: baseline;
@@ -120,7 +120,7 @@ $badge-score-colors: (
 
 	&__icon {
 		align-self: center;
-		margin-right: $space-xxxxxs;
+		margin-right: $space-5xs;
 	}
 
 	&__suffix {
@@ -133,7 +133,7 @@ $badge-score-colors: (
 		@include label-xl-default-bold;
 
 		min-width: $badge-score-small-min-width;
-		padding: $space-xxs $space-xxs;
+		padding: $space-2xs $space-2xs;
 
 		#{$self}__suffix {
 			@include label-l-default-bold;
@@ -144,7 +144,7 @@ $badge-score-colors: (
 		@include label-s-default-bold;
 
 		min-width: $badge-score-x-small-min-width;
-		padding: $space-xxxs;
+		padding: $space-3xs;
 
 		#{$self}__suffix {
 			@include label-s-default-bold;

@@ -162,7 +162,7 @@ $button-disabled-alpha: 0.6;
 	justify-content: center;
 	min-height: $button-medium-min-height;
 	outline: none;
-	padding: $space-xxxxs $space-s;
+	padding: $space-4xs $space-s;
 	position: relative;
 	transform-style: preserve-3d;
 	transition: color ease-in-out $default-transition-time,
@@ -304,11 +304,11 @@ $button-disabled-alpha: 0.6;
 
 	&__icon {
 		&.-left {
-			margin-right: $space-xxxxs;
+			margin-right: $space-4xs;
 		}
 
 		&.-right {
-			margin-left: $space-xxxxs;
+			margin-left: $space-4xs;
 		}
 	}
 

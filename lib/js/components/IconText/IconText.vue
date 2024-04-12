@@ -85,7 +85,7 @@
 		}
 
 		#{$root}__icon {
-			margin-right: $space-xxxxs;
+			margin-right: $space-4xs;
 		}
 	}
 
@@ -97,7 +97,7 @@
 		}
 
 		#{$root}__icon {
-			padding-top: $space-xxxxxs;
+			padding-top: $space-5xs;
 		}
 	}
 
@@ -115,7 +115,7 @@
 	}
 
 	&__icon {
-		margin-right: $space-xxxs;
+		margin-right: $space-3xs;
 	}
 }
 </style>

@@ -85,15 +85,15 @@
 	@media #{breakpoint-s()} {
 		&.-horizontal {
 			#{$self}__iconContainer {
-				padding: $space-xxs 0;
+				padding: $space-2xs 0;
 			}
 
 			#{$self}__header {
-				padding: 0 $space-xxs;
+				padding: 0 $space-2xs;
 			}
 
 			#{$self}__expander {
-				padding: $space-xs $space-xxxxs $space-xs 0;
+				padding: $space-xs $space-4xs $space-xs 0;
 			}
 
 			#{$self}__textWrapper {
@@ -101,7 +101,7 @@
 			}
 
 			#{$self}__rightWrapper {
-				padding: $space-xxxxxs 0 $space-xxxxxs $space-s;
+				padding: $space-5xs 0 $space-5xs $space-s;
 			}
 
 			#{$self}__buttonWrapper {
@@ -157,7 +157,7 @@
 	&__header {
 		display: flex;
 		justify-content: space-between;
-		padding: 0 $space-xxxxs;
+		padding: 0 $space-4xs;
 		width: 100%;
 	}
 
@@ -170,7 +170,7 @@
 	&__defaultText {
 		@include text-m-default-regular;
 
-		margin-top: $space-xxxxs;
+		margin-top: $space-4xs;
 	}
 
 	&__textWrapper {
@@ -185,7 +185,7 @@
 		flex-direction: column;
 		flex-grow: 1;
 		justify-content: center;
-		padding: $space-xxxxs 0;
+		padding: $space-4xs 0;
 	}
 
 	&__rightWrapper {
@@ -201,16 +201,16 @@
 
 	&__rightSlot {
 		flex-grow: 1;
-		padding: $space-xxs 0 0 0;
+		padding: $space-2xs 0 0 0;
 
 		&:nth-child(2) {
-			margin-left: $space-xxxxs;
+			margin-left: $space-4xs;
 		}
 	}
 
 	&__iconContainer {
 		margin-right: $space-s;
-		padding: $space-xxxxs 0;
+		padding: $space-4xs 0;
 
 		&.-hideOnMobile {
 			display: none;
@@ -223,7 +223,7 @@
 
 	&__icon {
 		border-radius: 100px;
-		padding: $space-xxs;
+		padding: $space-2xs;
 
 		&.-neutral {
 			background-color: $color-neutral-background-medium;
@@ -262,11 +262,11 @@
 	}
 
 	&__close {
-		margin-left: $space-xxs;
+		margin-left: $space-2xs;
 	}
 
 	&__expander {
-		margin-left: $space-xxs;
+		margin-left: $space-2xs;
 		padding: 0;
 	}
 
@@ -274,7 +274,7 @@
 		@include text-m-default-regular;
 
 		margin-top: $space-xs;
-		padding: 0 $space-xxxxs $space-xxxxs;
+		padding: 0 $space-4xs $space-4xs;
 	}
 
 	&__expandedText {

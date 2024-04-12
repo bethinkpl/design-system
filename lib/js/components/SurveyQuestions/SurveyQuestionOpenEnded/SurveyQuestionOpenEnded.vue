@@ -67,7 +67,7 @@
 
 	&__explanation {
 		align-self: flex-start;
-		margin-left: $space-xxxxs;
+		margin-left: $space-4xs;
 	}
 
 	&__content {
@@ -76,7 +76,7 @@
 	}
 
 	&__input {
-		margin-top: $space-xxs;
+		margin-top: $space-2xs;
 	}
 }
 </style>

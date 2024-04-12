@@ -206,7 +206,7 @@ $counter-toggle-colors: (
 	cursor: pointer;
 	display: inline-flex;
 	justify-content: center;
-	padding: $space-xxs;
+	padding: $space-2xs;
 	position: relative;
 	transition: color ease-in-out $default-transition-time,
 		background-color ease-in-out $default-transition-time;
@@ -245,7 +245,7 @@ $counter-toggle-colors: (
 	&__counter {
 		@include label-s-extensive-bold-uppercase();
 
-		margin-left: $space-xxxxxs;
+		margin-left: $space-5xs;
 	}
 }
 </style>

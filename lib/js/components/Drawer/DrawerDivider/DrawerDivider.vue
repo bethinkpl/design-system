@@ -8,7 +8,7 @@
 @import '../../../../styles/settings/spacings';
 
 .drawerDivider {
-	padding: $space-xxs 0;
+	padding: $space-2xs 0;
 }
 </style>
 

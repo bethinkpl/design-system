@@ -59,7 +59,7 @@
 		@include label-s-extensive-bold-uppercase();
 
 		color: $color-primary-text;
-		margin-right: $space-xxxxs;
+		margin-right: $space-4xs;
 	}
 
 	&__expanderIcon {

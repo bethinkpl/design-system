@@ -233,13 +233,13 @@ $image-height-small: 140px;
 
 		color: $color-neutral-text-heavy;
 		cursor: pointer;
-		margin-left: $space-xxs;
+		margin-left: $space-2xs;
 	}
 
 	&__close {
 		position: absolute;
-		right: $space-xxxs;
-		top: $space-xxxs;
+		right: $space-3xs;
+		top: $space-3xs;
 	}
 
 	&__image {

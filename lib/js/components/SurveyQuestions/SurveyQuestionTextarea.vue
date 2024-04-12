@@ -23,7 +23,7 @@
 	box-shadow: inset 0 1px 3px var(--raw-gray-400);
 	box-sizing: border-box;
 	min-height: 2em;
-	padding: $space-xxs;
+	padding: $space-2xs;
 	resize: none;
 
 	&:disabled {

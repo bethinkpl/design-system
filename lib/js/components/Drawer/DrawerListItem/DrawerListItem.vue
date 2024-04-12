@@ -22,8 +22,8 @@
 	align-items: center;
 	color: $color-neutral-text-strong;
 	display: flex;
-	gap: $space-xxs;
-	padding: $space-xxs 0;
+	gap: $space-2xs;
+	padding: $space-2xs 0;
 	width: 100%;
 
 	&__label {

@@ -165,14 +165,14 @@
 		@include heading-m-default-bold;
 
 		color: $color-default-text;
-		margin-bottom: $space-xxs;
+		margin-bottom: $space-2xs;
 	}
 
 	&__subtitle {
 		@include heading-s-default-regular;
 
 		color: $color-neutral-text;
-		margin-bottom: $space-xxs;
+		margin-bottom: $space-2xs;
 	}
 
 	&__button {

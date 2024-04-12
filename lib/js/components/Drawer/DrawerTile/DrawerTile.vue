@@ -8,7 +8,7 @@
 @import '../../../../styles/settings/spacings';
 
 .drawerTile {
-	padding: $space-xxs 0;
+	padding: $space-2xs 0;
 }
 </style>
 

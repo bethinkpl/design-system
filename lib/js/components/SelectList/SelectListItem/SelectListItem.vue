@@ -100,7 +100,7 @@
 
 	&__iconLeft {
 		color: $color-neutral-icon;
-		margin-right: $space-xxxs;
+		margin-right: $space-3xs;
 	}
 
 	&__iconRight {
@@ -118,7 +118,7 @@
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
-		gap: $space-xxxxxs;
+		gap: $space-5xs;
 		overflow: hidden;
 		white-space: nowrap;
 	}
