@@ -5,7 +5,7 @@ import { args, argTypes, template } from '../SelectionControl/SelectionControl.s
 import { RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE } from './RadioButton.consts';
 
 export default {
-	title: 'Components/Form/RadioButton',
+	title: 'Internal Components/Form/#RadioButton',
 	component: RadioButton,
 } as Meta<typeof RadioButton>;
 
