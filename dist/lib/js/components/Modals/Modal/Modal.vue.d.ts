@@ -79,6 +79,8 @@ declare const _default: {
             default: null;
         };
     };
+    mounted(): void;
+    unmounted(): void;
     emits: string[];
     data(): {
         BUTTON_COLORS: Readonly<{

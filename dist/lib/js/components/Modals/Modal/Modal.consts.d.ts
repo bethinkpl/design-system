@@ -1,3 +1,4 @@
+export declare const MODAL_BODY_CLASSNAME = "is-ds-modal-open";
 export declare const MODAL_SIZES: {
     SMALL: string;
     MEDIUM: string;
