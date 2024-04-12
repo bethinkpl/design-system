@@ -312,7 +312,7 @@ $image-height-small: 140px;
 
 <script lang="ts">
 import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
-import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from './Modal.consts';
+import { MODAL_BODY_CLASSNAME, MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from './Modal.consts';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
 import WnlButton, { BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_TYPES } from '../../Buttons/Button';
@@ -404,6 +404,12 @@ export default {
 			type: String,
 			default: null,
 		},
+	},
+	mounted() {
+		document.body.classList.add(MODAL_BODY_CLASSNAME);
+	},
+	unmounted() {
+		document.body.classList.remove(MODAL_BODY_CLASSNAME);
 	},
 	// TODO fix me when touching this file
 	/* eslint vue/require-emit-validator: 0 */

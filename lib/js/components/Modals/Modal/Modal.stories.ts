@@ -16,17 +16,18 @@ const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
+		'<modal v-if="isModalOpen" :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
 		':headerTitleSize="headerTitleSize" :headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :contentCentered="contentCentered" :headerFeatureIconColor="headerFeatureIconColor" ' +
 		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" ' +
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" ' +
-		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage">' +
+		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage" @close-modal="isModalOpen = false">' +
 		'<div v-html="defaultSlot" />' +
 		'</modal>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
+			isModalOpen: true,
 		};
 	},
 });
