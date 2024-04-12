@@ -405,12 +405,6 @@ export default {
 			default: null,
 		},
 	},
-	mounted() {
-		document.body.classList.add(MODAL_BODY_CLASSNAME);
-	},
-	unmounted() {
-		document.body.classList.remove(MODAL_BODY_CLASSNAME);
-	},
 	// TODO fix me when touching this file
 	/* eslint vue/require-emit-validator: 0 */
 	emits: [
@@ -469,6 +463,12 @@ export default {
 				this.footerPrimaryButtonText
 			);
 		},
+	},
+	mounted() {
+		document.body.classList.add(MODAL_BODY_CLASSNAME);
+	},
+	unmounted() {
+		document.body.classList.remove(MODAL_BODY_CLASSNAME);
 	},
 };
 </script>
