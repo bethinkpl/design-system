@@ -56,6 +56,11 @@ declare const _default: {
             default: null;
             validator(icon: any): boolean;
         };
+        footerPrimaryButtonState: {
+            type: StringConstructor;
+            default: "default";
+            validator(state: any): boolean;
+        };
         footerSecondaryButtonText: {
             type: StringConstructor;
             default: null;
@@ -65,6 +70,11 @@ declare const _default: {
             default: null;
             validator(icon: any): boolean;
         };
+        footerSecondaryButtonState: {
+            type: StringConstructor;
+            default: "default";
+            validator(state: any): boolean;
+        };
         footerTertiaryButtonText: {
             type: StringConstructor;
             default: null;
@@ -73,6 +83,11 @@ declare const _default: {
             type: ObjectConstructor;
             default: null;
             validator(icon: any): boolean;
+        };
+        footerTertiaryButtonState: {
+            type: StringConstructor;
+            default: "default";
+            validator(state: any): boolean;
         };
         footerCheckboxText: {
             type: StringConstructor;
