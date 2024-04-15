@@ -26,7 +26,7 @@
 
 <script lang="ts">
 import DsModal from '../Modal/Modal.vue';
-import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from '../Modal';
+import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from '../Modal';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
 import { toRaw } from 'vue';
@@ -78,10 +78,10 @@ export default {
 			},
 		},
 		footerPrimaryButtonState: {
-			type: Object,
+			type: String,
 			default: BUTTON_STATES.DEFAULT,
 			validator(state) {
-				return Object.values(BUTTON_STATES).includes(toRaw(state));
+				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
 		footerSecondaryButtonText: {
@@ -96,10 +96,10 @@ export default {
 			},
 		},
 		footerSecondaryButtonState: {
-			type: Object,
+			type: String,
 			default: BUTTON_STATES.DEFAULT,
 			validator(state) {
-				return Object.values(BUTTON_STATES).includes(toRaw(state));
+				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
 	},

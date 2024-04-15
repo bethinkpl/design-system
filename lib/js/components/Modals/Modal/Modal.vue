@@ -321,8 +321,8 @@ import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon'
 import WnlButton, {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
-	BUTTON_TYPES,
 	BUTTON_STATES,
+	BUTTON_TYPES,
 } from '../../Buttons/Button';
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { toRaw } from 'vue';
@@ -387,10 +387,10 @@ export default {
 			},
 		},
 		footerPrimaryButtonState: {
-			type: Object,
+			type: String,
 			default: BUTTON_STATES.DEFAULT,
 			validator(state) {
-				return Object.values(BUTTON_STATES).includes(toRaw(state));
+				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
 		footerSecondaryButtonText: {
@@ -405,10 +405,10 @@ export default {
 			},
 		},
 		footerSecondaryButtonState: {
-			type: Object,
+			type: String,
 			default: BUTTON_STATES.DEFAULT,
 			validator(state) {
-				return Object.values(BUTTON_STATES).includes(toRaw(state));
+				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
 		footerTertiaryButtonText: {
@@ -423,10 +423,10 @@ export default {
 			},
 		},
 		footerTertiaryButtonState: {
-			type: Object,
+			type: String,
 			default: BUTTON_STATES.DEFAULT,
 			validator(state) {
-				return Object.values(BUTTON_STATES).includes(toRaw(state));
+				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
 		footerCheckboxText: {
@@ -457,9 +457,6 @@ export default {
 		};
 	},
 	computed: {
-		BUTTON_STATES() {
-			return BUTTON_STATES;
-		},
 		calcHeaderFeatureIconColor() {
 			if (this.danger) {
 				return FEATURE_ICON_COLOR.DANGER;

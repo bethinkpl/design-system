@@ -75,7 +75,7 @@ const argTypes = {
 		defaultValue: null,
 	},
 	footerPrimaryButtonState: {
-		control: { type: 'select', options: [...Object.keys(BUTTON_STATES)] },
+		control: { type: 'select', options: Object.values(BUTTON_STATES) },
 		defaultValue: BUTTON_STATES.DEFAULT,
 	},
 	footerSecondaryButtonText: { control: { type: 'text' } },
@@ -84,7 +84,7 @@ const argTypes = {
 		defaultValue: null,
 	},
 	footerSecondaryButtonState: {
-		control: { type: 'select', options: [...Object.keys(BUTTON_STATES)] },
+		control: { type: 'select', options: Object.values(BUTTON_STATES) },
 		defaultValue: BUTTON_STATES.DEFAULT,
 	},
 } as ArgTypes;
