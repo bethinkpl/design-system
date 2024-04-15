@@ -3,6 +3,7 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import ModalDialog from './ModalDialog.vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
+import { BUTTON_STATES } from '../../Buttons/Button';
 
 export default {
 	title: 'Components/Modals/ModalDialog',
@@ -17,14 +18,15 @@ const StoryTemplate: StoryFn<typeof ModalDialog> = (args) => ({
 	template:
 		'<modal-dialog :headerFeatureIcon="ICONS[headerFeatureIcon]" :danger="danger" ' +
 		':headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :headerFeatureIconColor="headerFeatureIconColor" ' +
-		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="footerPrimaryButtonIcon" ' +
+		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="footerPrimaryButtonIcon" :footerPrimaryButtonState="BUTTON_STATES[footerPrimaryButtonState]" ' +
 		':headerImage="headerImage" ' +
-		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon">' +
+		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon" :footerSecondaryButtonState="BUTTON_STATES[footerSecondaryButtonState]">' +
 		'<div v-html="defaultSlot" />' +
 		'</modal-dialog>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
+			BUTTON_STATES: Object.freeze(BUTTON_STATES),
 		};
 	},
 });
@@ -42,8 +44,10 @@ const args = {
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerPrimaryButtonIcon: null,
+	footerPrimaryButtonState: BUTTON_STATES.DEFAULT,
 	footerSecondaryButtonText: 'Secondary M',
 	footerSecondaryButtonIcon: null,
+	footerSecondaryButtonState: BUTTON_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
@@ -70,10 +74,18 @@ const argTypes = {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: null,
 	},
+	footerPrimaryButtonState: {
+		control: { type: 'select', options: [...Object.keys(BUTTON_STATES)] },
+		defaultValue: BUTTON_STATES.DEFAULT,
+	},
 	footerSecondaryButtonText: { control: { type: 'text' } },
 	footerSecondaryButtonIcon: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: null,
+	},
+	footerSecondaryButtonState: {
+		control: { type: 'select', options: [...Object.keys(BUTTON_STATES)] },
+		defaultValue: BUTTON_STATES.DEFAULT,
 	},
 } as ArgTypes;
 
@@ -98,8 +110,10 @@ const argsDanger = {
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerPrimaryButtonIcon: null,
+	footerPrimaryButtonState: BUTTON_STATES.DEFAULT,
 	footerSecondaryButtonText: 'Secondary M',
 	footerSecondaryButtonIcon: null,
+	footerSecondaryButtonState: BUTTON_STATES.DEFAULT,
 } as Args;
 
 export const Danger = StoryTemplate.bind({});
@@ -118,8 +132,10 @@ const argsWithImage = {
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerPrimaryButtonIcon: null,
+	footerPrimaryButtonState: BUTTON_STATES.DEFAULT,
 	footerSecondaryButtonText: 'Secondary M',
 	footerSecondaryButtonIcon: null,
+	footerSecondaryButtonState: BUTTON_STATES.DEFAULT,
 } as Args;
 
 export const WithImage = StoryTemplate.bind({});
