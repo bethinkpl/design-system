@@ -80,7 +80,7 @@ $minimal-drawer-header-height: 82px;
 		display: flex;
 		flex-direction: column;
 		min-width: 0;
-		row-gap: $space-xxxxs;
+		row-gap: $space-4xs;
 
 		&.-hidden {
 			visibility: hidden; //by this we make sure that height does not change when switching to second level
@@ -106,7 +106,7 @@ $minimal-drawer-header-height: 82px;
 
 	&__title {
 		align-items: center;
-		column-gap: $space-xxxs;
+		column-gap: $space-3xs;
 		display: flex;
 	}
 
@@ -130,7 +130,7 @@ $minimal-drawer-header-height: 82px;
 
 	&__titleWrapper {
 		align-items: center;
-		column-gap: $space-xxxxs;
+		column-gap: $space-4xs;
 		display: flex;
 		justify-content: space-between;
 		min-height: $minimal-drawer-header-height;
@@ -212,6 +212,8 @@ export default {
 			default: false,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['backClicked', 'close', 'eyebrowClicked'],
 	data() {
 		return {

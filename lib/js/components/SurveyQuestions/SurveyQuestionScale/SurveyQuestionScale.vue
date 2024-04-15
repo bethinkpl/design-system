@@ -146,7 +146,7 @@
 
 	&__explanation {
 		align-self: flex-start;
-		margin-left: $space-xxxxs;
+		margin-left: $space-4xs;
 	}
 
 	&__content {
@@ -154,7 +154,7 @@
 		border-radius: $radius-s;
 		display: flex;
 		overflow-x: auto;
-		padding: $space-s $space-xxs;
+		padding: $space-s $space-2xs;
 
 		@media #{breakpoint-s()} {
 			gap: $space-l;
@@ -200,7 +200,7 @@
 	}
 
 	&__elaborationInput {
-		margin-top: $space-xxs;
+		margin-top: $space-2xs;
 	}
 
 	&__container {
@@ -297,6 +297,8 @@ export default {
 			},
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['elaboration-change', 'select-change'],
 	data() {
 		return {

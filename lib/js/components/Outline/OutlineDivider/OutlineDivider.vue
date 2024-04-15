@@ -8,7 +8,7 @@
 @import '../../../../styles/settings/spacings';
 
 .outlineDivider {
-	padding: $space-xxxs 0;
+	padding: $space-3xs 0;
 }
 </style>
 

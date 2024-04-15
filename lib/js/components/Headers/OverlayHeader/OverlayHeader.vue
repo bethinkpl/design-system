@@ -108,10 +108,10 @@
 	background: $color-neutral-background;
 	border-bottom: 2px solid $color-neutral-border-ghost;
 	display: flex;
-	padding: $space-xxs $space-xxxs $space-xxs 0;
+	padding: $space-2xs $space-3xs $space-2xs 0;
 
 	@media #{breakpoint-s()} {
-		padding: $space-xs $space-xxs $space-xs 0;
+		padding: $space-xs $space-2xs $space-xs 0;
 	}
 
 	&__accessory {
@@ -121,22 +121,22 @@
 
 	&__content {
 		flex-grow: 1;
-		margin: 0 $space-xxxxs 0 $space-xs;
+		margin: 0 $space-4xs 0 $space-xs;
 		// We need to set min-width to allow children to apply ellipsis
 		min-width: 0;
 
 		@media #{breakpoint-s()} {
-			margin: 0 $space-xxs 0 $space-s;
+			margin: 0 $space-2xs 0 $space-s;
 		}
 	}
 
 	&__eyebrow {
 		align-items: center;
 		display: flex;
-		margin-bottom: $space-xxxs;
+		margin-bottom: $space-3xs;
 
 		@media #{breakpoint-s()} {
-			margin-bottom: $space-xxs;
+			margin-bottom: $space-2xs;
 		}
 	}
 
@@ -149,7 +149,7 @@
 		white-space: nowrap;
 
 		&.-withRightMargin {
-			margin-right: $space-xxs;
+			margin-right: $space-2xs;
 		}
 	}
 
@@ -166,7 +166,7 @@
 
 	&__titleLeading {
 		display: flex;
-		margin-right: $space-xxs;
+		margin-right: $space-2xs;
 	}
 
 	&__titleWrapper {
@@ -204,7 +204,7 @@
 		display: flex;
 		// flex-shrink: 2 gives some more space for title
 		flex-shrink: 2;
-		margin-left: $space-xxs;
+		margin-left: $space-2xs;
 	}
 
 	&__titleTrailing {
@@ -224,10 +224,10 @@
 	&__divider {
 		align-self: stretch;
 		height: auto !important;
-		margin: $space-xxxxs $space-xxxs;
+		margin: $space-4xs $space-3xs;
 
 		@media #{breakpoint-s()} {
-			margin: $space-xxxxs $space-xxs;
+			margin: $space-4xs $space-2xs;
 		}
 
 		&.-mobileHidden {
@@ -295,6 +295,8 @@ export default {
 			default: false,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['close', 'titleClick'],
 	data() {
 		return {

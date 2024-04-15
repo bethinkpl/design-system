@@ -37,22 +37,22 @@
 
 $selection-control-sizes: (
 	'x-small': (
-		'gap': $space-xxxxs,
-		'iconWrapperPadding': $space-xxxs,
-		'labelWrapperPadding': $space-xxxxs,
-		'iconOutlinePadding': $space-xxxs,
+		'gap': $space-4xs,
+		'iconWrapperPadding': $space-3xs,
+		'labelWrapperPadding': $space-4xs,
+		'iconOutlinePadding': $space-3xs,
 	),
 	'small': (
-		'gap': $space-xxs,
-		'iconWrapperPadding': $space-xxxs,
-		'labelWrapperPadding': $space-xxxs,
-		'iconOutlinePadding': $space-xxxs,
+		'gap': $space-2xs,
+		'iconWrapperPadding': $space-3xs,
+		'labelWrapperPadding': $space-3xs,
+		'iconOutlinePadding': $space-3xs,
 	),
 	'medium': (
-		'gap': $space-xxs,
-		'iconWrapperPadding': $space-xxs,
-		'labelWrapperPadding': $space-xxs,
-		'iconOutlinePadding': $space-xxs,
+		'gap': $space-2xs,
+		'iconWrapperPadding': $space-2xs,
+		'labelWrapperPadding': $space-2xs,
+		'iconOutlinePadding': $space-2xs,
 	),
 );
 
@@ -288,6 +288,8 @@ export default {
 			},
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['update:isSelected', 'input:focus', 'input:blur'],
 	data() {
 		return {

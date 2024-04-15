@@ -56,7 +56,7 @@ $selection-tile-min-height: 48px;
 	align-items: center;
 	background-color: $color-neutral-background-weak;
 	border-radius: $radius-s;
-	column-gap: $space-xxs;
+	column-gap: $space-2xs;
 	cursor: pointer;
 	display: flex;
 	justify-content: space-between;
@@ -74,14 +74,14 @@ $selection-tile-min-height: 48px;
 
 	&__wrapper {
 		align-items: center;
-		column-gap: $space-xxs;
+		column-gap: $space-2xs;
 		display: flex;
 	}
 
 	&__textWrapper {
 		display: flex;
 		flex-direction: column;
-		row-gap: $space-xxxxs;
+		row-gap: $space-4xs;
 	}
 
 	&__title {
@@ -217,6 +217,8 @@ export default defineComponent({
 			},
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['update:isSelected', 'icon-click'],
 	data() {
 		return {

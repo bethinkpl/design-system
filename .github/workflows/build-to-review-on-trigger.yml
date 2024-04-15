@@ -1,0 +1,68 @@
+name: Build Storybook to Design Review on trigger
+
+on:
+  issue_comment:
+    types: [ created ]
+
+jobs:
+  deploy-for-review:
+    runs-on: ubuntu-latest
+
+    if: |
+      github.event.comment &&
+      github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/review')
+
+    steps:
+      - name: Get PR branch name
+        id: comment-pr-ref
+        uses: actions/github-script@v6
+        with:
+          result-encoding: string
+          script: |
+            const pr = await github.rest.pulls.get({
+              owner: context.issue.owner,
+              repo: context.issue.repo,
+              pull_number: context.issue.number,
+            });
+            return pr.data.head.ref
+
+      - name: Set short branch name
+        run: |
+          echo "BRANCH_NAME=$(echo "${{ steps.comment-pr-ref.outputs.result }}" | grep -oE -- '[A-Z]+-[0-9]+')" >> $GITHUB_ENV
+
+      - name: Checkout PR code based on trigger comment
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.comment-pr-ref.outputs.result }}
+
+      - name: Insert auth font awesome auth token
+        run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.9.0'
+          cache: 'yarn'
+
+      - name: Install and Build 🔧
+        run: |
+          yarn install --pure-lockfile
+          yarn storybook:build
+
+      - name: Set up S3cmd cli tool
+        uses: s3-actions/s3cmd@v1.4.0
+        with:
+          provider: aws
+          region: 'eu-central-1'
+          access_key: ${{ secrets.S3_ACCESS_KEY }}
+          secret_key: ${{ secrets.S3_SECRET_KEY }}
+
+      - name: Push to S3 🚀
+        run: s3cmd put -r -P public/storybook/* s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/
+
+      - name: Add comment with URL
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          pr_number: ${{ github.event.issue.number }}
+          message: |
+            Your storybook is available on: https://${{ vars.S3_REVIEW_BUCKET }}.s3.amazonaws.com/${{ env.BRANCH_NAME }}/index.html

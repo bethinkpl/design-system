@@ -1,106 +1,137 @@
 <template>
 	<div class="drawerSection">
-		<div
-			v-if="title"
-			class="drawerSection__header"
-			:class="{ '-isExpandable': isExpandable }"
-			@click="onHeaderClick"
-		>
-			<div class="drawerSection__headerTitleWrapper">
-				<div class="drawerSection__headerTitle">{{ title }}</div>
-				<ds-icon-button
-					v-if="isExpandable"
-					:color="ICON_BUTTON_COLORS.NEUTRAL"
-					:icon="isExpanded ? ICONS.FA_ANGLE_UP : ICONS.FA_ANGLE_DOWN"
-					:size="ICON_BUTTON_SIZES.X_SMALL"
-					:touchable="false"
-				/>
-			</div>
-			<ds-divider v-if="hasDivider" />
-		</div>
-		<div v-if="isExpanded || !isExpandable">
+		<ds-section-header
+			:icon-left="iconLeft"
+			:icon-left-color="iconLeftColor"
+			:icon-right="iconRight"
+			:icon-right-color="iconRightColor"
+			:is-expandable="isExpandable"
+			:is-expanded="isExpandedInternal"
+			:info="info"
+			:size="size"
+			:title="title"
+			:eyebrow="eyebrow"
+			:supporting-text="supportingText"
+			:has-divider="hasDivider"
+			@infoClick="onInfoClick"
+			@update:isExpanded="onExpandableHeaderClick"
+		/>
+
+		<div v-if="isExpandedInternal || !isExpandable">
 			<slot />
 		</div>
 		<div v-if="$slots.uncollapsible"><slot name="uncollapsible" /></div>
 	</div>
 </template>
 
-<style lang="scss" scoped>
-@import '../../../../styles/settings/colors/tokens';
-@import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/typography/tokens';
-
-.drawerSection {
-	$root: &;
-
-	&__header {
-		&:hover,
-		&:focus {
-			#{$root}__headerTitle {
-				color: $color-neutral-text-weak-hovered;
-			}
-		}
-
-		&.-isExpandable {
-			cursor: pointer;
-		}
-	}
-
-	&__headerTitleWrapper {
-		align-items: center;
-		display: flex;
-		gap: $space-xxs;
-		justify-content: space-between;
-	}
-
-	&__headerTitle {
-		@include info-s-extensive-bold-uppercase;
-
-		color: $color-neutral-text-weak;
-		padding: $space-xxs 0;
-	}
-}
-</style>
-
 <script lang="ts">
-import Divider from '../../Divider';
-import IconButton from '../../Buttons/IconButton/IconButton.vue';
-import { ICONS } from '../../Icons/Icon';
+import { IconItem, ICONS } from '../../Icons/Icon';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
+import SectionHeader, {
+	SECTION_HEADER_ICON_COLORS,
+	SECTION_HEADER_SIZES,
+	SectionHeaderIconColor,
+} from '../../Headers/SectionHeader';
+import { toRaw } from 'vue';
 
 export default {
 	name: 'DrawerSection',
 	components: {
-		DsIconButton: IconButton,
-		DsDivider: Divider,
+		DsSectionHeader: SectionHeader,
 	},
 	props: {
-		hasDivider: {
-			type: Boolean,
-			default: true,
-		},
 		isExpandable: {
 			type: Boolean,
 			default: false,
 		},
+		iconLeft: {
+			type: Object as () => IconItem,
+			default: null,
+			validator(iconLeft: IconItem) {
+				return Object.values(ICONS).includes(toRaw(iconLeft));
+			},
+		},
+		iconLeftColor: {
+			type: String as () => SectionHeaderIconColor,
+			default: SECTION_HEADER_ICON_COLORS.NEUTRAL_WEAK,
+			validator(iconLeftColor: SectionHeaderIconColor) {
+				return Object.values(SECTION_HEADER_ICON_COLORS).includes(toRaw(iconLeftColor));
+			},
+		},
+		iconRight: {
+			type: Object as () => IconItem,
+			default: null,
+			validator(iconRight: IconItem) {
+				return Object.values(ICONS).includes(toRaw(iconRight));
+			},
+		},
+		iconRightColor: {
+			type: String as () => SectionHeaderIconColor,
+			default: SECTION_HEADER_ICON_COLORS.NEUTRAL_WEAK,
+			validator(iconRightColor: SectionHeaderIconColor) {
+				return Object.values(SECTION_HEADER_ICON_COLORS).includes(toRaw(iconRightColor));
+			},
+		},
+		isExpanded: {
+			type: Boolean,
+			default: true,
+		},
+		info: {
+			type: Boolean,
+			default: false,
+		},
+		size: {
+			type: String,
+			default: SECTION_HEADER_SIZES.XX_SMALL,
+			validator(size) {
+				return Object.values(SECTION_HEADER_SIZES).includes(size);
+			},
+		},
 		title: {
+			type: String,
+			required: true,
+		},
+		eyebrow: {
+			type: String,
+			default: '',
+		},
+		supportingText: {
 			type: String,
 			default: null,
 		},
+		hasDivider: {
+			type: Boolean,
+			default: true,
+		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
+	emits: ['info-click', 'update:isExpanded'],
 	data() {
 		return {
-			isExpanded: true,
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICONS: Object.freeze(ICONS),
+			isExpandedInternal: this.isExpanded,
 		};
 	},
+	watch: {
+		isExpanded: {
+			handler(isExpanded) {
+				if (isExpanded !== this.isExpandedInternal) {
+					this.isExpandedInternal = isExpanded;
+				}
+			},
+			immediate: true,
+		},
+	},
 	methods: {
-		onHeaderClick(): void {
-			if (this.isExpandable) {
-				this.isExpanded = !this.isExpanded;
-			}
+		onExpandableHeaderClick(value): void {
+			this.isExpandedInternal = value;
+			this.$emit('update:isExpanded', value);
+		},
+		onInfoClick(): void {
+			this.$emit('info-click');
 		},
 	},
 };

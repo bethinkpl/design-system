@@ -125,6 +125,7 @@ module.exports = {
 		'vue/v-for-delimiter-style': 'error',
 		'vue/no-undef-components': 'error',
 		'vue/multi-word-component-names': 0,
+		'vue/require-emit-validator': 'error',
 
 		// Required for Vue 3 migration
 		'vue/no-deprecated-slot-attribute': 'error',

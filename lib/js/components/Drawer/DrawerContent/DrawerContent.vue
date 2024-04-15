@@ -11,7 +11,7 @@
 	display: flex;
 	flex-direction: column;
 	gap: $space-s;
-	padding: $space-xxs $space-s;
+	padding: $space-2xs $space-s;
 }
 </style>
 

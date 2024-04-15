@@ -59,7 +59,7 @@
 		@include label-s-extensive-bold-uppercase();
 
 		color: $color-primary-text;
-		margin-right: $space-xxxxs;
+		margin-right: $space-4xs;
 	}
 
 	&__expanderIcon {
@@ -104,6 +104,8 @@ export default {
 			default: false,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['update:isExpanded'],
 	data() {
 		return {

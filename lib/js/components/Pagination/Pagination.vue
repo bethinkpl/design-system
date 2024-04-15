@@ -185,7 +185,7 @@ $pagination-input-height: 32px;
 		border-radius: $radius-s;
 		box-shadow: inset 0 1px 3px $color-neutral-border-strong;
 		height: $pagination-input-height;
-		padding: $space-xxxs $space-xxs;
+		padding: $space-3xs $space-2xs;
 
 		&:hover {
 			border-color: $color-neutral-border-strong-hovered;
@@ -201,7 +201,7 @@ $pagination-input-height: 32px;
 		@include label-l-default-regular;
 
 		color: $color-neutral-text;
-		padding: $space-xxs $space-xxxs;
+		padding: $space-2xs $space-3xs;
 		text-align: center;
 	}
 
@@ -214,7 +214,7 @@ $pagination-input-height: 32px;
 	&__itemWrapper {
 		@include label-l-default-regular;
 
-		padding: $space-xxxxs;
+		padding: $space-4xs;
 		text-align: center;
 
 		&.-touchable:hover {
@@ -235,7 +235,7 @@ $pagination-input-height: 32px;
 		flex-direction: column;
 		justify-content: center;
 		min-width: $pagination-item-min-width;
-		padding: $space-xxs;
+		padding: $space-2xs;
 
 		&.-selected {
 			@include label-l-default-bold;
@@ -306,6 +306,8 @@ export default {
 			required: true,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['change-page'],
 	data() {
 		return {

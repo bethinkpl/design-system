@@ -8,7 +8,7 @@
 @import '../../../../styles/settings/spacings';
 
 .drawerTile {
-	padding: $space-xxs 0;
+	padding: $space-2xs 0;
 }
 </style>
 
@@ -23,6 +23,8 @@ export default {
 	},
 	// Only allow props that are supported by Tile
 	props,
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['click'],
 };
 </script>

@@ -63,11 +63,11 @@
 	}
 
 	&[x-placement^='bottom'] {
-		margin-top: $space-xxxxs;
+		margin-top: $space-4xs;
 	}
 
 	&[x-placement^='top'] {
-		margin-bottom: $space-xxxxs;
+		margin-bottom: $space-4xs;
 	}
 
 	&__scrollableWrapper {
@@ -131,6 +131,8 @@ export default {
 			default: null,
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['document-click', 'hide', 'show'],
 	data() {
 		return {

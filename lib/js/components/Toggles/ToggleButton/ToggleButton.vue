@@ -324,7 +324,7 @@ $toggle-button-colors: (
 	&__contentWrapper {
 		align-items: center;
 		display: flex;
-		gap: $space-xxxxs;
+		gap: $space-4xs;
 		justify-content: center;
 	}
 
@@ -358,10 +358,10 @@ $toggle-button-colors: (
 	&.-small {
 		min-height: $toggle-button-size-small;
 		min-width: $toggle-button-size-small;
-		padding: substract-border($space-xxxs, 'small') substract-border($space-xs, 'small');
+		padding: substract-border($space-3xs, 'small') substract-border($space-xs, 'small');
 
 		&.-hasSmallHorizontalPadding {
-			padding: substract-border($space-xxxs, 'small') substract-border($space-xxxxxs, 'small');
+			padding: substract-border($space-3xs, 'small') substract-border($space-5xs, 'small');
 		}
 
 		#{$root}__content.-small {
@@ -376,11 +376,10 @@ $toggle-button-colors: (
 	&.-medium {
 		min-height: $toggle-button-size-medium;
 		min-width: $toggle-button-size-medium;
-		padding: substract-border($space-xxs, 'medium') substract-border($space-xs, 'medium');
+		padding: substract-border($space-2xs, 'medium') substract-border($space-xs, 'medium');
 
 		&.-hasSmallHorizontalPadding {
-			padding: substract-border($space-xxs, 'medium')
-				substract-border($space-xxxxxs, 'medium');
+			padding: substract-border($space-2xs, 'medium') substract-border($space-5xs, 'medium');
 		}
 
 		#{$root}__content.-small {
@@ -399,7 +398,7 @@ $toggle-button-colors: (
 		padding: substract-border($space-xs, 'large') substract-border($space-s, 'large');
 
 		&.-hasSmallHorizontalPadding {
-			padding: substract-border($space-xxs, 'large') substract-border($space-xxxxxs, 'large');
+			padding: substract-border($space-2xs, 'large') substract-border($space-5xs, 'large');
 		}
 	}
 
@@ -501,6 +500,8 @@ export default {
 			},
 		},
 	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['click'],
 	data() {
 		return {

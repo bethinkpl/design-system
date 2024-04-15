@@ -19,7 +19,7 @@
 
 	&__icon {
 		color: $color-neutral-icon;
-		margin-right: $space-xxxxs;
+		margin-right: $space-4xs;
 	}
 
 	&.-active {

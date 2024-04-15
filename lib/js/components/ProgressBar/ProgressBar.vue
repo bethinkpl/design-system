@@ -153,7 +153,7 @@ $progress-bar-badge-colors: (
 		}
 
 		#{$self}__label {
-			margin-bottom: $space-xxxs;
+			margin-bottom: $space-3xs;
 		}
 	}
 
@@ -201,10 +201,10 @@ $progress-bar-badge-colors: (
 		align-items: flex-end;
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: $space-xxxs;
+		margin-bottom: $space-3xs;
 
 		@media #{breakpoint-s()} {
-			margin-bottom: $space-xxxs;
+			margin-bottom: $space-3xs;
 		}
 	}
 
@@ -241,26 +241,26 @@ $progress-bar-badge-colors: (
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: right;
-		margin-bottom: $space-xxxxxs;
-		margin-left: $space-xxs;
+		margin-bottom: $space-5xs;
+		margin-left: $space-2xs;
 		max-width: $progress-bar-label-data-max-width;
 	}
 
 	&__labelDataSupporting {
 		color: $color-neutral-text;
 		display: flex;
-		margin-left: $space-xxxxxs;
+		margin-left: $space-5xs;
 	}
 
 	&__labelDataSeparator {
-		margin-right: $space-xxxxxs;
+		margin-right: $space-5xs;
 	}
 
 	&__labelDataSuffix {
 		@include label-s-default-regular;
 
 		color: $color-neutral-text-weak;
-		margin-left: $space-xxxxs;
+		margin-left: $space-4xs;
 	}
 
 	&__range {
