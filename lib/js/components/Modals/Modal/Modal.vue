@@ -91,7 +91,6 @@
 								:icon-right="footerPrimaryButtonIcon"
 								:state="footerPrimaryButtonState"
 								@click="$emit('primary-button-click')"
-
 							>
 								{{ footerPrimaryButtonText }}
 							</wnl-button>
@@ -319,7 +318,12 @@ import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
 import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from './Modal.consts';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
-import WnlButton, { BUTTON_COLORS, BUTTON_ELEVATIONS, BUTTON_TYPES, BUTTON_STATES } from '../../Buttons/Button';
+import WnlButton, {
+	BUTTON_COLORS,
+	BUTTON_ELEVATIONS,
+	BUTTON_TYPES,
+	BUTTON_STATES,
+} from '../../Buttons/Button';
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { toRaw } from 'vue';
 
@@ -454,7 +458,7 @@ export default {
 	},
 	computed: {
 		BUTTON_STATES() {
-			return BUTTON_STATES
+			return BUTTON_STATES;
 		},
 		calcHeaderFeatureIconColor() {
 			if (this.danger) {
