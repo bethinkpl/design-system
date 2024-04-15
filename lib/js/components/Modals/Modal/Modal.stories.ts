@@ -19,16 +19,15 @@ const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 	template:
 		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
 		':headerTitleSize="headerTitleSize" :headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :contentCentered="contentCentered" :headerFeatureIconColor="headerFeatureIconColor" ' +
-		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]" :footerPrimaryButtonState="BUTTON_STATES[footerPrimaryButtonState]" ' +
-		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" :footerSecondaryButtonState="BUTTON_STATES[footerSecondaryButtonState]" ' +
-		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" :footerTertiaryButtonState="BUTTON_STATES[footerTertiaryButtonState]" ' +
+		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]" :footerPrimaryButtonState="footerPrimaryButtonState" ' +
+		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" :footerSecondaryButtonState="footerSecondaryButtonState" ' +
+		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" :footerTertiaryButtonState="footerTertiaryButtonState" ' +
 		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage">' +
 		'<div v-html="defaultSlot" />' +
 		'</modal>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
-			BUTTON_STATES: Object.freeze(BUTTON_STATES),
 		};
 	},
 });

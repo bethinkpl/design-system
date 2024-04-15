@@ -18,9 +18,9 @@ const StoryTemplate: StoryFn<typeof ModalDialog> = (args) => ({
 	template:
 		'<modal-dialog :headerFeatureIcon="ICONS[headerFeatureIcon]" :danger="danger" ' +
 		':headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :headerFeatureIconColor="headerFeatureIconColor" ' +
-		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="footerPrimaryButtonIcon" :footerPrimaryButtonState="BUTTON_STATES[footerPrimaryButtonState]" ' +
+		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="footerPrimaryButtonIcon" :footerPrimaryButtonState="footerPrimaryButtonState" ' +
 		':headerImage="headerImage" ' +
-		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon" :footerSecondaryButtonState="BUTTON_STATES[footerSecondaryButtonState]">' +
+		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon" :footerSecondaryButtonState="footerSecondaryButtonState">' +
 		'<div v-html="defaultSlot" />' +
 		'</modal-dialog>',
 	data() {
