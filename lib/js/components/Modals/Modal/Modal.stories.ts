@@ -4,6 +4,7 @@ import Modal from './Modal.vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
+import { BUTTON_STATES } from '../../Buttons/Button';
 
 export default {
 	title: 'Components/Modals/Modal',
@@ -18,15 +19,16 @@ const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 	template:
 		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
 		':headerTitleSize="headerTitleSize" :headerTitle="headerTitle" :headerSubtitle="headerSubtitle" :contentCentered="contentCentered" :headerFeatureIconColor="headerFeatureIconColor" ' +
-		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]" ' +
-		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" ' +
-		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" ' +
+		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]" :footerPrimaryButtonState="BUTTON_STATES[footerPrimaryButtonState]"' +
+		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" :footerSecondaryButtonState="BUTTON_STATES[footerSecondaryButtonState]"' +
+		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" :footerTertiaryButtonState="BUTTON_STATES[footerTertiaryButtonState]"' +
 		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage">' +
 		'<div v-html="defaultSlot" />' +
 		'</modal>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
+			BUTTON_STATES: Object.freeze(BUTTON_STATES),
 		};
 	},
 });
@@ -47,10 +49,13 @@ const args = {
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerPrimaryButtonIcon: null,
+	footerPrimaryButtonState: BUTTON_STATES.DEFAULT,
 	footerSecondaryButtonText: 'Secondary M',
 	footerSecondaryButtonIcon: null,
+	footerSecondaryButtonState: BUTTON_STATES.DEFAULT,
 	footerTertiaryButtonText: 'Tertiary M',
 	footerTertiaryButtonIcon: null,
+	footerTertiaryButtonState: BUTTON_STATES.DEFAULT,
 	footerCheckboxText: '',
 } as Args;
 
@@ -81,15 +86,27 @@ const argTypes = {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: null,
 	},
+	footerPrimaryButtonState: {
+		control: { type: 'select', options: [...Object.keys(BUTTON_STATES)] },
+		defaultValue: BUTTON_STATES.DEFAULT,
+	},
 	footerSecondaryButtonText: { control: { type: 'text' } },
 	footerSecondaryButtonIcon: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: null,
 	},
+	footerSecondaryButtonState: {
+		control: { type: 'select', options: [...Object.keys(BUTTON_STATES)] },
+		defaultValue: BUTTON_STATES.DEFAULT,
+	},
 	footerTertiaryButtonText: { control: { type: 'text' } },
 	footerTertiaryButtonIcon: {
 		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
 		defaultValue: ICONS.FA_CHART_COLUMN,
+	},
+	footerTertiaryButtonState: {
+		control: { type: 'select', options: [...Object.keys(BUTTON_STATES)] },
+		defaultValue: BUTTON_STATES.DEFAULT,
 	},
 	footerCheckboxText: { control: { type: 'text' } },
 	onCloseModal: { action: 'close-modal' },
@@ -123,10 +140,13 @@ const argsDanger = {
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerPrimaryButtonIcon: null,
+	footerPrimaryButtonState: BUTTON_STATES.DEFAULT,
 	footerSecondaryButtonText: 'Secondary M',
 	footerSecondaryButtonIcon: null,
+	footerSecondaryButtonState: BUTTON_STATES.DEFAULT,
 	footerTertiaryButtonText: '',
 	footerTertiaryButtonIcon: null,
+	footerTertiaryButtonState: BUTTON_STATES.DEFAULT,
 	footerCheckboxText: '',
 } as Args;
 
@@ -149,10 +169,13 @@ const argsWithImage = {
 	headerFeatureIconColor: null,
 	footerPrimaryButtonText: 'Primary M',
 	footerPrimaryButtonIcon: null,
+	footerPrimaryButtonState: BUTTON_STATES.DEFAULT,
 	footerSecondaryButtonText: 'Secondary M',
 	footerSecondaryButtonIcon: null,
+	footerSecondaryButtonState: BUTTON_STATES.DEFAULT,
 	footerTertiaryButtonText: '',
 	footerTertiaryButtonIcon: null,
+	footerTertiaryButtonState: BUTTON_STATES.DEFAULT,
 	footerCheckboxText: '',
 } as Args;
 
@@ -174,10 +197,13 @@ const argsSmallHeaderAndCentered = {
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerPrimaryButtonIcon: null,
+	footerPrimaryButtonState: BUTTON_STATES.DEFAULT,
 	footerSecondaryButtonText: 'Secondary M',
 	footerSecondaryButtonIcon: null,
+	footerSecondaryButtonState: BUTTON_STATES.DEFAULT,
 	footerTertiaryButtonText: '',
 	footerTertiaryButtonIcon: null,
+	footerTertiaryButtonState: BUTTON_STATES.DEFAULT,
 	footerCheckboxText: '',
 } as Args;
 

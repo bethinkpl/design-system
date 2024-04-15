@@ -64,6 +64,7 @@
 								:type="BUTTON_TYPES.TEXT"
 								:color="BUTTON_COLORS.NEUTRAL"
 								:icon-left="footerTertiaryButtonIcon"
+								:state="footerTertiaryButtonState"
 								class="ds-modal__tertiaryButton"
 								@click="$emit('tertiary-button-click')"
 							>
@@ -79,6 +80,7 @@
 								:type="BUTTON_TYPES.OUTLINED"
 								:color="calcFooterSecondaryButtonColor"
 								:icon-right="footerSecondaryButtonIcon"
+								:state="footerSecondaryButtonState"
 								@click="$emit('secondary-button-click')"
 							>
 								{{ footerSecondaryButtonText }}
@@ -87,7 +89,9 @@
 								v-if="footerPrimaryButtonText"
 								:color="calcFooterPrimaryButtonColor"
 								:icon-right="footerPrimaryButtonIcon"
+								:state="footerPrimaryButtonState"
 								@click="$emit('primary-button-click')"
+
 							>
 								{{ footerPrimaryButtonText }}
 							</wnl-button>
@@ -315,7 +319,7 @@ import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
 import { MODAL_SIZES, MODAL_HEADER_TITLE_SIZES } from './Modal.consts';
 import { ICONS, ICON_SIZES } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
-import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS } from '../../Buttons/Button';
+import WnlButton, { BUTTON_COLORS, BUTTON_TYPES, BUTTON_ELEVATIONS, BUTTON_STATES } from '../../Buttons/Button';
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { toRaw } from 'vue';
 
@@ -378,6 +382,13 @@ export default {
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
+		footerPrimaryButtonState: {
+			type: Object,
+			default: BUTTON_STATES.DEFAULT,
+			validator(state) {
+				return Object.values(BUTTON_STATES).includes(toRaw(state));
+			},
+		},
 		footerSecondaryButtonText: {
 			type: String,
 			default: null,
@@ -389,6 +400,13 @@ export default {
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
+		footerSecondaryButtonState: {
+			type: Object,
+			default: BUTTON_STATES.DEFAULT,
+			validator(state) {
+				return Object.values(BUTTON_STATES).includes(toRaw(state));
+			},
+		},
 		footerTertiaryButtonText: {
 			type: String,
 			default: null,
@@ -398,6 +416,13 @@ export default {
 			default: null,
 			validator(icon) {
 				return Object.values(ICONS).includes(toRaw(icon));
+			},
+		},
+		footerTertiaryButtonState: {
+			type: Object,
+			default: BUTTON_STATES.DEFAULT,
+			validator(state) {
+				return Object.values(BUTTON_STATES).includes(toRaw(state));
 			},
 		},
 		footerCheckboxText: {
@@ -426,6 +451,9 @@ export default {
 		};
 	},
 	computed: {
+		BUTTON_STATES() {
+			return BUTTON_STATES
+		},
 		calcHeaderFeatureIconColor() {
 			if (this.danger) {
 				return FEATURE_ICON_COLOR.DANGER;
