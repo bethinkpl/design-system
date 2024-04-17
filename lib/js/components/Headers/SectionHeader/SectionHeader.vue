@@ -22,7 +22,12 @@
 						/>
 						<div class="sectionHeader__titleContainer">
 							<div v-if="eyebrow" class="sectionHeader__eyebrow">{{ eyebrow }}</div>
-							<div class="sectionHeader__title">{{ title }}</div>
+							<div
+								class="sectionHeader__title"
+								:class="{ '-ellipsis': titleEllipsis }"
+								:title="titleEllipsis ? title : undefined"
+								>{{ title }}
+							</div>
 						</div>
 						<ds-icon
 							v-if="iconRight"
@@ -121,6 +126,7 @@
 		align-items: center;
 		display: flex;
 		gap: $space-2xs;
+		min-width: 0;
 		width: 100%;
 
 		@media #{breakpoint-s()} {
@@ -159,17 +165,26 @@
 	&__titleWrapper {
 		align-items: center;
 		display: flex;
+		min-width: 0;
 	}
 
 	&__titleContainer {
 		display: flex;
 		flex-direction: column;
 		gap: $space-5xs;
+		min-width: 0;
 		padding: $space-2xs 0;
 	}
 
 	&__title {
 		color: $color-neutral-text-strong;
+		min-width: 0;
+
+		&.-ellipsis {
+			overflow: hidden;
+			text-overflow: ellipsis;
+			white-space: nowrap;
+		}
 	}
 
 	&__info {
@@ -323,9 +338,9 @@
 
 <script lang="ts">
 import {
+	SECTION_HEADER_ICON_COLORS,
 	SECTION_HEADER_MOBILE_LAYOUTS,
 	SECTION_HEADER_SIZES,
-	SECTION_HEADER_ICON_COLORS,
 	SectionHeaderIconColor,
 } from './SectionHeader.consts';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
@@ -412,6 +427,10 @@ export default {
 			type: String,
 			default: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
 			validator: (value) => Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(value),
+		},
+		titleEllipsis: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	// TODO fix me when touching this file
