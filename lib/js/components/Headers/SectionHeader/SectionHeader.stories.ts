@@ -42,11 +42,11 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => (
 		' :size="size"' +
 		' :info="info"' +
 		' :title="title"' +
+		' :title-ellipsis="titleEllipsis"' +
 		' :eyebrow="eyebrow"' +
 		' :has-divider="hasDivider"' +
 		' :mobile-layout="mobileLayout"' +
 		' :supportingText="supportingText"' +
-		' :titleEllipsis="titleEllipsis"' +
 		' @update:isExpanded="onIsExpandedUpdated"' +
 		'>' +
 		'<div style="border: 1px solid;">Slot content</div>' +

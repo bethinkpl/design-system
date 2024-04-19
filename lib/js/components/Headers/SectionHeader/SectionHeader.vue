@@ -411,6 +411,10 @@ export default {
 			type: String,
 			required: true,
 		},
+		titleEllipsis: {
+			type: Boolean,
+			default: false,
+		},
 		eyebrow: {
 			type: String,
 			default: '',
@@ -427,10 +431,6 @@ export default {
 			type: String,
 			default: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
 			validator: (value) => Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(value),
-		},
-		titleEllipsis: {
-			type: Boolean,
-			default: false,
 		},
 	},
 	// TODO fix me when touching this file

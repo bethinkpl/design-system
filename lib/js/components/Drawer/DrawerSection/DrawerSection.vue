@@ -10,6 +10,7 @@
 			:info="info"
 			:size="size"
 			:title="title"
+			:title-ellipsis="titleEllipsis"
 			:eyebrow="eyebrow"
 			:supporting-text="supportingText"
 			:has-divider="hasDivider"
@@ -90,6 +91,10 @@ export default {
 		title: {
 			type: String,
 			required: true,
+		},
+		titleEllipsis: {
+			type: Boolean,
+			default: false,
 		},
 		eyebrow: {
 			type: String,
