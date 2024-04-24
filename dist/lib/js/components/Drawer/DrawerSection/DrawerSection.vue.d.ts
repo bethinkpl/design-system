@@ -47,6 +47,10 @@ declare const _default: {
             type: StringConstructor;
             required: boolean;
         };
+        titleEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         eyebrow: {
             type: StringConstructor;
             default: string;
@@ -85,6 +89,8 @@ declare const _default: {
             readonly RIBBON: import("vue").CompatVue;
             readonly SLIDERS_SEARCH: import("vue").CompatVue;
             readonly COMMENTS_CHECK: import("vue").CompatVue;
+            readonly ANSWERS: import("vue").CompatVue;
+            readonly HIDE_ANSWERS: import("vue").CompatVue;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
