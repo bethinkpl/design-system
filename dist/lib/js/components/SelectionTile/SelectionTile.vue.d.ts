@@ -6,6 +6,8 @@ declare const _default: import("vue").DefineComponent<Readonly<import("vue").Com
         readonly RIBBON: import("vue").CompatVue;
         readonly SLIDERS_SEARCH: import("vue").CompatVue;
         readonly COMMENTS_CHECK: import("vue").CompatVue;
+        readonly ANSWERS: import("vue").CompatVue;
+        readonly HIDE_ANSWERS: import("vue").CompatVue;
         readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
         readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
         readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
