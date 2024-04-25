@@ -42,6 +42,7 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => (
 		' :size="size"' +
 		' :info="info"' +
 		' :title="title"' +
+		' :title-ellipsis="titleEllipsis"' +
 		' :eyebrow="eyebrow"' +
 		' :has-divider="hasDivider"' +
 		' :mobile-layout="mobileLayout"' +
@@ -57,6 +58,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	size: SECTION_HEADER_SIZES.MEDIUM,
 	title: 'Section Header',
+	titleEllipsis: false,
 	supportingText:
 		'Supporting text. Et doloribus aspernatur suscipit provident maiores. Natus natus et pariatur. Eligendi illo quo esse. Tenetur ad neque veniam.',
 	eyebrow: 'eyebrow text',
@@ -108,6 +110,7 @@ const argTypes = {
 			defaultValue: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
 		},
 	},
+	titleEllipsis: { control: { type: 'boolean' }, defaultValue: false },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

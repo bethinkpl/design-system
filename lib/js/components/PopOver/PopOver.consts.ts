@@ -13,6 +13,8 @@ export const POP_OVER_PLACEMENTS = {
 	BOTTOM: 'bottom',
 	LEFT: 'left',
 	RIGHT: 'right',
+	BOTTOM_START: 'bottom-start',
+	BOTTOM_END: 'bottom-end',
 } as const;
 
 export const POP_OVER_SIZES = {

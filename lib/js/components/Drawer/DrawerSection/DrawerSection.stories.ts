@@ -33,6 +33,7 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args, { updateArgs }) => (
 		<drawer-section
 			:size="size"
 			:title="title"
+			:title-ellipsis="titleEllipsis"
 			:supporting-text="supportingText"
 			:eyebrow="eyebrow"
 			:icon-left="ICONS[iconLeft]"
@@ -56,6 +57,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	size: SECTION_HEADER_SIZES.XX_SMALL,
 	title: 'Drawer Section Header',
+	titleEllipsis: false,
 	supportingText: '',
 	eyebrow: '',
 	iconLeft: null,
