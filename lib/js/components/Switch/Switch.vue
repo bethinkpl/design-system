@@ -1,67 +1,67 @@
 <template>
 	<div
-		class="switch"
+		class="ds-switch"
 		:class="{
-			'-small': size === SWITCH_SIZE.SMALL,
-			'-medium': size === SWITCH_SIZE.MEDIUM,
-
-			'-rounded': radius === SWITCH_RADIUSES.ROUNDED,
-
-			'-disabled': state === SWITCH_STATE.DISABLED,
+			'-ds-small': size === SWITCH_SIZE.SMALL,
+			'-ds-medium': size === SWITCH_SIZE.MEDIUM,
+			'-ds-rounded': radius === SWITCH_RADIUSES.ROUNDED,
+			'-ds-disabled': state === SWITCH_STATE.DISABLED,
 		}"
 	>
 		<div
-			class="switch__item -left"
+			class="ds-switch__item -left"
 			:class="{
-				'-clickable': currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
-				'-selected': currentSide === SWITCH_SIDE.LEFT,
+				'-ds-clickable':
+					currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
+				'-ds-selected': currentSide === SWITCH_SIDE.LEFT,
 			}"
 			:title="labelLeft"
 			@click="onSwitch(SWITCH_SIDE.LEFT)"
 		>
 			<ds-icon
 				v-if="iconLeft"
-				class="switch__icon"
+				class="ds-switch__icon"
 				:icon="iconLeft"
 				:size="ICON_SIZES.XX_SMALL"
 			/>
-			<div v-if="labelLeft" class="switch__label">
+			<div v-if="labelLeft" class="ds-switch__label">
 				{{ labelLeft }}
 			</div>
 		</div>
 		<div
-			class="switch__item -right"
+			class="ds-switch__item -right"
 			:class="{
-				'-clickable': currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
-				'-selected': currentSide === SWITCH_SIDE.RIGHT,
+				'-ds-clickable':
+					currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
+				'-ds-selected': currentSide === SWITCH_SIDE.RIGHT,
 			}"
 			:title="labelRight"
 			@click="onSwitch(SWITCH_SIDE.RIGHT)"
 		>
 			<ds-icon
 				v-if="iconRight"
-				class="switch__icon"
+				class="ds-switch__icon"
 				:icon="iconRight"
 				:size="ICON_SIZES.XX_SMALL"
 			/>
-			<div v-if="labelRight" class="switch__label">
+			<div v-if="labelRight" class="ds-switch__label">
 				{{ labelRight }}
 			</div>
 		</div>
 		<div
-			class="switch__item -selection"
+			class="ds-switch__item -selection"
 			:class="{
-				'-left': currentSide === SWITCH_SIDE.LEFT,
-				'-right': currentSide === SWITCH_SIDE.RIGHT,
+				'-ds-left': currentSide === SWITCH_SIDE.LEFT,
+				'-ds-right': currentSide === SWITCH_SIDE.RIGHT,
 			}"
 		>
 			<ds-icon
 				v-if="currentIcon"
-				class="switch__icon"
+				class="ds-switch__icon"
 				:icon="currentIcon"
 				:size="ICON_SIZES.XX_SMALL"
 			/>
-			<div v-if="currentLabel" class="switch__label">{{ currentLabel }}</div>
+			<div v-if="currentLabel" class="ds-switch__label">{{ currentLabel }}</div>
 		</div>
 	</div>
 </template>
@@ -75,7 +75,7 @@
 
 $switch-transition: all $default-transition-time ease-out;
 
-.switch {
+.ds-switch {
 	$root: &;
 
 	background-color: $color-default-background;
@@ -98,7 +98,7 @@ $switch-transition: all $default-transition-time ease-out;
 		white-space: nowrap;
 	}
 
-	.-selected {
+	.-ds-selected {
 		#{$root}__icon {
 			color: $color-primary-icon;
 		}
@@ -128,15 +128,15 @@ $switch-transition: all $default-transition-time ease-out;
 		transition: $switch-transition;
 		z-index: 2;
 
-		&.-left {
+		&.-ds-left {
 			margin: -1px 0 -1px -1px;
 		}
 
-		&.-right {
+		&.-ds-right {
 			margin: -1px -1px -1px 0;
 		}
 
-		&.-selection {
+		&.-ds-selection {
 			background-color: $color-primary-background;
 			border: 1px solid $color-primary-border;
 			position: absolute;
@@ -154,29 +154,29 @@ $switch-transition: all $default-transition-time ease-out;
 				width: max-content;
 			}
 
-			&.-left {
+			&.-ds-left {
 				left: 0;
 			}
 
-			&.-right {
+			&.-ds-right {
 				left: calc(100% + 1px);
 				transform: translateX(-100%);
 			}
 		}
 
-		&.-selected,
-		&.-selection:hover {
+		&.-ds-selected,
+		&.-ds-selection:hover {
 			cursor: default;
 			flex-shrink: 0;
 			text-overflow: initial;
 		}
 
-		&.-clickable:hover {
+		&.-ds-clickable:hover {
 			background-color: $color-neutral-background-ghost-hovered;
 		}
 	}
 
-	&.-rounded {
+	&.-ds-rounded {
 		border-radius: $radius-xl;
 
 		#{$root}__item {
@@ -184,7 +184,7 @@ $switch-transition: all $default-transition-time ease-out;
 		}
 	}
 
-	&.-small &__item {
+	&.-ds-small &__item {
 		gap: $space-4xs;
 		max-width: calc(100% - 48px);
 		min-height: 24px;
@@ -192,7 +192,7 @@ $switch-transition: all $default-transition-time ease-out;
 		padding: 0 $space-xs;
 	}
 
-	&.-disabled &__item {
+	&.-ds-disabled &__item {
 		cursor: default;
 		pointer-events: none;
 
@@ -204,7 +204,7 @@ $switch-transition: all $default-transition-time ease-out;
 			color: $color-neutral-text-disabled;
 		}
 
-		&.-selected {
+		&.-ds-selected {
 			#{$root}__icon {
 				color: $color-primary-icon-disabled;
 			}
@@ -214,7 +214,7 @@ $switch-transition: all $default-transition-time ease-out;
 			}
 		}
 
-		&.-selection {
+		&.-ds-selection {
 			background-color: $color-primary-background-disabled;
 			border-color: $color-primary-border-disabled;
 		}
@@ -234,7 +234,7 @@ import {
 	SwitchSize,
 	SwitchState,
 } from './Switch.consts';
-import DsIcon, { ICON_SIZES, ICONS, IconItem } from '../Icons/Icon';
+import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../Icons/Icon';
 
 export default {
 	// eslint-disable-next-line vue/no-reserved-component-names

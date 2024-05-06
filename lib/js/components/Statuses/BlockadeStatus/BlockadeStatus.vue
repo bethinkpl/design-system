@@ -1,7 +1,7 @@
 <template>
-	<div class="blockadeStatus" :class="statusClass">
-		<icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="blockadeStatus__icon" />
-		<span class="blockadeStatus__text">{{ text }}</span>
+	<div class="ds-blockadeStatus" :class="statusClass">
+		<icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="ds-blockadeStatus__icon" />
+		<span class="ds-blockadeStatus__text">{{ text }}</span>
 	</div>
 </template>
 
@@ -10,7 +10,7 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 
-.blockadeStatus {
+.ds-blockadeStatus {
 	$self: &;
 
 	align-items: center;
@@ -22,7 +22,7 @@
 		margin-right: $space-4xs;
 	}
 
-	&.-active {
+	&.-ds-active {
 		color: $color-danger-text;
 		#{$self}__icon {
 			color: $color-danger-icon;
@@ -36,8 +36,7 @@
 </style>
 
 <script lang="ts">
-import Icon from '../../Icons/Icon';
-import { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { COURSE_BLOCKADE_ACCESS_STATUS } from '../../../consts/user';
 
 export default {
@@ -66,7 +65,7 @@ export default {
 		},
 		statusClass() {
 			if (this.status === COURSE_BLOCKADE_ACCESS_STATUS.ACTIVE) {
-				return '-active';
+				return '-ds-active';
 			}
 			return '';
 		},

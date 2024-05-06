@@ -1,50 +1,50 @@
 <template>
 	<div
-		class="toggleButtonWrapper"
+		class="ds-toggleButtonWrapper"
 		:class="{
 			'-rounded': radius === TOGGLE_BUTTON_RADIUSES.ROUNDED,
 		}"
 	>
 		<div
-			class="toggleButton"
+			class="ds-toggleButton"
 			:class="{
-				'-small': size === TOGGLE_BUTTON_SIZES.SMALL,
-				'-medium': size === TOGGLE_BUTTON_SIZES.MEDIUM,
-				'-large': size === TOGGLE_BUTTON_SIZES.LARGE,
+				'-ds-small': size === TOGGLE_BUTTON_SIZES.SMALL,
+				'-ds-medium': size === TOGGLE_BUTTON_SIZES.MEDIUM,
+				'-ds-large': size === TOGGLE_BUTTON_SIZES.LARGE,
 
-				'-hasSmallHorizontalPadding': hasSmallHorizontalPadding,
+				'-ds-hasSmallHorizontalPadding': hasSmallHorizontalPadding,
 
-				'-rounded': radius === TOGGLE_BUTTON_RADIUSES.ROUNDED,
+				'-ds-rounded': radius === TOGGLE_BUTTON_RADIUSES.ROUNDED,
 
 				[colorClassName]: true,
 
-				'-disabled': state === TOGGLE_BUTTON_STATES.DISABLED,
-				'-loading': state === TOGGLE_BUTTON_STATES.LOADING,
-				'-interactive': isInteractiveComputed,
-				'-selected': isSelected,
+				'-ds-disabled': state === TOGGLE_BUTTON_STATES.DISABLED,
+				'-ds-loading': state === TOGGLE_BUTTON_STATES.LOADING,
+				'-ds-interactive': isInteractiveComputed,
+				'-ds-selected': isSelected,
 			}"
 			@click="isInteractiveComputed && $emit('click')"
 		>
-			<div class="toggleButton__contentWrapper">
+			<div class="ds-toggleButton__contentWrapper">
 				<ds-icon
 					v-if="iconLeft"
-					class="toggleButton__icon"
+					class="ds-toggleButton__icon"
 					:icon="iconLeft"
 					:size="iconSize"
 				/>
 				<span
 					v-if="label"
-					class="toggleButton__content"
+					class="ds-toggleButton__content"
 					:class="{
-						'-small': labelSize === TOGGLE_BUTTON_LABEL_SIZES.SMALL,
-						'-uppercase': isLabelUppercase,
+						'-ds-small': labelSize === TOGGLE_BUTTON_LABEL_SIZES.SMALL,
+						'-ds-uppercase': isLabelUppercase,
 					}"
 				>
 					{{ label }}
 				</span>
 				<ds-icon
 					v-if="iconRight"
-					class="toggleButton__icon"
+					class="ds-toggleButton__icon"
 					:icon="iconRight"
 					:size="iconSize"
 				/>
@@ -52,7 +52,7 @@
 
 			<ds-icon
 				v-if="state === TOGGLE_BUTTON_STATES.LOADING"
-				class="toggleButton__icon toggleButton__loadingSpinner"
+				class="ds-toggleButton__icon ds-toggleButton__loadingSpinner"
 				:icon="ICONS.FAD_SPINNER_THIRD"
 				:size="iconSize"
 				spinning
@@ -233,15 +233,15 @@ $toggle-button-colors: (
 	@return $padding - map-get($size-map, $size);
 }
 
-.toggleButtonWrapper {
+.ds-toggleButtonWrapper {
 	display: inline-block;
 }
 
-.toggleButton {
+.ds-toggleButton {
 	$root: &;
 
 	@each $color-name, $color-map in $toggle-button-colors {
-		&.-color-#{$color-name} {
+		&.-ds-color-#{$color-name} {
 			background-color: map-get($color-map, 'background');
 			border-color: map-get($color-map, 'border');
 			color: map-get($color-map, 'color');
@@ -258,7 +258,7 @@ $toggle-button-colors: (
 				outline-color: map-get($color-map, 'outline-focused');
 			}
 
-			&.-selected {
+			&.-ds-selected {
 				background-color: map-get($color-map, 'selected', 'background');
 				border-color: map-get($color-map, 'selected', 'border');
 				color: map-get($color-map, 'selected', 'color');
@@ -280,7 +280,7 @@ $toggle-button-colors: (
 				}
 			}
 
-			&.-disabled {
+			&.-ds-disabled {
 				background-color: map-get($color-map, 'disabled', 'background');
 				border-color: map-get($color-map, 'disabled', 'border');
 				color: map-get($color-map, 'disabled', 'color');
@@ -290,7 +290,7 @@ $toggle-button-colors: (
 				}
 			}
 
-			&.-disabled.-selected {
+			&.-ds-disabled.-ds-selected {
 				background-color: map-get($color-map, 'selected', 'disabled', 'background');
 				border-color: map-get($color-map, 'selected', 'disabled', 'border');
 				color: map-get($color-map, 'selected', 'disabled', 'color');
@@ -335,69 +335,69 @@ $toggle-button-colors: (
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
-		&.-uppercase {
+		&.-ds-uppercase {
 			@include label-l-default-bold-uppercase;
 		}
 	}
 
-	&.-rounded {
+	&.-ds-rounded {
 		border-radius: $radius-s;
 	}
 
-	&.-interactive {
+	&.-ds-interactive {
 		cursor: pointer;
 		pointer-events: initial;
 	}
 
-	&.-loading {
+	&.-ds-loading {
 		#{$root}__contentWrapper {
 			opacity: 0;
 		}
 	}
 
-	&.-small {
+	&.-ds-small {
 		min-height: $toggle-button-size-small;
 		min-width: $toggle-button-size-small;
 		padding: substract-border($space-3xs, 'small') substract-border($space-xs, 'small');
 
-		&.-hasSmallHorizontalPadding {
+		&.-ds-hasSmallHorizontalPadding {
 			padding: substract-border($space-3xs, 'small') substract-border($space-5xs, 'small');
 		}
 
-		#{$root}__content.-small {
+		#{$root}__content.-ds-small {
 			@include label-s-default-bold;
 
-			&.-uppercase {
+			&.-ds-uppercase {
 				@include label-s-default-bold-uppercase;
 			}
 		}
 	}
 
-	&.-medium {
+	&.-ds-medium {
 		min-height: $toggle-button-size-medium;
 		min-width: $toggle-button-size-medium;
 		padding: substract-border($space-2xs, 'medium') substract-border($space-xs, 'medium');
 
-		&.-hasSmallHorizontalPadding {
+		&.-ds-hasSmallHorizontalPadding {
 			padding: substract-border($space-2xs, 'medium') substract-border($space-5xs, 'medium');
 		}
 
-		#{$root}__content.-small {
+		#{$root}__content.-ds-small {
 			@include label-m-default-bold;
 
-			&.-uppercase {
+			&.-ds-uppercase {
 				@include label-m-default-bold-uppercase;
 			}
 		}
 	}
 
-	&.-large {
+	&.-ds-large {
 		border-width: $toggle-button-border-size-large;
 		min-height: $toggle-button-size-large;
 		min-width: $toggle-button-size-large;
 		padding: substract-border($space-xs, 'large') substract-border($space-s, 'large');
 
-		&.-hasSmallHorizontalPadding {
+		&.-ds-hasSmallHorizontalPadding {
 			padding: substract-border($space-2xs, 'large') substract-border($space-5xs, 'large');
 		}
 	}
@@ -515,7 +515,7 @@ export default {
 	},
 	computed: {
 		colorClassName(): string {
-			return `-color-${this.color}`;
+			return `-ds-color-${this.color}`;
 		},
 		iconSize(): IconSize {
 			return this.size === TOGGLE_BUTTON_SIZES.LARGE

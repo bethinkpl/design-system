@@ -1,21 +1,21 @@
 <template>
 	<div
-		class="badgeScore"
+		class="ds-badgeScore"
 		:class="{
-			'-success': color === BADGE_SCORE_COLORS.SUCCESS,
-			'-warning': color === BADGE_SCORE_COLORS.WARNING,
-			'-fail': color === BADGE_SCORE_COLORS.FAIL,
-			'-inverted': color === BADGE_SCORE_COLORS.INVERTED,
-			'-neutralWeak': color === BADGE_SCORE_COLORS.NEUTRAL_WEAK,
-			'-neutral': color === BADGE_SCORE_COLORS.NEUTRAL,
-			'-small': size === BADGE_SCORE_SIZES.SMALL,
-			'-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
-			'-fullWidth': fullWidth,
+			'-ds-success': color === BADGE_SCORE_COLORS.SUCCESS,
+			'-ds-warning': color === BADGE_SCORE_COLORS.WARNING,
+			'-ds-fail': color === BADGE_SCORE_COLORS.FAIL,
+			'-ds-inverted': color === BADGE_SCORE_COLORS.INVERTED,
+			'-ds-neutralWeak': color === BADGE_SCORE_COLORS.NEUTRAL_WEAK,
+			'-ds-neutral': color === BADGE_SCORE_COLORS.NEUTRAL,
+			'-ds-small': size === BADGE_SCORE_SIZES.SMALL,
+			'-ds-xsmall': size === BADGE_SCORE_SIZES.XSMALL,
+			'-ds-fullWidth': fullWidth,
 		}"
 	>
-		<wnl-icon v-if="icon" class="badgeScore__icon" :icon="icon" :size="iconSize" />
-		<div class="badgeScore__text">{{ text }}</div>
-		<span class="badgeScore__suffix">{{ suffix }}</span>
+		<wnl-icon v-if="icon" class="ds-badgeScore__icon" :icon="icon" :size="iconSize" />
+		<div class="ds-badgeScore__text">{{ text }}</div>
+		<span class="ds-badgeScore__suffix">{{ suffix }}</span>
 	</div>
 </template>
 
@@ -83,20 +83,20 @@ $badge-score-colors: (
 		color: $color-suffix;
 	}
 
-	&.-xsmall {
+	&.-ds-xsmall {
 		#{$self}__suffix {
 			color: $color-suffix-xs;
 		}
 	}
 }
 
-.badgeScore {
+.ds-badgeScore {
 	$self: &;
 
 	@include label-2xl-default-bold;
 
 	@each $color-name, $color-map in $badge-score-colors {
-		&.-#{$color-name} {
+		&.-ds-#{$color-name} {
 			@include setBadgeScoreColor(
 				$self,
 				map-get($color-map, 'background'),
@@ -129,7 +129,7 @@ $badge-score-colors: (
 		align-self: baseline;
 	}
 
-	&.-small {
+	&.-ds-small {
 		@include label-xl-default-bold;
 
 		min-width: $badge-score-small-min-width;
@@ -140,7 +140,7 @@ $badge-score-colors: (
 		}
 	}
 
-	&.-xsmall {
+	&.-ds-xsmall {
 		@include label-s-default-bold;
 
 		min-width: $badge-score-x-small-min-width;
@@ -151,7 +151,7 @@ $badge-score-colors: (
 		}
 	}
 
-	&.-fullWidth {
+	&.-ds-fullWidth {
 		width: 100%;
 	}
 }
@@ -159,7 +159,7 @@ $badge-score-colors: (
 
 <script lang="ts">
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
-import WnlIcon, { ICONS, ICON_SIZES } from '../Icons/Icon';
+import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { toRaw } from 'vue';
 
 export default {

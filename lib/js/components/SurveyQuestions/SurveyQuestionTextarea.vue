@@ -1,7 +1,7 @@
 <template>
 	<textarea
 		ref="textarea"
-		class="surveyQuestionTextarea"
+		class="ds-surveyQuestionTextarea"
 		:disabled="disabled"
 		:placeholder="placeholder"
 		:value="value"
@@ -15,7 +15,7 @@
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 
-.surveyQuestionTextarea {
+.ds-surveyQuestionTextarea {
 	@include formText-s-default-regular;
 
 	border: 1px solid $color-neutral-border-weak;

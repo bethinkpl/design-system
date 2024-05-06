@@ -1,5 +1,5 @@
 <template>
-	<div class="drawerTile">
+	<div class="ds-drawerTile">
 		<ds-tile v-bind="$props" @click="$emit('click')" />
 	</div>
 </template>
@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/spacings';
 
-.drawerTile {
+.ds-drawerTile {
 	padding: $space-2xs 0;
 }
 </style>

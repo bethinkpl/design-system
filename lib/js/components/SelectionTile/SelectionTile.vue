@@ -1,18 +1,18 @@
 <template>
 	<div
-		class="selectionTile"
+		class="ds-selectionTile"
 		:class="[
 			{
-				'-selected': isSelected,
-				'-default': state === SELECTION_TILE_STATE.DEFAULT,
-				'-disabled': state === SELECTION_TILE_STATE.DISABLED,
-				'-loading': isLoading,
-				'-focused': inputIsFocused && !isLoading,
+				'-ds-selected': isSelected,
+				'-ds-default': state === SELECTION_TILE_STATE.DEFAULT,
+				'-ds-disabled': state === SELECTION_TILE_STATE.DISABLED,
+				'-ds-loading': isLoading,
+				'-ds-focused': inputIsFocused && !isLoading,
 			},
 		]"
 		@click="updateIsSelected(!isSelected)"
 	>
-		<div class="selectionTile__wrapper">
+		<div class="ds-selectionTile__wrapper">
 			<component
 				:is="type === SELECTION_TILE_TYPE.RADIO_BUTTON ? 'radio-button' : 'checkbox'"
 				:size="SELECTION_CONTROL_SIZE.X_SMALL"
@@ -22,17 +22,17 @@
 				@input:focus="onInputFocus"
 				@input:blur="onInputBlur"
 			/>
-			<div class="selectionTile__textWrapper">
-				<div class="selectionTile__title">{{ title }}</div>
+			<div class="ds-selectionTile__textWrapper">
+				<div class="ds-selectionTile__title">{{ title }}</div>
 
-				<div v-if="supportingText" class="selectionTile__supportingText"
+				<div v-if="supportingText" class="ds-selectionTile__supportingText"
 					>{{ supportingText }}
 				</div>
 			</div>
 		</div>
 		<icon
 			v-if="icon || isLoading"
-			class="selectionTile__icon"
+			class="ds-selectionTile__icon"
 			:icon="isLoading ? ICONS.FAD_SPINNER_THIRD : icon"
 			:size="ICON_SIZES.X_SMALL"
 			:spinning="isLoading"
@@ -50,7 +50,7 @@
 
 $selection-tile-min-height: 48px;
 
-.selectionTile {
+.ds-selectionTile {
 	$root: &;
 
 	align-items: center;
@@ -68,7 +68,7 @@ $selection-tile-min-height: 48px;
 		background-color ease-in-out $default-transition-time;
 	width: 100%;
 
-	&.-loading {
+	&.-ds-loading {
 		cursor: initial;
 	}
 
@@ -101,18 +101,18 @@ $selection-tile-min-height: 48px;
 		display: flex;
 	}
 
-	&:hover:not(.-loading),
-	&.-focused {
+	&:hover:not(.-ds-loading),
+	&.-ds-focused {
 		background-color: $color-neutral-background-weak-hovered;
 		outline-color: $color-neutral-border-hovered;
 	}
 
-	&.-selected {
+	&.-ds-selected {
 		background-color: $color-primary-background;
 		outline-color: $color-primary-border;
 
-		&:hover:not(.-loading),
-		&.-focused {
+		&:hover:not(.-ds-loading),
+		&.-ds-focused {
 			background-color: $color-primary-background-hovered;
 			outline-color: $color-primary-border-hovered;
 		}
@@ -122,8 +122,8 @@ $selection-tile-min-height: 48px;
 		}
 	}
 
-	&.-disabled,
-	&.-disabled:hover {
+	&.-ds-disabled,
+	&.-ds-disabled:hover {
 		background-color: $color-neutral-background-weak-disabled;
 		cursor: initial;
 		outline-color: $color-neutral-border-disabled;
@@ -140,7 +140,7 @@ $selection-tile-min-height: 48px;
 			color: $color-neutral-icon-disabled;
 		}
 
-		&.-selected {
+		&.-ds-selected {
 			background-color: $color-primary-background-disabled;
 			outline-color: $color-primary-border-disabled;
 

@@ -1,5 +1,5 @@
 <template>
-	<div class="drawerListItemGroup">
+	<div class="ds-drawerListItemGroup">
 		<slot />
 	</div>
 </template>
@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/spacings';
 
-.drawerListItemGroup {
+.ds-drawerListItemGroup {
 	padding: 0 0 $space-3xs;
 }
 </style>

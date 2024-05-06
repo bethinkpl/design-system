@@ -1,5 +1,5 @@
 <template>
-	<div class="drawerSection">
+	<div class="ds-drawerSection">
 		<ds-section-header
 			:icon-left="iconLeft"
 			:icon-left-color="iconLeftColor"

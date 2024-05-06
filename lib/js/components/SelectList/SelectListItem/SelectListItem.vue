@@ -1,40 +1,40 @@
 <template>
 	<div
-		class="selectListItem"
+		class="ds-selectListItem"
 		:class="{
-			'-disabled': isDisabled,
-			'-loading': isLoading,
-			'-selected': isSelected,
-			[`-${size}`]: true,
-			[`-${selectionMode}`]: true,
+			'-ds-disabled': isDisabled,
+			'-ds-loading': isLoading,
+			'-ds-selected': isSelected,
+			[`-ds-${size}`]: true,
+			[`-ds-${selectionMode}`]: true,
 		}"
 		:title="label"
 	>
 		<ds-icon
 			v-if="iconLeft || isLoading"
-			class="selectListItem__iconLeft"
+			class="ds-selectListItem__iconLeft"
 			:icon="isLoading ? ICONS.FAD_SPINNER_THIRD : iconLeft"
 			:size="ICON_SIZES.X_SMALL"
 			:spinning="isLoading"
 		/>
 
-		<span class="selectListItem__textWrapper">
+		<span class="ds-selectListItem__textWrapper">
 			<span
 				v-if="eyebrowText"
-				class="selectListItem__eyebrowText"
-				:class="{ '-uppercase': isEyebrowTextUppercase }"
+				class="ds-selectListItem__eyebrowText"
+				:class="{ '-ds-uppercase': isEyebrowTextUppercase }"
 				>{{ eyebrowText }}</span
 			>
-			<span class="selectListItem__text">{{ label }}</span>
+			<span class="ds-selectListItem__text">{{ label }}</span>
 		</span>
 
 		<ds-icon
 			v-if="isSelected"
-			class="selectListItem__iconRight"
+			class="ds-selectListItem__iconRight"
 			:icon="ICONS.FA_CHECK_SOLID"
 			:size="ICON_SIZES.XX_SMALL"
 		/>
-		<div v-else class="selectListItem__placeholderRight" />
+		<div v-else class="ds-selectListItem__placeholderRight" />
 	</div>
 </template>
 
@@ -44,7 +44,7 @@
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/spacings';
 
-.selectListItem {
+.ds-selectListItem {
 	$self: &;
 	$minHeight: 40px;
 
@@ -65,15 +65,15 @@
 		background-color: $color-neutral-background-ghost-hovered;
 	}
 
-	&.-loading,
-	&.-disabled {
+	&.-ds-loading,
+	&.-ds-disabled {
 		pointer-events: none;
 	}
 
-	&.-selected {
+	&.-ds-selected {
 		background-color: $color-neutral-background;
 
-		&.-disabled {
+		&.-ds-disabled {
 			background-color: $color-neutral-background-disabled;
 		}
 
@@ -85,16 +85,16 @@
 			background-color: $color-neutral-background-hovered;
 		}
 
-		&.-selectOnly {
+		&.-ds-selectOnly {
 			pointer-events: none;
 		}
 	}
 
-	&.-xSmall {
+	&.-ds-xSmall {
 		@include label-m-default-regular;
 	}
 
-	&.-medium {
+	&.-ds-medium {
 		@include label-xl-default-regular;
 	}
 
@@ -135,12 +135,12 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 
-		&.-uppercase {
+		&.-ds-uppercase {
 			@include info-s-extensive-bold-uppercase;
 		}
 	}
 
-	&.-disabled {
+	&.-ds-disabled {
 		#{$self}__iconLeft {
 			color: $color-neutral-icon-disabled;
 		}

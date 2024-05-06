@@ -1,13 +1,13 @@
 <template>
-	<div class="drawerListItem">
-		<div class="drawerListItem__label">{{ label }}</div>
+	<div class="ds-drawerListItem">
+		<div class="ds-drawerListItem__label">{{ label }}</div>
 		<ds-icon
 			v-if="state === DRAWER_LIST_ITEM_STATES.LOADING"
 			:icon="ICONS.FAD_SPINNER_THIRD"
 			:size="ICON_SIZES.XX_SMALL"
 			spinning
 		/>
-		<div v-else class="drawerListItem__value">
+		<div v-else class="ds-drawerListItem__value">
 			{{ valueText }}
 		</div>
 	</div>
@@ -18,7 +18,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography/tokens';
 
-.drawerListItem {
+.ds-drawerListItem {
 	align-items: center;
 	color: $color-neutral-text-strong;
 	display: flex;
@@ -48,7 +48,7 @@
 import { PropType } from 'vue';
 
 import { DRAWER_LIST_ITEM_STATES, DrawerListItemState } from './DrawerListItem.consts';
-import Icon, { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
 export default {
 	name: 'DrawerListItem',

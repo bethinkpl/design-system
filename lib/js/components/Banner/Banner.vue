@@ -5,7 +5,7 @@
 				<div
 					v-if="icon"
 					class="ds-banner__iconContainer"
-					:class="{ '-hideOnMobile': isIconHiddenOnMobile }"
+					:class="{ '-ds-hideOnMobile': isIconHiddenOnMobile }"
 				>
 					<!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
 					<ds-icon class="ds-banner__icon" :class="[colorClass]" :icon="icon" />
@@ -83,7 +83,7 @@
 	padding: $space-xs;
 
 	@media #{breakpoint-s()} {
-		&.-horizontal {
+		&.-ds-horizontal {
 			#{$self}__iconContainer {
 				padding: $space-2xs 0;
 			}
@@ -115,37 +115,37 @@
 		}
 	}
 
-	&.-warning {
+	&.-ds-warning {
 		background-color: $color-warning-background;
 		border-color: $color-warning-border-weak;
 	}
 
-	&.-success {
+	&.-ds-success {
 		background-color: $color-success-background;
 		border-color: $color-success-border-weak;
 	}
 
-	&.-info {
+	&.-ds-info {
 		background-color: $color-info-background;
 		border-color: $color-info-border-weak;
 	}
 
-	&.-fail {
+	&.-ds-fail {
 		background-color: $color-fail-background;
 		border-color: $color-fail-border-weak;
 	}
 
-	&.-neutral {
+	&.-ds-neutral {
 		background-color: $color-neutral-background;
 		border-color: $color-neutral-border-weak;
 	}
 
-	&.-default {
+	&.-ds-default {
 		background-color: $color-default-background;
 		border-color: $color-neutral-border-weak;
 	}
 
-	&.-danger {
+	&.-ds-danger {
 		background-color: $color-danger-background;
 		border-color: $color-danger-border-weak;
 	}
@@ -212,7 +212,7 @@
 		margin-right: $space-s;
 		padding: $space-4xs 0;
 
-		&.-hideOnMobile {
+		&.-ds-hideOnMobile {
 			display: none;
 
 			@media #{breakpoint-s()} {
@@ -225,37 +225,37 @@
 		border-radius: 100px;
 		padding: $space-2xs;
 
-		&.-neutral {
+		&.-ds-neutral {
 			background-color: $color-neutral-background-medium;
 			color: $color-neutral-icon;
 		}
 
-		&.-default {
+		&.-ds-default {
 			background-color: $color-neutral-background-medium;
 			color: $color-neutral-icon;
 		}
 
-		&.-warning {
+		&.-ds-warning {
 			background-color: $color-warning-background-medium;
 			color: $color-warning-icon;
 		}
 
-		&.-success {
+		&.-ds-success {
 			background-color: $color-success-background-medium;
 			color: $color-success-icon;
 		}
 
-		&.-info {
+		&.-ds-info {
 			background-color: $color-info-background-medium;
 			color: $color-info-icon;
 		}
 
-		&.-fail {
+		&.-ds-fail {
 			background-color: $color-fail-background-medium;
 			color: $color-fail-icon;
 		}
 
-		&.-danger {
+		&.-ds-danger {
 			background-color: $color-danger-background-medium;
 			color: $color-danger-icon;
 		}
@@ -285,15 +285,14 @@
 
 <script lang="ts">
 import DsButton, {
-	BUTTON_RADIUSES,
-	BUTTON_TYPES,
 	BUTTON_COLORS,
+	BUTTON_RADIUSES,
 	BUTTON_SIZES,
+	BUTTON_TYPES,
 } from '../Buttons/Button';
 import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
-import DsIcon from '../Icons/Icon';
+import DsIcon, { ICONS } from '../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
-import { ICONS } from '../Icons/Icon';
 import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
 import { toRaw } from 'vue';
 
@@ -361,17 +360,17 @@ export default {
 	computed: {
 		colorClass() {
 			return {
-				[BANNER_COLORS.NEUTRAL]: '-neutral',
-				[BANNER_COLORS.DEFAULT]: '-default',
-				[BANNER_COLORS.FAIL]: '-fail',
-				[BANNER_COLORS.INFO]: '-info',
-				[BANNER_COLORS.SUCCESS]: '-success',
-				[BANNER_COLORS.WARNING]: '-warning',
-				[BANNER_COLORS.DANGER]: '-danger',
+				[BANNER_COLORS.NEUTRAL]: '-ds-neutral',
+				[BANNER_COLORS.DEFAULT]: '-ds-default',
+				[BANNER_COLORS.FAIL]: '-ds-fail',
+				[BANNER_COLORS.INFO]: '-ds-info',
+				[BANNER_COLORS.SUCCESS]: '-ds-success',
+				[BANNER_COLORS.WARNING]: '-ds-warning',
+				[BANNER_COLORS.DANGER]: '-ds-danger',
 			}[this.color];
 		},
 		layoutClass() {
-			return this.layout === BANNER_LAYOUTS.VERTICAL ? '-vertical' : '-horizontal';
+			return this.layout === BANNER_LAYOUTS.VERTICAL ? '-ds-vertical' : '-ds-horizontal';
 		},
 	},
 	watch: {

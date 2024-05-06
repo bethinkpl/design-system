@@ -17,22 +17,22 @@
 		:has-actions-slot-divider="hasActionsSlotDivider"
 		:is-selectable="isSelectable"
 		:is-selected="isSelected"
-		class="basicRichListItem"
+		class="ds-basicRichListItem"
 		:class="{
-			'-small': size === RICH_LIST_ITEM_SIZE.SMALL,
+			'-ds-small': size === RICH_LIST_ITEM_SIZE.SMALL,
 		}"
 		@update:is-selected="$emit('update:isSelected', $event)"
 	>
 		<template #content>
-			<div class="basicRichListItem__content">
+			<div class="ds-basicRichListItem__content">
 				<div
-					class="basicRichListItem__eyebrow"
-					:class="{ '-uppercase': isEyebrowUppercase }"
+					class="ds-basicRichListItem__eyebrow"
+					:class="{ '-ds-uppercase': isEyebrowUppercase }"
 				>
 					{{ eyebrow }}
 				</div>
 
-				<div class="basicRichListItem__text">
+				<div class="ds-basicRichListItem__text">
 					{{ text }}
 				</div>
 			</div>
@@ -53,7 +53,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/mixins/scrollbars';
 
-.basicRichListItem {
+.ds-basicRichListItem {
 	$root: &;
 
 	max-width: 100%;
@@ -76,7 +76,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
-		&.-uppercase {
+		&.-ds-uppercase {
 			@include info-s-extensive-bold-uppercase;
 		}
 
@@ -104,7 +104,7 @@
 		}
 	}
 
-	&.-small {
+	&.-ds-small {
 		#{$root}__content {
 			padding: $space-3xs 0;
 		}

@@ -1,24 +1,20 @@
 <template>
-	<div
-		:class="{
-			progressDonutChart: true,
-		}"
-	>
+	<div class="ds-progressDonutChart">
 		<svg
-			class="progressDonutChart__svg"
+			class="ds-progressDonutChart__svg"
 			:width="PROGRESS_DONUT_CHART_SIZE"
 			:height="PROGRESS_DONUT_CHART_SIZE"
 			xmlns="http://www.w3.org/2000/svg"
 		>
 			<circle
-				class="progressDonutChart__circle progressDonutChart__thumb"
+				class="ds-progressDonutChart__circle ds-progressDonutChart__thumb"
 				:cx="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
 				:cy="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
 				:r="PROGRESS_DONUT_CHART_CIRCLE_RADIUS"
 			/>
 			<circle
 				v-if="state === PROGRESS_DONUT_CHART_STATES.LOADING"
-				class="progressDonutChart__circle progressDonutChart__loader"
+				class="ds-progressDonutChart__circle ds-progressDonutChart__loader"
 				:cx="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
 				:cy="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
 				:r="PROGRESS_DONUT_CHART_CIRCLE_RADIUS"
@@ -27,7 +23,7 @@
 				<circle
 					v-for="(range, index) in calculatedRanges"
 					:key="`circle_${index}`"
-					class="progressDonutChart__circle progressDonutChart__track"
+					class="ds-progressDonutChart__circle ds-progressDonutChart__track"
 					:cx="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
 					:cy="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
 					:r="PROGRESS_DONUT_CHART_CIRCLE_RADIUS"
@@ -36,21 +32,21 @@
 				/>
 			</template>
 		</svg>
-		<div class="progressDonutChart__label">
+		<div class="ds-progressDonutChart__label">
 			<div
 				v-if="state === PROGRESS_DONUT_CHART_STATES.LOADING"
-				class="progressDonutChart__loaderText"
+				class="ds-progressDonutChart__loaderText"
 			/>
 			<ds-icon
 				v-else-if="state === PROGRESS_DONUT_CHART_STATES.DONE"
-				class="progressDonutChart__icon"
+				class="ds-progressDonutChart__icon"
 				:icon="ICONS.FA_CHECK_SOLID"
 				:size="ICON_SIZES.X_SMALL"
 			/>
 			<div
 				v-else-if="label"
-				class="progressDonutChart__labelText"
-				:class="{ '-hasOverage': state === PROGRESS_DONUT_CHART_STATES.OVERAGE }"
+				class="ds-progressDonutChart__labelText"
+				:class="{ '-ds-hasOverage': state === PROGRESS_DONUT_CHART_STATES.OVERAGE }"
 			>
 				{{ labelText }}
 			</div>
@@ -109,7 +105,7 @@ $progress-donut-chart-range-colors: (
 	}
 }
 
-.progressDonutChart {
+.ds-progressDonutChart {
 	box-sizing: border-box;
 	height: $progress-donut-chart-size;
 	margin: 0;
@@ -180,7 +176,7 @@ $progress-donut-chart-range-colors: (
 		max-width: 80%;
 		overflow: hidden;
 
-		&.-hasOverage {
+		&.-ds-hasOverage {
 			color: $color-success-text;
 			margin-left: -$space-5xs;
 		}

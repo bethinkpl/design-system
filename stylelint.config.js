@@ -43,6 +43,7 @@ module.exports = {
 			},
 		],
 		'order/properties-alphabetical-order': true,
+		'selector-class-pattern': '-?ds-.*',
 	},
 	ignoreFiles: ['lib/styles/settings/typography/_tokens.scss'],
 };

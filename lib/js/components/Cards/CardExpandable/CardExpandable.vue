@@ -1,6 +1,6 @@
 <template>
 	<ds-card
-		class="cardExpandable"
+		class="ds-cardExpandable"
 		:header-has-padding="headerHasPadding"
 		:divider-under-header="dividerUnderHeader"
 	>
@@ -9,17 +9,17 @@
 		</template>
 		<template #content>
 			<slot name="content" :is-expanded="isExpandedInternal" />
-			<div v-if="isExpandedInternal" class="cardExpandable__expandedContent">
+			<div v-if="isExpandedInternal" class="ds-cardExpandable__expandedContent">
 				<slot name="expandedContent" />
 			</div>
 		</template>
 		<template v-if="isExpanderVisible" #footer>
-			<div class="cardExpandable__expander" @click="onExpanderClick">
-				<span class="cardExpandable__expanderLabel">
+			<div class="ds-cardExpandable__expander" @click="onExpanderClick">
+				<span class="ds-cardExpandable__expanderLabel">
 					{{ isExpandedInternal ? expanderTextExpanded : expanderTextCollapsed }}
 				</span>
 				<ds-icon
-					class="cardExpandable__expanderIcon"
+					class="ds-cardExpandable__expanderIcon"
 					:icon="ICONS.FA_CHEVRON_DOWN"
 					:rotation="chevronRotation"
 					:size="ICON_SIZES.X_SMALL"
@@ -36,7 +36,7 @@
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
 
-.cardExpandable {
+.ds-cardExpandable {
 	&__expandedContent {
 		animation: a-fadeIn 600ms ease-in-out;
 	}
@@ -70,7 +70,7 @@
 
 <script lang="ts">
 import DsCard from '../Card/';
-import DsIcon, { ICONS, ICON_SIZES } from '../../../components/Icons/Icon';
+import DsIcon, { ICON_SIZES, ICONS } from '../../../components/Icons/Icon';
 
 export default {
 	name: 'CardExpandable',

@@ -1,16 +1,16 @@
 <template>
-	<div class="groupRichListItem" :class="classList">
-		<div class="groupRichListItem__wrapper">
-			<div class="groupRichListItem__parent">
+	<div class="ds-groupRichListItem" :class="classList">
+		<div class="ds-groupRichListItem__wrapper">
+			<div class="ds-groupRichListItem__parent">
 				<slot name="parent" />
 			</div>
-			<div v-if="isExpanded" class="groupRichListItem__children">
+			<div v-if="isExpanded" class="ds-groupRichListItem__children">
 				<slot name="children" />
 			</div>
 		</div>
 		<div
 			v-if="borderColorClass || borderColorStyle"
-			class="groupRichListItem__border"
+			class="ds-groupRichListItem__border"
 			:class="borderColorClass"
 			:style="borderColorStyle"
 		/>
@@ -34,11 +34,11 @@ $group-rich-list-background-colors: (
 	),
 );
 
-.groupRichListItem {
+.ds-groupRichListItem {
 	$root: &;
 
 	@each $color, $value in $group-rich-list-background-colors {
-		&.-background-#{$color} {
+		&.-ds-background-#{$color} {
 			#{$root}__children {
 				background-color: map-get($value, 'children');
 			}
@@ -47,7 +47,7 @@ $group-rich-list-background-colors: (
 				background-color: map-get($value, 'parent');
 			}
 
-			&.-loading {
+			&.-ds-loading {
 				#{$root}__children {
 					background-color: map-get($value, 'children');
 				}
@@ -75,7 +75,7 @@ $group-rich-list-background-colors: (
 
 	&__border {
 		@each $color, $value in $rich-list-item-border-colors {
-			&.-border-#{$color} {
+			&.-ds-border-#{$color} {
 				background-color: $value;
 			}
 		}
@@ -131,7 +131,7 @@ export default {
 		classList() {
 			return {
 				...(this.backgroundColor && {
-					[`-background-${this.backgroundColor}`]: true,
+					[`-ds-background-${this.backgroundColor}`]: true,
 				}),
 			};
 		},
@@ -139,7 +139,7 @@ export default {
 			if (!this.borderColor || (this.borderColor && this.borderColorHex)) {
 				return;
 			}
-			return `-border-${this.borderColor}`;
+			return `-ds-border-${this.borderColor}`;
 		},
 		borderColorStyle() {
 			if (!this.borderColor || !this.borderColorHex) {

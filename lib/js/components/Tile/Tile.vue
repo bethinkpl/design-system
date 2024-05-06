@@ -1,34 +1,37 @@
 <template>
-	<div :class="[tileColor, tileState, { '-interactive': interactive }]" class="a-tile">
+	<div :class="[tileColor, tileState, { '-ds-interactive': interactive }]" class="ds-tile">
 		<ds-icon
 			v-if="iconLeft"
 			:icon="iconLeft"
 			:size="ICON_SIZES.SMALL"
-			class="a-tile__iconLeft"
+			class="ds-tile__iconLeft"
 		/>
-		<div class="a-tile__center">
+		<div class="ds-tile__center">
 			<span
 				v-if="eyebrowText"
-				class="a-tile__eyebrowText"
-				:class="{ '-uppercase': isEyebrowTextUppercase, '-ellipsis': eyebrowEllipsis }"
+				class="ds-tile__eyebrowText"
+				:class="{
+					'-ds-uppercase': isEyebrowTextUppercase,
+					'-ds-ellipsis': eyebrowEllipsis,
+				}"
 				v-text="eyebrowText"
 			/>
-			<span class="a-tile__text" :class="{ '-ellipsis': textEllipsis }" v-text="text" />
+			<span class="ds-tile__text" :class="{ '-ds-ellipsis': textEllipsis }" v-text="text" />
 		</div>
 		<ds-icon
 			v-if="state === TILE_STATES.LOADING"
-			class="a-tile__iconRight"
+			class="ds-tile__iconRight"
 			:icon="ICONS.FAD_SPINNER_THIRD"
 			:size="ICON_SIZES.SMALL"
 			spinning
 		/>
 		<ds-icon
 			v-else-if="iconRight"
-			class="a-tile__iconRight"
+			class="ds-tile__iconRight"
 			:icon="iconRight"
 			:size="ICON_SIZES.SMALL"
 		/>
-		<div v-else-if="additionalText" class="a-tile__additionalText">
+		<div v-else-if="additionalText" class="ds-tile__additionalText">
 			{{ additionalText }}
 		</div>
 	</div>
@@ -161,28 +164,28 @@ $tile-colors: (
 		color: map-get($color-map, 'icon');
 	}
 
-	&.-interactive {
+	&.-ds-interactive {
 		#{$root}__iconRight {
 			color: map-get($color-map, 'icon-interactive');
 		}
 
-		&:not(.-loading):hover {
+		&:not(.-ds-loading):hover {
 			background-color: map-get($color-map, 'background-hover');
 		}
 	}
 
-	&.-loading {
+	&.-ds-loading {
 		#{$root}__iconRight {
 			color: map-get($color-map, 'icon-interactive');
 		}
 	}
 }
 
-.a-tile {
+.ds-tile {
 	$self: &;
 
 	@each $color-name, $color-map in $tile-colors {
-		&.-#{$color-name} {
+		&.-ds-#{$color-name} {
 			@include setColors($self, map-get($color-map, 'default'));
 		}
 	}
@@ -195,9 +198,9 @@ $tile-colors: (
 	padding: $space-2xs $space-xs;
 	transition: background-color ease-in-out $default-transition-time;
 
-	&.-disabled {
+	&.-ds-disabled {
 		@each $color-name, $color-map in $tile-colors {
-			&.-#{$color-name} {
+			&.-ds-#{$color-name} {
 				@include setColors($self, map-get($color-map, 'disabled'));
 			}
 		}
@@ -231,11 +234,11 @@ $tile-colors: (
 
 		margin-bottom: $space-4xs;
 
-		&.-uppercase {
+		&.-ds-uppercase {
 			@include info-m-extensive-bold-uppercase();
 		}
 
-		&.-ellipsis {
+		&.-ds-ellipsis {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -247,7 +250,7 @@ $tile-colors: (
 
 		color: $color-neutral-text-heavy;
 
-		&.-ellipsis {
+		&.-ds-ellipsis {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -262,7 +265,7 @@ $tile-colors: (
 		margin-left: $space-xs;
 	}
 
-	&.-interactive:not(.-disabled):not(.-loading) {
+	&.-ds-interactive:not(.-ds-disabled):not(.-ds-loading) {
 		cursor: pointer;
 	}
 }
@@ -289,20 +292,20 @@ export default {
 	computed: {
 		tileColor() {
 			return {
-				[TILE_COLORS.NEUTRAL]: '-neutral',
-				[TILE_COLORS.NEUTRAL_WEAK]: '-neutralWeak',
-				[TILE_COLORS.PRIMARY]: '-primary',
-				[TILE_COLORS.SUCCESS]: '-success',
-				[TILE_COLORS.FAIL]: '-fail',
-				[TILE_COLORS.WARNING]: '-warning',
-				[TILE_COLORS.INFO]: '-info',
+				[TILE_COLORS.NEUTRAL]: '-ds-neutral',
+				[TILE_COLORS.NEUTRAL_WEAK]: '-ds-neutralWeak',
+				[TILE_COLORS.PRIMARY]: '-ds-primary',
+				[TILE_COLORS.SUCCESS]: '-ds-success',
+				[TILE_COLORS.FAIL]: '-ds-fail',
+				[TILE_COLORS.WARNING]: '-ds-warning',
+				[TILE_COLORS.INFO]: '-ds-info',
 			}[this.color];
 		},
 		tileState() {
 			return {
 				[TILE_STATES.DEFAULT]: null,
-				[TILE_STATES.DISABLED]: '-disabled',
-				[TILE_STATES.LOADING]: '-loading',
+				[TILE_STATES.DISABLED]: '-ds-disabled',
+				[TILE_STATES.LOADING]: '-ds-loading',
 			}[this.state];
 		},
 	},

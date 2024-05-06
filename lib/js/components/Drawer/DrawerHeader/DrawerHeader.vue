@@ -1,38 +1,38 @@
 <template>
-	<div class="drawerHeader">
-		<div class="drawerHeader__titleWrapper">
+	<div class="ds-drawerHeader">
+		<div class="ds-drawerHeader__titleWrapper">
 			<ds-button
 				v-if="isSecondLevel"
 				:icon-left="ICONS.FA_CHEVRON_LEFT"
 				:type="BUTTON_TYPES.TEXT"
-				class="drawerHeader__secondLevel"
+				class="ds-drawerHeader__secondLevel"
 				@click="$emit('backClicked')"
 			>
 				Wróć
 			</ds-button>
-			<div :class="{ '-hidden': isSecondLevel }" class="drawerHeader__firstLevel">
+			<div :class="{ '-ds-hidden': isSecondLevel }" class="ds-drawerHeader__firstLevel">
 				<span
 					v-if="eyebrowText"
 					:class="{
-						'-isInteractive': isInteractiveEyebrow,
-						'-ellipsis': eyebrowEllipsis,
+						'-ds-isInteractive': isInteractiveEyebrow,
+						'-ds-ellipsis': eyebrowEllipsis,
 					}"
-					class="drawerHeader__eyebrow"
+					class="ds-drawerHeader__eyebrow"
 					@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
 				>
 					{{ eyebrowText }}
 				</span>
-				<div class="drawerHeader__title">
+				<div class="ds-drawerHeader__title">
 					<icon
 						v-if="leftIcon"
 						:icon="leftIcon"
 						:size="ICON_SIZES.X_SMALL"
-						class="drawerHeader__leftIcon"
+						class="ds-drawerHeader__leftIcon"
 					/>
 					<span
 						v-if="title"
-						class="drawerHeader__titleText"
-						:class="{ '-ellipsis': titleEllipsis, [`-${titleColor}`]: true }"
+						class="ds-drawerHeader__titleText"
+						:class="{ '-ds-ellipsis': titleEllipsis, [`-ds-${titleColor}`]: true }"
 						:title="titleEllipsis ? title : undefined"
 						>{{ title }}</span
 					>
@@ -42,7 +42,7 @@
 					</div>
 				</div>
 			</div>
-			<div v-if="$slots.actions" class="drawerHeader__actions">
+			<div v-if="$slots.actions" class="ds-drawerHeader__actions">
 				<slot name="actions" />
 			</div>
 			<icon-button
@@ -64,7 +64,7 @@
 
 $minimal-drawer-header-height: 82px;
 
-.drawerHeader {
+.ds-drawerHeader {
 	display: flex;
 	flex-direction: column;
 
@@ -82,7 +82,7 @@ $minimal-drawer-header-height: 82px;
 		min-width: 0;
 		row-gap: $space-4xs;
 
-		&.-hidden {
+		&.-ds-hidden {
 			visibility: hidden; //by this we make sure that height does not change when switching to second level
 		}
 	}
@@ -92,12 +92,12 @@ $minimal-drawer-header-height: 82px;
 
 		color: $color-neutral-text-weak;
 
-		&.-isInteractive:hover {
+		&.-ds-isInteractive:hover {
 			color: $color-neutral-text-weak-hovered;
 			cursor: pointer;
 		}
 
-		&.-ellipsis {
+		&.-ds-ellipsis {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -113,15 +113,15 @@ $minimal-drawer-header-height: 82px;
 	&__titleText {
 		@include heading-s-default-bold-uppercase;
 
-		&.-neutralStrong {
+		&.-ds-neutralStrong {
 			color: $color-neutral-text-strong;
 		}
 
-		&.-neutralWeak {
+		&.-ds-neutralWeak {
 			color: $color-neutral-text-weak;
 		}
 
-		&.-ellipsis {
+		&.-ds-ellipsis {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;

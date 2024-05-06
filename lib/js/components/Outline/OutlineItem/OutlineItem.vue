@@ -1,55 +1,58 @@
 <template>
 	<div
-		class="outlineItem"
+		class="ds-outlineItem"
 		:class="{
-			'-disabled': isDisabled,
-			'-medium': size === OUTLINE_ITEM_SIZES.MEDIUM,
-			'-selected': isSelected,
-			'-hoverable': !isSelected || isSelectedInteractive,
-			'-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
+			'-ds-disabled': isDisabled,
+			'-ds-medium': size === OUTLINE_ITEM_SIZES.MEDIUM,
+			'-ds-selected': isSelected,
+			'-ds-hoverable': !isSelected || isSelectedInteractive,
+			'-ds-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
 		}"
 	>
-		<div class="outlineItem__content" :class="{ '-centeredContent': $slots.default }">
+		<div class="ds-outlineItem__content" :class="{ '-ds-centeredContent': $slots.default }">
 			<span
 				v-if="index !== null"
-				class="outlineItem__index"
-				:class="{ '-active': isSelected }"
+				class="ds-outlineItem__index"
+				:class="{ '-ds-active': isSelected }"
 			>
 				{{ index }}.
 			</span>
 			<ds-icon
 				v-if="iconLeft"
-				class="outlineItem__icon"
+				class="ds-outlineItem__icon"
 				:class="{
-					'-active': isSelected && hasSelectedIconsColorPrimary,
+					'-ds-active': isSelected && hasSelectedIconsColorPrimary,
 				}"
 				:icon="iconLeft"
 				:size="ICON_SIZES.X_SMALL"
 			/>
-			<span class="outlineItem__text">
-				<span class="outlineItem__label" :class="{ '-uppercase': isLabelUppercase }">
+			<span class="ds-outlineItem__text">
+				<span class="ds-outlineItem__label" :class="{ '-ds-uppercase': isLabelUppercase }">
 					{{ label }}
 				</span>
-				<span v-if="additionalText" class="outlineItem__additionalText">
+				<span v-if="additionalText" class="ds-outlineItem__additionalText">
 					{{ additionalText }}
 				</span>
 			</span>
 		</div>
-		<div class="outlineItem__rightContent" :class="{ '-centeredContent': $slots.default }">
+		<div
+			class="ds-outlineItem__rightContent"
+			:class="{ '-ds-centeredContent': $slots.default }"
+		>
 			<template v-if="$slots.default">
 				<slot />
 			</template>
 			<ds-icon
 				v-if="isDone"
-				class="outlineItem__icon -active"
+				class="ds-outlineItem__icon -active"
 				:icon="ICONS.FA_CHECK_SOLID"
 				:size="ICON_SIZES.X_SMALL"
 			/>
 			<ds-icon
 				v-else-if="iconRight"
-				class="outlineItem__icon"
+				class="ds-outlineItem__icon"
 				:class="{
-					'-active': isSelected && hasSelectedIconsColorPrimary,
+					'-ds-active': isSelected && hasSelectedIconsColorPrimary,
 				}"
 				:icon="iconRight"
 				:size="ICON_SIZES.X_SMALL"
@@ -65,7 +68,7 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 
-.outlineItem {
+.ds-outlineItem {
 	$root: &;
 	$border-width: 2px;
 
@@ -82,7 +85,7 @@
 		column-gap: $space-2xs;
 		display: flex;
 
-		&.-centeredContent {
+		&.-ds-centeredContent {
 			align-items: center;
 		}
 	}
@@ -92,7 +95,7 @@
 
 		color: $color-neutral-text-weak;
 
-		&.-active {
+		&.-ds-active {
 			color: $color-primary-text;
 		}
 	}
@@ -106,7 +109,7 @@
 
 		color: $color-neutral-text-heavy;
 
-		&.-uppercase {
+		&.-ds-uppercase {
 			@include label-l-default-regular-uppercase;
 		}
 	}
@@ -121,34 +124,34 @@
 	&__icon {
 		color: $color-neutral-icon-weak;
 
-		&.-active {
+		&.-ds-active {
 			color: $color-primary-icon;
 		}
 	}
 
-	&.-hoverable:hover {
+	&.-ds-hoverable:hover {
 		background-color: $color-neutral-background-weak-hovered;
 		cursor: pointer;
 	}
 
-	&.-selected {
+	&.-ds-selected {
 		background-color: $color-neutral-background;
 		border-left: $border-width solid $color-primary-border;
 		border-radius: $radius-xs $radius-s $radius-s $radius-xs;
 		padding-left: $space-xs - $border-width;
 	}
 
-	&.-disabled {
+	&.-ds-disabled {
 		pointer-events: none;
 
-		&.-selected {
+		&.-ds-selected {
 			border-left: $border-width solid $color-primary-border-disabled;
 		}
 
 		#{$root}__icon {
 			color: $color-neutral-icon-weak-disabled;
 
-			&.-active {
+			&.-ds-active {
 				color: $color-primary-icon-disabled;
 			}
 		}
@@ -156,7 +159,7 @@
 		#{$root}__index {
 			color: $color-neutral-text-weak-disabled;
 
-			&.-active {
+			&.-ds-active {
 				color: $color-primary-text-disabled;
 			}
 		}
@@ -166,7 +169,7 @@
 		}
 	}
 
-	&.-medium {
+	&.-ds-medium {
 		padding: $space-s $space-xs;
 
 		#{$root}__content {
@@ -176,20 +179,20 @@
 		#{$root}__label {
 			@include label-l-default-bold;
 
-			&.-uppercase {
+			&.-ds-uppercase {
 				@include label-l-default-bold-uppercase;
 			}
 		}
 
-		&.-selected {
+		&.-ds-selected {
 			padding-left: $space-xs - $border-width;
 		}
 	}
 
-	&.-backgroundNeutral {
+	&.-ds-backgroundNeutral {
 		background-color: $color-neutral-background;
 
-		&.-hoverable:hover {
+		&.-ds-hoverable:hover {
 			background-color: $color-neutral-background-hovered;
 		}
 	}
@@ -204,6 +207,7 @@ import {
 	OUTLINE_ITEM_SIZES,
 	OUTLINE_ITEM_STATES,
 } from './OutlineItem.consts';
+
 export default {
 	name: 'OutlineItem',
 	components: {
