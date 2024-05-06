@@ -2,9 +2,8 @@ import { shallowMount } from '@vue/test-utils';
 
 import Chip from './Chip.vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { ICONS } from '../Icons/Icon';
+import Icon, { ICONS } from '../Icons/Icon';
 import { CHIP_COLORS, CHIP_SIZES } from './Chip.consts';
-import Icon from '../Icons/Icon';
 
 interface createComponentOptions {
 	label?: string;
@@ -49,14 +48,14 @@ describe('Chip', () => {
 	it("doesn't render leftIcon by default", () => {
 		const component = createComponent({ leftIcon: null });
 
-		expect(component.find('.chip__leftIcon').exists()).toBe(false);
+		expect(component.find('.ds-chip__leftIcon').exists()).toBe(false);
 	});
 
 	it('renders leftIcon', () => {
 		const component = createComponent({ leftIcon: Object.freeze(ICONS.FA_TAG) });
 
-		expect(component.find('.chip__leftIcon').exists()).toBe(true);
-		expect(component.find('.chip__leftIcon').findComponent(Icon).props().icon).toEqual(
+		expect(component.find('.ds-chip__leftIcon').exists()).toBe(true);
+		expect(component.find('.ds-chip__leftIcon').findComponent(Icon).props().icon).toEqual(
 			ICONS.FA_TAG,
 		);
 	});
@@ -64,13 +63,13 @@ describe('Chip', () => {
 	it("doesn't render leftIcon by default", () => {
 		const component = createComponent({ isRemovable: false });
 
-		expect(component.find('.chip__remove').exists()).toBe(false);
+		expect(component.find('.ds-chip__remove').exists()).toBe(false);
 	});
 
 	it('renders remove', () => {
 		const component = createComponent({ isRemovable: true });
 
-		const removeButton = component.findComponent<typeof Chip>('.chip__remove');
+		const removeButton = component.findComponent<typeof Chip>('.ds-chip__remove');
 		expect(removeButton.exists()).toBe(true);
 		expect(removeButton.props().icon).toBe(ICONS.FA_XMARK);
 
@@ -87,30 +86,30 @@ describe('Chip', () => {
 	it('has size class when x-small', () => {
 		const component = createComponent({ size: CHIP_SIZES.X_SMALL });
 
-		expect(component.classes()).toContain('-x-small');
+		expect(component.classes()).toContain('-ds-x-small');
 	});
 
 	test.each([
-		[CHIP_COLORS.PRIMARY, '-color-primary'],
-		[CHIP_COLORS.PRIMARY_STRONG, '-color-primaryStrong'],
-		[CHIP_COLORS.NEUTRAL, '-color-neutral'],
-		[CHIP_COLORS.FAIL, '-color-fail'],
-		[CHIP_COLORS.SUCCESS, '-color-success'],
-		[CHIP_COLORS.INFO, '-color-info'],
-		[CHIP_COLORS.WARNING, '-color-warning'],
-		[CHIP_COLORS.INVERTED, '-color-inverted'],
+		[CHIP_COLORS.PRIMARY, '-ds-color-primary'],
+		[CHIP_COLORS.PRIMARY_STRONG, '-ds-color-primaryStrong'],
+		[CHIP_COLORS.NEUTRAL, '-ds-color-neutral'],
+		[CHIP_COLORS.FAIL, '-ds-color-fail'],
+		[CHIP_COLORS.SUCCESS, '-ds-color-success'],
+		[CHIP_COLORS.INFO, '-ds-color-info'],
+		[CHIP_COLORS.WARNING, '-ds-color-warning'],
+		[CHIP_COLORS.INVERTED, '-ds-color-inverted'],
 	])(
 		'correct class for color: %s prop, expectedClass: %s',
 		(color: string, expectedClass: string) => {
 			const colorClasses = [
-				'-color-primary',
-				'-color-primaryStrong',
-				'-color-neutral',
-				'-color-fail',
-				'-color-success',
-				'-color-info',
-				'-color-warning',
-				'-color-inverted',
+				'-ds-color-primary',
+				'-ds-color-primaryStrong',
+				'-ds-color-neutral',
+				'-ds-color-fail',
+				'-ds-color-success',
+				'-ds-color-info',
+				'-ds-color-warning',
+				'-ds-color-inverted',
 			];
 			const component = createComponent({ color });
 			const componentClasses = component.classes();
@@ -128,7 +127,7 @@ describe('Chip', () => {
 	it("doesn't render remove when size x-small", () => {
 		const component = createComponent({ isRemovable: true, size: CHIP_SIZES.X_SMALL });
 
-		const removeButton = component.find('.chip__remove');
+		const removeButton = component.find('.ds-chip__remove');
 		expect(removeButton.exists()).toBe(false);
 	});
 });

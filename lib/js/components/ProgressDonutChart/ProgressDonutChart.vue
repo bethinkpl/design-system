@@ -28,7 +28,7 @@
 					:cy="PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT"
 					:r="PROGRESS_DONUT_CHART_CIRCLE_RADIUS"
 					:style="`--length: ${range.length}; transform: rotate(${range.rotate}deg);`"
-					:class="[`-${range.color}`]"
+					:class="[`-ds-${range.color}`]"
 				/>
 			</template>
 		</svg>
@@ -135,7 +135,7 @@ $progress-donut-chart-range-colors: (
 
 	&__track {
 		@each $class, $color-name in $progress-donut-chart-range-colors {
-			&.-#{$class} {
+			&.-ds-#{$class} {
 				stroke: $color-name;
 			}
 		}

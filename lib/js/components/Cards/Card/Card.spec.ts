@@ -32,14 +32,14 @@ describe('Card', () => {
 	it('should render card class', () => {
 		const component = createComponent();
 
-		expect(component.find('.card').exists()).toBe(true);
+		expect(component.find('.ds-card').exists()).toBe(true);
 	});
 
 	it('should render content slot', () => {
 		const content = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({ contentSlot: content });
 
-		expect(component.find('.card__content').text()).toContain(content);
+		expect(component.find('.ds-card__content').text()).toContain(content);
 	});
 
 	it('should render header slot', () => {
@@ -60,7 +60,7 @@ describe('Card', () => {
 		const header = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({ headerSlot: header, headerHasPadding: true });
 
-		expect(component.find('.card__header').classes()).toContain('-withPadding');
+		expect(component.find('.ds-card__header').classes()).toContain('-ds-withPadding');
 	});
 
 	it('should render divider', () => {
@@ -71,19 +71,19 @@ describe('Card', () => {
 			dividerUnderHeader: true,
 		});
 
-		expect(component.find('.card__headerDivider').exists()).toBe(true);
+		expect(component.find('.ds-card__headerDivider').exists()).toBe(true);
 	});
 
 	it("doesn't render divider when no header", () => {
 		const component = createComponent({ dividerUnderHeader: true });
 
-		expect(component.find('.card__headerDivider').exists()).toBe(false);
+		expect(component.find('.ds-card__headerDivider').exists()).toBe(false);
 	});
 
 	it("doesn't render divider when no content", () => {
 		const component = createComponent({ headerSlot: 'test', dividerUnderHeader: true });
 
-		expect(component.find('.card__headerDivider').exists()).toBe(false);
+		expect(component.find('.ds-card__headerDivider').exists()).toBe(false);
 	});
 
 	it('should render divider with margin if headerHasPadding', () => {
@@ -95,6 +95,8 @@ describe('Card', () => {
 			headerHasPadding: true,
 		});
 
-		expect(component.find('.card__headerDivider').classes()).toContain('-withHorizontalMargin');
+		expect(component.find('.ds-card__headerDivider').classes()).toContain(
+			'-ds-withHorizontalMargin',
+		);
 	});
 });

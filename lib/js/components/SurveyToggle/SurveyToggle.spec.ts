@@ -35,20 +35,20 @@ describe('SurveyToggle', () => {
 	it('should render surveyToggle class', () => {
 		const component = createComponent();
 
-		expect(component.find('.surveyToggle').exists()).toBe(true);
+		expect(component.find('.ds-surveyToggle').exists()).toBe(true);
 	});
 
 	it('should render text from label prop', () => {
 		const label = 'Wspłynąłem na suchego przestwór oceanu';
 		const component = createComponent({ label });
 
-		expect(component.find('.surveyToggle__label').text()).toContain(label);
+		expect(component.find('.ds-surveyToggle__label').text()).toContain(label);
 	});
 
 	it('after click on toggle component should emit "click" event', async () => {
 		const component = createComponent();
 
-		await component.find('.surveyToggle__toggle').trigger('click');
+		await component.find('.ds-surveyToggle__toggle').trigger('click');
 
 		expect(component.emitted()?.click?.[0]).toBeDefined();
 	});
@@ -70,6 +70,6 @@ describe('SurveyToggle', () => {
 			color: SURVEY_TOGGLE_MEANINGS.PRIMARY,
 			contentText,
 		});
-		expect(component.find('.surveyToggle__content').text()).toContain(contentText);
+		expect(component.find('.ds-surveyToggle__content').text()).toContain(contentText);
 	});
 });

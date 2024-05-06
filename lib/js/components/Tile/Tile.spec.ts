@@ -45,10 +45,10 @@ describe('Tile', () => {
 			interactive: true,
 		};
 		const component = createComponent(props);
-		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
-		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__iconRight').exists()).toBe(false);
-		expect(component.find('.a-tile__iconLeft').exists()).toBe(false);
+		expect(component.find('.ds-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.ds-tile__text').text()).toBe('text text');
+		expect(component.find('.ds-tile__iconRight').exists()).toBe(false);
+		expect(component.find('.ds-tile__iconLeft').exists()).toBe(false);
 
 		expect(component.find('.a-additionalText').exists()).toBe(false);
 	});
@@ -61,10 +61,10 @@ describe('Tile', () => {
 			iconRight: Object.freeze(ICONS.FA_CHEVRON_RIGHT),
 		};
 		const component = createComponent(props);
-		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
-		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__iconRight').exists()).toBe(true);
-		expect(component.find('.a-tile__iconLeft').exists()).toBe(false);
+		expect(component.find('.ds-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.ds-tile__text').text()).toBe('text text');
+		expect(component.find('.ds-tile__iconRight').exists()).toBe(true);
+		expect(component.find('.ds-tile__iconLeft').exists()).toBe(false);
 
 		expect(component.find('.a-additionalText').exists()).toBe(false);
 	});
@@ -78,10 +78,10 @@ describe('Tile', () => {
 			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		};
 		const component = createComponent(props);
-		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
-		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__iconRight').exists()).toBe(true);
-		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
+		expect(component.find('.ds-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.ds-tile__text').text()).toBe('text text');
+		expect(component.find('.ds-tile__iconRight').exists()).toBe(true);
+		expect(component.find('.ds-tile__iconLeft').exists()).toBe(true);
 
 		expect(component.find('.a-additionalText').exists()).toBe(false);
 	});
@@ -93,12 +93,12 @@ describe('Tile', () => {
 			interactive: true,
 			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
-		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
-		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__iconRight').exists()).toBe(false);
-		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
+		expect(component.find('.ds-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.ds-tile__text').text()).toBe('text text');
+		expect(component.find('.ds-tile__iconRight').exists()).toBe(false);
+		expect(component.find('.ds-tile__iconLeft').exists()).toBe(true);
 
-		expect(component.find('.a-tile__additionalText').exists()).toBe(true);
+		expect(component.find('.ds-tile__additionalText').exists()).toBe(true);
 	});
 	it('Is not interactive without right icon and additionalText', () => {
 		const component = createComponent({
@@ -106,12 +106,12 @@ describe('Tile', () => {
 			eyebrowText: 'eyebrowText text',
 			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
-		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
-		expect(component.find('.a-tile__text').text()).toBe('text text');
+		expect(component.find('.ds-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.ds-tile__text').text()).toBe('text text');
 
-		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
-		expect(component.find('.a-tile__iconRight').exists()).toBe(false);
-		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
+		expect(component.find('.ds-tile__iconLeft').exists()).toBe(true);
+		expect(component.find('.ds-tile__iconRight').exists()).toBe(false);
+		expect(component.find('.ds-tile__additionalText').exists()).toBe(false);
 	});
 	it('Is not interactive with right and without additionalText', () => {
 		const component = createComponent({
@@ -120,12 +120,12 @@ describe('Tile', () => {
 			iconRight: Object.freeze(ICONS.FA_ANGLE_RIGHT),
 			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
-		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
-		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__iconRight').exists()).toBe(true);
+		expect(component.find('.ds-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.ds-tile__text').text()).toBe('text text');
+		expect(component.find('.ds-tile__iconRight').exists()).toBe(true);
 
-		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
-		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
+		expect(component.find('.ds-tile__iconLeft').exists()).toBe(true);
+		expect(component.find('.ds-tile__additionalText').exists()).toBe(false);
 	});
 	it('Is not interactive without right and with additionalText', () => {
 		const component = createComponent({
@@ -134,12 +134,12 @@ describe('Tile', () => {
 			additionalText: 'additionalText text',
 			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
-		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
-		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__iconRight').exists()).toBe(false);
-		expect(component.find('.a-tile__additionalText').exists()).toBe(true);
+		expect(component.find('.ds-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.ds-tile__text').text()).toBe('text text');
+		expect(component.find('.ds-tile__iconRight').exists()).toBe(false);
+		expect(component.find('.ds-tile__additionalText').exists()).toBe(true);
 
-		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
+		expect(component.find('.ds-tile__iconLeft').exists()).toBe(true);
 	});
 	it('Is not interactive with right and additionalText but additionalText is not visible when right is present', () => {
 		const component = createComponent({
@@ -149,12 +149,12 @@ describe('Tile', () => {
 			iconRight: Object.freeze(ICONS.FA_ANGLE_RIGHT),
 			iconLeft: Object.freeze(ICONS.FA_BOX_ARCHIVE),
 		});
-		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
-		expect(component.find('.a-tile__text').text()).toBe('text text');
-		expect(component.find('.a-tile__iconRight .-interactive').exists()).toBe(false);
-		expect(component.find('.a-tile__additionalText').exists()).toBe(false);
+		expect(component.find('.ds-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.ds-tile__text').text()).toBe('text text');
+		expect(component.find('.ds-tile__iconRight .-ds-interactive').exists()).toBe(false);
+		expect(component.find('.ds-tile__additionalText').exists()).toBe(false);
 
-		expect(component.find('.a-tile__iconLeft').exists()).toBe(true);
+		expect(component.find('.ds-tile__iconLeft').exists()).toBe(true);
 	});
 
 	it('Eyebrowtext is uppercased when isEyebrowTextUppercase', () => {
@@ -164,7 +164,7 @@ describe('Tile', () => {
 			additionalText: 'additionalText text',
 			isEyebrowTextUppercase: true,
 		});
-		expect(component.find('.a-tile__eyebrowText').text()).toBe('eyebrowText text');
-		expect(component.find('.a-tile__eyebrowText').classes()).toContain('-uppercase');
+		expect(component.find('.ds-tile__eyebrowText').text()).toBe('eyebrowText text');
+		expect(component.find('.ds-tile__eyebrowText').classes()).toContain('-ds-uppercase');
 	});
 });

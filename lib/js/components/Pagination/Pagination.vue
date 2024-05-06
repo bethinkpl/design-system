@@ -160,7 +160,7 @@ $pagination-input-height: 32px;
 			@media #{breakpoint-s()} {
 				display: flex;
 
-				#{$self}.-forceCompact & {
+				#{$self}.-ds-forceCompact & {
 					display: none;
 				}
 			}
@@ -220,7 +220,7 @@ $pagination-input-height: 32px;
 		&.-ds-touchable:hover {
 			cursor: pointer;
 
-			#{$self}__item:not(.-selected) {
+			#{$self}__item:not(.-ds-selected) {
 				background: $color-neutral-background-weak-hovered;
 			}
 		}
