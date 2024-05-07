@@ -22,8 +22,6 @@
 @import 'components/icons';
 
 // Modifiers
-@import 'modifiers/layout';
-@import 'modifiers/media-queries';
 @import 'modifiers/shadows';
 @import 'modifiers/typography';
 @import 'settings/colors/tokens';
@@ -48,7 +46,7 @@ textarea {
 	font-family: $font-family;
 }
 
-html.thick-scrollbar {
+html.-ds-thick-scrollbar {
 	@media #{breakpoint-m()} {
 		@include scrollbar(15px, var(--raw-gray-100));
 	}
