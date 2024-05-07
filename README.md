@@ -16,10 +16,8 @@ Login credentials: https://bethink.passwd.team/secrets/5ZldBeJcdG5L4YdrovDE
 2. Add key `JSON_BIN_X_ACCESS_KEY`
 3. Value for the key take from https://bethink.passwd.team/secrets/dhpIPB7AappD0jOoU0WW
 
-## Developing together with other project
-> For development, a package can be linked into another project. This is often useful to test out new features or when trying to debug an issue in a package that manifests itself in another project.
-
-Instruction: https://classic.yarnpkg.com/en/docs/cli/link/
+## Developing together with wnl-platform
+https://bethink.atlassian.net/wiki/spaces/IT/pages/1095073793/Jak+prowadzi+r+wnoleg+prac+z+platform+i+Design+System
 
 ## Releasing
 1. Bump version in `package.json`
