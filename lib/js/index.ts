@@ -94,6 +94,7 @@ export { default as GroupRichListItem } from './components/RichList/GroupRichLis
 export { default as Switch } from './components/Switch';
 export * from './components/Switch/Switch.consts';
 export { default as SampleTextInput } from './components/SampleTextInput';
+export { default as Form } from './components/Form';
 
 export {
 	initialize as initializeIcons,
