@@ -12,32 +12,34 @@
 		:visible-arrow="isPointerVisible"
 		:root-class="rootClass"
 	>
-		<div
-			class="popper popOver"
-			:class="{
-				'-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
-				'-small': size === POP_OVER_SIZES.SMALL,
-				'-medium': size === POP_OVER_SIZES.MEDIUM,
-			}"
-		>
-			<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
-			<div class="popOver__content">
-				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
-				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
-				<div class="popOver__contentSlot" :class="{ '-maxHeight': maxHeight }">
-					<slot :close="close" />
-				</div>
-			</div>
-			<ds-button
-				v-if="buttonText"
-				class="popOver__button"
-				:type="BUTTON_TYPES.TEXT"
-				:size="BUTTON_SIZES.LARGE"
-				@click="$emit('button-click')"
+		<template v-if="shouldDisplay">
+			<div
+				class="popper popOver"
+				:class="{
+					'-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
+					'-small': size === POP_OVER_SIZES.SMALL,
+					'-medium': size === POP_OVER_SIZES.MEDIUM,
+				}"
 			>
-				{{ buttonText }}
-			</ds-button>
-		</div>
+				<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
+				<div class="popOver__content">
+					<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
+					<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
+					<div class="popOver__contentSlot" :class="{ '-maxHeight': maxHeight }">
+						<slot :close="close" />
+					</div>
+				</div>
+				<ds-button
+					v-if="buttonText"
+					class="popOver__button"
+					:type="BUTTON_TYPES.TEXT"
+					:size="BUTTON_SIZES.LARGE"
+					@click="$emit('button-click')"
+				>
+					{{ buttonText }}
+				</ds-button>
+			</div>
+		</template>
 
 		<template #reference>
 			<slot name="reference" />
@@ -272,6 +274,10 @@ export default {
 			type: String,
 			default: '',
 		},
+		shouldDisplay: {
+            type: Boolean,
+            default: true,
+        },
 	},
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
