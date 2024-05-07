@@ -274,9 +274,9 @@ export default {
 			default: '',
 		},
 		shouldDisplay: {
-            type: Boolean,
-            default: true,
-        },
+			type: Boolean,
+			default: true,
+		},
 	},
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
