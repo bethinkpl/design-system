@@ -1,7 +1,9 @@
-<FormKit type="form" #default="{ value }" :actions="false">
-	<slot />
-	<pre wrap>{{ value }}</pre>
-</FormKit>
+<template>
+	<FormKit type="form" #default="{ value }" :actions="false">
+		<slot />
+		<pre wrap>{{ value }}</pre>
+	</FormKit>
+</template>
 
 <script lang="ts">
 export default {
