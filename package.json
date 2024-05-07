@@ -30,6 +30,10 @@
     "synchronizeTypography": "npx ts-node tools/importers/SynchronizeTypographyTokens.ts"
   },
   "devDependencies": {
+    "@formkit/core": "1.6.2",
+    "@formkit/icons": "1.6.2",
+    "@formkit/pro": "^0.123.6",
+    "@formkit/vue": "1.6.2",
     "@fortawesome/fontawesome-svg-core": "6.4.2",
     "@fortawesome/free-brands-svg-icons": "6.4.2",
     "@fortawesome/pro-duotone-svg-icons": "6.4.2",
