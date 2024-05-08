@@ -21,7 +21,7 @@ const StoryTemplate: StoryFn<typeof ItemsList> = (args) => ({
 export const Variables = StoryTemplate.bind({});
 
 const args = {
-	itemsLists: [{ title: 'Variables', list: source, class: 'theme-wnl' }],
+	itemsLists: [{ title: 'Variables', list: source, class: '-ds-theme-wnl' }],
 	type: TOKENS_TYPES.TYPOGRAPHY,
 } as Args;
 

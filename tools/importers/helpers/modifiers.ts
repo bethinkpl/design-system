@@ -34,7 +34,7 @@ export const kebabize = (str) => {
 };
 
 export const cssFileFirstLine = (isTheme: boolean, themeName: string | undefined) => {
-	return isTheme ? '.theme-' + themeName + ' {' : cssFileRootFirstLine();
+	return isTheme ? '.-ds-theme-' + themeName + ' {' : cssFileRootFirstLine();
 };
 
 export const cssFileRootFirstLine = () => {

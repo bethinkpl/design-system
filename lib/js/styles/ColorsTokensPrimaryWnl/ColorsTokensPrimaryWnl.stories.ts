@@ -21,7 +21,7 @@ const StoryTemplate: StoryFn<typeof ItemsList> = (args) => ({
 export const PrimaryWNL = StoryTemplate.bind({});
 
 const args = {
-	itemsLists: [{ title: 'Primary WNL', list: tokensList, class: 'theme-wnl' }],
+	itemsLists: [{ title: 'Primary WNL', list: tokensList, class: '-ds-theme-wnl' }],
 	type: TOKENS_TYPES.COLORS,
 } as Args;
 
