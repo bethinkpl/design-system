@@ -9,7 +9,7 @@
 		}"
 	>
 		<div
-			class="ds-switch__item -ds-eft"
+			class="ds-switch__item -ds-left"
 			:class="{
 				'-ds-clickable':
 					currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
