@@ -12,7 +12,7 @@
 		:visible-arrow="isPointerVisible"
 		:root-class="rootClass"
 	>
-		<template v-if="shouldDisplay">
+		<template>
 			<div
 				class="popper popOver"
 				:class="{
@@ -273,10 +273,6 @@ export default {
 		rootClass: {
 			type: String,
 			default: '',
-		},
-		shouldDisplay: {
-			type: Boolean,
-			default: true,
 		},
 	},
 	// TODO fix me when touching this file

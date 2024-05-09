@@ -6,6 +6,7 @@ export const POP_OVER_COLORS = {
 export const POP_OVER_TRIGGER_ACTIONS = {
 	CLICK: 'click',
 	HOVER: 'hover',
+	NONE: 'none',
 } as const;
 
 export const POP_OVER_PLACEMENTS = {
