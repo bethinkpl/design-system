@@ -278,10 +278,6 @@ export default {
 			type: String,
 			default: '',
 		},
-		disabled: {
-			type: Boolean,
-			default: false,
-		},
 	},
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
