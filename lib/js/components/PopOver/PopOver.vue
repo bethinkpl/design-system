@@ -290,6 +290,7 @@ export default {
 		return {
 			POP_OVER_COLORS: Object.freeze(POP_OVER_COLORS),
 			POP_OVER_SIZES: Object.freeze(POP_OVER_SIZES),
+			POP_OVER_TRIGGER_ACTIONS: Object.freeze(POP_OVER_TRIGGER_ACTIONS),
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
 			key: 1,
