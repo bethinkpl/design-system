@@ -1,3 +1,4 @@
+/* stylelint-disable selector-class-pattern */
 .-textLight-DEPRECATED {
 	font-weight: 300;
 }
@@ -46,66 +47,51 @@
 	@include textS-DEPRECATED;
 }
 
-.-textM {
+.-textM-DEPRECATED {
 	@include textM-DEPRECATED;
 }
 
-.-textL {
+.-textL-DEPRECATED {
 	@include textL-DEPRECATED;
 }
 
-.-textXL {
+.-textXL-DEPRECATED {
 	@include textXL-DEPRECATED;
 }
 
-.-headlineXXS {
+.-headlineXXS-DEPRECATED {
 	@include headlineXXS-DEPRECATED;
 }
 
-.-headlineXS {
+.-headlineXS-DEPRECATED {
 	@include headlineXS-DEPRECATED;
 }
 
-.-headlineS {
+.-headlineS-DEPRECATED {
 	@include headlineS-DEPRECATED;
 }
 
-.-headlineM {
+.-headlineM-DEPRECATED {
 	@include headlineM-DEPRECATED;
 }
 
-.-headlineL {
+.-headlineL-DEPRECATED {
 	@include headlineL-DEPRECATED;
 }
 
-.-headlineXL {
+.-headlineXL-DEPRECATED {
 	@include headlineXL-DEPRECATED;
 }
 
-.-titleS {
+.-titleS-DEPRECATED {
 	@include titleS-DEPRECATED;
 }
 
-.-titleM {
+.-titleM-DEPRECATED {
 	@include titleM-DEPRECATED;
 }
 
-.-titleL {
+.-titleL-DEPRECATED {
 	@include titleL-DEPRECATED;
 }
-
-.-buttonXS {
-	@include buttonXS-DEPRECATED;
-}
-
-.-buttonS {
-	@include buttonS-DEPRECATED;
-}
-
-.-buttonM {
-	@include buttonM-DEPRECATED;
-}
-
-.-buttonL {
-	@include buttonL-DEPRECATED;
-}
+/* stylelint-enable */

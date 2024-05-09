@@ -43,8 +43,7 @@ module.exports = {
 			},
 		],
 		'order/properties-alphabetical-order': true,
-		// TODO try to validate camelCase
-		'selector-class-pattern': '-?ds-.*',
+		'selector-class-pattern': '-?ds-[a-z][a-zA-Z_]*',
 	},
 	ignoreFiles: ['lib/styles/settings/typography/_tokens.scss'],
 };
