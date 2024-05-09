@@ -19,7 +19,7 @@
 				<slot name="footer" />
 			</div>
 		</div>
-		<div v-if="$slots.footer && stickyFooter" class="ds-drawer__footer -sticky">
+		<div v-if="$slots.footer && stickyFooter" class="ds-drawer__footer -ds-sticky">
 			<slot name="footer" />
 		</div>
 	</div>

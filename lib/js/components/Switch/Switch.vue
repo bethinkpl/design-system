@@ -9,7 +9,7 @@
 		}"
 	>
 		<div
-			class="ds-switch__item -left"
+			class="ds-switch__item -ds-eft"
 			:class="{
 				'-ds-clickable':
 					currentSide !== SWITCH_SIDE.LEFT && state !== SWITCH_STATE.DISABLED,
@@ -29,7 +29,7 @@
 			</div>
 		</div>
 		<div
-			class="ds-switch__item -right"
+			class="ds-switch__item -ds-right"
 			:class="{
 				'-ds-clickable':
 					currentSide !== SWITCH_SIDE.RIGHT && state !== SWITCH_STATE.DISABLED,
@@ -49,7 +49,7 @@
 			</div>
 		</div>
 		<div
-			class="ds-switch__item -selection"
+			class="ds-switch__item -ds-selection"
 			:class="{
 				'-ds-left': currentSide === SWITCH_SIDE.LEFT,
 				'-ds-right': currentSide === SWITCH_SIDE.RIGHT,

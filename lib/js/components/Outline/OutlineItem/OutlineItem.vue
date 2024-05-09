@@ -44,7 +44,7 @@
 			</template>
 			<ds-icon
 				v-if="isDone"
-				class="ds-outlineItem__icon -active"
+				class="ds-outlineItem__icon -ds-active"
 				:icon="ICONS.FA_CHECK_SOLID"
 				:size="ICON_SIZES.X_SMALL"
 			/>

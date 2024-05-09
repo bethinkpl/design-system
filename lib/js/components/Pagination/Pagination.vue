@@ -38,7 +38,7 @@
 							"
 						>
 							<template #reference="{ isOpened }">
-								<div class="ds-pagination__itemWrapper -touchable">
+								<div class="ds-pagination__itemWrapper -ds-touchable">
 									<span
 										class="ds-pagination__item"
 										:class="{ '-ds-selected': isOpened }"
@@ -67,7 +67,7 @@
 				</template>
 			</div>
 
-			<div v-if="navigationItems.length > 1" class="ds-pagination__items -compact">
+			<div v-if="navigationItems.length > 1" class="ds-pagination__items -ds-compact">
 				<icon-button
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
