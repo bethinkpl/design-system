@@ -84,7 +84,7 @@ $icon-colors: (
 
 @mixin coloredIcon($state: 'default') {
 	@each $color-name, $color-map in $icon-colors {
-		&.-#{$color-name} {
+		&.-ds-#{$color-name} {
 			color: map-get($color-map, $state);
 		}
 	}

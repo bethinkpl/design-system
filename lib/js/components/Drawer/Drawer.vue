@@ -6,7 +6,6 @@
 		<div
 			class="ds-drawer__content"
 			:class="{
-				// TODO
 				'scrollable-container': stickyHeader || stickyFooter,
 				'-ds-scrollable': stickyHeader || stickyFooter,
 				'-ds-fullHeight': stickyFooter,
