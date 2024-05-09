@@ -1,7 +1,7 @@
 <template>
 	<div class="dsSampleTextInput">
 		Here comes sample text input:
-		<form-kit
+		<FormKit
 			type="text"
 			name="name"
 			outer-class="text-sm"
@@ -14,9 +14,9 @@
 			<template #prefix>
 				<p>test</p>
 			</template>
-		</form-kit>
-		<form-kit type="form" #default="{ value }" :actions="false">
-			<form-kit
+		</FormKit>
+		<FormKit type="form" #default="{ value }" :actions="false">
+			<FormKit
 				type="text"
 				name="name2"
 				outer-class="text-sm"
@@ -26,7 +26,7 @@
 				placeholder="red"
 			/>
 			<pre>{{ value }}</pre>
-		</form-kit>
+		</FormKit>
 	</div>
 </template>
 
