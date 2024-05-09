@@ -1,7 +1,8 @@
 <template>
 	<div>
+		<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
 		<vue-popper
-			v-if="!disabled"
+			v-else
 			ref="popper"
 			:key="key"
 			:boundaries-selector="boundariesSelector"
@@ -45,7 +46,6 @@
 				<slot name="reference" />
 			</template>
 		</vue-popper>
-		<slot v-else name="reference" />
 	</div>
 </template>
 
