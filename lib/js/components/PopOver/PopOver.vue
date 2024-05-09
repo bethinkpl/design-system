@@ -12,34 +12,32 @@
 		:visible-arrow="isPointerVisible"
 		:root-class="rootClass"
 	>
-		<template>
-			<div
-				class="popper popOver"
-				:class="{
-					'-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
-					'-small': size === POP_OVER_SIZES.SMALL,
-					'-medium': size === POP_OVER_SIZES.MEDIUM,
-				}"
-			>
-				<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
-				<div class="popOver__content">
-					<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
-					<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
-					<div class="popOver__contentSlot" :class="{ '-maxHeight': maxHeight }">
-						<slot :close="close" />
-					</div>
+		<div
+			class="popper popOver"
+			:class="{
+				'-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
+				'-small': size === POP_OVER_SIZES.SMALL,
+				'-medium': size === POP_OVER_SIZES.MEDIUM,
+			}"
+		>
+			<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
+			<div class="popOver__content">
+				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
+				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
+				<div class="popOver__contentSlot" :class="{ '-maxHeight': maxHeight }">
+					<slot :close="close" />
 				</div>
-				<ds-button
-					v-if="buttonText"
-					class="popOver__button"
-					:type="BUTTON_TYPES.TEXT"
-					:size="BUTTON_SIZES.LARGE"
-					@click="$emit('button-click')"
-				>
-					{{ buttonText }}
-				</ds-button>
 			</div>
-		</template>
+			<ds-button
+				v-if="buttonText"
+				class="popOver__button"
+				:type="BUTTON_TYPES.TEXT"
+				:size="BUTTON_SIZES.LARGE"
+				@click="$emit('button-click')"
+			>
+				{{ buttonText }}
+			</ds-button>
+		</div>
 
 		<template #reference>
 			<slot name="reference" />
