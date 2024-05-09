@@ -123,7 +123,12 @@ module.exports = {
 			},
 		],
 		'vue/v-for-delimiter-style': 'error',
-		'vue/no-undef-components': 'error',
+		'vue/no-undef-components': [
+			'error',
+			{
+				ignorePatterns: ['form-kit'],
+			},
+		],
 		'vue/multi-word-component-names': 0,
 		'vue/require-emit-validator': 'error',
 
