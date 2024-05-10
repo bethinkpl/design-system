@@ -5,7 +5,7 @@ import 'design-system/lib/styles/storybook.scss';
 import { useArgs } from '@storybook/client-api';
 import { initialize } from 'design-system/lib/js/icons/fontawesome';
 import { app } from '@storybook/vue3';
-import PrimeVue from 'primevue/config';
+import {initializePrimeVue} from "../lib/js";
 
 const customViewports = {
 	mobile: {
@@ -107,6 +107,6 @@ export const decorators = [
 	},
 ];
 
-app.use(PrimeVue, { ripple: true });
+initializePrimeVue(app);
 
 initialize();
