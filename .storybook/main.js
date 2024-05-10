@@ -13,6 +13,9 @@ module.exports = {
 	core: {
 		builder: 'webpack5',
 	},
+	plugins: [
+		require('unplugin-element-plus/webpack')({}),
+	],
 	webpackFinal: async (config) => {
 		let vueLoaderRule = config.module.rules.find(
 			(r) =>
