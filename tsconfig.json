@@ -23,11 +23,8 @@
       "design-system/lib/*": ["lib/*"]
     },
     "declaration": true,
-    "declarationDir": "dist",
-    "types": [
-      "element-plus/gloobal"
-    ]
-  },\
+    "declarationDir": "dist"
+  },
   "include": [
     "lib/js/**/*.vue",
     "lib/js/**/*.ts"
