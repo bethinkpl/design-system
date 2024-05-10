@@ -1,21 +1,21 @@
 <template>
 	<div
-		class="pageHeader"
-		:class="{ '-horizontal': mobileLayout === PAGE_HEADER_MOBILE_LAYOUTS.HORIZONTAL }"
+		class="ds-pageHeader"
+		:class="{ '-ds-horizontal': mobileLayout === PAGE_HEADER_MOBILE_LAYOUTS.HORIZONTAL }"
 	>
-		<div class="pageHeader__wrapper">
-			<div v-if="$slots.breadcrumbs" class="pageHeader__breadcrumbs">
+		<div class="ds-pageHeader__wrapper">
+			<div v-if="$slots.breadcrumbs" class="ds-pageHeader__breadcrumbs">
 				<slot name="breadcrumbs" />
 			</div>
-			<div class="pageHeader__contentWrapper">
-				<div class="pageHeader__textWrapper">
-					<div class="pageHeader__title">{{ pageTitle }}</div>
-					<div v-if="supportingInfo" class="pageHeader__supportingText"
+			<div class="ds-pageHeader__contentWrapper">
+				<div class="ds-pageHeader__textWrapper">
+					<div class="ds-pageHeader__title">{{ pageTitle }}</div>
+					<div v-if="supportingInfo" class="ds-pageHeader__supportingText"
 						>{{ supportingInfo }}
 					</div>
 				</div>
 
-				<div v-if="$slots.actions" class="pageHeader__actions">
+				<div v-if="$slots.actions" class="ds-pageHeader__actions">
 					<slot name="actions" />
 				</div>
 			</div>
@@ -30,7 +30,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
 
-.pageHeader {
+.ds-pageHeader {
 	$root: &;
 
 	padding: 0;
@@ -83,7 +83,7 @@
 		flex-shrink: 0;
 	}
 
-	&.-horizontal {
+	&.-ds-horizontal {
 		#{$root}__contentWrapper {
 			align-items: center;
 			flex-direction: row;

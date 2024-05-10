@@ -1,5 +1,5 @@
 <template>
-	<div class="selectListItemDivider">
+	<div class="ds-selectListItemDivider">
 		<divider />
 	</div>
 </template>
@@ -8,7 +8,7 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/spacings';
 
-.selectListItemDivider {
+.ds-selectListItemDivider {
 	background-color: $color-neutral-background-ghost;
 	padding: $space-2xs 0;
 }

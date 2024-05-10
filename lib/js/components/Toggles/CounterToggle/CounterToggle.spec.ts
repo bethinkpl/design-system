@@ -20,17 +20,17 @@ describe('CounterToggle', () => {
 	});
 
 	test.each([
-		[{ props: { color: COUNTER_TOGGLE_COLORS.INVERTED }, expectedClass: '-color-inverted' }],
+		[{ props: { color: COUNTER_TOGGLE_COLORS.INVERTED }, expectedClass: '-ds-color-inverted' }],
 		[
 			{
 				props: { color: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG },
-				expectedClass: '-color-neutralStrong',
+				expectedClass: '-ds-color-neutralStrong',
 			},
 		],
-		[{ props: { color: COUNTER_TOGGLE_COLORS.NEUTRAL }, expectedClass: '-color-neutral' }],
-		[{ props: { color: COUNTER_TOGGLE_COLORS.PRIMARY }, expectedClass: '-color-primary' }],
-		[{ props: { isSelected: true }, expectedClass: '-selected' }],
-		[{ props: { isDisabled: true }, expectedClass: '-disabled' }],
+		[{ props: { color: COUNTER_TOGGLE_COLORS.NEUTRAL }, expectedClass: '-ds-color-neutral' }],
+		[{ props: { color: COUNTER_TOGGLE_COLORS.PRIMARY }, expectedClass: '-ds-color-primary' }],
+		[{ props: { isSelected: true }, expectedClass: '-ds-selected' }],
+		[{ props: { isDisabled: true }, expectedClass: '-ds-disabled' }],
 	])('correct class for props', ({ props, expectedClass }) => {
 		const outlinedCounterToggle = createComponent(props);
 		expect(outlinedCounterToggle.classes()).toContain(expectedClass);
@@ -38,7 +38,7 @@ describe('CounterToggle', () => {
 
 	it('should render icon', () => {
 		const icon = createComponent({ icon: Object.freeze(ICONS.FA_XMARK) });
-		let iconElement = icon.findComponent<typeof CounterToggle>('.counterToggle__icon');
+		let iconElement = icon.findComponent<typeof CounterToggle>('.ds-counterToggle__icon');
 		expect(iconElement.exists()).toBe(true);
 		expect(iconElement.props().icon).toEqual(Object.freeze(ICONS.FA_XMARK));
 	});
@@ -54,7 +54,7 @@ describe('CounterToggle', () => {
 		[{ props: { counter: 'test' }, expectedText: 'test', expectedToExist: true }],
 	])('correct counter', ({ props, expectedText, expectedToExist }) => {
 		const counterToggle = createComponent(props);
-		const counterElement = counterToggle.find('.counterToggle__counter');
+		const counterElement = counterToggle.find('.ds-counterToggle__counter');
 		expect(counterElement.exists()).toBe(expectedToExist);
 		if (expectedToExist) {
 			expect(counterElement.text()).toBe(expectedText);

@@ -1,10 +1,10 @@
 <template>
 	<div
-		class="counterToggle"
-		:class="[{ '-selected': isSelected, '-disabled': isDisabled }, colorClass]"
+		class="ds-counterToggle"
+		:class="[{ '-ds-selected': isSelected, '-ds-disabled': isDisabled }, colorClass]"
 	>
-		<icon class="counterToggle__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
-		<span v-if="hasCounter" class="counterToggle__counter">{{ counter }}</span>
+		<icon class="ds-counterToggle__icon" :icon="icon" :size="ICON_SIZES.X_SMALL" />
+		<span v-if="hasCounter" class="ds-counterToggle__counter">{{ counter }}</span>
 	</div>
 </template>
 
@@ -143,46 +143,46 @@ $counter-toggle-colors: (
 	background-color: $background;
 
 	&:hover,
-	&.-hovered {
+	&.-ds-hovered {
 		background-color: $background-hover;
 	}
 
 	&:active,
-	&.-active {
+	&.-ds-active {
 		background-color: $background-pressed;
 	}
 
 	&:focus,
-	&.-focused {
+	&.-ds-focused {
 		background-color: $background-focus;
 	}
 }
 
 @mixin setCounterToggleDisabled($disabled-color, $disabled-icon, $disabled-background) {
 	&:disabled,
-	&.-disabled {
+	&.-ds-disabled {
 		background-color: $disabled-background;
 		color: $disabled-color;
 
-		.counterToggle__icon {
+		.ds-counterToggle__icon {
 			color: $disabled-icon;
 		}
 	}
 }
 
 @mixin setCounterToggleAdditions($icon) {
-	.counterToggle {
+	.ds-counterToggle {
 		&__icon {
 			color: $icon;
 		}
 	}
 }
 
-.counterToggle {
+.ds-counterToggle {
 	$self: &;
 
 	@each $color-name, $color-map in $counter-toggle-colors {
-		&.-color-#{$color-name} {
+		&.-ds-color-#{$color-name} {
 			@include setCounterToggleColor(map-get($color-map, 'default', 'color'));
 			@include setCounterToggleBackground(
 				map-get($color-map, 'default', 'background'),
@@ -213,9 +213,9 @@ $counter-toggle-colors: (
 	user-select: none;
 	width: auto;
 
-	&.-selected {
+	&.-ds-selected {
 		@each $color-name, $color-map in $counter-toggle-colors {
-			&.-color-#{$color-name} {
+			&.-ds-color-#{$color-name} {
 				@include setCounterToggleColor(map-get($color-map, 'selected', 'color'));
 				@include setCounterToggleBackground(
 					map-get($color-map, 'selected', 'background'),
@@ -234,7 +234,7 @@ $counter-toggle-colors: (
 	}
 
 	&:disabled,
-	&.-disabled {
+	&.-ds-disabled {
 		pointer-events: none;
 	}
 
@@ -295,7 +295,7 @@ export default {
 	},
 	computed: {
 		colorClass(): string {
-			return `-color-${this.color}`;
+			return `-ds-color-${this.color}`;
 		},
 		hasCounter(): boolean {
 			return this.counter !== null && this.counter !== '' && this.counter !== undefined;

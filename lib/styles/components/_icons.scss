@@ -1,11 +1,11 @@
 @import '../settings/icons';
 
-.a-icon {
+.ds-icon {
 	align-items: center;
 	display: inline-flex;
 	transition: transform 0.15s;
 
-	&.-touchable {
+	&.-ds-touchable {
 		align-items: center;
 		cursor: pointer;
 		display: flex;
@@ -14,85 +14,103 @@
 		min-width: $min-touchable-size;
 	}
 
-	&.-rotate90 {
+	&.-ds-rotate90 {
 		transform: rotate(90deg);
 	}
 
-	&.-rotate180 {
+	&.-ds-rotate180 {
 		transform: rotate(180deg);
 	}
 
-	&.-rotate270 {
+	&.-ds-rotate270 {
 		transform: rotate(270deg);
 	}
 
-	&.-no-transtition {
+	&.-ds-no-transtition {
 		transition: initial;
 	}
 
-	&.-spin {
+	&.-ds-spin {
 		animation: $animation-fade-in, $animation-spin;
 	}
 
-	&.-flipped-vertical {
+	&.-ds-flipped-vertical {
 		transform: rotateX(180deg);
 	}
 
-	&.-flipped-horizontal {
+	&.-ds-flipped-horizontal {
 		transform: rotateY(180deg);
 	}
 
+	/* stylelint-disable selector-class-pattern */
 	svg,
 		// We need this class to override FontAwesome styles
 	.svg-inline--fa {
+		/* stylelint-enable */
 		height: $icon-m;
 		width: $icon-m;
 	}
 
-	&.-xx-large svg,
-	&.-xx-large .svg-inline--fa {
+	/* stylelint-disable selector-class-pattern */
+	&.-ds-xx-large svg,
+	&.-ds-xx-large .svg-inline--fa {
+		/* stylelint-enable */
 		height: $icon-xxl;
 		width: $icon-xxl;
 	}
 
-	&.-x-large svg,
-	&.-x-large .svg-inline--fa {
+	/* stylelint-disable selector-class-pattern */
+	&.-ds-x-large svg,
+	&.-ds-x-large .svg-inline--fa {
+		/* stylelint-enable */
 		height: $icon-xl;
 		width: $icon-xl;
 	}
 
-	&.-large svg,
-	&.-large .svg-inline--fa {
+	/* stylelint-disable selector-class-pattern */
+	&.-ds-large svg,
+	&.-ds-large .svg-inline--fa {
+		/* stylelint-enable */
 		height: $icon-l;
 		width: $icon-l;
 	}
 
-	&.-medium svg,
-	&.-medium .svg-inline--fa {
+	/* stylelint-disable selector-class-pattern */
+	&.-ds-medium svg,
+	&.-ds-medium .svg-inline--fa {
+		/* stylelint-enable */
 		height: $icon-m;
 		width: $icon-m;
 	}
 
-	&.-small svg,
-	&.-small .svg-inline--fa {
+	/* stylelint-disable selector-class-pattern */
+	&.-ds-small svg,
+	&.-ds-small .svg-inline--fa {
+		/* stylelint-enable */
 		height: $icon-s;
 		width: $icon-s;
 	}
 
-	&.-x-small svg,
-	&.-x-small .svg-inline--fa {
+	/* stylelint-disable selector-class-pattern */
+	&.-ds-x-small svg,
+	&.-ds-x-small .svg-inline--fa {
+		/* stylelint-enable */
 		height: $icon-xs;
 		width: $icon-xs;
 	}
 
-	&.-xx-small svg,
-	&.-xx-small .svg-inline--fa {
+	/* stylelint-disable selector-class-pattern */
+	&.-ds-xx-small svg,
+	&.-ds-xx-small .svg-inline--fa {
+		/* stylelint-enable */
 		height: $icon-xxs;
 		width: $icon-xxs;
 	}
 
-	&.-xxx-small svg,
-	&.-xxx-small .svg-inline--fa {
+	/* stylelint-disable selector-class-pattern */
+	&.-ds-xxx-small svg,
+	&.-ds-xxx-small .svg-inline--fa {
+		/* stylelint-enable */
 		height: $icon-xxxs;
 		width: $icon-xxxs;
 	}

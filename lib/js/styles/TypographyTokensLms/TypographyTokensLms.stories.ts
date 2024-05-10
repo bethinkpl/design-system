@@ -21,7 +21,7 @@ const StoryTemplate: StoryFn<typeof ItemsList> = (args) => ({
 export const LMS = StoryTemplate.bind({});
 
 const args = {
-	itemsLists: [{ title: 'LMS', list: source, class: 'theme-wnl' }],
+	itemsLists: [{ title: 'LMS', list: source, class: '-ds-theme-wnl' }],
 	type: TOKENS_TYPES.TYPOGRAPHY,
 } as Args;
 

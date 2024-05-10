@@ -1,10 +1,10 @@
 <template>
-	<div class="richListItem" :class="classList" @click="$emit('click', $event)">
-		<div class="richListItem__container -dimmable">
-			<div v-if="isDraggable && hasDraggableHandler" class="richListItem__dragAndDrop">
+	<div class="ds-richListItem" :class="classList" @click="$emit('click', $event)">
+		<div class="ds-richListItem__container -ds-dimmable">
+			<div v-if="isDraggable && hasDraggableHandler" class="ds-richListItem__dragAndDrop">
 				<ds-icon
 					:icon="ICONS.FA_BARS"
-					class="richListItem__dragAndDropIcon"
+					class="ds-richListItem__dragAndDropIcon"
 					:class="{ [draggableIconClassName]: !!draggableIconClassName }"
 					:size="
 						size === RICH_LIST_ITEM_SIZE.SMALL
@@ -14,10 +14,10 @@
 					@click.stop
 				/>
 			</div>
-			<div v-if="icon" class="richListItem__iconWrapper">
+			<div v-if="icon" class="ds-richListItem__iconWrapper">
 				<ds-icon
 					:icon="icon"
-					class="richListItem__icon"
+					class="ds-richListItem__icon"
 					:size="
 						size === RICH_LIST_ITEM_SIZE.SMALL
 							? ICON_SIZES.XX_SMALL
@@ -28,23 +28,23 @@
 					@click.prevent="$emit('icon-click')"
 				/>
 			</div>
-			<div class="richListItem__content">
+			<div class="ds-richListItem__content">
 				<slot name="content" />
 			</div>
-			<div class="richListItem__rightContainer">
-				<div v-if="$slots.meta" class="richListItem__metaData -hideOnMobile">
+			<div class="ds-richListItem__rightContainer">
+				<div v-if="$slots.meta" class="ds-richListItem__metaData -ds-hideOnMobile">
 					<slot name="meta" />
 				</div>
-				<div v-if="$slots.actions" class="richListItem__actionSlot" @click.stop>
+				<div v-if="$slots.actions" class="ds-richListItem__actionSlot" @click.stop>
 					<ds-divider
 						v-if="$slots.actions && hasActionsSlotDivider"
 						is-vertical
-						class="-hideOnMobile"
+						class="-ds-hideOnMobile"
 					/>
 					<slot name="actions" />
 				</div>
-				<div v-if="isSelectable" class="richListItem__checkbox">
-					<ds-divider is-vertical class="-hideOnMobile" />
+				<div v-if="isSelectable" class="ds-richListItem__checkbox">
+					<ds-divider is-vertical class="-ds-hideOnMobile" />
 					<ds-checkbox
 						:is-selected="isSelected"
 						@update:is-selected="$emit('update:isSelected', $event)"
@@ -54,12 +54,12 @@
 			</div>
 		</div>
 
-		<div v-if="$slots.meta" class="richListItem__metaData -dimmable -visibleOnMobile">
+		<div v-if="$slots.meta" class="ds-richListItem__metaData -ds-dimmable -ds-visibleOnMobile">
 			<slot name="meta" />
 		</div>
 		<div
 			v-if="borderColorClass || borderColorStyle"
-			class="richListItem__border"
+			class="ds-richListItem__border"
 			:class="borderColorClass"
 			:style="borderColorStyle"
 		/>
@@ -89,14 +89,14 @@ $rich-list-item-background-colors: (
 	),
 );
 
-.richListItem {
+.ds-richListItem {
 	$root: &;
 
 	@each $color, $value in $rich-list-item-background-colors {
-		&.-background-#{$color} {
+		&.-ds-background-#{$color} {
 			background-color: map-get($value, 'default');
 
-			&.-loading {
+			&.-ds-loading {
 				background-color: map-get($value, 'loading');
 			}
 		}
@@ -118,50 +118,50 @@ $rich-list-item-background-colors: (
 		padding: 0 $space-4xs;
 	}
 
-	&.-dimmed {
-		.-dimmable {
+	&.-ds-dimmed {
+		.-ds-dimmable {
 			opacity: 0.65;
 		}
 	}
 
-	&.-loading {
+	&.-ds-loading {
 		cursor: initial;
 		pointer-events: none;
 
-		.-dimmable {
+		.-ds-dimmable {
 			opacity: 0.5;
 		}
 	}
 
-	&.-interactive {
+	&.-ds-interactive {
 		cursor: pointer;
 		pointer-events: initial;
 
-		&.-flat {
+		&.-ds-flat {
 			&:hover {
 				opacity: 1;
 
-				.-dimmable {
+				.-ds-dimmable {
 					opacity: 1;
 				}
 			}
 		}
 
-		&:not(.-dimmed):hover {
-			&.-default {
+		&:not(.-ds-dimmed):hover {
+			&.-ds-default {
 				@each $color, $value in $rich-list-item-background-colors {
-					&.-background-#{$color} {
+					&.-ds-background-#{$color} {
 						background-color: map-get($value, 'hover');
 					}
 				}
 			}
 
-			&.-flat {
+			&.-ds-flat {
 				background: $color-neutral-background-ghost-hovered;
 			}
 		}
 
-		&.-draggable {
+		&.-ds-draggable {
 			&:hover {
 				cursor: grab;
 			}
@@ -172,14 +172,14 @@ $rich-list-item-background-colors: (
 		}
 	}
 
-	&.-elevation-small {
+	&.-ds-elevation-small {
 		box-shadow: $shadow-s;
 	}
 
-	&.-flat {
+	&.-ds-flat {
 		background: $color-neutral-background-ghost;
 
-		&.-loading {
+		&.-ds-loading {
 			background: $color-neutral-background-ghost;
 		}
 
@@ -188,19 +188,19 @@ $rich-list-item-background-colors: (
 		}
 	}
 
-	&.-default {
+	&.-ds-default {
 		border: 1px solid $color-neutral-border-weak;
 		border-radius: $radius-s;
 
-		&.-interactive:hover {
-			.-dimmable {
+		&.-ds-interactive:hover {
+			.-ds-dimmable {
 				opacity: 1;
 			}
 		}
 
 		#{$root}__border {
 			@each $color, $value in $rich-list-item-border-colors {
-				&.-border-#{$color} {
+				&.-ds-border-#{$color} {
 					background-color: $value;
 				}
 			}
@@ -262,7 +262,7 @@ $rich-list-item-background-colors: (
 			padding-left: $space-4xs;
 		}
 
-		&.-hideOnMobile {
+		&.-ds-hideOnMobile {
 			display: none;
 
 			@media #{breakpoint-s()} {
@@ -270,7 +270,7 @@ $rich-list-item-background-colors: (
 			}
 		}
 
-		&.-visibleOnMobile {
+		&.-ds-visibleOnMobile {
 			display: flex;
 
 			@media #{breakpoint-s()} {
@@ -340,7 +340,7 @@ $rich-list-item-background-colors: (
 		}
 	}
 
-	&.-small {
+	&.-ds-small {
 		padding: $space-4xs;
 
 		@media #{breakpoint-s()} {
@@ -398,7 +398,7 @@ $rich-list-item-background-colors: (
 	}
 }
 
-.-hideOnMobile {
+.-ds-hideOnMobile {
 	display: none;
 
 	@media #{breakpoint-s()} {
@@ -546,28 +546,28 @@ export default {
 	computed: {
 		classList() {
 			return {
-				'-default': this.type === RICH_LIST_ITEM_TYPE.DEFAULT,
-				'-flat': this.type === RICH_LIST_ITEM_TYPE.FLAT,
-				'-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
-				'-dimmed': this.isDimmed,
-				'-interactive': this.isInteractive,
-				'-small': this.size === RICH_LIST_ITEM_SIZE.SMALL,
+				'-ds-default': this.type === RICH_LIST_ITEM_TYPE.DEFAULT,
+				'-ds-flat': this.type === RICH_LIST_ITEM_TYPE.FLAT,
+				'-ds-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
+				'-ds-dimmed': this.isDimmed,
+				'-ds-interactive': this.isInteractive,
+				'-ds-small': this.size === RICH_LIST_ITEM_SIZE.SMALL,
 				...(this.backgroundColor &&
 					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
-						[`-background-${this.backgroundColor}`]: true,
+						[`-ds-background-${this.backgroundColor}`]: true,
 					}),
 				...(this.elevation &&
 					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
-						[`-elevation-${this.elevation}`]: true,
+						[`-ds-elevation-${this.elevation}`]: true,
 					}),
-				'-draggable': this.isDraggable && !this.hasDraggableHandler,
+				'-ds-draggable': this.isDraggable && !this.hasDraggableHandler,
 			};
 		},
 		iconColorClass() {
 			if (!this.iconColor || (this.iconColor && this.iconColorHex)) {
 				return;
 			}
-			return `-${this.iconColor}`;
+			return `-ds-${this.iconColor}`;
 		},
 		iconColorStyle() {
 			if (!this.iconColor || !this.iconColorHex) {
@@ -581,7 +581,7 @@ export default {
 			if (!this.borderColor || (this.borderColor && this.borderColorHex)) {
 				return;
 			}
-			return `-border-${this.borderColor}`;
+			return `-ds-border-${this.borderColor}`;
 		},
 		borderColorStyle() {
 			if (!this.borderColor || !this.borderColorHex) {

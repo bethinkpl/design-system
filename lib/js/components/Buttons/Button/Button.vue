@@ -1,44 +1,44 @@
 <template>
 	<span
-		class="a-button"
+		class="ds-button"
 		:class="{
-			'-outlined': type === BUTTON_TYPES.OUTLINED,
-			'-text': type === BUTTON_TYPES.TEXT,
+			'-ds-outlined': type === BUTTON_TYPES.OUTLINED,
+			'-ds-text': type === BUTTON_TYPES.TEXT,
 
-			'-small': size === SIZES.SMALL,
-			'-large': size === SIZES.LARGE,
+			'-ds-small': size === SIZES.SMALL,
+			'-ds-large': size === SIZES.LARGE,
 
-			'-rounded': type !== BUTTON_TYPES.TEXT && radius === RADIUSES.ROUNDED,
+			'-ds-rounded': type !== BUTTON_TYPES.TEXT && radius === RADIUSES.ROUNDED,
 
-			'-hovered': state === STATES.HOVERED,
-			'-focused': state === STATES.FOCUSED,
-			'-loading': state === STATES.LOADING,
-			'-disabled': state === STATES.DISABLED,
+			'-ds-hovered': state === STATES.HOVERED,
+			'-ds-focused': state === STATES.FOCUSED,
+			'-ds-loading': state === STATES.LOADING,
+			'-ds-disabled': state === STATES.DISABLED,
 
 			[colorClassName]: true,
 
-			'-elevation-x-small': elevation === ELEVATIONS.X_SMALL,
-			'-elevation-small': elevation === ELEVATIONS.SMALL,
+			'-ds-elevation-x-small': elevation === ELEVATIONS.X_SMALL,
+			'-ds-elevation-small': elevation === ELEVATIONS.SMALL,
 		}"
 	>
-		<span class="a-button__content">
+		<span class="ds-button__content">
 			<wnl-icon
 				v-if="iconLeft"
-				class="a-button__icon -left"
+				class="ds-button__icon -ds-left"
 				:icon="iconLeft"
 				:size="iconSize"
 			/>
 			<slot />
 			<wnl-icon
 				v-if="iconRight"
-				class="a-button__icon -right"
+				class="ds-button__icon -ds-right"
 				:icon="iconRight"
 				:size="iconSize"
 			/>
 		</span>
 		<wnl-icon
 			v-if="state === STATES.LOADING"
-			class="a-button__loadingIcon"
+			class="ds-button__loadingIcon"
 			:icon="ICONS.FAD_SPINNER_THIRD"
 			:size="loadingIconSize"
 		/>
@@ -149,7 +149,7 @@ export default {
 			return ICON_SIZES.X_SMALL;
 		},
 		colorClassName(): string {
-			return `-color-${this.color}`;
+			return `-ds-color-${this.color}`;
 		},
 		loadingIconSize(): string {
 			if (this.size === BUTTON_SIZES.LARGE) {

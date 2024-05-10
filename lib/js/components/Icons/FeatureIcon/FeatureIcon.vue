@@ -1,22 +1,22 @@
 <template>
 	<div
-		class="featureIcon"
+		class="ds-featureIcon"
 		:class="{
-			'-doubleBackground': doubleBackground,
-			'-danger': color === FEATURE_ICON_COLOR.DANGER,
-			'-info': color === FEATURE_ICON_COLOR.INFO,
-			'-neutral': color === FEATURE_ICON_COLOR.NEUTRAL,
-			'-neutralWeak': color === FEATURE_ICON_COLOR.NEUTRAL_WEAK,
-			'-primary': color === FEATURE_ICON_COLOR.PRIMARY,
-			'-success': color === FEATURE_ICON_COLOR.SUCCESS,
-			'-warning': color === FEATURE_ICON_COLOR.WARNING,
-			'-small': size === FEATURE_ICON_SIZES.SMALL,
-			'-medium': size === FEATURE_ICON_SIZES.MEDIUM,
-			'-large': size === FEATURE_ICON_SIZES.LARGE,
-			'-xLarge': size === FEATURE_ICON_SIZES.X_LARGE,
+			'-ds-doubleBackground': doubleBackground,
+			'-ds-danger': color === FEATURE_ICON_COLOR.DANGER,
+			'-ds-info': color === FEATURE_ICON_COLOR.INFO,
+			'-ds-neutral': color === FEATURE_ICON_COLOR.NEUTRAL,
+			'-ds-neutralWeak': color === FEATURE_ICON_COLOR.NEUTRAL_WEAK,
+			'-ds-primary': color === FEATURE_ICON_COLOR.PRIMARY,
+			'-ds-success': color === FEATURE_ICON_COLOR.SUCCESS,
+			'-ds-warning': color === FEATURE_ICON_COLOR.WARNING,
+			'-ds-small': size === FEATURE_ICON_SIZES.SMALL,
+			'-ds-medium': size === FEATURE_ICON_SIZES.MEDIUM,
+			'-ds-large': size === FEATURE_ICON_SIZES.LARGE,
+			'-ds-xLarge': size === FEATURE_ICON_SIZES.X_LARGE,
 		}"
 	>
-		<wnl-icon class="featureIcon__icon" :icon="icon" :size="iconSize" />
+		<wnl-icon class="ds-featureIcon__icon" :icon="icon" :size="iconSize" />
 	</div>
 </template>
 
@@ -78,18 +78,18 @@ $feature-icon-padding-large: 10px;
 	}
 }
 
-.featureIcon {
+.ds-featureIcon {
 	$self: &;
 
 	@each $color-name, $color-map in $feature-icon-colors {
-		&.-#{$color-name} {
+		&.-ds-#{$color-name} {
 			@include setFeatureIconColor(
 				$self,
 				map-get($color-map, 'background'),
 				map-get($color-map, 'icon')
 			);
 		}
-		&.-#{$color-name}.-doubleBackground {
+		&.-ds-#{$color-name}.-ds-doubleBackground {
 			@include setBorderColor(map-get($color-map, 'border'));
 		}
 	}
@@ -100,17 +100,17 @@ $feature-icon-padding-large: 10px;
 	display: inline-flex;
 	padding: $space-3xs;
 
-	&.-small {
+	&.-ds-small {
 		border-width: $space-4xs;
 		padding: $space-4xs;
 	}
 
-	&.-large {
+	&.-ds-large {
 		border-width: $space-3xs;
 		padding: $feature-icon-padding-large;
 	}
 
-	&.-xLarge {
+	&.-ds-xLarge {
 		border-width: $space-2xs;
 		padding: $space-xs;
 	}
@@ -118,8 +118,8 @@ $feature-icon-padding-large: 10px;
 </style>
 
 <script lang="ts">
-import WnlIcon, { ICONS, ICON_SIZES } from '../Icon';
-import { FEATURE_ICON_SIZES, FEATURE_ICON_COLOR } from './FeatureIcon.consts';
+import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
+import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from './FeatureIcon.consts';
 import { toRaw } from 'vue';
 
 export default {

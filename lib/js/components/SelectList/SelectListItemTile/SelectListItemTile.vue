@@ -1,5 +1,5 @@
 <template>
-	<div class="selectListItemTile">
+	<div class="ds-selectListItemTile">
 		<ds-tile
 			:interactive="interactive"
 			:icon-left="iconLeft"
@@ -19,7 +19,7 @@
 <style scoped lang="scss">
 @import '../../../../styles/settings/spacings';
 
-.selectListItemTile {
+.ds-selectListItemTile {
 	padding: $space-xs;
 }
 </style>

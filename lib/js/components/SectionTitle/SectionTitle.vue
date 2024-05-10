@@ -1,7 +1,7 @@
 <template>
-	<div class="sectionTitle">
-		<div class="sectionTitle__title">{{ titleText }}</div>
-		<div class="sectionTitle__supportingText">{{ supportingText }}</div>
+	<div class="ds-sectionTitle">
+		<div class="ds-sectionTitle__title">{{ titleText }}</div>
+		<div class="ds-sectionTitle__supportingText">{{ supportingText }}</div>
 	</div>
 </template>
 
@@ -10,7 +10,7 @@
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/spacings';
 
-.sectionTitle {
+.ds-sectionTitle {
 	display: flex;
 	flex-direction: column;
 	gap: $space-4xs;

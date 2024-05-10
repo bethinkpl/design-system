@@ -1,11 +1,11 @@
 <template>
 	<div
-		class="a-icon"
+		class="ds-icon"
 		:class="{
-			'-touchable': touchable,
-			'-spin': spinning,
-			'-flipped-vertical': flippedVertical,
-			'-flipped-horizontal': flippedHorizontal,
+			'-ds-touchable': touchable,
+			'-ds-spin': spinning,
+			'-ds-flipped-vertical': flippedVertical,
+			'-ds-flipped-horizontal': flippedHorizontal,
 			[rotationClass]: rotationClass,
 			[sizeClassName]: true,
 		}"
@@ -69,7 +69,7 @@ export default {
 	},
 	computed: {
 		sizeClassName() {
-			return `-${this.size}`;
+			return `-ds-${this.size}`;
 		},
 		isFontawesomeIcon() {
 			return 'iconName' in this.icon;
@@ -79,7 +79,7 @@ export default {
 				return null;
 			}
 
-			return `-rotate${this.rotation}`;
+			return `-ds-rotate${this.rotation}`;
 		},
 	},
 };

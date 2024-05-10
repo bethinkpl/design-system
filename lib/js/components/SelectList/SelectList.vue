@@ -1,5 +1,5 @@
 <template>
-	<div class="selectList">
+	<div class="ds-selectList">
 		<slot></slot>
 	</div>
 </template>
@@ -7,7 +7,7 @@
 <style scoped lang="scss">
 @import '../../../styles/settings/spacings';
 
-.selectList {
+.ds-selectList {
 	padding: $space-2xs 0;
 }
 </style>

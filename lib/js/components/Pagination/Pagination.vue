@@ -2,27 +2,27 @@
 	<div
 		class="ds-pagination"
 		:class="{
-			'-forceCompact': forceCompact,
-			'-centered': isCentered && !$slots.accessory,
+			'-ds-forceCompact': forceCompact,
+			'-ds-centered': isCentered && !$slots.accessory,
 		}"
 	>
 		<div class="ds-pagination__itemsWrapper">
 			<div
 				v-if="navigationItems.length > 1 && !forceCompact"
-				class="ds-pagination__items -default"
+				class="ds-pagination__items -ds-default"
 			>
 				<template v-for="(navigationItem, index) in navigationItems">
 					<div
 						v-if="isPage(navigationItem)"
 						:key="index"
 						class="ds-pagination__itemWrapper"
-						:class="{ '-touchable': currentPage !== navigationItem }"
+						:class="{ '-ds-touchable': currentPage !== navigationItem }"
 						role="link"
 						@click="changePage(navigationItem)"
 					>
 						<span
 							class="ds-pagination__item"
-							:class="{ '-selected': currentPage === navigationItem }"
+							:class="{ '-ds-selected': currentPage === navigationItem }"
 						>
 							{{ navigationItem }}
 						</span>
@@ -38,10 +38,10 @@
 							"
 						>
 							<template #reference="{ isOpened }">
-								<div class="ds-pagination__itemWrapper -touchable">
+								<div class="ds-pagination__itemWrapper -ds-touchable">
 									<span
 										class="ds-pagination__item"
-										:class="{ '-selected': isOpened }"
+										:class="{ '-ds-selected': isOpened }"
 										>&hellip;</span
 									>
 								</div>
@@ -67,7 +67,7 @@
 				</template>
 			</div>
 
-			<div v-if="navigationItems.length > 1" class="ds-pagination__items -compact">
+			<div v-if="navigationItems.length > 1" class="ds-pagination__items -ds-compact">
 				<icon-button
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
@@ -142,7 +142,7 @@ $pagination-input-height: 32px;
 		justify-content: center;
 	}
 
-	&.-centered {
+	&.-ds-centered {
 		#{$self}__itemsWrapper {
 			align-items: center;
 			flex-grow: 1;
@@ -154,25 +154,25 @@ $pagination-input-height: 32px;
 		flex-direction: row;
 		padding: 0;
 
-		&.-default {
+		&.-ds-default {
 			display: none;
 
 			@media #{breakpoint-s()} {
 				display: flex;
 
-				#{$self}.-forceCompact & {
+				#{$self}.-ds-forceCompact & {
 					display: none;
 				}
 			}
 		}
 
-		&.-compact {
+		&.-ds-compact {
 			display: flex;
 
 			@media #{breakpoint-s()} {
 				display: none;
 
-				#{$self}.-forceCompact & {
+				#{$self}.-ds-forceCompact & {
 					display: flex;
 				}
 			}
@@ -217,10 +217,10 @@ $pagination-input-height: 32px;
 		padding: $space-4xs;
 		text-align: center;
 
-		&.-touchable:hover {
+		&.-ds-touchable:hover {
 			cursor: pointer;
 
-			#{$self}__item:not(.-selected) {
+			#{$self}__item:not(.-ds-selected) {
 				background: $color-neutral-background-weak-hovered;
 			}
 		}
@@ -237,14 +237,14 @@ $pagination-input-height: 32px;
 		min-width: $pagination-item-min-width;
 		padding: $space-2xs;
 
-		&.-selected {
+		&.-ds-selected {
 			@include label-l-default-bold;
 
 			background: $color-neutral-background-medium;
 			color: $color-neutral-text-heavy;
 		}
 
-		&:active:not(.-selected) {
+		&:active:not(.-ds-selected) {
 			background: $color-neutral-background-weak-hovered;
 			box-shadow: $shadow-inset-s;
 		}

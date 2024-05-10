@@ -1,5 +1,5 @@
 <template>
-	<div class="outlineDivider">
+	<div class="ds-outlineDivider">
 		<ds-divider :prominence="prominence" :size="size" />
 	</div>
 </template>
@@ -7,7 +7,7 @@
 <style scoped lang="scss">
 @import '../../../../styles/settings/spacings';
 
-.outlineDivider {
+.ds-outlineDivider {
 	padding: $space-3xs 0;
 }
 </style>

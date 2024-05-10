@@ -1,7 +1,7 @@
 <template>
 	<div
-		class="surveyQuestionOpenEnded"
-		:class="{ '-disabled': state === SURVEY_QUESTION_STATES.DISABLED }"
+		class="ds-surveyQuestionOpenEnded"
+		:class="{ '-ds-disabled': state === SURVEY_QUESTION_STATES.DISABLED }"
 	>
 		<ds-modal v-if="showModal" @close-modal="showModal = false">
 			<slot name="explanation" />
@@ -15,13 +15,13 @@
 		</ds-modal>
 		<ds-card>
 			<template #content>
-				<div class="surveyQuestionOpenEnded__header">
-					<label class="surveyQuestionOpenEnded__title" :for="inputId">
+				<div class="ds-surveyQuestionOpenEnded__header">
+					<label class="ds-surveyQuestionOpenEnded__title" :for="inputId">
 						{{ title }}
 					</label>
 					<icon-button
 						v-if="$slots.explanation"
-						class="surveyQuestionOpenEnded__explanation"
+						class="ds-surveyQuestionOpenEnded__explanation"
 						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_CIRCLE_QUESTION"
 						:size="ICON_SIZES.MEDIUM"
@@ -29,10 +29,10 @@
 						@click="showModal = true"
 					/>
 				</div>
-				<div class="surveyQuestionOpenEnded__content">
+				<div class="ds-surveyQuestionOpenEnded__content">
 					<survey-question-textarea
 						:id="inputId"
-						class="surveyQuestionOpenEnded__input"
+						class="ds-surveyQuestionOpenEnded__input"
 						:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 						:value="value"
 						:placeholder="placeholder"
@@ -50,7 +50,7 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 
-.surveyQuestionOpenEnded {
+.ds-surveyQuestionOpenEnded {
 	&__header {
 		display: flex;
 		justify-content: space-between;

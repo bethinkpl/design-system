@@ -283,7 +283,7 @@ declare const _default: {
     };
     computed: {
         colorClass(): any;
-        layoutClass(): "-vertical" | "-horizontal";
+        layoutClass(): "-ds-vertical" | "-ds-horizontal";
     };
     watch: {
         isExpanded: {

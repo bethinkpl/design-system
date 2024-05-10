@@ -1,20 +1,20 @@
 <template>
 	<div
-		class="a-iconButton"
+		class="ds-iconButton"
 		:class="{
-			'-xx-small': size === ICON_BUTTON_SIZES.XX_SMALL,
-			'-x-small': size === ICON_BUTTON_SIZES.X_SMALL,
-			'-small': size === ICON_BUTTON_SIZES.SMALL,
-			'-large': size === ICON_BUTTON_SIZES.LARGE,
+			'-ds-xx-small': size === ICON_BUTTON_SIZES.XX_SMALL,
+			'-ds-x-small': size === ICON_BUTTON_SIZES.X_SMALL,
+			'-ds-small': size === ICON_BUTTON_SIZES.SMALL,
+			'-ds-large': size === ICON_BUTTON_SIZES.LARGE,
 
-			'-hovered': state === ICON_BUTTON_STATES.HOVERED,
-			'-focused': state === ICON_BUTTON_STATES.FOCUSED,
-			'-disabled': state === ICON_BUTTON_STATES.DISABLED,
-			'-loading': state === ICON_BUTTON_STATES.LOADING,
+			'-ds-hovered': state === ICON_BUTTON_STATES.HOVERED,
+			'-ds-focused': state === ICON_BUTTON_STATES.FOCUSED,
+			'-ds-disabled': state === ICON_BUTTON_STATES.DISABLED,
+			'-ds-loading': state === ICON_BUTTON_STATES.LOADING,
 
 			[colorClassName]: isButtonColor,
 
-			'-touchable': touchable,
+			'-ds-touchable': touchable,
 		}"
 		:style="{ color: computedColor }"
 		@mouseover="hovered = true"
@@ -22,21 +22,21 @@
 	>
 		<div
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
-			class="a-iconButton__label"
+			class="ds-iconButton__label"
 			:class="{
-				'-neutral': colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL,
+				'-ds-neutral': colorScheme === ICON_BUTTON_COLOR_SCHEMES.NEUTRAL_LABEL,
 			}"
 		>
 			<slot />
 		</div>
 		<wnl-button
 			ref="button"
-			class="a-iconButton__button"
+			class="ds-iconButton__button"
 			:class="{
-				'-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY,
-				'-hovered': state === ICON_BUTTON_STATES.HOVERED,
-				'-focused': state === ICON_BUTTON_STATES.FOCUSED,
-				'-disabled': state === ICON_BUTTON_STATES.DISABLED,
+				'-ds-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY,
+				'-ds-hovered': state === ICON_BUTTON_STATES.HOVERED,
+				'-ds-focused': state === ICON_BUTTON_STATES.FOCUSED,
+				'-ds-disabled': state === ICON_BUTTON_STATES.DISABLED,
 			}"
 			:radius="radius"
 			:type="buttonType"
@@ -46,12 +46,12 @@
 		>
 			<wnl-icon
 				v-if="state === ICON_BUTTON_STATES.LOADING"
-				class="a-iconButton__icon"
+				class="ds-iconButton__icon"
 				:icon="ICONS.FAD_SPINNER_THIRD"
 				:size="iconSize"
 				spinning
 			/>
-			<wnl-icon v-else class="a-iconButton__icon" :icon="icon" :size="iconSize" />
+			<wnl-icon v-else class="ds-iconButton__icon" :icon="icon" :size="iconSize" />
 		</wnl-button>
 	</div>
 </template>
@@ -70,7 +70,7 @@
 	}
 
 	@if $icon != null {
-		.a-iconButton {
+		.ds-iconButton {
 			&__icon,
 			&__loadingIcon {
 				color: $icon;
@@ -79,11 +79,11 @@
 	}
 }
 
-.a-iconButton {
+.ds-iconButton {
 	$self: &;
 
 	@each $color-name, $color-map in $icon-button-colors {
-		&.-color-#{$color-name} {
+		&.-ds-color-#{$color-name} {
 			@include setIconButtonAdditions(null, map-get($color-map, 'filled', 'icon'));
 
 			#{$self}__label {
@@ -91,23 +91,23 @@
 			}
 
 			&:hover,
-			&.-hovered {
+			&.-ds-hovered {
 				#{$self}__label {
 					color: map-get($color-map, 'filled', 'color-hovered');
 				}
 			}
 
 			&:focus,
-			&.-focused {
+			&.-ds-focused {
 				#{$self}__label {
 					color: map-get($color-map, 'filled', 'color-focused');
 				}
 			}
 
-			&.-disabled {
+			&.-ds-disabled {
 				#{$self}__button {
-					&.-outlined {
-						.a-iconButton__icon {
+					&.-ds-outlined {
+						.ds-iconButton__icon {
 							color: map-get($color-map, 'outlined', 'disabled', 'icon');
 						}
 					}
@@ -118,13 +118,13 @@
 				}
 			}
 
-			.-outlined {
+			.-ds-outlined {
 				@include setIconButtonAdditions(
 					map-get($color-map, 'outlined', 'border'),
 					map-get($color-map, 'outlined', 'icon')
 				);
 
-				&.-disabled {
+				&.-ds-disabled {
 					border-color: map-get($color-map, 'outlined', 'disabled', 'border');
 				}
 			}
@@ -138,7 +138,7 @@
 	transition: color ease-in-out $default-transition-time;
 
 	&:disabled,
-	&.-disabled {
+	&.-ds-disabled {
 		pointer-events: none;
 	}
 
@@ -153,7 +153,7 @@
 		padding: 0;
 		width: $icon-button-medium-size;
 
-		&.-iconOnly.-outlined {
+		&.-ds-iconOnly.-ds-outlined {
 			border: none;
 		}
 	}
@@ -168,41 +168,41 @@
 			display: initial;
 		}
 
-		&.-neutral {
+		&.-ds-neutral {
 			color: $color-neutral-text !important;
 		}
 	}
 
-	/* Exception for scheme neutral-label, it has class `-neutral` deep in a-iconButton__label only for 1 case.
+	/* Exception for scheme neutral-label, it has class `-neutral` deep in ds-iconButton__label only for 1 case.
 	So there is no sense to set it in main loop
 	*/
 	&:hover,
-	&.-hovered {
-		.a-iconButton__label {
-			&.-neutral {
+	&.-ds-hovered {
+		.ds-iconButton__label {
+			&.-ds-neutral {
 				color: $color-neutral-text-hovered !important;
 			}
 		}
 	}
 
 	&:focus,
-	&.-focused {
-		.a-iconButton__label {
-			&.-neutral {
+	&.-ds-focused {
+		.ds-iconButton__label {
+			&.-ds-neutral {
 				color: $color-neutral-text-focused !important;
 			}
 		}
 	}
 
-	&.-disabled {
+	&.-ds-disabled {
 		#{$self}__label {
-			&.-neutral {
+			&.-ds-neutral {
 				color: $color-neutral-text-disabled !important;
 			}
 		}
 	}
 
-	&.-xx-small {
+	&.-ds-xx-small {
 		#{$self}__button {
 			height: $icon-button-xx-small-size;
 			padding: $space-4xs;
@@ -214,7 +214,7 @@
 		}
 	}
 
-	&.-x-small {
+	&.-ds-x-small {
 		#{$self}__button {
 			height: $icon-button-x-small-size;
 			padding: $space-4xs;
@@ -226,7 +226,7 @@
 		}
 	}
 
-	&.-small {
+	&.-ds-small {
 		#{$self}__button {
 			height: $icon-button-small-size;
 			width: $icon-button-small-size;
@@ -237,7 +237,7 @@
 		}
 	}
 
-	&.-large {
+	&.-ds-large {
 		#{$self}__button {
 			height: $icon-button-large-size;
 			width: $icon-button-large-size;
@@ -248,7 +248,7 @@
 		}
 	}
 
-	&.-touchable {
+	&.-ds-touchable {
 		align-items: center;
 		justify-content: center;
 		min-height: $min-touchable-size;
@@ -399,7 +399,7 @@ export default {
 			return Object.values(ICON_BUTTON_COLORS).includes(this.color);
 		},
 		colorClassName(): string {
-			return `-color-${this.color}`;
+			return `-ds-color-${this.color}`;
 		},
 	},
 };

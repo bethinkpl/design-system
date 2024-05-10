@@ -1,17 +1,17 @@
 <template>
 	<div
-		class="chip"
+		class="ds-chip"
 		:class="{
-			'-x-small': size === CHIP_SIZES.X_SMALL,
+			'-ds-x-small': size === CHIP_SIZES.X_SMALL,
 			[colorClassName]: true,
-			'-disabled': state === CHIP_STATES.DISABLED,
-			'-uppercase': isLabelUppercase,
-			'-rounded': radius === CHIP_RADIUSES.ROUNDED,
+			'-ds-disabled': state === CHIP_STATES.DISABLED,
+			'-ds-uppercase': isLabelUppercase,
+			'-ds-rounded': radius === CHIP_RADIUSES.ROUNDED,
 		}"
 		:title="label"
 		:style="{ backgroundColor: colorHex }"
 	>
-		<span v-if="$slots.accessory || leftIcon" class="chip__leftIcon">
+		<span v-if="$slots.accessory || leftIcon" class="ds-chip__leftIcon">
 			<slot name="accessory">
 				<icon
 					:icon="leftIcon"
@@ -19,10 +19,10 @@
 				/>
 			</slot>
 		</span>
-		<span class="chip__label">{{ label }}</span>
+		<span class="ds-chip__label">{{ label }}</span>
 		<icon-button
 			v-if="size !== CHIP_SIZES.X_SMALL && isRemovable"
-			class="chip__remove"
+			class="ds-chip__remove"
 			:touchable="false"
 			:state="
 				state === CHIP_STATES.DISABLED
@@ -136,11 +136,11 @@ $chip-colors: (
 	),
 );
 
-.chip {
+.ds-chip {
 	$self: &;
 
 	@each $color-name, $color-map in $chip-colors {
-		&.-color-#{$color-name} {
+		&.-ds-color-#{$color-name} {
 			background-color: map-get($color-map, 'background');
 
 			#{$self}__leftIcon {
@@ -152,7 +152,7 @@ $chip-colors: (
 				color: map-get($color-map, 'label');
 			}
 
-			&.-disabled {
+			&.-ds-disabled {
 				background-color: map-get(map-get($color-map, 'disabled'), 'background');
 
 				#{$self}__leftIcon {
@@ -172,15 +172,15 @@ $chip-colors: (
 	display: inline-flex;
 	padding: $space-5xs $space-5xs $space-5xs $space-2xs;
 
-	&.-disabled {
+	&.-ds-disabled {
 		pointer-events: none;
 	}
 
-	&.-rounded {
+	&.-ds-rounded {
 		border-radius: $radius-s;
 	}
 
-	&.-uppercase {
+	&.-ds-uppercase {
 		#{$self}__label {
 			@include label-s-default-bold-uppercase;
 		}
@@ -200,7 +200,7 @@ $chip-colors: (
 		margin-right: $space-4xs;
 	}
 
-	&.-x-small {
+	&.-ds-x-small {
 		min-height: $chip-min-height;
 		padding-left: $space-3xs;
 
@@ -214,13 +214,13 @@ $chip-colors: (
 			margin: 0 $space-4xs 0 0;
 		}
 
-		&.-uppercase {
+		&.-ds-uppercase {
 			#{$self}__label {
 				@include label-xs-default-bold-uppercase;
 			}
 		}
 
-		&.-rounded {
+		&.-ds-rounded {
 			border-radius: $radius-xs;
 		}
 	}
@@ -324,9 +324,9 @@ export default {
 	computed: {
 		colorClassName(): string {
 			if (this.colorHex) {
-				return `-color-invertedHex`;
+				return `-ds-color-invertedHex`;
 			}
-			return `-color-${this.color}`;
+			return `-ds-color-${this.color}`;
 		},
 		customStyle() {
 			const styles: { backgroundColor?: string } = {};

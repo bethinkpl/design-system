@@ -21,7 +21,7 @@ const StoryTemplate: StoryFn<typeof ItemsList> = (args) => ({
 export const PrimaryBodywork = StoryTemplate.bind({});
 
 const args = {
-	itemsLists: [{ title: 'Primary Bodywork', list: tokensList, class: 'theme-bodywork' }],
+	itemsLists: [{ title: 'Primary Bodywork', list: tokensList, class: '-ds-theme-bodywork' }],
 	type: TOKENS_TYPES.COLORS,
 } as Args;
 

@@ -1,5 +1,5 @@
 <template>
-	<div class="drawerDivider">
+	<div class="ds-drawerDivider">
 		<ds-divider :prominence="prominence" :size="size" />
 	</div>
 </template>
@@ -7,7 +7,7 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/spacings';
 
-.drawerDivider {
+.ds-drawerDivider {
 	padding: $space-2xs 0;
 }
 </style>

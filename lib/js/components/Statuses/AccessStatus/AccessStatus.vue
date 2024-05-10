@@ -1,7 +1,7 @@
 <template>
-	<div class="accessStatus" :class="statusClass">
-		<icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="accessStatus__icon" />
-		<span class="accessStatus__text">{{ text }}</span>
+	<div class="ds-accessStatus" :class="statusClass">
+		<icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="ds-accessStatus__icon" />
+		<span class="ds-accessStatus__text">{{ text }}</span>
 	</div>
 </template>
 
@@ -10,7 +10,7 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 
-.accessStatus {
+.ds-accessStatus {
 	$self: &;
 
 	align-items: center;
@@ -22,7 +22,7 @@
 		margin-right: $space-4xs;
 	}
 
-	&.-active {
+	&.-ds-active {
 		color: $color-success-text;
 
 		#{$self}__icon {
@@ -30,7 +30,7 @@
 		}
 	}
 
-	&.-suspended {
+	&.-ds-suspended {
 		color: $color-danger-text;
 
 		#{$self}__icon {
@@ -45,8 +45,7 @@
 </style>
 
 <script lang="ts">
-import Icon from '../../Icons/Icon';
-import { ICONS, ICON_SIZES } from '../../Icons/Icon';
+import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
 
 export default {
@@ -78,10 +77,10 @@ export default {
 		},
 		statusClass() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return '-active';
+				return '-ds-active';
 			}
 			if (this.status === COURSE_ACCESS_STATUS.SUSPENDED) {
-				return '-suspended';
+				return '-ds-suspended';
 			}
 			return '';
 		},

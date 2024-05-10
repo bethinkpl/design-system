@@ -1,25 +1,25 @@
 <template>
-	<div class="drawer scrollable-container" :class="{ [positionClassName]: true }">
-		<div v-if="$slots.header && stickyHeader" class="drawer__header -sticky">
+	<div class="ds-drawer scrollable-container" :class="{ [positionClassName]: true }">
+		<div v-if="$slots.header && stickyHeader" class="ds-drawer__header -ds-sticky">
 			<slot name="header" />
 		</div>
 		<div
-			class="drawer__content"
+			class="ds-drawer__content"
 			:class="{
 				'scrollable-container': stickyHeader || stickyFooter,
-				'-scrollable': stickyHeader || stickyFooter,
-				'-fullHeight': stickyFooter,
+				'-ds-scrollable': stickyHeader || stickyFooter,
+				'-ds-fullHeight': stickyFooter,
 			}"
 		>
-			<div v-if="$slots.header && !stickyHeader" class="drawer__header">
+			<div v-if="$slots.header && !stickyHeader" class="ds-drawer__header">
 				<slot name="header" />
 			</div>
 			<slot />
-			<div v-if="$slots.footer && !stickyFooter" class="drawer__footer">
+			<div v-if="$slots.footer && !stickyFooter" class="ds-drawer__footer">
 				<slot name="footer" />
 			</div>
 		</div>
-		<div v-if="$slots.footer && stickyFooter" class="drawer__footer -sticky">
+		<div v-if="$slots.footer && stickyFooter" class="ds-drawer__footer -ds-sticky">
 			<slot name="footer" />
 		</div>
 	</div>
@@ -29,7 +29,7 @@
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/media-queries';
 
-.drawer {
+.ds-drawer {
 	border-color: $color-neutral-border-weak;
 	border-style: solid;
 	border-width: 0;
@@ -39,11 +39,11 @@
 	overflow-y: auto;
 
 	@media #{breakpoint-s()} {
-		&.-positionLeft {
+		&.-ds-positionLeft {
 			border-right-width: 1px;
 		}
 
-		&.-positionRight {
+		&.-ds-positionRight {
 			border-left-width: 1px;
 		}
 	}
@@ -52,18 +52,18 @@
 	&__footer {
 		flex-shrink: 0;
 
-		&.-sticky {
+		&.-ds-sticky {
 			// Display above __content to correctly show shadows in __header and __footer
 			z-index: 1;
 		}
 	}
 
 	&__content {
-		&.-scrollable {
+		&.-ds-scrollable {
 			overflow-y: auto;
 		}
 
-		&.-fullHeight {
+		&.-ds-fullHeight {
 			flex-grow: 1;
 		}
 	}
@@ -97,10 +97,10 @@ export default {
 	computed: {
 		positionClassName(): string {
 			if (this.position === DRAWER_POSITIONS.LEFT) {
-				return '-positionLeft';
+				return '-ds-positionLeft';
 			}
 
-			return '-positionRight';
+			return '-ds-positionRight';
 		},
 	},
 };

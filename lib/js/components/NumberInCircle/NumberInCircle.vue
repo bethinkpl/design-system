@@ -1,8 +1,8 @@
 <template>
 	<div
-		class="a-numberInCircle"
+		class="ds-numberInCircle"
 		:class="{
-			'-medium': medium,
+			'-ds-medium': medium,
 			[colorClass]: true,
 		}"
 	>
@@ -17,7 +17,7 @@
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 
-.a-numberInCircle {
+.ds-numberInCircle {
 	@include label-2xl-default-regular;
 
 	align-items: center;
@@ -36,47 +36,47 @@
 		min-width: $icon-xxl;
 	}
 
-	&.-is1,
-	&.-is6,
-	&.-primary {
+	&.-ds-is1,
+	&.-ds-is6,
+	&.-ds-primary {
 		border-color: $color-primary-border;
 		color: $color-primary-text;
 	}
 
-	&.-is5,
-	&.-is10,
-	&.-neutral {
+	&.-ds-is5,
+	&.-ds-is10,
+	&.-ds-neutral {
 		border-color: $color-neutral-border-heavy;
 		color: $color-neutral-text;
 	}
 
-	&.-is2,
-	&.-is7,
-	&.-success {
+	&.-ds-is2,
+	&.-ds-is7,
+	&.-ds-success {
 		border-color: $color-success-border;
 		color: $color-success-text;
 	}
 
-	&.-danger {
+	&.-ds-danger {
 		border-color: $color-danger-border;
 		color: $color-danger-text;
 	}
 
-	&.-is4,
-	&.-is9,
-	&.-info {
+	&.-ds-is4,
+	&.-ds-is9,
+	&.-ds-info {
 		border-color: $color-info-border;
 		color: $color-info-text;
 	}
 
-	&.-is3,
-	&.-is8,
-	&.-accent {
+	&.-ds-is3,
+	&.-ds-is8,
+	&.-ds-accent {
 		border-color: $color-accent-border;
 		color: $color-accent-text;
 	}
 
-	&.-medium {
+	&.-ds-medium {
 		@include label-m-default-regular;
 
 		height: $icon-l;
@@ -110,13 +110,13 @@ export default {
 	computed: {
 		colorClass() {
 			const colorToClassMap = {
-				[NUMBER_IN_CIRCLE_COLORS.DEFAULT]: `-is${this.index}`,
-				[NUMBER_IN_CIRCLE_COLORS.PRIMARY]: '-primary',
-				[NUMBER_IN_CIRCLE_COLORS.NEUTRAL]: '-neutral',
-				[NUMBER_IN_CIRCLE_COLORS.SUCCESS]: '-success',
-				[NUMBER_IN_CIRCLE_COLORS.DANGER]: '-danger',
-				[NUMBER_IN_CIRCLE_COLORS.INFO]: '-info',
-				[NUMBER_IN_CIRCLE_COLORS.ACCENT]: '-accent',
+				[NUMBER_IN_CIRCLE_COLORS.DEFAULT]: `-ds-is${this.index}`,
+				[NUMBER_IN_CIRCLE_COLORS.PRIMARY]: '-ds-primary',
+				[NUMBER_IN_CIRCLE_COLORS.NEUTRAL]: '-ds-neutral',
+				[NUMBER_IN_CIRCLE_COLORS.SUCCESS]: '-ds-success',
+				[NUMBER_IN_CIRCLE_COLORS.DANGER]: '-ds-danger',
+				[NUMBER_IN_CIRCLE_COLORS.INFO]: '-ds-info',
+				[NUMBER_IN_CIRCLE_COLORS.ACCENT]: '-ds-accent',
 			};
 			return colorToClassMap[this.color];
 		},
