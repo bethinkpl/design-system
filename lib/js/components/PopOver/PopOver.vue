@@ -44,7 +44,6 @@
 				</ds-button>
 			</div>
 
-
 			<template #reference>
 				<slot name="reference" />
 			</template>
