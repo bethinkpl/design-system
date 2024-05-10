@@ -1,21 +1,21 @@
 <template>
 	<div
-		class="tabItem"
+		class="ds-tabItem"
 		:title="label"
 		:class="{
-			'-sizeMedium': size === TAB_ITEM_SIZES.MEDIUM,
-			'-sizeSmall': size === TAB_ITEM_SIZES.SMALL,
-			'-isSelected': isSelected,
+			'-ds-sizeMedium': size === TAB_ITEM_SIZES.MEDIUM,
+			'-ds-sizeSmall': size === TAB_ITEM_SIZES.SMALL,
+			'-ds-isSelected': isSelected,
 		}"
 		@click="$emit('click')"
 	>
 		<ds-icon
 			v-if="icon !== null"
-			class="tabItem__icon"
+			class="ds-tabItem__icon"
 			:icon="icon"
 			:size="ICON_SIZES.X_SMALL"
 		/>
-		<span v-if="label" class="tabItem__label" :class="{ '-ellipsis': labelEllipsis }">{{
+		<span v-if="label" class="ds-tabItem__label" :class="{ '-ds-ellipsis': labelEllipsis }">{{
 			label
 		}}</span>
 	</div>
@@ -27,7 +27,7 @@
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/animations';
 
-.tabItem {
+.ds-tabItem {
 	$self: &;
 
 	align-items: center;
@@ -47,7 +47,7 @@
 		color: $color-neutral-text;
 		transition: color ease-in-out $default-transition-time;
 
-		&.-ellipsis {
+		&.-ds-ellipsis {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -65,7 +65,7 @@
 		}
 	}
 
-	&.-isSelected {
+	&.-ds-isSelected {
 		box-shadow: inset 0 -1px 0 $color-primary-border;
 
 		#{$self}__icon {
@@ -77,14 +77,14 @@
 		}
 	}
 
-	&.-sizeSmall {
+	&.-ds-sizeSmall {
 		@include label-m-default-bold;
 
 		column-gap: $space-4xs;
 		padding: $space-xs;
 	}
 
-	&.-sizeMedium {
+	&.-ds-sizeMedium {
 		@include label-l-default-bold;
 
 		column-gap: $space-2xs;

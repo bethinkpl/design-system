@@ -1,6 +1,6 @@
 <template>
 	<ds-modal
-		class="modalDialog"
+		class="ds-modalDialog"
 		:size="MODAL_SIZES.SMALL"
 		:danger="danger"
 		:content-centered="true"

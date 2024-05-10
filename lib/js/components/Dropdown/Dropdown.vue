@@ -13,16 +13,16 @@
 		@show="onShow"
 	>
 		<div
-			class="popper dsDropdown"
+			class="popper ds-dropdown"
 			:class="{
-				'-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
-				'-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
-				'-radiusBottom -radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
+				'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
+				'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
+				'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
 			}"
 		>
 			<div
-				class="dsDropdown__scrollableWrapper"
-				:class="{ '-heightLimited': !!maxHeight }"
+				class="ds-dropdown__scrollableWrapper"
+				:class="{ '-ds-heightLimited': !!maxHeight }"
 				:style="scrollableWrapperStyles"
 			>
 				<slot :close="close" />
@@ -41,7 +41,7 @@
 @import '../../../../lib/styles/settings/spacings';
 @import '../../../../lib/styles/settings/shadows';
 
-.dsDropdown {
+.ds-dropdown {
 	background-color: $color-default-background;
 	border: 0;
 	border-radius: 0;
@@ -52,12 +52,12 @@
 	padding: 0;
 	text-align: left;
 
-	&.-radiusBottom {
+	&.-ds-radiusBottom {
 		border-bottom-left-radius: $radius-s;
 		border-bottom-right-radius: $radius-s;
 	}
 
-	&.-radiusTop {
+	&.-ds-radiusTop {
 		border-top-left-radius: $radius-s;
 		border-top-right-radius: $radius-s;
 	}
@@ -71,7 +71,7 @@
 	}
 
 	&__scrollableWrapper {
-		&.-heightLimited {
+		&.-ds-heightLimited {
 			overflow-y: auto;
 		}
 	}

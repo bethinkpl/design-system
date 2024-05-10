@@ -1,26 +1,26 @@
 <template>
 	<label
-		class="selectionControl"
+		class="ds-selectionControl"
 		:class="[
-			`-${size}`,
+			`-ds-${size}`,
 			{
-				'-selected': isSelected,
-				'-default': state === SELECTION_CONTROL_STATE.DEFAULT,
-				'-disabled': state === SELECTION_CONTROL_STATE.DISABLED,
-				'-loading': state === SELECTION_CONTROL_STATE.LOADING,
-				'-focused': isFocused,
+				'-ds-selected': isSelected,
+				'-ds-default': state === SELECTION_CONTROL_STATE.DEFAULT,
+				'-ds-disabled': state === SELECTION_CONTROL_STATE.DISABLED,
+				'-ds-loading': state === SELECTION_CONTROL_STATE.LOADING,
+				'-ds-focused': isFocused,
 			},
 		]"
 	>
-		<span class="selectionControl__iconWrapper">
-			<icon :icon="icon" :size="iconSize" class="selectionControl__icon" />
+		<span class="ds-selectionControl__iconWrapper">
+			<icon :icon="icon" :size="iconSize" class="ds-selectionControl__icon" />
 		</span>
-		<span v-if="label" class="selectionControl__labelWrapper">
-			<span class="selectionControl__label">{{ label }}</span>
+		<span v-if="label" class="ds-selectionControl__labelWrapper">
+			<span class="ds-selectionControl__label">{{ label }}</span>
 		</span>
 		<input
 			:type="type === SELECTION_CONTROL_TYPE.CHECKBOX ? 'checkbox' : 'radio'"
-			class="selectionControl__checkbox"
+			class="ds-selectionControl__checkbox"
 			:value="isSelected"
 			@change="onToggle"
 			@focus="onFocus"
@@ -56,11 +56,11 @@ $selection-control-sizes: (
 	),
 );
 
-.selectionControl {
+.ds-selectionControl {
 	$root: &;
 
 	@each $size, $map in $selection-control-sizes {
-		&.-#{$size} {
+		&.-ds-#{$size} {
 			column-gap: map-get($map, 'gap');
 
 			#{$root}__iconWrapper {
@@ -77,9 +77,9 @@ $selection-control-sizes: (
 	display: inline-flex;
 	position: relative;
 
-	&.-default {
+	&.-ds-default {
 		@each $size, $map in $selection-control-sizes {
-			&.-#{$size} {
+			&.-ds-#{$size} {
 				#{$root}__icon::before {
 					bottom: -#{map-get($map, 'iconOutlinePadding')};
 					left: -#{map-get($map, 'iconOutlinePadding')};
@@ -103,7 +103,7 @@ $selection-control-sizes: (
 		&:hover,
 		&:focus,
 		&:active,
-		&.-focused {
+		&.-ds-focused {
 			#{$root}__icon::before {
 				transform: scale(1);
 				// see https://cubic-bezier.com/#.23,1,.32,1
@@ -116,7 +116,7 @@ $selection-control-sizes: (
 				background-color: $color-neutral-background-ghost-hovered;
 			}
 
-			&.-selected {
+			&.-ds-selected {
 				#{$root}__icon::before {
 					background-color: $color-primary-background-ghost-hovered;
 				}
@@ -124,12 +124,12 @@ $selection-control-sizes: (
 		}
 
 		&:focus,
-		&.-focused {
+		&.-ds-focused {
 			#{$root}__icon::before {
 				background-color: $color-neutral-background-ghost-focused;
 			}
 
-			&.-selected {
+			&.-ds-selected {
 				#{$root}__icon::before {
 					background-color: $color-primary-background-ghost-focused;
 				}
@@ -141,7 +141,7 @@ $selection-control-sizes: (
 				background-color: $color-neutral-background-ghost-pressed;
 			}
 
-			&.-selected {
+			&.-ds-selected {
 				#{$root}__icon::before {
 					background-color: $color-primary-background-ghost-pressed;
 				}
@@ -167,7 +167,7 @@ $selection-control-sizes: (
 		position: relative;
 	}
 
-	&.-selected {
+	&.-ds-selected {
 		#{$root}__label {
 			color: $color-neutral-text-heavy;
 		}
@@ -177,25 +177,25 @@ $selection-control-sizes: (
 		}
 	}
 
-	&.-x-small {
+	&.-ds-x-small {
 		#{$root}__label {
 			@include formLabel-s-default-regular;
 		}
 	}
 
-	&.-small {
+	&.-ds-small {
 		#{$root}__label {
 			@include formLabel-m-default-regular;
 		}
 	}
 
-	&.-medium {
+	&.-ds-medium {
 		#{$root}__label {
 			@include formLabel-l-default-regular;
 		}
 	}
 
-	&.-disabled {
+	&.-ds-disabled {
 		#{$root}__label {
 			color: $color-neutral-text-heavy-disabled;
 		}
@@ -204,7 +204,7 @@ $selection-control-sizes: (
 			color: $color-neutral-icon-disabled;
 		}
 
-		&.-selected {
+		&.-ds-selected {
 			#{$root}__label {
 				color: $color-neutral-text-heavy-disabled;
 			}

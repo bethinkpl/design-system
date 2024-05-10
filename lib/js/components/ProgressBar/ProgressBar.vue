@@ -1,59 +1,59 @@
 <template>
 	<div
+		class="ds-progressBar"
 		:class="{
-			progressBar: true,
-			'-compact': layout === PROGRESS_BAR_LAYOUTS.COMPACT,
+			'-ds-compact': layout === PROGRESS_BAR_LAYOUTS.COMPACT,
 		}"
 	>
-		<div v-if="labelText || labelDataExists" class="progressBar__label">
+		<div v-if="labelText || labelDataExists" class="ds-progressBar__label">
 			<div
-				class="progressBar__labelText"
+				class="ds-progressBar__labelText"
 				:class="{
-					'-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM,
-					'-ellipsis': labelTextEllipsis,
+					'-ds-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM,
+					'-ds-ellipsis': labelTextEllipsis,
 				}"
 				:title="labelTextEllipsis ? labelText : null"
 			>
 				{{ labelText }}
 			</div>
-			<div v-if="labelDataExists" class="progressBar__labelDataWrapper">
-				<span v-if="labelData" class="progressBar__labelData">{{ labelData }}</span>
-				<span v-if="labelDataSupporting" class="progressBar__labelDataSupporting">
-					<span class="progressBar__labelDataSeparator">/</span>
+			<div v-if="labelDataExists" class="ds-progressBar__labelDataWrapper">
+				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
+				<span v-if="labelDataSupporting" class="ds-progressBar__labelDataSupporting">
+					<span class="ds-progressBar__labelDataSeparator">/</span>
 					{{ labelDataSupporting }}
 				</span>
-				<span v-if="labelDataSuffix" class="progressBar__labelDataSuffix">{{
+				<span v-if="labelDataSuffix" class="ds-progressBar__labelDataSuffix">{{
 					labelDataSuffix
 				}}</span>
 			</div>
 		</div>
 		<div
-			class="progressBar__barWrapper"
+			class="ds-progressBar__barWrapper"
 			:class="{
-				'-small': size === PROGRESS_BAR_SIZES.SMALL,
-				'-xsmall': size === PROGRESS_BAR_SIZES.XSMALL,
+				'-ds-small': size === PROGRESS_BAR_SIZES.SMALL,
+				'-ds-xsmall': size === PROGRESS_BAR_SIZES.XSMALL,
 			}"
 		>
 			<div
-				class="progressBar__bar"
+				class="ds-progressBar__bar"
 				:class="{
-					'-noRadius': radius === PROGRESS_BAR_RADII.NONE,
+					'-ds-noRadius': radius === PROGRESS_BAR_RADII.NONE,
 				}"
 			>
 				<div
 					v-for="(range, index) in ranges"
 					:key="index"
-					class="progressBar__range"
-					:class="`-${range.color}`"
+					class="ds-progressBar__range"
+					:class="`-ds-${range.color}`"
 					:style="{ left: range.start + '%', width: range.length + '%' }"
 				/>
 			</div>
 			<ds-icon
 				v-if="badgePosition !== null"
-				class="progressBar__badge"
+				class="ds-progressBar__badge"
 				:class="{
-					'-small': size !== PROGRESS_BAR_SIZES.MEDIUM,
-					[`-${badgeColor}`]: true,
+					'-ds-small': size !== PROGRESS_BAR_SIZES.MEDIUM,
+					[`-ds-${badgeColor}`]: true,
 				}"
 				:style="`left: ${badgePosition}%`"
 				:icon="ICONS.FA_LOCATION_DOT"
@@ -140,14 +140,14 @@ $progress-bar-badge-colors: (
 	),
 );
 
-.progressBar {
+.ds-progressBar {
 	$self: &;
 
-	&.-compact {
+	&.-ds-compact {
 		#{$self}__labelText {
 			@include label-m-default-bold;
 
-			&.-medium {
+			&.-ds-medium {
 				@include label-l-default-bold;
 			}
 		}
@@ -161,11 +161,11 @@ $progress-bar-badge-colors: (
 		height: $progress-bar-height;
 		position: relative;
 
-		&.-small {
+		&.-ds-small {
 			height: $progress-bar-s-height;
 		}
 
-		&.-xsmall {
+		&.-ds-xsmall {
 			height: $progress-bar-xs-height;
 
 			#{$self}__bar::after {
@@ -181,7 +181,7 @@ $progress-bar-badge-colors: (
 		overflow: hidden;
 		position: relative;
 
-		&.-noRadius {
+		&.-ds-noRadius {
 			border-radius: 0;
 		}
 
@@ -218,7 +218,7 @@ $progress-bar-badge-colors: (
 			@include label-l-default-bold;
 		}
 
-		&.-medium {
+		&.-ds-medium {
 			@include label-l-default-bold;
 
 			@media #{breakpoint-s()} {
@@ -226,7 +226,7 @@ $progress-bar-badge-colors: (
 			}
 		}
 
-		&.-ellipsis {
+		&.-ds-ellipsis {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -265,7 +265,7 @@ $progress-bar-badge-colors: (
 
 	&__range {
 		@each $class, $color-name in $progress-bar-range-colors {
-			&.-#{$class} {
+			&.-ds-#{$class} {
 				background: $color-name;
 			}
 		}
@@ -277,7 +277,7 @@ $progress-bar-badge-colors: (
 
 	&__badge {
 		@each $class, $colors-map in $progress-bar-badge-colors {
-			&.-#{$class} {
+			&.-ds-#{$class} {
 				background: map-get($colors-map, 'background');
 				color: map-get($colors-map, 'icon');
 			}
@@ -295,7 +295,7 @@ $progress-bar-badge-colors: (
 		top: 50%;
 		width: $progress-bar-badge-size;
 
-		&.-small {
+		&.-ds-small {
 			height: $progress-bar-badge-size-small;
 			margin-left: math.div(-$progress-bar-badge-size-small, 2);
 			margin-top: math.div(-$progress-bar-badge-size-small, 2);

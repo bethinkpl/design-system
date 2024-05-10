@@ -1,5 +1,7 @@
 <template>
-	<div class="selectListSectionTitle" :class="{ '-isUppercase': isUppercase }">{{ label }}</div>
+	<div class="ds-selectListSectionTitle" :class="{ '-ds-isUppercase': isUppercase }">{{
+		label
+	}}</div>
 </template>
 
 <style scoped lang="scss">
@@ -7,13 +9,13 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 
-.selectListSectionTitle {
+.ds-selectListSectionTitle {
 	@include info-m-default-regular;
 
 	color: $color-neutral-text;
 	padding: $space-3xs $space-xs;
 
-	&.-isUppercase {
+	&.-ds-isUppercase {
 		@include info-m-extensive-bold-uppercase;
 
 		padding: $space-xs $space-xs;

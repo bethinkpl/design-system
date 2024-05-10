@@ -10,18 +10,18 @@
 	color: $color;
 
 	&:hover,
-	&.-hovered,
+	&.-ds-hovered,
 	&:active,
-	&.-active {
+	&.-ds-active {
 		color: $color-hovered;
 	}
 
 	&:focus,
-	&.-focused {
+	&.-ds-focused {
 		color: $color-focused;
 	}
 
-	&.-disabled {
+	&.-ds-disabled {
 		color: $color-disabled;
 	}
 }
@@ -39,19 +39,19 @@
 	background-color: $background;
 
 	&:hover,
-	&.-hovered,
+	&.-ds-hovered,
 	&:active,
-	&.-active {
+	&.-ds-active {
 		background-color: $background-hover;
 	}
 
 	&:focus,
-	&.-focused {
+	&.-ds-focused {
 		background-color: $background-focus;
 	}
 
 	&:disabled,
-	&.-disabled {
+	&.-ds-disabled {
 		background-color: $background-disabled;
 	}
 }
@@ -63,12 +63,12 @@
 	$disabled-border: null
 ) {
 	&:disabled,
-	&.-disabled {
+	&.-ds-disabled {
 		background-color: $disabled-background;
 		border-color: $disabled-border;
 		color: $disabled-color;
 
-		.a-button__icon {
+		.ds-button__icon {
 			color: $disabled-icon;
 		}
 	}
@@ -85,16 +85,16 @@
 		border: 1px solid $border;
 	}
 
-	.a-button {
+	.ds-button {
 		&__icon,
 		&__loadingIcon {
 			color: $icon;
 		}
 	}
 
-	&.-hovered,
+	&.-ds-hovered,
 	&:hover {
-		.a-button {
+		.ds-button {
 			&__icon,
 			&__loadingIcon {
 				color: $icon-hovered;
@@ -102,9 +102,9 @@
 		}
 	}
 
-	&.-focused,
+	&.-ds-focused,
 	&:focus {
-		.a-button {
+		.ds-button {
 			&__icon,
 			&__loadingIcon {
 				color: $icon-focused;
@@ -112,8 +112,8 @@
 		}
 	}
 
-	&.-disabled {
-		.a-button {
+	&.-ds-disabled {
+		.ds-button {
 			&__icon,
 			&__loadingIcon {
 				color: $icon-disabled;
@@ -130,13 +130,13 @@ $button-hover-alpha: 0.12;
 $button-focus-alpha: 0.24;
 $button-disabled-alpha: 0.6;
 
-.a-button {
+.ds-button {
 	$self: &;
 
 	@include button-m-default-bold-uppercase;
 
 	@each $color-name, $color-map in $icon-button-colors {
-		&.-color-#{$color-name} {
+		&.-ds-color-#{$color-name} {
 			@include setButtonColor(map-get($color-map, 'filled', 'color'));
 			@include setButtonBackground(
 				map-get($color-map, 'filled', 'background'),
@@ -171,14 +171,14 @@ $button-disabled-alpha: 0.6;
 	user-select: none;
 
 	&:disabled,
-	&.-disabled {
+	&.-ds-disabled {
 		cursor: not-allowed;
 		pointer-events: none;
 	}
 
-	&.-outlined {
+	&.-ds-outlined {
 		@each $color-name, $color-map in $icon-button-colors {
-			&.-color-#{$color-name} {
+			&.-ds-color-#{$color-name} {
 				@include setButtonColor(map-get($color-map, 'outlined', 'color'));
 				@include setButtonBackground(
 					map-get($color-map, 'outlined', 'background'),
@@ -200,7 +200,7 @@ $button-disabled-alpha: 0.6;
 		}
 	}
 
-	&.-large {
+	&.-ds-large {
 		@include button-l-default-bold-uppercase;
 
 		min-height: $button-large-min-height;
@@ -208,9 +208,9 @@ $button-disabled-alpha: 0.6;
 		padding-right: $space-m;
 	}
 
-	&.-text {
+	&.-ds-text {
 		@each $color-name, $color-map in $icon-button-colors {
-			&.-color-#{$color-name} {
+			&.-ds-color-#{$color-name} {
 				@include setButtonColor(
 					map-get($color-map, 'text', 'color'),
 					map-get($color-map, 'text', 'color-hovered'),
@@ -238,28 +238,28 @@ $button-disabled-alpha: 0.6;
 		padding-right: 0;
 	}
 
-	&:not(.-text) {
+	&:not(.-ds-text) {
 		min-width: 100px;
 
-		&.-rounded {
+		&.-ds-rounded {
 			border-radius: $radius-s;
 			padding-left: $space-xs;
 			padding-right: $space-xs;
 
-			&.-large {
+			&.-ds-large {
 				padding-left: $space-s;
 				padding-right: $space-s;
 			}
 		}
 	}
 
-	&.-small {
+	&.-ds-small {
 		@include button-s-default-bold-uppercase;
 
 		min-height: $button-small-min-height;
 	}
 
-	&.-loading {
+	&.-ds-loading {
 		pointer-events: none;
 
 		#{$self}__content {
@@ -267,9 +267,9 @@ $button-disabled-alpha: 0.6;
 		}
 	}
 
-	&.-elevation-x-small,
-	&.-elevation-small {
-		&.-outlined {
+	&.-ds-elevation-x-small,
+	&.-ds-elevation-small {
+		&.-ds-outlined {
 			&::before {
 				background: $color-default-background;
 				border-radius: 100px;
@@ -284,15 +284,15 @@ $button-disabled-alpha: 0.6;
 			}
 		}
 
-		&.-rounded {
+		&.-ds-rounded {
 			&::before {
 				border-radius: $radius-s;
 			}
 		}
 	}
 
-	&.-elevation-small {
-		&:not(.-text) {
+	&.-ds-elevation-small {
+		&:not(.-ds-text) {
 			box-shadow: $shadow-l;
 		}
 	}
@@ -303,11 +303,11 @@ $button-disabled-alpha: 0.6;
 	}
 
 	&__icon {
-		&.-left {
+		&.-ds-left {
 			margin-right: $space-4xs;
 		}
 
-		&.-right {
+		&.-ds-right {
 			margin-left: $space-4xs;
 		}
 	}

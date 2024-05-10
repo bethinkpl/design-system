@@ -1,5 +1,5 @@
 <template>
-	<div class="outlineSectionHeader">{{ title }}</div>
+	<div class="ds-outlineSectionHeader">{{ title }}</div>
 </template>
 
 <style scoped lang="scss">
@@ -7,7 +7,7 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 
-.outlineSectionHeader {
+.ds-outlineSectionHeader {
 	@include info-s-extensive-bold-uppercase;
 
 	color: $color-neutral-text-weak;

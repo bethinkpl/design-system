@@ -1,26 +1,30 @@
 <template>
 	<div
-		class="surveyToggle"
+		class="ds-surveyToggle"
 		:class="{
-			'-primary-selected': isPrimarySelected,
-			'-primary': isPrimary,
-			'-neutral': isNeutral,
-			'-neutral-selected': isNeutralSelected,
-			'-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
-			'-hovered': isHoveredState,
+			'-ds-primary-selected': isPrimarySelected,
+			'-ds-primary': isPrimary,
+			'-ds-neutral': isNeutral,
+			'-ds-neutral-selected': isNeutralSelected,
+			'-ds-disabled': state === SURVEY_TOGGLE_STATES.DISABLED,
+			'-ds-hovered': isHoveredState,
 		}"
 	>
-		<div class="surveyToggle__toggle" @mouseover="hovered = true" @mouseleave="hovered = false">
-			<div class="surveyToggle__ring">
-				<span v-if="isPrimarySelected || isNeutralSelected" class="surveyToggle__icon">
+		<div
+			class="ds-surveyToggle__toggle"
+			@mouseover="hovered = true"
+			@mouseleave="hovered = false"
+		>
+			<div class="ds-surveyToggle__ring">
+				<span v-if="isPrimarySelected || isNeutralSelected" class="ds-surveyToggle__icon">
 					<ds-icon :icon="selectedIcon" :size="ICON_SIZES.X_SMALL" />
 				</span>
-				<span v-else class="surveyToggle__content">
+				<span v-else class="ds-surveyToggle__content">
 					{{ contentText }}
 				</span>
 			</div>
 		</div>
-		<div v-if="label" class="surveyToggle__label">{{ label }}</div>
+		<div v-if="label" class="ds-surveyToggle__label">{{ label }}</div>
 	</div>
 </template>
 
@@ -80,7 +84,7 @@ $survey-toggle-colors: (
 @mixin setSurveyToggleOtherStates($background, $icon: null) {
 	background-color: $background;
 
-	.surveyToggle__icon {
+	.ds-surveyToggle__icon {
 		color: $icon;
 	}
 }
@@ -95,11 +99,11 @@ $survey-toggle-colors: (
 	}
 }
 
-.surveyToggle {
+.ds-surveyToggle {
 	$self: &;
 
 	@each $color-name, $color-map in $survey-toggle-colors {
-		&.-#{$color-name} {
+		&.-ds-#{$color-name} {
 			@include setSurveyToggleNormalState(
 				$self,
 				map-get($color-map, 'background'),
@@ -111,13 +115,13 @@ $survey-toggle-colors: (
 			}
 
 			&:hover,
-			&.-hovered {
+			&.-ds-hovered {
 				#{$self}__toggle {
 					@include setSurveyToggleOtherStates(map-get($color-map, 'background-hovered'));
 				}
 			}
 
-			&.-disabled {
+			&.-ds-disabled {
 				#{$self}__toggle {
 					@include setSurveyToggleOtherStates(
 						map-get($color-map, 'disabled', 'background'),
@@ -161,7 +165,7 @@ $survey-toggle-colors: (
 			box-shadow ease-in-out $default-transition-time;
 		width: $survey-toggle-size;
 
-		.-hovered & {
+		.-ds-hovered & {
 			@include setSurveyToggleOtherStates(
 				map-get($survey-toggle-colors, 'primary', 'background-hovered')
 			);
@@ -181,7 +185,7 @@ $survey-toggle-colors: (
 		width: 100%;
 	}
 
-	&.-disabled {
+	&.-ds-disabled {
 		pointer-events: none;
 	}
 

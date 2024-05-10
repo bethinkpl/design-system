@@ -1,6 +1,6 @@
 <template>
 	<select-list-item
-		class="selectListItemToggle"
+		class="ds-selectListItemToggle"
 		:icon-left="icon"
 		:state="state"
 		:label="label"
@@ -11,9 +11,9 @@
 
 <script lang="ts">
 import {
-	SELECT_LIST_ITEM_STATES,
-	SELECT_LIST_ITEM_SIZES,
 	SELECT_LIST_ITEM_SELECTION_MODE,
+	SELECT_LIST_ITEM_SIZES,
+	SELECT_LIST_ITEM_STATES,
 } from '../SelectListItem/SelectListItem.consts';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import SelectListItem from '../SelectListItem/SelectListItem.vue';

@@ -1,11 +1,11 @@
 <template>
 	<div
-		class="divider"
+		class="ds-divider"
 		:class="{
-			'-vertical': isVertical,
-			'-horizontal': !isVertical,
-			'-strong': prominence === DIVIDER_PROMINENCES.STRONG,
-			'-weak': prominence === DIVIDER_PROMINENCES.WEAK,
+			'-ds-vertical': isVertical,
+			'-ds-horizontal': !isVertical,
+			'-ds-strong': prominence === DIVIDER_PROMINENCES.STRONG,
+			'-ds-weak': prominence === DIVIDER_PROMINENCES.WEAK,
 			[sizeClass]: true,
 		}"
 	/>
@@ -14,40 +14,40 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors/tokens';
 
-.divider {
+.ds-divider {
 	background-color: $color-neutral-divider;
 
-	&.-strong {
+	&.-ds-strong {
 		background-color: $color-neutral-divider-strong;
 	}
 
-	&.-weak {
+	&.-ds-weak {
 		background-color: $color-neutral-divider-weak;
 	}
 
-	&.-vertical {
+	&.-ds-vertical {
 		height: 100%;
 		width: 1px;
 	}
 
-	&.-horizontal {
+	&.-ds-horizontal {
 		height: 1px;
 		width: auto;
 	}
 
-	&.-medium-vertical {
+	&.-ds-medium-vertical {
 		width: 2px;
 	}
 
-	&.-large-vertical {
+	&.-ds-large-vertical {
 		width: 4px;
 	}
 
-	&.-medium-horizontal {
+	&.-ds-medium-horizontal {
 		height: 2px;
 	}
 
-	&.-large-horizontal {
+	&.-ds-large-horizontal {
 		height: 4px;
 	}
 }
@@ -83,8 +83,8 @@ export default {
 		sizeClass() {
 			return {
 				[DIVIDER_SIZES.S]: '',
-				[DIVIDER_SIZES.M]: '-medium-' + (this.isVertical ? 'vertical' : 'horizontal'),
-				[DIVIDER_SIZES.L]: '-large-' + (this.isVertical ? 'vertical' : 'horizontal'),
+				[DIVIDER_SIZES.M]: '-ds-medium-' + (this.isVertical ? 'vertical' : 'horizontal'),
+				[DIVIDER_SIZES.L]: '-ds-large-' + (this.isVertical ? 'vertical' : 'horizontal'),
 			}[this.size];
 		},
 	},

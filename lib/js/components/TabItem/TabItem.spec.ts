@@ -27,12 +27,12 @@ describe('TabItem', () => {
 	it('when prop isSelected is set to false component should not render "isSelected" class', () => {
 		const component = createComponent({ isSelected: false });
 
-		expect(component.find('.-isSelected').exists()).toBe(false);
+		expect(component.find('.-ds-isSelected').exists()).toBe(false);
 	});
 
 	it('when prop isSelected is set to true component should render "isSelected" class', () => {
 		const component = createComponent({ isSelected: true });
 
-		expect(component.find('.-isSelected').exists()).toBe(true);
+		expect(component.find('.-ds-isSelected').exists()).toBe(true);
 	});
 });

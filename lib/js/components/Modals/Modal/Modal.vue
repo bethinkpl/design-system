@@ -1,6 +1,6 @@
 <template>
 	<div class="ds-modal" @click.self="$emit('close-modal')">
-		<div class="ds-modal__wrapper" :class="{ '-small': size === MODAL_SIZES.SMALL }">
+		<div class="ds-modal__wrapper" :class="{ '-ds-small': size === MODAL_SIZES.SMALL }">
 			<wnl-icon-button
 				touchable
 				:icon="ICONS.FA_XMARK"
@@ -12,7 +12,7 @@
 			/>
 			<div class="ds-modal__scrollableWrapper">
 				<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
-				<div class="ds-modal__content" :class="{ '-centered': contentCentered }">
+				<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
 					<div class="ds-modal__header">
 						<feature-icon
 							v-if="headerFeatureIcon"
@@ -25,7 +25,7 @@
 						<h4
 							class="ds-modal__headerTitle"
 							:class="{
-								'-small': headerTitleSize === MODAL_HEADER_TITLE_SIZES.SMALL,
+								'-ds-small': headerTitleSize === MODAL_HEADER_TITLE_SIZES.SMALL,
 							}"
 							>{{ headerTitle }}</h4
 						>
@@ -39,7 +39,7 @@
 					<div
 						v-if="displayFooter"
 						class="ds-modal__footer"
-						:class="{ '-singleColumn': calcSingleColumn }"
+						:class="{ '-ds-singleColumn': calcSingleColumn }"
 					>
 						<div
 							v-if="footerTertiaryButtonText || footerCheckboxText"
@@ -146,7 +146,7 @@ $image-height-small: 140px;
 		position: relative;
 		width: 100%;
 
-		&.-small {
+		&.-ds-small {
 			max-width: $modal-small-width;
 
 			@media #{breakpoint-s()} {
@@ -178,7 +178,7 @@ $image-height-small: 140px;
 			padding: $space-l $space-xl;
 		}
 
-		&.-centered {
+		&.-ds-centered {
 			#{$self}__header,
 			#{$self}__slotContent {
 				text-align: center;
@@ -208,7 +208,7 @@ $image-height-small: 140px;
 			@include displayHeading-xs-default-bold;
 		}
 
-		&.-small {
+		&.-ds-small {
 			@include heading-xl-default-bold;
 		}
 	}
@@ -263,7 +263,7 @@ $image-height-small: 140px;
 			flex-direction: row;
 		}
 
-		&.-singleColumn {
+		&.-ds-singleColumn {
 			#{$self}__footerCtaPrimary {
 				justify-content: center;
 				width: 100%;

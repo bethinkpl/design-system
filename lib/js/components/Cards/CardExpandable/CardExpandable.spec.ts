@@ -57,7 +57,7 @@ describe('CardExpandable', () => {
 	it('should render expander with default text', async () => {
 		const component = createComponent();
 
-		const expander = component.find('.cardExpandable__expander');
+		const expander = component.find('.ds-cardExpandable__expander');
 		expect(expander.exists()).toBe(true);
 		expect(expander.text()).toBe('Rozwiń');
 
@@ -71,7 +71,7 @@ describe('CardExpandable', () => {
 			expanderTextCollapsed: 'expand',
 		});
 
-		const expander = component.find('.cardExpandable__expander');
+		const expander = component.find('.ds-cardExpandable__expander');
 		expect(expander.exists()).toBe(true);
 		expect(expander.text()).toBe('expand');
 		await expander.trigger('click');
@@ -81,7 +81,7 @@ describe('CardExpandable', () => {
 	it('expander click should emit update:isExpanded event', async () => {
 		const component = createComponent();
 
-		const expander = component.find('.cardExpandable__expander');
+		const expander = component.find('.ds-cardExpandable__expander');
 		await expander.trigger('click');
 
 		expect(component.emitted()?.['update:isExpanded']?.[0]).toStrictEqual([true]);
@@ -97,7 +97,7 @@ describe('CardExpandable', () => {
 
 		expect(component.text()).not.toContain(expandedSlotContent);
 
-		const expander = component.find('.cardExpandable__expander');
+		const expander = component.find('.ds-cardExpandable__expander');
 		await expander.trigger('click');
 
 		expect(component.text()).toContain(expandedSlotContent);
@@ -116,7 +116,7 @@ describe('CardExpandable', () => {
 
 		expect(component.text()).toContain(expandedSlotContent);
 
-		const expander = component.find('.cardExpandable__expander');
+		const expander = component.find('.ds-cardExpandable__expander');
 		await expander.trigger('click');
 
 		expect(component.text()).not.toContain(expandedSlotContent);
@@ -132,6 +132,6 @@ describe('CardExpandable', () => {
 		await component.setProps({ isExpanded: true });
 
 		expect(component.text()).toContain(expandedSlotContent);
-		expect(component.find('.cardExpandable__expander').text()).toBe('Zwiń');
+		expect(component.find('.ds-cardExpandable__expander').text()).toBe('Zwiń');
 	});
 });

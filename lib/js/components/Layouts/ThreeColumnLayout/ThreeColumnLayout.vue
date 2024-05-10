@@ -1,38 +1,38 @@
 <template>
-	<div class="threeColumnLayout">
+	<div class="ds-threeColumnLayout">
 		<div
-			class="threeColumnLayout__overlay"
+			class="ds-threeColumnLayout__overlay"
 			:class="{
-				'-visible': rightColumnVisibleMobile || leftColumnVisibleMobile,
+				'-ds-visible': rightColumnVisibleMobile || leftColumnVisibleMobile,
 			}"
 			@click="$emit('overlay-clicked')"
 		/>
 		<div
-			class="threeColumnLayout__leftColumn"
+			class="ds-threeColumnLayout__leftColumn"
 			:class="{
-				'-desktopVisible': leftColumnVisible || leftColumnVisibleMobile,
-				'-mobileVisible': leftColumnVisibleMobile,
+				'-ds-desktopVisible': leftColumnVisible || leftColumnVisibleMobile,
+				'-ds-mobileVisible': leftColumnVisibleMobile,
 			}"
 		>
 			<slot name="leftColumn" />
 		</div>
-		<div class="threeColumnLayout__contentColumn">
+		<div class="ds-threeColumnLayout__contentColumn">
 			<div
-				class="threeColumnLayout__content"
+				class="ds-threeColumnLayout__content"
 				:class="{
-					'-noPadding': contentWithoutPadding,
+					'-ds-noPadding': contentWithoutPadding,
 				}"
 			>
 				<slot />
 			</div>
 		</div>
 		<div
-			class="threeColumnLayout__rightColumn"
+			class="ds-threeColumnLayout__rightColumn"
 			:class="{
-				'-medium': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
-				'-large': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
-				'-desktopVisible': rightColumnVisible || rightColumnVisibleMobile,
-				'-mobileVisible': rightColumnVisibleMobile,
+				'-ds-medium': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+				'-ds-large': rightColumnSize === THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.LARGE,
+				'-ds-desktopVisible': rightColumnVisible || rightColumnVisibleMobile,
+				'-ds-mobileVisible': rightColumnVisibleMobile,
 			}"
 		>
 			<slot name="rightColumn" />
@@ -63,7 +63,7 @@ $right-column-large-l-width: 30vw;
 $right-column-large-l-min-width: $right-column-min-width;
 $right-column-large-l-max-width: $right-column-large-max-width;
 
-.threeColumnLayout {
+.ds-threeColumnLayout {
 	$root: &;
 
 	display: flex;
@@ -84,13 +84,13 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 		z-index: $z-index-overlay;
 
 		@media #{breakpoint-s()} {
-			&.-visible {
+			&.-ds-visible {
 				display: block;
 			}
 		}
 
 		@media #{breakpoint-l()} {
-			&.-visible {
+			&.-ds-visible {
 				display: none;
 			}
 		}
@@ -117,12 +117,12 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 			position: initial;
 			top: initial;
 
-			&.-desktopVisible {
+			&.-ds-desktopVisible {
 				display: initial;
 			}
 		}
 
-		&.-mobileVisible {
+		&.-ds-mobileVisible {
 			display: initial;
 		}
 	}
@@ -138,7 +138,7 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 		max-width: $content-column-max-width;
 		padding: $space-s;
 
-		&.-noPadding {
+		&.-ds-noPadding {
 			padding: 0;
 		}
 	}
@@ -159,16 +159,16 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 			top: initial;
 			z-index: initial;
 
-			&.-desktopVisible {
+			&.-ds-desktopVisible {
 				display: initial;
 			}
 		}
 
-		&.-mobileVisible {
+		&.-ds-mobileVisible {
 			display: initial;
 		}
 
-		&.-medium {
+		&.-ds-medium {
 			@media #{breakpoint-s()} {
 				max-width: $right-column-medium-max-width;
 			}
@@ -180,7 +180,7 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 			}
 		}
 
-		&.-large {
+		&.-ds-large {
 			@media #{breakpoint-s()} {
 				max-width: $right-column-large-max-width;
 			}

@@ -1,18 +1,18 @@
 <template>
 	<div
-		class="iconText"
+		class="ds-iconText"
 		:class="{
-			'-neutralWeak': color === ICON_TEXT_COLORS.NEUTRAL_WEAK,
-			'-neutral': color === ICON_TEXT_COLORS.NEUTRAL,
-			'-xSmall': size === ICON_TEXT_SIZES.X_SMALL,
-			'-small': size === ICON_TEXT_SIZES.SMALL,
-			'-medium': size === ICON_TEXT_SIZES.MEDIUM,
-			'-bold': isLabelBold,
-			'-interactive': isInteractive && state !== ICON_TEXT_STATES.DISABLED,
-			'-disabled': state === ICON_TEXT_STATES.DISABLED,
+			'-ds-neutralWeak': color === ICON_TEXT_COLORS.NEUTRAL_WEAK,
+			'-ds-neutral': color === ICON_TEXT_COLORS.NEUTRAL,
+			'-ds-xSmall': size === ICON_TEXT_SIZES.X_SMALL,
+			'-ds-small': size === ICON_TEXT_SIZES.SMALL,
+			'-ds-medium': size === ICON_TEXT_SIZES.MEDIUM,
+			'-ds-bold': isLabelBold,
+			'-ds-interactive': isInteractive && state !== ICON_TEXT_STATES.DISABLED,
+			'-ds-disabled': state === ICON_TEXT_STATES.DISABLED,
 		}"
 	>
-		<icon v-if="icon" class="iconText__icon" :icon="icon" :size="iconSize" />
+		<icon v-if="icon" class="ds-iconText__icon" :icon="icon" :size="iconSize" />
 		<div>{{ label }}</div>
 	</div>
 </template>
@@ -22,14 +22,14 @@
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/spacings';
 
-.iconText {
+.ds-iconText {
 	$root: &;
 
 	align-items: flex-start;
 	display: flex;
 	pointer-events: none;
 
-	&.-neutralWeak {
+	&.-ds-neutralWeak {
 		color: $color-neutral-text-weak;
 
 		&:hover {
@@ -40,7 +40,7 @@
 			}
 		}
 
-		&.-disabled {
+		&.-ds-disabled {
 			color: $color-neutral-text-weak-disabled;
 
 			#{$root}__icon {
@@ -53,7 +53,7 @@
 		}
 	}
 
-	&.-neutral {
+	&.-ds-neutral {
 		color: $color-neutral-text;
 
 		&:hover {
@@ -64,7 +64,7 @@
 			}
 		}
 
-		&.-disabled {
+		&.-ds-disabled {
 			color: $color-neutral-text-disabled;
 
 			#{$root}__icon {
@@ -77,10 +77,10 @@
 		}
 	}
 
-	&.-xSmall {
+	&.-ds-xSmall {
 		@include label-s-default-regular;
 
-		&.-bold {
+		&.-ds-bold {
 			@include label-s-default-bold;
 		}
 
@@ -89,10 +89,10 @@
 		}
 	}
 
-	&.-small {
+	&.-ds-small {
 		@include label-m-default-regular;
 
-		&.-bold {
+		&.-ds-bold {
 			@include label-m-default-bold;
 		}
 
@@ -101,15 +101,15 @@
 		}
 	}
 
-	&.-medium {
+	&.-ds-medium {
 		@include label-l-default-regular;
 
-		&.-bold {
+		&.-ds-bold {
 			@include label-l-default-bold;
 		}
 	}
 
-	&.-interactive {
+	&.-ds-interactive {
 		cursor: pointer;
 		pointer-events: auto;
 	}

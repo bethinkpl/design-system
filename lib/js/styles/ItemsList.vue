@@ -32,7 +32,8 @@
 
 <style lang="scss" scoped>
 @import '../../styles/settings/spacings';
-
+// This component isn't exported. It's only used in Storybook => no need to prefix class names.
+/* stylelint-disable selector-class-pattern */
 .itemsList {
 	margin: 0 auto;
 	width: 80%;
@@ -57,6 +58,7 @@
 		line-height: var(--typography-line-height-xl);
 	}
 }
+/* stylelint-enable */
 </style>
 
 <script lang="ts">

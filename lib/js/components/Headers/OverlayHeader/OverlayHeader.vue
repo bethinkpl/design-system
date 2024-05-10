@@ -2,10 +2,10 @@
 	<div
 		class="ds-overlayHeader"
 		:class="{
-			'-borderNeutral': borderColor === OVERLAY_HEADER_BORDER_COLORS.NEUTRAL,
-			'-borderSuccess': borderColor === OVERLAY_HEADER_BORDER_COLORS.SUCCESS,
-			'-borderFail': borderColor === OVERLAY_HEADER_BORDER_COLORS.FAIL,
-			'-borderWarning': borderColor === OVERLAY_HEADER_BORDER_COLORS.WARNING,
+			'-ds-borderNeutral': borderColor === OVERLAY_HEADER_BORDER_COLORS.NEUTRAL,
+			'-ds-borderSuccess': borderColor === OVERLAY_HEADER_BORDER_COLORS.SUCCESS,
+			'-ds-borderFail': borderColor === OVERLAY_HEADER_BORDER_COLORS.FAIL,
+			'-ds-borderWarning': borderColor === OVERLAY_HEADER_BORDER_COLORS.WARNING,
 		}"
 	>
 		<div v-if="$slots.accessory" class="ds-overlayHeader__accessory">
@@ -17,7 +17,7 @@
 					v-if="eyebrowText"
 					class="ds-overlayHeader__eyebrowText"
 					:title="eyebrowText"
-					:class="{ '-withRightMargin': $slots.eyebrowAccessory }"
+					:class="{ '-ds-withRightMargin': $slots.eyebrowAccessory }"
 				>
 					{{ eyebrowText }}
 				</div>
@@ -32,13 +32,13 @@
 				<div
 					class="ds-overlayHeader__titleWrapper"
 					:title="title"
-					:class="{ '-interactive': isTitleInteractive }"
+					:class="{ '-ds-interactive': isTitleInteractive }"
 					@click="onTitleClick"
 				>
-					<div class="ds-overlayHeader__title -desktop">
+					<div class="ds-overlayHeader__title -ds-desktop">
 						{{ title }}
 					</div>
-					<div class="ds-overlayHeader__title -mobile">
+					<div class="ds-overlayHeader__title -ds-mobile">
 						{{ shortTitle || title }}
 					</div>
 				</div>
@@ -55,7 +55,7 @@
 				<slot name="actions" />
 			</div>
 			<ds-divider
-				class="ds-overlayHeader__divider -mobileHidden"
+				class="ds-overlayHeader__divider -ds-mobileHidden"
 				:prominence="DIVIDER_PROMINENCES.STRONG"
 				is-vertical
 			/>
@@ -148,7 +148,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
-		&.-withRightMargin {
+		&.-ds-withRightMargin {
 			margin-right: $space-2xs;
 		}
 	}
@@ -170,7 +170,7 @@
 	}
 
 	&__titleWrapper {
-		&.-interactive {
+		&.-ds-interactive {
 			cursor: pointer;
 		}
 	}
@@ -183,7 +183,7 @@
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
-		&.-desktop {
+		&.-ds-desktop {
 			display: none;
 
 			@media #{breakpoint-s()} {
@@ -191,7 +191,7 @@
 			}
 		}
 
-		&.-mobile {
+		&.-ds-mobile {
 			@media #{breakpoint-s()} {
 				display: none;
 			}
@@ -230,7 +230,7 @@
 			margin: $space-4xs $space-2xs;
 		}
 
-		&.-mobileHidden {
+		&.-ds-mobileHidden {
 			display: none;
 
 			@media #{breakpoint-s()} {
@@ -239,19 +239,19 @@
 		}
 	}
 
-	&.-borderNeutral {
+	&.-ds-borderNeutral {
 		border-bottom-color: $color-neutral-border;
 	}
 
-	&.-borderSuccess {
+	&.-ds-borderSuccess {
 		border-bottom-color: $color-success-border;
 	}
 
-	&.-borderFail {
+	&.-ds-borderFail {
 		border-bottom-color: $color-fail-border;
 	}
 
-	&.-borderWarning {
+	&.-ds-borderWarning {
 		border-bottom-color: $color-warning-border;
 	}
 }

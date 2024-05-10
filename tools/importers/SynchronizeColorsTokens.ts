@@ -4,11 +4,11 @@ import { cssFileFirstLine } from './helpers/modifiers';
 import { makeHexShortcut } from './helpers/colorsModifiers';
 import { arrayToFile, jsonToFile } from './helpers/fileWriter';
 import {
-	Dict,
-	ITokenJsonObject,
-	IResultJsonObject,
 	ColorsBinFiles,
 	ColorsConfigFileBin,
+	Dict,
+	IResultJsonObject,
+	ITokenJsonObject,
 } from './helpers/structures';
 
 const ImportColorsRaw = (
@@ -121,7 +121,7 @@ const ImportSingleTokenFile = (
 	let resultVariables: Array<string> = [];
 
 	if (isTheme) {
-		resultVariables.push('.theme-' + themeName + ' {');
+		resultVariables.push('.-ds-theme-' + themeName + ' {');
 	} else {
 		resultVariables.push(':root {');
 	}

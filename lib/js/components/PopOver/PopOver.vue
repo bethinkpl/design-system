@@ -13,24 +13,24 @@
 		:root-class="rootClass"
 	>
 		<div
-			class="popper popOver"
+			class="popper ds-popOver"
 			:class="{
-				'-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
-				'-small': size === POP_OVER_SIZES.SMALL,
-				'-medium': size === POP_OVER_SIZES.MEDIUM,
+				'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
+				'-ds-small': size === POP_OVER_SIZES.SMALL,
+				'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
 			}"
 		>
-			<img v-if="headerImageUrl" class="popOver__image" :src="headerImageUrl" alt="" />
-			<div class="popOver__content">
-				<div v-if="titleText" class="popOver__title"> {{ titleText }} </div>
-				<div v-if="subtitleText" class="popOver__subtitle"> {{ subtitleText }} </div>
-				<div class="popOver__contentSlot" :class="{ '-maxHeight': maxHeight }">
+			<img v-if="headerImageUrl" class="ds-popOver__image" :src="headerImageUrl" alt="" />
+			<div class="ds-popOver__content">
+				<div v-if="titleText" class="ds-popOver__title"> {{ titleText }} </div>
+				<div v-if="subtitleText" class="ds-popOver__subtitle"> {{ subtitleText }} </div>
+				<div class="ds-popOver__contentSlot" :class="{ '-ds-maxHeight': maxHeight }">
 					<slot :close="close" />
 				</div>
 			</div>
 			<ds-button
 				v-if="buttonText"
-				class="popOver__button"
+				class="ds-popOver__button"
 				:type="BUTTON_TYPES.TEXT"
 				:size="BUTTON_SIZES.LARGE"
 				@click="$emit('button-click')"
@@ -52,7 +52,9 @@
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
 
-.popOver {
+.ds-popOver {
+	$self: &;
+
 	background-color: $color-default-background;
 	// override popperjs styles
 	border: none;
@@ -62,34 +64,35 @@
 	flex-direction: column;
 	padding: 0;
 
-	&.-color-neutral :deep(.popper__arrow) {
+	/* stylelint-disable-next-line selector-class-pattern */
+	&.-ds-color-neutral :deep(.popper__arrow) {
 		border-color: $color-neutral-background transparent !important;
 	}
 
-	&.-color-neutral {
+	&.-ds-color-neutral {
 		background-color: $color-neutral-background;
 	}
 
-	.popOver__contentSlot {
+	&__contentSlot {
 		word-break: break-word;
 	}
 
-	.popOver__contentSlot.-maxHeight {
+	&__contentSlot.-ds-maxHeight {
 		overflow: hidden scroll;
 	}
 
-	&.-small {
+	&.-ds-small {
 		width: 320px;
 
-		.popOver__contentSlot.-maxHeight {
+		#{$self}__contentSlot.-ds-maxHeight {
 			max-height: 160px;
 		}
 	}
 
-	&.-medium {
+	&.-ds-medium {
 		width: min(90vw, 460px);
 
-		.popOver__contentSlot.-maxHeight {
+		#{$self}__contentSlot.-ds-maxHeight {
 			max-height: 250px;
 		}
 	}
@@ -97,6 +100,7 @@
 	&[x-placement^='bottom'] {
 		margin-top: $space-s;
 
+		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
 			border-color: transparent transparent $color-inverted-border transparent;
 			border-width: 0 $space-xs $space-s $space-xs;
@@ -110,6 +114,7 @@
 	&[x-placement^='top'] {
 		margin-bottom: $space-s;
 
+		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
 			border-color: $color-inverted-border transparent transparent transparent;
 			border-width: $space-s $space-xs 0 $space-xs;
@@ -123,6 +128,7 @@
 	&[x-placement^='right'] {
 		margin-left: $space-s;
 
+		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
 			border-color: transparent $color-inverted-border transparent transparent;
 			border-width: $space-xs $space-s $space-xs 0;
@@ -136,6 +142,7 @@
 	&[x-placement^='left'] {
 		margin-right: $space-s;
 
+		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
 			border-color: transparent transparent transparent $color-inverted-border;
 			border-width: $space-xs 0 $space-xs $space-s;
@@ -188,8 +195,8 @@ import 'vue-popperjs/dist/vue-popper.css';
 import {
 	POP_OVER_COLORS,
 	POP_OVER_PLACEMENTS,
-	POP_OVER_TRIGGER_ACTIONS,
 	POP_OVER_SIZES,
+	POP_OVER_TRIGGER_ACTIONS,
 } from './PopOver.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 

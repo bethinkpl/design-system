@@ -33,6 +33,8 @@
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 
+// Deprecated component, no need to prefix class names.
+/* stylelint-disable-next-line selector-class-pattern */
 .m-modal {
 	@include text-l-default-regular;
 

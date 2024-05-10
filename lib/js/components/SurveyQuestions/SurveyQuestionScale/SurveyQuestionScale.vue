@@ -1,5 +1,5 @@
 <template>
-	<div class="surveyQuestionScale">
+	<div class="ds-surveyQuestionScale">
 		<ds-modal v-if="showModal" @close-modal="showModal = false">
 			<slot name="explanation" />
 			<template #footer>
@@ -12,11 +12,11 @@
 		</ds-modal>
 		<ds-card>
 			<template #content>
-				<div class="surveyQuestionScale__header">
-					<span class="surveyQuestionScale__title">{{ title }}</span>
+				<div class="ds-surveyQuestionScale__header">
+					<span class="ds-surveyQuestionScale__title">{{ title }}</span>
 					<icon-button
 						v-if="$slots.explanation"
-						class="surveyQuestionScale__explanation"
+						class="ds-surveyQuestionScale__explanation"
 						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_CIRCLE_QUESTION"
 						:size="ICON_SIZES.MEDIUM"
@@ -25,23 +25,23 @@
 					/>
 				</div>
 				<div
-					class="surveyQuestionScale__content"
+					class="ds-surveyQuestionScale__content"
 					:class="{ '-oneContainer': containers === SURVEY_QUESTION_CONTAINERS.ONE }"
 				>
 					<div
-						class="surveyQuestionScale__container"
+						class="ds-surveyQuestionScale__container"
 						:class="{
-							'-oneContainer': containers === SURVEY_QUESTION_CONTAINERS.ONE,
+							'-ds-oneContainer': containers === SURVEY_QUESTION_CONTAINERS.ONE,
 						}"
 					>
 						<template
 							v-for="(option, index) in scaleOptions"
-							:key="`surveyQuestionScale-${index}`"
+							:key="`ds-surveyQuestionScale-${index}`"
 						>
 							<div
-								class="surveyQuestionScale__toggle"
+								class="ds-surveyQuestionScale__toggle"
 								:class="{
-									'-hideOnDesktop':
+									'-ds-hideOnDesktop':
 										option.standalone &&
 										containers === SURVEY_QUESTION_CONTAINERS.TWO,
 								}"
@@ -71,13 +71,13 @@
 							standaloneOptions.length > 0 &&
 							containers === SURVEY_QUESTION_CONTAINERS.TWO
 						"
-						class="surveyQuestionScale__container -justifyEnd -hideOnMobile"
+						class="ds-surveyQuestionScale__container -ds-justifyEnd -ds-hideOnMobile"
 					>
 						<template
 							v-for="(option, index) in standaloneOptions"
-							:key="`surveyQuestionScale-standalone-${index}`"
+							:key="`ds-surveyQuestionScale-standalone-${index}`"
 						>
-							<div class="surveyQuestionScale__toggle">
+							<div class="ds-surveyQuestionScale__toggle">
 								<survey-toggle
 									:meaning="option.meaning"
 									:content-text="option.content"
@@ -100,15 +100,15 @@
 				</div>
 
 				<template v-if="selectedValue !== null && elaborationLabel !== null">
-					<hr class="surveyQuestionScale__separator" />
-					<div class="surveyQuestionScale__elaboration">
-						<label class="surveyQuestionScale__elaborationLabel" :for="inputId">
+					<hr class="ds-surveyQuestionScale__separator" />
+					<div class="ds-surveyQuestionScale__elaboration">
+						<label class="ds-surveyQuestionScale__elaborationLabel" :for="inputId">
 							{{ elaborationLabel }}
 						</label>
 						<survey-question-textarea
 							:id="inputId"
 							:value="elaborationValue"
-							class="surveyQuestionScale__elaborationInput"
+							class="ds-surveyQuestionScale__elaborationInput"
 							:placeholder="placeholder"
 							:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 							@input="$emit('elaboration-change', $event)"
@@ -129,7 +129,7 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 
-.surveyQuestionScale {
+.ds-surveyQuestionScale {
 	&__header {
 		@include heading-m-default-regular;
 
@@ -160,13 +160,13 @@
 			gap: $space-l;
 			padding: $space-s $space-l;
 
-			&:not(.-oneContainer) {
+			&:not(.-ds-oneContainer) {
 				justify-content: center;
 				overflow-x: initial;
 			}
 		}
 
-		&.-oneContainer {
+		&.-ds-oneContainer {
 			overflow-x: auto;
 		}
 	}
@@ -175,7 +175,7 @@
 		display: flex;
 		justify-content: center;
 
-		&.-hideOnDesktop {
+		&.-ds-hideOnDesktop {
 			display: flex;
 
 			@media #{breakpoint-s()} {
@@ -209,15 +209,15 @@
 		flex-direction: row;
 		gap: $space-l;
 
-		&.-justifyEnd {
+		&.-ds-justifyEnd {
 			justify-content: flex-end;
 		}
 
-		&.-oneContainer {
+		&.-ds-oneContainer {
 			justify-content: space-between;
 		}
 
-		&.-hideOnMobile {
+		&.-ds-hideOnMobile {
 			display: none;
 
 			@media #{breakpoint-s()} {

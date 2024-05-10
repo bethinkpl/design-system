@@ -55,32 +55,34 @@ describe('SurveyQuestionScale', () => {
 	it('should render surveyQuestionScale class', () => {
 		const component = createComponent();
 
-		expect(component.find('.surveyQuestionScale').exists()).toBe(true);
+		expect(component.find('.ds-surveyQuestionScale').exists()).toBe(true);
 	});
 
 	it('should render text from title prop', () => {
 		const title = 'Wspłynąłem na suchego przestwór oceanu';
 		const component = createComponent({ title });
 
-		expect(component.find('.surveyQuestionScale__title').text()).toContain(title);
+		expect(component.find('.ds-surveyQuestionScale__title').text()).toContain(title);
 	});
 
 	it("Don't show explanation icon when slot is empty", async () => {
 		const component = createComponent();
 
-		expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(false);
+		expect(component.find('.ds-surveyQuestionScale__explanation').exists()).toBe(false);
 	});
 
 	it('Show explanation icon when slot is not empty', async () => {
 		const component = createComponent({ explanation: 'test' });
 
-		expect(component.find('.surveyQuestionScale__explanation').exists()).toBe(true);
+		expect(component.find('.ds-surveyQuestionScale__explanation').exists()).toBe(true);
 	});
 
 	it('click on survey toggle should emit "selectChange" event', async () => {
 		const component = createComponent({ scaleOptions: OPTIONS });
 
-		await component.find('.surveyQuestionScale__toggle .surveyToggle__toggle').trigger('click');
+		await component
+			.find('.ds-surveyQuestionScale__toggle .ds-surveyToggle__toggle')
+			.trigger('click');
 
 		expect(component.emitted()?.['select-change']?.[0]).toBeDefined();
 	});
@@ -88,6 +90,6 @@ describe('SurveyQuestionScale', () => {
 	it('should render SurveyToggle for each item in scaleOptions prop', () => {
 		const component = createComponent({ scaleOptions: OPTIONS });
 
-		expect(component.findAll('.surveyToggle').length).toBe(OPTIONS.length);
+		expect(component.findAll('.ds-surveyToggle').length).toBe(OPTIONS.length);
 	});
 });

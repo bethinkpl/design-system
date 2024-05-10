@@ -23,11 +23,11 @@ export const Theme = StoryTemplate.bind({});
 
 const args = {
 	itemsLists: [
-		{ title: 'WNL', list: rawWnlColorsList, class: 'theme-wnl', disabled: 'default' },
+		{ title: 'WNL', list: rawWnlColorsList, class: '-ds-theme-wnl', disabled: 'default' },
 		{
 			title: 'Bodywork',
 			list: rawBodyworkColorsList,
-			class: 'theme-bodywork',
+			class: '-ds-theme-bodywork',
 			disabled: 'default',
 		},
 	],

@@ -11,7 +11,7 @@
 
 $fontFamily: 'BlinkMacSystemFont', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
 	'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-
+/* stylelint-disable selector-class-pattern */
 html,
 body {
 	font-family: 'Lato', sans-serif;
@@ -69,3 +69,4 @@ html {
 .modalHeader {
 	@include displayHeading-xs-default-regular;
 }
+/* stylelint-enable */

@@ -1,52 +1,54 @@
 <template>
 	<div
-		class="sectionHeader"
+		class="ds-sectionHeader"
 		:class="{
-			'-expandable': isExpandable,
-			'-horizontal': mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL,
+			'-ds-expandable': isExpandable,
+			'-ds-horizontal': mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL,
 			[sizeClass]: true,
 		}"
 	>
-		<div class="sectionHeader__wrapper">
-			<div class="sectionHeader__main">
-				<div class="sectionHeader__header">
-					<div class="sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
+		<div class="ds-sectionHeader__wrapper">
+			<div class="ds-sectionHeader__main">
+				<div class="ds-sectionHeader__header">
+					<div class="ds-sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
 						<ds-icon
 							v-if="iconLeft"
-							class="sectionHeader__icon"
+							class="ds-sectionHeader__icon"
 							:class="{
-								[`-${iconLeftColor}`]: iconLeftColor,
+								[`-ds-${iconLeftColor}`]: iconLeftColor,
 							}"
 							:icon="iconLeft"
 							:size="iconSize"
 						/>
-						<div class="sectionHeader__titleContainer">
-							<div v-if="eyebrow" class="sectionHeader__eyebrow">{{ eyebrow }}</div>
+						<div class="ds-sectionHeader__titleContainer">
+							<div v-if="eyebrow" class="ds-sectionHeader__eyebrow">{{
+								eyebrow
+							}}</div>
 							<div
-								class="sectionHeader__title"
-								:class="{ '-ellipsis': titleEllipsis }"
+								class="ds-sectionHeader__title"
+								:class="{ '-ds-ellipsis': titleEllipsis }"
 								:title="titleEllipsis ? title : undefined"
 								>{{ title }}
 							</div>
 						</div>
 						<ds-icon
 							v-if="iconRight"
-							class="sectionHeader__icon"
+							class="ds-sectionHeader__icon"
 							:class="{
-								[`-${iconRightColor}`]: iconRightColor,
+								[`-ds-${iconRightColor}`]: iconRightColor,
 							}"
 							:icon="iconRight"
 							:size="iconSize"
 						/>
 						<ds-icon
 							v-if="isExpandable"
-							class="sectionHeader__icon"
+							class="ds-sectionHeader__icon"
 							:icon="ICONS.FA_CHEVRON_DOWN"
 							:rotation="chevronRotation"
 							:size="iconSize"
 						/>
 					</div>
-					<div v-if="info" class="sectionHeader__info">
+					<div v-if="info" class="ds-sectionHeader__info">
 						<ds-icon-button
 							:icon="ICONS.FA_CIRCLE_QUESTION"
 							:size="ICON_BUTTON_SIZES.X_SMALL"
@@ -56,16 +58,16 @@
 						/>
 					</div>
 				</div>
-				<div v-if="$slots.default && showSlot" class="sectionHeader__slotHorizontal">
+				<div v-if="$slots.default && showSlot" class="ds-sectionHeader__slotHorizontal">
 					<slot />
 				</div>
 			</div>
 
 			<div
 				v-if="supportingText"
-				class="sectionHeader__supportingText"
+				class="ds-sectionHeader__supportingText"
 				:class="{
-					'-withoutPadding':
+					'-ds-withoutPadding':
 						!hasDivider ||
 						(!hasDivider && mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL),
 				}"
@@ -74,8 +76,8 @@
 
 			<div
 				v-if="$slots.default && showSlot"
-				class="sectionHeader__slotVertical"
-				:class="{ '-withoutPadding': !hasDivider }"
+				class="ds-sectionHeader__slotVertical"
+				:class="{ '-ds-withoutPadding': !hasDivider }"
 			>
 				<slot />
 			</div>
@@ -91,7 +93,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography/tokens';
 
-.sectionHeader {
+.ds-sectionHeader {
 	$root: &;
 
 	padding: 0;
@@ -117,7 +119,7 @@
 		color: $color-neutral-text;
 		padding: 0 0 $space-xs;
 
-		&.-withoutPadding {
+		&.-ds-withoutPadding {
 			padding: 0;
 		}
 	}
@@ -138,7 +140,7 @@
 		color: $color-neutral-icon;
 	}
 
-	&.-expandable &__header {
+	&.-ds-expandable &__header {
 		cursor: pointer;
 
 		&:hover {
@@ -153,12 +155,12 @@
 	}
 
 	&__icon,
-	&.-size-xx-small &__icon {
+	&.-ds-size-xx-small &__icon {
 		@include coloredIcon();
 	}
 
-	&.-expandable &__header:hover &__icon,
-	&.-expandable.-size-xx-small &__header:hover &__icon {
+	&.-ds-expandable &__header:hover &__icon,
+	&.-ds-expandable.-ds-size-xx-small &__header:hover &__icon {
 		@include coloredIcon('hovered');
 	}
 
@@ -180,7 +182,7 @@
 		color: $color-neutral-text-strong;
 		min-width: 0;
 
-		&.-ellipsis {
+		&.-ds-ellipsis {
 			overflow: hidden;
 			text-overflow: ellipsis;
 			white-space: nowrap;
@@ -198,7 +200,7 @@
 		color: $color-neutral-text-weak;
 	}
 
-	&.-size-large {
+	&.-ds-size-large {
 		#{$root}__main {
 			padding: $space-5xs 0;
 		}
@@ -220,7 +222,7 @@
 		}
 	}
 
-	&.-size-medium {
+	&.-ds-size-medium {
 		#{$root}__header {
 			@include heading-m-default-bold;
 		}
@@ -238,7 +240,7 @@
 		}
 	}
 
-	&.-size-small {
+	&.-ds-size-small {
 		#{$root}__main {
 			padding: $space-5xs 0;
 		}
@@ -256,7 +258,7 @@
 		}
 	}
 
-	&.-size-x-small {
+	&.-ds-size-x-small {
 		#{$root}__main {
 			padding: $space-5xs 0;
 		}
@@ -270,7 +272,7 @@
 		}
 	}
 
-	&.-size-xx-small {
+	&.-ds-size-xx-small {
 		#{$root}__main {
 			padding: $space-5xs 0;
 		}
@@ -291,7 +293,7 @@
 			color: $color-neutral-text-weak;
 		}
 
-		&.-expandable #{$root}__header:hover {
+		&.-ds-expandable #{$root}__header:hover {
 			#{$root}__icon {
 				color: $color-neutral-icon-weak-hovered;
 			}
@@ -319,12 +321,12 @@
 			display: none;
 		}
 
-		&.-withoutPadding {
+		&.-ds-withoutPadding {
 			padding: 0;
 		}
 	}
 
-	&.-horizontal {
+	&.-ds-horizontal {
 		#{$root}__slotHorizontal {
 			display: block;
 		}
@@ -454,7 +456,7 @@ export default {
 			return this.isExpanded || !this.hideSlotWhenCollapsed;
 		},
 		sizeClass(): string {
-			return `-size-${this.size}`;
+			return `-ds-size-${this.size}`;
 		},
 		iconSize(): string {
 			if (

@@ -1,9 +1,9 @@
 <template>
 	<div
-		class="well"
+		class="ds-well"
 		:class="{
-			'-medium': WELL_PADDINGS.MEDIUM === padding,
-			'-small': WELL_PADDINGS.SMALL === padding,
+			'-ds-medium': WELL_PADDINGS.MEDIUM === padding,
+			'-ds-small': WELL_PADDINGS.SMALL === padding,
 		}"
 	>
 		<slot />
@@ -15,15 +15,15 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
 
-.well {
+.ds-well {
 	background-color: $color-neutral-background;
 	border-radius: $radius-m;
 
-	&.-medium {
+	&.-ds-medium {
 		padding: $space-s;
 	}
 
-	&.-small {
+	&.-ds-small {
 		padding: $space-xs;
 	}
 }

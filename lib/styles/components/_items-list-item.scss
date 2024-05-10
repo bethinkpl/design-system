@@ -1,5 +1,7 @@
 @import '../../styles/settings/spacings';
 
+// This component isn't exported. It's only used in Storybook => no need to prefix class names.
+/* stylelint-disable selector-class-pattern */
 .itemsListItem {
 	width: 100%;
 
@@ -54,3 +56,4 @@
 		width: 50%;
 	}
 }
+/* stylelint-enable */

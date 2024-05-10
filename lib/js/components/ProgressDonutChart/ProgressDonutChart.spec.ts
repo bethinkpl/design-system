@@ -54,8 +54,8 @@ describe('ProgressDonutChart', () => {
 			ranges: rangesMock,
 		});
 
-		expect(component.find('.progressDonutChart__loader').exists()).toBeTruthy();
-		expect(component.find('.progressDonutChart__track').exists()).toBeFalsy();
+		expect(component.find('.ds-progressDonutChart__loader').exists()).toBeTruthy();
+		expect(component.find('.ds-progressDonutChart__track').exists()).toBeFalsy();
 	});
 
 	it('should render icon when done', async () => {
@@ -75,9 +75,9 @@ describe('ProgressDonutChart', () => {
 			ranges: rangesMock,
 		});
 
-		expect(component.find('.progressDonutChart__track.-success').exists()).toBeTruthy();
-		expect(component.find('.progressDonutChart__labelText').exists()).toBeTruthy();
-		expect(component.find('.progressDonutChart__labelText').text()).toBe('+test');
+		expect(component.find('.ds-progressDonutChart__track.-ds-success').exists()).toBeTruthy();
+		expect(component.find('.ds-progressDonutChart__labelText').exists()).toBeTruthy();
+		expect(component.find('.ds-progressDonutChart__labelText').text()).toBe('+test');
 	});
 
 	it('should calculate track rotation based on start and length', () => {
@@ -86,7 +86,7 @@ describe('ProgressDonutChart', () => {
 			state: PROGRESS_DONUT_CHART_STATES.DEFAULT,
 			ranges: rangesMock,
 		});
-		const tracks = component.findAll('.progressDonutChart__track');
+		const tracks = component.findAll('.ds-progressDonutChart__track');
 		expect(tracks.length).toBe(3);
 		expect(tracks.at(0)?.attributes('style')).toBe('--length: 30; transform: rotate(90deg);');
 		expect(tracks.at(1)?.attributes('style')).toBe('--length: 25; transform: rotate(198deg);');
