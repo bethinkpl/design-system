@@ -1,7 +1,6 @@
 import 'design-system/lib/styles/_normalize.scss';
 import 'design-system/lib/styles/design-system.scss';
 import 'design-system/lib/styles/storybook.scss';
-import 'primevue/resources/themes/aura-light-green/theme.css'
 
 import { useArgs } from '@storybook/client-api';
 import { initialize } from 'design-system/lib/js/icons/fontawesome';

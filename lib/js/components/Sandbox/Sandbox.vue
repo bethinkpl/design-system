@@ -18,6 +18,7 @@ import PrimeButton from 'primevue/button';
 import Calendar from 'primevue/calendar';
 import FloatLabel from 'primevue/floatlabel';
 import InputSwitch from 'primevue/inputswitch';
+import 'primevue/resources/themes/saga-blue/theme.css';
 
 export default {
 	name: 'Sandbox',
