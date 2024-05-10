@@ -93,6 +93,7 @@ export { default as BasicRichListItem } from './components/RichList/BasicRichLis
 export { default as GroupRichListItem } from './components/RichList/GroupRichListItem';
 export { default as Switch } from './components/Switch';
 export * from './components/Switch/Switch.consts';
+export { default as Sandbox } from './components/Sandbox';
 
 export {
 	initialize as initializeIcons,

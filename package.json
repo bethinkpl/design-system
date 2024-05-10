@@ -82,5 +82,8 @@
     "vue-loader": "17.0.0",
     "vue-popperjs": "bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
     "vue-svg-loader": "0.17.0-beta.2"
+  },
+  "dependencies": {
+    "primevue": "^3.52.0"
   }
 }
