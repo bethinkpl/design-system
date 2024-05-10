@@ -213,7 +213,7 @@ declare const _default: {
     };
     computed: {
         icon(): import("@fortawesome/fontawesome-common-types").IconDefinition;
-        statusClass(): "" | "-active";
+        statusClass(): "" | "-ds-active";
         text(): "Blokada dostępu" | "Blokada zakończona";
     };
 };

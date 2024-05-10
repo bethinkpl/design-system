@@ -213,7 +213,7 @@ declare const _default: {
     };
     computed: {
         icon(): import("@fortawesome/fontawesome-common-types").IconDefinition;
-        statusClass(): "" | "-active" | "-suspended";
+        statusClass(): "" | "-ds-active" | "-ds-suspended";
         text(): "Aktywny" | "Oczekujący" | "Zakończony" | "Zawieszony";
     };
 };
