@@ -1,6 +1,40 @@
 <template>
+	Form:
+	<el-form ref="myForm" :model="form" :rules="rules" scroll-to-error label-position="top">
+		<el-form-item label="Text" prop="text">
+			<el-input v-model="form.text" placeholder="Please input"/>
+		</el-form-item>
+		<el-form-item label="Password" prop="password">
+			<el-input
+				v-model="form.password"
+				type="password"
+				placeholder="Please input password"
+				show-password
+				onpaste="return false;"
+			/>
+		</el-form-item>
+		<el-form-item label="Daterange with single calendar" prop="daterange">
+			<custom-daterange-picker :form="form" />
+		</el-form-item>
+		<hr/>
+		<el-form-item label="Cascader" prop="cascader">
+			<el-cascader
+				size="small"
+				v-model="form.cascader"
+				:options="options"
+			/>
+		</el-form-item>
+		<hr/>
+		<el-form-item>
+			<el-button type="primary" @click="onSubmit">Submit</el-button>
+		</el-form-item>
+	</el-form>
+	<pre>{{ JSON.stringify(form) }}</pre>
+	<hr/>
+	<hr/>
+	<hr/>
 	<el-button>Test</el-button>
-	<hr />
+	<hr/>
 	<el-dropdown class="m-4" type="primary">
 		<el-button type="primary" plain>
 			Dropdown List
@@ -15,35 +49,11 @@
 			</el-dropdown-menu>
 		</template>
 	</el-dropdown>
-	<hr />
-	<hr />
-	Form:
-	<el-form ref="myForm" :model="form" :rules="rules" scroll-to-error>
-		<el-form-item label="Text" prop="text">
-			<el-input v-model="form.text" placeholder="Please input" />
-		</el-form-item>
-		<hr />
-		<el-form-item label="Cascader" prop="cascader">
-			<el-cascader
-				size="small"
-				v-model="form.cascader"
-				:options="options"
-			/>
-		</el-form-item>
-		<hr />
-		<el-form-item label="Switch" prop="switch">
-			<el-switch v-model="form.switch" />
-		</el-form-item>
-		<el-form-item>
-			<el-button type="primary" @click="onSubmit">Submit</el-button>
-		</el-form-item>
-		<my-component :form="form" />
-	</el-form>
-	<pre>{{ JSON.stringify(form) }}</pre>
 </template>
 
 <script>
 
+import 'element-plus/es/components/date-picker/style/css';
 import 'element-plus/es/components/dropdown/style/css';
 import 'element-plus/es/components/dropdown-item/style/css';
 import 'element-plus/es/components/cascader/style/css';
@@ -52,14 +62,30 @@ import 'element-plus/es/components/button/style/css';
 import 'element-plus/es/components/form/style/css';
 import 'element-plus/es/components/form-item/style/css';
 
-import { ElButton, ElCascader, ElInput, ElDropdown, ElDropdownItem, ElDropdownMenu, ElSwitch, ElForm, ElFormItem } from 'element-plus';
-import { reactive } from 'vue';
+import 'element-plus/es/components/form-item/style/css';
+
+import {
+	ElButton,
+	ElCascader,
+	ElInput,
+	ElDatePicker,
+	ElDropdown,
+	ElDropdownItem,
+	ElDropdownMenu,
+	ElSwitch,
+	ElForm,
+	ElFormItem
+} from 'element-plus';
+import {reactive} from 'vue';
 import MyComponent from "./MyComponent.vue";
+import CustomDaterangePicker from "./CustomDaterangePicker.vue";
 
 export default {
 	name: 'Sandbox',
 	components: {
+		CustomDaterangePicker,
 		ElButton,
+		ElDatePicker,
 		ElDropdown,
 		ElDropdownItem,
 		ElDropdownMenu,
@@ -73,22 +99,26 @@ export default {
 	data() {
 		const rules = reactive({
 			text: [
-				{ required: true, message: 'Please input Activity name', trigger: 'blur' },
-				{ min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+				{required: true, message: 'Please input Activity name', trigger: 'blur'},
+				{min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur'},
 			],
-			cascader: [{ required: true, message: 'Please select a cascader', trigger: 'change' }],
-			switch: [{ required: true, message: 'Please select a switch', trigger: 'change' }],
-			secondSwitch: [{ required: true, message: 'Please select a random', trigger: 'change' }],
+			daterange: [
+				{required: true, message: 'Please select daterange', trigger: 'blur'},
+			],
+			cascader: [{required: true, message: 'Please select a cascader', trigger: 'change'}],
+			switch: [{required: true, message: 'Please select a switch', trigger: 'change'}],
+			secondSwitch: [{required: true, message: 'Please select a random', trigger: 'change'}],
 			secondText: [
-				{ required: true, message: 'Please input Activity name', trigger: 'blur' },
-				{ min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' },
+				{required: true, message: 'Please input Activity name', trigger: 'blur'},
+				{min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur'},
 			],
 		});
 		return {
 			rules,
 			form: reactive({
+				daterange: null,
 				text: '',
-				cascader: ['tree'],
+				cascader: null,
 				switch: false,
 				secondSwitch: true,
 				secondText: '1',
