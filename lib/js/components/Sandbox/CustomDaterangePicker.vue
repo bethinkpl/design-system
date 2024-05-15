@@ -5,14 +5,11 @@
 			popper-class="ds-daterange-popper-single-picker"
 			v-model="form.daterange"
 			type="daterange"
-			range-separator="To"
-			start-placeholder="Start date"
-			end-placeholder="End date"
 			:prefix-icon="() => {}"
 			:unlink-panels="true"
 		>
 			<template #range-separator>
-				<div @click="$refs.daterangePickerRef.handleOpen()">
+				<div>
 					Custom trigger: {{form.daterange || 'data nie wybrana' }}
 				</div>
 			</template>
