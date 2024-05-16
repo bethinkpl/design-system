@@ -1,7 +1,7 @@
 <template>
 	<form class="ds-form" @submit.prevent="onSubmit">
 		<slot />
-		<prime-button label="Submit" @click="onSubmit" />
+		<prime-button label="Submit" type="submit" />
 		<small><pre>{{JSON.stringify(v$)}}</pre></small>
 	</form>
 </template>
