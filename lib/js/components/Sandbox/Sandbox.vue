@@ -1,5 +1,4 @@
 <template>
-	Form:
 	<el-form ref="myForm" :model="form" :rules="rules" scroll-to-error label-position="top">
 		<el-form-item label="Text" prop="text">
 			<el-input v-model="form.text" placeholder="Please input"/>
@@ -16,7 +15,6 @@
 		<el-form-item label="Daterange with single calendar" prop="daterange">
 			<custom-daterange-picker :form="form" />
 		</el-form-item>
-		<hr/>
 		<el-form-item label="Cascader" prop="cascader">
 			<el-cascader
 				size="small"
@@ -30,25 +28,6 @@
 		</el-form-item>
 	</el-form>
 	<pre>{{ JSON.stringify(form) }}</pre>
-	<hr/>
-	<hr/>
-	<hr/>
-	<el-button>Test</el-button>
-	<hr/>
-	<el-dropdown class="m-4" type="primary">
-		<el-button type="primary" plain>
-			Dropdown List
-		</el-button>
-		<template #dropdown>
-			<el-dropdown-menu>
-				<el-dropdown-item>Action 1</el-dropdown-item>
-				<el-dropdown-item>Action 2</el-dropdown-item>
-				<el-dropdown-item>Action 3</el-dropdown-item>
-				<el-dropdown-item>Action 4</el-dropdown-item>
-				<el-dropdown-item>Action 5</el-dropdown-item>
-			</el-dropdown-menu>
-		</template>
-	</el-dropdown>
 </template>
 
 <script>

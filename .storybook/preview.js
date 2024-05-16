@@ -5,6 +5,10 @@ import 'design-system/lib/styles/storybook.scss';
 import { useArgs } from '@storybook/client-api';
 import { initialize } from 'design-system/lib/js/icons/fontawesome';
 
+import ElementPlus, { dayjs } from 'element-plus'
+import pl from 'element-plus/es/locale/lang/pl'
+import {app} from "@storybook/vue3";
+
 const customViewports = {
 	mobile: {
 		name: 'Breakpoint mobile',
@@ -79,6 +83,30 @@ const customViewports = {
 		type: 'tablet',
 	},
 };
+
+dayjs.en.weekStart = 1
+
+app.use(ElementPlus, {
+	locale: {
+		...pl,
+		el: {
+			...pl.el,
+			datepicker: {
+				...pl.el.datepicker,
+				weeks: {
+					mon: "pn.",
+					tue: "wt.",
+					wed: "śr.",
+					thu: "czw.",
+					fri: "pt.",
+					sat: "sob.",
+					sun: "nd."
+				},
+				year: '',
+			},
+		},
+	},
+});
 
 export const parameters = {
 	viewport: { viewports: customViewports },
