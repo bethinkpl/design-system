@@ -11,23 +11,15 @@
 </style>
 
 <script lang="ts">
-import PrimeButton from 'primevue/button';
-import Calendar from 'primevue/calendar';
-import FloatLabel from 'primevue/floatlabel';
-import InputSwitch from 'primevue/inputswitch';
 import 'primevue/resources/themes/saga-blue/theme.css';
 
 import DsForm from './Form.vue';
 import DsInputText from './InputText.vue';
-import {required} from "@vuelidate/validators";
+import { required } from "@vuelidate/validators";
 
 export default {
 	name: 'Sandbox',
 	components: {
-		Calendar,
-		FloatLabel,
-		PrimeButton,
-		InputSwitch,
 		DsInputText,
 		DsForm,
 	},

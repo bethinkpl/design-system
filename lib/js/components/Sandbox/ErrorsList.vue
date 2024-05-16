@@ -18,9 +18,6 @@
 </style>
 
 <script lang="ts">
-import PrimeInputText from "primevue/inputtext";
-import FloatLabel from 'primevue/floatlabel';
-
 export default {
 	name: 'ErrorsList',
 	inject: ['v$'],
