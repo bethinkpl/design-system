@@ -7,7 +7,7 @@
 			'-ds-rounded': radius === SWITCH_RADIUSES.ROUNDED,
 			'-ds-disabled': state === SWITCH_STATE.DISABLED,
 		}"
-		@click="onSwitch(SWITCH_SIDE.RIGHT)"
+		@click="onSwitch"
 	>
 		<div
 			class="ds-switch__item -ds-left"
@@ -338,12 +338,12 @@ export default {
 		},
 	},
 	methods: {
-		onSwitch(side: SwitchSelection) {
+		onSwitch() {
 			if (this.state === SWITCH_STATE.DISABLED) {
 				return;
 			}
 			this.currentSide = this.oppositeSide;
-			this.$emit('update:selectedSide', side);
+			this.$emit('update:selectedSide', this.currentSide);
 		},
 	},
 };
