@@ -30,8 +30,9 @@
 	&__loader {
 		$STRIPE_COLORS: (
 			neutralHeavy: $color-neutral-border-heavy,
-			neautralStrong: $color-neutral-border-strong,
-			success: $color-success-border,
+			/* stylelint-disable-line value-keyword-case */ neautralStrong:
+				$color-neutral-border-strong,
+			/* stylelint-disable-line value-keyword-case */ success: $color-success-border,
 			warning: $color-warning-border,
 			danger: $color-danger-border,
 			info: $color-info-border,
