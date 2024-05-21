@@ -69,6 +69,8 @@ export { default as SelectListSectionTitle } from './components/SelectList/Selec
 export * from './components/SelectList/SelectListItem/SelectListItem.consts';
 export { default as SelectionTile } from './components/SelectionTile';
 export * from './components/SelectionTile';
+export { default as Stripe } from './components/Stripe';
+export * from './components/Stripe';
 export { default as PopOver } from './components/PopOver';
 export * from './components/PopOver/PopOver.consts';
 export { default as Dropdown } from './components/Dropdown';
