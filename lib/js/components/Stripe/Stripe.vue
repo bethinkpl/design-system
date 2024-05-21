@@ -13,8 +13,8 @@
 
 .ds-stripe {
 	background-color: $color-neutral-background;
+	display: inline-flex;
 	width: 100%;
-	display: flex;
 
 	&.-ds-size-x-small {
 		height: 2px;
@@ -29,8 +29,6 @@
 	}
 
 	&__loader {
-		width: 0;
-
 		$STRIPE_COLORS: (
 			neutralHeavy: $color-neutral-border-heavy,
 			neautralStrong: $color-neutral-border-strong,
@@ -45,6 +43,8 @@
 				background-color: $colorValue;
 			}
 		}
+
+		width: 0;
 	}
 }
 </style>
