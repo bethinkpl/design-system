@@ -7,6 +7,7 @@
 			'-ds-rounded': radius === SWITCH_RADIUSES.ROUNDED,
 			'-ds-disabled': state === SWITCH_STATE.DISABLED,
 		}"
+		@click="onSwitch"
 	>
 		<div
 			class="ds-switch__item -ds-left"
@@ -16,7 +17,6 @@
 				'-ds-selected': currentSide === SWITCH_SIDE.LEFT,
 			}"
 			:title="labelLeft"
-			@click="onSwitch(SWITCH_SIDE.LEFT)"
 		>
 			<ds-icon
 				v-if="iconLeft"
@@ -36,7 +36,6 @@
 				'-ds-selected': currentSide === SWITCH_SIDE.RIGHT,
 			}"
 			:title="labelRight"
-			@click="onSwitch(SWITCH_SIDE.RIGHT)"
 		>
 			<ds-icon
 				v-if="iconRight"
@@ -84,6 +83,10 @@ $switch-transition: all $default-transition-time ease-out;
 	display: inline-flex;
 	max-width: 100%;
 	position: relative;
+
+	/* Prevent text select */
+	-webkit-user-select: none; /* Safari */
+	user-select: none;
 
 	&__icon {
 		color: $color-neutral-icon;
@@ -317,6 +320,12 @@ export default {
 		currentLabel() {
 			return this.currentSide === SWITCH_SIDE.LEFT ? this.labelLeft : this.labelRight;
 		},
+		oppositeSide() {
+			if (this.currentSide === SWITCH_SIDE.LEFT) {
+				return SWITCH_SIDE.RIGHT;
+			}
+			return SWITCH_SIDE.LEFT;
+		},
 	},
 	watch: {
 		selectedSide: {
@@ -329,12 +338,12 @@ export default {
 		},
 	},
 	methods: {
-		onSwitch(side: SwitchSelection) {
-			if (this.state === SWITCH_STATE.DISABLED || this.currentSide === side) {
+		onSwitch() {
+			if (this.state === SWITCH_STATE.DISABLED) {
 				return;
 			}
-			this.currentSide = side;
-			this.$emit('update:selectedSide', side);
+			this.currentSide = this.oppositeSide;
+			this.$emit('update:selectedSide', this.currentSide);
 		},
 	},
 };
