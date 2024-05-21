@@ -1,6 +1,8 @@
 import Card from './Card.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { CARD_BORDER_COLORS, CARD_BORDER_POSITIONS, CARD_BORDER_SIZES } from './Card.consts';
+import { STRIPE_LOADER_COLORS } from '../../StripeLoadder';
 
 export default {
 	title: 'Components/Cards/Card',
@@ -12,8 +14,16 @@ const StoryTemplate: StoryFn<typeof Card> = (args) => ({
 	setup() {
 		return { ...args };
 	},
-	template: `
-			<card :header-has-padding="headerHasPadding" :divider-under-header="dividerUnderHeader">
+	template: `<card :header-has-padding="headerHasPadding" 
+			  :divider-under-header="dividerUnderHeader"
+			  :has-border="hasBorder"
+			  :border-position="borderPosition"
+			  :border-size="borderSize"
+			  :border-color="borderColor"
+			  :has-stripe-loader="hasStripeLoader"
+			  :stripe-loader-color="stripeLoaderColor"
+			  :stripe-loader-time="stripeLoaderTime"
+		>
 			<template v-if="header" #header>
 				<div v-html="header" />
 			</template>
@@ -23,7 +33,7 @@ const StoryTemplate: StoryFn<typeof Card> = (args) => ({
 			<template v-if="footer" #footer>
 				<div v-html="footer" />
 			</template>
-			</card>`,
+		</card>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -31,6 +41,13 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	headerHasPadding: false,
 	dividerUnderHeader: false,
+	hasBorder: false,
+	borderPosition: CARD_BORDER_POSITIONS.TOP,
+	borderSize: CARD_BORDER_SIZES.MEDIUM,
+	borderColor: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
+	hasStripeLoader: false,
+	stripeLoaderColor: STRIPE_LOADER_COLORS.NEUTRAL_HEAVY,
+	stripeLoaderTime: '0',
 } as Args;
 
 const argTypes = {
@@ -40,6 +57,22 @@ const argTypes = {
 		defaultValue: 'content slot that supports <b>HTML markup</b>',
 	},
 	footer: { control: { type: 'text' }, defaultValue: 'footer slot' },
+	borderPosition: {
+		control: { type: 'select', options: Object.values(CARD_BORDER_POSITIONS) },
+		defaultValue: CARD_BORDER_POSITIONS.TOP,
+	},
+	borderSize: {
+		control: { type: 'select', options: Object.values(CARD_BORDER_SIZES) },
+		defaultValue: CARD_BORDER_SIZES.MEDIUM,
+	},
+	borderColor: {
+		control: { type: 'select', options: Object.values(CARD_BORDER_COLORS) },
+		defaultValue: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
+	},
+	stripeLoaderColor: {
+		control: { type: 'select', options: Object.values(STRIPE_LOADER_COLORS) },
+		defaultValue: STRIPE_LOADER_COLORS.NEUTRAL_HEAVY,
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

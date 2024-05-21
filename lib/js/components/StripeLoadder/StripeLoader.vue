@@ -99,6 +99,10 @@ export default {
 		},
 	},
 	mounted() {
+		if (this.time === '0') {
+			this.width = 100;
+			return;
+		}
 		// without postponing the width change, the transition won't work,
 		// and the stripe is 100% width right away
 		setTimeout(() => {
