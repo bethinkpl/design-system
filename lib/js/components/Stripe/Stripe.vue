@@ -1,7 +1,7 @@
 <template>
 	<div class="ds-stripe" :class="[sizeClassName]">
 		<span
-			:class="['ds-stripe__loader', `-ds-border-color-${color.toLowerCase()}`]"
+			:class="['ds-stripe__loader', `-ds-border-color-${color}`]"
 			:style="stripeLoaderStyles"
 		/>
 	</div>
@@ -27,22 +27,31 @@
 	}
 
 	&__loader {
-		$STRIPE_COLORS: (
-			neutralheavy: $color-neutral-border-heavy,
-			neautralstrong: $color-neutral-border-strong,
-			success: $color-success-border,
-			warning: $color-warning-border,
-			danger: $color-danger-border,
-			info: $color-info-border,
-		);
+		width: 0;
 
-		@each $colorName, $colorValue in $STRIPE_COLORS {
-			&.-ds-border-color-#{$colorName} {
-				background-color: $colorValue;
-			}
+		&.-ds-border-color-neutralHeavy {
+			background-color: $color-neutral-border-heavy;
 		}
 
-		width: 0;
+		&.-ds-border-color-neutralStrong {
+			background-color: $color-neutral-border-strong;
+		}
+
+		&.-ds-border-color-success {
+			background-color: $color-success-border;
+		}
+
+		&.-ds-border-color-warning {
+			background-color: $color-warning-border;
+		}
+
+		&.-ds-border-color-danger {
+			background-color: $color-danger-border;
+		}
+
+		&.-ds-border-color-info {
+			background-color: $color-info-border;
+		}
 	}
 }
 </style>
