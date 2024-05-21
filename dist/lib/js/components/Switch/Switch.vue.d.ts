@@ -268,6 +268,7 @@ declare const _default: {
     computed: {
         currentIcon(): any;
         currentLabel(): any;
+        oppositeSide(): "left" | "right";
     };
     watch: {
         selectedSide: {
@@ -276,7 +277,7 @@ declare const _default: {
         };
     };
     methods: {
-        onSwitch(side: SwitchSelection): void;
+        onSwitch(): void;
     };
 };
 export default _default;
