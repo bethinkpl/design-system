@@ -104,9 +104,7 @@ export default {
 			default: false,
 		},
 	},
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['update:isExpanded'],
+	emits: { 'update:isExpanded': (isExpanded: Boolean): Boolean => isExpanded },
 	data() {
 		return {
 			isExpandedInternal: false,
