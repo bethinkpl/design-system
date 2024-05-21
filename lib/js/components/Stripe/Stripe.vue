@@ -8,7 +8,6 @@
 </template>
 
 <style scoped lang="scss">
-//import color tokens
 @import '../../../styles/settings/colors/tokens';
 
 .ds-stripe {
@@ -29,14 +28,14 @@
 
 	&__loader {
 		$STRIPE_COLORS: (
-			/* stylelint-disable-line value-keyword-case */ neutralHeavy:
-				$color-neutral-border-heavy,
-			/* stylelint-disable-line value-keyword-case */ neautralStrong:
-				$color-neutral-border-strong,
+			neutralHeavy: $color-neutral-border-heavy
+				/* stylelint-disable-line value-keyword-case */,
+			neautralStrong: $color-neutral-border-strong
+				/* stylelint-disable-line value-keyword-case */,
 			success: $color-success-border,
 			warning: $color-warning-border,
 			danger: $color-danger-border,
-			info: $color-info-border
+			info: $color-info-border,
 		);
 
 		@each $colorName, $colorValue in $STRIPE_COLORS {
