@@ -5,6 +5,7 @@ export declare const POP_OVER_COLORS: {
 export declare const POP_OVER_TRIGGER_ACTIONS: {
     readonly CLICK: "click";
     readonly HOVER: "hover";
+    readonly NONE: "none";
 };
 export declare const POP_OVER_PLACEMENTS: {
     readonly TOP: "top";
