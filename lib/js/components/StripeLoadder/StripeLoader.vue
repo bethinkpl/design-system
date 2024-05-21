@@ -58,18 +58,23 @@
 
 <script lang="ts">
 import { PropType } from 'vue';
-import { STRIPE_COLORS, STRIPE_SIZES, StripeColors, StripeSizes } from './Stripe.consts';
+import {
+	STRIPE_LOADER_COLORS,
+	STRIPE_LOADER_SIZES,
+	StripeLoaderColors,
+	StripeLoaderSizes,
+} from './StripeLoader.consts';
 
 export default {
-	name: 'Stripe',
+	name: 'StripeLoader',
 	props: {
 		color: {
-			type: String as PropType<StripeColors>,
-			default: STRIPE_COLORS.NEUTRAL_HEAVY,
+			type: String as PropType<StripeLoaderColors>,
+			default: STRIPE_LOADER_COLORS.NEUTRAL_HEAVY,
 		},
 		size: {
-			type: String as PropType<StripeSizes>,
-			default: STRIPE_SIZES.MEDIUM,
+			type: String as PropType<StripeLoaderSizes>,
+			default: STRIPE_LOADER_SIZES.MEDIUM,
 		},
 		time: {
 			type: String,
