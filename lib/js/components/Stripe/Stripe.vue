@@ -13,8 +13,7 @@
 
 .ds-stripe {
 	background-color: $color-neutral-background;
-	display: inline-flex;
-	width: 100%;
+	display: flex;
 
 	&.-ds-size-x-small {
 		height: 2px;
