@@ -42,6 +42,7 @@
 
 .ds-card {
 	$root: &;
+
 	background-color: $color-default-background;
 	border-radius: $radius-m;
 	box-shadow: $shadow-s;
@@ -51,13 +52,14 @@
 	&.-ds-top-border {
 		border-top: 6px transparent solid;
 	}
+
 	&.-ds-left-border {
 		border-left: 6px transparent solid;
 	}
 
 	&.-ds-border-size-x-small {
-		border-width: 2px;
 		border-radius: $radius-xs;
+		border-width: 2px;
 
 		#{$root}__stripeLoader {
 			border-radius: $radius-xs $radius-xs 0 0;
@@ -66,8 +68,8 @@
 	}
 
 	&.-ds-border-size-small {
-		border-width: 4px;
 		border-radius: $radius-s;
+		border-width: 4px;
 
 		#{$root}__stripeLoader {
 			border-radius: $radius-s $radius-s 0 0;
@@ -76,8 +78,8 @@
 	}
 
 	&.-ds-border-size-medium {
-		border-width: 6px;
 		border-radius: $radius-m;
+		border-width: 6px;
 
 		#{$root}__stripeLoader {
 			border-radius: $radius-m $radius-m 0 0;
