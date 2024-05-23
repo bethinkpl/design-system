@@ -12,7 +12,7 @@ export const STRIPE_LOADER_COLORS = {
 export type StripeLoaderColors = Value<typeof STRIPE_LOADER_COLORS>;
 
 export const STRIPE_LOADER_SIZES = {
-	X_SMALL: 'x-small',
+	X_SMALL: 'xSmall',
 	SMALL: 'small',
 	MEDIUM: 'medium',
 };

@@ -14,7 +14,7 @@
 	background-color: $color-neutral-background;
 	display: flex;
 
-	&.-ds-size-x-small {
+	&.-ds-size-xSmall {
 		height: 2px;
 	}
 

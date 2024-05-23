@@ -13,7 +13,7 @@ export const CARD_BORDER_COLORS = {
 export type CardBorderColors = Value<typeof CARD_BORDER_COLORS>;
 
 export const CARD_BORDER_SIZES = {
-	X_SMALL: 'x-small',
+	X_SMALL: 'xSmall',
 	SMALL: 'small',
 	MEDIUM: 'medium',
 };

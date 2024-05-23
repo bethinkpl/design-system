@@ -57,7 +57,7 @@
 		border-left: 6px transparent solid;
 	}
 
-	&.-ds-border-size-x-small {
+	&.-ds-border-size-xSmall {
 		border-radius: $radius-xs;
 		border-width: 2px;
 
