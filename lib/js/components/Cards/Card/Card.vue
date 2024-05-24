@@ -8,11 +8,11 @@
 			'-ds-left-border': hasLeftBoarder,
 		}"
 	>
-		<stripe-loader
-			v-if="hasStripeLoader"
-			class="ds-card__stripeLoader"
-			:time="stripeLoaderTime"
-			:color="stripeLoaderColor"
+		<ds-loading-bar
+			v-if="hasLoadingBar"
+			class="ds-card__loadingBar"
+			:time="loadingBarTime"
+			:color="loadingBarColor"
 			:size="borderSize"
 		/>
 		<div
@@ -61,7 +61,7 @@
 		border-radius: $radius-xs;
 		border-width: 2px;
 
-		#{$root}__stripeLoader {
+		#{$root}__loadingBar {
 			border-radius: $radius-xs $radius-xs 0 0;
 			top: -2px;
 		}
@@ -71,7 +71,7 @@
 		border-radius: $radius-s;
 		border-width: 4px;
 
-		#{$root}__stripeLoader {
+		#{$root}__loadingBar {
 			border-radius: $radius-s $radius-s 0 0;
 			top: -4px;
 		}
@@ -81,7 +81,7 @@
 		border-radius: $radius-m;
 		border-width: 6px;
 
-		#{$root}__stripeLoader {
+		#{$root}__loadingBar {
 			border-radius: $radius-m $radius-m 0 0;
 			top: -6px;
 		}
@@ -111,7 +111,7 @@
 		border-color: $color-info-border;
 	}
 
-	&__stripeLoader {
+	&__loadingBar {
 		overflow: hidden;
 		position: absolute;
 		width: 100%;
@@ -139,7 +139,7 @@
 import { PropType } from 'vue';
 
 import DsDivider from '../../Divider/Divider.vue';
-import StripeLoader, { STRIPE_LOADER_COLORS, StripeLoaderColors } from '../../StripeLoadder';
+import DsLoadingBar, { LOADING_BAR_COLORS, LoadingBarColors } from '../../LoadingBar';
 import {
 	CARD_BORDER_COLORS,
 	CARD_BORDER_POSITIONS,
@@ -150,7 +150,7 @@ import {
 } from './Card.consts';
 export default {
 	name: 'Card',
-	components: { DsDivider, StripeLoader },
+	components: { DsDivider, DsLoadingBar },
 	props: {
 		headerHasPadding: {
 			type: Boolean,
@@ -176,15 +176,15 @@ export default {
 			type: String as PropType<CardBorderColors>,
 			default: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
 		},
-		hasStripeLoader: {
+		hasLoadingBar: {
 			type: Boolean,
 			default: false,
 		},
-		stripeLoaderColor: {
-			type: String as PropType<StripeLoaderColors>,
-			default: STRIPE_LOADER_COLORS.NEUTRAL_HEAVY,
+		loadingBarColor: {
+			type: String as PropType<LoadingBarColors>,
+			default: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 		},
-		stripeLoaderTime: {
+		loadingBarTime: {
 			type: String,
 			default: '0',
 		},
@@ -195,17 +195,17 @@ export default {
 			return (
 				this.hasBorder &&
 				this.borderPosition === CARD_BORDER_POSITIONS.LEFT &&
-				!this.hasStripeLoader
+				!this.hasLoadingBar
 			);
 		},
 		hasTopBoarder() {
 			return (
 				(this.hasBorder && this.borderPosition === CARD_BORDER_POSITIONS.TOP) ||
-				this.hasStripeLoader
+				this.hasLoadingBar
 			);
 		},
 		borderColorClass() {
-			if (this.hasStripeLoader) {
+			if (this.hasLoadingBar) {
 				return '-ds-border-color-transparent';
 			}
 			return `-ds-border-color-${this.borderColor}`;

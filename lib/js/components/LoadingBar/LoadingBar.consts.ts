@@ -1,6 +1,6 @@
 import { Value } from '../../utils/type.utils';
 
-export const STRIPE_LOADER_COLORS = {
+export const LOADING_BAR_COLORS = {
 	NEUTRAL_HEAVY: 'neutralHeavy',
 	NEUTRAL_STRONG: 'neutralStrong',
 	SUCCESS: 'success',
@@ -9,12 +9,12 @@ export const STRIPE_LOADER_COLORS = {
 	INFO: 'info',
 };
 
-export type StripeLoaderColors = Value<typeof STRIPE_LOADER_COLORS>;
+export type LoadingBarColors = Value<typeof LOADING_BAR_COLORS>;
 
-export const STRIPE_LOADER_SIZES = {
+export const LOADING_BAR_SIZES = {
 	X_SMALL: 'xSmall',
 	SMALL: 'small',
 	MEDIUM: 'medium',
 };
 
-export type StripeLoaderSizes = Value<typeof STRIPE_LOADER_SIZES>;
+export type LoadingBarSizes = Value<typeof LOADING_BAR_SIZES>;

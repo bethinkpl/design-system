@@ -2,7 +2,7 @@ import Card from './Card.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { CARD_BORDER_COLORS, CARD_BORDER_POSITIONS, CARD_BORDER_SIZES } from './Card.consts';
-import { STRIPE_LOADER_COLORS } from '../../StripeLoadder';
+import { LOADING_BAR_COLORS } from '../../LoadingBar';
 
 export default {
 	title: 'Components/Cards/Card',
@@ -20,9 +20,9 @@ const StoryTemplate: StoryFn<typeof Card> = (args) => ({
 			  :border-position="borderPosition"
 			  :border-size="borderSize"
 			  :border-color="borderColor"
-			  :has-stripe-loader="hasStripeLoader"
-			  :stripe-loader-color="stripeLoaderColor"
-			  :stripe-loader-time="stripeLoaderTime"
+			  :has-loading-bar="hasLoadingBar"
+			  :loading-bar-color="loadingBarColor"
+			  :loading-bar-time="loadingBarTime"
 		>
 			<template v-if="header" #header>
 				<div v-html="header" />
@@ -45,9 +45,9 @@ const args = {
 	borderPosition: CARD_BORDER_POSITIONS.TOP,
 	borderSize: CARD_BORDER_SIZES.MEDIUM,
 	borderColor: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
-	hasStripeLoader: false,
-	stripeLoaderColor: STRIPE_LOADER_COLORS.NEUTRAL_HEAVY,
-	stripeLoaderTime: '0',
+	hasLoadingBar: false,
+	loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
+	loadingBarTime: '0',
 } as Args;
 
 const argTypes = {
@@ -69,9 +69,9 @@ const argTypes = {
 		control: { type: 'select', options: Object.values(CARD_BORDER_COLORS) },
 		defaultValue: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
 	},
-	stripeLoaderColor: {
-		control: { type: 'select', options: Object.values(STRIPE_LOADER_COLORS) },
-		defaultValue: STRIPE_LOADER_COLORS.NEUTRAL_HEAVY,
+	loadingBarColor: {
+		control: { type: 'select', options: Object.values(LOADING_BAR_COLORS) },
+		defaultValue: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	},
 } as ArgTypes;
 

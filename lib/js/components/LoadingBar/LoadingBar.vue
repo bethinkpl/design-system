@@ -1,8 +1,8 @@
 <template>
-	<div class="ds-stripe" :class="[sizeClassName]">
+	<div class="ds-loadingBar" :class="[sizeClassName]">
 		<span
-			:class="['ds-stripe__loader', `-ds-border-color-${color}`]"
-			:style="stripeLoaderStyles"
+			:class="['ds-loadingBar__loader', `-ds-border-color-${color}`]"
+			:style="loadingBarStyles"
 		/>
 	</div>
 </template>
@@ -10,7 +10,7 @@
 <style scoped lang="scss">
 @import '../../../styles/settings/colors/tokens';
 
-.ds-stripe {
+.ds-loadingBar {
 	background-color: $color-neutral-background;
 	display: flex;
 
@@ -59,22 +59,22 @@
 <script lang="ts">
 import { PropType } from 'vue';
 import {
-	STRIPE_LOADER_COLORS,
-	STRIPE_LOADER_SIZES,
-	StripeLoaderColors,
-	StripeLoaderSizes,
-} from './StripeLoader.consts';
+	LOADING_BAR_COLORS,
+	LOADING_BAR_SIZES,
+	LoadingBarColors,
+	LoadingBarSizes,
+} from './LoadingBar.consts';
 
 export default {
-	name: 'StripeLoader',
+	name: 'LoadingBar',
 	props: {
 		color: {
-			type: String as PropType<StripeLoaderColors>,
-			default: STRIPE_LOADER_COLORS.NEUTRAL_HEAVY,
+			type: String as PropType<LoadingBarColors>,
+			default: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 		},
 		size: {
-			type: String as PropType<StripeLoaderSizes>,
-			default: STRIPE_LOADER_SIZES.MEDIUM,
+			type: String as PropType<LoadingBarSizes>,
+			default: LOADING_BAR_SIZES.MEDIUM,
 		},
 		time: {
 			type: String,
@@ -91,7 +91,7 @@ export default {
 		sizeClassName() {
 			return `-ds-size-${this.size}`;
 		},
-		stripeLoaderStyles() {
+		loadingBarStyles() {
 			return {
 				width: `${this.width}%`,
 				transition: `width ${this.time}s linear`,
@@ -104,7 +104,7 @@ export default {
 			return;
 		}
 		// without postponing the width change, the transition won't work,
-		// and the stripe is 100% width right away
+		// and the loading bar is 100% width right away
 		setTimeout(() => {
 			this.width = 100;
 		}, 0);
