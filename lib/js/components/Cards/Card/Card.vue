@@ -211,7 +211,7 @@ export default {
 			return `-ds-border-color-${this.borderColor}`;
 		},
 		borderSizeClass() {
-			if (!this.hasBorder) {
+			if (!this.hasBorder && !this.hasLoadingBar) {
 				return '';
 			}
 			return `-ds-border-size-${this.borderSize}`;
