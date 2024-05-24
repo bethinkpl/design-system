@@ -18,7 +18,7 @@ const StoryTemplate: StoryFn<typeof LoadingBar> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	size: LOADING_BAR_SIZES.MEDIUM,
+	size: LOADING_BAR_SIZES.LARGE,
 	color: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	time: '5',
 } as Args;
@@ -26,7 +26,7 @@ const args = {
 const argTypes = {
 	size: {
 		control: { type: 'select', options: Object.values(LOADING_BAR_SIZES) },
-		defaultValue: LOADING_BAR_SIZES.MEDIUM,
+		defaultValue: LOADING_BAR_SIZES.LARGE,
 	},
 	color: {
 		control: { type: 'select', options: Object.values(LOADING_BAR_COLORS) },

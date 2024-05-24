@@ -12,9 +12,9 @@ export const LOADING_BAR_COLORS = {
 export type LoadingBarColors = Value<typeof LOADING_BAR_COLORS>;
 
 export const LOADING_BAR_SIZES = {
-	X_SMALL: 'xSmall',
 	SMALL: 'small',
 	MEDIUM: 'medium',
+	LARGE: 'large',
 };
 
 export type LoadingBarSizes = Value<typeof LOADING_BAR_SIZES>;

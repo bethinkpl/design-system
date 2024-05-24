@@ -38,6 +38,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/radiuses';
+@import '../../../../styles/settings/borders';
 @import '../../../../styles/settings/colors/tokens';
 
 .ds-card {
@@ -50,40 +51,40 @@
 	width: inherit;
 
 	&.-ds-top-border {
-		border-top: 6px transparent solid;
+		border-top: $border-l transparent solid;
 	}
 
 	&.-ds-left-border {
-		border-left: 6px transparent solid;
-	}
-
-	&.-ds-border-size-xSmall {
-		border-radius: $radius-xs;
-		border-width: 2px;
-
-		#{$root}__loadingBar {
-			border-radius: $radius-xs $radius-xs 0 0;
-			top: -2px;
-		}
+		border-left: $border-l transparent solid;
 	}
 
 	&.-ds-border-size-small {
-		border-radius: $radius-s;
-		border-width: 4px;
+		border-radius: $radius-xs;
+		border-width: $border-s;
 
 		#{$root}__loadingBar {
-			border-radius: $radius-s $radius-s 0 0;
-			top: -4px;
+			border-radius: $radius-xs $radius-xs 0 0;
+			top: -$border-s;
 		}
 	}
 
 	&.-ds-border-size-medium {
+		border-radius: $radius-s;
+		border-width: $border-m;
+
+		#{$root}__loadingBar {
+			border-radius: $radius-s $radius-s 0 0;
+			top: -$border-m;
+		}
+	}
+
+	&.-ds-border-size-large {
 		border-radius: $radius-m;
-		border-width: 6px;
+		border-width: $border-l;
 
 		#{$root}__loadingBar {
 			border-radius: $radius-m $radius-m 0 0;
-			top: -6px;
+			top: -$border-l;
 		}
 	}
 
@@ -170,7 +171,7 @@ export default {
 		},
 		borderSize: {
 			type: String as PropType<CardBorderSizes>,
-			default: CARD_BORDER_SIZES.MEDIUM,
+			default: CARD_BORDER_SIZES.LARGE,
 		},
 		borderColor: {
 			type: String as PropType<CardBorderColors>,

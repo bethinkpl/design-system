@@ -9,21 +9,22 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/borders';
 
 .ds-loadingBar {
 	background-color: $color-neutral-background;
 	display: flex;
 
-	&.-ds-size-xSmall {
-		height: 2px;
-	}
-
 	&.-ds-size-small {
-		height: 4px;
+		height: $border-s;
 	}
 
 	&.-ds-size-medium {
-		height: 6px;
+		height: $border-m;
+	}
+
+	&.-ds-size-large {
+		height: $border-l;
 	}
 
 	&__loader {
@@ -74,7 +75,7 @@ export default {
 		},
 		size: {
 			type: String as PropType<LoadingBarSizes>,
-			default: LOADING_BAR_SIZES.MEDIUM,
+			default: LOADING_BAR_SIZES.LARGE,
 		},
 		time: {
 			type: String,

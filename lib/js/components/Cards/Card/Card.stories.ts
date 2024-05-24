@@ -43,7 +43,7 @@ const args = {
 	dividerUnderHeader: false,
 	hasBorder: false,
 	borderPosition: CARD_BORDER_POSITIONS.TOP,
-	borderSize: CARD_BORDER_SIZES.MEDIUM,
+	borderSize: CARD_BORDER_SIZES.LARGE,
 	borderColor: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
 	hasLoadingBar: false,
 	loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
@@ -63,7 +63,7 @@ const argTypes = {
 	},
 	borderSize: {
 		control: { type: 'select', options: Object.values(CARD_BORDER_SIZES) },
-		defaultValue: CARD_BORDER_SIZES.MEDIUM,
+		defaultValue: CARD_BORDER_SIZES.LARGE,
 	},
 	borderColor: {
 		control: { type: 'select', options: Object.values(CARD_BORDER_COLORS) },
