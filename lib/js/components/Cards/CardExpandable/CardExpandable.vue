@@ -104,7 +104,7 @@ export default {
 			default: false,
 		},
 	},
-	emits: { 'update:isExpanded': (isExpanded: Boolean): Boolean => isExpanded },
+	emits: { 'update:isExpanded': (payload: Boolean) => true },
 	data() {
 		return {
 			isExpandedInternal: false,
