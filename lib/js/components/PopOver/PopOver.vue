@@ -1,8 +1,6 @@
 <template>
-	<div>
-		<div v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE">
-			<slot name="reference" />
-		</div>
+	<span>
+		<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
 		<vue-popper
 			v-else
 			ref="popper"
@@ -48,7 +46,7 @@
 				<slot name="reference" />
 			</template>
 		</vue-popper>
-	</div>
+	</span>
 </template>
 
 <style lang="scss" scoped>
