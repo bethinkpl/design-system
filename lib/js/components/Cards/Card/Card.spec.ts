@@ -1,6 +1,8 @@
 import { shallowMount } from '@vue/test-utils';
 
 import Card from './Card.vue';
+import { CARD_BORDER_COLORS, CARD_BORDER_POSITIONS, CARD_BORDER_SIZES } from './Card.consts';
+import { LOADING_BAR_COLORS } from '../../LoadingBar';
 
 describe('Card', () => {
 	const createComponent = ({
@@ -14,6 +16,13 @@ describe('Card', () => {
 			props: {
 				headerHasPadding,
 				dividerUnderHeader,
+				hasBorder: false,
+				borderSize: CARD_BORDER_SIZES.MEDIUM,
+				borderColor: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
+				borderPosition: CARD_BORDER_POSITIONS.TOP,
+				hasLoadingBar: false,
+				loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
+				loadingBarTime: '0',
 			},
 			slots: {
 				...(headerSlot !== '' && { header: headerSlot }),
