@@ -31,7 +31,9 @@ declare const _default: {
             default: boolean;
         };
     };
-    emits: string[];
+    emits: {
+        'update:isExpanded': (payload: Boolean) => boolean;
+    };
     data(): {
         isExpandedInternal: boolean;
         ICONS: Readonly<{
