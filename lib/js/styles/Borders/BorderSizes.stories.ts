@@ -43,3 +43,10 @@ const argTypes = {} as ArgTypes;
 
 Static.argTypes = argTypes;
 Static.args = args;
+
+Static.parameters = {
+	design: {
+		type: 'figma',
+		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=8375-32903&t=ItmVGTyxKahcKsdh-4',
+	},
+};

@@ -100,6 +100,6 @@ Interactive.args = args;
 Interactive.parameters = {
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1923%3A34378',
+		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=8091-108960',
 	},
 };
