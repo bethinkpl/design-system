@@ -71,8 +71,8 @@
 	}
 
 	&__footerButtons {
-		display: flex;
 		column-gap: $space-xs;
+		display: flex;
 		justify-content: flex-end;
 		padding: $space-s;
 	}
@@ -200,6 +200,9 @@ export default {
 				? BUTTON_COLORS.DANGER
 				: BUTTON_COLORS.NEUTRAL;
 		},
+		disableTeleport() {
+			return this.appendTo === null || this.appendToElement === this.$parent.$el;
+		},
 		styles() {
 			const parentWidthPx =
 				this.appendToElement?.offsetWidth - this.$refs.toastCard?.offsetWidth || 0;
@@ -244,10 +247,6 @@ export default {
 					top: `${TOAST_OFFSET - getOffset(this.appendToElement, 'Bottom')}px`,
 				},
 			}[this.position];
-		},
-
-		disableTeleport() {
-			return this.appendTo === null || this.appendToElement === this.$parent.$el;
 		},
 	},
 	watch: {
