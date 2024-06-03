@@ -86,6 +86,7 @@ import {
 	TOAST_COLORS,
 	TOAST_POSITIONS,
 	TOAST_SIZES,
+	ToastColors,
 	ToastPositions,
 	ToastSizes,
 } from './Toast.consts';
@@ -124,7 +125,7 @@ export default {
 			default: TOAST_POSITIONS.BOTTOM_CENTER,
 		},
 		color: {
-			type: String as PropType<ToastPositions>,
+			type: String as PropType<ToastColors>,
 			default: TOAST_COLORS.INFO,
 		},
 		footerPrimaryButtonText: {
