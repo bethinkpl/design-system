@@ -29,7 +29,7 @@ const StoryTemplate: StoryFn = () => ({
 				<code>
 					\${{ spacing.name }}: {{ spacing.value }}px
 				</code>
-				<div :style="getStyles(spacing)"></div>
+				<div :style="getStyles(spacing)">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
 			</div>
 		</div>
 	`,
