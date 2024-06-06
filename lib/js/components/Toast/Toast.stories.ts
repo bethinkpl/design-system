@@ -98,6 +98,9 @@ Interactive.argTypes = argTypes;
 Interactive.args = args;
 
 Interactive.parameters = {
+	actions: {
+		handles: ['close', 'primary-button-click', 'secondary-button-click'],
+	},
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=8091-108960',

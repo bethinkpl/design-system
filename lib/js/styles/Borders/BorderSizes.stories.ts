@@ -4,7 +4,7 @@ export default {
 	title: 'foundations/Borders',
 } as Meta;
 
-const spacings = [
+const borderSizes = [
 	{ name: 'border-xs', value: 1 },
 	{ name: 'border-s', value: 2 },
 	{ name: 'border-m', value: 4 },
@@ -15,7 +15,7 @@ const spacings = [
 const StoryTemplate: StoryFn = () => ({
 	data() {
 		return {
-			spacings: Object.freeze(spacings),
+			spacings: Object.freeze(borderSizes),
 		};
 	},
 	methods: {
@@ -36,14 +36,6 @@ const StoryTemplate: StoryFn = () => ({
 });
 
 export const Static = StoryTemplate.bind({});
-
-const args = {} as Args;
-
-const argTypes = {} as ArgTypes;
-
-Static.argTypes = argTypes;
-Static.args = args;
-
 Static.parameters = {
 	design: {
 		type: 'figma',
