@@ -56,6 +56,7 @@ import { faCommentDots } from '@fortawesome/pro-regular-svg-icons/faCommentDots'
 import { faComments } from '@fortawesome/pro-regular-svg-icons/faComments';
 import { faCompress } from '@fortawesome/pro-regular-svg-icons/faCompress';
 import { faCopy } from '@fortawesome/pro-regular-svg-icons/faCopy';
+import { faCreditCard } from '@fortawesome/pro-regular-svg-icons/faCreditCard';
 import { faEarthAmericas } from '@fortawesome/pro-regular-svg-icons/faEarthAmericas';
 import { faEllipsis } from '@fortawesome/pro-regular-svg-icons/faEllipsis';
 import { faEllipsisVertical } from '@fortawesome/pro-regular-svg-icons/faEllipsisVertical';
@@ -259,6 +260,7 @@ export const FONTAWESOME_ICONS = {
 	FA_COMMENTS_QUESTION_CHECK: faCommentsQuestionCheck,
 	FA_COMPRESS: faCompress,
 	FA_COPY: faCopy,
+	FA_CREDIT_CARD: faCreditCard,
 	FA_DOT_CIRCLE_SOLID: fasCircleDot,
 	FA_EARTH_AMERICAS: faEarthAmericas,
 	FA_ELLIPSIS: faEllipsis,
