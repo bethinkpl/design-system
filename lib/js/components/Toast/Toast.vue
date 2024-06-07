@@ -11,7 +11,7 @@
 			>
 				<ds-card
 					:loading-bar-color="color"
-					:has-loading-bar="isDisappearing"
+					has-loading-bar
 					:loading-bar-time="disappearingTimeout"
 				>
 					<template #content>
@@ -67,14 +67,13 @@
 
 	&__content {
 		display: flex;
-		margin: $space-s $space-s 0;
 	}
 
 	&__footerButtons {
 		column-gap: $space-xs;
 		display: flex;
 		justify-content: flex-end;
-		padding: $space-s;
+		padding: 0 $space-s $space-s;
 	}
 }
 </style>
@@ -210,7 +209,7 @@ export default {
 				this.appendToElement?.offsetHeight - this.$refs.toastCard?.offsetHeight || 0;
 			return {
 				bottomCenter: {
-					left: `${parentWidthPx / 2}px`,
+					left: `${parentWidthPx / 2 - getOffset(this.appendToElement, 'Left')}px`,
 					top: `${Math.max(
 						parentHeightPx - TOAST_OFFSET - getOffset(this.appendToElement, 'Bottom'),
 						TOAST_OFFSET,
@@ -233,7 +232,7 @@ export default {
 					)}px`,
 				},
 				topCenter: {
-					left: `${parentWidthPx / 2}px`,
+					left: `${parentWidthPx / 2 - getOffset(this.appendToElement, 'Left')}px`,
 					top: `${TOAST_OFFSET - getOffset(this.appendToElement, 'Top')}px`,
 				},
 				topLeft: {
