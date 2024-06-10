@@ -15,9 +15,7 @@
 					:loading-bar-time="disappearingTimeout"
 				>
 					<template #content>
-						<div class="ds-toast__content">
-							<slot name="content" />
-						</div>
+						<slot name="content" />
 					</template>
 					<template #footer>
 						<div class="ds-toast__footerButtons">
@@ -50,7 +48,6 @@
 @import '../../../styles/settings/spacings';
 
 .ds-toast {
-	display: flex;
 	position: relative;
 
 	&__absoluteWrapper {
@@ -63,10 +60,6 @@
 		&.-ds-size-medium {
 			width: 500px;
 		}
-	}
-
-	&__content {
-		display: flex;
 	}
 
 	&__footerButtons {

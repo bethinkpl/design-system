@@ -20,7 +20,7 @@ const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 			appendToSelector: this.appendTo != null ? `#${this.appendTo}` : null,
 		};
 	},
-	template: `<div style="display: flex; gap: 20px; height: 560px; width: 80%; border: 1px black solid; padding: 40px;">
+	template: `<div style="display: flex; border: 1px black solid; padding: 20px;">
 		<ds-toast
 			v-if="isVisible"
 			:size="size"
@@ -39,8 +39,10 @@ const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 				<span v-html="content" />
 			</template>
 		</ds-toast>
-		<div id="left" style="width: 50%; height: 100%;  border: 1px black dashed;"></div>
-		<div id="right" style="width: 50%; height: 100%;  border: 1px black dotted;"></div>
+		<div style="display: flex; gap: 20px; height: 560px; width: 100%;">
+			<div id="left" style="width: 50%; height: 100%;  border: 1px black dashed;"></div>
+			<div id="right" style="width: 50%; height: 100%;  border: 1px black dotted;"></div>
+		</div>
 	</div>`,
 });
 
