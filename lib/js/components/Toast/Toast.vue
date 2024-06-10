@@ -222,6 +222,10 @@ export default {
 	data() {
 		return {
 			appendToElement: null,
+			styles: {},
+			resizeObserver: new ResizeObserver(() => {
+				this.calculateStyles();
+			}),
 			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
 			BUTTON_RADIUSES: Object.freeze(BUTTON_RADIUSES),
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
@@ -242,13 +246,46 @@ export default {
 		disableTeleport() {
 			return this.appendTo === null || this.appendToElement === this.$parent.$el;
 		},
-		styles() {
+	},
+	watch: {
+		appendTo() {
+			this.choseAppendToElement();
+			this.calculateStyles();
+			this.resizeObserver?.disconnect();
+			this.resizeObserver?.observe(this.appendToElement);
+			//We watch the toast's card height because it changes by 1px at the beginning, and we don;t know why
+			this.resizeObserver?.observe(this.$refs?.toastCard);
+		},
+		position() {
+			this.calculateStyles();
+		},
+	},
+	mounted() {
+		this.choseAppendToElement();
+		this.calculateStyles();
+
+		this.resizeObserver.observe(this.appendToElement);
+		//We watch the toast's card height because it changes by 1px at the beginning, and we don;t know why
+		this.resizeObserver?.observe(this.$refs?.toastCard);
+		if (this.isDisappearing && this.disappearingTimeout !== '0') {
+			setTimeout(
+				() => this.$emit('close'),
+				parseInt(this.disappearingTimeout, 10) * 1000 + 100, // 100 ms is to let loading bar animation to finish
+			);
+		}
+	},
+	beforeDestroy() {
+		this.resizeObserver.disconnect();
+		this.resizeObserver = null;
+	},
+	methods: {
+		calculateStyles() {
 			const parentWidthPx =
 				this.appendToElement?.offsetWidth - this.$refs.toastCard?.offsetWidth || 0;
 			const parentHeightPx =
 				this.appendToElement?.offsetHeight - this.$refs.toastCard?.offsetHeight || 0;
 
-			return {
+			this.styles = {
 				bottomCenter: {
 					left: `${parentWidthPx / 2 - offsetCenter(this.appendToElement)}px`,
 					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
@@ -275,17 +312,6 @@ export default {
 				},
 			}[this.position];
 		},
-	},
-	mounted() {
-		this.choseAppendToElement();
-		if (this.isDisappearing && this.disappearingTimeout !== '0') {
-			setTimeout(
-				() => this.$emit('close'),
-				parseInt(this.disappearingTimeout, 10) * 1000 + 100, // 100 ms is to let loading bar animation to finish
-			);
-		}
-	},
-	methods: {
 		choseAppendToElement() {
 			let appendToElement = this.$parent.$el;
 			if (typeof this.appendTo === 'string') {
