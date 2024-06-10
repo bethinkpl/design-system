@@ -91,21 +91,61 @@ import {
 } from './Toast.consts';
 import { PropType, toRaw } from 'vue';
 import { ICONS } from '../Icons/Icon';
-import { Value } from '../../utils/type.utils';
 
 const TOAST_OFFSET = 24;
 
-function getOffset(el: HTMLElement, direction: Value<['Top', 'Bottom', 'Right', 'Left']>) {
+function offsetRight(el: HTMLElement) {
 	if (!el) {
 		return 0;
 	}
 
 	const style = window.getComputedStyle(el);
-	const margin = parseInt(style[`margin${direction}`], 10);
-	const padding = parseInt(style[`padding${direction}`], 10);
-	const border = parseInt(style[`border${direction}`], 10);
+	const paddingRight = parseInt(style.paddingRight, 10);
+	const borderRight = parseInt(style.borderRight, 10);
+	const borderLeft = parseInt(style.borderLeft, 10);
 
-	return margin + padding + border;
+	return TOAST_OFFSET + paddingRight + borderRight + borderLeft;
+}
+
+function offsetLeft(el: HTMLElement) {
+	if (!el) {
+		return 0;
+	}
+
+	const style = window.getComputedStyle(el);
+
+	return TOAST_OFFSET - parseInt(style.paddingLeft, 10);
+}
+function offsetCenter(el: HTMLElement) {
+	if (!el) {
+		return 0;
+	}
+
+	const style = window.getComputedStyle(el);
+
+	return TOAST_OFFSET + parseInt(style.paddingLeft, 10);
+}
+
+function offsetTop(el: HTMLElement) {
+	if (!el) {
+		return 0;
+	}
+
+	const style = window.getComputedStyle(el);
+
+	return TOAST_OFFSET - parseInt(style.paddingTop, 10);
+}
+function offsetBottom(el: HTMLElement) {
+	if (!el) {
+		return 0;
+	}
+
+	const style = window.getComputedStyle(el);
+	const padding = parseInt(style.paddingBottom, 10);
+	const borderBottom = parseInt(style.borderBottom, 10);
+	const borderTop = parseInt(style.borderTop, 10);
+
+	return TOAST_OFFSET + (padding + borderBottom + borderTop);
 }
 
 export default {
@@ -207,50 +247,33 @@ export default {
 				this.appendToElement?.offsetWidth - this.$refs.toastCard?.offsetWidth || 0;
 			const parentHeightPx =
 				this.appendToElement?.offsetHeight - this.$refs.toastCard?.offsetHeight || 0;
+
 			return {
 				bottomCenter: {
-					left: `${parentWidthPx / 2 - getOffset(this.appendToElement, 'Left')}px`,
-					top: `${Math.max(
-						parentHeightPx - TOAST_OFFSET - getOffset(this.appendToElement, 'Bottom'),
-						TOAST_OFFSET,
-					)}px`,
+					left: `${parentWidthPx / 2 - offsetCenter(this.appendToElement)}px`,
+					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
 				},
 				bottomLeft: {
-					left: `${TOAST_OFFSET - getOffset(this.appendToElement, 'Left')}px`,
-					top: `${Math.max(
-						parentHeightPx - TOAST_OFFSET - getOffset(this.appendToElement, 'Bottom'),
-						TOAST_OFFSET,
-					)}px`,
+					left: `${offsetLeft(this.appendToElement)}px`,
+					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
 				},
 				bottomRight: {
-					left: `${
-						parentWidthPx - TOAST_OFFSET - getOffset(this.appendToElement, 'Right')
-					}px`,
-					top: `${Math.max(
-						parentHeightPx - TOAST_OFFSET - getOffset(this.appendToElement, 'Bottom'),
-						TOAST_OFFSET,
-					)}px`,
+					left: `${parentWidthPx - offsetRight(this.appendToElement)}px`,
+					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
 				},
 				topCenter: {
-					left: `${parentWidthPx / 2 - getOffset(this.appendToElement, 'Left')}px`,
-					top: `${TOAST_OFFSET - getOffset(this.appendToElement, 'Top')}px`,
+					left: `${parentWidthPx / 2 - offsetCenter(this.appendToElement)}px`,
+					top: `${offsetTop(this.appendToElement)}px`,
 				},
 				topLeft: {
-					left: `${TOAST_OFFSET - getOffset(this.appendToElement, 'Left')}px`,
-					top: `${TOAST_OFFSET - getOffset(this.appendToElement, 'Bottom')}px`,
+					left: `${offsetLeft(this.appendToElement)}px`,
+					top: `${offsetTop(this.appendToElement)}px`,
 				},
 				topRight: {
-					left: `${
-						parentWidthPx - TOAST_OFFSET - getOffset(this.appendToElement, 'Right')
-					}px`,
-					top: `${TOAST_OFFSET - getOffset(this.appendToElement, 'Bottom')}px`,
+					left: `${parentWidthPx - offsetRight(this.appendToElement)}px`,
+					top: `${offsetTop(this.appendToElement)}px`,
 				},
 			}[this.position];
-		},
-	},
-	watch: {
-		appendTo() {
-			this.choseAppendToElement();
 		},
 	},
 	mounted() {
