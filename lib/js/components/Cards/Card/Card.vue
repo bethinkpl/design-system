@@ -60,7 +60,7 @@
 
 	&.-ds-border-size-small {
 		border-radius: $radius-xs;
-		border-width: $border-s;
+		border-top-width: $border-s;
 
 		#{$root}__loadingBar {
 			border-radius: $radius-xs $radius-xs 0 0;
@@ -70,7 +70,7 @@
 
 	&.-ds-border-size-medium {
 		border-radius: $radius-s;
-		border-width: $border-m;
+		border-top-width: $border-m;
 
 		#{$root}__loadingBar {
 			border-radius: $radius-s $radius-s 0 0;
@@ -80,7 +80,7 @@
 
 	&.-ds-border-size-large {
 		border-radius: $radius-m;
-		border-width: $border-l;
+		border-top-width: $border-l;
 
 		#{$root}__loadingBar {
 			border-radius: $radius-m $radius-m 0 0;
