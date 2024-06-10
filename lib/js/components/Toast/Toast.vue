@@ -1,8 +1,8 @@
 <template>
 	<Teleport :to="appendToElement" :disabled="disableTeleport">
-		<span class="ds-toast" :style="styles">
+		<span class="ds-toast">
 			<span
-				ref="toastCard"
+				:style="styles"
 				:class="{
 					'ds-toast__absoluteWrapper': true,
 					'-ds-size-small': size === TOAST_SIZES.SMALL,
@@ -116,7 +116,7 @@ function offsetCenter(el: HTMLElement) {
 
 	const style = window.getComputedStyle(el);
 
-	return TOAST_OFFSET + parseInt(style.paddingLeft, 10);
+	return parseInt(style.paddingLeft, 10) + parseInt(style.borderLeft, 10);
 }
 
 function offsetTop(el: HTMLElement) {
@@ -246,8 +246,6 @@ export default {
 			this.calculateStyles();
 			this.resizeObserver?.disconnect();
 			this.resizeObserver?.observe(this.appendToElement);
-			//We watch the toast's card height because it changes by 1px at the beginning, and we don't know why
-			this.resizeObserver?.observe(this.$refs?.toastCard);
 		},
 		position() {
 			this.calculateStyles();
@@ -258,8 +256,6 @@ export default {
 		this.calculateStyles();
 
 		this.resizeObserver.observe(this.appendToElement);
-		//We watch the toast's card height because it changes by 1px at the beginning, and we don't know why
-		this.resizeObserver?.observe(this.$refs?.toastCard);
 		if (this.isDisappearing && this.disappearingTimeout !== '0') {
 			setTimeout(
 				() => this.$emit('close'),
@@ -273,27 +269,29 @@ export default {
 	},
 	methods: {
 		calculateStyles() {
-			const parentWidthPx =
-				this.appendToElement?.offsetWidth - this.$refs.toastCard?.offsetWidth || 0;
-			const parentHeightPx =
-				this.appendToElement?.offsetHeight - this.$refs.toastCard?.offsetHeight || 0;
+			const parentWidthPx = this.appendToElement?.offsetWidth;
+			const parentHeightPx = this.appendToElement?.offsetHeight;
 
 			this.styles = {
 				bottomCenter: {
 					left: `${parentWidthPx / 2 - offsetCenter(this.appendToElement)}px`,
 					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
+					transform: 'translate(-50%, -100%)',
 				},
 				bottomLeft: {
 					left: `${offsetLeft(this.appendToElement)}px`,
 					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
+					transform: 'translate(0, -100%)',
 				},
 				bottomRight: {
 					left: `${parentWidthPx - offsetRight(this.appendToElement)}px`,
 					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
+					transform: 'translate(-100%, -100%)',
 				},
 				topCenter: {
 					left: `${parentWidthPx / 2 - offsetCenter(this.appendToElement)}px`,
 					top: `${offsetTop(this.appendToElement)}px`,
+					transform: 'translate(-50%, 0)',
 				},
 				topLeft: {
 					left: `${offsetLeft(this.appendToElement)}px`,
@@ -302,6 +300,7 @@ export default {
 				topRight: {
 					left: `${parentWidthPx - offsetRight(this.appendToElement)}px`,
 					top: `${offsetTop(this.appendToElement)}px`,
+					transform: 'translate(-100%, 0)',
 				},
 			}[this.position];
 		},
