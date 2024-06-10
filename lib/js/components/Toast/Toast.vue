@@ -253,7 +253,7 @@ export default {
 			this.calculateStyles();
 			this.resizeObserver?.disconnect();
 			this.resizeObserver?.observe(this.appendToElement);
-			//We watch the toast's card height because it changes by 1px at the beginning, and we don;t know why
+			//We watch the toast's card height because it changes by 1px at the beginning, and we don't know why
 			this.resizeObserver?.observe(this.$refs?.toastCard);
 		},
 		position() {
@@ -265,7 +265,7 @@ export default {
 		this.calculateStyles();
 
 		this.resizeObserver.observe(this.appendToElement);
-		//We watch the toast's card height because it changes by 1px at the beginning, and we don;t know why
+		//We watch the toast's card height because it changes by 1px at the beginning, and we don't know why
 		this.resizeObserver?.observe(this.$refs?.toastCard);
 		if (this.isDisappearing && this.disappearingTimeout !== '0') {
 			setTimeout(
