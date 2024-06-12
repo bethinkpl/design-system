@@ -78,6 +78,31 @@ import { ICONS } from '../Icons/Icon';
 
 const TOAST_OFFSET = 24;
 
+function calculateBoundariesOffset(boundariesElement: HTMLElement) {
+	const borderLeftWidth = window.getComputedStyle(boundariesElement).borderLeftWidth;
+	const borderRightWidth = window.getComputedStyle(boundariesElement).borderRightWidth;
+	const boundingClientRect = boundariesElement.getBoundingClientRect();
+	const boundariesOffsetLeft = boundingClientRect.left + parseInt(borderLeftWidth, 10);
+	const boundariesOffsetRight = boundingClientRect.right - parseInt(borderRightWidth, 10);
+	const boundariesOffsetWidth = boundingClientRect.width;
+	return {
+		left: {
+			left: `${TOAST_OFFSET + boundariesOffsetLeft}px`,
+			bottom: `${TOAST_OFFSET}px`,
+		},
+		right: {
+			left: `${boundariesOffsetRight - TOAST_OFFSET}px`,
+			bottom: `${TOAST_OFFSET}px`,
+			transform: 'translateX(-100%)',
+		},
+		center: {
+			left: `${boundariesOffsetLeft + boundariesOffsetWidth / 2}px`,
+			bottom: `${TOAST_OFFSET}px`,
+			transform: 'translateX(-50%)',
+		},
+	};
+}
+
 export default {
 	name: 'Toast',
 	components: {
@@ -170,6 +195,9 @@ export default {
 				: BUTTON_COLORS.NEUTRAL;
 		},
 		styles() {
+			if (this.boundariesSelectorElement) {
+				return calculateBoundariesOffset(this.boundariesSelectorElement)[this.position];
+			}
 			return {
 				left: {
 					left: `${TOAST_OFFSET}px`,

@@ -17,10 +17,11 @@ const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 		return {
 			ICONS: Object.freeze(ICONS),
 			isVisible: true,
-			appendToSelector: this.appendTo != null ? `#${this.appendTo}` : null,
+			boundariesSelectorId:
+				this.boundariesSelector != null ? `#${this.boundariesSelector}` : null,
 		};
 	},
-	template: `<div style="display: flex; border: 1px black solid; padding: 20px;">
+	template: `<div style="display: flex; justify-content: space-around; height: 1200px; width: 100%;">
 		<ds-toast
 			v-if="isVisible"
 			:size="size"
@@ -32,17 +33,15 @@ const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 			:footer-secondary-button-icon="ICONS[footerSecondaryButtonIcon]"
 			:is-disappearing="isDisappearing"
 			:disappearing-timeout="disappearingTimeout"
-			:append-to="appendToSelector"
+			:boundaries-selector="boundariesSelectorId"
 			@close="isVisible = false"
 		>
 			<template #content>
 				<span v-html="content" />
 			</template>
 		</ds-toast>
-		<div style="display: flex; gap: 20px; height: 560px; width: 100%;">
-			<div id="left" style="width: 50%; height: 100%;  border: 1px black dashed;"></div>
-			<div id="right" style="width: 50%; height: 100%;  border: 1px black dotted;"></div>
-		</div>
+		<div id="left" style="width: 25%; height: 100%;  border: 1px black solid;"></div>
+		<div id="right" style="width: 25%; height: 100%;  border: 1px black solid;"></div>
 	</div>`,
 });
 
@@ -50,7 +49,7 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	size: TOAST_SIZES.MEDIUM,
-	position: TOAST_POSITIONS.BOTTOM_CENTER,
+	position: TOAST_POSITIONS.CENTER,
 	color: TOAST_COLORS.INFO,
 	footerPrimaryButtonText: 'primary',
 	footerPrimaryButtonIcon: null,
@@ -59,7 +58,7 @@ const args = {
 	isDisappearing: false,
 	disappearingTimeout: '0',
 	content: 'Wpłynąłem na suchego przestwór oceanu',
-	appendTo: null,
+	boundariesSelector: null,
 } as Args;
 
 const argTypes = {
@@ -71,7 +70,7 @@ const argTypes = {
 	position: {
 		control: { type: 'select' },
 		options: Object.values(TOAST_POSITIONS),
-		defaultValue: TOAST_POSITIONS.BOTTOM_CENTER,
+		defaultValue: TOAST_POSITIONS.CENTER,
 	},
 	color: {
 		control: { type: 'select' },
@@ -89,7 +88,7 @@ const argTypes = {
 	content: {
 		control: { type: 'text' },
 	},
-	appendTo: {
+	boundariesSelector: {
 		control: { type: 'select' },
 		options: [null, 'left', 'right'],
 		defaultValue: null,
