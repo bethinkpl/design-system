@@ -11,7 +11,10 @@
 			<template #content>
 				<slot name="content" />
 			</template>
-			<template #footer>
+			<template
+				v-if="footerPrimaryButtonText.length > 0 || footerSecondaryButtonText.length > 0"
+				#footer
+			>
 				<div class="ds-toast__footerButtons">
 					<ds-button
 						v-if="footerSecondaryButtonText.length"
