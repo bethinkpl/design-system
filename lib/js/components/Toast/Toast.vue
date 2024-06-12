@@ -42,7 +42,6 @@
 
 .ds-toast {
 	position: fixed;
-	//Todo somehow force to count offset into width when view port is smaller than toast max-width
 	width: 100%;
 
 	&.-ds-size-small {
