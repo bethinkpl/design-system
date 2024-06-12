@@ -177,6 +177,8 @@ export default {
 	data() {
 		return {
 			boundariesSelectorElement: null,
+			boundariesSelectorElementResizeObserver: null,
+			styles: {},
 			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
 			BUTTON_RADIUSES: Object.freeze(BUTTON_RADIUSES),
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
@@ -194,11 +196,36 @@ export default {
 				? BUTTON_COLORS.DANGER
 				: BUTTON_COLORS.NEUTRAL;
 		},
-		styles() {
+	},
+	mounted() {
+		this.setBoundariesSelectorElement();
+		this.calculateStyles();
+		if (this.boundariesSelectorElement) {
+			this.boundariesSelectorElementResizeObserver = new ResizeObserver(() => {
+				this.calculateStyles();
+			});
+			this.boundariesSelectorElementResizeObserver.observe(this.boundariesSelectorElement);
+		}
+		if (this.isDisappearing && this.disappearingTimeout !== '0') {
+			setTimeout(
+				() => this.$emit('close'),
+				parseInt(this.disappearingTimeout, 10) * 1000 + 100, // 100 ms is to let loading bar animation to finish
+			);
+		}
+	},
+	beforeDestroy() {
+		this.boundariesSelectorElementResizeObserver.disconnect();
+		this.boundariesSelectorElementResizeObserver = null;
+	},
+	methods: {
+		calculateStyles() {
 			if (this.boundariesSelectorElement) {
-				return calculateBoundariesOffset(this.boundariesSelectorElement)[this.position];
+				this.styles = calculateBoundariesOffset(this.boundariesSelectorElement)[
+					this.position
+				];
+				return;
 			}
-			return {
+			this.styles = {
 				left: {
 					left: `${TOAST_OFFSET}px`,
 					bottom: `${TOAST_OFFSET}px`,
@@ -214,18 +241,6 @@ export default {
 				},
 			}[this.position];
 		},
-	},
-	mounted() {
-		this.setBoundariesSelectorElement();
-
-		if (this.isDisappearing && this.disappearingTimeout !== '0') {
-			setTimeout(
-				() => this.$emit('close'),
-				parseInt(this.disappearingTimeout, 10) * 1000 + 100, // 100 ms is to let loading bar animation to finish
-			);
-		}
-	},
-	methods: {
 		setBoundariesSelectorElement() {
 			if (typeof this.boundariesSelector === 'string') {
 				this.boundariesSelectorElement =
