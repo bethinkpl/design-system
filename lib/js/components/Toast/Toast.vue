@@ -82,7 +82,7 @@ function calculateBoundariesOffset(boundariesElement: HTMLElement) {
 	const borderLeftWidth = window.getComputedStyle(boundariesElement).borderLeftWidth;
 	const borderRightWidth = window.getComputedStyle(boundariesElement).borderRightWidth;
 	const boundingClientRect = boundariesElement.getBoundingClientRect();
-	const boundariesOffsetLeft = boundingClientRect.left + parseInt(borderLeftWidth, 10);
+	const boundariesOffsetLeft = boundingClientRect.left - parseInt(borderLeftWidth, 10);
 	const boundariesOffsetRight = boundingClientRect.right - parseInt(borderRightWidth, 10);
 	const boundariesOffsetWidth = boundingClientRect.width;
 	return {
