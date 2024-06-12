@@ -1,65 +1,56 @@
 <template>
-	<Teleport :to="appendToElement" :disabled="disableTeleport">
-		<span class="ds-toast">
-			<span
-				:style="styles"
-				:class="{
-					'ds-toast__absoluteWrapper': true,
-					'-ds-size-small': size === TOAST_SIZES.SMALL,
-					'-ds-size-medium': size === TOAST_SIZES.MEDIUM,
-				}"
-			>
-				<ds-card
-					:loading-bar-color="color"
-					has-loading-bar
-					:loading-bar-time="disappearingTimeout"
-				>
-					<template #content>
-						<slot name="content" />
-					</template>
-					<template #footer>
-						<div class="ds-toast__footerButtons">
-							<ds-button
-								v-if="footerSecondaryButtonText.length"
-								:color="buttonSecondaryColor"
-								:icon-right="footerSecondaryButtonIcon"
-								:type="BUTTON_TYPES.OUTLINED"
-								:radius="BUTTON_RADIUSES.ROUNDED"
-								@click="$emit('secondary-button-click')"
-								>{{ footerSecondaryButtonText }}</ds-button
-							>
-							<ds-button
-								v-if="footerPrimaryButtonText.length"
-								:color="buttonPrimaryColor"
-								:icon-right="footerPrimaryButtonIcon"
-								:radius="BUTTON_RADIUSES.ROUNDED"
-								@click="$emit('primary-button-click')"
-								>{{ footerPrimaryButtonText }}</ds-button
-							>
-						</div>
-					</template>
-				</ds-card>
-			</span>
-		</span>
-	</Teleport>
+	<div
+		:style="styles"
+		:class="{
+			'ds-toast': true,
+			'-ds-size-small': size === TOAST_SIZES.SMALL,
+			'-ds-size-medium': size === TOAST_SIZES.MEDIUM,
+		}"
+	>
+		<ds-card :loading-bar-color="color" has-loading-bar :loading-bar-time="disappearingTimeout">
+			<template #content>
+				<slot name="content" />
+			</template>
+			<template #footer>
+				<div class="ds-toast__footerButtons">
+					<ds-button
+						v-if="footerSecondaryButtonText.length"
+						:color="buttonSecondaryColor"
+						:icon-right="footerSecondaryButtonIcon"
+						:type="BUTTON_TYPES.OUTLINED"
+						:radius="BUTTON_RADIUSES.ROUNDED"
+						@click="$emit('secondary-button-click')"
+						>{{ footerSecondaryButtonText }}
+					</ds-button>
+					<ds-button
+						v-if="footerPrimaryButtonText.length"
+						:color="buttonPrimaryColor"
+						:icon-right="footerPrimaryButtonIcon"
+						:radius="BUTTON_RADIUSES.ROUNDED"
+						@click="$emit('primary-button-click')"
+						>{{ footerPrimaryButtonText }}
+					</ds-button>
+				</div>
+			</template>
+		</ds-card>
+	</div>
 </template>
 
 <style scoped lang="scss">
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/media-queries';
 
 .ds-toast {
-	position: relative;
+	position: fixed;
+	//Todo somehow force to count offset into width when view port is smaller than toast max-width
+	width: 100%;
 
-	&__absoluteWrapper {
-		position: absolute;
+	&.-ds-size-small {
+		max-width: 320px;
+	}
 
-		&.-ds-size-small {
-			width: 320px;
-		}
-
-		&.-ds-size-medium {
-			width: 500px;
-		}
+	&.-ds-size-medium {
+		max-width: 500px;
 	}
 
 	&__footerButtons {
@@ -87,60 +78,6 @@ import { ICONS } from '../Icons/Icon';
 
 const TOAST_OFFSET = 24;
 
-function offsetRight(el: HTMLElement) {
-	if (!el) {
-		return 0;
-	}
-
-	const style = window.getComputedStyle(el);
-	const paddingRight = parseInt(style.paddingRight, 10);
-	const borderRight = parseInt(style.borderRight, 10);
-	const borderLeft = parseInt(style.borderLeft, 10);
-
-	return TOAST_OFFSET + paddingRight + borderRight + borderLeft;
-}
-
-function offsetLeft(el: HTMLElement) {
-	if (!el) {
-		return 0;
-	}
-
-	const style = window.getComputedStyle(el);
-
-	return TOAST_OFFSET - parseInt(style.paddingLeft, 10);
-}
-function offsetCenter(el: HTMLElement) {
-	if (!el) {
-		return 0;
-	}
-
-	const style = window.getComputedStyle(el);
-
-	return parseInt(style.paddingLeft, 10) + parseInt(style.borderLeft, 10);
-}
-
-function offsetTop(el: HTMLElement) {
-	if (!el) {
-		return 0;
-	}
-
-	const style = window.getComputedStyle(el);
-
-	return TOAST_OFFSET - parseInt(style.paddingTop, 10);
-}
-function offsetBottom(el: HTMLElement) {
-	if (!el) {
-		return 0;
-	}
-
-	const style = window.getComputedStyle(el);
-	const padding = parseInt(style.paddingBottom, 10);
-	const borderBottom = parseInt(style.borderBottom, 10);
-	const borderTop = parseInt(style.borderTop, 10);
-
-	return TOAST_OFFSET + (padding + borderBottom + borderTop);
-}
-
 export default {
 	name: 'Toast',
 	components: {
@@ -154,7 +91,7 @@ export default {
 		},
 		position: {
 			type: String as PropType<ToastPositions>,
-			default: TOAST_POSITIONS.BOTTOM_CENTER,
+			default: TOAST_POSITIONS.CENTER,
 		},
 		color: {
 			type: String as PropType<ToastColors>,
@@ -202,7 +139,7 @@ export default {
 				);
 			},
 		},
-		appendTo: {
+		boundariesSelector: {
 			type: [String, HTMLElement],
 			default: null,
 		},
@@ -214,11 +151,7 @@ export default {
 	},
 	data() {
 		return {
-			appendToElement: null,
-			styles: {},
-			resizeObserver: new ResizeObserver(() => {
-				this.calculateStyles();
-			}),
+			boundariesSelectorElement: null,
 			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
 			BUTTON_RADIUSES: Object.freeze(BUTTON_RADIUSES),
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
@@ -236,26 +169,27 @@ export default {
 				? BUTTON_COLORS.DANGER
 				: BUTTON_COLORS.NEUTRAL;
 		},
-		disableTeleport() {
-			return this.appendTo === null || this.appendToElement === this.$parent.$el;
-		},
-	},
-	watch: {
-		appendTo() {
-			this.choseAppendToElement();
-			this.calculateStyles();
-			this.resizeObserver?.disconnect();
-			this.resizeObserver?.observe(this.appendToElement);
-		},
-		position() {
-			this.calculateStyles();
+		styles() {
+			return {
+				left: {
+					left: `${TOAST_OFFSET}px`,
+					bottom: `${TOAST_OFFSET}px`,
+				},
+				right: {
+					right: `${TOAST_OFFSET}px`,
+					bottom: `${TOAST_OFFSET}px`,
+				},
+				center: {
+					left: '50%',
+					transform: 'translateX(-50%)',
+					bottom: `${TOAST_OFFSET}px`,
+				},
+			}[this.position];
 		},
 	},
 	mounted() {
-		this.choseAppendToElement();
-		this.calculateStyles();
+		this.setBoundariesSelectorElement();
 
-		this.resizeObserver.observe(this.appendToElement);
 		if (this.isDisappearing && this.disappearingTimeout !== '0') {
 			setTimeout(
 				() => this.$emit('close'),
@@ -263,63 +197,14 @@ export default {
 			);
 		}
 	},
-	beforeDestroy() {
-		this.resizeObserver.disconnect();
-		this.resizeObserver = null;
-	},
 	methods: {
-		calculateStyles() {
-			const parentWidthPx = this.appendToElement?.offsetWidth;
-			const parentHeightPx = this.appendToElement?.offsetHeight;
-
-			this.styles = {
-				bottomCenter: {
-					left: `${parentWidthPx / 2 - offsetCenter(this.appendToElement)}px`,
-					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
-					transform: 'translate(-50%, -100%)',
-				},
-				bottomLeft: {
-					left: `${offsetLeft(this.appendToElement)}px`,
-					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
-					transform: 'translate(0, -100%)',
-				},
-				bottomRight: {
-					left: `${parentWidthPx - offsetRight(this.appendToElement)}px`,
-					top: `${parentHeightPx - offsetBottom(this.appendToElement)}px`,
-					transform: 'translate(-100%, -100%)',
-				},
-				topCenter: {
-					left: `${parentWidthPx / 2 - offsetCenter(this.appendToElement)}px`,
-					top: `${offsetTop(this.appendToElement)}px`,
-					transform: 'translate(-50%, 0)',
-				},
-				topLeft: {
-					left: `${offsetLeft(this.appendToElement)}px`,
-					top: `${offsetTop(this.appendToElement)}px`,
-				},
-				topRight: {
-					left: `${parentWidthPx - offsetRight(this.appendToElement)}px`,
-					top: `${offsetTop(this.appendToElement)}px`,
-					transform: 'translate(-100%, 0)',
-				},
-			}[this.position];
-		},
-		choseAppendToElement() {
-			let appendToElement = this.$parent.$el;
-			if (typeof this.appendTo === 'string') {
-				appendToElement = document.querySelector(this.appendTo);
-			} else if (this.appendTo instanceof HTMLElement) {
-				appendToElement = this.appendTo;
+		setBoundariesSelectorElement() {
+			if (typeof this.boundariesSelector === 'string') {
+				this.boundariesSelectorElement =
+					document.querySelector(this.boundariesSelector) || null;
+			} else if (this.boundariesSelector instanceof HTMLElement) {
+				this.boundariesSelectorElement = this.boundariesSelector;
 			}
-
-			if (!(appendToElement instanceof HTMLElement)) {
-				console.error(
-					'The appendTo prop is not an HTMLElement. Falling back to parent element.',
-				);
-				appendToElement = this.$parent.$el;
-			}
-
-			this.appendToElement = appendToElement;
 		},
 	},
 };

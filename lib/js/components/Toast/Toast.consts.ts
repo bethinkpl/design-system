@@ -19,12 +19,9 @@ export const TOAST_COLORS = {
 export type ToastColors = Value<typeof TOAST_COLORS>;
 
 export const TOAST_POSITIONS = {
-	TOP_LEFT: 'topLeft',
-	TOP_CENTER: 'topCenter',
-	TOP_RIGHT: 'topRight',
-	BOTTOM_LEFT: 'bottomLeft',
-	BOTTOM_CENTER: 'bottomCenter',
-	BOTTOM_RIGHT: 'bottomRight',
+	LEFT: 'left',
+	CENTER: 'center',
+	RIGHT: 'right',
 };
 
 export type ToastPositions = Value<typeof TOAST_POSITIONS>;
