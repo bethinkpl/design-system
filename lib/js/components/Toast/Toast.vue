@@ -202,11 +202,15 @@ export default {
 	mounted() {
 		this.setBoundariesSelectorElement();
 		this.calculateStyles();
+		this.boundariesSelectorElementResizeObserver?.disconnect();
+		this.boundariesSelectorElementResizeObserver = new ResizeObserver(() => {
+			this.calculateStyles();
+		});
 		if (this.boundariesSelectorElement) {
-			this.boundariesSelectorElementResizeObserver = new ResizeObserver(() => {
-				this.calculateStyles();
-			});
 			this.boundariesSelectorElementResizeObserver.observe(this.boundariesSelectorElement);
+		} else {
+			//window resize does not work for some reason, so we observe body
+			this.boundariesSelectorElementResizeObserver.observe(document.querySelector('body'));
 		}
 		if (this.isDisappearing && this.disappearingTimeout !== '0') {
 			setTimeout(
