@@ -199,21 +199,6 @@ export default {
 				: BUTTON_COLORS.NEUTRAL;
 		},
 	},
-	watch: {
-		styles: {
-			handler() {
-				const { right, left } = this.$el.getClientRects()[0];
-				if (parseInt(left, 10) < 0 || right > document.documentElement.clientWidth) {
-					this.styles = {
-						left: '50%',
-						transform: 'translateX(-50%)',
-						bottom: `${TOAST_OFFSET}px`,
-					};
-				}
-			},
-		},
-		flush: 'post',
-	},
 	mounted() {
 		this.setBoundariesSelectorElement();
 		this.calculateStyles();
@@ -233,6 +218,16 @@ export default {
 	beforeDestroy() {
 		this.boundariesSelectorElementResizeObserver.disconnect();
 		this.boundariesSelectorElementResizeObserver = null;
+	},
+	updated() {
+		const { right, left } = this.$el.getClientRects()[0];
+		if (parseInt(left, 10) < 0 || right > document.documentElement.clientWidth) {
+			this.styles = {
+				left: '50%',
+				transform: 'translateX(-50%)',
+				bottom: `${TOAST_OFFSET}px`,
+			};
+		}
 	},
 	methods: {
 		calculateStyles() {
