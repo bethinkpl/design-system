@@ -78,9 +78,12 @@
     "ts-jest": "29.0.5",
     "ts-node": "^10.9.1",
     "typescript": "4.6.4",
-    "vue": "3.2.45",
+    "vue": "^3.3",
     "vue-loader": "17.0.0",
     "vue-popperjs": "bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
     "vue-svg-loader": "0.17.0-beta.2"
+  },
+  "dependencies": {
+    "primevue": "4.0.0-beta.4"
   }
 }

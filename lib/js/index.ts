@@ -96,6 +96,8 @@ export { default as GroupRichListItem } from './components/RichList/GroupRichLis
 export { default as Switch } from './components/Switch';
 export * from './components/Switch/Switch.consts';
 
+export { initializePrimeVue } from './primevue';
+
 export {
 	initialize as initializeIcons,
 	initializeWithDomWatcher as initializeIconsWithDomWatcher,
