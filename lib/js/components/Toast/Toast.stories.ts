@@ -26,6 +26,7 @@ const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 			v-if="isVisible"
 			:size="size"
 			:position="position"
+			:boundaries-selector="boundariesSelectorId"
 			:color="color"
 			:footer-primary-button-text="footerPrimaryButtonText"
 			:footer-primary-button-icon="ICONS[footerPrimaryButtonIcon]"
@@ -33,7 +34,6 @@ const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 			:footer-secondary-button-icon="ICONS[footerSecondaryButtonIcon]"
 			:is-disappearing="isDisappearing"
 			:disappearing-timeout="disappearingTimeout"
-			:boundaries-selector="boundariesSelectorId"
 			@close="isVisible = false"
 		>
 			<template #content>
@@ -50,6 +50,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	size: TOAST_SIZES.MEDIUM,
 	position: TOAST_POSITIONS.CENTER,
+	boundariesSelector: null,
 	color: TOAST_COLORS.INFO,
 	footerPrimaryButtonText: 'primary',
 	footerPrimaryButtonIcon: null,
@@ -58,7 +59,6 @@ const args = {
 	isDisappearing: false,
 	disappearingTimeout: '0',
 	content: 'Wpłynąłem na suchego przestwór oceanu',
-	boundariesSelector: null,
 } as Args;
 
 const argTypes = {
@@ -71,6 +71,11 @@ const argTypes = {
 		control: { type: 'select' },
 		options: Object.values(TOAST_POSITIONS),
 		defaultValue: TOAST_POSITIONS.CENTER,
+	},
+	boundariesSelector: {
+		control: { type: 'select' },
+		options: [null, 'left', 'right'],
+		defaultValue: null,
 	},
 	color: {
 		control: { type: 'select' },
@@ -87,11 +92,6 @@ const argTypes = {
 	},
 	content: {
 		control: { type: 'text' },
-	},
-	boundariesSelector: {
-		control: { type: 'select' },
-		options: [null, 'left', 'right'],
-		defaultValue: null,
 	},
 } as ArgTypes;
 

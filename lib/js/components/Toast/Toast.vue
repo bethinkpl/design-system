@@ -9,7 +9,9 @@
 	>
 		<ds-card :loading-bar-color="color" has-loading-bar :loading-bar-time="disappearingTimeout">
 			<template #content>
-				<slot name="content" />
+				<div class="ds-toast__content">
+					<slot name="content" />
+				</div>
 			</template>
 			<template
 				v-if="footerPrimaryButtonText.length > 0 || footerSecondaryButtonText.length > 0"
@@ -41,6 +43,7 @@
 
 <style scoped lang="scss">
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/media-queries';
 
 .ds-toast {
@@ -53,6 +56,10 @@
 
 	&.-ds-size-medium {
 		max-width: 500px;
+	}
+
+	&__content {
+		@include text-m-default-regular;
 	}
 
 	&__footerButtons {
@@ -84,8 +91,9 @@ function calculateBoundariesOffset(boundariesElement: HTMLElement) {
 	const borderLeftWidth = window.getComputedStyle(boundariesElement).borderLeftWidth;
 	const borderRightWidth = window.getComputedStyle(boundariesElement).borderRightWidth;
 	const boundingClientRect = boundariesElement.getBoundingClientRect();
-	const boundariesOffsetLeft = boundingClientRect.left - parseInt(borderLeftWidth, 10);
-	const boundariesOffsetRight = boundingClientRect.right - parseInt(borderRightWidth, 10);
+	const boundariesOffsetLeft = boundingClientRect.left + parseInt(borderLeftWidth, 10);
+	const boundariesOffsetRight =
+		boundingClientRect.right - parseInt(borderRightWidth, 10) - parseInt(borderLeftWidth, 10);
 	const boundariesOffsetWidth = boundingClientRect.width;
 	return {
 		left: {
@@ -119,6 +127,10 @@ export default {
 		position: {
 			type: String as PropType<ToastPositions>,
 			default: TOAST_POSITIONS.CENTER,
+		},
+		boundariesSelector: {
+			type: [String, HTMLElement],
+			default: null,
 		},
 		color: {
 			type: String as PropType<ToastColors>,
@@ -165,10 +177,6 @@ export default {
 					parseInt(disappearingTimeout, 10) >= 0
 				);
 			},
-		},
-		boundariesSelector: {
-			type: [String, HTMLElement],
-			default: null,
 		},
 	},
 	emits: {
