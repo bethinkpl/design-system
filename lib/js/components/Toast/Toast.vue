@@ -1,12 +1,5 @@
 <template>
-	<div
-		:style="styles"
-		:class="{
-			'ds-toast': true,
-			'-ds-size-small': size === TOAST_SIZES.SMALL,
-			'-ds-size-medium': size === TOAST_SIZES.MEDIUM,
-		}"
-	>
+	<div :style="styles" :class="['ds-toast', toastSize, toastPosition]">
 		<ds-card :loading-bar-color="color" has-loading-bar :loading-bar-time="disappearingTimeout">
 			<template #content>
 				<div class="ds-toast__content">
@@ -51,11 +44,34 @@
 	width: 100%;
 
 	&.-ds-size-small {
-		max-width: 320px;
+		max-width: 320px + $space-s * 2;
+		padding: $space-s;
 	}
 
 	&.-ds-size-medium {
-		max-width: 500px;
+		max-width: 500px + $space-s * 2;
+		padding: $space-s;
+
+		@media (#{breakpoint-s()}) {
+			max-width: 500px + $space-m * 2;
+			padding: $space-m;
+		}
+	}
+
+	&.-ds-position-left {
+		left: 0;
+		bottom: 0;
+	}
+
+	&.-ds-position-right {
+		right: 0;
+		bottom: 0;
+	}
+
+	&.-ds-position-center {
+		left: 50%;
+		transform: translateX(-50%);
+		bottom: 0;
 	}
 
 	&__content {
@@ -97,17 +113,14 @@ function calculateBoundariesOffset(boundariesElement: HTMLElement) {
 	const boundariesOffsetWidth = boundingClientRect.width;
 	return {
 		left: {
-			left: `${TOAST_OFFSET + boundariesOffsetLeft}px`,
-			bottom: `${TOAST_OFFSET}px`,
+			left: `${boundariesOffsetLeft}px`,
 		},
 		right: {
-			left: `${boundariesOffsetRight - TOAST_OFFSET}px`,
-			bottom: `${TOAST_OFFSET}px`,
+			left: `${boundariesOffsetRight}px`,
 			transform: 'translateX(-100%)',
 		},
 		center: {
 			left: `${boundariesOffsetLeft + boundariesOffsetWidth / 2}px`,
-			bottom: `${TOAST_OFFSET}px`,
 			transform: 'translateX(-50%)',
 		},
 	};
@@ -193,6 +206,7 @@ export default {
 			BUTTON_RADIUSES: Object.freeze(BUTTON_RADIUSES),
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			TOAST_SIZES: Object.freeze(TOAST_SIZES),
+			TOAST_POSITIONS: Object.freeze(TOAST_POSITIONS),
 		};
 	},
 	computed: {
@@ -205,6 +219,12 @@ export default {
 			return this.color === TOAST_COLORS.DANGER
 				? BUTTON_COLORS.DANGER
 				: BUTTON_COLORS.NEUTRAL;
+		},
+		toastPosition() {
+			return `-ds-position-${this.position.toLowerCase()}`;
+		},
+		toastSize() {
+			return `-ds-size-${this.size.toLowerCase()}`;
 		},
 	},
 	mounted() {
@@ -237,7 +257,6 @@ export default {
 			this.styles = {
 				left: '50%',
 				transform: 'translateX(-50%)',
-				bottom: `${TOAST_OFFSET}px`,
 			};
 		}
 	},
@@ -247,23 +266,9 @@ export default {
 				this.styles = calculateBoundariesOffset(this.boundariesSelectorElement)[
 					this.position
 				];
-				return;
+			} else {
+				this.styles = {};
 			}
-			this.styles = {
-				left: {
-					left: `${TOAST_OFFSET}px`,
-					bottom: `${TOAST_OFFSET}px`,
-				},
-				right: {
-					right: `${TOAST_OFFSET}px`,
-					bottom: `${TOAST_OFFSET}px`,
-				},
-				center: {
-					left: '50%',
-					transform: 'translateX(-50%)',
-					bottom: `${TOAST_OFFSET}px`,
-				},
-			}[this.position];
 		},
 		setBoundariesSelectorElement() {
 			if (typeof this.boundariesSelector === 'string') {
