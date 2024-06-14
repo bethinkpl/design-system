@@ -114,6 +114,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_HOURGLASS_END: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_HOURGLASS_START: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_HOUSE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_IMAGES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_INFO_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_KEY: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_KEYBOARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
