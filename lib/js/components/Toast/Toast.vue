@@ -59,19 +59,19 @@
 	}
 
 	&.-ds-position-left {
-		left: 0;
 		bottom: 0;
+		left: 0;
 	}
 
 	&.-ds-position-right {
-		right: 0;
 		bottom: 0;
+		right: 0;
 	}
 
 	&.-ds-position-center {
+		bottom: 0;
 		left: 50%;
 		transform: translateX(-50%);
-		bottom: 0;
 	}
 
 	&__content {
