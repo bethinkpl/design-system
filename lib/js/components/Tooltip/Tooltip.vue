@@ -32,7 +32,7 @@ export default defineComponent({
 		},
 		text: {
 			type: String,
-			require: true,
+			default: '',
 		},
 		isDisabled: {
 			type: Boolean,
@@ -55,7 +55,6 @@ export default defineComponent({
 				value: this.text,
 				disabled: this.isDisabled,
 				dt: {
-					gutter: '10px',
 					shadow: '0px 0px 4px 0px rgba(12, 23, 38, 0.08), 0px 6px 12px 0px rgba(12, 23, 38, 0.12), 0px 2px 4px 0px rgba(12, 23, 38, 0.06)',
 					padding: 'var(--spacing-space-3xs, 6px) var(--spacing-space-2xs, 8px)',
 					background: 'var(--neutral-background-medium, #E5E7ED)',
