@@ -2165,6 +2165,11 @@
   dependencies:
     "@primevue/core" "4.0.0-rc.2"
 
+"@primevue/themes@4.0.0-rc.2":
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@primevue/themes/-/themes-4.0.0-rc.2.tgz#0a56d303055b203aadf1120cf092aeb89b34f468"
+  integrity sha512-4y9NlDDwA4J51aNoO1+7anPOwjNTpCzetOZlKY7pQfxxpAmKUM4ouf87kjQz0/IFjBIxN4ZK3XfwtamFoL08Ug==
+
 "@sideway/address@^4.1.3":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.4.tgz#03dccebc6ea47fdc226f7d3d1ad512955d4783f0"
