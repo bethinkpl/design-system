@@ -57,12 +57,12 @@ declare const _default: {
             readonly LOADING: "loading";
         }>;
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
-            readonly RIBBON: import("vue").CompatVue;
-            readonly SLIDERS_SEARCH: import("vue").CompatVue;
-            readonly COMMENTS_CHECK: import("vue").CompatVue;
-            readonly ANSWERS: import("vue").CompatVue;
-            readonly HIDE_ANSWERS: import("vue").CompatVue;
+            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
+            readonly RIBBON: VueConstructor<Vue>;
+            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
+            readonly COMMENTS_CHECK: VueConstructor<Vue>;
+            readonly ANSWERS: VueConstructor<Vue>;
+            readonly HIDE_ANSWERS: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
