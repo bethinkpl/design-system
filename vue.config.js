@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 
-// Function to fetch directories within a given path
 function getDirectories(module) {
 	return fs
 		.readdirSync(module)
