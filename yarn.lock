@@ -2146,6 +2146,25 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.23.tgz#498e41218ab3b6a1419c735e5c6ae2c5ed609b6c"
   integrity sha512-C16M+IYz0rgRhWZdCmK+h58JMv8vijAA61gmz2rspCSwKwzBebpdcsiUmwrtJRdphuY30i6BSLEOP8ppbNLyLg==
 
+"@primeuix/styled@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@primeuix/styled/-/styled-0.0.1.tgz#b17d75d46b954eaefc0972768c1fd23ef7c8342a"
+  integrity sha512-0psCSZr3906UwC4mTl2ol4aDoLvdbM0ekJFLKvCvC2oQ9z2YZhmUOVZQNNxBW34mChDzZYcAcRWXADQz3z5lBg==
+
+"@primevue/core@4.0.0-rc.2":
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@primevue/core/-/core-4.0.0-rc.2.tgz#7cbd6b91db0c703b371d37a5f7fd377c67b5e1e4"
+  integrity sha512-S0RGGdW/M/ogIKeif6JwkJrPLC8pyuBYy2zZlloXXj6Fpvk416sMpO308sx89fqvba2d5poT9a+AbkGob4TDtQ==
+  dependencies:
+    "@primeuix/styled" "^0.0.1"
+
+"@primevue/icons@4.0.0-rc.2":
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/@primevue/icons/-/icons-4.0.0-rc.2.tgz#8c9fba1ed5450e68bb98117ef2703694afecd4c1"
+  integrity sha512-VZFETBtmpAduGxXhxcYoqiuGriidyz4XR/4NcrR87CQpUWmT13PXfRoqZ1hLXwNZp1XferT1F5GtY1mHcYxJdw==
+  dependencies:
+    "@primevue/core" "4.0.0-rc.2"
+
 "@sideway/address@^4.1.3":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.4.tgz#03dccebc6ea47fdc226f7d3d1ad512955d4783f0"
@@ -13285,10 +13304,13 @@ pretty@2.0.0:
     extend-shallow "^2.0.1"
     js-beautify "^1.6.12"
 
-primevue@4.0.0-beta.4:
-  version "4.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/primevue/-/primevue-4.0.0-beta.4.tgz#6cf29a10bdb5522e44a8f4f74d5d24a5b2afc452"
-  integrity sha512-5ziY7gr1tRmCpK8LSAYgfdOyljLbHoxs2LCOTApB5jMZeAOeFRdIRHfUtCCLevX84azQJn+Bac8g43OCIzutlA==
+primevue@4.0.0-rc.2:
+  version "4.0.0-rc.2"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-4.0.0-rc.2.tgz#d840e72f997ee78977aedbea3686ed7e47fe2746"
+  integrity sha512-1SICPga4FA5sx27h5FBnMHWidPJRn58mPZj0LNlJygp+9P5ksrtRRNdfDPzmRB+fWcmhvbIxk46meyHeMw1wTQ==
+  dependencies:
+    "@primevue/core" "4.0.0-rc.2"
+    "@primevue/icons" "4.0.0-rc.2"
 
 prismjs@^1.27.0:
   version "1.29.0"
