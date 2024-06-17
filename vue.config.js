@@ -3,10 +3,10 @@ const fs = require('fs');
 
 // Function to fetch directories within a given path
 function getDirectories(module) {
-	return fs.readdirSync(module)
-		.filter(file => fs.statSync(path.join(module, file)).isDirectory());
+	return fs
+		.readdirSync(module)
+		.filter((file) => fs.statSync(path.join(module, file)).isDirectory());
 }
-
 
 module.exports = {
 	/**
@@ -39,9 +39,9 @@ module.exports = {
 				}));
 
 			const primePackages = ['primevue', '@primevue/themes'];
-			primePackages.forEach(pkg => {
+			primePackages.forEach((pkg) => {
 				const modulePath = path.resolve(__dirname, `node_modules/${pkg}`);
-				getDirectories(modulePath).forEach(dir => {
+				getDirectories(modulePath).forEach((dir) => {
 					config.resolve.alias.set(`${pkg}/${dir}`, path.join(modulePath, dir));
 				});
 			});
