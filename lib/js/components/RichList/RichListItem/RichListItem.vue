@@ -47,7 +47,7 @@
 					<ds-divider is-vertical class="-ds-hideOnMobile" />
 					<ds-checkbox
 						:is-selected="isSelected"
-						@update:is-selected="$emit('update:isSelected', $event)"
+						@update:is-selected="$emit('update:is-selected', $event)"
 						@click.stop
 					/>
 				</div>
@@ -532,7 +532,7 @@ export default {
 	emits: {
 		'icon-click': () => true,
 		click: () => true,
-		'update:isSelected': (isSelected: boolean) => true,
+		'update:is-selected': (isSelected: boolean) => true,
 	},
 	data() {
 		return {

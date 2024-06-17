@@ -14,8 +14,8 @@
 			:eyebrow="eyebrow"
 			:supporting-text="supportingText"
 			:has-divider="hasDivider"
-			@infoClick="onInfoClick"
-			@update:isExpanded="onExpandableHeaderClick"
+			@info-click="onInfoClick"
+			@update:is-expanded="onExpandableHeaderClick"
 		/>
 
 		<div v-if="isExpandedInternal || !isExpandable">

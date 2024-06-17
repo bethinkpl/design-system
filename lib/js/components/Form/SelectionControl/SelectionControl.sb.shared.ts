@@ -1,7 +1,7 @@
 import { Args, ArgTypes } from '@storybook/vue3';
 
 export const template = (componentTag: string) => `
-		<${componentTag} v-bind="args" @update:isSelected="onIsSelectedUpdated"/>`;
+		<${componentTag} v-bind="args" @update:is-selected="onIsSelectedUpdated"/>`;
 
 export const argTypes = (size, state) =>
 	({
