@@ -1,3 +1,12 @@
+const path = require('path');
+const fs = require('fs');
+
+function getDirectories(module) {
+	return fs
+		.readdirSync(module)
+		.filter((file) => fs.statSync(path.join(module, file)).isDirectory());
+}
+
 module.exports = {
 	/**
 	 * we disable parallel for production, because if we use ts-loader the Thread Loader does
@@ -27,6 +36,14 @@ module.exports = {
 					transpileOnly: false,
 					happyPackMode: false,
 				}));
+
+			const primePackages = ['primevue', '@primevue/themes'];
+			primePackages.forEach((pkg) => {
+				const modulePath = path.resolve(__dirname, `node_modules/${pkg}`);
+				getDirectories(modulePath).forEach((dir) => {
+					config.resolve.alias.set(`${pkg}/${dir}`, path.join(modulePath, dir));
+				});
+			});
 		}
 
 		const svgRule = config.module.rule('svg');

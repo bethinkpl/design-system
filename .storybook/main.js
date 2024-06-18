@@ -1,4 +1,11 @@
 const path = require('path');
+const fs = require('fs');
+
+function getDirectories(module) {
+	return fs
+		.readdirSync(module)
+		.filter((file) => fs.statSync(path.join(module, file)).isDirectory());
+}
 
 module.exports = {
 	stories: ['../lib/**/*.stories.@(js|mdx|ts)'],
@@ -65,6 +72,14 @@ module.exports = {
 
 		// config.resolve.alias.lib = path.resolve(__dirname, '../lib');
 		config.resolve.alias['design-system'] = path.resolve(__dirname, '..');
+
+		const primePackages = ['primevue', '@primevue/themes'];
+		primePackages.forEach((pkg) => {
+			const modulePath = path.resolve(__dirname, `../node_modules/${pkg}`);
+			getDirectories(modulePath).forEach((dir) => {
+				config.resolve.alias[`${pkg}/${dir}`] = path.join(modulePath, dir);
+			});
+		});
 
 		return config;
 	},
