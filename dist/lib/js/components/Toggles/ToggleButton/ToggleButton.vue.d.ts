@@ -1,7 +1,7 @@
 import { Value } from '../../../utils/type.utils';
 import { PropType } from 'vue';
 import { TOGGLE_BUTTON_COLORS, TOGGLE_BUTTON_RADIUSES, TOGGLE_BUTTON_SIZES, TOGGLE_BUTTON_STATES, ToggleButtonColor, ToggleButtonLabelSize, ToggleButtonRadius, ToggleButtonSize, ToggleButtonState } from './ToggleButton.consts';
-import { IconItem, IconSize } from '../../Icons/Icon';
+import { IconSize } from '../../Icons/Icon';
 import DsIcon from '../../Icons/Icon/Icon.vue';
 declare const _default: {
     name: string;
@@ -19,12 +19,12 @@ declare const _default: {
             default: boolean;
         };
         iconLeft: {
-            type: PropType<IconItem>;
+            type: PropType<any>;
             default: null;
             validator(icon: any): boolean;
         };
         iconRight: {
-            type: PropType<IconItem>;
+            type: PropType<any>;
             default: null;
             validator(icon: any): boolean;
         };
@@ -67,12 +67,12 @@ declare const _default: {
     emits: string[];
     data(): {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
-            readonly RIBBON: import("vue").CompatVue;
-            readonly SLIDERS_SEARCH: import("vue").CompatVue;
-            readonly COMMENTS_CHECK: import("vue").CompatVue;
-            readonly ANSWERS: import("vue").CompatVue;
-            readonly HIDE_ANSWERS: import("vue").CompatVue;
+            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
+            readonly RIBBON: VueConstructor<Vue>;
+            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
+            readonly COMMENTS_CHECK: VueConstructor<Vue>;
+            readonly ANSWERS: VueConstructor<Vue>;
+            readonly HIDE_ANSWERS: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;

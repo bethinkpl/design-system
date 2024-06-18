@@ -7,7 +7,7 @@
 		:not-selected-icon="ICONS.FA_SQUARE"
 		:state="state"
 		:type="SELECTION_CONTROL_TYPE.CHECKBOX"
-		@update:isSelected="$emit('update:isSelected', $event)"
+		@update:is-selected="$emit('update:is-selected', $event)"
 		@input:focus="$emit('input:focus')"
 		@input:blur="$emit('input:blur')"
 	/>
@@ -49,7 +49,7 @@ export default {
 	},
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['update:isSelected', 'input:focus', 'input:blur'],
+	emits: ['update:is-selected', 'input:focus', 'input:blur'],
 	data() {
 		return {
 			SELECTION_CONTROL_TYPE: Object.freeze(SELECTION_CONTROL_TYPE),

@@ -7,7 +7,7 @@
 		:not-selected-icon="ICONS.FA_CIRCLE"
 		:state="state"
 		:type="SELECTION_CONTROL_TYPE.RADIO_BUTTON"
-		@update:isSelected="$emit('update:isSelected', $event)"
+		@update:is-selected="$emit('update:is-selected', $event)"
 		@input:focus="$emit('input:focus')"
 		@input:blur="$emit('input:blur')"
 	/>
@@ -54,7 +54,7 @@ export default {
 	},
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['update:isSelected', 'input:focus', 'input:blur'],
+	emits: ['update:is-selected', 'input:focus', 'input:blur'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),

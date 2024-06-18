@@ -21,7 +21,7 @@
 		:class="{
 			'-ds-small': size === RICH_LIST_ITEM_SIZE.SMALL,
 		}"
-		@update:is-selected="$emit('update:isSelected', $event)"
+		@update:is-selected="$emit('update:is-selected', $event)"
 	>
 		<template #content>
 			<div class="ds-basicRichListItem__content">
@@ -239,7 +239,7 @@ export default {
 		},
 	},
 	emits: {
-		'update:isSelected': (value: boolean) => true,
+		'update:is-selected': (value: boolean) => true,
 	},
 	data() {
 		return {
