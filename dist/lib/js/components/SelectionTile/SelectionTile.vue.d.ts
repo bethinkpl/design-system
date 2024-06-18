@@ -229,12 +229,12 @@ declare const _default: import("vue").DefineComponent<Readonly<import("vue").Com
     onIconClick(event: Event): void;
     onInputFocus(): void;
     onInputBlur(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:is-selected" | "icon-click")[], "update:is-selected" | "icon-click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<readonly string[] | import("vue").ExtractPropTypes<Readonly<import("vue").ComponentObjectPropsOptions<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:is-selected" | "icon-click")[], "update:is-selected" | "icon-click", import("vue").PublicProps, Readonly<readonly string[] | import("vue").ExtractPropTypes<Readonly<import("vue").ComponentObjectPropsOptions<{
     [x: string]: unknown;
 }>>>> & {
     "onUpdate:is-selected"?: ((...args: any[]) => any) | undefined;
     "onIcon-click"?: ((...args: any[]) => any) | undefined;
 }, {
     [x: number]: string;
-} | {}>;
+} | {}, {}>;
 export default _default;
