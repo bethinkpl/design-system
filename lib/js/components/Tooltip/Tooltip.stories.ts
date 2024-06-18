@@ -16,7 +16,7 @@ const StoryTemplate: StoryFn<typeof Tooltip> = (args) => ({
 		return { ...args };
 	},
 	template: `
-    <div style="padding: 60px; width: 100%; display: flex; justify-content: center">
+    <div style="padding: 60px; width: 100%; display: flex;">
       <span>This is a text with </span>
       <tooltip
         :text="text"
