@@ -247,7 +247,7 @@ export default {
 			);
 		}
 	},
-	beforeDestroy() {
+	beforeUnmount() {
 		this.boundariesSelectorElementResizeObserver.disconnect();
 		this.boundariesSelectorElementResizeObserver = null;
 	},
