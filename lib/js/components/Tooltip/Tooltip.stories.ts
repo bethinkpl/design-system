@@ -16,15 +16,17 @@ const StoryTemplate: StoryFn<typeof Tooltip> = (args) => ({
 		return { ...args };
 	},
 	template: `
-    <div style="padding: 60px; width: 100%; display: flex; justify-content: center">
-      <span>This is a text with </span>
-      <tooltip
-        :text="text"
-        :is-disabled="isDisabled"
-        :placement="placement"
-        :isPointerVisible="isPointerVisible">
-        <b>inline tooltip trigger</b>
-      </tooltip>
+    <div style="padding: 60px; width: 100%;display: flex;  justify-content: center">
+      <div style="padding: 60px;">
+        <span>This is a text with </span>
+        <tooltip
+          :text="text"
+          :is-disabled="isDisabled"
+          :placement="placement"
+          :isPointerVisible="isPointerVisible">
+          <b>inline tooltip trigger</b>
+        </tooltip>
+      </div>
     </div>
   `,
 });
@@ -61,18 +63,20 @@ const OnDsSwitchTemplate: StoryFn<typeof Tooltip> = (args) => ({
 		return { ...args };
 	},
 	template: `
-    <div style="padding: 60px; width: 100%; display: flex; border: 1px solid">
-      <tooltip
-        :text="text"
-        :is-disabled="isDisabled"
-        :placement="placement"
-        :isPointerVisible="isPointerVisible">
-        <ds-switch
-          label-left="labelLeft"
-          label-right="labelRight"
-          :state="switchDisabled ? 'disabled' : 'default'"
-        />
-      </tooltip>
+    <div style="padding: 60px; width: 100%;display: flex;  justify-content: center">
+      <div style="padding: 60px;">
+        <tooltip
+          :text="text"
+          :is-disabled="isDisabled"
+          :placement="placement"
+          :isPointerVisible="isPointerVisible">
+          <ds-switch
+            label-left="labelLeft"
+            label-right="labelRight"
+            :state="switchDisabled ? 'disabled' : 'default'"
+          />
+        </tooltip>
+      </div>
     </div>
   `,
 });
@@ -88,7 +92,8 @@ const OnDsButtonTemplate: StoryFn<typeof Tooltip> = (args) => ({
 		return { ...args };
 	},
 	template: `
-    <div style="padding: 60px; width: 100%; display: flex; border: 1px solid">
+    <div style="padding: 60px; width: 100%;display: flex;  justify-content: center">
+      <div style="padding: 60px;">
       <tooltip
         :text="text"
         :is-disabled="isDisabled"
@@ -100,6 +105,7 @@ const OnDsButtonTemplate: StoryFn<typeof Tooltip> = (args) => ({
           Test button
         </ds-button>
       </tooltip>
+    </div>
     </div>
   `,
 });
