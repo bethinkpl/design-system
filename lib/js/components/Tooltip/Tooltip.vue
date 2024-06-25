@@ -1,7 +1,10 @@
 <template>
-	<span v-pv-tooltip:[tooltipParams]="options" tabindex="-1">
+	<span v-if="inline" v-pv-tooltip:[tooltipParams]="options" tabindex="-1">
 		<slot />
 	</span>
+	<div v-else v-pv-tooltip:[tooltipParams]="options" tabindex="-1">
+		<slot />
+	</div>
 </template>
 
 <style lang="scss">
@@ -41,6 +44,10 @@ export default defineComponent({
 		isPointerVisible: {
 			type: Boolean,
 			default: true,
+		},
+		inline: {
+			type: Boolean,
+			default: false,
 		},
 	},
 	computed: {

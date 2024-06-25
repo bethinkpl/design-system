@@ -21,6 +21,7 @@ const StoryTemplate: StoryFn<typeof Tooltip> = (args) => ({
 				<span>This is a text with </span>
 				<tooltip
 					:text="text"
+					:inline="inline"
 					:is-disabled="isDisabled"
 					:placement="placement"
 					:is-pointer-visible="isPointerVisible">
@@ -38,6 +39,7 @@ const args = {
 	isDisabled: false,
 	placement: TOOLTIP_PLACEMENTS.BOTTOM,
 	isPointerVisible: true,
+	inline: true,
 } as Args;
 
 const argTypes = {
@@ -84,7 +86,7 @@ const OnDsSwitchTemplate: StoryFn<typeof Tooltip> = (args) => ({
 export const OnDsSwitch = OnDsSwitchTemplate.bind({});
 
 OnDsSwitch.argTypes = argTypes;
-OnDsSwitch.args = { ...args, switchDisabled: true };
+OnDsSwitch.args = { ...args, switchDisabled: true, inline: false };
 
 const OnDsButtonTemplate: StoryFn<typeof Tooltip> = (args) => ({
 	components: { Tooltip, DsButton },
@@ -113,4 +115,4 @@ const OnDsButtonTemplate: StoryFn<typeof Tooltip> = (args) => ({
 export const OnDsButton = OnDsButtonTemplate.bind({});
 
 OnDsButton.argTypes = argTypes;
-OnDsButton.args = { ...args, buttonDisabled: true };
+OnDsButton.args = { ...args, buttonDisabled: true, inline: false };
