@@ -19,6 +19,10 @@ declare const _default: {
             default: null;
             validator(iconRight: any): boolean;
         };
+        isIconRightHiddenOnMobile: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         text: {
             type: StringConstructor;
             required: boolean;
@@ -32,7 +36,7 @@ declare const _default: {
             default: null;
         };
         color: {
-            type: StringConstructor;
+            type: import("vue").PropType<import("./Tile.consts").TileColors>;
             default: "neutral";
             validator(color: any): boolean;
         };
@@ -41,7 +45,7 @@ declare const _default: {
             default: boolean;
         };
         state: {
-            type: StringConstructor;
+            type: import("vue").PropType<import("./Tile.consts").TileStates>;
             default: "default";
             validator(value: import("../../utils/type.utils").Value<{
                 readonly DEFAULT: "default";

@@ -8,6 +8,8 @@ export { default as ToggleButton } from './components/Toggles/ToggleButton';
 export * from './components/Toggles/ToggleButton/ToggleButton.consts';
 export { default as Card } from './components/Cards/Card/';
 export { default as CardExpandable } from './components/Cards/CardExpandable/';
+export { default as DatePicker } from './components/DatePickers/DatePicker';
+export * from './components/DatePickers/DatePicker';
 export { default as Divider } from './components/Divider';
 export * from './components/Divider/Divider.consts';
 export { default as FeatureIcon } from './components/Icons/FeatureIcon';
