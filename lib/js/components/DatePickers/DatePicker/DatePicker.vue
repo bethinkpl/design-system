@@ -97,7 +97,7 @@ import { toRaw, PropType } from 'vue';
 
 import DsTile from '../../Tile';
 import { ICONS } from '../../Icons/Icon';
-import DatePickerBox from './DatePickerBox';
+import DatePickerBox from '../DatePickerBox';
 
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,

@@ -208,7 +208,7 @@ import {
 	DATE_PICKER_STATES,
 	DatePickerColors,
 	DatePickerStates,
-} from './DatePicker.consts';
+} from '../DatePicker/DatePicker.consts';
 import { PropType, toRaw } from 'vue';
 
 export default {
