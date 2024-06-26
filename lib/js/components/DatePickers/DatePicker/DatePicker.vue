@@ -24,7 +24,7 @@
 			v-else
 			:is-interactive="isInteractive"
 			:placeholder="placeholder"
-			:date="text"
+			:date="date"
 			:icon="icon"
 			:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
 			:state="state"
@@ -174,18 +174,6 @@ export default {
 			type: String as PropType<DatePickerColors>,
 			default: DATE_PICKER_COLORS.NEUTRAL,
 		},
-		altFormat: {
-			type: String,
-			default: 'Y-m-d',
-		},
-		altInput: {
-			type: Boolean,
-			default: false,
-		},
-		dateFormat: {
-			type: String,
-			default: 'U',
-		},
 		defaultDate: {
 			type: [String, Date, Number],
 			default: null,
@@ -194,14 +182,6 @@ export default {
 			type: Array,
 			default: () => [],
 		},
-		disableMobile: {
-			type: Boolean,
-			default: false,
-		},
-		enableTime: {
-			type: Boolean,
-			default: false,
-		},
 		minDate: {
 			type: [String, Date, Number],
 			default: null,
@@ -209,10 +189,6 @@ export default {
 		maxDate: {
 			type: [String, Date, Number],
 			default: null,
-		},
-		time24h: {
-			type: Boolean,
-			default: true,
 		},
 	},
 	emits: { 'update:date': () => true },
@@ -232,24 +208,24 @@ export default {
 			if (this.state === DATE_PICKER_STATES.LOADING) {
 				return '';
 			}
-			const timeFormat = new Intl.DateTimeFormat(undefined, {
-				dateStyle: undefined,
-				timeStyle: undefined,
-				weekday: 'long',
-			});
 
-			return capitalizeFirstLetter(timeFormat.format(new Date(this.date)));
+			return capitalizeFirstLetter(
+				new Date(this.date).toLocaleDateString(undefined, {
+					dateStyle: undefined,
+					timeStyle: undefined,
+					weekday: 'long',
+				}),
+			);
 		},
 		text() {
 			if (this.state === DATE_PICKER_STATES.LOADING || this.date.length === 0) {
 				return this.placeholder;
 			}
-			const timeFormat = new Intl.DateTimeFormat('pl-PL', {
+
+			return new Date(this.date).toLocaleDateString(undefined, {
 				dateStyle: 'medium',
 				timeStyle: undefined,
 			});
-
-			return timeFormat.format(new Date(this.date));
 		},
 	},
 	async mounted() {
@@ -264,16 +240,10 @@ export default {
 				ignoredFocusElements: [this.$el],
 				appendTo: this.$el,
 				position: flatpickrPositions[this.calendarPosition],
-				altFormat: this.altFormat,
-				altInput: this.altInput,
-				dateFormat: this.dateFormat,
-				defaultDate: this.defaultDate,
+				defaultDate: this.date,
 				disable: this.disableDates,
-				disableMobile: this.disableMobile,
-				enableTime: this.enableTime,
 				minDate: this.minDate,
 				maxDate: this.maxDate,
-				time_24hr: this.time24h,
 				onClose: [
 					() => {
 						this.isOpen = false;

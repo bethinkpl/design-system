@@ -36,30 +36,35 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
 			return date?.toISOString();
 		},
 	},
-	template: `<date-picker
- 			:trigger-type="triggerType"
- 			:is-interactive="isInteractive"
- 			:placeholder="placeholder"
- 			:date="formattedDate"
- 			:label="label"
+	template: `
+		<date-picker
+			:trigger-type="triggerType"
+			:is-interactive="isInteractive"
+			:placeholder="placeholder"
+			:date="formattedDate"
+			:label="label"
 			:is-label-uppercase="isLabelUppercase"
- 			:icon="ICONS[icon]"
- 			:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
- 			:calendar-position="calendarPosition"
- 			:error-message="errorMessage"
- 			:state="state"
- 			:color="color"
+			:icon="ICONS[icon]"
+			:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
+			:calendar-position="calendarPosition"
+			:error-message="errorMessage"
+			:state="state"
+			:color="color"
+			:disable-dates="disableDates"
+			:min-date="minDate"
+			:max-date="maxDate"
 			@update:date="updateDate"
- 		/>`,
+		/>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
-
+const now = Date.now();
+const oneDayMili = 86400000;
 const args = {
 	triggerType: DATE_PICKER_TRIGGER_TYPES.TILE,
 	isInteractive: true,
 	placeholder: 'Wybierz datę',
-	date: Date.parse('2022-01-01 00:00:00'),
+	date: now,
 	label: 'Date picker',
 	isLabelUppercase: false,
 	icon: null,
@@ -68,6 +73,9 @@ const args = {
 	errorMessage: '',
 	state: DATE_PICKER_STATES.DEFAULT,
 	color: DATE_PICKER_COLORS.NEUTRAL,
+	disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],
+	minDate: 'today',
+	maxDate: new Date(now + oneDayMili * 7).toISOString().slice(0, 10),
 } as Args;
 
 const argTypes = {
@@ -88,6 +96,9 @@ const argTypes = {
 	color: {
 		control: 'select',
 		options: Object.values(DATE_PICKER_COLORS),
+	},
+	disableDates: {
+		control: 'array',
 	},
 } as ArgTypes;
 

@@ -18,7 +18,7 @@
 				:icon="icon"
 				:size="ICON_SIZES.XX_SMALL"
 			></ds-icon>
-			<span class="ds-datePickerBox__date">{{ date || placeholder }}</span>
+			<span class="ds-datePickerBox__date">{{ text }}</span>
 		</div>
 
 		<div v-if="state === DATE_PICKER_STATES.LOADING" class="ds-datePickerBox__loader">
@@ -226,8 +226,8 @@ export default {
 			default: 'Wybierz datę',
 		},
 		date: {
-			type: String,
-			default: '',
+			type: [String, Date, Number],
+			required: true,
 		},
 		icon: {
 			type: Object,
@@ -262,6 +262,17 @@ export default {
 			DATE_PICKER_STATES: Object.freeze(DATE_PICKER_STATES),
 			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
 		};
+	},
+	computed: {
+		text() {
+			if (this.date.length > 0) {
+				return new Date(this.date).toLocaleDateString(undefined, {
+					month: 'short',
+					day: '2-digit',
+				});
+			}
+			return this.placeholder;
+		},
 	},
 };
 </script>
