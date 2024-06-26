@@ -10,7 +10,7 @@
 				>{{ label }}</span
 			>
 			<ds-tile
-				:text="date || placeholder"
+				:text="text"
 				:interactive="isInteractive"
 				:color="color"
 				:state="state"
@@ -187,7 +187,16 @@ export default {
 			return this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT;
 		},
 		eyebrowText() {
+			if (this.state === DATE_PICKER_STATES.LOADING) {
+				return '';
+			}
 			return 'Poniedziałek';
+		},
+		text() {
+			if (this.state === DATE_PICKER_STATES.LOADING || this.date.length === 0) {
+				return this.placeholder;
+			}
+			return this.date;
 		},
 	},
 	async mounted() {
