@@ -141,8 +141,8 @@ export default {
 			default: 'Wybierz datę',
 		},
 		date: {
-			type: String,
-			default: '',
+			type: [String, Date, Number],
+			default: null,
 		},
 		label: {
 			type: String,
@@ -221,7 +221,7 @@ export default {
 			);
 		},
 		text() {
-			if (this.state === DATE_PICKER_STATES.LOADING || this.date.length === 0) {
+			if (this.state === DATE_PICKER_STATES.LOADING || !this.date.length) {
 				return this.placeholder;
 			}
 

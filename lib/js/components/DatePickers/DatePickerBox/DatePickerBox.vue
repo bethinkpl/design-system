@@ -227,7 +227,7 @@ export default {
 		},
 		date: {
 			type: [String, Date, Number],
-			required: true,
+			default: null,
 		},
 		icon: {
 			type: Object,
@@ -265,7 +265,7 @@ export default {
 	},
 	computed: {
 		text() {
-			if (this.date.length > 0) {
+			if (this.date) {
 				return new Date(this.date).toLocaleDateString(undefined, {
 					month: 'short',
 					day: '2-digit',
