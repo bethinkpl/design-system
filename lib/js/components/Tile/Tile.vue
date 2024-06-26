@@ -28,6 +28,7 @@
 		<ds-icon
 			v-else-if="iconRight"
 			class="ds-tile__iconRight"
+			:class="{ '-hiddenOnMobile': isIconRightHiddenOnMobile }"
 			:icon="iconRight"
 			:size="ICON_SIZES.SMALL"
 		/>
@@ -43,6 +44,7 @@
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
+@import '../../../styles/settings/media-queries';
 
 $tile-colors: (
 	'neutral': (
@@ -263,6 +265,14 @@ $tile-colors: (
 
 	&__iconRight {
 		margin-left: $space-xs;
+
+		&.-hiddenOnMobile {
+			display: none;
+
+			@media #{breakpoint-s()} {
+				display: block;
+			}
+		}
 	}
 
 	&.-ds-interactive:not(.-ds-disabled):not(.-ds-loading) {

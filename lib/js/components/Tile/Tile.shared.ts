@@ -22,6 +22,10 @@ export const props = {
 			return Object.values(ICONS).includes(toRaw(iconRight));
 		},
 	},
+	isIconRightHiddenOnMobile: {
+		type: Boolean,
+		default: false,
+	},
 	text: {
 		type: String,
 		required: true,

@@ -14,7 +14,8 @@
 				:interactive="isInteractive"
 				:color="color"
 				:state="state"
-				:icon-right="tileIcon"
+				:icon-right="icon"
+				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
 				@click="toggle"
 			/>
