@@ -7,7 +7,7 @@ export const initializePrimeVue = (app) => {
 		theme: {
 			preset: Aura,
 			options: {
-				darkModeSelector: '', // enabling dark mode in storybook makes all components canvas black
+				darkModeSelector: '.app-dark', // enabling dark mode in storybook makes all components canvas black
 			},
 		},
 	});
