@@ -2,11 +2,11 @@
 	<div
 		class="ds-datePickerBox"
 		:class="{
-			'-disabled': state === DATE_PICKER_STATES.DISABLED,
-			'-interactive': isInteractive,
-			'-warning': color === DATE_PICKER_COLORS.WARNING,
-			'-neutral': color === DATE_PICKER_COLORS.NEUTRAL,
-			'-isOpen': isOpen,
+			'-ds-disabled': state === DATE_PICKER_STATES.DISABLED,
+			'-ds-interactive': isInteractive,
+			'-ds-warning': color === DATE_PICKER_COLORS.WARNING,
+			'-ds-neutral': color === DATE_PICKER_COLORS.NEUTRAL,
+			'-ds-isOpen': isOpen,
 		}"
 	>
 		<span v-if="eyebrowText" class="ds-datePickerBox__eyebrow">{{ eyebrowText }}</span>
@@ -14,7 +14,7 @@
 			<ds-icon
 				v-if="icon"
 				class="ds-datePickerBox__icon"
-				:class="{ '-hiddenOnMobile': isIconHiddenOnMobile }"
+				:class="{ '-ds-hiddenOnMobile': isIconHiddenOnMobile }"
 				:icon="icon"
 				:size="ICON_SIZES.XX_SMALL"
 			></ds-icon>
@@ -46,7 +46,7 @@
 	$color-date-disabled,
 	$self
 ) {
-	&.-interactive {
+	&.-ds-interactive {
 		&:hover {
 			#{$self}__icon {
 				color: $color-icon-hovered;
@@ -58,7 +58,7 @@
 		}
 	}
 
-	&.-disabled {
+	&.-ds-disabled {
 		#{$self}__eyebrow {
 			color: $color-eyebrow-disabled;
 		}
@@ -72,7 +72,7 @@
 		}
 	}
 
-	&.-isOpen {
+	&.-ds-isOpen {
 		&:hover {
 			#{$self}__icon {
 				color: $color-icon;
@@ -110,7 +110,7 @@
 	pointer-events: none;
 	position: relative;
 
-	&.-interactive {
+	&.-ds-interactive {
 		background-color: $color-neutral-background-weak;
 		border-color: $color-neutral-background;
 		border-radius: $radius-m;
@@ -122,12 +122,12 @@
 		}
 	}
 
-	&.-disabled {
+	&.-ds-disabled {
 		background-color: $color-neutral-background-weak-disabled;
 		pointer-events: none;
 	}
 
-	&.-isOpen {
+	&.-ds-isOpen {
 		background-color: $color-neutral-background-medium;
 
 		&:hover {
@@ -149,7 +149,7 @@
 	}
 
 	&__icon {
-		&.-hiddenOnMobile {
+		&.-ds-hiddenOnMobile {
 			display: none;
 
 			@media (#{breakpoint-s()}) {
@@ -171,7 +171,7 @@
 		width: calc(100% - $border-s * 2);
 	}
 
-	&.-neutral {
+	&.-ds-neutral {
 		@include color-scheme(
 			$color-neutral-text-weak,
 			$color-neutral-text-heavy,
@@ -185,7 +185,7 @@
 		);
 	}
 
-	&.-warning {
+	&.-ds-warning {
 		@include color-scheme(
 			$color-warning-text,
 			$color-warning-text,

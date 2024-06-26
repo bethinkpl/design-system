@@ -1,11 +1,14 @@
 <template>
-	<div class="ds-datePicker" :class="{ '-box': triggerType === DATE_PICKER_TRIGGER_TYPES.BOX }">
+	<div
+		class="ds-datePicker"
+		:class="{ '-ds-box': triggerType === DATE_PICKER_TRIGGER_TYPES.BOX }"
+	>
 		<template v-if="triggerType === DATE_PICKER_TRIGGER_TYPES.TILE">
 			<span
 				class="ds-datePicker__label"
 				:class="{
-					'-isUppercase': isLabelUppercase,
-					'-disabled': state === DATE_PICKER_STATES.DISABLED,
+					'-ds-isUppercase': isLabelUppercase,
+					'-ds-disabled': state === DATE_PICKER_STATES.DISABLED,
 				}"
 				>{{ label }}</span
 			>
@@ -52,7 +55,7 @@
 	flex-direction: column;
 	row-gap: $space-4xs;
 
-	&.-box {
+	&.-ds-box {
 		display: inline-flex;
 	}
 
@@ -66,16 +69,16 @@
 		color: $color-neutral-text-strong;
 		padding-bottom: $space-4xs;
 
-		&.-isUppercase {
+		&.-ds-isUppercase {
 			@include label-m-extensive-bold-uppercase;
 
 			color: $color-neutral-text;
 		}
 
-		&.-disabled {
+		&.-ds-disabled {
 			color: $color-neutral-text-strong-disabled;
 
-			&.-isUppercase {
+			&.-ds-isUppercase {
 				color: $color-neutral-text-disabled;
 			}
 		}

@@ -28,7 +28,7 @@
 		<ds-icon
 			v-else-if="iconRight"
 			class="ds-tile__iconRight"
-			:class="{ '-hiddenOnMobile': isIconRightHiddenOnMobile }"
+			:class="{ '-ds-hiddenOnMobile': isIconRightHiddenOnMobile }"
 			:icon="iconRight"
 			:size="ICON_SIZES.SMALL"
 		/>
@@ -266,7 +266,7 @@ $tile-colors: (
 	&__iconRight {
 		margin-left: $space-xs;
 
-		&.-hiddenOnMobile {
+		&.-ds-hiddenOnMobile {
 			display: none;
 
 			@media #{breakpoint-s()} {
