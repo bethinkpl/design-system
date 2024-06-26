@@ -4,7 +4,7 @@
 			<span
 				class="ds-datePicker__label"
 				:class="{
-					'-is-uppercase': isLabelUppercase,
+					'-isUppercase': isLabelUppercase,
 					'-disabled': state === DATE_PICKER_STATES.DISABLED,
 				}"
 				>{{ label }}</span
@@ -66,7 +66,7 @@
 		color: $color-neutral-text-strong;
 		padding-bottom: $space-4xs;
 
-		&.-is-uppercase {
+		&.-isUppercase {
 			@include label-m-extensive-bold-uppercase;
 
 			color: $color-neutral-text;
@@ -75,7 +75,7 @@
 		&.-disabled {
 			color: $color-neutral-text-strong-disabled;
 
-			&.-is-uppercase {
+			&.-isUppercase {
 				color: $color-neutral-text-disabled;
 			}
 		}
