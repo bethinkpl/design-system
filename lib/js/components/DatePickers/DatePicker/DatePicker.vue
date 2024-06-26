@@ -174,8 +174,48 @@ export default {
 			type: String as PropType<DatePickerColors>,
 			default: DATE_PICKER_COLORS.NEUTRAL,
 		},
+		altFormat: {
+			type: String,
+			default: 'Y-m-d',
+		},
+		altInput: {
+			type: Boolean,
+			default: false,
+		},
+		dateFormat: {
+			type: String,
+			default: 'U',
+		},
+		defaultDate: {
+			type: [String, Date, Number],
+			default: null,
+		},
+		disableDates: {
+			type: Array,
+			default: () => [],
+		},
+		disableMobile: {
+			type: Boolean,
+			default: false,
+		},
+		enableTime: {
+			type: Boolean,
+			default: false,
+		},
+		minDate: {
+			type: [String, Date, Number],
+			default: null,
+		},
+		maxDate: {
+			type: [String, Date, Number],
+			default: null,
+		},
+		time24h: {
+			type: Boolean,
+			default: true,
+		},
 	},
-	emits: { 'update:date': (date: Date) => true },
+	emits: { 'update:date': () => true },
 	data() {
 		return {
 			datePicker: null,
@@ -224,6 +264,16 @@ export default {
 				ignoredFocusElements: [this.$el],
 				appendTo: this.$el,
 				position: flatpickrPositions[this.calendarPosition],
+				altFormat: this.altFormat,
+				altInput: this.altInput,
+				dateFormat: this.dateFormat,
+				defaultDate: this.defaultDate,
+				disable: this.disableDates,
+				disableMobile: this.disableMobile,
+				enableTime: this.enableTime,
+				minDate: this.minDate,
+				maxDate: this.maxDate,
+				time_24hr: this.time24h,
 				onClose: [
 					() => {
 						this.isOpen = false;
