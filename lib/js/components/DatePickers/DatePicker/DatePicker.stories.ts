@@ -13,7 +13,7 @@ export default {
 	component: DatePicker,
 } as Meta<typeof DatePicker>;
 
-const StoryTemplate: StoryFn<typeof DatePicker> = (args) => ({
+const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
 	components: { DatePicker },
 	setup() {
 		return {
@@ -25,19 +25,19 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => ({
 			ICONS: Object.freeze(ICONS),
 		};
 	},
+	methods: {
+		updateDate(date) {
+			updateArgs({ date: Date.parse(date) });
+		},
+	},
 	computed: {
 		formattedDate() {
 			const date = this.date ? new Date(parseInt(this.date)) : null;
-			const timeForm = new Intl.DateTimeFormat('pl-PL', {
-				dateStyle: 'medium',
-				timeStyle: undefined,
-			});
-			return date ? timeForm.format(date) : '';
+			return date?.toISOString();
 		},
 	},
 	template: `<date-picker
  			:trigger-type="triggerType"
- 			:status="status"
  			:is-interactive="isInteractive"
  			:placeholder="placeholder"
  			:date="formattedDate"
@@ -49,6 +49,7 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => ({
  			:error-message="errorMessage"
  			:state="state"
  			:color="color"
+			@update:date="updateDate"
  		/>`,
 });
 

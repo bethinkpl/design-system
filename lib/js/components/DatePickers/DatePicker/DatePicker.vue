@@ -24,7 +24,7 @@
 			v-else
 			:is-interactive="isInteractive"
 			:placeholder="placeholder"
-			:date="date"
+			:date="text"
 			:icon="icon"
 			:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
 			:state="state"
@@ -106,6 +106,7 @@ import {
 	DatePickerStates,
 	DatePickerTriggerTypes,
 } from './DatePicker.consts';
+import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
 
 let flatpickr: Function | null = null;
 
@@ -174,6 +175,7 @@ export default {
 			default: DATE_PICKER_COLORS.NEUTRAL,
 		},
 	},
+	emits: { 'update:date': (date: Date) => true },
 	data() {
 		return {
 			datePicker: null,
@@ -190,13 +192,24 @@ export default {
 			if (this.state === DATE_PICKER_STATES.LOADING) {
 				return '';
 			}
-			return 'Poniedziałek';
+			const timeFormat = new Intl.DateTimeFormat(undefined, {
+				dateStyle: undefined,
+				timeStyle: undefined,
+				weekday: 'long',
+			});
+
+			return capitalizeFirstLetter(timeFormat.format(new Date(this.date)));
 		},
 		text() {
 			if (this.state === DATE_PICKER_STATES.LOADING || this.date.length === 0) {
 				return this.placeholder;
 			}
-			return this.date;
+			const timeFormat = new Intl.DateTimeFormat('pl-PL', {
+				dateStyle: 'medium',
+				timeStyle: undefined,
+			});
+
+			return timeFormat.format(new Date(this.date));
 		},
 	},
 	async mounted() {
@@ -221,6 +234,9 @@ export default {
 						this.isOpen = true;
 					},
 				],
+				onChange: (event) => {
+					this.$emit('update:date', event);
+				},
 			});
 		}
 	},
