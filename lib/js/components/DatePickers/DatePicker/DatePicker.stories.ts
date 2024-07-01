@@ -67,7 +67,7 @@ const args = {
 	date: now,
 	label: 'Date picker',
 	isLabelUppercase: false,
-	icon: null,
+	icon: 'FA_CALENDAR_DAY',
 	isIconHiddenOnMobile: false,
 	calendarPosition: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM,
 	errorMessage: '',

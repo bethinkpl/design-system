@@ -154,7 +154,7 @@ export default {
 		},
 		icon: {
 			type: Object,
-			default: null,
+			default: ICONS.FA_CALENDAR_DAY,
 			validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
 		},
 		isIconHiddenOnMobile: {
