@@ -4,7 +4,7 @@
 		:class="{ '-ds-box': triggerType === DATE_PICKER_TRIGGER_TYPES.BOX }"
 	>
 		<template v-if="triggerType === DATE_PICKER_TRIGGER_TYPES.TILE">
-			<span
+			<span v-if="label"
 				class="ds-datePicker__label"
 				:class="{
 					'-ds-isUppercase': isLabelUppercase,
