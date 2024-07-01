@@ -84,7 +84,7 @@
     "vue-svg-loader": "0.17.0-beta.2"
   },
   "dependencies": {
-    "@primevue/themes": "4.0.0-rc.2",
-    "primevue": "4.0.0-rc.2"
+    "@primevue/themes": "4.0.0-rc.3",
+    "primevue": "4.0.0-rc.3"
   }
 }
