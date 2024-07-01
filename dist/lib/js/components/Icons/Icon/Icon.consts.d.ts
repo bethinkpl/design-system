@@ -1,3 +1,4 @@
+/// <reference types="typings" />
 import { Value } from '../../../utils/type.utils';
 export declare const ICON_COLORS: {
     ACCENT: string;
@@ -27,12 +28,12 @@ export declare const ICON_SIZES: {
 };
 export declare type IconSize = Value<typeof ICON_SIZES>;
 export declare const ICONS: {
-    readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-    readonly RIBBON: VueConstructor<Vue>;
-    readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-    readonly COMMENTS_CHECK: VueConstructor<Vue>;
-    readonly ANSWERS: VueConstructor<Vue>;
-    readonly HIDE_ANSWERS: VueConstructor<Vue>;
+    readonly HEAD_WITH_QUESTION_MARK: import("*.svg").CompatVue;
+    readonly RIBBON: import("*.svg").CompatVue;
+    readonly SLIDERS_SEARCH: import("*.svg").CompatVue;
+    readonly COMMENTS_CHECK: import("*.svg").CompatVue;
+    readonly ANSWERS: import("*.svg").CompatVue;
+    readonly HIDE_ANSWERS: import("*.svg").CompatVue;
     readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;

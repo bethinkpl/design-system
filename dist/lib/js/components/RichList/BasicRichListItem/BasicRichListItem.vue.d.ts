@@ -95,7 +95,7 @@ declare const _default: {
         };
     };
     emits: {
-        'update:is-selected': (value: boolean) => boolean;
+        'update:isSelected': (value: boolean) => boolean;
     };
     data(): {
         RICH_LIST_ITEM_SIZE: Readonly<{

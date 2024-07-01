@@ -2,12 +2,12 @@ declare const _default: import("vue").DefineComponent<Readonly<import("vue").Com
     [x: string]: unknown;
 }>>, unknown, {
     ICONS: Readonly<{
-        readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-        readonly RIBBON: VueConstructor<Vue>;
-        readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-        readonly COMMENTS_CHECK: VueConstructor<Vue>;
-        readonly ANSWERS: VueConstructor<Vue>;
-        readonly HIDE_ANSWERS: VueConstructor<Vue>;
+        readonly HEAD_WITH_QUESTION_MARK: import("vue").CompatVue;
+        readonly RIBBON: import("vue").CompatVue;
+        readonly SLIDERS_SEARCH: import("vue").CompatVue;
+        readonly COMMENTS_CHECK: import("vue").CompatVue;
+        readonly ANSWERS: import("vue").CompatVue;
+        readonly HIDE_ANSWERS: import("vue").CompatVue;
         readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
         readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
         readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -230,10 +230,10 @@ declare const _default: import("vue").DefineComponent<Readonly<import("vue").Com
     onIconClick(event: Event): void;
     onInputFocus(): void;
     onInputBlur(): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:is-selected" | "icon-click")[], "update:is-selected" | "icon-click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<readonly string[] | import("vue").ExtractPropTypes<Readonly<import("vue").ComponentObjectPropsOptions<{
+}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ("update:isSelected" | "icon-click")[], "update:isSelected" | "icon-click", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<readonly string[] | import("vue").ExtractPropTypes<Readonly<import("vue").ComponentObjectPropsOptions<{
     [x: string]: unknown;
 }>>>> & {
-    "onUpdate:is-selected"?: ((...args: any[]) => any) | undefined;
+    "onUpdate:isSelected"?: ((...args: any[]) => any) | undefined;
     "onIcon-click"?: ((...args: any[]) => any) | undefined;
 }, {
     [x: number]: string;
