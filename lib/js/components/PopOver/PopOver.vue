@@ -1,50 +1,52 @@
 <template>
-	<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
-	<vue-popper
-		v-else
-		ref="popper"
-		:key="key"
-		:boundaries-selector="boundariesSelector"
-		:force-show="forceShow"
-		:options="{ placement, modifiers }"
-		:trigger="triggerAction"
-		:delay-on-mouse-over="300"
-		:delay-on-mouse-out="300"
-		:append-to-body="appendToBody"
-		:visible-arrow="isPointerVisible"
-		:root-class="rootClass"
-	>
-		<div
-			class="popper ds-popOver"
-			:class="{
-				'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
-				'-ds-small': size === POP_OVER_SIZES.SMALL,
-				'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
-			}"
+	<span>
+		<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
+		<vue-popper
+			v-else
+			ref="popper"
+			:key="key"
+			:boundaries-selector="boundariesSelector"
+			:force-show="forceShow"
+			:options="{ placement, modifiers }"
+			:trigger="triggerAction"
+			:delay-on-mouse-over="300"
+			:delay-on-mouse-out="300"
+			:append-to-body="appendToBody"
+			:visible-arrow="isPointerVisible"
+			:root-class="rootClass"
 		>
-			<img v-if="headerImageUrl" class="ds-popOver__image" :src="headerImageUrl" alt="" />
-			<div class="ds-popOver__content">
-				<div v-if="titleText" class="ds-popOver__title"> {{ titleText }} </div>
-				<div v-if="subtitleText" class="ds-popOver__subtitle"> {{ subtitleText }} </div>
-				<div class="ds-popOver__contentSlot" :class="{ '-ds-maxHeight': maxHeight }">
-					<slot :close="close" />
-				</div>
-			</div>
-			<ds-button
-				v-if="buttonText"
-				class="ds-popOver__button"
-				:type="BUTTON_TYPES.TEXT"
-				:size="BUTTON_SIZES.LARGE"
-				@click="$emit('button-click')"
+			<div
+				class="popper ds-popOver"
+				:class="{
+					'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
+					'-ds-small': size === POP_OVER_SIZES.SMALL,
+					'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
+				}"
 			>
-				{{ buttonText }}
-			</ds-button>
-		</div>
+				<img v-if="headerImageUrl" class="ds-popOver__image" :src="headerImageUrl" alt="" />
+				<div class="ds-popOver__content">
+					<div v-if="titleText" class="ds-popOver__title"> {{ titleText }} </div>
+					<div v-if="subtitleText" class="ds-popOver__subtitle"> {{ subtitleText }} </div>
+					<div class="ds-popOver__contentSlot" :class="{ '-ds-maxHeight': maxHeight }">
+						<slot :close="close" />
+					</div>
+				</div>
+				<ds-button
+					v-if="buttonText"
+					class="ds-popOver__button"
+					:type="BUTTON_TYPES.TEXT"
+					:size="BUTTON_SIZES.LARGE"
+					@click="$emit('button-click')"
+				>
+					{{ buttonText }}
+				</ds-button>
+			</div>
 
-		<template #reference>
-			<slot name="reference" />
-		</template>
-	</vue-popper>
+			<template #reference>
+				<slot name="reference" />
+			</template>
+		</vue-popper>
+	</span>
 </template>
 
 <style lang="scss" scoped>
