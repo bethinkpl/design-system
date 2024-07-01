@@ -235,7 +235,10 @@ export default {
 		if (this.isDatePickerEnabled && !this.datePicker) {
 			if (!flatpickr) {
 				const { default: flatpickrFunction } = await import('flatpickr');
+				const { Polish } = await import('flatpickr/dist/l10n/pl.js');
+
 				flatpickr = flatpickrFunction;
+				flatpickr.localize(Polish);
 			}
 
 			this.datePicker = flatpickr(this.$refs.flatpickrInput, {
