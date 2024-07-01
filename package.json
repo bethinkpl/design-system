@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "22.0.5",
+  "version": "22.1.1",
   "description": "Bethink universe design-system",
   "repository": "git@github.com:bethinkpl/design-system.git",
   "author": "nerdy@bethink.pl",
@@ -83,5 +83,9 @@
     "vue-loader": "17.0.0",
     "vue-popperjs": "bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
     "vue-svg-loader": "0.17.0-beta.2"
+  },
+  "dependencies": {
+    "@primevue/themes": "4.0.0-rc.3",
+    "primevue": "4.0.0-rc.3"
   }
 }

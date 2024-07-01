@@ -2141,6 +2141,37 @@
   resolved "https://registry.yarnpkg.com/@polka/url/-/url-1.0.0-next.23.tgz#498e41218ab3b6a1419c735e5c6ae2c5ed609b6c"
   integrity sha512-C16M+IYz0rgRhWZdCmK+h58JMv8vijAA61gmz2rspCSwKwzBebpdcsiUmwrtJRdphuY30i6BSLEOP8ppbNLyLg==
 
+"@primeuix/styled@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@primeuix/styled/-/styled-0.0.5.tgz#430d06554470fddc28814059d76e63c9c21535b9"
+  integrity sha512-pVoGn/uPkVm/DyF3TR3EmH/pL/dP4nR42FcYbVduFq9VfO3KVeOEqvcCULHXos66RZO9MCbCFUoLy6ctf9GUGQ==
+  dependencies:
+    "@primeuix/utils" "^0.0.5"
+
+"@primeuix/utils@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@primeuix/utils/-/utils-0.0.5.tgz#4bb032a3338fba51c1a2df8010d91973b6fa2520"
+  integrity sha512-ntUiUgtRtkF8KuaxHffzhYxQxoXk6LAPHm7CVlFjdqS8Rx8xRkLkZVyo84E+pO2hcNFkOGVP/GxHhQ2s94O8zA==
+
+"@primevue/core@4.0.0-rc.3":
+  version "4.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@primevue/core/-/core-4.0.0-rc.3.tgz#aaa71c68ef8ac6280f2a882aec9e049efbc62274"
+  integrity sha512-m9iKIbAtbw3hX4SgHC2/aA+nc/PeCbICKc1W/81ghgCpPsB0BjHwP31M9KqvXdW9cJRvEyLkessdB7G13H9Gcg==
+  dependencies:
+    "@primeuix/styled" "^0.0.5"
+
+"@primevue/icons@4.0.0-rc.3":
+  version "4.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@primevue/icons/-/icons-4.0.0-rc.3.tgz#1f40b6ec3af7dae968d60fa99936e040ff9457d9"
+  integrity sha512-9B5a8YDJuKTV8GyFwbftdPDzPDh8v/Ro9nCWY5IFl3s/1jviAxAeTeKNwT8RMb7yPufbpGlLmcyNDHnNW01XrQ==
+  dependencies:
+    "@primevue/core" "4.0.0-rc.3"
+
+"@primevue/themes@4.0.0-rc.3":
+  version "4.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/@primevue/themes/-/themes-4.0.0-rc.3.tgz#79887e9bef8c2fa87c2d5647837e7a0aec04aeaa"
+  integrity sha512-c79Ue5hwgcBUu5Ax2X2lvmwcpK46WOckEvhAJTpnF7SELrXLJDVNiklSBlNtyi4/MNNyTMQ4uyQcQJpVQTacmw==
+
 "@sideway/address@^4.1.3":
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/@sideway/address/-/address-4.1.4.tgz#03dccebc6ea47fdc226f7d3d1ad512955d4783f0"
@@ -13211,6 +13242,14 @@ pretty@2.0.0:
     condense-newlines "^0.2.1"
     extend-shallow "^2.0.1"
     js-beautify "^1.6.12"
+
+primevue@4.0.0-rc.3:
+  version "4.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/primevue/-/primevue-4.0.0-rc.3.tgz#14c07b36dbbf89fcae5a38f4e596500ee6ed2042"
+  integrity sha512-/JskbPJukfNAE/T/MzEOXdtvczA8aK0I+riKb3GtnZEm5P1mGWjuto/Or/0YH3TQ1zqIh7/v/e5wczaxkVC2sA==
+  dependencies:
+    "@primevue/core" "4.0.0-rc.3"
+    "@primevue/icons" "4.0.0-rc.3"
 
 prismjs@^1.27.0:
   version "1.29.0"
