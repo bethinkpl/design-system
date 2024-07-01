@@ -59,7 +59,7 @@ const StoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updateArgs }) 
       :has-actions-slot-divider="hasActionsSlotDivider"
       :is-selectable="isSelectable"
       :is-selected="isSelected"
-      @update:is-selected="updateIsSelected"
+      @update:isSelected="updateIsSelected"
     >
       <template v-if="meta" #meta>
         <div v-html="meta" />
@@ -161,7 +161,7 @@ Interactive.args = args;
 
 Interactive.parameters = {
 	actions: {
-		handles: ['icon-click', 'click', 'update:is-selected'],
+		handles: ['icon-click', 'click', 'update:isSelected'],
 	},
 	layout: 'fullscreen',
 	design: {

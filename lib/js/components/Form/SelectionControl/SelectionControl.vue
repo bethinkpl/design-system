@@ -290,7 +290,7 @@ export default {
 	},
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['update:is-selected', 'input:focus', 'input:blur'],
+	emits: ['update:isSelected', 'input:focus', 'input:blur'],
 	data() {
 		return {
 			isFocused: false,
@@ -323,7 +323,7 @@ export default {
 				return;
 			}
 
-			this.$emit('update:is-selected', !this.isSelected);
+			this.$emit('update:isSelected', !this.isSelected);
 		},
 		onFocus() {
 			this.isFocused = true;

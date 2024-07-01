@@ -44,7 +44,7 @@ const StoryTemplate: StoryFn<typeof SelectionTile> = (args, { updateArgs }) => (
 			:is-selected="isSelected"
 			:state="state"
 			@icon-click="onIconClick"
-			@update:is-selected="onIsSelectedUpdated"
+			@update:isSelected="onIsSelectedUpdated"
 		/>`,
 });
 

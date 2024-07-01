@@ -18,7 +18,7 @@
 				:size="SELECTION_CONTROL_SIZE.X_SMALL"
 				:is-selected="isSelected"
 				:state="SELECTION_CONTROL_STATE_MAP[state]"
-				@update:is-selected="updateIsSelected($event)"
+				@update:isSelected="updateIsSelected($event)"
 				@input:focus="onInputFocus"
 				@input:blur="onInputBlur"
 			/>
@@ -219,7 +219,7 @@ export default defineComponent({
 	},
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['update:is-selected', 'icon-click'],
+	emits: ['update:isSelected', 'icon-click'],
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -242,7 +242,7 @@ export default defineComponent({
 				return;
 			}
 
-			this.$emit('update:is-selected', value);
+			this.$emit('update:isSelected', value);
 		},
 		onIconClick(event: Event) {
 			if (!this.isLoading) {

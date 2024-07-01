@@ -91,7 +91,7 @@
 			:icon="ICONS.FA_XMARK"
 			:size="ICON_BUTTON_SIZES.MEDIUM"
 			:color="ICON_BUTTON_COLORS.NEUTRAL"
-			@click="$emit('close')"
+			@click.native="$emit('close')"
 		/>
 	</div>
 </template>
