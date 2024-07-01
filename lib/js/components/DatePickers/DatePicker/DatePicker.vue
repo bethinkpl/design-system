@@ -20,7 +20,6 @@
 				:icon-right="icon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
-				@click="toggle"
 			/>
 		</template>
 		<date-picker-box
@@ -113,7 +112,7 @@ import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/mo
 
 let flatpickr: Function | null = null;
 
-const flatpickrPositions = {
+const FLATPICKR_POSITIONS = {
 	[DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_LEFT]: 'below left',
 	[DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_RIGHT]: 'below right',
 	[DATE_PICKER_CALENDAR_POSITIONS.BOTTOM]: 'below',
@@ -245,7 +244,7 @@ export default {
 				positionElement: this.$el,
 				ignoredFocusElements: [this.$el],
 				appendTo: this.$el,
-				position: flatpickrPositions[this.calendarPosition],
+				position: FLATPICKR_POSITIONS[this.calendarPosition],
 				defaultDate: this.date,
 				disable: this.disableDates,
 				minDate: this.minDate,
