@@ -223,7 +223,7 @@ export default {
 		},
 		placeholder: {
 			type: String,
-			default: 'Wybierz datę',
+			default: 'Ustaw',
 		},
 		date: {
 			type: [String, Date, Number],
