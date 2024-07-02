@@ -63,36 +63,36 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_SIZES) },
-		defaultValue: ICON_BUTTON_SIZES.LARGE,
+		control: { type: 'select' },
+		options: Object.values(ICON_BUTTON_SIZES),
 	},
 	type: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_TYPES) },
-		defaultValue: ICON_BUTTON_TYPES.ICON_ONLY,
+		control: { type: 'select' },
+		options: Object.values(ICON_BUTTON_TYPES),
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(BUTTON_RADIUSES) },
-		defaultValue: BUTTON_RADIUSES.CAPSULE,
+		control: { type: 'select' },
+		options: Object.values(BUTTON_RADIUSES),
 	},
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
-		defaultValue: 'FA_XMARK',
+		control: { type: 'select' },
+		options: Object.keys(ICONS),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_COLORS) },
-		defaultValue: 'primary',
+		control: { type: 'select' },
+		options: Object.values(ICON_BUTTON_COLORS),
 	},
 	colorScheme: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_COLOR_SCHEMES) },
-		defaultValue: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
+		control: { type: 'select' },
+		options: Object.values(ICON_BUTTON_COLOR_SCHEMES),
 	},
 	elevation: {
-		control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) },
-		defaultValue: BUTTON_ELEVATIONS.NONE,
+		control: { type: 'select' },
+		options: Object.values(BUTTON_ELEVATIONS),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_STATES) },
-		defaultValue: ICON_BUTTON_STATES.DEFAULT,
+		control: { type: 'select' },
+		options: Object.values(ICON_BUTTON_STATES),
 	},
 } as ArgTypes;
 

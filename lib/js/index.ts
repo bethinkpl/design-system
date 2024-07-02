@@ -103,5 +103,4 @@ export { initializePrimeVue } from './primevue';
 export {
 	initialize as initializeIcons,
 	initializeWithDomWatcher as initializeIconsWithDomWatcher,
-	IconDefinition,
 } from './icons/fontawesome';
