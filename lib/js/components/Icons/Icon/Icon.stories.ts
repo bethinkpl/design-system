@@ -36,16 +36,16 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(ICON_SIZES) },
-		defaultValue: ICON_SIZES.MEDIUM,
+		control: { type: 'select' },
+		options: Object.values(ICON_SIZES),
 	},
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
-		defaultValue: 'HEAD_WITH_QUESTION_MARK',
+		control: { type: 'select' },
+		options: Object.keys(ICONS),
 	},
 	rotation: {
-		control: { type: 'select', options: [null, 90, 180, 270] },
-		defaultValue: null,
+		control: { type: 'select' },
+		options: [null, 90, 180, 270],
 	},
 } as ArgTypes;
 

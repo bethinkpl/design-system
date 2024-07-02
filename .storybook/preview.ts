@@ -2,10 +2,10 @@ import 'design-system/lib/styles/_normalize.scss';
 import 'design-system/lib/styles/design-system.scss';
 import 'design-system/lib/styles/storybook.scss';
 
-import { useArgs } from '@storybook/client-api';
 import { initialize } from 'design-system/lib/js/icons/fontawesome';
-import { app } from '@storybook/vue3';
 import { initializePrimeVue } from '../lib/js';
+
+import { setup } from '@storybook/vue3';
 
 const customViewports = {
 	mobile: {
@@ -99,14 +99,7 @@ export const parameters = {
 	},
 };
 
-// See https://craigbaldwin.com/blog/updating-args-storybook-vue/
-export const decorators = [
-	(story, context) => {
-		const [_, updateArgs] = useArgs();
-		return story({ ...context, updateArgs });
-	},
-];
-
-initializePrimeVue(app);
-
-initialize();
+setup((app) => {
+	initializePrimeVue(app);
+	initialize();
+});

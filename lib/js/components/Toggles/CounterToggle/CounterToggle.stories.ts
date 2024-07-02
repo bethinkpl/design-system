@@ -42,23 +42,21 @@ const args = {
 
 const argTypes = {
 	color: {
-		control: { type: 'select', options: Object.values(COUNTER_TOGGLE_COLORS) },
-		defaultValue: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
+		control: { type: 'select' },
+		options: Object.values(COUNTER_TOGGLE_COLORS),
 	},
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
+		control: { type: 'select' },
+		options: Object.keys(ICONS),
 	},
 	counter: {
 		control: { type: 'text' },
-		defaultValue: null,
 	},
 	isSelected: {
 		control: { type: 'boolean' },
-		defaultValue: false,
 	},
 	isDisabled: {
 		control: { type: 'boolean' },
-		defaultValue: false,
 	},
 } as ArgTypes;
 

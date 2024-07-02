@@ -32,6 +32,10 @@ const StoryTemplate: StoryFn<typeof CardExpandable> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
+	header: 'header slot',
+	content: 'content slot that supports <b>HTML markup</b>',
+	expandedContent:
+		'Dodatkowa treść w slocie <code>expandedContent</code> widoczna po rozwinięciu',
 	isExpanderVisible: true,
 	expanderTextCollapsed: 'Rozwiń',
 	expanderTextExpanded: 'Zwiń',
@@ -41,15 +45,12 @@ const args = {
 } as Args;
 
 const argTypes = {
-	header: { control: { type: 'text' }, defaultValue: 'header slot' },
+	header: { control: { type: 'text' } },
 	content: {
 		control: { type: 'text' },
-		defaultValue: 'content slot that supports <b>HTML markup</b>',
 	},
 	expandedContent: {
 		control: { type: 'text' },
-		defaultValue:
-			'Dodatkowa treść w slocie <code>expandedContent</code> widoczna po rozwinięciu',
 	},
 } as ArgTypes;
 

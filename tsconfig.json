@@ -6,7 +6,7 @@
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./lib/js",
     "esModuleInterop": true,
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "resolveJsonModule": true,
