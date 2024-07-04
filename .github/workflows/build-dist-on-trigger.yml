@@ -56,3 +56,18 @@ jobs:
           commit_message: Build dist
           create_branch: true
           push_options: '--force'
+
+      - name: Get last commit hash from branch and set to variable
+        id: last-commit
+        run: |
+          git fetch origin ${{ steps.comment-pr-ref.outputs.result }}-dist
+          echo "::set-output name=commit_hash::$(git log -n 1 origin/${{ steps.comment-pr-ref.outputs.result }}-dist --pretty=format:"%H")"
+
+      - name: Add comment to PR with dist package name and install command
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          pr_number: ${{ github.event.issue.number }}
+          message: |
+            Branch: `${{ steps.comment-pr-ref.outputs.result }}-dist`
+            Last commit: `${{ steps.last-commit.outputs.commit_hash }}`
+            Install: `yarn add '@bethinkpl/design-system@https://github.com/bethinkpl/design-system#commit=${{ steps.last-commit.outputs.commit_hash }}'`
