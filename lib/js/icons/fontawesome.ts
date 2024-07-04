@@ -386,4 +386,3 @@ export function initializeWithDomWatcher() {
 	dom.watch();
 }
 
-export { IconDefinition } from '@fortawesome/fontawesome-svg-core';
