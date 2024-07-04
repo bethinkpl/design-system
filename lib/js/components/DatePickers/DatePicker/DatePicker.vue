@@ -209,7 +209,7 @@ export default {
 			return this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT;
 		},
 		eyebrowText() {
-			if (this.state === DATE_PICKER_STATES.LOADING) {
+			if (!this.date || this.state === DATE_PICKER_STATES.LOADING) {
 				return '';
 			}
 
@@ -222,7 +222,7 @@ export default {
 			);
 		},
 		text() {
-			if (this.state === DATE_PICKER_STATES.LOADING || !this.date.length) {
+			if (this.state === DATE_PICKER_STATES.LOADING || !this.date?.length) {
 				return this.placeholder;
 			}
 

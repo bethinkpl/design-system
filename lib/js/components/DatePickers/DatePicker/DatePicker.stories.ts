@@ -64,7 +64,7 @@ const args = {
 	triggerType: DATE_PICKER_TRIGGER_TYPES.TILE,
 	isInteractive: true,
 	placeholder: 'Wybierz datę',
-	date: now,
+	date: null,
 	label: 'Date picker',
 	isLabelUppercase: false,
 	icon: 'FA_CALENDAR_DAY',
