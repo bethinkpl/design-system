@@ -122,6 +122,7 @@
 		&.-ds-interactive {
 			cursor: pointer;
 			pointer-events: all;
+
 			&:hover {
 				background-color: $color-neutral-background-weak-hovered;
 			}
