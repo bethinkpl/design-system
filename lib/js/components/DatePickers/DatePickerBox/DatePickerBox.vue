@@ -118,17 +118,6 @@
 		border-radius: $radius-m;
 	}
 
-	&:not(.-ds-loading) {
-		&.-ds-interactive {
-			cursor: pointer;
-			pointer-events: all;
-
-			&:hover {
-				background-color: $color-neutral-background-weak-hovered;
-			}
-		}
-	}
-
 	&.-ds-disabled {
 		background-color: $color-neutral-background-weak-disabled;
 		pointer-events: none;
@@ -192,6 +181,15 @@
 	}
 
 	&:not(.-ds-loading) {
+		&.-ds-interactive {
+			cursor: pointer;
+			pointer-events: all;
+
+			&:hover {
+				background-color: $color-neutral-background-weak-hovered;
+			}
+		}
+
 		&.-ds-warning {
 			@include color-scheme(
 				$color-warning-text,
