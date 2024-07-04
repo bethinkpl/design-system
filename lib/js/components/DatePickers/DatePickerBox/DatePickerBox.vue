@@ -23,7 +23,7 @@
 		</div>
 
 		<div v-if="state === DATE_PICKER_STATES.LOADING" class="ds-datePickerBox__loader">
-			<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.SMALL" spinning />
+			<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.X_SMALL" spinning />
 		</div>
 	</div>
 </template>
@@ -118,7 +118,7 @@
 		border-radius: $radius-m;
 	}
 
-	&:not(.-ds-interactive) {
+	&:not(.-ds-loading) {
 		&.-ds-interactive {
 			cursor: pointer;
 			pointer-events: all;
