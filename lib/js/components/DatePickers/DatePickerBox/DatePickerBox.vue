@@ -3,6 +3,7 @@
 		class="ds-datePickerBox"
 		:class="{
 			'-ds-disabled': state === DATE_PICKER_STATES.DISABLED,
+			'-ds-loading': state === DATE_PICKER_STATES.LOADING,
 			'-ds-interactive': isInteractive,
 			'-ds-warning': color === DATE_PICKER_COLORS.WARNING,
 			'-ds-neutral': color === DATE_PICKER_COLORS.NEUTRAL,
@@ -110,15 +111,20 @@
 	pointer-events: none;
 	position: relative;
 
+	&.-ds-loading,
 	&.-ds-interactive {
 		background-color: $color-neutral-background-weak;
 		border-color: $color-neutral-background;
 		border-radius: $radius-m;
-		cursor: pointer;
-		pointer-events: all;
+	}
 
-		&:hover {
-			background-color: $color-neutral-background-weak-hovered;
+	&:not(.-ds-interactive) {
+		&.-ds-interactive {
+			cursor: pointer;
+			pointer-events: all;
+			&:hover {
+				background-color: $color-neutral-background-weak-hovered;
+			}
 		}
 	}
 
@@ -159,18 +165,17 @@
 	}
 
 	&__loader {
-		align-items: center;
 		background-color: inherit;
-		border-radius: $radius-m;
 		display: flex;
 		height: calc(100% - $border-s * 2);
 		justify-content: center;
-		left: 0;
+		left: $space-5xs;
 		position: absolute;
-		top: 0;
+		top: $space-5xs;
 		width: calc(100% - $border-s * 2);
 	}
 
+	&.-ds-loading,
 	&.-ds-neutral {
 		@include color-scheme(
 			$color-neutral-text-weak,
@@ -185,18 +190,20 @@
 		);
 	}
 
-	&.-ds-warning {
-		@include color-scheme(
-			$color-warning-text,
-			$color-warning-text,
-			$color-warning-icon,
-			$color-warning-icon-hovered,
-			$color-warning-text-hovered,
-			$color-warning-icon-disabled,
-			$color-warning-text-disabled,
-			$color-warning-text-disabled,
-			$self
-		);
+	&:not(.-ds-loading) {
+		&.-ds-warning {
+			@include color-scheme(
+				$color-warning-text,
+				$color-warning-text,
+				$color-warning-icon,
+				$color-warning-icon-hovered,
+				$color-warning-text-hovered,
+				$color-warning-icon-disabled,
+				$color-warning-text-disabled,
+				$color-warning-text-disabled,
+				$self
+			);
+		}
 	}
 }
 </style>

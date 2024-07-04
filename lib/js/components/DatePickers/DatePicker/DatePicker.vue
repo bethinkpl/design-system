@@ -4,7 +4,8 @@
 		:class="{ '-ds-box': triggerType === DATE_PICKER_TRIGGER_TYPES.BOX }"
 	>
 		<template v-if="triggerType === DATE_PICKER_TRIGGER_TYPES.TILE">
-			<span v-if="label"
+			<span
+				v-if="label"
 				class="ds-datePicker__label"
 				:class="{
 					'-ds-isUppercase': isLabelUppercase,
@@ -20,6 +21,7 @@
 				:icon-right="icon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
+				@click="toggle"
 			/>
 		</template>
 		<date-picker-box
@@ -41,7 +43,7 @@
 	</div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/spacings';
@@ -153,7 +155,7 @@ export default {
 		},
 		icon: {
 			type: Object,
-			default: ICONS.FA_CALENDAR_DAY,
+			default: null,
 			validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
 		},
 		isIconHiddenOnMobile: {
