@@ -38,7 +38,7 @@
 			@click="toggle"
 		/>
 
-		<span v-if="errorMessage" class="ds-datePicker__errorMessage"> {{ errorMessage }} </span>
+		<span class="ds-datePicker__errorMessage"> {{ errorMessage }} </span>
 		<input ref="flatpickrInput" class="ds-datePicker__hiddenInput" />
 	</div>
 </template>
