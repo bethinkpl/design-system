@@ -107,6 +107,9 @@
 	border: $border-xs solid transparent;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
+	min-height: 44px;
+	min-width: 76px;
 	padding: $space-2xs $space-xs;
 	pointer-events: none;
 	position: relative;
@@ -137,7 +140,7 @@
 
 	&__dateWrapper {
 		column-gap: $space-4xs;
-		display: flex;
+		display: inline-flex;
 	}
 
 	&__date {
