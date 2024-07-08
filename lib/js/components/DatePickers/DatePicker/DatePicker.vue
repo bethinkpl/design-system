@@ -44,10 +44,13 @@
 </template>
 
 <style lang="scss">
+@import 'flatpickr/dist/flatpickr';
+</style>
+
+<style lang="scss" scoped>
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/spacings';
-@import 'flatpickr/dist/flatpickr';
 
 .ds-datePicker {
 	$self: &;
