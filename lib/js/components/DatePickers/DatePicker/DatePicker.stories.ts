@@ -44,7 +44,7 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
 			:date="formattedDate"
 			:label="label"
 			:is-label-uppercase="isLabelUppercase"
-			:icon="ICONS[icon]"
+			:icon="icon ? ICONS[icon] : null"
 			:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
 			:calendar-position="calendarPosition"
 			:error-message="errorMessage"
