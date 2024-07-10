@@ -14,6 +14,7 @@
 				>{{ label }}</span
 			>
 			<ds-tile
+				class="ds-datePicker__tile"
 				:text="text"
 				:interactive="isInteractive"
 				:color="color"
@@ -88,6 +89,10 @@
 		}
 	}
 
+	&__tile {
+		min-height: 56px;
+	}
+
 	&__errorMessage {
 		@include info-s-default-regular;
 
@@ -97,7 +102,7 @@
 </style>
 
 <script lang="ts">
-import { toRaw, PropType } from 'vue';
+import { PropType, toRaw } from 'vue';
 
 import DsTile from '../../Tile';
 import { ICONS } from '../../Icons/Icon';
