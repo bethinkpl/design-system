@@ -1,8 +1,11 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "22.1.1",
+  "version": "22.2.0",
   "description": "Bethink universe design-system",
-  "repository": "git@github.com:bethinkpl/design-system.git",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bethinkpl/design-system.git"
+  },
   "author": "nerdy@bethink.pl",
   "main": "./dist/design-system.umd.js",
   "typings": "./dist/lib/js/index.d.ts",
@@ -37,6 +40,7 @@
     "@fortawesome/pro-regular-svg-icons": "6.4.2",
     "@fortawesome/pro-solid-svg-icons": "6.4.2",
     "@fortawesome/vue-fontawesome": "3.0.3",
+    "@primevue/themes": "4.0.0-rc.3",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-controls": "^6.5.13",
     "@storybook/addon-docs": "^6.5.13",
@@ -69,6 +73,7 @@
     "jsdom-global": "^3.0.2",
     "postcss-prefix-selector": "^1.9.0",
     "prettier": "2.7.1",
+    "primevue": "4.0.0-rc.3",
     "sass": "^1.28.0",
     "sass-loader": "^7.1.0",
     "storybook-addon-designs": "^6.3.1",
@@ -81,11 +86,7 @@
     "typescript": "4.6.4",
     "vue": "3.2.45",
     "vue-loader": "17.0.0",
-    "vue-popperjs": "bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
+    "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
     "vue-svg-loader": "0.17.0-beta.2"
-  },
-  "dependencies": {
-    "@primevue/themes": "4.0.0-rc.3",
-    "primevue": "4.0.0-rc.3"
   }
 }
