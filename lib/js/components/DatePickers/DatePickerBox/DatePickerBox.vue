@@ -117,8 +117,8 @@
 	&.-ds-loading,
 	&.-ds-interactive {
 		background-color: $color-neutral-background-weak;
-		border-color: $color-neutral-background;
-		border-radius: $radius-m;
+		border-color: $color-neutral-border-weak;
+		border-radius: $radius-s;
 	}
 
 	&.-ds-disabled {
