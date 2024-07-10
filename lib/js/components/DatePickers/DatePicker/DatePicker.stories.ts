@@ -1,9 +1,9 @@
 import DatePicker from './DatePicker.vue';
 import {
-	DATE_PICKER_COLORS,
 	DATE_PICKER_CALENDAR_POSITIONS,
-	DATE_PICKER_TRIGGER_TYPES,
+	DATE_PICKER_COLORS,
 	DATE_PICKER_STATES,
+	DATE_PICKER_TRIGGER_TYPES,
 } from './DatePicker.consts';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
@@ -32,8 +32,11 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
 	},
 	computed: {
 		formattedDate() {
-			const date = this.date ? new Date(parseInt(this.date)) : null;
-			return date?.toISOString();
+			if (!this.date) {
+				return null;
+			}
+			const date = new Date(this.date);
+			return date.toISOString();
 		},
 	},
 	template: `
@@ -64,7 +67,7 @@ const args = {
 	triggerType: DATE_PICKER_TRIGGER_TYPES.TILE,
 	isInteractive: true,
 	placeholder: 'Wybierz datę',
-	date: null,
+	date: '',
 	label: 'Date picker',
 	isLabelUppercase: false,
 	icon: 'FA_CALENDAR_DAY',
@@ -75,7 +78,7 @@ const args = {
 	color: DATE_PICKER_COLORS.NEUTRAL,
 	disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],
 	minDate: 'today',
-	maxDate: new Date(now + oneDayMili * 7).toISOString().slice(0, 10),
+	maxDate: new Date(now + oneDayMili * 30).toISOString().slice(0, 10),
 } as Args;
 
 const argTypes = {
@@ -83,7 +86,7 @@ const argTypes = {
 		control: 'select',
 		options: Object.values(DATE_PICKER_TRIGGER_TYPES),
 	},
-	date: { control: 'date' },
+	date: { control: 'text' },
 	icon: { control: 'select', options: [null, ...Object.keys(ICONS)] },
 	calendarPosition: {
 		control: 'select',
