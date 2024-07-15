@@ -158,6 +158,7 @@ import { faCheck as fasCheck } from '@fortawesome/pro-solid-svg-icons/faCheck';
 import { faCircleCheck as fasCircleCheck } from '@fortawesome/pro-solid-svg-icons/faCircleCheck';
 import { faCirclePlay as fasCirclePlay } from '@fortawesome/pro-solid-svg-icons/faCirclePlay';
 import { faComment as fasComment } from '@fortawesome/pro-solid-svg-icons/faComment';
+import { faCompass as fasCompass } from '@fortawesome/pro-solid-svg-icons/faCompass';
 import { faExclamation as fasExclamation } from '@fortawesome/pro-solid-svg-icons/faExclamation';
 import { faFileLines as fasFileLines } from '@fortawesome/pro-solid-svg-icons/faFileLines';
 import { faFilePen as fasFilePen } from '@fortawesome/pro-solid-svg-icons/faFilePen';
@@ -265,6 +266,7 @@ export const FONTAWESOME_ICONS = {
 	FA_COMMENTS: faComments,
 	FA_COMMENTS_QUESTION: faCommentsQuestion,
 	FA_COMMENTS_QUESTION_CHECK: faCommentsQuestionCheck,
+	FA_COMPASS_SOLID: fasCompass,
 	FA_COMPRESS: faCompress,
 	FA_COPY: faCopy,
 	FA_CREDIT_CARD: faCreditCard,
