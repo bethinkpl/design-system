@@ -278,7 +278,7 @@ export default {
 					},
 				],
 				onChange: (event) => {
-					this.$emit('update:date', event);
+					this.$emit('update:date', event[0]);
 				},
 			});
 		}
