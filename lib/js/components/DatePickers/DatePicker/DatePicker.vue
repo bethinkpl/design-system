@@ -197,10 +197,6 @@ export default {
 			type: String as PropType<DatePickerColors>,
 			default: DATE_PICKER_COLORS.NEUTRAL,
 		},
-		defaultDate: {
-			type: [String, Date, Number],
-			default: null,
-		},
 		disableDates: {
 			type: Array,
 			default: () => [],
