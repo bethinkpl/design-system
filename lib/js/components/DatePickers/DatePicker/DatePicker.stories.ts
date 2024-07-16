@@ -7,6 +7,7 @@ import {
 } from './DatePicker.consts';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
+import DsSwitch from '../../Switch';
 
 export default {
 	title: 'Components/DatePickers/DatePicker',
@@ -14,7 +15,7 @@ export default {
 } as Meta<typeof DatePicker>;
 
 const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
-	components: { DatePicker },
+	components: { DatePicker, DsSwitch },
 	setup() {
 		return {
 			...args,
@@ -57,7 +58,9 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
 			:min-date="minDate"
 			:max-date="maxDate"
 			@update:date="updateDate"
-		/>`,
+		>
+			<ds-switch  label-left="lewa" label-right="prawa" />
+		</date-picker>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
