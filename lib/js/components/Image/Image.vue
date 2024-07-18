@@ -69,6 +69,7 @@ export default defineComponent({
 			required: true,
 		},
 	},
+	emits: { error: () => true, load: () => true },
 	data() {
 		return {
 			isLoading: true,
@@ -78,9 +79,11 @@ export default defineComponent({
 	methods: {
 		onError() {
 			this.isLoading = false;
+			this.$emit('error');
 		},
 		onLoad() {
 			this.isLoading = false;
+			this.$emit('load');
 		},
 	},
 });
