@@ -97,5 +97,6 @@ export { default as Switch } from './components/Switch';
 export * from './components/Switch/Switch.consts';
 export { default as DsTooltip } from './components/Tooltip';
 export * from './components/Tooltip/Tooltip.consts';
+export { default as DsImage } from './components/Image';
 export { initializePrimeVue } from './primevue';
 export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, IconDefinition, } from './icons/fontawesome';
