@@ -141,6 +141,19 @@ const FLATPICKR_POSITIONS = {
 	[DATE_PICKER_CALENDAR_POSITIONS.TOP_RIGHT]: 'above right',
 	[DATE_PICKER_CALENDAR_POSITIONS.TOP]: 'above',
 };
+
+const parseDate = function (date: string | number | Date): string | number | null | Date {
+	if (!date) {
+		return null;
+	}
+
+	if (typeof date != 'number' && isNaN(Date.parse(date))) {
+		return date;
+	}
+
+	return new Date(date);
+};
+
 export default {
 	name: 'DatePicker',
 	components: {
@@ -263,10 +276,10 @@ export default {
 				ignoredFocusElements: [this.$el],
 				appendTo: this.$el,
 				position: FLATPICKR_POSITIONS[this.calendarPosition],
-				defaultDate: this.date,
-				disable: this.disableDates,
-				minDate: this.minDate,
-				maxDate: this.maxDate,
+				defaultDate: parseDate(this.date),
+				disable: this.disableDates.map((dateToDisable) => parseDate(dateToDisable)),
+				minDate: parseDate(this.minDate),
+				maxDate: parseDate(this.maxDate),
 				onClose: [
 					() => {
 						this.isOpen = false;
