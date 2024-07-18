@@ -1,6 +1,16 @@
 <template>
 	<div class="ds-image">
-		<img class="ds-image__image" loading="lazy" :src="src" @error="onError" @load="onLoad" />
+		<img
+			class="ds-image__image"
+			:class="{
+				'-ds-contain': fit === IMAGE_FITS.CONTAIN,
+				'-ds-cover': fit === IMAGE_FITS.COVER,
+			}"
+			loading="lazy"
+			:src="src"
+			@error="onError"
+			@load="onLoad"
+		/>
 		<div v-if="isLoading" class="ds-image__loader">
 			<prime-skeleton width="100%" height="100%"></prime-skeleton>
 		</div>
@@ -14,8 +24,15 @@
 
 	&__image {
 		height: 100%;
-		object-fit: contain;
 		width: 100%;
+
+		&.-ds-contain {
+			object-fit: contain;
+		}
+
+		&.-ds-cover {
+			object-fit: cover;
+		}
 	}
 
 	&__loader {
@@ -30,7 +47,8 @@
 
 <script lang="ts">
 import PrimeSkeleton from 'primevue/skeleton';
-import { defineComponent } from 'vue';
+import { defineComponent, PropType } from 'vue';
+import { IMAGE_FITS, ImageFit } from './Image.consts';
 
 export default defineComponent({
 	// <image> is "an ancient and poorly supported precursor to the <img> element"
@@ -42,6 +60,10 @@ export default defineComponent({
 		PrimeSkeleton,
 	},
 	props: {
+		fit: {
+			type: String as PropType<ImageFit>,
+			default: IMAGE_FITS.CONTAIN,
+		},
 		src: {
 			type: String,
 			required: true,
@@ -50,6 +72,7 @@ export default defineComponent({
 	data() {
 		return {
 			isLoading: true,
+			IMAGE_FITS: Object.freeze(IMAGE_FITS),
 		};
 	},
 	methods: {
