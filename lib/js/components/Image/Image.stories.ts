@@ -1,19 +1,19 @@
 import { Args, Meta, StoryFn } from '@storybook/vue3';
-import ImageWithLoader from './ImageWithLoader.vue';
+import DsImage from './Image.vue';
 
 export default {
-	title: 'Components/ImageWithLoader',
-	component: ImageWithLoader,
-} as Meta<typeof ImageWithLoader>;
+	title: 'Components/Image',
+	component: DsImage,
+} as Meta<typeof DsImage>;
 
-const StoryTemplate: StoryFn<typeof ImageWithLoader> = (args) => ({
-	components: { ImageWithLoader },
+const StoryTemplate: StoryFn<typeof DsImage> = (args) => ({
+	components: { DsImage },
 	setup() {
 		return { ...args };
 	},
 	template: `
-		<div style="width: 800px; height: 500px;">
-			<image-with-loader
+		<div style="display: flex; height: 500px; width: 800px;">
+			<ds-image
 				:src="src"
 			/>
 		</div>`,

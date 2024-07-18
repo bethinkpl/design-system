@@ -33,7 +33,11 @@ import PrimeSkeleton from 'primevue/skeleton';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-	name: 'ImageWithLoader',
+	// <image> is "an ancient and poorly supported precursor to the <img> element"
+	// so there should be no conflicts. Also, we prefix all DS components with ds-
+	// https://developer.mozilla.org/en-US/docs/Web/HTML/Element#obsolete_and_deprecated_elements
+	// eslint-disable-next-line vue/no-reserved-component-names
+	name: 'Image',
 	components: {
 		PrimeSkeleton,
 	},
