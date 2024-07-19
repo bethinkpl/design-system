@@ -147,7 +147,7 @@ const parseDate = function (date: string | number | Date): string | number | nul
 		return null;
 	}
 
-	if (typeof date != 'number' && isNaN(Date.parse(date))) {
+	if (typeof date != 'number' && typeof date != 'object' && isNaN(Date.parse(date))) {
 		return date;
 	}
 
