@@ -142,18 +142,6 @@ const FLATPICKR_POSITIONS = {
 	[DATE_PICKER_CALENDAR_POSITIONS.TOP]: 'above',
 };
 
-const parseDate = function (date: string | number | Date): string | number | null | Date {
-	if (!date) {
-		return null;
-	}
-
-	if (typeof date != 'number' && typeof date != 'object' && isNaN(Date.parse(date))) {
-		return date;
-	}
-
-	return new Date(date);
-};
-
 export default {
 	name: 'DatePicker',
 	components: {
@@ -174,7 +162,7 @@ export default {
 			default: 'Wybierz datę',
 		},
 		date: {
-			type: [String, Date, Number],
+			type: Date,
 			default: null,
 		},
 		label: {
@@ -213,13 +201,14 @@ export default {
 		disableDates: {
 			type: Array,
 			default: () => [],
+			validate: (dates: Array) => dates.every((date) => date instanceof Date),
 		},
 		minDate: {
-			type: [String, Date, Number],
+			type: Date,
 			default: null,
 		},
 		maxDate: {
-			type: [String, Date, Number],
+			type: Date,
 			default: null,
 		},
 	},
@@ -242,7 +231,7 @@ export default {
 			}
 
 			return capitalizeFirstLetter(
-				new Date(this.date).toLocaleDateString(undefined, {
+				this.date.toLocaleDateString(undefined, {
 					dateStyle: undefined,
 					timeStyle: undefined,
 					weekday: 'long',
@@ -250,11 +239,11 @@ export default {
 			);
 		},
 		text() {
-			if (this.state === DATE_PICKER_STATES.LOADING || !this.date?.length) {
+			if (this.state === DATE_PICKER_STATES.LOADING || !this.date) {
 				return this.placeholder;
 			}
 
-			return new Date(this.date).toLocaleDateString(undefined, {
+			return this.date.toLocaleDateString(undefined, {
 				dateStyle: 'medium',
 				timeStyle: undefined,
 			});
@@ -271,7 +260,7 @@ export default {
 	},
 	watch: {
 		watchConfig() {
-			this.datePicker.redraw();
+			this.datePicker?.redraw();
 		},
 	},
 	async mounted() {
@@ -290,10 +279,10 @@ export default {
 				ignoredFocusElements: [this.$el],
 				appendTo: this.$el,
 				position: FLATPICKR_POSITIONS[this.calendarPosition],
-				defaultDate: parseDate(this.date),
-				disable: this.disableDates.map((dateToDisable) => parseDate(dateToDisable)),
-				minDate: parseDate(this.minDate),
-				maxDate: parseDate(this.maxDate),
+				defaultDate: this.date,
+				disable: this.disableDates,
+				minDate: this.minDate,
+				maxDate: this.maxDate,
 				onClose: [
 					() => {
 						this.isOpen = false;

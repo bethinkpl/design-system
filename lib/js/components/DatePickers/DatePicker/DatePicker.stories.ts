@@ -27,8 +27,10 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
 		};
 	},
 	methods: {
-		updateDate(date) {
-			updateArgs({ date: Date.parse(date) });
+		updateDate(date: Date) {
+			updateArgs({
+				date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
+			});
 		},
 	},
 	computed: {
@@ -36,8 +38,25 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
 			if (!this.date) {
 				return null;
 			}
-			const date = new Date(this.date);
-			return date.toISOString();
+			return new Date(this.date);
+		},
+		formattedMinDate() {
+			if (!this.minDate) {
+				return null;
+			}
+			return new Date(this.minDate);
+		},
+		formattedMaxDate() {
+			if (!this.maxDate) {
+				return null;
+			}
+			return new Date(this.maxDate);
+		},
+		formattedDisableDates() {
+			if (!this.disableDates || !this.disableDates.length) {
+				return null;
+			}
+			return this.disableDates.map((date) => new Date(date));
 		},
 	},
 	template: `
@@ -54,9 +73,9 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
 			:error-message="errorMessage"
 			:state="state"
 			:color="color"
-			:disable-dates="disableDates"
-			:min-date="minDate"
-			:max-date="maxDate"
+			:disable-dates="formattedDisableDates"
+			:min-date="formattedMinDate"
+			:max-date="formattedMaxDate"
 			@update:date="updateDate"
 		>
 			<ds-switch  label-left="lewa" label-right="prawa" />
@@ -80,7 +99,7 @@ const args = {
 	state: DATE_PICKER_STATES.DEFAULT,
 	color: DATE_PICKER_COLORS.NEUTRAL,
 	disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],
-	minDate: 'today',
+	minDate: new Date(now).toISOString().slice(0, 10),
 	maxDate: new Date(now + oneDayMili * 30).toISOString().slice(0, 10),
 } as Args;
 

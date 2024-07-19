@@ -235,7 +235,7 @@ export default {
 			default: 'Ustaw',
 		},
 		date: {
-			type: [String, Date, Number],
+			type: Date,
 			default: null,
 		},
 		icon: {
@@ -275,7 +275,7 @@ export default {
 	computed: {
 		text() {
 			if (this.date) {
-				return new Date(this.date).toLocaleDateString(undefined, {
+				return this.date.toLocaleDateString(undefined, {
 					month: 'short',
 					day: '2-digit',
 				});
