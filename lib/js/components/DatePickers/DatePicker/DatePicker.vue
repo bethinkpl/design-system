@@ -259,8 +259,11 @@ export default {
 		},
 	},
 	watch: {
-		watchConfig() {
-			this.datePicker?.redraw();
+		watchConfig: {
+			handler() {
+				this.datePicker?.redraw();
+			},
+			flus: 'post',
 		},
 	},
 	async mounted() {
