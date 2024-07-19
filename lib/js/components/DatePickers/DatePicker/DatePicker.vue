@@ -201,7 +201,7 @@ export default {
 		disableDates: {
 			type: Array,
 			default: () => [],
-			validate: (dates: Array) => dates.every((date) => date instanceof Date),
+			validate: (dates: Array<Date>) => true,
 		},
 		minDate: {
 			type: Date,
