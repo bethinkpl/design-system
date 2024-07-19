@@ -247,7 +247,7 @@ export default {
 				timeStyle: undefined,
 			});
 		},
-		watchConfig() {
+		flatpickrConfigString() {
 			return [
 				this.maxDate,
 				this.minDate,
@@ -258,7 +258,7 @@ export default {
 		},
 	},
 	watch: {
-		watchConfig: {
+		flatpickrConfigString: {
 			handler() {
 				this.datePicker?.redraw();
 			},
