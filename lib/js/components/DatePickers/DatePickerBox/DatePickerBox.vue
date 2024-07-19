@@ -188,7 +188,7 @@
 			cursor: pointer;
 			pointer-events: all;
 
-			&:hover {
+			&:hover:not(.-ds-isOpen) {
 				background-color: $color-neutral-background-weak-hovered;
 			}
 		}
