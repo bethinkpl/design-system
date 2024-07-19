@@ -201,7 +201,6 @@ export default {
 		disableDates: {
 			type: Array,
 			default: () => [],
-			validate: (dates: Array<Date>) => true,
 		},
 		minDate: {
 			type: Date,
@@ -283,7 +282,7 @@ export default {
 				appendTo: this.$el,
 				position: FLATPICKR_POSITIONS[this.calendarPosition],
 				defaultDate: this.date,
-				disable: this.disableDates,
+				disable: this.disableDates.filter((date) => date instanceof Date),
 				minDate: this.minDate,
 				maxDate: this.maxDate,
 				onClose: [
