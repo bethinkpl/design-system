@@ -260,7 +260,13 @@ export default {
 	watch: {
 		flatpickrConfigString: {
 			handler() {
-				this.datePicker?.redraw();
+				this.datePicker?.set({
+					position: FLATPICKR_POSITIONS[this.calendarPosition],
+					defaultDate: this.date,
+					disable: this.disableDates.filter((date) => date instanceof Date),
+					minDate: this.minDate,
+					maxDate: this.maxDate,
+				});
 			},
 			flush: 'post' as const,
 		},
