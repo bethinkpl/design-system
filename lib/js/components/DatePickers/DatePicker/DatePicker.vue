@@ -263,7 +263,7 @@ export default {
 			handler() {
 				this.datePicker?.redraw();
 			},
-			flus: 'post',
+			flush: 'post',
 		},
 	},
 	async mounted() {
