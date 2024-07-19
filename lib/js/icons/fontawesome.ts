@@ -143,6 +143,8 @@ import { faWindowMaximize } from '@fortawesome/pro-regular-svg-icons/faWindowMax
 import { faXmark } from '@fortawesome/pro-regular-svg-icons/faXmark';
 import { faCommentsQuestion } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestion';
 import { faCommentsQuestionCheck } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestionCheck';
+import { faCalendarClock } from '@fortawesome/pro-regular-svg-icons/faCalendarClock';
+import { faFileCheck } from '@fortawesome/pro-regular-svg-icons/faFileCheck';
 import { faArrowDown as fasArrowDown } from '@fortawesome/pro-solid-svg-icons/faArrowDown';
 import { faArrowLeft as fasArrowLeft } from '@fortawesome/pro-solid-svg-icons/faArrowLeft';
 import { faArrowRight as fasArrowRight } from '@fortawesome/pro-solid-svg-icons/faArrowRight';
@@ -156,6 +158,7 @@ import { faCheck as fasCheck } from '@fortawesome/pro-solid-svg-icons/faCheck';
 import { faCircleCheck as fasCircleCheck } from '@fortawesome/pro-solid-svg-icons/faCircleCheck';
 import { faCirclePlay as fasCirclePlay } from '@fortawesome/pro-solid-svg-icons/faCirclePlay';
 import { faComment as fasComment } from '@fortawesome/pro-solid-svg-icons/faComment';
+import { faCompass as fasCompass } from '@fortawesome/pro-solid-svg-icons/faCompass';
 import { faExclamation as fasExclamation } from '@fortawesome/pro-solid-svg-icons/faExclamation';
 import { faFileLines as fasFileLines } from '@fortawesome/pro-solid-svg-icons/faFileLines';
 import { faFilePen as fasFilePen } from '@fortawesome/pro-solid-svg-icons/faFilePen';
@@ -221,6 +224,7 @@ export const FONTAWESOME_ICONS = {
 	FA_BOX: faBox,
 	FA_BOX_ARCHIVE: faBoxArchive,
 	FA_CALENDAR: faCalendar,
+	FA_CALENDAR_CLOCK: faCalendarClock,
 	FA_CALENDAR_CIRCLE_EXCLAMATION: faCalendarCircleExclamation,
 	FA_CALENDAR_CHECK: faCalendarCheck,
 	FA_CALENDAR_DAY: faCalendarDay,
@@ -262,6 +266,7 @@ export const FONTAWESOME_ICONS = {
 	FA_COMMENTS: faComments,
 	FA_COMMENTS_QUESTION: faCommentsQuestion,
 	FA_COMMENTS_QUESTION_CHECK: faCommentsQuestionCheck,
+	FA_COMPASS_SOLID: fasCompass,
 	FA_COMPRESS: faCompress,
 	FA_COPY: faCopy,
 	FA_CREDIT_CARD: faCreditCard,
@@ -277,6 +282,7 @@ export const FONTAWESOME_ICONS = {
 	FA_FACE_MEH: faFaceMeh,
 	FA_FACE_SMILE: faFaceSmile,
 	FA_FACEBOOK: faFacebook,
+	FA_FILE_CHECK: faFileCheck,
 	FA_FILE_INVOICE_DOLLAR: faFileInvoiceDollar,
 	FA_FILE_LINES: faFileLines,
 	FA_FILE_LINES_SOLID: fasFileLines,
