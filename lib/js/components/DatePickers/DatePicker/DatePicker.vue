@@ -259,6 +259,20 @@ export default {
 				timeStyle: undefined,
 			});
 		},
+		watchConfig() {
+			return [
+				this.maxDate,
+				this.minDate,
+				this.calendarPosition,
+				this.date,
+				...this.disableDates,
+			].concat('|');
+		},
+	},
+	watch: {
+		watchConfig() {
+			this.redraw();
+		},
 	},
 	async mounted() {
 		if (this.isDatePickerEnabled && !this.datePicker) {
