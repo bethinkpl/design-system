@@ -271,7 +271,7 @@ export default {
 	},
 	watch: {
 		watchConfig() {
-			this.redraw();
+			this.datePicker.redraw();
 		},
 	},
 	async mounted() {
