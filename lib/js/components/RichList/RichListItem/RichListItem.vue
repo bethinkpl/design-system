@@ -1,6 +1,9 @@
 <template>
 	<div class="ds-richListItem" :class="classList" @click="$emit('click', $event)">
 		<div class="ds-richListItem__container -ds-dimmable">
+			<div v-if="hasMedia" class="ds-richListItem__media">
+				<slot name="media" />
+			</div>
 			<div v-if="isDraggable && hasDraggableHandler" class="ds-richListItem__dragAndDrop">
 				<ds-icon
 					:icon="ICONS.FA_BARS"
@@ -118,6 +121,10 @@ $rich-list-item-background-colors: (
 		padding: 0 $space-4xs;
 	}
 
+	&.-ds-has-media {
+		padding-left: 0;
+	}
+
 	&.-ds-dimmed {
 		.-ds-dimmable {
 			opacity: 0.65;
@@ -224,6 +231,12 @@ $rich-list-item-background-colors: (
 		@media #{breakpoint-s()} {
 			align-self: initial;
 		}
+	}
+
+	&__media {
+		height: 80px;
+		padding-right: $space-3xs;
+		width: 100px;
 	}
 
 	&__dragAndDrop,
@@ -561,6 +574,7 @@ export default {
 						[`-ds-elevation-${this.elevation}`]: true,
 					}),
 				'-ds-draggable': this.isDraggable && !this.hasDraggableHandler,
+				'-ds-has-media': this.hasMedia,
 			};
 		},
 		iconColorClass() {
@@ -590,6 +604,9 @@ export default {
 			return {
 				backgroundColor: this.borderColorHex,
 			};
+		},
+		hasMedia() {
+			return !!this.$slots.media;
 		},
 	},
 };
