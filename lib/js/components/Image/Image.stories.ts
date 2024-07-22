@@ -24,13 +24,13 @@ const StoryTemplate: StoryFn<typeof DsImage> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
-	fit: IMAGE_FITS.CONTAIN,
+	fit: IMAGE_FITS.COVER,
 	src: 'https://storage.googleapis.com/media-manager/lek/018f6291-3956-7342-8e6b-0ee901d48643/018f6291-3a56-7213-aef6-b5da7253839f.jpg',
 } as Args;
 
 Interactive.argTypes = {
 	fit: {
 		control: { type: 'select', options: Object.values(IMAGE_FITS) },
-		defaultValue: IMAGE_FITS.CONTAIN,
+		defaultValue: IMAGE_FITS.COVER,
 	},
 };

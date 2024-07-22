@@ -8,11 +8,11 @@
 			}"
 			loading="lazy"
 			:src="src"
-			@error="onError"
-			@load="onLoad"
+			@error="isLoading = false"
+			@load="isLoading = false"
 		/>
 		<div v-if="isLoading" class="ds-image__loader">
-			<prime-skeleton width="100%" height="100%"></prime-skeleton>
+			<prime-skeleton width="100%" height="100%" border-radius="0" />
 		</div>
 	</div>
 </template>
@@ -62,29 +62,18 @@ export default defineComponent({
 	props: {
 		fit: {
 			type: String as PropType<ImageFit>,
-			default: IMAGE_FITS.CONTAIN,
+			default: IMAGE_FITS.COVER,
 		},
 		src: {
 			type: String,
 			required: true,
 		},
 	},
-	emits: { error: () => true, load: () => true },
 	data() {
 		return {
 			isLoading: true,
 			IMAGE_FITS: Object.freeze(IMAGE_FITS),
 		};
-	},
-	methods: {
-		onError() {
-			this.isLoading = false;
-			this.$emit('error');
-		},
-		onLoad() {
-			this.isLoading = false;
-			this.$emit('load');
-		},
 	},
 });
 </script>
