@@ -24,7 +24,7 @@
 				:interactive="isInteractive"
 				:color="color"
 				:state="state"
-				:icon-right="icon"
+				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
 				@click="toggle"
@@ -246,6 +246,9 @@ export default {
 				dateStyle: 'medium',
 				timeStyle: undefined,
 			});
+		},
+		tileIcon() {
+			return this.isOpen ? ICONS.FA_CHEVRON_DOWN : this.icon;
 		},
 		flatpickrConfigString() {
 			return [
