@@ -248,7 +248,7 @@ export default {
 			});
 		},
 		tileIcon() {
-			return this.isOpen ? ICONS.FA_CHEVRON_DOWN : this.icon;
+			return this.isOpen ? ICONS.FA_CHEVRON_UP : this.icon;
 		},
 		flatpickrConfigString() {
 			return [
