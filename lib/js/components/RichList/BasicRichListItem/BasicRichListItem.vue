@@ -23,6 +23,9 @@
 		}"
 		@update:is-selected="$emit('update:is-selected', $event)"
 	>
+		<template v-if="$slots.media" #media>
+			<slot name="media" />
+		</template>
 		<template #content>
 			<div class="ds-basicRichListItem__content">
 				<div
