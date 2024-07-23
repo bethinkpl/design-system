@@ -248,6 +248,10 @@ export default {
 			});
 		},
 		tileIcon() {
+			if (!this.icon) {
+				return null;
+			}
+
 			return this.isOpen ? ICONS.FA_CHEVRON_UP : this.icon;
 		},
 		flatpickrConfigString() {
