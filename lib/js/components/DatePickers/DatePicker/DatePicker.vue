@@ -102,6 +102,10 @@
 
 	&__tile {
 		min-height: 56px;
+
+		/* Prevent text select */
+		-webkit-user-select: none; /* Safari */
+		user-select: none;
 	}
 
 	&__errorMessage {

@@ -141,6 +141,10 @@
 	&__dateWrapper {
 		column-gap: $space-4xs;
 		display: inline-flex;
+
+		/* Prevent text select */
+		-webkit-user-select: none; /* Safari */
+		user-select: none;
 	}
 
 	&__date {
