@@ -6,6 +6,7 @@
 				'-ds-contain': fit === IMAGE_FITS.CONTAIN,
 				'-ds-cover': fit === IMAGE_FITS.COVER,
 			}"
+			draggable="false"
 			loading="lazy"
 			:src="src"
 			@error="isLoading = false"
@@ -24,6 +25,7 @@
 
 	&__image {
 		height: 100%;
+		user-select: none;
 		width: 100%;
 
 		&.-ds-contain {

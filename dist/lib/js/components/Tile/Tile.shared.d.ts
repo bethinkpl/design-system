@@ -1,4 +1,5 @@
-import { TILE_STATES } from './Tile.consts';
+import { PropType } from 'vue';
+import { TILE_STATES, TileColors, TileStates } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
 export declare const props: {
     interactive: {
@@ -15,6 +16,10 @@ export declare const props: {
         default: null;
         validator(iconRight: any): boolean;
     };
+    isIconRightHiddenOnMobile: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     text: {
         type: StringConstructor;
         required: boolean;
@@ -28,7 +33,7 @@ export declare const props: {
         default: null;
     };
     color: {
-        type: StringConstructor;
+        type: PropType<TileColors>;
         default: "neutral";
         validator(color: any): boolean;
     };
@@ -37,7 +42,7 @@ export declare const props: {
         default: boolean;
     };
     state: {
-        type: StringConstructor;
+        type: PropType<TileStates>;
         default: "default";
         validator(value: Value<typeof TILE_STATES>): boolean;
     };

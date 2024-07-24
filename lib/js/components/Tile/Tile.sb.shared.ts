@@ -10,6 +10,7 @@ export const template = (componentTag: string) => `
 			:eyebrow-text="eyebrowText"
 			:icon-left="ICONS[iconLeft]"
 			:icon-right="ICONS[iconRight]"
+			:is-icon-right-hidden-on-mobile="isIconRightHiddenOnMobile"
 			:interactive="interactive"
 			:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
 			:state="state"
@@ -25,6 +26,7 @@ export const args = {
 	interactive: true,
 	iconLeft: null,
 	iconRight: null,
+	isIconRightHiddenOnMobile: false,
 	text: 'this is a text text',
 	eyebrowText: 'this is an eyebrowText text',
 	additionalText: '',
