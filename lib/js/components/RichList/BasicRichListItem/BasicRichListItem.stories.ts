@@ -10,7 +10,6 @@ import {
 	RICH_LIST_ITEM_TYPE,
 } from '../RichListItem';
 import { ICON_COLORS, ICONS } from '../../Icons/Icon';
-import RichListItem from '../RichListItem/RichListItem.vue';
 import { DsImage } from '../../../index';
 
 export default {
@@ -24,7 +23,7 @@ export default {
 	],
 } as Meta<typeof BasicRichListItem>;
 
-const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
+const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 	story.argTypes = {
 		type: {
 			options: Object.values(RICH_LIST_ITEM_TYPE),
