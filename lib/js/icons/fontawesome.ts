@@ -118,7 +118,6 @@ import { faRotateLeft } from '@fortawesome/pro-regular-svg-icons/faRotateLeft';
 import { faShare } from '@fortawesome/pro-regular-svg-icons/faShare';
 import { faShareNodes } from '@fortawesome/pro-regular-svg-icons/faShareNodes';
 import { faShieldHalved } from '@fortawesome/pro-regular-svg-icons/faShieldHalved';
-import { faSidebar } from '@fortawesome/pro-regular-svg-icons/faSidebar';
 import { faSidebarFlip } from '@fortawesome/pro-regular-svg-icons/faSidebarFlip';
 import { faSignal } from '@fortawesome/pro-regular-svg-icons/faSignal';
 import { faSitemap } from '@fortawesome/pro-regular-svg-icons/faSitemap';
@@ -174,7 +173,6 @@ import { faInfo as fasInfo } from '@fortawesome/pro-solid-svg-icons/faInfo';
 import { faLightbulb as fasLightbulb } from '@fortawesome/pro-solid-svg-icons/faLightbulb';
 import { faMemoCircleInfo as fasMemoCircleInfo } from '@fortawesome/pro-solid-svg-icons/faMemoCircleInfo';
 import { faMessageQuestion as fasMessageQuestion } from '@fortawesome/pro-solid-svg-icons/faMessageQuestion';
-import { faSidebarFlip as fasSidebarFlip } from '@fortawesome/pro-solid-svg-icons/faSidebarFlip';
 import { faSitemap as fasSitemap } from '@fortawesome/pro-solid-svg-icons/faSitemap';
 import { faSquareCheck as fasSquareCheck } from '@fortawesome/pro-solid-svg-icons/faSquareCheck';
 import { faSquareList as fasSquareList } from '@fortawesome/pro-solid-svg-icons/faSquareList';
@@ -350,9 +348,7 @@ export const FONTAWESOME_ICONS = {
 	FA_SHARE: faShare,
 	FA_SHARE_NODES: faShareNodes,
 	FA_SHIELD_HALVED: faShieldHalved,
-	FA_SIDEBAR: faSidebar,
 	FA_SIDEBAR_FLIP: faSidebarFlip,
-	FA_SIDEBAR_FLIP_SOLID: fasSidebarFlip,
 	FA_SIGNAL: faSignal,
 	FA_SITEMAP: faSitemap,
 	FA_SITEMAP_SOLID: fasSitemap,
