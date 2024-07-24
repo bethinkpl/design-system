@@ -1,3 +1,19 @@
-export declare function render(_ctx: any, _cache: any, $props: any, $setup: any, $data: any, $options: any): import("vue").VNode<import("vue").RendererNode, import("vue").RendererElement, {
-    [key: string]: any;
-}>;
+declare const _default: {
+    name: string;
+    props: {
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator(size: any): boolean;
+        };
+        supportingText: {
+            type: StringConstructor;
+            default: null;
+        };
+        titleText: {
+            type: StringConstructor;
+            required: boolean;
+        };
+    };
+};
+export default _default;
