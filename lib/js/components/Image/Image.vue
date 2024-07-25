@@ -14,7 +14,7 @@
 			@load="isLoading = false"
 		/>
 		<div v-if="isLoading" class="ds-image__loader">
-			<prime-skeleton width="100%" height="100%" border-radius="0" />
+			<ds-skeleton :radius="SKELETON_RADIUSES.SM" />
 		</div>
 	</div>
 </template>
@@ -53,9 +53,10 @@
 </style>
 
 <script lang="ts">
-import PrimeSkeleton from 'primevue/skeleton';
 import { defineComponent, PropType } from 'vue';
 import { IMAGE_FITS, ImageFit } from './Image.consts';
+import { SKELETON_RADIUSES } from '../Skeleton/Skeleton.consts';
+import { DsSkeleton } from '../../index';
 
 export default defineComponent({
 	// <image> is "an ancient and poorly supported precursor to the <img> element"
@@ -64,7 +65,7 @@ export default defineComponent({
 	// eslint-disable-next-line vue/no-reserved-component-names
 	name: 'Image',
 	components: {
-		PrimeSkeleton,
+		DsSkeleton,
 	},
 	props: {
 		// Use when there are performance issues when other elements are overlayed
@@ -86,6 +87,7 @@ export default defineComponent({
 		return {
 			isLoading: true,
 			IMAGE_FITS: Object.freeze(IMAGE_FITS),
+			SKELETON_RADIUSES: Object.freeze(SKELETON_RADIUSES),
 		};
 	},
 });
