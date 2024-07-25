@@ -30,6 +30,7 @@
 					<slot name="titleLeading" />
 				</div>
 				<div
+					v-if="title || shortTitle"
 					class="ds-overlayHeader__titleWrapper"
 					:title="title"
 					:class="{ '-ds-interactive': isTitleInteractive }"
