@@ -1,5 +1,10 @@
 <template>
-	<prime-skeleton width="100%" height="100%" :border-radius="radiusTranslated" />
+	<prime-skeleton
+		width="100%"
+		height="100%"
+		:border-radius="radiusTranslated"
+		:dt="designTokens"
+	/>
 </template>
 
 <script lang="ts">
@@ -20,6 +25,12 @@ export default defineComponent({
 	},
 	data() {
 		return {
+			designTokens: {
+				animation: {
+					background: 'rgba(var(--raw-white-rgb), 0.4)',
+				},
+				background: 'var(--raw-gray-200)',
+			},
 			SKELETON_RADIUSES: Object.freeze(SKELETON_RADIUSES),
 		};
 	},
