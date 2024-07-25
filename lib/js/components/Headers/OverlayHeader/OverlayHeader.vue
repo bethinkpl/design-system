@@ -162,11 +162,11 @@
 	&__main {
 		align-items: center;
 		display: flex;
+		gap: $space-2xs;
 	}
 
 	&__titleLeading {
 		display: flex;
-		margin-right: $space-2xs;
 	}
 
 	&__titleWrapper {
@@ -206,7 +206,6 @@
 		display: flex;
 		// flex-shrink: 100000 is big enough, so the title will not shrink
 		flex-shrink: 100000;
-		margin-left: $space-2xs;
 	}
 
 	&__titleTrailing {
