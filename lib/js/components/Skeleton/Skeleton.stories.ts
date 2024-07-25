@@ -13,7 +13,7 @@ const StoryTemplate: StoryFn<typeof DsSkeleton> = (args) => ({
 		return { ...args };
 	},
 	template: `
-		<div style="height: 500px; width: 800px;">
+		<div style="height: 200px; width: 300px;">
 			<ds-skeleton :radius="radius" />
 		</div>`,
 });
@@ -22,7 +22,6 @@ export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
 	radius: SKELETON_RADIUSES.MD,
-	src: 'https://storage.googleapis.com/media-manager/lek/018f6291-3956-7342-8e6b-0ee901d48643/018f6291-3a56-7213-aef6-b5da7253839f.jpg',
 } as Args;
 
 Interactive.argTypes = {
