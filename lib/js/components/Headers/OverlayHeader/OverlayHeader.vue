@@ -163,10 +163,10 @@
 	&__main {
 		align-items: center;
 		display: flex;
-		// title is required, but in some edge-cases we don't render it. We need to set min-height to avoid jumping
-		// Keep valu in sync with &__title line-height
-		min-height: $typography-line-height-s;
 		gap: $space-2xs;
+		// title is required, but in some edge-cases we don't render it. We need to set min-height to avoid jumping
+		// Keep value in sync with &__title line-height
+		min-height: $typography-line-height-s;
 	}
 
 	&__titleLeading {
