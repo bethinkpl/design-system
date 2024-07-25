@@ -170,6 +170,8 @@
 	}
 
 	&__titleWrapper {
+		overflow: hidden;
+
 		&.-ds-interactive {
 			cursor: pointer;
 		}
@@ -202,8 +204,8 @@
 		@include flexOverflowMask($color-neutral-background, 20px);
 
 		display: flex;
-		// flex-shrink: 2 gives some more space for title
-		flex-shrink: 2;
+		// flex-shrink: 100000 is big enough, so the title will not shrink
+		flex-shrink: 100000;
 		margin-left: $space-2xs;
 	}
 
