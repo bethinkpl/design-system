@@ -3,6 +3,7 @@
 		<img
 			class="ds-image__image"
 			:class="{
+				'-ds-accelerate': accelerate,
 				'-ds-contain': fit === IMAGE_FITS.CONTAIN,
 				'-ds-cover': fit === IMAGE_FITS.COVER,
 			}"
@@ -27,6 +28,10 @@
 		height: 100%;
 		user-select: none;
 		width: 100%;
+
+		&.-ds-accelerate {
+			transform: translate3d(0, 0, 0);
+		}
 
 		&.-ds-contain {
 			object-fit: contain;
@@ -62,6 +67,12 @@ export default defineComponent({
 		PrimeSkeleton,
 	},
 	props: {
+		// Use when there are performance issues when other elements are overlayed
+		// on the image, e.g. a RichListItem border covers a part of the image
+		accelerate: {
+			type: Boolean,
+			default: true,
+		},
 		fit: {
 			type: String as PropType<ImageFit>,
 			default: IMAGE_FITS.COVER,
