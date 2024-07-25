@@ -56,7 +56,7 @@
 import { defineComponent, PropType } from 'vue';
 import { IMAGE_FITS, ImageFit } from './Image.consts';
 import { SKELETON_RADIUSES } from '../Skeleton/Skeleton.consts';
-import { DsSkeleton } from '../../index';
+import DsSkeleton from '../Skeleton/Skeleton.vue';
 
 export default defineComponent({
 	// <image> is "an ancient and poorly supported precursor to the <img> element"
