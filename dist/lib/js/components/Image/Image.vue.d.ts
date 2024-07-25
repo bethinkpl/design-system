@@ -1,5 +1,9 @@
 import { PropType } from 'vue';
 declare const _default: import("vue").DefineComponent<{
+    accelerate: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     fit: {
         type: PropType<string>;
         default: string;
@@ -15,6 +19,10 @@ declare const _default: import("vue").DefineComponent<{
         COVER: string;
     }>;
 }, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+    accelerate: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     fit: {
         type: PropType<string>;
         default: string;
@@ -25,5 +33,6 @@ declare const _default: import("vue").DefineComponent<{
     };
 }>>, {
     fit: string;
+    accelerate: boolean;
 }>;
 export default _default;
