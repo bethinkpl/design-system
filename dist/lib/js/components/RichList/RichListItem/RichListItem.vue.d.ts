@@ -37,8 +37,9 @@ declare const _default: {
             default: boolean;
         };
         icon: {
-            type: StringConstructor;
+            type: PropType<any>;
             default: null;
+            validator(icon: any): boolean;
         };
         iconColor: {
             type: PropType<string>;
@@ -326,6 +327,7 @@ declare const _default: {
         borderColorStyle(): {
             backgroundColor: any;
         } | undefined;
+        hasMedia(): boolean;
     };
 };
 export default _default;

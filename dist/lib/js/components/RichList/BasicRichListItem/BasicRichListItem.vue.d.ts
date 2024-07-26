@@ -34,8 +34,9 @@ declare const _default: {
             default: boolean;
         };
         icon: {
-            type: StringConstructor;
+            type: PropType<any>;
             default: null;
+            validator(icon: any): boolean;
         };
         iconColor: {
             type: PropType<string>;
