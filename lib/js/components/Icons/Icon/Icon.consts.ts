@@ -4,6 +4,7 @@ import SlidersSearch from '../../../../images/icons/sliders-search.svg';
 import CommentsCheck from '../../../../images/icons/comments-check.svg';
 import Answers from '../../../../images/icons/icon-answers.svg';
 import HideAnswers from '../../../../images/icons/icon-hide-answers.svg';
+import SidebarFlipSolid from '../../../../images/icons/sidebar-flip-solid.svg';
 
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
 import { Value } from '../../../utils/type.utils';
@@ -46,6 +47,7 @@ const BETHINK_ICONS = {
 	COMMENTS_CHECK: CommentsCheck,
 	ANSWERS: Answers,
 	HIDE_ANSWERS: HideAnswers,
+	SIDEBAR_FLIP_SOLID: SidebarFlipSolid,
 } as const;
 
 export const ICONS = {
