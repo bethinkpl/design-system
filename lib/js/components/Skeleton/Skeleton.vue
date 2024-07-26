@@ -10,7 +10,7 @@
 <script lang="ts">
 import PrimeSkeleton from 'primevue/skeleton';
 import { defineComponent, PropType } from 'vue';
-import { SKELETON_RADIUSES, SkeletonRadius } from './Skeleton.consts';
+import { SKELETON_RADIUS_SIZES, SkeletonRadiusSize } from './Skeleton.consts';
 
 export default defineComponent({
 	name: 'Skeleton',
@@ -23,8 +23,8 @@ export default defineComponent({
 			default: '100%',
 		},
 		radius: {
-			type: String as PropType<SkeletonRadius>,
-			default: SKELETON_RADIUSES.MD,
+			type: String as PropType<SkeletonRadiusSize>,
+			default: SKELETON_RADIUS_SIZES.MEDIUM,
 		},
 		width: {
 			type: String,
@@ -39,15 +39,14 @@ export default defineComponent({
 				},
 				background: 'var(--raw-gray-200)',
 			},
-			SKELETON_RADIUSES: Object.freeze(SKELETON_RADIUSES),
 		};
 	},
 	computed: {
 		radiusTranslated(): string {
 			const map = {
-				[SKELETON_RADIUSES.SM]: 0,
-				[SKELETON_RADIUSES.MD]: 6,
-				[SKELETON_RADIUSES.XL]: 200,
+				[SKELETON_RADIUS_SIZES.SMALL]: 0,
+				[SKELETON_RADIUS_SIZES.MEDIUM]: 6,
+				[SKELETON_RADIUS_SIZES.LARGE]: 200,
 			};
 
 			return `${map[this.radius]}px`;

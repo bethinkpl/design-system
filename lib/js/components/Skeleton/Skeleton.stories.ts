@@ -1,6 +1,6 @@
 import { Args, Meta, StoryFn } from '@storybook/vue3';
 import DsSkeleton from './Skeleton.vue';
-import { SKELETON_RADIUSES } from './Skeleton.consts';
+import { SKELETON_RADIUS_SIZES } from './Skeleton.consts';
 
 export default {
 	title: 'Prime Vue Components/Skeleton',
@@ -22,13 +22,13 @@ export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
 	height: '100%',
-	radius: SKELETON_RADIUSES.MD,
+	radius: SKELETON_RADIUS_SIZES.MEDIUM,
 	width: '100%',
 } as Args;
 
 Interactive.argTypes = {
 	radius: {
-		control: { type: 'select', options: Object.values(SKELETON_RADIUSES) },
-		defaultValue: SKELETON_RADIUSES.MD,
+		control: { type: 'select', options: Object.values(SKELETON_RADIUS_SIZES) },
+		defaultValue: SKELETON_RADIUS_SIZES.MEDIUM,
 	},
 };

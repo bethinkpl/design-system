@@ -14,7 +14,7 @@
 			@load="isLoading = false"
 		/>
 		<div v-if="isLoading" class="ds-image__loader">
-			<ds-skeleton :radius="SKELETON_RADIUSES.SM" />
+			<ds-skeleton :radius="SKELETON_RADIUS_SIZES.SMALL" />
 		</div>
 	</div>
 </template>
@@ -55,7 +55,7 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import { IMAGE_FITS, ImageFit } from './Image.consts';
-import { SKELETON_RADIUSES } from '../Skeleton/Skeleton.consts';
+import { SKELETON_RADIUS_SIZES } from '../Skeleton/Skeleton.consts';
 import DsSkeleton from '../Skeleton/Skeleton.vue';
 
 export default defineComponent({
@@ -87,7 +87,7 @@ export default defineComponent({
 		return {
 			isLoading: true,
 			IMAGE_FITS: Object.freeze(IMAGE_FITS),
-			SKELETON_RADIUSES: Object.freeze(SKELETON_RADIUSES),
+			SKELETON_RADIUS_SIZES: Object.freeze(SKELETON_RADIUS_SIZES),
 		};
 	},
 });

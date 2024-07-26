@@ -1,7 +1,7 @@
-export const SKELETON_RADIUSES = {
-	SM: 'sm',
-	MD: 'md',
-	XL: 'xl',
+export const SKELETON_RADIUS_SIZES = {
+	SMALL: 'small',
+	MEDIUM: 'medium',
+	LARGE: 'large',
 };
 
-export type SkeletonRadius = typeof SKELETON_RADIUSES[keyof typeof SKELETON_RADIUSES];
+export type SkeletonRadiusSize = typeof SKELETON_RADIUS_SIZES[keyof typeof SKELETON_RADIUS_SIZES];
