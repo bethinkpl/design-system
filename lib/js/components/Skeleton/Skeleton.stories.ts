@@ -32,3 +32,10 @@ Interactive.argTypes = {
 		defaultValue: SKELETON_RADIUS_SIZES.MEDIUM,
 	},
 };
+
+Interactive.parameters = {
+	design: {
+		type: 'figma',
+		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=10069-3679&m=dev',
+	},
+};
