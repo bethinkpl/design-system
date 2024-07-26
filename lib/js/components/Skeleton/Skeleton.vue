@@ -1,7 +1,7 @@
 <template>
 	<prime-skeleton
-		width="100%"
-		height="100%"
+		:width="width"
+		:height="height"
 		:border-radius="radiusTranslated"
 		:dt="designTokens"
 	/>
@@ -18,9 +18,17 @@ export default defineComponent({
 		PrimeSkeleton,
 	},
 	props: {
+		height: {
+			type: String,
+			default: '100%',
+		},
 		radius: {
 			type: String as PropType<SkeletonRadius>,
 			default: SKELETON_RADIUSES.MD,
+		},
+		width: {
+			type: String,
+			default: '100%',
 		},
 	},
 	data() {

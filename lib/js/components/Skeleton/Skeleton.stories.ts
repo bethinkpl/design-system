@@ -14,14 +14,16 @@ const StoryTemplate: StoryFn<typeof DsSkeleton> = (args) => ({
 	},
 	template: `
 		<div style="height: 200px; width: 300px;">
-			<ds-skeleton :radius="radius" />
+			<ds-skeleton :height="height" :radius="radius" :width="width" />
 		</div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
+	height: '100%',
 	radius: SKELETON_RADIUSES.MD,
+	width: '100%',
 } as Args;
 
 Interactive.argTypes = {
