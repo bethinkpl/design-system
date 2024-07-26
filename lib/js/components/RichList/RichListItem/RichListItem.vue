@@ -423,8 +423,14 @@ $rich-list-item-background-colors: (
 <script lang="ts">
 import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
 import DsDivider from '../../../components/Divider';
-import DsIcon, { ICON_COLORS, ICON_SIZES, IconColor, ICONS } from '../../../components/Icons/Icon';
-import { PropType } from 'vue';
+import DsIcon, {
+	ICON_COLORS,
+	ICON_SIZES,
+	IconColor,
+	IconItem,
+	ICONS,
+} from '../../../components/Icons/Icon';
+import { PropType, toRaw } from 'vue';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
@@ -482,8 +488,11 @@ export default {
 			default: true,
 		},
 		icon: {
-			type: String,
+			type: Object as PropType<IconItem>,
 			default: null,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
+			},
 		},
 		iconColor: {
 			type: String as PropType<IconColor>,
