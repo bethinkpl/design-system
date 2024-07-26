@@ -76,6 +76,7 @@ declare const _default: {
             readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly ANSWERS: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
+            readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -230,7 +231,7 @@ declare const _default: {
             readonly FA_SHARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHARE_NODES: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHIELD_HALVED: import("@fortawesome/fontawesome-common-types").IconDefinition;
-            readonly FA_SIDEBAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_SIDEBAR_FLIP: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SIGNAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SITEMAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SITEMAP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -241,6 +242,7 @@ declare const _default: {
             readonly FA_SQUARE_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_CHECK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_LIST: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_SQUARE_LIST_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STAR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STOPWATCH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
