@@ -101,6 +101,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/mixins/flex-overflow-mask';
 
@@ -108,6 +109,7 @@
 	align-items: center;
 	background: $color-neutral-background;
 	border-bottom: 2px solid $color-neutral-border-ghost;
+	box-shadow: $shadow-s;
 	display: flex;
 	padding: $space-2xs $space-3xs $space-2xs 0;
 
