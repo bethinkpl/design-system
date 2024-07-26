@@ -30,6 +30,7 @@
 					<slot name="titleLeading" />
 				</div>
 				<div
+					v-if="title || shortTitle"
 					class="ds-overlayHeader__titleWrapper"
 					:title="title"
 					:class="{ '-ds-interactive': isTitleInteractive }"
@@ -100,6 +101,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/mixins/flex-overflow-mask';
 
@@ -107,6 +109,7 @@
 	align-items: center;
 	background: $color-neutral-background;
 	border-bottom: 2px solid $color-neutral-border-ghost;
+	box-shadow: $shadow-s;
 	display: flex;
 	padding: $space-2xs $space-3xs $space-2xs 0;
 
@@ -162,14 +165,19 @@
 	&__main {
 		align-items: center;
 		display: flex;
+		gap: $space-2xs;
+		// title is required, but in some edge-cases we don't render it. We need to set min-height to avoid jumping
+		// Keep value in sync with &__title line-height
+		min-height: $typography-line-height-s;
 	}
 
 	&__titleLeading {
 		display: flex;
-		margin-right: $space-2xs;
 	}
 
 	&__titleWrapper {
+		overflow: hidden;
+
 		&.-ds-interactive {
 			cursor: pointer;
 		}
@@ -202,9 +210,8 @@
 		@include flexOverflowMask($color-neutral-background, 20px);
 
 		display: flex;
-		// flex-shrink: 2 gives some more space for title
-		flex-shrink: 2;
-		margin-left: $space-2xs;
+		// flex-shrink: 100000 is big enough, so the title will not shrink
+		flex-shrink: 100000;
 	}
 
 	&__titleTrailing {
