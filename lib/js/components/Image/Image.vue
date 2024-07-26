@@ -72,7 +72,7 @@ export default defineComponent({
 		// on the image, e.g. a RichListItem border covers a part of the image
 		accelerate: {
 			type: Boolean,
-			default: true,
+			default: false,
 		},
 		fit: {
 			type: String as PropType<ImageFit>,
