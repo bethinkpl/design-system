@@ -59,8 +59,8 @@ const argTypes = {
 		control: {
 			type: 'select',
 			options: Object.values(OVERLAY_HEADER_BORDER_COLORS),
-			defaultValue: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
 		},
+		defaultValue: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
 	},
 } as ArgTypes;
 
