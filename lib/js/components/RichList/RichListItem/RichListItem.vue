@@ -1,6 +1,9 @@
 <template>
 	<div class="ds-richListItem" :class="classList" @click="$emit('click', $event)">
 		<div class="ds-richListItem__container -ds-dimmable">
+			<div v-if="hasMedia" class="ds-richListItem__media">
+				<slot name="media" />
+			</div>
 			<div v-if="isDraggable && hasDraggableHandler" class="ds-richListItem__dragAndDrop">
 				<ds-icon
 					:icon="ICONS.FA_BARS"
@@ -118,6 +121,14 @@ $rich-list-item-background-colors: (
 		padding: 0 $space-4xs;
 	}
 
+	&.-ds-has-media {
+		// Make sure media doesn't cover the border.
+		// If you use a dropdown in one of the slots and it's being cut,
+		// you need to figure out an alternative solution here.
+		overflow: hidden;
+		padding-left: 0;
+	}
+
 	&.-ds-dimmed {
 		.-ds-dimmable {
 			opacity: 0.65;
@@ -224,6 +235,12 @@ $rich-list-item-background-colors: (
 		@media #{breakpoint-s()} {
 			align-self: initial;
 		}
+	}
+
+	&__media {
+		height: 80px;
+		margin-right: $space-3xs;
+		width: 100px;
 	}
 
 	&__dragAndDrop,
@@ -410,8 +427,14 @@ $rich-list-item-background-colors: (
 <script lang="ts">
 import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
 import DsDivider from '../../../components/Divider';
-import DsIcon, { ICON_COLORS, ICON_SIZES, IconColor, ICONS } from '../../../components/Icons/Icon';
-import { PropType } from 'vue';
+import DsIcon, {
+	ICON_COLORS,
+	ICON_SIZES,
+	IconColor,
+	IconItem,
+	ICONS,
+} from '../../../components/Icons/Icon';
+import { PropType, toRaw } from 'vue';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
@@ -469,8 +492,11 @@ export default {
 			default: true,
 		},
 		icon: {
-			type: String,
+			type: Object as PropType<IconItem>,
 			default: null,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
+			},
 		},
 		iconColor: {
 			type: String as PropType<IconColor>,
@@ -561,6 +587,7 @@ export default {
 						[`-ds-elevation-${this.elevation}`]: true,
 					}),
 				'-ds-draggable': this.isDraggable && !this.hasDraggableHandler,
+				'-ds-has-media': this.hasMedia,
 			};
 		},
 		iconColorClass() {
@@ -590,6 +617,9 @@ export default {
 			return {
 				backgroundColor: this.borderColorHex,
 			};
+		},
+		hasMedia() {
+			return !!this.$slots.media;
 		},
 	},
 };

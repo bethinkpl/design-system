@@ -23,6 +23,9 @@
 		}"
 		@update:is-selected="$emit('update:is-selected', $event)"
 	>
+		<template v-if="$slots.media" #media>
+			<slot name="media" />
+		</template>
 		<template #content>
 			<div class="ds-basicRichListItem__content">
 				<div
@@ -127,8 +130,8 @@ import RichListItem, {
 	RichListItemState,
 	RichListItemType,
 } from '../RichListItem';
-import { PropType } from 'vue';
-import { ICON_COLORS, IconColor } from '../../Icons/Icon';
+import { PropType, toRaw } from 'vue';
+import { ICON_COLORS, IconColor, IconItem, ICONS } from '../../Icons/Icon';
 
 export default {
 	name: 'BasicRichListItem',
@@ -170,8 +173,11 @@ export default {
 			default: true,
 		},
 		icon: {
-			type: String,
+			type: Object as PropType<IconItem>,
 			default: null,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
+			},
 		},
 		iconColor: {
 			type: String as PropType<IconColor>,
