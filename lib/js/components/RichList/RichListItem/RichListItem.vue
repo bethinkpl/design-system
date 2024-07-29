@@ -122,6 +122,10 @@ $rich-list-item-background-colors: (
 	}
 
 	&.-ds-has-media {
+		// Make sure media doesn't cover the border.
+		// If you use a dropdown in one of the slots and it's being cut,
+		// you need to figure out an alternative solution here.
+		overflow: hidden;
 		padding-left: 0;
 	}
 
