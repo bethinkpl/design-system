@@ -239,7 +239,7 @@ $rich-list-item-background-colors: (
 
 	&__media {
 		height: 80px;
-		padding-right: $space-3xs;
+		margin-right: $space-3xs;
 		width: 100px;
 	}
 
