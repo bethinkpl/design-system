@@ -130,6 +130,8 @@ import { faSquareList } from '@fortawesome/pro-regular-svg-icons/faSquareList';
 import { faStar } from '@fortawesome/pro-regular-svg-icons/faStar';
 import { faTag } from '@fortawesome/pro-regular-svg-icons/faTag';
 import { faTags } from '@fortawesome/pro-regular-svg-icons/faTags';
+import { faText } from '@fortawesome/pro-regular-svg-icons/faText';
+import { faTextSlash } from '@fortawesome/pro-regular-svg-icons/faTextSlash';
 import { faThumbsUp } from '@fortawesome/pro-regular-svg-icons/faThumbsUp';
 import { faTrashCan } from '@fortawesome/pro-regular-svg-icons/faTrashCan';
 import { faTreePalm } from '@fortawesome/pro-regular-svg-icons/faTreePalm';
@@ -365,6 +367,8 @@ export const FONTAWESOME_ICONS = {
 	FA_STOPWATCH_SOLID: fasStopwach,
 	FA_TAG: faTag,
 	FA_TAGS: faTags,
+	FA_TEXT: faText,
+	FA_TEXT_SLASH: faTextSlash,
 	FA_THUMBS_UP: faThumbsUp,
 	FA_THUMBS_UP_SOLID: fasThumbsUp,
 	FA_THUMBTACK_SOLID: fasThumbtack,
