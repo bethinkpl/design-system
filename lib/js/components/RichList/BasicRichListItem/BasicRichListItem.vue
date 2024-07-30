@@ -29,6 +29,7 @@
 		<template #content>
 			<div class="ds-basicRichListItem__content">
 				<div
+					v-if="eyebrow"
 					class="ds-basicRichListItem__eyebrow"
 					:class="{ '-ds-uppercase': isEyebrowUppercase }"
 				>
@@ -207,7 +208,7 @@ export default {
 		},
 		eyebrow: {
 			type: String,
-			required: true,
+			default: null,
 		},
 		isEyebrowUppercase: {
 			type: Boolean,
