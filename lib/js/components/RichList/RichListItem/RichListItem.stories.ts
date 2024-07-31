@@ -58,7 +58,7 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 		content: {
 			control: { type: 'text' },
 		},
-		meta: {
+		metadata: {
 			control: { type: 'text' },
 		},
 		actions: {
@@ -98,7 +98,7 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 		draggableIconClassName: 'draggableIconClassName-1',
 
 		content: 'Content Slot',
-		meta: 'Meta Slot',
+		metadata: 'Metadata Slot',
 		actions: 'ACS',
 
 		...args,
@@ -158,8 +158,8 @@ const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateAr
 				<template v-if="content" #content>
 					<div v-html="content" />
 				</template>
-				<template v-if="meta" #meta>
-					<div v-html="meta" />
+				<template v-if="metadata" #metadata>
+					<div v-html="metadata" />
 				</template>
 				<template v-if="actions" #actions>
 					<div v-html="actions" />
@@ -215,8 +215,8 @@ const WithMediaStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateArgs
 				<template v-if="content" #content>
 					<div v-html="content" />
 				</template>
-				<template v-if="meta" #meta>
-					<div v-html="meta" />
+				<template v-if="metadata" #metadata>
+					<div v-html="metadata" />
 				</template>
 				<template v-if="actions" #actions>
 					<div v-html="actions" />

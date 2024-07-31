@@ -61,7 +61,7 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		eyebrow: {
 			control: { type: 'text' },
 		},
-		meta: {
+		metadata: {
 			control: { type: 'text' },
 		},
 		actions: {
@@ -104,7 +104,7 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		text: 'Długa nazwa gdy się nie mieści Praesentium dicta sit. Molestiae unde voluptatem eaque labore.',
 		isEyebrowUppercase: false,
 
-		meta: 'Meta Slot',
+		metadata: 'Metadata Slot',
 		actions: 'ACS',
 
 		...args,
@@ -163,8 +163,8 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { upd
       :is-selected="isSelected"
       @update:is-selected="updateIsSelected"
     >
-      <template v-if="meta" #meta>
-        <div v-html="meta" />
+      <template v-if="metadata" #metadata>
+        <div v-html="metadata" />
       </template>
       <template v-if="actions" #actions>
         <div v-html="actions" />
@@ -218,8 +218,8 @@ const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updat
 				<template #media>
 					<ds-image :src="imageSrcUsedInStoryBook" />
 				</template>
-				<template v-if="meta" #meta>
-					<div v-html="meta" />
+				<template v-if="metadata" #metadata>
+					<div v-html="metadata" />
 				</template>
 				<template v-if="actions" #actions>
 					<div v-html="actions" />
