@@ -62,7 +62,7 @@ declare const _default: {
         };
         eyebrow: {
             type: StringConstructor;
-            required: boolean;
+            default: null;
         };
         isEyebrowUppercase: {
             type: BooleanConstructor;
