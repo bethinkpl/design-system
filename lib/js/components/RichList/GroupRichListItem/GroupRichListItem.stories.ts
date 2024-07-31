@@ -120,7 +120,7 @@ const argTypes = {
 	},
 } as ArgTypes;
 
-const slots = `<template #content>Content slot</template><template #meta>Meta slot</template><template #actions>ACS</template>`;
+const slots = `<template #content>Content slot</template><template #metadata>Metadata slot</template><template #actions>ACS</template>`;
 
 const expandStory = (story) => {
 	story.argTypes = argTypes;

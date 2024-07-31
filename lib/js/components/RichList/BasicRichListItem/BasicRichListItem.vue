@@ -41,8 +41,8 @@
 				</div>
 			</div>
 		</template>
-		<template v-if="$slots.meta" #meta>
-			<slot name="meta" />
+		<template v-if="$slots.metadata" #metadata>
+			<slot name="metadata" />
 		</template>
 		<template v-if="$slots.actions" #actions>
 			<slot name="actions" />

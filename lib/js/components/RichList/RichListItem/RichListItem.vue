@@ -35,8 +35,8 @@
 				<slot name="content" />
 			</div>
 			<div class="ds-richListItem__rightContainer">
-				<div v-if="$slots.meta" class="ds-richListItem__metaData -ds-hideOnMobile">
-					<slot name="meta" />
+				<div v-if="$slots.metadata" class="ds-richListItem__metadata -ds-hideOnMobile">
+					<slot name="metadata" />
 				</div>
 				<div v-if="$slots.actions" class="ds-richListItem__actionSlot" @click.stop>
 					<ds-divider
@@ -57,8 +57,11 @@
 			</div>
 		</div>
 
-		<div v-if="$slots.meta" class="ds-richListItem__metaData -ds-dimmable -ds-visibleOnMobile">
-			<slot name="meta" />
+		<div
+			v-if="$slots.metadata"
+			class="ds-richListItem__metadata -ds-dimmable -ds-visibleOnMobile"
+		>
+			<slot name="metadata" />
 		</div>
 		<div
 			v-if="borderColorClass || borderColorStyle"
@@ -268,7 +271,7 @@ $rich-list-item-background-colors: (
 		}
 	}
 
-	&__metaData {
+	&__metadata {
 		align-items: center;
 		gap: $space-xs;
 		padding-left: $space-xs;
@@ -403,7 +406,7 @@ $rich-list-item-background-colors: (
 			}
 		}
 
-		#{$root}__metaData {
+		#{$root}__metadata {
 			padding-left: $space-2xs;
 			padding-right: $space-4xs;
 
