@@ -10,8 +10,16 @@
 	>
 		<div v-if="isLoading" class="ds-overlayHeader__loadingWrapper">
 			<ds-skeleton width="200px" height="12px" />
-			<ds-skeleton class="ds-overlayHeader__loadingBar -ds-desktop" width="100%" height="20px" />
-			<ds-skeleton class="ds-overlayHeader__loadingBar -ds-mobile" width="100%" height="18px" />
+			<ds-skeleton
+				class="ds-overlayHeader__loadingBar -ds-desktop"
+				width="100%"
+				height="20px"
+			/>
+			<ds-skeleton
+				class="ds-overlayHeader__loadingBar -ds-mobile"
+				width="100%"
+				height="18px"
+			/>
 		</div>
 		<div v-if="!isLoading && $slots.accessory" class="ds-overlayHeader__accessory">
 			<slot name="accessory" />
@@ -310,7 +318,7 @@ import {
 } from '../../Buttons/IconButton';
 import { ICONS } from '../../Icons/Icon';
 import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
-import { Value } from "../../../utils/type.utils";
+import { Value } from '../../../utils/type.utils';
 
 export default {
 	name: 'OverlayHeader',
