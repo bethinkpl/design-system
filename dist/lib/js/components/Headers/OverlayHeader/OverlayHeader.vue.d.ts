@@ -1,10 +1,13 @@
 import IconButton from '../../Buttons/IconButton/IconButton.vue';
+import { OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
+import { Value } from '../../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
         IconButton: typeof IconButton;
         DsDivider: typeof IconButton;
         DsDropdown: typeof IconButton;
+        DsSkeleton: typeof IconButton;
     };
     props: {
         title: {
@@ -27,6 +30,11 @@ declare const _default: {
         isTitleInteractive: {
             type: BooleanConstructor;
             default: boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: Value<typeof OVERLAY_HEADER_STATES>): boolean;
         };
     };
     emits: string[];
@@ -268,11 +276,18 @@ declare const _default: {
             readonly FAIL: "fail";
             readonly WARNING: "warning";
         }>;
+        OVERLAY_HEADER_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly LOADING: "loading";
+        }>;
         DROPDOWN_PLACEMENTS: Readonly<{
             readonly BOTTOM_START: "bottom-start";
             readonly BOTTOM_END: "bottom-end";
         }>;
         isDropdownOpen: boolean;
+    };
+    computed: {
+        isLoading(): boolean;
     };
     methods: {
         onTitleClick(): void;
