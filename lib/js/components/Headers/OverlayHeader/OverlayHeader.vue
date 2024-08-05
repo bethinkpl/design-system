@@ -153,7 +153,7 @@
 			display: none;
 
 			@media #{breakpoint-s()} {
-				display: block;
+				display: flex;
 			}
 		}
 
