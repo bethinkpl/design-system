@@ -9,7 +9,7 @@
 		}"
 	>
 		<div v-if="isLoading" class="ds-overlayHeader__loadingWrapper">
-			<ds-skeleton width="200px" height="12px" />
+			<ds-skeleton width="50%" height="12px" />
 			<ds-skeleton
 				class="ds-overlayHeader__loadingBar -ds-desktop"
 				width="100%"
