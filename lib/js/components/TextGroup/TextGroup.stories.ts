@@ -14,16 +14,16 @@ const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 		return { ...args };
 	},
 	template: `
-		<div style="height: 200px; width: 300px;">
+		<div style="height: 200px; width: 280px;">
 			<ds-text-group
 				:size="size"
 				:color="color"
-				:eyebrow-text="eyebrowText"
+				:eyebrow-text="eyebrowText === 'null' ? null : eyebrowText"
 				:eyebrow-text-ellipsis="eyebrowTextEllipsis"
 				:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
-				:main-text="mainText"
+				:main-text="mainText === 'null' ? null : mainText"
 				:main-text-ellipsis="mainTextEllipsis"
-				:supporting-text="supportingText"
+				:supporting-text="supportingText === 'null' ? null : supportingText"
 				:supporting-text-ellipsis="supportingTextEllipsis"
 				:is-interactive="isInteractive"
 				:skeleton-loading-size="skeletonLoadingSize"
