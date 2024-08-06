@@ -5,7 +5,7 @@ import { args, argTypes, template } from '../SelectionControl/SelectionControl.s
 import { CHECKBOX_SIZE, CHECKBOX_STATE } from './Checkbox.consts';
 
 export default {
-	title: 'Components/Form/Checkbox',
+	title: 'Internal Components/Form/#Checkbox',
 	component: Checkbox,
 } as Meta<typeof Checkbox>;
 
