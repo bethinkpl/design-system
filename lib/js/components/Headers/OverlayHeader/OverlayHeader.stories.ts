@@ -1,7 +1,8 @@
 import OverlayHeader from './OverlayHeader.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { OVERLAY_HEADER_BORDER_COLORS } from './OverlayHeader.consts';
+import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
+import { BUTTON_STATES } from '../../Buttons/Button';
 
 export default {
 	title: 'Components/Headers/OverlayHeader',
@@ -61,6 +62,10 @@ const argTypes = {
 			options: Object.values(OVERLAY_HEADER_BORDER_COLORS),
 		},
 		defaultValue: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
+	},
+	state: {
+		control: { type: 'select', options: Object.values(OVERLAY_HEADER_STATES) },
+		defaultValue: OVERLAY_HEADER_STATES.DEFAULT,
 	},
 } as ArgTypes;
 

@@ -8,10 +8,23 @@
 			'-ds-borderWarning': borderColor === OVERLAY_HEADER_BORDER_COLORS.WARNING,
 		}"
 	>
-		<div v-if="$slots.accessory" class="ds-overlayHeader__accessory">
+		<div v-if="isLoading" class="ds-overlayHeader__loadingWrapper">
+			<ds-skeleton width="50%" height="12px" />
+			<ds-skeleton
+				class="ds-overlayHeader__loadingBar -ds-desktop"
+				width="100%"
+				height="20px"
+			/>
+			<ds-skeleton
+				class="ds-overlayHeader__loadingBar -ds-mobile"
+				width="100%"
+				height="18px"
+			/>
+		</div>
+		<div v-if="!isLoading && $slots.accessory" class="ds-overlayHeader__accessory">
 			<slot name="accessory" />
 		</div>
-		<div class="ds-overlayHeader__content">
+		<div v-if="!isLoading" class="ds-overlayHeader__content">
 			<div v-if="eyebrowText || $slots.eyebrowAccessory" class="ds-overlayHeader__eyebrow">
 				<div
 					v-if="eyebrowText"
@@ -51,7 +64,7 @@
 			</div>
 		</div>
 
-		<template v-if="$slots.actions">
+		<template v-if="!isLoading && $slots.actions">
 			<div class="ds-overlayHeader__actions">
 				<slot name="actions" />
 			</div>
@@ -61,7 +74,7 @@
 				is-vertical
 			/>
 		</template>
-		<template v-if="$slots.dropdown">
+		<template v-if="!isLoading && $slots.dropdown">
 			<ds-dropdown
 				boundaries-selector="body"
 				:placement="DROPDOWN_PLACEMENTS.BOTTOM_END"
@@ -120,6 +133,35 @@
 	&__accessory {
 		align-self: stretch;
 		margin-left: $space-xs;
+	}
+
+	&__loadingWrapper {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		gap: $space-3xs;
+		margin: 0 $space-4xs 0 $space-xs;
+
+		@media #{breakpoint-s()} {
+			gap: $space-2xs;
+			margin: 0 $space-2xs 0 $space-s;
+		}
+	}
+
+	&__loadingBar {
+		&.-ds-desktop {
+			display: none;
+
+			@media #{breakpoint-s()} {
+				display: flex;
+			}
+		}
+
+		&.-ds-mobile {
+			@media #{breakpoint-s()} {
+				display: none;
+			}
+		}
 	}
 
 	&__content {
@@ -268,17 +310,19 @@
 import IconButton from '../../Buttons/IconButton/IconButton.vue';
 import DsDivider, { DIVIDER_PROMINENCES } from '../../Divider';
 import DsDropdown, { DROPDOWN_PLACEMENTS } from '../../Dropdown';
+import DsSkeleton from '../../Skeleton';
 import {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_STATES,
 } from '../../Buttons/IconButton';
 import { ICONS } from '../../Icons/Icon';
-import { OVERLAY_HEADER_BORDER_COLORS } from './OverlayHeader.consts';
+import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
+import { Value } from '../../../utils/type.utils';
 
 export default {
 	name: 'OverlayHeader',
-	components: { IconButton, DsDivider, DsDropdown },
+	components: { IconButton, DsDivider, DsDropdown, DsSkeleton },
 	props: {
 		title: {
 			type: String,
@@ -301,6 +345,13 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		state: {
+			type: String,
+			default: OVERLAY_HEADER_STATES.DEFAULT,
+			validator(value: Value<typeof OVERLAY_HEADER_STATES>) {
+				return Object.values(OVERLAY_HEADER_STATES).includes(value);
+			},
+		},
 	},
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
@@ -313,9 +364,15 @@ export default {
 			ICONS: Object.freeze(ICONS),
 			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
 			OVERLAY_HEADER_BORDER_COLORS: Object.freeze(OVERLAY_HEADER_BORDER_COLORS),
+			OVERLAY_HEADER_STATES: Object.freeze(OVERLAY_HEADER_STATES),
 			DROPDOWN_PLACEMENTS: Object.freeze(DROPDOWN_PLACEMENTS),
 			isDropdownOpen: false,
 		};
+	},
+	computed: {
+		isLoading() {
+			return this.state === OVERLAY_HEADER_STATES.LOADING;
+		},
 	},
 	methods: {
 		onTitleClick() {
