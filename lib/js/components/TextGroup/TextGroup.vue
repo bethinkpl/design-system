@@ -71,6 +71,7 @@
 
 .ds-textGroup {
 	$self: &;
+
 	display: flex;
 	flex-direction: column;
 	width: 100%;
@@ -141,7 +142,6 @@
 		}
 	}
 
-
 	&.-ds-disabled.-ds-interactive:hover,
 	&.-ds-disabled {
 		#{$self}__eyebrow {
@@ -201,8 +201,9 @@ import {
 	TEXT_GROUP_STATES,
 	TextGroupColor,
 	TextGroupLoadingSize,
-	TextGroupSize, TextGroupState
-} from "./TextGroup.consts";
+	TextGroupSize,
+	TextGroupState,
+} from './TextGroup.consts';
 
 export default defineComponent({
 	name: 'TextGroup',
