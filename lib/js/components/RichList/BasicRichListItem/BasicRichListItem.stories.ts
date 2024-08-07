@@ -55,12 +55,6 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		borderColorHex: {
 			control: { type: 'text' },
 		},
-		text: {
-			control: { type: 'text' },
-		},
-		textEllipsis: {
-			control: { type: 'boolean' },
-		},
 		eyebrow: {
 			control: { type: 'text' },
 		},
@@ -68,6 +62,18 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 			control: { type: 'boolean' },
 		},
 		isEyebrowUppercase: {
+			control: { type: 'boolean' },
+		},
+		text: {
+			control: { type: 'text' },
+		},
+		textEllipsis: {
+			control: { type: 'boolean' },
+		},
+		supportingText: {
+			control: { type: 'text' },
+		},
+		supportingTextEllipsis: {
 			control: { type: 'boolean' },
 		},
 		metadata: {
@@ -114,6 +120,8 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		isEyebrowUppercase: false,
 		text: 'Długa nazwa gdy się nie mieści Praesentium dicta sit. Molestiae unde voluptatem eaque labore.',
 		textEllipsis: false,
+		supportingText: 'null',
+		supportingTextEllipsis: false,
 
 		metadata: 'Metadata Slot',
 		actions: 'ACS',
@@ -163,9 +171,13 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { upd
       :border-color="borderColor"
       :border-color-hex="borderColorHex"
       :state="state"
-      :text="text"
-      :eyebrow="eyebrow === 'null' ? null : eyebrow"
-      :is-eyebrow-uppercase="isEyebrowUppercase"
+	  :eyebrow="eyebrow === 'null' ? null : eyebrow"
+	  :eyebrow-ellipsis="eyebrowEllipsis"
+	  :is-eyebrow-uppercase="isEyebrowUppercase"
+	  :text="text"
+	  :text-ellipsis="textEllipsis"
+	  :supporting-text="supportingText === 'null' ? null : supportingText"
+	  :supporting-text-ellipsis="supportingTextEllipsis"
       :background-color="backgroundColor"
       :elevation="elevation"
       :has-draggable-handler="hasDraggableHandler"
@@ -215,9 +227,13 @@ const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updat
 				:border-color="borderColor"
 				:border-color-hex="borderColorHex"
 				:state="state"
-				:text="text"
 				:eyebrow="eyebrow === 'null' ? null : eyebrow"
+				:eyebrow-ellipsis="eyebrowEllipsis"
 				:is-eyebrow-uppercase="isEyebrowUppercase"
+				:text="text"
+				:text-ellipsis="textEllipsis"
+				:supporting-text="supportingText === 'null' ? null : supportingText"
+				:supporting-text-ellipsis="supportingTextEllipsis"
 				:background-color="backgroundColor"
 				:elevation="elevation"
 				:has-draggable-handler="hasDraggableHandler"

@@ -38,6 +38,8 @@
 					:is-interactive="false"
 					:main-text="text"
 					:main-text-ellipsis="textEllipsis"
+					:supporting-text="supportingText"
+					:supporting-text-ellipsis="supportingTextEllipsis"
 					:size="textGroupSize"
 					:state="textGroupState"
 				/>
@@ -53,11 +55,7 @@
 </template>
 
 <style scoped lang="scss">
-@import '../../../../styles/settings/colors/tokens';
-@import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/media-queries';
-@import '../../../../styles/mixins/scrollbars';
 
 .ds-basicRichListItem {
 	$root: &;
@@ -192,6 +190,14 @@ export default {
 			default: false,
 		},
 		isEyebrowUppercase: {
+			type: Boolean,
+			default: false,
+		},
+		supportingText: {
+			type: String,
+			default: null,
+		},
+		supportingTextEllipsis: {
 			type: Boolean,
 			default: false,
 		},
