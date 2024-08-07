@@ -21,6 +21,8 @@
 		:class="{
 			'-ds-small': size === RICH_LIST_ITEM_SIZE.SMALL,
 		}"
+		@mouseover="hovered = true"
+		@mouseleave="hovered = false"
 		@update:is-selected="$emit('update:is-selected', $event)"
 	>
 		<template v-if="$slots.media" #media>
@@ -28,17 +30,17 @@
 		</template>
 		<template #content>
 			<div class="ds-basicRichListItem__content">
-				<div
-					v-if="eyebrow"
-					class="ds-basicRichListItem__eyebrow"
-					:class="{ '-ds-uppercase': isEyebrowUppercase }"
-				>
-					{{ eyebrow }}
-				</div>
-
-				<div class="ds-basicRichListItem__text">
-					{{ text }}
-				</div>
+				<ds-text-group
+					:eyebrow-text="eyebrow"
+					:eyebrow-text-ellipsis="eyebrowEllipsis"
+					:is-eyebrow-text-uppercase="isEyebrowUppercase"
+					:is-selected="isSelected"
+					:is-interactive="false"
+					:main-text="text"
+					:main-text-ellipsis="textEllipsis"
+					:size="textGroupSize"
+					:state="textGroupState"
+				/>
 			</div>
 		</template>
 		<template v-if="$slots.metadata" #metadata>
@@ -71,43 +73,6 @@
 		padding: $space-xs 0;
 	}
 
-	&__eyebrow {
-		@include info-s-default-bold;
-
-		color: $color-neutral-text-weak;
-		min-width: 0;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-
-		&.-ds-uppercase {
-			@include info-s-extensive-bold-uppercase;
-		}
-
-		&:hover {
-			color: $color-neutral-text-weak-hovered;
-		}
-	}
-
-	&__text {
-		@include text-m-compact-bold;
-		@include invisible-scrollbar;
-
-		color: $color-neutral-text;
-		min-width: 0;
-		overflow-x: scroll;
-		white-space: nowrap;
-
-		@media #{breakpoint-s()} {
-			overflow: hidden;
-			text-overflow: ellipsis;
-		}
-
-		&:hover {
-			color: $color-neutral-text-hovered;
-		}
-	}
-
 	&.-ds-small {
 		#{$root}__content {
 			padding: $space-3xs 0;
@@ -131,12 +96,20 @@ import RichListItem, {
 	RichListItemState,
 	RichListItemType,
 } from '../RichListItem';
+import DsTextGroup from '../../TextGroup/TextGroup.vue';
 import { PropType, toRaw } from 'vue';
 import { ICON_COLORS, IconColor, IconItem, ICONS } from '../../Icons/Icon';
+import {
+	TEXT_GROUP_SIZES,
+	TEXT_GROUP_STATES,
+	TextGroupSize,
+	TextGroupState,
+} from '../../TextGroup';
 
 export default {
 	name: 'BasicRichListItem',
 	components: {
+		DsTextGroup,
 		RichListItem,
 	},
 	props: {
@@ -206,9 +179,17 @@ export default {
 			type: String,
 			required: true,
 		},
+		textEllipsis: {
+			type: Boolean,
+			default: false,
+		},
 		eyebrow: {
 			type: String,
 			default: null,
+		},
+		eyebrowEllipsis: {
+			type: Boolean,
+			default: false,
 		},
 		isEyebrowUppercase: {
 			type: Boolean,
@@ -250,8 +231,28 @@ export default {
 	},
 	data() {
 		return {
+			hovered: false,
 			RICH_LIST_ITEM_SIZE: Object.freeze(RICH_LIST_ITEM_SIZE),
 		};
+	},
+	computed: {
+		textGroupSize(): TextGroupSize {
+			const map = {
+				[RICH_LIST_ITEM_SIZE.SMALL]: TEXT_GROUP_SIZES.SMALL,
+				[RICH_LIST_ITEM_SIZE.MEDIUM]: TEXT_GROUP_SIZES.MEDIUM,
+			};
+
+			return map[this.size];
+		},
+		textGroupState(): TextGroupState {
+			if (this.hovered && this.isInteractive) {
+				return TEXT_GROUP_STATES.HOVERED;
+			}
+			if (this.state === RICH_LIST_ITEM_STATE.LOADING) {
+				return TEXT_GROUP_STATES.LOADING;
+			}
+			return TEXT_GROUP_STATES.DEFAULT;
+		},
 	},
 };
 </script>

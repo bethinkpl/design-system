@@ -58,8 +58,17 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		text: {
 			control: { type: 'text' },
 		},
+		textEllipsis: {
+			control: { type: 'boolean' },
+		},
 		eyebrow: {
 			control: { type: 'text' },
+		},
+		eyebrowEllipsis: {
+			control: { type: 'boolean' },
+		},
+		isEyebrowUppercase: {
+			control: { type: 'boolean' },
 		},
 		metadata: {
 			control: { type: 'text' },
@@ -101,8 +110,10 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		draggableIconClassName: 'draggableIconClassName-1',
 
 		eyebrow: 'Eyebrow Uppercase',
-		text: 'Długa nazwa gdy się nie mieści Praesentium dicta sit. Molestiae unde voluptatem eaque labore.',
+		eyebrowEllipsis: false,
 		isEyebrowUppercase: false,
+		text: 'Długa nazwa gdy się nie mieści Praesentium dicta sit. Molestiae unde voluptatem eaque labore.',
+		textEllipsis: false,
 
 		metadata: 'Metadata Slot',
 		actions: 'ACS',
