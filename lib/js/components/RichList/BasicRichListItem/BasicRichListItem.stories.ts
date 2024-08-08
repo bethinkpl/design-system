@@ -159,7 +159,7 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { upd
 		},
 	},
 	template: `
-    <basic-rich-list-item
+	<basic-rich-list-item
 		:size="size"
 		:type="type"
 		:is-interactive="isInteractive"
@@ -185,14 +185,14 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { upd
 		:is-selectable="isSelectable"
 		:is-selected="isSelected"
 		@update:is-selected="updateIsSelected"
-    >
+	>
 		<template v-if="metadata" #metadata>
 			<div v-html="metadata" />
 		</template>
 		<template v-if="actions" #actions>
 			<div v-html="actions" />
 		</template>
-    </basic-rich-list-item>`,
+	</basic-rich-list-item>`,
 });
 
 export const Interactive = InteractiveStoryTemplate.bind({});
