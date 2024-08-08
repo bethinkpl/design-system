@@ -2,7 +2,7 @@
 	<div
 		class="ds-textGroup"
 		:class="{
-			'-ds-small': isSmall,
+			'-ds-small': size === TEXT_GROUP_SIZES.SMALL,
 
 			'-ds-hovered': state === TEXT_GROUP_STATES.HOVERED,
 			'-ds-loading': isLoading,
@@ -26,9 +26,8 @@
 		>
 			<ds-skeleton
 				v-if="isLoading"
-				class="ds-textGroup__loadingSkeleton"
 				width="50%"
-				:height="isSmall ? '8px' : '10px'"
+				height="100%"
 			/>
 			<span v-else>{{ eyebrowText }}</span>
 		</div>
@@ -41,9 +40,8 @@
 		>
 			<ds-skeleton
 				v-if="isLoading"
-				class="ds-textGroup__loadingSkeleton"
 				width="100%"
-				:height="isSmall ? '14px' : '16px'"
+				height="100%"
 			/>
 			<span v-else>{{ mainText }}</span>
 		</div>
@@ -56,9 +54,8 @@
 		>
 			<ds-skeleton
 				v-if="isLoading"
-				class="ds-textGroup__loadingSkeleton"
 				width="100%"
-				height="14px"
+				height="100%"
 			/>
 			<span v-else>{{ supportingText }}</span>
 		</div>
@@ -68,6 +65,7 @@
 <style lang="scss">
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/spacings';
 
 .ds-textGroup {
 	$self: &;
@@ -80,6 +78,7 @@
 		@include info-s-default-bold;
 
 		color: $color-neutral-text-weak;
+		margin-bottom: $space-5xs;
 		min-height: 12px;
 
 		&.-ds-uppercase {
@@ -113,6 +112,7 @@
 		#{$self}__eyebrow {
 			@include info-xs-default-bold;
 
+			margin-bottom: 0;
 			min-height: 10px;
 
 			&.-ds-uppercase {
@@ -177,8 +177,31 @@
 		}
 	}
 
-	&__loadingSkeleton {
-		margin: 1px 0;
+	&.-ds-loading {
+		gap: $space-4xs;
+
+		#{$self}__eyebrow,
+		#{$self}__supporting {
+			height: 12px;
+			margin-bottom: 0;
+			min-height: auto;
+		}
+
+		#{$self}__main {
+			height: 16px;
+			min-height: auto;
+		}
+
+		&.-ds-small {
+			#{$self}__eyebrow,
+			#{$self}__supporting {
+				height: 10px;
+			}
+
+			#{$self}__main {
+				height: 14px;
+			}
+		}
 	}
 
 	&.-ds-loading-small {
@@ -276,9 +299,6 @@ export default defineComponent({
 		},
 		isLoading(): boolean {
 			return this.state === TEXT_GROUP_STATES.LOADING;
-		},
-		isSmall(): boolean {
-			return this.size === TEXT_GROUP_SIZES.SMALL;
 		},
 		loadingSizeClassName(): string {
 			return `-ds-loading-${this.skeletonLoadingSize}`;
