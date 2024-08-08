@@ -24,7 +24,9 @@
 				'-ds-uppercase': isEyebrowTextUppercase,
 			}"
 		>
-			<ds-skeleton v-if="isLoading" width="50%" height="100%" />
+			<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
+				<ds-skeleton width="50%" height="100%" />
+			</div>
 			<span v-else-if="eyebrowText === ''">&nbsp;</span>
 			<span v-else>{{ eyebrowText }}</span>
 		</div>
@@ -35,7 +37,9 @@
 				'-ds-ellipsis': mainTextEllipsis,
 			}"
 		>
-			<ds-skeleton v-if="isLoading" width="100%" height="100%" />
+			<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
+				<ds-skeleton width="100%" height="100%" />
+			</div>
 			<span v-else-if="mainText === ''">&nbsp;</span>
 			<span v-else>{{ mainText }}</span>
 		</div>
@@ -46,7 +50,9 @@
 				'-ds-ellipsis': supportingTextEllipsis,
 			}"
 		>
-			<ds-skeleton v-if="isLoading" width="100%" height="100%" />
+			<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
+				<ds-skeleton width="100%" height="100%" />
+			</div>
 			<span v-else-if="supportingText === ''">&nbsp;</span>
 			<span v-else v-html="supportingText" />
 		</div>
@@ -206,33 +212,18 @@ $text-group-colors: (
 	&.-ds-loading {
 		pointer-events: none;
 
-		#{$self}__eyebrow {
-			height: 11px;
-			margin: 1px 0 2px 0;
-		}
-
-		#{$self}__main {
-			height: 16px;
-			margin: 1px 0;
-		}
-
+		#{$self}__eyebrow,
+		#{$self}__main,
 		#{$self}__supporting {
-			height: 12px;
-			margin: 2px 0;
+			align-items: center;
+			display: flex;
+			height: 1.25em; // Fallback for older browsers
+			height: 1lh;
 		}
 
-		&.-ds-small {
-			#{$self}__eyebrow {
-				height: 7px;
-			}
-
-			#{$self}__main {
-				height: 14px;
-			}
-
-			#{$self}__supporting {
-				height: 12px;
-			}
+		#{$self}__skeletonWrapper {
+			height: 1em;
+			width: 100%;
 		}
 	}
 

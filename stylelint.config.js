@@ -44,6 +44,12 @@ module.exports = {
 		],
 		'order/properties-alphabetical-order': true,
 		'selector-class-pattern': '-?ds-[a-z][a-zA-Z_]*',
+		'unit-no-unknown': [
+			true,
+			{
+				ignoreUnits: ['lh'],
+			},
+		],
 	},
 	ignoreFiles: ['lib/styles/settings/typography/_tokens.scss'],
 };
