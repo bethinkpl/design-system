@@ -45,7 +45,7 @@
 			}"
 		>
 			<ds-skeleton v-if="isLoading" width="100%" height="100%" />
-			<span v-else>{{ supportingText }}</span>
+			<span v-else v-html="supportingText" />
 		</div>
 	</div>
 </template>
