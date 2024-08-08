@@ -25,6 +25,7 @@
 			}"
 		>
 			<ds-skeleton v-if="isLoading" width="50%" height="100%" />
+			<span v-else-if="eyebrowText === ''">&nbsp;</span>
 			<span v-else>{{ eyebrowText }}</span>
 		</div>
 		<div
@@ -35,6 +36,7 @@
 			}"
 		>
 			<ds-skeleton v-if="isLoading" width="100%" height="100%" />
+			<span v-else-if="mainText === ''">&nbsp;</span>
 			<span v-else>{{ mainText }}</span>
 		</div>
 		<div
@@ -45,6 +47,7 @@
 			}"
 		>
 			<ds-skeleton v-if="isLoading" width="100%" height="100%" />
+			<span v-else-if="supportingText === ''">&nbsp;</span>
 			<span v-else v-html="supportingText" />
 		</div>
 	</div>
@@ -60,14 +63,12 @@ $text-group-colors: (
 		'eyebrow-color': $color-neutral-text-weak,
 		'eyebrow-color-hovered': $color-neutral-text-weak-hovered,
 		'eyebrow-color-disabled': $color-neutral-text-weak-disabled,
-
 		'main-text-color': $color-neutral-text-strong,
 		'main-text-color-hovered': $color-neutral-text-strong-hovered,
 		'main-text-color-disabled': $color-neutral-text-strong-disabled,
 		'main-text-color-selected': $color-primary-text,
 		'main-text-color-selected-hovered': $color-primary-text-hovered,
 		'main-text-color-selected-disabled': $color-primary-text-disabled,
-
 		'supporting-text-color': $color-neutral-text,
 		'supporting-text-color-hovered': $color-neutral-text-hovered,
 		'supporting-text-color-disabled': $color-neutral-text-disabled,
@@ -141,21 +142,20 @@ $text-group-colors: (
 .ds-textGroup {
 	$self: &;
 
-	display: flex;
-	flex-direction: column;
-	width: 100%;
-
 	@each $color-name, $color-map in $text-group-colors {
 		&.-ds-#{$color-name} {
 			@include setTextGroupColors($self, $color-map);
 		}
 	}
 
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
 	&__eyebrow {
 		@include info-s-default-bold;
 
 		margin-bottom: $space-5xs;
-		min-height: 12px;
 
 		&.-ds-uppercase {
 			@include info-s-extensive-bold-uppercase;
@@ -164,14 +164,10 @@ $text-group-colors: (
 
 	&__main {
 		@include text-m-compact-bold;
-
-		min-height: 18px;
 	}
 
 	&__supporting {
 		@include text-s-compact-regular;
-
-		min-height: 16px;
 	}
 
 	&__eyebrow.-ds-ellipsis,
@@ -187,7 +183,6 @@ $text-group-colors: (
 			@include info-xs-default-bold;
 
 			margin-bottom: 0;
-			min-height: 10px;
 
 			&.-ds-uppercase {
 				@include info-xs-extensive-bold-uppercase;
@@ -196,8 +191,6 @@ $text-group-colors: (
 
 		#{$self}__main {
 			@include text-s-compact-bold;
-
-			min-height: 16px;
 		}
 	}
 
@@ -217,12 +210,10 @@ $text-group-colors: (
 		#{$self}__supporting {
 			height: 12px;
 			margin-bottom: 0;
-			min-height: auto;
 		}
 
 		#{$self}__main {
 			height: 16px;
-			min-height: auto;
 		}
 
 		&.-ds-small {
