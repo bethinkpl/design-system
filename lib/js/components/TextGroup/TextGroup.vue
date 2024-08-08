@@ -207,27 +207,27 @@ $text-group-colors: (
 		pointer-events: none;
 
 		#{$self}__eyebrow {
-			height: 10px;
-			margin: $space-5xs 0;
+			height: 11px;
+			margin: 1px 0 2px 0;
 		}
 
 		#{$self}__main {
-			height: 14px;
-			margin: $space-5xs 0;
+			height: 16px;
+			margin: 1px 0;
 		}
 
 		#{$self}__supporting {
 			height: 12px;
-			margin: $space-5xs 0;
+			margin: 2px 0;
 		}
 
 		&.-ds-small {
 			#{$self}__eyebrow {
-				height: 6px;
+				height: 7px;
 			}
 
 			#{$self}__main {
-				height: 12px;
+				height: 14px;
 			}
 
 			#{$self}__supporting {
