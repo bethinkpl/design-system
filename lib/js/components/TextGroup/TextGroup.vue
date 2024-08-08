@@ -218,6 +218,7 @@ $text-group-colors: (
 			align-items: center;
 			display: flex;
 			height: 1.25em; // Fallback for older browsers
+			/* stylelint-disable-next-line unit-no-unknown */
 			height: 1lh;
 		}
 
