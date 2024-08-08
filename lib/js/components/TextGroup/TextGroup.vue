@@ -130,8 +130,9 @@
 		}
 	}
 
-	&.-ds-disabled.-ds-interactive:hover,
 	&.-ds-disabled {
+		pointer-events: none;
+
 		#{$self}__eyebrow {
 			color: $color-neutral-text-weak-disabled;
 		}
@@ -143,12 +144,11 @@
 		#{$self}__supporting {
 			color: $color-neutral-text-disabled;
 		}
-	}
 
-	&.-ds-disabled.-ds-selected.-ds-interactive:hover,
-	&.-ds-disabled.-ds-selected {
-		#{$self}__main {
-			color: $color-primary-text-disabled;
+		&.-ds-selected {
+			#{$self}__main {
+				color: $color-primary-text-disabled;
+			}
 		}
 	}
 
@@ -156,12 +156,12 @@
 		#{$self}__main {
 			color: $color-primary-text;
 		}
-	}
 
-	&.-ds-selected.-ds-interactive:hover,
-	&.-ds-selected.-ds-hovered {
-		#{$self}__main {
-			color: $color-primary-text-hovered;
+		&.-ds-interactive:hover,
+		&.-ds-hovered {
+			#{$self}__main {
+				color: $color-primary-text-hovered;
+			}
 		}
 	}
 
