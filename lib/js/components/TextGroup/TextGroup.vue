@@ -55,6 +55,89 @@
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
 
+$text-group-colors: (
+	'neutral': (
+		'eyebrow-color': $color-neutral-text-weak,
+		'eyebrow-color-hovered': $color-neutral-text-weak-hovered,
+		'eyebrow-color-disabled': $color-neutral-text-weak-disabled,
+
+		'main-text-color': $color-neutral-text-strong,
+		'main-text-color-hovered': $color-neutral-text-strong-hovered,
+		'main-text-color-disabled': $color-neutral-text-strong-disabled,
+		'main-text-color-selected': $color-primary-text,
+		'main-text-color-selected-hovered': $color-primary-text-hovered,
+		'main-text-color-selected-disabled': $color-primary-text-disabled,
+
+		'supporting-text-color': $color-neutral-text,
+		'supporting-text-color-hovered': $color-neutral-text-hovered,
+		'supporting-text-color-disabled': $color-neutral-text-disabled,
+	),
+);
+
+@mixin setTextGroupColors($self, $map) {
+	#{$self}__eyebrow {
+		color: map-get($map, 'eyebrow-color');
+	}
+
+	#{$self}__main {
+		color: map-get($map, 'main-text-color');
+	}
+
+	#{$self}__supporting {
+		color: map-get($map, 'supporting-text-color');
+	}
+
+	&.-ds-interactive:hover,
+	&.-ds-hovered {
+		#{$self}__eyebrow {
+			color: map-get($map, 'eyebrow-color-hovered');
+		}
+
+		#{$self}__main {
+			color: map-get($map, 'main-text-color-hovered');
+		}
+
+		#{$self}__supporting {
+			color: map-get($map, 'supporting-text-color-hovered');
+		}
+	}
+
+	&.-ds-disabled {
+		pointer-events: none;
+
+		#{$self}__eyebrow {
+			color: map-get($map, 'eyebrow-color-disabled');
+		}
+
+		#{$self}__main {
+			color: map-get($map, 'main-text-color-disabled');
+		}
+
+		#{$self}__supporting {
+			color: map-get($map, 'supporting-text-color-disabled');
+		}
+	}
+
+	&.-ds-selected {
+		#{$self}__main {
+			color: map-get($map, 'main-text-color-selected');
+		}
+
+		&.-ds-interactive:hover,
+		&.-ds-hovered {
+			#{$self}__main {
+				color: map-get($map, 'main-text-color-selected-hovered');
+			}
+		}
+
+		&.-ds-disabled {
+			#{$self}__main {
+				color: map-get($map, 'main-text-color-selected-disabled');
+			}
+		}
+	}
+}
+
 .ds-textGroup {
 	$self: &;
 
@@ -62,10 +145,15 @@
 	flex-direction: column;
 	width: 100%;
 
+	@each $color-name, $color-map in $text-group-colors {
+		&.-ds-#{$color-name} {
+			@include setTextGroupColors($self, $color-map);
+		}
+	}
+
 	&__eyebrow {
 		@include info-s-default-bold;
 
-		color: $color-neutral-text-weak;
 		margin-bottom: $space-5xs;
 		min-height: 12px;
 
@@ -77,14 +165,12 @@
 	&__main {
 		@include text-m-compact-bold;
 
-		color: $color-neutral-text-strong;
 		min-height: 18px;
 	}
 
 	&__supporting {
 		@include text-s-compact-regular;
 
-		color: $color-neutral-text;
 		min-height: 16px;
 	}
 
@@ -117,52 +203,11 @@
 
 	&.-ds-interactive:hover,
 	&.-ds-hovered {
-		#{$self}__eyebrow {
-			color: $color-neutral-text-weak-hovered;
-		}
-
-		#{$self}__main {
-			color: $color-neutral-text-strong-hovered;
-		}
-
-		#{$self}__supporting {
-			color: $color-neutral-text-hovered;
-		}
+		cursor: pointer;
 	}
 
 	&.-ds-disabled {
 		pointer-events: none;
-
-		#{$self}__eyebrow {
-			color: $color-neutral-text-weak-disabled;
-		}
-
-		#{$self}__main {
-			color: $color-neutral-text-strong-disabled;
-		}
-
-		#{$self}__supporting {
-			color: $color-neutral-text-disabled;
-		}
-
-		&.-ds-selected {
-			#{$self}__main {
-				color: $color-primary-text-disabled;
-			}
-		}
-	}
-
-	&.-ds-selected {
-		#{$self}__main {
-			color: $color-primary-text;
-		}
-
-		&.-ds-interactive:hover,
-		&.-ds-hovered {
-			#{$self}__main {
-				color: $color-primary-text-hovered;
-			}
-		}
 	}
 
 	&.-ds-loading {
@@ -283,7 +328,7 @@ export default defineComponent({
 	},
 	computed: {
 		colorClassName(): string {
-			return `-ds-color-${this.color}`;
+			return `-ds-${this.color}`;
 		},
 		isLoading(): boolean {
 			return this.state === TEXT_GROUP_STATES.LOADING;
