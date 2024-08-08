@@ -73,7 +73,7 @@
 
 	&.-ds-small {
 		#{$root}__content {
-			padding: $space-3xs 0;
+			padding: $space-2xs 0;
 		}
 	}
 }
