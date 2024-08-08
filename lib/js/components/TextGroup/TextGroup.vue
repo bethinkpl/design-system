@@ -204,26 +204,34 @@ $text-group-colors: (
 	}
 
 	&.-ds-loading {
-		gap: $space-4xs;
+		pointer-events: none;
 
-		#{$self}__eyebrow,
-		#{$self}__supporting {
-			height: 12px;
-			margin-bottom: 0;
+		#{$self}__eyebrow {
+			height: 10px;
+			margin: $space-5xs 0;
 		}
 
 		#{$self}__main {
-			height: 16px;
+			height: 14px;
+			margin: $space-5xs 0;
+		}
+
+		#{$self}__supporting {
+			height: 12px;
+			margin: $space-5xs 0;
 		}
 
 		&.-ds-small {
-			#{$self}__eyebrow,
-			#{$self}__supporting {
-				height: 10px;
+			#{$self}__eyebrow {
+				height: 6px;
 			}
 
 			#{$self}__main {
-				height: 14px;
+				height: 12px;
+			}
+
+			#{$self}__supporting {
+				height: 12px;
 			}
 		}
 	}
