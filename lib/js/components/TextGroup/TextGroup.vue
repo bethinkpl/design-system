@@ -24,11 +24,7 @@
 				'-ds-uppercase': isEyebrowTextUppercase,
 			}"
 		>
-			<ds-skeleton
-				v-if="isLoading"
-				width="50%"
-				height="100%"
-			/>
+			<ds-skeleton v-if="isLoading" width="50%" height="100%" />
 			<span v-else>{{ eyebrowText }}</span>
 		</div>
 		<div
@@ -38,11 +34,7 @@
 				'-ds-ellipsis': mainTextEllipsis,
 			}"
 		>
-			<ds-skeleton
-				v-if="isLoading"
-				width="100%"
-				height="100%"
-			/>
+			<ds-skeleton v-if="isLoading" width="100%" height="100%" />
 			<span v-else>{{ mainText }}</span>
 		</div>
 		<div
@@ -52,11 +44,7 @@
 				'-ds-ellipsis': supportingTextEllipsis,
 			}"
 		>
-			<ds-skeleton
-				v-if="isLoading"
-				width="100%"
-				height="100%"
-			/>
+			<ds-skeleton v-if="isLoading" width="100%" height="100%" />
 			<span v-else>{{ supportingText }}</span>
 		</div>
 	</div>
