@@ -153,6 +153,8 @@ export { default as DsGroupRichListItem } from './components/RichList/GroupRichL
 export { default as Switch } from './components/Switch';
 export { default as DsSwitch } from './components/Switch';
 export * from './components/Switch/Switch.consts';
+export { default as DsTextGroup } from './components/TextGroup';
+export * from './components/TextGroup/TextGroup.consts';
 export { default as DsTooltip } from './components/Tooltip';
 export * from './components/Tooltip/Tooltip.consts';
 export { default as DsImage } from './components/Image';

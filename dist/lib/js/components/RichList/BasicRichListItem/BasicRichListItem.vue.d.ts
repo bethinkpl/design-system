@@ -1,8 +1,10 @@
 import RichListItem, { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
 import { PropType } from 'vue';
+import { TextGroupSize, TextGroupState } from '../../TextGroup';
 declare const _default: {
     name: string;
     components: {
+        DsTextGroup: typeof RichListItem;
         RichListItem: typeof RichListItem;
     };
     props: {
@@ -60,11 +62,27 @@ declare const _default: {
             type: StringConstructor;
             required: boolean;
         };
+        textEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         eyebrow: {
             type: StringConstructor;
             default: null;
         };
+        eyebrowEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         isEyebrowUppercase: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        supportingText: {
+            type: StringConstructor;
+            default: null;
+        };
+        supportingTextEllipsis: {
             type: BooleanConstructor;
             default: boolean;
         };
@@ -99,10 +117,15 @@ declare const _default: {
         'update:is-selected': (value: boolean) => boolean;
     };
     data(): {
+        hovered: boolean;
         RICH_LIST_ITEM_SIZE: Readonly<{
             readonly SMALL: "small";
             readonly MEDIUM: "medium";
         }>;
+    };
+    computed: {
+        textGroupSize(): TextGroupSize;
+        textGroupState(): TextGroupState;
     };
 };
 export default _default;
