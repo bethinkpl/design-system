@@ -55,11 +55,26 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		borderColorHex: {
 			control: { type: 'text' },
 		},
+		eyebrow: {
+			control: { type: 'text' },
+		},
+		eyebrowEllipsis: {
+			control: { type: 'boolean' },
+		},
+		isEyebrowUppercase: {
+			control: { type: 'boolean' },
+		},
 		text: {
 			control: { type: 'text' },
 		},
-		eyebrow: {
+		textEllipsis: {
+			control: { type: 'boolean' },
+		},
+		supportingText: {
 			control: { type: 'text' },
+		},
+		supportingTextEllipsis: {
+			control: { type: 'boolean' },
 		},
 		metadata: {
 			control: { type: 'text' },
@@ -101,8 +116,12 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		draggableIconClassName: 'draggableIconClassName-1',
 
 		eyebrow: 'Eyebrow Uppercase',
-		text: 'Długa nazwa gdy się nie mieści Praesentium dicta sit. Molestiae unde voluptatem eaque labore.',
+		eyebrowEllipsis: false,
 		isEyebrowUppercase: false,
+		text: 'Długa nazwa gdy się nie mieści Praesentium dicta sit. Molestiae unde voluptatem eaque labore.',
+		textEllipsis: false,
+		supportingText: 'null',
+		supportingTextEllipsis: false,
 
 		metadata: 'Metadata Slot',
 		actions: 'ACS',
@@ -140,36 +159,40 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { upd
 		},
 	},
 	template: `
-    <basic-rich-list-item
-      :size="size"
-      :type="type"
-      :is-interactive="isInteractive"
-      :is-draggable="isDraggable"
-      :icon="ICONS[icon]"
-      :icon-color="iconColor"
-      :icon-color-hex="iconColorHex"
-      :is-dimmed="isDimmed"
-      :border-color="borderColor"
-      :border-color-hex="borderColorHex"
-      :state="state"
-      :text="text"
-      :eyebrow="eyebrow"
-      :is-eyebrow-uppercase="isEyebrowUppercase"
-      :background-color="backgroundColor"
-      :elevation="elevation"
-      :has-draggable-handler="hasDraggableHandler"
-      :has-actions-slot-divider="hasActionsSlotDivider"
-      :is-selectable="isSelectable"
-      :is-selected="isSelected"
-      @update:is-selected="updateIsSelected"
-    >
-      <template v-if="metadata" #metadata>
-        <div v-html="metadata" />
-      </template>
-      <template v-if="actions" #actions>
-        <div v-html="actions" />
-      </template>
-    </basic-rich-list-item>`,
+	<basic-rich-list-item
+		:size="size"
+		:type="type"
+		:is-interactive="isInteractive"
+		:is-draggable="isDraggable"
+		:icon="ICONS[icon]"
+		:icon-color="iconColor"
+		:icon-color-hex="iconColorHex"
+		:is-dimmed="isDimmed"
+		:border-color="borderColor"
+		:border-color-hex="borderColorHex"
+		:state="state"
+		:eyebrow="eyebrow === 'null' ? null : eyebrow"
+		:eyebrow-ellipsis="eyebrowEllipsis"
+		:is-eyebrow-uppercase="isEyebrowUppercase"
+		:text="text"
+		:text-ellipsis="textEllipsis"
+		:supporting-text="supportingText === 'null' ? null : supportingText"
+		:supporting-text-ellipsis="supportingTextEllipsis"
+		:background-color="backgroundColor"
+		:elevation="elevation"
+		:has-draggable-handler="hasDraggableHandler"
+		:has-actions-slot-divider="hasActionsSlotDivider"
+		:is-selectable="isSelectable"
+		:is-selected="isSelected"
+		@update:is-selected="updateIsSelected"
+	>
+		<template v-if="metadata" #metadata>
+			<div v-html="metadata" />
+		</template>
+		<template v-if="actions" #actions>
+			<div v-html="actions" />
+		</template>
+	</basic-rich-list-item>`,
 });
 
 export const Interactive = InteractiveStoryTemplate.bind({});
@@ -204,9 +227,13 @@ const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updat
 				:border-color="borderColor"
 				:border-color-hex="borderColorHex"
 				:state="state"
-				:text="text"
-				:eyebrow="eyebrow"
+				:eyebrow="eyebrow === 'null' ? null : eyebrow"
+				:eyebrow-ellipsis="eyebrowEllipsis"
 				:is-eyebrow-uppercase="isEyebrowUppercase"
+				:text="text"
+				:text-ellipsis="textEllipsis"
+				:supporting-text="supportingText === 'null' ? null : supportingText"
+				:supporting-text-ellipsis="supportingTextEllipsis"
 				:background-color="backgroundColor"
 				:elevation="elevation"
 				:has-draggable-handler="hasDraggableHandler"
@@ -216,13 +243,13 @@ const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updat
 				@update:is-selected="updateIsSelected"
 			>
 				<template #media>
-					<ds-image :src="imageSrcUsedInStoryBook" />
+					<ds-image :src="imageSrcUsedInStoryBook"/>
 				</template>
 				<template v-if="metadata" #metadata>
-					<div v-html="metadata" />
+					<div v-html="metadata"/>
 				</template>
 				<template v-if="actions" #actions>
-					<div v-html="actions" />
+					<div v-html="actions"/>
 				</template>
 			</basic-rich-list-item>`,
 	};
