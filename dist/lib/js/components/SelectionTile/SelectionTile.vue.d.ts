@@ -178,6 +178,7 @@ declare const _default: import("vue").DefineComponent<Readonly<import("vue").Com
         readonly FA_SQUARE_LIST_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
         readonly FA_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
         readonly FA_STAR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+        readonly FA_STETHOSCOPE: import("@fortawesome/fontawesome-common-types").IconDefinition;
         readonly FA_STOPWATCH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
         readonly FA_TAG: import("@fortawesome/fontawesome-common-types").IconDefinition;
         readonly FA_TAGS: import("@fortawesome/fontawesome-common-types").IconDefinition;
