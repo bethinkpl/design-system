@@ -8,10 +8,23 @@
 			'-ds-borderWarning': borderColor === OVERLAY_HEADER_BORDER_COLORS.WARNING,
 		}"
 	>
-		<div v-if="$slots.accessory" class="ds-overlayHeader__accessory">
+		<div v-if="isLoading" class="ds-overlayHeader__loadingWrapper">
+			<ds-skeleton width="50%" height="12px" />
+			<ds-skeleton
+				class="ds-overlayHeader__loadingBar -ds-desktop"
+				width="100%"
+				height="20px"
+			/>
+			<ds-skeleton
+				class="ds-overlayHeader__loadingBar -ds-mobile"
+				width="100%"
+				height="18px"
+			/>
+		</div>
+		<div v-if="!isLoading && $slots.accessory" class="ds-overlayHeader__accessory">
 			<slot name="accessory" />
 		</div>
-		<div class="ds-overlayHeader__content">
+		<div v-if="!isLoading" class="ds-overlayHeader__content">
 			<div v-if="eyebrowText || $slots.eyebrowAccessory" class="ds-overlayHeader__eyebrow">
 				<div
 					v-if="eyebrowText"
@@ -30,6 +43,7 @@
 					<slot name="titleLeading" />
 				</div>
 				<div
+					v-if="title || shortTitle"
 					class="ds-overlayHeader__titleWrapper"
 					:title="title"
 					:class="{ '-ds-interactive': isTitleInteractive }"
@@ -50,7 +64,7 @@
 			</div>
 		</div>
 
-		<template v-if="$slots.actions">
+		<template v-if="!isLoading && $slots.actions">
 			<div class="ds-overlayHeader__actions">
 				<slot name="actions" />
 			</div>
@@ -60,7 +74,7 @@
 				is-vertical
 			/>
 		</template>
-		<template v-if="$slots.dropdown">
+		<template v-if="!isLoading && $slots.dropdown">
 			<ds-dropdown
 				boundaries-selector="body"
 				:placement="DROPDOWN_PLACEMENTS.BOTTOM_END"
@@ -100,6 +114,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/mixins/flex-overflow-mask';
 
@@ -107,6 +122,7 @@
 	align-items: center;
 	background: $color-neutral-background;
 	border-bottom: 2px solid $color-neutral-border-ghost;
+	box-shadow: $shadow-s;
 	display: flex;
 	padding: $space-2xs $space-3xs $space-2xs 0;
 
@@ -117,6 +133,35 @@
 	&__accessory {
 		align-self: stretch;
 		margin-left: $space-xs;
+	}
+
+	&__loadingWrapper {
+		display: flex;
+		flex-direction: column;
+		flex-grow: 1;
+		gap: $space-3xs;
+		margin: 0 $space-4xs 0 $space-xs;
+
+		@media #{breakpoint-s()} {
+			gap: $space-2xs;
+			margin: 0 $space-2xs 0 $space-s;
+		}
+	}
+
+	&__loadingBar {
+		&.-ds-desktop {
+			display: none;
+
+			@media #{breakpoint-s()} {
+				display: flex;
+			}
+		}
+
+		&.-ds-mobile {
+			@media #{breakpoint-s()} {
+				display: none;
+			}
+		}
 	}
 
 	&__content {
@@ -162,14 +207,19 @@
 	&__main {
 		align-items: center;
 		display: flex;
+		gap: $space-2xs;
+		// title is required, but in some edge-cases we don't render it. We need to set min-height to avoid jumping
+		// Keep value in sync with &__title line-height
+		min-height: $typography-line-height-s;
 	}
 
 	&__titleLeading {
 		display: flex;
-		margin-right: $space-2xs;
 	}
 
 	&__titleWrapper {
+		overflow: hidden;
+
 		&.-ds-interactive {
 			cursor: pointer;
 		}
@@ -202,9 +252,8 @@
 		@include flexOverflowMask($color-neutral-background, 20px);
 
 		display: flex;
-		// flex-shrink: 2 gives some more space for title
-		flex-shrink: 2;
-		margin-left: $space-2xs;
+		// flex-shrink: 100000 is big enough, so the title will not shrink
+		flex-shrink: 100000;
 	}
 
 	&__titleTrailing {
@@ -261,17 +310,19 @@
 import IconButton from '../../Buttons/IconButton/IconButton.vue';
 import DsDivider, { DIVIDER_PROMINENCES } from '../../Divider';
 import DsDropdown, { DROPDOWN_PLACEMENTS } from '../../Dropdown';
+import DsSkeleton from '../../Skeleton';
 import {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_STATES,
 } from '../../Buttons/IconButton';
 import { ICONS } from '../../Icons/Icon';
-import { OVERLAY_HEADER_BORDER_COLORS } from './OverlayHeader.consts';
+import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
+import { Value } from '../../../utils/type.utils';
 
 export default {
 	name: 'OverlayHeader',
-	components: { IconButton, DsDivider, DsDropdown },
+	components: { IconButton, DsDivider, DsDropdown, DsSkeleton },
 	props: {
 		title: {
 			type: String,
@@ -294,6 +345,13 @@ export default {
 			type: Boolean,
 			default: false,
 		},
+		state: {
+			type: String,
+			default: OVERLAY_HEADER_STATES.DEFAULT,
+			validator(value: Value<typeof OVERLAY_HEADER_STATES>) {
+				return Object.values(OVERLAY_HEADER_STATES).includes(value);
+			},
+		},
 	},
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
@@ -306,9 +364,15 @@ export default {
 			ICONS: Object.freeze(ICONS),
 			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
 			OVERLAY_HEADER_BORDER_COLORS: Object.freeze(OVERLAY_HEADER_BORDER_COLORS),
+			OVERLAY_HEADER_STATES: Object.freeze(OVERLAY_HEADER_STATES),
 			DROPDOWN_PLACEMENTS: Object.freeze(DROPDOWN_PLACEMENTS),
 			isDropdownOpen: false,
 		};
+	},
+	computed: {
+		isLoading() {
+			return this.state === OVERLAY_HEADER_STATES.LOADING;
+		},
 	},
 	methods: {
 		onTitleClick() {

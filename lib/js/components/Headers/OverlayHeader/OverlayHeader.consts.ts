@@ -5,3 +5,8 @@ export const OVERLAY_HEADER_BORDER_COLORS = {
 	FAIL: 'fail',
 	WARNING: 'warning',
 } as const;
+
+export const OVERLAY_HEADER_STATES = {
+	DEFAULT: 'default',
+	LOADING: 'loading',
+} as const;

@@ -12,6 +12,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_ARROW_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ARROW_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ARROW_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_ARROW_UP_RIGHT_AND_ARROW_DOWN_LEFT_FROM_CENTER: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ARROWS_LEFT_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_ARROWS_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -29,6 +30,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_BOX: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_BOX_ARCHIVE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CALENDAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_CALENDAR_CLOCK: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CALENDAR_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CALENDAR_DAY: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -70,6 +72,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_COMMENTS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_COMMENTS_QUESTION: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_COMMENTS_QUESTION_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_COMPASS_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_COMPRESS: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_COPY: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_CREDIT_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -85,6 +88,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_FACE_MEH: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FACE_SMILE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FACEBOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_FILE_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FILE_INVOICE_DOLLAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FILE_LINES: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_FILE_LINES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -114,6 +118,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_HOURGLASS_END: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_HOURGLASS_START: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_HOUSE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_IMAGES: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_IMAGES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_INFO_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_KEY: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -149,7 +154,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_SHARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SHARE_NODES: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SHIELD_HALVED: import("@fortawesome/fontawesome-common-types").IconDefinition;
-    readonly FA_SIDEBAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_SIDEBAR_FLIP: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SIGNAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SITEMAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SITEMAP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -160,11 +165,15 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_SQUARE_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SQUARE_CHECK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_SQUARE_LIST: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_SQUARE_LIST_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_STAR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_STETHOSCOPE: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_STOPWATCH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_TAG: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_TAGS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_TEXT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+    readonly FA_TEXT_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_THUMBS_UP: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_THUMBS_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
     readonly FA_THUMBTACK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;

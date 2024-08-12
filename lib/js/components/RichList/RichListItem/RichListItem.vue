@@ -1,6 +1,9 @@
 <template>
 	<div class="ds-richListItem" :class="classList" @click="$emit('click', $event)">
 		<div class="ds-richListItem__container -ds-dimmable">
+			<div v-if="hasMedia" class="ds-richListItem__media">
+				<slot name="media" />
+			</div>
 			<div v-if="isDraggable && hasDraggableHandler" class="ds-richListItem__dragAndDrop">
 				<ds-icon
 					:icon="ICONS.FA_BARS"
@@ -32,8 +35,8 @@
 				<slot name="content" />
 			</div>
 			<div class="ds-richListItem__rightContainer">
-				<div v-if="$slots.meta" class="ds-richListItem__metaData -ds-hideOnMobile">
-					<slot name="meta" />
+				<div v-if="$slots.metadata" class="ds-richListItem__metadata -ds-hideOnMobile">
+					<slot name="metadata" />
 				</div>
 				<div v-if="$slots.actions" class="ds-richListItem__actionSlot" @click.stop>
 					<ds-divider
@@ -54,8 +57,11 @@
 			</div>
 		</div>
 
-		<div v-if="$slots.meta" class="ds-richListItem__metaData -ds-dimmable -ds-visibleOnMobile">
-			<slot name="meta" />
+		<div
+			v-if="$slots.metadata"
+			class="ds-richListItem__metadata -ds-dimmable -ds-visibleOnMobile"
+		>
+			<slot name="metadata" />
 		</div>
 		<div
 			v-if="borderColorClass || borderColorStyle"
@@ -116,6 +122,14 @@ $rich-list-item-background-colors: (
 		flex-direction: initial;
 		justify-content: initial;
 		padding: 0 $space-4xs;
+	}
+
+	&.-ds-has-media {
+		// Make sure media doesn't cover the border.
+		// If you use a dropdown in one of the slots and it's being cut,
+		// you need to figure out an alternative solution here.
+		overflow: hidden;
+		padding-left: 0;
 	}
 
 	&.-ds-dimmed {
@@ -226,6 +240,12 @@ $rich-list-item-background-colors: (
 		}
 	}
 
+	&__media {
+		height: 80px;
+		margin-right: $space-3xs;
+		width: 100px;
+	}
+
 	&__dragAndDrop,
 	&__iconWrapper {
 		align-items: flex-start;
@@ -251,7 +271,7 @@ $rich-list-item-background-colors: (
 		}
 	}
 
-	&__metaData {
+	&__metadata {
 		align-items: center;
 		gap: $space-xs;
 		padding-left: $space-xs;
@@ -386,7 +406,7 @@ $rich-list-item-background-colors: (
 			}
 		}
 
-		#{$root}__metaData {
+		#{$root}__metadata {
 			padding-left: $space-2xs;
 			padding-right: $space-4xs;
 
@@ -410,8 +430,14 @@ $rich-list-item-background-colors: (
 <script lang="ts">
 import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
 import DsDivider from '../../../components/Divider';
-import DsIcon, { ICON_COLORS, ICON_SIZES, IconColor, ICONS } from '../../../components/Icons/Icon';
-import { PropType } from 'vue';
+import DsIcon, {
+	ICON_COLORS,
+	ICON_SIZES,
+	IconColor,
+	IconItem,
+	ICONS,
+} from '../../../components/Icons/Icon';
+import { PropType, toRaw } from 'vue';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
@@ -469,8 +495,11 @@ export default {
 			default: true,
 		},
 		icon: {
-			type: String,
+			type: Object as PropType<IconItem>,
 			default: null,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
+			},
 		},
 		iconColor: {
 			type: String as PropType<IconColor>,
@@ -561,6 +590,7 @@ export default {
 						[`-ds-elevation-${this.elevation}`]: true,
 					}),
 				'-ds-draggable': this.isDraggable && !this.hasDraggableHandler,
+				'-ds-has-media': this.hasMedia,
 			};
 		},
 		iconColorClass() {
@@ -590,6 +620,9 @@ export default {
 			return {
 				backgroundColor: this.borderColorHex,
 			};
+		},
+		hasMedia() {
+			return !!this.$slots.media;
 		},
 	},
 };

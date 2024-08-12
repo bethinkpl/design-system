@@ -6,7 +6,7 @@ import DsSwitch from '../Switch/Switch.vue';
 import DsButton from '../Buttons/Button/Button.vue';
 
 export default {
-	title: 'Components/Tooltip',
+	title: 'Prime Vue Components/Tooltip',
 	component: Tooltip,
 } as Meta<typeof Tooltip>;
 

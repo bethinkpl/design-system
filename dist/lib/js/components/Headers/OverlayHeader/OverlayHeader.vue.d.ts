@@ -1,10 +1,13 @@
 import IconButton from '../../Buttons/IconButton/IconButton.vue';
+import { OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
+import { Value } from '../../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
         IconButton: typeof IconButton;
         DsDivider: typeof IconButton;
         DsDropdown: typeof IconButton;
+        DsSkeleton: typeof IconButton;
     };
     props: {
         title: {
@@ -27,6 +30,11 @@ declare const _default: {
         isTitleInteractive: {
             type: BooleanConstructor;
             default: boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: Value<typeof OVERLAY_HEADER_STATES>): boolean;
         };
     };
     emits: string[];
@@ -63,6 +71,7 @@ declare const _default: {
             readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly ANSWERS: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
+            readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_DOWN: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ANGLE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -76,6 +85,7 @@ declare const _default: {
             readonly FA_ARROW_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ARROW_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ARROW_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_ARROW_UP_RIGHT_AND_ARROW_DOWN_LEFT_FROM_CENTER: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ARROWS_LEFT_RIGHT_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ARROWS_MAXIMIZE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -93,6 +103,7 @@ declare const _default: {
             readonly FA_BOX: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_BOX_ARCHIVE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_CALENDAR_CLOCK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CALENDAR_DAY: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -134,6 +145,7 @@ declare const _default: {
             readonly FA_COMMENTS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMMENTS_QUESTION: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMMENTS_QUESTION_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_COMPASS_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COMPRESS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_COPY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_CREDIT_CARD: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -149,6 +161,7 @@ declare const _default: {
             readonly FA_FACE_MEH: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACE_SMILE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FACEBOOK: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_FILE_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FILE_INVOICE_DOLLAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FILE_LINES: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_FILE_LINES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -178,6 +191,7 @@ declare const _default: {
             readonly FA_HOURGLASS_END: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HOURGLASS_START: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_HOUSE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_IMAGES: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_IMAGES_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_INFO_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_KEY: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -213,7 +227,7 @@ declare const _default: {
             readonly FA_SHARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHARE_NODES: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHIELD_HALVED: import("@fortawesome/fontawesome-common-types").IconDefinition;
-            readonly FA_SIDEBAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_SIDEBAR_FLIP: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SIGNAL: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SITEMAP: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SITEMAP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -224,11 +238,15 @@ declare const _default: {
             readonly FA_SQUARE_CHECK: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_CHECK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SQUARE_LIST: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_SQUARE_LIST_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STAR: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STAR_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_STETHOSCOPE: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_STOPWATCH_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TAG: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_TAGS: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_TEXT: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_TEXT_SLASH: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_THUMBS_UP: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_THUMBS_UP_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_THUMBTACK_SOLID: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -260,11 +278,18 @@ declare const _default: {
             readonly FAIL: "fail";
             readonly WARNING: "warning";
         }>;
+        OVERLAY_HEADER_STATES: Readonly<{
+            readonly DEFAULT: "default";
+            readonly LOADING: "loading";
+        }>;
         DROPDOWN_PLACEMENTS: Readonly<{
             readonly BOTTOM_START: "bottom-start";
             readonly BOTTOM_END: "bottom-end";
         }>;
         isDropdownOpen: boolean;
+    };
+    computed: {
+        isLoading(): boolean;
     };
     methods: {
         onTitleClick(): void;

@@ -1,6 +1,6 @@
-import { toRaw } from 'vue';
+import { PropType, toRaw } from 'vue';
 import { ICONS } from '../Icons/Icon';
-import { TILE_COLORS, TILE_STATES } from './Tile.consts';
+import { TILE_COLORS, TILE_STATES, TileColors, TileStates } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
 
 export const props = {
@@ -22,6 +22,10 @@ export const props = {
 			return Object.values(ICONS).includes(toRaw(iconRight));
 		},
 	},
+	isIconRightHiddenOnMobile: {
+		type: Boolean,
+		default: false,
+	},
 	text: {
 		type: String,
 		required: true,
@@ -35,7 +39,7 @@ export const props = {
 		default: null,
 	},
 	color: {
-		type: String,
+		type: String as PropType<TileColors>,
 		default: TILE_COLORS.NEUTRAL,
 		validator(color) {
 			return Object.values(TILE_COLORS).includes(color);
@@ -46,7 +50,7 @@ export const props = {
 		default: false,
 	},
 	state: {
-		type: String,
+		type: String as PropType<TileStates>,
 		default: TILE_STATES.DEFAULT,
 		validator(value: Value<typeof TILE_STATES>) {
 			return Object.values(TILE_STATES).includes(value);
