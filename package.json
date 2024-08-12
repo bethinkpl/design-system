@@ -41,15 +41,14 @@
     "@fortawesome/pro-solid-svg-icons": "6.4.2",
     "@fortawesome/vue-fontawesome": "3.0.3",
     "@primevue/themes": "4.0.0-rc.3",
-    "@storybook/addon-actions": "^8.1.11",
-    "@storybook/addon-controls": "^8.1.11",
-    "@storybook/addon-designs": "^8.0.2",
-    "@storybook/addon-docs": "^8.1.11",
-    "@storybook/addon-storysource": "^8.1.11",
-    "@storybook/addon-viewport": "^8.1.11",
-    "@storybook/builder-vite": "8.1.11",
-    "@storybook/vue3": "8.1.11",
-    "@storybook/vue3-vite": "8.1.11",
+    "@storybook/addon-actions": "^8.2.8",
+    "@storybook/addon-controls": "^8.2.8",
+    "@storybook/addon-designs": "^8.1.11",
+    "@storybook/addon-docs": "^8.2.8",
+    "@storybook/addon-storysource": "^8.2.8",
+    "@storybook/addon-viewport": "^8.2.8",
+    "@storybook/vue3": "^8.2.8",
+    "@storybook/vue3-vite": "^8.2.8",
     "@types/node": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "5.18.0",
     "@typescript-eslint/parser": "5.18.0",
@@ -77,7 +76,7 @@
     "primevue": "4.0.0-rc.3",
     "sass": "^1.28.0",
     "sass-loader": "^7.1.0",
-    "storybook": "^8.1.11",
+    "storybook": "^8.2.8",
     "stylelint": "13.6.1",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "6.0.3",
@@ -89,8 +88,6 @@
     "vue": "3.2.45",
     "vue-loader": "17.0.0",
     "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
-    "vue-svg-loader": "0.17.0-beta.2"
-    "vue-popperjs": "bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
     "vue-svg-loader": "0.17.0-beta.2",
     "vue-tsc": "^2.0.21"
   },
@@ -101,5 +98,6 @@
     "vite-plugin-checker": "^0.7.0",
     "vite-plugin-dts": "^3.9.1",
     "vite-svg-loader": "^5.1.0"
-  }
+  },
+  "packageManager": "yarn@1.22.1"
 }
