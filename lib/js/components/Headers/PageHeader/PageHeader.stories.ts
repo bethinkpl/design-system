@@ -33,32 +33,28 @@ const args = {
 	pageTitle: 'Page title',
 	supportingInfo: 'Supporting info write here',
 	divider: true,
-	mobileLayout: 'vertical',
+	mobileLayout: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
 } as Args;
 
 const argTypes = {
 	breadcrumbs: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	actions: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	pageTitle: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	supportingInfo: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	divider: {
-		control: { type: 'boolean' },
-		defaultValue: true,
+		control: 'boolean',
 	},
 	mobileLayout: {
-		control: {
-			type: 'select',
-			options: Object.values(PAGE_HEADER_MOBILE_LAYOUTS),
-			defaultValue: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
-		},
+		control: 'select',
+		options: Object.values(PAGE_HEADER_MOBILE_LAYOUTS),
 	},
 } as ArgTypes;
 

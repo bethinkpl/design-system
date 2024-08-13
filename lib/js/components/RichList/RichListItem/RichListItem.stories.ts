@@ -27,53 +27,53 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 	story.argTypes = {
 		type: {
 			options: Object.values(RICH_LIST_ITEM_TYPE),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		size: {
 			options: Object.values(RICH_LIST_ITEM_SIZE),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		state: {
 			options: Object.values(RICH_LIST_ITEM_STATE),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		iconColor: {
 			options: Object.values(ICON_COLORS),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		borderColor: {
 			options: [null, ...Object.values(RICH_LIST_ITEM_BORDER_COLOR)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		icon: {
 			options: [null, ...Object.keys(ICONS)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		iconColorHex: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		borderColorHex: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		content: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		metadata: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		actions: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		draggableIconClassName: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		backgroundColor: {
 			options: [null, ...Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		elevation: {
 			options: [null, ...Object.values(RICH_LIST_ITEM_ELEVATION)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 	} as ArgTypes;
 

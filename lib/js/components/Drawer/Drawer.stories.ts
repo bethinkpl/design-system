@@ -32,8 +32,8 @@ const args = {
 
 const argTypes = {
 	position: {
-		control: { type: 'select', options: Object.values(DRAWER_POSITIONS) },
-		defaultValue: DRAWER_POSITIONS.RIGHT,
+		control: 'select',
+		options: Object.values(DRAWER_POSITIONS),
 	},
 } as ArgTypes;
 

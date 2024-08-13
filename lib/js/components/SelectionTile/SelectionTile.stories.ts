@@ -52,18 +52,19 @@ export const Interactive = StoryTemplate.bind({});
 
 Interactive.argTypes = {
 	type: {
-		control: { type: 'select', options: Object.values(SELECTION_TILE_TYPE) },
-		defaultValue: SELECTION_TILE_TYPE.RADIO_BUTTON,
+		control: 'select',
+		options: Object.values(SELECTION_TILE_TYPE),
 	},
-	title: { control: { type: 'text' } },
-	supportingText: { control: { type: 'text' } },
+	title: { control: 'text' },
+	supportingText: { control: 'text' },
 	icon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
-	isSelected: { control: { type: 'boolean' } },
+	isSelected: { control: 'boolean' },
 	state: {
-		control: { type: 'select', options: Object.values(SELECTION_TILE_STATE) },
-		defaultValue: SELECTION_TILE_STATE.DEFAULT,
+		control: 'select',
+		options: Object.values(SELECTION_TILE_STATE),
 	},
 } as ArgTypes;
 

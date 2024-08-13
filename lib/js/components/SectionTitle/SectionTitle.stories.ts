@@ -21,12 +21,13 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	supportingText: '',
 	titleText: 'Title',
+	size: SECTION_TITLE_SIZES.XS,
 } as Args;
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(SECTION_TITLE_SIZES) },
-		defaultValue: SECTION_TITLE_SIZES.XS,
+		control: 'select',
+		options: Object.values(SECTION_TITLE_SIZES),
 	},
 } as ArgTypes;
 

@@ -37,8 +37,8 @@ const args = {
 } as Args;
 
 const argTypes = {
-	explanation: { control: { type: 'text' } },
-	state: { control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) } },
+	explanation: { control: 'text' },
+	state: { control: 'select', options: Object.values(SURVEY_QUESTION_STATES) },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

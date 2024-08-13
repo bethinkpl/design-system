@@ -2,7 +2,7 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 import FeatureIcon from './FeatureIcon.vue';
 import { ICONS } from '../Icon';
-import { FEATURE_ICON_SIZES, FEATURE_ICON_COLOR } from './FeatureIcon.consts';
+import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from './FeatureIcon.consts';
 
 export default {
 	title: 'Components/Icons/FeatureIcon',
@@ -25,24 +25,28 @@ const StoryTemplate: StoryFn<typeof FeatureIcon> = (args) => ({
 
 export const Interactive = StoryTemplate.bind({});
 
-const args = {} as Args;
+const args = {
+	size: FEATURE_ICON_SIZES.X_LARGE,
+	icon: 'FA_CIRCLE_QUESTION',
+	color: FEATURE_ICON_COLOR.PRIMARY,
+	doubleBackground: true,
+} as Args;
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(FEATURE_ICON_SIZES) },
-		defaultValue: FEATURE_ICON_SIZES.X_LARGE,
+		control: 'select',
+		options: Object.values(FEATURE_ICON_SIZES),
 	},
 	icon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: 'FA_CIRCLE_QUESTION',
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	color: {
-		control: { type: 'select', options: Object.values(FEATURE_ICON_COLOR) },
-		defaultValue: FEATURE_ICON_COLOR.PRIMARY,
+		control: 'select',
+		options: Object.values(FEATURE_ICON_COLOR),
 	},
 	doubleBackground: {
-		control: { type: 'boolean' },
-		defaultValue: true,
+		control: 'boolean',
 	},
 } as ArgTypes;
 

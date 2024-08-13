@@ -22,16 +22,16 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	slotText: '1',
 	index: 1,
-	color: NUMBER_IN_CIRCLE_COLORS.PRIMARY,
+	color: NUMBER_IN_CIRCLE_COLORS.DEFAULT,
 	medium: false,
 } as Args;
 
 const argTypes = {
 	color: {
-		control: { type: 'select', options: Object.values(NUMBER_IN_CIRCLE_COLORS) },
-		defaultValue: NUMBER_IN_CIRCLE_COLORS.DEFAULT,
+		control: 'select',
+		options: Object.values(NUMBER_IN_CIRCLE_COLORS),
 	},
-	slotText: { control: { type: 'text' } },
+	slotText: { control: 'text' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

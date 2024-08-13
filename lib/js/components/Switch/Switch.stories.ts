@@ -58,28 +58,28 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(SWITCH_SIZES) },
-		defaultValue: SWITCH_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(SWITCH_SIZES),
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(SWITCH_RADIUSES) },
-		defaultValue: SWITCH_RADIUSES.CAPSULE,
+		control: 'select',
+		options: Object.values(SWITCH_RADIUSES),
 	},
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	state: {
-		control: { type: 'select', options: Object.values(SWITCH_STATE) },
-		defaultValue: SWITCH_STATE.DEFAULT,
+		control: 'select',
+		options: Object.values(SWITCH_STATE),
 	},
 	selectedSide: {
-		control: { type: 'select', options: Object.values(SWITCH_SIDE) },
-		defaultValue: SWITCH_SIDE.LEFT,
+		control: 'select',
+		options: Object.values(SWITCH_SIDE),
 	},
 } as ArgTypes;
 

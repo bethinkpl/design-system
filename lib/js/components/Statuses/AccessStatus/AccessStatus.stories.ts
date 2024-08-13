@@ -24,8 +24,8 @@ const args = {
 
 const argTypes = {
 	status: {
-		control: { type: 'select', options: Object.values(COURSE_ACCESS_STATUS) },
-		defaultValue: COURSE_ACCESS_STATUS.ACTIVE,
+		control: 'select',
+		options: Object.values(COURSE_ACCESS_STATUS),
 	},
 } as ArgTypes;
 

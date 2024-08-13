@@ -61,43 +61,47 @@ Interactive.args = {
 
 Interactive.argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(TEXT_GROUP_SIZES) },
+		control: 'select',
+		options: Object.values(TEXT_GROUP_SIZES),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(TEXT_GROUP_COLORS) },
+		control: 'select',
+		options: Object.values(TEXT_GROUP_COLORS),
 	},
 	eyebrowText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	eyebrowTextEllipsis: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	isEyebrowTextUppercase: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	mainText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	mainTextEllipsis: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	supportingText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	supportingTextEllipsis: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	isInteractive: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	skeletonLoadingSize: {
-		control: { type: 'select', options: Object.values(TEXT_GROUP_LOADING_SIZES) },
+		control: 'select',
+		options: Object.values(TEXT_GROUP_LOADING_SIZES),
 	},
 	isSelected: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	state: {
-		control: { type: 'select', options: Object.values(TEXT_GROUP_STATES) },
+		control: 'select',
+		options: Object.values(TEXT_GROUP_STATES),
 	},
 };
 

@@ -14,7 +14,8 @@ const StoryTemplate: StoryFn<typeof Card> = (args) => ({
 	setup() {
 		return { ...args };
 	},
-	template: `<card :header-has-padding="headerHasPadding" 
+	template: `
+		<card :header-has-padding="headerHasPadding"
 			  :divider-under-header="dividerUnderHeader"
 			  :has-border="hasBorder"
 			  :border-position="borderPosition"
@@ -39,6 +40,9 @@ const StoryTemplate: StoryFn<typeof Card> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
+	header: 'header slot',
+	content: 'content slot that supports <b>HTML markup</b>',
+	footer: 'footer slot',
 	headerHasPadding: false,
 	dividerUnderHeader: false,
 	hasBorder: false,
@@ -51,27 +55,26 @@ const args = {
 } as Args;
 
 const argTypes = {
-	header: { control: { type: 'text' }, defaultValue: 'header slot' },
+	header: { control: 'text' },
 	content: {
-		control: { type: 'text' },
-		defaultValue: 'content slot that supports <b>HTML markup</b>',
+		control: 'text',
 	},
-	footer: { control: { type: 'text' }, defaultValue: 'footer slot' },
+	footer: { control: 'text' },
 	borderPosition: {
-		control: { type: 'select', options: Object.values(CARD_BORDER_POSITIONS) },
-		defaultValue: CARD_BORDER_POSITIONS.TOP,
+		control: 'select',
+		options: Object.values(CARD_BORDER_POSITIONS),
 	},
 	borderSize: {
-		control: { type: 'select', options: Object.values(CARD_BORDER_SIZES) },
-		defaultValue: CARD_BORDER_SIZES.LARGE,
+		control: 'select',
+		options: Object.values(CARD_BORDER_SIZES),
 	},
 	borderColor: {
-		control: { type: 'select', options: Object.values(CARD_BORDER_COLORS) },
-		defaultValue: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
+		control: 'select',
+		options: Object.values(CARD_BORDER_COLORS),
 	},
 	loadingBarColor: {
-		control: { type: 'select', options: Object.values(LOADING_BAR_COLORS) },
-		defaultValue: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
+		control: 'select',
+		options: Object.values(LOADING_BAR_COLORS),
 	},
 } as ArgTypes;
 

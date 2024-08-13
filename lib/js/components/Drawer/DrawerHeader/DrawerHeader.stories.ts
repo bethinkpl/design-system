@@ -61,25 +61,25 @@ const args = {
 } as Args;
 
 const argTypes = {
-	eyebrowText: { control: { type: 'text' }, defaultValue: 'eyebrow' },
-	isInteractiveEyebrow: { control: { type: 'boolean' }, defaultValue: false },
-	eyebrowEllipsis: { control: { type: 'boolean' }, defaultValue: false },
-	title: { control: { type: 'text' }, defaultValue: 'Header Title' },
-	titleEllipsis: { control: { type: 'boolean' }, defaultValue: false },
+	eyebrowText: { control: 'text' },
+	isInteractiveEyebrow: { control: 'boolean' },
+	eyebrowEllipsis: { control: 'boolean' },
+	title: { control: 'text' },
+	titleEllipsis: { control: 'boolean' },
 	titleColor: {
-		control: { type: 'select', options: Object.values(DRAWER_HEADER_TITLE_COLORS) },
-		defaultValue: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
+		control: 'select',
+		options: Object.values(DRAWER_HEADER_TITLE_COLORS),
 	},
 	leftIcon: {
-		control: { type: 'select', options: [...Object.keys(ICONS), null] },
-		defaultValue: null,
+		control: 'select',
+		options: [...Object.keys(ICONS), null],
 	},
-	chipLabel: { control: { type: 'text' }, defaultValue: 'chip' },
-	hasDivider: { control: { type: 'boolean' }, defaultValue: false },
-	isSecondLevel: { control: { type: 'boolean' }, defaultValue: false },
-	isClosable: { control: { type: 'boolean' }, defaultValue: true },
-	actions: { control: { type: 'text' }, defaultValue: 'actions slot' },
-	titleTrailing: { control: { type: 'text' }, defaultValue: 'trailing slot' },
+	chipLabel: { control: 'text' },
+	hasDivider: { control: 'boolean' },
+	isSecondLevel: { control: 'boolean' },
+	isClosable: { control: 'boolean' },
+	actions: { control: 'text' },
+	titleTrailing: { control: 'text' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

@@ -47,20 +47,20 @@ Interactive.args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(POP_OVER_SIZES) },
-		defaultValue: POP_OVER_SIZES.SMALL,
+		control: 'select',
+		options: Object.values(POP_OVER_SIZES),
 	},
 	placement: {
-		control: { type: 'select', options: Object.values(POP_OVER_PLACEMENTS) },
-		defaultValue: POP_OVER_PLACEMENTS.BOTTOM,
+		control: 'select',
+		options: Object.values(POP_OVER_PLACEMENTS),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(POP_OVER_COLORS) },
-		defaultValue: POP_OVER_COLORS.DEFAULT,
+		control: 'select',
+		options: Object.values(POP_OVER_COLORS),
 	},
 	triggerAction: {
-		control: { type: 'select', options: Object.values(POP_OVER_TRIGGER_ACTIONS) },
-		defaultValue: POP_OVER_TRIGGER_ACTIONS.CLICK,
+		control: 'select',
+		options: Object.values(POP_OVER_TRIGGER_ACTIONS),
 	},
 } as ArgTypes;
 

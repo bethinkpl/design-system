@@ -28,8 +28,8 @@ Interactive.args = {
 
 Interactive.argTypes = {
 	radius: {
-		control: { type: 'select', options: Object.values(SKELETON_RADIUS_SIZES) },
-		defaultValue: SKELETON_RADIUS_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(SKELETON_RADIUS_SIZES),
 	},
 };
 

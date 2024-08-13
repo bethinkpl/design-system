@@ -23,12 +23,13 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	label: 'Label',
 	valueText: 'value',
+	state: DRAWER_LIST_ITEM_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
 	state: {
-		control: { type: 'select', options: Object.values(DRAWER_LIST_ITEM_STATES) },
-		defaultValue: DRAWER_LIST_ITEM_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(DRAWER_LIST_ITEM_STATES),
 	},
 } as ArgTypes;
 

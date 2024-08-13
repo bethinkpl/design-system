@@ -1,10 +1,10 @@
 import IconButton from './IconButton.vue';
 import {
-	ICON_BUTTON_SIZES,
 	ICON_BUTTON_COLOR_SCHEMES,
-	ICON_BUTTON_TYPES,
 	ICON_BUTTON_COLORS,
+	ICON_BUTTON_SIZES,
 	ICON_BUTTON_STATES,
+	ICON_BUTTON_TYPES,
 } from './IconButton.consts';
 import { BUTTON_ELEVATIONS, BUTTON_RADIUSES } from '../Button';
 import { ICONS } from '../../Icons/Icon';
@@ -63,35 +63,35 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(ICON_BUTTON_SIZES),
 	},
 	type: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(ICON_BUTTON_TYPES),
 	},
 	radius: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(BUTTON_RADIUSES),
 	},
 	icon: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.keys(ICONS),
 	},
 	color: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(ICON_BUTTON_COLORS),
 	},
 	colorScheme: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(ICON_BUTTON_COLOR_SCHEMES),
 	},
 	elevation: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(BUTTON_ELEVATIONS),
 	},
 	state: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(ICON_BUTTON_STATES),
 	},
 } as ArgTypes;

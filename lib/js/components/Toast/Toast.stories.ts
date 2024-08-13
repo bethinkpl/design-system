@@ -63,35 +63,31 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(TOAST_SIZES),
-		defaultValue: TOAST_SIZES.MEDIUM,
 	},
 	position: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(TOAST_POSITIONS),
-		defaultValue: TOAST_POSITIONS.CENTER,
 	},
 	boundariesSelector: {
-		control: { type: 'select' },
+		control: 'select',
 		options: [null, 'left', 'right'],
-		defaultValue: null,
 	},
 	color: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(TOAST_COLORS),
-		defaultValue: TOAST_COLORS.INFO,
 	},
 	footerPrimaryButtonIcon: {
-		control: { type: 'select' },
+		control: 'select',
 		options: [null, ...Object.keys(ICONS)],
 	},
 	footerSecondaryButtonIcon: {
-		control: { type: 'select' },
+		control: 'select',
 		options: [null, ...Object.keys(ICONS)],
 	},
 	content: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 } as ArgTypes;
 

@@ -30,7 +30,7 @@ Interactive.args = {
 
 Interactive.argTypes = {
 	fit: {
-		control: { type: 'select', options: Object.values(IMAGE_FITS) },
-		defaultValue: IMAGE_FITS.COVER,
+		control: 'select',
+		options: Object.values(IMAGE_FITS),
 	},
 };

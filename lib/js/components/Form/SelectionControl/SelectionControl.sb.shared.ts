@@ -6,18 +6,21 @@ export const template = (componentTag: string) => `
 export const argTypes = (size, state) =>
 	({
 		size: {
-			control: { type: 'select', options: Object.values(size) },
-			defaultValue: size.SMALL,
+			control: 'select',
+			options: Object.values(size),
 		},
-		label: { control: { type: 'text' } },
-		isSelected: { control: { type: 'boolean' } },
+		label: { control: 'text' },
+		isSelected: { control: 'boolean' },
 		state: {
-			control: { type: 'select', options: Object.values(state) },
-			defaultValue: state.DEFAULT,
+			control: 'select',
+			options: Object.values(state),
 		},
 	} as ArgTypes);
 
-export const args = {
-	label: 'Example label',
-	isSelected: false,
-} as Args;
+export const args = (size, state) =>
+	({
+		label: 'Example label',
+		isSelected: false,
+		size: size.SMALL,
+		state: state.DEFAULT,
+	} as Args);

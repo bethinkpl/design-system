@@ -51,8 +51,8 @@ const StoryTemplate: StoryFn<typeof Banner> = (args, { updateArgs }) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	closable: true,
-	icon: ICONS.FA_CIRCLE_INFO,
+	closable: false,
+	icon: null,
 	color: BANNER_COLORS.DEFAULT,
 	title: 'Banner Title',
 	buttonText: '',
@@ -66,41 +66,39 @@ const args = {
 } as Args;
 
 const argTypes = {
-	closable: { control: { type: 'boolean' }, defaultValue: false },
+	closable: { control: 'boolean' },
 	icon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	isIconHiddenOnMobile: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 	color: {
-		control: { type: 'select', options: Object.values(BANNER_COLORS) },
-		defaultValue: BANNER_COLORS.DEFAULT,
+		control: 'select',
+		options: Object.values(BANNER_COLORS),
 	},
 	title: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	buttonText: {
-		control: { type: 'text' },
-		defaultValue: '',
+		control: 'text',
 	},
 	layout: {
-		control: { type: 'select', options: Object.values(BANNER_LAYOUTS) },
-		defaultValue: BANNER_LAYOUTS.HORIZONTAL,
+		control: 'select',
+		options: Object.values(BANNER_LAYOUTS),
 	},
 	defaultText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	expandedText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	rightSlot: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	isExpanded: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 } as ArgTypes;
 

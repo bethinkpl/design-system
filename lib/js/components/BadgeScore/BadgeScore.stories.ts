@@ -37,22 +37,25 @@ Interactive.args = {
 	text: '42',
 	suffix: '%',
 	fullWidth: false,
+	color: BADGE_SCORE_COLORS.SUCCESS,
+	icon: 'FA_LIGHTBULB',
+	size: BADGE_SCORE_SIZES.MEDIUM,
 };
 
 Interactive.argTypes = {
-	text: { control: { type: 'text' } },
-	suffix: { control: { type: 'text' } },
+	text: { control: 'text' },
+	suffix: { control: 'text' },
 	color: {
-		control: { type: 'select', options: Object.values(BADGE_SCORE_COLORS) },
-		defaultValue: BADGE_SCORE_COLORS.SUCCESS,
+		control: 'select',
+		options: Object.values(BADGE_SCORE_COLORS),
 	},
 	icon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: 'FA_LIGHTBULB',
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	size: {
-		control: { type: 'select', options: Object.values(BADGE_SCORE_SIZES) },
-		defaultValue: BADGE_SCORE_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(BADGE_SCORE_SIZES),
 	},
 };
 

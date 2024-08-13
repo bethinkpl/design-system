@@ -45,12 +45,12 @@ const args = {
 } as Args;
 
 const argTypes = {
-	header: { control: { type: 'text' } },
+	header: { control: 'text' },
 	content: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	expandedContent: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 } as ArgTypes;
 

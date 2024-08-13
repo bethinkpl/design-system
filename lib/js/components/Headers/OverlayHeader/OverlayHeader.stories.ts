@@ -2,7 +2,6 @@ import OverlayHeader from './OverlayHeader.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
-import { BUTTON_STATES } from '../../Buttons/Button';
 
 export default {
 	title: 'Components/Headers/OverlayHeader',
@@ -15,7 +14,7 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (args) => ({
 		return { args };
 	},
 	template: `
-			<div style="height: 300px">
+		<div style="height: 300px">
 			<overlay-header v-bind=args>
 				<template v-if="args.accessorySlot" #accessory>
 					<div style="background: var(--raw-gray-300); height: 100%">{{ args.accessorySlot }}</div>
@@ -37,7 +36,7 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (args) => ({
 					<div style="background: var(--raw-gray-300);">{{ args.dropdownSlot }}</div>
 				</template>
 			</overlay-header>
-			</div>`,
+		</div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -53,19 +52,18 @@ const args = {
 	titleLeadingSlot: 'leading',
 	titleTrailingSlot: 'trailing',
 	isTitleInteractive: false,
+	borderColor: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
+	state: OVERLAY_HEADER_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
 	borderColor: {
-		control: {
-			type: 'select',
-			options: Object.values(OVERLAY_HEADER_BORDER_COLORS),
-		},
-		defaultValue: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
+		control: 'select',
+		options: Object.values(OVERLAY_HEADER_BORDER_COLORS),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(OVERLAY_HEADER_STATES) },
-		defaultValue: OVERLAY_HEADER_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(OVERLAY_HEADER_STATES),
 	},
 } as ArgTypes;
 

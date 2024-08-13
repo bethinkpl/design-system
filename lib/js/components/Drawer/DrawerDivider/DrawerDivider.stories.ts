@@ -28,12 +28,12 @@ const args = {
 
 const argTypes = {
 	prominence: {
-		control: { type: 'select', options: Object.values(DIVIDER_PROMINENCES) },
-		defaultValue: DIVIDER_PROMINENCES.DEFAULT,
+		control: 'select',
+		options: Object.values(DIVIDER_PROMINENCES),
 	},
 	size: {
-		control: { type: 'select', options: Object.values(DIVIDER_SIZES) },
-		defaultValue: DIVIDER_SIZES.S,
+		control: 'select',
+		options: Object.values(DIVIDER_SIZES),
 	},
 } as ArgTypes;
 

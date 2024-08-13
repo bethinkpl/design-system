@@ -1,6 +1,6 @@
 import Pagination from './Pagination.vue';
 
-import { ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Pagination',
@@ -18,25 +18,33 @@ const StoryTemplate: StoryFn<typeof Pagination> = (args, { updateArgs }) => ({
 		},
 	},
 	template: `
-			<Pagination v-bind=args @change-page="onChangePage">
+		<Pagination v-bind=args @change-page="onChangePage">
 			<template #accessory>
 				<div v-if="args.accessory" v-html="args.accessory" />
 			</template>
-			</Pagination>`,
+		</Pagination>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const argTypes = {
-	currentPage: { control: { type: 'number', min: 1 }, defaultValue: 1 },
-	forceCompact: { control: { type: 'boolean' }, defaultValue: false },
-	isCentered: { control: { type: 'boolean' }, defaultValue: false },
-	itemsPerPage: { control: { type: 'number', min: 1 }, defaultValue: 30 },
-	itemsTotalAmount: { control: { type: 'number', min: 1 }, defaultValue: 600 },
-	accessory: { control: { type: 'text' }, defaultValue: 'accessory slot' },
+	currentPage: { control: { type: 'number', min: 1 } },
+	forceCompact: { control: 'boolean' },
+	isCentered: { control: 'boolean' },
+	itemsPerPage: { control: { type: 'number', min: 1 } },
+	itemsTotalAmount: { control: { type: 'number', min: 1 } },
+	accessory: { control: 'text' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
+Interactive.args = {
+	currentPage: 1,
+	forceCompact: false,
+	isCentered: false,
+	itemsPerPage: 30,
+	itemsTotalAmount: 600,
+	accessory: 'accessory slot',
+} as Args;
 
 Interactive.parameters = {
 	design: {

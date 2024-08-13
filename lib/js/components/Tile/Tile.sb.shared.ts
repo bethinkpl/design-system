@@ -34,23 +34,24 @@ export const args = {
 	state: TILE_STATES.DEFAULT,
 	eyebrowEllipsis: true,
 	textEllipsis: true,
+	color: TILE_COLORS.NEUTRAL,
 } as Args;
 
 export const argTypes = {
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	color: {
-		control: { type: 'select', options: [...Object.values(TILE_COLORS)] },
-		defaultValue: TILE_COLORS.NEUTRAL,
+		control: 'select',
+		options: [...Object.values(TILE_COLORS)],
 	},
 	state: {
-		control: { type: 'select', options: [...Object.values(TILE_STATES)] },
-		defaultValue: TILE_STATES.DEFAULT,
+		control: 'select',
+		options: [...Object.values(TILE_STATES)],
 	},
 } as ArgTypes;

@@ -63,14 +63,14 @@ const args = {
 
 const argTypes = {
 	rightColumnSize: {
-		control: { type: 'select', options: Object.values(THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE) },
-		defaultValue: THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
+		control: 'select',
+		options: Object.values(THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE),
 	},
-	leftColumnVisible: { control: { type: 'boolean' } },
-	rightColumnVisible: { control: { type: 'boolean' } },
-	initialMobileRightColumnVisibleState: { control: { type: 'boolean' } },
-	initialMobileLeftColumnVisibleState: { control: { type: 'boolean' } },
-	contentWithoutPadding: { control: { type: 'boolean' } },
+	leftColumnVisible: { control: 'boolean' },
+	rightColumnVisible: { control: 'boolean' },
+	initialMobileRightColumnVisibleState: { control: 'boolean' },
+	initialMobileLeftColumnVisibleState: { control: 'boolean' },
+	contentWithoutPadding: { control: 'boolean' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

@@ -62,11 +62,11 @@ const args = {
 	supportingText:
 		'Supporting text. Et doloribus aspernatur suscipit provident maiores. Natus natus et pariatur. Eligendi illo quo esse. Tenetur ad neque veniam.',
 	eyebrow: 'eyebrow text',
-	iconLeft: ICONS.FA_PLAY,
-	iconLeftColor: null,
-	iconRight: ICONS.FA_BOOK,
-	iconRightColor: null,
-	info: true,
+	iconLeft: null,
+	iconLeftColor: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+	iconRight: null,
+	iconRightColor: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+	info: false,
 	hasDivider: true,
 	isExpandable: false,
 	isExpanded: false,
@@ -76,41 +76,36 @@ const args = {
 
 const argTypes = {
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconLeftColor: {
-		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
-		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+		control: 'select',
+		options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRightColor: {
-		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
-		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+		control: 'select',
+		options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)],
 	},
 	size: {
-		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
-		defaultValue: SECTION_HEADER_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(SECTION_HEADER_SIZES),
 	},
 	hasDivider: {
-		control: { type: 'boolean' },
-		defaultValue: true,
+		control: 'boolean',
 	},
 	info: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 	mobileLayout: {
-		control: {
-			type: 'select',
-			options: Object.values(SECTION_HEADER_MOBILE_LAYOUTS),
-			defaultValue: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
-		},
+		control: 'select',
+		options: Object.values(SECTION_HEADER_MOBILE_LAYOUTS),
 	},
-	titleEllipsis: { control: { type: 'boolean' }, defaultValue: false },
+	titleEllipsis: { control: 'boolean' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

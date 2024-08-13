@@ -1,4 +1,4 @@
-import { ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import Well from './Well.vue';
 import { WELL_PADDINGS } from './Well.consts';
 
@@ -19,17 +19,19 @@ export const Interactive = StoryTemplate.bind({});
 
 const argTypes = {
 	padding: {
-		control: { type: 'select', options: [null, ...Object.values(WELL_PADDINGS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.values(WELL_PADDINGS)],
 	},
 	content: {
-		control: { type: 'text' },
-		defaultValue:
-			'<h3 style="margin-top: 0">Content</h3>' +
-			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+		control: 'text',
 	},
 } as ArgTypes;
-
+Interactive.args = {
+	padding: null,
+	content:
+		'<h3 style="margin-top: 0">Content</h3>' +
+		'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+} as Args;
 Interactive.argTypes = argTypes;
 
 Interactive.parameters = {

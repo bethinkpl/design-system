@@ -66,16 +66,20 @@ const args = {
 
 const argTypes = {
 	iconOff: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconOn: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	size: {
-		control: { type: 'select', options: Object.values(SELECT_LIST_ITEM_SIZES) },
+		control: 'select',
+		options: Object.values(SELECT_LIST_ITEM_SIZES),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(SELECT_LIST_ITEM_STATES) },
+		control: 'select',
+		options: Object.values(SELECT_LIST_ITEM_STATES),
 	},
 } as ArgTypes;
 

@@ -4,7 +4,6 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
 	PROGRESS_DONUT_CHART_RANGE_COLORS,
 	PROGRESS_DONUT_CHART_STATES,
-	ProgressDonutChartRange,
 } from './ProgressDonutChart.consts';
 
 export default {
@@ -49,14 +48,14 @@ const args = {
 
 const argTypes = {
 	label: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	state: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(PROGRESS_DONUT_CHART_STATES),
 	},
 	ranges: {
-		control: { type: 'object' },
+		control: 'object',
 	},
 } as ArgTypes;
 

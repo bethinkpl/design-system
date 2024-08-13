@@ -58,24 +58,28 @@ const args = {
 	color: CHIP_COLORS.NEUTRAL,
 	colorHex: '',
 	isRemovable: false,
+	state: CHIP_STATES.DEFAULT,
 } as Args;
 const argTypes = {
 	leftIcon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	size: {
-		control: { type: 'select', options: Object.values(CHIP_SIZES) },
+		control: 'select',
+		options: Object.values(CHIP_SIZES),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(CHIP_COLORS) },
+		control: 'select',
+		options: Object.values(CHIP_COLORS),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(CHIP_STATES) },
-		defaultValue: CHIP_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(CHIP_STATES),
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(CHIP_RADIUSES) },
-		defaultValue: CHIP_RADIUSES.CAPSULE,
+		control: 'select',
+		options: Object.values(CHIP_RADIUSES),
 	},
 } as ArgTypes;
 

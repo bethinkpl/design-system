@@ -28,7 +28,7 @@ export const Interactive = StoryTemplate.bind({});
 
 Interactive.argTypes = argTypes(RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE);
 
-Interactive.args = args;
+Interactive.args = args(RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE);
 
 Interactive.parameters = {
 	actions: {

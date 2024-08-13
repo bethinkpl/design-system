@@ -70,20 +70,21 @@ const args = {
 			standalone: true,
 		},
 	],
+	state: SURVEY_QUESTION_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
-	elaborationValue: { control: { type: 'text' } },
+	elaborationValue: { control: 'text' },
 	selectedValue: { control: false },
-	explanation: { control: { type: 'text' } },
+	explanation: { control: 'text' },
 	containers: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(SURVEY_QUESTION_SCALE_CONTAINERS),
 	},
-	scaleOptions: { control: { type: 'object' } },
+	scaleOptions: { control: 'object' },
 	state: {
-		control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) },
-		defaultValue: SURVEY_QUESTION_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(SURVEY_QUESTION_STATES),
 	},
 } as ArgTypes;
 
@@ -133,7 +134,7 @@ export const LimitedWidth = StoryLimitedWidthTemplate.bind({});
 LimitedWidth.argTypes = {
 	...argTypesDisabled,
 	containers: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(SURVEY_QUESTION_SCALE_CONTAINERS),
 	},
 } as ArgTypes;
@@ -201,7 +202,7 @@ export const SevenOptions = StorySevenOptionsTemplate.bind({});
 SevenOptions.argTypes = {
 	...argTypesDisabled,
 	containers: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(SURVEY_QUESTION_SCALE_CONTAINERS),
 	},
 } as ArgTypes;

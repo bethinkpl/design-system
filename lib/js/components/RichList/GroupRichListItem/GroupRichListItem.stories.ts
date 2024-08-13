@@ -61,62 +61,62 @@ const args = {
 const argTypes = {
 	borderColor: {
 		options: [null, ...Object.values(GROUP_RICH_LIST_ITEM_BORDER_COLOR)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 	borderColorHex: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	backgroundColor: {
 		options: Object.values(GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR),
-		control: { type: 'select' },
+		control: 'select',
 	},
 
 	parent_state: {
 		options: Object.values(RICH_LIST_ITEM_STATE),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	parent_size: {
 		options: Object.values(RICH_LIST_ITEM_SIZE),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	parent_iconColor: {
 		options: Object.values(ICON_COLORS),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	parent_icon: {
 		options: [null, ...Object.keys(ICONS)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 	parent_iconColorHex: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	parent_elevation: {
 		options: [null, ...Object.values(RICH_LIST_ITEM_ELEVATION)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 
 	child_state: {
 		options: Object.values(RICH_LIST_ITEM_STATE),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	child_size: {
 		options: Object.values(RICH_LIST_ITEM_SIZE),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	child_iconColor: {
 		options: Object.values(ICON_COLORS),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	child_icon: {
 		options: [null, ...Object.keys(ICONS)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 	child_iconColorHex: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	child_elevation: {
 		options: [null, ...Object.values(RICH_LIST_ITEM_ELEVATION)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 } as ArgTypes;
 

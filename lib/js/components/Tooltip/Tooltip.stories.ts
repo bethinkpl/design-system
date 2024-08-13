@@ -44,8 +44,8 @@ const args = {
 
 const argTypes = {
 	placement: {
-		control: { type: 'select', options: Object.values(TOOLTIP_PLACEMENTS) },
-		defaultValue: TOOLTIP_PLACEMENTS.BOTTOM,
+		control: 'select',
+		options: Object.values(TOOLTIP_PLACEMENTS),
 	},
 } as ArgTypes;
 

@@ -55,15 +55,15 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args, { updateArgs }) => (
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	size: SECTION_HEADER_SIZES.XX_SMALL,
+	size: SECTION_HEADER_SIZES.MEDIUM,
 	title: 'Drawer Section Header',
 	titleEllipsis: false,
 	supportingText: '',
 	eyebrow: '',
 	iconLeft: null,
-	iconLeftColor: null,
+	iconLeftColor: SECTION_HEADER_ICON_COLORS.NEUTRAL,
 	iconRight: null,
-	iconRightColor: null,
+	iconRightColor: SECTION_HEADER_ICON_COLORS.NEUTRAL,
 	info: false,
 	hasDivider: true,
 	isExpandable: false,
@@ -72,32 +72,30 @@ const args = {
 
 const argTypes = {
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconLeftColor: {
-		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
-		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+		control: 'select',
+		options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRightColor: {
-		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
-		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+		control: 'select',
+		options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)],
 	},
 	size: {
-		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
-		defaultValue: SECTION_HEADER_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(SECTION_HEADER_SIZES),
 	},
 	hasDivider: {
-		control: { type: 'boolean' },
-		defaultValue: true,
+		control: 'boolean',
 	},
 	info: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 } as ArgTypes;
 

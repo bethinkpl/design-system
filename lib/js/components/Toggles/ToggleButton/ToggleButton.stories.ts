@@ -1,9 +1,9 @@
 import ToggleButton from './ToggleButton.vue';
 import {
-	TOGGLE_BUTTON_SIZES,
 	TOGGLE_BUTTON_COLORS,
-	TOGGLE_BUTTON_RADIUSES,
 	TOGGLE_BUTTON_LABEL_SIZES,
+	TOGGLE_BUTTON_RADIUSES,
+	TOGGLE_BUTTON_SIZES,
 	TOGGLE_BUTTON_STATES,
 } from './ToggleButton.consts';
 
@@ -61,32 +61,32 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_SIZES) },
-		defaultValue: TOGGLE_BUTTON_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(TOGGLE_BUTTON_SIZES),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_COLORS) },
-		defaultValue: TOGGLE_BUTTON_COLORS.NEUTRAL,
+		control: 'select',
+		options: Object.values(TOGGLE_BUTTON_COLORS),
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_RADIUSES) },
-		defaultValue: TOGGLE_BUTTON_RADIUSES.CAPSULE,
+		control: 'select',
+		options: Object.values(TOGGLE_BUTTON_RADIUSES),
 	},
 	labelSize: {
-		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_LABEL_SIZES) },
-		defaultValue: TOGGLE_BUTTON_LABEL_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(TOGGLE_BUTTON_LABEL_SIZES),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(TOGGLE_BUTTON_STATES) },
-		defaultValue: TOGGLE_BUTTON_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(TOGGLE_BUTTON_STATES),
 	},
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 } as ArgTypes;
 

@@ -28,7 +28,7 @@ export const Interactive = StoryTemplate.bind({});
 
 Interactive.argTypes = argTypes(CHECKBOX_SIZE, CHECKBOX_STATE);
 
-Interactive.args = args;
+Interactive.args = args(CHECKBOX_SIZE, CHECKBOX_STATE);
 
 Interactive.parameters = {
 	actions: {
