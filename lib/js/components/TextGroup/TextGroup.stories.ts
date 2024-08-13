@@ -1,4 +1,4 @@
-import { Args, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsDivider from '../Divider/Divider.vue';
 import DsTextGroup from './TextGroup.vue';
 import {
@@ -103,7 +103,7 @@ Interactive.argTypes = {
 		control: 'select',
 		options: Object.values(TEXT_GROUP_STATES),
 	},
-};
+} as ArgTypes;
 
 Interactive.parameters = {
 	design: {

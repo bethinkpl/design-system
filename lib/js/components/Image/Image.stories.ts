@@ -1,4 +1,4 @@
-import { Args, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsImage from './Image.vue';
 import { IMAGE_FITS } from './Image.consts';
 
@@ -33,4 +33,4 @@ Interactive.argTypes = {
 		control: 'select',
 		options: Object.values(IMAGE_FITS),
 	},
-};
+} as ArgTypes;

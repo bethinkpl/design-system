@@ -111,34 +111,34 @@ Interactive.parameters = {
 
 const argTypesDisabled = {
 	size: {
-		control: { type: null },
+		disable: true,
 	},
 	type: {
-		control: { type: null },
+		disable: true,
 	},
 	radius: {
-		control: { type: null },
+		disable: true,
 	},
 	icon: {
-		control: { type: null },
+		disable: true,
 	},
 	color: {
-		control: { type: null },
+		disable: true,
 	},
 	colorScheme: {
-		control: { type: null },
+		disable: true,
 	},
 	elevation: {
-		control: { type: null },
+		disable: true,
 	},
 	state: {
-		control: { type: null },
+		disable: true,
 	},
 	touchable: {
-		control: { type: null },
+		disable: true,
 	},
 	default: {
-		control: { type: null },
+		disable: true,
 	},
 } as ArgTypes;
 

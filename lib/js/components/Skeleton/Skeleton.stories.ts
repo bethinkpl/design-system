@@ -1,4 +1,4 @@
-import { Args, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsSkeleton from './Skeleton.vue';
 import { SKELETON_RADIUS_SIZES } from './Skeleton.consts';
 
@@ -31,7 +31,7 @@ Interactive.argTypes = {
 		control: 'select',
 		options: Object.values(SKELETON_RADIUS_SIZES),
 	},
-};
+} as ArgTypes;
 
 Interactive.parameters = {
 	design: {

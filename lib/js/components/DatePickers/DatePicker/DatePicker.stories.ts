@@ -123,7 +123,7 @@ const argTypes = {
 		options: Object.values(DATE_PICKER_COLORS),
 	},
 	disableDates: {
-		control: 'array',
+		control: 'object',
 	},
 } as ArgTypes;
 
