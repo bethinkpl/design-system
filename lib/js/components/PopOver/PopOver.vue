@@ -25,8 +25,8 @@
 			>
 				<img v-if="headerImageUrl" class="ds-popOver__image" :src="headerImageUrl" alt="" />
 				<div class="ds-popOver__content">
-					<div v-if="titleText" class="ds-popOver__title"> {{ titleText }} </div>
-					<div v-if="subtitleText" class="ds-popOver__subtitle"> {{ subtitleText }} </div>
+					<div v-if="titleText" class="ds-popOver__title"> {{ titleText }}</div>
+					<div v-if="subtitleText" class="ds-popOver__subtitle"> {{ subtitleText }}</div>
 					<div class="ds-popOver__contentSlot" :class="{ '-ds-maxHeight': maxHeight }">
 						<slot :close="close" />
 					</div>
@@ -204,7 +204,9 @@ import {
 } from './PopOver.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'PopOver',
 	components: {
 		VuePopper,
@@ -318,5 +320,5 @@ export default {
 			this.key++;
 		},
 	},
-};
+});
 </script>

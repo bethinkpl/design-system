@@ -21,9 +21,9 @@
 							:size="iconSize"
 						/>
 						<div class="ds-sectionHeader__titleContainer">
-							<div v-if="eyebrow" class="ds-sectionHeader__eyebrow">{{
-								eyebrow
-							}}</div>
+							<div v-if="eyebrow" class="ds-sectionHeader__eyebrow"
+								>{{ eyebrow }}
+							</div>
 							<div
 								class="ds-sectionHeader__title"
 								:class="{ '-ds-ellipsis': titleEllipsis }"
@@ -348,9 +348,9 @@ import {
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import DsDivider from '../../Divider';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'SectionHeader',
 	components: {
 		DsIcon,
@@ -491,5 +491,5 @@ export default {
 			this.$emit('update:isExpanded', this.isExpandedInternal);
 		},
 	},
-};
+});
 </script>

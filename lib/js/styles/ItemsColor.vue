@@ -16,9 +16,9 @@
 
 <script lang="ts">
 import { ColorToken } from './TokenTypes';
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'ItemsColor',
 	props: {
 		items: {
@@ -26,5 +26,5 @@ export default {
 			required: true,
 		},
 	},
-};
+});
 </script>

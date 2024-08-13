@@ -228,7 +228,7 @@ $selection-control-sizes: (
 </style>
 
 <script lang="ts">
-import { PropType, toRaw } from 'vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 import {
 	SELECTION_CONTROL_SIZE,
 	SELECTION_CONTROL_STATE,
@@ -240,7 +240,7 @@ import {
 import Icon from '../../Icons/Icon/Icon.vue';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
-export default {
+export default defineComponent({
 	name: 'SelectionControl',
 	components: { Icon },
 	props: {
@@ -334,5 +334,5 @@ export default {
 			this.$emit('input:blur');
 		},
 	},
-};
+});
 </script>

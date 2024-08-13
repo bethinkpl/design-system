@@ -17,9 +17,9 @@ import {
 } from '../SelectListItem/SelectListItem.consts';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import SelectListItem from '../SelectListItem/SelectListItem.vue';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'SelectListItemToggle',
 	components: {
 		SelectListItem,
@@ -80,5 +80,5 @@ export default {
 			return this.isOn ? this.labelOn : this.labelOff;
 		},
 	},
-};
+});
 </script>

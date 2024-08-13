@@ -21,7 +21,9 @@
 		<div v-if="isExpandedInternal || !isExpandable">
 			<slot />
 		</div>
-		<div v-if="$slots.uncollapsible"><slot name="uncollapsible" /></div>
+		<div v-if="$slots.uncollapsible">
+			<slot name="uncollapsible" />
+		</div>
 	</div>
 </template>
 
@@ -33,9 +35,9 @@ import SectionHeader, {
 	SECTION_HEADER_SIZES,
 	SectionHeaderIconColor,
 } from '../../Headers/SectionHeader';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'DrawerSection',
 	components: {
 		DsSectionHeader: SectionHeader,
@@ -139,5 +141,5 @@ export default {
 			this.$emit('info-click');
 		},
 	},
-};
+});
 </script>

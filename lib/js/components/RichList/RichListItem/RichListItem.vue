@@ -437,7 +437,7 @@ import DsIcon, {
 	IconItem,
 	ICONS,
 } from '../../../components/Icons/Icon';
-import { PropType, toRaw } from 'vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
@@ -453,7 +453,7 @@ import {
 	RichListItemType,
 } from './RichListItem.consts';
 
-export default {
+export default defineComponent({
 	name: 'RichListItem',
 	components: {
 		DsCheckbox,
@@ -625,5 +625,5 @@ export default {
 			return !!this.$slots.media;
 		},
 	},
-};
+});
 </script>

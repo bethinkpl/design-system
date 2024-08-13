@@ -201,14 +201,14 @@
 
 <script lang="ts">
 import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 import {
 	OUTLINE_ITEM_BACKGROUND_COLORS,
 	OUTLINE_ITEM_SIZES,
 	OUTLINE_ITEM_STATES,
 } from './OutlineItem.consts';
 
-export default {
+export default defineComponent({
 	name: 'OutlineItem',
 	components: {
 		DsIcon,
@@ -302,5 +302,5 @@ export default {
 			return this.state === OUTLINE_ITEM_STATES.DISABLED;
 		},
 	},
-};
+});
 </script>

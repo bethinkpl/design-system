@@ -222,9 +222,9 @@ import {
 	DatePickerColors,
 	DatePickerStates,
 } from '../DatePicker/DatePicker.consts';
-import { PropType, toRaw } from 'vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'DatePickerBox',
 	components: {
 		DsIcon,
@@ -287,5 +287,5 @@ export default {
 			return this.placeholder;
 		},
 	},
-};
+});
 </script>

@@ -15,7 +15,9 @@
 <script lang="ts">
 import Divider, { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'DrawerDivider',
 	components: {
 		DsDivider: Divider,
@@ -32,5 +34,5 @@ export default {
 			validator: (value: string) => Object.values(DIVIDER_SIZES).includes(value),
 		},
 	},
-};
+});
 </script>

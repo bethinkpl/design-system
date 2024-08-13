@@ -96,7 +96,9 @@
 import DsDivider from '../../Divider';
 import { PAGE_HEADER_MOBILE_LAYOUTS } from './PageHeader.consts';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'PageHeader',
 	components: {
 		DsDivider,
@@ -125,5 +127,5 @@ export default {
 			PAGE_HEADER_MOBILE_LAYOUTS: Object.freeze(PAGE_HEADER_MOBILE_LAYOUTS),
 		};
 	},
-};
+});
 </script>

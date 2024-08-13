@@ -56,7 +56,9 @@
 <script lang="ts">
 import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from './Divider.consts';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'Divider',
 	props: {
 		isVertical: {
@@ -88,5 +90,5 @@ export default {
 			}[this.size];
 		},
 	},
-};
+});
 </script>

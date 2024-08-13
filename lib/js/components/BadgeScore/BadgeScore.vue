@@ -160,9 +160,9 @@ $badge-score-colors: (
 <script lang="ts">
 import { BADGE_SCORE_COLORS, BADGE_SCORE_SIZES } from './BadgeScore.consts';
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import {defineComponent, toRaw} from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'BadgeScore',
 	components: {
 		WnlIcon,
@@ -222,5 +222,5 @@ export default {
 			return ICON_SIZES.SMALL;
 		},
 	},
-};
+});
 </script>

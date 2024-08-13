@@ -224,7 +224,9 @@ import {
 } from './SurveyToggle.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'SurveyToggle',
 	components: {
 		DsIcon,
@@ -314,5 +316,5 @@ export default {
 			return this.hovered;
 		},
 	},
-};
+});
 </script>

@@ -226,7 +226,7 @@ import {
 	ProgressDonutChartRange,
 	ProgressDonutChartState,
 } from './ProgressDonutChart.consts';
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
 const OFFSET_IN_DEGREES_OF_TRACK_START_POINT = 90; // 90 is to set starting point at the bottom
@@ -235,7 +235,8 @@ const PROGRESS_DONUT_CHART_STROKE_WIDTH = 4; // keep consider with $progress-don
 const PROGRESS_DONUT_CHART_CIRCLE_CENTER_POINT = PROGRESS_DONUT_CHART_SIZE / 2;
 const PROGRESS_DONUT_CHART_CIRCLE_RADIUS =
 	PROGRESS_DONUT_CHART_SIZE / 2 - PROGRESS_DONUT_CHART_STROKE_WIDTH / 2;
-export default {
+
+export default defineComponent({
 	name: 'ProgressDonutChart',
 	components: {
 		DsIcon,
@@ -285,5 +286,5 @@ export default {
 			});
 		},
 	},
-};
+});
 </script>

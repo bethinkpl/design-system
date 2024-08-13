@@ -325,9 +325,9 @@ import WnlButton, {
 	BUTTON_TYPES,
 } from '../../Buttons/Button';
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'Modal',
 	components: { FeatureIcon, WnlButton, WnlIconButton },
 	props: {
@@ -493,5 +493,5 @@ export default {
 			);
 		},
 	},
-};
+});
 </script>

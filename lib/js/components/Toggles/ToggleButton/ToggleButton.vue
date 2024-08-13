@@ -410,7 +410,7 @@ $toggle-button-colors: (
 
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
-import { PropType, toRaw } from 'vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 
 import {
 	TOGGLE_BUTTON_COLORS,
@@ -427,7 +427,7 @@ import {
 import { ICON_SIZES, IconItem, ICONS, IconSize } from '../../Icons/Icon';
 import DsIcon from '../../Icons/Icon/Icon.vue';
 
-export default {
+export default defineComponent({
 	name: 'ToggleButton',
 	components: {
 		DsIcon,
@@ -530,5 +530,5 @@ export default {
 			return this.isInteractive;
 		},
 	},
-};
+});
 </script>

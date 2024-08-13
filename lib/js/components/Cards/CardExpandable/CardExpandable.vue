@@ -69,10 +69,11 @@
 </style>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import DsCard from '../Card/';
 import DsIcon, { ICON_SIZES, ICONS } from '../../../components/Icons/Icon';
 
-export default {
+export default defineComponent({
 	name: 'CardExpandable',
 	components: {
 		DsCard,
@@ -133,5 +134,5 @@ export default {
 			this.$emit('update:isExpanded', this.isExpandedInternal);
 		},
 	},
-};
+});
 </script>

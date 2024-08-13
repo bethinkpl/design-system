@@ -117,7 +117,7 @@
 </style>
 
 <script lang="ts">
-import { PropType, toRaw } from 'vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 
 import DsTile from '../../Tile';
 import { ICONS } from '../../Icons/Icon';
@@ -146,7 +146,7 @@ const FLATPICKR_POSITIONS = {
 	[DATE_PICKER_CALENDAR_POSITIONS.TOP]: 'above',
 };
 
-export default {
+export default defineComponent({
 	name: 'DatePicker',
 	components: {
 		DatePickerBox,
@@ -329,5 +329,5 @@ export default {
 			}
 		},
 	},
-};
+});
 </script>

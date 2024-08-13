@@ -14,13 +14,13 @@
 </template>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { CHECKBOX_SIZE, CHECKBOX_STATE, CheckboxSize, CheckboxState } from './Checkbox.consts';
 import SelectionControl from '../SelectionControl/SelectionControl.vue';
 import { ICONS } from '../../Icons/Icon';
 import { SELECTION_CONTROL_TYPE } from '../SelectionControl/SelectionControl.consts';
 
-export default {
+export default defineComponent({
 	name: 'Checkbox',
 	components: { SelectionControl },
 	props: {
@@ -56,5 +56,5 @@ export default {
 			ICONS: Object.freeze(ICONS),
 		};
 	},
-};
+});
 </script>

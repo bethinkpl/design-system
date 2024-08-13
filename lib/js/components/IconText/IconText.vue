@@ -124,9 +124,9 @@
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { ICON_TEXT_COLORS, ICON_TEXT_SIZES, ICON_TEXT_STATES } from './IconText.consts';
 import { Value } from '../../utils/type.utils';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'IconText',
 	components: {
 		Icon,
@@ -188,5 +188,5 @@ export default {
 			return ICON_SIZES.X_SMALL;
 		},
 	},
-};
+});
 </script>

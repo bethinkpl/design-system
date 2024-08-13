@@ -403,4 +403,3 @@ export function initializeWithDomWatcher() {
 	config.autoReplaceSvg = 'nest';
 	dom.watch();
 }
-

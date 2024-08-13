@@ -106,7 +106,9 @@
 <script lang="ts">
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'Modal',
 	components: { WnlIcon },
 	props: {
@@ -128,5 +130,5 @@ export default {
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},
-};
+});
 </script>

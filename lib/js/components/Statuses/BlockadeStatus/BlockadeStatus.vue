@@ -24,6 +24,7 @@
 
 	&.-ds-active {
 		color: $color-danger-text;
+
 		#{$self}__icon {
 			color: $color-danger-icon;
 		}
@@ -36,10 +37,11 @@
 </style>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { COURSE_BLOCKADE_ACCESS_STATUS } from '../../../consts/user';
 
-export default {
+export default defineComponent({
 	name: 'BlockadeStatus',
 	components: {
 		Icon,
@@ -76,5 +78,5 @@ export default {
 			return 'Blokada zakończona';
 		},
 	},
-};
+});
 </script>

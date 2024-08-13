@@ -226,7 +226,7 @@ $switch-transition: all $default-transition-time ease-out;
 </style>
 
 <script lang="ts">
-import { PropType, toRaw } from 'vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 import {
 	SWITCH_RADIUSES,
 	SWITCH_SIDE,
@@ -239,7 +239,7 @@ import {
 } from './Switch.consts';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../Icons/Icon';
 
-export default {
+export default defineComponent({
 	// eslint-disable-next-line vue/no-reserved-component-names
 	name: 'Switch',
 	components: {
@@ -346,5 +346,5 @@ export default {
 			this.$emit('update:selectedSide', this.currentSide);
 		},
 	},
-};
+});
 </script>

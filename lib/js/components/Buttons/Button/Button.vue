@@ -63,9 +63,9 @@ import {
 } from './Button.consts';
 
 import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	// eslint-disable-next-line vue/no-reserved-component-names
 	name: 'Button',
 	components: {
@@ -163,5 +163,5 @@ export default {
 			return ICON_SIZES.SMALL;
 		},
 	},
-};
+});
 </script>

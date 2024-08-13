@@ -27,12 +27,12 @@
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import { TypographyToken } from './TokenTypes';
 import variables from '../../styles/settings/typography/_variables-css.json';
 import { IResultJsonObject } from '../../../tools/importers/helpers/structures';
 
-export default {
+export default defineComponent({
 	name: 'ItemsTypography',
 	props: {
 		items: {
@@ -65,5 +65,5 @@ export default {
 			return result;
 		},
 	},
-};
+});
 </script>

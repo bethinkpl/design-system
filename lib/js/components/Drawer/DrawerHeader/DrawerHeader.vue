@@ -144,7 +144,7 @@ $minimal-drawer-header-height: 82px;
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 
 import Button from '../../Buttons/Button/Button.vue';
 import Divider from '../../Divider/Divider.vue';
@@ -157,7 +157,7 @@ import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import { DRAWER_HEADER_TITLE_COLORS, DrawerHeaderTitleColor } from './DrawerHeader.consts';
 
-export default {
+export default defineComponent({
 	name: 'DrawerHeader',
 	components: {
 		DsButton: Button,
@@ -225,5 +225,5 @@ export default {
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},
-};
+});
 </script>
