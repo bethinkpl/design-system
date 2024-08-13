@@ -100,6 +100,7 @@ export const parameters = {
 };
 
 setup((app) => {
+	// https://storybook.js.org/docs/get-started/frameworks/vue3-vite?renderer=vue#extending-the-vue-application
 	initializePrimeVue(app);
 	initialize();
 });
