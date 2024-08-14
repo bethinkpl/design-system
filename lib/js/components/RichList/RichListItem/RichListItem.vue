@@ -73,6 +73,7 @@
 </template>
 
 <style scoped lang="scss">
+@import '../../../../styles/settings/animations';
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/media-queries';
@@ -116,6 +117,7 @@ $rich-list-item-background-colors: (
 	justify-content: center;
 	padding: $space-4xs;
 	position: relative;
+	transition: background-color ease-in-out $default-transition-time;
 
 	@media #{breakpoint-s()} {
 		align-items: center;
