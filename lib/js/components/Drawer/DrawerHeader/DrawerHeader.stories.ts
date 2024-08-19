@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 	components: { DrawerHeader },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return {

@@ -13,7 +13,7 @@ export default {
 const StoryTemplate: StoryFn<typeof ModalDialog> = (args) => ({
 	components: { ModalDialog },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<modal-dialog :headerFeatureIcon="ICONS[headerFeatureIcon]" :danger="danger" ' +

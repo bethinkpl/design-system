@@ -10,7 +10,7 @@ export default {
 const StoryTemplate: StoryFn<typeof OutlineDivider> = (args) => ({
 	components: { OutlineDivider },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<outline-divider :prominence="prominence" :size="size" />`,

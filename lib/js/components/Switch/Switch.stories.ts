@@ -14,7 +14,7 @@ const StoryTemplate: StoryFn<typeof DsSwitch> = (args, { updateArgs }) => ({
 		Icon,
 	},
 	setup() {
-		return { ...args };
+		return args;
 	},
 	methods: {
 		onSelectedUpdated(side) {

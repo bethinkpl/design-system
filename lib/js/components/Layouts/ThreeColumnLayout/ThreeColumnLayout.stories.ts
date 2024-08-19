@@ -26,7 +26,7 @@ export default {
 const StoryTemplate: StoryFn<typeof ThreeColumnLayout> = (args) => ({
 	components: { ThreeColumnLayout },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<three-column-layout :rightColumnSize='rightColumnSize'

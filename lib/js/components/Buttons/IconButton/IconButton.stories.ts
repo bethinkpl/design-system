@@ -19,7 +19,7 @@ export default {
 const StoryTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	computed: {
 		isInverted() {
@@ -145,7 +145,7 @@ const argTypesDisabled = {
 const StoryFilledWithLabelTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</icon-button>',
@@ -163,7 +163,7 @@ FilledWithLabel.argTypes = argTypesDisabled;
 const StoryOutlinedRoundedTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.FA_CHEVRON_RIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" />',
@@ -182,7 +182,7 @@ OutlinedRounded.argTypes = argTypesDisabled;
 const StoryFilledPrimaryTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.PRIMARY" :size="ICON_BUTTON_SIZES.X_SMALL" />',
@@ -202,7 +202,7 @@ FilledPrimary.argTypes = argTypesDisabled;
 const StoryIconOnlyInfoTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.INFO" :size="ICON_BUTTON_SIZES.MEDIUM" />',
@@ -221,7 +221,7 @@ IconOnlyInfo.argTypes = argTypesDisabled;
 const StoryIconOnlyWarningTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',

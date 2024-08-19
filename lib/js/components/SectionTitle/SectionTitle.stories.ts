@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SectionTitle> = (args, { updateArgs }) => ({
 	components: { SectionTitle },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<section-title :size="size" :supporting-text="supportingText" :title-text="titleText" />`,
 });

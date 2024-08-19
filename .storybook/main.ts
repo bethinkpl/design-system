@@ -10,7 +10,6 @@ const config: StorybookConfig = {
 		'@storybook/addon-controls',
 		'@storybook/addon-storysource',
 	],
-
 	framework: {
 		name: '@storybook/vue3-vite',
 	},

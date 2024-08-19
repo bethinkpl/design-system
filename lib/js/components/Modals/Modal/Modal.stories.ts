@@ -14,7 +14,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 	components: { Modal },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +

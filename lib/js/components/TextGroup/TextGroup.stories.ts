@@ -16,7 +16,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 	components: { DsDivider, DsTextGroup },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<ds-text-group

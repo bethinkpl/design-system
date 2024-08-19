@@ -19,7 +19,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Button> = (args) => ({
 	components: { Button },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 			<div :class="{ contrastBackground: isInverted }">

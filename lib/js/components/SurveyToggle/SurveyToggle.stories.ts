@@ -16,7 +16,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SurveyToggle> = (args) => ({
 	components: { SurveyToggle },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div style="background-color:#f6f6f8"><survey-toggle :label="label"  :meaning="meaning" :content-text="contentText" :selected-icon="ICONS[selectedIcon]" :status="status" :state="state" /></div>',

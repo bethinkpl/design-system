@@ -15,7 +15,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SelectListItemToggle> = (args, { updateArgs }) => ({
 	components: { SelectListItemToggle },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 			<select-list-item-toggle

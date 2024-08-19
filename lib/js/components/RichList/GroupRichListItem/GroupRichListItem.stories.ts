@@ -140,7 +140,7 @@ const OneChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { update
 	return {
 		components: { GroupRichListItem, RichListItem, Divider },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {
@@ -221,7 +221,7 @@ const MultipleChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { u
 	return {
 		components: { GroupRichListItem, RichListItem, Divider },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {

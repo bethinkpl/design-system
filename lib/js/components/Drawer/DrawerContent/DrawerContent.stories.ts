@@ -10,7 +10,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DrawerContent> = (args) => ({
 	components: { DrawerContent },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<drawer-content>

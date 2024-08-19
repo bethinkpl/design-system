@@ -20,7 +20,7 @@ const StoryTemplate: StoryFn<{
 }> = (args) => ({
 	components: { BadgeScore },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<badge-score :color="color" :suffix="suffix" :text="text" :size="size" :icon="ICONS[icon]" :fullWidth="fullWidth" />',
@@ -70,7 +70,7 @@ Interactive.parameters = {
 const StaticStoryTemplate: StoryFn<{}> = (args) => ({
 	components: { BadgeScore },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<badge-score :color="BADGE_SCORE_COLORS.WARNING" suffix="%" text="1" :full-width="fullWidth" />',

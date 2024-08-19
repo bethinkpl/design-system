@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DrawerListItem> = (args) => ({
 	components: { DrawerListItem },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<div style="height: 300px; width: 200px;">
 		<drawer-list-item :label="label" :value-text="valueText" :state="state" />

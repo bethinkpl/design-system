@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 	components: { DsToast },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return {

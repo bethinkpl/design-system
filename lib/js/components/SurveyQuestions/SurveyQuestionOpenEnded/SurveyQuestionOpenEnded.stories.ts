@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (args, { updateArgs }) => ({
 	components: { SurveyQuestionOpenEnded },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	// TODO typing in textarea looses focus
 	template:

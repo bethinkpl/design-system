@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DrawerSection> = (args, { updateArgs }) => ({
 	components: { DrawerSection },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return {

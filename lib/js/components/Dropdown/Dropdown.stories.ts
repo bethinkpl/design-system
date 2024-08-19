@@ -17,7 +17,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 	components: { Dropdown, SelectList, SelectListItem },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
     <div style="position: relative">

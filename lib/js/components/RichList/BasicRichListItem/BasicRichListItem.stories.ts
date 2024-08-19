@@ -146,7 +146,7 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updateArgs }) => ({
 	components: { BasicRichListItem },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return {
@@ -202,7 +202,7 @@ const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updat
 	return {
 		components: { BasicRichListItem, DsImage },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {

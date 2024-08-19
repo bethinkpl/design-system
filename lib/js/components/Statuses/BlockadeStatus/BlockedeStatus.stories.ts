@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof BlockadeStatus> = (args) => ({
 	components: { BlockadeStatus },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<blockade-status :status="status" />`,
 });

@@ -18,7 +18,7 @@ export default {
 export const Mix: StoryFn<typeof SelectList> = (args) => ({
 	components: { SelectList, SelectListItem, SelectListItemDivider, SelectListItemToggle },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 			<select-list>

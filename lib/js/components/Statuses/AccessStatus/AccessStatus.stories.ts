@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof AccessStatus> = (args) => ({
 	components: { AccessStatus },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<access-status :status="status" />`,
 });

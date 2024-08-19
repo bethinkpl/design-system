@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Divider> = (args) => ({
 	components: { Divider },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<div style="height: 200px; width: 200px;">

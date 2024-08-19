@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Drawer> = (args) => ({
 	components: { Drawer },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<div style="height: 300px; width: 200px;">
 		<drawer :position="position" :sticky-header="stickyHeader" :sticky-footer="stickyFooter">

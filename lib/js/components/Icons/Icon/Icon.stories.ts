@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Icon> = (args) => ({
 	components: { Icon },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div class="sbIconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
@@ -65,7 +65,7 @@ Interactive.parameters = {
 const StoryAllIconsTemplate: StoryFn<typeof Icon> = (args) => ({
 	components: { Icon },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div class="sbIconList">' +

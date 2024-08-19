@@ -10,7 +10,7 @@ export default {
 const StoryTemplate: StoryFn<typeof CardExpandable> = (args) => ({
 	components: { CardExpandable },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 			<card-expandable :is-expander-visible="isExpanderVisible" :expander-text-collapsed="expanderTextCollapsed"

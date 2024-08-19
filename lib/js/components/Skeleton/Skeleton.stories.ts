@@ -10,7 +10,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DsSkeleton> = (args) => ({
 	components: { DsSkeleton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<div style="height: 200px; width: 300px;">

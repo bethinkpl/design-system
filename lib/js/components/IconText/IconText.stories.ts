@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof IconText> = (args) => ({
 	components: { IconText },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 			<icon-text

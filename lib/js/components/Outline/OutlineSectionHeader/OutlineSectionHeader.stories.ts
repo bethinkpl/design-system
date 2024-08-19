@@ -9,7 +9,7 @@ export default {
 const StoryTemplate: StoryFn<typeof OutlineSectionHeader> = (args) => ({
 	components: { OutlineSectionHeader },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<outline-section-header :title="title" />`,
 });

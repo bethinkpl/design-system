@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SelectListSectionTitle> = (args) => ({
 	components: { SelectList, SelectListSectionTitle },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<select-list>

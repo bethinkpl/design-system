@@ -16,7 +16,7 @@ export default {
 const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 	components: { OutlineItem, DsChip },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return {

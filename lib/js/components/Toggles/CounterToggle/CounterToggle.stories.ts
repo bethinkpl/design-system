@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof CounterToggle> = (args) => ({
 	components: { CounterToggle },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div :class="{ contrastBackground: isInverted }">' +

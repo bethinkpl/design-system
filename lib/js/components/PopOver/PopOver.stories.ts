@@ -16,7 +16,7 @@ export default {
 const StoryTemplate: StoryFn<typeof PopOver> = (args) => ({
 	components: { PopOver },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +

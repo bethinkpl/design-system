@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof PageHeader> = (args) => ({
 	components: { PageHeader },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<page-header' +

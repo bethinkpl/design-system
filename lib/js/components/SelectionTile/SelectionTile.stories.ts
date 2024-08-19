@@ -18,7 +18,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SelectionTile> = (args, { updateArgs }) => ({
 	components: { SelectionTile },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	methods: {
 		onIsSelectedUpdated(isSelected) {

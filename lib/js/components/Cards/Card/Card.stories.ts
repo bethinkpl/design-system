@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Card> = (args) => ({
 	components: { Card },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<card :header-has-padding="headerHasPadding"

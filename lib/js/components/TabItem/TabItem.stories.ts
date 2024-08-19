@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof TabItem> = (args) => ({
 	components: { TabItem },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<tab-item style="max-width: 150px" :icon="ICONS[icon]" :is-selected="isSelected" :label="label" :size="TAB_ITEM_SIZES[size]" :label-ellipsis="labelEllipsis" />',

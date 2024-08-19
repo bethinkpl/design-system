@@ -121,7 +121,7 @@ const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateAr
 	return {
 		components: { RichListItem },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {
@@ -175,7 +175,7 @@ const WithMediaStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateArgs
 	return {
 		components: { RichListItem, DsImage },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {

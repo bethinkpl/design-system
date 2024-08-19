@@ -10,7 +10,7 @@ export default {
 const StoryTemplate: StoryFn<typeof LoadingBar> = (args) => ({
 	components: { DsLoadingBar: LoadingBar },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<ds-loading-bar :size="size" :color="color" :time="time" />`,
 });

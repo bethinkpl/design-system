@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SelectListItemTile> = (args) => ({
 	components: { SelectListItemTile },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: template('select-list-item-tile'),
 	data,
@@ -36,7 +36,7 @@ Interactive.parameters = {
 const StoryStaticTemplate: StoryFn<typeof SelectListItemTile> = (args) => ({
 	components: { SelectListItemTile },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: template('select-list-item-tile'),
 	data,

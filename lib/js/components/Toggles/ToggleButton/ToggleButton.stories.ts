@@ -18,7 +18,7 @@ export default {
 const StoryTemplate: StoryFn<typeof ToggleButton> = (args) => ({
 	components: { ToggleButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return {

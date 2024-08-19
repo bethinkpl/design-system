@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof FeatureIcon> = (args) => ({
 	components: { FeatureIcon },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<feature-icon :icon="ICONS[icon]" :size="size" :color="color" :doubleBackground="doubleBackground" />',

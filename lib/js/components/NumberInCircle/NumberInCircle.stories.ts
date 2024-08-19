@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof NumberInCircle> = (args) => ({
 	components: { NumberInCircle },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<number-in-circle :index="index" :color="color" :medium="medium">{{slotText}}</number-in-circle>',

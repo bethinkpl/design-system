@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Chip> = (args) => ({
 	components: { Chip, LogoBadge },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<chip :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius" />',
@@ -25,7 +25,7 @@ const StoryTemplate: StoryFn<typeof Chip> = (args) => ({
 const StoryTemplateWithAccessory: StoryFn<typeof Chip> = (args) => ({
 	components: { Chip, LogoBadge },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<chip :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius">' +

@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
 	components: { SurveyQuestionScale },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" :containers="containers" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
@@ -114,7 +114,7 @@ const argTypesDisabled = {
 const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
 	components: { SurveyQuestionScale },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :containers="containers" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
@@ -184,7 +184,7 @@ LimitedWidth.args = {
 const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
 	components: { SurveyQuestionScale },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return { elaboration: '' };

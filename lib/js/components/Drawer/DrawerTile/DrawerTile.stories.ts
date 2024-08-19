@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DrawerTile> = (args) => ({
 	components: { DrawerTile },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: template('drawer-tile'),
 	data,

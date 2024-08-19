@@ -16,7 +16,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => ({
 	components: { SectionHeader },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return {
