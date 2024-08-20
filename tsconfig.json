@@ -3,10 +3,11 @@
     "lib/js/typings.d.ts"
   ],
   "compilerOptions": {
+    "importHelpers": true,
+    "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./lib/js",
     "esModuleInterop": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "resolveJsonModule": true,
@@ -17,24 +18,32 @@
     // Re-enable after https://github.com/vuejs/core/issues/4668 is fixed
     // "noUnusedParameters": true,
     "strictFunctionTypes": true,
-    "target": "es2019",
+    "target": "esnext",
+    "module": "esnext",
     "strictNullChecks": true,
     "paths": {
-      "design-system/lib/*": ["lib/*"]
+      "design-system/lib/*": [
+        "lib/*"
+      ]
     },
     "declaration": true,
-    "declarationDir": "dist"
+    "declarationDir": "dist",
+    "types": ["node"],
+    "lib": ["esnext", "dom", "dom.iterable", "scriptHost"],
   },
   "include": [
+    "vite.config.*",
     "lib/js/**/*.vue",
     "lib/js/**/*.ts"
   ],
   "exclude": [
     "node_modules",
-    "public"
+    "public",
+    "**/*.stories.ts",
+    "**/*.spec.ts"
   ],
   "typeRoots": [
-    "node_modules/@types",
+    "node_modules/@types"
   ]
 }
 

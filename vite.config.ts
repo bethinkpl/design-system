@@ -15,6 +15,13 @@ export default defineConfig({
 		svgLoader(),
 		dts(),
 	],
+	resolve: {
+		alias: {
+			'design-system/lib/*': resolve(__dirname, 'lib'),
+			'~design-system': resolve(__dirname),
+			'design-system': resolve(__dirname),
+		},
+	},
 	build: {
 		lib: {
 			entry: resolve(__dirname, 'lib/js/index.ts'),

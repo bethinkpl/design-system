@@ -1,6 +1,7 @@
 {
   "name": "@bethinkpl/design-system",
   "version": "24.2.1",
+  "type": "module",
   "description": "Bethink universe design-system",
   "repository": {
     "type": "git",

@@ -18,9 +18,6 @@ const config: StorybookConfig = {
 		config.resolve.alias['design-system'] = path.resolve(__dirname, '..');
 		return {
 			...config,
-			define: {
-				...(config.define || {}),
-			},
 		};
 	},
 };
