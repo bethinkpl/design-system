@@ -1,7 +1,7 @@
 module.exports = {
 	verbose: true,
-	preset: '@vue/cli-plugin-unit-jest/presets/typescript',
-	testEnvironment: 'jsdom',
+	preset: 'ts-jest',
+	testEnvironment: 'jest-environment-jsdom',
 	moduleNameMapper: {
 		'^design-system/lib/(.*)$': '<rootDir>/lib/$1',
 		'^design-system/styles/(.*)$': '<rootDir>/lib/styles/$1',
@@ -16,10 +16,16 @@ module.exports = {
 		'^.+\\.scss': '<rootDir>/lib/js/tests/emptyTransformer.ts',
 		'^.+\\.svg$': '<rootDir>/lib/js/tests/emptyTransformer.ts',
 	},
-	moduleFileExtensions: ['js', 'vue', 'json', 'ts'],
-
+	moduleFileExtensions: ['js', 'mjs', 'ts', 'json', 'vue'],
 	setupFilesAfterEnv: ['<rootDir>/lib/js/typings.d.ts', '<rootDir>/lib/js/tests/globals.ts'],
 	testEnvironmentOptions: {
 		customExportConditions: ['node', 'node-addons'],
+	},
+	globals: {
+		'vue-jest': {
+			compilerOptions: {
+				whitespace: 'preserve',
+			},
+		},
 	},
 };
