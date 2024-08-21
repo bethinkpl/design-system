@@ -11,8 +11,8 @@ export const initializePrimeVue = (app) => {
 			},
 		},
 		zIndex: {
-			tooltip: 16777271,
-		}
+			tooltip: 16777271, // keep above $z-index-modal
+		},
 	});
 
 	app.directive('pv-tooltip', Tooltip);
