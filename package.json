@@ -100,5 +100,5 @@
     "vite-plugin-dts": "^3.9.1",
     "vite-svg-loader": "^5.1.0"
   },
-  "packageManager": "yarn@1.22.1"
+  "packageManager": "yarn@3.2.4"
 }
