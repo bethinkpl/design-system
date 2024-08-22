@@ -1,6 +1,7 @@
 import { PropType } from 'vue';
 import { TILE_STATES, TileColors, TileStates } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
+
 export declare const props: {
     interactive: {
         type: BooleanConstructor;
