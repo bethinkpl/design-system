@@ -46,7 +46,7 @@ jobs:
 
       - name: Install and Build 🔧
         run: |
-          yarn install --pure-lockfile
+          yarn
           yarn build
 
       - name: Push 🚀
