@@ -59,3 +59,9 @@ export const RICH_LIST_ITEM_ELEVATION = {
 
 export type RichListItemElevation =
 	typeof RICH_LIST_ITEM_ELEVATION[keyof typeof RICH_LIST_ITEM_ELEVATION];
+export const RICH_LIST_ITEM_LAYOUT = {
+	HORIZONTAL: 'horizontal',
+	VERTICAL: 'vertical',
+} as const;
+
+export type RichListItemLayout = typeof RICH_LIST_ITEM_LAYOUT[keyof typeof RICH_LIST_ITEM_LAYOUT];

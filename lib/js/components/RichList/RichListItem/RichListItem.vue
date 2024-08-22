@@ -35,19 +35,18 @@
 				<slot name="content" />
 			</div>
 			<div class="ds-richListItem__rightContainer">
-				<div v-if="$slots.metadata" class="ds-richListItem__metadata -ds-hideOnMobile">
+				<div v-if="$slots.metadata && isHorizontal" class="ds-richListItem__metadata">
 					<slot name="metadata" />
 				</div>
 				<div v-if="$slots.actions" class="ds-richListItem__actionSlot" @click.stop>
 					<ds-divider
-						v-if="$slots.actions && hasActionsSlotDivider"
+						v-if="$slots.actions && hasActionsSlotDivider && isHorizontal"
 						is-vertical
-						class="-ds-hideOnMobile"
 					/>
 					<slot name="actions" />
 				</div>
 				<div v-if="isSelectable" class="ds-richListItem__checkbox">
-					<ds-divider is-vertical class="-ds-hideOnMobile" />
+					<ds-divider v-if="isHorizontal" is-vertical />
 					<ds-checkbox
 						:is-selected="isSelected"
 						@update:is-selected="$emit('update:is-selected', $event)"
@@ -57,10 +56,7 @@
 			</div>
 		</div>
 
-		<div
-			v-if="$slots.metadata"
-			class="ds-richListItem__metadata -ds-dimmable -ds-visibleOnMobile"
-		>
+		<div v-if="$slots.metadata && isVertical" class="ds-richListItem__metadata -ds-dimmable">
 			<slot name="metadata" />
 		</div>
 		<div
@@ -108,20 +104,143 @@ $rich-list-item-background-colors: (
 		}
 	}
 
-	align-items: flex-start;
 	cursor: default;
 	display: flex;
 	flex: 1;
-	flex-direction: column;
-	justify-content: center;
-	padding: $space-4xs;
 	position: relative;
 
-	@media #{breakpoint-s()} {
+	&.-ds-horizontal {
 		align-items: center;
 		flex-direction: initial;
 		justify-content: initial;
 		padding: 0 $space-4xs;
+
+		#{$root}__container {
+			align-self: initial;
+		}
+
+		#{$root}__dragAndDrop,
+		#{$root}__iconWrapper {
+			align-items: center;
+			padding: $space-3xs $space-3xs $space-3xs $space-s;
+		}
+
+		#{$root}__content {
+			padding: 0 $space-4xs 0 $space-2xs;
+		}
+
+		#{$root}__metadata {
+			justify-content: flex-start;
+			padding-left: $space-4xs;
+		}
+
+		#{$root}__rightContainer {
+			align-items: center;
+			justify-content: initial;
+			padding: $space-xs 0;
+		}
+
+		#{$root}__actionSlot {
+			align-items: center;
+			justify-content: initial;
+			padding: 0 $space-4xs;
+		}
+
+		#{$root}__checkbox {
+			align-items: center;
+			padding: 0 $space-s 0 $space-4xs;
+		}
+
+		&.-ds-small {
+			padding: 0 $space-4xs 0 0;
+
+			#{$root}__dragAndDrop,
+			#{$root}__iconWrapper {
+				padding: $space-3xs 0 $space-3xs $space-xs;
+			}
+
+			#{$root}__checkbox {
+				gap: $space-xs;
+				padding: 0 $space-xs 0 $space-4xs;
+			}
+
+			#{$root}__rightContainer {
+				padding: $space-2xs 0;
+			}
+
+			#{$root}__actionSlot {
+				padding: 0 $space-4xs;
+			}
+
+			#{$root}__metadata {
+				justify-content: flex-start;
+				padding-left: $space-4xs;
+			}
+		}
+	}
+
+	&.-ds-vertical {
+		align-items: flex-start;
+		flex-direction: column;
+		justify-content: center;
+		padding: $space-4xs;
+
+		#{$root}__container {
+			align-self: stretch;
+		}
+
+		#{$root}__dragAndDrop,
+		#{$root}__iconWrapper {
+			align-items: flex-start;
+			padding: $space-xs 0 0 $space-xs;
+		}
+
+		#{$root}__content {
+			padding: 0 $space-4xs 0 $space-xs;
+		}
+
+		#{$root}__metadata {
+			padding-left: $space-xs;
+			padding-right: $space-4xs;
+		}
+
+		#{$root}__rightContainer {
+			align-items: flex-start;
+			justify-content: flex-end;
+		}
+
+		#{$root}__actionSlot {
+			align-items: flex-start;
+			justify-content: flex-end;
+			padding: $space-4xs $space-4xs 0 $space-4xs;
+		}
+
+		#{$root}__checkbox {
+			align-items: flex-start;
+			padding: $space-5xs $space-xs 0 $space-xs;
+		}
+
+		&.-ds-small {
+			padding: $space-4xs;
+
+			#{$root}__dragAndDrop,
+			#{$root}__iconWrapper {
+				padding: $space-2xs $space-4xs 0 $space-2xs;
+			}
+
+			#{$root}__checkbox {
+				gap: $space-s;
+				padding: $space-5xs $space-2xs 0 $space-2xs;
+			}
+
+			#{$root}__actionSlot {
+				padding: 0 $space-4xs 0 $space-5xs;
+			}
+
+			#{$root}__metadata {
+				padding-left: $space-2xs;
+			}
+		}
 	}
 
 	&.-ds-has-media {
@@ -230,14 +349,9 @@ $rich-list-item-background-colors: (
 
 	&__container {
 		align-items: center;
-		align-self: stretch;
 		display: flex;
 		flex: 1;
 		width: 100%;
-
-		@media #{breakpoint-s()} {
-			align-self: initial;
-		}
 	}
 
 	&__media {
@@ -248,15 +362,8 @@ $rich-list-item-background-colors: (
 
 	&__dragAndDrop,
 	&__iconWrapper {
-		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
-		padding: $space-xs 0 0 $space-xs;
-
-		@media #{breakpoint-s()} {
-			align-items: center;
-			padding: $space-3xs $space-3xs $space-3xs $space-s;
-		}
 	}
 
 	&__content {
@@ -264,81 +371,30 @@ $rich-list-item-background-colors: (
 		display: flex;
 		flex: 1 0 0;
 		min-width: 0;
-		padding: 0 $space-4xs 0 $space-xs;
-
-		@media #{breakpoint-s()} {
-			padding: 0 $space-4xs 0 $space-2xs;
-		}
 	}
 
 	&__metadata {
 		align-items: center;
 		gap: $space-xs;
-		padding-left: $space-xs;
 		padding-right: $space-4xs;
-
-		@media #{breakpoint-s()} {
-			justify-content: flex-start;
-			padding-left: $space-4xs;
-		}
-
-		&.-ds-hideOnMobile {
-			display: none;
-
-			@media #{breakpoint-s()} {
-				display: flex;
-			}
-		}
-
-		&.-ds-visibleOnMobile {
-			display: flex;
-
-			@media #{breakpoint-s()} {
-				display: none;
-			}
-		}
 	}
 
 	&__rightContainer {
-		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
-		justify-content: flex-end;
-
-		@media #{breakpoint-s()} {
-			align-items: center;
-			justify-content: initial;
-			padding: $space-xs 0;
-		}
 	}
 
 	&__actionSlot {
-		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
 		gap: $space-2xs;
-		justify-content: flex-end;
-		padding: $space-4xs $space-4xs 0 $space-4xs;
-
-		@media #{breakpoint-s()} {
-			align-items: center;
-			justify-content: initial;
-			padding: 0 $space-4xs;
-		}
 	}
 
 	&__checkbox {
-		align-items: flex-start;
 		align-self: stretch;
 		display: flex;
 		gap: $space-s;
 		justify-content: flex-end;
-		padding: $space-5xs $space-xs 0 $space-xs;
-
-		@media #{breakpoint-s()} {
-			align-items: center;
-			padding: 0 $space-s 0 $space-4xs;
-		}
 	}
 
 	&__icon {
@@ -361,68 +417,14 @@ $rich-list-item-background-colors: (
 	}
 
 	&.-ds-small {
-		padding: $space-4xs;
-
-		@media #{breakpoint-s()} {
-			padding: 0 $space-4xs 0 0;
-		}
-
-		#{$root}__dragAndDrop,
-		#{$root}__iconWrapper {
-			padding: $space-2xs $space-4xs 0 $space-2xs;
-
-			@media #{breakpoint-s()} {
-				padding: $space-3xs 0 $space-3xs $space-xs;
-			}
-		}
-
-		#{$root}__checkbox {
-			gap: $space-s;
-			padding: $space-5xs $space-2xs 0 $space-2xs;
-
-			@media #{breakpoint-s()} {
-				gap: $space-xs;
-				padding: 0 $space-xs 0 $space-4xs;
-			}
-		}
-
 		#{$root}__content {
 			align-items: center;
 			padding: 0 $space-4xs 0 $space-2xs;
 		}
 
-		#{$root}__rightContainer {
-			@media #{breakpoint-s()} {
-				padding: $space-2xs 0;
-			}
-		}
-
 		#{$root}__actionSlot {
 			gap: $space-2xs;
-			padding: 0 $space-4xs 0 $space-5xs;
-
-			@media #{breakpoint-s()} {
-				padding: 0 $space-4xs;
-			}
 		}
-
-		#{$root}__metadata {
-			padding-left: $space-2xs;
-			padding-right: $space-4xs;
-
-			@media #{breakpoint-s()} {
-				justify-content: flex-start;
-				padding-left: $space-4xs;
-			}
-		}
-	}
-}
-
-.-ds-hideOnMobile {
-	display: none;
-
-	@media #{breakpoint-s()} {
-		display: initial;
 	}
 }
 </style>
@@ -442,12 +444,14 @@ import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
 	RICH_LIST_ITEM_ELEVATION,
+	RICH_LIST_ITEM_LAYOUT,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
 	RichListItemBackgroundColor,
 	RichListItemBorderColor,
 	RichListItemElevation,
+	RichListItemLayout,
 	RichListItemSize,
 	RichListItemState,
 	RichListItemType,
@@ -464,14 +468,21 @@ export default {
 		type: {
 			type: String as PropType<RichListItemType>,
 			default: RICH_LIST_ITEM_TYPE.DEFAULT,
-			validator(type) {
+			validator(type: RichListItemType) {
 				return Object.values(RICH_LIST_ITEM_TYPE).includes(type);
+			},
+		},
+		layout: {
+			type: String as PropType<RichListItemLayout>,
+			default: RICH_LIST_ITEM_LAYOUT.HORIZONTAL,
+			validator(layout: RichListItemLayout) {
+				return Object.values(RICH_LIST_ITEM_LAYOUT).includes(layout);
 			},
 		},
 		state: {
 			type: String as PropType<RichListItemState>,
 			default: RICH_LIST_ITEM_STATE.DEFAULT,
-			validator(state) {
+			validator(state: RichListItemState) {
 				return Object.values(RICH_LIST_ITEM_STATE).includes(state);
 			},
 		},
@@ -577,6 +588,8 @@ export default {
 			return {
 				'-ds-default': this.type === RICH_LIST_ITEM_TYPE.DEFAULT,
 				'-ds-flat': this.type === RICH_LIST_ITEM_TYPE.FLAT,
+				'-ds-horizontal': this.isHorizontal,
+				'-ds-vertical': this.isVertical,
 				'-ds-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
 				'-ds-dimmed': this.isDimmed,
 				'-ds-interactive': this.isInteractive,
@@ -592,6 +605,12 @@ export default {
 				'-ds-draggable': this.isDraggable && !this.hasDraggableHandler,
 				'-ds-has-media': this.hasMedia,
 			};
+		},
+		isHorizontal() {
+			return this.layout === RICH_LIST_ITEM_LAYOUT.HORIZONTAL;
+		},
+		isVertical() {
+			return this.layout === RICH_LIST_ITEM_LAYOUT.VERTICAL;
 		},
 		iconColorClass() {
 			if (!this.iconColor || (this.iconColor && this.iconColorHex)) {
