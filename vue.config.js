@@ -18,10 +18,8 @@ module.exports = {
 	css: {
 		extract: false,
 	},
-	configureWebpack: config => {
-		config.externals = [
-			/^@?primevue\/.*$/,
-		];
+	configureWebpack: (config) => {
+		config.externals = [/^@?primevue\/.*$/];
 	},
 	chainWebpack: (config) => {
 		/**
