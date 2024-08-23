@@ -1,7 +1,10 @@
 <template>
 	<div class="ds-richListItem" :class="classList" @click="$emit('click', $event)">
+		<div v-if="hasMedia && isVertical" class="ds-richListItem__mediaVertical">
+			<slot name="media" />
+		</div>
 		<div class="ds-richListItem__container -ds-dimmable">
-			<div v-if="hasMedia" class="ds-richListItem__media">
+			<div v-if="hasMedia && isHorizontal" class="ds-richListItem__mediaHorizontal">
 				<slot name="media" />
 			</div>
 			<div v-if="isDraggable && hasDraggableHandler" class="ds-richListItem__dragAndDrop">
@@ -243,6 +246,11 @@ $rich-list-item-background-colors: (
 		}
 	}
 
+	&.-ds-verticalWithMedia {
+		padding-right: 0;
+		padding-top: 0;
+	}
+
 	&.-ds-has-media {
 		// Make sure media doesn't cover the border.
 		// If you use a dropdown in one of the slots and it's being cut,
@@ -354,10 +362,15 @@ $rich-list-item-background-colors: (
 		width: 100%;
 	}
 
-	&__media {
+	&__mediaHorizontal {
 		height: 80px;
 		margin-right: $space-3xs;
 		width: 100px;
+	}
+
+	&__mediaVertical {
+		aspect-ratio: 4 / 3;
+		overflow: hidden;
 	}
 
 	&__dragAndDrop,
@@ -589,6 +602,7 @@ export default {
 				'-ds-default': this.type === RICH_LIST_ITEM_TYPE.DEFAULT,
 				'-ds-flat': this.type === RICH_LIST_ITEM_TYPE.FLAT,
 				'-ds-horizontal': this.isHorizontal,
+				'-ds-verticalWithMedia': this.isVertical && this.hasMedia,
 				'-ds-vertical': this.isVertical,
 				'-ds-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
 				'-ds-dimmed': this.isDimmed,
