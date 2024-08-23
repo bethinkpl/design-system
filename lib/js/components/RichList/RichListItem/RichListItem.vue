@@ -1,6 +1,6 @@
 <template>
 	<div class="ds-richListItem" :class="classList" @click="$emit('click', $event)">
-		<div v-if="hasMedia && isVertical" class="ds-richListItem__mediaVertical">
+		<div v-if="hasMedia && isVertical" class="ds-richListItem__mediaVertical -ds-dimmable">
 			<slot name="media" />
 		</div>
 		<div class="ds-richListItem__container -ds-dimmable">
