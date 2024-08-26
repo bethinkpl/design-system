@@ -67,6 +67,7 @@ export default defineComponent({
 					background: 'var(--neutral-background-medium, #E5E7ED)',
 					color: 'var(--neutral-text-heavy, #343C50)',
 					borderRadius: '4px',
+					maxWidth: '200px',
 				},
 				ptOptions: {
 					mergeProps: true,
