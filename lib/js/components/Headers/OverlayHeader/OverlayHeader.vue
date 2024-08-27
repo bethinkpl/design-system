@@ -384,10 +384,10 @@ export default {
 		},
 	},
 	beforeUnmount() {
-		document.removeEventListener('keydown', this.onKeydown);
+		window.removeEventListener('keydown', this.onKeydown);
 	},
 	mounted() {
-		document.addEventListener('keydown', this.onKeydown);
+		window.addEventListener('keydown', this.onKeydown);
 	},
 	methods: {
 		onKeydown(e) {
