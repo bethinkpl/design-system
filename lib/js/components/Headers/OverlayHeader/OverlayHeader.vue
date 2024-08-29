@@ -82,7 +82,7 @@
 				@hide="isDropdownOpen = false"
 			>
 				<template #reference>
-					<icon-button
+					<ds-icon-button
 						:icon="ICONS.FA_ELLIPSIS_VERTICAL"
 						:size="ICON_BUTTON_SIZES.MEDIUM"
 						:color="ICON_BUTTON_COLORS.NEUTRAL"
@@ -101,12 +101,18 @@
 				is-vertical
 			/>
 		</template>
-		<icon-button
-			:icon="ICONS.FA_XMARK"
-			:size="ICON_BUTTON_SIZES.MEDIUM"
-			:color="ICON_BUTTON_COLORS.NEUTRAL"
-			@click="$emit('close')"
-		/>
+		<ds-tooltip
+			:is-pointer-visible="false"
+			:placement="TOOLTIP_PLACEMENTS.LEFT"
+			text="Zamknij - Q"
+		>
+			<ds-icon-button
+				:icon="ICONS.FA_XMARK"
+				:size="ICON_BUTTON_SIZES.MEDIUM"
+				:color="ICON_BUTTON_COLORS.NEUTRAL"
+				@click="$emit('close')"
+			/>
+		</ds-tooltip>
 	</div>
 </template>
 
@@ -307,10 +313,11 @@
 </style>
 
 <script lang="ts">
-import IconButton from '../../Buttons/IconButton/IconButton.vue';
+import DsIconButton from '../../Buttons/IconButton/IconButton.vue';
 import DsDivider, { DIVIDER_PROMINENCES } from '../../Divider';
 import DsDropdown, { DROPDOWN_PLACEMENTS } from '../../Dropdown';
 import DsSkeleton from '../../Skeleton';
+import DsTooltip, { TOOLTIP_PLACEMENTS } from '../../Tooltip';
 import {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
@@ -322,7 +329,7 @@ import { Value } from '../../../utils/type.utils';
 
 export default {
 	name: 'OverlayHeader',
-	components: { IconButton, DsDivider, DsDropdown, DsSkeleton },
+	components: { DsIconButton, DsDivider, DsDropdown, DsSkeleton, DsTooltip },
 	props: {
 		title: {
 			type: String,
@@ -353,9 +360,10 @@ export default {
 			},
 		},
 	},
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['close', 'titleClick'],
+	emits: {
+		close: () => true,
+		titleClick: () => true,
+	},
 	data() {
 		return {
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
@@ -367,6 +375,7 @@ export default {
 			OVERLAY_HEADER_STATES: Object.freeze(OVERLAY_HEADER_STATES),
 			DROPDOWN_PLACEMENTS: Object.freeze(DROPDOWN_PLACEMENTS),
 			isDropdownOpen: false,
+			TOOLTIP_PLACEMENTS: Object.freeze(TOOLTIP_PLACEMENTS),
 		};
 	},
 	computed: {
@@ -374,7 +383,21 @@ export default {
 			return this.state === OVERLAY_HEADER_STATES.LOADING;
 		},
 	},
+	beforeUnmount() {
+		window.removeEventListener('keydown', this.onKeydown);
+	},
+	mounted() {
+		window.addEventListener('keydown', this.onKeydown);
+	},
 	methods: {
+		onKeydown(e) {
+			switch (e.keyCode) {
+				case 81: // "Q" key
+					e.stopPropagation();
+					this.$emit('close');
+					break;
+			}
+		},
 		onTitleClick() {
 			if (this.isTitleInteractive) {
 				this.$emit('titleClick');

@@ -1,4 +1,5 @@
 // z-index positioning
 // hardcoded
+// Keep in sync with zIndex.tooltip in primevue.ts
 $z-index-modal: 16777270; // 16777271 is the highest possible value in Safari, we need to make space for elements that above modal, so -1
 $z-index-overlay: 51;
