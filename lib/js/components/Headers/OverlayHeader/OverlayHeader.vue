@@ -107,6 +107,7 @@
 			text="Zamknij - Q"
 		>
 			<ds-icon-button
+				data-test-selector="overlay-header-close-button"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"
 				:color="ICON_BUTTON_COLORS.NEUTRAL"
