@@ -186,10 +186,11 @@ $rich-list-item-background-colors: (
 		align-items: flex-start;
 		flex-direction: column;
 		justify-content: center;
-		padding: $space-4xs;
+		padding-bottom: $space-4xs;
 
 		#{$root}__container {
 			align-self: stretch;
+			padding: $space-4xs $space-4xs 0;
 		}
 
 		#{$root}__dragAndDrop,
@@ -203,8 +204,8 @@ $rich-list-item-background-colors: (
 		}
 
 		#{$root}__metadata {
-			padding-left: $space-xs;
-			padding-right: $space-4xs;
+			padding-left: $space-s;
+			padding-right: $space-2xs;
 		}
 
 		#{$root}__rightContainer {
@@ -224,8 +225,6 @@ $rich-list-item-background-colors: (
 		}
 
 		&.-ds-small {
-			padding: $space-4xs;
-
 			#{$root}__dragAndDrop,
 			#{$root}__iconWrapper {
 				padding: $space-2xs $space-4xs 0 $space-2xs;
@@ -241,7 +240,7 @@ $rich-list-item-background-colors: (
 			}
 
 			#{$root}__metadata {
-				padding-left: $space-2xs;
+				padding-left: $space-xs;
 			}
 		}
 	}
