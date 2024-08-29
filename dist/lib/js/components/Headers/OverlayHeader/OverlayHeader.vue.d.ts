@@ -1,13 +1,14 @@
-import IconButton from '../../Buttons/IconButton/IconButton.vue';
+import DsIconButton from '../../Buttons/IconButton/IconButton.vue';
 import { OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
 import { Value } from '../../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
-        IconButton: typeof IconButton;
-        DsDivider: typeof IconButton;
-        DsDropdown: typeof IconButton;
-        DsSkeleton: typeof IconButton;
+        DsIconButton: typeof DsIconButton;
+        DsDivider: typeof DsIconButton;
+        DsDropdown: typeof DsIconButton;
+        DsSkeleton: typeof DsIconButton;
+        DsTooltip: typeof DsIconButton;
     };
     props: {
         title: {
@@ -37,7 +38,10 @@ declare const _default: {
             validator(value: Value<typeof OVERLAY_HEADER_STATES>): boolean;
         };
     };
-    emits: string[];
+    emits: {
+        close: () => boolean;
+        titleClick: () => boolean;
+    };
     data(): {
         ICON_BUTTON_SIZES: Readonly<{
             readonly XX_SMALL: "xx-small";
@@ -287,11 +291,20 @@ declare const _default: {
             readonly BOTTOM_END: "bottom-end";
         }>;
         isDropdownOpen: boolean;
+        TOOLTIP_PLACEMENTS: Readonly<{
+            readonly TOP: "top";
+            readonly BOTTOM: "bottom";
+            readonly LEFT: "left";
+            readonly RIGHT: "right";
+        }>;
     };
     computed: {
         isLoading(): boolean;
     };
+    beforeUnmount(): void;
+    mounted(): void;
     methods: {
+        onKeydown(e: any): void;
         onTitleClick(): void;
     };
 };
