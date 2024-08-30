@@ -221,7 +221,7 @@ $rich-list-item-background-colors: (
 
 		#{$root}__checkbox {
 			align-items: flex-start;
-			padding: $space-5xs $space-xs 0 $space-xs;
+			padding: $space-3xs $space-xs 0 $space-xs;
 		}
 
 		&.-ds-small {
