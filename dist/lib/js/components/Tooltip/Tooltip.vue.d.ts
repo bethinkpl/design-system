@@ -36,6 +36,7 @@ declare const _default: import("vue").DefineComponent<{
             background: string;
             color: string;
             borderRadius: string;
+            maxWidth: string;
         };
         ptOptions: {
             mergeProps: boolean;
