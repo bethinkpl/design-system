@@ -14,7 +14,6 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (args) => ({
 	setup() {
 		return { args };
 	},
-
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
