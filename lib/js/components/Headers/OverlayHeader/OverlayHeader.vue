@@ -104,7 +104,7 @@
 		<ds-tooltip
 			:is-pointer-visible="false"
 			:placement="TOOLTIP_PLACEMENTS.LEFT"
-			text="Zamknij - Q"
+			text="Zamknij — Q"
 		>
 			<ds-icon-button
 				data-test-selector="overlay-header-close-button"
