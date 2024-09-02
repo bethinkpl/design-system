@@ -327,7 +327,7 @@ import {
 import { ICONS } from '../../Icons/Icon';
 import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
 import { Value } from '../../../utils/type.utils';
-import {isElementEditable} from "../../../utils/shortcut-keys";
+import { isElementEditable } from '../../../utils/shortcut-keys';
 
 export default {
 	name: 'OverlayHeader',
@@ -397,7 +397,7 @@ export default {
 				return;
 			}
 			switch (e.code) {
-				case "KeyQ": // "Q" key
+				case 'KeyQ': // "Q" key
 					e.stopPropagation();
 					this.$emit('close');
 					break;
