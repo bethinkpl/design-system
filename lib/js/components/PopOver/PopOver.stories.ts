@@ -19,9 +19,9 @@ const StoryTemplate: StoryFn<typeof PopOver> = (args) => ({
 		return { ...args };
 	},
 	template:
-		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
+		'<div style="display: flex; align-items: center; justify-content: center; height: 800px; background: var(--raw-gray-50);">' +
 		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
-		'<template #reference><span>click me!</span></template>' +
+		'<template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>' +
 		'<div>{{ definitionSlot }}</div>' +
 		'</pop-over>' +
 		'</div>',

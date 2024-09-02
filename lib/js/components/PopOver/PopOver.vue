@@ -21,6 +21,7 @@
 					'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
 					'-ds-small': size === POP_OVER_SIZES.SMALL,
 					'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
+					'-ds-visible-arrow': isPointerVisible,
 				}"
 			>
 				<img v-if="headerImageUrl" class="ds-popOver__image" :src="headerImageUrl" alt="" />
@@ -102,7 +103,11 @@
 	}
 
 	&[x-placement^='bottom'] {
-		margin-top: $space-s;
+		margin-top: $space-4xs;
+
+		&.-ds-visible-arrow {
+			margin-top: $space-s + $space-4xs;
+		}
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
@@ -116,7 +121,11 @@
 	}
 
 	&[x-placement^='top'] {
-		margin-bottom: $space-s;
+		margin-bottom: $space-4xs;
+
+		&.-ds-visible-arrow {
+			margin-bottom: $space-s + $space-4xs;
+		}
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
@@ -130,7 +139,11 @@
 	}
 
 	&[x-placement^='right'] {
-		margin-left: $space-s;
+		margin-left: $space-4xs;
+
+		&.-ds-visible-arrow {
+			margin-left: $space-s + $space-4xs;
+		}
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
@@ -144,7 +157,11 @@
 	}
 
 	&[x-placement^='left'] {
-		margin-right: $space-s;
+		margin-right: $space-4xs;
+
+		&.-ds-visible-arrow {
+			margin-right: $space-s + $space-4xs;
+		}
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
