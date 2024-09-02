@@ -327,6 +327,7 @@ import {
 import { ICONS } from '../../Icons/Icon';
 import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
 import { Value } from '../../../utils/type.utils';
+import {isElementEditable} from "../../../utils/shortcut-keys";
 
 export default {
 	name: 'OverlayHeader',
@@ -391,9 +392,12 @@ export default {
 		window.addEventListener('keydown', this.onKeydown);
 	},
 	methods: {
-		onKeydown(e) {
-			switch (e.keyCode) {
-				case 81: // "Q" key
+		onKeydown(e: KeyboardEvent) {
+			if (isElementEditable(e.target as HTMLElement | null)) {
+				return;
+			}
+			switch (e.code) {
+				case "KeyQ": // "Q" key
 					e.stopPropagation();
 					this.$emit('close');
 					break;
