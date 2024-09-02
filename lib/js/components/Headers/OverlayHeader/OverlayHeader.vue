@@ -396,8 +396,9 @@ export default {
 			if (isElementEditable(e.target as HTMLElement | null)) {
 				return;
 			}
-			switch (e.code) {
-				case 'KeyQ': // "Q" key
+			switch (e.key) {
+				case 'q':
+				case 'Q':
 					e.stopPropagation();
 					this.$emit('close');
 					break;
