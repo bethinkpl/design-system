@@ -14,6 +14,7 @@
 
 	color: $color-neutral-text;
 	padding: $space-3xs $space-xs;
+	min-height: 40px;
 
 	&.-ds-isUppercase {
 		@include info-m-extensive-bold-uppercase;
