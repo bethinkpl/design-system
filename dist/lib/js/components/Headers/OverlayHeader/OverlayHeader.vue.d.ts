@@ -304,7 +304,7 @@ declare const _default: {
     beforeUnmount(): void;
     mounted(): void;
     methods: {
-        onKeydown(e: any): void;
+        onKeydown(e: KeyboardEvent): void;
         onTitleClick(): void;
     };
 };

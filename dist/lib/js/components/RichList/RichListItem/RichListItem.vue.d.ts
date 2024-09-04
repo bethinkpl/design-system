@@ -1,6 +1,6 @@
 import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
 import { PropType } from 'vue';
-import { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemSize, RichListItemState, RichListItemType } from './RichListItem.consts';
+import { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemLayout, RichListItemSize, RichListItemState, RichListItemType } from './RichListItem.consts';
 declare const _default: {
     name: string;
     components: {
@@ -12,12 +12,17 @@ declare const _default: {
         type: {
             type: PropType<RichListItemType>;
             default: "default";
-            validator(type: any): boolean;
+            validator(type: RichListItemType): boolean;
+        };
+        layout: {
+            type: PropType<RichListItemLayout>;
+            default: "horizontal";
+            validator(layout: RichListItemLayout): boolean;
         };
         state: {
             type: PropType<RichListItemState>;
             default: "default";
-            validator(state: any): boolean;
+            validator(state: RichListItemState): boolean;
         };
         size: {
             type: PropType<RichListItemSize>;
@@ -323,6 +328,8 @@ declare const _default: {
     };
     computed: {
         classList(): any;
+        isHorizontal(): boolean;
+        isVertical(): boolean;
         iconColorClass(): string | undefined;
         iconColorStyle(): {
             color: any;

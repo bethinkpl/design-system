@@ -2,6 +2,7 @@
 	<rich-list-item
 		:size="size"
 		:type="type"
+		:layout="layout"
 		:is-interactive="isInteractive"
 		:is-draggable="isDraggable"
 		:icon="icon"
@@ -84,12 +85,14 @@ import RichListItem, {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
 	RICH_LIST_ITEM_ELEVATION,
+	RICH_LIST_ITEM_LAYOUT,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
 	RichListItemBackgroundColor,
 	RichListItemBorderColor,
 	RichListItemElevation,
+	RichListItemLayout,
 	RichListItemSize,
 	RichListItemState,
 	RichListItemType,
@@ -114,21 +117,28 @@ export default {
 		type: {
 			type: String as PropType<RichListItemType>,
 			default: RICH_LIST_ITEM_TYPE.DEFAULT,
-			validator(type) {
+			validator(type: RichListItemType) {
 				return Object.values(RICH_LIST_ITEM_TYPE).includes(type);
 			},
 		},
 		state: {
 			type: String as PropType<RichListItemState>,
 			default: RICH_LIST_ITEM_STATE.DEFAULT,
-			validator(state) {
+			validator(state: RichListItemState) {
 				return Object.values(RICH_LIST_ITEM_STATE).includes(state);
+			},
+		},
+		layout: {
+			type: String as PropType<RichListItemLayout>,
+			default: RICH_LIST_ITEM_LAYOUT.HORIZONTAL,
+			validator(layout: RichListItemLayout) {
+				return Object.values(RICH_LIST_ITEM_LAYOUT).includes(layout);
 			},
 		},
 		size: {
 			type: String as PropType<RichListItemSize>,
 			default: RICH_LIST_ITEM_SIZE.MEDIUM,
-			validator(size) {
+			validator(size: RichListItemSize) {
 				return Object.values(RICH_LIST_ITEM_SIZE).includes(size);
 			},
 		},
@@ -154,7 +164,7 @@ export default {
 		iconColor: {
 			type: String as PropType<IconColor>,
 			default: null,
-			validator(iconColor) {
+			validator(iconColor: IconColor) {
 				return Object.values(ICON_COLORS).includes(iconColor);
 			},
 		},
@@ -165,7 +175,7 @@ export default {
 		borderColor: {
 			type: String as PropType<RichListItemBorderColor>,
 			default: null,
-			validator(borderColor) {
+			validator(borderColor: RichListItemBorderColor) {
 				return Object.values(RICH_LIST_ITEM_BORDER_COLOR).includes(borderColor);
 			},
 		},
@@ -204,14 +214,14 @@ export default {
 		backgroundColor: {
 			type: String as PropType<RichListItemBackgroundColor>,
 			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
-			validator(backgroundColor) {
+			validator(backgroundColor: RichListItemBackgroundColor) {
 				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(backgroundColor);
 			},
 		},
 		elevation: {
 			type: String as PropType<RichListItemElevation>,
 			default: null,
-			validator(evolution) {
+			validator(evolution: RichListItemElevation) {
 				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(evolution);
 			},
 		},

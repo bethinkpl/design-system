@@ -14,14 +14,19 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (args) => ({
 	setup() {
 		return { args };
 	},
+	methods: {
+		onClose() {
+			console.log('OverlayHeader emitted close event');
+		},
+	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
 		};
 	},
 	template: `
-		<div style="height: 300px">
-			<overlay-header v-bind=args :dropdown-icon="ICONS[args.dropdownIcon]">
+			<div style="height: 300px">
+			<overlay-header v-bind=args :dropdown-icon="ICONS[args.dropdownIcon]" @close="onClose">
 				<template v-if="args.accessorySlot" #accessory>
 					<div style="background: var(--raw-gray-300); height: 100%">{{ args.accessorySlot }}</div>
 				</template>

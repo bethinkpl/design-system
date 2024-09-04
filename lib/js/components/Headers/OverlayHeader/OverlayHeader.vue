@@ -104,9 +104,10 @@
 		<ds-tooltip
 			:is-pointer-visible="false"
 			:placement="TOOLTIP_PLACEMENTS.LEFT"
-			text="Zamknij - Q"
+			text="Zamknij — Q"
 		>
 			<ds-icon-button
+				data-test-selector="overlay-header-close-button"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"
 				:color="ICON_BUTTON_COLORS.NEUTRAL"
@@ -326,6 +327,7 @@ import {
 import { ICONS } from '../../Icons/Icon';
 import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
 import { Value } from '../../../utils/type.utils';
+import { isElementEditable } from '../../../utils/shortcut-keys';
 import { toRaw } from 'vue';
 
 export default {
@@ -398,9 +400,13 @@ export default {
 		window.addEventListener('keydown', this.onKeydown);
 	},
 	methods: {
-		onKeydown(e) {
-			switch (e.keyCode) {
-				case 81: // "Q" key
+		onKeydown(e: KeyboardEvent) {
+			if (isElementEditable(e.target as HTMLElement | null)) {
+				return;
+			}
+			switch (e.key) {
+				case 'q':
+				case 'Q':
 					e.stopPropagation();
 					this.$emit('close');
 					break;
