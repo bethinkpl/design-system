@@ -12,7 +12,9 @@
 .ds-selectListSectionTitle {
 	@include info-m-default-regular;
 
+	align-items: center;
 	color: $color-neutral-text;
+	display: flex;
 	min-height: 40px;
 	padding: $space-3xs $space-xs;
 
