@@ -13,8 +13,8 @@
 	@include info-m-default-regular;
 
 	color: $color-neutral-text;
-	padding: $space-3xs $space-xs;
 	min-height: 40px;
+	padding: $space-3xs $space-xs;
 
 	&.-ds-isUppercase {
 		@include info-m-extensive-bold-uppercase;
