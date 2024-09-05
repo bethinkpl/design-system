@@ -59,11 +59,11 @@ const args = {
 	accessorySlot: 'accessory',
 	actionsSlot: 'actions slot',
 	dropdownSlot: 'dropdown slot',
+	dropdownIcon: 'FA_ELLIPSIS_VERTICAL',
 	eyebrowAccessorySlot: 'eyebrowAccessory',
 	titleLeadingSlot: 'leading',
 	titleTrailingSlot: 'trailing',
 	isTitleInteractive: false,
-	dropdownIcon: 'FA_ELLIPSIS_VERTICAL',
 } as Args;
 
 const argTypes = {
