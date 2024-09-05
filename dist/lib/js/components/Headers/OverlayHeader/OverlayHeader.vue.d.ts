@@ -37,6 +37,11 @@ declare const _default: {
             default: "default";
             validator(value: Value<typeof OVERLAY_HEADER_STATES>): boolean;
         };
+        dropdownIcon: {
+            type: ObjectConstructor;
+            default: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            validator(icon: any): boolean;
+        };
     };
     emits: {
         close: () => boolean;
