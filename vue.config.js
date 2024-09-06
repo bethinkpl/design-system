@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 function getDirectories(module) {
 	return fs
@@ -20,6 +21,7 @@ module.exports = {
 	},
 	configureWebpack: (config) => {
 		config.externals = [/^@?primevue\/.*$/];
+		config.plugins = [new ForkTsCheckerWebpackPlugin()];
 	},
 	chainWebpack: (config) => {
 		/**
