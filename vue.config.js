@@ -21,10 +21,7 @@ module.exports = {
 	},
 	configureWebpack: (config) => {
 		config.externals = [/^@?primevue\/.*$/];
-		config.plugins = [
-			...config.plugins,
-			new ForkTsCheckerWebpackPlugin(),
-		];
+		config.plugins = [...config.plugins, new ForkTsCheckerWebpackPlugin()];
 	},
 	chainWebpack: (config) => {
 		/**
