@@ -280,7 +280,7 @@ $button-disabled-alpha: 0.6;
 				position: absolute;
 				right: 0;
 				top: 0;
-				transform: translateZ(-1px);
+				z-index: -1;
 			}
 		}
 
