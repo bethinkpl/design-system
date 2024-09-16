@@ -103,7 +103,7 @@
 		</template>
 		<ds-tooltip
 			:is-pointer-visible="false"
-			:placement="TOOLTIP_PLACEMENTS.LEFT"
+			:placement="TOOLTIP_PLACEMENTS.BOTTOM"
 			text="Zamknij — Q"
 		>
 			<ds-icon-button
