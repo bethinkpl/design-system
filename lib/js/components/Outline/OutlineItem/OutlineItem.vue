@@ -87,6 +87,7 @@
 		align-items: flex-start;
 		column-gap: $space-2xs;
 		display: flex;
+		max-width: 100%;
 
 		&.-ds-centeredContent {
 			align-items: center;
