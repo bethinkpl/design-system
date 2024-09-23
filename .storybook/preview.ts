@@ -1,5 +1,3 @@
-import 'design-system/lib/styles/_normalize.scss';
-import 'design-system/lib/styles/design-system.scss';
 import 'design-system/lib/styles/storybook.scss';
 
 import { initialize } from 'design-system/lib/js/icons/fontawesome';
