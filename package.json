@@ -11,7 +11,6 @@
   "typings": "./dist/lib/js/index.d.ts",
   "license": "UNLICENSED",
   "engines": {
-    "yarn": "^1.22.0",
     "node": "^16.13.0 || ^18.17.0 || ^20.9.0"
   },
   "scripts": {
@@ -100,5 +99,5 @@
     "vite-plugin-dts": "^3.9.1",
     "vite-svg-loader": "^5.1.0"
   },
-  "packageManager": "yarn@1.22.1"
+  "packageManager": "yarn@3.2.4"
 }
