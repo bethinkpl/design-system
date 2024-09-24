@@ -26,11 +26,15 @@
 				:icon="iconLeft"
 				:size="ICON_SIZES.X_SMALL"
 			/>
-			<span v-if="$slots.label" class="ds-outlineItem__text">
-				<slot name="label" />
-			</span>
 			<span v-else class="ds-outlineItem__text">
 				<span class="ds-outlineItem__label" :class="{ '-ds-uppercase': isLabelUppercase }">
+					<template v-if="$slots.label">
+						<slot name="label" />
+					</template>
+					<template v-else>
+						{{ label }}
+					</template>
+
 					{{ label }}
 				</span>
 				<span v-if="additionalText" class="ds-outlineItem__additionalText">
