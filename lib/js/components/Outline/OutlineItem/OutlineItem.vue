@@ -26,9 +26,9 @@
 				:icon="iconLeft"
 				:size="ICON_SIZES.X_SMALL"
 			/>
-			<template v-if="$slots.label">
+			<span v-if="$slots.label" class="ds-outlineItem__text">
 				<slot name="label" />
-			</template>
+			</span>
 			<span v-else class="ds-outlineItem__text">
 				<span class="ds-outlineItem__label" :class="{ '-ds-uppercase': isLabelUppercase }">
 					{{ label }}
