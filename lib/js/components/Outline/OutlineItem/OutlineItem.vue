@@ -28,14 +28,12 @@
 			/>
 			<span class="ds-outlineItem__text">
 				<span class="ds-outlineItem__label" :class="{ '-ds-uppercase': isLabelUppercase }">
-					<template v-if="$slots.label">
-						<slot name="label" />
+					<template v-if="$slots.labelSlot">
+						<slot name="labelSlot" />
 					</template>
 					<template v-else>
 						{{ label }}
 					</template>
-
-					{{ label }}
 				</span>
 				<span v-if="additionalText" class="ds-outlineItem__additionalText">
 					{{ additionalText }}
