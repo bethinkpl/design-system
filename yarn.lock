@@ -2079,6 +2079,7 @@ __metadata:
     typescript: 4.6.4
     vite: ^5.4.7
     vite-plugin-checker: ^0.7.0
+    vite-plugin-css-injected-by-js: ^3.5.1
     vite-plugin-dts: ^3.9.1
     vite-svg-loader: ^5.1.0
     vue: 3.2.45
@@ -18110,6 +18111,15 @@ __metadata:
     vue-tsc:
       optional: true
   checksum: c81e1a0386199d3e028af0376d0090dcf4c7528340ba5941d3649724e877408ae9f1e22ff4f5cb3af558b87656c74ae6db8e2bf7e77ac08a8b8885c6761b39a4
+  languageName: node
+  linkType: hard
+
+"vite-plugin-css-injected-by-js@npm:^3.5.1":
+  version: 3.5.1
+  resolution: "vite-plugin-css-injected-by-js@npm:3.5.1"
+  peerDependencies:
+    vite: ">2.0.0-0"
+  checksum: 9ace1b773e5756d585301a642a8a601e541f0828c3102577d7280599a5e226f21e41dcc21fe15d492a58b6d88eef7f658eaae832dc7ebc790be450c7ab470878
   languageName: node
   linkType: hard
 
