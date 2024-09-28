@@ -96,6 +96,10 @@
 		}
 	}
 
+	&__content {
+		overflow-x: hidden;
+	}
+
 	&__index {
 		@include label-l-default-bold;
 
