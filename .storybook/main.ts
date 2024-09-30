@@ -3,6 +3,25 @@ import fs from 'fs';
 import path from 'path';
 import sass from 'sass';
 
+const cssFilePath = path.resolve(__dirname, '../public/storybook/global.css');
+const globalStylesPath = path.resolve(__dirname, '../.storybook/global.scss');
+
+const isProductionMode = () => {
+	return process.env.NODE_ENV === 'production';
+}
+
+const buildGlobalStyles = () => {
+	if (isProductionMode()) {
+		const result = sass.compile(globalStylesPath);
+
+		if (!fs.existsSync(path.resolve(__dirname, '../public/storybook'))) {
+			fs.mkdirSync(path.resolve(__dirname, '../public/storybook'), { recursive: true });
+		}
+
+		fs.writeFileSync(cssFilePath, result.css.toString(),);
+	}
+};
+
 const config: StorybookConfig = {
 	stories: ['../lib/**/*.stories.@(js|ts)'],
 	addons: [
@@ -17,21 +36,26 @@ const config: StorybookConfig = {
 		config.plugins.push(
 			{
 				name: 'scss-global-styles',
+				buildStart() {
+					buildGlobalStyles();
+				},
+				configureServer(server) {
+					server.middlewares.use((req, res, next) => {
+						if (req.originalUrl === '/global.css' && !isProductionMode()) {
+							res.setHeader('Content-Type', 'text/css');
+							res.end(sass.compile(globalStylesPath).css);
+						} else {
+							next();
+						}
+					});
+				},
 				handleHotUpdate({ file, server }) {
-					if (file.endsWith('/.storybook/global.scss')) {
+					if (file.endsWith('.scss')) {
+						buildGlobalStyles();
 						server.ws.send({
 							type: 'full-reload',
 						});
 					}
-				},
-				buildStart() {
-					const globalStylesPath = path.resolve(__dirname, '../.storybook/global.scss');
-					const result = sass.compile(globalStylesPath);
-
-					fs.writeFileSync(
-						path.resolve(__dirname, '../public/storybook/global.css'),
-						result.css.toString(),
-					);
 				},
 			}
 		);
