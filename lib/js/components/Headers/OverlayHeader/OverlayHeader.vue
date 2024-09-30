@@ -366,7 +366,7 @@ export default defineComponent({
 			},
 		},
 		dropdownIcon: {
-			type: Object as PropType<IconDefinition>,
+			type: Object,
 			default: () => ICONS.FA_ELLIPSIS_VERTICAL,
 			validator(icon) {
 				return Object.values(ICONS).includes(toRaw(icon));
