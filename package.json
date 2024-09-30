@@ -32,6 +32,7 @@
     "synchronizeTypography": "npx ts-node tools/importers/SynchronizeTypographyTokens.ts"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.25.4",
     "@fortawesome/fontawesome-svg-core": "6.4.2",
     "@fortawesome/free-brands-svg-icons": "6.4.2",
     "@fortawesome/pro-duotone-svg-icons": "6.4.2",
@@ -92,8 +93,8 @@
   },
   "dependencies": {
     "@primevue/themes": "4.0.0-rc.3",
-    "primevue": "4.0.0-rc.3",
     "@vitejs/plugin-vue": "^5.1.4",
+    "primevue": "4.0.0-rc.3",
     "vite-plugin-checker": "^0.7.0",
     "vite-plugin-dts": "^3.9.1",
     "vite-svg-loader": "^5.1.0"

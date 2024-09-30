@@ -28,7 +28,7 @@
     },
     "declaration": true,
     "declarationDir": "dist",
-    "types": ["node"],
+    "types": ["node", "jest"],
     "lib": ["esnext", "dom", "dom.iterable", "scriptHost"],
   },
   "include": [
