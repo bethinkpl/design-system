@@ -3,8 +3,8 @@ import fs from 'fs';
 import path from 'path';
 import sass from 'sass';
 
-const cssFilePath = path.resolve(__dirname, '../public/storybook/global.css');
-const globalStylesPath = path.resolve(__dirname, '../.storybook/global.scss');
+const cssFilePath = path.resolve(__dirname, '../public/storybook/preview.css');
+const previewStylesPath = path.resolve(__dirname, '../.storybook/preview.scss');
 
 const isProductionMode = () => {
 	return process.env.NODE_ENV === 'production';
@@ -23,10 +23,10 @@ const config: StorybookConfig = {
 	viteFinal: (config) => {
 		config.plugins.push(
 			{
-				name: 'scss-global-styles',
+				name: 'scss-preview-styles',
 				buildStart() {
 					if (isProductionMode()) {
-						const result = sass.compile(globalStylesPath);
+						const result = sass.compile(previewStylesPath);
 
 						if (!fs.existsSync(path.resolve(__dirname, '../public/storybook'))) {
 							fs.mkdirSync(path.resolve(__dirname, '../public/storybook'), { recursive: true });
@@ -37,9 +37,9 @@ const config: StorybookConfig = {
 				},
 				configureServer(server) {
 					server.middlewares.use((req, res, next) => {
-						if (req.originalUrl === '/global.css' && !isProductionMode()) {
+						if (req.originalUrl === '/preview.css' && !isProductionMode()) {
 							res.setHeader('Content-Type', 'text/css');
-							res.end(sass.compile(globalStylesPath).css);
+							res.end(sass.compile(previewStylesPath).css);
 						} else {
 							next();
 						}

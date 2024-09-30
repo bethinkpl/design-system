@@ -167,3 +167,5 @@ export {
 	initialize as initializeIcons,
 	initializeWithDomWatcher as initializeIconsWithDomWatcher,
 } from './icons/fontawesome';
+
+export type { IconDefinition } from './icons/fontawesome';

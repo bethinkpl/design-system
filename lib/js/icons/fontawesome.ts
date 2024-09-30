@@ -405,3 +405,5 @@ export function initializeWithDomWatcher() {
 	config.autoReplaceSvg = 'nest';
 	dom.watch();
 }
+
+export type { IconDefinition } from '@fortawesome/fontawesome-svg-core';
