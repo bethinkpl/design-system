@@ -29,8 +29,8 @@ const config: StorybookConfig = {
 					const result = sass.compile(globalStylesPath);
 
 					fs.writeFileSync(
-						path.resolve(__dirname, '../public/global.css'),
-						result.css.toString()
+						path.resolve(__dirname, '../public/storybook/global.css'),
+						result.css.toString(),
 					);
 				},
 			}
