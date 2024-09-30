@@ -4,6 +4,7 @@ import vue from '@vitejs/plugin-vue';
 import checker from 'vite-plugin-checker';
 import svgLoader from 'vite-svg-loader';
 import dts from 'vite-plugin-dts';
+import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -14,6 +15,7 @@ export default defineConfig({
 		}),
 		svgLoader(),
 		dts(),
+		cssInjectedByJsPlugin(),
 	],
 	resolve: {
 		alias: {

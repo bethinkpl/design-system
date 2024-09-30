@@ -45,9 +45,7 @@
 	</span>
 </template>
 
-<style lang="scss">
-@import '../../../../styles/components/buttons';
-</style>
+<!-- Looking for styles? These are defined in the global styles file: design-system.scss > _buttons.scss -->
 
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
