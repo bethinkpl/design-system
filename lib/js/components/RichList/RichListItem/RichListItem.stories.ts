@@ -8,6 +8,7 @@ import {
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
+	RICH_LIST_ITEM_LAYOUT,
 } from './RichListItem.consts';
 import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 import { DsImage } from '../../../index';
@@ -32,6 +33,10 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 		size: {
 			options: Object.values(RICH_LIST_ITEM_SIZE),
 			control: 'select',
+		},
+		layout: {
+			options: Object.values(RICH_LIST_ITEM_LAYOUT),
+			control: { type: 'select' },
 		},
 		state: {
 			options: Object.values(RICH_LIST_ITEM_STATE),
@@ -80,6 +85,7 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 	story.args = {
 		size: RICH_LIST_ITEM_SIZE.MEDIUM,
 		type: RICH_LIST_ITEM_TYPE.DEFAULT,
+		layout: RICH_LIST_ITEM_LAYOUT.HORIZONTAL,
 		backgroundColor: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
 		elevation: null,
 		isDimmed: false,
@@ -137,6 +143,7 @@ const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateAr
 			<rich-list-item
 				:size="size"
 				:type="type"
+				:layout="layout"
 				:is-interactive="isInteractive"
 				:is-draggable="isDraggable"
 				:icon="ICONS[icon]"
@@ -191,6 +198,7 @@ const WithMediaStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateArgs
 			<rich-list-item
 				:size="size"
 				:type="type"
+				:layout="layout"
 				:is-interactive="isInteractive"
 				:is-draggable="isDraggable"
 				:icon="ICONS[icon]"

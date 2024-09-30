@@ -1,13 +1,14 @@
-import IconButton from '../../Buttons/IconButton/IconButton.vue';
+import DsIconButton from '../../Buttons/IconButton/IconButton.vue';
 import { OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
 import { Value } from '../../../utils/type.utils';
 declare const _default: {
     name: string;
     components: {
-        IconButton: typeof IconButton;
-        DsDivider: typeof IconButton;
-        DsDropdown: typeof IconButton;
-        DsSkeleton: typeof IconButton;
+        DsIconButton: typeof DsIconButton;
+        DsDivider: typeof DsIconButton;
+        DsDropdown: typeof DsIconButton;
+        DsSkeleton: typeof DsIconButton;
+        DsTooltip: typeof DsIconButton;
     };
     props: {
         title: {
@@ -36,8 +37,16 @@ declare const _default: {
             default: "default";
             validator(value: Value<typeof OVERLAY_HEADER_STATES>): boolean;
         };
+        dropdownIcon: {
+            type: ObjectConstructor;
+            default: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            validator(icon: any): boolean;
+        };
     };
-    emits: string[];
+    emits: {
+        close: () => boolean;
+        titleClick: () => boolean;
+    };
     data(): {
         ICON_BUTTON_SIZES: Readonly<{
             readonly XX_SMALL: "xx-small";
@@ -222,6 +231,7 @@ declare const _default: {
             readonly FA_PLUS: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_PRINT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_RECTANGLE_CODE: import("@fortawesome/fontawesome-common-types").IconDefinition;
+            readonly FA_RECTANGLE_LIST: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_REPLY: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_ROTATE_LEFT: import("@fortawesome/fontawesome-common-types").IconDefinition;
             readonly FA_SHARE: import("@fortawesome/fontawesome-common-types").IconDefinition;
@@ -287,11 +297,20 @@ declare const _default: {
             readonly BOTTOM_END: "bottom-end";
         }>;
         isDropdownOpen: boolean;
+        TOOLTIP_PLACEMENTS: Readonly<{
+            readonly TOP: "top";
+            readonly BOTTOM: "bottom";
+            readonly LEFT: "left";
+            readonly RIGHT: "right";
+        }>;
     };
     computed: {
         isLoading(): boolean;
     };
+    beforeUnmount(): void;
+    mounted(): void;
     methods: {
+        onKeydown(e: KeyboardEvent): void;
         onTitleClick(): void;
     };
 };

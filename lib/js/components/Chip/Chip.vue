@@ -86,6 +86,16 @@ $chip-colors: (
 			'background': $color-fail-background,
 		),
 	),
+	'danger': (
+		'label': $color-danger-text,
+		'icon': $color-danger-icon,
+		'background': $color-danger-background,
+		'disabled': (
+			'label': $color-danger-text-disabled,
+			'icon': $color-danger-icon-disabled,
+			'background': $color-danger-background,
+		),
+	),
 	'warning': (
 		'label': $color-warning-text,
 		'icon': $color-warning-icon,
@@ -245,6 +255,7 @@ const CHIP_ICON_BUTTONS_COLOR_MAP = {
 	[CHIP_COLORS.PRIMARY]: ICON_BUTTON_COLORS.PRIMARY,
 	[CHIP_COLORS.PRIMARY_STRONG]: ICON_BUTTON_COLORS.PRIMARY,
 	[CHIP_COLORS.FAIL]: ICON_BUTTON_COLORS.FAIL,
+	[CHIP_COLORS.DANGER]: ICON_BUTTON_COLORS.DANGER,
 	[CHIP_COLORS.WARNING]: ICON_BUTTON_COLORS.WARNING,
 	[CHIP_COLORS.SUCCESS]: ICON_BUTTON_COLORS.SUCCESS,
 	[CHIP_COLORS.INFO]: ICON_BUTTON_COLORS.INFO,

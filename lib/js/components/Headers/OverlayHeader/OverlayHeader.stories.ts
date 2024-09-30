@@ -2,6 +2,7 @@ import OverlayHeader from './OverlayHeader.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
+import { ICONS } from '../../Icons/Icon';
 
 export default {
 	title: 'Components/Headers/OverlayHeader',
@@ -13,9 +14,19 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (args) => ({
 	setup() {
 		return { args };
 	},
+	methods: {
+		onClose() {
+			console.log('OverlayHeader emitted close event');
+		},
+	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+		};
+	},
 	template: `
 		<div style="height: 300px">
-			<overlay-header v-bind=args>
+			<overlay-header v-bind=args :dropdown-icon="ICONS[args.dropdownIcon]" @close="onClose">
 				<template v-if="args.accessorySlot" #accessory>
 					<div style="background: var(--raw-gray-300); height: 100%">{{ args.accessorySlot }}</div>
 				</template>
@@ -48,6 +59,7 @@ const args = {
 	accessorySlot: 'accessory',
 	actionsSlot: 'actions slot',
 	dropdownSlot: 'dropdown slot',
+	dropdownIcon: 'FA_ELLIPSIS_VERTICAL',
 	eyebrowAccessorySlot: 'eyebrowAccessory',
 	titleLeadingSlot: 'leading',
 	titleTrailingSlot: 'trailing',
@@ -64,6 +76,10 @@ const argTypes = {
 	state: {
 		control: 'select',
 		options: Object.values(OVERLAY_HEADER_STATES),
+	},
+	dropdownIcon: {
+		control: 'select',
+		options: Object.keys(ICONS),
 	},
 } as ArgTypes;
 

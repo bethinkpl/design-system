@@ -1,5 +1,6 @@
-import RichListItem, { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
+import RichListItem, { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemElevation, RichListItemLayout, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
 import { PropType } from 'vue';
+import { IconColor } from '../../Icons/Icon';
 import { TextGroupSize, TextGroupState } from '../../TextGroup';
 declare const _default: {
     name: string;
@@ -11,17 +12,22 @@ declare const _default: {
         type: {
             type: PropType<RichListItemType>;
             default: "default";
-            validator(type: any): boolean;
+            validator(type: RichListItemType): boolean;
         };
         state: {
             type: PropType<RichListItemState>;
             default: "default";
-            validator(state: any): boolean;
+            validator(state: RichListItemState): boolean;
+        };
+        layout: {
+            type: PropType<RichListItemLayout>;
+            default: "horizontal";
+            validator(layout: RichListItemLayout): boolean;
         };
         size: {
             type: PropType<RichListItemSize>;
             default: "medium";
-            validator(size: any): boolean;
+            validator(size: RichListItemSize): boolean;
         };
         isInteractive: {
             type: BooleanConstructor;
@@ -43,7 +49,7 @@ declare const _default: {
         iconColor: {
             type: PropType<string>;
             default: null;
-            validator(iconColor: any): boolean;
+            validator(iconColor: IconColor): boolean;
         };
         iconColorHex: {
             type: StringConstructor;
@@ -52,7 +58,7 @@ declare const _default: {
         borderColor: {
             type: PropType<RichListItemBorderColor>;
             default: null;
-            validator(borderColor: any): boolean;
+            validator(borderColor: RichListItemBorderColor): boolean;
         };
         borderColorHex: {
             type: StringConstructor;
@@ -89,12 +95,12 @@ declare const _default: {
         backgroundColor: {
             type: PropType<RichListItemBackgroundColor>;
             default: "neutral";
-            validator(backgroundColor: any): boolean;
+            validator(backgroundColor: RichListItemBackgroundColor): boolean;
         };
         elevation: {
             type: PropType<"small">;
             default: null;
-            validator(evolution: any): boolean;
+            validator(evolution: RichListItemElevation): boolean;
         };
         hasDraggableHandler: {
             type: BooleanConstructor;

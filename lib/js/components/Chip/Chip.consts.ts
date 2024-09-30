@@ -8,6 +8,7 @@ export const CHIP_COLORS = {
 	PRIMARY_STRONG: 'primaryStrong',
 	NEUTRAL: 'neutral',
 	FAIL: 'fail',
+	DANGER: 'danger',
 	SUCCESS: 'success',
 	INVERTED: 'inverted',
 	WARNING: 'warning',
