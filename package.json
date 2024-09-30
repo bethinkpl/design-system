@@ -91,8 +91,7 @@
     "vite-svg-loader": "^5.1.0",
     "vue": "3.2.45",
     "vue-loader": "17.0.0",
-    "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
-    "vue-tsc": "^2.0.21"
+    "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f"
   },
   "dependencies": {
     "@primevue/themes": "4.0.0-rc.3",
