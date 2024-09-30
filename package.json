@@ -8,7 +8,6 @@
   },
   "author": "nerdy@bethink.pl",
   "main": "./dist/design-system.umd.js",
-  "type": "module",
   "typings": "./dist/lib/js/index.d.ts",
   "license": "UNLICENSED",
   "engines": {
