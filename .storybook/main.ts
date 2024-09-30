@@ -10,18 +10,6 @@ const isProductionMode = () => {
 	return process.env.NODE_ENV === 'production';
 }
 
-const buildGlobalStyles = () => {
-	if (isProductionMode()) {
-		const result = sass.compile(globalStylesPath);
-
-		if (!fs.existsSync(path.resolve(__dirname, '../public/storybook'))) {
-			fs.mkdirSync(path.resolve(__dirname, '../public/storybook'), { recursive: true });
-		}
-
-		fs.writeFileSync(cssFilePath, result.css.toString(),);
-	}
-};
-
 const config: StorybookConfig = {
 	stories: ['../lib/**/*.stories.@(js|ts)'],
 	addons: [
@@ -37,7 +25,15 @@ const config: StorybookConfig = {
 			{
 				name: 'scss-global-styles',
 				buildStart() {
-					buildGlobalStyles();
+					if (isProductionMode()) {
+						const result = sass.compile(globalStylesPath);
+
+						if (!fs.existsSync(path.resolve(__dirname, '../public/storybook'))) {
+							fs.mkdirSync(path.resolve(__dirname, '../public/storybook'), { recursive: true });
+						}
+
+						fs.writeFileSync(cssFilePath, result.css.toString(),);
+					}
 				},
 				configureServer(server) {
 					server.middlewares.use((req, res, next) => {
@@ -51,7 +47,6 @@ const config: StorybookConfig = {
 				},
 				handleHotUpdate({ file, server }) {
 					if (file.endsWith('.scss')) {
-						buildGlobalStyles();
 						server.ws.send({
 							type: 'full-reload',
 						});
