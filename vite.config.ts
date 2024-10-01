@@ -32,6 +32,6 @@ export default defineConfig({
 			},
 		},
 		sourcemap: true,
-		target: 'esnext',
+		target: 'es2019',
 	},
 });

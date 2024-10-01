@@ -18,8 +18,7 @@
     // Re-enable after https://github.com/vuejs/core/issues/4668 is fixed
     // "noUnusedParameters": true,
     "strictFunctionTypes": true,
-    "target": "esnext",
-    "module": "esnext",
+    "target": "es2019",
     "strictNullChecks": true,
     "paths": {
       "design-system/lib/*": [
@@ -29,7 +28,6 @@
     "declaration": true,
     "declarationDir": "dist",
     "types": ["node", "jest"],
-    "lib": ["esnext", "dom", "dom.iterable", "scriptHost"],
   },
   "include": [
     "vite.config.*",
