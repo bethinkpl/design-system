@@ -3,30 +3,35 @@ import { SURVEY_TOGGLE_MEANINGS } from '../../SurveyToggle';
 import { SURVEY_QUESTION_SCALE_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/SurveyQuestions/SurveyQuestionScale',
 	component: SurveyQuestionScale,
 } as Meta<typeof SurveyQuestionScale>;
 
-const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
-	components: { SurveyQuestionScale },
-	setup() {
-		return args;
-	},
-	template:
-		'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" :containers="containers" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
-		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
-		'</survey-question-scale>',
-	methods: {
-		elaborationUpdate(elaborationValue) {
-			updateArgs({ elaborationValue });
+const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { SurveyQuestionScale },
+		setup() {
+			return args;
 		},
-		selectedValueUpdate(selectedValue) {
-			updateArgs({ selectedValue });
+		template:
+			'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" :containers="containers" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+			'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
+			'</survey-question-scale>',
+		methods: {
+			elaborationUpdate(elaborationValue) {
+				updateArgs({ elaborationValue });
+			},
+			selectedValueUpdate(selectedValue) {
+				updateArgs({ selectedValue });
+			},
 		},
-	},
-});
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 
@@ -112,24 +117,28 @@ const argTypesDisabled = {
 	'select-change': { control: false },
 } as ArgTypes;
 
-const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
-	components: { SurveyQuestionScale },
-	setup() {
-		return args;
-	},
-	template:
-		'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :containers="containers" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
-		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
-		'</survey-question-scale></div>',
-	methods: {
-		elaborationUpdate(elaborationValue) {
-			updateArgs({ elaborationValue });
+const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { SurveyQuestionScale },
+		setup() {
+			return args;
 		},
-		selectedValueUpdate(selectedValue) {
-			updateArgs({ selectedValue });
+		template:
+			'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :containers="containers" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+			'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
+			'</survey-question-scale></div>',
+		methods: {
+			elaborationUpdate(elaborationValue) {
+				updateArgs({ elaborationValue });
+			},
+			selectedValueUpdate(selectedValue) {
+				updateArgs({ selectedValue });
+			},
 		},
-	},
-});
+	};
+};
 
 export const LimitedWidth = StoryLimitedWidthTemplate.bind({});
 LimitedWidth.argTypes = {
@@ -184,22 +193,26 @@ LimitedWidth.args = {
 	],
 } as Args;
 
-const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args, { updateArgs }) => ({
-	components: { SurveyQuestionScale },
-	setup() {
-		return args;
-	},
-	data() {
-		return { elaboration: '' };
-	},
-	template:
-		'<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" :containers="containers" @select-change="selectedValueUpdate" />',
-	methods: {
-		selectedValueUpdate(selectedValue) {
-			updateArgs({ selectedValue });
+const StorySevenOptionsTemplate: StoryFn<typeof SurveyQuestionScale> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { SurveyQuestionScale },
+		setup() {
+			return args;
 		},
-	},
-});
+		data() {
+			return { elaboration: '' };
+		},
+		template:
+			'<survey-question-scale title="title" :scale-options="scaleOptions" elaborationLabel="elaborationLabel" :elaboration-value="elaboration" :selected-value="selectedValue" :containers="containers" @select-change="selectedValueUpdate" />',
+		methods: {
+			selectedValueUpdate(selectedValue) {
+				updateArgs({ selectedValue });
+			},
+		},
+	};
+};
 
 export const SevenOptions = StorySevenOptionsTemplate.bind({});
 SevenOptions.argTypes = {

@@ -7,51 +7,56 @@ import {
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/Headers/SectionHeader',
 	component: SectionHeader,
 } as Meta<typeof SectionHeader>;
 
-const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => ({
-	components: { SectionHeader },
-	setup() {
-		return args;
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
-	methods: {
-		onIsExpandedUpdated(isExpanded) {
-			updateArgs({
-				isExpanded,
-			});
+const StoryTemplate: StoryFn<typeof SectionHeader> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { SectionHeader },
+		setup() {
+			return args;
 		},
-	},
-	template:
-		'<section-header' +
-		' :is-expandable="isExpandable"' +
-		' :hide-slot-when-collapsed="hideSlotWhenCollapsed"' +
-		' :icon-left="ICONS[iconLeft]"' +
-		' :icon-left-color="iconLeftColor"' +
-		' :icon-right="ICONS[iconRight]"' +
-		' :icon-right-color="iconRightColor"' +
-		' :is-expanded="isExpanded"' +
-		' :size="size"' +
-		' :info="info"' +
-		' :title="title"' +
-		' :title-ellipsis="titleEllipsis"' +
-		' :eyebrow="eyebrow"' +
-		' :has-divider="hasDivider"' +
-		' :mobile-layout="mobileLayout"' +
-		' :supportingText="supportingText"' +
-		' @update:isExpanded="onIsExpandedUpdated"' +
-		'>' +
-		'<div style="border: 1px solid;">Slot content</div>' +
-		'</section-header>',
-});
+		data() {
+			return {
+				ICONS: Object.freeze(ICONS),
+			};
+		},
+		methods: {
+			onIsExpandedUpdated(isExpanded) {
+				updateArgs({
+					isExpanded,
+				});
+			},
+		},
+		template:
+			'<section-header' +
+			' :is-expandable="isExpandable"' +
+			' :hide-slot-when-collapsed="hideSlotWhenCollapsed"' +
+			' :icon-left="ICONS[iconLeft]"' +
+			' :icon-left-color="iconLeftColor"' +
+			' :icon-right="ICONS[iconRight]"' +
+			' :icon-right-color="iconRightColor"' +
+			' :is-expanded="isExpanded"' +
+			' :size="size"' +
+			' :info="info"' +
+			' :title="title"' +
+			' :title-ellipsis="titleEllipsis"' +
+			' :eyebrow="eyebrow"' +
+			' :has-divider="hasDivider"' +
+			' :mobile-layout="mobileLayout"' +
+			' :supportingText="supportingText"' +
+			' @update:isExpanded="onIsExpandedUpdated"' +
+			'>' +
+			'<div style="border: 1px solid;">Slot content</div>' +
+			'</section-header>',
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 

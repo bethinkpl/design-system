@@ -8,7 +8,7 @@ export default {
 	component: DsSwitch,
 } as Meta<typeof DsSwitch>;
 
-const StoryTemplate: StoryFn<typeof DsSwitch> = (args, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof DsSwitch> = (args) => ({
 	components: {
 		DsSwitch,
 		Icon,

@@ -3,6 +3,7 @@ import SelectionTile from './SelectionTile.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { SELECTION_TILE_STATE, SELECTION_TILE_TYPE } from './SelectionTile.consts';
 import { ICONS } from '../Icons/Icon';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/SelectionTile',
@@ -15,38 +16,42 @@ export default {
 	],
 } as Meta<typeof SelectionTile>;
 
-const StoryTemplate: StoryFn<typeof SelectionTile> = (args, { updateArgs }) => ({
-	components: { SelectionTile },
-	setup() {
-		return args;
-	},
-	methods: {
-		onIsSelectedUpdated(isSelected) {
-			updateArgs({
-				isSelected,
-			});
+const StoryTemplate: StoryFn<typeof SelectionTile> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { SelectionTile },
+		setup() {
+			return args;
 		},
-		onIconClick() {
-			alert('Klik w ikonę');
+		methods: {
+			onIsSelectedUpdated(isSelected) {
+				updateArgs({
+					isSelected,
+				});
+			},
+			onIconClick() {
+				alert('Klik w ikonę');
+			},
 		},
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
-	template: `
-		<SelectionTile
-			:title="title"
-			:supporting-text="supportingText"
-			:type="type"
-			:icon="ICONS[icon]"
-			:is-selected="isSelected"
-			:state="state"
-			@icon-click="onIconClick"
-			@update:is-selected="onIsSelectedUpdated"
-		/>`,
-});
+		data() {
+			return {
+				ICONS: Object.freeze(ICONS),
+			};
+		},
+		template: `
+			<SelectionTile
+				:title="title"
+				:supporting-text="supportingText"
+				:type="type"
+				:icon="ICONS[icon]"
+				:is-selected="isSelected"
+				:state="state"
+				@icon-click="onIconClick"
+				@update:is-selected="onIsSelectedUpdated"
+			/>`,
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 

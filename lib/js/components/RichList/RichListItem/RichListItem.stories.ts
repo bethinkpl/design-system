@@ -12,6 +12,7 @@ import {
 } from './RichListItem.consts';
 import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 import { DsImage } from '../../../index';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/RichList/RichListItem',
@@ -123,7 +124,9 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 	return story;
 };
 
-const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateArgs }) => {
+const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { RichListItem },
 		setup() {
@@ -178,7 +181,9 @@ const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateAr
 export const Interactive = InteractiveStoryTemplate.bind({});
 expandStory(Interactive);
 
-const WithMediaStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateArgs }) => {
+const WithMediaStoryTemplate: StoryFn<typeof RichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { RichListItem, DsImage },
 		setup() {

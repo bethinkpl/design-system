@@ -1,4 +1,5 @@
 import Pagination from './Pagination.vue';
+import { useArgs } from '@storybook/preview-api';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
@@ -7,23 +8,27 @@ export default {
 	component: Pagination,
 } as Meta<typeof Pagination>;
 
-const StoryTemplate: StoryFn<typeof Pagination> = (args, { updateArgs }) => ({
-	components: { Pagination },
-	setup() {
-		return { args };
-	},
-	methods: {
-		onChangePage(currentPage) {
-			updateArgs({ currentPage });
+const StoryTemplate: StoryFn<typeof Pagination> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { Pagination },
+		setup() {
+			return { args };
 		},
-	},
-	template: `
-		<Pagination v-bind=args @change-page="onChangePage">
-			<template #accessory>
-				<div v-if="args.accessory" v-html="args.accessory" />
-			</template>
-		</Pagination>`,
-});
+		methods: {
+			onChangePage(currentPage) {
+				updateArgs({ currentPage });
+			},
+		},
+		template: `
+			<Pagination v-bind=args @change-page="onChangePage">
+				<template #accessory>
+					<div v-if="args.accessory" v-html="args.accessory" />
+				</template>
+			</Pagination>`,
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 

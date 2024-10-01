@@ -8,7 +8,7 @@ export default {
 	component: SectionTitle,
 } as Meta<typeof SectionTitle>;
 
-const StoryTemplate: StoryFn<typeof SectionTitle> = (args, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof SectionTitle> = (args) => ({
 	components: { SectionTitle },
 	setup() {
 		return args;

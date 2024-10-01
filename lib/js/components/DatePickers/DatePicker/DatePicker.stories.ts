@@ -8,79 +8,84 @@ import {
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
 import DsSwitch from '../../Switch';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/DatePickers/DatePicker',
 	component: DatePicker,
 } as Meta<typeof DatePicker>;
 
-const StoryTemplate: StoryFn<typeof DatePicker> = (args, { updateArgs }) => ({
-	components: { DatePicker, DsSwitch },
-	setup() {
-		return {
-			...args,
-		};
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
-	methods: {
-		updateDate(date: Date) {
-			updateArgs({
-				date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
-			});
+const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { DatePicker, DsSwitch },
+		setup() {
+			return {
+				...args,
+			};
 		},
-	},
-	computed: {
-		formattedDate() {
-			if (!this.date) {
-				return null;
-			}
-			return new Date(this.date);
+		data() {
+			return {
+				ICONS: Object.freeze(ICONS),
+			};
 		},
-		formattedMinDate() {
-			if (!this.minDate) {
-				return null;
-			}
-			return new Date(this.minDate);
+		methods: {
+			updateDate(date: Date) {
+				updateArgs({
+					date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
+				});
+			},
 		},
-		formattedMaxDate() {
-			if (!this.maxDate) {
-				return null;
-			}
-			return new Date(this.maxDate);
+		computed: {
+			formattedDate() {
+				if (!this.date) {
+					return null;
+				}
+				return new Date(this.date);
+			},
+			formattedMinDate() {
+				if (!this.minDate) {
+					return null;
+				}
+				return new Date(this.minDate);
+			},
+			formattedMaxDate() {
+				if (!this.maxDate) {
+					return null;
+				}
+				return new Date(this.maxDate);
+			},
+			formattedDisableDates() {
+				if (!this.disableDates || !this.disableDates.length) {
+					return null;
+				}
+				return this.disableDates.map((date) => new Date(date));
+			},
 		},
-		formattedDisableDates() {
-			if (!this.disableDates || !this.disableDates.length) {
-				return null;
-			}
-			return this.disableDates.map((date) => new Date(date));
-		},
-	},
-	template: `
-		<date-picker
-			:trigger-type="triggerType"
-			:is-interactive="isInteractive"
-			:placeholder="placeholder"
-			:date="formattedDate"
-			:label="label"
-			:is-label-uppercase="isLabelUppercase"
-			:icon="icon ? ICONS[icon] : null"
-			:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
-			:calendar-position="calendarPosition"
-			:error-message="errorMessage"
-			:state="state"
-			:color="color"
-			:disable-dates="formattedDisableDates"
-			:min-date="formattedMinDate"
-			:max-date="formattedMaxDate"
-			@update:date="updateDate"
-		>
-			<ds-switch  label-left="lewa" label-right="prawa" />
-		</date-picker>`,
-});
+		template: `
+			<date-picker
+				:trigger-type="triggerType"
+				:is-interactive="isInteractive"
+				:placeholder="placeholder"
+				:date="formattedDate"
+				:label="label"
+				:is-label-uppercase="isLabelUppercase"
+				:icon="icon ? ICONS[icon] : null"
+				:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
+				:calendar-position="calendarPosition"
+				:error-message="errorMessage"
+				:state="state"
+				:color="color"
+				:disable-dates="formattedDisableDates"
+				:min-date="formattedMinDate"
+				:max-date="formattedMaxDate"
+				@update:date="updateDate"
+			>
+				<ds-switch  label-left="lewa" label-right="prawa" />
+			</date-picker>`,
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 const now = Date.now();

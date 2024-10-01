@@ -140,7 +140,9 @@ const expandStory = (story) => {
 };
 
 // # OneChild
-const OneChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { updateArgs }) => {
+const OneChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { GroupRichListItem, RichListItem, Divider },
 		setup() {
@@ -221,7 +223,9 @@ const OneChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { update
 export const OneChild = expandStory(OneChildStoryTemplate.bind({}));
 
 // # MultipleChild
-const MultipleChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { updateArgs }) => {
+const MultipleChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { GroupRichListItem, RichListItem, Divider },
 		setup() {

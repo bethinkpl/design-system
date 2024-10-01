@@ -3,54 +3,59 @@ import DrawerSection from './DrawerSection.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { SECTION_HEADER_ICON_COLORS, SECTION_HEADER_SIZES } from '../../Headers/SectionHeader';
 import { ICONS } from '../../Icons/Icon';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/Drawer/DrawerSection',
 	component: DrawerSection,
 } as Meta<typeof DrawerSection>;
 
-const StoryTemplate: StoryFn<typeof DrawerSection> = (args, { updateArgs }) => ({
-	components: { DrawerSection },
-	setup() {
-		return args;
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
-	methods: {
-		infoClicked() {
-			console.log('info clicked');
+const StoryTemplate: StoryFn<typeof DrawerSection> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { DrawerSection },
+		setup() {
+			return args;
 		},
-		isExpandedUpdated(isExpanded: boolean) {
-			updateArgs({
-				isExpanded,
-			});
+		data() {
+			return {
+				ICONS: Object.freeze(ICONS),
+			};
 		},
-	},
-	template: `
-		<drawer-section
-			:size="size"
-			:title="title"
-			:title-ellipsis="titleEllipsis"
-			:supporting-text="supportingText"
-			:eyebrow="eyebrow"
-			:icon-left="ICONS[iconLeft]"
-			:icon-left-color="iconLeftColor"
-			:icon-right="ICONS[iconRight]"
-			:icon-right-color="iconRightColor"
-			:info="info"
-			:has-divider="hasDivider"
-			:is-expandable="isExpandable"
-			:is-expanded="isExpanded"
-			@infoClick="infoClicked"
-			@update:isExpanded="isExpandedUpdated"
-		>
-			Default slot
-			<template #uncollapsible>Uncollapsible slot</template>
-		</drawer-section>`,
-});
+		methods: {
+			infoClicked() {
+				console.log('info clicked');
+			},
+			isExpandedUpdated(isExpanded: boolean) {
+				updateArgs({
+					isExpanded,
+				});
+			},
+		},
+		template: `
+			<drawer-section
+				:size="size"
+				:title="title"
+				:title-ellipsis="titleEllipsis"
+				:supporting-text="supportingText"
+				:eyebrow="eyebrow"
+				:icon-left="ICONS[iconLeft]"
+				:icon-left-color="iconLeftColor"
+				:icon-right="ICONS[iconRight]"
+				:icon-right-color="iconRightColor"
+				:info="info"
+				:has-divider="hasDivider"
+				:is-expandable="isExpandable"
+				:is-expanded="isExpanded"
+				@infoClick="infoClicked"
+				@update:isExpanded="isExpandedUpdated"
+			>
+				Default slot
+				<template #uncollapsible>Uncollapsible slot</template>
+			</drawer-section>`,
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 
