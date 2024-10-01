@@ -41,6 +41,7 @@ export const Interactive: Story = {
 
 export const Static: Story = {
 	args: {
+		...args,
 		interactive: false,
 		iconLeft: null,
 		iconRight: null,

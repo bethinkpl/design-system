@@ -39,6 +39,7 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
+	additionalText: '',
 	defaultSlot: '10 / 20',
 	size: OUTLINE_ITEM_SIZES.SMALL,
 	backgroundColor: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,

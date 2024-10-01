@@ -38,6 +38,7 @@ const args = {
 		'<h3 style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
 	containers: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
+	selectedValue: null,
 	scaleOptions: [
 		{
 			value: '1',
@@ -147,6 +148,8 @@ LimitedWidth.args = {
 		'<h3 class="modalHeader" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
 	placeholder: 'Wpisz swoją odpowiedź',
 	containers: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
+	state: SURVEY_QUESTION_STATES.DEFAULT,
+	selectedValue: null,
 	scaleOptions: [
 		{
 			value: '1',
@@ -209,6 +212,7 @@ SevenOptions.argTypes = {
 
 SevenOptions.args = {
 	containers: SURVEY_QUESTION_SCALE_CONTAINERS.ONE,
+	selectedValue: null,
 	scaleOptions: [
 		{
 			value: '1',

@@ -47,6 +47,7 @@ export const Static = StoryStaticTemplate.bind({});
 Static.argTypes = argTypes;
 
 Static.args = {
+	...args,
 	interactive: false,
 	iconLeft: null,
 	iconRight: null,

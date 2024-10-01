@@ -6,6 +6,7 @@ import RichListItem, {
 	RICH_LIST_ITEM_TYPE,
 } from '../RichListItem';
 import Divider from '../../Divider';
+import { useArgs } from '@storybook/preview-api';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
@@ -25,6 +26,7 @@ export default {
 } as Meta<typeof GroupRichListItem>;
 
 const args = {
+	isDimmed: false,
 	isExpanded: false,
 	borderColor: null,
 	borderColorHex: '',
@@ -34,6 +36,7 @@ const args = {
 	parent_size: RICH_LIST_ITEM_SIZE.MEDIUM,
 	parent_elevation: null,
 	parent_isDimmed: false,
+	parent_isDraggable: false,
 	parent_hasDraggableHandler: true,
 	parent_icon: null,
 	parent_iconColor: ICON_COLORS.NEUTRAL_WEAK,
@@ -47,6 +50,7 @@ const args = {
 	child_size: RICH_LIST_ITEM_SIZE.MEDIUM,
 	child_elevation: null,
 	child_isDimmed: false,
+	child_isDraggable: false,
 	child_hasDraggableHandler: true,
 	child_icon: null,
 	child_iconColor: ICON_COLORS.NEUTRAL_WEAK,

@@ -18,6 +18,7 @@ const config: StorybookConfig = {
 		'@storybook/addon-docs',
 		'@storybook/addon-controls',
 		'@storybook/addon-storysource',
+		'@storybook/addon-viewport',
 	],
 	staticDirs: [
 		{

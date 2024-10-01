@@ -59,6 +59,7 @@ const args = {
 	elevation: BUTTON_ELEVATIONS.NONE,
 	color: 'primary',
 	state: ICON_BUTTON_STATES.DEFAULT,
+	icon: 'FA_XMARK',
 } as Args;
 
 const argTypes = {

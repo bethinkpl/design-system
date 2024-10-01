@@ -102,6 +102,10 @@ import {
 export default defineComponent({
 	name: 'GroupRichListItem',
 	props: {
+		isDimmed: {
+			type: Boolean,
+			default: false,
+		},
 		isExpanded: {
 			type: Boolean,
 			default: false,
