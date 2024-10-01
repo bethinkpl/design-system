@@ -41,6 +41,7 @@
 			</span>
 		</div>
 		<div
+			v-if="$slots.default || isDone || iconRight"
 			class="ds-outlineItem__rightContent"
 			:class="{ '-ds-centeredContent': $slots.default }"
 		>

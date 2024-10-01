@@ -75,7 +75,7 @@ const argTypes = {
 		control: { type: 'boolean' },
 		defaultValue: false,
 	},
-	additionalText: { control: { type: 'text' } },
+	additionalText: { control: { type: 'text' }, defaultValue: '' },
 	state: {
 		control: { type: 'select', options: Object.values(OUTLINE_ITEM_STATES) },
 		defaultValue: OUTLINE_ITEM_STATES.DEFAULT,
