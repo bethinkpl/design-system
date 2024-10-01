@@ -22,7 +22,7 @@ const config: StorybookConfig = {
 	staticDirs: [
 		{
 			from: '../lib/fonts',
-			to: 'lib/fonts',
+			to: '~lib/fonts',
 		}
 	],
 	framework: '@storybook/vue3-vite',
