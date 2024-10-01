@@ -79,6 +79,9 @@ const customViewports = {
 };
 
 export const parameters = {
+	controls: {
+		disableSaveFromUI: true,
+	},
 	viewport: { viewports: customViewports },
 	options: {
 		storySort: {
