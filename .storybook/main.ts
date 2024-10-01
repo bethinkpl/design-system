@@ -19,6 +19,12 @@ const config: StorybookConfig = {
 		'@storybook/addon-controls',
 		'@storybook/addon-storysource',
 	],
+	staticDirs: [
+		{
+			from: '../lib/fonts',
+			to: 'lib/fonts',
+		}
+	],
 	framework: '@storybook/vue3-vite',
 	viteFinal: (config) => {
 		config.plugins.push(

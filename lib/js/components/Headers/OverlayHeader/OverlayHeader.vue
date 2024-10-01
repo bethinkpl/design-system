@@ -328,10 +328,9 @@ import { ICONS } from '../../Icons/Icon';
 import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
 import { Value } from '../../../utils/type.utils';
 import { isElementEditable } from '../../../utils/shortcut-keys';
-import { PropType, toRaw } from 'vue';
+import { toRaw } from 'vue';
 
 import { defineComponent } from 'vue';
-import { IconDefinition } from '@fortawesome/fontawesome-common-types';
 
 export default defineComponent({
 	name: 'OverlayHeader',
