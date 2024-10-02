@@ -30,6 +30,9 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
 									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
 									:is-selected-interactive="isSelectedInteractive">
+			<template #labelSlot v-if="labelSlot">
+				<span v-html="labelSlot" />
+			</template>
 			<template #default v-if="defaultSlot.length > 0">
 				<ds-chip :label="defaultSlot" />
 			</template>
@@ -42,6 +45,7 @@ const args = {} as Args;
 
 const argTypes = {
 	defaultSlot: { control: { type: 'text' }, defaultValue: '10 / 20' },
+	labelSlot: { control: { type: 'text' }, defaultValue: 'Outline Item label in slot' },
 	size: {
 		control: { type: 'select', options: Object.values(OUTLINE_ITEM_SIZES) },
 		defaultValue: OUTLINE_ITEM_SIZES.SMALL,
@@ -71,7 +75,7 @@ const argTypes = {
 		control: { type: 'boolean' },
 		defaultValue: false,
 	},
-	additionalText: { control: { type: 'text' } },
+	additionalText: { control: { type: 'text' }, defaultValue: '' },
 	state: {
 		control: { type: 'select', options: Object.values(OUTLINE_ITEM_STATES) },
 		defaultValue: OUTLINE_ITEM_STATES.DEFAULT,
