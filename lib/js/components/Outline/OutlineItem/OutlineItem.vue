@@ -113,6 +113,10 @@
 
 	&__text {
 		@include label-l-default-regular; //it fixes whole component height
+
+		// To hide scrollbar in case Chrome renders __label higher than line-height - there are some problems with fraction of a pixel on Retina screens
+		// https://bethinkteam.slack.com/archives/C012R8RM3A4/p1727776466931369?thread_ts=1727775029.076259&cid=C012R8RM3A4
+		overflow: hidden;
 	}
 
 	&__label {
