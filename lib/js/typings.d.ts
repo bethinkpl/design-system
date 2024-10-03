@@ -1,5 +1,3 @@
-// TypeScript compiler doesn't read webpack config so we need to tell him how interpret import Vue files
-
 declare module '*.vue' {
 	import { DefineComponent } from 'vue';
 	const component: DefineComponent;
