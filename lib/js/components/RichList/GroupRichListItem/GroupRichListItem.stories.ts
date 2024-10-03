@@ -26,7 +26,6 @@ export default {
 } as Meta<typeof GroupRichListItem>;
 
 const args = {
-	isDimmed: false,
 	isExpanded: false,
 	borderColor: null,
 	borderColorHex: '',
@@ -254,7 +253,6 @@ const MultipleChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args) => 
 		template: `
       <group-rich-list-item
         :is-expanded="isExpanded"
-        :is-dimmed="isDimmed"
         :border-color="borderColor"
         :border-color-hex="borderColorHex"
         :background-color="backgroundColor"
