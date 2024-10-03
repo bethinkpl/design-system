@@ -167,9 +167,9 @@ import {
 	SELECT_LIST_ITEM_STATES,
 } from './SelectListItem.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'SelectListItem',
 	components: {
 		DsIcon,
@@ -236,5 +236,5 @@ export default {
 			return this.state === SELECT_LIST_ITEM_STATES.DISABLED;
 		},
 	},
-};
+});
 </script>

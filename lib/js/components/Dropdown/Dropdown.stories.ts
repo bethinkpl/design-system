@@ -17,7 +17,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 	components: { Dropdown, SelectList, SelectListItem },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
     <div style="position: relative">
@@ -47,24 +47,24 @@ const args = {
 	forceShow: false,
 	sameWidth: false,
 	maxHeight: '',
+	placement: DROPDOWN_PLACEMENTS.BOTTOM_START,
 } as Args;
 
 const argTypes = {
 	triggerAction: {
-		control: { type: 'select', options: Object.values(DROPDOWN_TRIGGER_ACTIONS) },
-		defaultValue: DROPDOWN_TRIGGER_ACTIONS.CLICK,
+		control: 'select',
+		options: Object.values(DROPDOWN_TRIGGER_ACTIONS),
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(DROPDOWN_RADIUSES) },
-		defaultValue: DROPDOWN_RADIUSES.BOTH,
+		control: 'select',
+		options: Object.values(DROPDOWN_RADIUSES),
 	},
 	placement: {
-		control: { type: 'select', options: Object.values(DROPDOWN_PLACEMENTS) },
-		defaultValue: DROPDOWN_PLACEMENTS.BOTTOM_START,
+		control: 'select',
+		options: Object.values(DROPDOWN_PLACEMENTS),
 	},
 	maxHeight: {
-		control: { type: 'text' },
-		defaultValue: '',
+		control: 'text',
 	},
 } as ArgTypes;
 

@@ -27,7 +27,9 @@
 </style>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'SelectListSectionTitle',
 	props: {
 		label: {
@@ -39,5 +41,5 @@ export default {
 			default: true,
 		},
 	},
-};
+});
 </script>

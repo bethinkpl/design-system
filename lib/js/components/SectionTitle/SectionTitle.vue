@@ -32,9 +32,10 @@
 </style>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import { SECTION_TITLE_SIZES } from './SectionTitle.consts';
 
-export default {
+export default defineComponent({
 	name: 'SectionTitle',
 	props: {
 		// It's unused for now but we want to have the prop already
@@ -54,5 +55,5 @@ export default {
 			required: true,
 		},
 	},
-};
+});
 </script>

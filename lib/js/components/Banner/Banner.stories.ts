@@ -3,56 +3,61 @@ import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
 import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/Banner',
 	component: Banner,
 } as Meta<typeof Banner>;
 
-const StoryTemplate: StoryFn<typeof Banner> = (args, { updateArgs }) => ({
-	components: { Banner },
-	setup() {
-		return { ...args };
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
-	methods: {
-		onIsExpandedUpdated(isExpanded) {
-			updateArgs({
-				isExpanded,
-			});
+const StoryTemplate: StoryFn<typeof Banner> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { Banner },
+		setup() {
+			return args;
 		},
-	},
-	template: `
-			<banner
-					:closable="closable"
-					:icon="ICONS[icon]"
-					:color="color"
-					:title="title"
-					:buttonText="buttonText"
-					:layout="layout"
-					:is-expanded="isExpanded"
-					:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
-					@update:isExpanded="onIsExpandedUpdated"
-			>
-			<template #defaultText><span v-html="defaultText" /></template>
-			<template v-if="expandedText" #expandedText>
-				<div v-html="expandedText" />
-			</template>
-			<template v-if="rightSlot" #rightSlot>
-				<div v-html="rightSlot" />
-			</template>
-			</banner>`,
-});
+		data() {
+			return {
+				ICONS: Object.freeze(ICONS),
+			};
+		},
+		methods: {
+			onIsExpandedUpdated(isExpanded) {
+				updateArgs({
+					isExpanded,
+				});
+			},
+		},
+		template: `
+				<banner
+						:closable="closable"
+						:icon="ICONS[icon]"
+						:color="color"
+						:title="title"
+						:buttonText="buttonText"
+						:layout="layout"
+						:is-expanded="isExpanded"
+						:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
+						@update:isExpanded="onIsExpandedUpdated"
+				>
+				<template #defaultText><span v-html="defaultText" /></template>
+				<template v-if="expandedText" #expandedText>
+					<div v-html="expandedText" />
+				</template>
+				<template v-if="rightSlot" #rightSlot>
+					<div v-html="rightSlot" />
+				</template>
+				</banner>`,
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	closable: true,
-	icon: ICONS.FA_CIRCLE_INFO,
+	closable: false,
+	icon: null,
 	color: BANNER_COLORS.DEFAULT,
 	title: 'Banner Title',
 	buttonText: '',
@@ -66,41 +71,39 @@ const args = {
 } as Args;
 
 const argTypes = {
-	closable: { control: { type: 'boolean' }, defaultValue: false },
+	closable: { control: 'boolean' },
 	icon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	isIconHiddenOnMobile: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 	color: {
-		control: { type: 'select', options: Object.values(BANNER_COLORS) },
-		defaultValue: BANNER_COLORS.DEFAULT,
+		control: 'select',
+		options: Object.values(BANNER_COLORS),
 	},
 	title: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	buttonText: {
-		control: { type: 'text' },
-		defaultValue: '',
+		control: 'text',
 	},
 	layout: {
-		control: { type: 'select', options: Object.values(BANNER_LAYOUTS) },
-		defaultValue: BANNER_LAYOUTS.HORIZONTAL,
+		control: 'select',
+		options: Object.values(BANNER_LAYOUTS),
 	},
 	defaultText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	expandedText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	rightSlot: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	isExpanded: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 } as ArgTypes;
 

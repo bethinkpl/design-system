@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DrawerListItemGroup> = (args) => ({
 	components: { DrawerListItemGroup, DrawerListItem },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
     <drawer-list-item-group>

@@ -330,7 +330,9 @@ import { Value } from '../../../utils/type.utils';
 import { isElementEditable } from '../../../utils/shortcut-keys';
 import { toRaw } from 'vue';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'OverlayHeader',
 	components: { DsIconButton, DsDivider, DsDropdown, DsSkeleton, DsTooltip },
 	props: {
@@ -364,7 +366,7 @@ export default {
 		},
 		dropdownIcon: {
 			type: Object,
-			default: ICONS.FA_ELLIPSIS_VERTICAL,
+			default: () => ICONS.FA_ELLIPSIS_VERTICAL,
 			validator(icon) {
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
@@ -418,5 +420,5 @@ export default {
 			}
 		},
 	},
-};
+});
 </script>

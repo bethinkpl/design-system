@@ -98,7 +98,7 @@ import RichListItem, {
 	RichListItemType,
 } from '../RichListItem';
 import DsTextGroup from '../../TextGroup/TextGroup.vue';
-import { PropType, toRaw } from 'vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 import { ICON_COLORS, IconColor, IconItem, ICONS } from '../../Icons/Icon';
 import {
 	TEXT_GROUP_SIZES,
@@ -107,7 +107,7 @@ import {
 	TextGroupState,
 } from '../../TextGroup';
 
-export default {
+export default defineComponent({
 	name: 'BasicRichListItem',
 	components: {
 		DsTextGroup,
@@ -270,5 +270,5 @@ export default {
 			return TEXT_GROUP_STATES.DEFAULT;
 		},
 	},
-};
+});
 </script>

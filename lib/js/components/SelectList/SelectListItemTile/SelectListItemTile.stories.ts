@@ -3,16 +3,18 @@ import { TILE_STATES } from '../../Tile';
 
 import { Args, Meta, StoryFn } from '@storybook/vue3';
 import { args, argTypes, data, template } from '../../Tile/Tile.sb.shared';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/SelectList/SelectListItemTile',
 	component: SelectListItemTile,
+	decorators: [withActions],
 } as Meta<typeof SelectListItemTile>;
 
 const StoryTemplate: StoryFn<typeof SelectListItemTile> = (args) => ({
 	components: { SelectListItemTile },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: template('select-list-item-tile'),
 	data,
@@ -36,7 +38,7 @@ Interactive.parameters = {
 const StoryStaticTemplate: StoryFn<typeof SelectListItemTile> = (args) => ({
 	components: { SelectListItemTile },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: template('select-list-item-tile'),
 	data,
@@ -47,6 +49,7 @@ export const Static = StoryStaticTemplate.bind({});
 Static.argTypes = argTypes;
 
 Static.args = {
+	...args,
 	interactive: false,
 	iconLeft: null,
 	iconRight: null,

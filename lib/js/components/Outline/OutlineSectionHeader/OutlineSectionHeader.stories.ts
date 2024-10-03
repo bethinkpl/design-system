@@ -1,5 +1,5 @@
 import OutlineSectionHeader from './OutlineSectionHeader.vue';
-import { ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
 	title: 'Components/Outline/OutlineSectionHeader',
@@ -9,7 +9,7 @@ export default {
 const StoryTemplate: StoryFn<typeof OutlineSectionHeader> = (args) => ({
 	components: { OutlineSectionHeader },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<outline-section-header :title="title" />`,
 });
@@ -18,12 +18,14 @@ export const Interactive = StoryTemplate.bind({});
 
 const argTypes = {
 	title: {
-		control: { type: 'text' },
-		defaultValue: 'section header all caps',
+		control: 'text',
 	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
+Interactive.args = {
+	title: 'section header all caps',
+} as Args;
 
 Interactive.parameters = {
 	design: {

@@ -2,16 +2,18 @@ import PageHeader from './PageHeader.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { PAGE_HEADER_MOBILE_LAYOUTS } from './PageHeader.consts';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Headers/PageHeader',
 	component: PageHeader,
+	decorators: [withActions],
 } as Meta<typeof PageHeader>;
 
 const StoryTemplate: StoryFn<typeof PageHeader> = (args) => ({
 	components: { PageHeader },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<page-header' +
@@ -33,32 +35,28 @@ const args = {
 	pageTitle: 'Page title',
 	supportingInfo: 'Supporting info write here',
 	divider: true,
-	mobileLayout: 'vertical',
+	mobileLayout: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
 } as Args;
 
 const argTypes = {
 	breadcrumbs: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	actions: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	pageTitle: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	supportingInfo: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	divider: {
-		control: { type: 'boolean' },
-		defaultValue: true,
+		control: 'boolean',
 	},
 	mobileLayout: {
-		control: {
-			type: 'select',
-			options: Object.values(PAGE_HEADER_MOBILE_LAYOUTS),
-			defaultValue: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
-		},
+		control: 'select',
+		options: Object.values(PAGE_HEADER_MOBILE_LAYOUTS),
 	},
 } as ArgTypes;
 

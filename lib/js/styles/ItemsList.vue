@@ -58,6 +58,7 @@
 		line-height: var(--typography-line-height-xl);
 	}
 }
+
 /* stylelint-enable */
 </style>
 
@@ -66,9 +67,9 @@ import { ItemsListsItem, TOKENS_TYPES } from './TokenTypes';
 import { Value } from '../utils/type.utils';
 import ItemsColor from './ItemsColor.vue';
 import ItemsTypography from './ItemsTypography.vue';
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'ItemsList',
 	components: {
 		ItemsColor,
@@ -110,5 +111,5 @@ export default {
 			return itemsLocal;
 		},
 	},
-};
+});
 </script>

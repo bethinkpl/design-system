@@ -12,6 +12,8 @@ import {
 } from './RichListItem.consts';
 import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 import { DsImage } from '../../../index';
+import { useArgs } from '@storybook/preview-api';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/RichList/RichListItem',
@@ -21,6 +23,7 @@ export default {
 			components: { story },
 			template: "<div style='display: flex;padding: 16px;'><story /></div>",
 		}),
+		withActions,
 	],
 } as Meta<typeof RichListItem>;
 
@@ -28,11 +31,11 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 	story.argTypes = {
 		type: {
 			options: Object.values(RICH_LIST_ITEM_TYPE),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		size: {
 			options: Object.values(RICH_LIST_ITEM_SIZE),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		layout: {
 			options: Object.values(RICH_LIST_ITEM_LAYOUT),
@@ -40,45 +43,45 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 		},
 		state: {
 			options: Object.values(RICH_LIST_ITEM_STATE),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		iconColor: {
 			options: Object.values(ICON_COLORS),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		borderColor: {
 			options: [null, ...Object.values(RICH_LIST_ITEM_BORDER_COLOR)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		icon: {
 			options: [null, ...Object.keys(ICONS)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		iconColorHex: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		borderColorHex: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		content: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		metadata: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		actions: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		draggableIconClassName: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		backgroundColor: {
 			options: [null, ...Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		elevation: {
 			options: [null, ...Object.values(RICH_LIST_ITEM_ELEVATION)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 	} as ArgTypes;
 
@@ -123,11 +126,13 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 	return story;
 };
 
-const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateArgs }) => {
+const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { RichListItem },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {
@@ -178,11 +183,13 @@ const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateAr
 export const Interactive = InteractiveStoryTemplate.bind({});
 expandStory(Interactive);
 
-const WithMediaStoryTemplate: StoryFn<typeof RichListItem> = (args, { updateArgs }) => {
+const WithMediaStoryTemplate: StoryFn<typeof RichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { RichListItem, DsImage },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {

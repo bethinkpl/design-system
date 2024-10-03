@@ -13,7 +13,7 @@ export default {
 const StoryTemplate: StoryFn<typeof ModalDialog> = (args) => ({
 	components: { ModalDialog },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<modal-dialog :headerFeatureIcon="ICONS[headerFeatureIcon]" :danger="danger" ' +
@@ -40,7 +40,7 @@ const args = {
 	headerImage: '',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
-	headerFeatureIcon: 'FA_CIRCLE_EXCLAMATION',
+	headerFeatureIcon: 'FA_CIRCLE_QUESTION',
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerPrimaryButtonIcon: null,
@@ -51,41 +51,41 @@ const args = {
 } as Args;
 
 const argTypes = {
-	danger: { control: { type: 'boolean' }, defaultValue: false },
+	danger: { control: 'boolean' },
 	headerImage: {
-		control: { type: 'text' },
+		control: 'text',
 		table: {
 			type: { summary: 'string' },
 			defaultValue: { summary: 'Hello' },
 		},
 	},
-	headerTitle: { control: { type: 'text' } },
-	headerSubtitle: { control: { type: 'text' } },
+	headerTitle: { control: 'text' },
+	headerSubtitle: { control: 'text' },
 	headerFeatureIcon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: 'FA_CIRCLE_QUESTION',
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	headerFeatureIconColor: {
-		control: { type: 'select', options: Object.values(FEATURE_ICON_COLOR) },
-		defaultValue: FEATURE_ICON_COLOR.NEUTRAL,
+		control: 'select',
+		options: Object.values(FEATURE_ICON_COLOR),
 	},
-	footerPrimaryButtonText: { control: { type: 'text' } },
+	footerPrimaryButtonText: { control: 'text' },
 	footerPrimaryButtonIcon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	footerPrimaryButtonState: {
-		control: { type: 'select', options: Object.values(BUTTON_STATES) },
-		defaultValue: BUTTON_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(BUTTON_STATES),
 	},
-	footerSecondaryButtonText: { control: { type: 'text' } },
+	footerSecondaryButtonText: { control: 'text' },
 	footerSecondaryButtonIcon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	footerSecondaryButtonState: {
-		control: { type: 'select', options: Object.values(BUTTON_STATES) },
-		defaultValue: BUTTON_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(BUTTON_STATES),
 	},
 } as ArgTypes;
 

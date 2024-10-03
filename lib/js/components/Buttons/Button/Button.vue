@@ -45,9 +45,7 @@
 	</span>
 </template>
 
-<style lang="scss">
-@import '../../../../styles/components/buttons';
-</style>
+<!-- Looking for styles? These are defined in the global styles file: design-system.scss > _buttons.scss -->
 
 <script lang="ts">
 import { Value } from '../../../utils/type.utils';
@@ -63,9 +61,9 @@ import {
 } from './Button.consts';
 
 import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	// eslint-disable-next-line vue/no-reserved-component-names
 	name: 'Button',
 	components: {
@@ -163,5 +161,5 @@ export default {
 			return ICON_SIZES.SMALL;
 		},
 	},
-};
+});
 </script>

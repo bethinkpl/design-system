@@ -29,10 +29,10 @@ import DsModal from '../Modal/Modal.vue';
 import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from '../Modal';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 import { BUTTON_STATES } from '../../Buttons/Button';
 
-export default {
+export default defineComponent({
 	name: 'ModalDialog',
 	components: { DsModal },
 	props: {
@@ -112,5 +112,5 @@ export default {
 			MODAL_HEADER_TITLE_SIZES: Object.freeze(MODAL_HEADER_TITLE_SIZES),
 		};
 	},
-};
+});
 </script>

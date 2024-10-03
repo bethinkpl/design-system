@@ -306,7 +306,7 @@ $progress-bar-badge-colors: (
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import {
 	PROGRESS_BAR_BADGE_COLORS,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
@@ -318,7 +318,7 @@ import {
 
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
-export default {
+export default defineComponent({
 	name: 'ProgressBar',
 	components: {
 		DsIcon,
@@ -412,5 +412,5 @@ export default {
 			return this.labelData || this.labelDataSupporting || this.labelDataSuffix;
 		},
 	},
-};
+});
 </script>

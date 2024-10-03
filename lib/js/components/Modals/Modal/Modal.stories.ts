@@ -14,7 +14,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 	components: { Modal },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<modal :headerFeatureIcon="ICONS[headerFeatureIcon]" :size="size" :danger="danger" ' +
@@ -44,7 +44,7 @@ const args = {
 	headerTitleSize: MODAL_HEADER_TITLE_SIZES.MEDIUM,
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
 	headerSubtitle: 'Modal Subtitle Aut vitae neque consequatur. Consequuntur natus sint ad.',
-	headerFeatureIcon: 'FA_CIRCLE_EXCLAMATION',
+	headerFeatureIcon: 'FA_CIRCLE_QUESTION',
 	headerFeatureIconColor: FEATURE_ICON_COLOR.NEUTRAL,
 	footerPrimaryButtonText: 'Primary M',
 	footerPrimaryButtonIcon: null,
@@ -60,54 +60,54 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(MODAL_SIZES) },
-		defaultValue: MODAL_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(MODAL_SIZES),
 	},
-	danger: { control: { type: 'boolean' }, defaultValue: false },
+	danger: { control: 'boolean' },
 	headerTitleSize: {
-		control: { type: 'select', options: Object.values(MODAL_HEADER_TITLE_SIZES) },
-		defaultValue: MODAL_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(MODAL_HEADER_TITLE_SIZES),
 	},
-	headerTitle: { control: { type: 'text' } },
-	headerImage: { control: { type: 'text' } },
-	headerSubtitle: { control: { type: 'text' } },
+	headerTitle: { control: 'text' },
+	headerImage: { control: 'text' },
+	headerSubtitle: { control: 'text' },
 	headerFeatureIcon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: 'FA_CIRCLE_QUESTION',
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	headerFeatureIconColor: {
-		control: { type: 'select', options: Object.values(FEATURE_ICON_COLOR) },
-		defaultValue: FEATURE_ICON_COLOR.NEUTRAL,
+		control: 'select',
+		options: Object.values(FEATURE_ICON_COLOR),
 	},
-	contentCentered: { control: { type: 'boolean' }, defaultValue: false },
-	footerPrimaryButtonText: { control: { type: 'text' } },
+	contentCentered: { control: 'boolean' },
+	footerPrimaryButtonText: { control: 'text' },
 	footerPrimaryButtonIcon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	footerPrimaryButtonState: {
-		control: { type: 'select', options: Object.values(BUTTON_STATES) },
-		defaultValue: BUTTON_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(BUTTON_STATES),
 	},
-	footerSecondaryButtonText: { control: { type: 'text' } },
+	footerSecondaryButtonText: { control: 'text' },
 	footerSecondaryButtonIcon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	footerSecondaryButtonState: {
-		control: { type: 'select', options: Object.values(BUTTON_STATES) },
-		defaultValue: BUTTON_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(BUTTON_STATES),
 	},
-	footerTertiaryButtonText: { control: { type: 'text' } },
+	footerTertiaryButtonText: { control: 'text' },
 	footerTertiaryButtonIcon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: ICONS.FA_CHART_COLUMN,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	footerTertiaryButtonState: {
-		control: { type: 'select', options: Object.values(BUTTON_STATES) },
-		defaultValue: BUTTON_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(BUTTON_STATES),
 	},
-	footerCheckboxText: { control: { type: 'text' } },
+	footerCheckboxText: { control: 'text' },
 	onCloseModal: { action: 'close-modal' },
 	onCheckboxChange: { action: 'checkbox-change' },
 	onPrimaryButtonClick: { action: 'primary-button-click' },

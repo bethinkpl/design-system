@@ -253,9 +253,9 @@ $counter-toggle-colors: (
 <script lang="ts">
 import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'CounterToggle',
 	components: {
 		Icon,
@@ -301,5 +301,5 @@ export default {
 			return this.counter !== null && this.counter !== '' && this.counter !== undefined;
 		},
 	},
-};
+});
 </script>

@@ -26,7 +26,7 @@ export const Mix: StoryFn<typeof SelectList> = (args) => ({
 		SelectListSectionTitle,
 	},
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 			<select-list>

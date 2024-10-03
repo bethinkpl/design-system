@@ -1,25 +1,27 @@
 import IconButton from './IconButton.vue';
 import {
-	ICON_BUTTON_SIZES,
 	ICON_BUTTON_COLOR_SCHEMES,
-	ICON_BUTTON_TYPES,
 	ICON_BUTTON_COLORS,
+	ICON_BUTTON_SIZES,
 	ICON_BUTTON_STATES,
+	ICON_BUTTON_TYPES,
 } from './IconButton.consts';
 import { BUTTON_ELEVATIONS, BUTTON_RADIUSES } from '../Button';
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Buttons/IconButton',
 	component: IconButton,
+	decorators: [withActions],
 } as Meta<typeof IconButton>;
 
 const StoryTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	computed: {
 		isInverted() {
@@ -59,40 +61,41 @@ const args = {
 	elevation: BUTTON_ELEVATIONS.NONE,
 	color: 'primary',
 	state: ICON_BUTTON_STATES.DEFAULT,
+	icon: 'FA_XMARK',
 } as Args;
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_SIZES) },
-		defaultValue: ICON_BUTTON_SIZES.LARGE,
+		control: 'select',
+		options: Object.values(ICON_BUTTON_SIZES),
 	},
 	type: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_TYPES) },
-		defaultValue: ICON_BUTTON_TYPES.ICON_ONLY,
+		control: 'select',
+		options: Object.values(ICON_BUTTON_TYPES),
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(BUTTON_RADIUSES) },
-		defaultValue: BUTTON_RADIUSES.CAPSULE,
+		control: 'select',
+		options: Object.values(BUTTON_RADIUSES),
 	},
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
-		defaultValue: 'FA_XMARK',
+		control: 'select',
+		options: Object.keys(ICONS),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_COLORS) },
-		defaultValue: 'primary',
+		control: 'select',
+		options: Object.values(ICON_BUTTON_COLORS),
 	},
 	colorScheme: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_COLOR_SCHEMES) },
-		defaultValue: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
+		control: 'select',
+		options: Object.values(ICON_BUTTON_COLOR_SCHEMES),
 	},
 	elevation: {
-		control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) },
-		defaultValue: BUTTON_ELEVATIONS.NONE,
+		control: 'select',
+		options: Object.values(BUTTON_ELEVATIONS),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(ICON_BUTTON_STATES) },
-		defaultValue: ICON_BUTTON_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(ICON_BUTTON_STATES),
 	},
 } as ArgTypes;
 
@@ -111,41 +114,41 @@ Interactive.parameters = {
 
 const argTypesDisabled = {
 	size: {
-		control: { type: null },
+		disable: true,
 	},
 	type: {
-		control: { type: null },
+		disable: true,
 	},
 	radius: {
-		control: { type: null },
+		disable: true,
 	},
 	icon: {
-		control: { type: null },
+		disable: true,
 	},
 	color: {
-		control: { type: null },
+		disable: true,
 	},
 	colorScheme: {
-		control: { type: null },
+		disable: true,
 	},
 	elevation: {
-		control: { type: null },
+		disable: true,
 	},
 	state: {
-		control: { type: null },
+		disable: true,
 	},
 	touchable: {
-		control: { type: null },
+		disable: true,
 	},
 	default: {
-		control: { type: null },
+		disable: true,
 	},
 } as ArgTypes;
 
 const StoryFilledWithLabelTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" >Zamknij</icon-button>',
@@ -163,7 +166,7 @@ FilledWithLabel.argTypes = argTypesDisabled;
 const StoryOutlinedRoundedTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.FA_CHEVRON_RIGHT" :type="ICON_BUTTON_TYPES.OUTLINED" :radius="BUTTON_RADIUSES.ROUNDED" />',
@@ -182,7 +185,7 @@ OutlinedRounded.argTypes = argTypesDisabled;
 const StoryFilledPrimaryTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.FA_XMARK" :type="ICON_BUTTON_TYPES.FILLED" :color="ICON_BUTTON_COLORS.PRIMARY" :size="ICON_BUTTON_SIZES.X_SMALL" />',
@@ -202,7 +205,7 @@ FilledPrimary.argTypes = argTypesDisabled;
 const StoryIconOnlyInfoTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.FA_FLAG" :color="ICON_BUTTON_COLORS.INFO" :size="ICON_BUTTON_SIZES.MEDIUM" />',
@@ -221,7 +224,7 @@ IconOnlyInfo.argTypes = argTypesDisabled;
 const StoryIconOnlyWarningTemplate: StoryFn<typeof IconButton> = (args) => ({
 	components: { IconButton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<icon-button :icon="ICONS.HEAD_WITH_QUESTION_MARK" :color="ICON_BUTTON_COLORS.WARNING" :size="ICON_BUTTON_SIZES.MEDIUM" />',

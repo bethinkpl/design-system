@@ -45,10 +45,11 @@
 </style>
 
 <script lang="ts">
+import { defineComponent } from 'vue';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
 
-export default {
+export default defineComponent({
 	name: 'AccessStatus',
 	components: {
 		Icon,
@@ -97,5 +98,5 @@ export default {
 			return 'Zakończony';
 		},
 	},
-};
+});
 </script>

@@ -247,7 +247,7 @@ import IconButton, {
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 import { Value } from '../../utils/type.utils';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
 const CHIP_ICON_BUTTONS_COLOR_MAP = {
 	[CHIP_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
@@ -261,7 +261,7 @@ const CHIP_ICON_BUTTONS_COLOR_MAP = {
 	[CHIP_COLORS.INFO]: ICON_BUTTON_COLORS.INFO,
 };
 
-export default {
+export default defineComponent({
 	name: 'Chip',
 	components: { Icon, IconButton },
 	props: {
@@ -353,5 +353,5 @@ export default {
 			return CHIP_ICON_BUTTONS_COLOR_MAP[this.color] || ICON_BUTTON_COLORS.PRIMARY;
 		},
 	},
-};
+});
 </script>

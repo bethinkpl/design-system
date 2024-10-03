@@ -16,7 +16,7 @@ export default {
 const StoryTemplate: StoryFn<typeof SurveyToggle> = (args) => ({
 	components: { SurveyToggle },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div style="background-color:#f6f6f8"><survey-toggle :label="label"  :meaning="meaning" :content-text="contentText" :selected-icon="ICONS[selectedIcon]" :status="status" :state="state" /></div>',
@@ -29,26 +29,33 @@ const StoryTemplate: StoryFn<typeof SurveyToggle> = (args) => ({
 
 export const Interactive = StoryTemplate.bind({});
 
-const args = {} as Args;
+const args = {
+	label: 'label',
+	contentText: '1',
+	meaning: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+	status: SURVEY_TOGGLE_STATUSES.DEFAULT,
+	state: SURVEY_TOGGLE_STATES.DEFAULT,
+	selectedIcon: 'FA_CHECK_SOLID',
+} as Args;
 
 const argTypes = {
-	label: { control: { type: 'text' }, defaultValue: 'label' },
-	contentText: { control: { type: 'text' }, defaultValue: '1' },
+	label: { control: 'text' },
+	contentText: { control: 'text' },
 	meaning: {
-		control: { type: 'select', options: Object.values(SURVEY_TOGGLE_MEANINGS) },
-		defaultValue: SURVEY_TOGGLE_MEANINGS.PRIMARY,
+		control: 'select',
+		options: Object.values(SURVEY_TOGGLE_MEANINGS),
 	},
 	status: {
-		control: { type: 'select', options: Object.values(SURVEY_TOGGLE_STATUSES) },
-		defaultValue: SURVEY_TOGGLE_STATUSES.DEFAULT,
+		control: 'select',
+		options: Object.values(SURVEY_TOGGLE_STATUSES),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(SURVEY_TOGGLE_STATES) },
-		defaultValue: SURVEY_TOGGLE_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(SURVEY_TOGGLE_STATES),
 	},
 	selectedIcon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
-		defaultValue: 'FA_CHECK_SOLID',
+		control: 'select',
+		options: Object.keys(ICONS),
 	},
 } as ArgTypes;
 

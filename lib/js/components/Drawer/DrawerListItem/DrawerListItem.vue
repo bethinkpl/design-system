@@ -45,12 +45,12 @@
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 
 import { DRAWER_LIST_ITEM_STATES, DrawerListItemState } from './DrawerListItem.consts';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
-export default {
+export default defineComponent({
 	name: 'DrawerListItem',
 	components: {
 		DsIcon: Icon,
@@ -79,5 +79,5 @@ export default {
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},
-};
+});
 </script>

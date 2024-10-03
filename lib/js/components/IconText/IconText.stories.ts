@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof IconText> = (args) => ({
 	components: { IconText },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 			<icon-text
@@ -43,18 +43,19 @@ Interactive.args = {
 
 const argTypes = {
 	color: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(ICON_TEXT_COLORS),
 	},
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
+		control: 'select',
+		options: Object.keys(ICONS),
 	},
 	size: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(ICON_TEXT_SIZES),
 	},
 	state: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(ICON_TEXT_STATES),
 	},
 } as ArgTypes;

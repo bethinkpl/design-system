@@ -16,7 +16,9 @@
 import Tile from '../../Tile/Tile.vue';
 import { props } from '../../Tile/Tile.shared';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'DrawerTile',
 	components: {
 		DsTile: Tile,
@@ -26,5 +28,5 @@ export default {
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['click'],
-};
+});
 </script>

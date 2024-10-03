@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Chip> = (args) => ({
 	components: { Chip, LogoBadge },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<chip :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius" />',
@@ -25,7 +25,7 @@ const StoryTemplate: StoryFn<typeof Chip> = (args) => ({
 const StoryTemplateWithAccessory: StoryFn<typeof Chip> = (args) => ({
 	components: { Chip, LogoBadge },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<chip :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius">' +
@@ -58,24 +58,28 @@ const args = {
 	color: CHIP_COLORS.NEUTRAL,
 	colorHex: '',
 	isRemovable: false,
+	state: CHIP_STATES.DEFAULT,
 } as Args;
 const argTypes = {
 	leftIcon: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	size: {
-		control: { type: 'select', options: Object.values(CHIP_SIZES) },
+		control: 'select',
+		options: Object.values(CHIP_SIZES),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(CHIP_COLORS) },
+		control: 'select',
+		options: Object.values(CHIP_COLORS),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(CHIP_STATES) },
-		defaultValue: CHIP_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(CHIP_STATES),
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(CHIP_RADIUSES) },
-		defaultValue: CHIP_RADIUSES.CAPSULE,
+		control: 'select',
+		options: Object.values(CHIP_RADIUSES),
 	},
 } as ArgTypes;
 

@@ -294,9 +294,9 @@ import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
 import DsIcon, { ICONS } from '../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
 import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'Banner',
 	components: {
 		DsButton,
@@ -389,5 +389,5 @@ export default {
 			this.$emit('update:isExpanded', this.isExpandedInternal);
 		},
 	},
-};
+});
 </script>

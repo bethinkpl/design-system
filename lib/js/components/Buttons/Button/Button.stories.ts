@@ -1,25 +1,27 @@
 import Button from './Button.vue';
 import {
-	BUTTON_SIZES,
-	BUTTON_TYPES,
 	BUTTON_COLORS,
-	BUTTON_STATES,
-	BUTTON_RADIUSES,
 	BUTTON_ELEVATIONS,
+	BUTTON_RADIUSES,
+	BUTTON_SIZES,
+	BUTTON_STATES,
+	BUTTON_TYPES,
 } from './Button.consts';
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Buttons/Button',
 	component: Button,
+	decorators: [withActions],
 } as Meta<typeof Button>;
 
 const StoryTemplate: StoryFn<typeof Button> = (args) => ({
 	components: { Button },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 			<div :class="{ contrastBackground: isInverted }">
@@ -52,40 +54,48 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	slotText: 'Hello',
+	size: BUTTON_SIZES.MEDIUM,
+	type: BUTTON_TYPES.FILLED,
+	color: BUTTON_COLORS.PRIMARY,
+	radius: BUTTON_RADIUSES.CAPSULE,
+	state: BUTTON_STATES.DEFAULT,
+	elevation: BUTTON_ELEVATIONS.NONE,
+	iconLeft: 'FA_CHEVRON_LEFT',
+	iconRight: null,
 } as Args;
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(BUTTON_SIZES) },
-		defaultValue: BUTTON_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(BUTTON_SIZES),
 	},
 	type: {
-		control: { type: 'select', options: Object.values(BUTTON_TYPES) },
-		defaultValue: BUTTON_TYPES.FILLED,
+		control: 'select',
+		options: Object.values(BUTTON_TYPES),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(BUTTON_COLORS) },
-		defaultValue: BUTTON_COLORS.PRIMARY,
+		control: 'select',
+		options: Object.values(BUTTON_COLORS),
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(BUTTON_RADIUSES) },
-		defaultValue: BUTTON_RADIUSES.CAPSULE,
+		control: 'select',
+		options: Object.values(BUTTON_RADIUSES),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(BUTTON_STATES) },
-		defaultValue: BUTTON_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(BUTTON_STATES),
 	},
 	elevation: {
-		control: { type: 'select', options: Object.values(BUTTON_ELEVATIONS) },
-		defaultValue: BUTTON_ELEVATIONS.NONE,
+		control: 'select',
+		options: Object.values(BUTTON_ELEVATIONS),
 	},
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: 'FA_CHEVRON_LEFT',
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 } as ArgTypes;
 

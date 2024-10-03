@@ -2,16 +2,18 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsToast from './Toast.vue';
 import { TOAST_COLORS, TOAST_POSITIONS, TOAST_SIZES } from './Toast.consts';
 import { ICONS } from '../Icons/Icon';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Toast',
 	component: DsToast,
+	decorators: [withActions],
 } as Meta<typeof DsToast>;
 
 const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 	components: { DsToast },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return {
@@ -63,35 +65,31 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(TOAST_SIZES),
-		defaultValue: TOAST_SIZES.MEDIUM,
 	},
 	position: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(TOAST_POSITIONS),
-		defaultValue: TOAST_POSITIONS.CENTER,
 	},
 	boundariesSelector: {
-		control: { type: 'select' },
+		control: 'select',
 		options: [null, 'left', 'right'],
-		defaultValue: null,
 	},
 	color: {
-		control: { type: 'select' },
+		control: 'select',
 		options: Object.values(TOAST_COLORS),
-		defaultValue: TOAST_COLORS.INFO,
 	},
 	footerPrimaryButtonIcon: {
-		control: { type: 'select' },
+		control: 'select',
 		options: [null, ...Object.keys(ICONS)],
 	},
 	footerSecondaryButtonIcon: {
-		control: { type: 'select' },
+		control: 'select',
 		options: [null, ...Object.keys(ICONS)],
 	},
 	content: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 } as ArgTypes;
 

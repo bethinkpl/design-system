@@ -25,7 +25,7 @@ const StoryTemplate: StoryFn<typeof OverlayHeader> = (args) => ({
 		};
 	},
 	template: `
-			<div style="height: 300px">
+		<div style="height: 300px">
 			<overlay-header v-bind=args :dropdown-icon="ICONS[args.dropdownIcon]" @close="onClose">
 				<template v-if="args.accessorySlot" #accessory>
 					<div style="background: var(--raw-gray-300); height: 100%">{{ args.accessorySlot }}</div>
@@ -64,22 +64,22 @@ const args = {
 	titleLeadingSlot: 'leading',
 	titleTrailingSlot: 'trailing',
 	isTitleInteractive: false,
+	borderColor: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
+	state: OVERLAY_HEADER_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
 	borderColor: {
-		control: {
-			type: 'select',
-			options: Object.values(OVERLAY_HEADER_BORDER_COLORS),
-		},
-		defaultValue: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
+		control: 'select',
+		options: Object.values(OVERLAY_HEADER_BORDER_COLORS),
 	},
 	state: {
-		control: { type: 'select', options: Object.values(OVERLAY_HEADER_STATES) },
-		defaultValue: OVERLAY_HEADER_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(OVERLAY_HEADER_STATES),
 	},
 	dropdownIcon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
+		control: 'select',
+		options: Object.keys(ICONS),
 	},
 } as ArgTypes;
 

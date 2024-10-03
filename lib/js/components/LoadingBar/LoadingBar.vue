@@ -58,7 +58,7 @@
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import {
 	LOADING_BAR_COLORS,
 	LOADING_BAR_SIZES,
@@ -66,7 +66,7 @@ import {
 	LoadingBarSizes,
 } from './LoadingBar.consts';
 
-export default {
+export default defineComponent({
 	name: 'LoadingBar',
 	props: {
 		color: {
@@ -110,5 +110,5 @@ export default {
 			this.width = 100;
 		}, 0);
 	},
-};
+});
 </script>
