@@ -21,9 +21,7 @@
 		<div v-if="isExpandedInternal || !isExpandable">
 			<slot />
 		</div>
-		<div v-if="$slots.uncollapsible">
-			<slot name="uncollapsible" />
-		</div>
+		<div v-if="$slots.uncollapsible"><slot name="uncollapsible" /></div>
 	</div>
 </template>
 
