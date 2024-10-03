@@ -1,3 +1,4 @@
-import ThreeColumnLayout from './ThreeColumnLayout.vue';
+import { default as ThreeColumnLayout } from './ThreeColumnLayout.vue';
+
 export * from './ThreeColumnLayout.consts';
 export default ThreeColumnLayout;

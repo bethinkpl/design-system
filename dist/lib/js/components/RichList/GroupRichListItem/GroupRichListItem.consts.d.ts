@@ -1,4 +1,5 @@
 import { RichListItemBackgroundColor, RichListItemBorderColor } from '../RichListItem';
+
 export declare const GROUP_RICH_LIST_ITEM_BORDER_COLOR: {
     readonly DEFAULT: "default";
     readonly PRIMARY: "primary";

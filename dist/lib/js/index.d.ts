@@ -161,4 +161,5 @@ export { default as DsImage } from './components/Image';
 export * from './components/Skeleton/Skeleton.consts';
 export { default as DsSkeleton } from './components/Skeleton/Skeleton.vue';
 export { initializePrimeVue } from './primevue';
-export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, IconDefinition, } from './icons/fontawesome';
+export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, } from './icons/fontawesome';
+export type { IconDefinition } from './icons/fontawesome';

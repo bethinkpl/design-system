@@ -1,3 +1,4 @@
-import LoadingBar from './LoadingBar.vue';
+import { default as LoadingBar } from './LoadingBar.vue';
+
 export * from './LoadingBar.consts';
 export default LoadingBar;

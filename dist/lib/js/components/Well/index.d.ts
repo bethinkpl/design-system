@@ -1,3 +1,4 @@
-import Well from './Well.vue';
+import { default as Well } from './Well.vue';
+
 export * from './Well.consts';
 export default Well;

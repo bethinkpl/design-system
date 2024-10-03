@@ -1,4 +1,5 @@
 import { Dict } from '../../../tools/importers/helpers/structures';
+
 export declare const TOKENS_TYPES: {
     readonly COLORS: "colors";
     readonly TYPOGRAPHY: "typography";

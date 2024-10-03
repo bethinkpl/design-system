@@ -1,4 +1,5 @@
 import { Value } from '../../../utils/type.utils';
+
 export declare const TOGGLE_BUTTON_SIZES: {
     readonly SMALL: "small";
     readonly MEDIUM: "medium";

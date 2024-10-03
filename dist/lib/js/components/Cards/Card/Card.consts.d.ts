@@ -1,4 +1,5 @@
 import { Value } from '../../../utils/type.utils';
+
 export declare const CARD_BORDER_COLORS: {
     NEUTRAL_HEAVY: string;
     NEUTRAL_STRONG: string;

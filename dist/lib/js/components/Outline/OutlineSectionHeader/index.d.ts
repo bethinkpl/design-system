@@ -1,2 +1,3 @@
-import OutlineSectionHeader from './OutlineSectionHeader.vue';
+import { default as OutlineSectionHeader } from './OutlineSectionHeader.vue';
+
 export default OutlineSectionHeader;
