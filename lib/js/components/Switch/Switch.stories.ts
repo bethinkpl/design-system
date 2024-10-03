@@ -2,10 +2,12 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsSwitch from './Switch.vue';
 import Icon, { ICONS } from '../Icons/Icon';
 import { SWITCH_RADIUSES, SWITCH_SIDE, SWITCH_SIZES, SWITCH_STATE } from './Switch.consts';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Switch',
 	component: DsSwitch,
+	decorators: [withActions],
 } as Meta<typeof DsSwitch>;
 
 const StoryTemplate: StoryFn<typeof DsSwitch> = (args) => ({

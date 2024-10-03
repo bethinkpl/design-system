@@ -13,6 +13,7 @@ import {
 import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 import { DsImage } from '../../../index';
 import { useArgs } from '@storybook/preview-api';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/RichList/RichListItem',
@@ -22,6 +23,7 @@ export default {
 			components: { story },
 			template: "<div style='display: flex;padding: 16px;'><story /></div>",
 		}),
+		withActions,
 	],
 } as Meta<typeof RichListItem>;
 

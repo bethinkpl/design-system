@@ -2,10 +2,12 @@ import Icon from './Icon.vue';
 import { ICON_SIZES, ICONS } from './Icon.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Icons/Icon',
 	component: Icon,
+	decorators: [withActions],
 } as Meta<typeof Icon>;
 
 const StoryTemplate: StoryFn<typeof Icon> = (args) => ({

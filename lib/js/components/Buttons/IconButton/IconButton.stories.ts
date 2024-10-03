@@ -10,10 +10,12 @@ import { BUTTON_ELEVATIONS, BUTTON_RADIUSES } from '../Button';
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Buttons/IconButton',
 	component: IconButton,
+	decorators: [withActions],
 } as Meta<typeof IconButton>;
 
 const StoryTemplate: StoryFn<typeof IconButton> = (args) => ({

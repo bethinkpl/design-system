@@ -2,10 +2,12 @@ import PageHeader from './PageHeader.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { PAGE_HEADER_MOBILE_LAYOUTS } from './PageHeader.consts';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Headers/PageHeader',
 	component: PageHeader,
+	decorators: [withActions],
 } as Meta<typeof PageHeader>;
 
 const StoryTemplate: StoryFn<typeof PageHeader> = (args) => ({

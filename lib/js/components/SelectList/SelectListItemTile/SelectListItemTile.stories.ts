@@ -3,10 +3,12 @@ import { TILE_STATES } from '../../Tile';
 
 import { Args, Meta, StoryFn } from '@storybook/vue3';
 import { args, argTypes, data, template } from '../../Tile/Tile.sb.shared';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/SelectList/SelectListItemTile',
 	component: SelectListItemTile,
+	decorators: [withActions],
 } as Meta<typeof SelectListItemTile>;
 
 const StoryTemplate: StoryFn<typeof SelectListItemTile> = (args) => ({

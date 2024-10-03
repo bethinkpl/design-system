@@ -4,10 +4,12 @@ import { Meta, StoryFn } from '@storybook/vue3';
 import { args, argTypes, template } from '../SelectionControl/SelectionControl.sb.shared';
 import { RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE } from './RadioButton.consts';
 import { useArgs } from '@storybook/preview-api';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Form/RadioButton',
 	component: RadioButton,
+	decorators: [withActions],
 } as Meta<typeof RadioButton>;
 
 const StoryTemplate: StoryFn<typeof RadioButton> = (args) => {

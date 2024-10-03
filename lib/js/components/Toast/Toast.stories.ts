@@ -2,10 +2,12 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsToast from './Toast.vue';
 import { TOAST_COLORS, TOAST_POSITIONS, TOAST_SIZES } from './Toast.consts';
 import { ICONS } from '../Icons/Icon';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Toast',
 	component: DsToast,
+	decorators: [withActions],
 } as Meta<typeof DsToast>;
 
 const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({

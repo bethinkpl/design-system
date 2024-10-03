@@ -4,6 +4,7 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { SELECTION_TILE_STATE, SELECTION_TILE_TYPE } from './SelectionTile.consts';
 import { ICONS } from '../Icons/Icon';
 import { useArgs } from '@storybook/preview-api';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/SelectionTile',
@@ -13,6 +14,7 @@ export default {
 			components: { story },
 			template: "<div style='display: flex; max-width: 300px;'><story /></div>",
 		}),
+		withActions,
 	],
 } as Meta<typeof SelectionTile>;
 

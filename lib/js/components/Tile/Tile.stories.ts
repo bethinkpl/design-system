@@ -6,12 +6,14 @@ import { TILE_STATES } from './Tile.consts';
 import type { Args, Meta, StoryObj } from '@storybook/vue3';
 import { args, argTypes, data, template } from './Tile.sb.shared';
 import type { ComponentProps } from 'vue-component-type-helpers';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 type TileProps = ComponentProps<typeof Tile>;
 
 const meta: Meta<TileProps> = {
 	title: 'Components/Tile',
 	component: Tile,
+	decorators: [withActions],
 	render: (args) => ({
 		components: { Tile },
 		setup() {

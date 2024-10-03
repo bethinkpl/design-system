@@ -3,10 +3,12 @@ import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Toggles/CounterToggle',
 	component: CounterToggle,
+	decorators: [withActions],
 } as Meta<typeof CounterToggle>;
 
 const StoryTemplate: StoryFn<typeof CounterToggle> = (args) => ({
