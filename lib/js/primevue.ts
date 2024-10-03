@@ -1,9 +1,6 @@
 import PrimeVue from 'primevue/config';
-import { definePreset } from '@primeuix/styled';
 import Aura from '@primevue/themes/aura';
 import Tooltip from 'primevue/tooltip';
-
-const BethinkPreset = definePreset({});
 
 export const initializePrimeVue = (app) => {
 	app.use(PrimeVue, {
