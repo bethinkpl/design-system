@@ -1,3 +1,4 @@
-import Icon from './Icon.vue';
+import { default as Icon } from './Icon.vue';
+
 export * from './Icon.consts';
 export default Icon;

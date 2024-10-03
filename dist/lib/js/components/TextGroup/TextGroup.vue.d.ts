@@ -1,6 +1,7 @@
 import { PropType } from 'vue';
 import { TextGroupState } from './TextGroup.consts';
-declare const _default: import("vue").DefineComponent<{
+
+declare const _default: import('vue').DefineComponent<{
     size: {
         type: PropType<string>;
         default: string;
@@ -68,7 +69,7 @@ declare const _default: import("vue").DefineComponent<{
     colorClassName(): string;
     isLoading(): boolean;
     loadingSizeClassName(): string;
-}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<import('vue').ExtractPropTypes<{
     size: {
         type: PropType<string>;
         default: string;
@@ -122,18 +123,18 @@ declare const _default: import("vue").DefineComponent<{
         default: "default";
     };
 }>>, {
-    color: "neutral";
     size: string;
+    color: "neutral";
     state: TextGroupState;
-    isInteractive: boolean;
     eyebrowText: string | null;
+    isEyebrowTextUppercase: boolean;
+    isInteractive: boolean;
     supportingText: string | null;
     isSelected: boolean;
-    supportingTextEllipsis: boolean;
-    isEyebrowTextUppercase: boolean;
     eyebrowTextEllipsis: boolean;
     mainText: string | null;
     mainTextEllipsis: boolean;
+    supportingTextEllipsis: boolean;
     skeletonLoadingSize: string;
 }>;
 export default _default;
