@@ -30,13 +30,13 @@
     "types": ["node", "jest"],
   },
   "include": [
-    "vite.config.*",
     "lib/js/**/*.vue",
     "lib/js/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "public",
+    ".storybook",
     "**/*.stories.ts",
     "**/*.spec.ts"
   ],
