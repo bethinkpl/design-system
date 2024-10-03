@@ -1,13 +1,13 @@
-@import 'settings/colors/raw';
-@import 'settings/colors/raw-wnl';
-@import 'settings/colors/raw-bodywork';
-@import 'settings/colors/tokens-variables';
-@import 'settings/colors/tokens-wnl-variables';
-@import 'settings/colors/tokens-bodywork-variables';
-@import 'settings/colors/tokens';
-@import 'settings/colors/tokens-bodywork';
-@import 'settings/colors/tokens-wnl';
-@import 'settings/typography/tokens';
+@import '../lib/styles/settings/colors/raw';
+@import '../lib/styles/settings/colors/raw-wnl';
+@import '../lib/styles/settings/colors/raw-bodywork';
+@import '../lib/styles/settings/colors/tokens-variables';
+@import '../lib/styles/settings/colors/tokens-wnl-variables';
+@import '../lib/styles/settings/colors/tokens-bodywork-variables';
+@import '../lib/styles/settings/colors/tokens';
+@import '../lib/styles/settings/colors/tokens-bodywork';
+@import '../lib/styles/settings/colors/tokens-wnl';
+@import '../lib/styles/settings/typography/tokens';
 
 $fontFamily: 'BlinkMacSystemFont', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
 	'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
