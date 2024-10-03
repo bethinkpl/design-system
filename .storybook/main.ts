@@ -5,6 +5,10 @@ const isProductionMode = () => {
 	return process.env.NODE_ENV === 'production';
 }
 
+const ignoredProductionPlugins = [
+	'vite:dts',
+];
+
 const config: StorybookConfig = {
 	stories: ['../lib/**/*.stories.@(js|ts)'],
 	addons: [
@@ -23,12 +27,14 @@ const config: StorybookConfig = {
 	],
 	framework: '@storybook/vue3-vite',
 	viteFinal: (config) => {
-		config.plugins.push(scssPreviewStylesPlugin({
-			isProductionMode: isProductionMode(),
-		}));
-
 		return {
 			...config,
+			plugins: [
+				...config.plugins.filter((plugin) => !ignoredProductionPlugins.includes((plugin as any)?.name)),
+				scssPreviewStylesPlugin({
+					isProductionMode: isProductionMode(),
+				})
+			]
 		};
 	},
 };
