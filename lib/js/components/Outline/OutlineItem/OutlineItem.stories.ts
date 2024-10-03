@@ -30,6 +30,9 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
 									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
 									:is-selected-interactive="isSelectedInteractive">
+			<template #labelSlot v-if="labelSlot">
+				<span v-html="labelSlot" />
+			</template>
 			<template #default v-if="defaultSlot.length > 0">
 				<ds-chip :label="defaultSlot" />
 			</template>
@@ -41,6 +44,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	additionalText: '',
 	defaultSlot: '10 / 20',
+	labelSlot: 'Outline Item label in slot',
 	size: OUTLINE_ITEM_SIZES.SMALL,
 	backgroundColor: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
 	iconLeft: null,
@@ -58,6 +62,7 @@ const args = {
 
 const argTypes = {
 	defaultSlot: { control: 'text' },
+	labelSlot: { control: 'text' },
 	size: {
 		control: 'select',
 		options: Object.values(OUTLINE_ITEM_SIZES),

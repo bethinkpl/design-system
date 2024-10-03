@@ -28,7 +28,12 @@
 			/>
 			<span class="ds-outlineItem__text">
 				<span class="ds-outlineItem__label" :class="{ '-ds-uppercase': isLabelUppercase }">
-					{{ label }}
+					<template v-if="$slots.labelSlot">
+						<slot name="labelSlot" />
+					</template>
+					<template v-else>
+						{{ label }}
+					</template>
 				</span>
 				<span v-if="additionalText" class="ds-outlineItem__additionalText">
 					{{ additionalText }}
@@ -36,6 +41,7 @@
 			</span>
 		</div>
 		<div
+			v-if="$slots.default || isDone || iconRight"
 			class="ds-outlineItem__rightContent"
 			:class="{ '-ds-centeredContent': $slots.default }"
 		>
@@ -84,10 +90,15 @@
 		align-items: flex-start;
 		column-gap: $space-2xs;
 		display: flex;
+		max-width: 100%;
 
 		&.-ds-centeredContent {
 			align-items: center;
 		}
+	}
+
+	&__content {
+		overflow-x: hidden;
 	}
 
 	&__index {
@@ -102,6 +113,10 @@
 
 	&__text {
 		@include label-l-default-regular; //it fixes whole component height
+
+		// To hide scrollbar in case Chrome renders __label higher than line-height - there are some problems with fraction of a pixel on Retina screens
+		// https://bethinkteam.slack.com/archives/C012R8RM3A4/p1727776466931369?thread_ts=1727775029.076259&cid=C012R8RM3A4
+		overflow: hidden;
 	}
 
 	&__label {
