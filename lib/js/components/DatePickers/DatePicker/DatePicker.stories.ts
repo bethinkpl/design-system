@@ -21,9 +21,7 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 	return {
 		components: { DatePicker, DsSwitch },
 		setup() {
-			return {
-				...args,
-			};
+			return args;
 		},
 		data() {
 			return {
