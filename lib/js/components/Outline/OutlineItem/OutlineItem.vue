@@ -98,7 +98,7 @@
 	}
 
 	&__content {
-		overflow-x: hidden;
+		overflow-x: clip;
 	}
 
 	&__index {
