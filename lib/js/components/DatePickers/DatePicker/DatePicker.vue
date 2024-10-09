@@ -137,14 +137,14 @@ import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/mo
 
 let flatpickr: Function | null = null;
 
-const FLATPICKR_POSITIONS = {
+export const FLATPICKR_POSITIONS = {
 	[DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_LEFT]: 'below left',
 	[DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_RIGHT]: 'below right',
 	[DATE_PICKER_CALENDAR_POSITIONS.BOTTOM]: 'below',
 	[DATE_PICKER_CALENDAR_POSITIONS.TOP_LEFT]: 'above left',
 	[DATE_PICKER_CALENDAR_POSITIONS.TOP_RIGHT]: 'above right',
 	[DATE_PICKER_CALENDAR_POSITIONS.TOP]: 'above',
-};
+} as const;
 
 export default defineComponent({
 	name: 'DatePicker',

@@ -10,17 +10,37 @@
 			'-ds-isOpen': isOpen,
 		}"
 	>
-		<span v-if="eyebrowText" class="ds-datePickerBox__eyebrow">{{ eyebrowText }}</span>
-		<div class="ds-datePickerBox__dateWrapper">
-			<ds-icon
-				v-if="icon"
-				class="ds-datePickerBox__icon"
-				:class="{ '-ds-hiddenOnMobile': isIconHiddenOnMobile }"
-				:icon="icon"
-				:size="ICON_SIZES.XX_SMALL"
-			></ds-icon>
-			<span class="ds-datePickerBox__date">{{ text }}</span>
+		<div class="ds-datePickerBox__dates">
+			<span v-if="eyebrowText" class="ds-datePickerBox__eyebrow">{{ eyebrowText }}</span>
+			<div class="ds-datePickerBox__dateWrapper">
+				<ds-icon
+					v-if="icon"
+					class="ds-datePickerBox__icon"
+					:class="{ '-ds-hiddenOnMobile': isIconHiddenOnMobile }"
+					:icon="icon"
+					:size="ICON_SIZES.XX_SMALL"
+				></ds-icon>
+				<span class="ds-datePickerBox__date">{{ text }}</span>
+			</div>
 		</div>
+		<template v-if="date && endDate">
+			<span class="ds-datePickerBox__separator">–</span>
+			<div class="ds-datePickerBox__dates">
+				<span v-if="eyebrowText" class="ds-datePickerBox__eyebrow">{{
+					endDateEyebrowText
+				}}</span>
+				<div class="ds-datePickerBox__dateWrapper">
+					<ds-icon
+						v-if="icon"
+						class="ds-datePickerBox__icon"
+						:class="{ '-ds-hiddenOnMobile': isIconHiddenOnMobile }"
+						:icon="icon"
+						:size="ICON_SIZES.XX_SMALL"
+					></ds-icon>
+					<span class="ds-datePickerBox__date">{{ endDateText }}</span>
+				</div>
+			</div>
+		</template>
 
 		<div v-if="state === DATE_PICKER_STATES.LOADING" class="ds-datePickerBox__loader">
 			<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.X_SMALL" spinning />
@@ -104,15 +124,27 @@
 .ds-datePickerBox {
 	$self: &;
 
+	align-items: center;
 	border: $border-xs solid transparent;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	min-height: 44px;
 	min-width: 76px;
 	padding: $space-2xs $space-xs;
 	pointer-events: none;
 	position: relative;
+
+	&__dates {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__separator {
+		@include text-s-default-regular;
+
+		padding: 0 $space-2xs;
+	}
 
 	&.-ds-loading,
 	&.-ds-interactive {
@@ -242,6 +274,10 @@ export default defineComponent({
 			type: Date,
 			default: null,
 		},
+		endDate: {
+			type: Date,
+			default: null,
+		},
 		icon: {
 			type: Object,
 			default: null,
@@ -263,6 +299,10 @@ export default defineComponent({
 			type: String,
 			default: '',
 		},
+		endDateEyebrowText: {
+			type: String,
+			default: '',
+		},
 		isOpen: {
 			type: Boolean,
 			default: false,
@@ -276,15 +316,23 @@ export default defineComponent({
 			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
 		};
 	},
+	methods: {
+		formatDate(date: Date) {
+			return date.toLocaleDateString(undefined, {
+				month: 'short',
+				day: '2-digit',
+			});
+		},
+	},
 	computed: {
 		text() {
 			if (this.date) {
-				return this.date.toLocaleDateString(undefined, {
-					month: 'short',
-					day: '2-digit',
-				});
+				return this.formatDate(this.date);
 			}
 			return this.placeholder;
+		},
+		endDateText() {
+			return this.formatDate(this.endDate);
 		},
 	},
 });
