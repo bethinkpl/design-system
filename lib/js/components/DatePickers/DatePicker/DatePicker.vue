@@ -1,6 +1,7 @@
 <template>
 	<div
 		class="ds-datePicker"
+		ref="dateRangePickerRef"
 		:class="{ '-ds-box': triggerType === DATE_PICKER_TRIGGER_TYPES.BOX }"
 	>
 		<template v-if="triggerType === DATE_PICKER_TRIGGER_TYPES.TILE">
@@ -45,7 +46,7 @@
 		/>
 
 		<span v-if="errorMessage" class="ds-datePicker__errorMessage"> {{ errorMessage }} </span>
-		<input ref="flatpickrInput" class="ds-datePicker__hiddenInput" />
+		<input ref="flatpickrInputRef" class="ds-datePicker__hiddenInput" />
 	</div>
 </template>
 
@@ -116,218 +117,89 @@
 }
 </style>
 
-<script lang="ts">
-import { defineComponent, PropType, toRaw } from 'vue';
+<script setup lang="ts">
+import { computed, defineEmits, PropType, ref, toRaw } from 'vue';
 
 import DsTile from '../../Tile';
 import { ICONS } from '../../Icons/Icon';
 import DatePickerBox from '../DatePickerBox';
 
 import {
-	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
 	DATE_PICKER_STATES,
 	DATE_PICKER_TRIGGER_TYPES,
-	DatePickerCalendarPositions,
 	DatePickerColors,
 	DatePickerStates,
 	DatePickerTriggerTypes,
 } from './DatePicker.consts';
 import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
+import { configProps, initFlatpickr } from './DatePicker.composables';
+import { localWeekdayName } from '../../../../../tools/importers/helpers/dates';
 
-let flatpickr: Function | null = null;
+const dateRangePickerRef = ref(null);
+const flatpickrInputRef = ref(null);
 
-export const FLATPICKR_POSITIONS = {
-	[DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_LEFT]: 'below left',
-	[DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_RIGHT]: 'below right',
-	[DATE_PICKER_CALENDAR_POSITIONS.BOTTOM]: 'below',
-	[DATE_PICKER_CALENDAR_POSITIONS.TOP_LEFT]: 'above left',
-	[DATE_PICKER_CALENDAR_POSITIONS.TOP_RIGHT]: 'above right',
-	[DATE_PICKER_CALENDAR_POSITIONS.TOP]: 'above',
-} as const;
-
-export default defineComponent({
-	name: 'DatePicker',
-	components: {
-		DatePickerBox,
-		DsTile,
+const props = defineProps({
+	triggerType: {
+		type: String as PropType<DatePickerTriggerTypes>,
+		default: DATE_PICKER_TRIGGER_TYPES.TILE,
 	},
-	props: {
-		triggerType: {
-			type: String as PropType<DatePickerTriggerTypes>,
-			default: DATE_PICKER_TRIGGER_TYPES.TILE,
-		},
-		isInteractive: {
-			type: Boolean,
-			default: true,
-		},
-		placeholder: {
-			type: String,
-			default: 'Wybierz datę',
-		},
-		date: {
-			type: Date,
-			default: null,
-		},
-		label: {
-			type: String,
-			default: '',
-		},
-		isLabelUppercase: {
-			type: Boolean,
-			default: false,
-		},
-		icon: {
-			type: [Object, null],
-			default: ICONS.FA_CALENDAR_DAY,
-			validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
-		},
-		isIconHiddenOnMobile: {
-			type: Boolean,
-			default: false,
-		},
-		calendarPosition: {
-			type: String as PropType<DatePickerCalendarPositions>,
-			default: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_LEFT,
-		},
-		errorMessage: {
-			type: String,
-			default: '',
-		},
-		state: {
-			type: (String as PropType<DatePickerStates>) || null,
-			default: DATE_PICKER_STATES.DEFAULT,
-		},
-		color: {
-			type: String as PropType<DatePickerColors>,
-			default: DATE_PICKER_COLORS.NEUTRAL,
-		},
-		disableDates: {
-			type: Array,
-			default: () => [],
-		},
-		minDate: {
-			type: Date,
-			default: null,
-		},
-		maxDate: {
-			type: Date,
-			default: null,
-		},
+	isInteractive: {
+		type: Boolean,
+		default: true,
 	},
-	emits: { 'update:date': () => true },
-	data() {
-		return {
-			datePicker: null,
-			isOpen: false,
-			DATE_PICKER_STATES: Object.freeze(DATE_PICKER_STATES),
-			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
-		};
+	placeholder: {
+		type: String,
+		default: 'Wybierz datę',
 	},
-	computed: {
-		isDatePickerEnabled() {
-			return this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT;
-		},
-		eyebrowText() {
-			if (!this.date || this.state === DATE_PICKER_STATES.LOADING) {
-				return '';
-			}
-
-			return capitalizeFirstLetter(
-				this.date.toLocaleDateString(undefined, {
-					dateStyle: undefined,
-					timeStyle: undefined,
-					weekday: 'long',
-				}),
-			);
-		},
-		text() {
-			if (this.state === DATE_PICKER_STATES.LOADING || !this.date) {
-				return this.placeholder;
-			}
-
-			return this.date.toLocaleDateString(undefined, {
-				dateStyle: 'medium',
-				timeStyle: undefined,
-			});
-		},
-		tileIcon() {
-			if (!this.icon) {
-				return null;
-			}
-
-			return this.isOpen ? ICONS.FA_CHEVRON_UP : this.icon;
-		},
-		flatpickrConfigString() {
-			return [
-				this.maxDate,
-				this.minDate,
-				this.calendarPosition,
-				this.date,
-				...this.disableDates,
-			].concat('|');
-		},
+	date: {
+		type: Date,
+		default: null,
 	},
-	watch: {
-		flatpickrConfigString: {
-			handler() {
-				this.datePicker?.set({
-					position: FLATPICKR_POSITIONS[this.calendarPosition],
-					defaultDate: this.date,
-					disable: this.disableDates.filter((date) => date instanceof Date),
-					minDate: this.minDate,
-					maxDate: this.maxDate,
-				});
-			},
-			flush: 'post' as const,
-		},
+	label: {
+		type: String,
+		default: '',
 	},
-	async mounted() {
-		if (this.isDatePickerEnabled && !this.datePicker) {
-			if (!flatpickr) {
-				const { default: flatpickrFunction } = await import('flatpickr');
-
-				flatpickr = flatpickrFunction;
-			}
-
-			const { Polish } = await import('flatpickr/dist/l10n/pl.js');
-
-			this.datePicker = flatpickr(this.$refs.flatpickrInput, {
-				locale: Polish,
-				positionElement: this.$el,
-				ignoredFocusElements: [this.$el],
-				appendTo: this.$el,
-				position: FLATPICKR_POSITIONS[this.calendarPosition],
-				defaultDate: this.date,
-				disable: this.disableDates.filter((date) => date instanceof Date),
-				minDate: this.minDate,
-				maxDate: this.maxDate,
-				onClose: [
-					() => {
-						this.isOpen = false;
-					},
-				],
-				onOpen: [
-					() => {
-						this.isOpen = true;
-					},
-				],
-				onChange: (event) => {
-					this.$emit('update:date', event[0]);
-				},
-			});
-		}
+	isLabelUppercase: {
+		type: Boolean,
+		default: false,
 	},
-	unmounted() {
-		this.datePicker?.destroy();
-		this.datePicker = null;
+	icon: {
+		type: [Object, null],
+		default: ICONS.FA_CALENDAR_DAY,
+		validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
 	},
-	methods: {
-		toggle() {
-			if (this.isDatePickerEnabled && this.datePicker) {
-				this.datePicker.toggle();
-			}
-		},
+	isIconHiddenOnMobile: {
+		type: Boolean,
+		default: false,
 	},
+	errorMessage: {
+		type: String,
+		default: '',
+	},
+	state: {
+		type: (String as PropType<DatePickerStates>) || null,
+		default: DATE_PICKER_STATES.DEFAULT,
+	},
+	color: {
+		type: String as PropType<DatePickerColors>,
+		default: DATE_PICKER_COLORS.NEUTRAL,
+	},
+	...configProps,
 });
+
+const emit = defineEmits(['update:date']);
+const onChange = (event) => {
+	emit('update:date', event[0]);
+};
+
+const eyebrowText = computed(() => {
+	if (!props.date || props.state === DATE_PICKER_STATES.LOADING) {
+		return '';
+	}
+
+	return capitalizeFirstLetter(localWeekdayName(props.date));
+});
+
+const { isOpen, toggle } = initFlatpickr(flatpickrInputRef, dateRangePickerRef, props, onChange);
 </script>

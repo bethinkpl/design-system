@@ -66,7 +66,7 @@ const StoryTemplate: StoryFn<typeof DateRangePicker> = (args) => {
 			},
 			formattedDisableDates() {
 				if (!this.disableDates || !this.disableDates.length) {
-					return null;
+					return [];
 				}
 				return this.disableDates.map((date) => new Date(date));
 			},
