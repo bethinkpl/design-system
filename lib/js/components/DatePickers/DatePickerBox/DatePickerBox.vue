@@ -11,30 +11,32 @@
 		}"
 	>
 		<div class="ds-datePickerBox__dateWrapper">
-			<span v-if="eyebrowText" class="ds-datePickerBox__eyebrow">{{ eyebrowText }}</span>
+			<span v-if="startDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
+				startDateEyebrowText
+			}}</span>
 			<div class="ds-datePickerBox__date">
 				<ds-icon
-					v-if="icon"
+					v-if="startIcon"
 					class="ds-datePickerBox__icon"
-					:class="{ '-ds-hiddenOnMobile': isIconHiddenOnMobile }"
-					:icon="icon"
+					:class="{ '-ds-hiddenOnMobile': areIconsHiddenOnMobile }"
+					:icon="startIcon"
 					:size="ICON_SIZES.XX_SMALL"
 				></ds-icon>
-				<span class="ds-datePickerBox__dateText">{{ text }}</span>
+				<span class="ds-datePickerBox__dateText">{{ startDateText }}</span>
 			</div>
 		</div>
-		<template v-if="date && endDate">
+		<template v-if="startDate && endDate">
 			<span class="ds-datePickerBox__separator">–</span>
 			<div class="ds-datePickerBox__dateWrapper">
-				<span v-if="eyebrowText" class="ds-datePickerBox__eyebrow">{{
+				<span v-if="endDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
 					endDateEyebrowText
 				}}</span>
 				<div class="ds-datePickerBox__date">
 					<ds-icon
-						v-if="icon"
+						v-if="endIcon"
 						class="ds-datePickerBox__icon"
-						:class="{ '-ds-hiddenOnMobile': isIconHiddenOnMobile }"
-						:icon="icon"
+						:class="{ '-ds-hiddenOnMobile': areIconsHiddenOnMobile }"
+						:icon="endIcon"
 						:size="ICON_SIZES.XX_SMALL"
 					></ds-icon>
 					<span class="ds-datePickerBox__dateText">{{ endDateText }}</span>
@@ -271,7 +273,7 @@ export default defineComponent({
 			type: String,
 			default: 'Ustaw',
 		},
-		date: {
+		startDate: {
 			type: Date,
 			default: null,
 		},
@@ -279,12 +281,17 @@ export default defineComponent({
 			type: Date,
 			default: null,
 		},
-		icon: {
+		startIcon: {
 			type: Object,
 			default: null,
 			validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
 		},
-		isIconHiddenOnMobile: {
+		endIcon: {
+			type: Object,
+			default: null,
+			validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
+		},
+		areIconsHiddenOnMobile: {
 			type: Boolean,
 			default: false,
 		},
@@ -296,7 +303,7 @@ export default defineComponent({
 			type: String as PropType<DatePickerColors>,
 			default: DATE_PICKER_COLORS.NEUTRAL,
 		},
-		eyebrowText: {
+		startDateEyebrowText: {
 			type: String,
 			default: '',
 		},
@@ -318,9 +325,9 @@ export default defineComponent({
 		};
 	},
 	computed: {
-		text() {
-			if (this.date) {
-				return localMonthDayWithShortMonthDay(this.date);
+		startDateText() {
+			if (this.startDate) {
+				return localMonthDayWithShortMonthDay(this.startDate);
 			}
 			return this.placeholder;
 		},

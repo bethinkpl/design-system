@@ -78,8 +78,9 @@ const StoryTemplate: StoryFn<typeof DateRangePicker> = (args) => {
 					:placeholder="placeholder"
 					:start-date="formattedStartDate"
 					:end-date="formattedEndDate"
-					:icon="icon ? ICONS[icon] : null"
-					:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
+					:start-icon="startIcon ? ICONS[startIcon] : null"
+					:end-icon="endIcon ? ICONS[endIcon] : null"
+					:are-icons-hidden-on-mobile="areIconsHiddenOnMobile"
 					:calendar-position="calendarPosition"
 					:error-message="errorMessage"
 					:state="state"
@@ -100,8 +101,9 @@ const args = {
 	placeholder: 'Wybierz datę',
 	startDate: '',
 	endDate: '',
-	icon: 'FA_CALENDAR_DAY',
-	isIconHiddenOnMobile: false,
+	startIcon: 'FA_CALENDAR_DAY',
+	endIcon: 'FA_CALENDAR_DAY',
+	areIconsHiddenOnMobile: false,
 	calendarPosition: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM,
 	errorMessage: '',
 	state: DATE_PICKER_STATES.DEFAULT,
@@ -114,7 +116,8 @@ const args = {
 const argTypes = {
 	startDate: { control: 'text' },
 	endDate: { control: 'text' },
-	icon: { control: 'select', options: [null, ...Object.keys(ICONS)] },
+	startIcon: { control: 'select', options: [null, ...Object.keys(ICONS)] },
+	endIcon: { control: 'select', options: [null, ...Object.keys(ICONS)] },
 	calendarPosition: {
 		control: 'select',
 		options: Object.values(DATE_PICKER_CALENDAR_POSITIONS),

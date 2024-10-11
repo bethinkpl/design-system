@@ -35,12 +35,12 @@
 			v-else
 			:is-interactive="isInteractive"
 			:placeholder="placeholder"
-			:date="date"
-			:icon="icon"
-			:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
+			:start-date="date"
+			:start-icon="icon"
+			:are-icons-hidden-on-mobile="isIconHiddenOnMobile"
 			:state="state"
 			:color="color"
-			:eyebrow-text="eyebrowText"
+			:start-date-eyebrow-text="eyebrowText"
 			:is-open="isOpen"
 			@click="toggle"
 		/>

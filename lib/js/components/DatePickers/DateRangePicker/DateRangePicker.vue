@@ -3,13 +3,14 @@
 		<date-picker-box
 			:is-interactive="isInteractive"
 			:placeholder="placeholder"
-			:date="startDate"
+			:start-date="startDate"
 			:end-date="endDateIfDifferentThanStartDate"
-			:icon="icon"
-			:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
+			:start-icon="startIcon"
+			:end-icon="endIcon"
+			:are-icons-hidden-on-mobile="areIconsHiddenOnMobile"
 			:state="state"
 			:color="color"
-			:eyebrow-text="eyebrowText"
+			:start-date-eyebrow-text="eyebrowText"
 			:end-date-eyebrow-text="endDateEyebrowText"
 			:is-open="isOpen"
 			@click="toggle"
@@ -84,14 +85,21 @@ const props = defineProps({
 		type: Date,
 		default: null,
 	},
-	icon: {
+	startIcon: {
 		type: [Object, null] as PropType<IconItem | null>,
 		default: ICONS.FA_CALENDAR_DAY,
 		validator(icon) {
 			return icon === null || Object?.values(ICONS).includes(toRaw(icon));
 		},
 	},
-	isIconHiddenOnMobile: {
+	endIcon: {
+		type: [Object, null] as PropType<IconItem | null>,
+		default: ICONS.FA_CALENDAR_DAY,
+		validator(icon) {
+			return icon === null || Object?.values(ICONS).includes(toRaw(icon));
+		},
+	},
+	areIconsHiddenOnMobile: {
 		type: Boolean,
 		default: false,
 	},
