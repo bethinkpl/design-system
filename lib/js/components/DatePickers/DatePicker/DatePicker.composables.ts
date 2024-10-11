@@ -68,8 +68,8 @@ export function initFlatpickr(
 				position: FLATPICKR_POSITIONS[props.calendarPosition],
 				defaultDate: defaultDates.value,
 				disable: props.disableDates,
-				minDate: props.minDate,
-				maxDate: props.maxDate,
+				minDate: props.minDate as Date | undefined,
+				maxDate: props.maxDate as Date | undefined,
 			});
 		},
 		{
