@@ -5,3 +5,10 @@ export function localWeekdayName(date: Date): string {
 		weekday: 'long',
 	});
 }
+
+export function localFullDateWithShortMonthName(date: Date): string {
+	return date.toLocaleDateString(undefined, {
+		dateStyle: 'medium',
+		timeStyle: undefined,
+	});
+}

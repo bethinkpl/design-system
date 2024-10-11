@@ -136,7 +136,10 @@ import {
 } from './DatePicker.consts';
 import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
 import { initFlatpickr } from './DatePicker.composables';
-import { localWeekdayName } from '../../../../../tools/importers/helpers/dates';
+import {
+	localFullDateWithShortMonthName,
+	localWeekdayName,
+} from '../../../../../tools/importers/helpers/dates';
 
 const dateRangePickerRef = ref() as Ref<HTMLDivElement>;
 const flatpickrInputRef = ref() as Ref<HTMLInputElement>;
@@ -225,10 +228,7 @@ const text = computed(() => {
 		return props.placeholder;
 	}
 
-	return props.date.toLocaleDateString(undefined, {
-		dateStyle: 'medium',
-		timeStyle: undefined,
-	});
+	return localFullDateWithShortMonthName(props.date);
 });
 
 const dates = computed(() => props.date);
