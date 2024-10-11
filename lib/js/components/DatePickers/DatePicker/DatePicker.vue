@@ -118,26 +118,28 @@
 </style>
 
 <script setup lang="ts">
-import { computed, defineEmits, PropType, ref, toRaw } from 'vue';
+import { computed, defineEmits, PropType, Ref, ref, toRaw } from 'vue';
 
 import DsTile from '../../Tile';
-import { ICONS } from '../../Icons/Icon';
+import { IconItem, ICONS } from '../../Icons/Icon';
 import DatePickerBox from '../DatePickerBox';
 
 import {
+	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
 	DATE_PICKER_STATES,
 	DATE_PICKER_TRIGGER_TYPES,
+	DatePickerCalendarPositions,
 	DatePickerColors,
 	DatePickerStates,
 	DatePickerTriggerTypes,
 } from './DatePicker.consts';
 import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
-import { configProps, initFlatpickr } from './DatePicker.composables';
+import { initFlatpickr } from './DatePicker.composables';
 import { localWeekdayName } from '../../../../../tools/importers/helpers/dates';
 
-const dateRangePickerRef = ref(null);
-const flatpickrInputRef = ref(null);
+const dateRangePickerRef = ref(null) as Ref<HTMLDivElement>;
+const flatpickrInputRef = ref(null) as Ref<HTMLInputElement>;
 
 const props = defineProps({
 	triggerType: {
@@ -165,7 +167,7 @@ const props = defineProps({
 		default: false,
 	},
 	icon: {
-		type: [Object, null],
+		type: [Object, null] as PropType<IconItem | null>,
 		default: ICONS.FA_CALENDAR_DAY,
 		validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
 	},
@@ -178,14 +180,29 @@ const props = defineProps({
 		default: '',
 	},
 	state: {
-		type: (String as PropType<DatePickerStates>) || null,
+		type: String as PropType<DatePickerStates>,
 		default: DATE_PICKER_STATES.DEFAULT,
 	},
 	color: {
 		type: String as PropType<DatePickerColors>,
 		default: DATE_PICKER_COLORS.NEUTRAL,
 	},
-	...configProps,
+	calendarPosition: {
+		type: String as PropType<DatePickerCalendarPositions>,
+		default: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_LEFT,
+	},
+	disableDates: {
+		type: Array as PropType<Date[]>,
+		default: () => [],
+	},
+	minDate: {
+		type: Date,
+		default: null,
+	},
+	maxDate: {
+		type: Date,
+		default: null,
+	},
 });
 
 const emit = defineEmits(['update:date']);
@@ -201,5 +218,31 @@ const eyebrowText = computed(() => {
 	return capitalizeFirstLetter(localWeekdayName(props.date));
 });
 
-const { isOpen, toggle } = initFlatpickr(flatpickrInputRef, dateRangePickerRef, props, onChange);
+const text = computed(() => {
+	if (props.state === DATE_PICKER_STATES.LOADING || !props.date) {
+		return props.placeholder;
+	}
+
+	return props.date.toLocaleDateString(undefined, {
+		dateStyle: 'medium',
+		timeStyle: undefined,
+	});
+});
+
+const dates = computed(() => props.date);
+const { isOpen, toggle } = initFlatpickr(
+	flatpickrInputRef,
+	dateRangePickerRef,
+	props,
+	onChange,
+	dates,
+);
+
+const tileIcon = computed(() => {
+	if (!props.icon) {
+		return null;
+	}
+
+	return isOpen.value ? ICONS.FA_CHEVRON_UP : props.icon;
+});
 </script>

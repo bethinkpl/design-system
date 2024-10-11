@@ -45,8 +45,8 @@
 </style>
 <script setup lang="ts">
 import DatePickerBox from '../DatePickerBox/DatePickerBox.vue';
-import { ICONS } from '../../Icons/Icon';
-import { computed, defineEmits, PropType, ref, toRaw } from 'vue';
+import { IconItem, ICONS } from '../../Icons/Icon';
+import { computed, defineEmits, PropType, Ref, ref, toRaw } from 'vue';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
@@ -55,12 +55,12 @@ import {
 	DatePickerColors,
 	DatePickerStates,
 } from '../DatePicker';
-import { initFlatpickr, configProps } from '../DatePicker/DatePicker.composables';
+import { initFlatpickr } from '../DatePicker/DatePicker.composables';
 import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
 import { localWeekdayName } from '../../../../../tools/importers/helpers/dates';
 
-const dateRangePickerRef = ref(null);
-const flatpickrInputRef = ref(null);
+const dateRangePickerRef = ref(null) as Ref<HTMLDivElement>;
+const flatpickrInputRef = ref(null) as Ref<HTMLInputElement>;
 
 const props = defineProps({
 	isInteractive: {
@@ -80,7 +80,7 @@ const props = defineProps({
 		default: null,
 	},
 	icon: {
-		type: [Object, null],
+		type: [Object, null] as PropType<IconItem | null>,
 		default: ICONS.FA_CALENDAR_DAY,
 		validator(icon) {
 			return icon === null || Object?.values(ICONS).includes(toRaw(icon));
@@ -106,7 +106,18 @@ const props = defineProps({
 		type: String as PropType<DatePickerColors>,
 		default: DATE_PICKER_COLORS.NEUTRAL,
 	},
-	...configProps,
+	disableDates: {
+		type: Array,
+		default: () => [],
+	},
+	minDate: {
+		type: Date,
+		default: null,
+	},
+	maxDate: {
+		type: Date,
+		default: null,
+	},
 });
 
 const emit = defineEmits(['update:date']);
@@ -139,11 +150,14 @@ const eyebrowText = computed(() => {
 	return capitalizeFirstLetter(localWeekdayName(props.startDate));
 });
 
+const dates = computed(() => [props.startDate, props.endDate]);
+
 const { isOpen, toggle } = initFlatpickr(
 	flatpickrInputRef,
 	dateRangePickerRef,
 	props,
 	onChange,
+	dates,
 	'range',
 );
 </script>

@@ -1,25 +1,26 @@
-import { computed, onMounted, onUnmounted, PropType, ref, watchEffect } from 'vue';
+import { onMounted, onUnmounted, Ref, ref, watch } from 'vue';
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import flatpickr from 'flatpickr';
 import { Polish } from 'flatpickr/dist/l10n/pl';
-import {
-	DATE_PICKER_CALENDAR_POSITIONS,
-	FLATPICKR_POSITIONS,
-	DatePickerCalendarPositions,
-} from './index';
-export function initFlatpickr(
-	flatpickrInputRef,
-	dateRangePickerRef,
-	props,
-	onChange,
-	mode: 'single' | 'range' = 'single',
-) {
-	const disableDates = computed(() =>
-		props.disableDates instanceof Array
-			? props.disableDates.filter((date) => date instanceof Date)
-			: props.disableDates,
-	);
+import { DatePickerCalendarPositions, FLATPICKR_POSITIONS } from './index';
 
+export function initFlatpickr(
+	flatpickrInputRef: Ref<HTMLInputElement>,
+	dateRangePickerRef: Ref<HTMLElement>,
+	props: {
+		disableDates: Date[];
+		minDate: Date | null;
+		maxDate: Date | null;
+		calendarPosition: DatePickerCalendarPositions;
+	},
+	onChange: Function,
+	defaultDates: Ref<Date> | Ref<Date[]>,
+	mode: 'single' | 'range' = 'single',
+): {
+	datePicker: DatePickerInstance | null;
+	isOpen: Ref<boolean>;
+	toggle: () => void;
+} {
 	let datePicker: DatePickerInstance | null = null;
 	let isOpen = ref(false);
 
@@ -31,8 +32,8 @@ export function initFlatpickr(
 			ignoredFocusElements: [dateRangePickerRef?.value],
 			appendTo: dateRangePickerRef?.value,
 			position: FLATPICKR_POSITIONS[props.calendarPosition],
-			defaultDate: props.date ?? [props.startDate, props.endDate],
-			disable: disableDates?.value,
+			defaultDate: defaultDates.value,
+			disable: props.disableDates,
 			minDate: props.minDate,
 			maxDate: props.maxDate,
 			onClose: [
@@ -54,12 +55,19 @@ export function initFlatpickr(
 		datePicker = null;
 	});
 
-	watchEffect(
+	watch(
+		[
+			() => props.calendarPosition,
+			() => props.minDate,
+			() => props.maxDate,
+			() => props.disableDates,
+			defaultDates,
+		],
 		() => {
 			datePicker?.set({
 				position: FLATPICKR_POSITIONS[props.calendarPosition],
-				defaultDate: props.date ?? [props.startDate?.value, props.endDate],
-				disable: disableDates.value,
+				defaultDate: defaultDates.value,
+				disable: props.disableDates,
 				minDate: props.minDate,
 				maxDate: props.maxDate,
 			});
@@ -77,22 +85,3 @@ export function initFlatpickr(
 		},
 	};
 }
-
-export const configProps = {
-	calendarPosition: {
-		type: String as PropType<DatePickerCalendarPositions>,
-		default: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_LEFT,
-	},
-	disableDates: {
-		type: Array,
-		default: () => [],
-	},
-	minDate: {
-		type: Date,
-		default: null,
-	},
-	maxDate: {
-		type: Date,
-		default: null,
-	},
-};
