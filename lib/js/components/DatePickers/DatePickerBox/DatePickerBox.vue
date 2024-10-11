@@ -10,9 +10,9 @@
 			'-ds-isOpen': isOpen,
 		}"
 	>
-		<div class="ds-datePickerBox__dates">
+		<div class="ds-datePickerBox__dateWrapper">
 			<span v-if="eyebrowText" class="ds-datePickerBox__eyebrow">{{ eyebrowText }}</span>
-			<div class="ds-datePickerBox__dateWrapper">
+			<div class="ds-datePickerBox__date">
 				<ds-icon
 					v-if="icon"
 					class="ds-datePickerBox__icon"
@@ -20,16 +20,16 @@
 					:icon="icon"
 					:size="ICON_SIZES.XX_SMALL"
 				></ds-icon>
-				<span class="ds-datePickerBox__date">{{ text }}</span>
+				<span class="ds-datePickerBox__dateText">{{ text }}</span>
 			</div>
 		</div>
 		<template v-if="date && endDate">
 			<span class="ds-datePickerBox__separator">–</span>
-			<div class="ds-datePickerBox__dates">
+			<div class="ds-datePickerBox__dateWrapper">
 				<span v-if="eyebrowText" class="ds-datePickerBox__eyebrow">{{
 					endDateEyebrowText
 				}}</span>
-				<div class="ds-datePickerBox__dateWrapper">
+				<div class="ds-datePickerBox__date">
 					<ds-icon
 						v-if="icon"
 						class="ds-datePickerBox__icon"
@@ -37,7 +37,7 @@
 						:icon="icon"
 						:size="ICON_SIZES.XX_SMALL"
 					></ds-icon>
-					<span class="ds-datePickerBox__date">{{ endDateText }}</span>
+					<span class="ds-datePickerBox__dateText">{{ endDateText }}</span>
 				</div>
 			</div>
 		</template>
@@ -73,7 +73,7 @@
 				color: $color-icon-hovered;
 			}
 
-			#{$self}__date {
+			#{$self}__dateText {
 				color: $color-date-hovered;
 			}
 		}
@@ -84,7 +84,7 @@
 			color: $color-eyebrow-disabled;
 		}
 
-		#{$self}__date {
+		#{$self}__dateText {
 			color: $color-date-disabled;
 		}
 
@@ -99,7 +99,7 @@
 				color: $color-icon;
 			}
 
-			#{$self}__date {
+			#{$self}__dateText {
 				color: $color-date;
 			}
 		}
@@ -108,7 +108,7 @@
 		color: $color-eyebrow;
 	}
 
-	#{$self}__date {
+	#{$self}__dateText {
 		color: $color-date;
 	}
 
@@ -134,7 +134,7 @@
 	pointer-events: none;
 	position: relative;
 
-	&__dates {
+	&__dateWrapper {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
@@ -170,7 +170,7 @@
 		@include info-xs-default-regular;
 	}
 
-	&__dateWrapper {
+	&__date {
 		column-gap: $space-4xs;
 		display: inline-flex;
 
@@ -179,7 +179,7 @@
 		user-select: none;
 	}
 
-	&__date {
+	&__dateText {
 		@include text-s-default-regular;
 	}
 
@@ -255,6 +255,7 @@ import {
 	DatePickerStates,
 } from '../DatePicker/DatePicker.consts';
 import { defineComponent, PropType, toRaw } from 'vue';
+import { localMonthDayWithShortMonthDay } from '../../../../../tools/importers/helpers/dates';
 
 export default defineComponent({
 	name: 'DatePickerBox',
@@ -316,23 +317,15 @@ export default defineComponent({
 			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
 		};
 	},
-	methods: {
-		formatDate(date: Date) {
-			return date.toLocaleDateString(undefined, {
-				month: 'short',
-				day: '2-digit',
-			});
-		},
-	},
 	computed: {
 		text() {
 			if (this.date) {
-				return this.formatDate(this.date);
+				return localMonthDayWithShortMonthDay(this.date);
 			}
 			return this.placeholder;
 		},
 		endDateText() {
-			return this.formatDate(this.endDate);
+			return localMonthDayWithShortMonthDay(this.endDate);
 		},
 	},
 });

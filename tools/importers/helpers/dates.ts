@@ -12,3 +12,10 @@ export function localFullDateWithShortMonthName(date: Date): string {
 		timeStyle: undefined,
 	});
 }
+
+export function localMonthDayWithShortMonthDay(date: Date): string {
+	return date.toLocaleDateString(undefined, {
+		month: 'short',
+		day: '2-digit',
+	});
+}
