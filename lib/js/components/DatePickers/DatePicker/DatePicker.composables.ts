@@ -8,13 +8,13 @@ export function initFlatpickr(
 	flatpickrInputRef: Ref<HTMLInputElement>,
 	dateRangePickerRef: Ref<HTMLElement>,
 	props: {
-		disableDates: Date[];
+		disableDates: Array<Date>;
 		minDate: Date | null;
 		maxDate: Date | null;
 		calendarPosition: DatePickerCalendarPositions;
 	},
-	onChange: (dates: Date[]) => void,
-	defaultDates: Date | Date[],
+	onChange: (dates: Array<Date>) => void,
+	defaultDates: Date | Array<Date>,
 	mode: 'single' | 'range' = 'single',
 ): {
 	datePicker: DatePickerInstance | null;

@@ -1,7 +1,7 @@
 <template>
 	<div
-		class="ds-datePicker"
 		ref="dateRangePickerRef"
+		class="ds-datePicker"
 		:class="{ '-ds-box': triggerType === DATE_PICKER_TRIGGER_TYPES.BOX }"
 	>
 		<template v-if="triggerType === DATE_PICKER_TRIGGER_TYPES.TILE">
@@ -197,7 +197,7 @@ const props = defineProps({
 		default: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_LEFT,
 	},
 	disableDates: {
-		type: Array as PropType<Date[]>,
+		type: Array as PropType<Array<Date>>,
 		default: () => [],
 	},
 	minDate: {
@@ -210,8 +210,8 @@ const props = defineProps({
 	},
 });
 
-const emit = defineEmits(['update:date']);
-const onChange = (event: Date[]) => {
+const emit = defineEmits({ 'update:date': (value: Date) => true });
+const onChange = (event: Array<Date>) => {
 	emit('update:date', event[0]);
 };
 

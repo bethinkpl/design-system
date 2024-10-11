@@ -43,6 +43,7 @@
 	}
 }
 </style>
+
 <script setup lang="ts">
 import DatePickerBox from '../DatePickerBox/DatePickerBox.vue';
 import { IconItem, ICONS } from '../../Icons/Icon';
@@ -107,7 +108,7 @@ const props = defineProps({
 		default: DATE_PICKER_COLORS.NEUTRAL,
 	},
 	disableDates: {
-		type: Array as PropType<Date[]>,
+		type: Array as PropType<Array<Date>>,
 		default: () => [],
 	},
 	minDate: {
@@ -120,8 +121,8 @@ const props = defineProps({
 	},
 });
 
-const emit = defineEmits(['update:date']);
-const onChange = (event: Date[]) => {
+const emit = defineEmits({ 'update:date': (value: { startDate: Date; endDate: Date }) => true });
+const onChange = (event: Array<Date>) => {
 	if (event.length !== 2) {
 		return;
 	}
