@@ -22,6 +22,10 @@
 	</div>
 </template>
 
+<style lang="scss">
+@import 'flatpickr/dist/flatpickr';
+</style>
+
 <style scoped lang="scss">
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/colors/tokens';
