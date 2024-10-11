@@ -23,8 +23,8 @@
 				class="ds-datePicker__tile"
 				:text="text"
 				:interactive="isInteractive"
-				:color="color"
-				:state="state"
+				:color="color as TileColors"
+				:state="state as TileStates"
 				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
@@ -120,7 +120,7 @@
 <script setup lang="ts">
 import { computed, defineEmits, PropType, Ref, ref, toRaw } from 'vue';
 
-import DsTile from '../../Tile';
+import DsTile, { TileColors, TileStates } from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import DatePickerBox from '../DatePickerBox';
 
@@ -138,8 +138,8 @@ import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/mo
 import { initFlatpickr } from './DatePicker.composables';
 import { localWeekdayName } from '../../../../../tools/importers/helpers/dates';
 
-const dateRangePickerRef = ref(null) as Ref<HTMLDivElement>;
-const flatpickrInputRef = ref(null) as Ref<HTMLInputElement>;
+const dateRangePickerRef = ref() as Ref<HTMLDivElement>;
+const flatpickrInputRef = ref() as Ref<HTMLInputElement>;
 
 const props = defineProps({
 	triggerType: {
@@ -169,7 +169,9 @@ const props = defineProps({
 	icon: {
 		type: [Object, null] as PropType<IconItem | null>,
 		default: ICONS.FA_CALENDAR_DAY,
-		validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
+		validator(icon) {
+			return icon === null || Object.values(ICONS).includes(toRaw(icon));
+		},
 	},
 	isIconHiddenOnMobile: {
 		type: Boolean,
@@ -206,7 +208,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['update:date']);
-const onChange = (event) => {
+const onChange = (event: Date[]) => {
 	emit('update:date', event[0]);
 };
 

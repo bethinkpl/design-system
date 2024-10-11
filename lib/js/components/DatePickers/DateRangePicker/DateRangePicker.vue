@@ -59,8 +59,8 @@ import { initFlatpickr } from '../DatePicker/DatePicker.composables';
 import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
 import { localWeekdayName } from '../../../../../tools/importers/helpers/dates';
 
-const dateRangePickerRef = ref(null) as Ref<HTMLDivElement>;
-const flatpickrInputRef = ref(null) as Ref<HTMLInputElement>;
+const dateRangePickerRef = ref() as Ref<HTMLDivElement>;
+const flatpickrInputRef = ref() as Ref<HTMLInputElement>;
 
 const props = defineProps({
 	isInteractive: {
@@ -107,7 +107,7 @@ const props = defineProps({
 		default: DATE_PICKER_COLORS.NEUTRAL,
 	},
 	disableDates: {
-		type: Array,
+		type: Array as PropType<Date[]>,
 		default: () => [],
 	},
 	minDate: {
@@ -121,7 +121,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['update:date']);
-const onChange = (event) => {
+const onChange = (event: Date[]) => {
 	if (event.length !== 2) {
 		return;
 	}
