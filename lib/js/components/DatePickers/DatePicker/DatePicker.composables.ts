@@ -14,7 +14,7 @@ export function initFlatpickr(
 		calendarPosition: DatePickerCalendarPositions;
 	},
 	onChange: (dates: Date[]) => void,
-	defaultDates: Ref<Date> | Ref<Date[]>,
+	defaultDates: Date | Date[],
 	mode: 'single' | 'range' = 'single',
 ): {
 	datePicker: DatePickerInstance | null;
@@ -32,7 +32,7 @@ export function initFlatpickr(
 			ignoredFocusElements: [dateRangePickerRef?.value],
 			appendTo: dateRangePickerRef?.value,
 			position: FLATPICKR_POSITIONS[props.calendarPosition],
-			defaultDate: defaultDates.value,
+			defaultDate: defaultDates,
 			disable: props.disableDates,
 			minDate: props.minDate as Date | undefined,
 			maxDate: props.maxDate as Date | undefined,
@@ -61,12 +61,12 @@ export function initFlatpickr(
 			() => props.minDate,
 			() => props.maxDate,
 			() => props.disableDates,
-			defaultDates,
+			() => defaultDates,
 		],
 		() => {
 			datePicker?.set({
 				position: FLATPICKR_POSITIONS[props.calendarPosition],
-				defaultDate: defaultDates.value,
+				defaultDate: defaultDates,
 				disable: props.disableDates,
 				minDate: props.minDate as Date | undefined,
 				maxDate: props.maxDate as Date | undefined,

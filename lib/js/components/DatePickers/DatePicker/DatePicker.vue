@@ -231,13 +231,12 @@ const text = computed(() => {
 	return localFullDateWithShortMonthName(props.date);
 });
 
-const dates = computed(() => props.date);
 const { isOpen, toggle } = initFlatpickr(
 	flatpickrInputRef,
 	dateRangePickerRef,
 	props,
 	onChange,
-	dates,
+	props.date,
 );
 
 const tileIcon = computed(() => {

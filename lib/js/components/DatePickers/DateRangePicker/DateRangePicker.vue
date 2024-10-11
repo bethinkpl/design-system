@@ -150,14 +150,12 @@ const eyebrowText = computed(() => {
 	return capitalizeFirstLetter(localWeekdayName(props.startDate));
 });
 
-const dates = computed(() => [props.startDate, props.endDate]);
-
 const { isOpen, toggle } = initFlatpickr(
 	flatpickrInputRef,
 	dateRangePickerRef,
 	props,
 	onChange,
-	dates,
+	[props.startDate, props.endDate],
 	'range',
 );
 </script>
