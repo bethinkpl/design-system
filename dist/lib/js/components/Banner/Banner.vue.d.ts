@@ -254,11 +254,11 @@ declare const _default: import('vue').DefineComponent<Readonly<import('vue').Com
     layoutClass(): "-ds-vertical" | "-ds-horizontal";
 }, {
     toggleExpandedText(): void;
-}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("button-clicked" | "close" | "update:isExpanded")[], "button-clicked" | "close" | "update:isExpanded", import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<readonly string[] | import('vue').ExtractPropTypes<Readonly<import('vue').ComponentObjectPropsOptions<{
+}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("close" | "button-clicked" | "update:isExpanded")[], "close" | "button-clicked" | "update:isExpanded", import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<readonly string[] | import('vue').ExtractPropTypes<Readonly<import('vue').ComponentObjectPropsOptions<{
     [x: string]: unknown;
 }>>>> & {
-    "onButton-clicked"?: ((...args: any[]) => any) | undefined;
     onClose?: ((...args: any[]) => any) | undefined;
+    "onButton-clicked"?: ((...args: any[]) => any) | undefined;
     "onUpdate:isExpanded"?: ((...args: any[]) => any) | undefined;
 }, {
     [x: number]: string;

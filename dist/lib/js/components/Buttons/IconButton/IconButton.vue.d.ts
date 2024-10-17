@@ -1,7 +1,6 @@
 declare const _default: import('vue').DefineComponent<Readonly<import('vue').ComponentPropsOptions<{
     [x: string]: unknown;
 }>>, unknown, {
-    hovered: boolean;
     ICONS: Readonly<{
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly RIBBON: VueConstructor<Vue>;
@@ -262,7 +261,17 @@ declare const _default: import('vue').DefineComponent<Readonly<import('vue').Com
     computedColor(): string | null;
     isButtonColor(): boolean;
     colorClassName(): string;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, readonly string[] | Readonly<import('vue').ExtractPropTypes<Readonly<import('vue').ComponentObjectPropsOptions<{
+}, {}, {
+    data(): {
+        hovered: boolean;
+    };
+    methods: {
+        mouseOver(): void;
+        mouseLeave(): void;
+        touchStart(): void;
+        touchEnd(): void;
+    };
+}, import('vue').ComponentOptionsMixin, {}, string, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, readonly string[] | Readonly<import('vue').ExtractPropTypes<Readonly<import('vue').ComponentObjectPropsOptions<{
     [x: string]: unknown;
 }>>>>, {
     [x: number]: string;
