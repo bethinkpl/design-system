@@ -22,6 +22,7 @@
 <script lang="ts">
 import { TOOLTIP_PLACEMENTS, TooltipPlacement } from './Tooltip.consts';
 import { defineComponent, PropType } from 'vue';
+import { isTouchDevice } from '../../utils/device';
 
 export default defineComponent({
 	name: 'Tooltip',
@@ -54,7 +55,7 @@ export default defineComponent({
 		tooltipParams() {
 			return {
 				position: this.placement,
-				event: this.isTouchDevice() ? 'focus' : 'hover',
+				event: isTouchDevice() ? 'focus' : 'hover',
 			};
 		},
 		options() {
