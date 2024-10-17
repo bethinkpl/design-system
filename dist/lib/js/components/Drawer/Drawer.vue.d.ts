@@ -1,7 +1,7 @@
 import { PropType } from 'vue';
 import { DrawerPosition } from './Drawer.consts';
 
-declare const _default: import('vue').DefineComponent<{
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     position: {
         type: PropType<DrawerPosition>;
         default: "right";
@@ -15,9 +15,9 @@ declare const _default: import('vue').DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
-}, unknown, unknown, {
+}>, {}, {}, {
     positionClassName(): string;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<import('vue').ExtractPropTypes<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     position: {
         type: PropType<DrawerPosition>;
         default: "right";
@@ -31,9 +31,9 @@ declare const _default: import('vue').DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
-}>>, {
+}>> & Readonly<{}>, {
     position: DrawerPosition;
     stickyHeader: boolean;
     stickyFooter: boolean;
-}>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
