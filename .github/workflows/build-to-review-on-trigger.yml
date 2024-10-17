@@ -62,7 +62,7 @@ jobs:
 
       - name: "Setting Content-Type to application/javascript for all .js files"
         run: >-
-          find "$LOCAL_DIRECTORY" -type f -name "*.js" | while read FILE; do
+          find public/storybook -type f -name "*.js" | while read FILE; do
             RELATIVE_PATH="${FILE#public/storybook/}"
             echo "s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/$RELATIVE_PATH"
             s3cmd modify --add-header="Content-Type: application/javascript" s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/$RELATIVE_PATH
@@ -71,7 +71,7 @@ jobs:
 
       - name: "Set Content-Type to text/css for all .css files"
         run: >-
-          find "$LOCAL_DIRECTORY" -type f -name "*.css" | while read FILE; do
+          find public/storybook -type f -name "*.css" | while read FILE; do
             RELATIVE_PATH="${FILE#public/storybook/}"
             echo "s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/$RELATIVE_PATH"
             s3cmd modify --add-header="Content-Type: text/css" s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/$RELATIVE_PATH
