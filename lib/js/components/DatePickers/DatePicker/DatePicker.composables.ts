@@ -7,24 +7,35 @@ import { DatePickerCalendarPositions, FLATPICKR_POSITIONS } from './index';
 let flatpickrFunction: FlatpickrFn | null = null;
 let locale: CustomLocale;
 
-export function initFlatpickr(
-	flatpickrInputRef: Ref<HTMLInputElement>,
-	dateRangePickerRef: Ref<HTMLElement>,
+interface InitFlatpickrPrams {
+	flatpickrInputRef: Ref<HTMLInputElement>;
+	dateRangePickerRef: Ref<HTMLElement>;
 	props: {
 		disableDates: Array<Date>;
 		minDate: Date | null;
 		maxDate: Date | null;
 		calendarPosition: DatePickerCalendarPositions;
-	},
-	onChange: (dates: Array<Date>) => void,
-	defaultDates: Date | Array<Date>,
-	mode: 'single' | 'range' = 'single',
-): {
+	};
+	onChange: (dates: Array<Date>) => void;
+	defaultDates: Date | Array<Date>;
+	mode: 'single' | 'range' = 'single';
+}
+
+interface InitFlatpickr {
 	datePicker: DatePickerInstance | null;
 	createDatePicker: () => Promise<DatePickerInstance | undefined>;
 	isOpen: Ref<boolean>;
 	toggle: () => void;
-} {
+}
+
+export function initFlatpickr({
+	flatpickrInputRef,
+	dateRangePickerRef,
+	props,
+	onChange,
+	defaultDates,
+	mode = 'single',
+}: InitFlatpickrPrams): InitFlatpickr {
 	let datePicker: DatePickerInstance | null = null;
 	let isOpen = ref(false);
 
