@@ -33,9 +33,14 @@ export function initFlatpickr(
 			return;
 		}
 		if (!flatpickrFunction) {
-			flatpickrFunction = (await import('flatpickr')).default;
-			const { Polish } = await import('flatpickr/dist/l10n/pl');
-			locale = Polish;
+			try {
+				flatpickrFunction = (await import('flatpickr')).default;
+				const { Polish } = await import('flatpickr/dist/l10n/pl');
+				locale = Polish;
+			} catch (e) {
+				console.error('Failed to load flatpickr', e);
+				return;
+			}
 		}
 
 		datePicker = flatpickrFunction(flatpickrInputRef.value, {
