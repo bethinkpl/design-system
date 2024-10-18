@@ -241,6 +241,7 @@ const {
 	props,
 	onChange,
 	defaultDates: props.date,
+	mode: 'single',
 });
 function toggle() {
 	if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
