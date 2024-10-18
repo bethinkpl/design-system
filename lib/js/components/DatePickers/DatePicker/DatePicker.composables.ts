@@ -39,7 +39,7 @@ export function initFlatpickr({
 	let datePicker: DatePickerInstance | null = null;
 	let isOpen = ref(false);
 
-	const createDatePicker = async () => {
+	const createDatePicker = async (): Promise<DatePickerInstance | undefined> => {
 		if (datePicker) {
 			return;
 		}
