@@ -167,14 +167,14 @@ const {
 	isOpen,
 	toggle: toggleDatePicker,
 	createDatePicker,
-} = initFlatpickr(
+} = initFlatpickr({
 	flatpickrInputRef,
 	dateRangePickerRef,
 	props,
 	onChange,
-	[props.startDate, props.endDate],
-	'range',
-);
+	defaultDates: [props.startDate, props.endDate],
+	mode: 'range',
+});
 
 function toggle() {
 	if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
