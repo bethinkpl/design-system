@@ -75,7 +75,8 @@
 				color: $color-icon-hovered;
 			}
 
-			#{$self}__dateText {
+			#{$self}__dateWrapper,
+			#{$self}__separator {
 				color: $color-date-hovered;
 			}
 		}
@@ -86,7 +87,8 @@
 			color: $color-eyebrow-disabled;
 		}
 
-		#{$self}__dateText {
+		#{$self}__dateWrapper,
+		#{$self}__separator {
 			color: $color-date-disabled;
 		}
 
@@ -101,7 +103,8 @@
 				color: $color-icon;
 			}
 
-			#{$self}__dateText {
+			#{$self}__dateWrapper,
+			#{$self}__separator {
 				color: $color-date;
 			}
 		}
@@ -110,7 +113,8 @@
 		color: $color-eyebrow;
 	}
 
-	#{$self}__dateText {
+	#{$self}__dateWrapper,
+	#{$self}__separator {
 		color: $color-date;
 	}
 
