@@ -46,8 +46,7 @@ export function initFlatpickr({
 		if (!flatpickrFunction) {
 			try {
 				flatpickrFunction = (await import('flatpickr')).default;
-				const { Polish } = await import('flatpickr/dist/l10n/pl');
-				locale = Polish;
+				locale = (await import('flatpickr/dist/l10n/pl')).Polish;
 			} catch (e) {
 				console.error('Failed to load flatpickr', e);
 				return;
