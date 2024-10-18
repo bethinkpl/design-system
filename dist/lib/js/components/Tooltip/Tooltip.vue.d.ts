@@ -73,9 +73,9 @@ declare const _default: import('vue').DefineComponent<{
     };
 }>>, {
     text: string;
+    inline: boolean;
     placement: TooltipPlacement;
     isDisabled: boolean;
     isPointerVisible: boolean;
-    inline: boolean;
 }>;
 export default _default;
