@@ -1,8 +1,11 @@
-import { onMounted, onUnmounted, Ref, ref, watch } from 'vue';
-import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
-import flatpickr from 'flatpickr';
-import { Polish } from 'flatpickr/dist/l10n/pl';
+import { onUnmounted, Ref, ref, watch } from 'vue';
+import { FlatpickrFn, Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
+import { CustomLocale } from 'flatpickr/dist/types/locale';
+
 import { DatePickerCalendarPositions, FLATPICKR_POSITIONS } from './index';
+
+let flatpickrFunction: FlatpickrFn | null = null;
+let locale: CustomLocale;
 
 export function initFlatpickr(
 	flatpickrInputRef: Ref<HTMLInputElement>,
@@ -18,16 +21,26 @@ export function initFlatpickr(
 	mode: 'single' | 'range' = 'single',
 ): {
 	datePicker: DatePickerInstance | null;
+	createDatePicker: () => Promise<DatePickerInstance | undefined>;
 	isOpen: Ref<boolean>;
 	toggle: () => void;
 } {
 	let datePicker: DatePickerInstance | null = null;
 	let isOpen = ref(false);
 
-	onMounted(() => {
-		datePicker = flatpickr(flatpickrInputRef.value, {
+	const createDatePicker = async () => {
+		if (datePicker) {
+			return;
+		}
+		if (!flatpickrFunction) {
+			flatpickrFunction = (await import('flatpickr')).default;
+			const { Polish } = await import('flatpickr/dist/l10n/pl');
+			locale = Polish;
+		}
+
+		datePicker = flatpickrFunction(flatpickrInputRef.value, {
 			mode,
-			locale: Polish,
+			locale,
 			positionElement: dateRangePickerRef?.value,
 			ignoredFocusElements: [dateRangePickerRef?.value],
 			appendTo: dateRangePickerRef?.value,
@@ -48,7 +61,9 @@ export function initFlatpickr(
 			],
 			onChange,
 		});
-	});
+
+		return datePicker;
+	};
 
 	onUnmounted(() => {
 		datePicker?.destroy();
@@ -79,6 +94,7 @@ export function initFlatpickr(
 
 	return {
 		datePicker,
+		createDatePicker,
 		isOpen,
 		toggle: () => {
 			datePicker?.toggle();

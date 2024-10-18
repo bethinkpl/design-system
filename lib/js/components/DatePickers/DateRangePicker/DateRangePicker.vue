@@ -52,7 +52,7 @@
 <script setup lang="ts">
 import DatePickerBox from '../DatePickerBox/DatePickerBox.vue';
 import { IconItem, ICONS } from '../../Icons/Icon';
-import { computed, defineEmits, PropType, Ref, ref, toRaw } from 'vue';
+import { computed, defineEmits, onMounted, PropType, Ref, ref, toRaw, watch } from 'vue';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
@@ -163,7 +163,11 @@ const eyebrowText = computed(() => {
 	return capitalizeFirstLetter(localWeekdayName(props.startDate));
 });
 
-const { isOpen, toggle } = initFlatpickr(
+const {
+	isOpen,
+	toggle: toggleDatePicker,
+	createDatePicker,
+} = initFlatpickr(
 	flatpickrInputRef,
 	dateRangePickerRef,
 	props,
@@ -171,4 +175,22 @@ const { isOpen, toggle } = initFlatpickr(
 	[props.startDate, props.endDate],
 	'range',
 );
+
+function toggle() {
+	if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
+		toggleDatePicker();
+	}
+}
+
+onMounted(async () => {
+	if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
+		await createDatePicker();
+	}
+});
+
+watch([() => props.isInteractive, () => props.state], async () => {
+	if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
+		await createDatePicker();
+	}
+});
 </script>

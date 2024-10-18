@@ -118,7 +118,7 @@
 </style>
 
 <script setup lang="ts">
-import { computed, defineEmits, PropType, Ref, ref, toRaw } from 'vue';
+import { computed, defineEmits, onMounted, PropType, Ref, ref, toRaw, watch } from 'vue';
 
 import DsTile, { TileColors, TileStates } from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
@@ -231,13 +231,29 @@ const text = computed(() => {
 	return localFullDateWithShortMonthName(props.date);
 });
 
-const { isOpen, toggle } = initFlatpickr(
-	flatpickrInputRef,
-	dateRangePickerRef,
-	props,
-	onChange,
-	props.date,
-);
+const {
+	isOpen,
+	toggle: toggleDatePicker,
+	createDatePicker,
+} = initFlatpickr(flatpickrInputRef, dateRangePickerRef, props, onChange, props.date);
+
+function toggle() {
+	if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
+		toggleDatePicker();
+	}
+}
+
+onMounted(async () => {
+	if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
+		await createDatePicker();
+	}
+});
+
+watch([() => props.isInteractive, () => props.state], async () => {
+	if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
+		await createDatePicker();
+	}
+});
 
 const tileIcon = computed(() => {
 	if (!props.icon) {
