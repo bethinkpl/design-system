@@ -10,17 +10,39 @@
 			'-ds-isOpen': isOpen,
 		}"
 	>
-		<span v-if="eyebrowText" class="ds-datePickerBox__eyebrow">{{ eyebrowText }}</span>
 		<div class="ds-datePickerBox__dateWrapper">
-			<ds-icon
-				v-if="icon"
-				class="ds-datePickerBox__icon"
-				:class="{ '-ds-hiddenOnMobile': isIconHiddenOnMobile }"
-				:icon="icon"
-				:size="ICON_SIZES.XX_SMALL"
-			></ds-icon>
-			<span class="ds-datePickerBox__date">{{ text }}</span>
+			<span v-if="startDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
+				startDateEyebrowText
+			}}</span>
+			<div class="ds-datePickerBox__date">
+				<ds-icon
+					v-if="startIcon"
+					class="ds-datePickerBox__icon"
+					:class="{ '-ds-hiddenOnMobile': areIconsHiddenOnMobile }"
+					:icon="startIcon"
+					:size="ICON_SIZES.XX_SMALL"
+				></ds-icon>
+				<span class="ds-datePickerBox__dateText">{{ startDateText }}</span>
+			</div>
 		</div>
+		<template v-if="startDate && endDate">
+			<span class="ds-datePickerBox__separator">–</span>
+			<div class="ds-datePickerBox__dateWrapper">
+				<span v-if="endDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
+					endDateEyebrowText
+				}}</span>
+				<div class="ds-datePickerBox__date">
+					<ds-icon
+						v-if="endIcon"
+						class="ds-datePickerBox__icon"
+						:class="{ '-ds-hiddenOnMobile': areIconsHiddenOnMobile }"
+						:icon="endIcon"
+						:size="ICON_SIZES.XX_SMALL"
+					></ds-icon>
+					<span class="ds-datePickerBox__dateText">{{ endDateText }}</span>
+				</div>
+			</div>
+		</template>
 
 		<div v-if="state === DATE_PICKER_STATES.LOADING" class="ds-datePickerBox__loader">
 			<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.X_SMALL" spinning />
@@ -53,7 +75,8 @@
 				color: $color-icon-hovered;
 			}
 
-			#{$self}__date {
+			#{$self}__dateWrapper,
+			#{$self}__separator {
 				color: $color-date-hovered;
 			}
 		}
@@ -64,7 +87,8 @@
 			color: $color-eyebrow-disabled;
 		}
 
-		#{$self}__date {
+		#{$self}__dateWrapper,
+		#{$self}__separator {
 			color: $color-date-disabled;
 		}
 
@@ -79,7 +103,8 @@
 				color: $color-icon;
 			}
 
-			#{$self}__date {
+			#{$self}__dateWrapper,
+			#{$self}__separator {
 				color: $color-date;
 			}
 		}
@@ -88,7 +113,8 @@
 		color: $color-eyebrow;
 	}
 
-	#{$self}__date {
+	#{$self}__dateWrapper,
+	#{$self}__separator {
 		color: $color-date;
 	}
 
@@ -104,15 +130,27 @@
 .ds-datePickerBox {
 	$self: &;
 
+	align-items: center;
 	border: $border-xs solid transparent;
 	display: flex;
-	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	min-height: 44px;
 	min-width: 76px;
 	padding: $space-2xs $space-xs;
 	pointer-events: none;
 	position: relative;
+
+	&__dateWrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__separator {
+		@include text-s-default-regular;
+
+		padding: 0 $space-2xs;
+	}
 
 	&.-ds-loading,
 	&.-ds-interactive {
@@ -138,7 +176,7 @@
 		@include info-xs-default-regular;
 	}
 
-	&__dateWrapper {
+	&__date {
 		column-gap: $space-4xs;
 		display: inline-flex;
 
@@ -147,7 +185,7 @@
 		user-select: none;
 	}
 
-	&__date {
+	&__dateText {
 		@include text-s-default-regular;
 	}
 
@@ -223,6 +261,7 @@ import {
 	DatePickerStates,
 } from '../DatePicker/DatePicker.consts';
 import { defineComponent, PropType, toRaw } from 'vue';
+import { localMonthDayWithShortMonthDay } from '../../../../../tools/importers/helpers/dates';
 
 export default defineComponent({
 	name: 'DatePickerBox',
@@ -238,16 +277,25 @@ export default defineComponent({
 			type: String,
 			default: 'Ustaw',
 		},
-		date: {
+		startDate: {
 			type: Date,
 			default: null,
 		},
-		icon: {
+		endDate: {
+			type: Date,
+			default: null,
+		},
+		startIcon: {
 			type: Object,
 			default: null,
 			validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
 		},
-		isIconHiddenOnMobile: {
+		endIcon: {
+			type: Object,
+			default: null,
+			validate: (icon) => icon === null || Object.values(ICONS).includes(toRaw(icon)),
+		},
+		areIconsHiddenOnMobile: {
 			type: Boolean,
 			default: false,
 		},
@@ -259,7 +307,11 @@ export default defineComponent({
 			type: String as PropType<DatePickerColors>,
 			default: DATE_PICKER_COLORS.NEUTRAL,
 		},
-		eyebrowText: {
+		startDateEyebrowText: {
+			type: String,
+			default: '',
+		},
+		endDateEyebrowText: {
 			type: String,
 			default: '',
 		},
@@ -277,14 +329,14 @@ export default defineComponent({
 		};
 	},
 	computed: {
-		text() {
-			if (this.date) {
-				return this.date.toLocaleDateString(undefined, {
-					month: 'short',
-					day: '2-digit',
-				});
+		startDateText() {
+			if (this.startDate) {
+				return localMonthDayWithShortMonthDay(this.startDate);
 			}
 			return this.placeholder;
+		},
+		endDateText() {
+			return localMonthDayWithShortMonthDay(this.endDate);
 		},
 	},
 });
