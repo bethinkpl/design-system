@@ -18,7 +18,7 @@ interface InitFlatpickrPrams {
 	};
 	onChange: (dates: Array<Date>) => void;
 	defaultDates: Date | Array<Date>;
-	mode: 'single' | 'range' = 'single';
+	mode: 'single' | 'range';
 }
 
 interface InitFlatpickr {
