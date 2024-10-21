@@ -276,7 +276,7 @@ import {
 } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
 import { defineComponent, toRaw } from 'vue';
-import { hoverState } from '../../../mixins/hover-state';
+import { useHoverState } from '../../../composables/hover-state';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.XX_SMALL]: ICON_SIZES.XXX_SMALL,
@@ -292,7 +292,11 @@ export default defineComponent({
 		WnlIcon,
 		WnlButton,
 	},
-	mixins: [hoverState],
+	setup() {
+		return {
+			...useHoverState(),
+		};
+	},
 	props: {
 		size: {
 			type: String,
