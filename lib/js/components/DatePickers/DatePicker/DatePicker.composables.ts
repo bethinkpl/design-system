@@ -1,4 +1,4 @@
-import { onUnmounted, Ref, ref, watch } from 'vue';
+import { defineEmits, onUnmounted, Ref, ref, watch } from 'vue';
 import { FlatpickrFn, Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { CustomLocale } from 'flatpickr/dist/types/locale';
 
@@ -7,15 +7,14 @@ import { DatePickerCalendarPositions, FLATPICKR_POSITIONS } from './index';
 let flatpickrFunction: FlatpickrFn | null = null;
 let locale: CustomLocale;
 
+export interface DatePickerComposablesProps {
+	disableDates: Array<Date>;
+	minDate: Date | null;
+	maxDate: Date | null;
+	calendarPosition: DatePickerCalendarPositions;
+}
 interface InitFlatpickrPrams {
-	flatpickrInputRef: Ref<HTMLInputElement>;
-	dateRangePickerRef: Ref<HTMLElement>;
-	props: {
-		disableDates: Array<Date>;
-		minDate: Date | null;
-		maxDate: Date | null;
-		calendarPosition: DatePickerCalendarPositions;
-	};
+	props: DatePickerComposablesProps;
 	onChange: (dates: Array<Date>) => void;
 	defaultDates: Date | Array<Date>;
 	mode: 'single' | 'range';
@@ -23,14 +22,15 @@ interface InitFlatpickrPrams {
 
 interface InitFlatpickr {
 	datePicker: DatePickerInstance | null;
-	createDatePicker: () => Promise<DatePickerInstance | undefined>;
+	createDatePicker: (
+		flatpickrInputRef: Ref<HTMLInputElement>,
+		dateRangePickerRef: Ref<HTMLElement>,
+	) => Promise<DatePickerInstance | undefined>;
 	isOpen: Ref<boolean>;
 	toggle: () => void;
 }
 
 export function initFlatpickr({
-	flatpickrInputRef,
-	dateRangePickerRef,
 	props,
 	onChange,
 	defaultDates,
@@ -39,7 +39,10 @@ export function initFlatpickr({
 	let datePicker: DatePickerInstance | null = null;
 	const isOpen = ref(false);
 
-	const createDatePicker = async (): Promise<DatePickerInstance | undefined> => {
+	const createDatePicker = async (
+		flatpickrInputRef: Ref<HTMLInputElement>,
+		datePickerRef: Ref<HTMLElement>,
+	): Promise<DatePickerInstance | undefined> => {
 		if (datePicker) {
 			return;
 		}
@@ -52,13 +55,12 @@ export function initFlatpickr({
 				return;
 			}
 		}
-
 		datePicker = flatpickrFunction(flatpickrInputRef.value, {
 			mode,
 			locale,
-			positionElement: dateRangePickerRef?.value,
-			ignoredFocusElements: [dateRangePickerRef?.value],
-			appendTo: dateRangePickerRef?.value,
+			positionElement: datePickerRef?.value,
+			ignoredFocusElements: [datePickerRef?.value],
+			appendTo: datePickerRef?.value,
 			position: FLATPICKR_POSITIONS[props.calendarPosition],
 			defaultDate: defaultDates,
 			disable: props.disableDates,
