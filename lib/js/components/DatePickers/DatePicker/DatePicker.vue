@@ -235,8 +235,6 @@ export default defineComponent({
 			toggle: toggleDatePicker,
 			createDatePicker,
 		} = initFlatpickr({
-			flatpickrInputRef,
-			datePickerRef,
 			props,
 			onChange,
 			defaultDates: props.date,
@@ -244,11 +242,13 @@ export default defineComponent({
 		});
 		watch([() => props.isInteractive, () => props.state], async () => {
 			if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-				await createDatePicker();
+				await createDatePicker(flatpickrInputRef, datePickerRef);
 			}
 		});
 
 		return {
+			flatpickrInputRef,
+			datePickerRef,
 			isOpen,
 			toggleDatePicker,
 			createDatePicker,
@@ -280,7 +280,7 @@ export default defineComponent({
 	},
 	async mounted() {
 		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
-			await this.createDatePicker();
+			await this.createDatePicker(this.datePickerRef, this.flatpickrInputRef);
 		}
 	},
 	methods: {
