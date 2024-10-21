@@ -7,7 +7,6 @@ interface HoverState {
 	mouseLeave: () => void;
 	touchStart: () => void;
 	touchEnd: () => void;
-
 }
 
 export function useHoverState(): HoverState {

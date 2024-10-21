@@ -292,11 +292,6 @@ export default defineComponent({
 		WnlIcon,
 		WnlButton,
 	},
-	setup() {
-		return {
-			...useHoverState(),
-		};
-	},
 	props: {
 		size: {
 			type: String,
@@ -358,6 +353,11 @@ export default defineComponent({
 				return Object.values(ICON_BUTTON_STATES).includes(value);
 			},
 		},
+	},
+	setup() {
+		return {
+			...useHoverState(),
+		};
 	},
 	data() {
 		return {
