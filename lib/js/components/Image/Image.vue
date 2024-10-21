@@ -16,7 +16,6 @@
 		<div v-if="isLoading" class="ds-image__loader">
 			<ds-skeleton :radius="SKELETON_RADIUS_SIZES.SMALL" />
 		</div>
-		<div class="ds-image__imageOverlay"></div>
 	</div>
 </template>
 
@@ -50,14 +49,6 @@
 		position: absolute;
 		right: 0;
 		top: 0;
-	}
-
-	&__imageOverlay {
-		height: 100%;
-		left: 0;
-		position: absolute;
-		top: 0;
-		width: 100%;
 	}
 }
 </style>
