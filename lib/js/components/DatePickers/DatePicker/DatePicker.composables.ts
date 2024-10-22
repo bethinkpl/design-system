@@ -23,8 +23,8 @@ interface InitFlatpickrPrams {
 interface InitFlatpickr {
 	datePicker: DatePickerInstance | null;
 	createDatePicker: (
-		flatpickrInputRef: Ref<HTMLInputElement>,
-		dateRangePickerRef: Ref<HTMLElement>,
+		flatpickrInputElement: HTMLInputElement,
+		dateRangePickerRef: HTMLElement,
 	) => Promise<DatePickerInstance | undefined>;
 	isOpen: Ref<boolean>;
 	toggle: () => void;
@@ -40,8 +40,8 @@ export function initFlatpickr({
 	const isOpen = ref(false);
 
 	const createDatePicker = async (
-		flatpickrInputRef: Ref<HTMLInputElement>,
-		datePickerRef: Ref<HTMLElement>,
+		flatpickrInputElement: HTMLInputElement,
+		datePickerElement: HTMLElement,
 	): Promise<DatePickerInstance | undefined> => {
 		if (datePicker) {
 			return;
@@ -55,12 +55,12 @@ export function initFlatpickr({
 				return;
 			}
 		}
-		datePicker = flatpickrFunction(flatpickrInputRef.value, {
+		datePicker = flatpickrFunction(flatpickrInputElement, {
 			mode,
 			locale,
-			positionElement: datePickerRef?.value,
-			ignoredFocusElements: [datePickerRef?.value],
-			appendTo: datePickerRef?.value,
+			positionElement: datePickerElement,
+			ignoredFocusElements: [datePickerElement],
+			appendTo: datePickerElement,
 			position: FLATPICKR_POSITIONS[props.calendarPosition],
 			defaultDate: defaultDates,
 			disable: props.disableDates,

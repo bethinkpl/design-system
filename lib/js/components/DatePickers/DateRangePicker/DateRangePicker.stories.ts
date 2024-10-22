@@ -7,87 +7,96 @@ import {
 	DATE_PICKER_STATES,
 } from '../DatePicker';
 import { ComponentProps } from 'vue-component-type-helpers';
+import { useArgs } from '@storybook/preview-api';
 
 type DateRangePickerProps = ComponentProps<typeof DateRangePicker>;
 
 const meta: Meta<DateRangePickerProps> = {
 	title: 'Components/DatePickers/DateRangePicker',
 	component: DateRangePicker,
-	render: (args) => ({
-		components: { DateRangePicker },
-		setup() {
-			return args;
-		},
-		data() {
-			return {
-				ICONS: Object.freeze(ICONS),
-			};
-		},
-		methods: {
-			updateDate({ startDate, endDate }: { startDate: Date; endDate: Date }) {
-				args.startDate = startDate
-					? `${startDate.getFullYear()}-${
-							startDate.getMonth() + 1
-					  }-${startDate.getDate()}`
-					: null;
-				args.endDate = endDate
-					? `${endDate.getFullYear()}-${endDate.getMonth() + 1}-${endDate.getDate()}`
-					: null;
+	render: (args) => {
+		const [_, updateArgs] = useArgs();
+
+		return {
+			components: { DateRangePicker },
+			setup() {
+				return args;
 			},
-		},
-		computed: {
-			formattedStartDate() {
-				if (!this.startDate) {
-					return null;
-				}
-				return new Date(this.startDate);
+			data() {
+				return {
+					ICONS: Object.freeze(ICONS),
+				};
 			},
-			formattedEndDate() {
-				if (!this.endDate) {
-					return null;
-				}
-				return new Date(this.endDate);
+			methods: {
+				updateDate({ startDate, endDate }: { startDate: Date; endDate: Date }) {
+					updateArgs({
+						startDate: startDate
+							? `${startDate.getFullYear()}-${
+									startDate.getMonth() + 1
+							  }-${startDate.getDate()}`
+							: null,
+						endDate: endDate
+							? `${endDate.getFullYear()}-${
+									endDate.getMonth() + 1
+							  }-${endDate.getDate()}`
+							: null,
+					});
+				},
 			},
-			formattedMinDate() {
-				if (!this.minDate) {
-					return null;
-				}
-				return new Date(this.minDate);
+			computed: {
+				formattedStartDate() {
+					if (!this.startDate) {
+						return null;
+					}
+					return new Date(this.startDate);
+				},
+				formattedEndDate() {
+					if (!this.endDate) {
+						return null;
+					}
+					return new Date(this.endDate);
+				},
+				formattedMinDate() {
+					if (!this.minDate) {
+						return null;
+					}
+					return new Date(this.minDate);
+				},
+				formattedMaxDate() {
+					if (!this.maxDate) {
+						return null;
+					}
+					return new Date(this.maxDate);
+				},
+				formattedDisableDates() {
+					if (!this.disableDates || !this.disableDates.length) {
+						return [];
+					}
+					return this.disableDates.map((date: string) => new Date(date));
+				},
 			},
-			formattedMaxDate() {
-				if (!this.maxDate) {
-					return null;
-				}
-				return new Date(this.maxDate);
-			},
-			formattedDisableDates() {
-				if (!this.disableDates || !this.disableDates.length) {
-					return [];
-				}
-				return this.disableDates.map((date: string) => new Date(date));
-			},
-		},
-		template: `
-			<div style="display: flex">
-				<date-range-picker
-					:is-interactive="isInteractive"
-					:placeholder="placeholder"
-					:start-date="formattedStartDate"
-					:end-date="formattedEndDate"
-					:start-icon="startIcon ? ICONS[startIcon] : null"
-					:end-icon="endIcon ? ICONS[endIcon] : null"
-					:are-icons-hidden-on-mobile="areIconsHiddenOnMobile"
-					:calendar-position="calendarPosition"
-					:error-message="errorMessage"
-					:state="state"
-					:color="color"
-					:disable-dates="formattedDisableDates"
-					:min-date="formattedMinDate"
-					:max-date="formattedMaxDate"
-					@update:date="updateDate"
-				/>
-			</div>`,
-	}),
+			template: `
+				<div style="display: flex">
+					<date-range-picker
+						:is-interactive="isInteractive"
+						:placeholder="placeholder"
+						:start-date="formattedStartDate"
+						:end-date="formattedEndDate"
+						:start-icon="startIcon ? ICONS[startIcon] : null"
+						:end-icon="endIcon ? ICONS[endIcon] : null"
+						:are-icons-hidden-on-mobile="areIconsHiddenOnMobile"
+						:calendar-position="calendarPosition"
+						:error-message="errorMessage"
+						:state="state"
+						:color="color"
+						:disable-dates="formattedDisableDates"
+						:min-date="formattedMinDate"
+						:max-date="formattedMaxDate"
+						@update:date="updateDate"
+					/>
+				</div>`,
+		};
+	},
 	argTypes: {
 		startDate: { control: 'text' },
 		endDate: { control: 'text' },

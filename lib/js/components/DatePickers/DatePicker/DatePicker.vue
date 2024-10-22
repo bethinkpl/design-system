@@ -242,7 +242,7 @@ export default defineComponent({
 		});
 		watch([() => props.isInteractive, () => props.state], async () => {
 			if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-				await createDatePicker(flatpickrInputRef, datePickerRef);
+				await createDatePicker(flatpickrInputRef.value, datePickerRef.value);
 			}
 		});
 
@@ -280,7 +280,7 @@ export default defineComponent({
 	},
 	async mounted() {
 		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
-			await this.createDatePicker(this.datePickerRef, this.flatpickrInputRef);
+			await this.createDatePicker(this.flatpickrInputRef, this.datePickerRef);
 		}
 	},
 	methods: {

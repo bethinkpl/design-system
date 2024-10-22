@@ -170,7 +170,7 @@ export default defineComponent({
 			[() => props.isInteractive, () => props.state],
 			async () => {
 				if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-					await createDatePicker(flatpickrInputRef, dateRangePickerRef);
+					await createDatePicker(flatpickrInputRef.value, dateRangePickerRef.value);
 				}
 			},
 			{ flush: 'post' },
