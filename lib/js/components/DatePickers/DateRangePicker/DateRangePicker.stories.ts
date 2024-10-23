@@ -135,7 +135,7 @@ const oneDayMili = 86400000;
 export const Interactive: Story = {
 	args: {
 		isInteractive: true,
-		placeholder: 'Wybierz datę',
+		placeholder: 'Ustaw',
 		startDate: '',
 		endDate: '',
 		startIcon: 'FA_CALENDAR_DAY',
