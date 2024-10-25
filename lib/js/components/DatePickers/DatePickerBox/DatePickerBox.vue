@@ -156,11 +156,6 @@
 		border-radius: $radius-s;
 	}
 
-	&.-ds-disabled {
-		background-color: $color-neutral-background-weak-disabled;
-		pointer-events: none;
-	}
-
 	&.-ds-isOpen {
 		background-color: $color-neutral-background-medium;
 
@@ -214,15 +209,15 @@
 			$color-neutral-text-heavy,
 			$color-neutral-icon,
 			$color-neutral-icon-hovered,
-			$color-neutral-text-heavy,
+			$color-neutral-text-heavy-hovered,
 			$color-neutral-icon-disabled,
-			$color-neutral-text-disabled,
+			$color-neutral-text-weak-disabled,
 			$color-neutral-text-heavy-disabled,
 			$self
 		);
 	}
 
-	&:not(.-ds-loading) {
+	&:not(.-ds-loading):not(.-ds-disabled) {
 		&.-ds-interactive {
 			cursor: pointer;
 			pointer-events: all;
