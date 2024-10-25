@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Drawer> = (args) => ({
 	components: { Drawer },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<div style="height: 300px; width: 200px;">
 		<drawer :position="position" :sticky-header="stickyHeader" :sticky-footer="stickyFooter">
@@ -32,8 +32,8 @@ const args = {
 
 const argTypes = {
 	position: {
-		control: { type: 'select', options: Object.values(DRAWER_POSITIONS) },
-		defaultValue: DRAWER_POSITIONS.RIGHT,
+		control: 'select',
+		options: Object.values(DRAWER_POSITIONS),
 	},
 } as ArgTypes;
 

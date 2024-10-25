@@ -120,9 +120,9 @@ $feature-icon-padding-large: 10px;
 <script lang="ts">
 import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from './FeatureIcon.consts';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'FeatureIcon',
 	components: {
 		WnlIcon,
@@ -175,5 +175,5 @@ export default {
 			return ICON_SIZES.MEDIUM;
 		},
 	},
-};
+});
 </script>

@@ -244,7 +244,8 @@ import SurveyQuestionTextarea from '../';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
 
-export default {
+import { defineComponent } from 'vue';
+export default defineComponent({
 	name: 'SurveyQuestionScale',
 	components: {
 		SurveyQuestionTextarea,
@@ -327,5 +328,5 @@ export default {
 			this.$emit('select-change', this.selectedValue === value ? null : value);
 		},
 	},
-};
+});
 </script>

@@ -6,6 +6,7 @@ import RichListItem, {
 	RICH_LIST_ITEM_TYPE,
 } from '../RichListItem';
 import Divider from '../../Divider';
+import { useArgs } from '@storybook/preview-api';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
@@ -34,6 +35,7 @@ const args = {
 	parent_size: RICH_LIST_ITEM_SIZE.MEDIUM,
 	parent_elevation: null,
 	parent_isDimmed: false,
+	parent_isDraggable: false,
 	parent_hasDraggableHandler: true,
 	parent_icon: null,
 	parent_iconColor: ICON_COLORS.NEUTRAL_WEAK,
@@ -47,6 +49,7 @@ const args = {
 	child_size: RICH_LIST_ITEM_SIZE.MEDIUM,
 	child_elevation: null,
 	child_isDimmed: false,
+	child_isDraggable: false,
 	child_hasDraggableHandler: true,
 	child_icon: null,
 	child_iconColor: ICON_COLORS.NEUTRAL_WEAK,
@@ -61,62 +64,62 @@ const args = {
 const argTypes = {
 	borderColor: {
 		options: [null, ...Object.values(GROUP_RICH_LIST_ITEM_BORDER_COLOR)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 	borderColorHex: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	backgroundColor: {
 		options: Object.values(GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR),
-		control: { type: 'select' },
+		control: 'select',
 	},
 
 	parent_state: {
 		options: Object.values(RICH_LIST_ITEM_STATE),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	parent_size: {
 		options: Object.values(RICH_LIST_ITEM_SIZE),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	parent_iconColor: {
 		options: Object.values(ICON_COLORS),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	parent_icon: {
 		options: [null, ...Object.keys(ICONS)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 	parent_iconColorHex: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	parent_elevation: {
 		options: [null, ...Object.values(RICH_LIST_ITEM_ELEVATION)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 
 	child_state: {
 		options: Object.values(RICH_LIST_ITEM_STATE),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	child_size: {
 		options: Object.values(RICH_LIST_ITEM_SIZE),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	child_iconColor: {
 		options: Object.values(ICON_COLORS),
-		control: { type: 'select' },
+		control: 'select',
 	},
 	child_icon: {
 		options: [null, ...Object.keys(ICONS)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 	child_iconColorHex: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	child_elevation: {
 		options: [null, ...Object.values(RICH_LIST_ITEM_ELEVATION)],
-		control: { type: 'select' },
+		control: 'select',
 	},
 } as ArgTypes;
 
@@ -136,11 +139,13 @@ const expandStory = (story) => {
 };
 
 // # OneChild
-const OneChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { updateArgs }) => {
+const OneChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { GroupRichListItem, RichListItem, Divider },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {
@@ -217,11 +222,13 @@ const OneChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { update
 export const OneChild = expandStory(OneChildStoryTemplate.bind({}));
 
 // # MultipleChild
-const MultipleChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { updateArgs }) => {
+const MultipleChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { GroupRichListItem, RichListItem, Divider },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {
@@ -246,7 +253,6 @@ const MultipleChildStoryTemplate: StoryFn<typeof GroupRichListItem> = (args, { u
 		template: `
       <group-rich-list-item
         :is-expanded="isExpanded"
-        :is-dimmed="isDimmed"
         :border-color="borderColor"
         :border-color-hex="borderColorHex"
         :background-color="backgroundColor"

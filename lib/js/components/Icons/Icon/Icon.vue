@@ -23,9 +23,9 @@
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
 import { ICON_SIZES, ICONS } from './Icon.consts';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'Icon',
 	components: {
 		FontAwesomeIcon,
@@ -82,5 +82,5 @@ export default {
 			return `-ds-rotate${this.rotation}`;
 		},
 	},
-};
+});
 </script>

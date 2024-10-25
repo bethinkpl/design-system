@@ -1,4 +1,4 @@
-import { Args, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsDivider from '../Divider/Divider.vue';
 import DsTextGroup from './TextGroup.vue';
 import {
@@ -16,7 +16,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 	components: { DsDivider, DsTextGroup },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<ds-text-group
@@ -61,45 +61,49 @@ Interactive.args = {
 
 Interactive.argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(TEXT_GROUP_SIZES) },
+		control: 'select',
+		options: Object.values(TEXT_GROUP_SIZES),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(TEXT_GROUP_COLORS) },
+		control: 'select',
+		options: Object.values(TEXT_GROUP_COLORS),
 	},
 	eyebrowText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	eyebrowTextEllipsis: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	isEyebrowTextUppercase: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	mainText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	mainTextEllipsis: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	supportingText: {
-		control: { type: 'text' },
+		control: 'text',
 	},
 	supportingTextEllipsis: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	isInteractive: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	skeletonLoadingSize: {
-		control: { type: 'select', options: Object.values(TEXT_GROUP_LOADING_SIZES) },
+		control: 'select',
+		options: Object.values(TEXT_GROUP_LOADING_SIZES),
 	},
 	isSelected: {
-		control: { type: 'boolean' },
+		control: 'boolean',
 	},
 	state: {
-		control: { type: 'select', options: Object.values(TEXT_GROUP_STATES) },
+		control: 'select',
+		options: Object.values(TEXT_GROUP_STATES),
 	},
-};
+} as ArgTypes;
 
 Interactive.parameters = {
 	design: {

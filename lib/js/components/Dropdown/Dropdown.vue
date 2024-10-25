@@ -87,7 +87,9 @@ import {
 	DROPDOWN_TRIGGER_ACTIONS,
 } from './Dropdown.consts';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'Dropdown',
 	components: {
 		VuePopper,
@@ -195,5 +197,5 @@ export default {
 			this.$emit('show');
 		},
 	},
-};
+});
 </script>

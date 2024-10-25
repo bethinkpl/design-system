@@ -88,7 +88,9 @@
 <script>
 import { NUMBER_IN_CIRCLE_COLORS } from './NumberInCircle.consts';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'NumberInCircle',
 	props: {
 		index: {
@@ -121,5 +123,5 @@ export default {
 			return colorToClassMap[this.color];
 		},
 	},
-};
+});
 </script>

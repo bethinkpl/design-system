@@ -1,25 +1,28 @@
-module.exports = {
+export default {
 	verbose: true,
-	preset: '@vue/cli-plugin-unit-jest/presets/typescript',
-	testEnvironment: 'jsdom',
+	preset: 'ts-jest',
+	testEnvironment: 'jest-environment-jsdom',
 	moduleNameMapper: {
-		'^design-system/lib/(.*)$': '<rootDir>/lib/$1',
-		'^design-system/styles/(.*)$': '<rootDir>/lib/styles/$1',
-		'^design-system/images/(.*)$': '<rootDir>/lib/images/$1',
-		'^vue-popperjs/dist/vue-popper.css': '<rootDir>/lib/js/tests/emptyModule.ts',
+		'^vue-popperjs/dist/vue-popper.css': '<rootDir>/lib/js/tests/emptyModule.cjs',
 	},
 	testMatch: ['<rootDir>/lib/js/**/*.spec.ts', '<rootDir>/tools/importers/*.spec.ts'],
 	transform: {
 		'^.+\\.js$': 'babel-jest',
 		'^.+\\.ts$': 'ts-jest',
 		'.*\\.(vue)$': '@vue/vue3-jest',
-		'^.+\\.scss': '<rootDir>/lib/js/tests/emptyTransformer.ts',
-		'^.+\\.svg$': '<rootDir>/lib/js/tests/emptyTransformer.ts',
+		'^.+\\.scss': '<rootDir>/lib/js/tests/emptyTransformer.cjs',
+		'^.+\\.svg$': '<rootDir>/lib/js/tests/emptyTransformer.cjs',
 	},
-	moduleFileExtensions: ['js', 'vue', 'json', 'ts'],
-
+	moduleFileExtensions: ['js', 'mjs', 'ts', 'json', 'vue'],
 	setupFilesAfterEnv: ['<rootDir>/lib/js/typings.d.ts', '<rootDir>/lib/js/tests/globals.ts'],
 	testEnvironmentOptions: {
 		customExportConditions: ['node', 'node-addons'],
+	},
+	globals: {
+		'vue-jest': {
+			compilerOptions: {
+				whitespace: 'preserve',
+			},
+		},
 	},
 };

@@ -7,6 +7,7 @@ export declare const CHIP_COLORS: {
     readonly PRIMARY_STRONG: "primaryStrong";
     readonly NEUTRAL: "neutral";
     readonly FAIL: "fail";
+    readonly DANGER: "danger";
     readonly SUCCESS: "success";
     readonly INVERTED: "inverted";
     readonly WARNING: "warning";

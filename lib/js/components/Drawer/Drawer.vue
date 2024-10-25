@@ -71,11 +71,11 @@
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 
 import { DRAWER_POSITIONS, DrawerPosition } from './Drawer.consts';
 
-export default {
+export default defineComponent({
 	name: 'Drawer',
 	props: {
 		position: {
@@ -103,5 +103,5 @@ export default {
 			return '-ds-positionRight';
 		},
 	},
-};
+});
 </script>

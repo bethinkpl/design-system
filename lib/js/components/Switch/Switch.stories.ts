@@ -2,19 +2,21 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsSwitch from './Switch.vue';
 import Icon, { ICONS } from '../Icons/Icon';
 import { SWITCH_RADIUSES, SWITCH_SIDE, SWITCH_SIZES, SWITCH_STATE } from './Switch.consts';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Switch',
 	component: DsSwitch,
+	decorators: [withActions],
 } as Meta<typeof DsSwitch>;
 
-const StoryTemplate: StoryFn<typeof DsSwitch> = (args, { updateArgs }) => ({
+const StoryTemplate: StoryFn<typeof DsSwitch> = (args) => ({
 	components: {
 		DsSwitch,
 		Icon,
 	},
 	setup() {
-		return { ...args };
+		return args;
 	},
 	methods: {
 		onSelectedUpdated(side) {
@@ -58,28 +60,28 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(SWITCH_SIZES) },
-		defaultValue: SWITCH_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(SWITCH_SIZES),
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(SWITCH_RADIUSES) },
-		defaultValue: SWITCH_RADIUSES.CAPSULE,
+		control: 'select',
+		options: Object.values(SWITCH_RADIUSES),
 	},
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	state: {
-		control: { type: 'select', options: Object.values(SWITCH_STATE) },
-		defaultValue: SWITCH_STATE.DEFAULT,
+		control: 'select',
+		options: Object.values(SWITCH_STATE),
 	},
 	selectedSide: {
-		control: { type: 'select', options: Object.values(SWITCH_SIDE) },
-		defaultValue: SWITCH_SIDE.LEFT,
+		control: 'select',
+		options: Object.values(SWITCH_SIDE),
 	},
 } as ArgTypes;
 

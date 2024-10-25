@@ -5,12 +5,15 @@ import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
 	RICH_LIST_ITEM_ELEVATION,
+	RICH_LIST_ITEM_LAYOUT,
 	RICH_LIST_ITEM_SIZE,
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
 } from '../RichListItem';
 import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 import { DsImage } from '../../../index';
+import { useArgs } from '@storybook/preview-api';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/RichList/BasicRichListItem',
@@ -20,6 +23,7 @@ export default {
 			components: { story },
 			template: "<div style='display: flex;padding: 16px;'><story /></div>",
 		}),
+		withActions,
 	],
 } as Meta<typeof BasicRichListItem>;
 
@@ -27,77 +31,82 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 	story.argTypes = {
 		type: {
 			options: Object.values(RICH_LIST_ITEM_TYPE),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		size: {
 			options: Object.values(RICH_LIST_ITEM_SIZE),
+			control: 'select',
+		},
+		layout: {
+			options: Object.values(RICH_LIST_ITEM_LAYOUT),
 			control: { type: 'select' },
 		},
 		state: {
 			options: Object.values(RICH_LIST_ITEM_STATE),
-			control: { type: 'select' },
+			control: 'select',
 		},
 		iconColor: {
 			options: [null, ...Object.values(ICON_COLORS)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		borderColor: {
 			options: [null, ...Object.values(RICH_LIST_ITEM_BORDER_COLOR)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		icon: {
 			options: [null, ...Object.keys(ICONS)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		iconColorHex: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		borderColorHex: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		eyebrow: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		eyebrowEllipsis: {
-			control: { type: 'boolean' },
+			control: 'boolean',
 		},
 		isEyebrowUppercase: {
-			control: { type: 'boolean' },
+			control: 'boolean',
 		},
 		text: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		textEllipsis: {
-			control: { type: 'boolean' },
+			control: 'boolean',
 		},
 		supportingText: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		supportingTextEllipsis: {
-			control: { type: 'boolean' },
+			control: 'boolean',
 		},
 		metadata: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		actions: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		draggableIconClassName: {
-			control: { type: 'text' },
+			control: 'text',
 		},
 		backgroundColor: {
 			options: [null, ...Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 		elevation: {
 			options: [null, ...Object.values(RICH_LIST_ITEM_ELEVATION)],
-			control: { type: 'select' },
+			control: 'select',
 		},
 	} as ArgTypes;
 
 	story.args = {
 		size: RICH_LIST_ITEM_SIZE.MEDIUM,
 		type: RICH_LIST_ITEM_TYPE.DEFAULT,
+		layout: RICH_LIST_ITEM_LAYOUT.HORIZONTAL,
 		backgroundColor: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
 		elevation: null,
 		isDimmed: false,
@@ -143,66 +152,73 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 	return story;
 };
 
-const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updateArgs }) => ({
-	components: { BasicRichListItem },
-	setup() {
-		return { ...args };
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
-	methods: {
-		updateIsSelected(isSelected) {
-			updateArgs({ isSelected });
+const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { BasicRichListItem },
+		setup() {
+			return args;
 		},
-	},
-	template: `
-	<basic-rich-list-item
-		:size="size"
-		:type="type"
-		:is-interactive="isInteractive"
-		:is-draggable="isDraggable"
-		:icon="ICONS[icon]"
-		:icon-color="iconColor"
-		:icon-color-hex="iconColorHex"
-		:is-dimmed="isDimmed"
-		:border-color="borderColor"
-		:border-color-hex="borderColorHex"
-		:state="state"
-		:eyebrow="eyebrow === 'null' ? null : eyebrow"
-		:eyebrow-ellipsis="eyebrowEllipsis"
-		:is-eyebrow-uppercase="isEyebrowUppercase"
-		:text="text"
-		:text-ellipsis="textEllipsis"
-		:supporting-text="supportingText === 'null' ? null : supportingText"
-		:supporting-text-ellipsis="supportingTextEllipsis"
-		:background-color="backgroundColor"
-		:elevation="elevation"
-		:has-draggable-handler="hasDraggableHandler"
-		:has-actions-slot-divider="hasActionsSlotDivider"
-		:is-selectable="isSelectable"
-		:is-selected="isSelected"
-		@update:is-selected="updateIsSelected"
-	>
-		<template v-if="metadata" #metadata>
-			<div v-html="metadata" />
-		</template>
-		<template v-if="actions" #actions>
-			<div v-html="actions" />
-		</template>
-	</basic-rich-list-item>`,
-});
+		data() {
+			return {
+				ICONS: Object.freeze(ICONS),
+			};
+		},
+		methods: {
+			updateIsSelected(isSelected) {
+				updateArgs({ isSelected });
+			},
+		},
+		template: `
+		<basic-rich-list-item
+			:size="size"
+			:type="type"
+			:layout="layout"
+			:is-interactive="isInteractive"
+			:is-draggable="isDraggable"
+			:icon="ICONS[icon]"
+			:icon-color="iconColor"
+			:icon-color-hex="iconColorHex"
+			:is-dimmed="isDimmed"
+			:border-color="borderColor"
+			:border-color-hex="borderColorHex"
+			:state="state"
+			:eyebrow="eyebrow === 'null' ? null : eyebrow"
+			:eyebrow-ellipsis="eyebrowEllipsis"
+			:is-eyebrow-uppercase="isEyebrowUppercase"
+			:text="text"
+			:text-ellipsis="textEllipsis"
+			:supporting-text="supportingText === 'null' ? null : supportingText"
+			:supporting-text-ellipsis="supportingTextEllipsis"
+			:background-color="backgroundColor"
+			:elevation="elevation"
+			:has-draggable-handler="hasDraggableHandler"
+			:has-actions-slot-divider="hasActionsSlotDivider"
+			:is-selectable="isSelectable"
+			:is-selected="isSelected"
+			@update:is-selected="updateIsSelected"
+		>
+			<template v-if="metadata" #metadata>
+				<div v-html="metadata" />
+			</template>
+			<template v-if="actions" #actions>
+				<div v-html="actions" />
+			</template>
+		</basic-rich-list-item>`,
+	};
+};
 
 export const Interactive = InteractiveStoryTemplate.bind({});
 expandStory(Interactive);
 
-const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updateArgs }) => {
+const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { BasicRichListItem, DsImage },
 		setup() {
-			return { ...args };
+			return args;
 		},
 		data() {
 			return {
@@ -218,6 +234,7 @@ const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args, { updat
 			<basic-rich-list-item
 				:size="size"
 				:type="type"
+				:layout="layout"
 				:is-interactive="isInteractive"
 				:is-draggable="isDraggable"
 				:icon="ICONS[icon]"

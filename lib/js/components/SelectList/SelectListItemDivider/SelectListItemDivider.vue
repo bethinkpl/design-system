@@ -17,10 +17,12 @@
 <script lang="ts">
 import Divider from '../../Divider/Divider.vue';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'SelectListItemDivider',
 	components: {
 		Divider,
 	},
-};
+});
 </script>

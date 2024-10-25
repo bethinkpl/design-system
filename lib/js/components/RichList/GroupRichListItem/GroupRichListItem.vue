@@ -91,7 +91,7 @@ $group-rich-list-background-colors: (
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import {
 	GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR,
 	GROUP_RICH_LIST_ITEM_BORDER_COLOR,
@@ -99,7 +99,7 @@ import {
 	GroupRichListItemBorderColor,
 } from './GroupRichListItem.consts';
 
-export default {
+export default defineComponent({
 	name: 'GroupRichListItem',
 	props: {
 		isExpanded: {
@@ -150,5 +150,5 @@ export default {
 			};
 		},
 	},
-};
+});
 </script>

@@ -7,51 +7,58 @@ import {
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { useArgs } from '@storybook/preview-api';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Headers/SectionHeader',
 	component: SectionHeader,
+	decorators: [withActions],
 } as Meta<typeof SectionHeader>;
 
-const StoryTemplate: StoryFn<typeof SectionHeader> = (args, { updateArgs }) => ({
-	components: { SectionHeader },
-	setup() {
-		return { ...args };
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
-	methods: {
-		onIsExpandedUpdated(isExpanded) {
-			updateArgs({
-				isExpanded,
-			});
+const StoryTemplate: StoryFn<typeof SectionHeader> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { SectionHeader },
+		setup() {
+			return args;
 		},
-	},
-	template:
-		'<section-header' +
-		' :is-expandable="isExpandable"' +
-		' :hide-slot-when-collapsed="hideSlotWhenCollapsed"' +
-		' :icon-left="ICONS[iconLeft]"' +
-		' :icon-left-color="iconLeftColor"' +
-		' :icon-right="ICONS[iconRight]"' +
-		' :icon-right-color="iconRightColor"' +
-		' :is-expanded="isExpanded"' +
-		' :size="size"' +
-		' :info="info"' +
-		' :title="title"' +
-		' :title-ellipsis="titleEllipsis"' +
-		' :eyebrow="eyebrow"' +
-		' :has-divider="hasDivider"' +
-		' :mobile-layout="mobileLayout"' +
-		' :supportingText="supportingText"' +
-		' @update:isExpanded="onIsExpandedUpdated"' +
-		'>' +
-		'<div style="border: 1px solid;">Slot content</div>' +
-		'</section-header>',
-});
+		data() {
+			return {
+				ICONS: Object.freeze(ICONS),
+			};
+		},
+		methods: {
+			onIsExpandedUpdated(isExpanded) {
+				updateArgs({
+					isExpanded,
+				});
+			},
+		},
+		template:
+			'<section-header' +
+			' :is-expandable="isExpandable"' +
+			' :hide-slot-when-collapsed="hideSlotWhenCollapsed"' +
+			' :icon-left="ICONS[iconLeft]"' +
+			' :icon-left-color="iconLeftColor"' +
+			' :icon-right="ICONS[iconRight]"' +
+			' :icon-right-color="iconRightColor"' +
+			' :is-expanded="isExpanded"' +
+			' :size="size"' +
+			' :info="info"' +
+			' :title="title"' +
+			' :title-ellipsis="titleEllipsis"' +
+			' :eyebrow="eyebrow"' +
+			' :has-divider="hasDivider"' +
+			' :mobile-layout="mobileLayout"' +
+			' :supportingText="supportingText"' +
+			' @update:isExpanded="onIsExpandedUpdated"' +
+			'>' +
+			'<div style="border: 1px solid;">Slot content</div>' +
+			'</section-header>',
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 
@@ -62,11 +69,11 @@ const args = {
 	supportingText:
 		'Supporting text. Et doloribus aspernatur suscipit provident maiores. Natus natus et pariatur. Eligendi illo quo esse. Tenetur ad neque veniam.',
 	eyebrow: 'eyebrow text',
-	iconLeft: ICONS.FA_PLAY,
-	iconLeftColor: null,
-	iconRight: ICONS.FA_BOOK,
-	iconRightColor: null,
-	info: true,
+	iconLeft: null,
+	iconLeftColor: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+	iconRight: null,
+	iconRightColor: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+	info: false,
 	hasDivider: true,
 	isExpandable: false,
 	isExpanded: false,
@@ -76,41 +83,36 @@ const args = {
 
 const argTypes = {
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconLeftColor: {
-		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
-		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+		control: 'select',
+		options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRightColor: {
-		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
-		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+		control: 'select',
+		options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)],
 	},
 	size: {
-		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
-		defaultValue: SECTION_HEADER_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(SECTION_HEADER_SIZES),
 	},
 	hasDivider: {
-		control: { type: 'boolean' },
-		defaultValue: true,
+		control: 'boolean',
 	},
 	info: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 	mobileLayout: {
-		control: {
-			type: 'select',
-			options: Object.values(SECTION_HEADER_MOBILE_LAYOUTS),
-			defaultValue: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
-		},
+		control: 'select',
+		options: Object.values(SECTION_HEADER_MOBILE_LAYOUTS),
 	},
-	titleEllipsis: { control: { type: 'boolean' }, defaultValue: false },
+	titleEllipsis: { control: 'boolean' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

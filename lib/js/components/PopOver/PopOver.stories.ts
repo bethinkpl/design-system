@@ -16,12 +16,12 @@ export default {
 const StoryTemplate: StoryFn<typeof PopOver> = (args) => ({
 	components: { PopOver },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
-		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
+		'<div style="display: flex; align-items: center; justify-content: center; height: 800px; background: var(--raw-gray-50);">' +
 		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
-		'<template #reference><span>click me!</span></template>' +
+		'<template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>' +
 		'<div>{{ definitionSlot }}</div>' +
 		'</pop-over>' +
 		'</div>',
@@ -47,20 +47,20 @@ Interactive.args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(POP_OVER_SIZES) },
-		defaultValue: POP_OVER_SIZES.SMALL,
+		control: 'select',
+		options: Object.values(POP_OVER_SIZES),
 	},
 	placement: {
-		control: { type: 'select', options: Object.values(POP_OVER_PLACEMENTS) },
-		defaultValue: POP_OVER_PLACEMENTS.BOTTOM,
+		control: 'select',
+		options: Object.values(POP_OVER_PLACEMENTS),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(POP_OVER_COLORS) },
-		defaultValue: POP_OVER_COLORS.DEFAULT,
+		control: 'select',
+		options: Object.values(POP_OVER_COLORS),
 	},
 	triggerAction: {
-		control: { type: 'select', options: Object.values(POP_OVER_TRIGGER_ACTIONS) },
-		defaultValue: POP_OVER_TRIGGER_ACTIONS.CLICK,
+		control: 'select',
+		options: Object.values(POP_OVER_TRIGGER_ACTIONS),
 	},
 } as ArgTypes;
 

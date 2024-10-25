@@ -285,8 +285,9 @@ $tile-colors: (
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 import { TILE_COLORS, TILE_STATES } from './Tile.consts';
 import { props } from './Tile.shared';
+import { defineComponent } from 'vue';
 
-export default {
+export default defineComponent({
 	name: 'Tile',
 	components: {
 		DsIcon,
@@ -319,5 +320,5 @@ export default {
 			}[this.state];
 		},
 	},
-};
+});
 </script>

@@ -2,28 +2,33 @@ import SurveyQuestionOpenEnded from './SurveyQuestionOpenEnded.vue';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/SurveyQuestions/SurveyQuestionOpenEnded',
 	component: SurveyQuestionOpenEnded,
 } as Meta<typeof SurveyQuestionOpenEnded>;
 
-const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (args, { updateArgs }) => ({
-	components: { SurveyQuestionOpenEnded },
-	setup() {
-		return { ...args };
-	},
-	// TODO typing in textarea looses focus
-	template:
-		'<survey-question-open-ended  :title="title" :value="value" :state="state" :placeholder="placeholder" @input="explanationUpdate">' +
-		'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
-		'</survey-question-open-ended>',
-	methods: {
-		explanationUpdate(value) {
-			updateArgs({ value });
+const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { SurveyQuestionOpenEnded },
+		setup() {
+			return args;
 		},
-	},
-});
+		// TODO typing in textarea looses focus
+		template:
+			'<survey-question-open-ended  :title="title" :value="value" :state="state" :placeholder="placeholder" @input="explanationUpdate">' +
+			'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
+			'</survey-question-open-ended>',
+		methods: {
+			explanationUpdate(value) {
+				updateArgs({ value });
+			},
+		},
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 
@@ -37,8 +42,8 @@ const args = {
 } as Args;
 
 const argTypes = {
-	explanation: { control: { type: 'text' } },
-	state: { control: { type: 'select', options: Object.values(SURVEY_QUESTION_STATES) } },
+	explanation: { control: 'text' },
+	state: { control: 'select', options: Object.values(SURVEY_QUESTION_STATES) },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

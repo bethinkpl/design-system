@@ -14,7 +14,7 @@
 </template>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import {
 	RADIO_BUTTON_SIZE,
 	RADIO_BUTTON_STATE,
@@ -25,7 +25,7 @@ import SelectionControl from '../SelectionControl/SelectionControl.vue';
 import { ICONS } from '../../Icons/Icon';
 import { SELECTION_CONTROL_TYPE } from '../SelectionControl/SelectionControl.consts';
 
-export default {
+export default defineComponent({
 	name: 'RadioButton',
 	components: { SelectionControl },
 	props: {
@@ -61,5 +61,5 @@ export default {
 			SELECTION_CONTROL_TYPE: Object.freeze(SELECTION_CONTROL_TYPE),
 		};
 	},
-};
+});
 </script>

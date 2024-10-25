@@ -22,80 +22,87 @@ const StoryTemplate: StoryFn<typeof ProgressBar> = (args) => ({
 		return { args };
 	},
 	template: `
-			<progress-bar v-bind=args></progress-bar>`,
+		<progress-bar v-bind=args></progress-bar>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(PROGRESS_BAR_SIZES) },
-		defaultValue: PROGRESS_BAR_SIZES.SMALL,
+		control: 'select',
+		options: Object.values(PROGRESS_BAR_SIZES),
 	},
 	labelTextSize: {
-		control: { type: 'select', options: Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES) },
-		defaultValue: PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
+		control: 'select',
+		options: Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES),
 	},
 	ranges: {
-		control: { type: 'array' },
-		defaultValue: [
-			{
-				color: PROGRESS_BAR_RANGE_COLORS.INFO,
-				start: 0,
-				length: 30,
-			} as ProgressBarRange,
-			{
-				color: PROGRESS_BAR_RANGE_COLORS.INFO_WEAK,
-				start: 30,
-				length: 10,
-			} as ProgressBarRange,
-			{
-				color: PROGRESS_BAR_RANGE_COLORS.INFO_GHOST,
-				start: 40,
-				length: 10,
-			} as ProgressBarRange,
-		],
+		control: 'object',
 	},
 	radius: {
-		control: { type: 'select', options: Object.values(PROGRESS_BAR_RADII) },
-		defaultValue: PROGRESS_BAR_RADII.DEFAULT,
+		control: 'select',
+		options: Object.values(PROGRESS_BAR_RADII),
 	},
 	layout: {
-		control: { type: 'select', options: Object.values(PROGRESS_BAR_LAYOUTS) },
-		defaultValue: PROGRESS_BAR_LAYOUTS.DEFAULT,
+		control: 'select',
+		options: Object.values(PROGRESS_BAR_LAYOUTS),
 	},
 	labelText: {
-		control: { type: 'text' },
-		defaultValue: 'Label text',
+		control: 'text',
 	},
 	labelData: {
-		control: { type: 'text' },
-		defaultValue: '30',
+		control: 'text',
 	},
 	labelDataSupporting: {
-		control: { type: 'text' },
-		defaultValue: '100',
+		control: 'text',
 	},
 	labelDataSuffix: {
-		control: { type: 'text' },
-		defaultValue: '(%)',
+		control: 'text',
 	},
 	badgePosition: {
 		// we use `text` type, because Storybook doesn't allow empty field in `number` type which imitates null
-		control: { type: 'text' },
-		defaultValue: '50',
+		control: 'text',
 	},
 	badgeColor: {
-		control: { type: 'select', options: Object.values(PROGRESS_BAR_BADGE_COLORS) },
-		defaultValue: PROGRESS_BAR_BADGE_COLORS.INFO,
+		control: 'select',
+		options: Object.values(PROGRESS_BAR_BADGE_COLORS),
 	},
 	labelTextEllipsis: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
+Interactive.args = {
+	size: PROGRESS_BAR_SIZES.SMALL,
+	labelTextSize: PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
+	ranges: [
+		{
+			color: PROGRESS_BAR_RANGE_COLORS.INFO,
+			start: 0,
+			length: 30,
+		} as ProgressBarRange,
+		{
+			color: PROGRESS_BAR_RANGE_COLORS.INFO_WEAK,
+			start: 30,
+			length: 10,
+		} as ProgressBarRange,
+		{
+			color: PROGRESS_BAR_RANGE_COLORS.INFO_GHOST,
+			start: 40,
+			length: 10,
+		} as ProgressBarRange,
+	],
+	radius: PROGRESS_BAR_RADII.DEFAULT,
+	layout: PROGRESS_BAR_LAYOUTS.DEFAULT,
+	labelText: 'Label text',
+	labelData: '30',
+	labelDataSupporting: '100',
+	labelDataSuffix: '(%)',
+	badgePosition: '50',
+	badgeColor: PROGRESS_BAR_BADGE_COLORS.INFO,
+	labelTextEllipsis: false,
+} as Args;
 
 Interactive.parameters = {
 	design: {

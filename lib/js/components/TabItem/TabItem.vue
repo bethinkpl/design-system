@@ -95,10 +95,10 @@
 
 <script lang="ts">
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 import { TAB_ITEM_SIZES } from './TabItem.consts';
 
-export default {
+export default defineComponent({
 	name: 'TabItem',
 	components: {
 		DsIcon,
@@ -137,5 +137,5 @@ export default {
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 		};
 	},
-};
+});
 </script>

@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof TabItem> = (args) => ({
 	components: { TabItem },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<tab-item style="max-width: 150px" :icon="ICONS[icon]" :is-selected="isSelected" :label="label" :size="TAB_ITEM_SIZES[size]" :label-ellipsis="labelEllipsis" />',
@@ -27,29 +27,30 @@ const StoryTemplate: StoryFn<typeof TabItem> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
+	icon: null,
+	size: 'MEDIUM',
+	label: 'Tab item',
 	isSelected: false,
+	labelEllipsis: false,
 } as Args;
 
 const argTypes = {
 	icon: {
-		control: { type: 'select', options: [...Object.keys(ICONS), null] },
-		defaultValue: null,
+		control: 'select',
+		options: [...Object.keys(ICONS), null],
 	},
 	size: {
-		control: { type: 'select', options: Object.keys(TAB_ITEM_SIZES) },
-		defaultValue: 'MEDIUM',
+		control: 'select',
+		options: Object.keys(TAB_ITEM_SIZES),
 	},
 	label: {
-		control: { type: 'text' },
-		defaultValue: 'Tab item',
+		control: 'text',
 	},
 	isSelected: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 	labelEllipsis: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 } as ArgTypes;
 

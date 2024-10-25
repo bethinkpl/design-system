@@ -28,11 +28,13 @@
 import Tile from '../../Tile';
 import { props } from '../../Tile/Tile.shared';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'SelectListItemTile',
 	components: {
 		DsTile: Tile,
 	},
 	props,
-};
+});
 </script>

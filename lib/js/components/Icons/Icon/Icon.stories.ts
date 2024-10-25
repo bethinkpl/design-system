@@ -2,16 +2,18 @@ import Icon from './Icon.vue';
 import { ICON_SIZES, ICONS } from './Icon.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Icons/Icon',
 	component: Icon,
+	decorators: [withActions],
 } as Meta<typeof Icon>;
 
 const StoryTemplate: StoryFn<typeof Icon> = (args) => ({
 	components: { Icon },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div class="sbIconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
@@ -36,16 +38,16 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(ICON_SIZES) },
-		defaultValue: ICON_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(ICON_SIZES),
 	},
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
-		defaultValue: 'HEAD_WITH_QUESTION_MARK',
+		control: 'select',
+		options: Object.keys(ICONS),
 	},
 	rotation: {
-		control: { type: 'select', options: [null, 90, 180, 270] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, 90, 180, 270],
 	},
 } as ArgTypes;
 
@@ -65,7 +67,7 @@ Interactive.parameters = {
 const StoryAllIconsTemplate: StoryFn<typeof Icon> = (args) => ({
 	components: { Icon },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div class="sbIconList">' +

@@ -1,5 +1,5 @@
 import OutlineDivider from './OutlineDivider.vue';
-import { ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 
 export default {
@@ -10,24 +10,29 @@ export default {
 const StoryTemplate: StoryFn<typeof OutlineDivider> = (args) => ({
 	components: { OutlineDivider },
 	setup() {
-		return { ...args };
+		return args;
 	},
-	template: `<outline-divider :prominence="prominence" :size="size" />`,
+	template: `
+		<outline-divider :prominence="prominence" :size="size" />`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const argTypes = {
 	prominence: {
-		control: { type: 'select', options: Object.values(DIVIDER_PROMINENCES) },
-		defaultValue: DIVIDER_PROMINENCES.DEFAULT,
+		control: 'select',
+		options: Object.values(DIVIDER_PROMINENCES),
 	},
 	size: {
-		control: { type: 'select', options: Object.values(DIVIDER_SIZES) },
-		defaultValue: DIVIDER_SIZES.S,
+		control: 'select',
+		options: Object.values(DIVIDER_SIZES),
 	},
 } as ArgTypes;
 
+Interactive.args = {
+	prominence: DIVIDER_PROMINENCES.DEFAULT,
+	size: DIVIDER_SIZES.S,
+} as Args;
 Interactive.argTypes = argTypes;
 
 Interactive.parameters = {

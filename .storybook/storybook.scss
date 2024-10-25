@@ -1,0 +1,72 @@
+@import '../lib/styles/settings/colors/raw';
+@import '../lib/styles/settings/colors/raw-wnl';
+@import '../lib/styles/settings/colors/raw-bodywork';
+@import '../lib/styles/settings/colors/tokens-variables';
+@import '../lib/styles/settings/colors/tokens-wnl-variables';
+@import '../lib/styles/settings/colors/tokens-bodywork-variables';
+@import '../lib/styles/settings/colors/tokens';
+@import '../lib/styles/settings/colors/tokens-bodywork';
+@import '../lib/styles/settings/colors/tokens-wnl';
+@import '../lib/styles/settings/typography/tokens';
+
+$fontFamily: 'BlinkMacSystemFont', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+	'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+/* stylelint-disable selector-class-pattern */
+html,
+body {
+	font-family: 'Lato', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-webkit-text-size-adjust: 100%;
+
+	&.styleguide {
+		@include text-l-default-regular;
+
+		font-family: $fontFamily;
+
+		button,
+		input,
+		select,
+		textarea {
+			font-family: $fontFamily;
+		}
+	}
+}
+
+* {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+}
+
+.contrastBackground {
+	background: var(--raw-black);
+	padding: 10px;
+}
+
+.sbIconList {
+	display: flex;
+	flex-wrap: wrap;
+	font-size: 10px;
+
+	&__icon {
+		align-items: center;
+		color: $color-default-icon;
+		display: flex;
+		flex-direction: column;
+		padding: 10px;
+		text-align: center;
+		width: 150px;
+		word-break: break-word;
+	}
+
+	&__singleIcon {
+		color: $color-default-icon;
+	}
+}
+
+.modalHeader {
+	@include displayHeading-xs-default-regular;
+}
+/* stylelint-enable */

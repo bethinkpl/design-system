@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof Divider> = (args) => ({
 	components: { Divider },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<div style="height: 200px; width: 200px;">
@@ -29,12 +29,12 @@ const args = {
 
 const argTypes = {
 	prominence: {
-		control: { type: 'select', options: Object.values(DIVIDER_PROMINENCES) },
-		defaultValue: DIVIDER_PROMINENCES.DEFAULT,
+		control: 'select',
+		options: Object.values(DIVIDER_PROMINENCES),
 	},
 	size: {
-		control: { type: 'select', options: Object.values(DIVIDER_SIZES) },
-		defaultValue: DIVIDER_SIZES.S,
+		control: 'select',
+		options: Object.values(DIVIDER_SIZES),
 	},
 } as ArgTypes;
 

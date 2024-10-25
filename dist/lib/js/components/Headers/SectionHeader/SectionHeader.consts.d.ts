@@ -1,4 +1,5 @@
 import { Value } from '../../../utils/type.utils';
+
 export declare const SECTION_HEADER_SIZES: {
     XX_SMALL: string;
     X_SMALL: string;

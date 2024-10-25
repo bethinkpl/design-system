@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof BlockadeStatus> = (args) => ({
 	components: { BlockadeStatus },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<blockade-status :status="status" />`,
 });
@@ -24,8 +24,8 @@ const args = {
 
 const argTypes = {
 	status: {
-		control: { type: 'select', options: Object.values(COURSE_BLOCKADE_ACCESS_STATUS) },
-		defaultValue: COURSE_BLOCKADE_ACCESS_STATUS.ACTIVE,
+		control: 'select',
+		options: Object.values(COURSE_BLOCKADE_ACCESS_STATUS),
 	},
 } as ArgTypes;
 

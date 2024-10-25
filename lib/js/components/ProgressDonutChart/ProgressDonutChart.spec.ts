@@ -14,7 +14,7 @@ const createComponent = function ({
 	ranges = [],
 }: createComponentOptions) {
 	return shallowMount(ProgressDonutChart, {
-		propsData: {
+		props: {
 			label,
 			state,
 			ranges,

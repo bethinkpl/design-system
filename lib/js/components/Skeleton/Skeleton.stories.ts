@@ -1,4 +1,4 @@
-import { Args, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsSkeleton from './Skeleton.vue';
 import { SKELETON_RADIUS_SIZES } from './Skeleton.consts';
 
@@ -10,7 +10,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DsSkeleton> = (args) => ({
 	components: { DsSkeleton },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<div style="height: 200px; width: 300px;">
@@ -28,10 +28,10 @@ Interactive.args = {
 
 Interactive.argTypes = {
 	radius: {
-		control: { type: 'select', options: Object.values(SKELETON_RADIUS_SIZES) },
-		defaultValue: SKELETON_RADIUS_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(SKELETON_RADIUS_SIZES),
 	},
-};
+} as ArgTypes;
 
 Interactive.parameters = {
 	design: {

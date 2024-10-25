@@ -1,4 +1,5 @@
 import { Value } from '../../../utils/type.utils';
+
 export declare const DATE_PICKER_COLORS: {
     NEUTRAL: string;
     WARNING: string;

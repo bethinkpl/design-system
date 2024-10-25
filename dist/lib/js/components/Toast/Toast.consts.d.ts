@@ -1,4 +1,5 @@
 import { Value } from '../../utils/type.utils';
+
 export declare const TOAST_SIZES: {
     readonly SMALL: "small";
     readonly MEDIUM: "medium";

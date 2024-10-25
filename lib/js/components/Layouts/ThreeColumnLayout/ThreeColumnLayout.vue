@@ -196,13 +196,13 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 import {
 	THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE,
 	ThreeColumnLayoutRightColumnSize,
 } from './ThreeColumnLayout.consts';
 
-export default {
+export default defineComponent({
 	name: 'ThreeColumnLayout',
 	props: {
 		rightColumnSize: {
@@ -264,5 +264,5 @@ export default {
 		this.leftColumnVisibleMobile = this.initialMobileLeftColumnVisibleState;
 		this.rightColumnVisibleMobile = this.initialMobileRightColumnVisibleState;
 	},
-};
+});
 </script>

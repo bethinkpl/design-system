@@ -12,7 +12,7 @@ export default {
 const StoryTemplate: StoryFn<typeof ItemsList> = (args) => ({
 	components: { ItemsList },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<items-list :items-lists="itemsLists" :type="type"></items-list>`,

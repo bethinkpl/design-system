@@ -1,67 +1,30 @@
-import { PropType } from 'vue';
-import { SelectionControlSize, SelectionControlState, SelectionControlType } from './SelectionControl.consts';
-import Icon from '../../Icons/Icon/Icon.vue';
-declare const _default: {
-    name: string;
-    components: {
-        Icon: typeof Icon;
-    };
-    props: {
-        size: {
-            type: PropType<SelectionControlSize>;
-            default: "small";
-            validator(size: any): boolean;
-        };
-        label: {
-            type: StringConstructor;
-            default: null;
-        };
-        isSelected: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        state: {
-            type: PropType<SelectionControlState>;
-            default: "default";
-            validator(state: any): boolean;
-        };
-        selectedIcon: {
-            type: ObjectConstructor;
-            required: boolean;
-            validator(icon: any): boolean;
-        };
-        notSelectedIcon: {
-            type: ObjectConstructor;
-            required: boolean;
-            validator(icon: any): boolean;
-        };
-        type: {
-            type: PropType<SelectionControlType>;
-            required: boolean;
-            validator(type: any): boolean;
-        };
-    };
-    emits: string[];
-    data(): {
-        isFocused: boolean;
-        SELECTION_CONTROL_STATE: Readonly<{
-            readonly DEFAULT: "default";
-            readonly DISABLED: "disabled";
-            readonly LOADING: "loading";
-        }>;
-        SELECTION_CONTROL_TYPE: Readonly<{
-            readonly RADIO_BUTTON: "radioButton";
-            readonly CHECKBOX: "checkbox";
-        }>;
-    };
-    computed: {
-        icon(): any;
-        iconSize(): string;
-    };
-    methods: {
-        onToggle(): void;
-        onFocus(): void;
-        onBlur(): void;
-    };
-};
+declare const _default: import('vue').DefineComponent<Readonly<import('vue').ComponentPropsOptions<{
+    [x: string]: unknown;
+}>>, unknown, {
+    isFocused: boolean;
+    SELECTION_CONTROL_STATE: Readonly<{
+        readonly DEFAULT: "default";
+        readonly DISABLED: "disabled";
+        readonly LOADING: "loading";
+    }>;
+    SELECTION_CONTROL_TYPE: Readonly<{
+        readonly RADIO_BUTTON: "radioButton";
+        readonly CHECKBOX: "checkbox";
+    }>;
+}, {
+    icon(): any;
+    iconSize(): string;
+}, {
+    onToggle(): void;
+    onFocus(): void;
+    onBlur(): void;
+}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("update:is-selected" | "input:focus" | "input:blur")[], "update:is-selected" | "input:focus" | "input:blur", import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<readonly string[] | import('vue').ExtractPropTypes<Readonly<import('vue').ComponentObjectPropsOptions<{
+    [x: string]: unknown;
+}>>>> & {
+    "onUpdate:is-selected"?: ((...args: any[]) => any) | undefined;
+    "onInput:focus"?: ((...args: any[]) => any) | undefined;
+    "onInput:blur"?: ((...args: any[]) => any) | undefined;
+}, {
+    [x: number]: string;
+} | {}>;
 export default _default;

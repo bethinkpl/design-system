@@ -273,7 +273,7 @@ import {
 	ICON_BUTTON_TYPES,
 } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
-import { toRaw } from 'vue';
+import { defineComponent, toRaw } from 'vue';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.XX_SMALL]: ICON_SIZES.XXX_SMALL,
@@ -283,7 +283,7 @@ const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.LARGE]: ICON_SIZES.MEDIUM,
 } as const;
 
-export default {
+export default defineComponent({
 	name: 'IconButton',
 	components: {
 		WnlIcon,
@@ -402,5 +402,5 @@ export default {
 			return `-ds-color-${this.color}`;
 		},
 	},
-};
+});
 </script>

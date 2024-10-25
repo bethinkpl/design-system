@@ -1,3 +1,4 @@
-import RichListItem from './RichListItem.vue';
+import { default as RichListItem } from './RichListItem.vue';
+
 export default RichListItem;
 export * from './RichListItem.consts';

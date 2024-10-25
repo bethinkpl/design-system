@@ -3,67 +3,72 @@ import DrawerSection from './DrawerSection.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { SECTION_HEADER_ICON_COLORS, SECTION_HEADER_SIZES } from '../../Headers/SectionHeader';
 import { ICONS } from '../../Icons/Icon';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/Drawer/DrawerSection',
 	component: DrawerSection,
 } as Meta<typeof DrawerSection>;
 
-const StoryTemplate: StoryFn<typeof DrawerSection> = (args, { updateArgs }) => ({
-	components: { DrawerSection },
-	setup() {
-		return { ...args };
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
-	methods: {
-		infoClicked() {
-			console.log('info clicked');
+const StoryTemplate: StoryFn<typeof DrawerSection> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { DrawerSection },
+		setup() {
+			return args;
 		},
-		isExpandedUpdated(isExpanded: boolean) {
-			updateArgs({
-				isExpanded,
-			});
+		data() {
+			return {
+				ICONS: Object.freeze(ICONS),
+			};
 		},
-	},
-	template: `
-		<drawer-section
-			:size="size"
-			:title="title"
-			:title-ellipsis="titleEllipsis"
-			:supporting-text="supportingText"
-			:eyebrow="eyebrow"
-			:icon-left="ICONS[iconLeft]"
-			:icon-left-color="iconLeftColor"
-			:icon-right="ICONS[iconRight]"
-			:icon-right-color="iconRightColor"
-			:info="info"
-			:has-divider="hasDivider"
-			:is-expandable="isExpandable"
-			:is-expanded="isExpanded"
-			@infoClick="infoClicked"
-			@update:isExpanded="isExpandedUpdated"
-		>
-			Default slot
-			<template #uncollapsible>Uncollapsible slot</template>
-		</drawer-section>`,
-});
+		methods: {
+			infoClicked() {
+				console.log('info clicked');
+			},
+			isExpandedUpdated(isExpanded: boolean) {
+				updateArgs({
+					isExpanded,
+				});
+			},
+		},
+		template: `
+			<drawer-section
+				:size="size"
+				:title="title"
+				:title-ellipsis="titleEllipsis"
+				:supporting-text="supportingText"
+				:eyebrow="eyebrow"
+				:icon-left="ICONS[iconLeft]"
+				:icon-left-color="iconLeftColor"
+				:icon-right="ICONS[iconRight]"
+				:icon-right-color="iconRightColor"
+				:info="info"
+				:has-divider="hasDivider"
+				:is-expandable="isExpandable"
+				:is-expanded="isExpanded"
+				@infoClick="infoClicked"
+				@update:isExpanded="isExpandedUpdated"
+			>
+				Default slot
+				<template #uncollapsible>Uncollapsible slot</template>
+			</drawer-section>`,
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	size: SECTION_HEADER_SIZES.XX_SMALL,
+	size: SECTION_HEADER_SIZES.MEDIUM,
 	title: 'Drawer Section Header',
 	titleEllipsis: false,
 	supportingText: '',
 	eyebrow: '',
 	iconLeft: null,
-	iconLeftColor: null,
+	iconLeftColor: SECTION_HEADER_ICON_COLORS.NEUTRAL,
 	iconRight: null,
-	iconRightColor: null,
+	iconRightColor: SECTION_HEADER_ICON_COLORS.NEUTRAL,
 	info: false,
 	hasDivider: true,
 	isExpandable: false,
@@ -72,32 +77,30 @@ const args = {
 
 const argTypes = {
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconLeftColor: {
-		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
-		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+		control: 'select',
+		options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRightColor: {
-		control: { type: 'select', options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)] },
-		defaultValue: SECTION_HEADER_ICON_COLORS.NEUTRAL,
+		control: 'select',
+		options: [null, ...Object.values(SECTION_HEADER_ICON_COLORS)],
 	},
 	size: {
-		control: { type: 'select', options: Object.values(SECTION_HEADER_SIZES) },
-		defaultValue: SECTION_HEADER_SIZES.MEDIUM,
+		control: 'select',
+		options: Object.values(SECTION_HEADER_SIZES),
 	},
 	hasDivider: {
-		control: { type: 'boolean' },
-		defaultValue: true,
+		control: 'boolean',
 	},
 	info: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 } as ArgTypes;
 

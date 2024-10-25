@@ -3,10 +3,11 @@
     "lib/js/typings.d.ts"
   ],
   "compilerOptions": {
+    "importHelpers": true,
+    "removeComments": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "./lib/js",
     "esModuleInterop": true,
-    "module": "commonjs",
     "moduleResolution": "node",
     "noImplicitReturns": true,
     "resolveJsonModule": true,
@@ -20,10 +21,13 @@
     "target": "es2019",
     "strictNullChecks": true,
     "paths": {
-      "design-system/lib/*": ["lib/*"]
+      "design-system/lib/*": [
+        "lib/*"
+      ]
     },
     "declaration": true,
-    "declarationDir": "dist"
+    "declarationDir": "dist",
+    "types": ["node", "jest"],
   },
   "include": [
     "lib/js/**/*.vue",
@@ -31,10 +35,13 @@
   ],
   "exclude": [
     "node_modules",
-    "public"
+    "public",
+    ".storybook",
+    "**/*.stories.ts",
+    "**/*.spec.ts"
   ],
   "typeRoots": [
-    "node_modules/@types",
+    "node_modules/@types"
   ]
 }
 

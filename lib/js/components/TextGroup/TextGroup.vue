@@ -59,7 +59,7 @@
 	</div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';

@@ -91,7 +91,9 @@ import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
 import { randomString } from '../../../utils/string';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'SurveyQuestionOpenEnded',
 	components: {
 		SurveyQuestionTextarea,
@@ -135,5 +137,5 @@ export default {
 			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
 		};
 	},
-};
+});
 </script>

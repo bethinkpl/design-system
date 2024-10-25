@@ -83,7 +83,7 @@
 			>
 				<template #reference>
 					<ds-icon-button
-						:icon="ICONS.FA_ELLIPSIS_VERTICAL"
+						:icon="dropdownIcon"
 						:size="ICON_BUTTON_SIZES.MEDIUM"
 						:color="ICON_BUTTON_COLORS.NEUTRAL"
 						:state="
@@ -104,9 +104,10 @@
 		<ds-tooltip
 			:is-pointer-visible="false"
 			:placement="TOOLTIP_PLACEMENTS.LEFT"
-			text="Zamknij - Q"
+			text="Zamknij — Q"
 		>
 			<ds-icon-button
+				data-test-selector="overlay-header-close-button"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"
 				:color="ICON_BUTTON_COLORS.NEUTRAL"
@@ -326,8 +327,12 @@ import {
 import { ICONS } from '../../Icons/Icon';
 import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
 import { Value } from '../../../utils/type.utils';
+import { isElementEditable } from '../../../utils/shortcut-keys';
+import { toRaw } from 'vue';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'OverlayHeader',
 	components: { DsIconButton, DsDivider, DsDropdown, DsSkeleton, DsTooltip },
 	props: {
@@ -357,6 +362,13 @@ export default {
 			default: OVERLAY_HEADER_STATES.DEFAULT,
 			validator(value: Value<typeof OVERLAY_HEADER_STATES>) {
 				return Object.values(OVERLAY_HEADER_STATES).includes(value);
+			},
+		},
+		dropdownIcon: {
+			type: Object,
+			default: () => ICONS.FA_ELLIPSIS_VERTICAL,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
 	},
@@ -390,9 +402,13 @@ export default {
 		window.addEventListener('keydown', this.onKeydown);
 	},
 	methods: {
-		onKeydown(e) {
-			switch (e.keyCode) {
-				case 81: // "Q" key
+		onKeydown(e: KeyboardEvent) {
+			if (isElementEditable(e.target as HTMLElement | null)) {
+				return;
+			}
+			switch (e.key) {
+				case 'q':
+				case 'Q':
 					e.stopPropagation();
 					this.$emit('close');
 					break;
@@ -404,5 +420,5 @@ export default {
 			}
 		},
 	},
-};
+});
 </script>

@@ -10,7 +10,7 @@ export default {
 const StoryTemplate: StoryFn<typeof LoadingBar> = (args) => ({
 	components: { DsLoadingBar: LoadingBar },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<ds-loading-bar :size="size" :color="color" :time="time" />`,
 });
@@ -25,12 +25,12 @@ const args = {
 
 const argTypes = {
 	size: {
-		control: { type: 'select', options: Object.values(LOADING_BAR_SIZES) },
-		defaultValue: LOADING_BAR_SIZES.LARGE,
+		control: 'select',
+		options: Object.values(LOADING_BAR_SIZES),
 	},
 	color: {
-		control: { type: 'select', options: Object.values(LOADING_BAR_COLORS) },
-		defaultValue: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
+		control: 'select',
+		options: Object.values(LOADING_BAR_COLORS),
 	},
 } as ArgTypes;
 

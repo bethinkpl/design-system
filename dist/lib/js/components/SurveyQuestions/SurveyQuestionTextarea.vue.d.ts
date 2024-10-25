@@ -1,25 +1,35 @@
-declare const _default: {
-    name: string;
-    props: {
-        value: {
-            type: StringConstructor;
-            required: boolean;
-        };
-        placeholder: {
-            type: StringConstructor;
-            default: string;
-        };
-        disabled: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
+declare const _default: import('vue').DefineComponent<{
+    value: {
+        type: StringConstructor;
+        required: true;
     };
-    emits: string[];
-    watch: {
-        value(): void;
+    placeholder: {
+        type: StringConstructor;
+        default: string;
     };
-    methods: {
-        onInput(evt: any): void;
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
     };
-};
+}, unknown, unknown, {}, {
+    onInput(evt: any): void;
+}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "input"[], "input", import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<import('vue').ExtractPropTypes<{
+    value: {
+        type: StringConstructor;
+        required: true;
+    };
+    placeholder: {
+        type: StringConstructor;
+        default: string;
+    };
+    disabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>> & {
+    onInput?: ((...args: any[]) => any) | undefined;
+}, {
+    disabled: boolean;
+    placeholder: string;
+}>;
 export default _default;

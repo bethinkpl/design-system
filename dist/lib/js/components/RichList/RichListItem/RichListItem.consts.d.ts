@@ -45,3 +45,8 @@ export declare const RICH_LIST_ITEM_ELEVATION: {
     readonly SMALL: "small";
 };
 export declare type RichListItemElevation = typeof RICH_LIST_ITEM_ELEVATION[keyof typeof RICH_LIST_ITEM_ELEVATION];
+export declare const RICH_LIST_ITEM_LAYOUT: {
+    readonly HORIZONTAL: "horizontal";
+    readonly VERTICAL: "vertical";
+};
+export declare type RichListItemLayout = typeof RICH_LIST_ITEM_LAYOUT[keyof typeof RICH_LIST_ITEM_LAYOUT];

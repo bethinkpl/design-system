@@ -32,7 +32,9 @@
 <script>
 import { WELL_PADDINGS } from './Well.consts';
 
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'Well',
 	props: {
 		padding: {
@@ -48,5 +50,5 @@ export default {
 			WELL_PADDINGS: Object.freeze(WELL_PADDINGS),
 		};
 	},
-};
+});
 </script>

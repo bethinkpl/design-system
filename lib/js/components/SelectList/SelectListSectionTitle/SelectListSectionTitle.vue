@@ -12,7 +12,10 @@
 .ds-selectListSectionTitle {
 	@include info-m-default-regular;
 
+	align-items: center;
 	color: $color-neutral-text;
+	display: flex;
+	min-height: 40px;
 	padding: $space-3xs $space-xs;
 
 	&.-ds-isUppercase {
@@ -24,7 +27,9 @@
 </style>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'SelectListSectionTitle',
 	props: {
 		label: {
@@ -36,5 +41,5 @@ export default {
 			default: true,
 		},
 	},
-};
+});
 </script>

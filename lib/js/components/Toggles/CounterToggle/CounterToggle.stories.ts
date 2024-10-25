@@ -3,16 +3,18 @@ import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
 import { ICONS } from '../../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/Toggles/CounterToggle',
 	component: CounterToggle,
+	decorators: [withActions],
 } as Meta<typeof CounterToggle>;
 
 const StoryTemplate: StoryFn<typeof CounterToggle> = (args) => ({
 	components: { CounterToggle },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template:
 		'<div :class="{ contrastBackground: isInverted }">' +
@@ -42,23 +44,21 @@ const args = {
 
 const argTypes = {
 	color: {
-		control: { type: 'select', options: Object.values(COUNTER_TOGGLE_COLORS) },
-		defaultValue: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
+		control: 'select',
+		options: Object.values(COUNTER_TOGGLE_COLORS),
 	},
 	icon: {
-		control: { type: 'select', options: Object.keys(ICONS) },
+		control: 'select',
+		options: Object.keys(ICONS),
 	},
 	counter: {
-		control: { type: 'text' },
-		defaultValue: null,
+		control: 'text',
 	},
 	isSelected: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 	isDisabled: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 } as ArgTypes;
 

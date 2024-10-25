@@ -16,7 +16,7 @@ export default {
 const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 	components: { OutlineItem, DsChip },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	data() {
 		return {
@@ -30,6 +30,9 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
 									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
 									:is-selected-interactive="isSelectedInteractive">
+			<template #labelSlot v-if="labelSlot">
+				<span v-html="labelSlot" />
+			</template>
 			<template #default v-if="defaultSlot.length > 0">
 				<ds-chip :label="defaultSlot" />
 			</template>
@@ -38,59 +41,71 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 
 export const Interactive = StoryTemplate.bind({});
 
-const args = {} as Args;
+const args = {
+	additionalText: '',
+	defaultSlot: '10 / 20',
+	labelSlot: 'Outline Item label in slot',
+	size: OUTLINE_ITEM_SIZES.SMALL,
+	backgroundColor: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
+	iconLeft: null,
+	iconRight: null,
+	iconRightRotation: null,
+	index: null,
+	label: 'Outline Item label',
+	isLabelUppercase: false,
+	state: OUTLINE_ITEM_STATES.DEFAULT,
+	isSelected: false,
+	isDone: false,
+	hasSelectedIconsColorPrimary: true,
+	isSelectedInteractive: false,
+} as Args;
 
 const argTypes = {
-	defaultSlot: { control: { type: 'text' }, defaultValue: '10 / 20' },
+	defaultSlot: { control: 'text' },
+	labelSlot: { control: 'text' },
 	size: {
-		control: { type: 'select', options: Object.values(OUTLINE_ITEM_SIZES) },
-		defaultValue: OUTLINE_ITEM_SIZES.SMALL,
+		control: 'select',
+		options: Object.values(OUTLINE_ITEM_SIZES),
 	},
 	backgroundColor: {
-		control: { type: 'select', options: Object.values(OUTLINE_ITEM_BACKGROUND_COLORS) },
-		defaultValue: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
+		control: 'select',
+		options: Object.values(OUTLINE_ITEM_BACKGROUND_COLORS),
 	},
 	iconLeft: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRight: {
-		control: { type: 'select', options: [null, ...Object.keys(ICONS)] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 	iconRightRotation: {
-		control: { type: 'select', options: [null, 90, 180, 270] },
-		defaultValue: null,
+		control: 'select',
+		options: [null, 90, 180, 270],
 	},
 	index: {
 		control: { type: 'number' },
-		defaultValue: null,
 	},
-	label: { control: { type: 'text' }, defaultValue: 'Outline Item label' },
+	label: { control: 'text' },
 	isLabelUppercase: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
-	additionalText: { control: { type: 'text' } },
+	additionalText: { control: 'text' },
 	state: {
-		control: { type: 'select', options: Object.values(OUTLINE_ITEM_STATES) },
-		defaultValue: OUTLINE_ITEM_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(OUTLINE_ITEM_STATES),
 	},
 	isSelected: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 	isDone: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 	hasSelectedIconsColorPrimary: {
-		control: { type: 'boolean' },
-		defaultValue: true,
+		control: 'boolean',
 	},
 	isSelectedInteractive: {
-		control: { type: 'boolean' },
-		defaultValue: false,
+		control: 'boolean',
 	},
 } as ArgTypes;
 

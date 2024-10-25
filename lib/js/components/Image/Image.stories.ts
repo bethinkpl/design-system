@@ -1,4 +1,4 @@
-import { Args, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsImage from './Image.vue';
 import { IMAGE_FITS } from './Image.consts';
 
@@ -10,7 +10,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DsImage> = (args) => ({
 	components: { DsImage },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `
 		<div style="height: 500px; width: 800px;">
@@ -30,7 +30,7 @@ Interactive.args = {
 
 Interactive.argTypes = {
 	fit: {
-		control: { type: 'select', options: Object.values(IMAGE_FITS) },
-		defaultValue: IMAGE_FITS.COVER,
+		control: 'select',
+		options: Object.values(IMAGE_FITS),
 	},
-};
+} as ArgTypes;

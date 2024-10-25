@@ -34,7 +34,9 @@
 </style>
 
 <script lang="ts">
-export default {
+import { defineComponent } from 'vue';
+
+export default defineComponent({
 	name: 'SurveyQuestionTextarea',
 	props: {
 		value: {
@@ -67,5 +69,5 @@ export default {
 			this.$emit('input', evt.target.value);
 		},
 	},
-};
+});
 </script>

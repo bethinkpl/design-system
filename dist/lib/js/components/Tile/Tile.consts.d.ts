@@ -1,4 +1,5 @@
 import { Value } from '../../utils/type.utils';
+
 export declare const TILE_COLORS: {
     readonly NEUTRAL: "neutral";
     readonly NEUTRAL_WEAK: "neutralWeak";

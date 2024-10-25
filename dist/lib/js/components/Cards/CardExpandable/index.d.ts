@@ -1,2 +1,3 @@
-import CardExpandable from './CardExpandable.vue';
+import { default as CardExpandable } from './CardExpandable.vue';
+
 export default CardExpandable;

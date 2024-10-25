@@ -137,7 +137,7 @@
 </style>
 
 <script lang="ts">
-import { PropType } from 'vue';
+import { defineComponent, PropType } from 'vue';
 
 import DsDivider from '../../Divider/Divider.vue';
 import DsLoadingBar, { LOADING_BAR_COLORS, LoadingBarColors } from '../../LoadingBar';
@@ -149,7 +149,8 @@ import {
 	CardBorderPositions,
 	CardBorderSizes,
 } from './Card.consts';
-export default {
+
+export default defineComponent({
 	name: 'Card',
 	components: { DsDivider, DsLoadingBar },
 	props: {
@@ -218,5 +219,5 @@ export default {
 			return `-ds-border-size-${this.borderSize}`;
 		},
 	},
-};
+});
 </script>

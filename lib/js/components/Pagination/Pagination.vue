@@ -270,12 +270,13 @@ import Dropdown from '../Dropdown/Dropdown.vue';
 
 import SelectList from '../SelectList/SelectList.vue';
 import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
+import { defineComponent } from 'vue';
 
 const MAX_NAVIGATION_ITEMS = 7;
 const ELLIPSIS_FILL = 'ellipsis';
 const FIRST_PAGE_NUMBER = 1;
 
-export default {
+export default defineComponent({
 	name: 'Pagination',
 	components: { IconButton, Dropdown, SelectListItem, SelectList },
 	props: {
@@ -412,5 +413,5 @@ export default {
 			close();
 		},
 	},
-};
+});
 </script>

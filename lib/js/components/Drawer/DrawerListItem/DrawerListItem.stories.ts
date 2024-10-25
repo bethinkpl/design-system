@@ -11,7 +11,7 @@ export default {
 const StoryTemplate: StoryFn<typeof DrawerListItem> = (args) => ({
 	components: { DrawerListItem },
 	setup() {
-		return { ...args };
+		return args;
 	},
 	template: `<div style="height: 300px; width: 200px;">
 		<drawer-list-item :label="label" :value-text="valueText" :state="state" />
@@ -23,12 +23,13 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	label: 'Label',
 	valueText: 'value',
+	state: DRAWER_LIST_ITEM_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
 	state: {
-		control: { type: 'select', options: Object.values(DRAWER_LIST_ITEM_STATES) },
-		defaultValue: DRAWER_LIST_ITEM_STATES.DEFAULT,
+		control: 'select',
+		options: Object.values(DRAWER_LIST_ITEM_STATES),
 	},
 } as ArgTypes;
 

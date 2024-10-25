@@ -98,7 +98,7 @@ import {
 	ToastPositions,
 	ToastSizes,
 } from './Toast.consts';
-import { PropType, toRaw } from 'vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 import { ICONS } from '../Icons/Icon';
 
 const TOAST_OFFSET = 24;
@@ -126,7 +126,7 @@ function calculateBoundariesOffset(boundariesElement: HTMLElement) {
 	};
 }
 
-export default {
+export default defineComponent({
 	name: 'Toast',
 	components: {
 		DsButton,
@@ -279,5 +279,5 @@ export default {
 			}
 		},
 	},
-};
+});
 </script>
