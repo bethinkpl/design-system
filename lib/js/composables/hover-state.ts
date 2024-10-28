@@ -2,7 +2,7 @@ import { Ref, ref } from 'vue';
 import { isTouchDevice } from '../utils/device';
 
 interface HoverState {
-	hovered: Ref<boolean>;
+	isHovered: Ref<boolean>;
 	mouseOver: () => void;
 	mouseLeave: () => void;
 	touchStart: () => void;
@@ -10,28 +10,29 @@ interface HoverState {
 }
 
 export function useHoverState(): HoverState {
-	const hovered = ref(false);
+	const isHovered = ref(false);
+	const isTouchDeviceDetected = isTouchDevice();
 
 	return {
-		hovered,
+		isHovered,
 		mouseOver() {
-			if (!isTouchDevice()) {
-				hovered.value = true;
+			if (!isTouchDeviceDetected) {
+				isHovered.value = true;
 			}
 		},
 		mouseLeave() {
-			if (!isTouchDevice()) {
-				hovered.value = false;
+			if (!isTouchDeviceDetected) {
+				isHovered.value = false;
 			}
 		},
 		touchStart() {
-			if (isTouchDevice()) {
-				hovered.value = true;
+			if (isTouchDeviceDetected) {
+				isHovered.value = true;
 			}
 		},
 		touchEnd() {
-			if (isTouchDevice()) {
-				hovered.value = false;
+			if (isTouchDeviceDetected) {
+				isHovered.value = false;
 			}
 		},
 	};

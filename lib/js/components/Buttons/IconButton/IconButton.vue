@@ -42,7 +42,7 @@
 			}"
 			:radius="radius"
 			:type="buttonType"
-			:state="hovered ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT"
+			:state="isHovered ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT"
 			:elevation="elevation"
 			:color="isButtonColor ? color : null"
 		>
