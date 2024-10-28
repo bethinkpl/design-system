@@ -132,6 +132,7 @@
 
 	align-items: center;
 	border: $border-xs solid transparent;
+	column-gap: $space-xs;
 	display: flex;
 	justify-content: space-between;
 	min-height: 44px;
@@ -139,7 +140,6 @@
 	padding: $space-2xs $space-xs;
 	pointer-events: none;
 	position: relative;
-	column-gap: $space-xs;
 
 	&__dateWrapper {
 		display: flex;
@@ -241,6 +241,7 @@
 				}
 			}
 		}
+
 		&.-ds-warning {
 			@include color-scheme(
 				$color-warning-text,
