@@ -10,36 +10,40 @@
 			'-ds-isOpen': isOpen,
 		}"
 	>
-		<div class="ds-datePickerBox__dateWrapper">
-			<span v-if="startDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
-				startDateEyebrowText
-			}}</span>
-			<div class="ds-datePickerBox__date">
-				<ds-icon
-					v-if="startIcon"
-					class="ds-datePickerBox__icon"
-					:class="{ '-ds-hiddenOnMobile': areIconsHiddenOnMobile }"
-					:icon="startIcon"
-					:size="ICON_SIZES.XX_SMALL"
-				></ds-icon>
-				<span class="ds-datePickerBox__dateText">{{ startDateText }}</span>
+		<div class="ds-datePickerBox__widthWrapper">
+			<div class="ds-datePickerBox__dateWrapper">
+				<span v-if="startDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
+					startDateEyebrowText
+				}}</span>
+				<div class="ds-datePickerBox__date">
+					<ds-icon
+						v-if="startIcon"
+						class="ds-datePickerBox__icon"
+						:class="{ '-ds-hiddenOnMobile': areIconsHiddenOnMobile }"
+						:icon="startIcon"
+						:size="ICON_SIZES.XX_SMALL"
+					></ds-icon>
+					<span class="ds-datePickerBox__dateText">{{ startDateText }}</span>
+				</div>
 			</div>
 		</div>
 		<template v-if="startDate && endDate">
 			<span class="ds-datePickerBox__separator">–</span>
-			<div class="ds-datePickerBox__dateWrapper">
-				<span v-if="endDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
-					endDateEyebrowText
-				}}</span>
-				<div class="ds-datePickerBox__date">
-					<ds-icon
-						v-if="endIcon"
-						class="ds-datePickerBox__icon"
-						:class="{ '-ds-hiddenOnMobile': areIconsHiddenOnMobile }"
-						:icon="endIcon"
-						:size="ICON_SIZES.XX_SMALL"
-					></ds-icon>
-					<span class="ds-datePickerBox__dateText">{{ endDateText }}</span>
+			<div class="ds-datePickerBox__widthWrapper -ds-justify-to-end">
+				<div class="ds-datePickerBox__dateWrapper">
+					<span v-if="endDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
+						endDateEyebrowText
+					}}</span>
+					<div class="ds-datePickerBox__date">
+						<ds-icon
+							v-if="endIcon"
+							class="ds-datePickerBox__icon"
+							:class="{ '-ds-hiddenOnMobile': areIconsHiddenOnMobile }"
+							:icon="endIcon"
+							:size="ICON_SIZES.XX_SMALL"
+						></ds-icon>
+						<span class="ds-datePickerBox__dateText">{{ endDateText }}</span>
+					</div>
 				</div>
 			</div>
 		</template>
@@ -135,6 +139,7 @@
 	padding: $space-2xs $space-xs;
 	pointer-events: none;
 	position: relative;
+	column-gap: $space-xs;
 
 	&__dateWrapper {
 		display: flex;
@@ -142,11 +147,19 @@
 		justify-content: center;
 	}
 
+	&__widthWrapper {
+		display: inline-flex;
+		min-width: 52px;
+
+		&.-ds-justify-to-end {
+			justify-content: flex-end;
+		}
+	}
+
 	&__separator {
 		@include text-s-default-regular;
 
 		color: $color-neutral-text-heavy;
-		padding: 0 $space-2xs;
 	}
 
 	&.-ds-loading,
@@ -217,16 +230,17 @@
 		);
 	}
 
-	&:not(.-ds-loading):not(.-ds-disabled) {
-		&.-ds-interactive {
-			cursor: pointer;
-			pointer-events: all;
+	&:not(.-ds-loading) {
+		&:not(.-ds-disabled) {
+			&.-ds-interactive {
+				cursor: pointer;
+				pointer-events: all;
 
-			&:hover:not(.-ds-isOpen) {
-				background-color: $color-neutral-background-weak-hovered;
+				&:hover:not(.-ds-isOpen) {
+					background-color: $color-neutral-background-weak-hovered;
+				}
 			}
 		}
-
 		&.-ds-warning {
 			@include color-scheme(
 				$color-warning-text,
