@@ -26,6 +26,7 @@
 
 	&__image {
 		height: 100%;
+		pointer-events: none;
 		user-select: none;
 		width: 100%;
 
