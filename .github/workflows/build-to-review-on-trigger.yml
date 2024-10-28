@@ -29,7 +29,7 @@ jobs:
 
       - name: Set short branch name
         run: |
-          echo "BRANCH_NAME=$(echo "${{ steps.comment-pr-ref.outputs.result }}" | grep -oE -- '[A-Z]+-[0-9]+')" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${{ steps.comment-pr-ref.outputs.result }}" >> $GITHUB_ENV
 
       - name: Checkout PR code based on trigger comment
         uses: actions/checkout@v3
