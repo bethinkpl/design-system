@@ -1,7 +1,12 @@
 declare const _default: import('vue').DefineComponent<Readonly<import('vue').ComponentPropsOptions<{
     [x: string]: unknown;
-}>>, unknown, {
-    hovered: boolean;
+}>>, {
+    hovered: import('vue').Ref<boolean>;
+    mouseOver: () => void;
+    mouseLeave: () => void;
+    touchStart: () => void;
+    touchEnd: () => void;
+}, {
     ICONS: Readonly<{
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly RIBBON: VueConstructor<Vue>;
