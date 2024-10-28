@@ -136,7 +136,6 @@
 	display: flex;
 	justify-content: space-between;
 	min-height: 44px;
-	min-width: 76px;
 	padding: $space-2xs $space-xs;
 	pointer-events: none;
 	position: relative;
