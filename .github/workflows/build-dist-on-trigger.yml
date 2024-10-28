@@ -61,7 +61,7 @@ jobs:
         id: last-commit
         run: |
           git fetch origin ${{ steps.comment-pr-ref.outputs.result }}-dist
-          echo "::set-output name=commit_hash::$(git log -n 1 origin/${{ steps.comment-pr-ref.outputs.result }}-dist --pretty=format:"%H")"
+          echo "commit_hash=$(git log -n 1 origin/${{ steps.comment-pr-ref.outputs.result }}-dist --pretty=format:"%H")" >> $GITHUB_ENV
 
       - name: Add comment to PR with dist package name and install command
         uses: thollander/actions-comment-pull-request@v2
@@ -69,5 +69,5 @@ jobs:
           pr_number: ${{ github.event.issue.number }}
           message: |
             Branch: `${{ steps.comment-pr-ref.outputs.result }}-dist`
-            Last commit: `${{ steps.last-commit.outputs.commit_hash }}`
-            Install: `yarn add '@bethinkpl/design-system@https://github.com/bethinkpl/design-system#commit=${{ steps.last-commit.outputs.commit_hash }}'`
+            Last commit: `${{ env.commit_hash }}`
+            Install: `yarn add '@bethinkpl/design-system@https://github.com/bethinkpl/design-system#commit=${{ env.commit_hash }}'`
