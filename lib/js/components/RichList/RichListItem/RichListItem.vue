@@ -95,6 +95,10 @@ $rich-list-item-background-colors: (
 	),
 );
 
+// Keep in sync with RICH_LIST_ITEM_MEDIA_HORIZONTAL_WIDTH and _HEIGHT
+$rich-list-item-media-horizontal-width: 100px;
+$rich-list-item-media-horizontal-height: 80px;
+
 .ds-richListItem {
 	$root: &;
 
@@ -364,9 +368,9 @@ $rich-list-item-background-colors: (
 	}
 
 	&__mediaHorizontal {
-		height: 80px;
+		height: $rich-list-item-media-horizontal-height;
 		margin-right: $space-3xs;
-		width: 100px;
+		width: $rich-list-item-media-horizontal-width;
 	}
 
 	&__mediaVertical {
