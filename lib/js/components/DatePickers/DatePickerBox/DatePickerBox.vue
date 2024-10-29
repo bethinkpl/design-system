@@ -10,7 +10,7 @@
 			'-ds-isOpen': isOpen,
 		}"
 	>
-		<div class="ds-datePickerBox__widthWrapper">
+		<div class="ds-datePickerBox__widthWrapper" :class="{ '-ds-has-icon': startIcon }">
 			<div class="ds-datePickerBox__dateWrapper">
 				<span v-if="startDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
 					startDateEyebrowText
@@ -29,7 +29,10 @@
 		</div>
 		<template v-if="startDate && endDate">
 			<span class="ds-datePickerBox__separator">–</span>
-			<div class="ds-datePickerBox__widthWrapper -ds-justify-to-end">
+			<div
+				class="ds-datePickerBox__widthWrapper -ds-justify-to-end"
+				:class="{ '-ds-has-icon': endIcon }"
+			>
 				<div class="ds-datePickerBox__dateWrapper">
 					<span v-if="endDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
 						endDateEyebrowText
@@ -135,7 +138,8 @@
 	column-gap: $space-xs;
 	display: flex;
 	justify-content: space-between;
-	min-height: 44px;
+	min-height: 46px;
+	min-width: 76px;
 	padding: $space-2xs $space-xs;
 	pointer-events: none;
 	position: relative;
@@ -148,8 +152,11 @@
 
 	&__widthWrapper {
 		display: inline-flex;
-		min-width: 52px;
+		min-width: 46px;
 
+		&.-ds-has-icon {
+			min-width: 52px;
+		}
 		&.-ds-justify-to-end {
 			justify-content: flex-end;
 		}
