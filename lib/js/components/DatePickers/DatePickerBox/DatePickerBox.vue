@@ -157,6 +157,7 @@
 		&.-ds-has-icon {
 			min-width: 52px;
 		}
+
 		&.-ds-justify-to-end {
 			justify-content: flex-end;
 		}
