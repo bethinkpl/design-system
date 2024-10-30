@@ -135,7 +135,7 @@
 
 	align-items: center;
 	border: $border-xs solid transparent;
-	column-gap: $space-xs;
+	column-gap: $space-2xs;
 	display: flex;
 	justify-content: space-between;
 	min-height: 46px;
