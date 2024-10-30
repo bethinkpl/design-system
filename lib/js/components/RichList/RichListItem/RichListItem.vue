@@ -210,9 +210,9 @@ $rich-list-item-media-horizontal-height: 80px;
 		}
 
 		#{$root}__metadata {
-			width: 100%;
 			padding-left: $space-s;
 			padding-right: $space-2xs;
+			width: 100%;
 		}
 
 		#{$root}__rightContainer {
