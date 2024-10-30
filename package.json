@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "26.0.0",
+  "version": "26.1.0",
   "description": "Bethink universe design-system",
   "repository": {
     "type": "git",
@@ -80,12 +80,12 @@
     "ts-jest": "29.0.5",
     "ts-node": "^10.9.1",
     "typescript": "4.6.4",
-    "vite": "^5.4.7",
+    "vite": "^5.4.9",
     "vite-plugin-checker": "^0.7.0",
     "vite-plugin-css-injected-by-js": "^3.5.1",
     "vite-plugin-dts": "^3.9.1",
     "vite-svg-loader": "^5.1.0",
-    "vue": "3.2.45",
+    "vue": "3.5.12",
     "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f"
   },
   "dependencies": {

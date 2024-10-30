@@ -17,8 +17,10 @@
 			'-ds-touchable': touchable,
 		}"
 		:style="{ color: computedColor }"
-		@mouseover="hovered = true"
-		@mouseleave="hovered = false"
+		@mouseover="mouseOver"
+		@mouseleave="mouseLeave"
+		@touchstart="touchStart"
+		@touchend="touchEnd"
 	>
 		<div
 			v-if="$slots.default && type !== ICON_BUTTON_TYPES.ICON_ONLY"
@@ -40,7 +42,7 @@
 			}"
 			:radius="radius"
 			:type="buttonType"
-			:state="hovered ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT"
+			:state="isHovered ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT"
 			:elevation="elevation"
 			:color="isButtonColor ? color : null"
 		>
@@ -274,6 +276,7 @@ import {
 } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
 import { defineComponent, toRaw } from 'vue';
+import { useHoverState } from '../../../composables/hover-state';
 
 const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.XX_SMALL]: ICON_SIZES.XXX_SMALL,
@@ -351,9 +354,13 @@ export default defineComponent({
 			},
 		},
 	},
+	setup() {
+		return {
+			...useHoverState(),
+		};
+	},
 	data() {
 		return {
-			hovered: false,
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),

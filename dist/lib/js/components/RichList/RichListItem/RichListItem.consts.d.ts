@@ -50,3 +50,5 @@ export declare const RICH_LIST_ITEM_LAYOUT: {
     readonly VERTICAL: "vertical";
 };
 export declare type RichListItemLayout = typeof RICH_LIST_ITEM_LAYOUT[keyof typeof RICH_LIST_ITEM_LAYOUT];
+export declare const RICH_LIST_ITEM_MEDIA_HORIZONTAL_WIDTH = 100;
+export declare const RICH_LIST_ITEM_MEDIA_HORIZONTAL_HEIGHT = 80;
