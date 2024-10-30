@@ -10,7 +10,10 @@
 			'-ds-isOpen': isOpen,
 		}"
 	>
-		<div class="ds-datePickerBox__widthWrapper" :class="{ '-ds-has-icon': startIcon }">
+		<div
+			class="ds-datePickerBox__widthWrapper"
+			:class="{ '-ds-has-icon': startIcon, '-ds-iconHiddenOnMobile': areIconsHiddenOnMobile }"
+		>
 			<div class="ds-datePickerBox__dateWrapper">
 				<span v-if="startDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
 					startDateEyebrowText
@@ -31,7 +34,10 @@
 			<span class="ds-datePickerBox__separator">–</span>
 			<div
 				class="ds-datePickerBox__widthWrapper -ds-justify-to-end"
-				:class="{ '-ds-has-icon': endIcon }"
+				:class="{
+					'-ds-has-icon': endIcon,
+					'-ds-iconHiddenOnMobile': areIconsHiddenOnMobile,
+				}"
 			>
 				<div class="ds-datePickerBox__dateWrapper">
 					<span v-if="endDateEyebrowText" class="ds-datePickerBox__eyebrow">{{
@@ -160,6 +166,16 @@
 
 		&.-ds-justify-to-end {
 			justify-content: flex-end;
+		}
+
+		&.-ds-iconHiddenOnMobile {
+			&.-ds-has-icon {
+				min-width: 46px;
+
+				@media (#{breakpoint-s()}) {
+					min-width: 52px;
+				}
+			}
 		}
 	}
 
