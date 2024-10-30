@@ -6,6 +6,7 @@ export declare type RichListItemType = typeof RICH_LIST_ITEM_TYPE[keyof typeof R
 export declare const RICH_LIST_ITEM_STATE: {
     readonly DEFAULT: "default";
     readonly LOADING: "loading";
+    readonly DRAG: "drag";
 };
 export declare type RichListItemState = typeof RICH_LIST_ITEM_STATE[keyof typeof RICH_LIST_ITEM_STATE];
 export declare const RICH_LIST_ITEM_SIZE: {
