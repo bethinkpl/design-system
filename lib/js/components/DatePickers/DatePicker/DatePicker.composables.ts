@@ -58,6 +58,7 @@ export function initFlatpickr({
 		datePicker = flatpickrFunction(flatpickrInputElement, {
 			mode,
 			locale,
+			disableMobile: true,
 			positionElement: datePickerElement,
 			ignoredFocusElements: [datePickerElement],
 			appendTo: datePickerElement,
