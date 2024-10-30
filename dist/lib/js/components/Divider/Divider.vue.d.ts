@@ -1,4 +1,4 @@
-declare const _default: import('vue').DefineComponent<{
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     isVertical: {
         type: BooleanConstructor;
         default: boolean;
@@ -13,7 +13,7 @@ declare const _default: import('vue').DefineComponent<{
         default: string;
         validator: (value: string) => boolean;
     };
-}, unknown, {
+}>, {}, {
     DIVIDER_PROMINENCES: Readonly<{
         DEFAULT: string;
         STRONG: string;
@@ -21,7 +21,7 @@ declare const _default: import('vue').DefineComponent<{
     }>;
 }, {
     sizeClass(): string;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<import('vue').ExtractPropTypes<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     isVertical: {
         type: BooleanConstructor;
         default: boolean;
@@ -36,9 +36,9 @@ declare const _default: import('vue').DefineComponent<{
         default: string;
         validator: (value: string) => boolean;
     };
-}>>, {
+}>> & Readonly<{}>, {
     size: string;
     isVertical: boolean;
     prominence: string;
-}>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
