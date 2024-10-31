@@ -1155,10 +1155,10 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         };
     }>> & Readonly<{}>, {
         text: string;
+        inline: boolean;
         placement: import('../../Tooltip').TooltipPlacement;
         isDisabled: boolean;
         isPointerVisible: boolean;
-        inline: boolean;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
