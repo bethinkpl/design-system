@@ -16,6 +16,7 @@ export { default as CardExpandable } from './components/Cards/CardExpandable/';
 export { default as DsCardExpandable } from './components/Cards/CardExpandable/';
 export { default as DatePicker } from './components/DatePickers/DatePicker';
 export { default as DsDatePicker } from './components/DatePickers/DatePicker';
+export { default as DsDateRangePicker } from './components/DatePickers/DateRangePicker';
 export * from './components/DatePickers/DatePicker';
 export { default as Divider } from './components/Divider';
 export { default as DsDivider } from './components/Divider';

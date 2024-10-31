@@ -71,9 +71,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
 }>> & Readonly<{}>, {
     text: string;
+    inline: boolean;
     placement: TooltipPlacement;
     isDisabled: boolean;
     isPointerVisible: boolean;
-    inline: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

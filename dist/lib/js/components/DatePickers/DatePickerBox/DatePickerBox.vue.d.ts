@@ -222,16 +222,20 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         WARNING: string;
     }>;
 }, {
-    text(): any;
+    startDateText(): any;
+    endDateText(): string;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
-    icon: Record<string, any>;
     color: string;
     state: string;
-    isIconHiddenOnMobile: boolean;
-    eyebrowText: string;
     isInteractive: boolean;
     placeholder: string;
-    date: Date;
+    startDate: Date;
+    endDate: Date;
+    startIcon: Record<string, any>;
+    endIcon: Record<string, any>;
+    areIconsHiddenOnMobile: boolean;
+    startDateEyebrowText: string;
+    endDateEyebrowText: string;
     isOpen: boolean;
 }, {}, {
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
