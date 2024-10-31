@@ -156,6 +156,11 @@
 		justify-content: center;
 	}
 
+	/**
+	 * setting a width for a component solves a problem with unaligned separators for many boxes in a column
+	 * 46px comes from the minimum component width, not minimum content width
+	 * 52px comes from the maximum content width with an icon
+	 */
 	&__widthWrapper {
 		display: inline-flex;
 		min-width: 46px;
