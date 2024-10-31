@@ -3,6 +3,7 @@
     "lib/js/typings.d.ts"
   ],
   "compilerOptions": {
+    "module": "esnext",
     "importHelpers": true,
     "removeComments": true,
     "allowSyntheticDefaultImports": true,
