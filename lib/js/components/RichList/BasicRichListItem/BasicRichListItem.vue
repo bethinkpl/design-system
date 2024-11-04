@@ -20,6 +20,7 @@
 		:is-selected="isSelected"
 		class="ds-basicRichListItem"
 		:class="{
+			'-ds-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
 			'-ds-small': size === RICH_LIST_ITEM_SIZE.SMALL,
 		}"
 		@mouseover="hovered = true"
@@ -75,6 +76,12 @@
 	&.-ds-small {
 		#{$root}__content {
 			padding: $space-2xs 0;
+		}
+	}
+
+	&.-ds-loading {
+		#{$root}__content {
+			flex: 1;
 		}
 	}
 }
@@ -249,6 +256,7 @@ export default defineComponent({
 		return {
 			hovered: false,
 			RICH_LIST_ITEM_SIZE: Object.freeze(RICH_LIST_ITEM_SIZE),
+			RICH_LIST_ITEM_STATE: Object.freeze(RICH_LIST_ITEM_STATE),
 		};
 	},
 	computed: {
@@ -261,11 +269,11 @@ export default defineComponent({
 			return map[this.size];
 		},
 		textGroupState(): TextGroupState {
-			if (this.hovered && this.isInteractive) {
-				return TEXT_GROUP_STATES.HOVERED;
-			}
 			if (this.state === RICH_LIST_ITEM_STATE.LOADING) {
 				return TEXT_GROUP_STATES.LOADING;
+			}
+			if (this.hovered && this.isInteractive) {
+				return TEXT_GROUP_STATES.HOVERED;
 			}
 			return TEXT_GROUP_STATES.DEFAULT;
 		},
