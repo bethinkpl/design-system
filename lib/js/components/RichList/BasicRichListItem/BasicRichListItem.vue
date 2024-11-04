@@ -20,7 +20,7 @@
 		:is-selected="isSelected"
 		class="ds-basicRichListItem"
 		:class="{
-			'-ds-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
+			'-ds-loading': state === RICH_LIST_ITEM_STATE.LOADING,
 			'-ds-small': size === RICH_LIST_ITEM_SIZE.SMALL,
 		}"
 		@mouseover="hovered = true"
