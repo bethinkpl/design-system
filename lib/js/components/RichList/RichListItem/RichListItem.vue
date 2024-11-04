@@ -87,11 +87,13 @@ $rich-list-item-background-colors: (
 		default: $color-neutral-background,
 		hover: $color-neutral-background-hovered,
 		loading: $color-neutral-background,
+		drag: $color-neutral-background-hovered,
 	),
 	neutral-weak: (
 		default: $color-neutral-background-weak,
 		hover: $color-neutral-background-weak-hovered,
 		loading: $color-neutral-background-weak,
+		drag: $color-neutral-background-weak-hovered,
 	),
 );
 
@@ -308,7 +310,7 @@ $rich-list-item-media-horizontal-height: 80px;
 			}
 		}
 
-		&.-ds-draggable {
+		&.-ds-draggable-without-handler {
 			&:hover {
 				cursor: grab;
 			}
@@ -333,6 +335,12 @@ $rich-list-item-media-horizontal-height: 80px;
 		#{$root}__wrapper {
 			border: none;
 		}
+
+		// -ds-sort-drag is class to activate specific styles for drag and drop items in sortable lists
+		// this class is added by the sortable lib because we operate on DOM element instead of Vue component
+		&.-ds-interactive.-ds-draggable.-ds-sort-drag {
+			background: $color-neutral-background-ghost-hovered;
+		}
 	}
 
 	&.-ds-default {
@@ -342,6 +350,16 @@ $rich-list-item-media-horizontal-height: 80px;
 		&.-ds-interactive:hover {
 			.-ds-dimmable {
 				opacity: 1;
+			}
+		}
+
+		// -ds-sort-drag is class to activate specific styles for drag and drop items in sortable lists
+		// this class is added by the sortable lib because we operate on DOM element instead of Vue component
+		&.-ds-interactive.-ds-draggable.-ds-sort-drag {
+			@each $color, $value in $rich-list-item-background-colors {
+				&.-ds-background-#{$color} {
+					background-color: map-get($value, 'drag');
+				}
 			}
 		}
 
@@ -622,7 +640,8 @@ export default defineComponent({
 					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
 						[`-ds-elevation-${this.elevation}`]: true,
 					}),
-				'-ds-draggable': this.isDraggable && !this.hasDraggableHandler,
+				'-ds-draggable': this.isDraggable,
+				'-ds-draggable-without-handler': this.isDraggable && !this.hasDraggableHandler,
 				'-ds-has-media': this.hasMedia,
 			};
 		},
