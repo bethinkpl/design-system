@@ -357,13 +357,13 @@ $rich-list-item-media-horizontal-height: 80px;
 		// -ds-sort-drag is class to activate specific styles for drag and drop items in sortable lists
 		// this class is added by the sortable lib because we operate on DOM element instead of Vue component
 		&.-ds-interactive.-ds-draggable.-ds-sort-drag {
-			pointer-events: none;
-
 			@each $color, $value in $rich-list-item-background-colors {
 				&.-ds-background-#{$color} {
 					background-color: map-get($value, 'drag');
 				}
 			}
+
+			pointer-events: none;
 		}
 
 		#{$root}__border {
