@@ -1,6 +1,4 @@
-declare const _default: import('vue').DefineComponent<Readonly<import('vue').ComponentPropsOptions<{
-    [x: string]: unknown;
-}>>, unknown, {
+declare const _default: import('vue').DefineComponent<{}, {}, {
     ICONS: Readonly<{
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly RIBBON: VueConstructor<Vue>;
@@ -147,6 +145,7 @@ declare const _default: import('vue').DefineComponent<Readonly<import('vue').Com
         readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -251,9 +250,93 @@ declare const _default: import('vue').DefineComponent<Readonly<import('vue').Com
     iconSize(): string;
     colorClassName(): string;
     loadingIconSize(): string;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, readonly string[] | Readonly<import('vue').ExtractPropTypes<Readonly<import('vue').ComponentObjectPropsOptions<{
-    [x: string]: unknown;
-}>>>>, {
-    [x: number]: string;
-} | {}>;
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+    size: string;
+    type: string;
+    color: string;
+    radius: string;
+    state: string;
+    iconLeft: Record<string, any>;
+    iconRight: Record<string, any>;
+    elevation: string;
+}, {}, {
+    WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+        rotation: {
+            type: NumberConstructor;
+            default: null;
+            validator(value: number): boolean;
+        };
+        flippedVertical: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        flippedHorizontal: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        touchable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        spinning: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>, {}, {}, {
+        sizeClassName(): string;
+        isFontawesomeIcon(): boolean;
+        rotationClass(): string | null;
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+        rotation: {
+            type: NumberConstructor;
+            default: null;
+            validator(value: number): boolean;
+        };
+        flippedVertical: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        flippedHorizontal: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        touchable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        spinning: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>> & Readonly<{}>, {
+        rotation: number;
+        size: string;
+        flippedVertical: boolean;
+        flippedHorizontal: boolean;
+        touchable: boolean;
+        spinning: boolean;
+    }, {}, {
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+    }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

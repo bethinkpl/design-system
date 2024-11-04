@@ -1,7 +1,7 @@
 import { TooltipPlacement } from './Tooltip.consts';
 import { PropType } from 'vue';
 
-declare const _default: import('vue').DefineComponent<{
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     placement: {
         type: PropType<TooltipPlacement>;
         default: "bottom";
@@ -23,7 +23,7 @@ declare const _default: import('vue').DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
-}, unknown, unknown, {
+}>, {}, {}, {
     tooltipParams(): {
         position: any;
         event: string;
@@ -47,9 +47,7 @@ declare const _default: import('vue').DefineComponent<{
             arrow: string;
         };
     };
-}, {
-    isTouchDevice(): boolean;
-}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<import('vue').ExtractPropTypes<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     placement: {
         type: PropType<TooltipPlacement>;
         default: "bottom";
@@ -71,11 +69,11 @@ declare const _default: import('vue').DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
-}>>, {
+}>> & Readonly<{}>, {
     text: string;
+    inline: boolean;
     placement: TooltipPlacement;
     isDisabled: boolean;
     isPointerVisible: boolean;
-    inline: boolean;
-}>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
