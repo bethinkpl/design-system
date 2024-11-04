@@ -285,8 +285,7 @@ $rich-list-item-media-horizontal-height: 80px;
 		pointer-events: initial;
 
 		&.-ds-flat {
-			&:hover,
-			&.-ds-drag {
+			&:hover {
 				opacity: 1;
 
 				.-ds-dimmable {
@@ -295,8 +294,7 @@ $rich-list-item-media-horizontal-height: 80px;
 			}
 		}
 
-		&:not(.-ds-dimmed):hover,
-		&:not(.-ds-dimmed).-ds-drag {
+		&:not(.-ds-dimmed):hover {
 			&.-ds-default {
 				@each $color, $value in $rich-list-item-background-colors {
 					&.-ds-background-#{$color} {
@@ -341,8 +339,7 @@ $rich-list-item-media-horizontal-height: 80px;
 		border: 1px solid $color-neutral-border-weak;
 		border-radius: $radius-s;
 
-		&.-ds-interactive:hover,
-		&.-ds-interactive.-ds-drag {
+		&.-ds-interactive:hover {
 			.-ds-dimmable {
 				opacity: 1;
 			}
@@ -428,8 +425,7 @@ $rich-list-item-media-horizontal-height: 80px;
 	&__dragAndDropIcon {
 		color: $color-neutral-icon-weak;
 
-		&:hover,
-		&.-ds-drag {
+		&:hover {
 			color: $color-neutral-icon-weak-hovered;
 			cursor: grab;
 		}
@@ -615,7 +611,6 @@ export default defineComponent({
 				'-ds-verticalWithMedia': this.isVertical && this.hasMedia,
 				'-ds-vertical': this.isVertical,
 				'-ds-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
-				'-ds-drag': this.state === RICH_LIST_ITEM_STATE.DRAG,
 				'-ds-dimmed': this.isDimmed,
 				'-ds-interactive': this.isInteractive,
 				'-ds-small': this.size === RICH_LIST_ITEM_SIZE.SMALL,

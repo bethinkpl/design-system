@@ -7,7 +7,6 @@ export type RichListItemType = typeof RICH_LIST_ITEM_TYPE[keyof typeof RICH_LIST
 export const RICH_LIST_ITEM_STATE = {
 	DEFAULT: 'default',
 	LOADING: 'loading',
-	DRAG: 'drag',
 } as const;
 export type RichListItemState = typeof RICH_LIST_ITEM_STATE[keyof typeof RICH_LIST_ITEM_STATE];
 
