@@ -43,6 +43,8 @@ export * from './components/TabItem/TabItem.consts';
 export { default as Tile } from './components/Tile';
 export { default as DsTile } from './components/Tile';
 export * from './components/Tile/Tile.consts';
+export { default as DsToast } from './components/Toast';
+export * from './components/Toast/Toast.consts';
 export { default as AccessStatus } from './components/Statuses/AccessStatus/';
 export { default as DsAccessStatus } from './components/Statuses/AccessStatus/';
 export { default as BlockadeStatus } from './components/Statuses/BlockadeStatus/';
