@@ -222,6 +222,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     RICH_LIST_ITEM_STATE: Readonly<{
         readonly DEFAULT: "default";
         readonly LOADING: "loading";
+        readonly DRAG: "drag";
     }>;
     RICH_LIST_ITEM_SIZE: Readonly<{
         readonly SMALL: "small";
