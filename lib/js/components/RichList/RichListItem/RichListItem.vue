@@ -336,11 +336,8 @@ $rich-list-item-media-horizontal-height: 80px;
 			border: none;
 		}
 
-		// -ds-sort-drag is class to activate specific styles for drag and drop items in sortable lists
-		// this class is added by the sortable lib because we operate on DOM element instead of Vue component
-		&.-ds-interactive.-ds-draggable.-ds-sort-drag {
+		&.-ds-interactive.-ds-draggable.-ds-drag {
 			background: $color-neutral-background-ghost-hovered;
-			pointer-events: none;
 		}
 	}
 
@@ -354,16 +351,12 @@ $rich-list-item-media-horizontal-height: 80px;
 			}
 		}
 
-		// -ds-sort-drag is class to activate specific styles for drag and drop items in sortable lists
-		// this class is added by the sortable lib because we operate on DOM element instead of Vue component
-		&.-ds-interactive.-ds-draggable.-ds-sort-drag {
+		&.-ds-interactive.-ds-draggable.-ds-drag {
 			@each $color, $value in $rich-list-item-background-colors {
 				&.-ds-background-#{$color} {
 					background-color: map-get($value, 'drag');
 				}
 			}
-
-			pointer-events: none;
 		}
 
 		#{$root}__border {
@@ -646,6 +639,7 @@ export default defineComponent({
 				'-ds-draggable': this.isDraggable,
 				'-ds-draggable-without-handler': this.isDraggable && !this.hasDraggableHandler,
 				'-ds-has-media': this.hasMedia,
+				'-ds-drag': this.isDragging,
 			};
 		},
 		isHorizontal() {
@@ -684,6 +678,9 @@ export default defineComponent({
 		},
 		hasMedia() {
 			return !!this.$slots.media;
+		},
+		isDragging() {
+			return this.isDraggable && this.state === RICH_LIST_ITEM_STATE.DRAG;
 		},
 	},
 });
