@@ -1,4 +1,4 @@
-import{I as a,a as n}from"./Image-SUTRVXoX.js";import"./vue.esm-bundler-CzUSCRPq.js";import"./Skeleton-CMYm0ueF.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const d={title:"Components/Image",component:a},i=o=>({components:{DsImage:a},setup(){return o},template:`
+import{I as a,a as n}from"./Image-DQHO1hnh.js";import"./vue.esm-bundler-CzUSCRPq.js";import"./Skeleton-CMYm0ueF.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const d={title:"Components/Image",component:a},i=o=>({components:{DsImage:a},setup(){return o},template:`
         <div style="height: 500px; width: 800px;">
             <ds-image
                 :fit="fit"
