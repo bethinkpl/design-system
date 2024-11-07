@@ -212,6 +212,7 @@ $rich-list-item-media-horizontal-height: 80px;
 		#{$root}__metadata {
 			padding-left: $space-s;
 			padding-right: $space-2xs;
+			width: 100%;
 		}
 
 		#{$root}__rightContainer {
@@ -652,7 +653,7 @@ export default defineComponent({
 			return `-ds-border-${this.borderColor}`;
 		},
 		borderColorStyle() {
-			if (!this.borderColor || !this.borderColorHex) {
+			if (!this.borderColor && !this.borderColorHex) {
 				return;
 			}
 			return {
