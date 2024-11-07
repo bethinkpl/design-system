@@ -9,6 +9,7 @@ import { faArrowDownToLine } from '@fortawesome/pro-regular-svg-icons/faArrowDow
 import { faArrowPointer } from '@fortawesome/pro-regular-svg-icons/faArrowPointer';
 import { faArrowRightFromBracket } from '@fortawesome/pro-regular-svg-icons/faArrowRightFromBracket';
 import { faArrowRotateLeft } from '@fortawesome/pro-regular-svg-icons/faArrowRotateLeft';
+import { faArrowRotateRight } from '@fortawesome/pro-regular-svg-icons/faArrowRotateRight';
 import { faArrowsMaximize } from '@fortawesome/pro-regular-svg-icons/faArrowsMaximize';
 import { faArrowsRotate } from '@fortawesome/pro-regular-svg-icons/faArrowsRotate';
 import { faArrowUpRightAndArrowDownLeftFromCenter } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightAndArrowDownLeftFromCenter';
@@ -177,6 +178,7 @@ import { faInfo as fasInfo } from '@fortawesome/pro-solid-svg-icons/faInfo';
 import { faLightbulb as fasLightbulb } from '@fortawesome/pro-solid-svg-icons/faLightbulb';
 import { faMemoCircleInfo as fasMemoCircleInfo } from '@fortawesome/pro-solid-svg-icons/faMemoCircleInfo';
 import { faMessageQuestion as fasMessageQuestion } from '@fortawesome/pro-solid-svg-icons/faMessageQuestion';
+import { faMessageXmark } from '@fortawesome/pro-regular-svg-icons/faMessageXmark';
 import { faSitemap as fasSitemap } from '@fortawesome/pro-solid-svg-icons/faSitemap';
 import { faSquareCheck as fasSquareCheck } from '@fortawesome/pro-solid-svg-icons/faSquareCheck';
 import { faSquareList as fasSquareList } from '@fortawesome/pro-solid-svg-icons/faSquareList';
@@ -211,6 +213,7 @@ export const FONTAWESOME_ICONS = {
 	FA_ARROW_RIGHT_FROM_BRACKET: faArrowRightFromBracket,
 	FA_ARROW_RIGHT_SOLID: fasArrowRight,
 	FA_ARROW_ROTATE_LEFT: faArrowRotateLeft,
+	FA_ARROW_ROTATE_RIGHT: faArrowRotateRight,
 	FA_ARROW_UP_SOLID: fasArrowUp,
 	FA_ARROW_UP_RIGHT_AND_ARROW_DOWN_LEFT_FROM_CENTER: faArrowUpRightAndArrowDownLeftFromCenter,
 	FA_ARROW_UP_RIGHT_FROM_SQUARE: faArrowUpRightFromSquare,
@@ -337,6 +340,7 @@ export const FONTAWESOME_ICONS = {
 	FA_MEMO_CIRCLE_INFO: faMemoCircleInfo,
 	FA_MEMO_CIRCLE_INFO_SOLID: fasMemoCircleInfo,
 	FA_MESSAGE_QUESTION_SOLID: fasMessageQuestion,
+	FA_MESSAGE_XMARK: faMessageXmark,
 	FA_MINUS: faMinus,
 	FA_MONEY_BILL1: faMoneyBill1,
 	FA_MUSIC: faMusic,

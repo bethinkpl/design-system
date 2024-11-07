@@ -1,6 +1,6 @@
 import { PropType } from 'vue';
 
-declare const _default: import('vue').DefineComponent<{
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     isExpanded: {
         type: BooleanConstructor;
         default: boolean;
@@ -19,13 +19,13 @@ declare const _default: import('vue').DefineComponent<{
         default: "neutral";
         validator(backgroundColor: unknown): boolean;
     };
-}, unknown, unknown, {
+}>, {}, {}, {
     classList(): any;
     borderColorClass(): string | undefined;
     borderColorStyle(): {
         backgroundColor: any;
     } | undefined;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<import('vue').ExtractPropTypes<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     isExpanded: {
         type: BooleanConstructor;
         default: boolean;
@@ -44,10 +44,10 @@ declare const _default: import('vue').DefineComponent<{
         default: "neutral";
         validator(backgroundColor: unknown): boolean;
     };
-}>>, {
-    backgroundColor: import('../RichListItem').RichListItemBackgroundColor;
-    borderColor: import('../RichListItem').RichListItemBorderColor;
+}>> & Readonly<{}>, {
     isExpanded: boolean;
+    borderColor: import('../RichListItem').RichListItemBorderColor;
+    backgroundColor: import('../RichListItem').RichListItemBackgroundColor;
     borderColorHex: string;
-}>;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

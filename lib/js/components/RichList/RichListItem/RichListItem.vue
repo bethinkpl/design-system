@@ -95,6 +95,10 @@ $rich-list-item-background-colors: (
 	),
 );
 
+// Keep in sync with RICH_LIST_ITEM_MEDIA_HORIZONTAL_WIDTH and _HEIGHT
+$rich-list-item-media-horizontal-width: 100px;
+$rich-list-item-media-horizontal-height: 80px;
+
 .ds-richListItem {
 	$root: &;
 
@@ -208,6 +212,7 @@ $rich-list-item-background-colors: (
 		#{$root}__metadata {
 			padding-left: $space-s;
 			padding-right: $space-2xs;
+			width: 100%;
 		}
 
 		#{$root}__rightContainer {
@@ -364,9 +369,9 @@ $rich-list-item-background-colors: (
 	}
 
 	&__mediaHorizontal {
-		height: 80px;
+		height: $rich-list-item-media-horizontal-height;
 		margin-right: $space-3xs;
-		width: 100px;
+		width: $rich-list-item-media-horizontal-width;
 	}
 
 	&__mediaVertical {
@@ -648,7 +653,7 @@ export default defineComponent({
 			return `-ds-border-${this.borderColor}`;
 		},
 		borderColorStyle() {
-			if (!this.borderColor || !this.borderColorHex) {
+			if (!this.borderColor && !this.borderColorHex) {
 				return;
 			}
 			return {

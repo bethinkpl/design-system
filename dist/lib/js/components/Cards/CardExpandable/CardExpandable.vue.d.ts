@@ -1,4 +1,4 @@
-declare const _default: import('vue').DefineComponent<{
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     isExpanded: {
         type: BooleanConstructor;
         default: boolean;
@@ -23,7 +23,7 @@ declare const _default: import('vue').DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
-}, unknown, {
+}>, {}, {
     isExpandedInternal: boolean;
     ICONS: Readonly<{
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
@@ -45,6 +45,7 @@ declare const _default: import('vue').DefineComponent<{
         readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROW_ROTATE_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_UP_RIGHT_AND_ARROW_DOWN_LEFT_FROM_CENTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -171,6 +172,7 @@ declare const _default: import('vue').DefineComponent<{
         readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -244,7 +246,7 @@ declare const _default: import('vue').DefineComponent<{
     onExpanderClick(): void;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     'update:isExpanded': (payload: Boolean) => true;
-}, string, import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<import('vue').ExtractPropTypes<{
+}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     isExpanded: {
         type: BooleanConstructor;
         default: boolean;
@@ -269,14 +271,266 @@ declare const _default: import('vue').DefineComponent<{
         type: BooleanConstructor;
         default: boolean;
     };
-}>> & {
+}>> & Readonly<{
     "onUpdate:isExpanded"?: ((payload: Boolean) => any) | undefined;
-}, {
+}>, {
     isExpanded: boolean;
     headerHasPadding: boolean;
     dividerUnderHeader: boolean;
     isExpanderVisible: boolean;
     expanderTextCollapsed: string;
     expanderTextExpanded: string;
-}>;
+}, {}, {
+    DsCard: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        headerHasPadding: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        dividerUnderHeader: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        hasBorder: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        borderPosition: {
+            type: import('vue').PropType<string>;
+            default: string;
+        };
+        borderSize: {
+            type: import('vue').PropType<string>;
+            default: string;
+        };
+        borderColor: {
+            type: import('vue').PropType<string>;
+            default: string;
+        };
+        hasLoadingBar: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        loadingBarColor: {
+            type: import('vue').PropType<string>;
+            default: string;
+        };
+        loadingBarTime: {
+            type: StringConstructor;
+            default: string;
+        };
+    }>, {}, {}, {
+        hasLeftBoarder(): any;
+        hasTopBoarder(): any;
+        borderColorClass(): string;
+        borderSizeClass(): string;
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        headerHasPadding: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        dividerUnderHeader: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        hasBorder: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        borderPosition: {
+            type: import('vue').PropType<string>;
+            default: string;
+        };
+        borderSize: {
+            type: import('vue').PropType<string>;
+            default: string;
+        };
+        borderColor: {
+            type: import('vue').PropType<string>;
+            default: string;
+        };
+        hasLoadingBar: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        loadingBarColor: {
+            type: import('vue').PropType<string>;
+            default: string;
+        };
+        loadingBarTime: {
+            type: StringConstructor;
+            default: string;
+        };
+    }>> & Readonly<{}>, {
+        headerHasPadding: boolean;
+        dividerUnderHeader: boolean;
+        hasBorder: boolean;
+        borderPosition: string;
+        borderSize: string;
+        borderColor: string;
+        hasLoadingBar: boolean;
+        loadingBarColor: string;
+        loadingBarTime: string;
+    }, {}, {
+        DsDivider: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+            isVertical: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            prominence: {
+                type: StringConstructor;
+                default: string;
+                validator: (value: string) => boolean;
+            };
+            size: {
+                type: StringConstructor;
+                default: string;
+                validator: (value: string) => boolean;
+            };
+        }>, {}, {
+            DIVIDER_PROMINENCES: Readonly<{
+                DEFAULT: string;
+                STRONG: string;
+                WEAK: string;
+            }>;
+        }, {
+            sizeClass(): string;
+        }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+            isVertical: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            prominence: {
+                type: StringConstructor;
+                default: string;
+                validator: (value: string) => boolean;
+            };
+            size: {
+                type: StringConstructor;
+                default: string;
+                validator: (value: string) => boolean;
+            };
+        }>> & Readonly<{}>, {
+            size: string;
+            isVertical: boolean;
+            prominence: string;
+        }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        DsLoadingBar: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+            color: {
+                type: import('vue').PropType<string>;
+                default: string;
+            };
+            size: {
+                type: import('vue').PropType<string>;
+                default: string;
+            };
+            time: {
+                type: StringConstructor;
+                required: true;
+            };
+        }>, {}, {
+            intervalId: number;
+            width: number;
+        }, {
+            sizeClassName(): string;
+            loadingBarStyles(): {
+                width: string;
+                transition: string;
+            };
+        }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+            color: {
+                type: import('vue').PropType<string>;
+                default: string;
+            };
+            size: {
+                type: import('vue').PropType<string>;
+                default: string;
+            };
+            time: {
+                type: StringConstructor;
+                required: true;
+            };
+        }>> & Readonly<{}>, {
+            size: string;
+            color: string;
+        }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+    }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+    DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+        rotation: {
+            type: NumberConstructor;
+            default: null;
+            validator(value: number): boolean;
+        };
+        flippedVertical: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        flippedHorizontal: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        touchable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        spinning: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>, {}, {}, {
+        sizeClassName(): string;
+        isFontawesomeIcon(): boolean;
+        rotationClass(): string | null;
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+        rotation: {
+            type: NumberConstructor;
+            default: null;
+            validator(value: number): boolean;
+        };
+        flippedVertical: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        flippedHorizontal: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        touchable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        spinning: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>> & Readonly<{}>, {
+        rotation: number;
+        size: string;
+        flippedVertical: boolean;
+        flippedHorizontal: boolean;
+        touchable: boolean;
+        spinning: boolean;
+    }, {}, {
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+    }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
