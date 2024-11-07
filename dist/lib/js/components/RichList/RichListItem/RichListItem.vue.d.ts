@@ -223,6 +223,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     RICH_LIST_ITEM_STATE: Readonly<{
         readonly DEFAULT: "default";
         readonly LOADING: "loading";
+        readonly DRAG: "drag";
     }>;
     RICH_LIST_ITEM_SIZE: Readonly<{
         readonly SMALL: "small";
@@ -241,6 +242,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         backgroundColor: any;
     } | undefined;
     hasMedia(): boolean;
+    isDragging(): any;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     'icon-click': () => true;
     click: () => true;
