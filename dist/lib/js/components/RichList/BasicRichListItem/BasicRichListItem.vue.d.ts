@@ -8,6 +8,10 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         readonly SMALL: "small";
         readonly MEDIUM: "medium";
     }>;
+    RICH_LIST_ITEM_STATE: Readonly<{
+        readonly DEFAULT: "default";
+        readonly LOADING: "loading";
+    }>;
 }, {
     textGroupSize(): TextGroupSize;
     textGroupState(): TextGroupState;
