@@ -260,13 +260,13 @@ export default defineComponent({
 	},
 	computed: {
 		eyebrowText() {
-			if (!this.date || this.state === DATE_PICKER_STATES.LOADING) {
+			if (!this.date) {
 				return '';
 			}
 			return capitalizeFirstLetter(localWeekdayName(this.date));
 		},
 		text() {
-			if (this.state === DATE_PICKER_STATES.LOADING || !this.date) {
+			if (!this.date) {
 				return this.placeholder;
 			}
 			return localFullDateWithShortMonthName(this.date);
