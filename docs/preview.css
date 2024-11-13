@@ -218,7 +218,7 @@ table {
 }
 /* latin-ext */
 @font-face {
-  font-family: "Lato";
+  font-family: Lato;
   font-style: normal;
   font-weight: 300;
   src: url(~design-system/lib/fonts/lato/lato-ext-300.woff2) format("woff2");
@@ -226,7 +226,7 @@ table {
 }
 /* latin */
 @font-face {
-  font-family: "Lato";
+  font-family: Lato;
   font-style: normal;
   font-weight: 300;
   src: url(~design-system/lib/fonts/lato/lato-latin-300.woff2) format("woff2");
@@ -234,7 +234,7 @@ table {
 }
 /* latin-ext */
 @font-face {
-  font-family: "Lato";
+  font-family: Lato;
   font-style: normal;
   font-weight: 400;
   src: url(~design-system/lib/fonts/lato/lato-ext.woff2) format("woff2");
@@ -242,7 +242,7 @@ table {
 }
 /* latin */
 @font-face {
-  font-family: "Lato";
+  font-family: Lato;
   font-style: normal;
   font-weight: 400;
   src: url(~design-system/lib/fonts/lato/lato-latin.woff2) format("woff2");
@@ -250,7 +250,7 @@ table {
 }
 /* latin-ext */
 @font-face {
-  font-family: "Lato";
+  font-family: Lato;
   font-style: normal;
   font-weight: 700;
   src: url(~design-system/lib/fonts/lato/lato-ext-700.woff2) format("woff2");
@@ -258,7 +258,7 @@ table {
 }
 /* latin */
 @font-face {
-  font-family: "Lato";
+  font-family: Lato;
   font-style: normal;
   font-weight: 700;
   src: url(~design-system/lib/fonts/lato/lato-latin-700.woff2) format("woff2");
