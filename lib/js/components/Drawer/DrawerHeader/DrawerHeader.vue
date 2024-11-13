@@ -69,7 +69,7 @@ $minimal-drawer-header-height: 82px;
 	flex-direction: column;
 
 	&__secondLevel {
-		position: absolute !important; //it is required so firstLevel content does not make component wider when hidden, and important is needed so component does not change its width when button was clicked
+		position: absolute !important; // it is required so firstLevel content does not make component wider when hidden, and important is needed so component does not change its width when button was clicked
 	}
 
 	&__leftIcon {
@@ -83,7 +83,7 @@ $minimal-drawer-header-height: 82px;
 		row-gap: $space-4xs;
 
 		&.-ds-hidden {
-			visibility: hidden; //by this we make sure that height does not change when switching to second level
+			visibility: hidden; // by this we make sure that height does not change when switching to second level
 		}
 	}
 

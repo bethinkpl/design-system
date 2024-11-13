@@ -67,11 +67,11 @@
 @import '../../../../styles/settings/typography/tokens';
 
 @mixin setIconButtonAdditions($border: null, $icon: null) {
-	@if $border != null {
+	@if $border {
 		border: 1px solid $border;
 	}
 
-	@if $icon != null {
+	@if $icon {
 		.ds-iconButton {
 			&__icon,
 			&__loadingIcon {

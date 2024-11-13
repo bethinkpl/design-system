@@ -124,8 +124,8 @@ $progress-donut-chart-range-colors: (
 		transform: rotate(90deg);
 		transform-origin: 50% 50%;
 		// Disabled for v3.0
-		//stroke-linecap: round;
-		//stroke-linejoin: round;
+		// stroke-linecap: round;
+		// stroke-linejoin: round;
 		transition: all $default-transition-time ease-out;
 	}
 
