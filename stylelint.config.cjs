@@ -28,6 +28,10 @@ module.exports = {
 					type: 'at-rule',
 					name: 'media',
 				},
+				{
+					type: 'at-rule',
+					name: 'container',
+				},
 				'rules',
 			],
 		],
@@ -56,7 +60,6 @@ module.exports = {
 		'function-url-quotes': null,
 		'keyframes-name-pattern': null,
 		'max-line-length': null,
-		'media-feature-range-notation': 'prefix',
 		'property-no-vendor-prefix': null,
 		'rule-empty-line-before': null,
 		'scss/at-extend-no-missing-placeholder': null,
