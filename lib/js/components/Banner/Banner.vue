@@ -81,8 +81,13 @@
 	display: flex;
 	flex-direction: column;
 	padding: $space-xs;
+	container-type: inline-size;
 
-	@media #{breakpoint-s()} {
+	// in `container-type: inline-size` container query doesn't count padding into width
+	// `container-type: size` doesn't allow for height: auto, so we need to use inline-size and manually calculate width
+	// 500px - 2 * padding - 2px for border
+	// Alternative solution: wrap ds-banner in a div and set container-type: inline-size; there
+	@container (width > #{500px - 2 * $space-xs - 2px}) {
 		&.-ds-horizontal {
 			#{$self}__iconContainer {
 				padding: $space-2xs 0;
