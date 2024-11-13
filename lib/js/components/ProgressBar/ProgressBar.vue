@@ -67,7 +67,6 @@
 
 <style scoped lang="scss">
 @use 'sass:math';
-
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/colors/tokens';

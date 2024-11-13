@@ -69,10 +69,11 @@
 	flex-direction: column;
 	padding: 0;
 
-	/* stylelint-disable-next-line selector-class-pattern */
+	/* stylelint-disable selector-class-pattern */
 	&.-ds-color-neutral :deep(.popper__arrow) {
 		border-color: $color-neutral-background transparent !important;
 	}
+	/* stylelint-enable selector-class-pattern */
 
 	&.-ds-color-neutral {
 		background-color: $color-neutral-background;
