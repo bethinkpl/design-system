@@ -87,11 +87,13 @@ $rich-list-item-background-colors: (
 		default: $color-neutral-background,
 		hover: $color-neutral-background-hovered,
 		loading: $color-neutral-background,
+		drag: $color-neutral-background-hovered,
 	),
 	neutral-weak: (
 		default: $color-neutral-background-weak,
 		hover: $color-neutral-background-weak-hovered,
 		loading: $color-neutral-background-weak,
+		drag: $color-neutral-background-weak-hovered,
 	),
 );
 
@@ -308,7 +310,7 @@ $rich-list-item-media-horizontal-height: 80px;
 			}
 		}
 
-		&.-ds-draggable {
+		&.-ds-draggable-without-handler {
 			&:hover {
 				cursor: grab;
 			}
@@ -333,6 +335,10 @@ $rich-list-item-media-horizontal-height: 80px;
 		#{$root}__wrapper {
 			border: none;
 		}
+
+		&.-ds-interactive.-ds-draggable.-ds-drag {
+			background: $color-neutral-background-ghost-hovered;
+		}
 	}
 
 	&.-ds-default {
@@ -342,6 +348,14 @@ $rich-list-item-media-horizontal-height: 80px;
 		&.-ds-interactive:hover {
 			.-ds-dimmable {
 				opacity: 1;
+			}
+		}
+
+		&.-ds-interactive.-ds-draggable.-ds-drag {
+			@each $color, $value in $rich-list-item-background-colors {
+				&.-ds-background-#{$color} {
+					background-color: map-get($value, 'drag');
+				}
 			}
 		}
 
@@ -622,8 +636,10 @@ export default defineComponent({
 					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
 						[`-ds-elevation-${this.elevation}`]: true,
 					}),
-				'-ds-draggable': this.isDraggable && !this.hasDraggableHandler,
+				'-ds-draggable': this.isDraggable,
+				'-ds-draggable-without-handler': this.isDraggable && !this.hasDraggableHandler,
 				'-ds-has-media': this.hasMedia,
+				'-ds-drag': this.isDragging,
 			};
 		},
 		isHorizontal() {
@@ -662,6 +678,9 @@ export default defineComponent({
 		},
 		hasMedia() {
 			return !!this.$slots.media;
+		},
+		isDragging() {
+			return this.isDraggable && this.state === RICH_LIST_ITEM_STATE.DRAG;
 		},
 	},
 });
