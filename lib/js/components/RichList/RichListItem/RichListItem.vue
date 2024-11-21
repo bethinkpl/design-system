@@ -7,11 +7,14 @@
 			<div v-if="hasMedia && isHorizontal" class="ds-richListItem__mediaHorizontal">
 				<slot name="media" />
 			</div>
-			<div v-if="isDraggable && hasDraggableHandler" class="ds-richListItem__dragAndDrop">
+			<div
+				v-if="isDraggable && hasDraggableHandler"
+				class="ds-richListItem__dragAndDrop"
+				:class="{ [draggableIconClassName]: !!draggableIconClassName }"
+			>
 				<ds-icon
 					:icon="ICONS.FA_BARS"
 					class="ds-richListItem__dragAndDropIcon"
-					:class="{ [draggableIconClassName]: !!draggableIconClassName }"
 					:size="
 						size === RICH_LIST_ITEM_SIZE.SMALL
 							? ICON_SIZES.XX_SMALL
@@ -436,12 +439,16 @@ $rich-list-item-media-horizontal-height: 80px;
 		color: $color-neutral-icon-weak;
 	}
 
-	&__dragAndDropIcon {
-		color: $color-neutral-icon-weak;
+	&__dragAndDrop {
+		#{$root}__dragAndDropIcon {
+			color: $color-neutral-icon-weak;
+		}
 
 		&:hover {
-			color: $color-neutral-icon-weak-hovered;
 			cursor: grab;
+			#{$root}__dragAndDropIcon {
+				color: $color-neutral-icon-weak-hovered;
+			}
 		}
 
 		&:active {
