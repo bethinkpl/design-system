@@ -81,6 +81,9 @@
 	$self: &;
 
 	container-type: inline-size;
+	// We need to manually set width when using inline-size inside flex containers, otherwise it'll collapse to 0px width:
+	// https://stackoverflow.com/a/73980194
+	width: 100%;
 
 	&__inner {
 		border-radius: $radius-m;
