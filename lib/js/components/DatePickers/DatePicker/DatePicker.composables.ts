@@ -62,7 +62,6 @@ export function initFlatpickr({
 			disableMobile: true,
 			positionElement: datePickerElement,
 			ignoredFocusElements: [datePickerElement],
-			appendTo: datePickerElement,
 			position: FLATPICKR_POSITIONS[props.calendarPosition],
 			defaultDate: defaultDates,
 			disable: props.disableDates,
