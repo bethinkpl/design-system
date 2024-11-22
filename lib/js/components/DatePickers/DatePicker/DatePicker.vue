@@ -272,10 +272,11 @@ export default defineComponent({
 			return localFullDateWithShortMonthName(this.date);
 		},
 		tileIcon() {
+			console.debug(!this.icon, this.icon, this.isOpen);
 			if (!this.icon) {
 				return null;
 			}
-			return this.isOpen.value ? ICONS.FA_CHEVRON_UP : this.icon;
+			return this.isOpen ? ICONS.FA_CHEVRON_UP : this.icon;
 		},
 	},
 	async mounted() {
