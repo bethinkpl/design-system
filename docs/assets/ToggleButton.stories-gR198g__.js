@@ -1,4 +1,4 @@
-import{T as n,a as l,b as i,c as r,d as c,e as p}from"./ToggleButton-BehxPJAN.js";import{I as t}from"./Icon-CQ850_cO.js";import"./vue.esm-bundler-CzUSCRPq.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const I={title:"Components/Toggles/ToggleButton",component:n},d=g=>({components:{ToggleButton:n},setup(){return g},data(){return{ICONS:Object.freeze(t)}},template:`
+import{T as n,a as l,b as i,c as r,d as c,e as p}from"./ToggleButton-DjWccfum.js";import{I as t}from"./Icon-CQ850_cO.js";import"./vue.esm-bundler-CzUSCRPq.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";const I={title:"Components/Toggles/ToggleButton",component:n},d=g=>({components:{ToggleButton:n},setup(){return g},data(){return{ICONS:Object.freeze(t)}},template:`
         <toggle-button
             :color="color"
             :has-small-horizontal-padding="hasSmallHorizontalPadding"
