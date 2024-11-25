@@ -41,6 +41,7 @@ declare const _default: import('vue').DefineComponent<{
     eyebrowText(): string;
     text(): any;
     tileIcon(): any;
+    showErrorMessage(): boolean;
 }, {
     toggle(): void;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
