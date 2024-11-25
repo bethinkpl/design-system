@@ -115,6 +115,7 @@
 		@include info-s-default-regular;
 
 		color: $color-danger-text;
+		height: $space-xs;
 	}
 }
 </style>
