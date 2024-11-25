@@ -98,7 +98,7 @@ const args = {
 	icon: 'FA_CALENDAR_DAY',
 	isIconHiddenOnMobile: false,
 	calendarPosition: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM,
-	errorMessage: '',
+	errorMessage: null,
 	state: DATE_PICKER_STATES.DEFAULT,
 	color: DATE_PICKER_COLORS.NEUTRAL,
 	disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],

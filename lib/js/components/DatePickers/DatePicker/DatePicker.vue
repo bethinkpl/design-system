@@ -45,7 +45,9 @@
 			@click="toggle"
 		/>
 
-		<span v-if="errorMessage" class="ds-datePicker__errorMessage"> {{ errorMessage }} </span>
+		<span v-if="showErrorMessage" class="ds-datePicker__errorMessage">
+			{{ errorMessage }}
+		</span>
 		<input ref="flatpickrInputRef" class="ds-datePicker__hiddenInput" />
 	</div>
 </template>
@@ -185,7 +187,7 @@ export default defineComponent({
 		},
 		errorMessage: {
 			type: String,
-			default: '',
+			default: null,
 		},
 		state: {
 			type: String as PropType<DatePickerStates>,
@@ -277,6 +279,9 @@ export default defineComponent({
 				return null;
 			}
 			return this.isOpen ? ICONS.FA_CHEVRON_UP : this.icon;
+		},
+		showErrorMessage() {
+			return this.errorMessage !== null;
 		},
 	},
 	async mounted() {
