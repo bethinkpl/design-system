@@ -274,7 +274,6 @@ export default defineComponent({
 			return localFullDateWithShortMonthName(this.date);
 		},
 		tileIcon() {
-			console.debug(!this.icon, this.icon, this.isOpen);
 			if (!this.icon) {
 				return null;
 			}
