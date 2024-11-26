@@ -222,7 +222,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }, {
     icon(): import('@fortawesome/fontawesome-common-types').IconDefinition;
     statusClass(): "" | "-ds-active" | "-ds-suspended";
-    text(): "Aktywny" | "Oczekujący" | "Zawieszony" | "Zakończony";
+    text(): "Aktywny" | "Oczekujący" | "Zawieszony" | "Dezaktywowany" | "Zakończony";
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     status: {
         type: StringConstructor;
