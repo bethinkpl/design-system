@@ -3,6 +3,7 @@ export const COURSE_ACCESS_STATUS = {
 	AWAITING: 'awaiting',
 	EXPIRED: 'expired',
 	SUSPENDED: 'suspended',
+	DEACTIVATED: 'deactivated',
 };
 
 export const COURSE_BLOCKADE_ACCESS_STATUS = {

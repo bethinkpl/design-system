@@ -95,6 +95,9 @@ export default defineComponent({
 			if (this.status === COURSE_ACCESS_STATUS.SUSPENDED) {
 				return 'Zawieszony';
 			}
+			if (this.status === COURSE_ACCESS_STATUS.DEACTIVATED) {
+				return 'Dezaktywowany';
+			}
 			return 'Zakończony';
 		},
 	},
