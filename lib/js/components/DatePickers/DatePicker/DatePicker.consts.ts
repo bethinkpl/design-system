@@ -4,7 +4,7 @@ export const DATE_PICKER_COLORS = {
 	NEUTRAL_WEAK: 'neutralWeak',
 	NEUTRAL: 'neutral',
 	WARNING: 'warning',
-	FAIL: 'fail',
+	DANGER: 'danger',
 };
 
 export type DatePickerColors = Value<typeof DATE_PICKER_COLORS>;

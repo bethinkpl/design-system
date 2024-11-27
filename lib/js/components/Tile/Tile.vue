@@ -150,6 +150,25 @@ $tile-colors: (
 			'icon-interactive': $color-fail-icon-disabled,
 		),
 	),
+	'danger': (
+		'default': (
+			'background': $color-danger-background,
+			'background-hover': $color-danger-background-hovered,
+			'border': $color-danger-border,
+			'border-interactive': $color-danger-border,
+			'eyebrow-text': $color-danger-text,
+			'icon': $color-danger-icon,
+			'icon-interactive': $color-danger-icon,
+		),
+		'disabled': (
+			'background': $color-danger-background-disabled,
+			'border': $color-danger-border-disabled,
+			'border-interactive': $color-danger-border-disabled,
+			'eyebrow-text': $color-danger-text-disabled,
+			'icon': $color-danger-icon-disabled,
+			'icon-interactive': $color-danger-icon-disabled,
+		),
+	),
 	'warning': (
 		'default': (
 			'background': $color-warning-background,
@@ -352,6 +371,7 @@ export default defineComponent({
 				[TILE_COLORS.PRIMARY]: '-ds-primary',
 				[TILE_COLORS.SUCCESS]: '-ds-success',
 				[TILE_COLORS.FAIL]: '-ds-fail',
+				[TILE_COLORS.DANGER]: '-ds-danger',
 				[TILE_COLORS.WARNING]: '-ds-warning',
 				[TILE_COLORS.INFO]: '-ds-info',
 			}[this.color];

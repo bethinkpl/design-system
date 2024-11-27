@@ -10,7 +10,7 @@
 				DATE_PICKER_COLORS.NEUTRAL_WEAK,
 				DATE_PICKER_COLORS.NEUTRAL,
 			].includes(color),
-			'-ds-fail': color === DATE_PICKER_COLORS.FAIL,
+			'-ds-danger': color === DATE_PICKER_COLORS.DANGER,
 			'-ds-isOpen': isOpen,
 		}"
 	>
@@ -288,16 +288,16 @@
 			);
 		}
 
-		&.-ds-fail {
+		&.-ds-danger {
 			@include color-scheme(
-				$color-fail-text,
-				$color-fail-text,
-				$color-fail-icon,
-				$color-fail-icon-hovered,
-				$color-fail-text-hovered,
-				$color-fail-icon-disabled,
-				$color-fail-text-disabled,
-				$color-fail-text-disabled,
+				$color-danger-text,
+				$color-danger-text,
+				$color-danger-icon,
+				$color-danger-icon-hovered,
+				$color-danger-text-hovered,
+				$color-danger-icon-disabled,
+				$color-danger-text-disabled,
+				$color-danger-text-disabled,
 				$self
 			);
 		}
