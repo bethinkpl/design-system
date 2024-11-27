@@ -112,7 +112,9 @@ const meta: Meta<DateRangePickerProps> = {
 		},
 		color: {
 			control: 'select',
-			options: Object.values(DATE_PICKER_COLORS),
+			options: Object.values(DATE_PICKER_COLORS).filter(
+				(color) => color !== DATE_PICKER_COLORS.NEUTRAL,
+			),
 		},
 		disableDates: {
 			control: 'object',

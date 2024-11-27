@@ -6,7 +6,11 @@
 			'-ds-loading': state === DATE_PICKER_STATES.LOADING,
 			'-ds-interactive': isInteractive,
 			'-ds-warning': color === DATE_PICKER_COLORS.WARNING,
-			'-ds-neutralWeak': color === DATE_PICKER_COLORS.NEUTRAL_WEAK,
+			'-ds-neutralWeak': [
+				DATE_PICKER_COLORS.NEUTRAL_WEAK,
+				DATE_PICKER_COLORS.NEUTRAL,
+			].includes(color),
+			'-ds-fail': color === DATE_PICKER_COLORS.FAIL,
 			'-ds-isOpen': isOpen,
 		}"
 	>
@@ -280,6 +284,20 @@
 				$color-warning-icon-disabled,
 				$color-warning-text-disabled,
 				$color-warning-text-disabled,
+				$self
+			);
+		}
+
+		&.-ds-fail {
+			@include color-scheme(
+				$color-fail-text,
+				$color-fail-text,
+				$color-fail-icon,
+				$color-fail-icon-hovered,
+				$color-fail-text-hovered,
+				$color-fail-icon-disabled,
+				$color-fail-text-disabled,
+				$color-fail-text-disabled,
 				$self
 			);
 		}
