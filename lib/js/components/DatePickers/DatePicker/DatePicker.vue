@@ -23,6 +23,7 @@
 				class="ds-datePicker__tile"
 				:text="text"
 				:interactive="isInteractive"
+				:additional-text="additionalText"
 				:color="color as TileColors"
 				:state="state as TileStates"
 				:icon-right="tileIcon"
@@ -168,6 +169,10 @@ export default defineComponent({
 			type: Date,
 			default: null,
 		},
+		additionalText: {
+			type: String,
+			default: '',
+		},
 		label: {
 			type: String,
 			default: '',
@@ -276,6 +281,9 @@ export default defineComponent({
 			return localFullDateWithShortMonthName(this.date);
 		},
 		tileIcon() {
+			if (this.additionalText) {
+				return null;
+			}
 			if (!this.icon) {
 				return null;
 			}

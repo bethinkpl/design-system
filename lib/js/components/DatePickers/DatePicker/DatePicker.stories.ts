@@ -67,6 +67,7 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 				:is-interactive="isInteractive"
 				:placeholder="placeholder"
 				:date="formattedDate"
+				:additional-text="additionalText"
 				:label="label"
 				:is-label-uppercase="isLabelUppercase"
 				:icon="icon ? ICONS[icon] : null"
@@ -93,6 +94,7 @@ const args = {
 	isInteractive: true,
 	placeholder: 'Wybierz datę',
 	date: '',
+	additionalText: '',
 	label: 'Date picker',
 	isLabelUppercase: false,
 	icon: 'FA_CALENDAR_DAY',
