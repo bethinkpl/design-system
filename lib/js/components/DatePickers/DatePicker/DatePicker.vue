@@ -28,6 +28,7 @@
 				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
+				has-border
 				@click="toggle"
 			/>
 		</template>
