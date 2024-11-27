@@ -25,8 +25,6 @@ export default defineComponent({
 	},
 	// Only allow props that are supported by Tile
 	props,
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['click'],
+	emits: { click: () => true },
 });
 </script>

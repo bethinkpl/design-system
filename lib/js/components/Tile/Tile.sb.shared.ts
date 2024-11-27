@@ -16,6 +16,7 @@ export const template = (componentTag: string) => `
 			:state="state"
 			:text-ellipsis="textEllipsis"
 			:text="text"
+			:has-border="hasBorder"
 		/>`;
 
 export const data = () => ({
@@ -35,6 +36,7 @@ export const args = {
 	eyebrowEllipsis: true,
 	textEllipsis: true,
 	color: TILE_COLORS.NEUTRAL,
+	hasBorder: false,
 } as Args;
 
 export const argTypes = {
