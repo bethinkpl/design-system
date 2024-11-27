@@ -227,7 +227,7 @@ $tile-colors: (
 
 	&.-ds-interactive {
 		&.-ds-hasBorder {
-			outline: 1px solid map-get($color-map, 'border-interactive');
+			outline: $border-xs solid map-get($color-map, 'border-interactive');
 		}
 
 		#{$root}__iconRight {
