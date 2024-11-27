@@ -144,7 +144,7 @@ export const Interactive: Story = {
 		calendarPosition: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM,
 		errorMessage: '',
 		state: DATE_PICKER_STATES.DEFAULT,
-		color: DATE_PICKER_COLORS.NEUTRAL,
+		color: DATE_PICKER_COLORS.NEUTRAL_WEAK,
 		disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],
 		minDate: new Date(now).toISOString().slice(0, 10),
 		maxDate: new Date(now + oneDayMili * 30).toISOString().slice(0, 10),

@@ -1,7 +1,7 @@
 import { Value } from '../../../utils/type.utils';
 
 export const DATE_PICKER_COLORS = {
-	NEUTRAL: 'neutral',
+	NEUTRAL_WEAK: 'neutralWeak',
 	WARNING: 'warning',
 };
 

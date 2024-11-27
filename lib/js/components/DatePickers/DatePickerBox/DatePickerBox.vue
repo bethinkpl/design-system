@@ -6,7 +6,7 @@
 			'-ds-loading': state === DATE_PICKER_STATES.LOADING,
 			'-ds-interactive': isInteractive,
 			'-ds-warning': color === DATE_PICKER_COLORS.WARNING,
-			'-ds-neutral': color === DATE_PICKER_COLORS.NEUTRAL,
+			'-ds-neutralWeak': color === DATE_PICKER_COLORS.NEUTRAL_WEAK,
 			'-ds-isOpen': isOpen,
 		}"
 	>
@@ -244,7 +244,7 @@
 	}
 
 	&.-ds-loading,
-	&.-ds-neutral {
+	&.-ds-neutralWeak {
 		@include color-scheme(
 			$color-neutral-text-weak,
 			$color-neutral-text-heavy,
@@ -340,7 +340,7 @@ export default defineComponent({
 		},
 		color: {
 			type: String as PropType<DatePickerColors>,
-			default: DATE_PICKER_COLORS.NEUTRAL,
+			default: DATE_PICKER_COLORS.NEUTRAL_WEAK,
 		},
 		startDateEyebrowText: {
 			type: String,

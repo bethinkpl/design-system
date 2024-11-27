@@ -196,7 +196,7 @@ export default defineComponent({
 		},
 		color: {
 			type: String as PropType<DatePickerColors>,
-			default: DATE_PICKER_COLORS.NEUTRAL,
+			default: DATE_PICKER_COLORS.NEUTRAL_WEAK,
 		},
 		calendarPosition: {
 			type: String as PropType<DatePickerCalendarPositions>,
