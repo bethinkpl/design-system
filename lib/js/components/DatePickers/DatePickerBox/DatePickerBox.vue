@@ -6,10 +6,8 @@
 			'-ds-loading': state === DATE_PICKER_STATES.LOADING,
 			'-ds-interactive': isInteractive,
 			'-ds-warning': color === DATE_PICKER_COLORS.WARNING,
-			'-ds-neutralWeak': [
-				DATE_PICKER_COLORS.NEUTRAL_WEAK,
-				DATE_PICKER_COLORS.NEUTRAL,
-			].includes(color),
+			'-ds-neutralWeak': DATE_PICKER_COLORS.NEUTRAL_WEAK === color,
+			'-ds-neutral': DATE_PICKER_COLORS.NEUTRAL === color,
 			'-ds-danger': color === DATE_PICKER_COLORS.DANGER,
 			'-ds-isOpen': isOpen,
 		}"
@@ -76,6 +74,9 @@
 @import '../../../../styles/settings/radiuses';
 
 @mixin color-scheme(
+	$color-background,
+	$color-background-hovered,
+	$color-background-disabled,
 	$color-eyebrow,
 	$color-date,
 	$color-icon,
@@ -87,6 +88,8 @@
 	$self
 ) {
 	&.-ds-interactive {
+		background-color: $color-background;
+
 		&:hover {
 			#{$self}__icon {
 				color: $color-icon-hovered;
@@ -99,6 +102,8 @@
 	}
 
 	&.-ds-disabled {
+		background-color: $color-background-disabled;
+
 		#{$self}__eyebrow {
 			color: $color-eyebrow-disabled;
 		}
@@ -123,6 +128,7 @@
 			}
 		}
 	}
+
 	#{$self}__eyebrow {
 		color: $color-eyebrow;
 	}
@@ -137,6 +143,16 @@
 
 	#{$self}__loader {
 		color: $color-icon;
+	}
+
+	&:not(.-ds-loading) {
+		&:not(.-ds-disabled) {
+			&.-ds-interactive {
+				&:hover:not(.-ds-isOpen) {
+					background-color: $color-background-hovered;
+				}
+			}
+		}
 	}
 }
 
@@ -196,7 +212,6 @@
 
 	&.-ds-loading,
 	&.-ds-interactive {
-		background-color: $color-neutral-background-weak;
 		border-color: $color-neutral-border-weak;
 		border-radius: $radius-s;
 	}
@@ -250,6 +265,26 @@
 	&.-ds-loading,
 	&.-ds-neutralWeak {
 		@include color-scheme(
+			$color-neutral-background-weak,
+			$color-neutral-background-weak-hovered,
+			$color-neutral-background-weak-disabled,
+			$color-neutral-text-weak,
+			$color-neutral-text-heavy,
+			$color-neutral-icon,
+			$color-neutral-icon-hovered,
+			$color-neutral-text-heavy-hovered,
+			$color-neutral-icon-disabled,
+			$color-neutral-text-weak-disabled,
+			$color-neutral-text-heavy-disabled,
+			$self
+		);
+	}
+
+	&.-ds-neutral {
+		@include color-scheme(
+			$color-neutral-background,
+			$color-neutral-background-hovered,
+			$color-neutral-background-disabled,
 			$color-neutral-text-weak,
 			$color-neutral-text-heavy,
 			$color-neutral-icon,
@@ -267,15 +302,14 @@
 			&.-ds-interactive {
 				cursor: pointer;
 				pointer-events: all;
-
-				&:hover:not(.-ds-isOpen) {
-					background-color: $color-neutral-background-weak-hovered;
-				}
 			}
 		}
 
 		&.-ds-warning {
 			@include color-scheme(
+				$color-neutral-background-weak,
+				$color-neutral-background-weak-hovered,
+				$color-neutral-background-weak-disabled,
 				$color-warning-text,
 				$color-warning-text,
 				$color-warning-icon,
@@ -290,6 +324,9 @@
 
 		&.-ds-danger {
 			@include color-scheme(
+				$color-neutral-background-weak,
+				$color-neutral-background-weak-hovered,
+				$color-neutral-background-weak-disabled,
 				$color-danger-text,
 				$color-danger-text,
 				$color-danger-icon,
