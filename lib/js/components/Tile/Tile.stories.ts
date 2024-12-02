@@ -45,8 +45,6 @@ export const Static: Story = {
 	args: {
 		...args,
 		interactive: false,
-		iconLeft: null,
-		iconRight: null,
 		text: 'this is a text text',
 		eyebrowText: 'this is an eyebrowText text',
 		additionalText: 'this is some additionalText',
