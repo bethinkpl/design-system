@@ -50,6 +50,9 @@
 		<span v-if="showErrorMessage" class="ds-datePicker__errorMessage">
 			{{ errorMessage }}
 		</span>
+		<span v-else-if="showHelpMessage" class="ds-datePicker__helpMessage">
+			{{ helpMessage }}
+		</span>
 		<input ref="flatpickrInputRef" class="ds-datePicker__hiddenInput" />
 	</div>
 </template>
@@ -119,6 +122,13 @@
 		color: $color-danger-text;
 		height: $space-xs;
 	}
+
+	&__helpMessage {
+		@include info-s-default-regular;
+
+		color: $color-neutral-text;
+		height: $space-xs;
+	}
 }
 </style>
 
@@ -172,6 +182,10 @@ export default defineComponent({
 		additionalText: {
 			type: String,
 			default: '',
+		},
+		helpMessage: {
+			type: String,
+			default: null,
 		},
 		label: {
 			type: String,
@@ -291,6 +305,9 @@ export default defineComponent({
 		},
 		showErrorMessage() {
 			return this.errorMessage !== null;
+		},
+		showHelpMessage() {
+			return this.helpMessage !== null;
 		},
 	},
 	async mounted() {

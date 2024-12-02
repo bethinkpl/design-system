@@ -68,6 +68,7 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 				:placeholder="placeholder"
 				:date="formattedDate"
 				:additional-text="additionalText"
+				:helpMessage="helpMessage"
 				:label="label"
 				:is-label-uppercase="isLabelUppercase"
 				:icon="icon ? ICONS[icon] : null"
@@ -103,6 +104,7 @@ const args = {
 	icon: 'FA_CALENDAR_DAY',
 	isIconHiddenOnMobile: false,
 	additionalText: '',
+	helpMessage: null,
 	errorMessage: null,
 	calendarPosition: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM,
 	state: DATE_PICKER_STATES.DEFAULT,
