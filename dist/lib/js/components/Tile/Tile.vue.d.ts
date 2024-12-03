@@ -55,6 +55,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    hasBorder: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>, {}, {
     ICONS: Readonly<{
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
@@ -336,11 +340,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    hasBorder: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>> & Readonly<{}>, {
     color: import('./Tile.consts').TileColors;
     state: import('./Tile.consts').TileStates;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
+    hasBorder: boolean;
     interactive: boolean;
     isIconRightHiddenOnMobile: boolean;
     eyebrowText: string;

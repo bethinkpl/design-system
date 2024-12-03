@@ -25,8 +25,10 @@ declare const _default: import('vue').DefineComponent<{
         BOTTOM_RIGHT: string;
     }>;
     DATE_PICKER_COLORS: Readonly<{
+        NEUTRAL_WEAK: string;
         NEUTRAL: string;
         WARNING: string;
+        DANGER: string;
     }>;
     DATE_PICKER_STATES: Readonly<{
         DEFAULT: string;
@@ -42,6 +44,7 @@ declare const _default: import('vue').DefineComponent<{
     text(): any;
     tileIcon(): any;
     showErrorMessage(): boolean;
+    showHelpMessage(): boolean;
 }, {
     toggle(): void;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
@@ -63,10 +66,12 @@ declare const _default: import('vue').DefineComponent<{
     state: string;
     isIconHiddenOnMobile: boolean;
     isLabelUppercase: boolean;
+    additionalText: string;
     isInteractive: boolean;
     placeholder: string;
     triggerType: string;
     date: Date;
+    helpMessage: string;
     errorMessage: string;
     calendarPosition: string;
     disableDates: Date[];
@@ -127,6 +132,10 @@ declare const _default: import('vue').DefineComponent<{
             default: boolean;
         };
         textEllipsis: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        hasBorder: {
             type: BooleanConstructor;
             default: boolean;
         };
@@ -411,11 +420,16 @@ declare const _default: import('vue').DefineComponent<{
             type: BooleanConstructor;
             default: boolean;
         };
+        hasBorder: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     }>> & Readonly<{}>, {
         color: TileColors;
         state: TileStates;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
+        hasBorder: boolean;
         interactive: boolean;
         isIconRightHiddenOnMobile: boolean;
         eyebrowText: string;
@@ -725,8 +739,10 @@ declare const _default: import('vue').DefineComponent<{
             LOADING: string;
         }>;
         DATE_PICKER_COLORS: Readonly<{
+            NEUTRAL_WEAK: string;
             NEUTRAL: string;
             WARNING: string;
+            DANGER: string;
         }>;
     }, {
         startDateText(): any;

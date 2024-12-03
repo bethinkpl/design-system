@@ -25,8 +25,10 @@ declare const _default: import('vue').DefineComponent<{
         BOTTOM_RIGHT: string;
     }>;
     DATE_PICKER_COLORS: Readonly<{
+        NEUTRAL_WEAK: string;
         NEUTRAL: string;
         WARNING: string;
+        DANGER: string;
     }>;
     DATE_PICKER_STATES: Readonly<{
         DEFAULT: string;
@@ -300,8 +302,10 @@ declare const _default: import('vue').DefineComponent<{
             LOADING: string;
         }>;
         DATE_PICKER_COLORS: Readonly<{
+            NEUTRAL_WEAK: string;
             NEUTRAL: string;
             WARNING: string;
+            DANGER: string;
         }>;
     }, {
         startDateText(): any;
