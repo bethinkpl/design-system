@@ -5,6 +5,7 @@ import { faAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
 import { faAngleLeft } from '@fortawesome/pro-regular-svg-icons/faAngleLeft';
 import { faAngleRight } from '@fortawesome/pro-regular-svg-icons/faAngleRight';
 import { faAngleUp } from '@fortawesome/pro-regular-svg-icons/faAngleUp';
+import { faArrowDownLeftAndArrowUpRightToCenter } from '@fortawesome/pro-regular-svg-icons/faArrowDownLeftAndArrowUpRightToCenter';
 import { faArrowDownToLine } from '@fortawesome/pro-regular-svg-icons/faArrowDownToLine';
 import { faArrowPointer } from '@fortawesome/pro-regular-svg-icons/faArrowPointer';
 import { faArrowRightFromBracket } from '@fortawesome/pro-regular-svg-icons/faArrowRightFromBracket';
@@ -206,6 +207,7 @@ export const FONTAWESOME_ICONS = {
 	FA_ANGLE_LEFT: faAngleLeft,
 	FA_ANGLE_RIGHT: faAngleRight,
 	FA_ANGLE_UP: faAngleUp,
+	FA_ARROW_DOWN_LEFT_AND_ARROW_UP_RIGHT_TO_CENTER: faArrowDownLeftAndArrowUpRightToCenter,
 	FA_ARROW_DOWN_SOLID: fasArrowDown,
 	FA_ARROW_DOWN_TO_LINE: faArrowDownToLine,
 	FA_ARROW_LEFT_SOLID: fasArrowLeft,
