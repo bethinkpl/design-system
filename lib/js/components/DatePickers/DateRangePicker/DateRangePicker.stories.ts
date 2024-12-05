@@ -112,7 +112,9 @@ const meta: Meta<DateRangePickerProps> = {
 		},
 		color: {
 			control: 'select',
-			options: Object.values(DATE_PICKER_COLORS),
+			options: Object.values(DATE_PICKER_COLORS).filter(
+				(color) => color !== DATE_PICKER_COLORS.NEUTRAL,
+			),
 		},
 		disableDates: {
 			control: 'object',
@@ -135,18 +137,18 @@ const oneDayMili = 86400000;
 export const Interactive: Story = {
 	args: {
 		isInteractive: true,
+		color: DATE_PICKER_COLORS.NEUTRAL_WEAK,
 		placeholder: 'Ustaw',
 		startDate: '',
 		endDate: '',
-		startIcon: 'FA_CALENDAR_DAY',
-		endIcon: 'FA_CALENDAR_DAY',
-		areIconsHiddenOnMobile: false,
-		calendarPosition: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM,
-		errorMessage: '',
-		state: DATE_PICKER_STATES.DEFAULT,
-		color: DATE_PICKER_COLORS.NEUTRAL,
 		disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],
 		minDate: new Date(now).toISOString().slice(0, 10),
 		maxDate: new Date(now + oneDayMili * 30).toISOString().slice(0, 10),
+		startIcon: 'FA_CALENDAR_DAY',
+		endIcon: 'FA_CALENDAR_DAY',
+		areIconsHiddenOnMobile: false,
+		errorMessage: '',
+		calendarPosition: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM,
+		state: DATE_PICKER_STATES.DEFAULT,
 	} as Args,
 };

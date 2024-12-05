@@ -6,6 +6,7 @@ export const TILE_COLORS = {
 	PRIMARY: 'primary',
 	SUCCESS: 'success',
 	FAIL: 'fail',
+	DANGER: 'danger',
 	WARNING: 'warning',
 	INFO: 'info',
 } as const;

@@ -67,6 +67,8 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 				:is-interactive="isInteractive"
 				:placeholder="placeholder"
 				:date="formattedDate"
+				:additional-text="additionalText"
+				:helpMessage="helpMessage"
 				:label="label"
 				:is-label-uppercase="isLabelUppercase"
 				:icon="icon ? ICONS[icon] : null"
@@ -91,19 +93,21 @@ const oneDayMili = 86400000;
 const args = {
 	triggerType: DATE_PICKER_TRIGGER_TYPES.TILE,
 	isInteractive: true,
-	placeholder: 'Wybierz datę',
-	date: '',
+	color: DATE_PICKER_COLORS.NEUTRAL_WEAK,
 	label: 'Date picker',
 	isLabelUppercase: false,
-	icon: 'FA_CALENDAR_DAY',
-	isIconHiddenOnMobile: false,
-	calendarPosition: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM,
-	errorMessage: null,
-	state: DATE_PICKER_STATES.DEFAULT,
-	color: DATE_PICKER_COLORS.NEUTRAL,
+	placeholder: 'Wybierz datę',
+	date: '',
 	disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],
 	minDate: new Date(now).toISOString().slice(0, 10),
 	maxDate: new Date(now + oneDayMili * 30).toISOString().slice(0, 10),
+	icon: 'FA_CALENDAR_DAY',
+	isIconHiddenOnMobile: false,
+	additionalText: '',
+	helpMessage: null,
+	errorMessage: null,
+	calendarPosition: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM,
+	state: DATE_PICKER_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {

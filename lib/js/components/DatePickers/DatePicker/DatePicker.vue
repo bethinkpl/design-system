@@ -23,11 +23,13 @@
 				class="ds-datePicker__tile"
 				:text="text"
 				:interactive="isInteractive"
+				:additional-text="additionalText"
 				:color="color as TileColors"
 				:state="state as TileStates"
 				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
+				has-border
 				@click="toggle"
 			/>
 		</template>
@@ -47,6 +49,9 @@
 
 		<span v-if="showErrorMessage" class="ds-datePicker__errorMessage">
 			{{ errorMessage }}
+		</span>
+		<span v-else-if="showHelpMessage" class="ds-datePicker__helpMessage">
+			{{ helpMessage }}
 		</span>
 		<input ref="flatpickrInputRef" class="ds-datePicker__hiddenInput" />
 	</div>
@@ -117,6 +122,13 @@
 		color: $color-danger-text;
 		height: $space-xs;
 	}
+
+	&__helpMessage {
+		@include info-s-default-regular;
+
+		color: $color-neutral-text;
+		height: $space-xs;
+	}
 }
 </style>
 
@@ -167,6 +179,14 @@ export default defineComponent({
 			type: Date,
 			default: null,
 		},
+		additionalText: {
+			type: String,
+			default: '',
+		},
+		helpMessage: {
+			type: String,
+			default: null,
+		},
 		label: {
 			type: String,
 			default: '',
@@ -196,7 +216,7 @@ export default defineComponent({
 		},
 		color: {
 			type: String as PropType<DatePickerColors>,
-			default: DATE_PICKER_COLORS.NEUTRAL,
+			default: DATE_PICKER_COLORS.NEUTRAL_WEAK,
 		},
 		calendarPosition: {
 			type: String as PropType<DatePickerCalendarPositions>,
@@ -275,6 +295,9 @@ export default defineComponent({
 			return localFullDateWithShortMonthName(this.date);
 		},
 		tileIcon() {
+			if (this.additionalText) {
+				return null;
+			}
 			if (!this.icon) {
 				return null;
 			}
@@ -282,6 +305,9 @@ export default defineComponent({
 		},
 		showErrorMessage() {
 			return this.errorMessage !== null;
+		},
+		showHelpMessage() {
+			return this.helpMessage !== null;
 		},
 	},
 	async mounted() {

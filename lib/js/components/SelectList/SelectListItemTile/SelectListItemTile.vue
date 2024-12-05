@@ -12,6 +12,7 @@
 			:state="state"
 			:eyebrow-ellipsis="eyebrowEllipsis"
 			:text-ellipsis="textEllipsis"
+			:has-border="hasBorder"
 		/>
 	</div>
 </template>
