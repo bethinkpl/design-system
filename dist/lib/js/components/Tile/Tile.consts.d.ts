@@ -6,6 +6,7 @@ export declare const TILE_COLORS: {
     readonly PRIMARY: "primary";
     readonly SUCCESS: "success";
     readonly FAIL: "fail";
+    readonly DANGER: "danger";
     readonly WARNING: "warning";
     readonly INFO: "info";
 };

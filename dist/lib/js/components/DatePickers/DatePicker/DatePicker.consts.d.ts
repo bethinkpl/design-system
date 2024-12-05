@@ -1,8 +1,10 @@
 import { Value } from '../../../utils/type.utils';
 
 export declare const DATE_PICKER_COLORS: {
+    NEUTRAL_WEAK: string;
     NEUTRAL: string;
     WARNING: string;
+    DANGER: string;
 };
 export declare type DatePickerColors = Value<typeof DATE_PICKER_COLORS>;
 export declare const DATE_PICKER_STATES: {

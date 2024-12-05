@@ -55,4 +55,8 @@ export declare const props: {
         type: BooleanConstructor;
         default: boolean;
     };
+    hasBorder: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 };
