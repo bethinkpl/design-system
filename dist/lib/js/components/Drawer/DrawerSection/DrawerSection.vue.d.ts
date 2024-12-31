@@ -233,6 +233,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
 }>, {
     info: boolean;
     size: string;
+    title: string;
     iconLeft: any;
     iconRight: any;
     isExpanded: boolean;
