@@ -1,6 +1,7 @@
 <template>
 	<div class="ds-drawerSection">
 		<ds-section-header
+			v-if="title"
 			:icon-left="iconLeft"
 			:icon-left-color="iconLeftColor"
 			:icon-right="iconRight"
@@ -90,7 +91,7 @@ export default defineComponent({
 		},
 		title: {
 			type: String,
-			required: true,
+			default: null,
 		},
 		titleEllipsis: {
 			type: Boolean,
