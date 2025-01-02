@@ -223,7 +223,7 @@ export const FONTAWESOME_ICONS = {
 	FA_ARROWS_LEFT_RIGHT_SOLID: fasArrowsLeftRight,
 	FA_ARROWS_MAXIMIZE: faArrowsMaximize,
 	FA_ARROWS_ROTATE: faArrowsRotate,
-	FA_AROM: faAtom,
+	FA_ATOM: faAtom,
 	FA_BADGE_PERCENT: faBadgePercent,
 	FA_BAN: faBan,
 	FA_BARS: faBars,
