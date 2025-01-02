@@ -15,6 +15,7 @@ import { faArrowsMaximize } from '@fortawesome/pro-regular-svg-icons/faArrowsMax
 import { faArrowsRotate } from '@fortawesome/pro-regular-svg-icons/faArrowsRotate';
 import { faArrowUpRightAndArrowDownLeftFromCenter } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightAndArrowDownLeftFromCenter';
 import { faArrowUpRightFromSquare } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightFromSquare';
+import { faAtom } from '@fortawesome/pro-regular-svg-icons/faAtom';
 import { faBadgePercent } from '@fortawesome/pro-regular-svg-icons/faBadgePercent';
 import { faBan } from '@fortawesome/pro-regular-svg-icons/faBan';
 import { faBars } from '@fortawesome/pro-regular-svg-icons/faBars';
@@ -222,6 +223,7 @@ export const FONTAWESOME_ICONS = {
 	FA_ARROWS_LEFT_RIGHT_SOLID: fasArrowsLeftRight,
 	FA_ARROWS_MAXIMIZE: faArrowsMaximize,
 	FA_ARROWS_ROTATE: faArrowsRotate,
+	FA_AROM: faAtom,
 	FA_BADGE_PERCENT: faBadgePercent,
 	FA_BAN: faBan,
 	FA_BARS: faBars,
