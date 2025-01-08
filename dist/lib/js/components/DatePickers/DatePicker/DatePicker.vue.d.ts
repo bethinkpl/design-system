@@ -1,5 +1,4 @@
 import { PropType, Ref } from 'vue';
-import { TileColors, TileStates } from '../../Tile';
 import { DatePickerStates } from './DatePicker.consts';
 
 declare const _default: import('vue').DefineComponent<{
@@ -110,7 +109,7 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         color: {
-            type: PropType<TileColors>;
+            type: PropType<import('../../Tile').TileColors>;
             default: "neutral";
             validator(color: any): boolean;
         };
@@ -119,7 +118,7 @@ declare const _default: import('vue').DefineComponent<{
             default: boolean;
         };
         state: {
-            type: PropType<TileStates>;
+            type: PropType<import('../../Tile').TileStates>;
             default: "default";
             validator(value: import('../../../utils/type.utils').Value<{
                 readonly DEFAULT: "default";
@@ -396,7 +395,7 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         color: {
-            type: PropType<TileColors>;
+            type: PropType<import('../../Tile').TileColors>;
             default: "neutral";
             validator(color: any): boolean;
         };
@@ -405,7 +404,7 @@ declare const _default: import('vue').DefineComponent<{
             default: boolean;
         };
         state: {
-            type: PropType<TileStates>;
+            type: PropType<import('../../Tile').TileStates>;
             default: "default";
             validator(value: import('../../../utils/type.utils').Value<{
                 readonly DEFAULT: "default";
@@ -426,8 +425,8 @@ declare const _default: import('vue').DefineComponent<{
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        color: TileColors;
-        state: TileStates;
+        color: import('../../Tile').TileColors;
+        state: import('../../Tile').TileStates;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
         hasBorder: boolean;
