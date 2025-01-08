@@ -120,14 +120,14 @@
 		@include info-s-default-regular;
 
 		color: $color-danger-text;
-		height: $space-xs;
+		min-height: $space-xs;
 	}
 
 	&__helpMessage {
 		@include info-s-default-regular;
 
 		color: $color-neutral-text;
-		height: $space-xs;
+		min-height: $space-xs;
 	}
 }
 </style>
@@ -135,7 +135,7 @@
 <script lang="ts">
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 
-import DsTile, { TileColors, TileStates } from '../../Tile';
+import DsTile from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import DatePickerBox from '../DatePickerBox';
 
