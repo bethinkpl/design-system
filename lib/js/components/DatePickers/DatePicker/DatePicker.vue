@@ -120,14 +120,18 @@
 		@include info-s-default-regular;
 
 		color: $color-danger-text;
-		height: $space-xs;
+		// In case we have two date pickers in a row, we want them to have the same height.
+		// When one have a message visible, the second should get an empty string in a prop in such case
+		min-height: $space-xs;
 	}
 
 	&__helpMessage {
 		@include info-s-default-regular;
 
 		color: $color-neutral-text;
-		height: $space-xs;
+		// In case we have two date pickers in a row, we want them to have the same height.
+		// When one have a message visible, the second should get an empty string in a prop in such case
+		min-height: $space-xs;
 	}
 }
 </style>
@@ -135,7 +139,7 @@
 <script lang="ts">
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 
-import DsTile, { TileColors, TileStates } from '../../Tile';
+import DsTile from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import DatePickerBox from '../DatePickerBox';
 
