@@ -120,6 +120,8 @@
 		@include info-s-default-regular;
 
 		color: $color-danger-text;
+		// In case we have two date pickers in a row, we want them to have the same height.
+		// When one have a message visible, the second should get an empty string in a prop in such case
 		min-height: $space-xs;
 	}
 
@@ -127,6 +129,8 @@
 		@include info-s-default-regular;
 
 		color: $color-neutral-text;
+		// In case we have two date pickers in a row, we want them to have the same height.
+		// When one have a message visible, the second should get an empty string in a prop in such case
 		min-height: $space-xs;
 	}
 }
