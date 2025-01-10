@@ -1,0 +1,9 @@
+import{P as r,a as i}from"./PageHeader-CwyCLKPQ.js";import{w as p}from"./decorator-CSnIf-k5.js";import"./Divider-4HN2u4Et.js";import"./vue.esm-bundler-CWlcb7ht.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./v4-BZawosSj.js";const f={title:"Components/Headers/PageHeader",component:r,decorators:[p]},n=s=>({components:{PageHeader:r},setup(){return s},template:'<page-header :page-title="pageTitle" :supporting-info="supportingInfo" :mobile-layout="mobileLayout" :divider="divider"><template v-if="breadcrumbs" #breadcrumbs><div v-html="breadcrumbs" /></template><template v-if="actions" #actions><div v-html="actions" /></template></page-header>'}),e=n.bind({}),m={breadcrumbs:"",actions:"",pageTitle:"Page title",supportingInfo:"Supporting info write here",divider:!0,mobileLayout:i.VERTICAL},d={breadcrumbs:{control:"text"},actions:{control:"text"},pageTitle:{control:"text"},supportingInfo:{control:"text"},divider:{control:"boolean"},mobileLayout:{control:"select",options:Object.values(i)}};e.argTypes=d;e.args=m;e.parameters={actions:{handles:["click"]},design:{type:"figma",url:"https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6984-129711&t=ivzu5dM9vSgW20Re-0"}};var t,a,o;e.parameters={...e.parameters,docs:{...(t=e.parameters)==null?void 0:t.docs,source:{originalSource:`args => ({
+  components: {
+    PageHeader
+  },
+  setup() {
+    return args;
+  },
+  template: '<page-header' + ' :page-title="pageTitle"' + ' :supporting-info="supportingInfo"' + ' :mobile-layout="mobileLayout"' + ' :divider="divider"' + '>' + '<template v-if="breadcrumbs" #breadcrumbs><div v-html="breadcrumbs" /></template>' + '<template v-if="actions" #actions><div v-html="actions" /></template>' + '</page-header>'
+})`,...(o=(a=e.parameters)==null?void 0:a.docs)==null?void 0:o.source}}};const h=["Interactive"];export{e as Interactive,h as __namedExportsOrder,f as default};
