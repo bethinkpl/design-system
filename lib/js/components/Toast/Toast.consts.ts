@@ -3,6 +3,7 @@ import { Value } from '../../utils/type.utils';
 export const TOAST_SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
+	LARGE: 'large',
 } as const;
 
 export type ToastSizes = Value<typeof TOAST_SIZES>;
