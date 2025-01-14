@@ -58,6 +58,16 @@
 		}
 	}
 
+	&.-ds-size-large {
+		max-width: 700px + $space-s * 2;
+		padding: $space-s;
+
+		@media (#{breakpoint-s()}) {
+			max-width: 700px + $space-m * 2;
+			padding: $space-m;
+		}
+	}
+
 	&.-ds-position-left {
 		bottom: 0;
 		left: 0;
