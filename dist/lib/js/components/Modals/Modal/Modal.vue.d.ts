@@ -44,6 +44,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -420,6 +421,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -769,6 +771,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1121,6 +1124,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
