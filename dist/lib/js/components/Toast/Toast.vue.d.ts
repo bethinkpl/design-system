@@ -24,6 +24,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     TOAST_SIZES: Readonly<{
         readonly SMALL: "small";
         readonly MEDIUM: "medium";
+        readonly LARGE: "large";
     }>;
     TOAST_POSITIONS: Readonly<{
         LEFT: string;
