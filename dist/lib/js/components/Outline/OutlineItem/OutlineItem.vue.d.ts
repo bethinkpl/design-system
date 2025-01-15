@@ -228,6 +228,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     isDisabled(): boolean;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
     size: string;
+    label: string;
     state: string;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
