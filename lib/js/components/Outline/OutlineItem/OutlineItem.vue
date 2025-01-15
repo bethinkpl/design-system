@@ -270,7 +270,8 @@ export default defineComponent({
 		},
 		label: {
 			type: String,
-			required: true,
+			// Label can be passed either as a prop or in a slot
+			default: '',
 		},
 		isLabelUppercase: {
 			type: Boolean,
