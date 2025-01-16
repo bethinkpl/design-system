@@ -9,6 +9,7 @@
 
 <style lang="scss">
 @import '../../../styles/settings/typography/tokens';
+@import '../../../styles/settings/media-queries';
 
 .ds-tooltip-text {
 	@include text-s-compact-bold;
@@ -16,6 +17,14 @@
 
 .ds-tooltip-arrow-hide {
 	display: none;
+}
+
+.ds-tooltip-hide-on-mobile {
+	display: none !important;
+
+	@media #{breakpoint-l()} {
+		display: inline-block !important;
+	}
 }
 </style>
 
@@ -50,6 +59,10 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
+		isHiddenOnMobile: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	computed: {
 		tooltipParams() {
@@ -70,6 +83,7 @@ export default defineComponent({
 					borderRadius: '4px',
 					maxWidth: '240px',
 				},
+				class: this.isHiddenOnMobile ? 'ds-tooltip-hide-on-mobile' : null,
 				ptOptions: {
 					mergeProps: true,
 				},

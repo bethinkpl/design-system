@@ -54,7 +54,20 @@
 				<ds-skeleton width="100%" height="100%" />
 			</div>
 			<span v-else-if="supportingText === ''">&nbsp;</span>
-			<span v-else v-html="supportingText" />
+			<template v-else>
+				<ds-tooltip
+					:text="
+						isSupportingTextTooltipAutoFilledWithContent
+							? supportingText
+							: supportingTextTooltipContent
+					"
+					:is-disabled="!isSupportingTextTooltipEnabled"
+					:is-hidden-on-mobile="!isSupportingTextTooltipEnabledOnMobile"
+					inline
+				>
+					<span v-html="supportingText" />
+				</ds-tooltip>
+			</template>
 		</div>
 	</div>
 </template>
@@ -251,11 +264,13 @@ import {
 	TextGroupSize,
 	TextGroupState,
 } from './TextGroup.consts';
+import DsTooltip, { TOOLTIP_PLACEMENTS } from '../Tooltip';
 
 export default defineComponent({
 	name: 'TextGroup',
 	components: {
 		DsSkeleton,
+		DsTooltip,
 	},
 	props: {
 		size: {
@@ -310,11 +325,28 @@ export default defineComponent({
 			type: String as PropType<TextGroupState>,
 			default: TEXT_GROUP_STATES.DEFAULT,
 		},
+		isSupportingTextTooltipEnabled: {
+			type: Boolean,
+			default: true,
+		},
+		isSupportingTextTooltipEnabledOnMobile: {
+			type: Boolean,
+			default: false,
+		},
+		isSupportingTextTooltipAutoFilledWithContent: {
+			type: Boolean,
+			default: true,
+		},
+		supportingTextTooltipContent: {
+			type: [String, null],
+			default: null,
+		},
 	},
 	data() {
 		return {
 			TEXT_GROUP_SIZES: Object.freeze(TEXT_GROUP_SIZES),
 			TEXT_GROUP_STATES: Object.freeze(TEXT_GROUP_STATES),
+			TOOLTIP_PLACEMENTS: Object.freeze(TOOLTIP_PLACEMENTS),
 		};
 	},
 	computed: {
