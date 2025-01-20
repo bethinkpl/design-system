@@ -327,11 +327,11 @@ export default defineComponent({
 		},
 		isSupportingTextTooltipEnabled: {
 			type: Boolean,
-			default: true,
+			default: false,
 		},
 		isSupportingTextTooltipEnabledOnMobile: {
 			type: Boolean,
-			default: false,
+			default: true,
 		},
 		isSupportingTextTooltipAutoFilledWithContent: {
 			type: Boolean,
