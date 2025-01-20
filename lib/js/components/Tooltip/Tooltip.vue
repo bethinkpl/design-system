@@ -81,7 +81,7 @@ export default defineComponent({
 					background: 'var(--neutral-background-medium, #E5E7ED)',
 					color: 'var(--neutral-text-heavy, #343C50)',
 					borderRadius: '4px',
-					maxWidth: '240px',
+					maxWidth: '900px',
 				},
 				class: this.isHiddenOnMobile ? 'ds-tooltip-hide-on-mobile' : null,
 				ptOptions: {
