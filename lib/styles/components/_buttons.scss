@@ -32,7 +32,7 @@
 	$background-focus,
 	$background-disabled
 ) {
-	@if $background == null {
+	@if not $background {
 		background-color: transparent;
 	}
 
@@ -81,7 +81,7 @@
 	$icon-focused: null,
 	$icon-disabled: null
 ) {
-	@if $border != null {
+	@if $border {
 		border: 1px solid $border;
 	}
 

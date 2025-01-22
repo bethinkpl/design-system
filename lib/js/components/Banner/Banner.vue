@@ -1,65 +1,70 @@
 <template>
-	<div class="ds-banner" :class="[colorClass, layoutClass]">
-		<div class="ds-banner__content">
-			<div class="ds-banner__header">
-				<div
-					v-if="icon"
-					class="ds-banner__iconContainer"
-					:class="{ '-ds-hideOnMobile': isIconHiddenOnMobile }"
-				>
-					<!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
-					<ds-icon class="ds-banner__icon" :class="[colorClass]" :icon="icon" />
-				</div>
+	<div class="ds-banner">
+		<div class="ds-banner__inner" :class="[colorClass, layoutClass]">
+			<div class="ds-banner__content">
+				<div class="ds-banner__header">
+					<div
+						v-if="icon"
+						class="ds-banner__iconContainer"
+						:class="{ '-ds-hideOnMobile': isIconHiddenOnMobile }"
+					>
+						<!-- TODO: https://bethink.atlassian.net/browse/IT-3589 change to a-illustration in the future -->
+						<ds-icon class="ds-banner__icon" :class="[colorClass]" :icon="icon" />
+					</div>
 
-				<div class="ds-banner__textWrapper">
-					<div class="ds-banner__titleWrapper">
-						<div class="ds-banner__title" v-text="title" />
-						<div v-if="$slots.defaultText" class="ds-banner__defaultText">
-							<slot name="defaultText" />
+					<div class="ds-banner__textWrapper">
+						<div class="ds-banner__titleWrapper">
+							<div class="ds-banner__title" v-text="title" />
+							<div v-if="$slots.defaultText" class="ds-banner__defaultText">
+								<slot name="defaultText" />
+							</div>
 						</div>
-					</div>
-					<div class="ds-banner__rightWrapper">
-						<div v-if="buttonText" class="ds-banner__buttonWrapper">
-							<ds-button
-								class="ds-banner__ctaButton"
-								:color="BUTTON_COLORS.NEUTRAL"
-								:type="BUTTON_TYPES.OUTLINED"
-								:size="BUTTON_SIZES.SMALL"
-								@click="$emit('button-clicked')"
-								>{{ buttonText }}
-							</ds-button>
-						</div>
-						<div v-if="$slots.rightSlot" class="ds-banner__rightSlot">
-							<slot name="rightSlot" />
+						<div class="ds-banner__rightWrapper">
+							<div v-if="buttonText" class="ds-banner__buttonWrapper">
+								<ds-button
+									class="ds-banner__ctaButton"
+									:color="BUTTON_COLORS.NEUTRAL"
+									:type="BUTTON_TYPES.OUTLINED"
+									:size="BUTTON_SIZES.SMALL"
+									@click="$emit('button-clicked')"
+									>{{ buttonText }}
+								</ds-button>
+							</div>
+							<div v-if="$slots.rightSlot" class="ds-banner__rightSlot">
+								<slot name="rightSlot" />
+							</div>
 						</div>
 					</div>
 				</div>
+				<div v-if="$slots.expandedText" class="ds-banner__expander">
+					<ds-icon-button
+						:size="ICON_BUTTON_SIZES.SMALL"
+						:icon="isExpandedInternal ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
+						:color="ICON_BUTTON_COLORS.NEUTRAL"
+						:radius="BUTTON_RADIUSES.CAPSULE"
+						:touchable="false"
+						@click="toggleExpandedText"
+					/>
+				</div>
+				<div v-if="!$slots.expandedText && closable" class="ds-banner__close">
+					<ds-icon-button
+						:size="ICON_BUTTON_SIZES.SMALL"
+						:icon="ICONS.FA_XMARK"
+						:color="ICON_BUTTON_COLORS.NEUTRAL"
+						:radius="BUTTON_RADIUSES.CAPSULE"
+						:touchable="false"
+						@click="$emit('close')"
+					/>
+				</div>
 			</div>
-			<div v-if="$slots.expandedText" class="ds-banner__expander">
-				<ds-icon-button
-					:size="ICON_BUTTON_SIZES.SMALL"
-					:icon="isExpandedInternal ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
-					:color="ICON_BUTTON_COLORS.NEUTRAL"
-					:radius="BUTTON_RADIUSES.CAPSULE"
-					:touchable="false"
-					@click="toggleExpandedText"
-				/>
-			</div>
-			<div v-if="!$slots.expandedText && closable" class="ds-banner__close">
-				<ds-icon-button
-					:size="ICON_BUTTON_SIZES.SMALL"
-					:icon="ICONS.FA_XMARK"
-					:color="ICON_BUTTON_COLORS.NEUTRAL"
-					:radius="BUTTON_RADIUSES.CAPSULE"
-					:touchable="false"
-					@click="$emit('close')"
-				/>
-			</div>
-		</div>
-		<div v-if="$slots.expandedText && isExpandedInternal" class="ds-banner__expandedContainer">
-			<ds-divider :prominence="DIVIDER_PROMINENCES.STRONG" />
-			<div class="ds-banner__expandedText">
-				<slot name="expandedText" />
+			<div
+				v-if="$slots.expandedText && isExpandedInternal"
+				class="ds-banner__expandedContainer"
+			>
+				<ds-divider :prominence="DIVIDER_PROMINENCES.STRONG" />
+				<div class="ds-banner__expandedText">
+					<slot name="expandedText" />
+				</div>
 			</div>
 		</div>
 	</div>
@@ -75,79 +80,86 @@
 .ds-banner {
 	$self: &;
 
-	border-radius: $radius-m;
-	border-style: solid;
-	border-width: 1px;
-	display: flex;
-	flex-direction: column;
-	padding: $space-xs;
+	container-type: inline-size;
+	// We need to manually set width when using inline-size inside flex containers, otherwise it'll collapse to 0px width:
+	// https://stackoverflow.com/a/73980194
+	width: 100%;
 
-	@media #{breakpoint-s()} {
-		&.-ds-horizontal {
-			#{$self}__iconContainer {
-				padding: $space-2xs 0;
-			}
+	&__inner {
+		border-radius: $radius-m;
+		border-style: solid;
+		border-width: 1px;
+		display: flex;
+		flex-direction: column;
+		padding: $space-xs;
 
-			#{$self}__header {
-				padding: 0 $space-2xs;
-			}
+		@container (width > 500px) {
+			&.-ds-horizontal {
+				#{$self}__iconContainer {
+					padding: $space-2xs 0;
+				}
 
-			#{$self}__expander {
-				padding: $space-xs $space-4xs $space-xs 0;
-			}
+				#{$self}__header {
+					padding: 0 $space-2xs;
+				}
 
-			#{$self}__textWrapper {
-				flex-direction: row;
-			}
+				#{$self}__expander {
+					padding: $space-xs $space-4xs $space-xs 0;
+				}
 
-			#{$self}__rightWrapper {
-				padding: $space-5xs 0 $space-5xs $space-s;
-			}
+				#{$self}__textWrapper {
+					flex-direction: row;
+				}
 
-			#{$self}__buttonWrapper {
-				padding: $space-xs 0;
-			}
+				#{$self}__rightWrapper {
+					padding: $space-5xs 0 $space-5xs $space-s;
+				}
 
-			#{$self}__rightSlot {
-				flex-grow: initial;
-				padding: $space-xs 0 $space-xs 0;
+				#{$self}__buttonWrapper {
+					padding: $space-xs 0;
+				}
+
+				#{$self}__rightSlot {
+					flex-grow: initial;
+					padding: $space-xs 0 $space-xs 0;
+				}
 			}
 		}
-	}
 
-	&.-ds-warning {
-		background-color: $color-warning-background;
-		border-color: $color-warning-border-weak;
-	}
+		&.-ds-warning {
+			background-color: $color-warning-background;
+			border-color: $color-warning-border-weak;
+		}
 
-	&.-ds-success {
-		background-color: $color-success-background;
-		border-color: $color-success-border-weak;
-	}
+		&.-ds-success {
+			background-color: $color-success-background;
+			border-color: $color-success-border-weak;
+		}
 
-	&.-ds-info {
-		background-color: $color-info-background;
-		border-color: $color-info-border-weak;
-	}
+		&.-ds-info {
+			background-color: $color-info-background;
+			border-color: $color-info-border-weak;
+		}
 
-	&.-ds-fail {
-		background-color: $color-fail-background;
-		border-color: $color-fail-border-weak;
-	}
+		&.-ds-fail {
+			background-color: $color-fail-background;
+			border-color: $color-fail-border-weak;
+		}
 
-	&.-ds-neutral {
-		background-color: $color-neutral-background;
-		border-color: $color-neutral-border-weak;
-	}
+		&.-ds-neutral {
+			background-color: $color-neutral-background;
+			border-color: $color-neutral-border-weak;
+		}
 
-	&.-ds-default {
-		background-color: $color-default-background;
-		border-color: $color-neutral-border-weak;
-	}
+		&.-ds-default {
+			background-color: $color-default-background;
+			border-color: $color-neutral-border-weak;
+		}
 
-	&.-ds-danger {
-		background-color: $color-danger-background;
-		border-color: $color-danger-border-weak;
+		&.-ds-danger {
+			background-color: $color-danger-background;
+			border-color: $color-danger-border-weak;
+		}
 	}
 
 	&__content {

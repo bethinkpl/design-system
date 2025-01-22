@@ -1,17 +1,20 @@
-declare const _default: import('vue').DefineComponent<Readonly<import('vue').ComponentPropsOptions<{
-    [x: string]: unknown;
-}>>, unknown, {
+import { ThreeColumnLayoutRightColumnSize } from './ThreeColumnLayout.consts';
+
+declare const _default: import('vue').DefineComponent<{}, {}, {
     THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE: Readonly<{
         readonly MEDIUM: "medium";
         readonly LARGE: "large";
     }>;
     leftColumnVisibleMobile: boolean;
     rightColumnVisibleMobile: boolean;
-}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "overlay-clicked"[], "overlay-clicked", import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps, Readonly<readonly string[] | import('vue').ExtractPropTypes<Readonly<import('vue').ComponentObjectPropsOptions<{
-    [x: string]: unknown;
-}>>>> & {
+}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "overlay-clicked"[], "overlay-clicked", import('vue').PublicProps, Readonly<{}> & Readonly<{
     "onOverlay-clicked"?: ((...args: any[]) => any) | undefined;
-}, {
-    [x: number]: string;
-} | {}>;
+}>, {
+    rightColumnSize: ThreeColumnLayoutRightColumnSize;
+    rightColumnVisible: boolean;
+    leftColumnVisible: boolean;
+    initialMobileRightColumnVisibleState: boolean;
+    initialMobileLeftColumnVisibleState: boolean;
+    contentWithoutPadding: boolean;
+}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

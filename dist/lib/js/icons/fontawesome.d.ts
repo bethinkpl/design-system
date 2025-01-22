@@ -4,6 +4,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ANGLE_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ANGLE_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_ARROW_DOWN_LEFT_AND_ARROW_UP_RIGHT_TO_CENTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROW_DOWN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROW_DOWN_TO_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROW_LEFT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -11,12 +12,14 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROW_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_ARROW_ROTATE_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROW_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROW_UP_RIGHT_AND_ARROW_DOWN_LEFT_FROM_CENTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -137,6 +140,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;

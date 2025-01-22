@@ -64,4 +64,8 @@ export const props = {
 		type: Boolean,
 		default: true,
 	},
+	hasBorder: {
+		type: Boolean,
+		default: false,
+	},
 };

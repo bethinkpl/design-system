@@ -1,8 +1,10 @@
 import { Value } from '../../../utils/type.utils';
 
 export declare const DATE_PICKER_COLORS: {
+    NEUTRAL_WEAK: string;
     NEUTRAL: string;
     WARNING: string;
+    DANGER: string;
 };
 export declare type DatePickerColors = Value<typeof DATE_PICKER_COLORS>;
 export declare const DATE_PICKER_STATES: {
@@ -25,3 +27,6 @@ export declare const DATE_PICKER_TRIGGER_TYPES: {
     TILE: string;
 };
 export declare type DatePickerTriggerTypes = Value<typeof DATE_PICKER_TRIGGER_TYPES>;
+export declare const FLATPICKR_POSITIONS: {
+    readonly [x: string]: "below left" | "below right" | "below" | "above left" | "above right" | "above";
+};

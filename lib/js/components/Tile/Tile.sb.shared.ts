@@ -16,6 +16,7 @@ export const template = (componentTag: string) => `
 			:state="state"
 			:text-ellipsis="textEllipsis"
 			:text="text"
+			:has-border="hasBorder"
 		/>`;
 
 export const data = () => ({
@@ -24,17 +25,18 @@ export const data = () => ({
 
 export const args = {
 	interactive: true,
+	color: TILE_COLORS.NEUTRAL,
+	hasBorder: false,
 	iconLeft: null,
 	iconRight: null,
 	isIconRightHiddenOnMobile: false,
-	text: 'this is a text text',
 	eyebrowText: 'this is an eyebrowText text',
-	additionalText: '',
-	isEyebrowTextUppercase: false,
-	state: TILE_STATES.DEFAULT,
 	eyebrowEllipsis: true,
+	isEyebrowTextUppercase: false,
+	text: 'this is a text text',
 	textEllipsis: true,
-	color: TILE_COLORS.NEUTRAL,
+	additionalText: '',
+	state: TILE_STATES.DEFAULT,
 } as Args;
 
 export const argTypes = {

@@ -6,6 +6,7 @@ export declare type RichListItemType = typeof RICH_LIST_ITEM_TYPE[keyof typeof R
 export declare const RICH_LIST_ITEM_STATE: {
     readonly DEFAULT: "default";
     readonly LOADING: "loading";
+    readonly DRAG: "drag";
 };
 export declare type RichListItemState = typeof RICH_LIST_ITEM_STATE[keyof typeof RICH_LIST_ITEM_STATE];
 export declare const RICH_LIST_ITEM_SIZE: {
@@ -50,3 +51,5 @@ export declare const RICH_LIST_ITEM_LAYOUT: {
     readonly VERTICAL: "vertical";
 };
 export declare type RichListItemLayout = typeof RICH_LIST_ITEM_LAYOUT[keyof typeof RICH_LIST_ITEM_LAYOUT];
+export declare const RICH_LIST_ITEM_MEDIA_HORIZONTAL_WIDTH = 100;
+export declare const RICH_LIST_ITEM_MEDIA_HORIZONTAL_HEIGHT = 80;

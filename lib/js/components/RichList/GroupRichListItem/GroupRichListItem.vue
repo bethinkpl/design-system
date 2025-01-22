@@ -136,13 +136,13 @@ export default defineComponent({
 			};
 		},
 		borderColorClass() {
-			if (!this.borderColor || (this.borderColor && this.borderColorHex)) {
+			if (!this.borderColor || this.borderColorHex) {
 				return;
 			}
 			return `-ds-border-${this.borderColor}`;
 		},
 		borderColorStyle() {
-			if (!this.borderColor || !this.borderColorHex) {
+			if (!this.borderColorHex) {
 				return;
 			}
 			return {

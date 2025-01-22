@@ -7,11 +7,14 @@
 			<div v-if="hasMedia && isHorizontal" class="ds-richListItem__mediaHorizontal">
 				<slot name="media" />
 			</div>
-			<div v-if="isDraggable && hasDraggableHandler" class="ds-richListItem__dragAndDrop">
+			<div
+				v-if="isDraggable && hasDraggableHandler"
+				class="ds-richListItem__dragAndDrop"
+				:class="{ [draggableIconClassName]: !!draggableIconClassName }"
+			>
 				<ds-icon
 					:icon="ICONS.FA_BARS"
 					class="ds-richListItem__dragAndDropIcon"
-					:class="{ [draggableIconClassName]: !!draggableIconClassName }"
 					:size="
 						size === RICH_LIST_ITEM_SIZE.SMALL
 							? ICON_SIZES.XX_SMALL
@@ -87,13 +90,19 @@ $rich-list-item-background-colors: (
 		default: $color-neutral-background,
 		hover: $color-neutral-background-hovered,
 		loading: $color-neutral-background,
+		drag: $color-neutral-background-hovered,
 	),
 	neutral-weak: (
 		default: $color-neutral-background-weak,
 		hover: $color-neutral-background-weak-hovered,
 		loading: $color-neutral-background-weak,
+		drag: $color-neutral-background-weak-hovered,
 	),
 );
+
+// Keep in sync with RICH_LIST_ITEM_MEDIA_HORIZONTAL_WIDTH and _HEIGHT
+$rich-list-item-media-horizontal-width: 100px;
+$rich-list-item-media-horizontal-height: 80px;
 
 .ds-richListItem {
 	$root: &;
@@ -208,6 +217,7 @@ $rich-list-item-background-colors: (
 		#{$root}__metadata {
 			padding-left: $space-s;
 			padding-right: $space-2xs;
+			width: 100%;
 		}
 
 		#{$root}__rightContainer {
@@ -303,7 +313,7 @@ $rich-list-item-background-colors: (
 			}
 		}
 
-		&.-ds-draggable {
+		&.-ds-draggable-without-handler {
 			&:hover {
 				cursor: grab;
 			}
@@ -328,6 +338,10 @@ $rich-list-item-background-colors: (
 		#{$root}__wrapper {
 			border: none;
 		}
+
+		&.-ds-interactive.-ds-draggable.-ds-drag {
+			background: $color-neutral-background-ghost-hovered;
+		}
 	}
 
 	&.-ds-default {
@@ -337,6 +351,14 @@ $rich-list-item-background-colors: (
 		&.-ds-interactive:hover {
 			.-ds-dimmable {
 				opacity: 1;
+			}
+		}
+
+		&.-ds-interactive.-ds-draggable.-ds-drag {
+			@each $color, $value in $rich-list-item-background-colors {
+				&.-ds-background-#{$color} {
+					background-color: map-get($value, 'drag');
+				}
 			}
 		}
 
@@ -364,9 +386,9 @@ $rich-list-item-background-colors: (
 	}
 
 	&__mediaHorizontal {
-		height: 80px;
+		height: $rich-list-item-media-horizontal-height;
 		margin-right: $space-3xs;
-		width: 100px;
+		width: $rich-list-item-media-horizontal-width;
 	}
 
 	&__mediaVertical {
@@ -417,12 +439,16 @@ $rich-list-item-background-colors: (
 		color: $color-neutral-icon-weak;
 	}
 
-	&__dragAndDropIcon {
-		color: $color-neutral-icon-weak;
+	&__dragAndDrop {
+		#{$root}__dragAndDropIcon {
+			color: $color-neutral-icon-weak;
+		}
 
 		&:hover {
-			color: $color-neutral-icon-weak-hovered;
 			cursor: grab;
+			#{$root}__dragAndDropIcon {
+				color: $color-neutral-icon-weak-hovered;
+			}
 		}
 
 		&:active {
@@ -617,8 +643,10 @@ export default defineComponent({
 					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
 						[`-ds-elevation-${this.elevation}`]: true,
 					}),
-				'-ds-draggable': this.isDraggable && !this.hasDraggableHandler,
+				'-ds-draggable': this.isDraggable,
+				'-ds-draggable-without-handler': this.isDraggable && !this.hasDraggableHandler,
 				'-ds-has-media': this.hasMedia,
+				'-ds-drag': this.isDragging,
 			};
 		},
 		isHorizontal() {
@@ -642,13 +670,13 @@ export default defineComponent({
 			};
 		},
 		borderColorClass() {
-			if (!this.borderColor || (this.borderColor && this.borderColorHex)) {
+			if (!this.borderColor || this.borderColorHex) {
 				return;
 			}
 			return `-ds-border-${this.borderColor}`;
 		},
 		borderColorStyle() {
-			if (!this.borderColor || !this.borderColorHex) {
+			if (!this.borderColorHex) {
 				return;
 			}
 			return {
@@ -657,6 +685,9 @@ export default defineComponent({
 		},
 		hasMedia() {
 			return !!this.$slots.media;
+		},
+		isDragging() {
+			return this.isDraggable && this.state === RICH_LIST_ITEM_STATE.DRAG;
 		},
 	},
 });
