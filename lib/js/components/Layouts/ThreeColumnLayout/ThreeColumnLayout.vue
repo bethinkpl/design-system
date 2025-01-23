@@ -116,6 +116,7 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 			left: initial;
 			position: initial;
 			top: initial;
+			z-index: initial;
 
 			&.-ds-desktopVisible {
 				display: initial;
