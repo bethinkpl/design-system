@@ -264,7 +264,7 @@ import {
 	TextGroupSize,
 	TextGroupState,
 } from './TextGroup.consts';
-import DsTooltip, { TOOLTIP_PLACEMENTS } from '../Tooltip';
+import DsTooltip from '../Tooltip';
 
 export default defineComponent({
 	name: 'TextGroup',
@@ -346,7 +346,6 @@ export default defineComponent({
 		return {
 			TEXT_GROUP_SIZES: Object.freeze(TEXT_GROUP_SIZES),
 			TEXT_GROUP_STATES: Object.freeze(TEXT_GROUP_STATES),
-			TOOLTIP_PLACEMENTS: Object.freeze(TOOLTIP_PLACEMENTS),
 		};
 	},
 	computed: {
