@@ -44,7 +44,7 @@
 					:supporting-text-ellipsis="supportingTextEllipsis"
 					:size="textGroupSize"
 					:state="textGroupState"
-					is-supporting-text-tooltip-enabled
+					is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
 				/>
 			</div>
 		</template>
@@ -216,6 +216,10 @@ export default defineComponent({
 			default: null,
 		},
 		supportingTextEllipsis: {
+			type: Boolean,
+			default: false,
+		},
+		isSupportingTextTooltipEnabled: {
 			type: Boolean,
 			default: false,
 		},
