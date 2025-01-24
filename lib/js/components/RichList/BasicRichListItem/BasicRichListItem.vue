@@ -44,7 +44,7 @@
 					:supporting-text-ellipsis="supportingTextEllipsis"
 					:size="textGroupSize"
 					:state="textGroupState"
-					is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
+					:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
 				/>
 			</div>
 		</template>
