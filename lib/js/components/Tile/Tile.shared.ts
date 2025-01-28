@@ -68,4 +68,8 @@ export const props = {
 		type: Boolean,
 		default: false,
 	},
+	isBorderWeak: {
+		Boolean,
+		default: false,
+	},
 };

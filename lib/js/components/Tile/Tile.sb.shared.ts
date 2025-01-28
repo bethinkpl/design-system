@@ -17,6 +17,7 @@ export const template = (componentTag: string) => `
 			:text-ellipsis="textEllipsis"
 			:text="text"
 			:has-border="hasBorder"
+			:is-border-weak="isBorderWeak"
 		/>`;
 
 export const data = () => ({
@@ -27,6 +28,7 @@ export const args = {
 	interactive: true,
 	color: TILE_COLORS.NEUTRAL,
 	hasBorder: false,
+	isBorderWeak: false,
 	iconLeft: null,
 	iconRight: null,
 	isIconRightHiddenOnMobile: false,

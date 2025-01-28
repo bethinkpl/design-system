@@ -3,7 +3,11 @@
 		:class="[
 			tileColor,
 			tileState,
-			{ '-ds-interactive': interactive, '-ds-hasBorder': hasBorder },
+			{
+				'-ds-interactive': interactive,
+				'-ds-hasBorder': hasBorder,
+				'-ds-hasBorderWeak': isBorderWeak,
+			},
 		]"
 		class="ds-tile"
 	>
@@ -61,6 +65,8 @@ $tile-colors: (
 			'background-hover': $color-neutral-background-hovered,
 			'border': $color-neutral-border,
 			'border-interactive': $color-primary-border,
+			'border-weak': $color-neutral-border-weak,
+			'border-interactive-weak': $color-primary-border-weak,
 			'eyebrow-text': $color-neutral-text-weak,
 			'icon': $color-neutral-icon,
 			'icon-interactive': $color-primary-icon,
@@ -69,6 +75,8 @@ $tile-colors: (
 			'background': $color-neutral-background-disabled,
 			'border': $color-neutral-border-disabled,
 			'border-interactive': $color-primary-border-disabled,
+			'border-weak': $color-neutral-border-weak-disabled,
+			'border-interactive-weak': $color-primary-border-weak-disabled,
 			'eyebrow-text': $color-neutral-text-weak-disabled,
 			'icon': $color-neutral-icon-disabled,
 			'icon-interactive': $color-primary-icon-disabled,
@@ -80,6 +88,8 @@ $tile-colors: (
 			'background-hover': $color-neutral-background-weak-hovered,
 			'border': $color-neutral-border,
 			'border-interactive': $color-primary-border,
+			'border-weak': $color-neutral-border-weak,
+			'border-interactive-weak': $color-primary-border-weak,
 			'eyebrow-text': $color-neutral-text-weak,
 			'icon': $color-neutral-icon,
 			'icon-interactive': $color-primary-icon,
@@ -88,6 +98,8 @@ $tile-colors: (
 			'background': $color-neutral-background-weak-disabled,
 			'border': $color-neutral-border-disabled,
 			'border-interactive': $color-primary-border-disabled,
+			'border-weak': $color-neutral-border-weak-disabled,
+			'border-interactive-weak': $color-primary-border-weak-disabled,
 			'eyebrow-text': $color-neutral-text-weak-disabled,
 			'icon': $color-neutral-icon-disabled,
 			'icon-interactive': $color-primary-icon-disabled,
@@ -99,6 +111,8 @@ $tile-colors: (
 			'background-hover': $color-primary-background-hovered,
 			'border': $color-primary-border,
 			'border-interactive': $color-primary-border,
+			'border-weak': $color-primary-border-weak,
+			'border-interactive-weak': $color-primary-border-weak,
 			'eyebrow-text': $color-primary-text,
 			'icon': $color-primary-icon,
 			'icon-interactive': $color-primary-icon,
@@ -107,6 +121,8 @@ $tile-colors: (
 			'background': $color-primary-background-disabled,
 			'border': $color-primary-border-disabled,
 			'border-interactive': $color-primary-border-disabled,
+			'border-weak': $color-primary-border-weak-disabled,
+			'border-interactive-weak': $color-primary-border-weak-disabled,
 			'eyebrow-text': $color-primary-text-disabled,
 			'icon': $color-primary-icon-disabled,
 			'icon-interactive': $color-primary-icon-disabled,
@@ -118,6 +134,8 @@ $tile-colors: (
 			'background-hover': $color-success-background-hovered,
 			'border': $color-success-border,
 			'border-interactive': $color-success-border,
+			'border-weak': $color-success-border-weak,
+			'border-interactive-weak': $color-success-border-weak,
 			'eyebrow-text': $color-success-text,
 			'icon': $color-success-icon,
 			'icon-interactive': $color-success-icon,
@@ -126,6 +144,8 @@ $tile-colors: (
 			'background': $color-success-background-disabled,
 			'border': $color-success-border-disabled,
 			'border-interactive': $color-success-border-disabled,
+			'border-weak': $color-success-border-weak-disabled,
+			'border-interactive-weak': $color-success-border-weak-disabled,
 			'eyebrow-text': $color-success-text-disabled,
 			'icon': $color-success-icon-disabled,
 			'icon-interactive': $color-success-icon-disabled,
@@ -137,6 +157,8 @@ $tile-colors: (
 			'background-hover': $color-fail-background-hovered,
 			'border': $color-fail-border,
 			'border-interactive': $color-fail-border,
+			'border-weak': $color-fail-border-weak,
+			'border-interactive-weak': $color-fail-border-weak,
 			'eyebrow-text': $color-fail-text,
 			'icon': $color-fail-icon,
 			'icon-interactive': $color-fail-icon,
@@ -145,6 +167,8 @@ $tile-colors: (
 			'background': $color-fail-background-disabled,
 			'border': $color-fail-border-disabled,
 			'border-interactive': $color-fail-border-disabled,
+			'border-weak': $color-fail-border-weak-disabled,
+			'border-interactive-weak': $color-fail-border-weak-disabled,
 			'eyebrow-text': $color-fail-text-disabled,
 			'icon': $color-fail-icon-disabled,
 			'icon-interactive': $color-fail-icon-disabled,
@@ -156,6 +180,8 @@ $tile-colors: (
 			'background-hover': $color-danger-background-hovered,
 			'border': $color-danger-border,
 			'border-interactive': $color-danger-border,
+			'border-weak': $color-danger-border-weak,
+			'border-interactive-weak': $color-danger-border-weak,
 			'eyebrow-text': $color-danger-text,
 			'icon': $color-danger-icon,
 			'icon-interactive': $color-danger-icon,
@@ -164,6 +190,8 @@ $tile-colors: (
 			'background': $color-danger-background-disabled,
 			'border': $color-danger-border-disabled,
 			'border-interactive': $color-danger-border-disabled,
+			'border-weak': $color-danger-border-weak-disabled,
+			'border-interactive-weak': $color-danger-border-weak-disabled,
 			'eyebrow-text': $color-danger-text-disabled,
 			'icon': $color-danger-icon-disabled,
 			'icon-interactive': $color-danger-icon-disabled,
@@ -175,6 +203,8 @@ $tile-colors: (
 			'background-hover': $color-warning-background-hovered,
 			'border': $color-warning-border,
 			'border-interactive': $color-warning-border,
+			'border-weak': $color-warning-border-weak,
+			'border-interactive-weak': $color-warning-border-weak,
 			'eyebrow-text': $color-warning-text,
 			'icon': $color-warning-icon,
 			'icon-interactive': $color-warning-icon,
@@ -183,6 +213,8 @@ $tile-colors: (
 			'background': $color-warning-background-disabled,
 			'border': $color-warning-border-disabled,
 			'border-interactive': $color-warning-border-disabled,
+			'border-weak': $color-warning-border-weak-disabled,
+			'border-interactive-weak': $color-warning-border-weak-disabled,
 			'eyebrow-text': $color-warning-text-disabled,
 			'icon': $color-warning-icon-disabled,
 			'icon-interactive': $color-warning-icon-disabled,
@@ -194,6 +226,8 @@ $tile-colors: (
 			'background-hover': $color-info-background-hovered,
 			'border': $color-info-border,
 			'border-interactive': $color-info-border,
+			'border-weak': $color-info-border-weak,
+			'border-interactive-weak': $color-info-border-weak,
 			'eyebrow-text': $color-info-text,
 			'icon': $color-info-icon,
 			'icon-interactive': $color-info-icon,
@@ -202,6 +236,8 @@ $tile-colors: (
 			'background': $color-info-background-disabled,
 			'border': $color-info-border-disabled,
 			'border-interactive': $color-info-border-disabled,
+			'border-weak': $color-info-border-weak-disabled,
+			'border-interactive-weak': $color-info-border-weak-disabled,
 			'eyebrow-text': $color-info-text-disabled,
 			'icon': $color-info-icon-disabled,
 			'icon-interactive': $color-info-icon-disabled,
@@ -214,6 +250,9 @@ $tile-colors: (
 
 	&.-ds-hasBorder {
 		outline: $border-xs solid map-get($color-map, 'border');
+		&.-ds-hasBorderWeak {
+			outline: $border-xs solid map-get($color-map, 'border-weak');
+		}
 	}
 
 	#{$root}__eyebrowText {
@@ -228,6 +267,9 @@ $tile-colors: (
 	&.-ds-interactive {
 		&.-ds-hasBorder {
 			outline: $border-xs solid map-get($color-map, 'border-interactive');
+			&.-ds-hasBorderWeak {
+				outline: $border-xs solid map-get($color-map, 'border-interactive-weak');
+			}
 		}
 
 		#{$root}__iconRight {
