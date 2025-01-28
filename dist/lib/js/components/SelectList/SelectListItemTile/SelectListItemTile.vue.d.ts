@@ -55,9 +55,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-    hasBorder: {
-        type: BooleanConstructor;
-        default: boolean;
+    borderColor: {
+        type: import('vue').PropType<import('../../Tile').TileBorderColors>;
+        default: null;
     };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     interactive: {
@@ -116,16 +116,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-    hasBorder: {
-        type: BooleanConstructor;
-        default: boolean;
+    borderColor: {
+        type: import('vue').PropType<import('../../Tile').TileBorderColors>;
+        default: null;
     };
 }>> & Readonly<{}>, {
     color: import('../../Tile').TileColors;
     state: import('../../Tile').TileStates;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
-    hasBorder: boolean;
+    borderColor: import('../../Tile').TileBorderColors;
     interactive: boolean;
     isIconRightHiddenOnMobile: boolean;
     eyebrowText: string;
@@ -191,9 +191,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: BooleanConstructor;
             default: boolean;
         };
-        hasBorder: {
-            type: BooleanConstructor;
-            default: boolean;
+        borderColor: {
+            type: import('vue').PropType<import('../../Tile').TileBorderColors>;
+            default: null;
         };
     }>, {}, {
         ICONS: Readonly<{
@@ -478,16 +478,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: BooleanConstructor;
             default: boolean;
         };
-        hasBorder: {
-            type: BooleanConstructor;
-            default: boolean;
+        borderColor: {
+            type: import('vue').PropType<import('../../Tile').TileBorderColors>;
+            default: null;
         };
     }>> & Readonly<{}>, {
         color: import('../../Tile').TileColors;
         state: import('../../Tile').TileStates;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
-        hasBorder: boolean;
+        borderColor: import('../../Tile').TileBorderColors;
         interactive: boolean;
         isIconRightHiddenOnMobile: boolean;
         eyebrowText: string;

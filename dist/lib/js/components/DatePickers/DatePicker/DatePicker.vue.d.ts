@@ -39,6 +39,7 @@ declare const _default: import('vue').DefineComponent<{
         TILE: string;
     }>;
 }, {}, {
+    borderColor(): "warning" | "danger" | "neutralWeak" | "primary" | "dangerWeak" | "warningWeak";
     eyebrowText(): string;
     text(): any;
     tileIcon(): any;
@@ -134,9 +135,9 @@ declare const _default: import('vue').DefineComponent<{
             type: BooleanConstructor;
             default: boolean;
         };
-        hasBorder: {
-            type: BooleanConstructor;
-            default: boolean;
+        borderColor: {
+            type: PropType<import('../../Tile').TileBorderColors>;
+            default: null;
         };
     }>, {}, {
         ICONS: Readonly<{
@@ -421,16 +422,16 @@ declare const _default: import('vue').DefineComponent<{
             type: BooleanConstructor;
             default: boolean;
         };
-        hasBorder: {
-            type: BooleanConstructor;
-            default: boolean;
+        borderColor: {
+            type: PropType<import('../../Tile').TileBorderColors>;
+            default: null;
         };
     }>> & Readonly<{}>, {
         color: import('../../Tile').TileColors;
         state: import('../../Tile').TileStates;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
-        hasBorder: boolean;
+        borderColor: import('../../Tile').TileBorderColors;
         interactive: boolean;
         isIconRightHiddenOnMobile: boolean;
         eyebrowText: string;
