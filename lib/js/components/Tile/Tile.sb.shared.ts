@@ -20,7 +20,7 @@ export const template = (componentTag: string) => `
 			:text="text"
 			:border-color="borderColor"
 		/>
-		<ds-banner :color="BANNER_COLORS.WARNING" title="Taka kombinacja koloru komponentu z kolorem bordera nie jest przwidziana przez design system!" v-if="borderColor && !allowedColorsToBorderColorsMap[color].includes(borderColor)" />
+		<ds-banner :color="BANNER_COLORS.WARNING" title="Taka kombinacja koloru komponentu z kolorem bordera jest niezgodna z design systemem!" v-if="borderColor && !allowedColorsToBorderColorsMap[color].includes(borderColor)" />
 </div>
 `;
 
