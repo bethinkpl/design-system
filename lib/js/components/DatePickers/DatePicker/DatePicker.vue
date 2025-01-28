@@ -25,6 +25,7 @@
 				:interactive="isInteractive"
 				:additional-text="additionalText"
 				:color="color as TileColors"
+				:border-color="borderColor"
 				:state="state as TileStates"
 				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
@@ -139,7 +140,7 @@
 <script lang="ts">
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 
-import DsTile from '../../Tile';
+import DsTile, { TILE_BORDER_COLORS } from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import DatePickerBox from '../DatePickerBox';
 
@@ -286,6 +287,22 @@ export default defineComponent({
 		};
 	},
 	computed: {
+		borderColor() {
+			return {
+				[DATE_PICKER_COLORS.NEUTRAL]: this.isInteractive
+					? TILE_BORDER_COLORS.PRIMARY
+					: TILE_BORDER_COLORS.NEUTRAL_WEAK,
+				[DATE_PICKER_COLORS.NEUTRAL_WEAK]: this.isInteractive
+					? TILE_BORDER_COLORS.PRIMARY
+					: TILE_BORDER_COLORS.NEUTRAL_WEAK,
+				[DATE_PICKER_COLORS.DANGER]: this.isInteractive
+					? TILE_BORDER_COLORS.DANGER
+					: TILE_BORDER_COLORS.DANGER_WEAK,
+				[DATE_PICKER_COLORS.WARNING]: this.isInteractive
+					? TILE_BORDER_COLORS.WARNING
+					: TILE_BORDER_COLORS.WARNING_WEAK,
+			}[this.color];
+		},
 		eyebrowText() {
 			if (!this.date) {
 				return '';
