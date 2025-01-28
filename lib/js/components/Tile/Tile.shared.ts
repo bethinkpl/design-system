@@ -1,6 +1,6 @@
 import { PropType, toRaw } from 'vue';
 import { ICONS } from '../Icons/Icon';
-import { TILE_COLORS, TILE_STATES, TileColors, TileStates } from './Tile.consts';
+import { TILE_COLORS, TILE_STATES, TileBorderColors, TileColors, TileStates } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
 
 export const props = {
@@ -64,12 +64,8 @@ export const props = {
 		type: Boolean,
 		default: true,
 	},
-	hasBorder: {
-		type: Boolean,
-		default: false,
-	},
-	isBorderWeak: {
-		Boolean,
-		default: false,
+	borderColor: {
+		type: String as PropType<TileBorderColors>,
+		default: null,
 	},
 };
