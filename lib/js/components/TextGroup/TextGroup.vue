@@ -43,19 +43,14 @@
 			<span v-else-if="mainText === ''">&nbsp;</span>
 			<span v-else>{{ mainText }}</span>
 		</div>
-		<div
-			v-if="supportingText !== null"
-			class="ds-textGroup__supporting"
-			:class="{
-				'-ds-ellipsis': supportingTextEllipsis,
-			}"
-		>
+		<div v-if="supportingText !== null" class="ds-textGroup__supportingWrapper">
 			<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
 				<ds-skeleton width="100%" height="100%" />
 			</div>
 			<span v-else-if="supportingText === ''">&nbsp;</span>
 			<template v-else>
 				<ds-tooltip
+					class="ds-textGroup__supportingTooltip"
 					:text="
 						isSupportingTextTooltipAutoFilledWithContent
 							? supportingText
@@ -65,7 +60,14 @@
 					:is-hidden-on-mobile="!isSupportingTextTooltipEnabledOnMobile"
 					inline
 				>
-					<span v-html="supportingText" />
+					<div
+						class="ds-textGroup__supporting"
+						:class="{
+							'-ds-ellipsis': supportingTextEllipsis,
+						}"
+					>
+						<span v-html="supportingText" />
+					</div>
 				</ds-tooltip>
 			</template>
 		</div>
@@ -183,6 +185,16 @@ $text-group-colors: (
 
 	&__main {
 		@include text-m-compact-bold;
+	}
+
+	&__supportingWrapper {
+		display: flex;
+	}
+
+	&__supportingTooltip {
+		display: inline-flex;
+		max-width: 100%;
+		overflow: hidden;
 	}
 
 	&__supporting {
