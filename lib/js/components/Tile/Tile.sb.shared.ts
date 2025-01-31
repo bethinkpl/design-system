@@ -57,7 +57,6 @@ export const args = {
 	interactive: true,
 	color: TILE_COLORS.NEUTRAL,
 	borderColor: null,
-	isBorderWeak: false,
 	iconLeft: null,
 	iconRight: null,
 	isIconRightHiddenOnMobile: false,
