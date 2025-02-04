@@ -84,6 +84,9 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		supportingTextEllipsis: {
 			control: 'boolean',
 		},
+		isSupportingTextTooltipEnabled: {
+			control: 'boolean',
+		},
 		metadata: {
 			control: 'text',
 		},
@@ -131,6 +134,7 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		textEllipsis: false,
 		supportingText: 'null',
 		supportingTextEllipsis: false,
+		isSupportingTextTooltipEnabled: false,
 
 		metadata: 'Metadata Slot',
 		actions: 'ACS',
@@ -191,6 +195,7 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
 			:text-ellipsis="textEllipsis"
 			:supporting-text="supportingText === 'null' ? null : supportingText"
 			:supporting-text-ellipsis="supportingTextEllipsis"
+			:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
 			:background-color="backgroundColor"
 			:elevation="elevation"
 			:has-draggable-handler="hasDraggableHandler"
@@ -251,6 +256,7 @@ const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
 				:text-ellipsis="textEllipsis"
 				:supporting-text="supportingText === 'null' ? null : supportingText"
 				:supporting-text-ellipsis="supportingTextEllipsis"
+				:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
 				:background-color="backgroundColor"
 				:elevation="elevation"
 				:has-draggable-handler="hasDraggableHandler"
