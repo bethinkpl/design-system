@@ -1,4 +1,4 @@
-import{T as n,a as x}from"./Tooltip-4m2CjENZ.js";import{D as v}from"./Switch-BtYFtHgw.js";import{D as y}from"./Button-DVtHJ-a3.js";import"./vue.esm-bundler-CWlcb7ht.js";import"./device-9fgosCm4.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./Icon-ChGia3n4.js";const B={title:"Prime Vue Components/Tooltip",component:n},f=s=>({components:{Tooltip:n},setup(){return s},template:`
+import{T as n,a as x}from"./Tooltip-Cni6OHo9.js";import{D as v}from"./Switch-BtYFtHgw.js";import{D as y}from"./Button-DVtHJ-a3.js";import"./vue.esm-bundler-CWlcb7ht.js";import"./device-9fgosCm4.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./Icon-ChGia3n4.js";const B={title:"Prime Vue Components/Tooltip",component:n},f=s=>({components:{Tooltip:n},setup(){return s},template:`
         <div style="padding: 60px; width: 100%;display: flex;  justify-content: center">
             <div style="padding: 60px;">
                 <span>This is a text with </span>
