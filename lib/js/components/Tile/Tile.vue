@@ -46,9 +46,9 @@
 			v-else-if="additionalText"
 			class="ds-tile__additionalText"
 			:class="{
-				'-max-width-small':
+				'-ds-max-width-small':
 					additionalTextMaxWidth === TILE_ADDITIONAL_TEXT_MAX_WIDTHS.SMALL,
-				'-max-width-medium':
+				'-ds-max-width-medium':
 					additionalTextMaxWidth === TILE_ADDITIONAL_TEXT_MAX_WIDTHS.MEDIUM,
 			}"
 		>
@@ -326,11 +326,11 @@ $tile-colors: (
 		margin-left: $space-xs;
 		text-align: right;
 
-		&.-max-width-small {
+		&.-ds-max-width-small {
 			max-width: 30%;
 		}
 
-		&.-max-width-medium {
+		&.-ds-max-width-medium {
 			max-width: 50%;
 		}
 	}
