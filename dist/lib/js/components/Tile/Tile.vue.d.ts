@@ -55,9 +55,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-    hasBorder: {
-        type: BooleanConstructor;
-        default: boolean;
+    borderColor: {
+        type: import('vue').PropType<import('./Tile.consts').TileBorderColors>;
+        default: null;
     };
 }>, {}, {
     ICONS: Readonly<{
@@ -342,16 +342,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-    hasBorder: {
-        type: BooleanConstructor;
-        default: boolean;
+    borderColor: {
+        type: import('vue').PropType<import('./Tile.consts').TileBorderColors>;
+        default: null;
     };
 }>> & Readonly<{}>, {
     color: import('./Tile.consts').TileColors;
     state: import('./Tile.consts').TileStates;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
-    hasBorder: boolean;
+    borderColor: import('./Tile.consts').TileBorderColors;
     interactive: boolean;
     isIconRightHiddenOnMobile: boolean;
     eyebrowText: string;
