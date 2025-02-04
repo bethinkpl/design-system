@@ -20,3 +20,22 @@ export const TILE_STATES = {
 } as const;
 
 export type TileStates = Value<typeof TILE_STATES>;
+
+export const TILE_BORDER_COLORS = {
+	NEUTRAL: 'neutral',
+	NEUTRAL_WEAK: 'neutralWeak',
+	PRIMARY: 'primary',
+	PRIMARY_WEAK: 'primaryWeak',
+	SUCCESS: 'success',
+	SUCCESS_WEAK: 'successWeak',
+	FAIL: 'fail',
+	FAIL_WEAK: 'failWeak',
+	DANGER: 'danger',
+	DANGER_WEAK: 'dangerWeak',
+	WARNING: 'warning',
+	WARNING_WEAK: 'warningWeak',
+	INFO: 'info',
+	INFO_WEAK: 'infoWeak',
+} as const;
+
+export type TileBorderColors = Value<typeof TILE_BORDER_COLORS>;

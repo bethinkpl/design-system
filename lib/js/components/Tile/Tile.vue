@@ -3,7 +3,10 @@
 		:class="[
 			tileColor,
 			tileState,
-			{ '-ds-interactive': interactive, '-ds-hasBorder': hasBorder },
+			{
+				'-ds-interactive': interactive,
+				[`-ds-border-${borderColor}`]: borderColor !== null,
+			},
 		]"
 		class="ds-tile"
 	>
@@ -54,21 +57,76 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography/tokens';
 
+$tile-border-colors: (
+	'neutral': (
+		'default': $color-neutral-border,
+		'disabled': $color-neutral-border-disabled,
+	),
+	'neutralWeak': (
+		'default': $color-neutral-border-weak,
+		'disabled': $color-neutral-border-weak-disabled,
+	),
+	'primary': (
+		'default': $color-primary-border,
+		'disabled': $color-primary-border-disabled,
+	),
+	'primaryWeak': (
+		'default': $color-primary-border-weak,
+		'disabled': $color-primary-border-weak-disabled,
+	),
+	'success': (
+		'default': $color-success-border,
+		'disabled': $color-success-border-disabled,
+	),
+	'successWeak': (
+		'default': $color-success-border-weak,
+		'disabled': $color-success-border-weak-disabled,
+	),
+	'fail': (
+		'default': $color-fail-border,
+		'disabled': $color-fail-border-disabled,
+	),
+	'failWeak': (
+		'default': $color-fail-border-weak,
+		'disabled': $color-fail-border-weak-disabled,
+	),
+	'danger': (
+		'default': $color-danger-border,
+		'disabled': $color-danger-border-disabled,
+	),
+	'dangerWeak': (
+		'default': $color-danger-border-weak,
+		'disabled': $color-danger-border-weak-disabled,
+	),
+	'warning': (
+		'default': $color-warning-border,
+		'disabled': $color-warning-border-disabled,
+	),
+	'warningWeak': (
+		'default': $color-warning-border-weak,
+		'disabled': $color-warning-border-weak-disabled,
+	),
+	'info': (
+		'default': $color-info-border,
+		'disabled': $color-info-border-disabled,
+	),
+	'infoWeak': (
+		'default': $color-info-border-weak,
+		'disabled': $color-info-border-weak-disabled,
+	),
+);
+
 $tile-colors: (
 	'neutral': (
 		'default': (
 			'background': $color-neutral-background,
 			'background-hover': $color-neutral-background-hovered,
-			'border': $color-neutral-border,
-			'border-interactive': $color-primary-border,
 			'eyebrow-text': $color-neutral-text-weak,
 			'icon': $color-neutral-icon,
 			'icon-interactive': $color-primary-icon,
 		),
 		'disabled': (
 			'background': $color-neutral-background-disabled,
-			'border': $color-neutral-border-disabled,
-			'border-interactive': $color-primary-border-disabled,
 			'eyebrow-text': $color-neutral-text-weak-disabled,
 			'icon': $color-neutral-icon-disabled,
 			'icon-interactive': $color-primary-icon-disabled,
@@ -78,16 +136,12 @@ $tile-colors: (
 		'default': (
 			'background': $color-neutral-background-weak,
 			'background-hover': $color-neutral-background-weak-hovered,
-			'border': $color-neutral-border,
-			'border-interactive': $color-primary-border,
 			'eyebrow-text': $color-neutral-text-weak,
 			'icon': $color-neutral-icon,
 			'icon-interactive': $color-primary-icon,
 		),
 		'disabled': (
 			'background': $color-neutral-background-weak-disabled,
-			'border': $color-neutral-border-disabled,
-			'border-interactive': $color-primary-border-disabled,
 			'eyebrow-text': $color-neutral-text-weak-disabled,
 			'icon': $color-neutral-icon-disabled,
 			'icon-interactive': $color-primary-icon-disabled,
@@ -97,16 +151,12 @@ $tile-colors: (
 		'default': (
 			'background': $color-primary-background,
 			'background-hover': $color-primary-background-hovered,
-			'border': $color-primary-border,
-			'border-interactive': $color-primary-border,
 			'eyebrow-text': $color-primary-text,
 			'icon': $color-primary-icon,
 			'icon-interactive': $color-primary-icon,
 		),
 		'disabled': (
 			'background': $color-primary-background-disabled,
-			'border': $color-primary-border-disabled,
-			'border-interactive': $color-primary-border-disabled,
 			'eyebrow-text': $color-primary-text-disabled,
 			'icon': $color-primary-icon-disabled,
 			'icon-interactive': $color-primary-icon-disabled,
@@ -116,16 +166,12 @@ $tile-colors: (
 		'default': (
 			'background': $color-success-background,
 			'background-hover': $color-success-background-hovered,
-			'border': $color-success-border,
-			'border-interactive': $color-success-border,
 			'eyebrow-text': $color-success-text,
 			'icon': $color-success-icon,
 			'icon-interactive': $color-success-icon,
 		),
 		'disabled': (
 			'background': $color-success-background-disabled,
-			'border': $color-success-border-disabled,
-			'border-interactive': $color-success-border-disabled,
 			'eyebrow-text': $color-success-text-disabled,
 			'icon': $color-success-icon-disabled,
 			'icon-interactive': $color-success-icon-disabled,
@@ -135,16 +181,12 @@ $tile-colors: (
 		'default': (
 			'background': $color-fail-background,
 			'background-hover': $color-fail-background-hovered,
-			'border': $color-fail-border,
-			'border-interactive': $color-fail-border,
 			'eyebrow-text': $color-fail-text,
 			'icon': $color-fail-icon,
 			'icon-interactive': $color-fail-icon,
 		),
 		'disabled': (
 			'background': $color-fail-background-disabled,
-			'border': $color-fail-border-disabled,
-			'border-interactive': $color-fail-border-disabled,
 			'eyebrow-text': $color-fail-text-disabled,
 			'icon': $color-fail-icon-disabled,
 			'icon-interactive': $color-fail-icon-disabled,
@@ -154,16 +196,12 @@ $tile-colors: (
 		'default': (
 			'background': $color-danger-background,
 			'background-hover': $color-danger-background-hovered,
-			'border': $color-danger-border,
-			'border-interactive': $color-danger-border,
 			'eyebrow-text': $color-danger-text,
 			'icon': $color-danger-icon,
 			'icon-interactive': $color-danger-icon,
 		),
 		'disabled': (
 			'background': $color-danger-background-disabled,
-			'border': $color-danger-border-disabled,
-			'border-interactive': $color-danger-border-disabled,
 			'eyebrow-text': $color-danger-text-disabled,
 			'icon': $color-danger-icon-disabled,
 			'icon-interactive': $color-danger-icon-disabled,
@@ -173,16 +211,12 @@ $tile-colors: (
 		'default': (
 			'background': $color-warning-background,
 			'background-hover': $color-warning-background-hovered,
-			'border': $color-warning-border,
-			'border-interactive': $color-warning-border,
 			'eyebrow-text': $color-warning-text,
 			'icon': $color-warning-icon,
 			'icon-interactive': $color-warning-icon,
 		),
 		'disabled': (
 			'background': $color-warning-background-disabled,
-			'border': $color-warning-border-disabled,
-			'border-interactive': $color-warning-border-disabled,
 			'eyebrow-text': $color-warning-text-disabled,
 			'icon': $color-warning-icon-disabled,
 			'icon-interactive': $color-warning-icon-disabled,
@@ -192,16 +226,12 @@ $tile-colors: (
 		'default': (
 			'background': $color-info-background,
 			'background-hover': $color-info-background-hovered,
-			'border': $color-info-border,
-			'border-interactive': $color-info-border,
 			'eyebrow-text': $color-info-text,
 			'icon': $color-info-icon,
 			'icon-interactive': $color-info-icon,
 		),
 		'disabled': (
 			'background': $color-info-background-disabled,
-			'border': $color-info-border-disabled,
-			'border-interactive': $color-info-border-disabled,
 			'eyebrow-text': $color-info-text-disabled,
 			'icon': $color-info-icon-disabled,
 			'icon-interactive': $color-info-icon-disabled,
@@ -211,10 +241,6 @@ $tile-colors: (
 
 @mixin setColors($root, $color-map) {
 	background-color: map-get($color-map, 'background');
-
-	&.-ds-hasBorder {
-		outline: $border-xs solid map-get($color-map, 'border');
-	}
 
 	#{$root}__eyebrowText {
 		color: map-get($color-map, 'eyebrow-text');
@@ -226,10 +252,6 @@ $tile-colors: (
 	}
 
 	&.-ds-interactive {
-		&.-ds-hasBorder {
-			outline: $border-xs solid map-get($color-map, 'border-interactive');
-		}
-
 		#{$root}__iconRight {
 			color: map-get($color-map, 'icon-interactive');
 		}
@@ -252,6 +274,15 @@ $tile-colors: (
 	@each $color-name, $color-map in $tile-colors {
 		&.-ds-#{$color-name} {
 			@include setColors($self, map-get($color-map, 'default'));
+		}
+	}
+
+	@each $border-color-name, $border-color-map in $tile-border-colors {
+		&.-ds-border-#{$border-color-name} {
+			outline: $border-xs solid map-get($border-color-map, 'default');
+			&.-ds-disabled {
+				outline: $border-xs solid map-get($border-color-map, 'disabled');
+			}
 		}
 	}
 
