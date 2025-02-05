@@ -30,6 +30,7 @@
 				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
+				:additional-text-max-width="TILE_ADDITIONAL_TEXT_MAX_WIDTHS.MEDIUM"
 				has-border
 				@click="toggle"
 			/>
@@ -140,7 +141,7 @@
 <script lang="ts">
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 
-import DsTile, { TILE_BORDER_COLORS } from '../../Tile';
+import DsTile, { TILE_ADDITIONAL_TEXT_MAX_WIDTHS, TILE_BORDER_COLORS } from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import DatePickerBox from '../DatePickerBox';
 
@@ -284,6 +285,7 @@ export default defineComponent({
 			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
 			DATE_PICKER_STATES: Object.freeze(DATE_PICKER_STATES),
 			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
+			TILE_ADDITIONAL_TEXT_MAX_WIDTHS: Object.freeze(TILE_ADDITIONAL_TEXT_MAX_WIDTHS),
 		};
 	},
 	computed: {
