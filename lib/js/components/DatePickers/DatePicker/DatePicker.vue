@@ -203,7 +203,7 @@ export default defineComponent({
 		},
 		icon: {
 			type: [Object, null] as PropType<IconItem | null>,
-			default: ICONS.FA_CALENDAR_DAY,
+			default: ICONS.FA_CALENDAR_DAYS,
 			validator(icon) {
 				return icon === null || Object.values(ICONS).includes(toRaw(icon));
 			},

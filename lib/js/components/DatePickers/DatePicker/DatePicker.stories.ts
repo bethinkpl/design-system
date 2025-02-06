@@ -101,7 +101,7 @@ const args = {
 	disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],
 	minDate: new Date(now).toISOString().slice(0, 10),
 	maxDate: new Date(now + oneDayMili * 30).toISOString().slice(0, 10),
-	icon: 'FA_CALENDAR_DAY',
+	icon: 'FA_CALENDAR_DAYS',
 	isIconHiddenOnMobile: false,
 	additionalText: '',
 	helpMessage: null,
