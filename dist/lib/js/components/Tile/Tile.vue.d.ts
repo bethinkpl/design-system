@@ -59,6 +59,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: import('vue').PropType<import('./Tile.consts').TileBorderColors>;
         default: null;
     };
+    additionalTextMaxWidth: {
+        type: import('vue').PropType<import('./Tile.consts').TileAdditionalTextMaxWidths>;
+        default: "small";
+        validator(value: import('./Tile.consts').TileAdditionalTextMaxWidths): boolean;
+    };
 }>, {}, {
     ICONS: Readonly<{
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
@@ -282,6 +287,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly DISABLED: "disabled";
         readonly LOADING: "loading";
     }>;
+    TILE_ADDITIONAL_TEXT_MAX_WIDTHS: Readonly<{
+        readonly SMALL: "small";
+        readonly MEDIUM: "medium";
+    }>;
 }, {
     tileColor(): any;
     tileState(): any;
@@ -346,6 +355,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: import('vue').PropType<import('./Tile.consts').TileBorderColors>;
         default: null;
     };
+    additionalTextMaxWidth: {
+        type: import('vue').PropType<import('./Tile.consts').TileAdditionalTextMaxWidths>;
+        default: "small";
+        validator(value: import('./Tile.consts').TileAdditionalTextMaxWidths): boolean;
+    };
 }>> & Readonly<{}>, {
     color: import('./Tile.consts').TileColors;
     state: import('./Tile.consts').TileStates;
@@ -359,6 +373,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isEyebrowTextUppercase: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
+    additionalTextMaxWidth: import('./Tile.consts').TileAdditionalTextMaxWidths;
 }, {}, {
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         icon: {

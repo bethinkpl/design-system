@@ -10,12 +10,13 @@ declare const _default: import('vue').DefineComponent<{
     endDate: Date;
     isInteractive: boolean;
     state: DatePickerStates;
+    updatePositionBasedOnScrollableSelector: string;
 }, {
     dateRangePickerRef: Ref<HTMLDivElement, HTMLDivElement>;
     flatpickrInputRef: Ref<HTMLInputElement, HTMLInputElement>;
     isOpen: Ref<boolean, boolean>;
     toggleDatePicker: () => void;
-    createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement) => Promise<import('flatpickr/dist/types/instance').Instance | undefined>;
+    createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement, updatePositionBasedOnScrollableSelector: string) => Promise<import('flatpickr/dist/types/instance').Instance | undefined>;
     DATE_PICKER_CALENDAR_POSITIONS: Readonly<{
         TOP: string;
         TOP_LEFT: string;
@@ -59,6 +60,7 @@ declare const _default: import('vue').DefineComponent<{
     endDate: Date;
     isInteractive: boolean;
     state: DatePickerStates;
+    updatePositionBasedOnScrollableSelector: string;
 }> & Readonly<{
     "onUpdate:date"?: ((value: {
         startDate: Date;
@@ -79,6 +81,7 @@ declare const _default: import('vue').DefineComponent<{
     disableDates: Date[];
     minDate: Date;
     maxDate: Date;
+    updatePositionBasedOnScrollableSelector: string;
 }, {}, {
     DatePickerBox: import('vue').DefineComponent<{}, {}, {
         ICONS: Readonly<{

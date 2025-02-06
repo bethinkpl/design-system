@@ -34,3 +34,8 @@ export declare const TILE_BORDER_COLORS: {
     readonly INFO_WEAK: "infoWeak";
 };
 export declare type TileBorderColors = Value<typeof TILE_BORDER_COLORS>;
+export declare const TILE_ADDITIONAL_TEXT_MAX_WIDTHS: {
+    readonly SMALL: "small";
+    readonly MEDIUM: "medium";
+};
+export declare type TileAdditionalTextMaxWidths = Value<typeof TILE_ADDITIONAL_TEXT_MAX_WIDTHS>;
