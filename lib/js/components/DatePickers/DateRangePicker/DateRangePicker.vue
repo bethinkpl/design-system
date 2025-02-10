@@ -1,6 +1,6 @@
 <template>
 	<div ref="dateRangePickerRef" class="ds-dateRangePicker">
-		<date-picker-box
+		<date-box
 			:is-interactive="isInteractive"
 			:placeholder="placeholder"
 			:start-date="startDate"
@@ -10,8 +10,6 @@
 			:are-icons-hidden-on-mobile="areIconsHiddenOnMobile"
 			:state="state"
 			:color="color"
-			:start-date-eyebrow-text="eyebrowText"
-			:end-date-eyebrow-text="endDateEyebrowText"
 			:is-open="isOpen"
 			@click="toggle"
 		/>
@@ -50,7 +48,7 @@
 </style>
 
 <script lang="ts">
-import DatePickerBox from '../DatePickerBox/DatePickerBox.vue';
+import DateBox from '../DateBox';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 import {
@@ -69,7 +67,7 @@ import { localWeekdayName } from '../../../../../tools/importers/helpers/dates';
 export default defineComponent({
 	name: 'DateRangePicker',
 	components: {
-		DatePickerBox,
+		DateBox,
 	},
 	props: {
 		isInteractive: {
@@ -189,28 +187,12 @@ export default defineComponent({
 		};
 	},
 	computed: {
-		endDateEyebrowText() {
-			if (!this.endDate || this.state === DATE_PICKER_STATES.LOADING) {
-				return '';
-			}
-
-			return capitalizeFirstLetter(localWeekdayName(this.endDate));
-		},
-
 		endDateIfDifferentThanStartDate() {
 			return this.startDate &&
 				this.endDate &&
 				this.startDate.getTime() !== this.endDate.getTime()
 				? this.endDate
 				: null;
-		},
-
-		eyebrowText() {
-			if (!this.startDate || this.state === DATE_PICKER_STATES.LOADING) {
-				return '';
-			}
-
-			return capitalizeFirstLetter(localWeekdayName(this.startDate));
 		},
 	},
 	async mounted() {

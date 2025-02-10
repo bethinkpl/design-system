@@ -34,7 +34,7 @@
 				@click="toggle"
 			/>
 		</template>
-		<date-picker-box
+		<date-box
 			v-else
 			:is-interactive="isInteractive"
 			:placeholder="placeholder"
@@ -43,7 +43,6 @@
 			:are-icons-hidden-on-mobile="isIconHiddenOnMobile"
 			:state="state"
 			:color="color"
-			:start-date-eyebrow-text="eyebrowText"
 			:is-open="isOpen"
 			@click="toggle"
 		/>
@@ -142,7 +141,7 @@ import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 
 import DsTile, { TILE_BORDER_COLORS } from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
-import DatePickerBox from '../DatePickerBox';
+import DateBox from '../DateBox';
 
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
@@ -165,7 +164,7 @@ export default defineComponent({
 	name: 'DatePicker',
 	components: {
 		DsTile,
-		DatePickerBox,
+		DateBox,
 	},
 	props: {
 		triggerType: {
