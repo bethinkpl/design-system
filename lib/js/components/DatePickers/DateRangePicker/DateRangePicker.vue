@@ -4,7 +4,7 @@
 			:is-interactive="isInteractive"
 			:placeholder="placeholder"
 			:start-date="startDate"
-			:end-date="endDateIfDifferentThanStartDate"
+			:end-date="endDate"
 			:start-icon="startIcon"
 			:end-icon="endIcon"
 			:are-icons-hidden-on-mobile="areIconsHiddenOnMobile"
@@ -185,15 +185,6 @@ export default defineComponent({
 			DATE_PICKER_STATES: Object.freeze(DATE_PICKER_STATES),
 			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
 		};
-	},
-	computed: {
-		endDateIfDifferentThanStartDate() {
-			return this.startDate &&
-				this.endDate &&
-				this.startDate.getTime() !== this.endDate.getTime()
-				? this.endDate
-				: null;
-		},
 	},
 	async mounted() {
 		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {

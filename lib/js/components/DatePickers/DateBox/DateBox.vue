@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</div>
-		<template v-if="startDate && endDate">
+		<template v-if="startDate && endDateIfDifferentThanStartDate">
 			<span class="ds-dateBox__separator">–</span>
 			<div
 				class="ds-dateBox__widthWrapper -ds-justify-to-end"
@@ -421,8 +421,15 @@ export default defineComponent({
 			}
 			return this.placeholder;
 		},
+		endDateIfDifferentThanStartDate() {
+			return this.startDate &&
+				this.endDate &&
+				this.startDate.toDateString() !== this.endDate.toDateString()
+				? this.endDate
+				: null;
+		},
 		endDateText() {
-			return localMonthDayWithShortMonthDay(this.endDate);
+			return localMonthDayWithShortMonthDay(this.endDateIfDifferentThanStartDate);
 		},
 		startDateEyebrowText() {
 			if (!this.startDate) {
@@ -431,10 +438,10 @@ export default defineComponent({
 			return capitalizeFirstLetter(localWeekdayName(this.startDate));
 		},
 		endDateEyebrowText() {
-			if (!this.endDate) {
+			if (!this.endDateIfDifferentThanStartDate) {
 				return '';
 			}
-			return capitalizeFirstLetter(localWeekdayName(this.endDate));
+			return capitalizeFirstLetter(localWeekdayName(this.endDateIfDifferentThanStartDate));
 		},
 	},
 });
