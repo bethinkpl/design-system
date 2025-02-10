@@ -16,6 +16,9 @@
 			class="ds-dateBox__widthWrapper"
 			:class="{ '-ds-has-icon': startIcon, '-ds-iconHiddenOnMobile': areIconsHiddenOnMobile }"
 		>
+			<div v-if="state === DATE_PICKER_STATES.LOADING" class="ds-dateBox__loader">
+				<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.X_SMALL" spinning />
+			</div>
 			<div class="ds-dateBox__dateWrapper">
 				<span v-if="startDateEyebrowText" class="ds-dateBox__eyebrow">{{
 					startDateEyebrowText
@@ -41,6 +44,9 @@
 					'-ds-iconHiddenOnMobile': areIconsHiddenOnMobile,
 				}"
 			>
+				<div v-if="state === DATE_PICKER_STATES.LOADING" class="ds-dateBox__loader">
+					<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.X_SMALL" spinning />
+				</div>
 				<div class="ds-dateBox__dateWrapper">
 					<span v-if="endDateEyebrowText" class="ds-dateBox__eyebrow">{{
 						endDateEyebrowText
@@ -58,10 +64,6 @@
 				</div>
 			</div>
 		</template>
-
-		<div v-if="state === DATE_PICKER_STATES.LOADING" class="ds-dateBox__loader">
-			<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.X_SMALL" spinning />
-		</div>
 	</div>
 </template>
 
@@ -142,6 +144,7 @@
 	}
 
 	#{$self}__loader {
+		background-color: $color-background;
 		color: $color-icon;
 	}
 
@@ -168,7 +171,6 @@
 	min-width: 76px;
 	padding: $space-2xs $space-xs;
 	pointer-events: none;
-	position: relative;
 
 	&__dateWrapper {
 		display: flex;
@@ -184,6 +186,7 @@
 	&__widthWrapper {
 		display: inline-flex;
 		min-width: 46px;
+		position: relative;
 
 		&.-ds-has-icon {
 			min-width: 52px;
@@ -252,14 +255,11 @@
 	}
 
 	&__loader {
-		background-color: inherit;
 		display: flex;
-		height: calc(100% - $border-s * 2);
+		height: 100%;
 		justify-content: center;
-		left: $space-5xs;
 		position: absolute;
-		top: $space-5xs;
-		width: calc(100% - $border-s * 2);
+		width: 100%;
 	}
 
 	&.-ds-loading,
