@@ -39,11 +39,7 @@ declare const _default: import('vue').DefineComponent<{
         BOX: string;
         TILE: string;
     }>;
-}, {}, {
-    endDateEyebrowText(): string;
-    endDateIfDifferentThanStartDate(): any;
-    eyebrowText(): string;
-}, {
+}, {}, {}, {
     toggle(): void;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     'update:date': (value: {
@@ -80,7 +76,7 @@ declare const _default: import('vue').DefineComponent<{
     minDate: Date;
     maxDate: Date;
 }, {}, {
-    DatePickerBox: import('vue').DefineComponent<{}, {}, {
+    DateBox: import('vue').DefineComponent<{}, {}, {
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly RIBBON: VueConstructor<Vue>;
@@ -311,7 +307,10 @@ declare const _default: import('vue').DefineComponent<{
         }>;
     }, {
         startDateText(): any;
+        endDateIfDifferentThanStartDate(): any;
         endDateText(): string;
+        startDateEyebrowText(): string;
+        endDateEyebrowText(): string;
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
         color: string;
         state: string;
@@ -322,8 +321,6 @@ declare const _default: import('vue').DefineComponent<{
         startIcon: Record<string, any>;
         endIcon: Record<string, any>;
         areIconsHiddenOnMobile: boolean;
-        startDateEyebrowText: string;
-        endDateEyebrowText: string;
         isOpen: boolean;
     }, {}, {
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{

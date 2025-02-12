@@ -66,9 +66,9 @@ declare const _default: import('vue').DefineComponent<{
     state: string;
     isIconHiddenOnMobile: boolean;
     isLabelUppercase: boolean;
-    additionalText: string;
     isInteractive: boolean;
     placeholder: string;
+    additionalText: string;
     triggerType: string;
     date: Date;
     helpMessage: string;
@@ -519,7 +519,7 @@ declare const _default: import('vue').DefineComponent<{
             FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-    DatePickerBox: import('vue').DefineComponent<{}, {}, {
+    DateBox: import('vue').DefineComponent<{}, {}, {
         ICONS: Readonly<{
             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly RIBBON: VueConstructor<Vue>;
@@ -750,7 +750,10 @@ declare const _default: import('vue').DefineComponent<{
         }>;
     }, {
         startDateText(): any;
+        endDateIfDifferentThanStartDate(): any;
         endDateText(): string;
+        startDateEyebrowText(): string;
+        endDateEyebrowText(): string;
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
         color: string;
         state: string;
@@ -761,8 +764,6 @@ declare const _default: import('vue').DefineComponent<{
         startIcon: Record<string, any>;
         endIcon: Record<string, any>;
         areIconsHiddenOnMobile: boolean;
-        startDateEyebrowText: string;
-        endDateEyebrowText: string;
         isOpen: boolean;
     }, {}, {
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{

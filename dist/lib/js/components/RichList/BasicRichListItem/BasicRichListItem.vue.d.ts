@@ -29,9 +29,9 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     layout: RichListItemLayout;
     borderColor: RichListItemBorderColor;
     backgroundColor: RichListItemBackgroundColor;
+    isInteractive: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
-    isInteractive: boolean;
     eyebrow: string;
     supportingText: string;
     isSelected: boolean;
@@ -204,9 +204,9 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         size: string;
         color: "neutral";
         state: TextGroupState;
+        isInteractive: boolean;
         eyebrowText: string | null;
         isEyebrowTextUppercase: boolean;
-        isInteractive: boolean;
         supportingText: string | null;
         isSelected: boolean;
         eyebrowTextEllipsis: boolean;
