@@ -42,7 +42,16 @@
 			:icon="iconRight"
 			:size="ICON_SIZES.SMALL"
 		/>
-		<div v-else-if="additionalText" class="ds-tile__additionalText">
+		<div
+			v-else-if="additionalText"
+			class="ds-tile__additionalText"
+			:class="{
+				'-ds-max-width-small':
+					additionalTextMaxWidth === TILE_ADDITIONAL_TEXT_MAX_WIDTHS.SMALL,
+				'-ds-max-width-medium':
+					additionalTextMaxWidth === TILE_ADDITIONAL_TEXT_MAX_WIDTHS.MEDIUM,
+			}"
+		>
 			{{ additionalText }}
 		</div>
 	</div>
@@ -280,6 +289,7 @@ $tile-colors: (
 	@each $border-color-name, $border-color-map in $tile-border-colors {
 		&.-ds-border-#{$border-color-name} {
 			outline: $border-xs solid map-get($border-color-map, 'default');
+
 			&.-ds-disabled {
 				outline: $border-xs solid map-get($border-color-map, 'disabled');
 			}
@@ -314,8 +324,15 @@ $tile-colors: (
 		color: $color-neutral-text;
 		flex-grow: 1;
 		margin-left: $space-xs;
-		max-width: 30%;
 		text-align: right;
+
+		&.-ds-max-width-small {
+			max-width: 30%;
+		}
+
+		&.-ds-max-width-medium {
+			max-width: 50%;
+		}
 	}
 
 	&__center {
@@ -377,7 +394,7 @@ $tile-colors: (
 
 <script lang="ts">
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { TILE_COLORS, TILE_STATES } from './Tile.consts';
+import { TILE_ADDITIONAL_TEXT_MAX_WIDTHS, TILE_COLORS, TILE_STATES } from './Tile.consts';
 import { props } from './Tile.shared';
 import { defineComponent } from 'vue';
 
@@ -392,6 +409,7 @@ export default defineComponent({
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			TILE_STATES: Object.freeze(TILE_STATES),
+			TILE_ADDITIONAL_TEXT_MAX_WIDTHS: Object.freeze(TILE_ADDITIONAL_TEXT_MAX_WIDTHS),
 		};
 	},
 	computed: {

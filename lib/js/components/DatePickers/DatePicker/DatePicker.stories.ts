@@ -80,6 +80,7 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 				:disable-dates="formattedDisableDates"
 				:min-date="formattedMinDate"
 				:max-date="formattedMaxDate"
+				:update-position-based-on-scrollable-selector="updatePositionBasedOnScrollableSelector"
 				@update:date="updateDate"
 			>
 				<ds-switch  label-left="lewa" label-right="prawa" />
@@ -101,7 +102,7 @@ const args = {
 	disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],
 	minDate: new Date(now).toISOString().slice(0, 10),
 	maxDate: new Date(now + oneDayMili * 30).toISOString().slice(0, 10),
-	icon: 'FA_CALENDAR_DAY',
+	icon: 'FA_CALENDAR_DAYS',
 	isIconHiddenOnMobile: false,
 	additionalText: '',
 	helpMessage: null,
@@ -138,6 +139,30 @@ Interactive.argTypes = argTypes;
 Interactive.args = args;
 
 Interactive.parameters = {
+	design: {
+		type: 'figma',
+		url: 'https://www.figma.com/design/03ABNCSDYWYDmOPJOBGM5l/INI-153-Planowanie-pracy-z-lekcjami?node-id=245-162031&t=g08nj70xhT9BZTpu-4',
+	},
+};
+
+export const ScrollableContainer = StoryTemplate.bind({});
+ScrollableContainer.decorators = [
+	() => ({
+		template: `
+			<div style="height: 500px; overflow-y: scroll;" class="scrollable-container">
+				<div style="height: 1500px; padding: 6px;">
+					<story />
+				</div>
+			</div>`,
+	}),
+];
+ScrollableContainer.argTypes = argTypes;
+ScrollableContainer.args = {
+	...args,
+	updatePositionBasedOnScrollableSelector: '.scrollable-container',
+};
+
+ScrollableContainer.parameters = {
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/design/03ABNCSDYWYDmOPJOBGM5l/INI-153-Planowanie-pracy-z-lekcjami?node-id=245-162031&t=g08nj70xhT9BZTpu-4',

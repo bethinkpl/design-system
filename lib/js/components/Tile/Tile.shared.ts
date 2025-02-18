@@ -1,6 +1,14 @@
 import { PropType, toRaw } from 'vue';
 import { ICONS } from '../Icons/Icon';
-import { TILE_COLORS, TILE_STATES, TileBorderColors, TileColors, TileStates } from './Tile.consts';
+import {
+	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
+	TILE_COLORS,
+	TILE_STATES,
+	TileAdditionalTextMaxWidths,
+	TileBorderColors,
+	TileColors,
+	TileStates,
+} from './Tile.consts';
 import { Value } from '../../utils/type.utils';
 
 export const props = {
@@ -67,5 +75,12 @@ export const props = {
 	borderColor: {
 		type: String as PropType<TileBorderColors>,
 		default: null,
+	},
+	additionalTextMaxWidth: {
+		type: String as PropType<TileAdditionalTextMaxWidths>,
+		default: TILE_ADDITIONAL_TEXT_MAX_WIDTHS.SMALL,
+		validator(value: TileAdditionalTextMaxWidths) {
+			return Object.values(TILE_ADDITIONAL_TEXT_MAX_WIDTHS).includes(value);
+		},
 	},
 };

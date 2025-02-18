@@ -39,3 +39,10 @@ export const TILE_BORDER_COLORS = {
 } as const;
 
 export type TileBorderColors = Value<typeof TILE_BORDER_COLORS>;
+
+export const TILE_ADDITIONAL_TEXT_MAX_WIDTHS = {
+	SMALL: 'small',
+	MEDIUM: 'medium',
+} as const;
+
+export type TileAdditionalTextMaxWidths = Value<typeof TILE_ADDITIONAL_TEXT_MAX_WIDTHS>;

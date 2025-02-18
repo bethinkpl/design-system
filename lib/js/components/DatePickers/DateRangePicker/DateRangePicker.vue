@@ -134,6 +134,10 @@ export default defineComponent({
 			type: Date,
 			default: null,
 		},
+		updatePositionBasedOnScrollableSelector: {
+			type: String,
+			default: '',
+		},
 	},
 	emits: { 'update:date': (value: { startDate: Date; endDate: Date }) => true },
 	setup(
@@ -142,6 +146,7 @@ export default defineComponent({
 			endDate: Date;
 			isInteractive: boolean;
 			state: DatePickerStates;
+			updatePositionBasedOnScrollableSelector: string;
 		},
 		{ emit },
 	) {
@@ -170,7 +175,11 @@ export default defineComponent({
 			[() => props.isInteractive, () => props.state],
 			async () => {
 				if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-					await createDatePicker(flatpickrInputRef.value, dateRangePickerRef.value);
+					await createDatePicker(
+						flatpickrInputRef.value,
+						dateRangePickerRef.value,
+						props.updatePositionBasedOnScrollableSelector,
+					);
 				}
 			},
 			{ flush: 'post' },
@@ -215,7 +224,11 @@ export default defineComponent({
 	},
 	async mounted() {
 		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
-			await this.createDatePicker(this.flatpickrInputRef, this.dateRangePickerRef);
+			await this.createDatePicker(
+				this.flatpickrInputRef,
+				this.dateRangePickerRef,
+				this.updatePositionBasedOnScrollableSelector,
+			);
 		}
 	},
 	methods: {

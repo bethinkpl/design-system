@@ -1,4 +1,4 @@
-import { defineEmits, onUnmounted, Ref, ref, watch } from 'vue';
+import { onUnmounted, Ref, ref, watch } from 'vue';
 import { FlatpickrFn, Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { CustomLocale } from 'flatpickr/dist/types/locale';
 
@@ -13,6 +13,7 @@ export interface DatePickerComposablesProps {
 	maxDate: Date | null;
 	calendarPosition: DatePickerCalendarPositions;
 }
+
 interface InitFlatpickrPrams {
 	props: DatePickerComposablesProps;
 	onChange: (dates: Array<Date>) => void;
@@ -25,6 +26,7 @@ interface InitFlatpickr {
 	createDatePicker: (
 		flatpickrInputElement: HTMLInputElement,
 		dateRangePickerRef: HTMLElement,
+		updatePositionBasedOnScrollableSelector: string,
 	) => Promise<DatePickerInstance | undefined>;
 	isOpen: Ref<boolean>;
 	toggle: () => void;
@@ -42,6 +44,7 @@ export function initFlatpickr({
 	const createDatePicker = async (
 		flatpickrInputElement: HTMLInputElement,
 		datePickerElement: HTMLElement,
+		updatePositionBasedOnScrollableSelector: string,
 	): Promise<DatePickerInstance | undefined> => {
 		if (datePicker) {
 			return;
@@ -79,6 +82,24 @@ export function initFlatpickr({
 			],
 			onChange,
 		});
+
+		if (updatePositionBasedOnScrollableSelector) {
+			const container = document.querySelector(updatePositionBasedOnScrollableSelector);
+
+			const scrollEvent = () => {
+				datePicker?._positionCalendar();
+			};
+
+			if (container) {
+				datePicker?.config?.onOpen?.push(() => {
+					container.addEventListener('scroll', scrollEvent, { passive: true });
+				});
+
+				datePicker?.config?.onClose?.push(() => {
+					container.removeEventListener('scroll', scrollEvent);
+				});
+			}
+		}
 
 		return datePicker;
 	};
