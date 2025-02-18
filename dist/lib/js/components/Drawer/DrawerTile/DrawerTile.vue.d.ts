@@ -59,6 +59,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: import('vue').PropType<import('../../Tile').TileBorderColors>;
         default: null;
     };
+    additionalTextMaxWidth: {
+        type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+        default: "small";
+        validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
+    };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     click: () => true;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
@@ -122,6 +127,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: import('vue').PropType<import('../../Tile').TileBorderColors>;
         default: null;
     };
+    additionalTextMaxWidth: {
+        type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+        default: "small";
+        validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
+    };
 }>> & Readonly<{
     onClick?: (() => any) | undefined;
 }>, {
@@ -137,6 +147,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isEyebrowTextUppercase: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
+    additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidths;
 }, {}, {
     DsTile: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         interactive: {
@@ -198,6 +209,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         borderColor: {
             type: import('vue').PropType<import('../../Tile').TileBorderColors>;
             default: null;
+        };
+        additionalTextMaxWidth: {
+            type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+            default: "small";
+            validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
         };
     }>, {}, {
         ICONS: Readonly<{
@@ -422,6 +438,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly DISABLED: "disabled";
             readonly LOADING: "loading";
         }>;
+        TILE_ADDITIONAL_TEXT_MAX_WIDTHS: Readonly<{
+            readonly SMALL: "small";
+            readonly MEDIUM: "medium";
+        }>;
     }, {
         tileColor(): any;
         tileState(): any;
@@ -486,6 +506,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: import('vue').PropType<import('../../Tile').TileBorderColors>;
             default: null;
         };
+        additionalTextMaxWidth: {
+            type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+            default: "small";
+            validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
+        };
     }>> & Readonly<{}>, {
         color: import('../../Tile').TileColors;
         state: import('../../Tile').TileStates;
@@ -499,6 +524,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         isEyebrowTextUppercase: boolean;
         eyebrowEllipsis: boolean;
         textEllipsis: boolean;
+        additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidths;
     }, {}, {
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             icon: {
