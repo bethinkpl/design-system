@@ -25,7 +25,6 @@ const meta: Meta<DateBoxProps> = {
 			},
 			computed: {
 				formattedStartDate() {
-					console.debug(this.startDate);
 					if (!this.startDate) {
 						return null;
 					}
