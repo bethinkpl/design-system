@@ -1,4 +1,5 @@
 import { PropType } from 'vue';
+import { SkeletonRadiusSize } from './Skeleton.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     height: {
@@ -6,7 +7,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: string;
     };
     radius: {
-        type: PropType<string>;
+        type: PropType<SkeletonRadiusSize>;
         default: string;
     };
     width: {
@@ -28,7 +29,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: string;
     };
     radius: {
-        type: PropType<string>;
+        type: PropType<SkeletonRadiusSize>;
         default: string;
     };
     width: {
@@ -40,6 +41,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     width: string;
     height: string;
 }, {}, {
-    PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void, {}>;
+    PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

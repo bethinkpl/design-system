@@ -1,3 +1,5 @@
+import { TILE_STATES } from './Tile.consts';
+
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     interactive: {
         type: BooleanConstructor;
@@ -41,11 +43,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: import('vue').PropType<import('./Tile.consts').TileStates>;
         default: "default";
-        validator(value: import('../../utils/type.utils').Value<{
-            readonly DEFAULT: "default";
-            readonly DISABLED: "disabled";
-            readonly LOADING: "loading";
-        }>): boolean;
+        validator(value: import('../../utils/type.utils').Value<typeof TILE_STATES>): boolean;
     };
     eyebrowEllipsis: {
         type: BooleanConstructor;
@@ -337,11 +335,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: import('vue').PropType<import('./Tile.consts').TileStates>;
         default: "default";
-        validator(value: import('../../utils/type.utils').Value<{
-            readonly DEFAULT: "default";
-            readonly DISABLED: "disabled";
-            readonly LOADING: "loading";
-        }>): boolean;
+        validator(value: import('../../utils/type.utils').Value<typeof TILE_STATES>): boolean;
     };
     eyebrowEllipsis: {
         type: BooleanConstructor;
@@ -444,14 +438,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
         size: string;
+        rotation: number;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

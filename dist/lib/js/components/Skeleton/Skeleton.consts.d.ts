@@ -3,4 +3,4 @@ export declare const SKELETON_RADIUS_SIZES: {
     MEDIUM: string;
     LARGE: string;
 };
-export declare type SkeletonRadiusSize = typeof SKELETON_RADIUS_SIZES[keyof typeof SKELETON_RADIUS_SIZES];
+export type SkeletonRadiusSize = typeof SKELETON_RADIUS_SIZES[keyof typeof SKELETON_RADIUS_SIZES];

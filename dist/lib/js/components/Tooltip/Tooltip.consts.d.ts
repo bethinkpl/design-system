@@ -4,4 +4,4 @@ export declare const TOOLTIP_PLACEMENTS: {
     readonly LEFT: "left";
     readonly RIGHT: "right";
 };
-export declare type TooltipPlacement = typeof TOOLTIP_PLACEMENTS[keyof typeof TOOLTIP_PLACEMENTS];
+export type TooltipPlacement = typeof TOOLTIP_PLACEMENTS[keyof typeof TOOLTIP_PLACEMENTS];

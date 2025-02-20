@@ -1,8 +1,9 @@
 import { PropType } from 'vue';
+import { ImageFit } from './Image.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     fit: {
-        type: PropType<string>;
+        type: PropType<ImageFit>;
         default: string;
     };
     src: {
@@ -22,7 +23,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     }>;
 }, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     fit: {
-        type: PropType<string>;
+        type: PropType<ImageFit>;
         default: string;
     };
     src: {
@@ -38,7 +39,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: string;
         };
         radius: {
-            type: PropType<string>;
+            type: PropType<import('../Skeleton/Skeleton.consts').SkeletonRadiusSize>;
             default: string;
         };
         width: {
@@ -60,7 +61,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: string;
         };
         radius: {
-            type: PropType<string>;
+            type: PropType<import('../Skeleton/Skeleton.consts').SkeletonRadiusSize>;
             default: string;
         };
         width: {
@@ -72,7 +73,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         width: string;
         height: string;
     }, {}, {
-        PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void, {}>;
+        PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

@@ -26,4 +26,4 @@ export declare const SECTION_HEADER_ICON_COLORS: {
     SUCCESS: string;
     WARNING: string;
 };
-export declare type SectionHeaderIconColor = Value<typeof SECTION_HEADER_ICON_COLORS>;
+export type SectionHeaderIconColor = Value<typeof SECTION_HEADER_ICON_COLORS>;

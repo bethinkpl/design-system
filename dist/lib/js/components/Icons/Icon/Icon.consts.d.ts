@@ -15,7 +15,7 @@ export declare const ICON_COLORS: {
     SUCCESS: string;
     WARNING: string;
 };
-export declare type IconColor = Value<typeof ICON_COLORS>;
+export type IconColor = Value<typeof ICON_COLORS>;
 export declare const ICON_SIZES: {
     XXX_SMALL: string;
     XX_SMALL: string;
@@ -26,7 +26,7 @@ export declare const ICON_SIZES: {
     X_LARGE: string;
     XX_LARGE: string;
 };
-export declare type IconSize = Value<typeof ICON_SIZES>;
+export type IconSize = Value<typeof ICON_SIZES>;
 export declare const ICONS: {
     readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
     readonly RIBBON: VueConstructor<Vue>;
@@ -234,5 +234,5 @@ export declare const ICONS: {
     readonly FA_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
 };
-export declare type IconKey = keyof typeof ICONS;
-export declare type IconItem = typeof ICONS[IconKey];
+export type IconKey = keyof typeof ICONS;
+export type IconItem = typeof ICONS[IconKey];

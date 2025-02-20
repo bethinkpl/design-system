@@ -1,3 +1,5 @@
+export { default as Avatar } from './components/Avatar';
+export * from './components/Avatar/Avatar.consts';
 export { default as BadgeScore } from './components/BadgeScore';
 export { default as DsBadgeScore } from './components/BadgeScore';
 export * from './components/BadgeScore/BadgeScore.consts';

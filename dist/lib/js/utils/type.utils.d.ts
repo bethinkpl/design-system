@@ -1,1 +1,1 @@
-export declare type Value<T extends {}> = T[keyof T];
+export type Value<T extends {}> = T[keyof T];

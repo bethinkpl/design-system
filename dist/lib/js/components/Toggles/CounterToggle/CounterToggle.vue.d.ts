@@ -1,4 +1,27 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    counter: {
+        type: (StringConstructor | NumberConstructor)[];
+        default: null;
+    };
+    color: {
+        type: StringConstructor;
+        default: string;
+        validator(color: unknown): boolean;
+    };
+    icon: {
+        type: ObjectConstructor;
+        required: true;
+        validator(icon: unknown): boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isDisabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>, {}, {
     ICON_SIZES: Readonly<{
         XXX_SMALL: string;
         XX_SMALL: string;
@@ -12,7 +35,30 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
 }, {
     colorClass(): string;
     hasCounter(): boolean;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    counter: {
+        type: (StringConstructor | NumberConstructor)[];
+        default: null;
+    };
+    color: {
+        type: StringConstructor;
+        default: string;
+        validator(color: unknown): boolean;
+    };
+    icon: {
+        type: ObjectConstructor;
+        required: true;
+        validator(icon: unknown): boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isDisabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>> & Readonly<{}>, {
     color: string;
     isSelected: boolean;
     isDisabled: boolean;
@@ -87,14 +133,14 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
         size: string;
+        rotation: number;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

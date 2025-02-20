@@ -1,9 +1,45 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    pageTitle: {
+        type: StringConstructor;
+        required: true;
+    };
+    supportingInfo: {
+        type: StringConstructor;
+        default: null;
+    };
+    divider: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    mobileLayout: {
+        type: StringConstructor;
+        default: "vertical";
+        validator: (value: unknown) => boolean;
+    };
+}>, {}, {
     PAGE_HEADER_MOBILE_LAYOUTS: Readonly<{
         readonly VERTICAL: "vertical";
         readonly HORIZONTAL: "horizontal";
     }>;
-}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    pageTitle: {
+        type: StringConstructor;
+        required: true;
+    };
+    supportingInfo: {
+        type: StringConstructor;
+        default: null;
+    };
+    divider: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    mobileLayout: {
+        type: StringConstructor;
+        default: "vertical";
+        validator: (value: unknown) => boolean;
+    };
+}>> & Readonly<{}>, {
     divider: boolean;
     mobileLayout: string;
     supportingInfo: string;

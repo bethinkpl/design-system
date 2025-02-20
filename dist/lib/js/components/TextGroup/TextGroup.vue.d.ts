@@ -1,13 +1,13 @@
 import { PropType } from 'vue';
-import { TextGroupState } from './TextGroup.consts';
+import { TextGroupColor, TextGroupLoadingSize, TextGroupSize, TextGroupState } from './TextGroup.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     size: {
-        type: PropType<string>;
+        type: PropType<TextGroupSize>;
         default: string;
     };
     color: {
-        type: PropType<"neutral">;
+        type: PropType<TextGroupColor>;
         default: "neutral";
     };
     eyebrowText: {
@@ -43,7 +43,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     skeletonLoadingSize: {
-        type: PropType<string>;
+        type: PropType<TextGroupLoadingSize>;
         default: string;
     };
     isSelected: {
@@ -87,11 +87,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     loadingSizeClassName(): string;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     size: {
-        type: PropType<string>;
+        type: PropType<TextGroupSize>;
         default: string;
     };
     color: {
-        type: PropType<"neutral">;
+        type: PropType<TextGroupColor>;
         default: "neutral";
     };
     eyebrowText: {
@@ -127,7 +127,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     skeletonLoadingSize: {
-        type: PropType<string>;
+        type: PropType<TextGroupLoadingSize>;
         default: string;
     };
     isSelected: {
@@ -179,7 +179,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: string;
         };
         radius: {
-            type: PropType<string>;
+            type: PropType<import('../..').SkeletonRadiusSize>;
             default: string;
         };
         width: {
@@ -201,7 +201,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: string;
         };
         radius: {
-            type: PropType<string>;
+            type: PropType<import('../..').SkeletonRadiusSize>;
             default: string;
         };
         width: {
@@ -213,7 +213,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         width: string;
         height: string;
     }, {}, {
-        PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void, {}>;
+        PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     DsTooltip: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         placement: {

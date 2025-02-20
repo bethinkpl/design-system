@@ -8,10 +8,10 @@ export declare const LOADING_BAR_COLORS: {
     DANGER: string;
     INFO: string;
 };
-export declare type LoadingBarColors = Value<typeof LOADING_BAR_COLORS>;
+export type LoadingBarColors = Value<typeof LOADING_BAR_COLORS>;
 export declare const LOADING_BAR_SIZES: {
     SMALL: string;
     MEDIUM: string;
     LARGE: string;
 };
-export declare type LoadingBarSizes = Value<typeof LOADING_BAR_SIZES>;
+export type LoadingBarSizes = Value<typeof LOADING_BAR_SIZES>;

@@ -9,15 +9,15 @@ export declare const CARD_BORDER_COLORS: {
     INFO: string;
     TRANSPARENT: string;
 };
-export declare type CardBorderColors = Value<typeof CARD_BORDER_COLORS>;
+export type CardBorderColors = Value<typeof CARD_BORDER_COLORS>;
 export declare const CARD_BORDER_SIZES: {
     SMALL: string;
     MEDIUM: string;
     LARGE: string;
 };
-export declare type CardBorderSizes = Value<typeof CARD_BORDER_SIZES>;
+export type CardBorderSizes = Value<typeof CARD_BORDER_SIZES>;
 export declare const CARD_BORDER_POSITIONS: {
     TOP: string;
     LEFT: string;
 };
-export declare type CardBorderPositions = Value<typeof CARD_BORDER_POSITIONS>;
+export type CardBorderPositions = Value<typeof CARD_BORDER_POSITIONS>;
