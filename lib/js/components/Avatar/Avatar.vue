@@ -35,31 +35,55 @@
 	&.-ds-xx-small {
 		height: 24px;
 		width: 24px;
+
+		& #{$root}__content {
+			@include info-s-default-regular;
+		}
 	}
 
 	&.-ds-x-small {
 		height: 32px;
 		width: 32px;
+
+		& #{$root}__content {
+			@include heading-s-default-regular;
+		}
 	}
 
 	&.-ds-small {
 		height: 40px;
 		width: 40px;
+
+		& #{$root}__content {
+			@include heading-m-default-regular;
+		}
 	}
 
 	&.-ds-medium {
 		height: 64px;
 		width: 64px;
+
+		& #{$root}__content {
+			@include displayHeading-xs-default-regular;
+		}
 	}
 
 	&.-ds-large {
 		height: 88px;
 		width: 88px;
+
+		& #{$root}__content {
+			@include displayHeading-m-default-regular;
+		}
 	}
 
 	&.-ds-x-large {
 		height: 140px;
 		width: 140px;
+
+		& #{$root}__content {
+			@include displayHeading-m-default-regular;
+		}
 	}
 
 	&.-ds-xx-small,
@@ -79,8 +103,6 @@
 	}
 
 	&__content {
-		@include heading-l-default-regular;
-
 		align-items: center;
 		color: $color-inverted-text;
 		display: flex;
@@ -101,11 +123,18 @@
 import { AVATAR_SIZES, AvatarSize } from './Avatar.consts';
 import { computed } from 'vue';
 
-const props = defineProps<{
-	username: string;
-	avatarUrl?: string;
-	size: AvatarSize;
-}>();
+const props = withDefaults(
+	defineProps<{
+		username: string;
+		avatarUrl?: string;
+		size?: AvatarSize;
+	}>(),
+	{
+		// fixme - UX team will provide a default size
+		size: AVATAR_SIZES.SMALL,
+		avatarUrl: undefined,
+	},
+);
 
 const initialsBackgrounds = [
 	'#1abc9c',
@@ -136,9 +165,14 @@ function getInitials(username: string) {
 	return first.substring(0, 2).toUpperCase();
 }
 
-let colorIndex = computed(() => (props.username.charCodeAt(0) - 65) % 16);
 const initialBackgroundColor = computed(() => {
-	return initialsBackgrounds[colorIndex.value];
+	if (props.avatarUrl) {
+		return;
+	}
+
+	const colorIndex = (props.username.charCodeAt(0) - 65) % 16;
+
+	return initialsBackgrounds[colorIndex];
 });
 const initials = computed(() => getInitials(props.username));
 </script>
