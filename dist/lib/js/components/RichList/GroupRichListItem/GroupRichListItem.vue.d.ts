@@ -1,4 +1,5 @@
 import { PropType } from 'vue';
+import { GroupRichListItemBackgroundColor, GroupRichListItemBorderColor } from './GroupRichListItem.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     isExpanded: {
@@ -6,7 +7,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     borderColor: {
-        type: PropType<import('../RichListItem').RichListItemBorderColor>;
+        type: PropType<GroupRichListItemBorderColor>;
         default: null;
         validator(borderColor: unknown): boolean;
     };
@@ -15,7 +16,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     backgroundColor: {
-        type: PropType<import('../RichListItem').RichListItemBackgroundColor>;
+        type: PropType<GroupRichListItemBackgroundColor>;
         default: "neutral";
         validator(backgroundColor: unknown): boolean;
     };
@@ -31,7 +32,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     borderColor: {
-        type: PropType<import('../RichListItem').RichListItemBorderColor>;
+        type: PropType<GroupRichListItemBorderColor>;
         default: null;
         validator(borderColor: unknown): boolean;
     };
@@ -40,7 +41,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     backgroundColor: {
-        type: PropType<import('../RichListItem').RichListItemBackgroundColor>;
+        type: PropType<GroupRichListItemBackgroundColor>;
         default: "neutral";
         validator(backgroundColor: unknown): boolean;
     };

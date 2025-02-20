@@ -1,7 +1,64 @@
-import { ToggleButtonColor, ToggleButtonLabelSize, ToggleButtonRadius, ToggleButtonSize, ToggleButtonState } from './ToggleButton.consts';
-import { IconSize } from '../../Icons/Icon';
+import { Value } from '../../../utils/type.utils';
+import { PropType } from 'vue';
+import { TOGGLE_BUTTON_COLORS, TOGGLE_BUTTON_RADIUSES, TOGGLE_BUTTON_SIZES, TOGGLE_BUTTON_STATES, ToggleButtonColor, ToggleButtonLabelSize, ToggleButtonRadius, ToggleButtonSize, ToggleButtonState } from './ToggleButton.consts';
+import { IconItem, IconSize } from '../../Icons/Icon';
 
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    color: {
+        type: PropType<ToggleButtonColor>;
+        default: "neutral";
+        validator(value: Value<typeof TOGGLE_BUTTON_COLORS>): boolean;
+    };
+    hasSmallHorizontalPadding: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    iconLeft: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    iconRight: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isLabelUppercase: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    label: {
+        type: StringConstructor;
+        default: string;
+    };
+    labelSize: {
+        type: PropType<ToggleButtonLabelSize>;
+        default: "medium";
+    };
+    radius: {
+        type: PropType<ToggleButtonRadius>;
+        default: "capsule";
+        validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>): boolean;
+    };
+    size: {
+        type: PropType<ToggleButtonSize>;
+        default: "medium";
+        validator(value: Value<typeof TOGGLE_BUTTON_SIZES>): boolean;
+    };
+    state: {
+        type: PropType<ToggleButtonState>;
+        default: "default";
+        validator(value: Value<typeof TOGGLE_BUTTON_STATES>): boolean;
+    };
+}>, {}, {
     ICONS: Readonly<{
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly RIBBON: VueConstructor<Vue>;
@@ -237,7 +294,62 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     colorClassName(): string;
     iconSize(): IconSize;
     isInteractiveComputed(): boolean;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "click"[], "click", import('vue').PublicProps, Readonly<{}> & Readonly<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "click"[], "click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    color: {
+        type: PropType<ToggleButtonColor>;
+        default: "neutral";
+        validator(value: Value<typeof TOGGLE_BUTTON_COLORS>): boolean;
+    };
+    hasSmallHorizontalPadding: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    iconLeft: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    iconRight: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isLabelUppercase: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    label: {
+        type: StringConstructor;
+        default: string;
+    };
+    labelSize: {
+        type: PropType<ToggleButtonLabelSize>;
+        default: "medium";
+    };
+    radius: {
+        type: PropType<ToggleButtonRadius>;
+        default: "capsule";
+        validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>): boolean;
+    };
+    size: {
+        type: PropType<ToggleButtonSize>;
+        default: "medium";
+        validator(value: Value<typeof TOGGLE_BUTTON_SIZES>): boolean;
+    };
+    state: {
+        type: PropType<ToggleButtonState>;
+        default: "default";
+        validator(value: Value<typeof TOGGLE_BUTTON_STATES>): boolean;
+    };
+}>> & Readonly<{
     onClick?: ((...args: any[]) => any) | undefined;
 }>, {
     size: ToggleButtonSize;
@@ -329,7 +441,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

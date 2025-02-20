@@ -1,4 +1,40 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+import { ICON_TEXT_STATES } from './IconText.consts';
+import { Value } from '../../utils/type.utils';
+
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    color: {
+        type: StringConstructor;
+        default: string;
+        validator(color: unknown): boolean;
+    };
+    icon: {
+        type: ObjectConstructor;
+        required: true;
+        validate: (icon: any) => boolean;
+    };
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isLabelBold: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    label: {
+        type: StringConstructor;
+        required: true;
+    };
+    size: {
+        type: StringConstructor;
+        default: string;
+        validator(size: unknown): boolean;
+    };
+    state: {
+        type: StringConstructor;
+        default: string;
+        validator(value: Value<typeof ICON_TEXT_STATES>): boolean;
+    };
+}>, {}, {
     ICON_SIZES: Readonly<{
         XXX_SMALL: string;
         XX_SMALL: string;
@@ -24,7 +60,40 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     }>;
 }, {
     iconSize(): string;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    color: {
+        type: StringConstructor;
+        default: string;
+        validator(color: unknown): boolean;
+    };
+    icon: {
+        type: ObjectConstructor;
+        required: true;
+        validate: (icon: any) => boolean;
+    };
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isLabelBold: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    label: {
+        type: StringConstructor;
+        required: true;
+    };
+    size: {
+        type: StringConstructor;
+        default: string;
+        validator(size: unknown): boolean;
+    };
+    state: {
+        type: StringConstructor;
+        default: string;
+        validator(value: Value<typeof ICON_TEXT_STATES>): boolean;
+    };
+}>> & Readonly<{}>, {
     size: string;
     color: string;
     state: string;
@@ -107,7 +176,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

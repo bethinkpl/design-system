@@ -1,4 +1,49 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+import { Value } from '../../../utils/type.utils';
+import { BUTTON_ELEVATIONS, BUTTON_RADIUSES, BUTTON_SIZES, BUTTON_STATES, BUTTON_TYPES } from './Button.consts';
+import { ICON_BUTTON_COLORS } from '../IconButton/IconButton.consts';
+
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    size: {
+        type: StringConstructor;
+        default: "medium";
+        validator(value: Value<typeof BUTTON_SIZES>): boolean;
+    };
+    type: {
+        type: StringConstructor;
+        default: "filled";
+        validator(value: Value<typeof BUTTON_TYPES>): boolean;
+    };
+    color: {
+        type: StringConstructor;
+        default: "primary";
+        validator(value: Value<typeof ICON_BUTTON_COLORS>): boolean;
+    };
+    radius: {
+        type: StringConstructor;
+        default: "capsule";
+        validator(value: Value<typeof BUTTON_RADIUSES>): boolean;
+    };
+    state: {
+        type: StringConstructor;
+        default: "default";
+        validator(value: Value<typeof BUTTON_STATES>): boolean;
+    };
+    iconLeft: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    iconRight: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    elevation: {
+        type: StringConstructor;
+        default: "none";
+        validator(value: Value<typeof BUTTON_ELEVATIONS>): boolean;
+    };
+}>, {}, {
     ICONS: Readonly<{
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly RIBBON: VueConstructor<Vue>;
@@ -253,7 +298,48 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     iconSize(): string;
     colorClassName(): string;
     loadingIconSize(): string;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    size: {
+        type: StringConstructor;
+        default: "medium";
+        validator(value: Value<typeof BUTTON_SIZES>): boolean;
+    };
+    type: {
+        type: StringConstructor;
+        default: "filled";
+        validator(value: Value<typeof BUTTON_TYPES>): boolean;
+    };
+    color: {
+        type: StringConstructor;
+        default: "primary";
+        validator(value: Value<typeof ICON_BUTTON_COLORS>): boolean;
+    };
+    radius: {
+        type: StringConstructor;
+        default: "capsule";
+        validator(value: Value<typeof BUTTON_RADIUSES>): boolean;
+    };
+    state: {
+        type: StringConstructor;
+        default: "default";
+        validator(value: Value<typeof BUTTON_STATES>): boolean;
+    };
+    iconLeft: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    iconRight: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    elevation: {
+        type: StringConstructor;
+        default: "none";
+        validator(value: Value<typeof BUTTON_ELEVATIONS>): boolean;
+    };
+}>> & Readonly<{}>, {
     size: string;
     type: string;
     color: string;
@@ -339,7 +425,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

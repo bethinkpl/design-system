@@ -1,4 +1,22 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+import { ProgressDonutChartRange, ProgressDonutChartState } from './ProgressDonutChart.consts';
+import { PropType } from 'vue';
+
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    label: {
+        type: StringConstructor;
+        default: string;
+    };
+    state: {
+        type: PropType<ProgressDonutChartState>;
+        default: string;
+        validator(state: unknown): boolean;
+    };
+    ranges: {
+        type: PropType<Array<ProgressDonutChartRange>>;
+        required: true;
+        validator(ranges: unknown): any;
+    };
+}>, {}, {
     PROGRESS_DONUT_CHART_STATES: Readonly<{
         DEFAULT: string;
         LOADING: string;
@@ -228,7 +246,22 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
 }, {
     labelText(): string;
     calculatedRanges(): any;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    label: {
+        type: StringConstructor;
+        default: string;
+    };
+    state: {
+        type: PropType<ProgressDonutChartState>;
+        default: string;
+        validator(state: unknown): boolean;
+    };
+    ranges: {
+        type: PropType<Array<ProgressDonutChartRange>>;
+        required: true;
+        validator(ranges: unknown): any;
+    };
+}>> & Readonly<{}>, {
     label: string;
     state: string;
 }, {}, {
@@ -308,7 +341,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

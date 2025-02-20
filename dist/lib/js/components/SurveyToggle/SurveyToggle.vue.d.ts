@@ -1,4 +1,33 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    label: {
+        type: StringConstructor;
+        default: null;
+    };
+    contentText: {
+        type: StringConstructor;
+        default: null;
+    };
+    meaning: {
+        type: StringConstructor;
+        default: "primary";
+        validator(meaning: unknown): boolean;
+    };
+    status: {
+        type: StringConstructor;
+        default: "default";
+        validator(status: unknown): boolean;
+    };
+    state: {
+        type: StringConstructor;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    selectedIcon: {
+        type: ObjectConstructor;
+        default(): import('@fortawesome/fontawesome-common-types').IconDefinition;
+        validator(selectedIcon: unknown): boolean;
+    };
+}>, {}, {
     hovered: boolean;
     ICON_SIZES: Readonly<{
         XXX_SMALL: string;
@@ -29,7 +58,36 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     isNeutral(): boolean;
     isNeutralSelected(): boolean;
     isHoveredState(): any;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    label: {
+        type: StringConstructor;
+        default: null;
+    };
+    contentText: {
+        type: StringConstructor;
+        default: null;
+    };
+    meaning: {
+        type: StringConstructor;
+        default: "primary";
+        validator(meaning: unknown): boolean;
+    };
+    status: {
+        type: StringConstructor;
+        default: "default";
+        validator(status: unknown): boolean;
+    };
+    state: {
+        type: StringConstructor;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    selectedIcon: {
+        type: ObjectConstructor;
+        default(): import('@fortawesome/fontawesome-common-types').IconDefinition;
+        validator(selectedIcon: unknown): boolean;
+    };
+}>> & Readonly<{}>, {
     label: string;
     state: string;
     selectedIcon: Record<string, any>;
@@ -113,7 +171,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

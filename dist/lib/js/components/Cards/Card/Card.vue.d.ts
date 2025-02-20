@@ -1,4 +1,6 @@
 import { PropType } from 'vue';
+import { LoadingBarColors } from '../../LoadingBar';
+import { CardBorderColors, CardBorderPositions, CardBorderSizes } from './Card.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     headerHasPadding: {
@@ -14,15 +16,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     borderPosition: {
-        type: PropType<string>;
+        type: PropType<CardBorderPositions>;
         default: string;
     };
     borderSize: {
-        type: PropType<string>;
+        type: PropType<CardBorderSizes>;
         default: string;
     };
     borderColor: {
-        type: PropType<string>;
+        type: PropType<CardBorderColors>;
         default: string;
     };
     hasLoadingBar: {
@@ -30,7 +32,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     loadingBarColor: {
-        type: PropType<string>;
+        type: PropType<LoadingBarColors>;
         default: string;
     };
     loadingBarTime: {
@@ -56,15 +58,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     borderPosition: {
-        type: PropType<string>;
+        type: PropType<CardBorderPositions>;
         default: string;
     };
     borderSize: {
-        type: PropType<string>;
+        type: PropType<CardBorderSizes>;
         default: string;
     };
     borderColor: {
-        type: PropType<string>;
+        type: PropType<CardBorderColors>;
         default: string;
     };
     hasLoadingBar: {
@@ -72,7 +74,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     loadingBarColor: {
-        type: PropType<string>;
+        type: PropType<LoadingBarColors>;
         default: string;
     };
     loadingBarTime: {
@@ -135,11 +137,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     DsLoadingBar: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         color: {
-            type: PropType<string>;
+            type: PropType<LoadingBarColors>;
             default: string;
         };
         size: {
-            type: PropType<string>;
+            type: PropType<import('../../LoadingBar').LoadingBarSizes>;
             default: string;
         };
         time: {
@@ -157,11 +159,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         color: {
-            type: PropType<string>;
+            type: PropType<LoadingBarColors>;
             default: string;
         };
         size: {
-            type: PropType<string>;
+            type: PropType<import('../../LoadingBar').LoadingBarSizes>;
             default: string;
         };
         time: {

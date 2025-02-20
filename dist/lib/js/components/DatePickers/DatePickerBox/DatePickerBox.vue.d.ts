@@ -1,4 +1,58 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+import { DatePickerColors } from '../DatePicker/DatePicker.consts';
+import { PropType } from 'vue';
+
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    placeholder: {
+        type: StringConstructor;
+        default: string;
+    };
+    startDate: {
+        type: DateConstructor;
+        default: null;
+    };
+    endDate: {
+        type: DateConstructor;
+        default: null;
+    };
+    startIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validate: (icon: any) => boolean;
+    };
+    endIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validate: (icon: any) => boolean;
+    };
+    areIconsHiddenOnMobile: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    state: {
+        type: PropType<string>;
+        default: string;
+    };
+    color: {
+        type: PropType<DatePickerColors>;
+        default: string;
+    };
+    startDateEyebrowText: {
+        type: StringConstructor;
+        default: string;
+    };
+    endDateEyebrowText: {
+        type: StringConstructor;
+        default: string;
+    };
+    isOpen: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>, {}, {
     ICONS: Readonly<{
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly RIBBON: VueConstructor<Vue>;
@@ -230,7 +284,58 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
 }, {
     startDateText(): any;
     endDateText(): string;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    placeholder: {
+        type: StringConstructor;
+        default: string;
+    };
+    startDate: {
+        type: DateConstructor;
+        default: null;
+    };
+    endDate: {
+        type: DateConstructor;
+        default: null;
+    };
+    startIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validate: (icon: any) => boolean;
+    };
+    endIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validate: (icon: any) => boolean;
+    };
+    areIconsHiddenOnMobile: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    state: {
+        type: PropType<string>;
+        default: string;
+    };
+    color: {
+        type: PropType<DatePickerColors>;
+        default: string;
+    };
+    startDateEyebrowText: {
+        type: StringConstructor;
+        default: string;
+    };
+    endDateEyebrowText: {
+        type: StringConstructor;
+        default: string;
+    };
+    isOpen: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>> & Readonly<{}>, {
     color: string;
     state: string;
     isInteractive: boolean;
@@ -320,7 +425,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

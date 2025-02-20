@@ -1,4 +1,26 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    icon: {
+        type: (ObjectConstructor | null)[];
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        required: true;
+    };
+    label: {
+        type: (StringConstructor | null)[];
+        default: null;
+    };
+    labelEllipsis: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    size: {
+        type: StringConstructor;
+        default: "M";
+    };
+}>, {}, {
     TAB_ITEM_SIZES: Readonly<{
         readonly SMALL: "S";
         readonly MEDIUM: "M";
@@ -13,7 +35,29 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         X_LARGE: string;
         XX_LARGE: string;
     }>;
-}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "click"[], "click", import('vue').PublicProps, Readonly<{}> & Readonly<{
+}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "click"[], "click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    icon: {
+        type: (ObjectConstructor | null)[];
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        required: true;
+    };
+    label: {
+        type: (StringConstructor | null)[];
+        default: null;
+    };
+    labelEllipsis: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    size: {
+        type: StringConstructor;
+        default: "M";
+    };
+}>> & Readonly<{
     onClick?: ((...args: any[]) => any) | undefined;
 }>, {
     icon: Record<string, any> | null;
@@ -97,7 +141,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

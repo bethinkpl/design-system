@@ -1,6 +1,21 @@
+import { PropType } from 'vue';
 import { DrawerListItemState } from './DrawerListItem.consts';
 
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    state: {
+        type: PropType<DrawerListItemState>;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    label: {
+        type: StringConstructor;
+        required: true;
+    };
+    valueText: {
+        type: StringConstructor;
+        required: true;
+    };
+}>, {}, {
     DRAWER_LIST_ITEM_STATES: Readonly<{
         readonly DEFAULT: "default";
         readonly LOADING: "loading";
@@ -222,7 +237,21 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         X_LARGE: string;
         XX_LARGE: string;
     }>;
-}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    state: {
+        type: PropType<DrawerListItemState>;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    label: {
+        type: StringConstructor;
+        required: true;
+    };
+    valueText: {
+        type: StringConstructor;
+        required: true;
+    };
+}>> & Readonly<{}>, {
     state: DrawerListItemState;
 }, {}, {
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -301,7 +330,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

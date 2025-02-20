@@ -297,15 +297,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
         borderPosition: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardBorderPositions>;
             default: string;
         };
         borderSize: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardBorderSizes>;
             default: string;
         };
         borderColor: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardBorderColors>;
             default: string;
         };
         hasLoadingBar: {
@@ -313,7 +313,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
         loadingBarColor: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../../LoadingBar').LoadingBarColors>;
             default: string;
         };
         loadingBarTime: {
@@ -339,15 +339,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
         borderPosition: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardBorderPositions>;
             default: string;
         };
         borderSize: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardBorderSizes>;
             default: string;
         };
         borderColor: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardBorderColors>;
             default: string;
         };
         hasLoadingBar: {
@@ -355,7 +355,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
         loadingBarColor: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../../LoadingBar').LoadingBarColors>;
             default: string;
         };
         loadingBarTime: {
@@ -418,11 +418,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
         DsLoadingBar: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             color: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../LoadingBar').LoadingBarColors>;
                 default: string;
             };
             size: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../LoadingBar').LoadingBarSizes>;
                 default: string;
             };
             time: {
@@ -440,11 +440,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             };
         }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
             color: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../LoadingBar').LoadingBarColors>;
                 default: string;
             };
             size: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../LoadingBar').LoadingBarSizes>;
                 default: string;
             };
             time: {
@@ -532,7 +532,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

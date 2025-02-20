@@ -1,4 +1,29 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+import { ICON_BUTTON_COLORS, ICON_BUTTON_STATES } from '../Buttons/IconButton';
+
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    currentPage: {
+        type: NumberConstructor;
+        default: number;
+        validator(page: unknown): boolean;
+    };
+    forceCompact: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isCentered: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    itemsPerPage: {
+        type: NumberConstructor;
+        default: number;
+        validator(itemsPerPage: unknown): boolean;
+    };
+    itemsTotalAmount: {
+        type: NumberConstructor;
+        required: true;
+    };
+}>, {}, {
     DROPDOWN_PLACEMENTS: Readonly<{
         readonly BOTTOM_START: "bottom-start";
         readonly BOTTOM_END: "bottom-end";
@@ -246,13 +271,36 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     navigationItems(): Array<number | string>;
     navigationItemsForDropdown(): any;
 }, {
-    ellipsisAsSecond(index: number): boolean;
+    ellipsisAsSecond(index: number): index is 1;
     getRange(start: number, end: number): Array<number>;
     changePage(page: any): void;
     isPage(item: any): boolean;
     onInputValueConfirmed(event: any): void;
     onDropdownClick(page: number, close: () => void): void;
-}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "change-page"[], "change-page", import('vue').PublicProps, Readonly<{}> & Readonly<{
+}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "change-page"[], "change-page", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    currentPage: {
+        type: NumberConstructor;
+        default: number;
+        validator(page: unknown): boolean;
+    };
+    forceCompact: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isCentered: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    itemsPerPage: {
+        type: NumberConstructor;
+        default: number;
+        validator(itemsPerPage: unknown): boolean;
+    };
+    itemsTotalAmount: {
+        type: NumberConstructor;
+        required: true;
+    };
+}>> & Readonly<{
     "onChange-page"?: ((...args: any[]) => any) | undefined;
 }>, {
     currentPage: number;
@@ -260,8 +308,53 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     isCentered: boolean;
     itemsPerPage: number;
 }, {}, {
-    IconButton: import('vue').DefineComponent<{}, {
-        isHovered: import('vue').Ref<boolean, boolean>;
+    IconButton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        size: {
+            type: StringConstructor;
+            default: "large";
+            validator(value: unknown): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "capsule";
+            validator(value: unknown): boolean;
+        };
+        type: {
+            type: StringConstructor;
+            default: "icon-only";
+            validator(value: unknown): boolean;
+        };
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        color: {
+            type: StringConstructor;
+            default: "primary";
+            validator(value: unknown): boolean;
+        };
+        colorScheme: {
+            type: StringConstructor;
+            default: "all-in-color";
+            validator(value: unknown): boolean;
+        };
+        elevation: {
+            type: StringConstructor;
+            default: "none";
+            validator(value: unknown): boolean;
+        };
+        touchable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_STATES>): boolean;
+        };
+    }>, {
+        isHovered: import('vue').Ref<boolean>;
         mouseOver: () => void;
         mouseLeave: () => void;
         touchStart: () => void;
@@ -531,7 +624,52 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         computedColor(): string | null;
         isButtonColor(): boolean;
         colorClassName(): string;
-    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        size: {
+            type: StringConstructor;
+            default: "large";
+            validator(value: unknown): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "capsule";
+            validator(value: unknown): boolean;
+        };
+        type: {
+            type: StringConstructor;
+            default: "icon-only";
+            validator(value: unknown): boolean;
+        };
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        color: {
+            type: StringConstructor;
+            default: "primary";
+            validator(value: unknown): boolean;
+        };
+        colorScheme: {
+            type: StringConstructor;
+            default: "all-in-color";
+            validator(value: unknown): boolean;
+        };
+        elevation: {
+            type: StringConstructor;
+            default: "none";
+            validator(value: unknown): boolean;
+        };
+        touchable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_STATES>): boolean;
+        };
+    }>> & Readonly<{}>, {
         size: string;
         type: string;
         touchable: boolean;
@@ -617,9 +755,50 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-        WnlButton: import('vue').DefineComponent<{}, {}, {
+        WnlButton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+            size: {
+                type: StringConstructor;
+                default: "medium";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_SIZES>): boolean;
+            };
+            type: {
+                type: StringConstructor;
+                default: "filled";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_TYPES>): boolean;
+            };
+            color: {
+                type: StringConstructor;
+                default: "primary";
+                validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
+            };
+            radius: {
+                type: StringConstructor;
+                default: "capsule";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_RADIUSES>): boolean;
+            };
+            state: {
+                type: StringConstructor;
+                default: "default";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_STATES>): boolean;
+            };
+            iconLeft: {
+                type: ObjectConstructor;
+                default: null;
+                validator(icon: unknown): boolean;
+            };
+            iconRight: {
+                type: ObjectConstructor;
+                default: null;
+                validator(icon: unknown): boolean;
+            };
+            elevation: {
+                type: StringConstructor;
+                default: "none";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_ELEVATIONS>): boolean;
+            };
+        }>, {}, {
             ICONS: Readonly<{
                 readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
                 readonly RIBBON: VueConstructor<Vue>;
@@ -874,7 +1053,48 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             iconSize(): string;
             colorClassName(): string;
             loadingIconSize(): string;
-        }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+        }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+            size: {
+                type: StringConstructor;
+                default: "medium";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_SIZES>): boolean;
+            };
+            type: {
+                type: StringConstructor;
+                default: "filled";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_TYPES>): boolean;
+            };
+            color: {
+                type: StringConstructor;
+                default: "primary";
+                validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
+            };
+            radius: {
+                type: StringConstructor;
+                default: "capsule";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_RADIUSES>): boolean;
+            };
+            state: {
+                type: StringConstructor;
+                default: "default";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_STATES>): boolean;
+            };
+            iconLeft: {
+                type: ObjectConstructor;
+                default: null;
+                validator(icon: unknown): boolean;
+            };
+            iconRight: {
+                type: ObjectConstructor;
+                default: null;
+                validator(icon: unknown): boolean;
+            };
+            elevation: {
+                type: StringConstructor;
+                default: "none";
+                validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_ELEVATIONS>): boolean;
+            };
+        }>> & Readonly<{}>, {
             size: string;
             type: string;
             color: string;
@@ -960,11 +1180,43 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 touchable: boolean;
                 spinning: boolean;
             }, {}, {
-                FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+                FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
             }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-    Dropdown: import('vue').DefineComponent<{}, {}, {
+    Dropdown: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        boundariesSelector: {
+            type: StringConstructor;
+            default: null;
+        };
+        forceShow: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        sameWidth: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        triggerAction: {
+            type: StringConstructor;
+            default: "click";
+            validator(triggerAction: unknown): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "both";
+            validate(radius: any): boolean;
+        };
+        placement: {
+            type: StringConstructor;
+            default: "bottom-start";
+            validate(placement: any): boolean;
+        };
+        maxHeight: {
+            type: StringConstructor;
+            default: null;
+        };
+    }>, {}, {
         key: number;
         isOpened: boolean;
         DROPDOWN_RADIUSES: Readonly<{
@@ -980,10 +1232,42 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         updateKey(): void;
         onHide(): void;
         onShow(): void;
-    }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("document-click" | "hide" | "show")[], "show" | "hide" | "document-click", import('vue').PublicProps, Readonly<{}> & Readonly<{
-        "onDocument-click"?: ((...args: any[]) => any) | undefined;
-        onHide?: ((...args: any[]) => any) | undefined;
+    }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("show" | "hide" | "document-click")[], "show" | "hide" | "document-click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        boundariesSelector: {
+            type: StringConstructor;
+            default: null;
+        };
+        forceShow: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        sameWidth: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        triggerAction: {
+            type: StringConstructor;
+            default: "click";
+            validator(triggerAction: unknown): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "both";
+            validate(radius: any): boolean;
+        };
+        placement: {
+            type: StringConstructor;
+            default: "bottom-start";
+            validate(placement: any): boolean;
+        };
+        maxHeight: {
+            type: StringConstructor;
+            default: null;
+        };
+    }>> & Readonly<{
         onShow?: ((...args: any[]) => any) | undefined;
+        onHide?: ((...args: any[]) => any) | undefined;
+        "onDocument-click"?: ((...args: any[]) => any) | undefined;
     }>, {
         radius: string;
         boundariesSelector: string;
@@ -995,7 +1279,44 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     }, {}, {
         VuePopper: any;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-    SelectListItem: import('vue').DefineComponent<{}, {}, {
+    SelectListItem: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        iconLeft: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        isSelected: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        label: {
+            type: StringConstructor;
+            required: true;
+        };
+        eyebrowText: {
+            type: StringConstructor;
+            default: string;
+        };
+        isEyebrowTextUppercase: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        selectionMode: {
+            type: StringConstructor;
+            default: string;
+            validator(selectionMode: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator(size: unknown): boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: string;
+            validator(state: unknown): boolean;
+        };
+    }>, {}, {
         ICON_SIZES: Readonly<{
             XXX_SMALL: string;
             XX_SMALL: string;
@@ -1225,7 +1546,44 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     }, {
         isLoading(): boolean;
         isDisabled(): boolean;
-    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        iconLeft: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        isSelected: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        label: {
+            type: StringConstructor;
+            required: true;
+        };
+        eyebrowText: {
+            type: StringConstructor;
+            default: string;
+        };
+        isEyebrowTextUppercase: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        selectionMode: {
+            type: StringConstructor;
+            default: string;
+            validator(selectionMode: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator(size: unknown): boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: string;
+            validator(state: unknown): boolean;
+        };
+    }>> & Readonly<{}>, {
         size: string;
         state: string;
         iconLeft: Record<string, any>;
@@ -1310,7 +1668,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     SelectList: import('vue').DefineComponent<{}, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
