@@ -20,6 +20,7 @@ module.exports = {
 		parser: '@typescript-eslint/parser',
 	},
 	rules: {
+		'no-console': ['error', { allow: ['log', 'error'] }],
 		'key-spacing': [
 			'error',
 			{
