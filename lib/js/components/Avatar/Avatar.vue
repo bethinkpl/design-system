@@ -109,6 +109,7 @@
 		flex: 1;
 		justify-content: center;
 		overflow: hidden;
+		user-select: none;
 	}
 
 	&__image {

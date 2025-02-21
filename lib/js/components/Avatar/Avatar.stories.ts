@@ -21,7 +21,7 @@ const meta: Meta<typeof Avatar> = {
 	argTypes: {
 		size: {
 			control: 'select',
-			options: Object.values(AVATAR_SIZES),
+			options: [...Object.values(AVATAR_SIZES), undefined],
 		},
 	},
 };
