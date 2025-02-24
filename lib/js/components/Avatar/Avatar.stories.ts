@@ -21,7 +21,7 @@ const meta: Meta<typeof Avatar> = {
 	argTypes: {
 		size: {
 			control: 'select',
-			options: [...Object.values(AVATAR_SIZES), undefined],
+			options: [...Object.values(AVATAR_SIZES)],
 		},
 	},
 };
@@ -31,10 +31,17 @@ type Story = StoryObj<typeof Avatar>;
 
 export const Interactive: Story = {
 	args: {
-		size: AVATAR_SIZES.MEDIUM,
+		size: AVATAR_SIZES.X_SMALL,
 		username: 'Dariusz Chrapek',
 		avatarUrl:
 			'https://wiecejnizlek.pl/wp-content/uploads/2021/08/Dariusz_Chrapek-uai-2996x2996-1-scaled.jpeg',
+	},
+};
+
+Interactive.parameters = {
+	design: {
+		type: 'figma',
+		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=12364-12175&t=UpUoIm9oCAaH4dEp-4',
 	},
 };
 
@@ -79,6 +86,6 @@ export const Colors: Story = {
 		},
 	},
 	args: {
-		size: AVATAR_SIZES.MEDIUM,
+		size: AVATAR_SIZES.X_SMALL,
 	},
 };

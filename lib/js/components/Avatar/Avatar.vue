@@ -131,8 +131,7 @@ const props = withDefaults(
 		size?: AvatarSize;
 	}>(),
 	{
-		// fixme - UX team will provide a default size
-		size: AVATAR_SIZES.SMALL,
+		size: AVATAR_SIZES.X_SMALL,
 		avatarUrl: undefined,
 	},
 );
