@@ -158,9 +158,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     size: string;
     color: "neutral";
     state: TextGroupState;
+    isInteractive: boolean;
     eyebrowText: string | null;
     isEyebrowTextUppercase: boolean;
-    isInteractive: boolean;
     supportingText: string | null;
     isSelected: boolean;
     eyebrowTextEllipsis: boolean;

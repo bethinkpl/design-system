@@ -40,11 +40,7 @@ declare const _default: import('vue').DefineComponent<{
         BOX: string;
         TILE: string;
     }>;
-}, {}, {
-    endDateEyebrowText(): string;
-    endDateIfDifferentThanStartDate(): any;
-    eyebrowText(): string;
-}, {
+}, {}, {}, {
     toggle(): void;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     'update:date': (value: {
@@ -83,7 +79,7 @@ declare const _default: import('vue').DefineComponent<{
     maxDate: Date;
     updatePositionBasedOnScrollableSelector: string;
 }, {}, {
-    DatePickerBox: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    DateBox: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         isInteractive: {
             type: BooleanConstructor;
             default: boolean;
@@ -120,14 +116,6 @@ declare const _default: import('vue').DefineComponent<{
         };
         color: {
             type: PropType<DatePickerColors>;
-            default: string;
-        };
-        startDateEyebrowText: {
-            type: StringConstructor;
-            default: string;
-        };
-        endDateEyebrowText: {
-            type: StringConstructor;
             default: string;
         };
         isOpen: {
@@ -367,7 +355,10 @@ declare const _default: import('vue').DefineComponent<{
         }>;
     }, {
         startDateText(): any;
+        endDateIfDifferentThanStartDate(): any;
         endDateText(): string;
+        startDateEyebrowText(): string;
+        endDateEyebrowText(): string;
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         isInteractive: {
             type: BooleanConstructor;
@@ -407,14 +398,6 @@ declare const _default: import('vue').DefineComponent<{
             type: PropType<DatePickerColors>;
             default: string;
         };
-        startDateEyebrowText: {
-            type: StringConstructor;
-            default: string;
-        };
-        endDateEyebrowText: {
-            type: StringConstructor;
-            default: string;
-        };
         isOpen: {
             type: BooleanConstructor;
             default: boolean;
@@ -429,8 +412,6 @@ declare const _default: import('vue').DefineComponent<{
         startIcon: Record<string, any>;
         endIcon: Record<string, any>;
         areIconsHiddenOnMobile: boolean;
-        startDateEyebrowText: string;
-        endDateEyebrowText: string;
         isOpen: boolean;
     }, {}, {
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
