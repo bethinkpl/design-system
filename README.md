@@ -21,6 +21,8 @@ https://bethink.atlassian.net/wiki/spaces/IT/pages/1095073793/Jak+prowadzi+r+wno
 
 ## Deploying for design review
 Add a comment with `/review` in your PR to deploy Storybook to S3. Once the deployment is complete, a new comment with the URL will be posted.
+If you use the review command more than once and the changes are not visible in the link, add a query parameter to avoid issues with caching.
+`?cd=123`
 
 ## Releasing
 1. Bump version in `package.json`

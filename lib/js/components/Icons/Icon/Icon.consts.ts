@@ -5,6 +5,7 @@ import CommentsCheck from '../../../../images/icons/comments-check.svg';
 import Answers from '../../../../images/icons/icon-answers.svg';
 import HideAnswers from '../../../../images/icons/icon-hide-answers.svg';
 import SidebarFlipSolid from '../../../../images/icons/sidebar-flip-solid.svg';
+import Change from '../../../../images/icons/change.svg';
 
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
 import { Value } from '../../../utils/type.utils';
@@ -41,13 +42,14 @@ export const ICON_SIZES = {
 export type IconSize = Value<typeof ICON_SIZES>;
 
 const BETHINK_ICONS = {
-	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
-	RIBBON: Ribbon,
-	SLIDERS_SEARCH: SlidersSearch,
-	COMMENTS_CHECK: CommentsCheck,
 	ANSWERS: Answers,
+	CHANGE: Change,
+	COMMENTS_CHECK: CommentsCheck,
+	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
 	HIDE_ANSWERS: HideAnswers,
+	RIBBON: Ribbon,
 	SIDEBAR_FLIP_SOLID: SidebarFlipSolid,
+	SLIDERS_SEARCH: SlidersSearch,
 } as const;
 
 export const ICONS = {

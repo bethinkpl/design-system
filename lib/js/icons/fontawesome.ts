@@ -201,6 +201,7 @@ import { faChevronRight as falChevronRight } from '@fortawesome/pro-light-svg-ic
 import { faSpinnerThird as fadSpinnerThird } from '@fortawesome/pro-duotone-svg-icons/faSpinnerThird';
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
+import { faUserGear } from '@fortawesome/pro-regular-svg-icons/faUserGear';
 
 export const FONTAWESOME_ICONS = {
 	FA_ADDRESS_CARD: faAddressCard,
@@ -394,6 +395,7 @@ export const FONTAWESOME_ICONS = {
 	FA_UNLOCK_KEYHOLE: faUnlockKeyhole,
 	FA_UPLOAD: faUpload,
 	FA_USER: faUser,
+	FA_USER_GEAR: faUserGear,
 	FA_USER_DOCTOR_SOLID: fasUserDoctor,
 	FA_VIDEO_SOLID: fasVideo,
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
