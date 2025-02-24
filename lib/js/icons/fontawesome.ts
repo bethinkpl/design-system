@@ -268,7 +268,6 @@ export const FONTAWESOME_ICONS = {
 	FA_CIRCLE_PLAY_SOLID: fasCirclePlay,
 	FA_CIRCLE_QUESTION: faCircleQuestion,
 	FA_CIRCLE_XMARK: faCircleXmark,
-	// FA_CHANGE: faChan
 	FA_CLIPBOARD_MEDICAL: faClipboardMedical,
 	FA_CLIPBOARD_LIST: faClipboardList,
 	FA_CLOCK: faClock,
