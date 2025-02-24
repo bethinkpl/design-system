@@ -1,7 +1,55 @@
-import { ToastSizes } from './Toast.consts';
+import { BUTTON_RADIUSES, BUTTON_TYPES } from '../Buttons/Button';
+import { ToastColors, ToastPositions, ToastSizes } from './Toast.consts';
 import { PropType } from 'vue';
 
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    size: {
+        type: PropType<ToastSizes>;
+        default: "medium";
+    };
+    position: {
+        type: PropType<ToastPositions>;
+        default: string;
+    };
+    boundariesSelector: {
+        type: (StringConstructor | {
+            new (): HTMLElement;
+            prototype: HTMLElement;
+        })[];
+        default: null;
+    };
+    color: {
+        type: PropType<ToastColors>;
+        default: string;
+    };
+    footerPrimaryButtonText: {
+        type: StringConstructor;
+        default: string;
+    };
+    footerPrimaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(footerPrimaryButtonIcon: any): boolean;
+    };
+    footerSecondaryButtonText: {
+        type: StringConstructor;
+        default: string;
+    };
+    footerSecondaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(footerSecondaryButtonIcon: any): boolean;
+    };
+    isDisappearing: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    disappearingTimeout: {
+        type: StringConstructor;
+        default: string;
+        validator(disappearingTimeout: string): boolean;
+    };
+}>, {}, {
     boundariesSelectorElement: null;
     boundariesSelectorElementResizeObserver: null;
     styles: {};
@@ -42,7 +90,54 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     close: () => true;
     'primary-button-click': () => true;
     'secondary-button-click': () => true;
-}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{
+}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    size: {
+        type: PropType<ToastSizes>;
+        default: "medium";
+    };
+    position: {
+        type: PropType<ToastPositions>;
+        default: string;
+    };
+    boundariesSelector: {
+        type: (StringConstructor | {
+            new (): HTMLElement;
+            prototype: HTMLElement;
+        })[];
+        default: null;
+    };
+    color: {
+        type: PropType<ToastColors>;
+        default: string;
+    };
+    footerPrimaryButtonText: {
+        type: StringConstructor;
+        default: string;
+    };
+    footerPrimaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(footerPrimaryButtonIcon: any): boolean;
+    };
+    footerSecondaryButtonText: {
+        type: StringConstructor;
+        default: string;
+    };
+    footerSecondaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(footerSecondaryButtonIcon: any): boolean;
+    };
+    isDisappearing: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    disappearingTimeout: {
+        type: StringConstructor;
+        default: string;
+        validator(disappearingTimeout: string): boolean;
+    };
+}>> & Readonly<{
     onClose?: (() => any) | undefined;
     "onSecondary-button-click"?: (() => any) | undefined;
     "onPrimary-button-click"?: (() => any) | undefined;
@@ -58,15 +153,57 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     isDisappearing: boolean;
     disappearingTimeout: string;
 }, {}, {
-    DsButton: import('vue').DefineComponent<{}, {}, {
+    DsButton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        size: {
+            type: StringConstructor;
+            default: "medium";
+            validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_SIZES>): boolean;
+        };
+        type: {
+            type: StringConstructor;
+            default: "filled";
+            validator(value: import('../../utils/type.utils').Value<typeof BUTTON_TYPES>): boolean;
+        };
+        color: {
+            type: StringConstructor;
+            default: "primary";
+            validator(value: import('../../utils/type.utils').Value<typeof import('../..').ICON_BUTTON_COLORS>): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "capsule";
+            validator(value: import('../../utils/type.utils').Value<typeof BUTTON_RADIUSES>): boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_STATES>): boolean;
+        };
+        iconLeft: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        iconRight: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        elevation: {
+            type: StringConstructor;
+            default: "none";
+            validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_ELEVATIONS>): boolean;
+        };
+    }>, {}, {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-            readonly RIBBON: VueConstructor<Vue>;
-            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-            readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly ANSWERS: VueConstructor<Vue>;
+            readonly CHANGE: VueConstructor<Vue>;
+            readonly COMMENTS_CHECK: VueConstructor<Vue>;
+            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
+            readonly RIBBON: VueConstructor<Vue>;
             readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -258,6 +395,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -313,7 +451,48 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         iconSize(): string;
         colorClassName(): string;
         loadingIconSize(): string;
-    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        size: {
+            type: StringConstructor;
+            default: "medium";
+            validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_SIZES>): boolean;
+        };
+        type: {
+            type: StringConstructor;
+            default: "filled";
+            validator(value: import('../../utils/type.utils').Value<typeof BUTTON_TYPES>): boolean;
+        };
+        color: {
+            type: StringConstructor;
+            default: "primary";
+            validator(value: import('../../utils/type.utils').Value<typeof import('../..').ICON_BUTTON_COLORS>): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "capsule";
+            validator(value: import('../../utils/type.utils').Value<typeof BUTTON_RADIUSES>): boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_STATES>): boolean;
+        };
+        iconLeft: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        iconRight: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        elevation: {
+            type: StringConstructor;
+            default: "none";
+            validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_ELEVATIONS>): boolean;
+        };
+    }>> & Readonly<{}>, {
         size: string;
         type: string;
         color: string;
@@ -392,14 +571,14 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
             size: string;
+            rotation: number;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     DsCard: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -416,15 +595,15 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
         borderPosition: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card/Card.consts').CardBorderPositions>;
             default: string;
         };
         borderSize: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card/Card.consts').CardBorderSizes>;
             default: string;
         };
         borderColor: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card/Card.consts').CardBorderColors>;
             default: string;
         };
         hasLoadingBar: {
@@ -432,7 +611,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
         loadingBarColor: {
-            type: PropType<string>;
+            type: PropType<import('../LoadingBar').LoadingBarColors>;
             default: string;
         };
         loadingBarTime: {
@@ -458,15 +637,15 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
         borderPosition: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card/Card.consts').CardBorderPositions>;
             default: string;
         };
         borderSize: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card/Card.consts').CardBorderSizes>;
             default: string;
         };
         borderColor: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card/Card.consts').CardBorderColors>;
             default: string;
         };
         hasLoadingBar: {
@@ -474,7 +653,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
         loadingBarColor: {
-            type: PropType<string>;
+            type: PropType<import('../LoadingBar').LoadingBarColors>;
             default: string;
         };
         loadingBarTime: {
@@ -537,11 +716,11 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
         DsLoadingBar: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             color: {
-                type: PropType<string>;
+                type: PropType<import('../LoadingBar').LoadingBarColors>;
                 default: string;
             };
             size: {
-                type: PropType<string>;
+                type: PropType<import('../LoadingBar').LoadingBarSizes>;
                 default: string;
             };
             time: {
@@ -559,11 +738,11 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             };
         }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
             color: {
-                type: PropType<string>;
+                type: PropType<import('../LoadingBar').LoadingBarColors>;
                 default: string;
             };
             size: {
-                type: PropType<string>;
+                type: PropType<import('../LoadingBar').LoadingBarSizes>;
                 default: string;
             };
             time: {

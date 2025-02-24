@@ -1,14 +1,35 @@
+import { PropType } from 'vue';
 import { RadioButtonSize, RadioButtonState } from './RadioButton.consts';
 
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    size: {
+        type: PropType<RadioButtonSize>;
+        default: "small";
+        validator(size: unknown): boolean;
+    };
+    label: {
+        type: StringConstructor;
+        default: null;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    state: {
+        type: PropType<RadioButtonState>;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+}>, {}, {
     ICONS: Readonly<{
-        readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-        readonly RIBBON: VueConstructor<Vue>;
-        readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-        readonly COMMENTS_CHECK: VueConstructor<Vue>;
         readonly ANSWERS: VueConstructor<Vue>;
+        readonly CHANGE: VueConstructor<Vue>;
+        readonly COMMENTS_CHECK: VueConstructor<Vue>;
+        readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly HIDE_ANSWERS: VueConstructor<Vue>;
+        readonly RIBBON: VueConstructor<Vue>;
         readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+        readonly SLIDERS_SEARCH: VueConstructor<Vue>;
         readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -200,6 +221,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -212,7 +234,26 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         readonly RADIO_BUTTON: "radioButton";
         readonly CHECKBOX: "checkbox";
     }>;
-}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("update:is-selected" | "input:focus" | "input:blur")[], "update:is-selected" | "input:focus" | "input:blur", import('vue').PublicProps, Readonly<{}> & Readonly<{
+}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("update:is-selected" | "input:focus" | "input:blur")[], "update:is-selected" | "input:focus" | "input:blur", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    size: {
+        type: PropType<RadioButtonSize>;
+        default: "small";
+        validator(size: unknown): boolean;
+    };
+    label: {
+        type: StringConstructor;
+        default: null;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    state: {
+        type: PropType<RadioButtonState>;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+}>> & Readonly<{
     "onUpdate:is-selected"?: ((...args: any[]) => any) | undefined;
     "onInput:focus"?: ((...args: any[]) => any) | undefined;
     "onInput:blur"?: ((...args: any[]) => any) | undefined;
@@ -222,7 +263,41 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     state: RadioButtonState;
     isSelected: boolean;
 }, {}, {
-    SelectionControl: import('vue').DefineComponent<{}, {}, {
+    SelectionControl: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        size: {
+            type: PropType<import('../SelectionControl/SelectionControl.consts').SelectionControlSize>;
+            default: "small";
+            validator(size: unknown): boolean;
+        };
+        label: {
+            type: StringConstructor;
+            default: null;
+        };
+        isSelected: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        state: {
+            type: PropType<import('../SelectionControl/SelectionControl.consts').SelectionControlState>;
+            default: "default";
+            validator(state: unknown): boolean;
+        };
+        selectedIcon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        notSelectedIcon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        type: {
+            type: PropType<import('../SelectionControl/SelectionControl.consts').SelectionControlType>;
+            required: true;
+            validator(type: unknown): boolean;
+        };
+    }>, {}, {
         isFocused: boolean;
         SELECTION_CONTROL_STATE: Readonly<{
             readonly DEFAULT: "default";
@@ -240,7 +315,41 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         onToggle(): void;
         onFocus(): void;
         onBlur(): void;
-    }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("update:is-selected" | "input:focus" | "input:blur")[], "update:is-selected" | "input:focus" | "input:blur", import('vue').PublicProps, Readonly<{}> & Readonly<{
+    }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("update:is-selected" | "input:focus" | "input:blur")[], "update:is-selected" | "input:focus" | "input:blur", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        size: {
+            type: PropType<import('../SelectionControl/SelectionControl.consts').SelectionControlSize>;
+            default: "small";
+            validator(size: unknown): boolean;
+        };
+        label: {
+            type: StringConstructor;
+            default: null;
+        };
+        isSelected: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        state: {
+            type: PropType<import('../SelectionControl/SelectionControl.consts').SelectionControlState>;
+            default: "default";
+            validator(state: unknown): boolean;
+        };
+        selectedIcon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        notSelectedIcon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        type: {
+            type: PropType<import('../SelectionControl/SelectionControl.consts').SelectionControlType>;
+            required: true;
+            validator(type: unknown): boolean;
+        };
+    }>> & Readonly<{
         "onUpdate:is-selected"?: ((...args: any[]) => any) | undefined;
         "onInput:focus"?: ((...args: any[]) => any) | undefined;
         "onInput:blur"?: ((...args: any[]) => any) | undefined;
@@ -319,14 +428,14 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
             size: string;
+            rotation: number;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

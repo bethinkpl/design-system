@@ -67,13 +67,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
 }>> & Readonly<{}>, {
-    rotation: number;
     size: string;
+    rotation: number;
     flippedVertical: boolean;
     flippedHorizontal: boolean;
     touchable: boolean;
     spinning: boolean;
 }, {}, {
-    FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+    FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

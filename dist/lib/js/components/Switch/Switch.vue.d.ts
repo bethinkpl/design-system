@@ -1,14 +1,56 @@
+import { PropType } from 'vue';
 import { SwitchRadius, SwitchSelection, SwitchSize, SwitchState } from './Switch.consts';
+import { IconItem } from '../Icons/Icon';
 
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    size: {
+        type: PropType<SwitchSize>;
+        default: "medium";
+        validator(size: SwitchSize): boolean;
+    };
+    radius: {
+        type: PropType<SwitchRadius>;
+        default: "capsule";
+        validator(value: SwitchRadius): boolean;
+    };
+    iconLeft: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: IconItem): boolean;
+    };
+    iconRight: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: IconItem): boolean;
+    };
+    labelLeft: {
+        type: StringConstructor;
+        default: string;
+    };
+    labelRight: {
+        type: StringConstructor;
+        default: string;
+    };
+    state: {
+        type: PropType<SwitchState>;
+        default: "default";
+        validator(state: SwitchState): boolean;
+    };
+    selectedSide: {
+        type: PropType<SwitchSelection>;
+        default: "left";
+        validator(side: SwitchSelection): boolean;
+    };
+}>, {}, {
     ICONS: Readonly<{
-        readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-        readonly RIBBON: VueConstructor<Vue>;
-        readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-        readonly COMMENTS_CHECK: VueConstructor<Vue>;
         readonly ANSWERS: VueConstructor<Vue>;
+        readonly CHANGE: VueConstructor<Vue>;
+        readonly COMMENTS_CHECK: VueConstructor<Vue>;
+        readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly HIDE_ANSWERS: VueConstructor<Vue>;
+        readonly RIBBON: VueConstructor<Vue>;
         readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+        readonly SLIDERS_SEARCH: VueConstructor<Vue>;
         readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -200,6 +242,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -234,14 +277,53 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         readonly DEFAULT: "default";
         readonly DISABLED: "disabled";
     }>;
-    currentSide: Function;
+    currentSide: SwitchSelection;
 }, {
     currentIcon(): any;
     currentLabel(): any;
     oppositeSide(): "right" | "left";
 }, {
     onSwitch(): void;
-}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "update:selectedSide"[], "update:selectedSide", import('vue').PublicProps, Readonly<{}> & Readonly<{
+}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "update:selectedSide"[], "update:selectedSide", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    size: {
+        type: PropType<SwitchSize>;
+        default: "medium";
+        validator(size: SwitchSize): boolean;
+    };
+    radius: {
+        type: PropType<SwitchRadius>;
+        default: "capsule";
+        validator(value: SwitchRadius): boolean;
+    };
+    iconLeft: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: IconItem): boolean;
+    };
+    iconRight: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: IconItem): boolean;
+    };
+    labelLeft: {
+        type: StringConstructor;
+        default: string;
+    };
+    labelRight: {
+        type: StringConstructor;
+        default: string;
+    };
+    state: {
+        type: PropType<SwitchState>;
+        default: "default";
+        validator(state: SwitchState): boolean;
+    };
+    selectedSide: {
+        type: PropType<SwitchSelection>;
+        default: "left";
+        validator(side: SwitchSelection): boolean;
+    };
+}>> & Readonly<{
     "onUpdate:selectedSide"?: ((...args: any[]) => any) | undefined;
 }>, {
     size: SwitchSize;
@@ -322,14 +404,14 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
         size: string;
+        rotation: number;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

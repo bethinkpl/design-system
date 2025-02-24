@@ -1,4 +1,94 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+import { BUTTON_ELEVATIONS, BUTTON_STATES, BUTTON_TYPES } from '../../Buttons/Button';
+import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
+
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    size: {
+        type: StringConstructor;
+        default: string;
+        validator: (value: string) => boolean;
+    };
+    danger: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    headerTitleSize: {
+        type: StringConstructor;
+        default: string;
+        validator: (value: string) => boolean;
+    };
+    headerTitle: {
+        type: StringConstructor;
+        default: null;
+    };
+    headerSubtitle: {
+        type: StringConstructor;
+        default: null;
+    };
+    headerFeatureIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    headerFeatureIconColor: {
+        type: StringConstructor;
+        default: string;
+        validator(color: string): boolean;
+    };
+    contentCentered: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    headerImage: {
+        type: StringConstructor;
+        default: null;
+    };
+    footerPrimaryButtonText: {
+        type: StringConstructor;
+        default: null;
+    };
+    footerPrimaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    footerPrimaryButtonState: {
+        type: StringConstructor;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    footerSecondaryButtonText: {
+        type: StringConstructor;
+        default: null;
+    };
+    footerSecondaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    footerSecondaryButtonState: {
+        type: StringConstructor;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    footerTertiaryButtonText: {
+        type: StringConstructor;
+        default: null;
+    };
+    footerTertiaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    footerTertiaryButtonState: {
+        type: StringConstructor;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    footerCheckboxText: {
+        type: StringConstructor;
+        default: null;
+    };
+}>, {}, {
     BUTTON_COLORS: Readonly<{
         readonly PRIMARY: "primary";
         readonly NEUTRAL: "neutral";
@@ -17,13 +107,14 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         readonly TEXT: "text";
     }>;
     ICONS: Readonly<{
-        readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-        readonly RIBBON: VueConstructor<Vue>;
-        readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-        readonly COMMENTS_CHECK: VueConstructor<Vue>;
         readonly ANSWERS: VueConstructor<Vue>;
+        readonly CHANGE: VueConstructor<Vue>;
+        readonly COMMENTS_CHECK: VueConstructor<Vue>;
+        readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly HIDE_ANSWERS: VueConstructor<Vue>;
+        readonly RIBBON: VueConstructor<Vue>;
         readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+        readonly SLIDERS_SEARCH: VueConstructor<Vue>;
         readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -215,6 +306,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -264,16 +356,104 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     calcFooterSecondaryButtonColor(): "neutral" | "danger";
     calcSingleColumn(): boolean;
     displayFooter(): any;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("close-modal" | "tertiary-button-click" | "checkbox-change" | "secondary-button-click" | "primary-button-click")[], "close-modal" | "tertiary-button-click" | "checkbox-change" | "secondary-button-click" | "primary-button-click", import('vue').PublicProps, Readonly<{}> & Readonly<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("close-modal" | "tertiary-button-click" | "checkbox-change" | "secondary-button-click" | "primary-button-click")[], "close-modal" | "tertiary-button-click" | "checkbox-change" | "secondary-button-click" | "primary-button-click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    size: {
+        type: StringConstructor;
+        default: string;
+        validator: (value: string) => boolean;
+    };
+    danger: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    headerTitleSize: {
+        type: StringConstructor;
+        default: string;
+        validator: (value: string) => boolean;
+    };
+    headerTitle: {
+        type: StringConstructor;
+        default: null;
+    };
+    headerSubtitle: {
+        type: StringConstructor;
+        default: null;
+    };
+    headerFeatureIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    headerFeatureIconColor: {
+        type: StringConstructor;
+        default: string;
+        validator(color: string): boolean;
+    };
+    contentCentered: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    headerImage: {
+        type: StringConstructor;
+        default: null;
+    };
+    footerPrimaryButtonText: {
+        type: StringConstructor;
+        default: null;
+    };
+    footerPrimaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    footerPrimaryButtonState: {
+        type: StringConstructor;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    footerSecondaryButtonText: {
+        type: StringConstructor;
+        default: null;
+    };
+    footerSecondaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    footerSecondaryButtonState: {
+        type: StringConstructor;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    footerTertiaryButtonText: {
+        type: StringConstructor;
+        default: null;
+    };
+    footerTertiaryButtonIcon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    footerTertiaryButtonState: {
+        type: StringConstructor;
+        default: "default";
+        validator(state: unknown): boolean;
+    };
+    footerCheckboxText: {
+        type: StringConstructor;
+        default: null;
+    };
+}>> & Readonly<{
     "onClose-modal"?: ((...args: any[]) => any) | undefined;
     "onTertiary-button-click"?: ((...args: any[]) => any) | undefined;
     "onCheckbox-change"?: ((...args: any[]) => any) | undefined;
     "onSecondary-button-click"?: ((...args: any[]) => any) | undefined;
     "onPrimary-button-click"?: ((...args: any[]) => any) | undefined;
 }>, {
-    danger: boolean;
     size: string;
+    danger: boolean;
     headerTitleSize: string;
+    headerTitle: string;
     headerSubtitle: string;
     headerFeatureIcon: Record<string, any>;
     headerFeatureIconColor: string;
@@ -290,7 +470,27 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     footerTertiaryButtonState: string;
     footerCheckboxText: string;
 }, {}, {
-    FeatureIcon: import('vue').DefineComponent<{}, {}, {
+    FeatureIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        icon: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+        color: {
+            type: StringConstructor;
+            required: true;
+            validator(color: string): boolean;
+        };
+        doubleBackground: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>, {}, {
         FEATURE_ICON_COLOR: Readonly<{
             DANGER: string;
             INFO: string;
@@ -308,9 +508,29 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         }>;
     }, {
         iconSize(): string;
-    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
-        icon: Record<string, any>;
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        icon: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+        color: {
+            type: StringConstructor;
+            required: true;
+            validator(color: string): boolean;
+        };
+        doubleBackground: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>> & Readonly<{}>, {
         size: string;
+        icon: Record<string, any>;
         doubleBackground: boolean;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -382,25 +602,67 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
             size: string;
+            rotation: number;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-    WnlButton: import('vue').DefineComponent<{}, {}, {
+    WnlButton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        size: {
+            type: StringConstructor;
+            default: "medium";
+            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_SIZES>): boolean;
+        };
+        type: {
+            type: StringConstructor;
+            default: "filled";
+            validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_TYPES>): boolean;
+        };
+        color: {
+            type: StringConstructor;
+            default: "primary";
+            validator(value: import('../../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "capsule";
+            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_RADIUSES>): boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_STATES>): boolean;
+        };
+        iconLeft: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        iconRight: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        elevation: {
+            type: StringConstructor;
+            default: "none";
+            validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_ELEVATIONS>): boolean;
+        };
+    }>, {}, {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-            readonly RIBBON: VueConstructor<Vue>;
-            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-            readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly ANSWERS: VueConstructor<Vue>;
+            readonly CHANGE: VueConstructor<Vue>;
+            readonly COMMENTS_CHECK: VueConstructor<Vue>;
+            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
+            readonly RIBBON: VueConstructor<Vue>;
             readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -592,6 +854,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -647,7 +910,48 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         iconSize(): string;
         colorClassName(): string;
         loadingIconSize(): string;
-    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        size: {
+            type: StringConstructor;
+            default: "medium";
+            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_SIZES>): boolean;
+        };
+        type: {
+            type: StringConstructor;
+            default: "filled";
+            validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_TYPES>): boolean;
+        };
+        color: {
+            type: StringConstructor;
+            default: "primary";
+            validator(value: import('../../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "capsule";
+            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_RADIUSES>): boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_STATES>): boolean;
+        };
+        iconLeft: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        iconRight: {
+            type: ObjectConstructor;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        elevation: {
+            type: StringConstructor;
+            default: "none";
+            validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_ELEVATIONS>): boolean;
+        };
+    }>> & Readonly<{}>, {
         size: string;
         type: string;
         color: string;
@@ -726,31 +1030,77 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
             size: string;
+            rotation: number;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-    WnlIconButton: import('vue').DefineComponent<{}, {
-        isHovered: import('vue').Ref<boolean, boolean>;
+    WnlIconButton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        size: {
+            type: StringConstructor;
+            default: "large";
+            validator(value: unknown): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "capsule";
+            validator(value: unknown): boolean;
+        };
+        type: {
+            type: StringConstructor;
+            default: "icon-only";
+            validator(value: unknown): boolean;
+        };
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        color: {
+            type: StringConstructor;
+            default: "primary";
+            validator(value: unknown): boolean;
+        };
+        colorScheme: {
+            type: StringConstructor;
+            default: "all-in-color";
+            validator(value: unknown): boolean;
+        };
+        elevation: {
+            type: StringConstructor;
+            default: "none";
+            validator(value: unknown): boolean;
+        };
+        touchable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/IconButton').ICON_BUTTON_STATES>): boolean;
+        };
+    }>, {
+        isHovered: import('vue').Ref<boolean>;
         mouseOver: () => void;
         mouseLeave: () => void;
         touchStart: () => void;
         touchEnd: () => void;
     }, {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-            readonly RIBBON: VueConstructor<Vue>;
-            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-            readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly ANSWERS: VueConstructor<Vue>;
+            readonly CHANGE: VueConstructor<Vue>;
+            readonly COMMENTS_CHECK: VueConstructor<Vue>;
+            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
+            readonly RIBBON: VueConstructor<Vue>;
             readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -942,6 +1292,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1007,7 +1358,52 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         computedColor(): string | null;
         isButtonColor(): boolean;
         colorClassName(): string;
-    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        size: {
+            type: StringConstructor;
+            default: "large";
+            validator(value: unknown): boolean;
+        };
+        radius: {
+            type: StringConstructor;
+            default: "capsule";
+            validator(value: unknown): boolean;
+        };
+        type: {
+            type: StringConstructor;
+            default: "icon-only";
+            validator(value: unknown): boolean;
+        };
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        color: {
+            type: StringConstructor;
+            default: "primary";
+            validator(value: unknown): boolean;
+        };
+        colorScheme: {
+            type: StringConstructor;
+            default: "all-in-color";
+            validator(value: unknown): boolean;
+        };
+        elevation: {
+            type: StringConstructor;
+            default: "none";
+            validator(value: unknown): boolean;
+        };
+        touchable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        state: {
+            type: StringConstructor;
+            default: "default";
+            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/IconButton').ICON_BUTTON_STATES>): boolean;
+        };
+    }>> & Readonly<{}>, {
         size: string;
         type: string;
         touchable: boolean;
@@ -1086,24 +1482,66 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
             size: string;
+            rotation: number;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-        WnlButton: import('vue').DefineComponent<{}, {}, {
+        WnlButton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+            size: {
+                type: StringConstructor;
+                default: "medium";
+                validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_SIZES>): boolean;
+            };
+            type: {
+                type: StringConstructor;
+                default: "filled";
+                validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_TYPES>): boolean;
+            };
+            color: {
+                type: StringConstructor;
+                default: "primary";
+                validator(value: import('../../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
+            };
+            radius: {
+                type: StringConstructor;
+                default: "capsule";
+                validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_RADIUSES>): boolean;
+            };
+            state: {
+                type: StringConstructor;
+                default: "default";
+                validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_STATES>): boolean;
+            };
+            iconLeft: {
+                type: ObjectConstructor;
+                default: null;
+                validator(icon: unknown): boolean;
+            };
+            iconRight: {
+                type: ObjectConstructor;
+                default: null;
+                validator(icon: unknown): boolean;
+            };
+            elevation: {
+                type: StringConstructor;
+                default: "none";
+                validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_ELEVATIONS>): boolean;
+            };
+        }>, {}, {
             ICONS: Readonly<{
-                readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-                readonly RIBBON: VueConstructor<Vue>;
-                readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-                readonly COMMENTS_CHECK: VueConstructor<Vue>;
                 readonly ANSWERS: VueConstructor<Vue>;
+                readonly CHANGE: VueConstructor<Vue>;
+                readonly COMMENTS_CHECK: VueConstructor<Vue>;
+                readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
                 readonly HIDE_ANSWERS: VueConstructor<Vue>;
+                readonly RIBBON: VueConstructor<Vue>;
                 readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+                readonly SLIDERS_SEARCH: VueConstructor<Vue>;
                 readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1295,6 +1733,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1350,7 +1789,48 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             iconSize(): string;
             colorClassName(): string;
             loadingIconSize(): string;
-        }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+        }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+            size: {
+                type: StringConstructor;
+                default: "medium";
+                validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_SIZES>): boolean;
+            };
+            type: {
+                type: StringConstructor;
+                default: "filled";
+                validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_TYPES>): boolean;
+            };
+            color: {
+                type: StringConstructor;
+                default: "primary";
+                validator(value: import('../../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
+            };
+            radius: {
+                type: StringConstructor;
+                default: "capsule";
+                validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_RADIUSES>): boolean;
+            };
+            state: {
+                type: StringConstructor;
+                default: "default";
+                validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_STATES>): boolean;
+            };
+            iconLeft: {
+                type: ObjectConstructor;
+                default: null;
+                validator(icon: unknown): boolean;
+            };
+            iconRight: {
+                type: ObjectConstructor;
+                default: null;
+                validator(icon: unknown): boolean;
+            };
+            elevation: {
+                type: StringConstructor;
+                default: "none";
+                validator(value: import('../../../utils/type.utils').Value<typeof BUTTON_ELEVATIONS>): boolean;
+            };
+        }>> & Readonly<{}>, {
             size: string;
             type: string;
             color: string;
@@ -1429,14 +1909,14 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                rotation: number;
                 size: string;
+                rotation: number;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;
                 spinning: boolean;
             }, {}, {
-                FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+                FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
             }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

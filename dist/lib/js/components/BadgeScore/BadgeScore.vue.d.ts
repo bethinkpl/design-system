@@ -1,4 +1,33 @@
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    text: {
+        type: StringConstructor;
+        required: true;
+    };
+    suffix: {
+        type: StringConstructor;
+        required: false;
+        default: null;
+    };
+    color: {
+        type: StringConstructor;
+        required: true;
+        validator(color: any): boolean;
+    };
+    icon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    size: {
+        type: StringConstructor;
+        default: "medium";
+        validator(size: any): boolean;
+    };
+    fullWidth: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>, {}, {
     ICON_SIZES: Readonly<{
         XXX_SMALL: string;
         XX_SMALL: string;
@@ -24,9 +53,38 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     }>;
 }, {
     iconSize(): string;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
-    icon: Record<string, any>;
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    text: {
+        type: StringConstructor;
+        required: true;
+    };
+    suffix: {
+        type: StringConstructor;
+        required: false;
+        default: null;
+    };
+    color: {
+        type: StringConstructor;
+        required: true;
+        validator(color: any): boolean;
+    };
+    icon: {
+        type: ObjectConstructor;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    size: {
+        type: StringConstructor;
+        default: "medium";
+        validator(size: any): boolean;
+    };
+    fullWidth: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>> & Readonly<{}>, {
     size: string;
+    icon: Record<string, any>;
     suffix: string;
     fullWidth: boolean;
 }, {}, {
@@ -99,14 +157,14 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
         size: string;
+        rotation: number;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
