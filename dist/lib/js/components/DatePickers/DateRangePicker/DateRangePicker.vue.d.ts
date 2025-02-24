@@ -1,11 +1,11 @@
-import { Ref } from 'vue';
-import { DatePickerStates } from '../DatePicker';
+import { PropType, Ref } from 'vue';
+import { DatePickerCalendarPositions, DatePickerColors, DatePickerStates } from '../DatePicker';
 
 declare const _default: import('vue').DefineComponent<{
-    disableDates: Date[];
+    disableDates: Array<Date>;
     minDate: Date | null;
     maxDate: Date | null;
-    calendarPosition: string;
+    calendarPosition: DatePickerCalendarPositions;
     startDate: Date;
     endDate: Date;
     isInteractive: boolean;
@@ -52,10 +52,10 @@ declare const _default: import('vue').DefineComponent<{
         endDate: Date;
     }) => true;
 }, string, import('vue').PublicProps, Readonly<{
-    disableDates: Date[];
+    disableDates: Array<Date>;
     minDate: Date | null;
     maxDate: Date | null;
-    calendarPosition: string;
+    calendarPosition: DatePickerCalendarPositions;
     startDate: Date;
     endDate: Date;
     isInteractive: boolean;
@@ -83,15 +83,67 @@ declare const _default: import('vue').DefineComponent<{
     maxDate: Date;
     updatePositionBasedOnScrollableSelector: string;
 }, {}, {
-    DatePickerBox: import('vue').DefineComponent<{}, {}, {
+    DatePickerBox: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        isInteractive: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        placeholder: {
+            type: StringConstructor;
+            default: string;
+        };
+        startDate: {
+            type: DateConstructor;
+            default: null;
+        };
+        endDate: {
+            type: DateConstructor;
+            default: null;
+        };
+        startIcon: {
+            type: ObjectConstructor;
+            default: null;
+            validate: (icon: any) => boolean;
+        };
+        endIcon: {
+            type: ObjectConstructor;
+            default: null;
+            validate: (icon: any) => boolean;
+        };
+        areIconsHiddenOnMobile: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        state: {
+            type: PropType<string>;
+            default: string;
+        };
+        color: {
+            type: PropType<DatePickerColors>;
+            default: string;
+        };
+        startDateEyebrowText: {
+            type: StringConstructor;
+            default: string;
+        };
+        endDateEyebrowText: {
+            type: StringConstructor;
+            default: string;
+        };
+        isOpen: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>, {}, {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-            readonly RIBBON: VueConstructor<Vue>;
-            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-            readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly ANSWERS: VueConstructor<Vue>;
+            readonly CHANGE: VueConstructor<Vue>;
+            readonly COMMENTS_CHECK: VueConstructor<Vue>;
+            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
+            readonly RIBBON: VueConstructor<Vue>;
             readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -283,6 +335,7 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -315,7 +368,58 @@ declare const _default: import('vue').DefineComponent<{
     }, {
         startDateText(): any;
         endDateText(): string;
-    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        isInteractive: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        placeholder: {
+            type: StringConstructor;
+            default: string;
+        };
+        startDate: {
+            type: DateConstructor;
+            default: null;
+        };
+        endDate: {
+            type: DateConstructor;
+            default: null;
+        };
+        startIcon: {
+            type: ObjectConstructor;
+            default: null;
+            validate: (icon: any) => boolean;
+        };
+        endIcon: {
+            type: ObjectConstructor;
+            default: null;
+            validate: (icon: any) => boolean;
+        };
+        areIconsHiddenOnMobile: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        state: {
+            type: PropType<string>;
+            default: string;
+        };
+        color: {
+            type: PropType<DatePickerColors>;
+            default: string;
+        };
+        startDateEyebrowText: {
+            type: StringConstructor;
+            default: string;
+        };
+        endDateEyebrowText: {
+            type: StringConstructor;
+            default: string;
+        };
+        isOpen: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>> & Readonly<{}>, {
         color: string;
         state: string;
         isInteractive: boolean;
@@ -398,14 +502,14 @@ declare const _default: import('vue').DefineComponent<{
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
             size: string;
+            rotation: number;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

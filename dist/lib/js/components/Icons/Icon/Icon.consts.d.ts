@@ -15,7 +15,7 @@ export declare const ICON_COLORS: {
     SUCCESS: string;
     WARNING: string;
 };
-export declare type IconColor = Value<typeof ICON_COLORS>;
+export type IconColor = Value<typeof ICON_COLORS>;
 export declare const ICON_SIZES: {
     XXX_SMALL: string;
     XX_SMALL: string;
@@ -26,15 +26,16 @@ export declare const ICON_SIZES: {
     X_LARGE: string;
     XX_LARGE: string;
 };
-export declare type IconSize = Value<typeof ICON_SIZES>;
+export type IconSize = Value<typeof ICON_SIZES>;
 export declare const ICONS: {
-    readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-    readonly RIBBON: VueConstructor<Vue>;
-    readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-    readonly COMMENTS_CHECK: VueConstructor<Vue>;
     readonly ANSWERS: VueConstructor<Vue>;
+    readonly CHANGE: VueConstructor<Vue>;
+    readonly COMMENTS_CHECK: VueConstructor<Vue>;
+    readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
     readonly HIDE_ANSWERS: VueConstructor<Vue>;
+    readonly RIBBON: VueConstructor<Vue>;
     readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+    readonly SLIDERS_SEARCH: VueConstructor<Vue>;
     readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -226,6 +227,7 @@ export declare const ICONS: {
     readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -234,5 +236,5 @@ export declare const ICONS: {
     readonly FA_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
 };
-export declare type IconKey = keyof typeof ICONS;
-export declare type IconItem = typeof ICONS[IconKey];
+export type IconKey = keyof typeof ICONS;
+export type IconItem = typeof ICONS[IconKey];

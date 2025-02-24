@@ -1,15 +1,73 @@
-import { ToggleButtonColor, ToggleButtonLabelSize, ToggleButtonRadius, ToggleButtonSize, ToggleButtonState } from './ToggleButton.consts';
-import { IconSize } from '../../Icons/Icon';
+import { Value } from '../../../utils/type.utils';
+import { PropType } from 'vue';
+import { TOGGLE_BUTTON_COLORS, TOGGLE_BUTTON_RADIUSES, TOGGLE_BUTTON_SIZES, TOGGLE_BUTTON_STATES, ToggleButtonColor, ToggleButtonLabelSize, ToggleButtonRadius, ToggleButtonSize, ToggleButtonState } from './ToggleButton.consts';
+import { IconItem, IconSize } from '../../Icons/Icon';
 
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    color: {
+        type: PropType<ToggleButtonColor>;
+        default: "neutral";
+        validator(value: Value<typeof TOGGLE_BUTTON_COLORS>): boolean;
+    };
+    hasSmallHorizontalPadding: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    iconLeft: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    iconRight: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isLabelUppercase: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    label: {
+        type: StringConstructor;
+        default: string;
+    };
+    labelSize: {
+        type: PropType<ToggleButtonLabelSize>;
+        default: "medium";
+    };
+    radius: {
+        type: PropType<ToggleButtonRadius>;
+        default: "capsule";
+        validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>): boolean;
+    };
+    size: {
+        type: PropType<ToggleButtonSize>;
+        default: "medium";
+        validator(value: Value<typeof TOGGLE_BUTTON_SIZES>): boolean;
+    };
+    state: {
+        type: PropType<ToggleButtonState>;
+        default: "default";
+        validator(value: Value<typeof TOGGLE_BUTTON_STATES>): boolean;
+    };
+}>, {}, {
     ICONS: Readonly<{
-        readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-        readonly RIBBON: VueConstructor<Vue>;
-        readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-        readonly COMMENTS_CHECK: VueConstructor<Vue>;
         readonly ANSWERS: VueConstructor<Vue>;
+        readonly CHANGE: VueConstructor<Vue>;
+        readonly COMMENTS_CHECK: VueConstructor<Vue>;
+        readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly HIDE_ANSWERS: VueConstructor<Vue>;
+        readonly RIBBON: VueConstructor<Vue>;
         readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+        readonly SLIDERS_SEARCH: VueConstructor<Vue>;
         readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -201,6 +259,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -237,7 +296,62 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     colorClassName(): string;
     iconSize(): IconSize;
     isInteractiveComputed(): boolean;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "click"[], "click", import('vue').PublicProps, Readonly<{}> & Readonly<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "click"[], "click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    color: {
+        type: PropType<ToggleButtonColor>;
+        default: "neutral";
+        validator(value: Value<typeof TOGGLE_BUTTON_COLORS>): boolean;
+    };
+    hasSmallHorizontalPadding: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    iconLeft: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    iconRight: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isLabelUppercase: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    label: {
+        type: StringConstructor;
+        default: string;
+    };
+    labelSize: {
+        type: PropType<ToggleButtonLabelSize>;
+        default: "medium";
+    };
+    radius: {
+        type: PropType<ToggleButtonRadius>;
+        default: "capsule";
+        validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>): boolean;
+    };
+    size: {
+        type: PropType<ToggleButtonSize>;
+        default: "medium";
+        validator(value: Value<typeof TOGGLE_BUTTON_SIZES>): boolean;
+    };
+    state: {
+        type: PropType<ToggleButtonState>;
+        default: "default";
+        validator(value: Value<typeof TOGGLE_BUTTON_STATES>): boolean;
+    };
+}>> & Readonly<{
     onClick?: ((...args: any[]) => any) | undefined;
 }>, {
     size: ToggleButtonSize;
@@ -322,14 +436,14 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
         size: string;
+        rotation: number;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;
         spinning: boolean;
     }, {}, {
-        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
