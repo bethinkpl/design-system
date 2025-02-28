@@ -115,6 +115,7 @@ import { faPenCircle } from '@fortawesome/pro-regular-svg-icons/faPenCircle';
 import { faPenField } from '@fortawesome/pro-regular-svg-icons/faPenField';
 import { faPlay } from '@fortawesome/pro-regular-svg-icons/faPlay';
 import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
+import { faPresentationScreen } from '@fortawesome/pro-regular-svg-icons/faPresentationScreen';
 import { faPrint } from '@fortawesome/pro-regular-svg-icons/faPrint';
 import { faRectangleCode } from '@fortawesome/pro-regular-svg-icons/faRectangleCode';
 import { faRectangleList } from '@fortawesome/pro-regular-svg-icons/faRectangleList';
@@ -356,6 +357,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PENCIL: faPencil,
 	FA_PLAY: faPlay,
 	FA_PLUS: faPlus,
+	FA_PRESENTATION_SCREEN: faPresentationScreen,
 	FA_PRINT: faPrint,
 	FA_RECTANGLE_CODE: faRectangleCode,
 	FA_RECTANGLE_LIST: faRectangleList,
