@@ -195,6 +195,7 @@ import { faUserDoctor as fasUserDoctor } from '@fortawesome/pro-solid-svg-icons/
 import { faVideo as fasVideo } from '@fortawesome/pro-solid-svg-icons/faVideo';
 import { faVolumeHigh as fasVolumeHigh } from '@fortawesome/pro-solid-svg-icons/faVolumeHigh';
 import { faCircleDot as fasCircleDot } from '@fortawesome/pro-solid-svg-icons/faCircleDot';
+import { faFlagCheckered as fasFlagCheckered } from '@fortawesome/pro-solid-svg-icons/faFlagCheckered';
 
 import { faChevronLeft as falChevronLeft } from '@fortawesome/pro-light-svg-icons/faChevronLeft';
 import { faChevronRight as falChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
@@ -306,6 +307,7 @@ export const FONTAWESOME_ICONS = {
 	FA_FILM: faFilm,
 	FA_FILTER: faFilter,
 	FA_FLAG: faFlag,
+	FA_FLAG_CHECKERED_SOLID: fasFlagCheckered,
 	FA_FLASK_SOLID: fasFlask,
 	FA_FLOPPY_DISK: faFloppyDisk,
 	FA_FOLDER_SOLID: fasFolder,
