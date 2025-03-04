@@ -173,6 +173,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -504,6 +505,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1064,6 +1066,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1506,6 +1509,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1937,6 +1941,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -2378,6 +2383,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -2820,6 +2826,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                    readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
