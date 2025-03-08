@@ -96,6 +96,7 @@
     "@vee-validate/zod": "^4.15.0",
     "primevue": "4.0.0-rc.3",
     "radix-vue": "1.9.17",
+    "reka-ui": "^2.0.2",
     "vee-validate": "^4.15.0",
     "vue-component-type-helpers": "^2.2.2",
     "zod": "^3.24.2"
