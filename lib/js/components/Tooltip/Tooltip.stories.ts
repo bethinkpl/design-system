@@ -15,14 +15,27 @@ const StoryTemplate: StoryFn<typeof Tooltip> = (args) => ({
 	setup() {
 		return args;
 	},
+	data() {
+		return {
+			isDisabled2: true,
+			text2: undefined,
+		};
+	},
+	mounted() {
+		setTimeout(() => {
+			this.isDisabled2 = false;
+			this.text2 = 'SIem1!!!';
+			console.log('isDisabled2', this.isDisabled2);
+			console.log('text2', this.text2);
+		}, 3000);
+	},
 	template: `
 		<div style="padding: 60px; width: 100%;display: flex;  justify-content: center">
 			<div style="padding: 60px;">
 				<span>This is a text with </span>
 				<tooltip
-					:text="text"
 					:inline="inline"
-					:is-disabled="isDisabled"
+					:is-disabled="isDisabled2"
 					:placement="placement"
 					:is-pointer-visible="isPointerVisible">
 					<b>inline tooltip trigger</b>
@@ -36,7 +49,7 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	text: 'Lorem ipsum dolor sit amet.',
-	isDisabled: false,
+	isDisabled: true,
 	placement: TOOLTIP_PLACEMENTS.BOTTOM,
 	isPointerVisible: true,
 	inline: true,

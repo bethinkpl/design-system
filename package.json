@@ -90,8 +90,14 @@
     "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f"
   },
   "dependencies": {
+    "@ark-ui/vue": "^4.9.2",
     "@primevue/themes": "4.0.0-rc.3",
+    "@radix-ui/colors": "^3.0.0",
+    "@vee-validate/zod": "^4.15.0",
     "primevue": "4.0.0-rc.3",
-    "vue-component-type-helpers": "^2.2.2"
+    "radix-vue": "1.9.17",
+    "vee-validate": "^4.15.0",
+    "vue-component-type-helpers": "^2.2.2",
+    "zod": "^3.24.2"
   }
 }
