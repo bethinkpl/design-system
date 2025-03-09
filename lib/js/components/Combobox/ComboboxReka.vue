@@ -1,8 +1,12 @@
 <template>
-	<div>
+	<div class="bg-amber-300">
 		<combobox-root v-model="value" class="ComboboxRoot">
 			<combobox-anchor class="ComboboxAnchor">
-				<combobox-input class="ComboboxInput" placeholder="Placeholder..." />
+				<combobox-input
+					class="ComboboxInput"
+					placeholder="Placeholder..."
+					:display-value="(val) => val?.name ?? ''"
+				/>
 				<combobox-cancel v-if="value" @click="value = undefined">
 					<icon size="xx-small" :icon="ICONS.FA_XMARK" />
 				</combobox-cancel>
@@ -112,5 +116,5 @@ interface Props {
 
 defineProps<Props>();
 
-const value = defineModel<string>();
+const value = defineModel<Item>();
 </script>

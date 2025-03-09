@@ -4,6 +4,7 @@ import { Meta, StoryFn, StoryObj } from '@storybook/vue3';
 import ComboboxArk from './ComboboxArk.vue';
 import ComboboxPrimeVue from './ComboboxPrimeVue.vue';
 import ComboboxReka from './ComboboxReka.vue';
+import ComboboxShadcn from './ComboboxShadcn.vue';
 
 type ComboboxArkProps = ComponentProps<typeof ComboboxArk>;
 
@@ -22,7 +23,7 @@ const meta: Meta<typeof ComboboxArk> = {
 	title: 'Components/Combobox',
 	component: ComboboxArk,
 	render: (args: ComboboxArkProps) => ({
-		components: { ComboboxArk, ComboboxPrimeVue, ComboboxReka },
+		components: { ComboboxArk, ComboboxPrimeVue, ComboboxReka, ComboboxShadcn },
 		setup() {
 			return {
 				args,
@@ -37,6 +38,8 @@ const meta: Meta<typeof ComboboxArk> = {
 			};
 		},
 		template: `<div>
+			<div><h2>Combobox Shadcn:</h2><ComboboxShadcn :options="options" v-model="valueReka" /></div>
+
 			<div><h2>Combobox Ark:</h2><ComboboxArk :options="options" v-model="valueArk" /></div>
 			<div>Selected valueArk: {{valueArk}}</div>
 			<div><h2>Combobox Reka:</h2><ComboboxReka :options="options" v-model="valueReka" /></div>

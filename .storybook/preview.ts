@@ -3,6 +3,8 @@ import { initializePrimeVue } from '../lib/js';
 
 import { setup } from '@storybook/vue3';
 
+import '../lib/styles/tailwind.css';
+
 const customViewports = {
 	mobile: {
 		name: 'Breakpoint mobile',

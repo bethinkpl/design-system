@@ -17,6 +17,11 @@ export default defineConfig({
 		dts(),
 		cssInjectedByJsPlugin(),
 	],
+	resolve: {
+		alias: {
+			'@': resolve(__dirname, './lib/js/src'),
+		},
+	},
 	build: {
 		lib: {
 			entry: resolve(__dirname, 'lib/js/index.ts'),

@@ -23,8 +23,9 @@
     "strictNullChecks": true,
     "paths": {
       "design-system/lib/*": [
-        "lib/*"
-      ]
+        "lib/*",
+      ],
+      "@/*": ["./lib/js/src/*"]
     },
     "declaration": true,
     "declarationDir": "dist",
