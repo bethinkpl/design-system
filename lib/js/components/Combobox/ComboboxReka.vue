@@ -2,34 +2,39 @@
 	<div>
 		<combobox-root v-model="value" class="ComboboxRoot">
 			<combobox-anchor class="ComboboxAnchor">
-				<combobox-input class="ComboboxInput" placeholder="Placeholder..." />
-				<combobox-cancel v-if="value" @click="value = null">
+				<combobox-input
+					class="ComboboxInput"
+					placeholder="Placeholder..."
+					:display-value="(val) => val?.name ?? ''"
+				/>
+				<combobox-cancel v-if="value" @click="value = undefined">
 					<icon size="xx-small" :icon="ICONS.FA_XMARK" />
 				</combobox-cancel>
 				<combobox-trigger>
 					<icon size="xx-small" :icon="ICONS.FA_CHEVRON_DOWN" />
 				</combobox-trigger>
 			</combobox-anchor>
+			<combobox-portal>
+				<combobox-content class="ComboboxContent" position="popper" align="start">
+					<combobox-viewport class="ComboboxViewport">
+						<combobox-empty class="ComboboxEmpty">Brak elementów</combobox-empty>
 
-			<combobox-content class="ComboboxContent">
-				<combobox-viewport class="ComboboxViewport">
-					<combobox-empty class="ComboboxEmpty">Brak elementów</combobox-empty>
-
-					<combobox-item
-						v-for="option in options"
-						:key="option.name"
-						:value="option.name"
-						class="ComboboxItem"
-					>
-						<combobox-item-indicator class="ComboboxItemIndicator">
-							<icon size="xx-small" :icon="ICONS.FA_CHECK_SOLID" />
-						</combobox-item-indicator>
-						<span>
-							{{ option.name }}
-						</span>
-					</combobox-item>
-				</combobox-viewport>
-			</combobox-content>
+						<combobox-item
+							v-for="option in options"
+							:key="option.name"
+							:value="option"
+							class="ComboboxItem"
+						>
+							<combobox-item-indicator class="ComboboxItemIndicator">
+								<icon size="xx-small" :icon="ICONS.FA_CHECK_SOLID" />
+							</combobox-item-indicator>
+							<span>
+								{{ option.name }}
+							</span>
+						</combobox-item>
+					</combobox-viewport>
+				</combobox-content>
+			</combobox-portal>
 		</combobox-root>
 	</div>
 </template>
@@ -98,8 +103,8 @@ import {
 	ComboboxAnchor,
 	ComboboxEmpty,
 	ComboboxCancel,
+	ComboboxPortal,
 } from 'reka-ui';
-import { computed, ref } from 'vue';
 import Icon from '../Icons/Icon';
 import { ICONS } from '../Icons/Icon';
 
@@ -111,27 +116,7 @@ interface Props {
 	options: Array<Item>;
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 
 const value = defineModel<string>();
-
-const valueForCombo = computed(() => {
-	return value.value ? [value.value] : [];
-});
-
-const items = ref(props.options);
-
-const handleInputChange = (details: Combobox.InputValueChangeDetails) => {
-	items.value = props.options.filter((item) =>
-		item.name.toLowerCase().includes(details.inputValue.toLowerCase()),
-	);
-};
-
-const handleFocus = () => {
-	items.value = props.options;
-};
-
-const onValueChange = (value) => {
-	console.log('Value changed', value.items);
-};
 </script>
