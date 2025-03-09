@@ -3,7 +3,7 @@
 		<combobox-root v-model="value" class="ComboboxRoot">
 			<combobox-anchor class="ComboboxAnchor">
 				<combobox-input class="ComboboxInput" placeholder="Placeholder..." />
-				<combobox-cancel v-if="value" @click="value = null">
+				<combobox-cancel v-if="value" @click="value = undefined">
 					<icon size="xx-small" :icon="ICONS.FA_XMARK" />
 				</combobox-cancel>
 				<combobox-trigger>
@@ -18,7 +18,7 @@
 					<combobox-item
 						v-for="option in options"
 						:key="option.name"
-						:value="option.name"
+						:value="option"
 						class="ComboboxItem"
 					>
 						<combobox-item-indicator class="ComboboxItemIndicator">
@@ -99,7 +99,6 @@ import {
 	ComboboxEmpty,
 	ComboboxCancel,
 } from 'reka-ui';
-import { computed, ref } from 'vue';
 import Icon from '../Icons/Icon';
 import { ICONS } from '../Icons/Icon';
 
@@ -111,27 +110,7 @@ interface Props {
 	options: Array<Item>;
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 
 const value = defineModel<string>();
-
-const valueForCombo = computed(() => {
-	return value.value ? [value.value] : [];
-});
-
-const items = ref(props.options);
-
-const handleInputChange = (details: Combobox.InputValueChangeDetails) => {
-	items.value = props.options.filter((item) =>
-		item.name.toLowerCase().includes(details.inputValue.toLowerCase()),
-	);
-};
-
-const handleFocus = () => {
-	items.value = props.options;
-};
-
-const onValueChange = (value) => {
-	console.log('Value changed', value.items);
-};
 </script>
