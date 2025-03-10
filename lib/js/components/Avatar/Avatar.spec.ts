@@ -43,6 +43,10 @@ describe('Avatar', () => {
 			username: 'łucja ósma',
 			initials: 'ŁÓ',
 		},
+		{
+			username: 'Podwójna  Spacja',
+			initials: 'PS',
+		},
 	])('should render `$initials` initials for `$username`', ({ username, initials }) => {
 		const wrapper = mount(Avatar, {
 			props: {
