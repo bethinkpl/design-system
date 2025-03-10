@@ -156,7 +156,7 @@ const initialsBackgrounds = [
 ];
 
 function getInitials(username: string) {
-	const [first, second] = username.split(' ');
+	const [first, second] = username.split(/\s+/);
 
 	if (first && second) {
 		return `${first[0]}${second[0]}`.toUpperCase();
