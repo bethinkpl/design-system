@@ -22,8 +22,14 @@
 					<h3 :id="'category-' + itemCategory" class="itemsList__category">{{
 						itemCategory
 					}}</h3>
-					<items-color v-if="type === TOKENS_TYPES.COLORS" :items="items" />
-					<items-typography v-if="type === TOKENS_TYPES.TYPOGRAPHY" :items="items" />
+					<items-color
+						v-if="type === TOKENS_TYPES.COLORS"
+						:items="items as ColorToken[]"
+					/>
+					<items-typography
+						v-if="type === TOKENS_TYPES.TYPOGRAPHY"
+						:items="items as TypographyToken[]"
+					/>
 				</div>
 			</div>
 		</div>
@@ -64,6 +70,7 @@
 
 <script lang="ts">
 import { ItemsListsItem, TOKENS_TYPES } from './TokenTypes';
+import type { ColorToken, TypographyToken } from './TokenTypes';
 import { Value } from '../utils/type.utils';
 import ItemsColor from './ItemsColor.vue';
 import ItemsTypography from './ItemsTypography.vue';

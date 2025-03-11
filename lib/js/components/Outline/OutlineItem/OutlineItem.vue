@@ -221,6 +221,9 @@ import {
 	OUTLINE_ITEM_BACKGROUND_COLORS,
 	OUTLINE_ITEM_SIZES,
 	OUTLINE_ITEM_STATES,
+	OutlineItemBackgroundColor,
+	OutlineItemSize,
+	OutlineItemState,
 } from './OutlineItem.consts';
 
 export default defineComponent({
@@ -233,14 +236,16 @@ export default defineComponent({
 			type: String,
 			default: OUTLINE_ITEM_SIZES.SMALL,
 			validator(size) {
-				return Object.values(OUTLINE_ITEM_SIZES).includes(size);
+				return Object.values(OUTLINE_ITEM_SIZES).includes(size as OutlineItemSize);
 			},
 		},
 		backgroundColor: {
 			type: String,
 			default: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
 			validator(color) {
-				return Object.values(OUTLINE_ITEM_BACKGROUND_COLORS).includes(color);
+				return Object.values(OUTLINE_ITEM_BACKGROUND_COLORS).includes(
+					color as OutlineItemBackgroundColor,
+				);
 			},
 		},
 		iconLeft: {
@@ -285,7 +290,7 @@ export default defineComponent({
 			type: String,
 			default: OUTLINE_ITEM_STATES.DEFAULT,
 			validator(state) {
-				return Object.values(OUTLINE_ITEM_STATES).includes(state);
+				return Object.values(OUTLINE_ITEM_STATES).includes(state as OutlineItemState);
 			},
 		},
 		isSelected: {
