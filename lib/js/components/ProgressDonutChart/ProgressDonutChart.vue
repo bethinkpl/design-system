@@ -247,13 +247,15 @@ export default defineComponent({
 			type: String as PropType<ProgressDonutChartState>,
 			default: PROGRESS_DONUT_CHART_STATES.DEFAULT,
 			validator(state) {
-				return Object.values(PROGRESS_DONUT_CHART_STATES).includes(state);
+				return Object.values(PROGRESS_DONUT_CHART_STATES).includes(
+					state as ProgressDonutChartState,
+				);
 			},
 		},
 		ranges: {
 			type: Array as PropType<Array<ProgressDonutChartRange>>,
 			required: true,
-			validator(ranges) {
+			validator(ranges: Array<ProgressDonutChartRange>) {
 				return ranges.every(
 					(range: ProgressDonutChartRange) =>
 						range.start >= 0 && range.length >= 0 && range.start + range.length <= 100,

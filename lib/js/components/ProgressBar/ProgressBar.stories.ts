@@ -3,7 +3,7 @@ import {
 	PROGRESS_BAR_BADGE_COLORS,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
 	PROGRESS_BAR_LAYOUTS,
-	PROGRESS_BAR_RADII,
+	PROGRESS_BAR_RADIUS,
 	PROGRESS_BAR_RANGE_COLORS,
 	PROGRESS_BAR_SIZES,
 	ProgressBarRange,
@@ -41,7 +41,7 @@ const argTypes = {
 	},
 	radius: {
 		control: 'select',
-		options: Object.values(PROGRESS_BAR_RADII),
+		options: Object.values(PROGRESS_BAR_RADIUS),
 	},
 	layout: {
 		control: 'select',
@@ -93,7 +93,7 @@ Interactive.args = {
 			length: 10,
 		} as ProgressBarRange,
 	],
-	radius: PROGRESS_BAR_RADII.DEFAULT,
+	radius: PROGRESS_BAR_RADIUS.DEFAULT,
 	layout: PROGRESS_BAR_LAYOUTS.DEFAULT,
 	labelText: 'Label text',
 	labelData: '30',

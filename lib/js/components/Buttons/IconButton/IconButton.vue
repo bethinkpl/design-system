@@ -266,6 +266,8 @@ import WnlButton, {
 	BUTTON_ELEVATIONS,
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
+	ButtonElevation,
+	ButtonRadius,
 } from '../Button';
 import {
 	ICON_BUTTON_COLOR_SCHEMES,
@@ -273,6 +275,10 @@ import {
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_STATES,
 	ICON_BUTTON_TYPES,
+	IconButtonColor,
+	IconButtonColorScheme,
+	IconButtonSize,
+	IconButtonType,
 } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
 import { defineComponent, toRaw } from 'vue';
@@ -297,21 +303,21 @@ export default defineComponent({
 			type: String,
 			default: ICON_BUTTON_SIZES.LARGE,
 			validator(value) {
-				return Object.values(ICON_BUTTON_SIZES).includes(value);
+				return Object.values(ICON_BUTTON_SIZES).includes(value as IconButtonSize);
 			},
 		},
 		radius: {
 			type: String,
 			default: BUTTON_RADIUSES.CAPSULE,
 			validator(value) {
-				return Object.values(BUTTON_RADIUSES).includes(value);
+				return Object.values(BUTTON_RADIUSES).includes(value as ButtonRadius);
 			},
 		},
 		type: {
 			type: String,
 			default: ICON_BUTTON_TYPES.ICON_ONLY,
 			validator(value) {
-				return Object.values(ICON_BUTTON_TYPES).includes(value);
+				return Object.values(ICON_BUTTON_TYPES).includes(value as IconButtonType);
 			},
 		},
 		icon: {
@@ -325,21 +331,23 @@ export default defineComponent({
 			type: String,
 			default: ICON_BUTTON_COLORS.PRIMARY,
 			validator(value): boolean {
-				return Object.values(ICON_BUTTON_COLORS).includes(value);
+				return Object.values(ICON_BUTTON_COLORS).includes(value as IconButtonColor);
 			},
 		},
 		colorScheme: {
 			type: String,
 			default: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
 			validator(value): boolean {
-				return Object.values(ICON_BUTTON_COLOR_SCHEMES).includes(value);
+				return Object.values(ICON_BUTTON_COLOR_SCHEMES).includes(
+					value as IconButtonColorScheme,
+				);
 			},
 		},
 		elevation: {
 			type: String,
 			default: BUTTON_ELEVATIONS.NONE,
 			validator(value) {
-				return Object.values(BUTTON_ELEVATIONS).includes(value);
+				return Object.values(BUTTON_ELEVATIONS).includes(value as ButtonElevation);
 			},
 		},
 		touchable: {
@@ -393,9 +401,9 @@ export default defineComponent({
 			}
 			return this.type;
 		},
-		computedColor(): string | null {
+		computedColor(): string | undefined {
 			if (this.isButtonColor) {
-				return null;
+				return undefined;
 			}
 			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
 				return this.color;

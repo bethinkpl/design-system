@@ -246,7 +246,16 @@ import IconButton, {
 	ICON_BUTTON_STATES,
 } from '../Buttons/IconButton';
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { CHIP_COLORS, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
+import {
+	CHIP_COLORS,
+	CHIP_RADIUSES,
+	CHIP_SIZES,
+	CHIP_STATES,
+	ChipColor,
+	ChipRadius,
+	ChipSize,
+	ChipState,
+} from './Chip.consts';
 
 const CHIP_ICON_BUTTONS_COLOR_MAP = {
 	[CHIP_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
@@ -282,21 +291,21 @@ export default defineComponent({
 		radius: {
 			type: String,
 			default: CHIP_RADIUSES.CAPSULE,
-			validator(value: Value<typeof CHIP_RADIUSES>) {
+			validator(value: ChipRadius) {
 				return Object.values(CHIP_RADIUSES).includes(value);
 			},
 		},
 		size: {
 			type: String,
 			default: CHIP_SIZES.SMALL,
-			validator(size) {
+			validator(size: ChipSize) {
 				return Object.values(CHIP_SIZES).includes(size);
 			},
 		},
 		color: {
 			type: String,
 			default: CHIP_COLORS.NEUTRAL,
-			validator(color) {
+			validator(color: ChipColor) {
 				return Object.values(CHIP_COLORS).includes(color);
 			},
 		},
@@ -307,7 +316,7 @@ export default defineComponent({
 		state: {
 			type: String,
 			default: CHIP_STATES.DEFAULT,
-			validator(value: Value<typeof CHIP_STATES>) {
+			validator(value: ChipState) {
 				return Object.values(CHIP_STATES).includes(value);
 			},
 		},

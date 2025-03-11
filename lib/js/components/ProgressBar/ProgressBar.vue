@@ -12,7 +12,7 @@
 					'-ds-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM,
 					'-ds-ellipsis': labelTextEllipsis,
 				}"
-				:title="labelTextEllipsis ? labelText : null"
+				:title="labelTextEllipsis ? labelText : undefined"
 			>
 				{{ labelText }}
 			</div>
@@ -310,9 +310,14 @@ import {
 	PROGRESS_BAR_BADGE_COLORS,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
 	PROGRESS_BAR_LAYOUTS,
-	PROGRESS_BAR_RADII,
+	PROGRESS_BAR_RADIUS,
 	PROGRESS_BAR_SIZES,
+	ProgressBarBadgeColor,
+	ProgressBarLabelTextSize,
+	ProgressBarLayout,
+	ProgressBarRadius,
 	ProgressBarRange,
+	ProgressBarSize,
 } from './ProgressBar.consts';
 
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
@@ -327,20 +332,22 @@ export default defineComponent({
 			type: String,
 			default: PROGRESS_BAR_SIZES.SMALL,
 			validator(size) {
-				return Object.values(PROGRESS_BAR_SIZES).includes(size);
+				return Object.values(PROGRESS_BAR_SIZES).includes(size as ProgressBarSize);
 			},
 		},
 		labelTextSize: {
 			type: String,
 			default: PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
 			validator(size) {
-				return Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES).includes(size);
+				return Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES).includes(
+					size as ProgressBarLabelTextSize,
+				);
 			},
 		},
 		ranges: {
 			type: Array as PropType<Array<ProgressBarRange>>,
 			required: true,
-			validator(ranges) {
+			validator(ranges: Array<ProgressBarRange>) {
 				return ranges.every(
 					(range: ProgressBarRange) =>
 						range.start >= 0 && range.length >= 0 && range.start + range.length <= 100,
@@ -349,16 +356,16 @@ export default defineComponent({
 		},
 		radius: {
 			type: String,
-			default: PROGRESS_BAR_RADII.DEFAULT,
+			default: PROGRESS_BAR_RADIUS.DEFAULT,
 			validator(size) {
-				return Object.values(PROGRESS_BAR_RADII).includes(size);
+				return Object.values(PROGRESS_BAR_RADIUS).includes(size as ProgressBarRadius);
 			},
 		},
 		layout: {
 			type: String,
 			default: PROGRESS_BAR_LAYOUTS.DEFAULT,
 			validator(size) {
-				return Object.values(PROGRESS_BAR_LAYOUTS).includes(size);
+				return Object.values(PROGRESS_BAR_LAYOUTS).includes(size as ProgressBarLayout);
 			},
 		},
 		labelText: {
@@ -384,7 +391,7 @@ export default defineComponent({
 		badgePosition: {
 			type: Number,
 			default: null,
-			validator(position) {
+			validator(position: number) {
 				return position >= 0 && position <= 100;
 			},
 		},
@@ -392,14 +399,16 @@ export default defineComponent({
 			type: String,
 			default: PROGRESS_BAR_BADGE_COLORS.INFO,
 			validator(color) {
-				return Object.values(PROGRESS_BAR_BADGE_COLORS).includes(color);
+				return Object.values(PROGRESS_BAR_BADGE_COLORS).includes(
+					color as ProgressBarBadgeColor,
+				);
 			},
 		},
 	},
 	data() {
 		return {
 			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
-			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
+			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADIUS),
 			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
 			PROGRESS_BAR_LABEL_TEXT_SIZES: Object.freeze(PROGRESS_BAR_LABEL_TEXT_SIZES),
 			ICONS: Object.freeze(ICONS),

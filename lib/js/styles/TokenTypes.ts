@@ -28,5 +28,5 @@ export interface TypographyToken {
 export interface ItemsListsItem {
 	title: string;
 	class: string;
-	list: Dict<object>;
+	list: Dict<Array<object>>;
 }

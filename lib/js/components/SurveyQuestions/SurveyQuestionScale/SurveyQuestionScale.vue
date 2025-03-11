@@ -239,7 +239,12 @@ import SurveyToggle, {
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from '../../SurveyToggle';
-import { SURVEY_QUESTION_SCALE_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import {
+	SURVEY_QUESTION_SCALE_CONTAINERS,
+	SURVEY_QUESTION_STATES,
+	SurveyQuestionScaleContainer,
+	SurveyQuestionState,
+} from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
@@ -264,19 +269,19 @@ export default defineComponent({
 			type: String,
 			default: SURVEY_QUESTION_STATES.DEFAULT,
 			validator(state) {
-				return Object.values(SURVEY_QUESTION_STATES).includes(state);
+				return Object.values(SURVEY_QUESTION_STATES).includes(state as SurveyQuestionState);
 			},
 		},
 		scaleOptions: {
 			type: Array as () => Array<SurveyQuestionScaleOption>,
 			required: true,
-			validator(scaleOptions) {
+			validator(scaleOptions: Array<unknown>) {
 				return scaleOptions.every((option) => typeof option === 'object');
 			},
 		},
 		elaborationLabel: {
 			type: String,
-			default: null,
+			default: undefined,
 		},
 		elaborationValue: {
 			type: String,
@@ -288,13 +293,15 @@ export default defineComponent({
 		},
 		selectedValue: {
 			type: String,
-			default: null,
+			default: undefined,
 		},
 		containers: {
 			type: String,
 			default: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
 			validator(containers) {
-				return Object.values(SURVEY_QUESTION_SCALE_CONTAINERS).includes(containers);
+				return Object.values(SURVEY_QUESTION_SCALE_CONTAINERS).includes(
+					containers as SurveyQuestionScaleContainer,
+				);
 			},
 		},
 	},

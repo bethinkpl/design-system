@@ -114,8 +114,8 @@ export default defineComponent({
 		};
 	},
 	computed: {
-		chevronRotation(): number | null {
-			return this.isExpandedInternal ? 180 : null;
+		chevronRotation() {
+			return this.isExpandedInternal ? 180 : undefined;
 		},
 	},
 	watch: {
