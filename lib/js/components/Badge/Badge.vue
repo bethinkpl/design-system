@@ -49,17 +49,17 @@ $badge-color-neutral: $color-neutral-background-heavy;
 .ds-badge {
 	$root: &;
 
-	display: inline-flex;
 	align-items: center;
-	justify-content: center;
-	border-radius: $radius-xl;
 	background-color: $color-default-background;
+	border-radius: $radius-xl;
+	display: inline-flex;
+	justify-content: center;
 
 	&__content {
+		align-items: center;
 		border-radius: $radius-xl;
 		color: $color-inverted-text;
 		display: flex;
-		align-items: center;
 		justify-content: center;
 	}
 
@@ -68,8 +68,8 @@ $badge-color-neutral: $color-neutral-background-heavy;
 		width: $badge-size-xs;
 
 		& #{$root}__content {
-			width: $badge-content-size-xs;
 			height: $badge-content-size-xs;
+			width: $badge-content-size-xs;
 		}
 	}
 
@@ -78,8 +78,8 @@ $badge-color-neutral: $color-neutral-background-heavy;
 		width: $badge-size-s;
 
 		& #{$root}__content {
-			width: $badge-content-size-s;
 			height: $badge-content-size-s;
+			width: $badge-content-size-s;
 		}
 	}
 
@@ -90,8 +90,8 @@ $badge-color-neutral: $color-neutral-background-heavy;
 		& #{$root}__content {
 			@include label-xs-default-bold;
 
-			width: $badge-content-size-m;
 			height: $badge-content-size-m;
+			width: $badge-content-size-m;
 		}
 	}
 
@@ -102,8 +102,8 @@ $badge-color-neutral: $color-neutral-background-heavy;
 		& #{$root}__content {
 			@include label-xs-default-bold;
 
-			width: $badge-content-size-l;
 			height: $badge-content-size-l;
+			width: $badge-content-size-l;
 		}
 	}
 
@@ -114,8 +114,8 @@ $badge-color-neutral: $color-neutral-background-heavy;
 		& #{$root}__content {
 			@include label-s-default-bold;
 
-			width: $badge-content-size-xl;
 			height: $badge-content-size-xl;
+			width: $badge-content-size-xl;
 		}
 	}
 
@@ -171,8 +171,8 @@ $badge-color-neutral: $color-neutral-background-heavy;
 }
 
 :deep(.ds-badge__accessory) {
-	width: $badge-content-size-xl;
 	height: $badge-content-size-xl;
+	width: $badge-content-size-xl;
 }
 </style>
 
