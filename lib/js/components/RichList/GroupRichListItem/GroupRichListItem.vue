@@ -110,7 +110,9 @@ export default defineComponent({
 			type: String as PropType<GroupRichListItemBorderColor>,
 			default: null,
 			validator(borderColor) {
-				return Object.values(GROUP_RICH_LIST_ITEM_BORDER_COLOR).includes(borderColor);
+				return Object.values(GROUP_RICH_LIST_ITEM_BORDER_COLOR).includes(
+					borderColor as GroupRichListItemBorderColor,
+				);
 			},
 		},
 		borderColorHex: {
@@ -122,7 +124,7 @@ export default defineComponent({
 			default: GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
 			validator(backgroundColor) {
 				return Object.values(GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR).includes(
-					backgroundColor,
+					backgroundColor as GroupRichListItemBackgroundColor,
 				);
 			},
 		},

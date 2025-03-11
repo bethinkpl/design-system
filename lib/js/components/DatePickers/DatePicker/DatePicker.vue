@@ -24,9 +24,9 @@
 				:text="text"
 				:interactive="isInteractive"
 				:additional-text="additionalText"
-				:color="color as TileColors"
+				:color="tileColor"
 				:border-color="borderColor"
-				:state="state as TileStates"
+				:state="tileState"
 				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
@@ -140,7 +140,12 @@
 <script lang="ts">
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 
-import DsTile, { TILE_ADDITIONAL_TEXT_MAX_WIDTHS, TILE_BORDER_COLORS } from '../../Tile';
+import DsTile, {
+	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
+	TILE_BORDER_COLORS,
+	TileColors,
+	TileStates,
+} from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import DateBox from '../DateBox';
 
@@ -338,6 +343,12 @@ export default defineComponent({
 		},
 		showHelpMessage() {
 			return this.helpMessage !== null;
+		},
+		tileState() {
+			return this.state as TileStates;
+		},
+		tileColor() {
+			return this.color as TileColors;
 		},
 	},
 	async mounted() {
