@@ -3,6 +3,7 @@ import { DatePickerCalendarPositions, DatePickerColors, DatePickerStates } from 
 
 declare const _default: import('vue').DefineComponent<{
     disableDates: Array<Date>;
+    date: Date | null;
     minDate: Date | null;
     maxDate: Date | null;
     calendarPosition: DatePickerCalendarPositions;
@@ -49,6 +50,7 @@ declare const _default: import('vue').DefineComponent<{
     }) => true;
 }, string, import('vue').PublicProps, Readonly<{
     disableDates: Array<Date>;
+    date: Date | null;
     minDate: Date | null;
     maxDate: Date | null;
     calendarPosition: DatePickerCalendarPositions;

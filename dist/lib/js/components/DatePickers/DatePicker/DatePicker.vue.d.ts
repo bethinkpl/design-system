@@ -3,10 +3,10 @@ import { DatePickerCalendarPositions, DatePickerColors, DatePickerStates } from 
 
 declare const _default: import('vue').DefineComponent<{
     disableDates: Array<Date>;
+    date: Date | null;
     minDate: Date | null;
     maxDate: Date | null;
     calendarPosition: DatePickerCalendarPositions;
-    date: Date;
     isInteractive: boolean;
     state: DatePickerStates;
     updatePositionBasedOnScrollableSelector: string;
@@ -56,10 +56,10 @@ declare const _default: import('vue').DefineComponent<{
     'update:date': (date: Date) => true;
 }, string, import('vue').PublicProps, Readonly<{
     disableDates: Array<Date>;
+    date: Date | null;
     minDate: Date | null;
     maxDate: Date | null;
     calendarPosition: DatePickerCalendarPositions;
-    date: Date;
     isInteractive: boolean;
     state: DatePickerStates;
     updatePositionBasedOnScrollableSelector: string;
