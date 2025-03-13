@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/vue3';
 
 import Badge from './Badge.vue';
 import { BADGE_COLORS, BADGE_ELEVATIONS, BADGE_SIZES } from './Badge.consts';
-import { ICONS } from '../Icons/Icon';
+import { IconKey, ICONS } from '../Icons/Icon';
 import DsBanner, { BANNER_COLORS } from '../Banner';
 
 type BadgeProps = ComponentProps<typeof Badge>;
@@ -22,7 +22,6 @@ const meta: Meta<typeof Badge> = {
 		components: { Badge, DsBanner },
 		setup() {
 			return {
-				args,
 				BANNER_COLORS,
 			};
 		},
@@ -37,9 +36,15 @@ const meta: Meta<typeof Badge> = {
 
 				return invalidSizeWithLabel || invalidSizeWithIconOrImage;
 			},
+			props() {
+				return {
+					...args,
+					icon: ICONS[args.icon as IconKey],
+				};
+			},
 		},
 		// line-height: 0; is to remove extra space below the badge (as it's an inline element)
-		template: wrapWithContainer('<Badge v-bind="args" />'),
+		template: wrapWithContainer('<Badge v-bind="props" />'),
 	}),
 	argTypes: {
 		size: {

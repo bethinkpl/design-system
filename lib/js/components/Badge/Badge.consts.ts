@@ -16,7 +16,7 @@ export const BADGE_COLORS = {
 	DANGER: 'danger',
 	FAIL: 'fail',
 	NEUTRAL: 'neutral',
-};
+} as const;
 
 export type BadgeColor = Value<typeof BADGE_COLORS>;
 
@@ -24,6 +24,6 @@ export const BADGE_ELEVATIONS = {
 	NONE: 'none',
 	X_SMALL: 'x-small',
 	SMALL: 'small',
-};
+} as const;
 
 export type BadgeElevation = Value<typeof BADGE_ELEVATIONS>;

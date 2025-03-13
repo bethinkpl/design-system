@@ -1,8 +1,7 @@
 import { mount } from '@vue/test-utils';
 import Badge from './Badge.vue';
-import { ICONS } from '../Icons/Icon';
-import { exists } from 'node:fs';
 import { BADGE_COLORS, BADGE_ELEVATIONS, BADGE_SIZES } from './Badge.consts';
+import { ICONS } from '../Icons/Icon';
 
 describe('Badge', () => {
 	it('should render with label', () => {
@@ -18,7 +17,7 @@ describe('Badge', () => {
 	it('should render with icon', () => {
 		const wrapper = mount(Badge, {
 			props: {
-				icon: 'FA_BELL',
+				icon: ICONS.FA_BELL,
 			},
 		});
 
@@ -29,7 +28,7 @@ describe('Badge', () => {
 		const wrapper = mount(Badge, {
 			props: {
 				label: '1',
-				icon: 'FA_BELL',
+				icon: ICONS.FA_BELL,
 			},
 		});
 
@@ -51,7 +50,7 @@ describe('Badge', () => {
 	it('should not render icon if image is present', () => {
 		const wrapper = mount(Badge, {
 			props: {
-				icon: 'FA_BELL',
+				icon: ICONS.FA_BELL,
 				imageUrl: 'https://via.placeholder.com/150',
 			},
 		});

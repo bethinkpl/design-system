@@ -27,12 +27,7 @@
 		<div v-if="!imageUrl && !icon" class="ds-badge__content">
 			{{ label }}
 		</div>
-		<icon
-			v-if="!imageUrl && icon"
-			:icon="ICONS[icon]"
-			:size="iconSize"
-			class="ds-badge__icon"
-		/>
+		<icon v-if="!imageUrl && icon" :icon="icon" :size="iconSize" class="ds-badge__icon" />
 		<img v-if="imageUrl" :src="imageUrl" class="ds-badge__image" />
 	</div>
 </template>
@@ -268,18 +263,19 @@ import {
 	BadgeElevation,
 	BadgeSize,
 } from './Badge.consts';
-import Icon, { ICON_SIZES, IconKey, ICONS } from '../Icons/Icon';
+import Icon, { ICON_SIZES, IconItem } from '../Icons/Icon';
 import { computed } from 'vue';
 
 const {
 	size = BADGE_SIZES.SMALL,
 	color = BADGE_COLORS.PRIMARY,
 	elevation = BADGE_ELEVATIONS.X_SMALL,
+	icon,
 } = defineProps<{
 	color?: BadgeColor;
 	size?: BadgeSize;
 	label?: string;
-	icon?: IconKey;
+	icon?: IconItem;
 	imageUrl?: string;
 	elevation?: BadgeElevation;
 }>();
