@@ -2,7 +2,7 @@ import { ComponentProps } from 'vue-component-type-helpers';
 import { Meta, StoryObj } from '@storybook/vue3';
 
 import Badge from './Badge.vue';
-import { BADGE_COLORS, BADGE_ELEVATION, BADGE_SIZES } from './Badge.consts';
+import { BADGE_COLORS, BADGE_ELEVATIONS, BADGE_SIZES } from './Badge.consts';
 import { ICONS } from '../Icons/Icon';
 import DsBanner, { BANNER_COLORS } from '../Banner';
 
@@ -52,7 +52,7 @@ const meta: Meta<typeof Badge> = {
 		},
 		elevation: {
 			control: 'select',
-			options: Object.values(BADGE_ELEVATION),
+			options: Object.values(BADGE_ELEVATIONS),
 		},
 		icon: {
 			control: 'select',
@@ -68,7 +68,7 @@ export const Interactive: Story = {
 	args: {
 		color: BADGE_COLORS.PRIMARY,
 		size: BADGE_SIZES.SMALL,
-		elevation: BADGE_ELEVATION.SMALL,
+		elevation: BADGE_ELEVATIONS.SMALL,
 		label: '',
 		imageUrl: '',
 	},

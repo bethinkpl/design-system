@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import Badge from './Badge.vue';
 import { ICONS } from '../Icons/Icon';
 import { exists } from 'node:fs';
-import { BADGE_COLORS, BADGE_ELEVATION, BADGE_SIZES } from './Badge.consts';
+import { BADGE_COLORS, BADGE_ELEVATIONS, BADGE_SIZES } from './Badge.consts';
 
 describe('Badge', () => {
 	it('should render with label', () => {
@@ -140,7 +140,7 @@ describe('Badge', () => {
 	it('should have -ds-no-elevation class when elevation is none', () => {
 		const wrapper = mount(Badge, {
 			props: {
-				elevation: BADGE_ELEVATION.NONE,
+				elevation: BADGE_ELEVATIONS.NONE,
 			},
 		});
 
@@ -150,7 +150,7 @@ describe('Badge', () => {
 	it('should have -ds-elevation-s class when elevation is small', () => {
 		const wrapper = mount(Badge, {
 			props: {
-				elevation: BADGE_ELEVATION.SMALL,
+				elevation: BADGE_ELEVATIONS.SMALL,
 			},
 		});
 
@@ -160,7 +160,7 @@ describe('Badge', () => {
 	it('should not have elevation modifier class when elevation is x-small', () => {
 		const wrapper = mount(Badge, {
 			props: {
-				elevation: BADGE_ELEVATION.X_SMALL,
+				elevation: BADGE_ELEVATIONS.X_SMALL,
 			},
 		});
 

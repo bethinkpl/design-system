@@ -18,8 +18,8 @@
 			:class="[
 				'ds-badge__elevation',
 				{
-					'-ds-no-elevation': elevation === BADGE_ELEVATION.NONE,
-					'-ds-elevation-s': elevation === BADGE_ELEVATION.SMALL,
+					'-ds-no-elevation': elevation === BADGE_ELEVATIONS.NONE,
+					'-ds-elevation-s': elevation === BADGE_ELEVATIONS.SMALL,
 				},
 			]"
 		>
@@ -263,7 +263,7 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 import {
 	BADGE_COLORS,
 	BADGE_SIZES,
-	BADGE_ELEVATION,
+	BADGE_ELEVATIONS,
 	BadgeColor,
 	BadgeElevation,
 	BadgeSize,
@@ -274,7 +274,7 @@ import { computed } from 'vue';
 const {
 	size = BADGE_SIZES.SMALL,
 	color = BADGE_COLORS.PRIMARY,
-	elevation = BADGE_ELEVATION.X_SMALL,
+	elevation = BADGE_ELEVATIONS.X_SMALL,
 } = defineProps<{
 	color?: BadgeColor;
 	size?: BadgeSize;
