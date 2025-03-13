@@ -2,37 +2,61 @@ import { ComponentProps } from 'vue-component-type-helpers';
 import { Meta, StoryObj } from '@storybook/vue3';
 
 import Badge from './Badge.vue';
-import { BADGE_COLORS, BADGE_SIZES } from './Badge.consts';
+import { BADGE_COLORS, BADGE_ELEVATION_SIZES, BADGE_SIZES } from './Badge.consts';
 import { ICONS } from '../Icons/Icon';
-import LogoBadge from '../../../images/logo-badge.svg';
+import DsBanner, { BANNER_COLORS } from '../Banner';
 
 type BadgeProps = ComponentProps<typeof Badge>;
+
+function wrapWithContainer(template: string): string {
+	// line-height: 0; is to remove extra space below the badge (as it's an inline element)
+	return `<div style="display: inline-flex; background: #ccc; padding: 16px; line-height: 0; margin-bottom: 16px;">${template}</div>
+<ds-banner :color="BANNER_COLORS.WARNING" title="Taka kombinacja jest niezgodna z design systemem!" v-if="invalidUsage" />
+`;
+}
 
 const meta: Meta<typeof Badge> = {
 	title: 'Components/Badges/Badge',
 	component: Badge,
 	render: (args: BadgeProps) => ({
-		components: { Badge },
+		components: { Badge, DsBanner },
 		setup() {
 			return {
 				args,
+				BANNER_COLORS,
 			};
 		},
+		computed: {
+			invalidUsage() {
+				const invalidSizeWithLabel =
+					(args.size === BADGE_SIZES.X_SMALL || args.size === BADGE_SIZES.SMALL) &&
+					args.label;
+
+				const invalidSizeWithIconOrImage =
+					args.size === BADGE_SIZES.X_SMALL && (args.icon || args.imageUrl);
+
+				return invalidSizeWithLabel || invalidSizeWithIconOrImage;
+			},
+		},
 		// line-height: 0; is to remove extra space below the badge (as it's an inline element)
-		template: `<div style="background: #ccc; padding: 8px; line-height: 0;"><Badge v-bind="args" /></div>`,
+		template: wrapWithContainer('<Badge v-bind="args" />'),
 	}),
 	argTypes: {
 		size: {
 			control: 'select',
-			options: [...Object.values(BADGE_SIZES)],
+			options: [undefined, ...Object.values(BADGE_SIZES)],
 		},
 		color: {
 			control: 'select',
-			options: [null, ...Object.values(BADGE_COLORS)],
+			options: [undefined, ...Object.values(BADGE_COLORS)],
+		},
+		elevation: {
+			control: 'select',
+			options: [undefined, ...Object.values(BADGE_ELEVATION_SIZES)],
 		},
 		icon: {
 			control: 'select',
-			options: [null, ...Object.keys(ICONS)],
+			options: [undefined, ...Object.keys(ICONS)],
 		},
 	},
 };
@@ -42,8 +66,11 @@ type Story = StoryObj<typeof Badge>;
 
 export const Interactive: Story = {
 	args: {
-		size: BADGE_SIZES.X_LARGE,
-		label: '1',
+		color: BADGE_COLORS.PRIMARY,
+		size: BADGE_SIZES.SMALL,
+		elevation: BADGE_ELEVATION_SIZES.SMALL,
+		label: '',
+		imageUrl: '',
 	},
 };
 
@@ -54,9 +81,10 @@ Interactive.parameters = {
 	},
 };
 
-export const InteractiveWithAccessory: Story = {
+export const InteractiveWithImage: Story = {
 	args: {
-		size: BADGE_SIZES.X_LARGE,
+		size: BADGE_SIZES.SMALL,
+		imageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
 	},
 	argTypes: {
 		icon: {
@@ -69,28 +97,4 @@ export const InteractiveWithAccessory: Story = {
 			control: false,
 		},
 	},
-	render: (args: BadgeProps) => ({
-		components: { Badge, LogoBadge },
-		setup() {
-			return {
-				args,
-			};
-		},
-		template: `<div style="background: #ccc; padding: 8px; line-height: 0;"><Badge v-bind="args"><logo-badge :style="accessoryStyle" /></Badge></div>`,
-		computed: {
-			accessoryStyle() {
-				switch (args.size) {
-					case BADGE_SIZES.X_LARGE:
-						return { width: '20px', height: '20px' };
-					case BADGE_SIZES.LARGE:
-						return { width: '16px', height: '16px' };
-					case BADGE_SIZES.MEDIUM:
-						return { width: '12px', height: '12px' };
-					case BADGE_SIZES.SMALL:
-					default:
-						return { width: '8px', height: '8px' };
-				}
-			},
-		},
-	}),
 };

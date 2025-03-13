@@ -17,3 +17,10 @@ export const BADGE_COLORS = {
 };
 
 export type BadgeColor = typeof BADGE_COLORS[keyof typeof BADGE_COLORS];
+
+export const BADGE_ELEVATION_SIZES = {
+	X_SMALL: 'x-small',
+	SMALL: 'small',
+};
+
+export type BadgeElevationSize = typeof BADGE_ELEVATION_SIZES[keyof typeof BADGE_ELEVATION_SIZES];
