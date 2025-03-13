@@ -18,8 +18,8 @@
 			:class="[
 				'ds-badge__elevation',
 				{
-					'-no-elevation': elevation === BADGE_ELEVATION.NONE,
-					'-elevation-s': elevation === BADGE_ELEVATION.SMALL,
+					'-ds-no-elevation': elevation === BADGE_ELEVATION.NONE,
+					'-ds-elevation-s': elevation === BADGE_ELEVATION.SMALL,
 				},
 			]"
 		>
@@ -65,23 +65,23 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 .ds-badge {
 	$root: &;
 
-	position: relative;
 	display: inline-flex;
 	justify-content: center;
+	position: relative;
 
 	&__elevation {
-		border-radius: $radius-xl;
-		background-color: $color-default-background;
-		position: absolute;
 		align-items: center;
+		background-color: $color-default-background;
+		border-radius: $radius-xl;
 		display: flex;
 		justify-content: center;
+		position: absolute;
 
-		&.-no-elevation {
+		&.-ds-no-elevation {
 			display: none;
 		}
 
-		&.-elevation-s {
+		&.-ds-elevation-s {
 			box-shadow: $shadow-s;
 		}
 	}
@@ -110,10 +110,10 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 
 		& #{$root}__elevation {
 			height: $badge-elevation-size-xs;
-			width: calc(100% + 2 * $elevation-gap-xs);
-			top: -$elevation-gap-xs;
 			left: -$elevation-gap-xs;
 			padding: $elevation-gap-xs;
+			top: -$elevation-gap-xs;
+			width: calc(100% + 2 * $elevation-gap-xs);
 		}
 
 		& #{$root}__image {
@@ -127,10 +127,10 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 
 		& #{$root}__elevation {
 			height: $badge-elevation-size-s;
-			width: calc(100% + 2 * $elevation-gap-s);
-			top: -$elevation-gap-s;
 			left: -$elevation-gap-s;
 			padding: $elevation-gap-s;
+			top: -$elevation-gap-s;
+			width: calc(100% + 2 * $elevation-gap-s);
 		}
 
 		& #{$root}__image {
@@ -144,10 +144,10 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 
 		& #{$root}__elevation {
 			height: $badge-elevation-size-m;
-			width: calc(100% + 2 * $elevation-gap-m);
-			top: -$elevation-gap-m;
 			left: -$elevation-gap-m;
 			padding: $elevation-gap-m;
+			top: -$elevation-gap-m;
+			width: calc(100% + 2 * $elevation-gap-m);
 		}
 
 		& #{$root}__content {
@@ -167,10 +167,10 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 
 		& #{$root}__elevation {
 			height: $badge-elevation-size-l;
-			width: calc(100% + 2 * $elevation-gap-l);
-			top: -$elevation-gap-l;
 			left: -$elevation-gap-l;
 			padding: $elevation-gap-l;
+			top: -$elevation-gap-l;
+			width: calc(100% + 2 * $elevation-gap-l);
 		}
 
 		& #{$root}__content {
@@ -190,10 +190,10 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 
 		& #{$root}__elevation {
 			height: $badge-elevation-size-xl;
-			width: calc(100% + 2 * $elevation-gap-xl);
-			top: -$elevation-gap-xl;
 			left: -$elevation-gap-xl;
 			padding: $elevation-gap-xl;
+			top: -$elevation-gap-xl;
+			width: calc(100% + 2 * $elevation-gap-xl);
 		}
 
 		& #{$root}__content {

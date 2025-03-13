@@ -137,24 +137,24 @@ describe('Badge', () => {
 		},
 	);
 
-	it('should have -no-elevation class when elevation is none', () => {
+	it('should have -ds-no-elevation class when elevation is none', () => {
 		const wrapper = mount(Badge, {
 			props: {
 				elevation: BADGE_ELEVATION.NONE,
 			},
 		});
 
-		expect(wrapper.find('.ds-badge__elevation').classes()).toContain('-no-elevation');
+		expect(wrapper.find('.ds-badge__elevation').classes()).toContain('-ds-no-elevation');
 	});
 
-	it('should have -elevation-s class when elevation is small', () => {
+	it('should have -ds-elevation-s class when elevation is small', () => {
 		const wrapper = mount(Badge, {
 			props: {
 				elevation: BADGE_ELEVATION.SMALL,
 			},
 		});
 
-		expect(wrapper.find('.ds-badge__elevation').classes()).toContain('-elevation-s');
+		expect(wrapper.find('.ds-badge__elevation').classes()).toContain('-ds-elevation-s');
 	});
 
 	it('should not have elevation modifier class when elevation is x-small', () => {
