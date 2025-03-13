@@ -83,18 +83,10 @@ Interactive.parameters = {
 
 export const InteractiveWithImage: Story = {
 	args: {
+		color: BADGE_COLORS.PRIMARY,
 		size: BADGE_SIZES.SMALL,
+		elevation: BADGE_ELEVATIONS.SMALL,
+		label: '',
 		imageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
-	},
-	argTypes: {
-		icon: {
-			control: false,
-		},
-		color: {
-			control: false,
-		},
-		label: {
-			control: false,
-		},
 	},
 };
