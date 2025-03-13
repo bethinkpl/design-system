@@ -19,6 +19,22 @@
 			<img v-if="!!avatarUrl" :src="avatarUrl" :alt="username" class="ds-avatar__image" />
 			<span v-else class="ds-avatar__initials">{{ initials }}</span>
 		</div>
+		<ds-badge
+			v-if="activityStatus"
+			class="ds-avatar__activityStatus"
+			:color="activityStatusColor"
+			:elevation="BADGE_ELEVATIONS.X_SMALL"
+			:size="activityStatusSize"
+		/>
+		<ds-badge
+			v-if="accessStatus"
+			class="ds-avatar__accessStatus"
+			:color="accessStatusColor"
+			:elevation="BADGE_ELEVATIONS.SMALL"
+			:icon="accessStatusIcon"
+			:size="accessStatusSize"
+			:image-url="accessStatusImage"
+		/>
 	</div>
 </template>
 
@@ -31,6 +47,7 @@
 	$root: &;
 
 	display: flex;
+	position: relative;
 
 	&.-ds-xx-small {
 		height: 24px;
@@ -117,62 +134,194 @@
 		height: 100%;
 		width: 100%;
 	}
+
+	&__accessStatus {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+
+		@at-root {
+			.ds-avatar.-ds-xx-small & {
+				bottom: -2px;
+				right: -2px;
+			}
+
+			.ds-avatar.-ds-large & {
+				bottom: 1px;
+				right: 1px;
+			}
+		}
+	}
+
+	&__activityStatus {
+		position: absolute;
+		top: -4px;
+		left: -4px;
+	}
 }
 </style>
 
 <script setup lang="ts">
-import { AVATAR_SIZES, AvatarSize } from './Avatar.consts';
+import {
+	AVATAR_ACCESS_STATUSES,
+	AVATAR_ACTIVITY_STATUSES,
+	AVATAR_SIZES,
+	AvatarAccessStatus,
+	AvatarActivityStatus,
+	AvatarSize,
+} from './Avatar.consts';
+import DsBadge, { BADGE_ELEVATIONS, BADGE_SIZES, BADGE_COLORS } from '../Badge';
 import { computed } from 'vue';
+import { ICONS } from '../Icons/Icon';
 
-const props = withDefaults(
-	defineProps<{
-		username: string;
-		avatarUrl?: string;
-		size?: AvatarSize;
-	}>(),
-	{
-		size: AVATAR_SIZES.X_SMALL,
-		avatarUrl: undefined,
-	},
-);
+const {
+	size = AVATAR_SIZES.X_SMALL,
+	username,
+	avatarUrl,
+	activityStatus,
+	accessStatus,
+	teamMemberImageUrl,
+} = defineProps<{
+	username: string;
+	avatarUrl?: string;
+	size?: AvatarSize;
+	activityStatus?: AvatarActivityStatus;
+	accessStatus?: AvatarAccessStatus;
+	teamMemberImageUrl?: string;
+}>();
 
-const initialsBackgrounds = [
-	'#1abc9c',
-	'#2ecc71',
-	'#3498db',
-	'#9b59b6',
-	'#34495e',
-	'#16a085',
-	'#27ae60',
-	'#2980b9',
-	'#8e44ad',
-	'#2c3e50',
-	'#f1c40f',
-	'#e67e22',
-	'#e74c3c',
-	'#f39c12',
-	'#d35400',
-	'#c0392b',
-];
+const { initials, initialBackgroundColor } = useInitials();
+const { accessStatusColor, accessStatusIcon, accessStatusSize, accessStatusImage } =
+	useAccessStatus();
+const { activityStatusColor, activityStatusSize } = useActivityStatus();
+function useInitials() {
+	const initialsBackgrounds = [
+		'#1abc9c',
+		'#2ecc71',
+		'#3498db',
+		'#9b59b6',
+		'#34495e',
+		'#16a085',
+		'#27ae60',
+		'#2980b9',
+		'#8e44ad',
+		'#2c3e50',
+		'#f1c40f',
+		'#e67e22',
+		'#e74c3c',
+		'#f39c12',
+		'#d35400',
+		'#c0392b',
+	];
 
-function getInitials(username: string) {
-	const [first, second] = username.split(/\s+/);
+	function getInitials(username: string) {
+		const [first, second] = username.split(/\s+/);
 
-	if (first && second) {
-		return `${first[0]}${second[0]}`.toUpperCase();
+		if (first && second) {
+			return `${first[0]}${second[0]}`.toUpperCase();
+		}
+
+		return first.substring(0, 2).toUpperCase();
 	}
 
-	return first.substring(0, 2).toUpperCase();
+	const initialBackgroundColor = computed(() => {
+		if (avatarUrl) {
+			return;
+		}
+
+		const colorIndex = (username.charCodeAt(0) - 65) % 16;
+
+		return initialsBackgrounds[colorIndex];
+	});
+
+	const initials = computed(() => getInitials(username));
+
+	return { initials, initialBackgroundColor };
 }
 
-const initialBackgroundColor = computed(() => {
-	if (props.avatarUrl) {
-		return;
-	}
+function useAccessStatus() {
+	const accessStatusColor = computed(() => {
+		switch (accessStatus) {
+			case AVATAR_ACCESS_STATUSES.ACTIVE:
+				return BADGE_COLORS.SUCCESS;
+			case AVATAR_ACCESS_STATUSES.INACTIVE:
+				return BADGE_COLORS.DANGER;
+			default:
+				return;
+		}
+	});
 
-	const colorIndex = (props.username.charCodeAt(0) - 65) % 16;
+	const accessStatusIcon = computed(() => {
+		switch (accessStatus) {
+			case AVATAR_ACCESS_STATUSES.ACTIVE:
+				return ICONS.FA_UNLOCK_KEYHOLE;
+			case AVATAR_ACCESS_STATUSES.INACTIVE:
+				return ICONS.FA_LOCK_KEYHOLE;
+			default:
+				return;
+		}
+	});
 
-	return initialsBackgrounds[colorIndex];
-});
-const initials = computed(() => getInitials(props.username));
+	const accessStatusSize = computed(() => {
+		// Casting to AvatarSize to work around an IDE issue (PhpStorm incorrectly flags some case branches as unreachable)
+		switch (size as AvatarSize) {
+			case AVATAR_SIZES.XX_SMALL:
+				return BADGE_SIZES.SMALL;
+			case AVATAR_SIZES.X_SMALL:
+				return BADGE_SIZES.SMALL;
+			case AVATAR_SIZES.SMALL:
+				return BADGE_SIZES.SMALL;
+			case AVATAR_SIZES.MEDIUM:
+				return BADGE_SIZES.MEDIUM;
+			case AVATAR_SIZES.LARGE:
+				return BADGE_SIZES.MEDIUM;
+			case AVATAR_SIZES.X_LARGE:
+			default:
+				return BADGE_SIZES.X_LARGE;
+		}
+	});
+
+	const accessStatusImage = computed(() => {
+		if (accessStatus !== AVATAR_ACCESS_STATUSES.TEAM_MEMBER) {
+			return;
+		}
+
+		return teamMemberImageUrl;
+	});
+
+	return { accessStatusColor, accessStatusIcon, accessStatusSize, accessStatusImage };
+}
+
+function useActivityStatus() {
+	const activityStatusColor = computed(() => {
+		switch (activityStatus) {
+			case AVATAR_ACTIVITY_STATUSES.ACTIVE:
+				return BADGE_COLORS.SUCCESS;
+			default:
+			case AVATAR_ACTIVITY_STATUSES.INACTIVE:
+				return BADGE_COLORS.NEUTRAL;
+		}
+	});
+
+	const activityStatusSize = computed(() => {
+		// Casting to AvatarSize to work around an IDE issue (PhpStorm incorrectly flags some case branches as unreachable)
+		switch (size as AvatarSize) {
+			case AVATAR_SIZES.XX_SMALL:
+				return BADGE_SIZES.X_SMALL;
+			case AVATAR_SIZES.X_SMALL:
+				return BADGE_SIZES.SMALL;
+			case AVATAR_SIZES.SMALL:
+				return BADGE_SIZES.SMALL;
+			case AVATAR_SIZES.MEDIUM:
+				return BADGE_SIZES.MEDIUM;
+			case AVATAR_SIZES.LARGE:
+				return BADGE_SIZES.MEDIUM;
+			case AVATAR_SIZES.X_LARGE:
+			default:
+				return BADGE_SIZES.MEDIUM;
+		}
+	});
+
+	return { activityStatusColor, activityStatusSize };
+}
 </script>
