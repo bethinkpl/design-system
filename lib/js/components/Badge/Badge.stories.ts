@@ -44,19 +44,19 @@ const meta: Meta<typeof Badge> = {
 	argTypes: {
 		size: {
 			control: 'select',
-			options: [undefined, ...Object.values(BADGE_SIZES)],
+			options: Object.values(BADGE_SIZES),
 		},
 		color: {
 			control: 'select',
-			options: [undefined, ...Object.values(BADGE_COLORS)],
+			options: Object.values(BADGE_COLORS),
 		},
 		elevation: {
 			control: 'select',
-			options: [undefined, ...Object.values(BADGE_ELEVATION)],
+			options: Object.values(BADGE_ELEVATION),
 		},
 		icon: {
 			control: 'select',
-			options: [undefined, ...Object.keys(ICONS)],
+			options: Object.keys(ICONS),
 		},
 	},
 };
