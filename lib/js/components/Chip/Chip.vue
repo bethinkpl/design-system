@@ -238,7 +238,15 @@ $chip-colors: (
 </style>
 
 <script lang="ts">
-import { CHIP_COLORS, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
+import {
+	CHIP_COLORS,
+	CHIP_RADIUSES,
+	CHIP_SIZES,
+	CHIP_STATES,
+	ChipColor,
+	ChipSize,
+	ChipState,
+} from './Chip.consts';
 import IconButton, {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
@@ -291,14 +299,14 @@ export default defineComponent({
 			type: String,
 			default: CHIP_SIZES.SMALL,
 			validator(size) {
-				return Object.values(CHIP_SIZES).includes(size);
+				return Object.values(CHIP_SIZES).includes(size as ChipSize);
 			},
 		},
 		color: {
 			type: String,
 			default: CHIP_COLORS.NEUTRAL,
 			validator(color) {
-				return Object.values(CHIP_COLORS).includes(color);
+				return Object.values(CHIP_COLORS).includes(color as ChipColor);
 			},
 		},
 		colorHex: {
@@ -309,7 +317,7 @@ export default defineComponent({
 			type: String,
 			default: CHIP_STATES.DEFAULT,
 			validator(value: Value<typeof CHIP_STATES>) {
-				return Object.values(CHIP_STATES).includes(value);
+				return Object.values(CHIP_STATES).includes(value as ChipState);
 			},
 		},
 		isRemovable: {
