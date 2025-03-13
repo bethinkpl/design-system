@@ -18,8 +18,8 @@
 			:class="[
 				'ds-badge__elevation',
 				{
-					'-no-elevation': !elevation,
-					'-elevation-s': elevation === BADGE_ELEVATION_SIZES.SMALL,
+					'-no-elevation': elevation === BADGE_ELEVATION.NONE,
+					'-elevation-s': elevation === BADGE_ELEVATION.SMALL,
 				},
 			]"
 		>
@@ -56,12 +56,6 @@ $badge-content-size-m: 12px;
 $badge-content-size-s: 8px;
 $badge-content-size-xs: 6px;
 
-$badge-color-primary: $color-primary-background-strong;
-$badge-color-success: $color-success-background-strong;
-$badge-color-fail: $color-fail-background-strong;
-$badge-color-danger: $color-danger-background-strong;
-$badge-color-neutral: $color-neutral-background-heavy;
-
 $elevation-gap-xl: ($badge-elevation-size-xl - $badge-content-size-xl) / 2;
 $elevation-gap-l: ($badge-elevation-size-l - $badge-content-size-l) / 2;
 $elevation-gap-m: ($badge-elevation-size-m - $badge-content-size-m) / 2;
@@ -84,7 +78,7 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 		justify-content: center;
 
 		&.-no-elevation {
-			background-color: transparent;
+			display: none;
 		}
 
 		&.-elevation-s {
@@ -215,51 +209,51 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 
 	&.-ds-color-primary {
 		& #{$root}__content {
-			background-color: $badge-color-primary;
+			background-color: $color-primary-background-strong;
 		}
 
 		& #{$root}__icon {
-			color: $badge-color-primary;
+			color: $color-primary-icon;
 		}
 	}
 
 	&.-ds-color-success {
 		& #{$root}__content {
-			background-color: $badge-color-success;
+			background-color: $color-success-background-strong;
 		}
 
 		& #{$root}__icon {
-			color: $badge-color-success;
+			color: $color-success-icon;
 		}
 	}
 
 	&.-ds-color-fail {
 		& #{$root}__content {
-			background-color: $badge-color-fail;
+			background-color: $color-fail-background-strong;
 		}
 
 		& #{$root}__icon {
-			color: $badge-color-fail;
+			color: $color-fail-icon;
 		}
 	}
 
 	&.-ds-color-danger {
 		& #{$root}__content {
-			background-color: $badge-color-danger;
+			background-color: $color-danger-background-strong;
 		}
 
 		& #{$root}__icon {
-			color: $badge-color-danger;
+			color: $color-danger-icon;
 		}
 	}
 
 	&.-ds-color-neutral {
 		& #{$root}__content {
-			background-color: $badge-color-neutral;
+			background-color: $color-neutral-background-heavy;
 		}
 
 		& #{$root}__icon {
-			color: $badge-color-neutral;
+			color: $color-neutral-icon;
 		}
 	}
 }
@@ -269,9 +263,9 @@ $elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
 import {
 	BADGE_COLORS,
 	BADGE_SIZES,
-	BADGE_ELEVATION_SIZES,
+	BADGE_ELEVATION,
 	BadgeColor,
-	BadgeElevationSize,
+	BadgeElevation,
 	BadgeSize,
 } from './Badge.consts';
 import Icon, { ICON_SIZES, IconKey, ICONS } from '../Icons/Icon';
@@ -280,14 +274,14 @@ import { computed } from 'vue';
 const {
 	size = BADGE_SIZES.SMALL,
 	color = BADGE_COLORS.PRIMARY,
-	elevation = BADGE_ELEVATION_SIZES.X_SMALL,
+	elevation = BADGE_ELEVATION.X_SMALL,
 } = defineProps<{
 	color?: BadgeColor;
 	size?: BadgeSize;
 	label?: string;
 	icon?: IconKey;
 	imageUrl?: string;
-	elevation?: BadgeElevationSize;
+	elevation?: BadgeElevation;
 }>();
 
 const iconSize = computed(() => {

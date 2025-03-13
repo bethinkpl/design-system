@@ -2,7 +2,7 @@ import { mount } from '@vue/test-utils';
 import Badge from './Badge.vue';
 import { ICONS } from '../Icons/Icon';
 import { exists } from 'node:fs';
-import { BADGE_COLORS, BADGE_SIZES } from './Badge.consts';
+import { BADGE_COLORS, BADGE_ELEVATION, BADGE_SIZES } from './Badge.consts';
 
 describe('Badge', () => {
 	it('should render with label', () => {
@@ -36,14 +36,40 @@ describe('Badge', () => {
 		expect(wrapper.find('.ds-badge__content').exists()).toBe(false);
 	});
 
-	it('should render with accessory', () => {
+	it('should render image', () => {
+		const imageUrl = 'https://via.placeholder.com/150';
 		const wrapper = mount(Badge, {
-			slots: {
-				default: '<div data-accessory>Accessory content</div>',
+			props: {
+				imageUrl,
 			},
 		});
 
-		expect(wrapper.find('[data-accessory]').exists()).toBe(true);
+		expect(wrapper.find('.ds-badge__image').exists()).toBe(true);
+		expect(wrapper.find('.ds-badge__image').attributes('src')).toBe(imageUrl);
+	});
+
+	it('should not render icon if image is present', () => {
+		const wrapper = mount(Badge, {
+			props: {
+				icon: 'FA_BELL',
+				imageUrl: 'https://via.placeholder.com/150',
+			},
+		});
+
+		expect(wrapper.find('.ds-badge__image').exists()).toBe(true);
+		expect(wrapper.find('.ds-icon').exists()).toBe(false);
+	});
+
+	it('should not render label if image is present', () => {
+		const wrapper = mount(Badge, {
+			props: {
+				label: '1',
+				imageUrl: 'https://via.placeholder.com/150',
+			},
+		});
+
+		expect(wrapper.find('.ds-badge__image').exists()).toBe(true);
+		expect(wrapper.find('.ds-badge__content').exists()).toBe(false);
 	});
 
 	it.each([
@@ -110,4 +136,34 @@ describe('Badge', () => {
 			expect(wrapper.find('.ds-badge').classes()).toContain(expectedClassName);
 		},
 	);
+
+	it('should have -no-elevation class when elevation is none', () => {
+		const wrapper = mount(Badge, {
+			props: {
+				elevation: BADGE_ELEVATION.NONE,
+			},
+		});
+
+		expect(wrapper.find('.ds-badge__elevation').classes()).toContain('-no-elevation');
+	});
+
+	it('should have -elevation-s class when elevation is small', () => {
+		const wrapper = mount(Badge, {
+			props: {
+				elevation: BADGE_ELEVATION.SMALL,
+			},
+		});
+
+		expect(wrapper.find('.ds-badge__elevation').classes()).toContain('-elevation-s');
+	});
+
+	it('should not have elevation modifier class when elevation is x-small', () => {
+		const wrapper = mount(Badge, {
+			props: {
+				elevation: BADGE_ELEVATION.X_SMALL,
+			},
+		});
+
+		expect(wrapper.find('.ds-badge__elevation').classes()).toEqual(['ds-badge__elevation']);
+	});
 });

@@ -20,9 +20,10 @@ export const BADGE_COLORS = {
 
 export type BadgeColor = Value<typeof BADGE_COLORS>;
 
-export const BADGE_ELEVATION_SIZES = {
+export const BADGE_ELEVATION = {
+	NONE: 'none',
 	X_SMALL: 'x-small',
 	SMALL: 'small',
 };
 
-export type BadgeElevationSize = Value<typeof BADGE_ELEVATION_SIZES>;
+export type BadgeElevation = Value<typeof BADGE_ELEVATION>;
