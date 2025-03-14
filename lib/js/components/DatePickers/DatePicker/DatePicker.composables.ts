@@ -44,6 +44,12 @@ export function initFlatpickr({
 	let datePicker: DatePickerInstance | null = null;
 	const isOpen = ref(false);
 
+	const updateDatePickerDates = (date: Date | Array<Date>) => {
+		datePicker?.setDate(date, false);
+		datePicker?.updateValue(false);
+		datePicker?.jumpToDate(Array.isArray(date) ? date[0] : date, false);
+	};
+
 	const createDatePicker = async (
 		flatpickrInputElement: HTMLInputElement,
 		datePickerElement: HTMLElement,
@@ -137,13 +143,11 @@ export function initFlatpickr({
 		[() => props.date, () => props.startDate, () => props.endDate],
 		() => {
 			if (props.date) {
-				datePicker?.setDate(props.date, false);
-				datePicker?.updateValue(false);
-				datePicker?.jumpToDate(props.date, false);
+				updateDatePickerDates(props.date);
 			} else if (props.startDate && props.endDate) {
-				datePicker?.setDate([props.startDate, props.endDate], false);
-				datePicker?.updateValue(false);
-				datePicker?.jumpToDate(props.startDate, false);
+				updateDatePickerDates([props.startDate, props.endDate]);
+			} else if (props.startDate && !props.endDate) {
+				updateDatePickerDates(props.startDate);
 			} else {
 				datePicker?.clear(false);
 			}
