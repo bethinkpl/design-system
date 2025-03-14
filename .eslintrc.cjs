@@ -126,11 +126,5 @@ module.exports = {
 		'vue/no-undef-components': 'error',
 		'vue/multi-word-component-names': 0,
 		'vue/require-emit-validator': 'error',
-		'vue/return-in-computed-property': [
-			'error',
-			{
-				treatUndefinedAsUnspecified: false,
-			},
-		],
 	},
 };

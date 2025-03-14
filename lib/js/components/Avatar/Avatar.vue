@@ -136,10 +136,6 @@
 	}
 
 	&__accessStatus {
-		position: absolute;
-		bottom: 0;
-		right: 0;
-
 		@at-root {
 			.ds-avatar.-ds-xx-small & {
 				bottom: -2px;
@@ -151,12 +147,16 @@
 				right: 1px;
 			}
 		}
+
+		bottom: 0;
+		position: absolute;
+		right: 0;
 	}
 
 	&__activityStatus {
+		left: -4px;
 		position: absolute;
 		top: -4px;
-		left: -4px;
 	}
 }
 </style>
@@ -247,7 +247,7 @@ function useAccessStatus() {
 			case AVATAR_ACCESS_STATUSES.INACTIVE:
 				return BADGE_COLORS.DANGER;
 			default:
-				return;
+				return undefined;
 		}
 	});
 
@@ -258,7 +258,7 @@ function useAccessStatus() {
 			case AVATAR_ACCESS_STATUSES.INACTIVE:
 				return ICONS.FA_LOCK_KEYHOLE;
 			default:
-				return;
+				return undefined;
 		}
 	});
 
@@ -283,7 +283,7 @@ function useAccessStatus() {
 
 	const accessStatusImage = computed(() => {
 		if (accessStatus !== AVATAR_ACCESS_STATUSES.TEAM_MEMBER) {
-			return;
+			return undefined;
 		}
 
 		return teamMemberImageUrl;
