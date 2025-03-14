@@ -62,7 +62,7 @@
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
     "eslint-plugin-storybook": "0.8.0",
-    "eslint-plugin-vue": "9.6.0",
+    "eslint-plugin-vue": "10.0.0",
     "flatpickr": "^4.6.13",
     "jest": "^29.4.0",
     "jest-environment-jsdom": "^29.4.0",
@@ -87,6 +87,7 @@
     "vite-plugin-dts": "^3.9.1",
     "vite-svg-loader": "^5.1.0",
     "vue": "3.5.12",
+    "vue-eslint-parser": "^10.1.1",
     "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f"
   },
   "dependencies": {

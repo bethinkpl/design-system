@@ -1,5 +1,5 @@
 import { ComponentProps } from 'vue-component-type-helpers';
-import { Meta, StoryFn, StoryObj } from '@storybook/vue3';
+import { Meta, StoryObj } from '@storybook/vue3';
 
 import Avatar from './Avatar.vue';
 import { AVATAR_SIZES } from './Avatar.consts';

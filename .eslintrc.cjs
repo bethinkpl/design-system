@@ -2,7 +2,7 @@ module.exports = {
 	plugins: ['import', '@typescript-eslint'],
 	extends: [
 		'eslint:recommended',
-		'plugin:vue/vue3-recommended',
+		'plugin:vue/recommended',
 		'prettier',
 		'plugin:storybook/recommended',
 	],
@@ -89,7 +89,7 @@ module.exports = {
 		'import/no-relative-parent-imports': 0,
 		'vue/component-name-in-template-casing': ['error', 'kebab-case'],
 		'vue/attributes-order': ['error'],
-		'vue/component-tags-order': [
+		'vue/block-order': [
 			'error',
 			{
 				order: ['template', 'style', 'script'],
@@ -105,7 +105,6 @@ module.exports = {
 		'vue/no-useless-v-bind': 'error',
 		'vue/padding-line-between-blocks': 'error',
 		'vue/require-direct-export': 'error',
-		'vue/v-on-function-call': 'error',
 		'vue/require-name-property': 'error',
 		'vue/match-component-file-name': [
 			'error',
