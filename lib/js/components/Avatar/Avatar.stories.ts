@@ -53,7 +53,6 @@ export const Interactive: Story = {
 		username: 'Dariusz Chrapek',
 		avatarUrl:
 			'https://wiecejnizlek.pl/wp-content/uploads/2021/08/Dariusz_Chrapek-uai-2996x2996-1-scaled.jpeg',
-		accessStatus: AVATAR_ACCESS_STATUSES.ACTIVE,
 		teamMemberImageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
 	},
 };
