@@ -114,7 +114,6 @@ import { faPaperPlane } from '@fortawesome/pro-regular-svg-icons/faPaperPlane';
 import { faPencil } from '@fortawesome/pro-regular-svg-icons/faPencil';
 import { faPenCircle } from '@fortawesome/pro-regular-svg-icons/faPenCircle';
 import { faPenField } from '@fortawesome/pro-regular-svg-icons/faPenField';
-import { faPills } from '@fortawesome/pro-solid-svg-icons/faPills';
 import { faPlay } from '@fortawesome/pro-regular-svg-icons/faPlay';
 import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
 import { faPresentationScreen } from '@fortawesome/pro-regular-svg-icons/faPresentationScreen';
@@ -185,6 +184,7 @@ import { faMemoCircleInfo as fasMemoCircleInfo } from '@fortawesome/pro-solid-sv
 import { faMessageQuestion as fasMessageQuestion } from '@fortawesome/pro-solid-svg-icons/faMessageQuestion';
 import { faMessageXmark } from '@fortawesome/pro-regular-svg-icons/faMessageXmark';
 import { faMessage } from '@fortawesome/pro-regular-svg-icons/faMessage';
+import { faPills as fasPills } from '@fortawesome/pro-solid-svg-icons/faPills';
 import { faSitemap as fasSitemap } from '@fortawesome/pro-solid-svg-icons/faSitemap';
 import { faSquareCheck as fasSquareCheck } from '@fortawesome/pro-solid-svg-icons/faSquareCheck';
 import { faSquareList as fasSquareList } from '@fortawesome/pro-solid-svg-icons/faSquareList';
@@ -362,7 +362,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PEN_CIRCLE: faPenCircle,
 	FA_PEN_FIELD: faPenField,
 	FA_PENCIL: faPencil,
-	FA_PILLS: faPills,
+	FA_PILLS_SOLID: fasPills,
 	FA_PLAY: faPlay,
 	FA_PLUS: faPlus,
 	FA_PRESENTATION_SCREEN: faPresentationScreen,
