@@ -36,11 +36,11 @@ interface InitFlatpickr {
 }
 
 export function initFlatpickr({
-								  props,
-								  onChange,
-								  defaultDates,
-								  mode = 'single',
-							  }: InitFlatpickrPrams): InitFlatpickr {
+	props,
+	onChange,
+	defaultDates,
+	mode = 'single',
+}: InitFlatpickrPrams): InitFlatpickr {
 	let datePicker: DatePickerInstance | null = null;
 	const isOpen = ref(false);
 
