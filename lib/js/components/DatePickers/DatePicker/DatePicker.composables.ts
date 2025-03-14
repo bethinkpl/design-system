@@ -9,7 +9,9 @@ let locale: CustomLocale;
 
 export interface DatePickerComposablesProps {
 	disableDates: Array<Date>;
-	date: Date | null;
+	date?: Date | null;
+	startDate?: Date | null;
+	endDate?: Date | null;
 	minDate: Date | null;
 	maxDate: Date | null;
 	calendarPosition: DatePickerCalendarPositions;
@@ -132,12 +134,16 @@ export function initFlatpickr({
 		},
 	);
 	watch(
-		[() => props.date],
+		[() => props.date, () => props.startDate, () => props.endDate],
 		() => {
 			if (props.date) {
 				datePicker?.setDate(props.date, false);
 				datePicker?.updateValue(false);
 				datePicker?.jumpToDate(props.date, false);
+			} else if (props.startDate && props.endDate) {
+				datePicker?.setDate([props.startDate, props.endDate], false);
+				datePicker?.updateValue(false);
+				datePicker?.jumpToDate(props.startDate, false);
 			} else {
 				datePicker?.clear(false);
 			}
