@@ -148,6 +148,8 @@ export function initFlatpickr({
 				updateDatePickerDates([props.startDate, props.endDate]);
 			} else if (props.startDate && !props.endDate) {
 				updateDatePickerDates(props.startDate);
+			 } else if (!props.startDate && props.endDate) {
+				updateDatePickerDates(props.endDate);
 			} else {
 				datePicker?.clear(false);
 			}
