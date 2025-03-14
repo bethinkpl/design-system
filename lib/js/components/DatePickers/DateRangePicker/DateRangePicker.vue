@@ -61,8 +61,6 @@ import {
 	DatePickerStates,
 } from '../DatePicker';
 import { DatePickerComposablesProps, initFlatpickr } from '../DatePicker/DatePicker.composables';
-import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
-import { localWeekdayName } from '../../../../../tools/importers/helpers/dates';
 
 export default defineComponent({
 	name: 'DateRangePicker',

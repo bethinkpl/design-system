@@ -249,7 +249,6 @@ export default defineComponent({
 	},
 	setup(
 		props: DatePickerComposablesProps & {
-			date: Date;
 			isInteractive: boolean;
 			state: DatePickerStates;
 			updatePositionBasedOnScrollableSelector: string;
@@ -270,7 +269,7 @@ export default defineComponent({
 		} = initFlatpickr({
 			props,
 			onChange,
-			defaultDates: props.date,
+			defaultDates: props.date ?? new Date(),
 			mode: 'single',
 		});
 		watch([() => props.isInteractive, () => props.state], async () => {
