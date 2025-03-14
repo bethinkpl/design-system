@@ -1,10 +1,12 @@
 import { mount } from '@vue/test-utils';
 import Avatar from './Avatar.vue';
-import { AVATAR_SIZES } from './Avatar.consts';
+import { AVATAR_ACCESS_STATUSES, AVATAR_ACTIVITY_STATUSES, AVATAR_SIZES } from './Avatar.consts';
+import { ICONS } from '../Icons/Icon';
+
+const avatarUrl = 'https://wiecejnizlek.pl/avatar.jpg';
 
 describe('Avatar', () => {
-	it('should render with avatar image', () => {
-		const avatarUrl = 'https://wiecejnizlek.pl/avatar.jpg';
+	it('should render avatar without badges', () => {
 		const wrapper = mount(Avatar, {
 			props: {
 				size: AVATAR_SIZES.MEDIUM,
@@ -16,6 +18,8 @@ describe('Avatar', () => {
 		expect(wrapper.find('img').attributes('src')).toBe(avatarUrl);
 		expect(wrapper.find('img').attributes('alt')).toBe('Dariusz Chrapek');
 		expect(wrapper.find('.ds-avatar').classes()).toContain('-ds-medium');
+		expect(wrapper.find('.ds-avatar__activityStatus').exists()).toBe(false);
+		expect(wrapper.find('.ds-avatar__accessStatus').exists()).toBe(false);
 	});
 
 	it.each([
@@ -133,5 +137,81 @@ describe('Avatar', () => {
 		expect(wrapper.find('.ds-avatar__content').attributes('style')).toContain(
 			`background-color: ${hexToRgb(color)};`,
 		);
+	});
+
+	it.each([
+		{
+			activityStatus: AVATAR_ACTIVITY_STATUSES.ACTIVE,
+			expectedColorClass: '-ds-color-success',
+		},
+		{
+			activityStatus: AVATAR_ACTIVITY_STATUSES.INACTIVE,
+			expectedColorClass: '-ds-color-neutral',
+		},
+	])(
+		'should render activity status: $activityStatus',
+		({ activityStatus, expectedColorClass }) => {
+			const wrapper = mount(Avatar, {
+				props: {
+					size: AVATAR_SIZES.MEDIUM,
+					username: 'Dariusz Chrapek',
+					avatarUrl,
+					activityStatus,
+				},
+			});
+
+			const activityStatusElement = wrapper.find('.ds-avatar__activityStatus');
+			expect(activityStatusElement.exists()).toBe(true);
+			expect(activityStatusElement.classes()).toContain(expectedColorClass);
+		},
+	);
+
+	it.each([
+		{
+			accessStatus: AVATAR_ACCESS_STATUSES.ACTIVE,
+			expectedIcon: ICONS.FA_UNLOCK_KEYHOLE,
+		},
+		{
+			accessStatus: AVATAR_ACCESS_STATUSES.INACTIVE,
+			expectedIcon: ICONS.FA_LOCK_KEYHOLE,
+		},
+		{
+			accessStatus: AVATAR_ACCESS_STATUSES.AWAITING,
+			expectedIcon: ICONS.FA_HOURGLASS_START,
+		},
+		{
+			accessStatus: AVATAR_ACCESS_STATUSES.BLOCKED,
+			expectedIcon: ICONS.FA_LOCK_KEYHOLE,
+		},
+	])('should render access status: $accessStatus', ({ accessStatus, expectedIcon }) => {
+		const wrapper = mount(Avatar, {
+			props: {
+				size: AVATAR_SIZES.MEDIUM,
+				username: 'Dariusz Chrapek',
+				avatarUrl,
+				accessStatus,
+			},
+		});
+
+		const accessStatusElement = wrapper.find('.ds-avatar__accessStatus');
+		expect(accessStatusElement.exists()).toBe(true);
+		expect(accessStatusElement.find('svg').attributes('data-icon')).toBe(expectedIcon.iconName);
+	});
+
+	it('should render team member image', () => {
+		const teamMemberImageUrl = 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg';
+		const wrapper = mount(Avatar, {
+			props: {
+				size: AVATAR_SIZES.MEDIUM,
+				username: 'Dariusz Chrapek',
+				avatarUrl,
+				accessStatus: AVATAR_ACCESS_STATUSES.TEAM_MEMBER,
+				teamMemberImageUrl,
+			},
+		});
+
+		const accessStatusElement = wrapper.find('.ds-avatar__accessStatus');
+		expect(accessStatusElement.exists()).toBe(true);
+		expect(accessStatusElement.find('img').attributes('src')).toBe(teamMemberImageUrl);
 	});
 });

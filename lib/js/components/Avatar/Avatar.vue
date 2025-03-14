@@ -245,6 +245,9 @@ function useAccessStatus() {
 			case AVATAR_ACCESS_STATUSES.ACTIVE:
 				return BADGE_COLORS.SUCCESS;
 			case AVATAR_ACCESS_STATUSES.INACTIVE:
+			case AVATAR_ACCESS_STATUSES.AWAITING:
+				return BADGE_COLORS.NEUTRAL;
+			case AVATAR_ACCESS_STATUSES.BLOCKED:
 				return BADGE_COLORS.DANGER;
 			default:
 				return undefined;
@@ -255,8 +258,11 @@ function useAccessStatus() {
 		switch (accessStatus) {
 			case AVATAR_ACCESS_STATUSES.ACTIVE:
 				return ICONS.FA_UNLOCK_KEYHOLE;
+			case AVATAR_ACCESS_STATUSES.BLOCKED:
 			case AVATAR_ACCESS_STATUSES.INACTIVE:
 				return ICONS.FA_LOCK_KEYHOLE;
+			case AVATAR_ACCESS_STATUSES.AWAITING:
+				return ICONS.FA_HOURGLASS_START;
 			default:
 				return undefined;
 		}

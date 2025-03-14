@@ -21,6 +21,8 @@ export type AvatarActivityStatus = Value<typeof AVATAR_ACTIVITY_STATUSES>;
 export const AVATAR_ACCESS_STATUSES = {
 	ACTIVE: 'active',
 	INACTIVE: 'inactive',
+	AWAITING: 'awaiting',
+	BLOCKED: 'blocked',
 	TEAM_MEMBER: 'team-member',
 } as const;
 
