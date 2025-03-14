@@ -21,6 +21,7 @@ import { faBan } from '@fortawesome/pro-regular-svg-icons/faBan';
 import { faBars } from '@fortawesome/pro-regular-svg-icons/faBars';
 import { faBell } from '@fortawesome/pro-regular-svg-icons/faBell';
 import { faBellSlash } from '@fortawesome/pro-regular-svg-icons/faBellSlash';
+import { faBooks } from '@fortawesome/pro-regular-svg-icons/faBooks';
 import { faBook } from '@fortawesome/pro-regular-svg-icons/faBook';
 import { faBookBlank } from '@fortawesome/pro-regular-svg-icons/faBookBlank';
 import { faBookCopy } from '@fortawesome/pro-regular-svg-icons/faBookCopy';
@@ -113,6 +114,7 @@ import { faPaperPlane } from '@fortawesome/pro-regular-svg-icons/faPaperPlane';
 import { faPencil } from '@fortawesome/pro-regular-svg-icons/faPencil';
 import { faPenCircle } from '@fortawesome/pro-regular-svg-icons/faPenCircle';
 import { faPenField } from '@fortawesome/pro-regular-svg-icons/faPenField';
+import { faPills } from '@fortawesome/pro-solid-svg-icons/faPills';
 import { faPlay } from '@fortawesome/pro-regular-svg-icons/faPlay';
 import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
 import { faPresentationScreen } from '@fortawesome/pro-regular-svg-icons/faPresentationScreen';
@@ -233,6 +235,7 @@ export const FONTAWESOME_ICONS = {
 	FA_BARS: faBars,
 	FA_BELL: faBell,
 	FA_BELL_SLASH: faBellSlash,
+	FA_BOOKS: faBooks,
 	FA_BOOK: faBook,
 	FA_BOOK_BLANK: faBookBlank,
 	FA_BOOK_COPY: faBookCopy,
@@ -359,6 +362,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PEN_CIRCLE: faPenCircle,
 	FA_PEN_FIELD: faPenField,
 	FA_PENCIL: faPencil,
+	FA_PILLS: faPills,
 	FA_PLAY: faPlay,
 	FA_PLUS: faPlus,
 	FA_PRESENTATION_SCREEN: faPresentationScreen,
