@@ -36,11 +36,11 @@ interface InitFlatpickr {
 }
 
 export function initFlatpickr({
-	props,
-	onChange,
-	defaultDates,
-	mode = 'single',
-}: InitFlatpickrPrams): InitFlatpickr {
+								  props,
+								  onChange,
+								  defaultDates,
+								  mode = 'single',
+							  }: InitFlatpickrPrams): InitFlatpickr {
 	let datePicker: DatePickerInstance | null = null;
 	const isOpen = ref(false);
 
@@ -148,7 +148,7 @@ export function initFlatpickr({
 				updateDatePickerDates([props.startDate, props.endDate]);
 			} else if (props.startDate && !props.endDate) {
 				updateDatePickerDates(props.startDate);
-			 } else if (!props.startDate && props.endDate) {
+			} else if (!props.startDate && props.endDate) {
 				updateDatePickerDates(props.endDate);
 			} else {
 				datePicker?.clear(false);
