@@ -159,6 +159,13 @@
 		left: -4px;
 		position: absolute;
 		top: -4px;
+
+		.ds-avatar.-ds-xx-small &,
+		.ds-avatar.-ds-x-small &,
+		.ds-avatar.-ds-small & {
+			left: -3px;
+			top: -3px;
+		}
 	}
 }
 </style>
