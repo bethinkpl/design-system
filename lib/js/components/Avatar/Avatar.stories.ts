@@ -90,7 +90,7 @@ export const Colors: Story = {
 				],
 			};
 		},
-		template: `<div style="display: flex; gap: 12px;  flex-wrap: wrap;"><div v-for="name in names"><Avatar :username="name" :size="args.size" /></div></div>`,
+		template: `<div style="display: flex; gap: 12px;  flex-wrap: wrap;"><div v-for="name in names"><Avatar v-bind="args" :username="name" /></div></div>`,
 	}),
 	argTypes: {
 		size: {
@@ -106,5 +106,6 @@ export const Colors: Story = {
 	},
 	args: {
 		size: AVATAR_SIZES.X_SMALL,
+		teamMemberImageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
 	},
 };
