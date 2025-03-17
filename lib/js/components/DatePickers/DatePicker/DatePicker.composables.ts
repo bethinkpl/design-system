@@ -9,6 +9,9 @@ let locale: CustomLocale;
 
 export interface DatePickerComposablesProps {
 	disableDates: Array<Date>;
+	date?: Date | null;
+	startDate?: Date | null;
+	endDate?: Date | null;
 	minDate: Date | null;
 	maxDate: Date | null;
 	calendarPosition: DatePickerCalendarPositions;
@@ -40,6 +43,12 @@ export function initFlatpickr({
 }: InitFlatpickrPrams): InitFlatpickr {
 	let datePicker: DatePickerInstance | null = null;
 	const isOpen = ref(false);
+
+	const updateDatePickerDates = (date: Date | Array<Date>) => {
+		datePicker?.setDate(date, false);
+		datePicker?.updateValue(false);
+		datePicker?.jumpToDate(Array.isArray(date) ? date[0] : date, false);
+	};
 
 	const createDatePicker = async (
 		flatpickrInputElement: HTMLInputElement,
@@ -125,6 +134,25 @@ export function initFlatpickr({
 				minDate: props.minDate as Date | undefined,
 				maxDate: props.maxDate as Date | undefined,
 			});
+		},
+		{
+			flush: 'post', // Ensure updates happen after DOM changes
+		},
+	);
+	watch(
+		[() => props.date, () => props.startDate, () => props.endDate],
+		() => {
+			if (props.date) {
+				updateDatePickerDates(props.date);
+			} else if (props.startDate && props.endDate) {
+				updateDatePickerDates([props.startDate, props.endDate]);
+			} else if (props.startDate && !props.endDate) {
+				updateDatePickerDates(props.startDate);
+			} else if (!props.startDate && props.endDate) {
+				updateDatePickerDates(props.endDate);
+			} else {
+				datePicker?.clear(false);
+			}
 		},
 		{
 			flush: 'post', // Ensure updates happen after DOM changes

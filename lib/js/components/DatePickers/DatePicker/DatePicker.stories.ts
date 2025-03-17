@@ -30,26 +30,28 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 		},
 		methods: {
 			updateDate(date: Date) {
-				updateArgs({
-					date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
-				});
+				if (date) {
+					updateArgs({
+						date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
+					});
+				}
 			},
 		},
 		computed: {
 			formattedDate() {
-				if (!this.date) {
+				if (!this.date || this.date === '') {
 					return null;
 				}
 				return new Date(this.date);
 			},
 			formattedMinDate() {
-				if (!this.minDate) {
+				if (!this.minDate || this.minDate == '') {
 					return null;
 				}
 				return new Date(this.minDate);
 			},
 			formattedMaxDate() {
-				if (!this.maxDate) {
+				if (!this.maxDate || this.maxDate == '') {
 					return null;
 				}
 				return new Date(this.maxDate);
@@ -83,7 +85,7 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 				:update-position-based-on-scrollable-selector="updatePositionBasedOnScrollableSelector"
 				@update:date="updateDate"
 			>
-				<ds-switch  label-left="lewa" label-right="prawa" />
+				<ds-switch label-left="lewa" label-right="prawa" />
 			</date-picker>`,
 	};
 };
@@ -117,6 +119,8 @@ const argTypes = {
 		options: Object.values(DATE_PICKER_TRIGGER_TYPES),
 	},
 	date: { control: 'text' },
+	minDate: { control: 'text' },
+	maxDate: { control: 'text' },
 	icon: { control: 'select', options: [null, ...Object.keys(ICONS)] },
 	calendarPosition: {
 		control: 'select',
