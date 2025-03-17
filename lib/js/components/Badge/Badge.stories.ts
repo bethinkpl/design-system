@@ -47,21 +47,21 @@ const meta: Meta<typeof Badge> = {
 		template: wrapWithContainer('<Badge v-bind="props" />'),
 	}),
 	argTypes: {
-		size: {
-			control: 'select',
-			options: Object.values(BADGE_SIZES),
-		},
 		color: {
 			control: 'select',
 			options: Object.values(BADGE_COLORS),
 		},
-		elevation: {
+		size: {
 			control: 'select',
-			options: Object.values(BADGE_ELEVATIONS),
+			options: Object.values(BADGE_SIZES),
 		},
 		icon: {
 			control: 'select',
-			options: Object.keys(ICONS),
+			options: [null, ...Object.keys(ICONS)],
+		},
+		elevation: {
+			control: 'select',
+			options: Object.values(BADGE_ELEVATIONS),
 		},
 	},
 };
@@ -73,9 +73,10 @@ export const Interactive: Story = {
 	args: {
 		color: BADGE_COLORS.PRIMARY,
 		size: BADGE_SIZES.SMALL,
-		elevation: BADGE_ELEVATIONS.SMALL,
 		label: '',
+		icon: undefined,
 		imageUrl: '',
+		elevation: BADGE_ELEVATIONS.X_SMALL,
 	},
 };
 
@@ -90,8 +91,9 @@ export const InteractiveWithImage: Story = {
 	args: {
 		color: BADGE_COLORS.PRIMARY,
 		size: BADGE_SIZES.SMALL,
-		elevation: BADGE_ELEVATIONS.SMALL,
 		label: '',
+		icon: undefined,
 		imageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
+		elevation: BADGE_ELEVATIONS.X_SMALL,
 	},
 };

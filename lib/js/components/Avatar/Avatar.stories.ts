@@ -2,7 +2,7 @@ import { ComponentProps } from 'vue-component-type-helpers';
 import { Meta, StoryObj } from '@storybook/vue3';
 
 import Avatar from './Avatar.vue';
-import { AVATAR_SIZES } from './Avatar.consts';
+import { AVATAR_ACCESS_STATUSES, AVATAR_ACTIVITY_STATUSES, AVATAR_SIZES } from './Avatar.consts';
 
 type AvatarProps = ComponentProps<typeof Avatar>;
 
@@ -21,7 +21,25 @@ const meta: Meta<typeof Avatar> = {
 	argTypes: {
 		size: {
 			control: 'select',
-			options: [...Object.values(AVATAR_SIZES)],
+			options: Object.values(AVATAR_SIZES),
+		},
+		accessStatus: {
+			control: {
+				type: 'select',
+				labels: {
+					undefined: 'None (undefined)',
+				},
+			},
+			options: [undefined, ...Object.values(AVATAR_ACCESS_STATUSES)],
+		},
+		activityStatus: {
+			control: {
+				type: 'select',
+				labels: {
+					undefined: 'None (undefined)',
+				},
+			},
+			options: [undefined, ...Object.values(AVATAR_ACTIVITY_STATUSES)],
 		},
 	},
 };
@@ -35,6 +53,7 @@ export const Interactive: Story = {
 		username: 'Dariusz Chrapek',
 		avatarUrl:
 			'https://wiecejnizlek.pl/wp-content/uploads/2021/08/Dariusz_Chrapek-uai-2996x2996-1-scaled.jpeg',
+		teamMemberImageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
 	},
 };
 
@@ -71,7 +90,7 @@ export const Colors: Story = {
 				],
 			};
 		},
-		template: `<div style="display: flex; gap: 12px;  flex-wrap: wrap;"><div v-for="name in names"><Avatar :username="name" :size="args.size" /></div></div>`,
+		template: `<div style="display: flex; gap: 12px;  flex-wrap: wrap;"><div v-for="name in names"><Avatar v-bind="args" :username="name" /></div></div>`,
 	}),
 	argTypes: {
 		size: {
@@ -87,5 +106,6 @@ export const Colors: Story = {
 	},
 	args: {
 		size: AVATAR_SIZES.X_SMALL,
+		teamMemberImageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
 	},
 };
