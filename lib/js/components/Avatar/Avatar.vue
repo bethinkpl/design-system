@@ -19,22 +19,22 @@
 			<img v-if="!!avatarUrl" :src="avatarUrl" :alt="username" class="ds-avatar__image" />
 			<span v-else class="ds-avatar__initials">{{ initials }}</span>
 		</div>
-		<ds-badge
-			v-if="activityStatus"
-			class="ds-avatar__activityStatus"
-			:color="activityStatusColor"
-			:elevation="BADGE_ELEVATIONS.X_SMALL"
-			:size="activityStatusSize"
-		/>
-		<ds-badge
-			v-if="accessStatus"
-			class="ds-avatar__accessStatus"
-			:color="accessStatusColor"
-			:elevation="BADGE_ELEVATIONS.SMALL"
-			:icon="accessStatusIcon"
-			:size="accessStatusSize"
-			:image-url="accessStatusImage"
-		/>
+		<div v-if="activityStatus" class="ds-avatar__activityStatus">
+			<ds-badge
+				:color="activityStatusColor"
+				:elevation="BADGE_ELEVATIONS.X_SMALL"
+				:size="activityStatusSize"
+			/>
+		</div>
+		<div v-if="accessStatus" class="ds-avatar__accessStatus">
+			<ds-badge
+				:color="accessStatusColor"
+				:elevation="BADGE_ELEVATIONS.SMALL"
+				:icon="accessStatusIcon"
+				:size="accessStatusSize"
+				:image-url="accessStatusImage"
+			/>
+		</div>
 	</div>
 </template>
 
@@ -149,11 +149,13 @@
 		}
 
 		bottom: 0;
+		display: flex;
 		position: absolute;
 		right: 0;
 	}
 
 	&__activityStatus {
+		display: flex;
 		left: -4px;
 		position: absolute;
 		top: -4px;
