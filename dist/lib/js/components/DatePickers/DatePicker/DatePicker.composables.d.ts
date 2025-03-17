@@ -4,6 +4,9 @@ import { DatePickerCalendarPositions } from './index';
 
 export interface DatePickerComposablesProps {
     disableDates: Array<Date>;
+    date?: Date | null;
+    startDate?: Date | null;
+    endDate?: Date | null;
     minDate: Date | null;
     maxDate: Date | null;
     calendarPosition: DatePickerCalendarPositions;
