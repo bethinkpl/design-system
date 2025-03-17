@@ -162,7 +162,7 @@ describe('Avatar', () => {
 
 			const activityStatusElement = wrapper.find('.ds-avatar__activityStatus');
 			expect(activityStatusElement.exists()).toBe(true);
-			expect(activityStatusElement.classes()).toContain(expectedColorClass);
+			expect(activityStatusElement.find('.ds-badge').classes()).toContain(expectedColorClass);
 		},
 	);
 
