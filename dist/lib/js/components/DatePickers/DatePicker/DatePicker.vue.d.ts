@@ -46,7 +46,7 @@ declare const _default: import('vue').DefineComponent<{
         readonly MEDIUM: "medium";
     }>;
 }, {}, {
-    borderColor(): "warning" | "danger" | "neutralWeak" | "primary" | "dangerWeak" | "warningWeak";
+    borderColor(): "primary" | "danger" | "neutralWeak" | "warning" | "dangerWeak" | "warningWeak";
     eyebrowText(): string;
     text(): any;
     tileIcon(): any;
@@ -70,8 +70,8 @@ declare const _default: import('vue').DefineComponent<{
 }> & Readonly<{
     "onUpdate:date"?: ((date: Date) => any) | undefined;
 }>, {
-    label: string;
     icon: any;
+    label: string;
     color: string;
     state: string;
     isIconHiddenOnMobile: boolean;
@@ -535,8 +535,8 @@ declare const _default: import('vue').DefineComponent<{
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             rotation: number;
+            size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
@@ -955,8 +955,8 @@ declare const _default: import('vue').DefineComponent<{
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             rotation: number;
+            size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;

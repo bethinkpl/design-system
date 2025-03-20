@@ -315,8 +315,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     "onUpdate:is-selected"?: ((...args: any[]) => any) | undefined;
     "onIcon-click"?: ((...args: any[]) => any) | undefined;
 }>, {
-    type: SelectionTileType;
     icon: Record<string, any>;
+    type: SelectionTileType;
     state: SelectionTileState;
     supportingText: string;
     isSelected: boolean;
@@ -486,8 +486,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             rotation: number;
+            size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
@@ -565,8 +565,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        size: string;
         rotation: number;
+        size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;
@@ -1007,8 +1007,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                size: string;
                 rotation: number;
+                size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;
@@ -1451,8 +1451,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                size: string;
                 rotation: number;
+                size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;

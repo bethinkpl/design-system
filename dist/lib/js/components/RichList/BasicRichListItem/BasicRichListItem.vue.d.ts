@@ -250,12 +250,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{
     "onUpdate:is-selected"?: ((value: boolean) => any) | undefined;
 }>, {
+    icon: any;
     size: RichListItemSize;
     type: RichListItemType;
-    backgroundColor: RichListItemBackgroundColor;
-    icon: any;
-    state: RichListItemState;
     elevation: "small";
+    backgroundColor: RichListItemBackgroundColor;
+    state: RichListItemState;
     layout: RichListItemLayout;
     borderColor: RichListItemBorderColor;
     isInteractive: boolean;
@@ -1010,12 +1010,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         "onUpdate:is-selected"?: ((isSelected: boolean) => any) | undefined;
         "onIcon-click"?: (() => any) | undefined;
     }>, {
+        icon: any;
         size: RichListItemSize;
         type: RichListItemType;
-        backgroundColor: RichListItemBackgroundColor;
-        icon: any;
-        state: RichListItemState;
         elevation: "small";
+        backgroundColor: RichListItemBackgroundColor;
+        state: RichListItemState;
         layout: RichListItemLayout;
         borderColor: RichListItemBorderColor;
         isInteractive: boolean;
@@ -1463,8 +1463,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                         default: boolean;
                     };
                 }>> & Readonly<{}>, {
-                    size: string;
                     rotation: number;
+                    size: string;
                     flippedVertical: boolean;
                     flippedHorizontal: boolean;
                     touchable: boolean;
@@ -1586,8 +1586,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             rotation: number;
+            size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;

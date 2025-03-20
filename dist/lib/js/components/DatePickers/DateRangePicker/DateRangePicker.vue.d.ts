@@ -491,8 +491,8 @@ declare const _default: import('vue').DefineComponent<{
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             rotation: number;
+            size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;

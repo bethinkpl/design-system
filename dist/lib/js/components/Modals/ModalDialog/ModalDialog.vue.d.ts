@@ -493,8 +493,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         }>;
     }, {
         calcHeaderFeatureIconColor(): any;
-        calcFooterPrimaryButtonColor(): "neutral" | "primary";
-        calcFooterSecondaryButtonColor(): "neutral" | "danger";
+        calcFooterPrimaryButtonColor(): "primary" | "neutral";
+        calcFooterSecondaryButtonColor(): "danger" | "neutral";
         calcSingleColumn(): boolean;
         displayFooter(): any;
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("close-modal" | "tertiary-button-click" | "checkbox-change" | "secondary-button-click" | "primary-button-click")[], "close-modal" | "tertiary-button-click" | "checkbox-change" | "secondary-button-click" | "primary-button-click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
@@ -591,8 +591,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         "onSecondary-button-click"?: ((...args: any[]) => any) | undefined;
         "onPrimary-button-click"?: ((...args: any[]) => any) | undefined;
     }>, {
-        size: string;
         danger: boolean;
+        size: string;
         headerTitleSize: string;
         headerTitle: string;
         headerSubtitle: string;
@@ -670,8 +670,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             icon: Record<string, any>;
+            size: string;
             doubleBackground: boolean;
         }, {}, {
             WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -743,8 +743,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                size: string;
                 rotation: number;
+                size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;
@@ -1102,11 +1102,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             size: string;
             type: string;
             color: string;
+            elevation: string;
             radius: string;
             state: string;
             iconLeft: Record<string, any>;
             iconRight: Record<string, any>;
-            elevation: string;
         }, {}, {
             WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
                 icon: {
@@ -1177,8 +1177,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                size: string;
                 rotation: number;
+                size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;
@@ -1561,9 +1561,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: string;
             touchable: boolean;
             color: string;
+            elevation: string;
             radius: string;
             state: string;
-            elevation: string;
             colorScheme: string;
         }, {}, {
             WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -1635,8 +1635,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                size: string;
                 rotation: number;
+                size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;
@@ -1993,11 +1993,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 size: string;
                 type: string;
                 color: string;
+                elevation: string;
                 radius: string;
                 state: string;
                 iconLeft: Record<string, any>;
                 iconRight: Record<string, any>;
-                elevation: string;
             }, {}, {
                 WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
                     icon: {
@@ -2068,8 +2068,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                         default: boolean;
                     };
                 }>> & Readonly<{}>, {
-                    size: string;
                     rotation: number;
+                    size: string;
                     flippedVertical: boolean;
                     flippedHorizontal: boolean;
                     touchable: boolean;

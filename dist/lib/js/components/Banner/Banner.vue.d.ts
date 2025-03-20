@@ -701,11 +701,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         size: string;
         type: string;
         color: string;
+        elevation: string;
         radius: string;
         state: string;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
-        elevation: string;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             icon: {
@@ -776,8 +776,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             rotation: number;
+            size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
@@ -1203,9 +1203,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: string;
         touchable: boolean;
         color: string;
+        elevation: string;
         radius: string;
         state: string;
-        elevation: string;
         colorScheme: string;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -1277,8 +1277,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             rotation: number;
+            size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
@@ -1635,11 +1635,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             size: string;
             type: string;
             color: string;
+            elevation: string;
             radius: string;
             state: string;
             iconLeft: Record<string, any>;
             iconRight: Record<string, any>;
-            elevation: string;
         }, {}, {
             WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
                 icon: {
@@ -1710,8 +1710,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                size: string;
                 rotation: number;
+                size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;
@@ -1790,8 +1790,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        size: string;
         rotation: number;
+        size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;

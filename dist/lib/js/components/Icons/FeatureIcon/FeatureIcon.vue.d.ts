@@ -57,8 +57,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
 }>> & Readonly<{}>, {
-    size: string;
     icon: Record<string, any>;
+    size: string;
     doubleBackground: boolean;
 }, {}, {
     WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -130,8 +130,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        size: string;
         rotation: number;
+        size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;

@@ -1,23 +1,20 @@
-import { AvatarSize } from './Avatar.consts';
+import { AvatarAccessStatus, AvatarActivityStatus, AvatarSize } from './Avatar.consts';
 
-declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<{
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     username: string;
     avatarUrl?: string;
     size?: AvatarSize;
-}>, {
-    size: "x-small";
-    avatarUrl: undefined;
-}>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_WithDefaults<__VLS_TypePropsToRuntimeProps<{
+    activityStatus?: AvatarActivityStatus;
+    accessStatus?: AvatarAccessStatus;
+    teamMemberImageUrl?: string;
+}>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     username: string;
     avatarUrl?: string;
     size?: AvatarSize;
-}>, {
-    size: "x-small";
-    avatarUrl: undefined;
-}>>> & Readonly<{}>, {
-    avatarUrl: string;
-    size: AvatarSize;
-}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+    activityStatus?: AvatarActivityStatus;
+    accessStatus?: AvatarAccessStatus;
+    teamMemberImageUrl?: string;
+}>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
 type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
 type __VLS_TypePropsToRuntimeProps<T> = {
@@ -28,11 +25,3 @@ type __VLS_TypePropsToRuntimeProps<T> = {
         required: true;
     };
 };
-type __VLS_WithDefaults<P, D> = {
-    [K in keyof Pick<P, keyof P>]: K extends keyof D ? __VLS_Prettify<P[K] & {
-        default: D[K];
-    }> : P[K];
-};
-type __VLS_Prettify<T> = {
-    [K in keyof T]: T[K];
-} & {};

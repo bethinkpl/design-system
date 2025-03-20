@@ -227,8 +227,8 @@ export declare const data: () => {
         readonly DANGER: "danger";
     }>;
     allowedColorsToBorderColorsMap: {
-        neutral: ("neutral" | "neutralWeak" | "primary" | "primaryWeak")[];
-        neutralWeak: ("neutral" | "neutralWeak" | "primary" | "primaryWeak")[];
+        neutral: ("primary" | "neutral" | "neutralWeak" | "primaryWeak")[];
+        neutralWeak: ("primary" | "neutral" | "neutralWeak" | "primaryWeak")[];
         primary: ("primary" | "primaryWeak")[];
         success: ("success" | "successWeak")[];
         fail: ("fail" | "failWeak")[];
@@ -938,11 +938,11 @@ export declare const components: {
             size: string;
             type: string;
             color: string;
+            elevation: string;
             radius: string;
             state: string;
             iconLeft: Record<string, any>;
             iconRight: Record<string, any>;
-            elevation: string;
         }, {}, {
             WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
                 icon: {
@@ -1013,8 +1013,8 @@ export declare const components: {
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                size: string;
                 rotation: number;
+                size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;
@@ -1440,9 +1440,9 @@ export declare const components: {
             type: string;
             touchable: boolean;
             color: string;
+            elevation: string;
             radius: string;
             state: string;
-            elevation: string;
             colorScheme: string;
         }, {}, {
             WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -1514,8 +1514,8 @@ export declare const components: {
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                size: string;
                 rotation: number;
+                size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;
@@ -1872,11 +1872,11 @@ export declare const components: {
                 size: string;
                 type: string;
                 color: string;
+                elevation: string;
                 radius: string;
                 state: string;
                 iconLeft: Record<string, any>;
                 iconRight: Record<string, any>;
-                elevation: string;
             }, {}, {
                 WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
                     icon: {
@@ -1947,8 +1947,8 @@ export declare const components: {
                         default: boolean;
                     };
                 }>> & Readonly<{}>, {
-                    size: string;
                     rotation: number;
+                    size: string;
                     flippedVertical: boolean;
                     flippedHorizontal: boolean;
                     touchable: boolean;
@@ -2027,8 +2027,8 @@ export declare const components: {
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             rotation: number;
+            size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;

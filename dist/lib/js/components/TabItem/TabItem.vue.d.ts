@@ -60,9 +60,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{
     onClick?: ((...args: any[]) => any) | undefined;
 }>, {
+    icon: Record<string, any> | null;
     size: string;
     label: string | null;
-    icon: Record<string, any> | null;
     labelEllipsis: boolean;
 }, {}, {
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -134,8 +134,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        size: string;
         rotation: number;
+        size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;

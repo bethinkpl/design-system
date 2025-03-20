@@ -397,8 +397,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     "onUpdate:isExpanded"?: ((...args: any[]) => any) | undefined;
     "onInfo-click"?: ((...args: any[]) => any) | undefined;
 }>, {
-    size: string;
     info: boolean;
+    size: string;
     iconLeft: any;
     iconRight: any;
     isExpanded: boolean;
@@ -481,8 +481,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        size: string;
         rotation: number;
+        size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
         touchable: boolean;
@@ -864,9 +864,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: string;
         touchable: boolean;
         color: string;
+        elevation: string;
         radius: string;
         state: string;
-        elevation: string;
         colorScheme: string;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -938,8 +938,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            size: string;
             rotation: number;
+            size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
             touchable: boolean;
@@ -1296,11 +1296,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             size: string;
             type: string;
             color: string;
+            elevation: string;
             radius: string;
             state: string;
             iconLeft: Record<string, any>;
             iconRight: Record<string, any>;
-            elevation: string;
         }, {}, {
             WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
                 icon: {
@@ -1371,8 +1371,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                size: string;
                 rotation: number;
+                size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
                 touchable: boolean;
