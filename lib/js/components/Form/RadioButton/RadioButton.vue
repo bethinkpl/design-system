@@ -33,7 +33,7 @@ export default defineComponent({
 			type: String as PropType<RadioButtonSize>,
 			default: RADIO_BUTTON_SIZE.SMALL,
 			validator(size) {
-				return Object.values(RADIO_BUTTON_SIZE).includes(size);
+				return Object.values(RADIO_BUTTON_SIZE).includes(size as RadioButtonSize);
 			},
 		},
 		label: {
@@ -48,7 +48,7 @@ export default defineComponent({
 			type: String as PropType<RadioButtonState>,
 			default: RADIO_BUTTON_STATE.DEFAULT,
 			validator(state) {
-				return Object.values(RADIO_BUTTON_STATE).includes(state);
+				return Object.values(RADIO_BUTTON_STATE).includes(state as RadioButtonState);
 			},
 		},
 	},

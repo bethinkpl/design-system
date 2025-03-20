@@ -211,7 +211,7 @@ export default defineComponent({
 			default: THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
 			validator(rightColumnSize) {
 				return Object.values(THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE).includes(
-					rightColumnSize,
+					rightColumnSize as ThreeColumnLayoutRightColumnSize,
 				);
 			},
 		},

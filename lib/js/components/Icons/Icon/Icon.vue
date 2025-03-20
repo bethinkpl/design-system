@@ -1,14 +1,16 @@
 <template>
 	<div
 		class="ds-icon"
-		:class="{
-			'-ds-touchable': touchable,
-			'-ds-spin': spinning,
-			'-ds-flipped-vertical': flippedVertical,
-			'-ds-flipped-horizontal': flippedHorizontal,
-			[rotationClass]: rotationClass,
-			[sizeClassName]: true,
-		}"
+		:class="[
+			{
+				'-ds-touchable': touchable,
+				'-ds-spin': spinning,
+				'-ds-flipped-vertical': flippedVertical,
+				'-ds-flipped-horizontal': flippedHorizontal,
+			},
+			rotationClass,
+			sizeClassName,
+		]"
 	>
 		<font-awesome-icon v-if="isFontawesomeIcon" :icon="icon" />
 		<component :is="icon" v-else />
