@@ -45,10 +45,6 @@ const argTypes = {
 		control: 'select',
 		options: Object.keys(ICONS),
 	},
-	rotation: {
-		control: 'select',
-		options: [null, 90, 180, 270],
-	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
@@ -72,7 +68,7 @@ const StoryAllIconsTemplate: StoryFn<typeof Icon> = (args) => ({
 	template:
 		'<div class="sbIconList">' +
 		'<div v-for="(icon, iconName) in ICONS" :key="iconName" class="sbIconList__icon">' +
-		'<icon :icon="icon" />' +
+		'<icon :icon="icon" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" />' +
 		'<div>{{iconName}}</div>' +
 		'</div>' +
 		'</div>',

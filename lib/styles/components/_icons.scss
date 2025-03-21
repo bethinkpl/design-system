@@ -1,6 +1,8 @@
 @import '../settings/icons';
 
 .ds-icon {
+	--rotate: 0deg;
+
 	align-items: center;
 	display: inline-flex;
 	transition: transform 0.15s;
@@ -14,16 +16,8 @@
 		min-width: $min-touchable-size;
 	}
 
-	&.-ds-rotate90 {
-		transform: rotate(90deg);
-	}
-
-	&.-ds-rotate180 {
-		transform: rotate(180deg);
-	}
-
-	&.-ds-rotate270 {
-		transform: rotate(270deg);
+	&.-ds-rotate {
+		transform: rotate(var(--rotate));
 	}
 
 	&.-ds-no-transtition {

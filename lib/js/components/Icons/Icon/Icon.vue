@@ -9,6 +9,7 @@
 			[rotationClass]: rotationClass,
 			[sizeClassName]: true,
 		}"
+		:style="{'--rotate': `${rotation}deg`}"
 	>
 		<font-awesome-icon v-if="isFontawesomeIcon" :icon="icon" />
 		<component :is="icon" v-else />
@@ -46,9 +47,6 @@ export default defineComponent({
 		rotation: {
 			type: Number,
 			default: null,
-			validator(value: number) {
-				return [90, 180, 270].includes(value);
-			},
 		},
 		flippedVertical: {
 			type: Boolean,
@@ -76,10 +74,10 @@ export default defineComponent({
 		},
 		rotationClass() {
 			if (this.rotation === null) {
-				return null;
+				return '';
 			}
 
-			return `-ds-rotate${this.rotation}`;
+			return `-ds-rotate`;
 		},
 	},
 });
