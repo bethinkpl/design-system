@@ -6,10 +6,10 @@
 			'-ds-spin': spinning,
 			'-ds-flipped-vertical': flippedVertical,
 			'-ds-flipped-horizontal': flippedHorizontal,
-			[rotationClass]: rotationClass,
+			'-ds-no-transition': noTransition,
 			[sizeClassName]: true,
 		}"
-		:style="{'--rotate': `${rotation}deg`}"
+		:style="{ '--rotate': `${rotation ?? 0}deg` }"
 	>
 		<font-awesome-icon v-if="isFontawesomeIcon" :icon="icon" />
 		<component :is="icon" v-else />
@@ -64,6 +64,10 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
+		noTransition: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	computed: {
 		sizeClassName() {
@@ -71,13 +75,6 @@ export default defineComponent({
 		},
 		isFontawesomeIcon() {
 			return 'iconName' in this.icon;
-		},
-		rotationClass() {
-			if (this.rotation === null) {
-				return '';
-			}
-
-			return `-ds-rotate`;
 		},
 	},
 });
