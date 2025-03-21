@@ -16,7 +16,7 @@ const StoryTemplate: StoryFn<typeof Icon> = (args) => ({
 		return args;
 	},
 	template:
-		'<div class="sbIconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
+		'<div class="sbIconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" :no-transition="noTransition" /></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -34,6 +34,7 @@ const args = {
 	rotation: null,
 	flippedVertical: false,
 	flippedHorizontal: false,
+	noTransition: false,
 } as Args;
 
 const argTypes = {
@@ -44,10 +45,6 @@ const argTypes = {
 	icon: {
 		control: 'select',
 		options: Object.keys(ICONS),
-	},
-	rotation: {
-		control: 'select',
-		options: [null, 90, 180, 270],
 	},
 } as ArgTypes;
 
@@ -72,7 +69,7 @@ const StoryAllIconsTemplate: StoryFn<typeof Icon> = (args) => ({
 	template:
 		'<div class="sbIconList">' +
 		'<div v-for="(icon, iconName) in ICONS" :key="iconName" class="sbIconList__icon">' +
-		'<icon :icon="icon" />' +
+		'<icon :icon="icon" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" :no-transition="noTransition" />' +
 		'<div>{{iconName}}</div>' +
 		'</div>' +
 		'</div>',
