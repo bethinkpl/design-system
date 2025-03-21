@@ -214,6 +214,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -550,6 +551,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1115,6 +1117,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1562,6 +1565,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1998,6 +2002,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -2444,6 +2449,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -2891,6 +2897,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                    readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
