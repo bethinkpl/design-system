@@ -111,7 +111,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         rotation: {
             type: NumberConstructor;
             default: null;
-            validator(value: number): boolean;
         };
         flippedVertical: {
             type: BooleanConstructor;
@@ -129,10 +128,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: BooleanConstructor;
             default: boolean;
         };
+        noTransition: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     }>, {}, {}, {
         sizeClassName(): string;
         isFontawesomeIcon(): boolean;
-        rotationClass(): string | null;
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         icon: {
             type: ObjectConstructor;
@@ -147,7 +149,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         rotation: {
             type: NumberConstructor;
             default: null;
-            validator(value: number): boolean;
         };
         flippedVertical: {
             type: BooleanConstructor;
@@ -165,6 +166,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: BooleanConstructor;
             default: boolean;
         };
+        noTransition: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
     }>> & Readonly<{}>, {
         size: string;
         rotation: number;
@@ -172,6 +177,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         flippedHorizontal: boolean;
         touchable: boolean;
         spinning: boolean;
+        noTransition: boolean;
     }, {}, {
         FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
