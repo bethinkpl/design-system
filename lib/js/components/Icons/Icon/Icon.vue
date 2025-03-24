@@ -6,10 +6,9 @@
 			'-ds-spin': spinning,
 			'-ds-flipped-vertical': flippedVertical,
 			'-ds-flipped-horizontal': flippedHorizontal,
-			[rotationClass]: rotationClass,
 			[sizeClassName]: true,
 		}"
-		:style="{'--rotate': `${rotation}deg`}"
+		:style="{ '--rotate': `${rotation ?? 0}deg` }"
 	>
 		<font-awesome-icon v-if="isFontawesomeIcon" :icon="icon" />
 		<component :is="icon" v-else />
@@ -71,13 +70,6 @@ export default defineComponent({
 		},
 		isFontawesomeIcon() {
 			return 'iconName' in this.icon;
-		},
-		rotationClass() {
-			if (this.rotation === null) {
-				return '';
-			}
-
-			return `-ds-rotate`;
 		},
 	},
 });
