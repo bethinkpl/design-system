@@ -248,7 +248,7 @@ export default defineComponent({
 			type: String as PropType<SelectionControlSize>,
 			default: SELECTION_CONTROL_SIZE.SMALL,
 			validator(size) {
-				return Object.values(SELECTION_CONTROL_SIZE).includes(size);
+				return Object.values(SELECTION_CONTROL_SIZE).includes(size as SelectionControlSize);
 			},
 		},
 		label: {
@@ -263,7 +263,9 @@ export default defineComponent({
 			type: String as PropType<SelectionControlState>,
 			default: SELECTION_CONTROL_STATE.DEFAULT,
 			validator(state) {
-				return Object.values(SELECTION_CONTROL_STATE).includes(state);
+				return Object.values(SELECTION_CONTROL_STATE).includes(
+					state as SelectionControlState,
+				);
 			},
 		},
 		selectedIcon: {
@@ -284,7 +286,7 @@ export default defineComponent({
 			type: String as PropType<SelectionControlType>,
 			required: true,
 			validator(type) {
-				return Object.values(SELECTION_CONTROL_TYPE).includes(type);
+				return Object.values(SELECTION_CONTROL_TYPE).includes(type as SelectionControlType);
 			},
 		},
 	},

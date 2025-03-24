@@ -94,7 +94,7 @@
 
 <script lang="ts">
 import DsDivider from '../../Divider';
-import { PAGE_HEADER_MOBILE_LAYOUTS } from './PageHeader.consts';
+import { PAGE_HEADER_MOBILE_LAYOUTS, PageHeaderMobileLayout } from './PageHeader.consts';
 
 import { defineComponent } from 'vue';
 
@@ -119,7 +119,8 @@ export default defineComponent({
 		mobileLayout: {
 			type: String,
 			default: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
-			validator: (value) => Object.values(PAGE_HEADER_MOBILE_LAYOUTS).includes(value),
+			validator: (value) =>
+				Object.values(PAGE_HEADER_MOBILE_LAYOUTS).includes(value as PageHeaderMobileLayout),
 		},
 	},
 	data() {

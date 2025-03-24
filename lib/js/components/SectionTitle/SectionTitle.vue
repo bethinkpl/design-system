@@ -33,7 +33,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { SECTION_TITLE_SIZES } from './SectionTitle.consts';
+import { SECTION_TITLE_SIZES, SectionTitleSize } from './SectionTitle.consts';
 
 export default defineComponent({
 	name: 'SectionTitle',
@@ -43,7 +43,7 @@ export default defineComponent({
 			type: String,
 			default: SECTION_TITLE_SIZES.XS,
 			validator(size) {
-				return Object.values(SECTION_TITLE_SIZES).includes(size);
+				return Object.values(SECTION_TITLE_SIZES).includes(size as SectionTitleSize);
 			},
 		},
 		supportingText: {
