@@ -102,7 +102,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         rotation: {
             type: NumberConstructor;
             default: null;
-            validator(value: number): boolean;
         };
         flippedVertical: {
             type: BooleanConstructor;
@@ -123,7 +122,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     }>, {}, {}, {
         sizeClassName(): string;
         isFontawesomeIcon(): boolean;
-        rotationClass(): string | null;
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         icon: {
             type: ObjectConstructor;
@@ -138,7 +136,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         rotation: {
             type: NumberConstructor;
             default: null;
-            validator(value: number): boolean;
         };
         flippedVertical: {
             type: BooleanConstructor;
