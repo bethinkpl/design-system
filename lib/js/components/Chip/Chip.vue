@@ -7,6 +7,7 @@
 			'-ds-disabled': state === CHIP_STATES.DISABLED,
 			'-ds-uppercase': isLabelUppercase,
 			'-ds-rounded': radius === CHIP_RADIUSES.ROUNDED,
+			'-ds-removable': size !== CHIP_SIZES.X_SMALL && isRemovable,
 		}"
 		:title="label"
 		:style="{ backgroundColor: colorHex }"
@@ -19,7 +20,7 @@
 				/>
 			</slot>
 		</span>
-		<span class="ds-chip__label">{{ label }}</span>
+		<span v-if="label" class="ds-chip__label">{{ label }}</span>
 		<icon-button
 			v-if="size !== CHIP_SIZES.X_SMALL && isRemovable"
 			class="ds-chip__remove"
@@ -180,7 +181,12 @@ $chip-colors: (
 	align-items: center;
 	border-radius: $radius-xl;
 	display: inline-flex;
-	padding: $space-5xs $space-5xs $space-5xs $space-2xs;
+	padding: $space-4xs $space-2xs;
+	gap: $space-4xs;
+
+	&.-ds-removable {
+		padding: $space-5xs $space-5xs $space-5xs $space-2xs;
+	}
 
 	&.-ds-disabled {
 		pointer-events: none;
@@ -199,7 +205,6 @@ $chip-colors: (
 	&__label {
 		@include label-s-default-bold;
 
-		margin: $space-5xs $space-3xs $space-5xs 0;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -207,21 +212,15 @@ $chip-colors: (
 
 	&__leftIcon {
 		display: flex;
-		margin-right: $space-4xs;
 	}
 
 	&.-ds-x-small {
+		padding: $space-5xs $space-3xs;
 		min-height: $chip-min-height;
-		padding-left: $space-3xs;
-
-		#{$self}__leftIcon {
-			margin-right: $space-5xs;
-		}
+		gap: $space-5xs;
 
 		#{$self}__label {
 			@include label-xs-default-bold;
-
-			margin: 0 $space-4xs 0 0;
 		}
 
 		&.-ds-uppercase {
@@ -238,16 +237,16 @@ $chip-colors: (
 </style>
 
 <script lang="ts">
-import { CHIP_COLORS, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
+import { defineComponent, toRaw } from 'vue';
+import { Value } from '../../utils/type.utils';
+import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 import IconButton, {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_STATES,
 } from '../Buttons/IconButton';
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { BUTTON_ELEVATIONS } from '../Buttons/Button';
-import { Value } from '../../utils/type.utils';
-import { defineComponent, toRaw } from 'vue';
+import { CHIP_COLORS, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
 
 const CHIP_ICON_BUTTONS_COLOR_MAP = {
 	[CHIP_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
@@ -267,7 +266,7 @@ export default defineComponent({
 	props: {
 		label: {
 			type: String,
-			required: true,
+			default: null,
 		},
 		isLabelUppercase: {
 			type: Boolean,
