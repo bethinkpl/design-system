@@ -15,10 +15,6 @@
 		min-width: $min-touchable-size;
 	}
 
-	&.-ds-no-transtition {
-		transition: initial;
-	}
-
 	&.-ds-spin {
 		animation: $animation-fade-in, $animation-spin;
 	}
