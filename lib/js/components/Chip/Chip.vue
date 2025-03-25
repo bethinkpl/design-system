@@ -181,8 +181,8 @@ $chip-colors: (
 	align-items: center;
 	border-radius: $radius-xl;
 	display: inline-flex;
-	padding: $space-4xs $space-2xs;
 	gap: $space-4xs;
+	padding: $space-4xs $space-2xs;
 
 	&.-ds-removable {
 		padding: $space-5xs $space-5xs $space-5xs $space-2xs;
@@ -215,9 +215,9 @@ $chip-colors: (
 	}
 
 	&.-ds-x-small {
-		padding: $space-5xs $space-3xs;
-		min-height: $chip-min-height;
 		gap: $space-5xs;
+		min-height: $chip-min-height;
+		padding: $space-5xs $space-3xs;
 
 		#{$self}__label {
 			@include label-xs-default-bold;
