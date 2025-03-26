@@ -74,230 +74,6 @@
 	</div>
 </template>
 
-<script lang="ts">
-import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
-import DsDivider from '../../../components/Divider';
-import DsIcon, {
-	ICON_COLORS,
-	ICON_SIZES,
-	IconColor,
-	IconItem,
-	ICONS,
-} from '../../../components/Icons/Icon';
-import { defineComponent, PropType, toRaw } from 'vue';
-import {
-	RICH_LIST_ITEM_BACKGROUND_COLOR,
-	RICH_LIST_ITEM_BORDER_COLOR,
-	RICH_LIST_ITEM_ELEVATION,
-	RICH_LIST_ITEM_LAYOUT,
-	RICH_LIST_ITEM_SIZE,
-	RICH_LIST_ITEM_STATE,
-	RICH_LIST_ITEM_TYPE,
-	RichListItemBackgroundColor,
-	RichListItemBorderColor,
-	RichListItemElevation,
-	RichListItemLayout,
-	RichListItemSize,
-	RichListItemState,
-	RichListItemType,
-} from './RichListItem.consts';
-
-export default defineComponent({
-	name: 'RichListItem',
-	components: {
-		DsCheckbox,
-		DsDivider,
-		DsIcon,
-	},
-	props: {
-		type: {
-			type: String as PropType<RichListItemType>,
-			default: RICH_LIST_ITEM_TYPE.DEFAULT,
-			validator(type: RichListItemType) {
-				return Object.values(RICH_LIST_ITEM_TYPE).includes(type);
-			},
-		},
-		layout: {
-			type: String as PropType<RichListItemLayout>,
-			default: RICH_LIST_ITEM_LAYOUT.HORIZONTAL,
-			validator(layout: RichListItemLayout) {
-				return Object.values(RICH_LIST_ITEM_LAYOUT).includes(layout);
-			},
-		},
-		state: {
-			type: String as PropType<RichListItemState>,
-			default: RICH_LIST_ITEM_STATE.DEFAULT,
-			validator(state: RichListItemState) {
-				return Object.values(RICH_LIST_ITEM_STATE).includes(state);
-			},
-		},
-		size: {
-			type: String as PropType<RichListItemSize>,
-			default: RICH_LIST_ITEM_SIZE.MEDIUM,
-			validator(size) {
-				return Object.values(RICH_LIST_ITEM_SIZE).includes(size);
-			},
-		},
-		isInteractive: {
-			type: Boolean,
-			default: true,
-		},
-		isDimmed: {
-			type: Boolean,
-			default: false,
-		},
-		isDraggable: {
-			type: Boolean,
-			default: true,
-		},
-		icon: {
-			type: Object as PropType<IconItem>,
-			default: null,
-			validator(icon) {
-				return Object.values(ICONS).includes(toRaw(icon));
-			},
-		},
-		iconColor: {
-			type: String as PropType<IconColor>,
-			default: null,
-			validator(iconColor) {
-				return Object.values(ICON_COLORS).includes(iconColor);
-			},
-		},
-		iconColorHex: {
-			type: String,
-			default: null,
-		},
-		borderColor: {
-			type: String as PropType<RichListItemBorderColor>,
-			default: null,
-			validator(borderColor) {
-				return Object.values(RICH_LIST_ITEM_BORDER_COLOR).includes(borderColor);
-			},
-		},
-		borderColorHex: {
-			type: String,
-			default: null,
-		},
-		draggableIconClassName: {
-			type: String,
-			default: null,
-		},
-		backgroundColor: {
-			type: String as PropType<RichListItemBackgroundColor>,
-			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
-			validator(backgroundColor) {
-				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(backgroundColor);
-			},
-		},
-		elevation: {
-			type: String as PropType<RichListItemElevation>,
-			default: null,
-			validator(evolution) {
-				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(evolution);
-			},
-		},
-		hasDraggableHandler: {
-			type: Boolean,
-			default: true,
-		},
-		hasActionsSlotDivider: {
-			type: Boolean,
-			default: true,
-		},
-		isSelectable: {
-			type: Boolean,
-			default: true,
-		},
-		isSelected: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	emits: {
-		'icon-click': () => true,
-		click: () => true,
-		'update:is-selected': (isSelected: boolean) => true,
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
-			RICH_LIST_ITEM_TYPE: Object.freeze(RICH_LIST_ITEM_TYPE),
-			RICH_LIST_ITEM_STATE: Object.freeze(RICH_LIST_ITEM_STATE),
-			RICH_LIST_ITEM_SIZE: Object.freeze(RICH_LIST_ITEM_SIZE),
-		};
-	},
-	computed: {
-		classList() {
-			return {
-				'-ds-default': this.type === RICH_LIST_ITEM_TYPE.DEFAULT,
-				'-ds-flat': this.type === RICH_LIST_ITEM_TYPE.FLAT,
-				'-ds-horizontal': this.isHorizontal,
-				'-ds-verticalWithMedia': this.isVertical && this.hasMedia,
-				'-ds-vertical': this.isVertical,
-				'-ds-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
-				'-ds-dimmed': this.isDimmed,
-				'-ds-interactive': this.isInteractive,
-				'-ds-small': this.size === RICH_LIST_ITEM_SIZE.SMALL,
-				...(this.backgroundColor &&
-					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
-						[`-ds-background-${this.backgroundColor}`]: true,
-					}),
-				...(this.elevation &&
-					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
-						[`-ds-elevation-${this.elevation}`]: true,
-					}),
-				'-ds-draggable': this.isDraggable,
-				'-ds-draggable-without-handler': this.isDraggable && !this.hasDraggableHandler,
-				'-ds-has-media': this.hasMedia,
-				'-ds-drag': this.isDragging,
-			};
-		},
-		isHorizontal() {
-			return this.layout === RICH_LIST_ITEM_LAYOUT.HORIZONTAL;
-		},
-		isVertical() {
-			return this.layout === RICH_LIST_ITEM_LAYOUT.VERTICAL;
-		},
-		iconColorClass() {
-			if (!this.iconColor || (this.iconColor && this.iconColorHex)) {
-				return;
-			}
-			return `-ds-${this.iconColor}`;
-		},
-		iconColorStyle() {
-			if (!this.iconColor || !this.iconColorHex) {
-				return;
-			}
-			return {
-				color: this.iconColorHex,
-			};
-		},
-		borderColorClass() {
-			if (!this.borderColor || this.borderColorHex) {
-				return;
-			}
-			return `-ds-border-${this.borderColor}`;
-		},
-		borderColorStyle() {
-			if (!this.borderColorHex) {
-				return;
-			}
-			return {
-				backgroundColor: this.borderColorHex,
-			};
-		},
-		hasMedia() {
-			return !!this.$slots.media;
-		},
-		isDragging() {
-			return this.isDraggable && this.state === RICH_LIST_ITEM_STATE.DRAG;
-		},
-	},
-});
-</script>
-
 <style scoped lang="scss">
 @import '../../../../styles/settings/animations';
 @import '../../../../styles/settings/colors/tokens';
@@ -696,3 +472,227 @@ $rich-list-item-media-horizontal-height: 80px;
 	}
 }
 </style>
+
+<script lang="ts">
+import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
+import DsDivider from '../../../components/Divider';
+import DsIcon, {
+	ICON_COLORS,
+	ICON_SIZES,
+	IconColor,
+	IconItem,
+	ICONS,
+} from '../../../components/Icons/Icon';
+import { defineComponent, PropType, toRaw } from 'vue';
+import {
+	RICH_LIST_ITEM_BACKGROUND_COLOR,
+	RICH_LIST_ITEM_BORDER_COLOR,
+	RICH_LIST_ITEM_ELEVATION,
+	RICH_LIST_ITEM_LAYOUT,
+	RICH_LIST_ITEM_SIZE,
+	RICH_LIST_ITEM_STATE,
+	RICH_LIST_ITEM_TYPE,
+	RichListItemBackgroundColor,
+	RichListItemBorderColor,
+	RichListItemElevation,
+	RichListItemLayout,
+	RichListItemSize,
+	RichListItemState,
+	RichListItemType,
+} from './RichListItem.consts';
+
+export default defineComponent({
+	name: 'RichListItem',
+	components: {
+		DsCheckbox,
+		DsDivider,
+		DsIcon,
+	},
+	props: {
+		type: {
+			type: String as PropType<RichListItemType>,
+			default: RICH_LIST_ITEM_TYPE.DEFAULT,
+			validator(type: RichListItemType) {
+				return Object.values(RICH_LIST_ITEM_TYPE).includes(type);
+			},
+		},
+		layout: {
+			type: String as PropType<RichListItemLayout>,
+			default: RICH_LIST_ITEM_LAYOUT.HORIZONTAL,
+			validator(layout: RichListItemLayout) {
+				return Object.values(RICH_LIST_ITEM_LAYOUT).includes(layout);
+			},
+		},
+		state: {
+			type: String as PropType<RichListItemState>,
+			default: RICH_LIST_ITEM_STATE.DEFAULT,
+			validator(state: RichListItemState) {
+				return Object.values(RICH_LIST_ITEM_STATE).includes(state);
+			},
+		},
+		size: {
+			type: String as PropType<RichListItemSize>,
+			default: RICH_LIST_ITEM_SIZE.MEDIUM,
+			validator(size) {
+				return Object.values(RICH_LIST_ITEM_SIZE).includes(size);
+			},
+		},
+		isInteractive: {
+			type: Boolean,
+			default: true,
+		},
+		isDimmed: {
+			type: Boolean,
+			default: false,
+		},
+		isDraggable: {
+			type: Boolean,
+			default: true,
+		},
+		icon: {
+			type: Object as PropType<IconItem>,
+			default: null,
+			validator(icon) {
+				return Object.values(ICONS).includes(toRaw(icon));
+			},
+		},
+		iconColor: {
+			type: String as PropType<IconColor>,
+			default: null,
+			validator(iconColor) {
+				return Object.values(ICON_COLORS).includes(iconColor);
+			},
+		},
+		iconColorHex: {
+			type: String,
+			default: null,
+		},
+		borderColor: {
+			type: String as PropType<RichListItemBorderColor>,
+			default: null,
+			validator(borderColor) {
+				return Object.values(RICH_LIST_ITEM_BORDER_COLOR).includes(borderColor);
+			},
+		},
+		borderColorHex: {
+			type: String,
+			default: null,
+		},
+		draggableIconClassName: {
+			type: String,
+			default: null,
+		},
+		backgroundColor: {
+			type: String as PropType<RichListItemBackgroundColor>,
+			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
+			validator(backgroundColor) {
+				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(backgroundColor);
+			},
+		},
+		elevation: {
+			type: String as PropType<RichListItemElevation>,
+			default: null,
+			validator(evolution) {
+				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(evolution);
+			},
+		},
+		hasDraggableHandler: {
+			type: Boolean,
+			default: true,
+		},
+		hasActionsSlotDivider: {
+			type: Boolean,
+			default: true,
+		},
+		isSelectable: {
+			type: Boolean,
+			default: true,
+		},
+		isSelected: {
+			type: Boolean,
+			default: false,
+		},
+	},
+	emits: {
+		'icon-click': () => true,
+		click: () => true,
+		'update:is-selected': (isSelected: boolean) => true,
+	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
+			RICH_LIST_ITEM_TYPE: Object.freeze(RICH_LIST_ITEM_TYPE),
+			RICH_LIST_ITEM_STATE: Object.freeze(RICH_LIST_ITEM_STATE),
+			RICH_LIST_ITEM_SIZE: Object.freeze(RICH_LIST_ITEM_SIZE),
+		};
+	},
+	computed: {
+		classList() {
+			return {
+				'-ds-default': this.type === RICH_LIST_ITEM_TYPE.DEFAULT,
+				'-ds-flat': this.type === RICH_LIST_ITEM_TYPE.FLAT,
+				'-ds-horizontal': this.isHorizontal,
+				'-ds-verticalWithMedia': this.isVertical && this.hasMedia,
+				'-ds-vertical': this.isVertical,
+				'-ds-loading': this.state === RICH_LIST_ITEM_STATE.LOADING,
+				'-ds-dimmed': this.isDimmed,
+				'-ds-interactive': this.isInteractive,
+				'-ds-small': this.size === RICH_LIST_ITEM_SIZE.SMALL,
+				...(this.backgroundColor &&
+					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
+						[`-ds-background-${this.backgroundColor}`]: true,
+					}),
+				...(this.elevation &&
+					this.type !== RICH_LIST_ITEM_TYPE.FLAT && {
+						[`-ds-elevation-${this.elevation}`]: true,
+					}),
+				'-ds-draggable': this.isDraggable,
+				'-ds-draggable-without-handler': this.isDraggable && !this.hasDraggableHandler,
+				'-ds-has-media': this.hasMedia,
+				'-ds-drag': this.isDragging,
+			};
+		},
+		isHorizontal() {
+			return this.layout === RICH_LIST_ITEM_LAYOUT.HORIZONTAL;
+		},
+		isVertical() {
+			return this.layout === RICH_LIST_ITEM_LAYOUT.VERTICAL;
+		},
+		iconColorClass() {
+			if (!this.iconColor || (this.iconColor && this.iconColorHex)) {
+				return;
+			}
+			return `-ds-${this.iconColor}`;
+		},
+		iconColorStyle() {
+			if (!this.iconColor || !this.iconColorHex) {
+				return;
+			}
+			return {
+				color: this.iconColorHex,
+			};
+		},
+		borderColorClass() {
+			if (!this.borderColor || this.borderColorHex) {
+				return;
+			}
+			return `-ds-border-${this.borderColor}`;
+		},
+		borderColorStyle() {
+			if (!this.borderColorHex) {
+				return;
+			}
+			return {
+				backgroundColor: this.borderColorHex,
+			};
+		},
+		hasMedia() {
+			return !!this.$slots.media;
+		},
+		isDragging() {
+			return this.isDraggable && this.state === RICH_LIST_ITEM_STATE.DRAG;
+		},
+	},
+});
+</script>
