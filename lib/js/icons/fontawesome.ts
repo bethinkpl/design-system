@@ -33,6 +33,7 @@ import { faCalendarDay } from '@fortawesome/pro-regular-svg-icons/faCalendarDay'
 import { faCalendarRange } from '@fortawesome/pro-regular-svg-icons/faCalendarRange';
 import { faCalendarCircleExclamation } from '@fortawesome/pro-regular-svg-icons/faCalendarCircleExclamation';
 import { faCalendarCheck } from '@fortawesome/pro-regular-svg-icons/faCalendarCheck';
+import { faCalendarXmark } from '@fortawesome/pro-regular-svg-icons/faCalendarXmark';
 import { faCartShopping } from '@fortawesome/pro-regular-svg-icons/faCartShopping';
 import { faChartColumn } from '@fortawesome/pro-regular-svg-icons/faChartColumn';
 import { faChartLineUp } from '@fortawesome/pro-regular-svg-icons/faChartLineUp';
@@ -252,6 +253,7 @@ export const FONTAWESOME_ICONS = {
 	FA_CALENDAR_DAY: faCalendarDay,
 	FA_CALENDAR_DAYS: faCalendarDays,
 	FA_CALENDAR_RANGE: faCalendarRange,
+	FA_CALENDAR_XMARK: faCalendarXmark,
 	FA_CAMERA_SOLID: fasCamera,
 	FA_CARET_SQUARE_RIGHT_SOLID: fasCaretSquareRight,
 	FA_CART_SHOPPING: faCartShopping,
