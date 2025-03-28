@@ -202,6 +202,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_TEXT_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_THUMBS_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_THUMBS_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_THUMBTACK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_THUMBTACK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_TRASH_CAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_TREE_PALM: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -254,7 +255,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         rotation: {
             type: NumberConstructor;
             default: null;
-            validator(value: number): boolean;
         };
         flippedVertical: {
             type: BooleanConstructor;
@@ -275,7 +275,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     }>, {}, {}, {
         sizeClassName(): string;
         isFontawesomeIcon(): boolean;
-        rotationClass(): string | null;
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         icon: {
             type: ObjectConstructor;
@@ -290,7 +289,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         rotation: {
             type: NumberConstructor;
             default: null;
-            validator(value: number): boolean;
         };
         flippedVertical: {
             type: BooleanConstructor;
