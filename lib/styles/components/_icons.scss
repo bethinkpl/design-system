@@ -3,6 +3,7 @@
 .ds-icon {
 	align-items: center;
 	display: inline-flex;
+	transform: rotate(var(--rotate));
 	transition: transform 0.15s;
 
 	&.-ds-touchable {
@@ -12,22 +13,6 @@
 		justify-content: center;
 		min-height: $min-touchable-size;
 		min-width: $min-touchable-size;
-	}
-
-	&.-ds-rotate90 {
-		transform: rotate(90deg);
-	}
-
-	&.-ds-rotate180 {
-		transform: rotate(180deg);
-	}
-
-	&.-ds-rotate270 {
-		transform: rotate(270deg);
-	}
-
-	&.-ds-no-transtition {
-		transition: initial;
 	}
 
 	&.-ds-spin {

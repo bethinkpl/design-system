@@ -196,6 +196,7 @@ import { faStethoscope } from '@fortawesome/pro-regular-svg-icons/faStethoscope'
 import { faStopwatch as fasStopwach } from '@fortawesome/pro-solid-svg-icons/faStopwatch';
 import { faThumbsUp as fasThumbsUp } from '@fortawesome/pro-solid-svg-icons/faThumbsUp';
 import { faThumbtack as fasThumbtack } from '@fortawesome/pro-solid-svg-icons/faThumbtack';
+import { faThumbtack } from '@fortawesome/pro-regular-svg-icons/faThumbtack';
 import { faTriangleExclamation as fasTriangleExclamation } from '@fortawesome/pro-solid-svg-icons/faTriangleExclamation';
 import { faUserDoctor as fasUserDoctor } from '@fortawesome/pro-solid-svg-icons/faUserDoctor';
 import { faVideo as fasVideo } from '@fortawesome/pro-solid-svg-icons/faVideo';
@@ -402,6 +403,7 @@ export const FONTAWESOME_ICONS = {
 	FA_TEXT_SLASH: faTextSlash,
 	FA_THUMBS_UP: faThumbsUp,
 	FA_THUMBS_UP_SOLID: fasThumbsUp,
+	FA_THUMBTACK: faThumbtack,
 	FA_THUMBTACK_SOLID: fasThumbtack,
 	FA_TRASH_CAN: faTrashCan,
 	FA_TREE_PALM: faTreePalm,

@@ -188,6 +188,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_TEXT_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_THUMBS_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_THUMBS_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_THUMBTACK: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_THUMBTACK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_TRASH_CAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_TREE_PALM: import('@fortawesome/fontawesome-common-types').IconDefinition;
