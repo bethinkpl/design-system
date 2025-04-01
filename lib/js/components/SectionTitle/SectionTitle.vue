@@ -42,8 +42,8 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: SECTION_TITLE_SIZES.XS,
-			validator(size) {
-				return Object.values(SECTION_TITLE_SIZES).includes(size as SectionTitleSize);
+			validator(size: SectionTitleSize) {
+				return Object.values(SECTION_TITLE_SIZES).includes(size);
 			},
 		},
 		supportingText: {

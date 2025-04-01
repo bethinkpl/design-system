@@ -268,8 +268,8 @@ export default defineComponent({
 		color: {
 			type: String,
 			default: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
-			validator(color) {
-				return Object.values(COUNTER_TOGGLE_COLORS).includes(color as CounterToggleColor);
+			validator(color: CounterToggleColor) {
+				return Object.values(COUNTER_TOGGLE_COLORS).includes(color);
 			},
 		},
 		icon: {

@@ -298,15 +298,15 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: CHIP_SIZES.SMALL,
-			validator(size) {
-				return Object.values(CHIP_SIZES).includes(size as ChipSize);
+			validator(size: ChipSize) {
+				return Object.values(CHIP_SIZES).includes(size);
 			},
 		},
 		color: {
 			type: String,
 			default: CHIP_COLORS.NEUTRAL,
-			validator(color) {
-				return Object.values(CHIP_COLORS).includes(color as ChipColor);
+			validator(color: ChipColor) {
+				return Object.values(CHIP_COLORS).includes(color);
 			},
 		},
 		colorHex: {
@@ -316,8 +316,8 @@ export default defineComponent({
 		state: {
 			type: String,
 			default: CHIP_STATES.DEFAULT,
-			validator(value: Value<typeof CHIP_STATES>) {
-				return Object.values(CHIP_STATES).includes(value as ChipState);
+			validator(value: ChipState) {
+				return Object.values(CHIP_STATES).includes(value);
 			},
 		},
 		isRemovable: {

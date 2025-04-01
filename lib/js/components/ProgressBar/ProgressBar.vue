@@ -310,7 +310,7 @@ import {
 	PROGRESS_BAR_BADGE_COLORS,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
 	PROGRESS_BAR_LAYOUTS,
-	PROGRESS_BAR_RADIUS,
+	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_SIZES,
 	ProgressBarBadgeColor,
 	ProgressBarLabelTextSize,
@@ -331,17 +331,15 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: PROGRESS_BAR_SIZES.SMALL,
-			validator(size) {
-				return Object.values(PROGRESS_BAR_SIZES).includes(size as ProgressBarSize);
+			validator(size: ProgressBarSize) {
+				return Object.values(PROGRESS_BAR_SIZES).includes(size);
 			},
 		},
 		labelTextSize: {
 			type: String,
 			default: PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
-			validator(size) {
-				return Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES).includes(
-					size as ProgressBarLabelTextSize,
-				);
+			validator(size: ProgressBarLabelTextSize) {
+				return Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES).includes(size);
 			},
 		},
 		ranges: {
@@ -356,16 +354,16 @@ export default defineComponent({
 		},
 		radius: {
 			type: String,
-			default: PROGRESS_BAR_RADIUS.DEFAULT,
-			validator(size) {
-				return Object.values(PROGRESS_BAR_RADIUS).includes(size as ProgressBarRadius);
+			default: PROGRESS_BAR_RADII.DEFAULT,
+			validator(size: ProgressBarRadius) {
+				return Object.values(PROGRESS_BAR_RADII).includes(size);
 			},
 		},
 		layout: {
 			type: String,
 			default: PROGRESS_BAR_LAYOUTS.DEFAULT,
-			validator(size) {
-				return Object.values(PROGRESS_BAR_LAYOUTS).includes(size as ProgressBarLayout);
+			validator(size: ProgressBarLayout) {
+				return Object.values(PROGRESS_BAR_LAYOUTS).includes(size);
 			},
 		},
 		labelText: {
@@ -398,17 +396,15 @@ export default defineComponent({
 		badgeColor: {
 			type: String,
 			default: PROGRESS_BAR_BADGE_COLORS.INFO,
-			validator(color) {
-				return Object.values(PROGRESS_BAR_BADGE_COLORS).includes(
-					color as ProgressBarBadgeColor,
-				);
+			validator(color: ProgressBarBadgeColor) {
+				return Object.values(PROGRESS_BAR_BADGE_COLORS).includes(color);
 			},
 		},
 	},
 	data() {
 		return {
 			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
-			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADIUS),
+			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
 			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
 			PROGRESS_BAR_LABEL_TEXT_SIZES: Object.freeze(PROGRESS_BAR_LABEL_TEXT_SIZES),
 			ICONS: Object.freeze(ICONS),

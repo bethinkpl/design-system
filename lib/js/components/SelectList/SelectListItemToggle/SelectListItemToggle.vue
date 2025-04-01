@@ -56,15 +56,15 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: SELECT_LIST_ITEM_SIZES.SMALL,
-			validator(size) {
-				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size as SelectListItemSize);
+			validator(size: SelectListItemSize) {
+				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size);
 			},
 		},
 		state: {
 			type: String,
 			default: SELECT_LIST_ITEM_STATES.DEFAULT,
-			validator(size) {
-				return Object.values(SELECT_LIST_ITEM_STATES).includes(size as SelectListItemState);
+			validator(state: SelectListItemState) {
+				return Object.values(SELECT_LIST_ITEM_STATES).includes(state);
 			},
 		},
 	},

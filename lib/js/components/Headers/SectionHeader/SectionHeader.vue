@@ -407,8 +407,8 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: SECTION_HEADER_SIZES.MEDIUM,
-			validator(size) {
-				return Object.values(SECTION_HEADER_SIZES).includes(size as SectionHeaderSize);
+			validator(size: SectionHeaderSize) {
+				return Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
 		},
 		title: {
@@ -434,10 +434,8 @@ export default defineComponent({
 		mobileLayout: {
 			type: String,
 			default: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
-			validator: (value) =>
-				Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(
-					value as SectionHeaderMobileLayout,
-				),
+			validator: (value: SectionHeaderMobileLayout) =>
+				Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(value),
 		},
 	},
 	// TODO fix me when touching this file

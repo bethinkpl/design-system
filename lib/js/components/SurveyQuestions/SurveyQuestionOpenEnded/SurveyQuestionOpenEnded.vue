@@ -118,8 +118,8 @@ export default defineComponent({
 		state: {
 			type: String,
 			default: SURVEY_QUESTION_STATES.DEFAULT,
-			validator(state) {
-				return Object.values(SURVEY_QUESTION_STATES).includes(state as SurveyQuestionState);
+			validator(state: SurveyQuestionState) {
+				return Object.values(SURVEY_QUESTION_STATES).includes(state);
 			},
 		},
 	},

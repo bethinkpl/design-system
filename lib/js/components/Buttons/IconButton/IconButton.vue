@@ -302,22 +302,22 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: ICON_BUTTON_SIZES.LARGE,
-			validator(value) {
-				return Object.values(ICON_BUTTON_SIZES).includes(value as IconButtonSize);
+			validator(value: IconButtonSize) {
+				return Object.values(ICON_BUTTON_SIZES).includes(value);
 			},
 		},
 		radius: {
 			type: String,
 			default: BUTTON_RADIUSES.CAPSULE,
-			validator(value) {
-				return Object.values(BUTTON_RADIUSES).includes(value as ButtonRadius);
+			validator(value: ButtonRadius) {
+				return Object.values(BUTTON_RADIUSES).includes(value);
 			},
 		},
 		type: {
 			type: String,
 			default: ICON_BUTTON_TYPES.ICON_ONLY,
-			validator(value) {
-				return Object.values(ICON_BUTTON_TYPES).includes(value as IconButtonType);
+			validator(value: IconButtonType) {
+				return Object.values(ICON_BUTTON_TYPES).includes(value);
 			},
 		},
 		icon: {
@@ -330,24 +330,22 @@ export default defineComponent({
 		color: {
 			type: String,
 			default: ICON_BUTTON_COLORS.PRIMARY,
-			validator(value): boolean {
-				return Object.values(ICON_BUTTON_COLORS).includes(value as IconButtonColor);
+			validator(value: IconButtonColor) {
+				return Object.values(ICON_BUTTON_COLORS).includes(value);
 			},
 		},
 		colorScheme: {
 			type: String,
 			default: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
-			validator(value): boolean {
-				return Object.values(ICON_BUTTON_COLOR_SCHEMES).includes(
-					value as IconButtonColorScheme,
-				);
+			validator(value: IconButtonColorScheme) {
+				return Object.values(ICON_BUTTON_COLOR_SCHEMES).includes(value);
 			},
 		},
 		elevation: {
 			type: String,
 			default: BUTTON_ELEVATIONS.NONE,
-			validator(value) {
-				return Object.values(BUTTON_ELEVATIONS).includes(value as ButtonElevation);
+			validator(value: ButtonElevation) {
+				return Object.values(BUTTON_ELEVATIONS).includes(value);
 			},
 		},
 		touchable: {

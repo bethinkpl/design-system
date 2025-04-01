@@ -141,8 +141,8 @@ export default defineComponent({
 		color: {
 			type: String,
 			default: ICON_TEXT_COLORS.NEUTRAL_WEAK,
-			validator(color) {
-				return Object.values(ICON_TEXT_COLORS).includes(color as IconTextColor);
+			validator(color: IconTextColor) {
+				return Object.values(ICON_TEXT_COLORS).includes(color);
 			},
 		},
 		icon: {
@@ -165,8 +165,8 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: ICON_TEXT_SIZES.X_SMALL,
-			validator(size) {
-				return Object.values(ICON_TEXT_SIZES).includes(size as IconTextSize);
+			validator(size: IconTextSize) {
+				return Object.values(ICON_TEXT_SIZES).includes(size);
 			},
 		},
 		state: {

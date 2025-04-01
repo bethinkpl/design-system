@@ -86,8 +86,8 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: SECTION_HEADER_SIZES.XX_SMALL,
-			validator(size) {
-				return Object.values(SECTION_HEADER_SIZES).includes(size as SectionHeaderSize);
+			validator(size: SectionHeaderSize) {
+				return Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
 		},
 		title: {

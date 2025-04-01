@@ -60,12 +60,12 @@ export const PROGRESS_BAR_LABEL_TEXT_SIZES = {
 
 export type ProgressBarLabelTextSize = Value<typeof PROGRESS_BAR_LABEL_TEXT_SIZES>;
 
-export const PROGRESS_BAR_RADIUS = {
+export const PROGRESS_BAR_RADII = {
 	DEFAULT: 'default',
 	NONE: 'none',
 };
 
-export type ProgressBarRadius = Value<typeof PROGRESS_BAR_RADIUS>;
+export type ProgressBarRadius = Value<typeof PROGRESS_BAR_RADII>;
 
 export const PROGRESS_BAR_LAYOUTS = {
 	DEFAULT: 'default',
