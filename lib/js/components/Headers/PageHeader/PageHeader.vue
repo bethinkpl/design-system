@@ -119,8 +119,8 @@ export default defineComponent({
 		mobileLayout: {
 			type: String,
 			default: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
-			validator: (value) =>
-				Object.values(PAGE_HEADER_MOBILE_LAYOUTS).includes(value as PageHeaderMobileLayout),
+			validator: (value: PageHeaderMobileLayout) =>
+				Object.values(PAGE_HEADER_MOBILE_LAYOUTS).includes(value),
 		},
 	},
 	data() {

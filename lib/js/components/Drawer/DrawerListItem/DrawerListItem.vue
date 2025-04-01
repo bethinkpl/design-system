@@ -59,10 +59,8 @@ export default defineComponent({
 		state: {
 			type: String as PropType<DrawerListItemState>,
 			default: DRAWER_LIST_ITEM_STATES.DEFAULT,
-			validator(state) {
-				return Object.values(DRAWER_LIST_ITEM_STATES).includes(
-					state as DrawerListItemState,
-				);
+			validator(state: DrawerListItemState) {
+				return Object.values(DRAWER_LIST_ITEM_STATES).includes(state);
 			},
 		},
 		label: {

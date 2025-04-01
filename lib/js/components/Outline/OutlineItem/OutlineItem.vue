@@ -235,17 +235,15 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: OUTLINE_ITEM_SIZES.SMALL,
-			validator(size) {
-				return Object.values(OUTLINE_ITEM_SIZES).includes(size as OutlineItemSize);
+			validator(size: OutlineItemSize) {
+				return Object.values(OUTLINE_ITEM_SIZES).includes(size);
 			},
 		},
 		backgroundColor: {
 			type: String,
 			default: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
-			validator(color) {
-				return Object.values(OUTLINE_ITEM_BACKGROUND_COLORS).includes(
-					color as OutlineItemBackgroundColor,
-				);
+			validator(color: OutlineItemBackgroundColor) {
+				return Object.values(OUTLINE_ITEM_BACKGROUND_COLORS).includes(color);
 			},
 		},
 		iconLeft: {
@@ -289,8 +287,8 @@ export default defineComponent({
 		state: {
 			type: String,
 			default: OUTLINE_ITEM_STATES.DEFAULT,
-			validator(state) {
-				return Object.values(OUTLINE_ITEM_STATES).includes(state as OutlineItemState);
+			validator(state: OutlineItemState) {
+				return Object.values(OUTLINE_ITEM_STATES).includes(state);
 			},
 		},
 		isSelected: {

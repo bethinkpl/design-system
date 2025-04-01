@@ -246,24 +246,22 @@ export default defineComponent({
 		meaning: {
 			type: [String, null],
 			default: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-			validator(meaning) {
-				return Object.values(SURVEY_TOGGLE_MEANINGS).includes(
-					meaning as SurveyToggleMeaning,
-				);
+			validator(meaning: SurveyToggleMeaning) {
+				return Object.values(SURVEY_TOGGLE_MEANINGS).includes(meaning);
 			},
 		},
 		status: {
 			type: String,
 			default: SURVEY_TOGGLE_STATUSES.DEFAULT,
-			validator(status) {
-				return Object.values(SURVEY_TOGGLE_STATUSES).includes(status as SurveyToggleStatus);
+			validator(status: SurveyToggleStatus) {
+				return Object.values(SURVEY_TOGGLE_STATUSES).includes(status);
 			},
 		},
 		state: {
 			type: String,
 			default: SURVEY_TOGGLE_STATES.DEFAULT,
-			validator(state) {
-				return Object.values(SURVEY_TOGGLE_STATES).includes(state as SurveyToggleState);
+			validator(state: SurveyToggleState) {
+				return Object.values(SURVEY_TOGGLE_STATES).includes(state);
 			},
 		},
 		selectedIcon: {

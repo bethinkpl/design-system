@@ -113,24 +113,22 @@ export default defineComponent({
 		triggerAction: {
 			type: String,
 			default: DROPDOWN_TRIGGER_ACTIONS.CLICK,
-			validator(triggerAction) {
-				return Object.values(DROPDOWN_TRIGGER_ACTIONS).includes(
-					triggerAction as DropdownTriggerAction,
-				);
+			validator(triggerAction: DropdownTriggerAction) {
+				return Object.values(DROPDOWN_TRIGGER_ACTIONS).includes(triggerAction);
 			},
 		},
 		radius: {
 			type: String,
 			default: DROPDOWN_RADIUSES.BOTH,
-			validate(radius) {
-				return Object.values(DROPDOWN_RADIUSES).includes(radius as DropdownRadius);
+			validate(radius: DropdownRadius) {
+				return Object.values(DROPDOWN_RADIUSES).includes(radius);
 			},
 		},
 		placement: {
 			type: String,
 			default: DROPDOWN_PLACEMENTS.BOTTOM_START,
-			validate(placement) {
-				return Object.values(DROPDOWN_PLACEMENTS).includes(placement as DropdownPlacement);
+			validate(placement: DropdownPlacement) {
+				return Object.values(DROPDOWN_PLACEMENTS).includes(placement);
 			},
 		},
 		maxHeight: {

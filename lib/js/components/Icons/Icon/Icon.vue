@@ -44,7 +44,7 @@ export default defineComponent({
 			validator: (value: string) => Object.values(ICON_SIZES).includes(value),
 		},
 		rotation: {
-			type: Number,
+			type: [Number, null],
 			default: null,
 		},
 		flippedVertical: {

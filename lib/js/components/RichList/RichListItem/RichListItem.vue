@@ -533,8 +533,8 @@ export default defineComponent({
 		size: {
 			type: String as PropType<RichListItemSize>,
 			default: RICH_LIST_ITEM_SIZE.MEDIUM,
-			validator(size) {
-				return Object.values(RICH_LIST_ITEM_SIZE).includes(size as RichListItemSize);
+			validator(size: RichListItemSize) {
+				return Object.values(RICH_LIST_ITEM_SIZE).includes(size);
 			},
 		},
 		isInteractive: {
@@ -559,8 +559,8 @@ export default defineComponent({
 		iconColor: {
 			type: String as PropType<IconColor>,
 			default: null,
-			validator(iconColor) {
-				return Object.values(ICON_COLORS).includes(iconColor as IconColor);
+			validator(iconColor: IconColor) {
+				return Object.values(ICON_COLORS).includes(iconColor);
 			},
 		},
 		iconColorHex: {
@@ -570,10 +570,8 @@ export default defineComponent({
 		borderColor: {
 			type: String as PropType<RichListItemBorderColor>,
 			default: null,
-			validator(borderColor) {
-				return Object.values(RICH_LIST_ITEM_BORDER_COLOR).includes(
-					borderColor as RichListItemBorderColor,
-				);
+			validator(borderColor: RichListItemBorderColor) {
+				return Object.values(RICH_LIST_ITEM_BORDER_COLOR).includes(borderColor);
 			},
 		},
 		borderColorHex: {
@@ -587,19 +585,15 @@ export default defineComponent({
 		backgroundColor: {
 			type: String as PropType<RichListItemBackgroundColor>,
 			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
-			validator(backgroundColor) {
-				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(
-					backgroundColor as RichListItemBackgroundColor,
-				);
+			validator(backgroundColor: RichListItemBackgroundColor) {
+				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(backgroundColor);
 			},
 		},
 		elevation: {
 			type: String as PropType<RichListItemElevation>,
 			default: null,
-			validator(elevation) {
-				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(
-					elevation as RichListItemElevation,
-				);
+			validator(elevation: RichListItemElevation) {
+				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(elevation);
 			},
 		},
 		hasDraggableHandler: {

@@ -333,7 +333,7 @@ export default defineComponent({
 		color: {
 			type: String,
 			default: BANNER_COLORS.DEFAULT,
-			validator: (color) => Object.values(BANNER_COLORS).includes(color as BannerColor),
+			validator: (color: BannerColor) => Object.values(BANNER_COLORS).includes(color),
 		},
 		title: {
 			type: String,
@@ -342,7 +342,7 @@ export default defineComponent({
 		layout: {
 			type: String,
 			default: BANNER_LAYOUTS.HORIZONTAL,
-			validator: (layout) => Object.values(BANNER_LAYOUTS).includes(layout as BannerLayout),
+			validator: (layout: BannerLayout) => Object.values(BANNER_LAYOUTS).includes(layout),
 		},
 		isExpanded: {
 			type: Boolean,

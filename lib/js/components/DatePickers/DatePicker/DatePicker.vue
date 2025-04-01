@@ -143,8 +143,8 @@ import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 import DsTile, {
 	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
 	TILE_BORDER_COLORS,
-	TileColors,
-	TileStates,
+	TileColor,
+	TileState,
 } from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import DateBox from '../DateBox';
@@ -345,10 +345,10 @@ export default defineComponent({
 			return this.helpMessage !== null;
 		},
 		tileState() {
-			return this.state as TileStates;
+			return this.state as TileState;
 		},
 		tileColor() {
-			return this.color as TileColors;
+			return this.color as TileColor;
 		},
 	},
 	async mounted() {

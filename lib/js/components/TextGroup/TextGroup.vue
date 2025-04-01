@@ -351,7 +351,7 @@ export default defineComponent({
 		},
 		supportingTextTooltipContent: {
 			type: String,
-			default: undefined,
+			default: null,
 		},
 	},
 	data() {

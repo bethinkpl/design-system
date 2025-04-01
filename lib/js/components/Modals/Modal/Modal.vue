@@ -395,8 +395,8 @@ export default defineComponent({
 		footerPrimaryButtonState: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
-			validator(state) {
-				return Object.values(BUTTON_STATES).includes(state as ButtonState);
+			validator(state: ButtonState) {
+				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
 		footerSecondaryButtonText: {
@@ -413,8 +413,8 @@ export default defineComponent({
 		footerSecondaryButtonState: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
-			validator(state) {
-				return Object.values(BUTTON_STATES).includes(state as ButtonState);
+			validator(state: ButtonState) {
+				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
 		footerTertiaryButtonText: {
@@ -431,8 +431,8 @@ export default defineComponent({
 		footerTertiaryButtonState: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
-			validator(state) {
-				return Object.values(BUTTON_STATES).includes(state as ButtonState);
+			validator(state: ButtonState) {
+				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
 		footerCheckboxText: {

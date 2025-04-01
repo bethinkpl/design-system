@@ -355,10 +355,8 @@ export default defineComponent({
 		borderColor: {
 			type: String,
 			default: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
-			validator: (value) =>
-				Object.values(OVERLAY_HEADER_BORDER_COLORS).includes(
-					value as OverlayHeaderBorderColor,
-				),
+			validator: (value: OverlayHeaderBorderColor) =>
+				Object.values(OVERLAY_HEADER_BORDER_COLORS).includes(value),
 		},
 		isTitleInteractive: {
 			type: Boolean,

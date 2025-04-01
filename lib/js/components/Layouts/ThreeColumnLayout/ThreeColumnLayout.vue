@@ -209,9 +209,9 @@ export default defineComponent({
 		rightColumnSize: {
 			type: String as PropType<ThreeColumnLayoutRightColumnSize>,
 			default: THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE.MEDIUM,
-			validator(rightColumnSize) {
+			validator(rightColumnSize: ThreeColumnLayoutRightColumnSize) {
 				return Object.values(THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE).includes(
-					rightColumnSize as ThreeColumnLayoutRightColumnSize,
+					rightColumnSize,
 				);
 			},
 		},

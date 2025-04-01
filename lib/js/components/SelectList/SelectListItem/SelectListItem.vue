@@ -204,26 +204,22 @@ export default defineComponent({
 		selectionMode: {
 			type: String,
 			default: SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
-			validator(selectionMode) {
-				return Object.values(SELECT_LIST_ITEM_SELECTION_MODE).includes(
-					selectionMode as SelectListItemSelectionMode,
-				);
+			validator(selectionMode: SelectListItemSelectionMode) {
+				return Object.values(SELECT_LIST_ITEM_SELECTION_MODE).includes(selectionMode);
 			},
 		},
 		size: {
 			type: String,
 			default: SELECT_LIST_ITEM_SIZES.SMALL,
-			validator(size) {
-				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size as SelectListItemSize);
+			validator(size: SelectListItemSize) {
+				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size);
 			},
 		},
 		state: {
 			type: String,
 			default: SELECT_LIST_ITEM_STATES.DEFAULT,
-			validator(state) {
-				return Object.values(SELECT_LIST_ITEM_STATES).includes(
-					state as SelectListItemState,
-				);
+			validator(state: SelectListItemState) {
+				return Object.values(SELECT_LIST_ITEM_STATES).includes(state);
 			},
 		},
 	},

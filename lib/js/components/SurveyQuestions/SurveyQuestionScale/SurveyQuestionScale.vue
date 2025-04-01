@@ -268,20 +268,20 @@ export default defineComponent({
 		state: {
 			type: String,
 			default: SURVEY_QUESTION_STATES.DEFAULT,
-			validator(state) {
-				return Object.values(SURVEY_QUESTION_STATES).includes(state as SurveyQuestionState);
+			validator(state: SurveyQuestionState) {
+				return Object.values(SURVEY_QUESTION_STATES).includes(state);
 			},
 		},
 		scaleOptions: {
 			type: Array as () => Array<SurveyQuestionScaleOption>,
 			required: true,
-			validator(scaleOptions: Array<unknown>) {
+			validator(scaleOptions: Array<SurveyQuestionScaleOption>) {
 				return scaleOptions.every((option) => typeof option === 'object');
 			},
 		},
 		elaborationLabel: {
 			type: String,
-			default: undefined,
+			default: null,
 		},
 		elaborationValue: {
 			type: String,
@@ -293,15 +293,13 @@ export default defineComponent({
 		},
 		selectedValue: {
 			type: String,
-			default: undefined,
+			default: null,
 		},
 		containers: {
 			type: String,
 			default: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
-			validator(containers) {
-				return Object.values(SURVEY_QUESTION_SCALE_CONTAINERS).includes(
-					containers as SurveyQuestionScaleContainer,
-				);
+			validator(containers: SurveyQuestionScaleContainer) {
+				return Object.values(SURVEY_QUESTION_SCALE_CONTAINERS).includes(containers);
 			},
 		},
 	},
