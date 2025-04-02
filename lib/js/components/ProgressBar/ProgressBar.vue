@@ -12,7 +12,7 @@
 					'-ds-medium': labelTextSize === PROGRESS_BAR_LABEL_TEXT_SIZES.MEDIUM,
 					'-ds-ellipsis': labelTextEllipsis,
 				}"
-				:title="labelTextEllipsis ? labelText : null"
+				:title="labelTextEllipsis ? labelText : undefined"
 			>
 				{{ labelText }}
 			</div>
@@ -312,7 +312,12 @@ import {
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_SIZES,
+	ProgressBarBadgeColor,
+	ProgressBarLabelTextSize,
+	ProgressBarLayout,
+	ProgressBarRadius,
 	ProgressBarRange,
+	ProgressBarSize,
 } from './ProgressBar.consts';
 
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
@@ -326,21 +331,21 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: PROGRESS_BAR_SIZES.SMALL,
-			validator(size) {
+			validator(size: ProgressBarSize) {
 				return Object.values(PROGRESS_BAR_SIZES).includes(size);
 			},
 		},
 		labelTextSize: {
 			type: String,
 			default: PROGRESS_BAR_LABEL_TEXT_SIZES.SMALL,
-			validator(size) {
+			validator(size: ProgressBarLabelTextSize) {
 				return Object.values(PROGRESS_BAR_LABEL_TEXT_SIZES).includes(size);
 			},
 		},
 		ranges: {
 			type: Array as PropType<Array<ProgressBarRange>>,
 			required: true,
-			validator(ranges) {
+			validator(ranges: Array<ProgressBarRange>) {
 				return ranges.every(
 					(range: ProgressBarRange) =>
 						range.start >= 0 && range.length >= 0 && range.start + range.length <= 100,
@@ -350,14 +355,14 @@ export default defineComponent({
 		radius: {
 			type: String,
 			default: PROGRESS_BAR_RADII.DEFAULT,
-			validator(size) {
+			validator(size: ProgressBarRadius) {
 				return Object.values(PROGRESS_BAR_RADII).includes(size);
 			},
 		},
 		layout: {
 			type: String,
 			default: PROGRESS_BAR_LAYOUTS.DEFAULT,
-			validator(size) {
+			validator(size: ProgressBarLayout) {
 				return Object.values(PROGRESS_BAR_LAYOUTS).includes(size);
 			},
 		},
@@ -384,14 +389,14 @@ export default defineComponent({
 		badgePosition: {
 			type: Number,
 			default: null,
-			validator(position) {
+			validator(position: number) {
 				return position >= 0 && position <= 100;
 			},
 		},
 		badgeColor: {
 			type: String,
 			default: PROGRESS_BAR_BADGE_COLORS.INFO,
-			validator(color) {
+			validator(color: ProgressBarBadgeColor) {
 				return Object.values(PROGRESS_BAR_BADGE_COLORS).includes(color);
 			},
 		},

@@ -11,7 +11,7 @@ export const TILE_COLORS = {
 	INFO: 'info',
 } as const;
 
-export type TileColors = Value<typeof TILE_COLORS>;
+export type TileColor = Value<typeof TILE_COLORS>;
 
 export const TILE_STATES = {
 	DEFAULT: 'default',
@@ -19,7 +19,7 @@ export const TILE_STATES = {
 	LOADING: 'loading',
 } as const;
 
-export type TileStates = Value<typeof TILE_STATES>;
+export type TileState = Value<typeof TILE_STATES>;
 
 export const TILE_BORDER_COLORS = {
 	NEUTRAL: 'neutral',
@@ -45,4 +45,4 @@ export const TILE_ADDITIONAL_TEXT_MAX_WIDTHS = {
 	MEDIUM: 'medium',
 } as const;
 
-export type TileAdditionalTextMaxWidths = Value<typeof TILE_ADDITIONAL_TEXT_MAX_WIDTHS>;
+export type TileAdditionalTextMaxWidth = Value<typeof TILE_ADDITIONAL_TEXT_MAX_WIDTHS>;

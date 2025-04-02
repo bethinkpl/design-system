@@ -238,7 +238,15 @@ $chip-colors: (
 </style>
 
 <script lang="ts">
-import { CHIP_COLORS, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
+import {
+	CHIP_COLORS,
+	CHIP_RADIUSES,
+	CHIP_SIZES,
+	CHIP_STATES,
+	ChipColor,
+	ChipSize,
+	ChipState,
+} from './Chip.consts';
 import IconButton, {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
@@ -290,14 +298,14 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: CHIP_SIZES.SMALL,
-			validator(size) {
+			validator(size: ChipSize) {
 				return Object.values(CHIP_SIZES).includes(size);
 			},
 		},
 		color: {
 			type: String,
 			default: CHIP_COLORS.NEUTRAL,
-			validator(color) {
+			validator(color: ChipColor) {
 				return Object.values(CHIP_COLORS).includes(color);
 			},
 		},
@@ -308,7 +316,7 @@ export default defineComponent({
 		state: {
 			type: String,
 			default: CHIP_STATES.DEFAULT,
-			validator(value: Value<typeof CHIP_STATES>) {
+			validator(value: ChipState) {
 				return Object.values(CHIP_STATES).includes(value);
 			},
 		},
