@@ -47,6 +47,8 @@
 	$root: &;
 
 	display: flex;
+	// Explicit width&height doesn't prevent element from shrinking. Therefore, this needs to be set.
+	flex-shrink: 0;
 	position: relative;
 
 	&.-ds-xx-small {
