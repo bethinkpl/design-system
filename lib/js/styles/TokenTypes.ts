@@ -21,6 +21,7 @@ export interface TypographyToken {
 	label: string;
 	value: string;
 	token: string;
+	ratio: number | null;
 	attributes: Array<string>;
 	attributesRaw: Array<AttributeRaw>;
 }
