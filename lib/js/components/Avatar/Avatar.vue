@@ -47,6 +47,7 @@
 	$root: &;
 
 	display: flex;
+	flex-shrink: 0;
 	position: relative;
 
 	&.-ds-xx-small {
