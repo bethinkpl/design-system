@@ -136,11 +136,11 @@ $rich-list-item-media-horizontal-height: 80px;
 		#{$root}__dragAndDrop,
 		#{$root}__iconWrapper {
 			align-items: center;
-			padding: $space-3xs $space-3xs $space-3xs $space-s;
+			padding: $space-3xs $space-5xs $space-3xs $space-s;
 		}
 
 		#{$root}__content {
-			padding: 0 $space-4xs 0 $space-2xs;
+			padding: 0 $space-4xs 0 $space-s;
 		}
 
 		#{$root}__metadata {
@@ -171,6 +171,10 @@ $rich-list-item-media-horizontal-height: 80px;
 			#{$root}__dragAndDrop,
 			#{$root}__iconWrapper {
 				padding: $space-3xs 0 $space-3xs $space-xs;
+			}
+
+			#{$root}__content {
+				padding: 0 $space-4xs 0 $space-xs;
 			}
 
 			#{$root}__checkbox {
@@ -240,6 +244,10 @@ $rich-list-item-media-horizontal-height: 80px;
 			#{$root}__dragAndDrop,
 			#{$root}__iconWrapper {
 				padding: $space-2xs $space-4xs 0 $space-2xs;
+			}
+
+			#{$root}__content {
+				padding: 0 $space-4xs 0 $space-2xs;
 			}
 
 			#{$root}__checkbox {
@@ -446,6 +454,7 @@ $rich-list-item-media-horizontal-height: 80px;
 
 		&:hover {
 			cursor: grab;
+
 			#{$root}__dragAndDropIcon {
 				color: $color-neutral-icon-weak-hovered;
 			}
@@ -457,11 +466,6 @@ $rich-list-item-media-horizontal-height: 80px;
 	}
 
 	&.-ds-small {
-		#{$root}__content {
-			align-items: center;
-			padding: 0 $space-4xs 0 $space-2xs;
-		}
-
 		#{$root}__actionSlot {
 			gap: $space-2xs;
 		}
