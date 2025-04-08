@@ -59,7 +59,7 @@ export default defineComponent({
 		state: {
 			type: String as PropType<DrawerListItemState>,
 			default: DRAWER_LIST_ITEM_STATES.DEFAULT,
-			validator(state) {
+			validator(state: DrawerListItemState) {
 				return Object.values(DRAWER_LIST_ITEM_STATES).includes(state);
 			},
 		},

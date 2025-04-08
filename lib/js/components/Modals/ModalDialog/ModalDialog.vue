@@ -30,7 +30,7 @@ import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from '../Modal';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
 import { defineComponent, toRaw } from 'vue';
-import { BUTTON_STATES } from '../../Buttons/Button';
+import { BUTTON_STATES, ButtonState } from '../../Buttons/Button';
 
 export default defineComponent({
 	name: 'ModalDialog',
@@ -80,7 +80,7 @@ export default defineComponent({
 		footerPrimaryButtonState: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
-			validator(state) {
+			validator(state: ButtonState) {
 				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
@@ -98,7 +98,7 @@ export default defineComponent({
 		footerSecondaryButtonState: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
-			validator(state) {
+			validator(state: ButtonState) {
 				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},

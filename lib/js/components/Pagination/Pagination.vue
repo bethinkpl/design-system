@@ -283,7 +283,7 @@ export default defineComponent({
 		currentPage: {
 			type: Number,
 			default: FIRST_PAGE_NUMBER,
-			validator(page) {
+			validator(page: number) {
 				return page > 0;
 			},
 		},
@@ -298,7 +298,7 @@ export default defineComponent({
 		itemsPerPage: {
 			type: Number,
 			default: PAGINATION_DEFAULT_ITEMS_PER_PAGE,
-			validator(itemsPerPage) {
+			validator(itemsPerPage: number) {
 				return itemsPerPage > 0;
 			},
 		},

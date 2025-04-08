@@ -27,7 +27,7 @@ export default defineComponent({
 		size: {
 			type: String as PropType<CheckboxSize>,
 			default: CHECKBOX_SIZE.SMALL,
-			validator(size) {
+			validator(size: CheckboxSize) {
 				return Object.values(CHECKBOX_SIZE).includes(size);
 			},
 		},
@@ -42,7 +42,7 @@ export default defineComponent({
 		state: {
 			type: String as PropType<CheckboxState>,
 			default: CHECKBOX_STATE.DEFAULT,
-			validator(state) {
+			validator(state: CheckboxState) {
 				return Object.values(CHECKBOX_STATE).includes(state);
 			},
 		},

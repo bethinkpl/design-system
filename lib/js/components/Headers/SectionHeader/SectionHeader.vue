@@ -344,6 +344,8 @@ import {
 	SECTION_HEADER_MOBILE_LAYOUTS,
 	SECTION_HEADER_SIZES,
 	SectionHeaderIconColor,
+	SectionHeaderMobileLayout,
+	SectionHeaderSize,
 } from './SectionHeader.consts';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
@@ -405,7 +407,7 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: SECTION_HEADER_SIZES.MEDIUM,
-			validator(size) {
+			validator(size: SectionHeaderSize) {
 				return Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
 		},
@@ -432,7 +434,8 @@ export default defineComponent({
 		mobileLayout: {
 			type: String,
 			default: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
-			validator: (value) => Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(value),
+			validator: (value: SectionHeaderMobileLayout) =>
+				Object.values(SECTION_HEADER_MOBILE_LAYOUTS).includes(value),
 		},
 	},
 	// TODO fix me when touching this file
