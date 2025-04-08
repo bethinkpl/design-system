@@ -1,7 +1,7 @@
-import { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemElevation, RichListItemLayout, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
 import { PropType } from 'vue';
 import { IconColor, IconItem } from '../../Icons/Icon';
 import { TextGroupSize, TextGroupState } from '../../TextGroup';
+import { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemElevation, RichListItemLayout, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     type: {
@@ -114,6 +114,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isTextGroupSelected: {
         type: BooleanConstructor;
         default: boolean;
     };
@@ -247,6 +251,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    isTextGroupSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>> & Readonly<{
     "onUpdate:is-selected"?: ((value: boolean) => any) | undefined;
 }>, {
@@ -264,6 +272,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     eyebrow: string;
     supportingText: string;
     isSelected: boolean;
+    supportingTextEllipsis: boolean;
+    isSupportingTextTooltipEnabled: boolean;
     isDimmed: boolean;
     isDraggable: boolean;
     iconColor: string;
@@ -272,9 +282,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     hasDraggableHandler: boolean;
     hasActionsSlotDivider: boolean;
     isSelectable: boolean;
-    supportingTextEllipsis: boolean;
-    isSupportingTextTooltipEnabled: boolean;
     isEyebrowUppercase: boolean;
+    isTextGroupSelected: boolean;
 }, {}, {
     DsTextGroup: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         size: {
