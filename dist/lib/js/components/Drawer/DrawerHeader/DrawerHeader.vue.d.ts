@@ -1807,7 +1807,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     Chip: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         label: {
             type: StringConstructor;
-            required: true;
+            default: null;
         };
         isLabelUppercase: {
             type: BooleanConstructor;
@@ -2115,7 +2115,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "remove"[], "remove", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         label: {
             type: StringConstructor;
-            required: true;
+            default: null;
         };
         isLabelUppercase: {
             type: BooleanConstructor;
@@ -2158,6 +2158,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         onRemove?: ((...args: any[]) => any) | undefined;
     }>, {
         size: string;
+        label: string;
         color: string;
         radius: string;
         state: string;
