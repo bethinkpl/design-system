@@ -81,6 +81,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/borders';
 @import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/icons';
 @import './border-colors';
@@ -127,7 +128,7 @@ $rich-list-item-media-horizontal-height: 80px;
 		align-items: center;
 		flex-direction: initial;
 		justify-content: initial;
-		padding: 0 $space-4xs;
+		padding: 0 $space-4xs 0 calc($space-4xs - $border-xs);
 
 		#{$root}__container {
 			align-self: initial;
@@ -474,8 +475,9 @@ $rich-list-item-media-horizontal-height: 80px;
 </style>
 
 <script lang="ts">
-import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 import DsDivider from '../../../components/Divider';
+import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
 import DsIcon, {
 	ICON_COLORS,
 	ICON_SIZES,
@@ -483,7 +485,6 @@ import DsIcon, {
 	IconItem,
 	ICONS,
 } from '../../../components/Icons/Icon';
-import { defineComponent, PropType, toRaw } from 'vue';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
