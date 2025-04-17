@@ -62,7 +62,7 @@ jobs:
         id: last-commit
         run: |
           git fetch origin ${{ steps.comment-pr-ref.outputs.result }}-dist
-          echo "commit_hash=$(git log -n 1 origin/${{ steps.comment-pr-ref.outputs.result }}-dist --pretty=format:"%H")" >> $GITHUB_ENV
+          echo "commit_hash=$(git log -n 1 origin/${{ steps.comment-pr-ref.outputs.result }}-dist --pretty=format:'%H')" >> $GITHUB_ENV
 
       - name: Add comment to PR with dist package name and install command
         uses: thollander/actions-comment-pull-request@v3
