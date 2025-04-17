@@ -298,27 +298,29 @@ $rich-list-item-media-horizontal-height: 80px;
 		cursor: pointer;
 		pointer-events: initial;
 
-		&.-ds-flat {
-			&:hover {
-				opacity: 1;
-
-				.-ds-dimmable {
+		@media #{breakpoint-s()} {
+			&.-ds-flat {
+				&:hover {
 					opacity: 1;
-				}
-			}
-		}
 
-		&:not(.-ds-dimmed):hover {
-			&.-ds-default {
-				@each $color, $value in $rich-list-item-background-colors {
-					&.-ds-background-#{$color} {
-						background-color: map-get($value, 'hover');
+					.-ds-dimmable {
+						opacity: 1;
 					}
 				}
 			}
 
-			&.-ds-flat {
-				background: $color-neutral-background-ghost-hovered;
+			&:not(.-ds-dimmed):hover {
+				&.-ds-default {
+					@each $color, $value in $rich-list-item-background-colors {
+						&.-ds-background-#{$color} {
+							background-color: map-get($value, 'hover');
+						}
+					}
+				}
+
+				&.-ds-flat {
+					background: $color-neutral-background-ghost-hovered;
+				}
 			}
 		}
 
