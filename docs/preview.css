@@ -471,6 +471,26 @@ table {
   --theme-800-rgb: 9, 93, 104;
   --theme-900: #0a4c58;
   --theme-900-rgb: 10, 76, 88;
+  --raw-yellow-50: #fffae3;
+  --raw-yellow-50-rgb: 255, 250, 227;
+  --raw-yellow-100: #fff5c4;
+  --raw-yellow-100-rgb: 255, 245, 196;
+  --raw-yellow-200: #feec93;
+  --raw-yellow-200-rgb: 254, 236, 147;
+  --raw-yellow-300: #fee56d;
+  --raw-yellow-300-rgb: 254, 229, 109;
+  --raw-yellow-400: #fdde44;
+  --raw-yellow-400-rgb: 253, 222, 68;
+  --raw-yellow-500: #fad000;
+  --raw-yellow-500-rgb: 250, 208, 0;
+  --raw-yellow-600: #edbe00;
+  --raw-yellow-600-rgb: 237, 190, 0;
+  --raw-yellow-700: #cc9c00;
+  --raw-yellow-700-rgb: 204, 156, 0;
+  --raw-yellow-800: #a37800;
+  --raw-yellow-800-rgb: 163, 120, 0;
+  --raw-yellow-900: #7d5a00;
+  --raw-yellow-900-rgb: 125, 90, 0;
 }
 
 .-ds-theme-wnl {
@@ -1351,6 +1371,7 @@ table {
 .ds-icon {
   align-items: center;
   display: inline-flex;
+  transform: rotate(var(--rotate));
   transition: transform 0.15s;
   /* stylelint-disable selector-class-pattern */
   /* stylelint-disable selector-class-pattern */
@@ -1369,18 +1390,6 @@ table {
   justify-content: center;
   min-height: 40px;
   min-width: 40px;
-}
-.ds-icon.-ds-rotate90 {
-  transform: rotate(90deg);
-}
-.ds-icon.-ds-rotate180 {
-  transform: rotate(180deg);
-}
-.ds-icon.-ds-rotate270 {
-  transform: rotate(270deg);
-}
-.ds-icon.-ds-no-transtition {
-  transition: initial;
 }
 .ds-icon.-ds-spin {
   animation: a-fadeIn 300ms, a-spinAround 1s infinite linear;
@@ -1996,6 +2005,44 @@ table {
   --color-accent-border-weak-focused: var(--raw-violet-300);
   --color-accent-border-weak-disabled: var(--raw-violet-100);
   --color-accent-ripple: rgba(var(--raw-violet-500-rgb), 0.12);
+  --color-highlight-icon: var(--raw-yellow-500);
+  --color-highlight-icon-hovered: var(--raw-yellow-700);
+  --color-highlight-icon-focused: var(--raw-yellow-700);
+  --color-highlight-icon-disabled: var(--raw-yellow-200);
+  --color-highlight-background-strong: var(--raw-yellow-500);
+  --color-highlight-background-strong-hovered: var(--raw-yellow-600);
+  --color-highlight-background-strong-focused: var(--raw-yellow-600);
+  --color-highlight-background-strong-pressed: var(--raw-yellow-700);
+  --color-highlight-background-strong-disabled: var(--raw-yellow-200);
+  --color-highlight-background-medium: var(--raw-yellow-100);
+  --color-highlight-background-medium-hovered: var(--raw-yellow-200);
+  --color-highlight-background-medium-focused: var(--raw-yellow-200);
+  --color-highlight-background-medium-pressed: var(--raw-yellow-300);
+  --color-highlight-background-medium-disabled: var(--raw-yellow-50);
+  --color-highlight-background: var(--raw-yellow-50);
+  --color-highlight-background-hovered: var(--raw-yellow-100);
+  --color-highlight-background-focused: var(--raw-yellow-100);
+  --color-highlight-background-pressed: var(--raw-yellow-200);
+  --color-highlight-background-disabled: var(--raw-yellow-50);
+  --color-highlight-background-weak: var(--raw-white);
+  --color-highlight-background-weak-hovered: var(--raw-yellow-100);
+  --color-highlight-background-weak-focused: var(--raw-yellow-100);
+  --color-highlight-background-weak-pressed: var(--raw-yellow-200);
+  --color-highlight-background-weak-disabled: var(--raw-white);
+  --color-highlight-background-ghost: rgba(var(--raw-yellow-500-rgb), 0);
+  --color-highlight-background-ghost-hovered: rgba(var(--raw-yellow-500-rgb), 0.12);
+  --color-highlight-background-ghost-focused: rgba(var(--raw-yellow-500-rgb), 0.12);
+  --color-highlight-background-ghost-pressed: rgba(var(--raw-yellow-500-rgb), 0.18);
+  --color-highlight-background-ghost-disabled: rgba(var(--raw-yellow-500-rgb), 0);
+  --color-highlight-border: var(--raw-yellow-500);
+  --color-highlight-border-hovered: var(--raw-yellow-700);
+  --color-highlight-border-focused: var(--raw-yellow-700);
+  --color-highlight-border-disabled: var(--raw-yellow-200);
+  --color-highlight-border-weak: var(--raw-yellow-100);
+  --color-highlight-border-weak-hovered: var(--raw-yellow-300);
+  --color-highlight-border-weak-focused: var(--raw-yellow-300);
+  --color-highlight-border-weak-disabled: var(--raw-yellow-100);
+  --color-highlight-ripple: rgba(var(--raw-yellow-500-rgb), 0.12);
 }
 
 .-ds-theme-wnl {
@@ -2335,6 +2382,26 @@ html ::-webkit-scrollbar-track {
   --theme-800-rgb: 9, 93, 104;
   --theme-900: #0a4c58;
   --theme-900-rgb: 10, 76, 88;
+  --raw-yellow-50: #fffae3;
+  --raw-yellow-50-rgb: 255, 250, 227;
+  --raw-yellow-100: #fff5c4;
+  --raw-yellow-100-rgb: 255, 245, 196;
+  --raw-yellow-200: #feec93;
+  --raw-yellow-200-rgb: 254, 236, 147;
+  --raw-yellow-300: #fee56d;
+  --raw-yellow-300-rgb: 254, 229, 109;
+  --raw-yellow-400: #fdde44;
+  --raw-yellow-400-rgb: 253, 222, 68;
+  --raw-yellow-500: #fad000;
+  --raw-yellow-500-rgb: 250, 208, 0;
+  --raw-yellow-600: #edbe00;
+  --raw-yellow-600-rgb: 237, 190, 0;
+  --raw-yellow-700: #cc9c00;
+  --raw-yellow-700-rgb: 204, 156, 0;
+  --raw-yellow-800: #a37800;
+  --raw-yellow-800-rgb: 163, 120, 0;
+  --raw-yellow-900: #7d5a00;
+  --raw-yellow-900-rgb: 125, 90, 0;
 }
 
 .-ds-theme-wnl {
@@ -2831,6 +2898,44 @@ html ::-webkit-scrollbar-track {
   --color-accent-border-weak-focused: var(--raw-violet-300);
   --color-accent-border-weak-disabled: var(--raw-violet-100);
   --color-accent-ripple: rgba(var(--raw-violet-500-rgb), 0.12);
+  --color-highlight-icon: var(--raw-yellow-500);
+  --color-highlight-icon-hovered: var(--raw-yellow-700);
+  --color-highlight-icon-focused: var(--raw-yellow-700);
+  --color-highlight-icon-disabled: var(--raw-yellow-200);
+  --color-highlight-background-strong: var(--raw-yellow-500);
+  --color-highlight-background-strong-hovered: var(--raw-yellow-600);
+  --color-highlight-background-strong-focused: var(--raw-yellow-600);
+  --color-highlight-background-strong-pressed: var(--raw-yellow-700);
+  --color-highlight-background-strong-disabled: var(--raw-yellow-200);
+  --color-highlight-background-medium: var(--raw-yellow-100);
+  --color-highlight-background-medium-hovered: var(--raw-yellow-200);
+  --color-highlight-background-medium-focused: var(--raw-yellow-200);
+  --color-highlight-background-medium-pressed: var(--raw-yellow-300);
+  --color-highlight-background-medium-disabled: var(--raw-yellow-50);
+  --color-highlight-background: var(--raw-yellow-50);
+  --color-highlight-background-hovered: var(--raw-yellow-100);
+  --color-highlight-background-focused: var(--raw-yellow-100);
+  --color-highlight-background-pressed: var(--raw-yellow-200);
+  --color-highlight-background-disabled: var(--raw-yellow-50);
+  --color-highlight-background-weak: var(--raw-white);
+  --color-highlight-background-weak-hovered: var(--raw-yellow-100);
+  --color-highlight-background-weak-focused: var(--raw-yellow-100);
+  --color-highlight-background-weak-pressed: var(--raw-yellow-200);
+  --color-highlight-background-weak-disabled: var(--raw-white);
+  --color-highlight-background-ghost: rgba(var(--raw-yellow-500-rgb), 0);
+  --color-highlight-background-ghost-hovered: rgba(var(--raw-yellow-500-rgb), 0.12);
+  --color-highlight-background-ghost-focused: rgba(var(--raw-yellow-500-rgb), 0.12);
+  --color-highlight-background-ghost-pressed: rgba(var(--raw-yellow-500-rgb), 0.18);
+  --color-highlight-background-ghost-disabled: rgba(var(--raw-yellow-500-rgb), 0);
+  --color-highlight-border: var(--raw-yellow-500);
+  --color-highlight-border-hovered: var(--raw-yellow-700);
+  --color-highlight-border-focused: var(--raw-yellow-700);
+  --color-highlight-border-disabled: var(--raw-yellow-200);
+  --color-highlight-border-weak: var(--raw-yellow-100);
+  --color-highlight-border-weak-hovered: var(--raw-yellow-300);
+  --color-highlight-border-weak-focused: var(--raw-yellow-300);
+  --color-highlight-border-weak-disabled: var(--raw-yellow-100);
+  --color-highlight-ripple: rgba(var(--raw-yellow-500-rgb), 0.12);
 }
 
 .-ds-theme-wnl {

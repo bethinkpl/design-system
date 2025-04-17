@@ -1,3 +1,7 @@
+export { default as Avatar } from './components/Avatar';
+export * from './components/Avatar/Avatar.consts';
+export { default as Badge } from './components/Badge';
+export * from './components/Badge/Badge.consts';
 export { default as BadgeScore } from './components/BadgeScore';
 export { default as DsBadgeScore } from './components/BadgeScore';
 export * from './components/BadgeScore/BadgeScore.consts';
@@ -14,6 +18,7 @@ export { default as Card } from './components/Cards/Card/';
 export { default as DsCard } from './components/Cards/Card/';
 export { default as CardExpandable } from './components/Cards/CardExpandable/';
 export { default as DsCardExpandable } from './components/Cards/CardExpandable/';
+export { default as DsDateBox } from './components/DatePickers/DateBox';
 export { default as DatePicker } from './components/DatePickers/DatePicker';
 export { default as DsDatePicker } from './components/DatePickers/DatePicker';
 export { default as DsDateRangePicker } from './components/DatePickers/DateRangePicker';

@@ -1,12 +1,13 @@
 import { PropType } from 'vue';
+import { LoadingBarColors, LoadingBarSizes } from './LoadingBar.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     color: {
-        type: PropType<string>;
+        type: PropType<LoadingBarColors>;
         default: string;
     };
     size: {
-        type: PropType<string>;
+        type: PropType<LoadingBarSizes>;
         default: string;
     };
     time: {
@@ -24,11 +25,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     color: {
-        type: PropType<string>;
+        type: PropType<LoadingBarColors>;
         default: string;
     };
     size: {
-        type: PropType<string>;
+        type: PropType<LoadingBarSizes>;
         default: string;
     };
     time: {

@@ -36,7 +36,7 @@
 					:eyebrow-text="eyebrow"
 					:eyebrow-text-ellipsis="eyebrowEllipsis"
 					:is-eyebrow-text-uppercase="isEyebrowUppercase"
-					:is-selected="isSelected"
+					:is-selected="isTextGroupSelected"
 					:is-interactive="false"
 					:main-text="text"
 					:main-text-ellipsis="textEllipsis"
@@ -44,6 +44,7 @@
 					:supporting-text-ellipsis="supportingTextEllipsis"
 					:size="textGroupSize"
 					:state="textGroupState"
+					:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
 				/>
 			</div>
 		</template>
@@ -88,6 +89,15 @@
 </style>
 
 <script lang="ts">
+import { defineComponent, PropType, toRaw } from 'vue';
+import { ICON_COLORS, IconColor, IconItem, ICONS } from '../../Icons/Icon';
+import {
+	TEXT_GROUP_SIZES,
+	TEXT_GROUP_STATES,
+	TextGroupSize,
+	TextGroupState,
+} from '../../TextGroup';
+import DsTextGroup from '../../TextGroup/TextGroup.vue';
 import RichListItem, {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
@@ -104,15 +114,6 @@ import RichListItem, {
 	RichListItemState,
 	RichListItemType,
 } from '../RichListItem';
-import DsTextGroup from '../../TextGroup/TextGroup.vue';
-import { defineComponent, PropType, toRaw } from 'vue';
-import { ICON_COLORS, IconColor, IconItem, ICONS } from '../../Icons/Icon';
-import {
-	TEXT_GROUP_SIZES,
-	TEXT_GROUP_STATES,
-	TextGroupSize,
-	TextGroupState,
-} from '../../TextGroup';
 
 export default defineComponent({
 	name: 'BasicRichListItem',
@@ -218,6 +219,10 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
+		isSupportingTextTooltipEnabled: {
+			type: Boolean,
+			default: false,
+		},
 		backgroundColor: {
 			type: String as PropType<RichListItemBackgroundColor>,
 			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
@@ -245,6 +250,10 @@ export default defineComponent({
 			default: true,
 		},
 		isSelected: {
+			type: Boolean,
+			default: false,
+		},
+		isTextGroupSelected: {
 			type: Boolean,
 			default: false,
 		},

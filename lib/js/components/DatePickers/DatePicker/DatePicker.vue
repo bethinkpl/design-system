@@ -25,15 +25,17 @@
 				:interactive="isInteractive"
 				:additional-text="additionalText"
 				:color="color as TileColors"
+				:border-color="borderColor"
 				:state="state as TileStates"
 				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
+				:additional-text-max-width="TILE_ADDITIONAL_TEXT_MAX_WIDTHS.MEDIUM"
 				has-border
 				@click="toggle"
 			/>
 		</template>
-		<date-picker-box
+		<date-box
 			v-else
 			:is-interactive="isInteractive"
 			:placeholder="placeholder"
@@ -42,7 +44,6 @@
 			:are-icons-hidden-on-mobile="isIconHiddenOnMobile"
 			:state="state"
 			:color="color"
-			:start-date-eyebrow-text="eyebrowText"
 			:is-open="isOpen"
 			@click="toggle"
 		/>
@@ -139,9 +140,9 @@
 <script lang="ts">
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 
-import DsTile from '../../Tile';
+import DsTile, { TILE_ADDITIONAL_TEXT_MAX_WIDTHS, TILE_BORDER_COLORS } from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
-import DatePickerBox from '../DatePickerBox';
+import DateBox from '../DateBox';
 
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
@@ -164,7 +165,7 @@ export default defineComponent({
 	name: 'DatePicker',
 	components: {
 		DsTile,
-		DatePickerBox,
+		DateBox,
 	},
 	props: {
 		triggerType: {
@@ -201,7 +202,7 @@ export default defineComponent({
 		},
 		icon: {
 			type: [Object, null] as PropType<IconItem | null>,
-			default: ICONS.FA_CALENDAR_DAY,
+			default: ICONS.FA_CALENDAR_DAYS,
 			validator(icon) {
 				return icon === null || Object.values(ICONS).includes(toRaw(icon));
 			},
@@ -238,15 +239,19 @@ export default defineComponent({
 			type: Date,
 			default: null,
 		},
+		updatePositionBasedOnScrollableSelector: {
+			type: String,
+			default: '',
+		},
 	},
 	emits: {
 		'update:date': (date: Date) => true,
 	},
 	setup(
 		props: DatePickerComposablesProps & {
-			date: Date;
 			isInteractive: boolean;
 			state: DatePickerStates;
+			updatePositionBasedOnScrollableSelector: string;
 		},
 		{ emit },
 	) {
@@ -264,12 +269,16 @@ export default defineComponent({
 		} = initFlatpickr({
 			props,
 			onChange,
-			defaultDates: props.date,
+			defaultDates: props.date ?? new Date(),
 			mode: 'single',
 		});
 		watch([() => props.isInteractive, () => props.state], async () => {
 			if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-				await createDatePicker(flatpickrInputRef.value, datePickerRef.value);
+				await createDatePicker(
+					flatpickrInputRef.value,
+					datePickerRef.value,
+					props.updatePositionBasedOnScrollableSelector,
+				);
 			}
 		});
 
@@ -283,9 +292,26 @@ export default defineComponent({
 			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
 			DATE_PICKER_STATES: Object.freeze(DATE_PICKER_STATES),
 			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
+			TILE_ADDITIONAL_TEXT_MAX_WIDTHS: Object.freeze(TILE_ADDITIONAL_TEXT_MAX_WIDTHS),
 		};
 	},
 	computed: {
+		borderColor() {
+			return {
+				[DATE_PICKER_COLORS.NEUTRAL]: this.isInteractive
+					? TILE_BORDER_COLORS.PRIMARY
+					: TILE_BORDER_COLORS.NEUTRAL_WEAK,
+				[DATE_PICKER_COLORS.NEUTRAL_WEAK]: this.isInteractive
+					? TILE_BORDER_COLORS.PRIMARY
+					: TILE_BORDER_COLORS.NEUTRAL_WEAK,
+				[DATE_PICKER_COLORS.DANGER]: this.isInteractive
+					? TILE_BORDER_COLORS.DANGER
+					: TILE_BORDER_COLORS.DANGER_WEAK,
+				[DATE_PICKER_COLORS.WARNING]: this.isInteractive
+					? TILE_BORDER_COLORS.WARNING
+					: TILE_BORDER_COLORS.WARNING_WEAK,
+			}[this.color];
+		},
 		eyebrowText() {
 			if (!this.date) {
 				return '';
@@ -316,7 +342,11 @@ export default defineComponent({
 	},
 	async mounted() {
 		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
-			await this.createDatePicker(this.flatpickrInputRef, this.datePickerRef);
+			await this.createDatePicker(
+				this.flatpickrInputRef,
+				this.datePickerRef,
+				this.updatePositionBasedOnScrollableSelector,
+			);
 		}
 	},
 	methods: {

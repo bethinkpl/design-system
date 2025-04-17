@@ -13,7 +13,7 @@
 			<div class="ds-modal__scrollableWrapper">
 				<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
 				<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
-					<div class="ds-modal__header">
+					<div v-if="headerTitle" class="ds-modal__header">
 						<feature-icon
 							v-if="headerFeatureIcon"
 							class="ds-modal__headerFeatureIcon"
@@ -347,7 +347,7 @@ export default defineComponent({
 		},
 		headerTitle: {
 			type: String,
-			required: true,
+			default: null,
 		},
 		headerSubtitle: {
 			type: String,

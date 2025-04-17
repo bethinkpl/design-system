@@ -41,11 +41,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: import('vue').PropType<import('../../Tile').TileStates>;
         default: "default";
-        validator(value: import('../../../utils/type.utils').Value<{
-            readonly DEFAULT: "default";
-            readonly DISABLED: "disabled";
-            readonly LOADING: "loading";
-        }>): boolean;
+        validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
     };
     eyebrowEllipsis: {
         type: BooleanConstructor;
@@ -55,9 +51,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-    hasBorder: {
-        type: BooleanConstructor;
-        default: boolean;
+    borderColor: {
+        type: import('vue').PropType<import('../../Tile').TileBorderColors>;
+        default: null;
+    };
+    additionalTextMaxWidth: {
+        type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+        default: "small";
+        validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
     };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     click: () => true;
@@ -104,11 +105,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: import('vue').PropType<import('../../Tile').TileStates>;
         default: "default";
-        validator(value: import('../../../utils/type.utils').Value<{
-            readonly DEFAULT: "default";
-            readonly DISABLED: "disabled";
-            readonly LOADING: "loading";
-        }>): boolean;
+        validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
     };
     eyebrowEllipsis: {
         type: BooleanConstructor;
@@ -118,9 +115,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-    hasBorder: {
-        type: BooleanConstructor;
-        default: boolean;
+    borderColor: {
+        type: import('vue').PropType<import('../../Tile').TileBorderColors>;
+        default: null;
+    };
+    additionalTextMaxWidth: {
+        type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+        default: "small";
+        validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
     };
 }>> & Readonly<{
     onClick?: (() => any) | undefined;
@@ -129,7 +131,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: import('../../Tile').TileStates;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
-    hasBorder: boolean;
+    borderColor: import('../../Tile').TileBorderColors;
     interactive: boolean;
     isIconRightHiddenOnMobile: boolean;
     eyebrowText: string;
@@ -137,6 +139,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isEyebrowTextUppercase: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
+    additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidths;
 }, {}, {
     DsTile: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         interactive: {
@@ -181,11 +184,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         state: {
             type: import('vue').PropType<import('../../Tile').TileStates>;
             default: "default";
-            validator(value: import('../../../utils/type.utils').Value<{
-                readonly DEFAULT: "default";
-                readonly DISABLED: "disabled";
-                readonly LOADING: "loading";
-            }>): boolean;
+            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
         };
         eyebrowEllipsis: {
             type: BooleanConstructor;
@@ -195,19 +194,25 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: BooleanConstructor;
             default: boolean;
         };
-        hasBorder: {
-            type: BooleanConstructor;
-            default: boolean;
+        borderColor: {
+            type: import('vue').PropType<import('../../Tile').TileBorderColors>;
+            default: null;
+        };
+        additionalTextMaxWidth: {
+            type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+            default: "small";
+            validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
         };
     }>, {}, {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-            readonly RIBBON: VueConstructor<Vue>;
-            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-            readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly ANSWERS: VueConstructor<Vue>;
+            readonly CHANGE: VueConstructor<Vue>;
+            readonly COMMENTS_CHECK: VueConstructor<Vue>;
+            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
+            readonly RIBBON: VueConstructor<Vue>;
             readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -234,6 +239,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BOOKS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -248,6 +254,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CALENDAR_DAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR_DAYS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR_RANGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CALENDAR_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CAMERA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CARET_SQUARE_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CART_SHOPPING: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -309,6 +316,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -348,8 +356,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MESSAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -358,8 +369,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_PILLS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -390,6 +403,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_TEXT_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_THUMBS_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_THUMBS_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_THUMBTACK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_THUMBTACK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_TRASH_CAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_TREE_PALM: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -399,6 +413,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -421,6 +436,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly DEFAULT: "default";
             readonly DISABLED: "disabled";
             readonly LOADING: "loading";
+        }>;
+        TILE_ADDITIONAL_TEXT_MAX_WIDTHS: Readonly<{
+            readonly SMALL: "small";
+            readonly MEDIUM: "medium";
         }>;
     }, {
         tileColor(): any;
@@ -468,11 +487,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         state: {
             type: import('vue').PropType<import('../../Tile').TileStates>;
             default: "default";
-            validator(value: import('../../../utils/type.utils').Value<{
-                readonly DEFAULT: "default";
-                readonly DISABLED: "disabled";
-                readonly LOADING: "loading";
-            }>): boolean;
+            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
         };
         eyebrowEllipsis: {
             type: BooleanConstructor;
@@ -482,16 +497,21 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: BooleanConstructor;
             default: boolean;
         };
-        hasBorder: {
-            type: BooleanConstructor;
-            default: boolean;
+        borderColor: {
+            type: import('vue').PropType<import('../../Tile').TileBorderColors>;
+            default: null;
+        };
+        additionalTextMaxWidth: {
+            type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+            default: "small";
+            validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
         };
     }>> & Readonly<{}>, {
         color: import('../../Tile').TileColors;
         state: import('../../Tile').TileStates;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
-        hasBorder: boolean;
+        borderColor: import('../../Tile').TileBorderColors;
         interactive: boolean;
         isIconRightHiddenOnMobile: boolean;
         eyebrowText: string;
@@ -499,6 +519,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         isEyebrowTextUppercase: boolean;
         eyebrowEllipsis: boolean;
         textEllipsis: boolean;
+        additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidths;
     }, {}, {
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             icon: {
@@ -514,7 +535,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             rotation: {
                 type: NumberConstructor;
                 default: null;
-                validator(value: number): boolean;
             };
             flippedVertical: {
                 type: BooleanConstructor;
@@ -535,7 +555,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         }>, {}, {}, {
             sizeClassName(): string;
             isFontawesomeIcon(): boolean;
-            rotationClass(): string | null;
         }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
             icon: {
                 type: ObjectConstructor;
@@ -550,7 +569,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             rotation: {
                 type: NumberConstructor;
                 default: null;
-                validator(value: number): boolean;
             };
             flippedVertical: {
                 type: BooleanConstructor;
@@ -576,7 +594,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

@@ -2,18 +2,18 @@ export declare const RICH_LIST_ITEM_TYPE: {
     readonly DEFAULT: "default";
     readonly FLAT: "flat";
 };
-export declare type RichListItemType = typeof RICH_LIST_ITEM_TYPE[keyof typeof RICH_LIST_ITEM_TYPE];
+export type RichListItemType = typeof RICH_LIST_ITEM_TYPE[keyof typeof RICH_LIST_ITEM_TYPE];
 export declare const RICH_LIST_ITEM_STATE: {
     readonly DEFAULT: "default";
     readonly LOADING: "loading";
     readonly DRAG: "drag";
 };
-export declare type RichListItemState = typeof RICH_LIST_ITEM_STATE[keyof typeof RICH_LIST_ITEM_STATE];
+export type RichListItemState = typeof RICH_LIST_ITEM_STATE[keyof typeof RICH_LIST_ITEM_STATE];
 export declare const RICH_LIST_ITEM_SIZE: {
     readonly SMALL: "small";
     readonly MEDIUM: "medium";
 };
-export declare type RichListItemSize = typeof RICH_LIST_ITEM_SIZE[keyof typeof RICH_LIST_ITEM_SIZE];
+export type RichListItemSize = typeof RICH_LIST_ITEM_SIZE[keyof typeof RICH_LIST_ITEM_SIZE];
 export declare const RICH_LIST_ITEM_BORDER_COLOR: {
     readonly DEFAULT: "default";
     readonly PRIMARY: "primary";
@@ -36,20 +36,20 @@ export declare const RICH_LIST_ITEM_BORDER_COLOR: {
     readonly ACCENT: "accent";
     readonly ACCENT_WEAK: "accent-weak";
 };
-export declare type RichListItemBorderColor = typeof RICH_LIST_ITEM_BORDER_COLOR[keyof typeof RICH_LIST_ITEM_BORDER_COLOR];
+export type RichListItemBorderColor = typeof RICH_LIST_ITEM_BORDER_COLOR[keyof typeof RICH_LIST_ITEM_BORDER_COLOR];
 export declare const RICH_LIST_ITEM_BACKGROUND_COLOR: {
     readonly NEUTRAL: "neutral";
     readonly NEUTRAL_WEAK: "neutral-weak";
 };
-export declare type RichListItemBackgroundColor = typeof RICH_LIST_ITEM_BACKGROUND_COLOR[keyof typeof RICH_LIST_ITEM_BACKGROUND_COLOR];
+export type RichListItemBackgroundColor = typeof RICH_LIST_ITEM_BACKGROUND_COLOR[keyof typeof RICH_LIST_ITEM_BACKGROUND_COLOR];
 export declare const RICH_LIST_ITEM_ELEVATION: {
     readonly SMALL: "small";
 };
-export declare type RichListItemElevation = typeof RICH_LIST_ITEM_ELEVATION[keyof typeof RICH_LIST_ITEM_ELEVATION];
+export type RichListItemElevation = typeof RICH_LIST_ITEM_ELEVATION[keyof typeof RICH_LIST_ITEM_ELEVATION];
 export declare const RICH_LIST_ITEM_LAYOUT: {
     readonly HORIZONTAL: "horizontal";
     readonly VERTICAL: "vertical";
 };
-export declare type RichListItemLayout = typeof RICH_LIST_ITEM_LAYOUT[keyof typeof RICH_LIST_ITEM_LAYOUT];
+export type RichListItemLayout = typeof RICH_LIST_ITEM_LAYOUT[keyof typeof RICH_LIST_ITEM_LAYOUT];
 export declare const RICH_LIST_ITEM_MEDIA_HORIZONTAL_WIDTH = 100;
 export declare const RICH_LIST_ITEM_MEDIA_HORIZONTAL_HEIGHT = 80;

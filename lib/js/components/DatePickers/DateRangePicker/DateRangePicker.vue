@@ -1,17 +1,15 @@
 <template>
 	<div ref="dateRangePickerRef" class="ds-dateRangePicker">
-		<date-picker-box
+		<date-box
 			:is-interactive="isInteractive"
 			:placeholder="placeholder"
 			:start-date="startDate"
-			:end-date="endDateIfDifferentThanStartDate"
+			:end-date="endDate"
 			:start-icon="startIcon"
 			:end-icon="endIcon"
 			:are-icons-hidden-on-mobile="areIconsHiddenOnMobile"
 			:state="state"
 			:color="color"
-			:start-date-eyebrow-text="eyebrowText"
-			:end-date-eyebrow-text="endDateEyebrowText"
 			:is-open="isOpen"
 			@click="toggle"
 		/>
@@ -50,7 +48,7 @@
 </style>
 
 <script lang="ts">
-import DatePickerBox from '../DatePickerBox/DatePickerBox.vue';
+import DateBox from '../DateBox';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 import {
@@ -63,13 +61,11 @@ import {
 	DatePickerStates,
 } from '../DatePicker';
 import { DatePickerComposablesProps, initFlatpickr } from '../DatePicker/DatePicker.composables';
-import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
-import { localWeekdayName } from '../../../../../tools/importers/helpers/dates';
 
 export default defineComponent({
 	name: 'DateRangePicker',
 	components: {
-		DatePickerBox,
+		DateBox,
 	},
 	props: {
 		isInteractive: {
@@ -134,6 +130,10 @@ export default defineComponent({
 			type: Date,
 			default: null,
 		},
+		updatePositionBasedOnScrollableSelector: {
+			type: String,
+			default: '',
+		},
 	},
 	emits: { 'update:date': (value: { startDate: Date; endDate: Date }) => true },
 	setup(
@@ -142,6 +142,7 @@ export default defineComponent({
 			endDate: Date;
 			isInteractive: boolean;
 			state: DatePickerStates;
+			updatePositionBasedOnScrollableSelector: string;
 		},
 		{ emit },
 	) {
@@ -170,7 +171,11 @@ export default defineComponent({
 			[() => props.isInteractive, () => props.state],
 			async () => {
 				if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-					await createDatePicker(flatpickrInputRef.value, dateRangePickerRef.value);
+					await createDatePicker(
+						flatpickrInputRef.value,
+						dateRangePickerRef.value,
+						props.updatePositionBasedOnScrollableSelector,
+					);
 				}
 			},
 			{ flush: 'post' },
@@ -188,34 +193,13 @@ export default defineComponent({
 			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
 		};
 	},
-	computed: {
-		endDateEyebrowText() {
-			if (!this.endDate || this.state === DATE_PICKER_STATES.LOADING) {
-				return '';
-			}
-
-			return capitalizeFirstLetter(localWeekdayName(this.endDate));
-		},
-
-		endDateIfDifferentThanStartDate() {
-			return this.startDate &&
-				this.endDate &&
-				this.startDate.getTime() !== this.endDate.getTime()
-				? this.endDate
-				: null;
-		},
-
-		eyebrowText() {
-			if (!this.startDate || this.state === DATE_PICKER_STATES.LOADING) {
-				return '';
-			}
-
-			return capitalizeFirstLetter(localWeekdayName(this.startDate));
-		},
-	},
 	async mounted() {
 		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
-			await this.createDatePicker(this.flatpickrInputRef, this.dateRangePickerRef);
+			await this.createDatePicker(
+				this.flatpickrInputRef,
+				this.dateRangePickerRef,
+				this.updatePositionBasedOnScrollableSelector,
+			);
 		}
 	},
 	methods: {

@@ -1,6 +1,10 @@
 import BasicRichListItem from './BasicRichListItem.vue';
 
+import { withActions } from '@storybook/addon-actions/decorator';
+import { useArgs } from '@storybook/preview-api';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { DsImage } from '../../../index';
+import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
@@ -10,10 +14,6 @@ import {
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
 } from '../RichListItem';
-import { ICON_COLORS, ICONS } from '../../Icons/Icon';
-import { DsImage } from '../../../index';
-import { useArgs } from '@storybook/preview-api';
-import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
 	title: 'Components/RichList/BasicRichListItem',
@@ -84,6 +84,9 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		supportingTextEllipsis: {
 			control: 'boolean',
 		},
+		isSupportingTextTooltipEnabled: {
+			control: 'boolean',
+		},
 		metadata: {
 			control: 'text',
 		},
@@ -118,6 +121,7 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		hasActionsSlotDivider: true,
 		isSelectable: true,
 		isSelected: true,
+		isTextGroupSelected: false,
 		borderColor: null,
 		borderColorHex: '',
 		state: RICH_LIST_ITEM_STATE.DEFAULT,
@@ -131,6 +135,7 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		textEllipsis: false,
 		supportingText: 'null',
 		supportingTextEllipsis: false,
+		isSupportingTextTooltipEnabled: false,
 
 		metadata: 'Metadata Slot',
 		actions: 'ACS',
@@ -191,12 +196,14 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
 			:text-ellipsis="textEllipsis"
 			:supporting-text="supportingText === 'null' ? null : supportingText"
 			:supporting-text-ellipsis="supportingTextEllipsis"
+			:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
 			:background-color="backgroundColor"
 			:elevation="elevation"
 			:has-draggable-handler="hasDraggableHandler"
 			:has-actions-slot-divider="hasActionsSlotDivider"
 			:is-selectable="isSelectable"
 			:is-selected="isSelected"
+			:is-text-group-selected="isTextGroupSelected"
 			@update:is-selected="updateIsSelected"
 		>
 			<template v-if="metadata" #metadata>
@@ -251,12 +258,14 @@ const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
 				:text-ellipsis="textEllipsis"
 				:supporting-text="supportingText === 'null' ? null : supportingText"
 				:supporting-text-ellipsis="supportingTextEllipsis"
+				:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
 				:background-color="backgroundColor"
 				:elevation="elevation"
 				:has-draggable-handler="hasDraggableHandler"
 				:has-actions-slot-divider="hasActionsSlotDivider"
 				:is-selectable="isSelectable"
 				:is-selected="isSelected"
+				:is-text-group-selected="isTextGroupSelected"
 				@update:is-selected="updateIsSelected"
 			>
 				<template #media>

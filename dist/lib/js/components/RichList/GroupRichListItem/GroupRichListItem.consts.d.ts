@@ -22,9 +22,9 @@ export declare const GROUP_RICH_LIST_ITEM_BORDER_COLOR: {
     readonly ACCENT: "accent";
     readonly ACCENT_WEAK: "accent-weak";
 };
-export declare type GroupRichListItemBorderColor = RichListItemBorderColor;
+export type GroupRichListItemBorderColor = RichListItemBorderColor;
 export declare const GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR: {
     readonly NEUTRAL: "neutral";
     readonly NEUTRAL_WEAK: "neutral-weak";
 };
-export declare type GroupRichListItemBackgroundColor = RichListItemBackgroundColor;
+export type GroupRichListItemBackgroundColor = RichListItemBackgroundColor;

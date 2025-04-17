@@ -6,9 +6,9 @@
 			'-ds-spin': spinning,
 			'-ds-flipped-vertical': flippedVertical,
 			'-ds-flipped-horizontal': flippedHorizontal,
-			[rotationClass]: rotationClass,
 			[sizeClassName]: true,
 		}"
+		:style="{ '--rotate': `${rotation ?? 0}deg` }"
 	>
 		<font-awesome-icon v-if="isFontawesomeIcon" :icon="icon" />
 		<component :is="icon" v-else />
@@ -46,9 +46,6 @@ export default defineComponent({
 		rotation: {
 			type: Number,
 			default: null,
-			validator(value: number) {
-				return [90, 180, 270].includes(value);
-			},
 		},
 		flippedVertical: {
 			type: Boolean,
@@ -73,13 +70,6 @@ export default defineComponent({
 		},
 		isFontawesomeIcon() {
 			return 'iconName' in this.icon;
-		},
-		rotationClass() {
-			if (this.rotation === null) {
-				return null;
-			}
-
-			return `-ds-rotate${this.rotation}`;
 		},
 	},
 });

@@ -1,8 +1,127 @@
-import { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemLayout, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
 import { PropType } from 'vue';
+import { IconColor, IconItem } from '../../Icons/Icon';
 import { TextGroupSize, TextGroupState } from '../../TextGroup';
+import { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemElevation, RichListItemLayout, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
 
-declare const _default: import('vue').DefineComponent<{}, {}, {
+declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    type: {
+        type: PropType<RichListItemType>;
+        default: "default";
+        validator(type: RichListItemType): boolean;
+    };
+    state: {
+        type: PropType<RichListItemState>;
+        default: "default";
+        validator(state: RichListItemState): boolean;
+    };
+    layout: {
+        type: PropType<RichListItemLayout>;
+        default: "horizontal";
+        validator(layout: RichListItemLayout): boolean;
+    };
+    size: {
+        type: PropType<RichListItemSize>;
+        default: "medium";
+        validator(size: RichListItemSize): boolean;
+    };
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isDimmed: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isDraggable: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    icon: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    iconColor: {
+        type: PropType<IconColor>;
+        default: null;
+        validator(iconColor: IconColor): boolean;
+    };
+    iconColorHex: {
+        type: StringConstructor;
+        default: null;
+    };
+    borderColor: {
+        type: PropType<RichListItemBorderColor>;
+        default: null;
+        validator(borderColor: RichListItemBorderColor): boolean;
+    };
+    borderColorHex: {
+        type: StringConstructor;
+        default: null;
+    };
+    text: {
+        type: StringConstructor;
+        required: true;
+    };
+    textEllipsis: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    eyebrow: {
+        type: StringConstructor;
+        default: null;
+    };
+    eyebrowEllipsis: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isEyebrowUppercase: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    supportingText: {
+        type: StringConstructor;
+        default: null;
+    };
+    supportingTextEllipsis: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSupportingTextTooltipEnabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    backgroundColor: {
+        type: PropType<RichListItemBackgroundColor>;
+        default: "neutral";
+        validator(backgroundColor: RichListItemBackgroundColor): boolean;
+    };
+    elevation: {
+        type: PropType<RichListItemElevation>;
+        default: null;
+        validator(evolution: RichListItemElevation): boolean;
+    };
+    hasDraggableHandler: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    hasActionsSlotDivider: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSelectable: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isTextGroupSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>, {}, {
     hovered: boolean;
     RICH_LIST_ITEM_SIZE: Readonly<{
         readonly SMALL: "small";
@@ -18,23 +137,143 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     textGroupState(): TextGroupState;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     'update:is-selected': (value: boolean) => true;
-}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{
+}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+    type: {
+        type: PropType<RichListItemType>;
+        default: "default";
+        validator(type: RichListItemType): boolean;
+    };
+    state: {
+        type: PropType<RichListItemState>;
+        default: "default";
+        validator(state: RichListItemState): boolean;
+    };
+    layout: {
+        type: PropType<RichListItemLayout>;
+        default: "horizontal";
+        validator(layout: RichListItemLayout): boolean;
+    };
+    size: {
+        type: PropType<RichListItemSize>;
+        default: "medium";
+        validator(size: RichListItemSize): boolean;
+    };
+    isInteractive: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isDimmed: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isDraggable: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    icon: {
+        type: PropType<IconItem>;
+        default: null;
+        validator(icon: unknown): boolean;
+    };
+    iconColor: {
+        type: PropType<IconColor>;
+        default: null;
+        validator(iconColor: IconColor): boolean;
+    };
+    iconColorHex: {
+        type: StringConstructor;
+        default: null;
+    };
+    borderColor: {
+        type: PropType<RichListItemBorderColor>;
+        default: null;
+        validator(borderColor: RichListItemBorderColor): boolean;
+    };
+    borderColorHex: {
+        type: StringConstructor;
+        default: null;
+    };
+    text: {
+        type: StringConstructor;
+        required: true;
+    };
+    textEllipsis: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    eyebrow: {
+        type: StringConstructor;
+        default: null;
+    };
+    eyebrowEllipsis: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isEyebrowUppercase: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    supportingText: {
+        type: StringConstructor;
+        default: null;
+    };
+    supportingTextEllipsis: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSupportingTextTooltipEnabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    backgroundColor: {
+        type: PropType<RichListItemBackgroundColor>;
+        default: "neutral";
+        validator(backgroundColor: RichListItemBackgroundColor): boolean;
+    };
+    elevation: {
+        type: PropType<RichListItemElevation>;
+        default: null;
+        validator(evolution: RichListItemElevation): boolean;
+    };
+    hasDraggableHandler: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    hasActionsSlotDivider: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSelectable: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isTextGroupSelected: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>> & Readonly<{
     "onUpdate:is-selected"?: ((value: boolean) => any) | undefined;
 }>, {
     icon: any;
     size: RichListItemSize;
     type: RichListItemType;
-    state: RichListItemState;
     elevation: "small";
+    backgroundColor: RichListItemBackgroundColor;
+    state: RichListItemState;
     layout: RichListItemLayout;
     borderColor: RichListItemBorderColor;
-    backgroundColor: RichListItemBackgroundColor;
+    isInteractive: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
-    isInteractive: boolean;
     eyebrow: string;
     supportingText: string;
     isSelected: boolean;
+    supportingTextEllipsis: boolean;
+    isSupportingTextTooltipEnabled: boolean;
     isDimmed: boolean;
     isDraggable: boolean;
     iconColor: string;
@@ -43,16 +282,16 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
     hasDraggableHandler: boolean;
     hasActionsSlotDivider: boolean;
     isSelectable: boolean;
-    supportingTextEllipsis: boolean;
     isEyebrowUppercase: boolean;
+    isTextGroupSelected: boolean;
 }, {}, {
     DsTextGroup: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         size: {
-            type: PropType<string>;
+            type: PropType<TextGroupSize>;
             default: string;
         };
         color: {
-            type: PropType<"neutral">;
+            type: PropType<import('../../TextGroup').TextGroupColor>;
             default: "neutral";
         };
         eyebrowText: {
@@ -88,7 +327,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
         skeletonLoadingSize: {
-            type: PropType<string>;
+            type: PropType<import('../../TextGroup').TextGroupLoadingSize>;
             default: string;
         };
         isSelected: {
@@ -98,6 +337,22 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         state: {
             type: PropType<TextGroupState>;
             default: "default";
+        };
+        isSupportingTextTooltipEnabled: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSupportingTextTooltipEnabledOnMobile: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSupportingTextTooltipAutoFilledWithContent: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        supportingTextTooltipContent: {
+            type: (StringConstructor | null)[];
+            default: null;
         };
     }>, {}, {
         TEXT_GROUP_SIZES: Readonly<{
@@ -116,11 +371,11 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         loadingSizeClassName(): string;
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         size: {
-            type: PropType<string>;
+            type: PropType<TextGroupSize>;
             default: string;
         };
         color: {
-            type: PropType<"neutral">;
+            type: PropType<import('../../TextGroup').TextGroupColor>;
             default: "neutral";
         };
         eyebrowText: {
@@ -156,7 +411,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             default: boolean;
         };
         skeletonLoadingSize: {
-            type: PropType<string>;
+            type: PropType<import('../../TextGroup').TextGroupLoadingSize>;
             default: string;
         };
         isSelected: {
@@ -167,13 +422,29 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             type: PropType<TextGroupState>;
             default: "default";
         };
+        isSupportingTextTooltipEnabled: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSupportingTextTooltipEnabledOnMobile: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSupportingTextTooltipAutoFilledWithContent: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        supportingTextTooltipContent: {
+            type: (StringConstructor | null)[];
+            default: null;
+        };
     }>> & Readonly<{}>, {
         size: string;
         color: "neutral";
         state: TextGroupState;
+        isInteractive: boolean;
         eyebrowText: string | null;
         isEyebrowTextUppercase: boolean;
-        isInteractive: boolean;
         supportingText: string | null;
         isSelected: boolean;
         eyebrowTextEllipsis: boolean;
@@ -181,6 +452,10 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         mainTextEllipsis: boolean;
         supportingTextEllipsis: boolean;
         skeletonLoadingSize: string;
+        isSupportingTextTooltipEnabled: boolean;
+        isSupportingTextTooltipEnabledOnMobile: boolean;
+        isSupportingTextTooltipAutoFilledWithContent: boolean;
+        supportingTextTooltipContent: string | null;
     }, {}, {
         DsSkeleton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             height: {
@@ -188,7 +463,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 default: string;
             };
             radius: {
-                type: PropType<string>;
+                type: PropType<import('../../..').SkeletonRadiusSize>;
                 default: string;
             };
             width: {
@@ -210,7 +485,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 default: string;
             };
             radius: {
-                type: PropType<string>;
+                type: PropType<import('../../..').SkeletonRadiusSize>;
                 default: string;
             };
             width: {
@@ -222,18 +497,190 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             width: string;
             height: string;
         }, {}, {
-            PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void, {}>;
+            PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        DsTooltip: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+            placement: {
+                type: PropType<import('../../Tooltip').TooltipPlacement>;
+                default: "bottom";
+                validator(placement: import('../../Tooltip').TooltipPlacement): boolean;
+            };
+            text: {
+                type: StringConstructor;
+                default: string;
+            };
+            isDisabled: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            isPointerVisible: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            inline: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            isHiddenOnMobile: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+        }>, {}, {}, {
+            tooltipParams(): {
+                position: any;
+                event: string;
+            };
+            options(): {
+                value: any;
+                disabled: any;
+                dt: {
+                    shadow: string;
+                    padding: string;
+                    background: string;
+                    color: string;
+                    borderRadius: string;
+                    maxWidth: string;
+                };
+                class: string | null;
+                ptOptions: {
+                    mergeProps: boolean;
+                };
+                pt: {
+                    text: string;
+                    arrow: string;
+                };
+            };
+        }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+            placement: {
+                type: PropType<import('../../Tooltip').TooltipPlacement>;
+                default: "bottom";
+                validator(placement: import('../../Tooltip').TooltipPlacement): boolean;
+            };
+            text: {
+                type: StringConstructor;
+                default: string;
+            };
+            isDisabled: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            isPointerVisible: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            inline: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            isHiddenOnMobile: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+        }>> & Readonly<{}>, {
+            text: string;
+            inline: boolean;
+            placement: import('../../Tooltip').TooltipPlacement;
+            isDisabled: boolean;
+            isPointerVisible: boolean;
+            isHiddenOnMobile: boolean;
+        }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-    RichListItem: import('vue').DefineComponent<{}, {}, {
+    RichListItem: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        type: {
+            type: PropType<RichListItemType>;
+            default: "default";
+            validator(type: RichListItemType): boolean;
+        };
+        layout: {
+            type: PropType<RichListItemLayout>;
+            default: "horizontal";
+            validator(layout: RichListItemLayout): boolean;
+        };
+        state: {
+            type: PropType<RichListItemState>;
+            default: "default";
+            validator(state: RichListItemState): boolean;
+        };
+        size: {
+            type: PropType<RichListItemSize>;
+            default: "medium";
+            validator(size: unknown): boolean;
+        };
+        isInteractive: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isDimmed: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isDraggable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        icon: {
+            type: PropType<IconItem>;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        iconColor: {
+            type: PropType<IconColor>;
+            default: null;
+            validator(iconColor: unknown): boolean;
+        };
+        iconColorHex: {
+            type: StringConstructor;
+            default: null;
+        };
+        borderColor: {
+            type: PropType<RichListItemBorderColor>;
+            default: null;
+            validator(borderColor: unknown): boolean;
+        };
+        borderColorHex: {
+            type: StringConstructor;
+            default: null;
+        };
+        draggableIconClassName: {
+            type: StringConstructor;
+            default: null;
+        };
+        backgroundColor: {
+            type: PropType<RichListItemBackgroundColor>;
+            default: "neutral";
+            validator(backgroundColor: unknown): boolean;
+        };
+        elevation: {
+            type: PropType<RichListItemElevation>;
+            default: null;
+            validator(evolution: unknown): boolean;
+        };
+        hasDraggableHandler: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        hasActionsSlotDivider: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSelectable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSelected: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>, {}, {
         ICONS: Readonly<{
-            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-            readonly RIBBON: VueConstructor<Vue>;
-            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-            readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly ANSWERS: VueConstructor<Vue>;
+            readonly CHANGE: VueConstructor<Vue>;
+            readonly COMMENTS_CHECK: VueConstructor<Vue>;
+            readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
+            readonly RIBBON: VueConstructor<Vue>;
             readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+            readonly SLIDERS_SEARCH: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -260,6 +707,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BOOKS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -274,6 +722,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_CALENDAR_DAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR_DAYS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR_RANGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CALENDAR_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CAMERA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CARET_SQUARE_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CART_SHOPPING: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -335,6 +784,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -374,8 +824,11 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MESSAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -384,8 +837,10 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_PILLS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -416,6 +871,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_TEXT_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_THUMBS_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_THUMBS_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_THUMBTACK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_THUMBTACK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_TRASH_CAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_TREE_PALM: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -425,6 +881,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -474,7 +931,93 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         'icon-click': () => true;
         click: () => true;
         'update:is-selected': (isSelected: boolean) => true;
-    }, string, import('vue').PublicProps, Readonly<{}> & Readonly<{
+    }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        type: {
+            type: PropType<RichListItemType>;
+            default: "default";
+            validator(type: RichListItemType): boolean;
+        };
+        layout: {
+            type: PropType<RichListItemLayout>;
+            default: "horizontal";
+            validator(layout: RichListItemLayout): boolean;
+        };
+        state: {
+            type: PropType<RichListItemState>;
+            default: "default";
+            validator(state: RichListItemState): boolean;
+        };
+        size: {
+            type: PropType<RichListItemSize>;
+            default: "medium";
+            validator(size: unknown): boolean;
+        };
+        isInteractive: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isDimmed: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isDraggable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        icon: {
+            type: PropType<IconItem>;
+            default: null;
+            validator(icon: unknown): boolean;
+        };
+        iconColor: {
+            type: PropType<IconColor>;
+            default: null;
+            validator(iconColor: unknown): boolean;
+        };
+        iconColorHex: {
+            type: StringConstructor;
+            default: null;
+        };
+        borderColor: {
+            type: PropType<RichListItemBorderColor>;
+            default: null;
+            validator(borderColor: unknown): boolean;
+        };
+        borderColorHex: {
+            type: StringConstructor;
+            default: null;
+        };
+        draggableIconClassName: {
+            type: StringConstructor;
+            default: null;
+        };
+        backgroundColor: {
+            type: PropType<RichListItemBackgroundColor>;
+            default: "neutral";
+            validator(backgroundColor: unknown): boolean;
+        };
+        elevation: {
+            type: PropType<RichListItemElevation>;
+            default: null;
+            validator(evolution: unknown): boolean;
+        };
+        hasDraggableHandler: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        hasActionsSlotDivider: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSelectable: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        isSelected: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>> & Readonly<{
         onClick?: (() => any) | undefined;
         "onUpdate:is-selected"?: ((isSelected: boolean) => any) | undefined;
         "onIcon-click"?: (() => any) | undefined;
@@ -482,11 +1025,11 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         icon: any;
         size: RichListItemSize;
         type: RichListItemType;
-        state: RichListItemState;
         elevation: "small";
+        backgroundColor: RichListItemBackgroundColor;
+        state: RichListItemState;
         layout: RichListItemLayout;
         borderColor: RichListItemBorderColor;
-        backgroundColor: RichListItemBackgroundColor;
         isInteractive: boolean;
         isSelected: boolean;
         isDimmed: boolean;
@@ -499,19 +1042,39 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         hasActionsSlotDivider: boolean;
         isSelectable: boolean;
     }, {}, {
-        DsCheckbox: import('vue').DefineComponent<{}, {}, {
+        DsCheckbox: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+            size: {
+                type: PropType<import('../../Form/Checkbox/Checkbox.consts').CheckboxSize>;
+                default: "small";
+                validator(size: unknown): boolean;
+            };
+            label: {
+                type: StringConstructor;
+                default: null;
+            };
+            isSelected: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            state: {
+                type: PropType<import('../../Form/Checkbox/Checkbox.consts').CheckboxState>;
+                default: "default";
+                validator(state: unknown): boolean;
+            };
+        }>, {}, {
             SELECTION_CONTROL_TYPE: Readonly<{
                 readonly RADIO_BUTTON: "radioButton";
                 readonly CHECKBOX: "checkbox";
             }>;
             ICONS: Readonly<{
-                readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
-                readonly RIBBON: VueConstructor<Vue>;
-                readonly SLIDERS_SEARCH: VueConstructor<Vue>;
-                readonly COMMENTS_CHECK: VueConstructor<Vue>;
                 readonly ANSWERS: VueConstructor<Vue>;
+                readonly CHANGE: VueConstructor<Vue>;
+                readonly COMMENTS_CHECK: VueConstructor<Vue>;
+                readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
                 readonly HIDE_ANSWERS: VueConstructor<Vue>;
+                readonly RIBBON: VueConstructor<Vue>;
                 readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
+                readonly SLIDERS_SEARCH: VueConstructor<Vue>;
                 readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -538,6 +1101,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_BOOKS: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BOOK_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BOOK_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -552,6 +1116,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_CALENDAR_DAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CALENDAR_DAYS: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CALENDAR_RANGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_CALENDAR_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CAMERA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CARET_SQUARE_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CART_SHOPPING: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -613,6 +1178,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_FILM: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FILTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FLAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_FLAG_CHECKERED_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -652,8 +1218,11 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MESSAGE_QUESTION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_MESSAGE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MESSAGE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_MESSAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -662,8 +1231,10 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_PILLS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -694,6 +1265,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_TEXT_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_THUMBS_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_THUMBS_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_THUMBTACK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_THUMBTACK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_TRASH_CAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_TREE_PALM: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -703,6 +1275,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_UNLOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_UPLOAD: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -711,7 +1284,26 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 readonly FA_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             }>;
-        }, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("update:is-selected" | "input:focus" | "input:blur")[], "update:is-selected" | "input:focus" | "input:blur", import('vue').PublicProps, Readonly<{}> & Readonly<{
+        }, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("update:is-selected" | "input:focus" | "input:blur")[], "update:is-selected" | "input:focus" | "input:blur", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+            size: {
+                type: PropType<import('../../Form/Checkbox/Checkbox.consts').CheckboxSize>;
+                default: "small";
+                validator(size: unknown): boolean;
+            };
+            label: {
+                type: StringConstructor;
+                default: null;
+            };
+            isSelected: {
+                type: BooleanConstructor;
+                default: boolean;
+            };
+            state: {
+                type: PropType<import('../../Form/Checkbox/Checkbox.consts').CheckboxState>;
+                default: "default";
+                validator(state: unknown): boolean;
+            };
+        }>> & Readonly<{
             "onUpdate:is-selected"?: ((...args: any[]) => any) | undefined;
             "onInput:focus"?: ((...args: any[]) => any) | undefined;
             "onInput:blur"?: ((...args: any[]) => any) | undefined;
@@ -721,7 +1313,41 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             state: import('../../Form/Checkbox/Checkbox.consts').CheckboxState;
             isSelected: boolean;
         }, {}, {
-            SelectionControl: import('vue').DefineComponent<{}, {}, {
+            SelectionControl: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+                size: {
+                    type: PropType<import('../../Form/SelectionControl/SelectionControl.consts').SelectionControlSize>;
+                    default: "small";
+                    validator(size: unknown): boolean;
+                };
+                label: {
+                    type: StringConstructor;
+                    default: null;
+                };
+                isSelected: {
+                    type: BooleanConstructor;
+                    default: boolean;
+                };
+                state: {
+                    type: PropType<import('../../Form/SelectionControl/SelectionControl.consts').SelectionControlState>;
+                    default: "default";
+                    validator(state: unknown): boolean;
+                };
+                selectedIcon: {
+                    type: ObjectConstructor;
+                    required: true;
+                    validator(icon: unknown): boolean;
+                };
+                notSelectedIcon: {
+                    type: ObjectConstructor;
+                    required: true;
+                    validator(icon: unknown): boolean;
+                };
+                type: {
+                    type: PropType<import('../../Form/SelectionControl/SelectionControl.consts').SelectionControlType>;
+                    required: true;
+                    validator(type: unknown): boolean;
+                };
+            }>, {}, {
                 isFocused: boolean;
                 SELECTION_CONTROL_STATE: Readonly<{
                     readonly DEFAULT: "default";
@@ -739,7 +1365,41 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 onToggle(): void;
                 onFocus(): void;
                 onBlur(): void;
-            }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("update:is-selected" | "input:focus" | "input:blur")[], "update:is-selected" | "input:focus" | "input:blur", import('vue').PublicProps, Readonly<{}> & Readonly<{
+            }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("update:is-selected" | "input:focus" | "input:blur")[], "update:is-selected" | "input:focus" | "input:blur", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+                size: {
+                    type: PropType<import('../../Form/SelectionControl/SelectionControl.consts').SelectionControlSize>;
+                    default: "small";
+                    validator(size: unknown): boolean;
+                };
+                label: {
+                    type: StringConstructor;
+                    default: null;
+                };
+                isSelected: {
+                    type: BooleanConstructor;
+                    default: boolean;
+                };
+                state: {
+                    type: PropType<import('../../Form/SelectionControl/SelectionControl.consts').SelectionControlState>;
+                    default: "default";
+                    validator(state: unknown): boolean;
+                };
+                selectedIcon: {
+                    type: ObjectConstructor;
+                    required: true;
+                    validator(icon: unknown): boolean;
+                };
+                notSelectedIcon: {
+                    type: ObjectConstructor;
+                    required: true;
+                    validator(icon: unknown): boolean;
+                };
+                type: {
+                    type: PropType<import('../../Form/SelectionControl/SelectionControl.consts').SelectionControlType>;
+                    required: true;
+                    validator(type: unknown): boolean;
+                };
+            }>> & Readonly<{
                 "onUpdate:is-selected"?: ((...args: any[]) => any) | undefined;
                 "onInput:focus"?: ((...args: any[]) => any) | undefined;
                 "onInput:blur"?: ((...args: any[]) => any) | undefined;
@@ -763,7 +1423,6 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                     rotation: {
                         type: NumberConstructor;
                         default: null;
-                        validator(value: number): boolean;
                     };
                     flippedVertical: {
                         type: BooleanConstructor;
@@ -784,7 +1443,6 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                 }>, {}, {}, {
                     sizeClassName(): string;
                     isFontawesomeIcon(): boolean;
-                    rotationClass(): string | null;
                 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
                     icon: {
                         type: ObjectConstructor;
@@ -799,7 +1457,6 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                     rotation: {
                         type: NumberConstructor;
                         default: null;
-                        validator(value: number): boolean;
                     };
                     flippedVertical: {
                         type: BooleanConstructor;
@@ -825,7 +1482,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
                     touchable: boolean;
                     spinning: boolean;
                 }, {}, {
-                    FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+                    FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
                 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
             }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
@@ -886,7 +1543,6 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             rotation: {
                 type: NumberConstructor;
                 default: null;
-                validator(value: number): boolean;
             };
             flippedVertical: {
                 type: BooleanConstructor;
@@ -907,7 +1563,6 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
         }>, {}, {}, {
             sizeClassName(): string;
             isFontawesomeIcon(): boolean;
-            rotationClass(): string | null;
         }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
             icon: {
                 type: ObjectConstructor;
@@ -922,7 +1577,6 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             rotation: {
                 type: NumberConstructor;
                 default: null;
-                validator(value: number): boolean;
             };
             flippedVertical: {
                 type: BooleanConstructor;
@@ -948,7 +1602,7 @@ declare const _default: import('vue').DefineComponent<{}, {}, {
             touchable: boolean;
             spinning: boolean;
         }, {}, {
-            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps, {}, {}, import('vue').ComputedOptions, import('vue').MethodOptions, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+            FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

@@ -4,6 +4,9 @@ import { DatePickerCalendarPositions } from './index';
 
 export interface DatePickerComposablesProps {
     disableDates: Array<Date>;
+    date?: Date | null;
+    startDate?: Date | null;
+    endDate?: Date | null;
     minDate: Date | null;
     maxDate: Date | null;
     calendarPosition: DatePickerCalendarPositions;
@@ -16,7 +19,7 @@ interface InitFlatpickrPrams {
 }
 interface InitFlatpickr {
     datePicker: DatePickerInstance | null;
-    createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement) => Promise<DatePickerInstance | undefined>;
+    createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement, updatePositionBasedOnScrollableSelector: string) => Promise<DatePickerInstance | undefined>;
     isOpen: Ref<boolean>;
     toggle: () => void;
 }

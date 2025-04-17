@@ -1,4 +1,4 @@
-import { defineEmits, onUnmounted, Ref, ref, watch } from 'vue';
+import { onUnmounted, Ref, ref, watch } from 'vue';
 import { FlatpickrFn, Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { CustomLocale } from 'flatpickr/dist/types/locale';
 
@@ -9,10 +9,14 @@ let locale: CustomLocale;
 
 export interface DatePickerComposablesProps {
 	disableDates: Array<Date>;
+	date?: Date | null;
+	startDate?: Date | null;
+	endDate?: Date | null;
 	minDate: Date | null;
 	maxDate: Date | null;
 	calendarPosition: DatePickerCalendarPositions;
 }
+
 interface InitFlatpickrPrams {
 	props: DatePickerComposablesProps;
 	onChange: (dates: Array<Date>) => void;
@@ -25,6 +29,7 @@ interface InitFlatpickr {
 	createDatePicker: (
 		flatpickrInputElement: HTMLInputElement,
 		dateRangePickerRef: HTMLElement,
+		updatePositionBasedOnScrollableSelector: string,
 	) => Promise<DatePickerInstance | undefined>;
 	isOpen: Ref<boolean>;
 	toggle: () => void;
@@ -39,9 +44,16 @@ export function initFlatpickr({
 	let datePicker: DatePickerInstance | null = null;
 	const isOpen = ref(false);
 
+	const updateDatePickerDates = (date: Date | Array<Date>) => {
+		datePicker?.setDate(date, false);
+		datePicker?.updateValue(false);
+		datePicker?.jumpToDate(Array.isArray(date) ? date[0] : date, false);
+	};
+
 	const createDatePicker = async (
 		flatpickrInputElement: HTMLInputElement,
 		datePickerElement: HTMLElement,
+		updatePositionBasedOnScrollableSelector: string,
 	): Promise<DatePickerInstance | undefined> => {
 		if (datePicker) {
 			return;
@@ -80,6 +92,24 @@ export function initFlatpickr({
 			onChange,
 		});
 
+		if (updatePositionBasedOnScrollableSelector) {
+			const container = document.querySelector(updatePositionBasedOnScrollableSelector);
+
+			const scrollEvent = () => {
+				datePicker?._positionCalendar();
+			};
+
+			if (container) {
+				datePicker?.config?.onOpen?.push(() => {
+					container.addEventListener('scroll', scrollEvent, { passive: true });
+				});
+
+				datePicker?.config?.onClose?.push(() => {
+					container.removeEventListener('scroll', scrollEvent);
+				});
+			}
+		}
+
 		return datePicker;
 	};
 
@@ -104,6 +134,25 @@ export function initFlatpickr({
 				minDate: props.minDate as Date | undefined,
 				maxDate: props.maxDate as Date | undefined,
 			});
+		},
+		{
+			flush: 'post', // Ensure updates happen after DOM changes
+		},
+	);
+	watch(
+		[() => props.date, () => props.startDate, () => props.endDate],
+		() => {
+			if (props.date) {
+				updateDatePickerDates(props.date);
+			} else if (props.startDate && props.endDate) {
+				updateDatePickerDates([props.startDate, props.endDate]);
+			} else if (props.startDate && !props.endDate) {
+				updateDatePickerDates(props.startDate);
+			} else if (!props.startDate && props.endDate) {
+				updateDatePickerDates(props.endDate);
+			} else {
+				datePicker?.clear(false);
+			}
 		},
 		{
 			flush: 'post', // Ensure updates happen after DOM changes

@@ -23,6 +23,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    isHiddenOnMobile: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>, {}, {}, {
     tooltipParams(): {
         position: any;
@@ -39,6 +43,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             borderRadius: string;
             maxWidth: string;
         };
+        class: string | null;
         ptOptions: {
             mergeProps: boolean;
         };
@@ -69,11 +74,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    isHiddenOnMobile: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>> & Readonly<{}>, {
     text: string;
     inline: boolean;
     placement: TooltipPlacement;
     isDisabled: boolean;
     isPointerVisible: boolean;
+    isHiddenOnMobile: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

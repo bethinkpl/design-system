@@ -33,6 +33,10 @@ const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 			:skeleton-loading-size="skeletonLoadingSize"
 			:is-selected="isSelected"
 			:state="state"
+			:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
+			:is-supporting-text-tooltip-enabled-on-mobile="isSupportingTextTooltipEnabledOnMobile"
+			:is-supporting-text-tooltip-auto-filled-with-content="isSupportingTextTooltipAutoFilledWithContent"
+			:supporting-text-tooltip-content="supportingTextTooltipContent"
 		/>
 		<div style="margin-top: 100px; color: #888">
 			<ds-divider />
@@ -57,6 +61,10 @@ Interactive.args = {
 	skeletonLoadingSize: TEXT_GROUP_LOADING_SIZES.LARGE,
 	isSelected: false,
 	state: TEXT_GROUP_STATES.DEFAULT,
+	isSupportingTextTooltipEnabled: false,
+	isSupportingTextTooltipEnabledOnMobile: true,
+	isSupportingTextTooltipAutoFilledWithContent: true,
+	supportingTextTooltipContent: '',
 } as Args;
 
 Interactive.argTypes = {
@@ -102,6 +110,18 @@ Interactive.argTypes = {
 	state: {
 		control: 'select',
 		options: Object.values(TEXT_GROUP_STATES),
+	},
+	isSupportingTextTooltipEnabled: {
+		control: 'boolean',
+	},
+	isSupportingTextTooltipEnabledOnMobile: {
+		control: 'boolean',
+	},
+	isSupportingTextTooltipAutoFilledWithContent: {
+		control: 'boolean',
+	},
+	supportingTextTooltipContent: {
+		control: 'text',
 	},
 } as ArgTypes;
 

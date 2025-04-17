@@ -1,8 +1,10 @@
 import { ICONS } from '../Icons/Icon';
-import { TILE_COLORS, TILE_STATES } from './Tile.consts';
+import { TILE_BORDER_COLORS, TILE_COLORS, TILE_STATES } from './Tile.consts';
 import { Args, ArgTypes } from '@storybook/vue3';
+import DsBanner, { BANNER_COLORS } from '../Banner';
 
 export const template = (componentTag: string) => `
+<div style="display: flex; row-gap: 16px; flex-direction: column">
 		<${componentTag}
 			:additional-text="additionalText"
 			:color="color"
@@ -16,17 +18,45 @@ export const template = (componentTag: string) => `
 			:state="state"
 			:text-ellipsis="textEllipsis"
 			:text="text"
-			:has-border="hasBorder"
-		/>`;
+			:border-color="borderColor"
+		/>
+		<ds-banner :color="BANNER_COLORS.WARNING" title="Taka kombinacja koloru komponentu z kolorem bordera jest niezgodna z design systemem!" v-if="borderColor && !allowedColorsToBorderColorsMap[color].includes(borderColor)" />
+</div>
+`;
 
 export const data = () => ({
 	ICONS: Object.freeze(ICONS),
+	BANNER_COLORS: Object.freeze(BANNER_COLORS),
+	allowedColorsToBorderColorsMap: {
+		[TILE_COLORS.NEUTRAL]: [
+			TILE_BORDER_COLORS.NEUTRAL,
+			TILE_BORDER_COLORS.NEUTRAL_WEAK,
+			TILE_BORDER_COLORS.PRIMARY,
+			TILE_BORDER_COLORS.PRIMARY_WEAK,
+		],
+		[TILE_COLORS.NEUTRAL_WEAK]: [
+			TILE_BORDER_COLORS.NEUTRAL,
+			TILE_BORDER_COLORS.NEUTRAL_WEAK,
+			TILE_BORDER_COLORS.PRIMARY,
+			TILE_BORDER_COLORS.PRIMARY_WEAK,
+		],
+		[TILE_COLORS.PRIMARY]: [TILE_BORDER_COLORS.PRIMARY, TILE_BORDER_COLORS.PRIMARY_WEAK],
+		[TILE_COLORS.SUCCESS]: [TILE_BORDER_COLORS.SUCCESS, TILE_BORDER_COLORS.SUCCESS_WEAK],
+		[TILE_COLORS.FAIL]: [TILE_BORDER_COLORS.FAIL, TILE_BORDER_COLORS.FAIL_WEAK],
+		[TILE_COLORS.DANGER]: [TILE_BORDER_COLORS.DANGER, TILE_BORDER_COLORS.DANGER_WEAK],
+		[TILE_COLORS.WARNING]: [TILE_BORDER_COLORS.WARNING, TILE_BORDER_COLORS.WARNING_WEAK],
+		[TILE_COLORS.INFO]: [TILE_BORDER_COLORS.INFO, TILE_BORDER_COLORS.INFO_WEAK],
+	},
 });
+
+export const components = {
+	DsBanner,
+};
 
 export const args = {
 	interactive: true,
 	color: TILE_COLORS.NEUTRAL,
-	hasBorder: false,
+	borderColor: null,
 	iconLeft: null,
 	iconRight: null,
 	isIconRightHiddenOnMobile: false,
@@ -51,6 +81,10 @@ export const argTypes = {
 	color: {
 		control: 'select',
 		options: [...Object.values(TILE_COLORS)],
+	},
+	borderColor: {
+		control: 'select',
+		options: [null, ...Object.values(TILE_BORDER_COLORS)],
 	},
 	state: {
 		control: 'select',
