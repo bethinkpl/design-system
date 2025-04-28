@@ -43,7 +43,6 @@ const meta: Meta<typeof Avatar> = {
 		},
 		activityStatusTooltip: {
 			control: 'text',
-			description: 'Tooltip text for the activity status badge',
 		},
 	},
 };
