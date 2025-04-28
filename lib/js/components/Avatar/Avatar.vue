@@ -21,10 +21,10 @@
 		</div>
 		<div v-if="activityStatus" class="ds-avatar__activityStatus">
 			<ds-tooltip
-				:key="activityTooltip"
+				:key="activityStatusTooltip"
 				class="ds-avatar__activityStatusTooltip"
-				:text="activityTooltip"
-				:is-disabled="!activityTooltip"
+				:text="activityStatusTooltip"
+				:is-disabled="!activityStatusTooltip"
 				is-pointer-visible
 				:placement="TOOLTIP_PLACEMENTS.BOTTOM"
 				:is-hidden-on-mobile="false"
@@ -208,7 +208,7 @@ const {
 	activityStatus,
 	accessStatus,
 	teamMemberImageUrl,
-	activityTooltip,
+	activityStatusTooltip,
 } = defineProps<{
 	username: string;
 	avatarUrl?: string;
@@ -216,7 +216,7 @@ const {
 	activityStatus?: AvatarActivityStatus;
 	accessStatus?: AvatarAccessStatus;
 	teamMemberImageUrl?: string;
-	activityTooltip?: string;
+	activityStatusTooltip?: string;
 }>();
 
 const { initials, initialBackgroundColor } = useInitials();

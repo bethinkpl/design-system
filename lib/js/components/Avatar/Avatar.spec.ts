@@ -215,14 +215,14 @@ describe('Avatar', () => {
 		expect(accessStatusElement.find('img').attributes('src')).toBe(teamMemberImageUrl);
 	});
 
-	it('should pass activityTooltip to the tooltip component', () => {
+	it('should pass activityStatusTooltip to the tooltip component', () => {
 		const tooltipText = 'Active now';
 		const wrapper = mount(Avatar, {
 			props: {
 				size: AVATAR_SIZES.MEDIUM,
 				username: 'Dariusz Chrapek',
 				activityStatus: AVATAR_ACTIVITY_STATUSES.ACTIVE,
-				activityTooltip: tooltipText,
+				activityStatusTooltip: tooltipText,
 			},
 		});
 
