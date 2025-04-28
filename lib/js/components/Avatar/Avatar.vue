@@ -207,7 +207,7 @@ const {
 	activityStatus,
 	accessStatus,
 	teamMemberImageUrl,
-	activityTooltip
+	activityTooltip,
 } = defineProps<{
 	username: string;
 	avatarUrl?: string;
