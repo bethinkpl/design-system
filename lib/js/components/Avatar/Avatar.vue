@@ -20,11 +20,20 @@
 			<span v-else class="ds-avatar__initials">{{ initials }}</span>
 		</div>
 		<div v-if="activityStatus" class="ds-avatar__activityStatus">
-			<ds-badge
-				:color="activityStatusColor"
-				:elevation="BADGE_ELEVATIONS.X_SMALL"
-				:size="activityStatusSize"
-			/>
+			<ds-tooltip
+				class="ds-avatar__activityStatusTooltip"
+				:text="activityTooltip"
+				:is-disabled="!activityTooltip"
+				is-pointer-visible
+				:placement="TOOLTIP_PLACEMENTS.BOTTOM"
+				:is-hidden-on-mobile="false"
+			>
+				<ds-badge
+					:color="activityStatusColor"
+					:elevation="BADGE_ELEVATIONS.X_SMALL"
+					:size="activityStatusSize"
+				/>
+			</ds-tooltip>
 		</div>
 		<div v-if="accessStatus" class="ds-avatar__accessStatus">
 			<ds-badge
@@ -169,6 +178,11 @@
 			top: -3px;
 		}
 	}
+
+	&__activityStatusTooltip {
+		display: flex;
+		align-items: center;
+	}
 }
 </style>
 
@@ -184,6 +198,7 @@ import {
 import DsBadge, { BADGE_ELEVATIONS, BADGE_SIZES, BADGE_COLORS } from '../Badge';
 import { computed } from 'vue';
 import { ICONS } from '../Icons/Icon';
+import DsTooltip, { TOOLTIP_PLACEMENTS } from '../Tooltip';
 
 const {
 	size = AVATAR_SIZES.X_SMALL,
@@ -192,6 +207,7 @@ const {
 	activityStatus,
 	accessStatus,
 	teamMemberImageUrl,
+	activityTooltip
 } = defineProps<{
 	username: string;
 	avatarUrl?: string;
@@ -199,6 +215,7 @@ const {
 	activityStatus?: AvatarActivityStatus;
 	accessStatus?: AvatarAccessStatus;
 	teamMemberImageUrl?: string;
+	activityTooltip?: string;
 }>();
 
 const { initials, initialBackgroundColor } = useInitials();

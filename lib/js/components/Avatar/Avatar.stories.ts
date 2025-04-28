@@ -41,6 +41,10 @@ const meta: Meta<typeof Avatar> = {
 			},
 			options: [undefined, ...Object.values(AVATAR_ACTIVITY_STATUSES)],
 		},
+		activityTooltip: {
+			control: 'text',
+			description: 'Tooltip text for the activity badge',
+		},
 	},
 };
 export default meta;
@@ -54,6 +58,7 @@ export const Interactive: Story = {
 		avatarUrl:
 			'https://wiecejnizlek.pl/wp-content/uploads/2021/08/Dariusz_Chrapek-uai-2996x2996-1-scaled.jpeg',
 		teamMemberImageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
+		activityTooltip: 'Active now',
 	},
 };
 
