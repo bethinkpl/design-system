@@ -180,8 +180,8 @@
 	}
 
 	&__activityStatusTooltip {
-		display: flex;
 		align-items: center;
+		display: flex;
 	}
 }
 </style>
