@@ -21,6 +21,7 @@
 		</div>
 		<div v-if="activityStatus" class="ds-avatar__activityStatus">
 			<ds-tooltip
+				:key="activityTooltip"
 				class="ds-avatar__activityStatusTooltip"
 				:text="activityTooltip"
 				:is-disabled="!activityTooltip"
