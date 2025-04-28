@@ -60,8 +60,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
 }>> & Readonly<{}>, {
     color: string;
-    isSelected: boolean;
     isDisabled: boolean;
+    isSelected: boolean;
     counter: string | number;
 }, {}, {
     Icon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
