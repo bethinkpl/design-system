@@ -214,4 +214,20 @@ describe('Avatar', () => {
 		expect(accessStatusElement.exists()).toBe(true);
 		expect(accessStatusElement.find('img').attributes('src')).toBe(teamMemberImageUrl);
 	});
+
+	it('should pass activityStatusTooltip to the tooltip component', () => {
+		const tooltipText = 'Active now';
+		const wrapper = mount(Avatar, {
+			props: {
+				size: AVATAR_SIZES.MEDIUM,
+				username: 'Dariusz Chrapek',
+				activityStatus: AVATAR_ACTIVITY_STATUSES.ACTIVE,
+				activityStatusTooltip: tooltipText,
+			},
+		});
+
+		const tooltip = wrapper.findComponent({ name: 'Tooltip' });
+		expect(tooltip.exists()).toBe(true);
+		expect(tooltip.props('text')).toBe(tooltipText);
+	});
 });
