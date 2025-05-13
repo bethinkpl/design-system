@@ -78,7 +78,7 @@ const meta: Meta<DateRangePickerProps> = {
 			template: `
 				<div style="display: flex">
 					<date-range-picker
-						:lazy-load="lazyLoad"
+						:create-instance-on-toggle="createInstanceOnToggle"
 						:is-interactive="isInteractive"
 						:placeholder="placeholder"
 						:start-date="formattedStartDate"
@@ -137,7 +137,7 @@ const now = Date.now();
 const oneDayMili = 86400000;
 export const Interactive: Story = {
 	args: {
-		lazyLoad: true,
+		createInstanceOnToggle: true,
 		isInteractive: true,
 		color: DATE_PICKER_COLORS.NEUTRAL_WEAK,
 		placeholder: 'Ustaw',
