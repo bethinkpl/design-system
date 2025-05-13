@@ -1,13 +1,13 @@
-import DateRangePicker from './DateRangePicker.vue';
+import { useArgs } from '@storybook/preview-api';
 import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
+import { ComponentProps } from 'vue-component-type-helpers';
 import { ICONS } from '../../Icons/Icon';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
 	DATE_PICKER_STATES,
 } from '../DatePicker';
-import { ComponentProps } from 'vue-component-type-helpers';
-import { useArgs } from '@storybook/preview-api';
+import DateRangePicker from './DateRangePicker.vue';
 
 type DateRangePickerProps = ComponentProps<typeof DateRangePicker>;
 
@@ -78,6 +78,7 @@ const meta: Meta<DateRangePickerProps> = {
 			template: `
 				<div style="display: flex">
 					<date-range-picker
+						:lazy-load="lazyLoad"
 						:is-interactive="isInteractive"
 						:placeholder="placeholder"
 						:start-date="formattedStartDate"
@@ -136,6 +137,7 @@ const now = Date.now();
 const oneDayMili = 86400000;
 export const Interactive: Story = {
 	args: {
+		lazyLoad: true,
 		isInteractive: true,
 		color: DATE_PICKER_COLORS.NEUTRAL_WEAK,
 		placeholder: 'Ustaw',

@@ -140,10 +140,23 @@
 <script lang="ts">
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
 
-import DsTile, { TILE_ADDITIONAL_TEXT_MAX_WIDTHS, TILE_BORDER_COLORS } from '../../Tile';
+import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
+
 import { IconItem, ICONS } from '../../Icons/Icon';
+import DsTile, {
+	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
+	TILE_BORDER_COLORS,
+	TileColors,
+	TileStates,
+} from '../../Tile';
 import DateBox from '../DateBox';
 
+import {
+	localFullDateWithShortMonthName,
+	localWeekdayName,
+} from '../../../../../tools/importers/helpers/dates';
+import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
+import { DatePickerComposablesProps, initFlatpickr } from './DatePicker.composables';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
@@ -154,12 +167,6 @@ import {
 	DatePickerStates,
 	DatePickerTriggerTypes,
 } from './DatePicker.consts';
-import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
-import { DatePickerComposablesProps, initFlatpickr } from './DatePicker.composables';
-import {
-	localFullDateWithShortMonthName,
-	localWeekdayName,
-} from '../../../../../tools/importers/helpers/dates';
 
 export default defineComponent({
 	name: 'DatePicker',
@@ -243,6 +250,10 @@ export default defineComponent({
 			type: String,
 			default: '',
 		},
+		createInstanceOnToggle: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	emits: {
 		'update:date': (date: Date) => true,
@@ -252,9 +263,11 @@ export default defineComponent({
 			isInteractive: boolean;
 			state: DatePickerStates;
 			updatePositionBasedOnScrollableSelector: string;
+			createInstanceOnToggle: boolean;
 		},
 		{ emit },
 	) {
+		const flatpickrInstance = ref<DatePickerInstance | null>(null);
 		const flatpickrInputRef = ref<HTMLInputElement>() as Ref<HTMLInputElement>;
 		const datePickerRef = ref<HTMLDivElement>() as Ref<HTMLDivElement>;
 
@@ -272,15 +285,25 @@ export default defineComponent({
 			defaultDates: props.date ?? new Date(),
 			mode: 'single',
 		});
-		watch([() => props.isInteractive, () => props.state], async () => {
-			if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-				await createDatePicker(
-					flatpickrInputRef.value,
-					datePickerRef.value,
-					props.updatePositionBasedOnScrollableSelector,
-				);
-			}
-		});
+		watch(
+			[() => props.isInteractive, () => props.state, () => props.createInstanceOnToggle],
+			async () => {
+				if (
+					props.isInteractive &&
+					props.state === DATE_PICKER_STATES.DEFAULT &&
+					!props.createInstanceOnToggle
+				) {
+					if (!flatpickrInstance.value) {
+						flatpickrInstance.value = (await createDatePicker(
+							flatpickrInputRef.value,
+							datePickerRef.value,
+							props.updatePositionBasedOnScrollableSelector,
+						)) as DatePickerInstance;
+					}
+				}
+			},
+			{ flush: 'post' },
+		);
 
 		return {
 			flatpickrInputRef,
@@ -341,17 +364,28 @@ export default defineComponent({
 		},
 	},
 	async mounted() {
-		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
-			await this.createDatePicker(
+		if (
+			this.isInteractive &&
+			this.state === DATE_PICKER_STATES.DEFAULT &&
+			!this.createInstanceOnToggle
+		) {
+			await this.bindFlatpickrInstance();
+		}
+	},
+	methods: {
+		async bindFlatpickrInstance() {
+			this.flatpickrInstance = await this.createDatePicker(
 				this.flatpickrInputRef,
 				this.datePickerRef,
 				this.updatePositionBasedOnScrollableSelector,
 			);
-		}
-	},
-	methods: {
-		toggle() {
+		},
+		async toggle() {
 			if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
+				if (!this.flatpickrInstance) {
+					await this.bindFlatpickrInstance();
+				}
+
 				this.toggleDatePicker();
 			}
 		},

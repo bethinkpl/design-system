@@ -48,9 +48,10 @@
 </style>
 
 <script lang="ts">
-import DateBox from '../DateBox';
-import { IconItem, ICONS } from '../../Icons/Icon';
+import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
+import { IconItem, ICONS } from '../../Icons/Icon';
+import DateBox from '../DateBox';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
@@ -134,6 +135,10 @@ export default defineComponent({
 			type: String,
 			default: '',
 		},
+		createInstanceOnToggle: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	emits: { 'update:date': (value: { startDate: Date; endDate: Date }) => true },
 	setup(
@@ -143,9 +148,11 @@ export default defineComponent({
 			isInteractive: boolean;
 			state: DatePickerStates;
 			updatePositionBasedOnScrollableSelector: string;
+			createInstanceOnToggle: boolean;
 		},
 		{ emit },
 	) {
+		const flatpickrInstance = ref<DatePickerInstance | null>(null);
 		const dateRangePickerRef = ref() as Ref<HTMLDivElement>;
 		const flatpickrInputRef = ref() as Ref<HTMLInputElement>;
 
@@ -168,14 +175,20 @@ export default defineComponent({
 		});
 
 		watch(
-			[() => props.isInteractive, () => props.state],
+			[() => props.isInteractive, () => props.state, () => props.createInstanceOnToggle],
 			async () => {
-				if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-					await createDatePicker(
-						flatpickrInputRef.value,
-						dateRangePickerRef.value,
-						props.updatePositionBasedOnScrollableSelector,
-					);
+				if (
+					props.isInteractive &&
+					props.state === DATE_PICKER_STATES.DEFAULT &&
+					!props.createInstanceOnToggle
+				) {
+					if (!flatpickrInstance.value) {
+						flatpickrInstance.value = (await createDatePicker(
+							flatpickrInputRef.value,
+							dateRangePickerRef.value,
+							props.updatePositionBasedOnScrollableSelector,
+						)) as DatePickerInstance;
+					}
 				}
 			},
 			{ flush: 'post' },
@@ -194,17 +207,28 @@ export default defineComponent({
 		};
 	},
 	async mounted() {
-		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
-			await this.createDatePicker(
+		if (
+			this.isInteractive &&
+			this.state === DATE_PICKER_STATES.DEFAULT &&
+			!this.createInstanceOnToggle
+		) {
+			await this.bindFlatpickrInstance();
+		}
+	},
+	methods: {
+		async bindFlatpickrInstance() {
+			this.flatpickrInstance = await this.createDatePicker(
 				this.flatpickrInputRef,
 				this.dateRangePickerRef,
 				this.updatePositionBasedOnScrollableSelector,
 			);
-		}
-	},
-	methods: {
-		toggle() {
+		},
+		async toggle() {
 			if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
+				if (!this.flatpickrInstance) {
+					await this.bindFlatpickrInstance();
+				}
+
 				this.toggleDatePicker();
 			}
 		},

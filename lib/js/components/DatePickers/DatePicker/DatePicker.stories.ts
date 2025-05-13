@@ -1,14 +1,14 @@
-import DatePicker from './DatePicker.vue';
+import { useArgs } from '@storybook/preview-api';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { ICONS } from '../../Icons/Icon';
+import DsSwitch from '../../Switch';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
 	DATE_PICKER_STATES,
 	DATE_PICKER_TRIGGER_TYPES,
 } from './DatePicker.consts';
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { ICONS } from '../../Icons/Icon';
-import DsSwitch from '../../Switch';
-import { useArgs } from '@storybook/preview-api';
+import DatePicker from './DatePicker.vue';
 
 export default {
 	title: 'Components/DatePickers/DatePicker',
@@ -65,6 +65,7 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 		},
 		template: `
 			<date-picker
+				:lazy-load="lazyLoad"
 				:trigger-type="triggerType"
 				:is-interactive="isInteractive"
 				:placeholder="placeholder"
@@ -94,6 +95,7 @@ export const Interactive = StoryTemplate.bind({});
 const now = Date.now();
 const oneDayMili = 86400000;
 const args = {
+	lazyLoad: true,
 	triggerType: DATE_PICKER_TRIGGER_TYPES.TILE,
 	isInteractive: true,
 	color: DATE_PICKER_COLORS.NEUTRAL_WEAK,
