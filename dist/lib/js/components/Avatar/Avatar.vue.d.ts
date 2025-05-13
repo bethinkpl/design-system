@@ -7,6 +7,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     activityStatus?: AvatarActivityStatus;
     accessStatus?: AvatarAccessStatus;
     teamMemberImageUrl?: string;
+    activityStatusTooltip?: string;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     username: string;
     avatarUrl?: string;
@@ -14,6 +15,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     activityStatus?: AvatarActivityStatus;
     accessStatus?: AvatarAccessStatus;
     teamMemberImageUrl?: string;
+    activityStatusTooltip?: string;
 }>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
 type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;

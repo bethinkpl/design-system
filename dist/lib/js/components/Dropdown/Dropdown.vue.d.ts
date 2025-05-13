@@ -84,12 +84,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     onHide?: ((...args: any[]) => any) | undefined;
     "onDocument-click"?: ((...args: any[]) => any) | undefined;
 }>, {
+    placement: string;
     radius: string;
     boundariesSelector: string;
     forceShow: boolean;
     sameWidth: boolean;
     triggerAction: string;
-    placement: string;
     maxHeight: string;
 }, {}, {
     VuePopper: any;
