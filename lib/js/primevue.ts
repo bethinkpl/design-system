@@ -1,5 +1,5 @@
+import Aura from '@primeuix/themes/aura';
 import PrimeVue from 'primevue/config';
-import Aura from '@primevue/themes/aura';
 import Tooltip from 'primevue/tooltip';
 
 export const initializePrimeVue = (app) => {
