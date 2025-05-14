@@ -1376,12 +1376,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         onHide?: ((...args: any[]) => any) | undefined;
         "onDocument-click"?: ((...args: any[]) => any) | undefined;
     }>, {
+        placement: string;
         radius: string;
         boundariesSelector: string;
         forceShow: boolean;
         sameWidth: boolean;
         triggerAction: string;
-        placement: string;
         maxHeight: string;
     }, {}, {
         VuePopper: any;
@@ -1507,10 +1507,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     }>> & Readonly<{}>, {
         text: string;
-        inline: boolean;
         placement: import('../../Tooltip').TooltipPlacement;
         isDisabled: boolean;
         isPointerVisible: boolean;
+        inline: boolean;
         isHiddenOnMobile: boolean;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
