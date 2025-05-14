@@ -59,6 +59,7 @@
 					:is-disabled="!isSupportingTextTooltipEnabled"
 					:is-hidden-on-mobile="!isSupportingTextTooltipEnabledOnMobile"
 					inline
+					@click.stop.prevent
 				>
 					<div
 						class="ds-textGroup__supporting"
@@ -266,6 +267,7 @@ $text-group-colors: (
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 import DsSkeleton from '../Skeleton/Skeleton.vue';
+import DsTooltip from '../Tooltip';
 import {
 	TEXT_GROUP_COLORS,
 	TEXT_GROUP_LOADING_SIZES,
@@ -276,7 +278,6 @@ import {
 	TextGroupSize,
 	TextGroupState,
 } from './TextGroup.consts';
-import DsTooltip from '../Tooltip';
 
 export default defineComponent({
 	name: 'TextGroup',
