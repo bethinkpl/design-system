@@ -59,7 +59,6 @@
 					:is-disabled="!isSupportingTextTooltipEnabled"
 					:is-hidden-on-mobile="!isSupportingTextTooltipEnabledOnMobile"
 					inline
-					@click.stop.prevent
 				>
 					<div
 						class="ds-textGroup__supporting"
