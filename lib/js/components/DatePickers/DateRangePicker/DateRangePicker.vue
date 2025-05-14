@@ -223,7 +223,10 @@ export default defineComponent({
 				this.updatePositionBasedOnScrollableSelector,
 			);
 		},
-		async toggle() {
+
+		async toggle(event: Event) {
+			event.stopPropagation();
+			event.preventDefault();
 			if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
 				if (!this.flatpickrInstance) {
 					await this.bindFlatpickrInstance();
