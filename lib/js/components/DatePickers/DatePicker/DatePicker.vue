@@ -32,7 +32,7 @@
 				:eyebrow-text="eyebrowText"
 				:additional-text-max-width="TILE_ADDITIONAL_TEXT_MAX_WIDTHS.MEDIUM"
 				has-border
-				@click="toggle"
+				@click.stop.prevent="toggle"
 			/>
 		</template>
 		<date-box
@@ -45,7 +45,7 @@
 			:state="state"
 			:color="color"
 			:is-open="isOpen"
-			@click="toggle"
+			@click.stop.prevent="toggle"
 		/>
 
 		<span v-if="showErrorMessage" class="ds-datePicker__errorMessage">
@@ -250,10 +250,6 @@ export default defineComponent({
 			type: String,
 			default: '',
 		},
-		createInstanceOnToggle: {
-			type: Boolean,
-			default: false,
-		},
 	},
 	emits: {
 		'update:date': (date: Date) => true,
@@ -263,7 +259,6 @@ export default defineComponent({
 			isInteractive: boolean;
 			state: DatePickerStates;
 			updatePositionBasedOnScrollableSelector: string;
-			createInstanceOnToggle: boolean;
 		},
 		{ emit },
 	) {
@@ -285,25 +280,19 @@ export default defineComponent({
 			defaultDates: props.date ?? new Date(),
 			mode: 'single',
 		});
-		watch(
-			[() => props.isInteractive, () => props.state, () => props.createInstanceOnToggle],
-			async () => {
-				if (
-					props.isInteractive &&
-					props.state === DATE_PICKER_STATES.DEFAULT &&
-					!props.createInstanceOnToggle
-				) {
-					if (!flatpickrInstance.value) {
-						flatpickrInstance.value = (await createDatePicker(
-							flatpickrInputRef.value,
-							datePickerRef.value,
-							props.updatePositionBasedOnScrollableSelector,
-						)) as DatePickerInstance;
-					}
-				}
-			},
-			{ flush: 'post' },
-		);
+		watch([() => props.isInteractive, () => props.state], async () => {
+			if (
+				props.isInteractive &&
+				props.state === DATE_PICKER_STATES.DEFAULT &&
+				!flatpickrInstance.value
+			) {
+				flatpickrInstance.value = (await createDatePicker(
+					flatpickrInputRef.value,
+					datePickerRef.value,
+					props.updatePositionBasedOnScrollableSelector,
+				)) as DatePickerInstance;
+			}
+		});
 
 		return {
 			flatpickrInputRef,
@@ -363,15 +352,6 @@ export default defineComponent({
 			return this.helpMessage !== null;
 		},
 	},
-	async mounted() {
-		if (
-			this.isInteractive &&
-			this.state === DATE_PICKER_STATES.DEFAULT &&
-			!this.createInstanceOnToggle
-		) {
-			await this.bindFlatpickrInstance();
-		}
-	},
 	methods: {
 		async bindFlatpickrInstance() {
 			this.flatpickrInstance = await this.createDatePicker(
@@ -380,9 +360,7 @@ export default defineComponent({
 				this.updatePositionBasedOnScrollableSelector,
 			);
 		},
-		async toggle(event: Event) {
-			event.stopPropagation();
-			event.preventDefault();
+		async toggle() {
 			if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
 				if (!this.flatpickrInstance) {
 					await this.bindFlatpickrInstance();

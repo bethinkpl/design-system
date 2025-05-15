@@ -11,7 +11,7 @@
 			:state="state"
 			:color="color"
 			:is-open="isOpen"
-			@click="toggle"
+			@click.stop.prevent="toggle"
 		/>
 
 		<span v-if="errorMessage" class="ds-dateRangePicker__errorMessage">
@@ -135,10 +135,6 @@ export default defineComponent({
 			type: String,
 			default: '',
 		},
-		createInstanceOnToggle: {
-			type: Boolean,
-			default: false,
-		},
 	},
 	emits: { 'update:date': (value: { startDate: Date; endDate: Date }) => true },
 	setup(
@@ -148,7 +144,6 @@ export default defineComponent({
 			isInteractive: boolean;
 			state: DatePickerStates;
 			updatePositionBasedOnScrollableSelector: string;
-			createInstanceOnToggle: boolean;
 		},
 		{ emit },
 	) {
@@ -174,25 +169,19 @@ export default defineComponent({
 			mode: 'range',
 		});
 
-		watch(
-			[() => props.isInteractive, () => props.state, () => props.createInstanceOnToggle],
-			async () => {
-				if (
-					props.isInteractive &&
-					props.state === DATE_PICKER_STATES.DEFAULT &&
-					!props.createInstanceOnToggle
-				) {
-					if (!flatpickrInstance.value) {
-						flatpickrInstance.value = (await createDatePicker(
-							flatpickrInputRef.value,
-							dateRangePickerRef.value,
-							props.updatePositionBasedOnScrollableSelector,
-						)) as DatePickerInstance;
-					}
-				}
-			},
-			{ flush: 'post' },
-		);
+		watch([() => props.isInteractive, () => props.state], async () => {
+			if (
+				props.isInteractive &&
+				props.state === DATE_PICKER_STATES.DEFAULT &&
+				!flatpickrInstance.value
+			) {
+				flatpickrInstance.value = (await createDatePicker(
+					flatpickrInputRef.value,
+					dateRangePickerRef.value,
+					props.updatePositionBasedOnScrollableSelector,
+				)) as DatePickerInstance;
+			}
+		});
 
 		return {
 			dateRangePickerRef,
@@ -206,15 +195,6 @@ export default defineComponent({
 			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
 		};
 	},
-	async mounted() {
-		if (
-			this.isInteractive &&
-			this.state === DATE_PICKER_STATES.DEFAULT &&
-			!this.createInstanceOnToggle
-		) {
-			await this.bindFlatpickrInstance();
-		}
-	},
 	methods: {
 		async bindFlatpickrInstance() {
 			this.flatpickrInstance = await this.createDatePicker(
@@ -224,9 +204,7 @@ export default defineComponent({
 			);
 		},
 
-		async toggle(event: Event) {
-			event.stopPropagation();
-			event.preventDefault();
+		async toggle() {
 			if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
 				if (!this.flatpickrInstance) {
 					await this.bindFlatpickrInstance();

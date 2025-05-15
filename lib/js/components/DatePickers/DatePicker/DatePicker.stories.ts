@@ -65,7 +65,6 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 		},
 		template: `
 			<date-picker
-				:create-instance-on-toggle="createInstanceOnToggle"
 				:trigger-type="triggerType"
 				:is-interactive="isInteractive"
 				:placeholder="placeholder"
@@ -95,7 +94,6 @@ export const Interactive = StoryTemplate.bind({});
 const now = Date.now();
 const oneDayMili = 86400000;
 const args = {
-	createInstanceOnToggle: true,
 	triggerType: DATE_PICKER_TRIGGER_TYPES.TILE,
 	isInteractive: true,
 	color: DATE_PICKER_COLORS.NEUTRAL_WEAK,
