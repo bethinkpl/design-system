@@ -1,3 +1,4 @@
+import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { PropType, Ref } from 'vue';
 import { DatePickerCalendarPositions, DatePickerColors, DatePickerStates } from '../DatePicker';
 
@@ -17,7 +18,7 @@ declare const _default: import('vue').DefineComponent<{
     flatpickrInputRef: Ref<HTMLInputElement, HTMLInputElement>;
     isOpen: Ref<boolean, boolean>;
     toggleDatePicker: () => void;
-    createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement, updatePositionBasedOnScrollableSelector: string) => Promise<import('flatpickr/dist/types/instance').Instance | undefined>;
+    createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement, updatePositionBasedOnScrollableSelector: string) => Promise<DatePickerInstance | undefined>;
     DATE_PICKER_CALENDAR_POSITIONS: Readonly<{
         TOP: string;
         TOP_LEFT: string;
@@ -42,7 +43,8 @@ declare const _default: import('vue').DefineComponent<{
         TILE: string;
     }>;
 }, {}, {}, {
-    toggle(): void;
+    bindFlatpickrInstance(): Promise<void>;
+    toggle(): Promise<void>;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     'update:date': (value: {
         startDate: Date;

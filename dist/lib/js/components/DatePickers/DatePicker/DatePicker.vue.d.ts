@@ -1,4 +1,6 @@
 import { PropType, Ref } from 'vue';
+import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
+import { TileColors, TileStates } from '../../Tile';
 import { DatePickerCalendarPositions, DatePickerColors, DatePickerStates } from './DatePicker.consts';
 
 declare const _default: import('vue').DefineComponent<{
@@ -17,7 +19,7 @@ declare const _default: import('vue').DefineComponent<{
     datePickerRef: Ref<HTMLDivElement, HTMLDivElement>;
     isOpen: Ref<boolean, boolean>;
     toggleDatePicker: () => void;
-    createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement, updatePositionBasedOnScrollableSelector: string) => Promise<import('flatpickr/dist/types/instance').Instance | undefined>;
+    createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement, updatePositionBasedOnScrollableSelector: string) => Promise<DatePickerInstance | undefined>;
     DATE_PICKER_CALENDAR_POSITIONS: Readonly<{
         TOP: string;
         TOP_LEFT: string;
@@ -53,7 +55,8 @@ declare const _default: import('vue').DefineComponent<{
     showErrorMessage(): boolean;
     showHelpMessage(): boolean;
 }, {
-    toggle(): void;
+    bindFlatpickrInstance(): Promise<void>;
+    toggle(): Promise<void>;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     'update:date': (date: Date) => true;
 }, string, import('vue').PublicProps, Readonly<{
@@ -121,7 +124,7 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         color: {
-            type: PropType<import('../../Tile').TileColors>;
+            type: PropType<TileColors>;
             default: "neutral";
             validator(color: any): boolean;
         };
@@ -130,7 +133,7 @@ declare const _default: import('vue').DefineComponent<{
             default: boolean;
         };
         state: {
-            type: PropType<import('../../Tile').TileStates>;
+            type: PropType<TileStates>;
             default: "default";
             validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
         };
@@ -424,7 +427,7 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         color: {
-            type: PropType<import('../../Tile').TileColors>;
+            type: PropType<TileColors>;
             default: "neutral";
             validator(color: any): boolean;
         };
@@ -433,7 +436,7 @@ declare const _default: import('vue').DefineComponent<{
             default: boolean;
         };
         state: {
-            type: PropType<import('../../Tile').TileStates>;
+            type: PropType<TileStates>;
             default: "default";
             validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
         };
@@ -455,8 +458,8 @@ declare const _default: import('vue').DefineComponent<{
             validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
         };
     }>> & Readonly<{}>, {
-        color: import('../../Tile').TileColors;
-        state: import('../../Tile').TileStates;
+        color: TileColors;
+        state: TileStates;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
         borderColor: import('../../Tile').TileBorderColors;
