@@ -1,7 +1,11 @@
+import { Value } from '../../utils/type.utils';
+
 export const CHIP_SIZES = {
 	X_SMALL: 'x-small',
 	SMALL: 'small',
 } as const;
+
+export type ChipSize = Value<typeof CHIP_SIZES>;
 
 export const CHIP_COLORS = {
 	PRIMARY: 'primary',
@@ -15,12 +19,18 @@ export const CHIP_COLORS = {
 	INFO: 'info',
 } as const;
 
+export type ChipColor = Value<typeof CHIP_COLORS>;
+
 export const CHIP_STATES = {
 	DEFAULT: 'default',
 	DISABLED: 'disabled',
 } as const;
 
+export type ChipState = Value<typeof CHIP_STATES>;
+
 export const CHIP_RADIUSES = {
 	CAPSULE: 'capsule',
 	ROUNDED: 'rounded',
 } as const;
+
+export type ChipRadius = Value<typeof CHIP_RADIUSES>;

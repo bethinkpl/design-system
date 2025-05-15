@@ -85,6 +85,9 @@ import {
 	DROPDOWN_PLACEMENTS,
 	DROPDOWN_RADIUSES,
 	DROPDOWN_TRIGGER_ACTIONS,
+	DropdownPlacement,
+	DropdownRadius,
+	DropdownTriggerAction,
 } from './Dropdown.consts';
 
 import { defineComponent } from 'vue';
@@ -110,21 +113,21 @@ export default defineComponent({
 		triggerAction: {
 			type: String,
 			default: DROPDOWN_TRIGGER_ACTIONS.CLICK,
-			validator(triggerAction) {
+			validator(triggerAction: DropdownTriggerAction) {
 				return Object.values(DROPDOWN_TRIGGER_ACTIONS).includes(triggerAction);
 			},
 		},
 		radius: {
 			type: String,
 			default: DROPDOWN_RADIUSES.BOTH,
-			validate(radius) {
+			validate(radius: DropdownRadius) {
 				return Object.values(DROPDOWN_RADIUSES).includes(radius);
 			},
 		},
 		placement: {
 			type: String,
 			default: DROPDOWN_PLACEMENTS.BOTTOM_START,
-			validate(placement) {
+			validate(placement: DropdownPlacement) {
 				return Object.values(DROPDOWN_PLACEMENTS).includes(placement);
 			},
 		},

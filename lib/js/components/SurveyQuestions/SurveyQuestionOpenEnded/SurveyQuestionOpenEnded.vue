@@ -87,7 +87,7 @@ import DsModal from '../../Modal';
 import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
 import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import { SURVEY_QUESTION_STATES, SurveyQuestionState } from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
 import { randomString } from '../../../utils/string';
 
@@ -118,7 +118,7 @@ export default defineComponent({
 		state: {
 			type: String,
 			default: SURVEY_QUESTION_STATES.DEFAULT,
-			validator(state) {
+			validator(state: SurveyQuestionState) {
 				return Object.values(SURVEY_QUESTION_STATES).includes(state);
 			},
 		},

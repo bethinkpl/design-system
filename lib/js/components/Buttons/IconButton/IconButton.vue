@@ -266,6 +266,8 @@ import WnlButton, {
 	BUTTON_ELEVATIONS,
 	BUTTON_RADIUSES,
 	BUTTON_TYPES,
+	ButtonElevation,
+	ButtonRadius,
 } from '../Button';
 import {
 	ICON_BUTTON_COLOR_SCHEMES,
@@ -273,6 +275,10 @@ import {
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_STATES,
 	ICON_BUTTON_TYPES,
+	IconButtonColor,
+	IconButtonColorScheme,
+	IconButtonSize,
+	IconButtonType,
 } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
 import { defineComponent, toRaw } from 'vue';
@@ -296,21 +302,21 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: ICON_BUTTON_SIZES.LARGE,
-			validator(value) {
+			validator(value: IconButtonSize) {
 				return Object.values(ICON_BUTTON_SIZES).includes(value);
 			},
 		},
 		radius: {
 			type: String,
 			default: BUTTON_RADIUSES.CAPSULE,
-			validator(value) {
+			validator(value: ButtonRadius) {
 				return Object.values(BUTTON_RADIUSES).includes(value);
 			},
 		},
 		type: {
 			type: String,
 			default: ICON_BUTTON_TYPES.ICON_ONLY,
-			validator(value) {
+			validator(value: IconButtonType) {
 				return Object.values(ICON_BUTTON_TYPES).includes(value);
 			},
 		},
@@ -324,21 +330,21 @@ export default defineComponent({
 		color: {
 			type: String,
 			default: ICON_BUTTON_COLORS.PRIMARY,
-			validator(value): boolean {
+			validator(value: IconButtonColor) {
 				return Object.values(ICON_BUTTON_COLORS).includes(value);
 			},
 		},
 		colorScheme: {
 			type: String,
 			default: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
-			validator(value): boolean {
+			validator(value: IconButtonColorScheme) {
 				return Object.values(ICON_BUTTON_COLOR_SCHEMES).includes(value);
 			},
 		},
 		elevation: {
 			type: String,
 			default: BUTTON_ELEVATIONS.NONE,
-			validator(value) {
+			validator(value: ButtonElevation) {
 				return Object.values(BUTTON_ELEVATIONS).includes(value);
 			},
 		},
@@ -393,9 +399,9 @@ export default defineComponent({
 			}
 			return this.type;
 		},
-		computedColor(): string | null {
+		computedColor(): string | undefined {
 			if (this.isButtonColor) {
-				return null;
+				return undefined;
 			}
 			if (this.type === ICON_BUTTON_TYPES.ICON_ONLY) {
 				return this.color;

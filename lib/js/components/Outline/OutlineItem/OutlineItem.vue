@@ -221,6 +221,9 @@ import {
 	OUTLINE_ITEM_BACKGROUND_COLORS,
 	OUTLINE_ITEM_SIZES,
 	OUTLINE_ITEM_STATES,
+	OutlineItemBackgroundColor,
+	OutlineItemSize,
+	OutlineItemState,
 } from './OutlineItem.consts';
 
 export default defineComponent({
@@ -232,14 +235,14 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: OUTLINE_ITEM_SIZES.SMALL,
-			validator(size) {
+			validator(size: OutlineItemSize) {
 				return Object.values(OUTLINE_ITEM_SIZES).includes(size);
 			},
 		},
 		backgroundColor: {
 			type: String,
 			default: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
-			validator(color) {
+			validator(color: OutlineItemBackgroundColor) {
 				return Object.values(OUTLINE_ITEM_BACKGROUND_COLORS).includes(color);
 			},
 		},
@@ -284,7 +287,7 @@ export default defineComponent({
 		state: {
 			type: String,
 			default: OUTLINE_ITEM_STATES.DEFAULT,
-			validator(state) {
+			validator(state: OutlineItemState) {
 				return Object.values(OUTLINE_ITEM_STATES).includes(state);
 			},
 		},

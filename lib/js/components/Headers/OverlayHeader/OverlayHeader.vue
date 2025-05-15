@@ -325,7 +325,11 @@ import {
 	ICON_BUTTON_STATES,
 } from '../../Buttons/IconButton';
 import { ICONS } from '../../Icons/Icon';
-import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
+import {
+	OVERLAY_HEADER_BORDER_COLORS,
+	OVERLAY_HEADER_STATES,
+	OverlayHeaderBorderColor,
+} from './OverlayHeader.consts';
 import { Value } from '../../../utils/type.utils';
 import { isElementEditable } from '../../../utils/shortcut-keys';
 import { toRaw } from 'vue';
@@ -351,7 +355,8 @@ export default defineComponent({
 		borderColor: {
 			type: String,
 			default: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
-			validator: (value) => Object.values(OVERLAY_HEADER_BORDER_COLORS).includes(value),
+			validator: (value: OverlayHeaderBorderColor) =>
+				Object.values(OVERLAY_HEADER_BORDER_COLORS).includes(value),
 		},
 		isTitleInteractive: {
 			type: Boolean,
