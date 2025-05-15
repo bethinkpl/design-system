@@ -1,3 +1,5 @@
+import { PageHeaderMobileLayout } from './PageHeader.consts';
+
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     pageTitle: {
         type: StringConstructor;
@@ -14,7 +16,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     mobileLayout: {
         type: StringConstructor;
         default: "vertical";
-        validator: (value: unknown) => boolean;
+        validator: (value: PageHeaderMobileLayout) => boolean;
     };
 }>, {}, {
     PAGE_HEADER_MOBILE_LAYOUTS: Readonly<{
@@ -37,7 +39,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     mobileLayout: {
         type: StringConstructor;
         default: "vertical";
-        validator: (value: unknown) => boolean;
+        validator: (value: PageHeaderMobileLayout) => boolean;
     };
 }>> & Readonly<{}>, {
     divider: boolean;

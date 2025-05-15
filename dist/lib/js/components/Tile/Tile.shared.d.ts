@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import { TILE_STATES, TileAdditionalTextMaxWidths, TileBorderColors, TileColors, TileStates } from './Tile.consts';
+import { TILE_STATES, TileAdditionalTextMaxWidth, TileBorderColors, TileColor, TileState } from './Tile.consts';
 import { Value } from '../../utils/type.utils';
 
 export declare const props: {
@@ -34,7 +34,7 @@ export declare const props: {
         default: null;
     };
     color: {
-        type: PropType<TileColors>;
+        type: PropType<TileColor>;
         default: "neutral";
         validator(color: any): boolean;
     };
@@ -43,7 +43,7 @@ export declare const props: {
         default: boolean;
     };
     state: {
-        type: PropType<TileStates>;
+        type: PropType<TileState>;
         default: "default";
         validator(value: Value<typeof TILE_STATES>): boolean;
     };
@@ -60,8 +60,8 @@ export declare const props: {
         default: null;
     };
     additionalTextMaxWidth: {
-        type: PropType<TileAdditionalTextMaxWidths>;
+        type: PropType<TileAdditionalTextMaxWidth>;
         default: "small";
-        validator(value: TileAdditionalTextMaxWidths): boolean;
+        validator(value: TileAdditionalTextMaxWidth): boolean;
     };
 };

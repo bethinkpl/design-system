@@ -1,13 +1,15 @@
+import { OutlineItemBackgroundColor, OutlineItemSize, OutlineItemState } from './OutlineItem.consts';
+
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     size: {
         type: StringConstructor;
         default: string;
-        validator(size: unknown): boolean;
+        validator(size: OutlineItemSize): boolean;
     };
     backgroundColor: {
         type: StringConstructor;
         default: string;
-        validator(color: unknown): boolean;
+        validator(color: OutlineItemBackgroundColor): boolean;
     };
     iconLeft: {
         type: ObjectConstructor;
@@ -43,7 +45,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: StringConstructor;
         default: string;
-        validator(state: unknown): boolean;
+        validator(state: OutlineItemState): boolean;
     };
     isSelected: {
         type: BooleanConstructor;
@@ -304,12 +306,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     size: {
         type: StringConstructor;
         default: string;
-        validator(size: unknown): boolean;
+        validator(size: OutlineItemSize): boolean;
     };
     backgroundColor: {
         type: StringConstructor;
         default: string;
-        validator(color: unknown): boolean;
+        validator(color: OutlineItemBackgroundColor): boolean;
     };
     iconLeft: {
         type: ObjectConstructor;
@@ -345,7 +347,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: StringConstructor;
         default: string;
-        validator(state: unknown): boolean;
+        validator(state: OutlineItemState): boolean;
     };
     isSelected: {
         type: BooleanConstructor;
@@ -391,7 +393,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -425,7 +427,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -445,7 +447,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;

@@ -67,7 +67,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     supportingTextTooltipContent: {
-        type: (StringConstructor | null)[];
+        type: StringConstructor;
         default: null;
     };
 }>, {}, {
@@ -151,7 +151,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     supportingTextTooltipContent: {
-        type: (StringConstructor | null)[];
+        type: StringConstructor;
         default: null;
     };
 }>> & Readonly<{}>, {
@@ -171,7 +171,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isSupportingTextTooltipEnabled: boolean;
     isSupportingTextTooltipEnabledOnMobile: boolean;
     isSupportingTextTooltipAutoFilledWithContent: boolean;
-    supportingTextTooltipContent: string | null;
+    supportingTextTooltipContent: string;
 }, {}, {
     DsSkeleton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         height: {

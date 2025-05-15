@@ -5,7 +5,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     size: {
         type: PropType<SelectionControlSize>;
         default: "small";
-        validator(size: unknown): boolean;
+        validator(size: SelectionControlSize): boolean;
     };
     label: {
         type: StringConstructor;
@@ -18,7 +18,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: PropType<SelectionControlState>;
         default: "default";
-        validator(state: unknown): boolean;
+        validator(state: SelectionControlState): boolean;
     };
     selectedIcon: {
         type: ObjectConstructor;
@@ -33,7 +33,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     type: {
         type: PropType<SelectionControlType>;
         required: true;
-        validator(type: unknown): boolean;
+        validator(type: SelectionControlType): boolean;
     };
 }>, {}, {
     isFocused: boolean;
@@ -57,7 +57,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     size: {
         type: PropType<SelectionControlSize>;
         default: "small";
-        validator(size: unknown): boolean;
+        validator(size: SelectionControlSize): boolean;
     };
     label: {
         type: StringConstructor;
@@ -70,7 +70,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: PropType<SelectionControlState>;
         default: "default";
-        validator(state: unknown): boolean;
+        validator(state: SelectionControlState): boolean;
     };
     selectedIcon: {
         type: ObjectConstructor;
@@ -85,7 +85,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     type: {
         type: PropType<SelectionControlType>;
         required: true;
-        validator(type: unknown): boolean;
+        validator(type: SelectionControlType): boolean;
     };
 }>> & Readonly<{
     "onUpdate:is-selected"?: ((...args: any[]) => any) | undefined;
@@ -109,7 +109,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -143,7 +143,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -163,7 +163,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;

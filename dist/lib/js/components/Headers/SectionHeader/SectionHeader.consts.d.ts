@@ -7,10 +7,12 @@ export declare const SECTION_HEADER_SIZES: {
     MEDIUM: string;
     LARGE: string;
 };
+export type SectionHeaderSize = Value<typeof SECTION_HEADER_SIZES>;
 export declare const SECTION_HEADER_MOBILE_LAYOUTS: {
     readonly VERTICAL: "vertical";
     readonly HORIZONTAL: "horizontal";
 };
+export type SectionHeaderMobileLayout = Value<typeof SECTION_HEADER_MOBILE_LAYOUTS>;
 export declare const SECTION_HEADER_ICON_COLORS: {
     ACCENT: string;
     DANGER: string;

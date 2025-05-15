@@ -32,7 +32,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     color: {
-        type: import('vue').PropType<import('./Tile.consts').TileColors>;
+        type: import('vue').PropType<import('./Tile.consts').TileColor>;
         default: "neutral";
         validator(color: any): boolean;
     };
@@ -41,7 +41,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     state: {
-        type: import('vue').PropType<import('./Tile.consts').TileStates>;
+        type: import('vue').PropType<import('./Tile.consts').TileState>;
         default: "default";
         validator(value: import('../../utils/type.utils').Value<typeof TILE_STATES>): boolean;
     };
@@ -58,9 +58,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     additionalTextMaxWidth: {
-        type: import('vue').PropType<import('./Tile.consts').TileAdditionalTextMaxWidths>;
+        type: import('vue').PropType<import('./Tile.consts').TileAdditionalTextMaxWidth>;
         default: "small";
-        validator(value: import('./Tile.consts').TileAdditionalTextMaxWidths): boolean;
+        validator(value: import('./Tile.consts').TileAdditionalTextMaxWidth): boolean;
     };
 }>, {}, {
     ICONS: Readonly<{
@@ -335,7 +335,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     color: {
-        type: import('vue').PropType<import('./Tile.consts').TileColors>;
+        type: import('vue').PropType<import('./Tile.consts').TileColor>;
         default: "neutral";
         validator(color: any): boolean;
     };
@@ -344,7 +344,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
     state: {
-        type: import('vue').PropType<import('./Tile.consts').TileStates>;
+        type: import('vue').PropType<import('./Tile.consts').TileState>;
         default: "default";
         validator(value: import('../../utils/type.utils').Value<typeof TILE_STATES>): boolean;
     };
@@ -361,13 +361,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     additionalTextMaxWidth: {
-        type: import('vue').PropType<import('./Tile.consts').TileAdditionalTextMaxWidths>;
+        type: import('vue').PropType<import('./Tile.consts').TileAdditionalTextMaxWidth>;
         default: "small";
-        validator(value: import('./Tile.consts').TileAdditionalTextMaxWidths): boolean;
+        validator(value: import('./Tile.consts').TileAdditionalTextMaxWidth): boolean;
     };
 }>> & Readonly<{}>, {
-    color: import('./Tile.consts').TileColors;
-    state: import('./Tile.consts').TileStates;
+    color: import('./Tile.consts').TileColor;
+    state: import('./Tile.consts').TileState;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
     borderColor: import('./Tile.consts').TileBorderColors;
@@ -378,7 +378,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isEyebrowTextUppercase: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
-    additionalTextMaxWidth: import('./Tile.consts').TileAdditionalTextMaxWidths;
+    additionalTextMaxWidth: import('./Tile.consts').TileAdditionalTextMaxWidth;
 }, {}, {
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         icon: {
@@ -392,7 +392,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -426,7 +426,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -446,7 +446,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
