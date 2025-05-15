@@ -162,6 +162,8 @@ export default defineComponent({
 			isOpen,
 			toggle: toggleDatePicker,
 			createDatePicker,
+			destroyDatePicker,
+			updateDatePicker,
 		} = initFlatpickr({
 			props,
 			onChange,
@@ -170,16 +172,9 @@ export default defineComponent({
 		});
 
 		watch([() => props.isInteractive, () => props.state], async () => {
-			if (
-				props.isInteractive &&
-				props.state === DATE_PICKER_STATES.DEFAULT &&
-				!flatpickrInstance.value
-			) {
-				flatpickrInstance.value = (await createDatePicker(
-					flatpickrInputRef.value,
-					dateRangePickerRef.value,
-					props.updatePositionBasedOnScrollableSelector,
-				)) as DatePickerInstance;
+			if (!props.isInteractive || props.state === DATE_PICKER_STATES.DISABLED) {
+				destroyDatePicker();
+				flatpickrInstance.value = null;
 			}
 		});
 
@@ -189,6 +184,8 @@ export default defineComponent({
 			isOpen,
 			toggleDatePicker,
 			createDatePicker,
+			destroyDatePicker,
+			updateDatePicker,
 			DATE_PICKER_CALENDAR_POSITIONS: Object.freeze(DATE_PICKER_CALENDAR_POSITIONS),
 			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
 			DATE_PICKER_STATES: Object.freeze(DATE_PICKER_STATES),
@@ -202,6 +199,7 @@ export default defineComponent({
 				this.dateRangePickerRef,
 				this.updatePositionBasedOnScrollableSelector,
 			);
+			this.updateDatePicker();
 		},
 
 		async toggle() {
