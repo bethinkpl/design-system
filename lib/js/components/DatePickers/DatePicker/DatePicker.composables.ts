@@ -31,6 +31,8 @@ interface InitFlatpickr {
 		dateRangePickerRef: HTMLElement,
 		updatePositionBasedOnScrollableSelector: string,
 	) => Promise<DatePickerInstance | undefined>;
+	destroyDatePicker: () => void;
+	updateDatePicker: () => void;
 	isOpen: Ref<boolean>;
 	toggle: () => void;
 }
@@ -113,9 +115,13 @@ export function initFlatpickr({
 		return datePicker;
 	};
 
-	onUnmounted(() => {
+	const destroyDatePicker = () => {
 		datePicker?.destroy();
 		datePicker = null;
+	};
+
+	onUnmounted(() => {
+		destroyDatePicker();
 	});
 
 	watch(
@@ -142,26 +148,32 @@ export function initFlatpickr({
 	watch(
 		[() => props.date, () => props.startDate, () => props.endDate],
 		() => {
-			if (props.date) {
-				updateDatePickerDates(props.date);
-			} else if (props.startDate && props.endDate) {
-				updateDatePickerDates([props.startDate, props.endDate]);
-			} else if (props.startDate && !props.endDate) {
-				updateDatePickerDates(props.startDate);
-			} else if (!props.startDate && props.endDate) {
-				updateDatePickerDates(props.endDate);
-			} else {
-				datePicker?.clear(false);
-			}
+			updateDatePicker();
 		},
 		{
 			flush: 'post', // Ensure updates happen after DOM changes
 		},
 	);
 
+	const updateDatePicker = () => {
+		if (props.date) {
+			updateDatePickerDates(props.date);
+		} else if (props.startDate && props.endDate) {
+			updateDatePickerDates([props.startDate, props.endDate]);
+		} else if (props.startDate && !props.endDate) {
+			updateDatePickerDates(props.startDate);
+		} else if (!props.startDate && props.endDate) {
+			updateDatePickerDates(props.endDate);
+		} else {
+			datePicker?.clear(false);
+		}
+	};
+
 	return {
 		datePicker,
 		createDatePicker,
+		destroyDatePicker,
+		updateDatePicker,
 		isOpen,
 		toggle: () => {
 			datePicker?.toggle();
