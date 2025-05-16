@@ -1,6 +1,6 @@
 <template>
 	<teleport to="body">
-		<div class="ds-modal" @click.self="$emit('close-modal')">
+		<div class="ds-modal" v-bind="$attrs" @click.self="$emit('close-modal')">
 			<div class="ds-modal__wrapper" :class="{ '-ds-small': size === MODAL_SIZES.SMALL }">
 				<wnl-icon-button
 					touchable
@@ -332,6 +332,7 @@ import { defineComponent, toRaw } from 'vue';
 export default defineComponent({
 	name: 'Modal',
 	components: { FeatureIcon, WnlButton, WnlIconButton },
+	inheritAttrs: false,
 	props: {
 		size: {
 			type: String,
