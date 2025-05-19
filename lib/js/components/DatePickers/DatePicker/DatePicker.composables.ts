@@ -20,6 +20,7 @@ export interface DatePickerComposablesProps {
 interface InitFlatpickrPrams {
 	props: DatePickerComposablesProps;
 	onChange: (dates: Array<Date>) => void;
+	onClose: () => void;
 	defaultDates: Date | Array<Date>;
 	mode: 'single' | 'range';
 }
@@ -40,6 +41,7 @@ interface InitFlatpickr {
 export function initFlatpickr({
 	props,
 	onChange,
+	onClose,
 	defaultDates,
 	mode = 'single',
 }: InitFlatpickrPrams): InitFlatpickr {
@@ -84,6 +86,10 @@ export function initFlatpickr({
 			onClose: [
 				() => {
 					isOpen.value = false;
+					// setTimeout is needed to ensure that the date picker is closed before the onClose callback is called
+					setTimeout(() => {
+						onClose();
+					});
 				},
 			],
 			onOpen: [

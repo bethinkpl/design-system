@@ -49,7 +49,7 @@
 
 <script lang="ts">
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
-import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
+import { defineComponent, PropType, Ref, ref, toRaw } from 'vue';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import DateBox from '../DateBox';
 import {
@@ -158,6 +158,11 @@ export default defineComponent({
 			emit('update:date', { startDate: event[0], endDate: event[1] });
 		};
 
+		const onClose = () => {
+			destroyDatePicker();
+			flatpickrInstance.value = null;
+		};
+
 		const {
 			isOpen,
 			toggle: toggleDatePicker,
@@ -167,15 +172,9 @@ export default defineComponent({
 		} = initFlatpickr({
 			props,
 			onChange,
+			onClose,
 			defaultDates: [props.startDate, props.endDate],
 			mode: 'range',
-		});
-
-		watch([() => props.isInteractive, () => props.state], async () => {
-			if (!props.isInteractive || props.state === DATE_PICKER_STATES.DISABLED) {
-				destroyDatePicker();
-				flatpickrInstance.value = null;
-			}
 		});
 
 		return {
