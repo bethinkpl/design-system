@@ -1,28 +1,30 @@
 <template>
-	<div class="m-modal" @click.stop="$emit('close-modal')">
-		<div class="m-modal__contentWrapper" @click.stop>
-			<div v-if="showHeader" class="m-modal__header">
-				<slot name="header" />
-				<wnl-icon
-					touchable
-					:icon="ICONS.FA_XMARK"
-					class="m-modal__header__close"
-					:size="ICON_SIZES.SMALL"
-					@click.stop="$emit('close-modal')"
-				/>
-			</div>
-			<div
-				class="m-modal__content"
-				:class="{ 'scrollable-main-container': animateScrollingContent }"
-			>
-				<slot />
-			</div>
-			<div class="m-modal__content__shadow" />
-			<div v-if="$slots.footer" class="m-modal__footer">
-				<slot name="footer" />
+	<teleport to="body">
+		<div class="m-modal" v-bind="$attrs" @click.stop="$emit('close-modal')">
+			<div class="m-modal__contentWrapper" @click.stop>
+				<div v-if="showHeader" class="m-modal__header">
+					<slot name="header" />
+					<wnl-icon
+						touchable
+						:icon="ICONS.FA_XMARK"
+						class="m-modal__header__close"
+						:size="ICON_SIZES.SMALL"
+						@click.stop="$emit('close-modal')"
+					/>
+				</div>
+				<div
+					class="m-modal__content"
+					:class="{ 'scrollable-main-container': animateScrollingContent }"
+				>
+					<slot />
+				</div>
+				<div class="m-modal__content__shadow" />
+				<div v-if="$slots.footer" class="m-modal__footer">
+					<slot name="footer" />
+				</div>
 			</div>
 		</div>
-	</div>
+	</teleport>
 </template>
 
 <style lang="scss" scoped>
@@ -111,6 +113,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
 	name: 'Modal',
 	components: { WnlIcon },
+	inheritAttrs: false,
 	props: {
 		showHeader: {
 			type: Boolean,
