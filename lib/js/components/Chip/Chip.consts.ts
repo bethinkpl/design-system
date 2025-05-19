@@ -15,6 +15,8 @@ export const CHIP_COLORS = {
 	INFO: 'info',
 } as const;
 
+export const CHIP_DEFAULT_COLOR = CHIP_COLORS.NEUTRAL;
+
 export const CHIP_STATES = {
 	DEFAULT: 'default',
 	DISABLED: 'disabled',

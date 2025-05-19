@@ -246,7 +246,7 @@ import IconButton, {
 	ICON_BUTTON_STATES,
 } from '../Buttons/IconButton';
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { CHIP_COLORS, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
+import { CHIP_COLORS, CHIP_DEFAULT_COLOR, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
 
 const CHIP_ICON_BUTTONS_COLOR_MAP = {
 	[CHIP_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
@@ -295,7 +295,7 @@ export default defineComponent({
 		},
 		color: {
 			type: String,
-			default: CHIP_COLORS.NEUTRAL,
+			default: CHIP_DEFAULT_COLOR,
 			validator(color) {
 				return Object.values(CHIP_COLORS).includes(color);
 			},
