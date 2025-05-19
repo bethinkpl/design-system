@@ -26,7 +26,9 @@ const meta: Meta<WellProps> = {
 		setup() {
 			return { args };
 		},
-		template: wrapWithContainer('<well v-bind="args" :chip-left-icon="ICONS[args.chipLeftIcon]"><div v-html="args.content" /></well>'),
+		template: wrapWithContainer(
+			'<well v-bind="args" :chip-left-icon="ICONS[args.chipLeftIcon]"><div v-html="args.content" /></well>',
+		),
 		data() {
 			return {
 				ICONS: Object.freeze(ICONS),
@@ -35,7 +37,9 @@ const meta: Meta<WellProps> = {
 		},
 		computed: {
 			invalidUsage() {
-				return args.hasChip && !Object.values(CHIP_AVAILABLE_PADDINGS).includes(args.padding);
+				return (
+					args.hasChip && !Object.values(CHIP_AVAILABLE_PADDINGS).includes(args.padding)
+				);
 			},
 		},
 	}),

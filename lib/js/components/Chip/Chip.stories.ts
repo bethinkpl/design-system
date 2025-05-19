@@ -1,5 +1,11 @@
 import Chip from './Chip.vue';
-import { CHIP_COLORS, CHIP_DEFAULT_COLOR, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
+import {
+	CHIP_COLORS,
+	CHIP_DEFAULT_COLOR,
+	CHIP_RADIUSES,
+	CHIP_SIZES,
+	CHIP_STATES,
+} from './Chip.consts';
 import { ICONS } from '../Icons/Icon';
 import LogoBadge from '../../../images/logo-badge.svg';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
