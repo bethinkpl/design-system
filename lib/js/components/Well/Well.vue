@@ -35,28 +35,32 @@
 
 	&.-ds-medium {
 		padding: $space-s;
+
+		& > .ds-well__chipContainer{
+			right: $space-s;
+		}
 	}
 
 	&.-ds-small {
 		padding: $space-xs;
+
+		& > .ds-well__chipContainer {
+			right: $space-xs;
+		}
 	}
 
 	&__chipContainer {
 		position: absolute;
-		right: 16px;
 		top: -10px;
+		right: 0;
 	}
 }
 </style>
 
 <script lang="ts" setup>
-import { WELL_PADDINGS } from './Well.consts';
-import Chip, { CHIP_COLORS, CHIP_DEFAULT_COLOR, CHIP_RADIUSES } from '../Chip/index.ts';
-import { ICONS } from '../Icons/Icon';
-import type { Value } from '../../utils/type.utils';
-
-type Padding = keyof typeof WELL_PADDINGS;
-type IconItem = keyof typeof ICONS;
+import { WELL_PADDINGS, WellPadding } from './Well.consts';
+import Chip, { CHIP_DEFAULT_COLOR, CHIP_RADIUSES, ChipRadius, ChipColor } from '../Chip';
+import { IconKey } from '../Icons/Icon';
 
 const {
 	padding = null,
@@ -68,13 +72,13 @@ const {
 	chipColor = CHIP_DEFAULT_COLOR,
 	chipColorHex = null,
 } = defineProps<{
-	padding?: Padding;
+	padding?: WellPadding;
 	hasChip?: boolean;
 	chipLabel?: string;
 	chipLabelUppercase?: boolean;
-	chipLeftIcon?: IconItem;
-	chipRadius?: Value<typeof CHIP_RADIUSES>;
-	chipColor?: Value<typeof CHIP_COLORS>;
+	chipLeftIcon?: IconKey;
+	chipRadius?: ChipRadius;
+	chipColor?: ChipColor;
 	chipColorHex?: string;
 }>();
 </script>

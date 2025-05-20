@@ -17,6 +17,8 @@ export const CHIP_COLORS = {
 
 export const CHIP_DEFAULT_COLOR = CHIP_COLORS.NEUTRAL;
 
+export type ChipColor = keyof typeof CHIP_COLORS;
+
 export const CHIP_STATES = {
 	DEFAULT: 'default',
 	DISABLED: 'disabled',
@@ -26,3 +28,5 @@ export const CHIP_RADIUSES = {
 	CAPSULE: 'capsule',
 	ROUNDED: 'rounded',
 } as const;
+
+export type ChipRadius = keyof typeof CHIP_RADIUSES;

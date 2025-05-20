@@ -2,7 +2,6 @@
 
 import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
 import Well from './Well.vue';
-import Banner from './Banner.vue';
 import { CHIP_AVAILABLE_PADDINGS, WELL_PADDINGS } from './Well.consts';
 import type { ComponentProps } from 'vue-component-type-helpers';
 import { ICONS } from '../Icons/Icon';
