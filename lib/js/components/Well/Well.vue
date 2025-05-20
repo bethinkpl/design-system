@@ -31,6 +31,8 @@
 @import '../../../styles/settings/colors/tokens';
 
 .ds-well {
+	$root: &;
+
 	background-color: $color-neutral-background;
 	border-radius: $radius-m;
 	position: relative;
@@ -44,7 +46,7 @@
 	&.-ds-medium {
 		padding: $space-s;
 
-		& > .ds-well__chipContainer {
+		#{$root}__chipContainer {
 			right: $space-s;
 		}
 	}
@@ -52,7 +54,7 @@
 	&.-ds-small {
 		padding: $space-xs;
 
-		& > .ds-well__chipContainer {
+		#{$root}__chipContainer {
 			right: $space-xs;
 		}
 	}
@@ -62,7 +64,7 @@
 <script lang="ts" setup>
 import { WELL_PADDINGS, WellPadding } from './Well.consts';
 import Chip, { CHIP_DEFAULT_COLOR, CHIP_RADIUSES, ChipRadius, ChipColor } from '../Chip';
-import { IconKey } from '../Icons/Icon';
+import { IconItem } from '../Icons/Icon';
 
 const {
 	padding = null,
@@ -78,7 +80,7 @@ const {
 	hasChip?: boolean;
 	chipLabel?: string;
 	chipLabelUppercase?: boolean;
-	chipLeftIcon?: IconKey;
+	chipLeftIcon?: IconItem;
 	chipRadius?: ChipRadius;
 	chipColor?: ChipColor;
 	chipColorHex?: string;
