@@ -15,7 +15,9 @@
 				:color="chipColor"
 				:color-hex="chipColorHex"
 			>
-				<slot name="chipAccessory" />
+				<template v-if="$slots.chipAccessory" #accessory>
+					<slot name="chipAccessory" />
+				</template>
 			</chip>
 		</div>
 
