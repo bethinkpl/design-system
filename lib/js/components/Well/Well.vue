@@ -35,10 +35,16 @@
 	border-radius: $radius-m;
 	position: relative;
 
+	&__chipContainer {
+		position: absolute;
+		right: 0;
+		top: -10px;
+	}
+
 	&.-ds-medium {
 		padding: $space-s;
 
-		& > .ds-well__chipContainer{
+		& > .ds-well__chipContainer {
 			right: $space-s;
 		}
 	}
@@ -49,12 +55,6 @@
 		& > .ds-well__chipContainer {
 			right: $space-xs;
 		}
-	}
-
-	&__chipContainer {
-		position: absolute;
-		top: -10px;
-		right: 0;
 	}
 }
 </style>
