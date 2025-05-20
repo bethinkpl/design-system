@@ -38,6 +38,7 @@
 	position: relative;
 
 	&__chipContainer {
+		display: flex;
 		position: absolute;
 		right: 0;
 		top: -10px;
