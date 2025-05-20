@@ -1,5 +1,5 @@
-import { IconColor, IconItem } from '../../../components/Icons/Icon';
 import { PropType } from 'vue';
+import { IconColor, IconItem } from '../../../components/Icons/Icon';
 import { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemElevation, RichListItemLayout, RichListItemSize, RichListItemState, RichListItemType } from './RichListItem.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{

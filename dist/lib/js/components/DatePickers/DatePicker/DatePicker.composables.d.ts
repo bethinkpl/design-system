@@ -14,14 +14,17 @@ export interface DatePickerComposablesProps {
 interface InitFlatpickrPrams {
     props: DatePickerComposablesProps;
     onChange: (dates: Array<Date>) => void;
+    onClose: () => void;
     defaultDates: Date | Array<Date>;
     mode: 'single' | 'range';
 }
 interface InitFlatpickr {
     datePicker: DatePickerInstance | null;
     createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement, updatePositionBasedOnScrollableSelector: string) => Promise<DatePickerInstance | undefined>;
+    destroyDatePicker: () => void;
+    updateDatePicker: () => void;
     isOpen: Ref<boolean>;
     toggle: () => void;
 }
-export declare function initFlatpickr({ props, onChange, defaultDates, mode, }: InitFlatpickrPrams): InitFlatpickr;
+export declare function initFlatpickr({ props, onChange, onClose, defaultDates, mode, }: InitFlatpickrPrams): InitFlatpickr;
 export {};
