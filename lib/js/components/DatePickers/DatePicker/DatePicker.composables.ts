@@ -20,6 +20,7 @@ export interface DatePickerComposablesProps {
 interface InitFlatpickrPrams {
 	props: DatePickerComposablesProps;
 	onChange: (dates: Array<Date>) => void;
+	onClose: () => void;
 	defaultDates: Date | Array<Date>;
 	mode: 'single' | 'range';
 }
@@ -31,6 +32,8 @@ interface InitFlatpickr {
 		dateRangePickerRef: HTMLElement,
 		updatePositionBasedOnScrollableSelector: string,
 	) => Promise<DatePickerInstance | undefined>;
+	destroyDatePicker: () => void;
+	updateDatePicker: () => void;
 	isOpen: Ref<boolean>;
 	toggle: () => void;
 }
@@ -38,6 +41,7 @@ interface InitFlatpickr {
 export function initFlatpickr({
 	props,
 	onChange,
+	onClose,
 	defaultDates,
 	mode = 'single',
 }: InitFlatpickrPrams): InitFlatpickr {
@@ -82,6 +86,10 @@ export function initFlatpickr({
 			onClose: [
 				() => {
 					isOpen.value = false;
+					// setTimeout is needed to ensure that the date picker is closed before the onClose callback is called
+					setTimeout(() => {
+						onClose();
+					});
 				},
 			],
 			onOpen: [
@@ -113,9 +121,13 @@ export function initFlatpickr({
 		return datePicker;
 	};
 
-	onUnmounted(() => {
+	const destroyDatePicker = () => {
 		datePicker?.destroy();
 		datePicker = null;
+	};
+
+	onUnmounted(() => {
+		destroyDatePicker();
 	});
 
 	watch(
@@ -142,26 +154,32 @@ export function initFlatpickr({
 	watch(
 		[() => props.date, () => props.startDate, () => props.endDate],
 		() => {
-			if (props.date) {
-				updateDatePickerDates(props.date);
-			} else if (props.startDate && props.endDate) {
-				updateDatePickerDates([props.startDate, props.endDate]);
-			} else if (props.startDate && !props.endDate) {
-				updateDatePickerDates(props.startDate);
-			} else if (!props.startDate && props.endDate) {
-				updateDatePickerDates(props.endDate);
-			} else {
-				datePicker?.clear(false);
-			}
+			updateDatePicker();
 		},
 		{
 			flush: 'post', // Ensure updates happen after DOM changes
 		},
 	);
 
+	const updateDatePicker = () => {
+		if (props.date) {
+			updateDatePickerDates(props.date);
+		} else if (props.startDate && props.endDate) {
+			updateDatePickerDates([props.startDate, props.endDate]);
+		} else if (props.startDate && !props.endDate) {
+			updateDatePickerDates(props.startDate);
+		} else if (!props.startDate && props.endDate) {
+			updateDatePickerDates(props.endDate);
+		} else {
+			datePicker?.clear(false);
+		}
+	};
+
 	return {
 		datePicker,
 		createDatePicker,
+		destroyDatePicker,
+		updateDatePicker,
 		isOpen,
 		toggle: () => {
 			datePicker?.toggle();
