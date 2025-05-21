@@ -54,7 +54,7 @@ const meta: Meta<WellProps> = {
 	parameters: {
 		design: {
 			type: 'figma',
-			url: 'https://www.figma.com/file/oqNhXXGdc4ZnNQ6YNpkLEK/INI-152-Baza-v3---planowanie?node-id=1807-518161&t=sQ5nflpPY2YcPKNc-4',
+			url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13194-76861&p=f&m=dev',
 		},
 	},
 };

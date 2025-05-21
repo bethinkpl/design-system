@@ -70,12 +70,12 @@ import { IconItem } from '../Icons/Icon';
 const {
 	padding = null,
 	hasChip = false,
-	chipLabel = null,
+	chipLabel,
 	chipLabelUppercase = false,
 	chipLeftIcon = null,
 	chipRadius = CHIP_RADIUSES.ROUNDED,
 	chipColor = CHIP_DEFAULT_COLOR,
-	chipColorHex = null,
+	chipColorHex,
 } = defineProps<{
 	padding?: WellPadding;
 	hasChip?: boolean;
