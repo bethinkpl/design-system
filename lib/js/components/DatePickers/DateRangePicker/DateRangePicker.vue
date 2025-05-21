@@ -178,6 +178,7 @@ export default defineComponent({
 		});
 
 		return {
+			flatpickrInstance,
 			dateRangePickerRef,
 			flatpickrInputRef,
 			isOpen,
