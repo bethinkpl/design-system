@@ -21,32 +21,6 @@
 	</div>
 </template>
 
-<style lang="scss">
-@import 'flatpickr/dist/flatpickr';
-</style>
-
-<style scoped lang="scss">
-@import '../../../../styles/settings/typography/tokens';
-@import '../../../../styles/settings/colors/tokens';
-@import '../../../../styles/settings/spacings';
-
-.ds-dateRangePicker {
-	display: flex;
-	flex-direction: column;
-	row-gap: $space-4xs;
-
-	&__hiddenInput {
-		display: none;
-	}
-
-	&__errorMessage {
-		@include info-s-default-regular;
-
-		color: $color-danger-text;
-	}
-}
-</style>
-
 <script lang="ts">
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { defineComponent, PropType, Ref, ref, toRaw } from 'vue';
@@ -191,6 +165,32 @@ export default defineComponent({
 			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
 		};
 	},
+	watch: {
+		minDate: {
+			immediate: true,
+			handler(minDate: Date) {
+				if (
+					this.startDate &&
+					minDate &&
+					this.startDate.getTime() - minDate.getTime() < 1000 * 60 * 60 * 24
+				) {
+					this.$emit('update:date', { startDate: null, endDate: null });
+				}
+			},
+		},
+		maxDate: {
+			immediate: true,
+			handler(maxDate: Date) {
+				if (
+					this.endDate &&
+					maxDate &&
+					this.endDate.getTime() - maxDate.getTime() > 1000 * 60 * 60 * 24
+				) {
+					this.$emit('update:date', { startDate: null, endDate: null });
+				}
+			},
+		},
+	},
 	methods: {
 		async bindFlatpickrInstance() {
 			this.flatpickrInstance = await this.createDatePicker(
@@ -213,3 +213,29 @@ export default defineComponent({
 	},
 });
 </script>
+
+<style lang="scss">
+@import 'flatpickr/dist/flatpickr';
+</style>
+
+<style scoped lang="scss">
+@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/spacings';
+
+.ds-dateRangePicker {
+	display: flex;
+	flex-direction: column;
+	row-gap: $space-4xs;
+
+	&__hiddenInput {
+		display: none;
+	}
+
+	&__errorMessage {
+		@include info-s-default-regular;
+
+		color: $color-danger-text;
+	}
+}
+</style>
