@@ -58,6 +58,85 @@
 	</div>
 </template>
 
+<style lang="scss">
+@import 'flatpickr/dist/flatpickr';
+</style>
+
+<style lang="scss" scoped>
+@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/spacings';
+
+.ds-datePicker {
+	$self: &;
+
+	display: flex;
+	flex-direction: column;
+	row-gap: $space-4xs;
+
+	&.-ds-box {
+		display: inline-flex;
+	}
+
+	&__hiddenInput {
+		display: none;
+	}
+
+	&__labelWrapper {
+		align-items: flex-end;
+		display: flex;
+		justify-content: space-between;
+		padding-bottom: $space-2xs;
+	}
+
+	&__label {
+		@include label-l-default-bold;
+
+		color: $color-neutral-text-strong;
+
+		&.-ds-isUppercase {
+			@include label-m-extensive-bold-uppercase;
+
+			color: $color-neutral-text;
+		}
+
+		&.-ds-disabled {
+			color: $color-neutral-text-strong-disabled;
+
+			&.-ds-isUppercase {
+				color: $color-neutral-text-disabled;
+			}
+		}
+	}
+
+	&__tile {
+		min-height: 56px;
+
+		/* Prevent text select */
+		-webkit-user-select: none; /* Safari */
+		user-select: none;
+	}
+
+	&__errorMessage {
+		@include info-s-default-regular;
+
+		color: $color-danger-text;
+		// In case we have two date pickers in a row, we want them to have the same height.
+		// When one have a message visible, the second should get an empty string in a prop in such case
+		min-height: $space-xs;
+	}
+
+	&__helpMessage {
+		@include info-s-default-regular;
+
+		color: $color-neutral-text;
+		// In case we have two date pickers in a row, we want them to have the same height.
+		// When one have a message visible, the second should get an empty string in a prop in such case
+		min-height: $space-xs;
+	}
+}
+</style>
+
 <script lang="ts">
 import { defineComponent, PropType, Ref, ref, toRaw } from 'vue';
 
@@ -317,82 +396,3 @@ export default defineComponent({
 	},
 });
 </script>
-
-<style lang="scss">
-@import 'flatpickr/dist/flatpickr';
-</style>
-
-<style lang="scss" scoped>
-@import '../../../../styles/settings/typography/tokens';
-@import '../../../../styles/settings/colors/tokens';
-@import '../../../../styles/settings/spacings';
-
-.ds-datePicker {
-	$self: &;
-
-	display: flex;
-	flex-direction: column;
-	row-gap: $space-4xs;
-
-	&.-ds-box {
-		display: inline-flex;
-	}
-
-	&__hiddenInput {
-		display: none;
-	}
-
-	&__labelWrapper {
-		align-items: flex-end;
-		display: flex;
-		justify-content: space-between;
-		padding-bottom: $space-2xs;
-	}
-
-	&__label {
-		@include label-l-default-bold;
-
-		color: $color-neutral-text-strong;
-
-		&.-ds-isUppercase {
-			@include label-m-extensive-bold-uppercase;
-
-			color: $color-neutral-text;
-		}
-
-		&.-ds-disabled {
-			color: $color-neutral-text-strong-disabled;
-
-			&.-ds-isUppercase {
-				color: $color-neutral-text-disabled;
-			}
-		}
-	}
-
-	&__tile {
-		min-height: 56px;
-
-		/* Prevent text select */
-		-webkit-user-select: none; /* Safari */
-		user-select: none;
-	}
-
-	&__errorMessage {
-		@include info-s-default-regular;
-
-		color: $color-danger-text;
-		// In case we have two date pickers in a row, we want them to have the same height.
-		// When one have a message visible, the second should get an empty string in a prop in such case
-		min-height: $space-xs;
-	}
-
-	&__helpMessage {
-		@include info-s-default-regular;
-
-		color: $color-neutral-text;
-		// In case we have two date pickers in a row, we want them to have the same height.
-		// When one have a message visible, the second should get an empty string in a prop in such case
-		min-height: $space-xs;
-	}
-}
-</style>

@@ -21,6 +21,32 @@
 	</div>
 </template>
 
+<style lang="scss">
+@import 'flatpickr/dist/flatpickr';
+</style>
+
+<style scoped lang="scss">
+@import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/colors/tokens';
+@import '../../../../styles/settings/spacings';
+
+.ds-dateRangePicker {
+	display: flex;
+	flex-direction: column;
+	row-gap: $space-4xs;
+
+	&__hiddenInput {
+		display: none;
+	}
+
+	&__errorMessage {
+		@include info-s-default-regular;
+
+		color: $color-danger-text;
+	}
+}
+</style>
+
 <script lang="ts">
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { defineComponent, PropType, Ref, ref, toRaw } from 'vue';
@@ -213,29 +239,3 @@ export default defineComponent({
 	},
 });
 </script>
-
-<style lang="scss">
-@import 'flatpickr/dist/flatpickr';
-</style>
-
-<style scoped lang="scss">
-@import '../../../../styles/settings/typography/tokens';
-@import '../../../../styles/settings/colors/tokens';
-@import '../../../../styles/settings/spacings';
-
-.ds-dateRangePicker {
-	display: flex;
-	flex-direction: column;
-	row-gap: $space-4xs;
-
-	&__hiddenInput {
-		display: none;
-	}
-
-	&__errorMessage {
-		@include info-s-default-regular;
-
-		color: $color-danger-text;
-	}
-}
-</style>
