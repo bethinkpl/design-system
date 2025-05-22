@@ -356,7 +356,8 @@ export default defineComponent({
 				if (
 					this.date &&
 					minDate &&
-					this.date.setHours(0, 0, 0, 0) < minDate.setHours(0, 0, 0, 0)
+					new Date(this.date).setHours(0, 0, 0, 0) <
+						new Date(minDate).setHours(0, 0, 0, 0)
 				) {
 					this.$emit('update:date', null);
 				}
@@ -368,7 +369,8 @@ export default defineComponent({
 				if (
 					this.date &&
 					maxDate &&
-					this.date.setHours(0, 0, 0, 0) > maxDate.setHours(0, 0, 0, 0)
+					new Date(this.date).setHours(0, 0, 0, 0) >
+						new Date(maxDate).setHours(0, 0, 0, 0)
 				) {
 					this.$emit('update:date', null);
 				}
