@@ -1,13 +1,13 @@
-import DateRangePicker from './DateRangePicker.vue';
+import { useArgs } from '@storybook/preview-api';
 import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
+import { ComponentProps } from 'vue-component-type-helpers';
 import { ICONS } from '../../Icons/Icon';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
 	DATE_PICKER_STATES,
 } from '../DatePicker';
-import { ComponentProps } from 'vue-component-type-helpers';
-import { useArgs } from '@storybook/preview-api';
+import DateRangePicker from './DateRangePicker.vue';
 
 type DateRangePickerProps = ComponentProps<typeof DateRangePicker>;
 

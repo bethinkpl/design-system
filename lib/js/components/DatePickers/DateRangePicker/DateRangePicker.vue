@@ -11,7 +11,7 @@
 			:state="state"
 			:color="color"
 			:is-open="isOpen"
-			@click="toggle"
+			@click.stop.prevent="toggle"
 		/>
 
 		<span v-if="errorMessage" class="ds-dateRangePicker__errorMessage">
@@ -48,9 +48,10 @@
 </style>
 
 <script lang="ts">
-import DateBox from '../DateBox';
+import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
+import { defineComponent, PropType, Ref, ref, toRaw } from 'vue';
 import { IconItem, ICONS } from '../../Icons/Icon';
-import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
+import DateBox from '../DateBox';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
@@ -146,6 +147,7 @@ export default defineComponent({
 		},
 		{ emit },
 	) {
+		const flatpickrInstance = ref<DatePickerInstance | null>(null);
 		const dateRangePickerRef = ref() as Ref<HTMLDivElement>;
 		const flatpickrInputRef = ref() as Ref<HTMLInputElement>;
 
@@ -156,55 +158,56 @@ export default defineComponent({
 			emit('update:date', { startDate: event[0], endDate: event[1] });
 		};
 
+		const onClose = () => {
+			destroyDatePicker();
+			flatpickrInstance.value = null;
+		};
+
 		const {
 			isOpen,
 			toggle: toggleDatePicker,
 			createDatePicker,
+			destroyDatePicker,
+			updateDatePicker,
 		} = initFlatpickr({
 			props,
 			onChange,
+			onClose,
 			defaultDates: [props.startDate, props.endDate],
 			mode: 'range',
 		});
 
-		watch(
-			[() => props.isInteractive, () => props.state],
-			async () => {
-				if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-					await createDatePicker(
-						flatpickrInputRef.value,
-						dateRangePickerRef.value,
-						props.updatePositionBasedOnScrollableSelector,
-					);
-				}
-			},
-			{ flush: 'post' },
-		);
-
 		return {
+			flatpickrInstance,
 			dateRangePickerRef,
 			flatpickrInputRef,
 			isOpen,
 			toggleDatePicker,
 			createDatePicker,
+			destroyDatePicker,
+			updateDatePicker,
 			DATE_PICKER_CALENDAR_POSITIONS: Object.freeze(DATE_PICKER_CALENDAR_POSITIONS),
 			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
 			DATE_PICKER_STATES: Object.freeze(DATE_PICKER_STATES),
 			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
 		};
 	},
-	async mounted() {
-		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
-			await this.createDatePicker(
+	methods: {
+		async bindFlatpickrInstance() {
+			this.flatpickrInstance = await this.createDatePicker(
 				this.flatpickrInputRef,
 				this.dateRangePickerRef,
 				this.updatePositionBasedOnScrollableSelector,
 			);
-		}
-	},
-	methods: {
-		toggle() {
+			this.updateDatePicker();
+		},
+
+		async toggle() {
 			if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
+				if (!this.flatpickrInstance) {
+					await this.bindFlatpickrInstance();
+				}
+
 				this.toggleDatePicker();
 			}
 		},
