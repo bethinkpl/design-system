@@ -2,7 +2,7 @@
 
 import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
 import Well from './Well.vue';
-import { CHIP_AVAILABLE_PADDINGS, WELL_PADDINGS } from './Well.consts';
+import { WELL_PADDINGS } from './Well.consts';
 import type { ComponentProps } from 'vue-component-type-helpers';
 import { ICONS } from '../Icons/Icon';
 import { CHIP_COLORS, CHIP_DEFAULT_COLOR, CHIP_RADIUSES } from '../Chip';
@@ -23,22 +23,18 @@ const meta: Meta<WellProps> = {
 	render: (args) => ({
 		components: { Well, DsBanner },
 		setup() {
-			return { args };
+			return {
+				args,
+				ICONS,
+				BANNER_COLORS,
+			};
 		},
 		template: wrapWithContainer(
 			'<well v-bind="args" :chip-left-icon="ICONS[args.chipLeftIcon]"><div v-html="args.content" /></well>',
 		),
-		data() {
-			return {
-				ICONS: Object.freeze(ICONS),
-				BANNER_COLORS: Object.freeze(BANNER_COLORS),
-			};
-		},
 		computed: {
 			invalidUsage() {
-				return (
-					args.hasChip && !Object.values(CHIP_AVAILABLE_PADDINGS).includes(args.padding)
-				);
+				return args.hasChip && !args.padding;
 			},
 		},
 	}),

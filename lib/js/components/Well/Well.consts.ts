@@ -6,8 +6,3 @@ export const WELL_PADDINGS = {
 };
 
 export type WellPadding = Value<typeof WELL_PADDINGS>;
-
-export const CHIP_AVAILABLE_PADDINGS = {
-	SMALL: 'small',
-	MEDIUM: 'medium',
-};
