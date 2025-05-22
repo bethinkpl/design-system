@@ -198,7 +198,9 @@ export default defineComponent({
 				if (
 					this.startDate &&
 					minDate &&
-					this.startDate.getTime() - minDate.getTime() < 1000 * 60 * 60 * 24
+					(this.startDate.getFullYear() < minDate.getFullYear() ||
+						this.startDate.getMonth() < minDate.getMonth() ||
+						this.startDate.getDate() < minDate.getDate())
 				) {
 					this.$emit('update:date', { startDate: null, endDate: null });
 				}
@@ -210,7 +212,9 @@ export default defineComponent({
 				if (
 					this.endDate &&
 					maxDate &&
-					this.endDate.getTime() - maxDate.getTime() > 1000 * 60 * 60 * 24
+					(this.endDate.getFullYear() > maxDate.getFullYear() ||
+						this.endDate.getMonth() > maxDate.getMonth() ||
+						this.endDate.getDate() > maxDate.getDate())
 				) {
 					this.$emit('update:date', { startDate: null, endDate: null });
 				}

@@ -356,7 +356,9 @@ export default defineComponent({
 				if (
 					this.date &&
 					minDate &&
-					this.date.getTime() - minDate.getTime() < 1000 * 60 * 60 * 24
+					(this.date.getFullYear() < minDate.getFullYear() ||
+						this.date.getMonth() < minDate.getMonth() ||
+						this.date.getDate() < minDate.getDate())
 				) {
 					this.$emit('update:date', null);
 				}
@@ -368,7 +370,9 @@ export default defineComponent({
 				if (
 					this.date &&
 					maxDate &&
-					this.date.getTime() - maxDate.getTime() > 1000 * 60 * 60 * 24
+					(this.date.getFullYear() > maxDate.getFullYear() ||
+						this.date.getMonth() > maxDate.getMonth() ||
+						this.date.getDate() > maxDate.getDate())
 				) {
 					this.$emit('update:date', null);
 				}
