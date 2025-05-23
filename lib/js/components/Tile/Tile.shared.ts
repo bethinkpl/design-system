@@ -9,7 +9,6 @@ import {
 	TileColor,
 	TileState,
 } from './Tile.consts';
-import { Value } from '../../utils/type.utils';
 
 export const props = {
 	interactive: {
@@ -49,7 +48,7 @@ export const props = {
 	color: {
 		type: String as PropType<TileColor>,
 		default: TILE_COLORS.NEUTRAL,
-		validator(color) {
+		validator(color: TileColor) {
 			return Object.values(TILE_COLORS).includes(color);
 		},
 	},
@@ -60,7 +59,7 @@ export const props = {
 	state: {
 		type: String as PropType<TileState>,
 		default: TILE_STATES.DEFAULT,
-		validator(value: Value<typeof TILE_STATES>) {
+		validator(value: TileState) {
 			return Object.values(TILE_STATES).includes(value);
 		},
 	},
