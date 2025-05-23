@@ -7,7 +7,7 @@ import { useArgs } from '@storybook/preview-api';
 import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
-	title: 'Components/Form/Checkbox',
+	title: 'Internal Components/Form/#Checkbox',
 	component: Checkbox,
 	decorators: [withActions],
 } as Meta<typeof Checkbox>;
