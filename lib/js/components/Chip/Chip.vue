@@ -251,6 +251,7 @@ import {
 	CHIP_RADIUSES,
 	CHIP_SIZES,
 	CHIP_STATES,
+	CHIP_DEFAULT_COLOR,
 	ChipColor,
 	ChipRadius,
 	ChipSize,
@@ -304,7 +305,7 @@ export default defineComponent({
 		},
 		color: {
 			type: String,
-			default: CHIP_COLORS.NEUTRAL,
+			default: CHIP_DEFAULT_COLOR,
 			validator(color: ChipColor) {
 				return Object.values(CHIP_COLORS).includes(color);
 			},

@@ -19,6 +19,8 @@ export const CHIP_COLORS = {
 	INFO: 'info',
 } as const;
 
+export const CHIP_DEFAULT_COLOR = CHIP_COLORS.NEUTRAL;
+
 export type ChipColor = Value<typeof CHIP_COLORS>;
 
 export const CHIP_STATES = {
