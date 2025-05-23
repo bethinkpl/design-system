@@ -16,6 +16,7 @@ export declare const CHIP_COLORS: {
     readonly WARNING: "warning";
     readonly INFO: "info";
 };
+export declare const CHIP_DEFAULT_COLOR: "neutral";
 export type ChipColor = Value<typeof CHIP_COLORS>;
 export declare const CHIP_STATES: {
     readonly DEFAULT: "default";
