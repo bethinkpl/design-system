@@ -258,7 +258,7 @@ export declare const components: {
         color: {
             type: StringConstructor;
             default: "default";
-            validator: (color: unknown) => boolean;
+            validator: (color: import('../Banner').BannerColor) => boolean;
         };
         title: {
             type: StringConstructor;
@@ -267,7 +267,7 @@ export declare const components: {
         layout: {
             type: StringConstructor;
             default: "horizontal";
-            validator: (layout: unknown) => boolean;
+            validator: (layout: import('../Banner').BannerLayout) => boolean;
         };
         isExpanded: {
             type: BooleanConstructor;
@@ -563,7 +563,7 @@ export declare const components: {
         color: {
             type: StringConstructor;
             default: "default";
-            validator: (color: unknown) => boolean;
+            validator: (color: import('../Banner').BannerColor) => boolean;
         };
         title: {
             type: StringConstructor;
@@ -572,7 +572,7 @@ export declare const components: {
         layout: {
             type: StringConstructor;
             default: "horizontal";
-            validator: (layout: unknown) => boolean;
+            validator: (layout: import('../Banner').BannerLayout) => boolean;
         };
         isExpanded: {
             type: BooleanConstructor;
@@ -607,7 +607,7 @@ export declare const components: {
                 validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_TYPES>): boolean;
             };
             color: {
-                type: StringConstructor;
+                type: (StringConstructor | null)[];
                 default: "primary";
                 validator(value: import('../../utils/type.utils').Value<typeof import('../..').ICON_BUTTON_COLORS>): boolean;
             };
@@ -914,7 +914,7 @@ export declare const components: {
                 validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_TYPES>): boolean;
             };
             color: {
-                type: StringConstructor;
+                type: (StringConstructor | null)[];
                 default: "primary";
                 validator(value: import('../../utils/type.utils').Value<typeof import('../..').ICON_BUTTON_COLORS>): boolean;
             };
@@ -946,7 +946,7 @@ export declare const components: {
         }>> & Readonly<{}>, {
             size: string;
             type: string;
-            color: string;
+            color: string | null;
             elevation: string;
             radius: string;
             state: string;
@@ -965,7 +965,7 @@ export declare const components: {
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -999,7 +999,7 @@ export declare const components: {
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -1019,7 +1019,7 @@ export declare const components: {
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                rotation: number;
+                rotation: number | null;
                 size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
@@ -1076,17 +1076,17 @@ export declare const components: {
             size: {
                 type: StringConstructor;
                 default: "large";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').IconButtonSize): boolean;
             };
             radius: {
                 type: StringConstructor;
                 default: "capsule";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').ButtonRadius): boolean;
             };
             type: {
                 type: StringConstructor;
                 default: "icon-only";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').IconButtonType): boolean;
             };
             icon: {
                 type: ObjectConstructor;
@@ -1096,17 +1096,17 @@ export declare const components: {
             color: {
                 type: StringConstructor;
                 default: "primary";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').IconButtonColor): boolean;
             };
             colorScheme: {
                 type: StringConstructor;
                 default: "all-in-color";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').IconButtonColorScheme): boolean;
             };
             elevation: {
                 type: StringConstructor;
                 default: "none";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').ButtonElevation): boolean;
             };
             touchable: {
                 type: BooleanConstructor;
@@ -1396,24 +1396,24 @@ export declare const components: {
         }, {
             iconSize(): string;
             buttonType(): string;
-            computedColor(): string | null;
+            computedColor(): string | undefined;
             isButtonColor(): boolean;
             colorClassName(): string;
         }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
             size: {
                 type: StringConstructor;
                 default: "large";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').IconButtonSize): boolean;
             };
             radius: {
                 type: StringConstructor;
                 default: "capsule";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').ButtonRadius): boolean;
             };
             type: {
                 type: StringConstructor;
                 default: "icon-only";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').IconButtonType): boolean;
             };
             icon: {
                 type: ObjectConstructor;
@@ -1423,17 +1423,17 @@ export declare const components: {
             color: {
                 type: StringConstructor;
                 default: "primary";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').IconButtonColor): boolean;
             };
             colorScheme: {
                 type: StringConstructor;
                 default: "all-in-color";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').IconButtonColorScheme): boolean;
             };
             elevation: {
                 type: StringConstructor;
                 default: "none";
-                validator(value: unknown): boolean;
+                validator(value: import('../..').ButtonElevation): boolean;
             };
             touchable: {
                 type: BooleanConstructor;
@@ -1466,7 +1466,7 @@ export declare const components: {
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -1500,7 +1500,7 @@ export declare const components: {
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -1520,7 +1520,7 @@ export declare const components: {
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                rotation: number;
+                rotation: number | null;
                 size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
@@ -1541,7 +1541,7 @@ export declare const components: {
                     validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_TYPES>): boolean;
                 };
                 color: {
-                    type: StringConstructor;
+                    type: (StringConstructor | null)[];
                     default: "primary";
                     validator(value: import('../../utils/type.utils').Value<typeof import('../..').ICON_BUTTON_COLORS>): boolean;
                 };
@@ -1848,7 +1848,7 @@ export declare const components: {
                     validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_TYPES>): boolean;
                 };
                 color: {
-                    type: StringConstructor;
+                    type: (StringConstructor | null)[];
                     default: "primary";
                     validator(value: import('../../utils/type.utils').Value<typeof import('../..').ICON_BUTTON_COLORS>): boolean;
                 };
@@ -1880,7 +1880,7 @@ export declare const components: {
             }>> & Readonly<{}>, {
                 size: string;
                 type: string;
-                color: string;
+                color: string | null;
                 elevation: string;
                 radius: string;
                 state: string;
@@ -1899,7 +1899,7 @@ export declare const components: {
                         validator: (value: string) => boolean;
                     };
                     rotation: {
-                        type: NumberConstructor;
+                        type: (NumberConstructor | null)[];
                         default: null;
                     };
                     flippedVertical: {
@@ -1933,7 +1933,7 @@ export declare const components: {
                         validator: (value: string) => boolean;
                     };
                     rotation: {
-                        type: NumberConstructor;
+                        type: (NumberConstructor | null)[];
                         default: null;
                     };
                     flippedVertical: {
@@ -1953,7 +1953,7 @@ export declare const components: {
                         default: boolean;
                     };
                 }>> & Readonly<{}>, {
-                    rotation: number;
+                    rotation: number | null;
                     size: string;
                     flippedVertical: boolean;
                     flippedHorizontal: boolean;
@@ -1976,7 +1976,7 @@ export declare const components: {
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -2010,7 +2010,7 @@ export declare const components: {
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -2030,7 +2030,7 @@ export declare const components: {
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
+            rotation: number | null;
             size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;

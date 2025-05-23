@@ -1,14 +1,19 @@
+import { Value } from '../../../utils/type.utils';
+
 export declare const SELECT_LIST_ITEM_SELECTION_MODE: {
-    SELECT_ONLY: string;
-    TOGGLE: string;
+    readonly SELECT_ONLY: "selectOnly";
+    readonly TOGGLE: "toggle";
 };
+export type SelectListItemSelectionMode = Value<typeof SELECT_LIST_ITEM_SELECTION_MODE>;
 export declare const SELECT_LIST_ITEM_SIZES: {
-    X_SMALL: string;
-    SMALL: string;
-    MEDIUM: string;
+    readonly X_SMALL: "xSmall";
+    readonly SMALL: "small";
+    readonly MEDIUM: "medium";
 };
+export type SelectListItemSize = Value<typeof SELECT_LIST_ITEM_SIZES>;
 export declare const SELECT_LIST_ITEM_STATES: {
-    DEFAULT: string;
-    LOADING: string;
-    DISABLED: string;
+    readonly DEFAULT: "default";
+    readonly LOADING: "loading";
+    readonly DISABLED: "disabled";
 };
+export type SelectListItemState = Value<typeof SELECT_LIST_ITEM_STATES>;

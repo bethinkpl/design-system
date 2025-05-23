@@ -10,13 +10,13 @@ export declare const TILE_COLORS: {
     readonly WARNING: "warning";
     readonly INFO: "info";
 };
-export type TileColors = Value<typeof TILE_COLORS>;
+export type TileColor = Value<typeof TILE_COLORS>;
 export declare const TILE_STATES: {
     readonly DEFAULT: "default";
     readonly DISABLED: "disabled";
     readonly LOADING: "loading";
 };
-export type TileStates = Value<typeof TILE_STATES>;
+export type TileState = Value<typeof TILE_STATES>;
 export declare const TILE_BORDER_COLORS: {
     readonly NEUTRAL: "neutral";
     readonly NEUTRAL_WEAK: "neutralWeak";
@@ -38,4 +38,4 @@ export declare const TILE_ADDITIONAL_TEXT_MAX_WIDTHS: {
     readonly SMALL: "small";
     readonly MEDIUM: "medium";
 };
-export type TileAdditionalTextMaxWidths = Value<typeof TILE_ADDITIONAL_TEXT_MAX_WIDTHS>;
+export type TileAdditionalTextMaxWidth = Value<typeof TILE_ADDITIONAL_TEXT_MAX_WIDTHS>;

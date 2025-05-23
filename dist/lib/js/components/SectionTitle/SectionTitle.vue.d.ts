@@ -1,8 +1,10 @@
+import { SectionTitleSize } from './SectionTitle.consts';
+
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     size: {
         type: StringConstructor;
         default: string;
-        validator(size: unknown): boolean;
+        validator(size: SectionTitleSize): boolean;
     };
     supportingText: {
         type: StringConstructor;
@@ -16,7 +18,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     size: {
         type: StringConstructor;
         default: string;
-        validator(size: unknown): boolean;
+        validator(size: SectionTitleSize): boolean;
     };
     supportingText: {
         type: StringConstructor;

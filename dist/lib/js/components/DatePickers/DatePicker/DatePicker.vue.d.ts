@@ -1,6 +1,6 @@
 import { PropType, Ref } from 'vue';
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
-import { TileColors, TileStates } from '../../Tile';
+import { TileColor, TileState } from '../../Tile';
 import { DatePickerCalendarPositions, DatePickerColors, DatePickerStates } from './DatePicker.consts';
 
 declare const _default: import('vue').DefineComponent<{
@@ -578,6 +578,8 @@ declare const _default: import('vue').DefineComponent<{
     tileIcon(): any;
     showErrorMessage(): boolean;
     showHelpMessage(): boolean;
+    tileState(): TileState;
+    tileColor(): TileColor;
 }, {
     bindFlatpickrInstance(): Promise<void>;
     toggle(): Promise<void>;
@@ -648,18 +650,18 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         color: {
-            type: PropType<TileColors>;
+            type: PropType<TileColor>;
             default: "neutral";
-            validator(color: any): boolean;
+            validator(color: TileColor): boolean;
         };
         isEyebrowTextUppercase: {
             type: BooleanConstructor;
             default: boolean;
         };
         state: {
-            type: PropType<TileStates>;
+            type: PropType<TileState>;
             default: "default";
-            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
+            validator(value: TileState): boolean;
         };
         eyebrowEllipsis: {
             type: BooleanConstructor;
@@ -674,9 +676,9 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         additionalTextMaxWidth: {
-            type: PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+            type: PropType<import('../../Tile').TileAdditionalTextMaxWidth>;
             default: "small";
-            validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
+            validator(value: import('../../Tile').TileAdditionalTextMaxWidth): boolean;
         };
     }>, {}, {
         ICONS: Readonly<{
@@ -951,18 +953,18 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         color: {
-            type: PropType<TileColors>;
+            type: PropType<TileColor>;
             default: "neutral";
-            validator(color: any): boolean;
+            validator(color: TileColor): boolean;
         };
         isEyebrowTextUppercase: {
             type: BooleanConstructor;
             default: boolean;
         };
         state: {
-            type: PropType<TileStates>;
+            type: PropType<TileState>;
             default: "default";
-            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
+            validator(value: TileState): boolean;
         };
         eyebrowEllipsis: {
             type: BooleanConstructor;
@@ -977,13 +979,13 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         additionalTextMaxWidth: {
-            type: PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+            type: PropType<import('../../Tile').TileAdditionalTextMaxWidth>;
             default: "small";
-            validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
+            validator(value: import('../../Tile').TileAdditionalTextMaxWidth): boolean;
         };
     }>> & Readonly<{}>, {
-        color: TileColors;
-        state: TileStates;
+        color: TileColor;
+        state: TileState;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
         borderColor: import('../../Tile').TileBorderColors;
@@ -994,7 +996,7 @@ declare const _default: import('vue').DefineComponent<{
         isEyebrowTextUppercase: boolean;
         eyebrowEllipsis: boolean;
         textEllipsis: boolean;
-        additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidths;
+        additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidth;
     }, {}, {
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             icon: {
@@ -1008,7 +1010,7 @@ declare const _default: import('vue').DefineComponent<{
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -1042,7 +1044,7 @@ declare const _default: import('vue').DefineComponent<{
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -1062,7 +1064,7 @@ declare const _default: import('vue').DefineComponent<{
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
+            rotation: number | null;
             size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
@@ -1428,7 +1430,7 @@ declare const _default: import('vue').DefineComponent<{
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -1462,7 +1464,7 @@ declare const _default: import('vue').DefineComponent<{
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -1482,7 +1484,7 @@ declare const _default: import('vue').DefineComponent<{
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
+            rotation: number | null;
             size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;

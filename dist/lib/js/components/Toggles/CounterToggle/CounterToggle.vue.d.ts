@@ -1,3 +1,5 @@
+import { CounterToggleColor } from './CounterToggle.consts';
+
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     counter: {
         type: (StringConstructor | NumberConstructor)[];
@@ -5,8 +7,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     color: {
         type: StringConstructor;
-        default: string;
-        validator(color: unknown): boolean;
+        default: "neutralStrong";
+        validator(color: CounterToggleColor): boolean;
     };
     icon: {
         type: ObjectConstructor;
@@ -42,8 +44,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     color: {
         type: StringConstructor;
-        default: string;
-        validator(color: unknown): boolean;
+        default: "neutralStrong";
+        validator(color: CounterToggleColor): boolean;
     };
     icon: {
         type: ObjectConstructor;
@@ -76,7 +78,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -110,7 +112,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -130,7 +132,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
