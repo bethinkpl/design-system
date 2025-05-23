@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "26.14.3",
+  "version": "26.14.4",
   "description": "Bethink universe design-system",
   "repository": {
     "type": "git",
@@ -29,7 +29,7 @@
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -c .storybook -o public/storybook",
     "test": "jest",
-    "ts:check": "tsc --noEmit",
+    "ts:check": "vue-tsc --noEmit",
     "synchronizeColors": "npx ts-node tools/importers/SynchronizeColorsTokens.ts",
     "synchronizeTypography": "npx ts-node tools/importers/SynchronizeTypographyTokens.ts"
   },
@@ -88,7 +88,8 @@
     "vite-svg-loader": "^5.1.0",
     "vue": "3.5.12",
     "vue-eslint-parser": "^10.1.1",
-    "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f"
+    "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
+    "vue-tsc": "2.2.8"
   },
   "dependencies": {
     "@primevue/themes": "4.0.0-rc.3",

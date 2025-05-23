@@ -1,13 +1,12 @@
-import { Value } from '../../../utils/type.utils';
 import { PropType } from 'vue';
-import { TOGGLE_BUTTON_COLORS, TOGGLE_BUTTON_RADIUSES, TOGGLE_BUTTON_SIZES, TOGGLE_BUTTON_STATES, ToggleButtonColor, ToggleButtonLabelSize, ToggleButtonRadius, ToggleButtonSize, ToggleButtonState } from './ToggleButton.consts';
+import { ToggleButtonColor, ToggleButtonLabelSize, ToggleButtonRadius, ToggleButtonSize, ToggleButtonState } from './ToggleButton.consts';
 import { IconItem, IconSize } from '../../Icons/Icon';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     color: {
         type: PropType<ToggleButtonColor>;
         default: "neutral";
-        validator(value: Value<typeof TOGGLE_BUTTON_COLORS>): boolean;
+        validator(value: ToggleButtonColor): boolean;
     };
     hasSmallHorizontalPadding: {
         type: BooleanConstructor;
@@ -46,17 +45,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     radius: {
         type: PropType<ToggleButtonRadius>;
         default: "capsule";
-        validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>): boolean;
+        validator(value: ToggleButtonRadius): boolean;
     };
     size: {
         type: PropType<ToggleButtonSize>;
         default: "medium";
-        validator(value: Value<typeof TOGGLE_BUTTON_SIZES>): boolean;
+        validator(value: ToggleButtonSize): boolean;
     };
     state: {
         type: PropType<ToggleButtonState>;
         default: "default";
-        validator(value: Value<typeof TOGGLE_BUTTON_STATES>): boolean;
+        validator(value: ToggleButtonState): boolean;
     };
 }>, {}, {
     ICONS: Readonly<{
@@ -309,7 +308,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     color: {
         type: PropType<ToggleButtonColor>;
         default: "neutral";
-        validator(value: Value<typeof TOGGLE_BUTTON_COLORS>): boolean;
+        validator(value: ToggleButtonColor): boolean;
     };
     hasSmallHorizontalPadding: {
         type: BooleanConstructor;
@@ -348,17 +347,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     radius: {
         type: PropType<ToggleButtonRadius>;
         default: "capsule";
-        validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>): boolean;
+        validator(value: ToggleButtonRadius): boolean;
     };
     size: {
         type: PropType<ToggleButtonSize>;
         default: "medium";
-        validator(value: Value<typeof TOGGLE_BUTTON_SIZES>): boolean;
+        validator(value: ToggleButtonSize): boolean;
     };
     state: {
         type: PropType<ToggleButtonState>;
         default: "default";
-        validator(value: Value<typeof TOGGLE_BUTTON_STATES>): boolean;
+        validator(value: ToggleButtonState): boolean;
     };
 }>> & Readonly<{
     onClick?: ((...args: any[]) => any) | undefined;
@@ -388,7 +387,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -422,7 +421,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -442,7 +441,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;

@@ -1,4 +1,4 @@
-import { BUTTON_STATES } from '../../Buttons/Button';
+import { BUTTON_STATES, ButtonState } from '../../Buttons/Button';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     danger: {
@@ -39,7 +39,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     footerPrimaryButtonState: {
         type: StringConstructor;
         default: "default";
-        validator(state: unknown): boolean;
+        validator(state: ButtonState): boolean;
     };
     footerSecondaryButtonText: {
         type: StringConstructor;
@@ -53,7 +53,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     footerSecondaryButtonState: {
         type: StringConstructor;
         default: "default";
-        validator(state: unknown): boolean;
+        validator(state: ButtonState): boolean;
     };
 }>, {}, {
     MODAL_SIZES: Readonly<{
@@ -103,7 +103,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     footerPrimaryButtonState: {
         type: StringConstructor;
         default: "default";
-        validator(state: unknown): boolean;
+        validator(state: ButtonState): boolean;
     };
     footerSecondaryButtonText: {
         type: StringConstructor;
@@ -117,7 +117,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     footerSecondaryButtonState: {
         type: StringConstructor;
         default: "default";
-        validator(state: unknown): boolean;
+        validator(state: ButtonState): boolean;
     };
 }>> & Readonly<{
     "onClose-modal"?: ((...args: any[]) => any) | undefined;
@@ -189,7 +189,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         footerPrimaryButtonState: {
             type: StringConstructor;
             default: "default";
-            validator(state: unknown): boolean;
+            validator(state: ButtonState): boolean;
         };
         footerSecondaryButtonText: {
             type: StringConstructor;
@@ -203,7 +203,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         footerSecondaryButtonState: {
             type: StringConstructor;
             default: "default";
-            validator(state: unknown): boolean;
+            validator(state: ButtonState): boolean;
         };
         footerTertiaryButtonText: {
             type: StringConstructor;
@@ -217,7 +217,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         footerTertiaryButtonState: {
             type: StringConstructor;
             default: "default";
-            validator(state: unknown): boolean;
+            validator(state: ButtonState): boolean;
         };
         footerCheckboxText: {
             type: StringConstructor;
@@ -553,7 +553,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         footerPrimaryButtonState: {
             type: StringConstructor;
             default: "default";
-            validator(state: unknown): boolean;
+            validator(state: ButtonState): boolean;
         };
         footerSecondaryButtonText: {
             type: StringConstructor;
@@ -567,7 +567,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         footerSecondaryButtonState: {
             type: StringConstructor;
             default: "default";
-            validator(state: unknown): boolean;
+            validator(state: ButtonState): boolean;
         };
         footerTertiaryButtonText: {
             type: StringConstructor;
@@ -581,7 +581,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         footerTertiaryButtonState: {
             type: StringConstructor;
             default: "default";
-            validator(state: unknown): boolean;
+            validator(state: ButtonState): boolean;
         };
         footerCheckboxText: {
             type: StringConstructor;
@@ -689,7 +689,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -723,7 +723,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -743,7 +743,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                rotation: number;
+                rotation: number | null;
                 size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
@@ -765,7 +765,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_TYPES>): boolean;
             };
             color: {
-                type: StringConstructor;
+                type: (StringConstructor | null)[];
                 default: "primary";
                 validator(value: import('../../../utils/type.utils').Value<typeof import('../../..').ICON_BUTTON_COLORS>): boolean;
             };
@@ -1072,7 +1072,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_TYPES>): boolean;
             };
             color: {
-                type: StringConstructor;
+                type: (StringConstructor | null)[];
                 default: "primary";
                 validator(value: import('../../../utils/type.utils').Value<typeof import('../../..').ICON_BUTTON_COLORS>): boolean;
             };
@@ -1104,7 +1104,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         }>> & Readonly<{}>, {
             size: string;
             type: string;
-            color: string;
+            color: string | null;
             elevation: string;
             radius: string;
             state: string;
@@ -1123,7 +1123,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -1157,7 +1157,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -1177,7 +1177,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                rotation: number;
+                rotation: number | null;
                 size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
@@ -1191,17 +1191,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             size: {
                 type: StringConstructor;
                 default: "large";
-                validator(value: unknown): boolean;
+                validator(value: import('../../..').IconButtonSize): boolean;
             };
             radius: {
                 type: StringConstructor;
                 default: "capsule";
-                validator(value: unknown): boolean;
+                validator(value: import('../../Buttons/Button').ButtonRadius): boolean;
             };
             type: {
                 type: StringConstructor;
                 default: "icon-only";
-                validator(value: unknown): boolean;
+                validator(value: import('../../..').IconButtonType): boolean;
             };
             icon: {
                 type: ObjectConstructor;
@@ -1211,17 +1211,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             color: {
                 type: StringConstructor;
                 default: "primary";
-                validator(value: unknown): boolean;
+                validator(value: import('../../..').IconButtonColor): boolean;
             };
             colorScheme: {
                 type: StringConstructor;
                 default: "all-in-color";
-                validator(value: unknown): boolean;
+                validator(value: import('../../..').IconButtonColorScheme): boolean;
             };
             elevation: {
                 type: StringConstructor;
                 default: "none";
-                validator(value: unknown): boolean;
+                validator(value: import('../../Buttons/Button').ButtonElevation): boolean;
             };
             touchable: {
                 type: BooleanConstructor;
@@ -1511,24 +1511,24 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         }, {
             iconSize(): string;
             buttonType(): string;
-            computedColor(): string | null;
+            computedColor(): string | undefined;
             isButtonColor(): boolean;
             colorClassName(): string;
         }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
             size: {
                 type: StringConstructor;
                 default: "large";
-                validator(value: unknown): boolean;
+                validator(value: import('../../..').IconButtonSize): boolean;
             };
             radius: {
                 type: StringConstructor;
                 default: "capsule";
-                validator(value: unknown): boolean;
+                validator(value: import('../../Buttons/Button').ButtonRadius): boolean;
             };
             type: {
                 type: StringConstructor;
                 default: "icon-only";
-                validator(value: unknown): boolean;
+                validator(value: import('../../..').IconButtonType): boolean;
             };
             icon: {
                 type: ObjectConstructor;
@@ -1538,17 +1538,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             color: {
                 type: StringConstructor;
                 default: "primary";
-                validator(value: unknown): boolean;
+                validator(value: import('../../..').IconButtonColor): boolean;
             };
             colorScheme: {
                 type: StringConstructor;
                 default: "all-in-color";
-                validator(value: unknown): boolean;
+                validator(value: import('../../..').IconButtonColorScheme): boolean;
             };
             elevation: {
                 type: StringConstructor;
                 default: "none";
-                validator(value: unknown): boolean;
+                validator(value: import('../../Buttons/Button').ButtonElevation): boolean;
             };
             touchable: {
                 type: BooleanConstructor;
@@ -1581,7 +1581,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -1615,7 +1615,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -1635,7 +1635,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                rotation: number;
+                rotation: number | null;
                 size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
@@ -1656,7 +1656,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_TYPES>): boolean;
                 };
                 color: {
-                    type: StringConstructor;
+                    type: (StringConstructor | null)[];
                     default: "primary";
                     validator(value: import('../../../utils/type.utils').Value<typeof import('../../..').ICON_BUTTON_COLORS>): boolean;
                 };
@@ -1963,7 +1963,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/Button').BUTTON_TYPES>): boolean;
                 };
                 color: {
-                    type: StringConstructor;
+                    type: (StringConstructor | null)[];
                     default: "primary";
                     validator(value: import('../../../utils/type.utils').Value<typeof import('../../..').ICON_BUTTON_COLORS>): boolean;
                 };
@@ -1995,7 +1995,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             }>> & Readonly<{}>, {
                 size: string;
                 type: string;
-                color: string;
+                color: string | null;
                 elevation: string;
                 radius: string;
                 state: string;
@@ -2014,7 +2014,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                         validator: (value: string) => boolean;
                     };
                     rotation: {
-                        type: NumberConstructor;
+                        type: (NumberConstructor | null)[];
                         default: null;
                     };
                     flippedVertical: {
@@ -2048,7 +2048,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                         validator: (value: string) => boolean;
                     };
                     rotation: {
-                        type: NumberConstructor;
+                        type: (NumberConstructor | null)[];
                         default: null;
                     };
                     flippedVertical: {
@@ -2068,7 +2068,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                         default: boolean;
                     };
                 }>> & Readonly<{}>, {
-                    rotation: number;
+                    rotation: number | null;
                     size: string;
                     flippedVertical: boolean;
                     flippedHorizontal: boolean;

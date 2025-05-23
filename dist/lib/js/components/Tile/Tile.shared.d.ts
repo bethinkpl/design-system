@@ -1,6 +1,5 @@
 import { PropType } from 'vue';
-import { TILE_STATES, TileAdditionalTextMaxWidths, TileBorderColors, TileColors, TileStates } from './Tile.consts';
-import { Value } from '../../utils/type.utils';
+import { TileAdditionalTextMaxWidth, TileBorderColors, TileColor, TileState } from './Tile.consts';
 
 export declare const props: {
     interactive: {
@@ -34,18 +33,18 @@ export declare const props: {
         default: null;
     };
     color: {
-        type: PropType<TileColors>;
+        type: PropType<TileColor>;
         default: "neutral";
-        validator(color: any): boolean;
+        validator(color: TileColor): boolean;
     };
     isEyebrowTextUppercase: {
         type: BooleanConstructor;
         default: boolean;
     };
     state: {
-        type: PropType<TileStates>;
+        type: PropType<TileState>;
         default: "default";
-        validator(value: Value<typeof TILE_STATES>): boolean;
+        validator(value: TileState): boolean;
     };
     eyebrowEllipsis: {
         type: BooleanConstructor;
@@ -60,8 +59,8 @@ export declare const props: {
         default: null;
     };
     additionalTextMaxWidth: {
-        type: PropType<TileAdditionalTextMaxWidths>;
+        type: PropType<TileAdditionalTextMaxWidth>;
         default: "small";
-        validator(value: TileAdditionalTextMaxWidths): boolean;
+        validator(value: TileAdditionalTextMaxWidth): boolean;
     };
 };

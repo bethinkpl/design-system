@@ -122,7 +122,13 @@
 
 <script lang="ts">
 import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { ICON_TEXT_COLORS, ICON_TEXT_SIZES, ICON_TEXT_STATES } from './IconText.consts';
+import {
+	ICON_TEXT_COLORS,
+	ICON_TEXT_SIZES,
+	ICON_TEXT_STATES,
+	IconTextColor,
+	IconTextSize,
+} from './IconText.consts';
 import { Value } from '../../utils/type.utils';
 import { defineComponent, toRaw } from 'vue';
 
@@ -135,7 +141,7 @@ export default defineComponent({
 		color: {
 			type: String,
 			default: ICON_TEXT_COLORS.NEUTRAL_WEAK,
-			validator(color) {
+			validator(color: IconTextColor) {
 				return Object.values(ICON_TEXT_COLORS).includes(color);
 			},
 		},
@@ -159,7 +165,7 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: ICON_TEXT_SIZES.X_SMALL,
-			validator(size) {
+			validator(size: IconTextSize) {
 				return Object.values(ICON_TEXT_SIZES).includes(size);
 			},
 		},

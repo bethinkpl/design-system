@@ -10,7 +10,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         validator: (value: string) => boolean;
     };
     rotation: {
-        type: NumberConstructor;
+        type: (NumberConstructor | null)[];
         default: null;
     };
     flippedVertical: {
@@ -44,7 +44,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         validator: (value: string) => boolean;
     };
     rotation: {
-        type: NumberConstructor;
+        type: (NumberConstructor | null)[];
         default: null;
     };
     flippedVertical: {
@@ -64,7 +64,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: boolean;
     };
 }>> & Readonly<{}>, {
-    rotation: number;
+    rotation: number | null;
     size: string;
     flippedVertical: boolean;
     flippedHorizontal: boolean;

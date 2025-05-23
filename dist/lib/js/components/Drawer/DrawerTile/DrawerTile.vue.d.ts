@@ -30,18 +30,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     color: {
-        type: import('vue').PropType<import('../../Tile').TileColors>;
+        type: import('vue').PropType<import('../../Tile').TileColor>;
         default: "neutral";
-        validator(color: any): boolean;
+        validator(color: import('../../Tile').TileColor): boolean;
     };
     isEyebrowTextUppercase: {
         type: BooleanConstructor;
         default: boolean;
     };
     state: {
-        type: import('vue').PropType<import('../../Tile').TileStates>;
+        type: import('vue').PropType<import('../../Tile').TileState>;
         default: "default";
-        validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
+        validator(value: import('../../Tile').TileState): boolean;
     };
     eyebrowEllipsis: {
         type: BooleanConstructor;
@@ -56,9 +56,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     additionalTextMaxWidth: {
-        type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+        type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidth>;
         default: "small";
-        validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
+        validator(value: import('../../Tile').TileAdditionalTextMaxWidth): boolean;
     };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     click: () => true;
@@ -94,18 +94,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     color: {
-        type: import('vue').PropType<import('../../Tile').TileColors>;
+        type: import('vue').PropType<import('../../Tile').TileColor>;
         default: "neutral";
-        validator(color: any): boolean;
+        validator(color: import('../../Tile').TileColor): boolean;
     };
     isEyebrowTextUppercase: {
         type: BooleanConstructor;
         default: boolean;
     };
     state: {
-        type: import('vue').PropType<import('../../Tile').TileStates>;
+        type: import('vue').PropType<import('../../Tile').TileState>;
         default: "default";
-        validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
+        validator(value: import('../../Tile').TileState): boolean;
     };
     eyebrowEllipsis: {
         type: BooleanConstructor;
@@ -120,15 +120,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     additionalTextMaxWidth: {
-        type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+        type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidth>;
         default: "small";
-        validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
+        validator(value: import('../../Tile').TileAdditionalTextMaxWidth): boolean;
     };
 }>> & Readonly<{
     onClick?: (() => any) | undefined;
 }>, {
-    color: import('../../Tile').TileColors;
-    state: import('../../Tile').TileStates;
+    color: import('../../Tile').TileColor;
+    state: import('../../Tile').TileState;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
     borderColor: import('../../Tile').TileBorderColors;
@@ -139,7 +139,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isEyebrowTextUppercase: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
-    additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidths;
+    additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidth;
 }, {}, {
     DsTile: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         interactive: {
@@ -173,18 +173,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: null;
         };
         color: {
-            type: import('vue').PropType<import('../../Tile').TileColors>;
+            type: import('vue').PropType<import('../../Tile').TileColor>;
             default: "neutral";
-            validator(color: any): boolean;
+            validator(color: import('../../Tile').TileColor): boolean;
         };
         isEyebrowTextUppercase: {
             type: BooleanConstructor;
             default: boolean;
         };
         state: {
-            type: import('vue').PropType<import('../../Tile').TileStates>;
+            type: import('vue').PropType<import('../../Tile').TileState>;
             default: "default";
-            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
+            validator(value: import('../../Tile').TileState): boolean;
         };
         eyebrowEllipsis: {
             type: BooleanConstructor;
@@ -199,9 +199,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: null;
         };
         additionalTextMaxWidth: {
-            type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+            type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidth>;
             default: "small";
-            validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
+            validator(value: import('../../Tile').TileAdditionalTextMaxWidth): boolean;
         };
     }>, {}, {
         ICONS: Readonly<{
@@ -476,18 +476,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: null;
         };
         color: {
-            type: import('vue').PropType<import('../../Tile').TileColors>;
+            type: import('vue').PropType<import('../../Tile').TileColor>;
             default: "neutral";
-            validator(color: any): boolean;
+            validator(color: import('../../Tile').TileColor): boolean;
         };
         isEyebrowTextUppercase: {
             type: BooleanConstructor;
             default: boolean;
         };
         state: {
-            type: import('vue').PropType<import('../../Tile').TileStates>;
+            type: import('vue').PropType<import('../../Tile').TileState>;
             default: "default";
-            validator(value: import('../../../utils/type.utils').Value<typeof import('../../Tile').TILE_STATES>): boolean;
+            validator(value: import('../../Tile').TileState): boolean;
         };
         eyebrowEllipsis: {
             type: BooleanConstructor;
@@ -502,13 +502,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: null;
         };
         additionalTextMaxWidth: {
-            type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidths>;
+            type: import('vue').PropType<import('../../Tile').TileAdditionalTextMaxWidth>;
             default: "small";
-            validator(value: import('../../Tile').TileAdditionalTextMaxWidths): boolean;
+            validator(value: import('../../Tile').TileAdditionalTextMaxWidth): boolean;
         };
     }>> & Readonly<{}>, {
-        color: import('../../Tile').TileColors;
-        state: import('../../Tile').TileStates;
+        color: import('../../Tile').TileColor;
+        state: import('../../Tile').TileState;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
         borderColor: import('../../Tile').TileBorderColors;
@@ -519,7 +519,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         isEyebrowTextUppercase: boolean;
         eyebrowEllipsis: boolean;
         textEllipsis: boolean;
-        additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidths;
+        additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidth;
     }, {}, {
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             icon: {
@@ -533,7 +533,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -567,7 +567,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -587,7 +587,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
+            rotation: number | null;
             size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;

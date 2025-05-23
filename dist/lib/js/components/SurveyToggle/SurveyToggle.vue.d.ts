@@ -1,26 +1,28 @@
+import { SurveyToggleMeaning, SurveyToggleState, SurveyToggleStatus } from './SurveyToggle.consts';
+
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     label: {
-        type: StringConstructor;
+        type: (StringConstructor | null)[];
         default: null;
     };
     contentText: {
-        type: StringConstructor;
+        type: (StringConstructor | null)[];
         default: null;
     };
     meaning: {
-        type: StringConstructor;
+        type: (StringConstructor | null)[];
         default: "primary";
-        validator(meaning: unknown): boolean;
+        validator(meaning: SurveyToggleMeaning): boolean;
     };
     status: {
         type: StringConstructor;
         default: "default";
-        validator(status: unknown): boolean;
+        validator(status: SurveyToggleStatus): boolean;
     };
     state: {
         type: StringConstructor;
         default: "default";
-        validator(state: unknown): boolean;
+        validator(state: SurveyToggleState): boolean;
     };
     selectedIcon: {
         type: ObjectConstructor;
@@ -60,27 +62,27 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isHoveredState(): any;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     label: {
-        type: StringConstructor;
+        type: (StringConstructor | null)[];
         default: null;
     };
     contentText: {
-        type: StringConstructor;
+        type: (StringConstructor | null)[];
         default: null;
     };
     meaning: {
-        type: StringConstructor;
+        type: (StringConstructor | null)[];
         default: "primary";
-        validator(meaning: unknown): boolean;
+        validator(meaning: SurveyToggleMeaning): boolean;
     };
     status: {
         type: StringConstructor;
         default: "default";
-        validator(status: unknown): boolean;
+        validator(status: SurveyToggleStatus): boolean;
     };
     state: {
         type: StringConstructor;
         default: "default";
-        validator(state: unknown): boolean;
+        validator(state: SurveyToggleState): boolean;
     };
     selectedIcon: {
         type: ObjectConstructor;
@@ -88,12 +90,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         validator(selectedIcon: unknown): boolean;
     };
 }>> & Readonly<{}>, {
-    label: string;
+    label: string | null;
     state: string;
     selectedIcon: Record<string, any>;
     status: string;
-    contentText: string;
-    meaning: string;
+    contentText: string | null;
+    meaning: string | null;
 }, {}, {
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         icon: {
@@ -107,7 +109,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -141,7 +143,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -161,7 +163,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;
