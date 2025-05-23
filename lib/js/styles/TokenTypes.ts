@@ -21,6 +21,7 @@ export interface TypographyToken {
 	label: string;
 	value: string;
 	token: string;
+	ratio: number | null;
 	attributes: Array<string>;
 	attributesRaw: Array<AttributeRaw>;
 }
@@ -28,5 +29,5 @@ export interface TypographyToken {
 export interface ItemsListsItem {
 	title: string;
 	class: string;
-	list: Dict<object>;
+	list: Dict<Array<object>>;
 }

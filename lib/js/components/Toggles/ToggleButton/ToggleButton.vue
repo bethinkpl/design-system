@@ -410,7 +410,6 @@ $toggle-button-colors: (
 </style>
 
 <script lang="ts">
-import { Value } from '../../../utils/type.utils';
 import { defineComponent, PropType, toRaw } from 'vue';
 
 import {
@@ -437,7 +436,7 @@ export default defineComponent({
 		color: {
 			type: String as PropType<ToggleButtonColor>,
 			default: TOGGLE_BUTTON_COLORS.NEUTRAL,
-			validator(value: Value<typeof TOGGLE_BUTTON_COLORS>) {
+			validator(value: ToggleButtonColor) {
 				return Object.values(TOGGLE_BUTTON_COLORS).includes(value);
 			},
 		},
@@ -482,21 +481,21 @@ export default defineComponent({
 		radius: {
 			type: String as PropType<ToggleButtonRadius>,
 			default: TOGGLE_BUTTON_RADIUSES.CAPSULE,
-			validator(value: Value<typeof TOGGLE_BUTTON_RADIUSES>) {
+			validator(value: ToggleButtonRadius) {
 				return Object.values(TOGGLE_BUTTON_RADIUSES).includes(value);
 			},
 		},
 		size: {
 			type: String as PropType<ToggleButtonSize>,
 			default: TOGGLE_BUTTON_SIZES.MEDIUM,
-			validator(value: Value<typeof TOGGLE_BUTTON_SIZES>) {
+			validator(value: ToggleButtonSize) {
 				return Object.values(TOGGLE_BUTTON_SIZES).includes(value);
 			},
 		},
 		state: {
 			type: String as PropType<ToggleButtonState>,
 			default: TOGGLE_BUTTON_STATES.DEFAULT,
-			validator(value: Value<typeof TOGGLE_BUTTON_STATES>) {
+			validator(value: ToggleButtonState) {
 				return Object.values(TOGGLE_BUTTON_STATES).includes(value);
 			},
 		},

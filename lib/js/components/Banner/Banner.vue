@@ -305,7 +305,7 @@ import DsButton, {
 import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
 import DsIcon, { ICONS } from '../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
-import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
+import { BANNER_COLORS, BANNER_LAYOUTS, BannerColor, BannerLayout } from './Banner.consts';
 import { defineComponent, toRaw } from 'vue';
 
 export default defineComponent({
@@ -333,7 +333,7 @@ export default defineComponent({
 		color: {
 			type: String,
 			default: BANNER_COLORS.DEFAULT,
-			validator: (color) => Object.values(BANNER_COLORS).includes(color),
+			validator: (color: BannerColor) => Object.values(BANNER_COLORS).includes(color),
 		},
 		title: {
 			type: String,
@@ -342,7 +342,7 @@ export default defineComponent({
 		layout: {
 			type: String,
 			default: BANNER_LAYOUTS.HORIZONTAL,
-			validator: (layout) => Object.values(BANNER_LAYOUTS).includes(layout),
+			validator: (layout: BannerLayout) => Object.values(BANNER_LAYOUTS).includes(layout),
 		},
 		isExpanded: {
 			type: Boolean,

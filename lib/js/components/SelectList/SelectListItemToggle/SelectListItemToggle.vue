@@ -14,6 +14,8 @@ import {
 	SELECT_LIST_ITEM_SELECTION_MODE,
 	SELECT_LIST_ITEM_SIZES,
 	SELECT_LIST_ITEM_STATES,
+	SelectListItemSize,
+	SelectListItemState,
 } from '../SelectListItem/SelectListItem.consts';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import SelectListItem from '../SelectListItem/SelectListItem.vue';
@@ -54,15 +56,15 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: SELECT_LIST_ITEM_SIZES.SMALL,
-			validator(size) {
+			validator(size: SelectListItemSize) {
 				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size);
 			},
 		},
 		state: {
 			type: String,
 			default: SELECT_LIST_ITEM_STATES.DEFAULT,
-			validator(size) {
-				return Object.values(SELECT_LIST_ITEM_STATES).includes(size);
+			validator(state: SelectListItemState) {
+				return Object.values(SELECT_LIST_ITEM_STATES).includes(state);
 			},
 		},
 	},

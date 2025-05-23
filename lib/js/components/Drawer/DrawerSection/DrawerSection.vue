@@ -33,6 +33,7 @@ import SectionHeader, {
 	SECTION_HEADER_ICON_COLORS,
 	SECTION_HEADER_SIZES,
 	SectionHeaderIconColor,
+	SectionHeaderSize,
 } from '../../Headers/SectionHeader';
 import { defineComponent, toRaw } from 'vue';
 
@@ -85,7 +86,7 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: SECTION_HEADER_SIZES.XX_SMALL,
-			validator(size) {
+			validator(size: SectionHeaderSize) {
 				return Object.values(SECTION_HEADER_SIZES).includes(size);
 			},
 		},

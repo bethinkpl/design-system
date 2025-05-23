@@ -4,12 +4,11 @@ import {
 	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
 	TILE_COLORS,
 	TILE_STATES,
-	TileAdditionalTextMaxWidths,
+	TileAdditionalTextMaxWidth,
 	TileBorderColors,
-	TileColors,
-	TileStates,
+	TileColor,
+	TileState,
 } from './Tile.consts';
-import { Value } from '../../utils/type.utils';
 
 export const props = {
 	interactive: {
@@ -47,9 +46,9 @@ export const props = {
 		default: null,
 	},
 	color: {
-		type: String as PropType<TileColors>,
+		type: String as PropType<TileColor>,
 		default: TILE_COLORS.NEUTRAL,
-		validator(color) {
+		validator(color: TileColor) {
 			return Object.values(TILE_COLORS).includes(color);
 		},
 	},
@@ -58,9 +57,9 @@ export const props = {
 		default: false,
 	},
 	state: {
-		type: String as PropType<TileStates>,
+		type: String as PropType<TileState>,
 		default: TILE_STATES.DEFAULT,
-		validator(value: Value<typeof TILE_STATES>) {
+		validator(value: TileState) {
 			return Object.values(TILE_STATES).includes(value);
 		},
 	},
@@ -77,9 +76,9 @@ export const props = {
 		default: null,
 	},
 	additionalTextMaxWidth: {
-		type: String as PropType<TileAdditionalTextMaxWidths>,
+		type: String as PropType<TileAdditionalTextMaxWidth>,
 		default: TILE_ADDITIONAL_TEXT_MAX_WIDTHS.SMALL,
-		validator(value: TileAdditionalTextMaxWidths) {
+		validator(value: TileAdditionalTextMaxWidth) {
 			return Object.values(TILE_ADDITIONAL_TEXT_MAX_WIDTHS).includes(value);
 		},
 	},
