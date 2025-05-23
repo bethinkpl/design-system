@@ -192,6 +192,34 @@ export default defineComponent({
 			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
 		};
 	},
+	watch: {
+		minDate: {
+			immediate: true,
+			handler(minDate: Date) {
+				if (
+					this.startDate &&
+					minDate &&
+					new Date(this.startDate).setHours(0, 0, 0, 0) <
+						new Date(minDate).setHours(0, 0, 0, 0)
+				) {
+					this.$emit('update:date', { startDate: null, endDate: null });
+				}
+			},
+		},
+		maxDate: {
+			immediate: true,
+			handler(maxDate: Date) {
+				if (
+					this.endDate &&
+					maxDate &&
+					new Date(this.endDate).setHours(0, 0, 0, 0) >
+						new Date(maxDate).setHours(0, 0, 0, 0)
+				) {
+					this.$emit('update:date', { startDate: null, endDate: null });
+				}
+			},
+		},
+	},
 	methods: {
 		async bindFlatpickrInstance() {
 			this.flatpickrInstance = await this.createDatePicker(

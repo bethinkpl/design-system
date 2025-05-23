@@ -355,6 +355,34 @@ export default defineComponent({
 			return this.color as TileColor;
 		},
 	},
+	watch: {
+		minDate: {
+			immediate: true,
+			handler(minDate: Date) {
+				if (
+					this.date &&
+					minDate &&
+					new Date(this.date).setHours(0, 0, 0, 0) <
+						new Date(minDate).setHours(0, 0, 0, 0)
+				) {
+					this.$emit('update:date', null);
+				}
+			},
+		},
+		maxDate: {
+			immediate: true,
+			handler(maxDate: Date) {
+				if (
+					this.date &&
+					maxDate &&
+					new Date(this.date).setHours(0, 0, 0, 0) >
+						new Date(maxDate).setHours(0, 0, 0, 0)
+				) {
+					this.$emit('update:date', null);
+				}
+			},
+		},
+	},
 	methods: {
 		async bindFlatpickrInstance() {
 			this.flatpickrInstance = await this.createDatePicker(

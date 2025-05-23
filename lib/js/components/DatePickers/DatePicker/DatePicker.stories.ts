@@ -34,6 +34,10 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 					updateArgs({
 						date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
 					});
+				} else {
+					updateArgs({
+						date: null,
+					});
 				}
 			},
 		},
