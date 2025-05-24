@@ -1,48 +1,8 @@
 {
-  "files": [
-    "lib/js/typings.d.ts"
-  ],
-  "compilerOptions": {
-    "module": "esnext",
-    "importHelpers": true,
-    "removeComments": true,
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "./lib/js",
-    "esModuleInterop": true,
-    "moduleResolution": "node",
-    "noImplicitReturns": true,
-    "resolveJsonModule": true,
-    // It causes `TS6133: '_withScopeId' is declared but its value is never read.`
-    // "noUnusedLocals": true,
-    "skipLibCheck": true,
-    "strictBindCallApply": true,
-    // Re-enable after https://github.com/vuejs/core/issues/4668 is fixed
-    // "noUnusedParameters": true,
-    "strictFunctionTypes": true,
-    "target": "es2019",
-    "strictNullChecks": true,
-    "paths": {
-      "design-system/lib/*": [
-        "lib/*"
-      ]
-    },
-    "declaration": true,
-    "declarationDir": "dist",
-    "types": ["node", "jest"],
-  },
-  "include": [
-    "lib/js/**/*.vue",
-    "lib/js/**/*.ts"
-  ],
+  "extends": "./tsconfig.base.json",
   "exclude": [
-    "node_modules",
-    "public",
-    ".storybook",
-    "**/*.stories.ts",
-    "**/*.spec.ts"
-  ],
-  "typeRoots": [
-    "node_modules/@types"
+    // excluded to prevent generating redundant d.ts files in dist on build
+    "lib/**/*.spec.ts",
+    "lib/**/*.stories.ts"
   ]
 }
-

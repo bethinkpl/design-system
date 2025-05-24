@@ -1,3 +1,4 @@
+import { describe, expect, it } from "vitest";
 import { ImportTypographyVariables, ImportTypographyTokens } from './SynchronizeTypographyTokens';
 import { promises, unlinkSync, readFileSync } from 'fs';
 const tokensFilesConfig = {
