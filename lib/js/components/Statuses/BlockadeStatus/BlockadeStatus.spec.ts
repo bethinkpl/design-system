@@ -1,3 +1,4 @@
+import { describe, expect, test } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
 
 import BlockadeStatus from './BlockadeStatus.vue';

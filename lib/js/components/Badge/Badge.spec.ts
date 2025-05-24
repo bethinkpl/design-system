@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Badge from './Badge.vue';
 import { BADGE_COLORS, BADGE_ELEVATIONS, BADGE_SIZES } from './Badge.consts';
