@@ -536,7 +536,7 @@ export default defineComponent({
 		size: {
 			type: String as PropType<RichListItemSize>,
 			default: RICH_LIST_ITEM_SIZE.MEDIUM,
-			validator(size) {
+			validator(size: RichListItemSize) {
 				return Object.values(RICH_LIST_ITEM_SIZE).includes(size);
 			},
 		},
@@ -562,7 +562,7 @@ export default defineComponent({
 		iconColor: {
 			type: String as PropType<IconColor>,
 			default: null,
-			validator(iconColor) {
+			validator(iconColor: IconColor) {
 				return Object.values(ICON_COLORS).includes(iconColor);
 			},
 		},
@@ -573,7 +573,7 @@ export default defineComponent({
 		borderColor: {
 			type: String as PropType<RichListItemBorderColor>,
 			default: null,
-			validator(borderColor) {
+			validator(borderColor: RichListItemBorderColor) {
 				return Object.values(RICH_LIST_ITEM_BORDER_COLOR).includes(borderColor);
 			},
 		},
@@ -588,15 +588,15 @@ export default defineComponent({
 		backgroundColor: {
 			type: String as PropType<RichListItemBackgroundColor>,
 			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
-			validator(backgroundColor) {
+			validator(backgroundColor: RichListItemBackgroundColor) {
 				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(backgroundColor);
 			},
 		},
 		elevation: {
 			type: String as PropType<RichListItemElevation>,
 			default: null,
-			validator(evolution) {
-				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(evolution);
+			validator(elevation: RichListItemElevation) {
+				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(elevation);
 			},
 		},
 		hasDraggableHandler: {
@@ -618,7 +618,7 @@ export default defineComponent({
 	},
 	emits: {
 		'icon-click': () => true,
-		click: () => true,
+		click: (event: Event) => true,
 		'update:is-selected': (isSelected: boolean) => true,
 	},
 	data() {

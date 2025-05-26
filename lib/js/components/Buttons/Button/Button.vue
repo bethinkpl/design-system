@@ -85,7 +85,7 @@ export default defineComponent({
 			},
 		},
 		color: {
-			type: String,
+			type: [String, null],
 			default: BUTTON_COLORS.PRIMARY,
 			validator(value: Value<typeof ICON_BUTTON_COLORS>) {
 				return Object.values(ICON_BUTTON_COLORS).includes(value);

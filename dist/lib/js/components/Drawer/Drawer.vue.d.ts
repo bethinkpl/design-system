@@ -5,7 +5,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     position: {
         type: PropType<DrawerPosition>;
         default: "right";
-        validator(position: unknown): boolean;
+        validator(position: DrawerPosition): boolean;
     };
     stickyHeader: {
         type: BooleanConstructor;
@@ -21,7 +21,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     position: {
         type: PropType<DrawerPosition>;
         default: "right";
-        validator(position: unknown): boolean;
+        validator(position: DrawerPosition): boolean;
     };
     stickyHeader: {
         type: BooleanConstructor;

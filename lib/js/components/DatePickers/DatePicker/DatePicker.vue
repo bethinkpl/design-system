@@ -24,9 +24,9 @@
 				:text="text"
 				:interactive="isInteractive"
 				:additional-text="additionalText"
-				:color="color as TileColors"
+				:color="tileColor"
 				:border-color="borderColor"
-				:state="state as TileStates"
+				:state="tileState"
 				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
@@ -142,13 +142,13 @@ import { defineComponent, PropType, Ref, ref, toRaw } from 'vue';
 
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 
-import { IconItem, ICONS } from '../../Icons/Icon';
 import DsTile, {
 	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
 	TILE_BORDER_COLORS,
-	TileColors,
-	TileStates,
+	TileColor,
+	TileState,
 } from '../../Tile';
+import { IconItem, ICONS } from '../../Icons/Icon';
 import DateBox from '../DateBox';
 
 import {
@@ -347,6 +347,12 @@ export default defineComponent({
 		},
 		showHelpMessage() {
 			return this.helpMessage !== null;
+		},
+		tileState() {
+			return this.state as TileState;
+		},
+		tileColor() {
+			return this.color as TileColor;
 		},
 	},
 	watch: {

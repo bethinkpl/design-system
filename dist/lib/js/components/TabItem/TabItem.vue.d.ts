@@ -9,7 +9,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         required: true;
     };
     label: {
-        type: (StringConstructor | null)[];
+        type: StringConstructor;
         default: null;
     };
     labelEllipsis: {
@@ -46,7 +46,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         required: true;
     };
     label: {
-        type: (StringConstructor | null)[];
+        type: StringConstructor;
         default: null;
     };
     labelEllipsis: {
@@ -62,7 +62,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>, {
     icon: Record<string, any> | null;
     size: string;
-    label: string | null;
+    label: string;
     labelEllipsis: boolean;
 }, {}, {
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -77,7 +77,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -111,7 +111,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -131,7 +131,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;

@@ -1,31 +1,31 @@
 import { PropType } from 'vue';
-import { ProgressBarRange } from './ProgressBar.consts';
+import { ProgressBarBadgeColor, ProgressBarLabelTextSize, ProgressBarLayout, ProgressBarRadius, ProgressBarRange, ProgressBarSize } from './ProgressBar.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     size: {
         type: StringConstructor;
         default: "small";
-        validator(size: unknown): boolean;
+        validator(size: ProgressBarSize): boolean;
     };
     labelTextSize: {
         type: StringConstructor;
         default: "small";
-        validator(size: unknown): boolean;
+        validator(size: ProgressBarLabelTextSize): boolean;
     };
     ranges: {
         type: PropType<Array<ProgressBarRange>>;
         required: true;
-        validator(ranges: unknown): any;
+        validator(ranges: Array<ProgressBarRange>): boolean;
     };
     radius: {
         type: StringConstructor;
         default: string;
-        validator(size: unknown): boolean;
+        validator(size: ProgressBarRadius): boolean;
     };
     layout: {
         type: StringConstructor;
         default: string;
-        validator(size: unknown): boolean;
+        validator(size: ProgressBarLayout): boolean;
     };
     labelText: {
         type: StringConstructor;
@@ -50,12 +50,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     badgePosition: {
         type: NumberConstructor;
         default: null;
-        validator(position: unknown): boolean;
+        validator(position: number): boolean;
     };
     badgeColor: {
         type: StringConstructor;
         default: "info";
-        validator(color: unknown): boolean;
+        validator(color: ProgressBarBadgeColor): boolean;
     };
 }>, {}, {
     PROGRESS_BAR_SIZES: Readonly<{
@@ -309,27 +309,27 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     size: {
         type: StringConstructor;
         default: "small";
-        validator(size: unknown): boolean;
+        validator(size: ProgressBarSize): boolean;
     };
     labelTextSize: {
         type: StringConstructor;
         default: "small";
-        validator(size: unknown): boolean;
+        validator(size: ProgressBarLabelTextSize): boolean;
     };
     ranges: {
         type: PropType<Array<ProgressBarRange>>;
         required: true;
-        validator(ranges: unknown): any;
+        validator(ranges: Array<ProgressBarRange>): boolean;
     };
     radius: {
         type: StringConstructor;
         default: string;
-        validator(size: unknown): boolean;
+        validator(size: ProgressBarRadius): boolean;
     };
     layout: {
         type: StringConstructor;
         default: string;
-        validator(size: unknown): boolean;
+        validator(size: ProgressBarLayout): boolean;
     };
     labelText: {
         type: StringConstructor;
@@ -354,12 +354,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     badgePosition: {
         type: NumberConstructor;
         default: null;
-        validator(position: unknown): boolean;
+        validator(position: number): boolean;
     };
     badgeColor: {
         type: StringConstructor;
         default: "info";
-        validator(color: unknown): boolean;
+        validator(color: ProgressBarBadgeColor): boolean;
     };
 }>> & Readonly<{}>, {
     size: string;
@@ -386,7 +386,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -420,7 +420,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -440,7 +440,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;

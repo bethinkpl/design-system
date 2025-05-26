@@ -251,7 +251,7 @@ $counter-toggle-colors: (
 </style>
 
 <script lang="ts">
-import { COUNTER_TOGGLE_COLORS } from './CounterToggle.consts';
+import { COUNTER_TOGGLE_COLORS, CounterToggleColor } from './CounterToggle.consts';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { defineComponent, toRaw } from 'vue';
 
@@ -268,7 +268,7 @@ export default defineComponent({
 		color: {
 			type: String,
 			default: COUNTER_TOGGLE_COLORS.NEUTRAL_STRONG,
-			validator(color) {
+			validator(color: CounterToggleColor) {
 				return Object.values(COUNTER_TOGGLE_COLORS).includes(color);
 			},
 		},

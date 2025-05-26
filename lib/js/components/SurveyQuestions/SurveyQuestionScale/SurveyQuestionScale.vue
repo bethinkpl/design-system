@@ -239,7 +239,12 @@ import SurveyToggle, {
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
 } from '../../SurveyToggle';
-import { SURVEY_QUESTION_SCALE_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
+import {
+	SURVEY_QUESTION_SCALE_CONTAINERS,
+	SURVEY_QUESTION_STATES,
+	SurveyQuestionScaleContainer,
+	SurveyQuestionState,
+} from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
@@ -263,14 +268,14 @@ export default defineComponent({
 		state: {
 			type: String,
 			default: SURVEY_QUESTION_STATES.DEFAULT,
-			validator(state) {
+			validator(state: SurveyQuestionState) {
 				return Object.values(SURVEY_QUESTION_STATES).includes(state);
 			},
 		},
 		scaleOptions: {
 			type: Array as () => Array<SurveyQuestionScaleOption>,
 			required: true,
-			validator(scaleOptions) {
+			validator(scaleOptions: Array<SurveyQuestionScaleOption>) {
 				return scaleOptions.every((option) => typeof option === 'object');
 			},
 		},
@@ -293,7 +298,7 @@ export default defineComponent({
 		containers: {
 			type: String,
 			default: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
-			validator(containers) {
+			validator(containers: SurveyQuestionScaleContainer) {
 				return Object.values(SURVEY_QUESTION_SCALE_CONTAINERS).includes(containers);
 			},
 		},

@@ -9,7 +9,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     borderColor: {
         type: PropType<GroupRichListItemBorderColor>;
         default: null;
-        validator(borderColor: unknown): boolean;
+        validator(borderColor: GroupRichListItemBorderColor): boolean;
     };
     borderColorHex: {
         type: StringConstructor;
@@ -18,7 +18,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     backgroundColor: {
         type: PropType<GroupRichListItemBackgroundColor>;
         default: "neutral";
-        validator(backgroundColor: unknown): boolean;
+        validator(backgroundColor: GroupRichListItemBackgroundColor): boolean;
     };
 }>, {}, {}, {
     classList(): any;
@@ -34,7 +34,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     borderColor: {
         type: PropType<GroupRichListItemBorderColor>;
         default: null;
-        validator(borderColor: unknown): boolean;
+        validator(borderColor: GroupRichListItemBorderColor): boolean;
     };
     borderColorHex: {
         type: StringConstructor;
@@ -43,7 +43,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     backgroundColor: {
         type: PropType<GroupRichListItemBackgroundColor>;
         default: "neutral";
-        validator(backgroundColor: unknown): boolean;
+        validator(backgroundColor: GroupRichListItemBackgroundColor): boolean;
     };
 }>> & Readonly<{}>, {
     backgroundColor: import('../RichListItem').RichListItemBackgroundColor;

@@ -1,3 +1,5 @@
+import { Value } from '../../utils/type.utils';
+
 export declare const PROGRESS_BAR_RANGE_COLORS: {
     readonly PRIMARY_MEDIUM: "primaryMedium";
     readonly PRIMARY: "primary";
@@ -24,6 +26,7 @@ export declare const PROGRESS_BAR_RANGE_COLORS: {
     readonly FAIL_WEAK: "failWeak";
     readonly FAIL_GHOST: "failGhost";
 };
+export type ProgressBarRangeColor = Value<typeof PROGRESS_BAR_RANGE_COLORS>;
 export declare const PROGRESS_BAR_BADGE_COLORS: {
     readonly PRIMARY: "primary";
     readonly NEUTRAL: "neutral";
@@ -32,23 +35,28 @@ export declare const PROGRESS_BAR_BADGE_COLORS: {
     readonly WARNING: "warning";
     readonly FAIL: "fail";
 };
+export type ProgressBarBadgeColor = Value<typeof PROGRESS_BAR_BADGE_COLORS>;
 export declare const PROGRESS_BAR_SIZES: {
     readonly MEDIUM: "medium";
     readonly SMALL: "small";
     readonly XSMALL: "extra small";
 };
+export type ProgressBarSize = Value<typeof PROGRESS_BAR_SIZES>;
 export declare const PROGRESS_BAR_LABEL_TEXT_SIZES: {
     readonly MEDIUM: "medium";
     readonly SMALL: "small";
 };
+export type ProgressBarLabelTextSize = Value<typeof PROGRESS_BAR_LABEL_TEXT_SIZES>;
 export declare const PROGRESS_BAR_RADII: {
     DEFAULT: string;
     NONE: string;
 };
+export type ProgressBarRadius = Value<typeof PROGRESS_BAR_RADII>;
 export declare const PROGRESS_BAR_LAYOUTS: {
     DEFAULT: string;
     COMPACT: string;
 };
+export type ProgressBarLayout = Value<typeof PROGRESS_BAR_LAYOUTS>;
 export interface ProgressBarRange {
     color: typeof PROGRESS_BAR_RANGE_COLORS[keyof typeof PROGRESS_BAR_RANGE_COLORS];
     start: number;

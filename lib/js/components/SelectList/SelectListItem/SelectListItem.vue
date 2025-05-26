@@ -165,6 +165,9 @@ import {
 	SELECT_LIST_ITEM_SELECTION_MODE,
 	SELECT_LIST_ITEM_SIZES,
 	SELECT_LIST_ITEM_STATES,
+	SelectListItemSelectionMode,
+	SelectListItemSize,
+	SelectListItemState,
 } from './SelectListItem.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { defineComponent, toRaw } from 'vue';
@@ -201,21 +204,21 @@ export default defineComponent({
 		selectionMode: {
 			type: String,
 			default: SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
-			validator(selectionMode) {
+			validator(selectionMode: SelectListItemSelectionMode) {
 				return Object.values(SELECT_LIST_ITEM_SELECTION_MODE).includes(selectionMode);
 			},
 		},
 		size: {
 			type: String,
 			default: SELECT_LIST_ITEM_SIZES.SMALL,
-			validator(size) {
+			validator(size: SelectListItemSize) {
 				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size);
 			},
 		},
 		state: {
 			type: String,
 			default: SELECT_LIST_ITEM_STATES.DEFAULT,
-			validator(state) {
+			validator(state: SelectListItemState) {
 				return Object.values(SELECT_LIST_ITEM_STATES).includes(state);
 			},
 		},
