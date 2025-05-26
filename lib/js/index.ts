@@ -29,6 +29,7 @@ export * from './components/Divider/Divider.consts';
 export { default as FeatureIcon } from './components/Icons/FeatureIcon';
 export { default as DsFeatureIcon } from './components/Icons/FeatureIcon';
 export * from './components/Icons/FeatureIcon/FeatureIcon.consts';
+export { default as FormField } from './components/Form/FormField/FormField.vue';
 export { default as Icon } from './components/Icons/Icon';
 export { default as DsIcon } from './components/Icons/Icon';
 export * from './components/Icons/Icon/Icon.consts';
