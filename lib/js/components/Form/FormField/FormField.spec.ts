@@ -3,6 +3,10 @@ import { mount } from '@vue/test-utils';
 import { h } from 'vue';
 import FormField from './FormField.vue';
 import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
+import FormFieldMessage from './FormFieldMessage/FormFieldMessage.vue';
+
+const fieldId = 'form-field-v-0';
+const messageId = 'form-field-v-0-message';
 
 function setup(
 	props: ComponentProps<typeof FormField> = {},
@@ -11,13 +15,8 @@ function setup(
 	return mount(FormField, {
 		props,
 		slots: {
-			field({ fieldId, messageId }) {
-				return [
-					h('input', {
-						id: fieldId,
-						'aria-describedby': messageId,
-					}),
-				];
+			field() {
+				return [h('input')];
 			},
 			...slots,
 		},
@@ -35,14 +34,11 @@ describe('FormField', () => {
 			},
 			{
 				labelAside: () => [h('span', 'Label aside')],
-				message: ({ messageId }) => [h('div', { id: messageId })],
+				message: () => [h(FormFieldMessage, () => 'Message')],
 				fieldStatus: () => [h('span', 'Field status')],
 				help: () => [h('span', 'Help')],
 			},
 		);
-
-		const fieldId = 'form-field-v-0';
-		const messageId = 'form-field-v-0-message';
 
 		expect(wrapper.exists()).toBe(true);
 		expect(wrapper.find('.ds-formField__label').attributes('for')).toBe(fieldId);
@@ -50,12 +46,9 @@ describe('FormField', () => {
 		expect(wrapper.find('.ds-formField__labelRequired').text()).toBe('*');
 		expect(wrapper.find('.ds-formField__labelInfo').text()).toBe('Label info');
 		expect(wrapper.find('.ds-formField__subLabelRow').text()).toBe('Sub Label');
-		expect(wrapper.find('.ds-formField__mainRow input').attributes()).toEqual({
-			id: fieldId,
-			'aria-describedby': messageId,
-		});
+		expect(wrapper.find('.ds-formField__mainRow input').exists()).toBe(true);
 		expect(wrapper.find('.ds-formField__labelAside').text()).toBe('Label aside');
-		expect(wrapper.find(`#${messageId}`).exists()).toBe(true);
+		expect(wrapper.find(`#${messageId}`).text()).toBe('Message');
 		expect(wrapper.find('.ds-formField__fieldStatus').text()).toBe('Field status');
 	});
 
@@ -101,7 +94,7 @@ describe('FormField', () => {
 			name: 'only message',
 			props: {},
 			slots: {
-				message: ({ messageId }) => [h('div', { id: messageId }, 'Message')],
+				message: () => [h(FormFieldMessage, () => 'Message')],
 			},
 			expected: true,
 		},
@@ -123,5 +116,31 @@ describe('FormField', () => {
 		const wrapper = setup(props, slots);
 
 		expect(wrapper.find('.ds-formField__footerRow').exists()).toBe(expected);
+	});
+
+	it.each([
+		{
+			props: {
+				messageText: 'Default message',
+			},
+			expectedMessage: 'Default message',
+		},
+		{
+			props: {
+				messageErrorText: 'Error message',
+			},
+			expectedMessage: 'Error message',
+		},
+		{
+			props: {
+				messageSuccessText: 'Success message',
+			},
+			expectedMessage: 'Success message',
+		},
+	])('should render message: $expectedMessage', ({ props, expectedMessage }) => {
+		const wrapper = setup(props);
+
+		expect(wrapper.find('.ds-formField__message').exists()).toBe(true);
+		expect(wrapper.find(`#${messageId}`).text()).toBe(expectedMessage);
 	});
 });
