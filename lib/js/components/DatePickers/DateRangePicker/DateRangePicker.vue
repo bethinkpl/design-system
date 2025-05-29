@@ -194,7 +194,6 @@ export default defineComponent({
 	},
 	watch: {
 		minDate: {
-			immediate: true,
 			handler(minDate: Date) {
 				if (
 					this.startDate &&
@@ -207,7 +206,6 @@ export default defineComponent({
 			},
 		},
 		maxDate: {
-			immediate: true,
 			handler(maxDate: Date) {
 				if (
 					this.endDate &&

@@ -176,3 +176,22 @@ ScrollableContainer.parameters = {
 		url: 'https://www.figma.com/design/03ABNCSDYWYDmOPJOBGM5l/INI-153-Planowanie-pracy-z-lekcjami?node-id=245-162031&t=g08nj70xhT9BZTpu-4',
 	},
 };
+
+export const PastDate = StoryTemplate.bind({});
+PastDate.args = {
+	...args,
+	date: new Date(now - oneDayMili * 2).toISOString().slice(0, 10),
+	minDate: new Date().toISOString().slice(0, 10),
+	maxDate: new Date(now + oneDayMili * 30).toISOString().slice(0, 10),
+};
+
+PastDate.argTypes = {
+	...argTypes,
+};
+
+PastDate.parameters = {
+	design: {
+		type: 'figma',
+		url: 'https://www.figma.com/design/03ABNCSDYWYDmOPJOBGM5l/INI-153-Planowanie-pracy-z-lekcjami?node-id=245-162031&t=g08nj70xhT9BZTpu-4',
+	},
+};
