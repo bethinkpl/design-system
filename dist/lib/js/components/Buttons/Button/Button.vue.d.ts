@@ -14,7 +14,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         validator(value: Value<typeof BUTTON_TYPES>): boolean;
     };
     color: {
-        type: StringConstructor;
+        type: (StringConstructor | null)[];
         default: "primary";
         validator(value: Value<typeof ICON_BUTTON_COLORS>): boolean;
     };
@@ -321,7 +321,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         validator(value: Value<typeof BUTTON_TYPES>): boolean;
     };
     color: {
-        type: StringConstructor;
+        type: (StringConstructor | null)[];
         default: "primary";
         validator(value: Value<typeof ICON_BUTTON_COLORS>): boolean;
     };
@@ -353,7 +353,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{}>, {
     size: string;
     type: string;
-    color: string;
+    color: string | null;
     elevation: string;
     radius: string;
     state: string;
@@ -372,7 +372,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -406,7 +406,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -426,7 +426,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;

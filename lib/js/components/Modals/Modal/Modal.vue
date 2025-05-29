@@ -51,7 +51,12 @@
 										id="ds-modal__checkboxInput"
 										type="checkbox"
 										:checked="false"
-										@change="$emit('checkbox-change', $event.target.checked)"
+										@change="
+											$emit(
+												'checkbox-change',
+												($event.target as HTMLInputElement).checked,
+											)
+										"
 									/>
 									<label
 										for="ds-modal__checkboxInput"
@@ -325,6 +330,7 @@ import WnlButton, {
 	BUTTON_ELEVATIONS,
 	BUTTON_STATES,
 	BUTTON_TYPES,
+	ButtonState,
 } from '../../Buttons/Button';
 import WnlIconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { defineComponent, toRaw } from 'vue';
@@ -332,7 +338,6 @@ import { defineComponent, toRaw } from 'vue';
 export default defineComponent({
 	name: 'Modal',
 	components: { FeatureIcon, WnlButton, WnlIconButton },
-	inheritAttrs: false,
 	props: {
 		size: {
 			type: String,
@@ -392,7 +397,7 @@ export default defineComponent({
 		footerPrimaryButtonState: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
-			validator(state) {
+			validator(state: ButtonState) {
 				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
@@ -410,7 +415,7 @@ export default defineComponent({
 		footerSecondaryButtonState: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
-			validator(state) {
+			validator(state: ButtonState) {
 				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},
@@ -428,7 +433,7 @@ export default defineComponent({
 		footerTertiaryButtonState: {
 			type: String,
 			default: BUTTON_STATES.DEFAULT,
-			validator(state) {
+			validator(state: ButtonState) {
 				return Object.values(BUTTON_STATES).includes(state);
 			},
 		},

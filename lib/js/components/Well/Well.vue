@@ -6,6 +6,21 @@
 			'-ds-small': WELL_PADDINGS.SMALL === padding,
 		}"
 	>
+		<div v-if="hasChip" class="ds-well__chipContainer">
+			<chip
+				:label="chipLabel"
+				:is-label-uppercase="chipLabelUppercase"
+				:left-icon="chipLeftIcon"
+				:radius="chipRadius"
+				:color="chipColor"
+				:color-hex="chipColorHex"
+			>
+				<template v-if="$slots.chipAccessory" #accessory>
+					<slot name="chipAccessory" />
+				</template>
+			</chip>
+		</div>
+
 		<slot />
 	</div>
 </template>
@@ -16,39 +31,59 @@
 @import '../../../styles/settings/colors/tokens';
 
 .ds-well {
+	$root: &;
+
 	background-color: $color-neutral-background;
 	border-radius: $radius-m;
+	position: relative;
+
+	&__chipContainer {
+		display: flex;
+		position: absolute;
+		right: 0;
+		top: -10px;
+	}
 
 	&.-ds-medium {
 		padding: $space-s;
+
+		#{$root}__chipContainer {
+			right: $space-s;
+		}
 	}
 
 	&.-ds-small {
 		padding: $space-xs;
+
+		#{$root}__chipContainer {
+			right: $space-xs;
+		}
 	}
 }
 </style>
 
-<script>
-import { WELL_PADDINGS } from './Well.consts';
+<script lang="ts" setup>
+import { WELL_PADDINGS, WellPadding } from './Well.consts';
+import Chip, { CHIP_DEFAULT_COLOR, CHIP_RADIUSES, ChipRadius, ChipColor } from '../Chip';
+import { IconItem } from '../Icons/Icon';
 
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-	name: 'Well',
-	props: {
-		padding: {
-			type: String,
-			default: null,
-			validator(padding) {
-				return Object.values(WELL_PADDINGS).includes(padding);
-			},
-		},
-	},
-	data() {
-		return {
-			WELL_PADDINGS: Object.freeze(WELL_PADDINGS),
-		};
-	},
-});
+const {
+	padding = null,
+	hasChip = false,
+	chipLabel,
+	chipLabelUppercase = false,
+	chipLeftIcon = null,
+	chipRadius = CHIP_RADIUSES.ROUNDED,
+	chipColor = CHIP_DEFAULT_COLOR,
+	chipColorHex,
+} = defineProps<{
+	padding?: WellPadding;
+	hasChip?: boolean;
+	chipLabel?: string;
+	chipLabelUppercase?: boolean;
+	chipLeftIcon?: IconItem;
+	chipRadius?: ChipRadius;
+	chipColor?: ChipColor;
+	chipColorHex?: string;
+}>();
 </script>

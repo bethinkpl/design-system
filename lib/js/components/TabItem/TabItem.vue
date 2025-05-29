@@ -116,7 +116,7 @@ export default defineComponent({
 			required: true,
 		},
 		label: {
-			type: [String, null],
+			type: String,
 			default: null,
 		},
 		labelEllipsis: {

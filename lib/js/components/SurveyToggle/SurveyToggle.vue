@@ -221,6 +221,9 @@ import {
 	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
 	SURVEY_TOGGLE_STATUSES,
+	SurveyToggleMeaning,
+	SurveyToggleState,
+	SurveyToggleStatus,
 } from './SurveyToggle.consts';
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
 
@@ -233,31 +236,31 @@ export default defineComponent({
 	},
 	props: {
 		label: {
-			type: String,
+			type: [String, null],
 			default: null,
 		},
 		contentText: {
-			type: String,
+			type: [String, null],
 			default: null,
 		},
 		meaning: {
-			type: String,
+			type: [String, null],
 			default: SURVEY_TOGGLE_MEANINGS.PRIMARY,
-			validator(meaning) {
+			validator(meaning: SurveyToggleMeaning) {
 				return Object.values(SURVEY_TOGGLE_MEANINGS).includes(meaning);
 			},
 		},
 		status: {
 			type: String,
 			default: SURVEY_TOGGLE_STATUSES.DEFAULT,
-			validator(status) {
+			validator(status: SurveyToggleStatus) {
 				return Object.values(SURVEY_TOGGLE_STATUSES).includes(status);
 			},
 		},
 		state: {
 			type: String,
 			default: SURVEY_TOGGLE_STATES.DEFAULT,
-			validator(state) {
+			validator(state: SurveyToggleState) {
 				return Object.values(SURVEY_TOGGLE_STATES).includes(state);
 			},
 		},

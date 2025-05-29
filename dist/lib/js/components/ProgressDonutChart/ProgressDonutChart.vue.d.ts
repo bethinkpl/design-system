@@ -9,12 +9,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: PropType<ProgressDonutChartState>;
         default: string;
-        validator(state: unknown): boolean;
+        validator(state: ProgressDonutChartState): boolean;
     };
     ranges: {
         type: PropType<Array<ProgressDonutChartRange>>;
         required: true;
-        validator(ranges: unknown): any;
+        validator(ranges: Array<ProgressDonutChartRange>): boolean;
     };
 }>, {}, {
     PROGRESS_DONUT_CHART_STATES: Readonly<{
@@ -265,12 +265,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: {
         type: PropType<ProgressDonutChartState>;
         default: string;
-        validator(state: unknown): boolean;
+        validator(state: ProgressDonutChartState): boolean;
     };
     ranges: {
         type: PropType<Array<ProgressDonutChartRange>>;
         required: true;
-        validator(ranges: unknown): any;
+        validator(ranges: Array<ProgressDonutChartRange>): boolean;
     };
 }>> & Readonly<{}>, {
     label: string;
@@ -288,7 +288,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -322,7 +322,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -342,7 +342,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;

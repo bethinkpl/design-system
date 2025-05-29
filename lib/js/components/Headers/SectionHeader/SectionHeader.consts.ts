@@ -8,10 +8,15 @@ export const SECTION_HEADER_SIZES = {
 	MEDIUM: 'medium',
 	LARGE: 'large',
 };
+
+export type SectionHeaderSize = Value<typeof SECTION_HEADER_SIZES>;
+
 export const SECTION_HEADER_MOBILE_LAYOUTS = {
 	VERTICAL: 'vertical',
 	HORIZONTAL: 'horizontal',
 } as const;
+
+export type SectionHeaderMobileLayout = Value<typeof SECTION_HEADER_MOBILE_LAYOUTS>;
 
 export const SECTION_HEADER_ICON_COLORS = {
 	ACCENT: ICON_COLORS.ACCENT,

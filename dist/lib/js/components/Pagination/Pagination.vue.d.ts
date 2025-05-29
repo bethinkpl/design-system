@@ -4,7 +4,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     currentPage: {
         type: NumberConstructor;
         default: number;
-        validator(page: unknown): boolean;
+        validator(page: number): boolean;
     };
     forceCompact: {
         type: BooleanConstructor;
@@ -17,7 +17,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     itemsPerPage: {
         type: NumberConstructor;
         default: number;
-        validator(itemsPerPage: unknown): boolean;
+        validator(itemsPerPage: number): boolean;
     };
     itemsTotalAmount: {
         type: NumberConstructor;
@@ -292,7 +292,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     currentPage: {
         type: NumberConstructor;
         default: number;
-        validator(page: unknown): boolean;
+        validator(page: number): boolean;
     };
     forceCompact: {
         type: BooleanConstructor;
@@ -305,7 +305,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     itemsPerPage: {
         type: NumberConstructor;
         default: number;
-        validator(itemsPerPage: unknown): boolean;
+        validator(itemsPerPage: number): boolean;
     };
     itemsTotalAmount: {
         type: NumberConstructor;
@@ -323,17 +323,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         size: {
             type: StringConstructor;
             default: "large";
-            validator(value: unknown): boolean;
+            validator(value: import('../Buttons/IconButton').IconButtonSize): boolean;
         };
         radius: {
             type: StringConstructor;
             default: "capsule";
-            validator(value: unknown): boolean;
+            validator(value: import('../..').ButtonRadius): boolean;
         };
         type: {
             type: StringConstructor;
             default: "icon-only";
-            validator(value: unknown): boolean;
+            validator(value: import('../Buttons/IconButton').IconButtonType): boolean;
         };
         icon: {
             type: ObjectConstructor;
@@ -343,17 +343,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         color: {
             type: StringConstructor;
             default: "primary";
-            validator(value: unknown): boolean;
+            validator(value: import('../Buttons/IconButton').IconButtonColor): boolean;
         };
         colorScheme: {
             type: StringConstructor;
             default: "all-in-color";
-            validator(value: unknown): boolean;
+            validator(value: import('../Buttons/IconButton').IconButtonColorScheme): boolean;
         };
         elevation: {
             type: StringConstructor;
             default: "none";
-            validator(value: unknown): boolean;
+            validator(value: import('../..').ButtonElevation): boolean;
         };
         touchable: {
             type: BooleanConstructor;
@@ -643,24 +643,24 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     }, {
         iconSize(): string;
         buttonType(): string;
-        computedColor(): string | null;
+        computedColor(): string | undefined;
         isButtonColor(): boolean;
         colorClassName(): string;
     }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         size: {
             type: StringConstructor;
             default: "large";
-            validator(value: unknown): boolean;
+            validator(value: import('../Buttons/IconButton').IconButtonSize): boolean;
         };
         radius: {
             type: StringConstructor;
             default: "capsule";
-            validator(value: unknown): boolean;
+            validator(value: import('../..').ButtonRadius): boolean;
         };
         type: {
             type: StringConstructor;
             default: "icon-only";
-            validator(value: unknown): boolean;
+            validator(value: import('../Buttons/IconButton').IconButtonType): boolean;
         };
         icon: {
             type: ObjectConstructor;
@@ -670,17 +670,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         color: {
             type: StringConstructor;
             default: "primary";
-            validator(value: unknown): boolean;
+            validator(value: import('../Buttons/IconButton').IconButtonColor): boolean;
         };
         colorScheme: {
             type: StringConstructor;
             default: "all-in-color";
-            validator(value: unknown): boolean;
+            validator(value: import('../Buttons/IconButton').IconButtonColorScheme): boolean;
         };
         elevation: {
             type: StringConstructor;
             default: "none";
-            validator(value: unknown): boolean;
+            validator(value: import('../..').ButtonElevation): boolean;
         };
         touchable: {
             type: BooleanConstructor;
@@ -713,7 +713,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -747,7 +747,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -767,7 +767,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
+            rotation: number | null;
             size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
@@ -788,7 +788,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_TYPES>): boolean;
             };
             color: {
-                type: StringConstructor;
+                type: (StringConstructor | null)[];
                 default: "primary";
                 validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
             };
@@ -1095,7 +1095,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator(value: import('../../utils/type.utils').Value<typeof import('../..').BUTTON_TYPES>): boolean;
             };
             color: {
-                type: StringConstructor;
+                type: (StringConstructor | null)[];
                 default: "primary";
                 validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
             };
@@ -1127,7 +1127,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         }>> & Readonly<{}>, {
             size: string;
             type: string;
-            color: string;
+            color: string | null;
             elevation: string;
             radius: string;
             state: string;
@@ -1146,7 +1146,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -1180,7 +1180,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     validator: (value: string) => boolean;
                 };
                 rotation: {
-                    type: NumberConstructor;
+                    type: (NumberConstructor | null)[];
                     default: null;
                 };
                 flippedVertical: {
@@ -1200,7 +1200,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     default: boolean;
                 };
             }>> & Readonly<{}>, {
-                rotation: number;
+                rotation: number | null;
                 size: string;
                 flippedVertical: boolean;
                 flippedHorizontal: boolean;
@@ -1227,17 +1227,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         triggerAction: {
             type: StringConstructor;
             default: "click";
-            validator(triggerAction: unknown): boolean;
+            validator(triggerAction: import('../Dropdown/Dropdown.consts').DropdownTriggerAction): boolean;
         };
         radius: {
             type: StringConstructor;
             default: "both";
-            validate(radius: any): boolean;
+            validate(radius: import('../Dropdown/Dropdown.consts').DropdownRadius): boolean;
         };
         placement: {
             type: StringConstructor;
             default: "bottom-start";
-            validate(placement: any): boolean;
+            validate(placement: import('../Dropdown/Dropdown.consts').DropdownPlacement): boolean;
         };
         maxHeight: {
             type: StringConstructor;
@@ -1275,17 +1275,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         triggerAction: {
             type: StringConstructor;
             default: "click";
-            validator(triggerAction: unknown): boolean;
+            validator(triggerAction: import('../Dropdown/Dropdown.consts').DropdownTriggerAction): boolean;
         };
         radius: {
             type: StringConstructor;
             default: "both";
-            validate(radius: any): boolean;
+            validate(radius: import('../Dropdown/Dropdown.consts').DropdownRadius): boolean;
         };
         placement: {
             type: StringConstructor;
             default: "bottom-start";
-            validate(placement: any): boolean;
+            validate(placement: import('../Dropdown/Dropdown.consts').DropdownPlacement): boolean;
         };
         maxHeight: {
             type: StringConstructor;
@@ -1330,18 +1330,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
         selectionMode: {
             type: StringConstructor;
-            default: string;
-            validator(selectionMode: unknown): boolean;
+            default: "selectOnly";
+            validator(selectionMode: import('../..').SelectListItemSelectionMode): boolean;
         };
         size: {
             type: StringConstructor;
-            default: string;
-            validator(size: unknown): boolean;
+            default: "small";
+            validator(size: import('../..').SelectListItemSize): boolean;
         };
         state: {
             type: StringConstructor;
-            default: string;
-            validator(state: unknown): boolean;
+            default: "default";
+            validator(state: import('../..').SelectListItemState): boolean;
         };
     }>, {}, {
         ICON_SIZES: Readonly<{
@@ -1573,13 +1573,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         }>;
         SELECT_LIST_ITEM_SELECTION_MODE: Readonly<{
-            SELECT_ONLY: string;
-            TOGGLE: string;
+            readonly SELECT_ONLY: "selectOnly";
+            readonly TOGGLE: "toggle";
         }>;
         SELECT_LIST_ITEM_STATES: Readonly<{
-            DEFAULT: string;
-            LOADING: string;
-            DISABLED: string;
+            readonly DEFAULT: "default";
+            readonly LOADING: "loading";
+            readonly DISABLED: "disabled";
         }>;
     }, {
         isLoading(): boolean;
@@ -1608,18 +1608,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
         selectionMode: {
             type: StringConstructor;
-            default: string;
-            validator(selectionMode: unknown): boolean;
+            default: "selectOnly";
+            validator(selectionMode: import('../..').SelectListItemSelectionMode): boolean;
         };
         size: {
             type: StringConstructor;
-            default: string;
-            validator(size: unknown): boolean;
+            default: "small";
+            validator(size: import('../..').SelectListItemSize): boolean;
         };
         state: {
             type: StringConstructor;
-            default: string;
-            validator(state: unknown): boolean;
+            default: "default";
+            validator(state: import('../..').SelectListItemState): boolean;
         };
     }>> & Readonly<{}>, {
         size: string;
@@ -1642,7 +1642,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -1676,7 +1676,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator: (value: string) => boolean;
             };
             rotation: {
-                type: NumberConstructor;
+                type: (NumberConstructor | null)[];
                 default: null;
             };
             flippedVertical: {
@@ -1696,7 +1696,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 default: boolean;
             };
         }>> & Readonly<{}>, {
-            rotation: number;
+            rotation: number | null;
             size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;

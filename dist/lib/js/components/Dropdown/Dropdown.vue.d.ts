@@ -1,3 +1,4 @@
+import { DropdownPlacement, DropdownRadius, DropdownTriggerAction } from './Dropdown.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     boundariesSelector: {
@@ -15,17 +16,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     triggerAction: {
         type: StringConstructor;
         default: "click";
-        validator(triggerAction: unknown): boolean;
+        validator(triggerAction: DropdownTriggerAction): boolean;
     };
     radius: {
         type: StringConstructor;
         default: "both";
-        validate(radius: any): boolean;
+        validate(radius: DropdownRadius): boolean;
     };
     placement: {
         type: StringConstructor;
         default: "bottom-start";
-        validate(placement: any): boolean;
+        validate(placement: DropdownPlacement): boolean;
     };
     maxHeight: {
         type: StringConstructor;
@@ -63,17 +64,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     triggerAction: {
         type: StringConstructor;
         default: "click";
-        validator(triggerAction: unknown): boolean;
+        validator(triggerAction: DropdownTriggerAction): boolean;
     };
     radius: {
         type: StringConstructor;
         default: "both";
-        validate(radius: any): boolean;
+        validate(radius: DropdownRadius): boolean;
     };
     placement: {
         type: StringConstructor;
         default: "bottom-start";
-        validate(placement: any): boolean;
+        validate(placement: DropdownPlacement): boolean;
     };
     maxHeight: {
         type: StringConstructor;

@@ -5,7 +5,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     rightColumnSize: {
         type: PropType<ThreeColumnLayoutRightColumnSize>;
         default: "medium";
-        validator(rightColumnSize: unknown): boolean;
+        validator(rightColumnSize: ThreeColumnLayoutRightColumnSize): boolean;
     };
     rightColumnVisible: {
         type: BooleanConstructor;
@@ -38,7 +38,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     rightColumnSize: {
         type: PropType<ThreeColumnLayoutRightColumnSize>;
         default: "medium";
-        validator(rightColumnSize: unknown): boolean;
+        validator(rightColumnSize: ThreeColumnLayoutRightColumnSize): boolean;
     };
     rightColumnVisible: {
         type: BooleanConstructor;

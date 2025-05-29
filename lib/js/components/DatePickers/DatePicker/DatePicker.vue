@@ -24,15 +24,15 @@
 				:text="text"
 				:interactive="isInteractive"
 				:additional-text="additionalText"
-				:color="color as TileColors"
+				:color="tileColor"
 				:border-color="borderColor"
-				:state="state as TileStates"
+				:state="tileState"
 				:icon-right="tileIcon"
 				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
 				:additional-text-max-width="TILE_ADDITIONAL_TEXT_MAX_WIDTHS.MEDIUM"
 				has-border
-				@click="toggle"
+				@click.stop.prevent="toggle"
 			/>
 		</template>
 		<date-box
@@ -45,7 +45,7 @@
 			:state="state"
 			:color="color"
 			:is-open="isOpen"
-			@click="toggle"
+			@click.stop.prevent="toggle"
 		/>
 
 		<span v-if="showErrorMessage" class="ds-datePicker__errorMessage">
@@ -138,12 +138,25 @@
 </style>
 
 <script lang="ts">
-import { defineComponent, PropType, Ref, ref, toRaw, watch } from 'vue';
+import { defineComponent, PropType, Ref, ref, toRaw } from 'vue';
 
-import DsTile, { TILE_ADDITIONAL_TEXT_MAX_WIDTHS, TILE_BORDER_COLORS } from '../../Tile';
+import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
+
+import DsTile, {
+	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
+	TILE_BORDER_COLORS,
+	TileColor,
+	TileState,
+} from '../../Tile';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import DateBox from '../DateBox';
 
+import {
+	localFullDateWithShortMonthName,
+	localWeekdayName,
+} from '../../../../../tools/importers/helpers/dates';
+import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
+import { DatePickerComposablesProps, initFlatpickr } from './DatePicker.composables';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
@@ -154,12 +167,6 @@ import {
 	DatePickerStates,
 	DatePickerTriggerTypes,
 } from './DatePicker.consts';
-import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
-import { DatePickerComposablesProps, initFlatpickr } from './DatePicker.composables';
-import {
-	localFullDateWithShortMonthName,
-	localWeekdayName,
-} from '../../../../../tools/importers/helpers/dates';
 
 export default defineComponent({
 	name: 'DatePicker',
@@ -255,6 +262,7 @@ export default defineComponent({
 		},
 		{ emit },
 	) {
+		const flatpickrInstance = ref<DatePickerInstance | null>(null);
 		const flatpickrInputRef = ref<HTMLInputElement>() as Ref<HTMLInputElement>;
 		const datePickerRef = ref<HTMLDivElement>() as Ref<HTMLDivElement>;
 
@@ -262,31 +270,32 @@ export default defineComponent({
 			emit('update:date', event[0]);
 		};
 
+		const onClose = () => {
+			destroyDatePicker();
+			flatpickrInstance.value = null;
+		};
+
 		const {
 			isOpen,
 			toggle: toggleDatePicker,
 			createDatePicker,
+			destroyDatePicker,
+			updateDatePicker,
 		} = initFlatpickr({
 			props,
 			onChange,
+			onClose,
 			defaultDates: props.date ?? new Date(),
 			mode: 'single',
 		});
-		watch([() => props.isInteractive, () => props.state], async () => {
-			if (props.isInteractive && props.state === DATE_PICKER_STATES.DEFAULT) {
-				await createDatePicker(
-					flatpickrInputRef.value,
-					datePickerRef.value,
-					props.updatePositionBasedOnScrollableSelector,
-				);
-			}
-		});
 
 		return {
+			flatpickrInstance,
 			flatpickrInputRef,
 			datePickerRef,
 			isOpen,
 			toggleDatePicker,
+			updateDatePicker,
 			createDatePicker,
 			DATE_PICKER_CALENDAR_POSITIONS: Object.freeze(DATE_PICKER_CALENDAR_POSITIONS),
 			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
@@ -339,19 +348,56 @@ export default defineComponent({
 		showHelpMessage() {
 			return this.helpMessage !== null;
 		},
+		tileState() {
+			return this.state as TileState;
+		},
+		tileColor() {
+			return this.color as TileColor;
+		},
 	},
-	async mounted() {
-		if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
-			await this.createDatePicker(
+	watch: {
+		minDate: {
+			immediate: true,
+			handler(minDate: Date) {
+				if (
+					this.date &&
+					minDate &&
+					new Date(this.date).setHours(0, 0, 0, 0) <
+						new Date(minDate).setHours(0, 0, 0, 0)
+				) {
+					this.$emit('update:date', null);
+				}
+			},
+		},
+		maxDate: {
+			immediate: true,
+			handler(maxDate: Date) {
+				if (
+					this.date &&
+					maxDate &&
+					new Date(this.date).setHours(0, 0, 0, 0) >
+						new Date(maxDate).setHours(0, 0, 0, 0)
+				) {
+					this.$emit('update:date', null);
+				}
+			},
+		},
+	},
+	methods: {
+		async bindFlatpickrInstance() {
+			this.flatpickrInstance = await this.createDatePicker(
 				this.flatpickrInputRef,
 				this.datePickerRef,
 				this.updatePositionBasedOnScrollableSelector,
 			);
-		}
-	},
-	methods: {
-		toggle() {
+			this.updateDatePicker();
+		},
+		async toggle() {
 			if (this.isInteractive && this.state === DATE_PICKER_STATES.DEFAULT) {
+				if (!this.flatpickrInstance) {
+					await this.bindFlatpickrInstance();
+				}
+
 				this.toggleDatePicker();
 			}
 		},

@@ -1,3 +1,5 @@
+import { SelectListItemSelectionMode, SelectListItemSize, SelectListItemState } from './SelectListItem.consts';
+
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     iconLeft: {
         type: ObjectConstructor;
@@ -22,18 +24,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     selectionMode: {
         type: StringConstructor;
-        default: string;
-        validator(selectionMode: unknown): boolean;
+        default: "selectOnly";
+        validator(selectionMode: SelectListItemSelectionMode): boolean;
     };
     size: {
         type: StringConstructor;
-        default: string;
-        validator(size: unknown): boolean;
+        default: "small";
+        validator(size: SelectListItemSize): boolean;
     };
     state: {
         type: StringConstructor;
-        default: string;
-        validator(state: unknown): boolean;
+        default: "default";
+        validator(state: SelectListItemState): boolean;
     };
 }>, {}, {
     ICON_SIZES: Readonly<{
@@ -265,13 +267,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
     }>;
     SELECT_LIST_ITEM_SELECTION_MODE: Readonly<{
-        SELECT_ONLY: string;
-        TOGGLE: string;
+        readonly SELECT_ONLY: "selectOnly";
+        readonly TOGGLE: "toggle";
     }>;
     SELECT_LIST_ITEM_STATES: Readonly<{
-        DEFAULT: string;
-        LOADING: string;
-        DISABLED: string;
+        readonly DEFAULT: "default";
+        readonly LOADING: "loading";
+        readonly DISABLED: "disabled";
     }>;
 }, {
     isLoading(): boolean;
@@ -300,18 +302,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     selectionMode: {
         type: StringConstructor;
-        default: string;
-        validator(selectionMode: unknown): boolean;
+        default: "selectOnly";
+        validator(selectionMode: SelectListItemSelectionMode): boolean;
     };
     size: {
         type: StringConstructor;
-        default: string;
-        validator(size: unknown): boolean;
+        default: "small";
+        validator(size: SelectListItemSize): boolean;
     };
     state: {
         type: StringConstructor;
-        default: string;
-        validator(state: unknown): boolean;
+        default: "default";
+        validator(state: SelectListItemState): boolean;
     };
 }>> & Readonly<{}>, {
     size: string;
@@ -334,7 +336,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -368,7 +370,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator: (value: string) => boolean;
         };
         rotation: {
-            type: NumberConstructor;
+            type: (NumberConstructor | null)[];
             default: null;
         };
         flippedVertical: {
@@ -388,7 +390,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: boolean;
         };
     }>> & Readonly<{}>, {
-        rotation: number;
+        rotation: number | null;
         size: string;
         flippedVertical: boolean;
         flippedHorizontal: boolean;

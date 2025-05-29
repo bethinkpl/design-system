@@ -1,5 +1,11 @@
 import Chip from './Chip.vue';
-import { CHIP_COLORS, CHIP_RADIUSES, CHIP_SIZES, CHIP_STATES } from './Chip.consts';
+import {
+	CHIP_COLORS,
+	CHIP_DEFAULT_COLOR,
+	CHIP_RADIUSES,
+	CHIP_SIZES,
+	CHIP_STATES,
+} from './Chip.consts';
 import { ICONS } from '../Icons/Icon';
 import LogoBadge from '../../../images/logo-badge.svg';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -55,7 +61,7 @@ const args = {
 	leftIcon: null,
 	radius: CHIP_RADIUSES.CAPSULE,
 	size: CHIP_SIZES.SMALL,
-	color: CHIP_COLORS.NEUTRAL,
+	color: CHIP_DEFAULT_COLOR,
 	colorHex: '',
 	isRemovable: false,
 	state: CHIP_STATES.DEFAULT,

@@ -81,6 +81,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
+@import '../../../../styles/settings/borders';
 @import '../../../../styles/settings/shadows';
 @import '../../../../styles/settings/icons';
 @import './border-colors';
@@ -127,7 +128,7 @@ $rich-list-item-media-horizontal-height: 80px;
 		align-items: center;
 		flex-direction: initial;
 		justify-content: initial;
-		padding: 0 $space-4xs;
+		padding: 0 $space-4xs 0 calc($space-4xs - $border-xs);
 
 		#{$root}__container {
 			align-self: initial;
@@ -297,27 +298,29 @@ $rich-list-item-media-horizontal-height: 80px;
 		cursor: pointer;
 		pointer-events: initial;
 
-		&.-ds-flat {
-			&:hover {
-				opacity: 1;
-
-				.-ds-dimmable {
+		@media #{breakpoint-s()} {
+			&.-ds-flat {
+				&:hover {
 					opacity: 1;
-				}
-			}
-		}
 
-		&:not(.-ds-dimmed):hover {
-			&.-ds-default {
-				@each $color, $value in $rich-list-item-background-colors {
-					&.-ds-background-#{$color} {
-						background-color: map-get($value, 'hover');
+					.-ds-dimmable {
+						opacity: 1;
 					}
 				}
 			}
 
-			&.-ds-flat {
-				background: $color-neutral-background-ghost-hovered;
+			&:not(.-ds-dimmed):hover {
+				&.-ds-default {
+					@each $color, $value in $rich-list-item-background-colors {
+						&.-ds-background-#{$color} {
+							background-color: map-get($value, 'hover');
+						}
+					}
+				}
+
+				&.-ds-flat {
+					background: $color-neutral-background-ghost-hovered;
+				}
 			}
 		}
 
@@ -474,8 +477,9 @@ $rich-list-item-media-horizontal-height: 80px;
 </style>
 
 <script lang="ts">
-import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 import DsDivider from '../../../components/Divider';
+import DsCheckbox from '../../../components/Form/Checkbox/Checkbox.vue';
 import DsIcon, {
 	ICON_COLORS,
 	ICON_SIZES,
@@ -483,7 +487,6 @@ import DsIcon, {
 	IconItem,
 	ICONS,
 } from '../../../components/Icons/Icon';
-import { defineComponent, PropType, toRaw } from 'vue';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
@@ -533,7 +536,7 @@ export default defineComponent({
 		size: {
 			type: String as PropType<RichListItemSize>,
 			default: RICH_LIST_ITEM_SIZE.MEDIUM,
-			validator(size) {
+			validator(size: RichListItemSize) {
 				return Object.values(RICH_LIST_ITEM_SIZE).includes(size);
 			},
 		},
@@ -559,7 +562,7 @@ export default defineComponent({
 		iconColor: {
 			type: String as PropType<IconColor>,
 			default: null,
-			validator(iconColor) {
+			validator(iconColor: IconColor) {
 				return Object.values(ICON_COLORS).includes(iconColor);
 			},
 		},
@@ -570,7 +573,7 @@ export default defineComponent({
 		borderColor: {
 			type: String as PropType<RichListItemBorderColor>,
 			default: null,
-			validator(borderColor) {
+			validator(borderColor: RichListItemBorderColor) {
 				return Object.values(RICH_LIST_ITEM_BORDER_COLOR).includes(borderColor);
 			},
 		},
@@ -585,15 +588,15 @@ export default defineComponent({
 		backgroundColor: {
 			type: String as PropType<RichListItemBackgroundColor>,
 			default: RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
-			validator(backgroundColor) {
+			validator(backgroundColor: RichListItemBackgroundColor) {
 				return Object.values(RICH_LIST_ITEM_BACKGROUND_COLOR).includes(backgroundColor);
 			},
 		},
 		elevation: {
 			type: String as PropType<RichListItemElevation>,
 			default: null,
-			validator(evolution) {
-				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(evolution);
+			validator(elevation: RichListItemElevation) {
+				return Object.values(RICH_LIST_ITEM_ELEVATION).includes(elevation);
 			},
 		},
 		hasDraggableHandler: {
@@ -615,7 +618,7 @@ export default defineComponent({
 	},
 	emits: {
 		'icon-click': () => true,
-		click: () => true,
+		click: (event: Event) => true,
 		'update:is-selected': (isSelected: boolean) => true,
 	},
 	data() {

@@ -1,14 +1,14 @@
-import DatePicker from './DatePicker.vue';
+import { useArgs } from '@storybook/preview-api';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { ICONS } from '../../Icons/Icon';
+import DsSwitch from '../../Switch';
 import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
 	DATE_PICKER_STATES,
 	DATE_PICKER_TRIGGER_TYPES,
 } from './DatePicker.consts';
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { ICONS } from '../../Icons/Icon';
-import DsSwitch from '../../Switch';
-import { useArgs } from '@storybook/preview-api';
+import DatePicker from './DatePicker.vue';
 
 export default {
 	title: 'Components/DatePickers/DatePicker',
@@ -33,6 +33,10 @@ const StoryTemplate: StoryFn<typeof DatePicker> = (args) => {
 				if (date) {
 					updateArgs({
 						date: `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`,
+					});
+				} else {
+					updateArgs({
+						date: null,
 					});
 				}
 			},

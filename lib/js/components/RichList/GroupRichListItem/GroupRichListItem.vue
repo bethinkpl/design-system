@@ -109,7 +109,7 @@ export default defineComponent({
 		borderColor: {
 			type: String as PropType<GroupRichListItemBorderColor>,
 			default: null,
-			validator(borderColor) {
+			validator(borderColor: GroupRichListItemBorderColor) {
 				return Object.values(GROUP_RICH_LIST_ITEM_BORDER_COLOR).includes(borderColor);
 			},
 		},
@@ -120,7 +120,7 @@ export default defineComponent({
 		backgroundColor: {
 			type: String as PropType<GroupRichListItemBackgroundColor>,
 			default: GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR.NEUTRAL,
-			validator(backgroundColor) {
+			validator(backgroundColor: GroupRichListItemBackgroundColor) {
 				return Object.values(GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR).includes(
 					backgroundColor,
 				);
