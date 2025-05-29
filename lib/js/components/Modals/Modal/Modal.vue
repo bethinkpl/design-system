@@ -1,110 +1,112 @@
 <template>
-	<div class="ds-modal" @click.self="$emit('close-modal')">
-		<div class="ds-modal__wrapper" :class="{ '-ds-small': size === MODAL_SIZES.SMALL }">
-			<wnl-icon-button
-				touchable
-				:icon="ICONS.FA_XMARK"
-				class="ds-modal__close"
-				:size="ICON_SIZES.SMALL"
-				:elevation="BUTTON_ELEVATIONS.X_SMALL"
-				:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
-				@click.stop="$emit('close-modal')"
-			/>
-			<div class="ds-modal__scrollableWrapper">
-				<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
-				<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
-					<div v-if="headerTitle" class="ds-modal__header">
-						<feature-icon
-							v-if="headerFeatureIcon"
-							class="ds-modal__headerFeatureIcon"
-							:color="calcHeaderFeatureIconColor"
-							:icon="headerFeatureIcon"
-							:size="FEATURE_ICON_SIZES.X_LARGE"
-							double-background
-						/>
-						<h4
-							class="ds-modal__headerTitle"
-							:class="{
-								'-ds-small': headerTitleSize === MODAL_HEADER_TITLE_SIZES.SMALL,
-							}"
-							>{{ headerTitle }}</h4
-						>
-						<h5 v-if="headerSubtitle" class="ds-modal__headerSubtitle">{{
-							headerSubtitle
-						}}</h5>
-					</div>
-					<div v-if="$slots.default" class="ds-modal__slotContent">
-						<slot />
-					</div>
-					<div
-						v-if="displayFooter"
-						class="ds-modal__footer"
-						:class="{ '-ds-singleColumn': calcSingleColumn }"
-					>
-						<div
-							v-if="footerTertiaryButtonText || footerCheckboxText"
-							class="ds-modal__footerCtaSecondary"
-						>
-							<div v-if="footerCheckboxText" class="ds-modal__checkbox">
-								<input
-									id="ds-modal__checkboxInput"
-									type="checkbox"
-									:checked="false"
-									@change="
-										$emit(
-											'checkbox-change',
-											($event.target as HTMLInputElement).checked,
-										)
-									"
-								/>
-								<label
-									for="ds-modal__checkboxInput"
-									class="ds-modal__checkboxLabel"
-								>
-									{{ footerCheckboxText }}
-								</label>
-							</div>
-							<wnl-button
-								v-if="footerTertiaryButtonText"
-								:type="BUTTON_TYPES.TEXT"
-								:color="BUTTON_COLORS.NEUTRAL"
-								:icon-left="footerTertiaryButtonIcon"
-								:state="footerTertiaryButtonState"
-								class="ds-modal__tertiaryButton"
-								@click="$emit('tertiary-button-click')"
+	<teleport to="body">
+		<div class="ds-modal" v-bind="$attrs" @click.self="$emit('close-modal')">
+			<div class="ds-modal__wrapper" :class="{ '-ds-small': size === MODAL_SIZES.SMALL }">
+				<wnl-icon-button
+					touchable
+					:icon="ICONS.FA_XMARK"
+					class="ds-modal__close"
+					:size="ICON_SIZES.SMALL"
+					:elevation="BUTTON_ELEVATIONS.X_SMALL"
+					:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
+					@click.stop="$emit('close-modal')"
+				/>
+				<div class="ds-modal__scrollableWrapper">
+					<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
+					<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
+						<div v-if="headerTitle" class="ds-modal__header">
+							<feature-icon
+								v-if="headerFeatureIcon"
+								class="ds-modal__headerFeatureIcon"
+								:color="calcHeaderFeatureIconColor"
+								:icon="headerFeatureIcon"
+								:size="FEATURE_ICON_SIZES.X_LARGE"
+								double-background
+							/>
+							<h4
+								class="ds-modal__headerTitle"
+								:class="{
+									'-ds-small': headerTitleSize === MODAL_HEADER_TITLE_SIZES.SMALL,
+								}"
+								>{{ headerTitle }}</h4
 							>
-								{{ footerTertiaryButtonText }}
-							</wnl-button>
+							<h5 v-if="headerSubtitle" class="ds-modal__headerSubtitle">{{
+								headerSubtitle
+							}}</h5>
+						</div>
+						<div v-if="$slots.default" class="ds-modal__slotContent">
+							<slot />
 						</div>
 						<div
-							v-if="footerSecondaryButtonText || footerPrimaryButtonText"
-							class="ds-modal__footerCtaPrimary"
+							v-if="displayFooter"
+							class="ds-modal__footer"
+							:class="{ '-ds-singleColumn': calcSingleColumn }"
 						>
-							<wnl-button
-								v-if="footerSecondaryButtonText"
-								:type="BUTTON_TYPES.OUTLINED"
-								:color="calcFooterSecondaryButtonColor"
-								:icon-right="footerSecondaryButtonIcon"
-								:state="footerSecondaryButtonState"
-								@click="$emit('secondary-button-click')"
+							<div
+								v-if="footerTertiaryButtonText || footerCheckboxText"
+								class="ds-modal__footerCtaSecondary"
 							>
-								{{ footerSecondaryButtonText }}
-							</wnl-button>
-							<wnl-button
-								v-if="footerPrimaryButtonText"
-								:color="calcFooterPrimaryButtonColor"
-								:icon-right="footerPrimaryButtonIcon"
-								:state="footerPrimaryButtonState"
-								@click="$emit('primary-button-click')"
+								<div v-if="footerCheckboxText" class="ds-modal__checkbox">
+									<input
+										id="ds-modal__checkboxInput"
+										type="checkbox"
+										:checked="false"
+										@change="
+											$emit(
+												'checkbox-change',
+												($event.target as HTMLInputElement).checked,
+											)
+										"
+									/>
+									<label
+										for="ds-modal__checkboxInput"
+										class="ds-modal__checkboxLabel"
+									>
+										{{ footerCheckboxText }}
+									</label>
+								</div>
+								<wnl-button
+									v-if="footerTertiaryButtonText"
+									:type="BUTTON_TYPES.TEXT"
+									:color="BUTTON_COLORS.NEUTRAL"
+									:icon-left="footerTertiaryButtonIcon"
+									:state="footerTertiaryButtonState"
+									class="ds-modal__tertiaryButton"
+									@click="$emit('tertiary-button-click')"
+								>
+									{{ footerTertiaryButtonText }}
+								</wnl-button>
+							</div>
+							<div
+								v-if="footerSecondaryButtonText || footerPrimaryButtonText"
+								class="ds-modal__footerCtaPrimary"
 							>
-								{{ footerPrimaryButtonText }}
-							</wnl-button>
+								<wnl-button
+									v-if="footerSecondaryButtonText"
+									:type="BUTTON_TYPES.OUTLINED"
+									:color="calcFooterSecondaryButtonColor"
+									:icon-right="footerSecondaryButtonIcon"
+									:state="footerSecondaryButtonState"
+									@click="$emit('secondary-button-click')"
+								>
+									{{ footerSecondaryButtonText }}
+								</wnl-button>
+								<wnl-button
+									v-if="footerPrimaryButtonText"
+									:color="calcFooterPrimaryButtonColor"
+									:icon-right="footerPrimaryButtonIcon"
+									:state="footerPrimaryButtonState"
+									@click="$emit('primary-button-click')"
+								>
+									{{ footerPrimaryButtonText }}
+								</wnl-button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</teleport>
 </template>
 
 <style lang="scss" scoped>
