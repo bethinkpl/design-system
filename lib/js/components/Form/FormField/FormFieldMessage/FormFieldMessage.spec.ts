@@ -3,22 +3,19 @@ import FormFieldMessage from './FormFieldMessage.vue';
 import { mount } from '@vue/test-utils';
 import Icon, { ICONS } from '../../../Icons/Icon';
 import { FORM_FIELD_MESSAGE_VARIANTS } from './FormFieldMessage.consts';
-import { FORM_FIELD_ID } from '../FormField.consts';
-import { ref } from 'vue';
 import { ComponentProps } from 'vue-component-type-helpers';
 
 const id = 'message-id';
 
-function setup(props: ComponentProps<typeof FormFieldMessage> = {}) {
+function setup(
+	props: ComponentProps<typeof FormFieldMessage> = {
+		messageId: id,
+	},
+) {
 	return mount(FormFieldMessage, {
 		props,
 		slots: {
 			default: () => 'Test message',
-		},
-		global: {
-			provide: {
-				[FORM_FIELD_ID]: ref(id),
-			},
 		},
 	});
 }
@@ -29,7 +26,7 @@ describe('FormFieldMessage', () => {
 
 		expect(wrapper.exists()).toBe(true);
 		expect(wrapper.text()).toBe('Test message');
-		expect(wrapper.attributes('id')).toBe(`${id}-message`);
+		expect(wrapper.attributes('id')).toBe(id);
 		expect(wrapper.findComponent(Icon).exists()).toBe(false);
 	});
 
@@ -45,6 +42,7 @@ describe('FormFieldMessage', () => {
 	])('should render icon for variant: $variant', ({ variant, expectedIcon }) => {
 		const wrapper = setup({
 			variant,
+			messageId: id,
 		});
 
 		expect(wrapper.exists()).toBe(true);

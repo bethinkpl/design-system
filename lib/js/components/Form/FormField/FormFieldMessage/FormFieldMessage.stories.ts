@@ -1,9 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import FormFieldMessage from './FormFieldMessage.vue';
 import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
-import { FORM_FIELD_MESSAGE_VARIANTS, FormFieldMessageVariant } from './FormFieldMessage.consts';
-import { FORM_FIELD_ID } from '../FormField.consts';
-import { ref } from 'vue';
+import { FORM_FIELD_MESSAGE_VARIANTS } from './FormFieldMessage.consts';
 
 const meta: Meta<
 	ComponentProps<typeof FormFieldMessage> & ComponentSlots<typeof FormFieldMessage>
@@ -17,9 +15,6 @@ const meta: Meta<
 				args,
 			};
 		},
-		provide: {
-			[FORM_FIELD_ID]: ref('field-id'),
-		},
 		template: `<FormFieldMessage v-bind="args">
 			<div v-html="args.default" />
 		</FormFieldMessage>`,
@@ -28,6 +23,9 @@ const meta: Meta<
 		variant: {
 			control: 'select',
 			options: [null, ...Object.values(FORM_FIELD_MESSAGE_VARIANTS)],
+		},
+		messageId: {
+			control: 'text',
 		},
 		default: {
 			control: 'text',
@@ -42,6 +40,7 @@ type Story = StoryObj<typeof FormFieldMessage>;
 export const Interactive: Story = {
 	args: {
 		default: 'Message',
+		messageId: 'message-id',
 	},
 };
 
