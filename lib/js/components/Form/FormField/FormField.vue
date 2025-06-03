@@ -25,12 +25,16 @@
 			<div class="ds-formField__subLabelRow">{{ subLabel }}</div>
 		</div>
 		<div class="ds-formField__mainRow">
-			<slot name="field"></slot>
+			<slot name="field" :field-id="id" :message-id="messageId"></slot>
 		</div>
 		<div v-if="hasMessage || $slots.fieldStatus" class="ds-formField__footerRow">
 			<div class="ds-formField__message">
-				<slot name="message">
-					<form-field-message v-if="simpleMessageText" :variant="simpleMessageVariant">
+				<slot name="message" :message-id="messageId">
+					<form-field-message
+						v-if="simpleMessageText"
+						:variant="simpleMessageVariant"
+						:message-id="messageId"
+					>
 						{{ simpleMessageText }}
 					</form-field-message>
 				</slot>
@@ -138,10 +142,9 @@
 </style>
 
 <script lang="ts" setup>
-import { computed, provide, useId } from 'vue';
+import { computed, useId } from 'vue';
 import FormFieldMessage from './FormFieldMessage/FormFieldMessage.vue';
-import { FORM_FIELD_MESSAGE_VARIANTS } from './FormFieldMessage/FormFieldMessage.consts';
-import { FORM_FIELD_ID } from './FormField.consts';
+import { FORM_FIELD_MESSAGE_VARIANTS } from './FormFieldMessage';
 
 const {
 	label,
@@ -166,16 +169,14 @@ const {
 const slots = defineSlots<{
 	labelAside?: () => any;
 	help?: () => any;
-	field: () => any;
-	message?: () => any;
+	field: (props: { fieldId: string; messageId: string }) => any;
+	message?: (props: { messageId: string }) => any;
 	fieldStatus?: () => any;
 }>();
 
 const baseId = useId();
 const id = computed(() => fieldId || `form-field-${baseId}`);
-const { hasMessage, simpleMessageText, simpleMessageVariant } = useMessage();
-
-provide(FORM_FIELD_ID, id);
+const { hasMessage, simpleMessageText, simpleMessageVariant, messageId } = useMessage();
 
 function useMessage() {
 	const hasMessage = computed(() => {
@@ -196,10 +197,13 @@ function useMessage() {
 		return FORM_FIELD_MESSAGE_VARIANTS.DEFAULT;
 	});
 
+	const messageId = computed(() => `${id.value}-message`);
+
 	return {
 		hasMessage,
 		simpleMessageText,
 		simpleMessageVariant,
+		messageId,
 	};
 }
 </script>

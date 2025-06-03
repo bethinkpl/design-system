@@ -34,7 +34,15 @@ describe('FormField', () => {
 			},
 			{
 				labelAside: () => [h('span', 'Label aside')],
-				message: () => [h(FormFieldMessage, () => 'Message')],
+				message: () => [
+					h(
+						FormFieldMessage,
+						{
+							messageId,
+						},
+						() => 'Message',
+					),
+				],
 				fieldStatus: () => [h('span', 'Field status')],
 				help: () => [h('span', 'Help')],
 			},
@@ -94,7 +102,7 @@ describe('FormField', () => {
 			name: 'only message',
 			props: {},
 			slots: {
-				message: () => [h(FormFieldMessage, () => 'Message')],
+				message: () => [h(FormFieldMessage, { messageId }, () => 'Message')],
 			},
 			expected: true,
 		},

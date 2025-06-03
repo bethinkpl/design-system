@@ -57,17 +57,15 @@
 import { FORM_FIELD_MESSAGE_VARIANTS, FormFieldMessageVariant } from './FormFieldMessage.consts';
 import Icon, { ICON_SIZES, ICONS } from '../../../Icons/Icon';
 import { computed } from 'vue';
-import { useFormField } from '../useFormField';
 
-const { variant = FORM_FIELD_MESSAGE_VARIANTS.DEFAULT } = defineProps<{
+const { variant = FORM_FIELD_MESSAGE_VARIANTS.DEFAULT, messageId } = defineProps<{
 	variant?: FormFieldMessageVariant;
+	messageId: string;
 }>();
 
 defineSlots<{
 	default: () => any;
 }>();
-
-const { messageId } = useFormField();
 
 const variantIcon = computed(() => {
 	switch (variant) {
