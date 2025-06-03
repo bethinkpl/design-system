@@ -9,7 +9,7 @@ import {
 	BUTTON_STATES,
 	BUTTON_TYPES,
 } from './Button.consts';
-import { ICONS } from '../../Icons/Icon';
+import Icon, { ICONS } from '../../Icons/Icon';
 
 describe('Button', () => {
 	const createComponent = (props = {} as any) => {
@@ -56,13 +56,13 @@ describe('Button', () => {
 		const leftIcon = createComponent({ 'icon-left': Object.freeze(ICONS.FA_XMARK) });
 		expect(leftIcon.find('.ds-button__icon.-ds-left').exists()).toBe(true);
 		expect(
-			leftIcon.findComponent<typeof Button>('.ds-button__icon.-ds-left').props().icon,
+			leftIcon.findComponent<typeof Icon>('.ds-button__icon.-ds-left').props().icon,
 		).toEqual(ICONS.FA_XMARK);
 
 		const rightIcon = createComponent({ 'icon-right': Object.freeze(ICONS.FA_CLOCK) });
 		expect(rightIcon.find('.ds-button__icon.-ds-right').exists()).toBe(true);
 		expect(
-			rightIcon.findComponent<typeof Button>('.ds-button__icon.-ds-right').props().icon,
+			rightIcon.findComponent<typeof Icon>('.ds-button__icon.-ds-right').props().icon,
 		).toEqual(ICONS.FA_CLOCK);
 	});
 

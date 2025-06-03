@@ -27,9 +27,17 @@
 		<div class="ds-formField__mainRow">
 			<slot name="field" :field-id="id" :message-id="messageId"></slot>
 		</div>
-		<div v-if="$slots.message || $slots.fieldStatus" class="ds-formField__footerRow">
-			<div v-if="$slots.message" class="ds-formField__message">
-				<slot name="message" :message-id="messageId"></slot>
+		<div v-if="hasMessage || $slots.fieldStatus" class="ds-formField__footerRow">
+			<div class="ds-formField__message">
+				<slot name="message" :message-id="messageId">
+					<form-field-message
+						v-if="simpleMessageText"
+						:variant="simpleMessageVariant"
+						:message-id="messageId"
+					>
+						{{ simpleMessageText }}
+					</form-field-message>
+				</slot>
 			</div>
 			<div v-if="$slots.fieldStatus" class="ds-formField__fieldStatus">
 				<slot name="fieldStatus"></slot>
@@ -135,6 +143,8 @@
 
 <script lang="ts" setup>
 import { computed, useId } from 'vue';
+import FormFieldMessage from './FormFieldMessage/FormFieldMessage.vue';
+import { FORM_FIELD_MESSAGE_VARIANTS } from './FormFieldMessage';
 
 const {
 	label,
@@ -142,15 +152,21 @@ const {
 	subLabel,
 	labelInfo,
 	fieldId,
+	messageText,
+	messageErrorText,
+	messageSuccessText,
 } = defineProps<{
 	label?: string;
 	isRequired?: boolean;
 	labelInfo?: string;
 	subLabel?: string;
 	fieldId?: string;
+	messageText?: string;
+	messageErrorText?: string;
+	messageSuccessText?: string;
 }>();
 
-defineSlots<{
+const slots = defineSlots<{
 	labelAside?: () => any;
 	help?: () => any;
 	field: (props: { fieldId: string; messageId: string }) => any;
@@ -160,5 +176,34 @@ defineSlots<{
 
 const baseId = useId();
 const id = computed(() => fieldId || `form-field-${baseId}`);
-const messageId = computed(() => `${id.value}-message`);
+const { hasMessage, simpleMessageText, simpleMessageVariant, messageId } = useMessage();
+
+function useMessage() {
+	const hasMessage = computed(() => {
+		return !!(slots.message || messageText || messageErrorText || messageSuccessText);
+	});
+
+	const simpleMessageText = computed(() => {
+		return messageErrorText || messageSuccessText || messageText;
+	});
+
+	const simpleMessageVariant = computed(() => {
+		if (messageErrorText) {
+			return FORM_FIELD_MESSAGE_VARIANTS.ERROR;
+		}
+		if (messageSuccessText) {
+			return FORM_FIELD_MESSAGE_VARIANTS.SUCCESS;
+		}
+		return FORM_FIELD_MESSAGE_VARIANTS.DEFAULT;
+	});
+
+	const messageId = computed(() => `${id.value}-message`);
+
+	return {
+		hasMessage,
+		simpleMessageText,
+		simpleMessageVariant,
+		messageId,
+	};
+}
 </script>
