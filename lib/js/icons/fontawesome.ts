@@ -15,7 +15,7 @@ import { faArrowsMaximize } from '@fortawesome/pro-regular-svg-icons/faArrowsMax
 import { faArrowsRotate } from '@fortawesome/pro-regular-svg-icons/faArrowsRotate';
 import { faArrowUpRightAndArrowDownLeftFromCenter } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightAndArrowDownLeftFromCenter';
 import { faArrowUpRightFromSquare } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightFromSquare';
-import { faAtom } from '@fortawesome/pro-regular-svg-icons/faAtom';
+import { faAtom as fasAtom } from '@fortawesome/pro-solid-svg-icons/faAtom';
 import { faBadgePercent } from '@fortawesome/pro-regular-svg-icons/faBadgePercent';
 import { faBan } from '@fortawesome/pro-regular-svg-icons/faBan';
 import { faBars } from '@fortawesome/pro-regular-svg-icons/faBars';
@@ -27,6 +27,7 @@ import { faBookBlank } from '@fortawesome/pro-regular-svg-icons/faBookBlank';
 import { faBookCopy } from '@fortawesome/pro-regular-svg-icons/faBookCopy';
 import { faBox } from '@fortawesome/pro-regular-svg-icons/faBox';
 import { faBoxArchive } from '@fortawesome/pro-regular-svg-icons/faBoxArchive';
+import { faCalculatorSimple as fasCalculatorSimple } from '@fortawesome/pro-solid-svg-icons/faCalculatorSimple';
 import { faCalendar } from '@fortawesome/pro-regular-svg-icons/faCalendar';
 import { faCalendarDays } from '@fortawesome/pro-regular-svg-icons/faCalendarDays';
 import { faCalendarDay } from '@fortawesome/pro-regular-svg-icons/faCalendarDay';
@@ -63,6 +64,7 @@ import { faComments } from '@fortawesome/pro-regular-svg-icons/faComments';
 import { faCompress } from '@fortawesome/pro-regular-svg-icons/faCompress';
 import { faCopy } from '@fortawesome/pro-regular-svg-icons/faCopy';
 import { faCreditCard } from '@fortawesome/pro-regular-svg-icons/faCreditCard';
+import { faDna as fasDna } from '@fortawesome/pro-solid-svg-icons/faDna';
 import { faEarthAmericas } from '@fortawesome/pro-regular-svg-icons/faEarthAmericas';
 import { faEllipsis } from '@fortawesome/pro-regular-svg-icons/faEllipsis';
 import { faEllipsisVertical } from '@fortawesome/pro-regular-svg-icons/faEllipsisVertical';
@@ -233,7 +235,7 @@ export const FONTAWESOME_ICONS = {
 	FA_ARROWS_LEFT_RIGHT_SOLID: fasArrowsLeftRight,
 	FA_ARROWS_MAXIMIZE: faArrowsMaximize,
 	FA_ARROWS_ROTATE: faArrowsRotate,
-	FA_ATOM: faAtom,
+	FA_ATOM_SOLID: fasAtom,
 	FA_BADGE_PERCENT: faBadgePercent,
 	FA_BAN: faBan,
 	FA_BARS: faBars,
@@ -247,6 +249,7 @@ export const FONTAWESOME_ICONS = {
 	FA_BOOKMARK_SOLID: fasBookmark,
 	FA_BOX: faBox,
 	FA_BOX_ARCHIVE: faBoxArchive,
+	FA_CALCULATOR_SIMPLE_SOLID: fasCalculatorSimple,
 	FA_CALENDAR: faCalendar,
 	FA_CALENDAR_CLOCK: faCalendarClock,
 	FA_CALENDAR_CIRCLE_EXCLAMATION: faCalendarCircleExclamation,
@@ -295,6 +298,7 @@ export const FONTAWESOME_ICONS = {
 	FA_COMPRESS: faCompress,
 	FA_COPY: faCopy,
 	FA_CREDIT_CARD: faCreditCard,
+	FA_DNA_SOLID: fasDna,
 	FA_DOT_CIRCLE_SOLID: fasCircleDot,
 	FA_EARTH_AMERICAS: faEarthAmericas,
 	FA_ELLIPSIS: faEllipsis,
