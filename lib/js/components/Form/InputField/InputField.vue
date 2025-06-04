@@ -131,6 +131,7 @@
 import { computed, InputHTMLAttributes } from 'vue';
 import FormField, { FORM_FIELD_STATES, FormFieldProps, FormFieldSlots } from '../FormField';
 import Icon, { ICON_SIZES, IconItem } from '../../Icons/Icon';
+import { extractFormFieldProps } from '../FormField/FormField.utils';
 
 interface Props extends FormFieldProps {
 	inputProps?: InputHTMLAttributes;
@@ -142,13 +143,16 @@ interface Slots extends Omit<FormFieldSlots, 'field'> {
 	action?: () => any;
 }
 
-const { inputProps, ...formFieldProps } = defineProps<Props>();
+const { inputProps, leftIcon, suffixText, ...rest } = defineProps<Props>();
 defineSlots<Slots>();
 const value = defineModel<string>();
 
+// this is needed to avoid passing modelValue to FormField as prop
+const formFieldProps = computed(() => extractFormFieldProps(rest));
+
 const finalInputProps = computed<InputHTMLAttributes>(() => {
 	return {
-		disabled: formFieldProps.state === FORM_FIELD_STATES.DISABLED,
+		disabled: formFieldProps.value.state === FORM_FIELD_STATES.DISABLED,
 		...inputProps,
 	};
 });

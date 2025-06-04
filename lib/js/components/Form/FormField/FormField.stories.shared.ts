@@ -47,6 +47,7 @@ export const args: StoryObj<typeof FormField>['args'] = {
 	subLabel: 'Sublabel write here',
 	labelAside: 'Label aside',
 	message: '',
+	help: '',
 	fieldStatus: 'Field status',
 	messageText: 'Error message text',
 };

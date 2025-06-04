@@ -5,6 +5,7 @@ import Modal from '../../Modals/Modal';
 import { ICONS } from '../../Icons/Icon';
 import { args, argTypes } from '../FormField/FormField.stories.shared';
 import { FORM_FIELD_STATES } from '../FormField/FormField.consts';
+import { reactive, toRefs } from 'vue';
 
 const meta: Meta<typeof InputField> = {
 	title: 'Components/Form/InputField',
@@ -12,34 +13,42 @@ const meta: Meta<typeof InputField> = {
 	render: (args) => ({
 		components: { InputField, HelpButton, Modal },
 		setup() {
+			const { help, labelAside, message, fieldStatus, action, ...restRefs } = toRefs(args);
+			const props = reactive({ ...restRefs }); // Create reactive props
+
 			return {
-				args,
-				ICONS,
+				props,
+				labelAside,
+				fieldStatus,
+				message,
+				help,
+				action,
 				FORM_FIELD_STATES,
+				ICONS,
 			};
 		},
 		data: () => ({
 			value: '',
 		}),
-		template: `<InputField v-bind="args" :left-icon="args.leftIcon ? ICONS[args.leftIcon] : null" v-model="value">
+		template: `<InputField v-bind="props" :left-icon="props.leftIcon ? ICONS[props.leftIcon] : null" v-model="value">
 			<template #help>
-				<HelpButton :is-disabled="args.state === FORM_FIELD_STATES.DISABLED">
+				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED">
 					<template #modal="{onClose}">
 						<Modal @close-modal="onClose">Modal</Modal>
 					</template>
 				</HelpButton>
 			</template>
 			<template #labelAside>
-				<div v-html="args.labelAside" />
+				<div v-html="labelAside" />
 			</template>
 			<template #fieldStatus>
-				<div v-html="args.fieldStatus" />
+				<div v-html="fieldStatus" />
 			</template>
 			<template #message>
-				<div v-if="args.message" v-html="args.message" />
+				<div v-if="message" v-html="message" />
 			</template>
-			<template #action v-if="args.action">
-				<div v-html="args.action" />
+			<template #action v-if="action">
+				<div v-html="action" />
 			</template>
 		</InputField>`,
 	}),
