@@ -52,6 +52,7 @@
 @import '../../../../styles/settings/borders';
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/settings/shadows';
 
 .ds-inputField {
 	$root: &;
@@ -61,8 +62,7 @@
 	background: $color-default-background;
 	border: $border-xs solid $color-neutral-border-strong;
 	border-radius: $radius-s;
-	// fixme - waiting for design system token
-	box-shadow: 0 1px 3px 0 var(--raw-gray-400) inset;
+	box-shadow: $shadow-inset-m;
 	display: flex;
 	gap: $space-2xs;
 	height: 32px;
@@ -77,8 +77,7 @@
 	}
 
 	&:hover:not(.-ds-disabled) {
-		// fixme - waiting for design system token
-		box-shadow: 0 1px 3px 0 var(--raw-gray-600) inset;
+		border-color: $color-neutral-border-strong-hovered;
 	}
 
 	&.-ds-disabled {
