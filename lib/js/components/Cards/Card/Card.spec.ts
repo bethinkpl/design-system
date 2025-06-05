@@ -150,4 +150,18 @@ describe('Card', () => {
 
 		expect(component.find('.ds-card').classes()).not.toContain('-ds-paddingLarge');
 	});
+
+	it('should not set flat class by default', () => {
+		const component = createComponent();
+
+		expect(component.find('.ds-card').classes()).not.toContain('-ds-flat');
+	});
+
+	it('should set flat class', () => {
+		const component = createComponent({
+			props: { isFlat: true },
+		});
+
+		expect(component.find('.ds-card').classes()).toContain('-ds-flat');
+	});
 });
