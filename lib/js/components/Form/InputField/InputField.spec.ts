@@ -29,7 +29,6 @@ function setup({
 
 describe('InputField', () => {
 	it('should render', () => {
-		const onUpdate = vi.fn();
 		const wrapper = setup({
 			props: {
 				label: 'Label',
@@ -43,7 +42,6 @@ describe('InputField', () => {
 		});
 
 		expect(wrapper.exists()).toBe(true);
-		console.log();
 		expect(wrapper.find('.ds-inputField__suffixText').text()).toBe('Suffix text');
 		expect(wrapper.findComponent<typeof Icon>('.ds-inputField__leftIcon').props().icon).toEqual(
 			ICONS.FA_TAG,
