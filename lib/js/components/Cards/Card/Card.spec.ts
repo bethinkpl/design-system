@@ -1,35 +1,22 @@
 import { describe, expect, it } from 'vitest';
-import { shallowMount } from '@vue/test-utils';
+import { mount } from '@vue/test-utils';
+import { h } from 'vue';
 
 import Card from './Card.vue';
-import { CARD_BORDER_COLORS, CARD_BORDER_POSITIONS, CARD_BORDER_SIZES } from './Card.consts';
-import { LOADING_BAR_COLORS } from '../../LoadingBar';
+import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
+import { CARD_PADDING_SIZES } from './Card.consts';
 
 describe('Card', () => {
 	const createComponent = ({
-		headerSlot = '',
-		contentSlot = '',
-		footerSlot = '',
-		headerHasPadding = false,
-		dividerUnderHeader = false,
+		props = {},
+		slots = {},
+	}: {
+		props?: Partial<ComponentProps<typeof Card>>;
+		slots?: Partial<ComponentSlots<typeof Card>>;
 	} = {}) => {
-		return shallowMount(Card, {
-			props: {
-				headerHasPadding,
-				dividerUnderHeader,
-				hasBorder: false,
-				borderSize: CARD_BORDER_SIZES.MEDIUM,
-				borderColor: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
-				borderPosition: CARD_BORDER_POSITIONS.TOP,
-				hasLoadingBar: false,
-				loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
-				loadingBarTime: '0',
-			},
-			slots: {
-				...(headerSlot !== '' && { header: headerSlot }),
-				...(contentSlot !== '' && { content: contentSlot }),
-				...(footerSlot !== '' && { footer: footerSlot }),
-			},
+		return mount(Card, {
+			props,
+			slots,
 		});
 	};
 
@@ -47,51 +34,85 @@ describe('Card', () => {
 
 	it('should render content slot', () => {
 		const content = 'Wpłynąlem na suchego przestwór oceanu';
-		const component = createComponent({ contentSlot: content });
+		const component = createComponent({
+			slots: {
+				content: () => [h('span', content)],
+			},
+		});
 
 		expect(component.find('.ds-card__content').text()).toContain(content);
 	});
 
 	it('should render header slot', () => {
 		const header = 'Wpłynąlem na suchego przestwór oceanu';
-		const component = createComponent({ headerSlot: header });
+		const component = createComponent({
+			slots: {
+				header: () => [h('span', header)],
+			},
+		});
 
 		expect(component.text()).toContain(header);
 	});
 
 	it('should render footer slot', () => {
 		const footer = 'Wpłynąlem na suchego przestwór oceanu';
-		const component = createComponent({ footerSlot: footer });
+		const component = createComponent({
+			slots: {
+				footer: () => [h('span', footer)],
+			},
+		});
 
 		expect(component.text()).toContain(footer);
 	});
 
 	it('should render header slot with padding', () => {
 		const header = 'Wpłynąlem na suchego przestwór oceanu';
-		const component = createComponent({ headerSlot: header, headerHasPadding: true });
+		const component = createComponent({
+			props: { headerHasPadding: true },
+			slots: { header: () => [h('span', header)] },
+		});
 
 		expect(component.find('.ds-card__header').classes()).toContain('-ds-withPadding');
+	});
+
+	it('should render footer slot with padding', () => {
+		const footer = 'Wpłynąlem na suchego przestwór oceanu';
+		const component = createComponent({
+			props: { footerHasPadding: true },
+			slots: {
+				footer: () => [h('span', footer)],
+			},
+		});
+
+		expect(component.find('.ds-card__footer').classes()).toContain('-ds-withPadding');
 	});
 
 	it('should render divider', () => {
 		const header = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({
-			headerSlot: header,
-			contentSlot: 'asd',
-			dividerUnderHeader: true,
+			props: {
+				dividerUnderHeader: true,
+			},
+			slots: {
+				header: () => [h('span', header)],
+				content: () => [h('span', 'asd')],
+			},
 		});
 
 		expect(component.find('.ds-card__headerDivider').exists()).toBe(true);
 	});
 
 	it("doesn't render divider when no header", () => {
-		const component = createComponent({ dividerUnderHeader: true });
+		const component = createComponent({ props: { dividerUnderHeader: true } });
 
 		expect(component.find('.ds-card__headerDivider').exists()).toBe(false);
 	});
 
 	it("doesn't render divider when no content", () => {
-		const component = createComponent({ headerSlot: 'test', dividerUnderHeader: true });
+		const component = createComponent({
+			props: { dividerUnderHeader: true },
+			slots: { header: () => [h('span', 'test')] },
+		});
 
 		expect(component.find('.ds-card__headerDivider').exists()).toBe(false);
 	});
@@ -99,14 +120,34 @@ describe('Card', () => {
 	it('should render divider with margin if headerHasPadding', () => {
 		const header = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({
-			headerSlot: header,
-			contentSlot: 'asd',
-			dividerUnderHeader: true,
-			headerHasPadding: true,
+			props: {
+				dividerUnderHeader: true,
+				headerHasPadding: true,
+			},
+			slots: {
+				header: () => [h('span', header)],
+				content: () => [h('span', 'asd')],
+			},
 		});
 
 		expect(component.find('.ds-card__headerDivider').classes()).toContain(
 			'-ds-withHorizontalMargin',
 		);
+	});
+
+	it('should set large padding class', () => {
+		const component = createComponent({
+			props: { paddingSize: CARD_PADDING_SIZES.LARGE },
+		});
+
+		expect(component.find('.ds-card').classes()).toContain('-ds-paddingLarge');
+	});
+
+	it('should not set large padding class', () => {
+		const component = createComponent({
+			props: { paddingSize: CARD_PADDING_SIZES.SMALL },
+		});
+
+		expect(component.find('.ds-card').classes()).not.toContain('-ds-paddingLarge');
 	});
 });

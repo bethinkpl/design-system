@@ -1,7 +1,12 @@
 import Card from './Card.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { CARD_BORDER_COLORS, CARD_BORDER_POSITIONS, CARD_BORDER_SIZES } from './Card.consts';
+import {
+	CARD_BORDER_COLORS,
+	CARD_BORDER_POSITIONS,
+	CARD_BORDER_SIZES,
+	CARD_PADDING_SIZES,
+} from './Card.consts';
 import { LOADING_BAR_COLORS } from '../../LoadingBar';
 
 export default {
@@ -12,27 +17,18 @@ export default {
 const StoryTemplate: StoryFn<typeof Card> = (args) => ({
 	components: { Card },
 	setup() {
-		return args;
+		return { args };
 	},
 	template: `
-		<card :header-has-padding="headerHasPadding"
-			  :divider-under-header="dividerUnderHeader"
-			  :has-border="hasBorder"
-			  :border-position="borderPosition"
-			  :border-size="borderSize"
-			  :border-color="borderColor"
-			  :has-loading-bar="hasLoadingBar"
-			  :loading-bar-color="loadingBarColor"
-			  :loading-bar-time="loadingBarTime"
-		>
-			<template v-if="header" #header>
-				<div v-html="header" />
+		<card v-bind="args">
+			<template v-if="args.header" #header>
+				<div v-html="args.header" />
 			</template>
-			<template v-if="content" #content>
-				<div v-html="content" />
+			<template v-if="args.content" #content>
+				<div v-html="args.content" />
 			</template>
-			<template v-if="footer" #footer>
-				<div v-html="footer" />
+			<template v-if="args.footer" #footer>
+				<div v-html="args.footer" />
 			</template>
 		</card>`,
 });
@@ -44,6 +40,8 @@ const args = {
 	content: 'content slot that supports <b>HTML markup</b>',
 	footer: 'footer slot',
 	headerHasPadding: false,
+	footerHasPadding: false,
+	paddingSize: CARD_PADDING_SIZES.SMALL,
 	dividerUnderHeader: false,
 	hasBorder: false,
 	borderPosition: CARD_BORDER_POSITIONS.TOP,
@@ -75,6 +73,10 @@ const argTypes = {
 	loadingBarColor: {
 		control: 'select',
 		options: Object.values(LOADING_BAR_COLORS),
+	},
+	paddingSize: {
+		control: 'select',
+		options: Object.values(CARD_PADDING_SIZES),
 	},
 } as ArgTypes;
 
