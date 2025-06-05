@@ -1,23 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { mount } from '@vue/test-utils';
+import { ComponentMountingOptions, mount } from '@vue/test-utils';
 import { h } from 'vue';
 
 import Card from './Card.vue';
-import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
 import { CARD_PADDING_SIZES } from './Card.consts';
 
 describe('Card', () => {
-	const createComponent = ({
-		props = {},
-		slots = {},
-	}: {
-		props?: Partial<ComponentProps<typeof Card>>;
-		slots?: Partial<ComponentSlots<typeof Card>>;
-	} = {}) => {
-		return mount(Card, {
-			props,
-			slots,
-		});
+	const createComponent = (options: ComponentMountingOptions<typeof Card> = {}) => {
+		return mount(Card, options);
 	};
 
 	it('should create', () => {
