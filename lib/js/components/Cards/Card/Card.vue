@@ -79,11 +79,11 @@
 		}
 
 		#{$root}__loadingBar {
+			top: -$border-s;
+
 			#{$root}:not(.-ds-flat) & {
 				border-radius: $radius-xs $radius-xs 0 0;
 			}
-
-			top: -$border-s;
 		}
 	}
 
@@ -95,11 +95,11 @@
 		}
 
 		#{$root}__loadingBar {
+			top: -$border-m;
+
 			#{$root}:not(.-ds-flat) & {
 				border-radius: $radius-s $radius-s 0 0;
 			}
-
-			top: -$border-m;
 		}
 	}
 
@@ -111,11 +111,11 @@
 		}
 
 		#{$root}__loadingBar {
+			top: -$border-l;
+
 			#{$root}:not(.-ds-flat) & {
 				border-radius: $radius-m $radius-m 0 0;
 			}
-
-			top: -$border-l;
 		}
 	}
 
