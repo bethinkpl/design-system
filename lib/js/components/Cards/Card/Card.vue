@@ -8,6 +8,7 @@
 				'-ds-top-border': hasTopBoarder,
 				'-ds-left-border': hasLeftBoarder,
 				'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
+				'-ds-flat': isFlat,
 			},
 		]"
 	>
@@ -53,11 +54,14 @@
 .ds-card {
 	$root: &;
 
-	background-color: $color-default-background;
-	border-radius: $radius-m;
-	box-shadow: $shadow-s;
 	position: relative;
 	width: inherit;
+
+	&:not(.-ds-flat) {
+		background-color: $color-default-background;
+		border-radius: $radius-m;
+		box-shadow: $shadow-s;
+	}
 
 	&.-ds-top-border {
 		border-top: $border-l transparent solid;
@@ -68,31 +72,49 @@
 	}
 
 	&.-ds-border-size-small {
-		border-radius: $radius-xs;
 		border-top-width: $border-s;
 
+		#{$root}:not(.-ds-flat) & {
+			border-radius: $radius-xs;
+		}
+
 		#{$root}__loadingBar {
-			border-radius: $radius-xs $radius-xs 0 0;
+			#{$root}:not(.-ds-flat) & {
+				border-radius: $radius-xs $radius-xs 0 0;
+			}
+
 			top: -$border-s;
 		}
 	}
 
 	&.-ds-border-size-medium {
-		border-radius: $radius-s;
 		border-top-width: $border-m;
 
+		#{$root}:not(.-ds-flat) & {
+			border-radius: $radius-s;
+		}
+
 		#{$root}__loadingBar {
-			border-radius: $radius-s $radius-s 0 0;
+			#{$root}:not(.-ds-flat) & {
+				border-radius: $radius-s $radius-s 0 0;
+			}
+
 			top: -$border-m;
 		}
 	}
 
 	&.-ds-border-size-large {
-		border-radius: $radius-m;
 		border-top-width: $border-l;
 
+		#{$root}:not(.-ds-flat) & {
+			border-radius: $radius-m;
+		}
+
 		#{$root}__loadingBar {
-			border-radius: $radius-m $radius-m 0 0;
+			#{$root}:not(.-ds-flat) & {
+				border-radius: $radius-m $radius-m 0 0;
+			}
+
 			top: -$border-l;
 		}
 	}
@@ -195,6 +217,7 @@ const {
 	hasLoadingBar = false,
 	loadingBarColor = LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime = '0',
+	isFlat = false,
 } = defineProps<{
 	headerHasPadding?: boolean;
 	footerHasPadding?: boolean;
@@ -207,6 +230,7 @@ const {
 	hasLoadingBar?: boolean;
 	loadingBarColor?: LoadingBarColors;
 	loadingBarTime?: string;
+	isFlat?: boolean;
 }>();
 
 defineSlots<{

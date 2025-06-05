@@ -50,6 +50,7 @@ const args = {
 	hasLoadingBar: false,
 	loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime: '0',
+	isFlat: false,
 } as Args;
 
 const argTypes = {
