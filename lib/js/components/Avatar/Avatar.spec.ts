@@ -1,18 +1,28 @@
+import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import Avatar from './Avatar.vue';
 import { AVATAR_ACCESS_STATUSES, AVATAR_ACTIVITY_STATUSES, AVATAR_SIZES } from './Avatar.consts';
 import { ICONS } from '../Icons/Icon';
+import { ComponentProps } from 'vue-component-type-helpers';
 
 const avatarUrl = 'https://wiecejnizlek.pl/avatar.jpg';
 
+const setup = (props: ComponentProps<typeof Avatar>) =>
+	mount(Avatar, {
+		props,
+		global: {
+			directives: {
+				pvTooltip: () => {},
+			},
+		},
+	});
+
 describe('Avatar', () => {
 	it('should render avatar without badges', () => {
-		const wrapper = mount(Avatar, {
-			props: {
-				size: AVATAR_SIZES.MEDIUM,
-				username: 'Dariusz Chrapek',
-				avatarUrl,
-			},
+		const wrapper = setup({
+			size: AVATAR_SIZES.MEDIUM,
+			username: 'Dariusz Chrapek',
+			avatarUrl,
 		});
 		expect(wrapper.find('img').exists()).toBe(true);
 		expect(wrapper.find('img').attributes('src')).toBe(avatarUrl);
@@ -52,22 +62,18 @@ describe('Avatar', () => {
 			initials: 'PS',
 		},
 	])('should render `$initials` initials for `$username`', ({ username, initials }) => {
-		const wrapper = mount(Avatar, {
-			props: {
-				size: AVATAR_SIZES.MEDIUM,
-				username,
-			},
+		const wrapper = setup({
+			size: AVATAR_SIZES.MEDIUM,
+			username,
 		});
 		expect(wrapper.find('.ds-avatar').classes()).toContain('-ds-medium');
 		expect(wrapper.find('.ds-avatar').text()).toBe(initials);
 	});
 
 	it.each(Object.values(AVATAR_SIZES))('should render in size: %s', (size) => {
-		const wrapper = mount(Avatar, {
-			props: {
-				size,
-				username: 'Dariusz Chrapek',
-			},
+		const wrapper = setup({
+			size,
+			username: 'Dariusz Chrapek',
 		});
 		expect(wrapper.find('.ds-avatar').classes()).toContain(`-ds-${size}`);
 	});
@@ -114,11 +120,9 @@ describe('Avatar', () => {
 			color: '#2c3e50',
 		},
 	])('should render `$username` with background color `$color`', ({ username, color }) => {
-		const wrapper = mount(Avatar, {
-			props: {
-				size: AVATAR_SIZES.MEDIUM,
-				username,
-			},
+		const wrapper = setup({
+			size: AVATAR_SIZES.MEDIUM,
+			username,
 		});
 
 		const hexToRgb = (hex: string) => {
@@ -151,13 +155,11 @@ describe('Avatar', () => {
 	])(
 		'should render activity status: $activityStatus',
 		({ activityStatus, expectedColorClass }) => {
-			const wrapper = mount(Avatar, {
-				props: {
-					size: AVATAR_SIZES.MEDIUM,
-					username: 'Dariusz Chrapek',
-					avatarUrl,
-					activityStatus,
-				},
+			const wrapper = setup({
+				size: AVATAR_SIZES.MEDIUM,
+				username: 'Dariusz Chrapek',
+				avatarUrl,
+				activityStatus,
 			});
 
 			const activityStatusElement = wrapper.find('.ds-avatar__activityStatus');
@@ -184,13 +186,11 @@ describe('Avatar', () => {
 			expectedIcon: ICONS.FA_LOCK_KEYHOLE,
 		},
 	])('should render access status: $accessStatus', ({ accessStatus, expectedIcon }) => {
-		const wrapper = mount(Avatar, {
-			props: {
-				size: AVATAR_SIZES.MEDIUM,
-				username: 'Dariusz Chrapek',
-				avatarUrl,
-				accessStatus,
-			},
+		const wrapper = setup({
+			size: AVATAR_SIZES.MEDIUM,
+			username: 'Dariusz Chrapek',
+			avatarUrl,
+			accessStatus,
 		});
 
 		const accessStatusElement = wrapper.find('.ds-avatar__accessStatus');
@@ -200,14 +200,12 @@ describe('Avatar', () => {
 
 	it('should render team member image', () => {
 		const teamMemberImageUrl = 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg';
-		const wrapper = mount(Avatar, {
-			props: {
-				size: AVATAR_SIZES.MEDIUM,
-				username: 'Dariusz Chrapek',
-				avatarUrl,
-				accessStatus: AVATAR_ACCESS_STATUSES.TEAM_MEMBER,
-				teamMemberImageUrl,
-			},
+		const wrapper = setup({
+			size: AVATAR_SIZES.MEDIUM,
+			username: 'Dariusz Chrapek',
+			avatarUrl,
+			accessStatus: AVATAR_ACCESS_STATUSES.TEAM_MEMBER,
+			teamMemberImageUrl,
 		});
 
 		const accessStatusElement = wrapper.find('.ds-avatar__accessStatus');
@@ -217,13 +215,11 @@ describe('Avatar', () => {
 
 	it('should pass activityStatusTooltip to the tooltip component', () => {
 		const tooltipText = 'Active now';
-		const wrapper = mount(Avatar, {
-			props: {
-				size: AVATAR_SIZES.MEDIUM,
-				username: 'Dariusz Chrapek',
-				activityStatus: AVATAR_ACTIVITY_STATUSES.ACTIVE,
-				activityStatusTooltip: tooltipText,
-			},
+		const wrapper = setup({
+			size: AVATAR_SIZES.MEDIUM,
+			username: 'Dariusz Chrapek',
+			activityStatus: AVATAR_ACTIVITY_STATUSES.ACTIVE,
+			activityStatusTooltip: tooltipText,
 		});
 
 		const tooltip = wrapper.findComponent({ name: 'Tooltip' });
