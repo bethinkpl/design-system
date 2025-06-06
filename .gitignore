@@ -8,3 +8,9 @@ yarn-error.log
 public
 .env*
 **/*.swp
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

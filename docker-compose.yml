@@ -1,0 +1,17 @@
+services:
+  playwright:
+    build: .
+    volumes:
+      - ./lib:/app/lib
+      - ./e2e:/app/e2e
+      - ./tools:/app/tools
+      - ./playwright-report:/app/playwright-report
+      - ./.npmrc:/app/.npmrc
+      - ./package.json:/app/package.json
+      - ./yarn.lock:/app/yarn.lock
+      - ./tsconfig.json:/app/tsconfig.json
+      - ./playwright.config.ts:/app/playwright.config.ts
+      - ./vite.config.ts:/app/vite.config.ts
+      - ./.storybook:/app/.storybook
+    ports:
+      - '9323:9323'

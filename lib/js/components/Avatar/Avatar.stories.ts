@@ -54,8 +54,7 @@ export const Interactive: Story = {
 	args: {
 		size: AVATAR_SIZES.X_SMALL,
 		username: 'Dariusz Chrapek',
-		avatarUrl:
-			'https://wiecejnizlek.pl/wp-content/uploads/2021/08/Dariusz_Chrapek-uai-2996x2996-1-scaled.jpeg',
+		avatarUrl: 'https://cms.landing.bethink.tech/assets/team/dariuszireneusz_chrapek.png',
 		teamMemberImageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
 		activityStatusTooltip: 'Active now',
 	},
