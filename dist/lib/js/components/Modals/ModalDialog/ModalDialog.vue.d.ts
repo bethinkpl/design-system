@@ -293,6 +293,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CALENDAR_RANGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CAMERA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CARDS_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CARET_SQUARE_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CART_SHOPPING: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHART_COLUMN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -412,6 +413,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_RECTANGLE_HISTORY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_REPLY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -847,6 +849,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_CALENDAR_RANGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CALENDAR_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CAMERA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_CARDS_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CARET_SQUARE_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CART_SHOPPING: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CHART_COLUMN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -966,6 +969,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_RECTANGLE_HISTORY: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_REPLY: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1291,6 +1295,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_CALENDAR_RANGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CALENDAR_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CAMERA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_CARDS_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CARET_SQUARE_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CART_SHOPPING: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_CHART_COLUMN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1410,6 +1415,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_RECTANGLE_HISTORY: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_REPLY: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1738,6 +1744,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     readonly FA_CALENDAR_RANGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_CALENDAR_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_CAMERA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                    readonly FA_CARDS_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_CARET_SQUARE_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_CART_SHOPPING: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_CHART_COLUMN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1857,6 +1864,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                    readonly FA_RECTANGLE_HISTORY: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_REPLY: import('@fortawesome/fontawesome-common-types').IconDefinition;
                     readonly FA_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
