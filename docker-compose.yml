@@ -1,0 +1,10 @@
+services:
+  playwright:
+    build: .
+    volumes:
+      - ./lib:/app/lib
+      - ./e2e:/app/e2e
+      - ./tools:/app/tools
+      - ./playwright-report:/playwright-report
+    ports:
+      - '9323:9323'
