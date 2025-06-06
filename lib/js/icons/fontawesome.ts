@@ -66,6 +66,7 @@ import { faCreditCard } from '@fortawesome/pro-regular-svg-icons/faCreditCard';
 import { faEarthAmericas } from '@fortawesome/pro-regular-svg-icons/faEarthAmericas';
 import { faEllipsis } from '@fortawesome/pro-regular-svg-icons/faEllipsis';
 import { faEllipsisVertical } from '@fortawesome/pro-regular-svg-icons/faEllipsisVertical';
+import { faEnvelope } from '@fortawesome/pro-regular-svg-icons/faEnvelope';
 import { faEye } from '@fortawesome/pro-regular-svg-icons/faEye';
 import { faEyeSlash } from '@fortawesome/pro-regular-svg-icons/faEyeSlash';
 import { faFaceFrown } from '@fortawesome/pro-regular-svg-icons/faFaceFrown';
@@ -299,6 +300,7 @@ export const FONTAWESOME_ICONS = {
 	FA_EARTH_AMERICAS: faEarthAmericas,
 	FA_ELLIPSIS: faEllipsis,
 	FA_ELLIPSIS_VERTICAL: faEllipsisVertical,
+	FA_ENVELOPE: faEnvelope,
 	FA_EXCLAMATION_SOLID: fasExclamation,
 	FA_EYE: faEye,
 	FA_EYE_SLASH: faEyeSlash,
