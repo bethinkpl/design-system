@@ -13,6 +13,7 @@ test('has title', async ({ page }) => {
 		await page.goto(`http://localhost:6006/iframe.html?viewMode=story&id=${storyId}`);
 
 		await page.waitForSelector('[data-v-app]');
+		await page.waitForTimeout(2000);
 
 		await expect(page).toHaveScreenshot(`${storyId}.png`);
 	}
