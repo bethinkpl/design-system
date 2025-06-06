@@ -121,6 +121,7 @@ import { faPresentationScreen } from '@fortawesome/pro-regular-svg-icons/faPrese
 import { faPrint } from '@fortawesome/pro-regular-svg-icons/faPrint';
 import { faRectangleCode } from '@fortawesome/pro-regular-svg-icons/faRectangleCode';
 import { faRectangleList } from '@fortawesome/pro-regular-svg-icons/faRectangleList';
+import { faRectangleHistory } from '@fortawesome/pro-regular-svg-icons/faRectangleHistory';
 import { faReply } from '@fortawesome/pro-regular-svg-icons/faReply';
 import { faRotateLeft } from '@fortawesome/pro-regular-svg-icons/faRotateLeft';
 import { faShare } from '@fortawesome/pro-regular-svg-icons/faShare';
@@ -211,6 +212,7 @@ import { faSpinnerThird as fadSpinnerThird } from '@fortawesome/pro-duotone-svg-
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
 import { faUserGear } from '@fortawesome/pro-regular-svg-icons/faUserGear';
+import { faCardsBlank } from '@fortawesome/pro-regular-svg-icons/faCardsBlank';
 
 export const FONTAWESOME_ICONS = {
 	FA_ADDRESS_CARD: faAddressCard,
@@ -256,6 +258,7 @@ export const FONTAWESOME_ICONS = {
 	FA_CALENDAR_RANGE: faCalendarRange,
 	FA_CALENDAR_XMARK: faCalendarXmark,
 	FA_CAMERA_SOLID: fasCamera,
+	FA_CARDS_BLANK: faCardsBlank,
 	FA_CARET_SQUARE_RIGHT_SOLID: fasCaretSquareRight,
 	FA_CART_SHOPPING: faCartShopping,
 	FA_CHART_COLUMN: faChartColumn,
@@ -375,6 +378,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PRESENTATION_SCREEN: faPresentationScreen,
 	FA_PRINT: faPrint,
 	FA_RECTANGLE_CODE: faRectangleCode,
+	FA_RECTANGLE_HISTORY: faRectangleHistory,
 	FA_RECTANGLE_LIST: faRectangleList,
 	FA_REPLY: faReply,
 	FA_ROTATE_LEFT: faRotateLeft,
