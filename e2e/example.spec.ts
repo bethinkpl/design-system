@@ -1,20 +1,37 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Page } from '@playwright/test';
 
-test('has title', async ({ page }) => {
-	test.slow();
-	const data = await fetch('http://localhost:6006/index.json').then((r) => r.json());
+function waitForImages(page: Page) {
+	return page.evaluate(() => {
+		return Promise.all(
+			Array.from(document.images)
+				.filter((img) => !img.complete)
+				.map(
+					(img) =>
+						new Promise<void>((resolve) => {
+							img.onload = img.onerror = () => resolve();
+						}),
+				),
+		);
+	});
+}
+
+test.describe('Visual Regression Tests for Components', async () => {
+	const data = JSON.parse(process.env.STORIES_DATA);
+	console.log({ data });
 
 	const stories = Object.entries(data.entries)
 		.filter(([storyId]) => storyId.startsWith('components'))
 		.slice(0, 5);
 
 	for (const [storyId, story] of stories) {
-		// iframe.html?viewMode=story&id=components-avatar--interactive
-		await page.goto(`http://localhost:6006/iframe.html?viewMode=story&id=${storyId}`);
+		test(`component ${story.title}: ${story.name}`, async ({ page }) => {
+			await page.goto(`http://localhost:6006/iframe.html?viewMode=story&id=${storyId}`);
 
-		await page.waitForSelector('[data-v-app]');
-		await page.waitForTimeout(2000);
+			await page.waitForSelector('[data-v-app]');
 
-		await expect(page).toHaveScreenshot(`${storyId}.png`);
+			await waitForImages(page);
+
+			await expect(page).toHaveScreenshot(`${storyId}.png`);
+		});
 	}
 });

@@ -31,6 +31,7 @@ export default defineConfig({
 		/* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
 		trace: 'on-first-retry',
 	},
+	globalSetup: './e2e/global-setup.ts',
 
 	/* Configure projects for major browsers */
 	projects: [
@@ -72,7 +73,7 @@ export default defineConfig({
 
 	/* Run your local dev server before starting the tests */
 	webServer: {
-		command: 'yarn dev --no-open',
+		command: 'yarn dev --no-open -h 0.0.0.0',
 		url: 'http://localhost:6006',
 		reuseExistingServer: !process.env.CI,
 	},
