@@ -290,6 +290,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS_VERTICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ENVELOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EXCLAMATION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EYE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EYE_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -587,178 +588,139 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
         }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-    DsCard: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    DsCard: {
+        new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+            headerHasPadding: {
+                type: PropType<boolean>;
+            };
+            footerHasPadding: {
+                type: PropType<boolean>;
+            };
+            paddingSize: {
+                type: PropType<string>;
+            };
+            dividerUnderHeader: {
+                type: PropType<boolean>;
+            };
+            hasBorder: {
+                type: PropType<boolean>;
+            };
+            borderPosition: {
+                type: PropType<string>;
+            };
+            borderSize: {
+                type: PropType<string>;
+            };
+            borderColor: {
+                type: PropType<string>;
+            };
+            hasLoadingBar: {
+                type: PropType<boolean>;
+            };
+            loadingBarColor: {
+                type: PropType<string>;
+            };
+            loadingBarTime: {
+                type: PropType<string>;
+            };
+            isFlat: {
+                type: PropType<boolean>;
+            };
+        }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
+            P: {};
+            B: {};
+            D: {};
+            C: {};
+            M: {};
+            Defaults: {};
+        }, Readonly<import('vue').ExtractPropTypes<{
+            headerHasPadding: {
+                type: PropType<boolean>;
+            };
+            footerHasPadding: {
+                type: PropType<boolean>;
+            };
+            paddingSize: {
+                type: PropType<string>;
+            };
+            dividerUnderHeader: {
+                type: PropType<boolean>;
+            };
+            hasBorder: {
+                type: PropType<boolean>;
+            };
+            borderPosition: {
+                type: PropType<string>;
+            };
+            borderSize: {
+                type: PropType<string>;
+            };
+            borderColor: {
+                type: PropType<string>;
+            };
+            hasLoadingBar: {
+                type: PropType<boolean>;
+            };
+            loadingBarColor: {
+                type: PropType<string>;
+            };
+            loadingBarTime: {
+                type: PropType<string>;
+            };
+            isFlat: {
+                type: PropType<boolean>;
+            };
+        }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
+        __isFragment?: never;
+        __isTeleport?: never;
+        __isSuspense?: never;
+    } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
         headerHasPadding: {
-            type: BooleanConstructor;
-            default: boolean;
+            type: PropType<boolean>;
+        };
+        footerHasPadding: {
+            type: PropType<boolean>;
+        };
+        paddingSize: {
+            type: PropType<string>;
         };
         dividerUnderHeader: {
-            type: BooleanConstructor;
-            default: boolean;
+            type: PropType<boolean>;
         };
         hasBorder: {
-            type: BooleanConstructor;
-            default: boolean;
+            type: PropType<boolean>;
         };
         borderPosition: {
-            type: PropType<import('../Cards/Card/Card.consts').CardBorderPositions>;
-            default: string;
+            type: PropType<string>;
         };
         borderSize: {
-            type: PropType<import('../Cards/Card/Card.consts').CardBorderSizes>;
-            default: string;
+            type: PropType<string>;
         };
         borderColor: {
-            type: PropType<import('../Cards/Card/Card.consts').CardBorderColors>;
-            default: string;
+            type: PropType<string>;
         };
         hasLoadingBar: {
-            type: BooleanConstructor;
-            default: boolean;
+            type: PropType<boolean>;
         };
         loadingBarColor: {
-            type: PropType<import('../LoadingBar').LoadingBarColors>;
-            default: string;
+            type: PropType<string>;
         };
         loadingBarTime: {
-            type: StringConstructor;
-            default: string;
+            type: PropType<string>;
         };
-    }>, {}, {}, {
-        hasLeftBoarder(): any;
-        hasTopBoarder(): any;
-        borderColorClass(): string;
-        borderSizeClass(): string;
-    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
-        headerHasPadding: {
-            type: BooleanConstructor;
-            default: boolean;
+        isFlat: {
+            type: PropType<boolean>;
         };
-        dividerUnderHeader: {
-            type: BooleanConstructor;
-            default: boolean;
+    }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
+        $slots: Readonly<{
+            header?: () => any;
+            content?: () => any;
+            footer?: () => any;
+        }> & {
+            header?: () => any;
+            content?: () => any;
+            footer?: () => any;
         };
-        hasBorder: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        borderPosition: {
-            type: PropType<import('../Cards/Card/Card.consts').CardBorderPositions>;
-            default: string;
-        };
-        borderSize: {
-            type: PropType<import('../Cards/Card/Card.consts').CardBorderSizes>;
-            default: string;
-        };
-        borderColor: {
-            type: PropType<import('../Cards/Card/Card.consts').CardBorderColors>;
-            default: string;
-        };
-        hasLoadingBar: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        loadingBarColor: {
-            type: PropType<import('../LoadingBar').LoadingBarColors>;
-            default: string;
-        };
-        loadingBarTime: {
-            type: StringConstructor;
-            default: string;
-        };
-    }>> & Readonly<{}>, {
-        headerHasPadding: boolean;
-        dividerUnderHeader: boolean;
-        hasBorder: boolean;
-        borderPosition: string;
-        borderSize: string;
-        borderColor: string;
-        hasLoadingBar: boolean;
-        loadingBarColor: string;
-        loadingBarTime: string;
-    }, {}, {
-        DsDivider: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
-            isVertical: {
-                type: BooleanConstructor;
-                default: boolean;
-            };
-            prominence: {
-                type: StringConstructor;
-                default: string;
-                validator: (value: string) => boolean;
-            };
-            size: {
-                type: StringConstructor;
-                default: string;
-                validator: (value: string) => boolean;
-            };
-        }>, {}, {
-            DIVIDER_PROMINENCES: Readonly<{
-                DEFAULT: string;
-                STRONG: string;
-                WEAK: string;
-            }>;
-        }, {
-            sizeClass(): string;
-        }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
-            isVertical: {
-                type: BooleanConstructor;
-                default: boolean;
-            };
-            prominence: {
-                type: StringConstructor;
-                default: string;
-                validator: (value: string) => boolean;
-            };
-            size: {
-                type: StringConstructor;
-                default: string;
-                validator: (value: string) => boolean;
-            };
-        }>> & Readonly<{}>, {
-            size: string;
-            isVertical: boolean;
-            prominence: string;
-        }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-        DsLoadingBar: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
-            color: {
-                type: PropType<import('../LoadingBar').LoadingBarColors>;
-                default: string;
-            };
-            size: {
-                type: PropType<import('../LoadingBar').LoadingBarSizes>;
-                default: string;
-            };
-            time: {
-                type: StringConstructor;
-                required: true;
-            };
-        }>, {}, {
-            intervalId: number;
-            width: number;
-        }, {
-            sizeClassName(): string;
-            loadingBarStyles(): {
-                width: string;
-                transition: string;
-            };
-        }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
-            color: {
-                type: PropType<import('../LoadingBar').LoadingBarColors>;
-                default: string;
-            };
-            size: {
-                type: PropType<import('../LoadingBar').LoadingBarSizes>;
-                default: string;
-            };
-            time: {
-                type: StringConstructor;
-                required: true;
-            };
-        }>> & Readonly<{}>, {
-            size: string;
-            color: string;
-        }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-    }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+    });
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
