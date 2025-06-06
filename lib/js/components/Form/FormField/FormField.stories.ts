@@ -13,7 +13,7 @@ const meta: Meta<typeof FormField> = {
 		components: { FormField, Modal, HelpButton },
 		setup() {
 			const { field, help, labelAside, message, fieldStatus, ...restRefs } = toRefs(args);
-			const props = reactive({ ...restRefs }); // Create reactive props
+			const props = reactive({ ...restRefs });
 
 			return {
 				props,
@@ -38,13 +38,13 @@ const meta: Meta<typeof FormField> = {
 				</HelpButton>
 				<div v-else v-html="help" />
 			</template>
-			<template #labelAside>
+			<template #labelAside v-if="labelAside">
 				<div v-html="labelAside" />
 			</template>
-			<template #fieldStatus>
+			<template #fieldStatus v-if="fieldStatus">
 				<div v-html="fieldStatus" />
 			</template>
-			<template #message>
+			<template #message v-if="message">
 				<div v-if="message" v-html="message" />
 			</template>
 		</FormField>`,

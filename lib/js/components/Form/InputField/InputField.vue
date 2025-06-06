@@ -30,16 +30,16 @@
 			</div>
 		</template>
 		<!-- begin: FormField slots -->
-		<template #help>
+		<template v-if="$slots.help" #help>
 			<slot name="help" />
 		</template>
-		<template #labelAside>
+		<template v-if="$slots.labelAside" #labelAside>
 			<slot name="labelAside" />
 		</template>
-		<template #message="{ messageId }">
+		<template v-if="$slots.message" #message="{ messageId }">
 			<slot name="message" :message-id="messageId" />
 		</template>
-		<template #fieldStatus>
+		<template v-if="$slots.fieldStatus" #fieldStatus>
 			<slot name="fieldStatus" />
 		</template>
 		<!-- end: FormField slots -->
@@ -128,22 +128,13 @@
 
 <script lang="ts" setup>
 import { computed, InputHTMLAttributes } from 'vue';
-import FormField, { FORM_FIELD_STATES, FormFieldProps, FormFieldSlots } from '../FormField';
-import Icon, { ICON_SIZES, IconItem } from '../../Icons/Icon';
+import FormField, { FORM_FIELD_STATES } from '../FormField';
+import Icon, { ICON_SIZES } from '../../Icons/Icon';
 import { extractFormFieldProps } from '../FormField/FormField.utils';
+import { InputFieldProps, InputFieldSlots } from './InputField.types';
 
-interface Props extends FormFieldProps {
-	inputProps?: InputHTMLAttributes;
-	leftIcon?: IconItem | null;
-	suffixText?: string;
-}
-
-interface Slots extends Omit<FormFieldSlots, 'field'> {
-	action?: () => any;
-}
-
-const { inputProps, leftIcon, suffixText, ...rest } = defineProps<Props>();
-defineSlots<Slots>();
+const { inputProps, leftIcon, suffixText, ...rest } = defineProps<InputFieldProps>();
+defineSlots<InputFieldSlots>();
 const value = defineModel<string>();
 
 // this is needed to avoid passing modelValue to FormField as prop
