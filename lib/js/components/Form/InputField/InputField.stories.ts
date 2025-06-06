@@ -38,13 +38,13 @@ const meta: Meta<typeof InputField> = {
 					</template>
 				</HelpButton>
 			</template>
-			<template #labelAside>
+			<template #labelAside v-if="labelAside">
 				<div v-html="labelAside" />
 			</template>
-			<template #fieldStatus>
+			<template #fieldStatus v-if="fieldStatus">
 				<div v-html="fieldStatus" />
 			</template>
-			<template #message>
+			<template #message v-if="message">
 				<div v-if="message" v-html="message" />
 			</template>
 			<template #action v-if="action">

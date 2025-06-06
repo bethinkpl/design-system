@@ -30,16 +30,16 @@
 			</div>
 		</template>
 		<!-- begin: FormField slots -->
-		<template #help>
+		<template v-if="$slots.help" #help>
 			<slot name="help" />
 		</template>
-		<template #labelAside>
+		<template v-if="$slots.labelAside" #labelAside>
 			<slot name="labelAside" />
 		</template>
-		<template #message="{ messageId }">
+		<template v-if="$slots.message" #message="{ messageId }">
 			<slot name="message" :message-id="messageId" />
 		</template>
-		<template #fieldStatus>
+		<template v-if="$slots.fieldStatus" #fieldStatus>
 			<slot name="fieldStatus" />
 		</template>
 		<!-- end: FormField slots -->
