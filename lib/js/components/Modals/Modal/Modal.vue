@@ -181,10 +181,10 @@ $image-height-small: 140px;
 	}
 
 	&__content {
-		padding: $space-xl $space-s;
+		padding: $space-xl $space-s $space-l;
 
 		@media #{breakpoint-s()} {
-			padding: $space-xl $space-xl;
+			padding: $space-xl $space-xl $space-l;
 		}
 
 		&.-ds-centered {
