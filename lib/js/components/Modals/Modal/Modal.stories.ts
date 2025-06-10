@@ -24,6 +24,7 @@ const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" :footerTertiaryButtonState="footerTertiaryButtonState" ' +
 		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage">' +
 		'<div v-html="defaultSlot" />' +
+		'<template #rightActions><div style="display: inline-flex;" v-html="rightActionsSlot" /></template>' +
 		'</modal>',
 	data() {
 		return {
@@ -37,6 +38,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	defaultSlot:
 		'<p style="margin-top: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p><p style="margin-top: 0; margin-bottom: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p>',
+	rightActionsSlot: 'Right actions',
 	size: MODAL_SIZES.MEDIUM,
 	danger: false,
 	contentCentered: false,
@@ -128,6 +130,7 @@ Interactive.parameters = {
 const argsDanger = {
 	defaultSlot:
 		'<p style="margin-top: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p><p style="margin-top: 0; margin-bottom: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p>',
+	rightActionsSlot: 'Right actions',
 	size: MODAL_SIZES.MEDIUM,
 	danger: true,
 	contentCentered: false,
@@ -156,6 +159,7 @@ Danger.args = argsDanger;
 const argsWithImage = {
 	defaultSlot:
 		'<p style="margin-top: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p><p style="margin-top: 0; margin-bottom: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p>',
+	rightActionsSlot: 'Right actions',
 	size: MODAL_SIZES.MEDIUM,
 	danger: false,
 	contentCentered: false,
@@ -185,6 +189,7 @@ WithImage.args = argsWithImage;
 const argsSmallHeaderAndCentered = {
 	defaultSlot:
 		'<p style="margin-top: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p><p style="margin-top: 0; margin-bottom: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p>',
+	rightActionsSlot: 'Right actions',
 	size: MODAL_SIZES.SMALL,
 	danger: false,
 	contentCentered: true,
