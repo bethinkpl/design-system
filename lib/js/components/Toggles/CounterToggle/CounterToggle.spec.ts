@@ -1,3 +1,4 @@
+import { describe, expect, it, test } from 'vitest';
 import { shallowMount } from '@vue/test-utils';
 
 import CounterToggle from './CounterToggle.vue';
