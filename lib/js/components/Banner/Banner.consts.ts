@@ -18,3 +18,10 @@ export const BANNER_LAYOUTS = {
 } as const;
 
 export type BannerLayout = Value<typeof BANNER_LAYOUTS>;
+
+export const BANNER_SIZES = {
+	SMALL: 'small',
+	MEDIUM: 'medium',
+};
+
+export type BannerSize = Value<typeof BANNER_SIZES>;
