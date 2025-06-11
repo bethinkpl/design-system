@@ -162,7 +162,7 @@ import { faArrowRight as fasArrowRight } from '@fortawesome/pro-solid-svg-icons/
 import { faArrowsLeftRight as fasArrowsLeftRight } from '@fortawesome/pro-solid-svg-icons/faArrowsLeftRight';
 import { faArrowUp as fasArrowUp } from '@fortawesome/pro-solid-svg-icons/faArrowUp';
 import { faBookmark as fasBookmark } from '@fortawesome/pro-solid-svg-icons/faBookmark';
-import { faBookMedical as fasBookMedical} from '@fortawesome/pro-solid-svg-icons/faBookMedical';
+import { faBookMedical as fasBookMedical } from '@fortawesome/pro-solid-svg-icons/faBookMedical';
 import { faBookSparkles as fasBookSparkles } from '@fortawesome/pro-solid-svg-icons/faBookSparkles';
 import { faCamera as fasCamera } from '@fortawesome/pro-solid-svg-icons/faCamera';
 import { faCaretSquareRight as fasCaretSquareRight } from '@fortawesome/pro-solid-svg-icons/faCaretSquareRight';
