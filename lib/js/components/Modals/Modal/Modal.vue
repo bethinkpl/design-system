@@ -149,11 +149,18 @@ $image-height-small: 140px;
 		background: $color-default-background;
 		border-radius: $radius-m;
 		box-shadow: $shadow-xl;
+		display: flex;
 		margin: 0 auto;
+		max-height: calc(100vh - #{2 * $space-l});
 		max-width: $modal-medium-width;
 		overflow: hidden;
+		padding-top: $space-xl;
 		position: relative;
 		width: 100%;
+
+		@media #{breakpoint-s()} {
+			max-height: 84vh;
+		}
 
 		&.-ds-small {
 			max-width: $modal-small-width;
@@ -172,19 +179,15 @@ $image-height-small: 140px;
 	}
 
 	&__scrollableWrapper {
-		max-height: calc(100vh - #{2 * $space-l});
+		flex: 1;
 		overflow-y: auto;
-
-		@media #{breakpoint-s()} {
-			max-height: 84vh;
-		}
 	}
 
 	&__content {
-		padding: $space-xl $space-s $space-l;
+		padding: 0 $space-s $space-l;
 
 		@media #{breakpoint-s()} {
-			padding: $space-xl $space-xl $space-l;
+			padding: 0 $space-xl $space-l;
 		}
 
 		&.-ds-centered {
@@ -252,6 +255,8 @@ $image-height-small: 140px;
 		position: absolute;
 		right: $space-4xs;
 		top: $space-4xs;
+		// z-index needs to be higher than 0 to cover the content elements with `position: relative`
+		z-index: 1;
 	}
 
 	&__image {
