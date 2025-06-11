@@ -22,6 +22,7 @@ const StoryTemplate: StoryFn<typeof ModalDialog> = (args) => ({
 		':headerImage="headerImage" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon" :footerSecondaryButtonState="footerSecondaryButtonState">' +
 		'<div v-html="defaultSlot" />' +
+		'<template #rightActions><div style="display: inline-flex;" v-if="rightActionsSlot" v-html="rightActionsSlot" /></template>' +
 		'</modal-dialog>',
 	data() {
 		return {
@@ -36,6 +37,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	defaultSlot:
 		'<p style="margin-top: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p><p style="margin-top: 0; margin-bottom: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p>',
+	rightActionsSlot: 'Right actions',
 	danger: false,
 	headerImage: '',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
@@ -102,6 +104,7 @@ Interactive.parameters = {
 const argsDanger = {
 	defaultSlot:
 		'<p style="margin-top: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p><p style="margin-top: 0; margin-bottom: 0">Text. Occaecati qui debitis ut minima ab ut ipsa. Eos qui eum. Vel eaque sint. Aut voluptatem est. Eos est aut sit soluta est facere qui soluta aspernatur. Et sint repellat sunt.</p>',
+	rightActionsSlot: 'Right actions',
 	danger: true,
 	headerImage: '',
 	headerTitle: 'Modal Title Accusantium occaecati atque similique gg provident nobis.',
@@ -123,6 +126,7 @@ Danger.args = argsDanger;
 
 const argsWithImage = {
 	defaultSlot: '',
+	rightActionsSlot: '',
 	danger: false,
 	headerImage:
 		'https://wiecejnizlek.pl/wp-content/themes/uncode-child/assets/patterns/pattern-black.png',

@@ -24,7 +24,7 @@ const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" :footerTertiaryButtonState="footerTertiaryButtonState" ' +
 		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage">' +
 		'<div v-html="defaultSlot" />' +
-		'<template #rightActions><div style="display: inline-flex;" v-html="rightActionsSlot" /></template>' +
+		'<template #rightActions><div style="display: inline-flex;" v-if="rightActionsSlot" v-html="rightActionsSlot" /></template>' +
 		'</modal>',
 	data() {
 		return {
