@@ -1,5 +1,5 @@
 import Banner from './Banner.vue';
-import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
+import { BANNER_COLORS, BANNER_LAYOUTS, BANNER_SIZES } from './Banner.consts';
 import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -40,6 +40,8 @@ const StoryTemplate: StoryFn<typeof Banner> = (args) => {
 						:layout="layout"
 						:is-expanded="isExpanded"
 						:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
+						:size="size"
+						:title-in-color="titleInColor"
 						@update:isExpanded="onIsExpandedUpdated"
 				>
 				<template #defaultText><span v-html="defaultText" /></template>
@@ -68,6 +70,8 @@ const args = {
 	rightSlot: '',
 	isExpanded: false,
 	isIconHiddenOnMobile: false,
+	size: BANNER_SIZES.MEDIUM,
+	titleInColor: false,
 } as Args;
 
 const argTypes = {
@@ -103,6 +107,13 @@ const argTypes = {
 		control: 'text',
 	},
 	isExpanded: {
+		control: 'boolean',
+	},
+	size: {
+		control: 'select',
+		options: Object.values(BANNER_SIZES),
+	},
+	titleInColor: {
 		control: 'boolean',
 	},
 } as ArgTypes;
