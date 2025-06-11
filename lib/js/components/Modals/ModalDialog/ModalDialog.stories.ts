@@ -22,7 +22,7 @@ const StoryTemplate: StoryFn<typeof ModalDialog> = (args) => ({
 		':headerImage="headerImage" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="footerSecondaryButtonIcon" :footerSecondaryButtonState="footerSecondaryButtonState">' +
 		'<div v-html="defaultSlot" />' +
-		'<template #rightActions><div style="display: inline-flex;" v-if="rightActionsSlot" v-html="rightActionsSlot" /></template>' +
+		'<template v-if="rightActionsSlot" #rightActions><div style="display: inline-flex;" v-html="rightActionsSlot" /></template>' +
 		'</modal-dialog>',
 	data() {
 		return {
