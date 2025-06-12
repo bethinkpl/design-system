@@ -2,15 +2,17 @@
 	<teleport to="body">
 		<div class="ds-modal" v-bind="$attrs" @click.self="$emit('close-modal')">
 			<div class="ds-modal__wrapper" :class="{ '-ds-small': size === MODAL_SIZES.SMALL }">
-				<wnl-icon-button
-					touchable
-					:icon="ICONS.FA_XMARK"
-					class="ds-modal__close"
-					:size="ICON_SIZES.SMALL"
-					:elevation="BUTTON_ELEVATIONS.X_SMALL"
-					:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
-					@click.stop="$emit('close-modal')"
-				/>
+				<div class="ds-modal__rightActions">
+					<slot name="rightActions" />
+					<wnl-icon-button
+						touchable
+						:icon="ICONS.FA_XMARK"
+						:size="ICON_SIZES.SMALL"
+						:elevation="BUTTON_ELEVATIONS.X_SMALL"
+						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
+						@click.stop="$emit('close-modal')"
+					/>
+				</div>
 				<div class="ds-modal__scrollableWrapper">
 					<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
 					<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
@@ -119,7 +121,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/z-indexes';
 
-$modal-medium-width: 700px;
+$modal-medium-width: 800px;
 $modal-small-width: 460px;
 $image-height: 200px;
 $image-height-small: 140px;
@@ -147,11 +149,18 @@ $image-height-small: 140px;
 		background: $color-default-background;
 		border-radius: $radius-m;
 		box-shadow: $shadow-xl;
+		display: flex;
 		margin: 0 auto;
+		max-height: calc(100vh - #{2 * $space-l});
 		max-width: $modal-medium-width;
 		overflow: hidden;
+		padding-top: $space-xl;
 		position: relative;
 		width: 100%;
+
+		@media #{breakpoint-s()} {
+			max-height: 84vh;
+		}
 
 		&.-ds-small {
 			max-width: $modal-small-width;
@@ -170,19 +179,15 @@ $image-height-small: 140px;
 	}
 
 	&__scrollableWrapper {
-		max-height: calc(100vh - #{2 * $space-l});
+		flex: 1;
 		overflow-y: auto;
-
-		@media #{breakpoint-s()} {
-			max-height: 84vh;
-		}
 	}
 
 	&__content {
-		padding: $space-l $space-s;
+		padding: 0 $space-s $space-l;
 
 		@media #{breakpoint-s()} {
-			padding: $space-l $space-xl;
+			padding: 0 $space-xl $space-l;
 		}
 
 		&.-ds-centered {
@@ -246,10 +251,12 @@ $image-height-small: 140px;
 		margin-left: $space-2xs;
 	}
 
-	&__close {
+	&__rightActions {
 		position: absolute;
-		right: $space-3xs;
-		top: $space-3xs;
+		right: $space-4xs;
+		top: $space-4xs;
+		// z-index needs to be higher than 0 to cover the content elements with `position: relative`
+		z-index: 1;
 	}
 
 	&__image {
