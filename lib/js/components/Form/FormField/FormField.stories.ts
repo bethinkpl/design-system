@@ -18,13 +18,13 @@ const meta: Meta<typeof FormField> = {
 			<template #labelAside>
 				<div v-html="args.labelAside" />
 			</template>
-			<template #mainField="{fieldId, messageId}">
+			<template #field="{fieldId, messageId}">
 				<input :id="fieldId" :aria-describedby="messageId" />
 			</template>
 			<template #fieldStatus>
 				<div v-html="args.fieldStatus" />
 			</template>
-			<template #message>
+			<template #message v-if="args.message">
 				<div v-html="args.message" />
 			</template>
 		</FormField>`,
@@ -57,6 +57,15 @@ const meta: Meta<typeof FormField> = {
 		fieldStatus: {
 			control: 'text',
 		},
+		messageText: {
+			control: 'text',
+		},
+		messageErrorText: {
+			control: 'text',
+		},
+		messageSuccessText: {
+			control: 'text',
+		},
 	},
 };
 export default meta;
@@ -70,9 +79,12 @@ export const Interactive: Story = {
 		labelInfo: '(opcjonalne)',
 		subLabel: 'Sublabel write here',
 		labelAside: 'Label aside',
-		message: 'Message text',
+		message: '',
 		fieldStatus: 'Field status',
 		help: 'Help',
+		messageText: '',
+		messageErrorText: 'Error message text',
+		messageSuccessText: '',
 	},
 };
 

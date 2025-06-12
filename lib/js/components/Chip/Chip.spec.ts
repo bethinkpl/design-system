@@ -5,6 +5,7 @@ import Chip from './Chip.vue';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import Icon, { ICONS } from '../Icons/Icon';
 import { CHIP_COLORS, CHIP_SIZES } from './Chip.consts';
+import IconButton from '../Buttons/IconButton';
 
 interface createComponentOptions {
 	label?: string;
@@ -70,7 +71,7 @@ describe('Chip', () => {
 	it('renders remove', () => {
 		const component = createComponent({ isRemovable: true });
 
-		const removeButton = component.findComponent<typeof Chip>('.ds-chip__remove');
+		const removeButton = component.findComponent<typeof IconButton>('.ds-chip__remove');
 		expect(removeButton.exists()).toBe(true);
 		expect(removeButton.props().icon).toBe(ICONS.FA_XMARK);
 
@@ -78,7 +79,7 @@ describe('Chip', () => {
 		expect(component.emitted('remove')?.length).toBe(1);
 	});
 
-	it("doesn' contain x-small class by default", () => {
+	it("doesn't contain x-small class by default", () => {
 		const component = createComponent({ size: CHIP_SIZES.SMALL });
 
 		expect(component.classes()).not.toContain('-x-small');
