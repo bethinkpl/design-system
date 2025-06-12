@@ -15,16 +15,16 @@ const meta: Meta<typeof FormField> = {
 			<template #help>
 				<div v-html="args.help" />
 			</template>
-			<template #labelAside>
+			<template v-if="args.labelAside" #labelAside>
 				<div v-html="args.labelAside" />
 			</template>
 			<template #field="{fieldId, messageId}">
 				<input :id="fieldId" :aria-describedby="messageId" />
 			</template>
-			<template #fieldStatus>
+			<template v-if="args.fieldStatus" #fieldStatus>
 				<div v-html="args.fieldStatus" />
 			</template>
-			<template #message v-if="args.message">
+			<template v-if="args.message" #message>
 				<div v-html="args.message" />
 			</template>
 		</FormField>`,
