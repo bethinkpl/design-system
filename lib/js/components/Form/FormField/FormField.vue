@@ -65,10 +65,7 @@
 	&__subLabelRow {
 		@include formLabel-s-default-regular;
 
-		align-items: center;
 		color: $color-neutral-text;
-		display: flex;
-		gap: $space-2xs;
 		padding-bottom: $space-2xs;
 	}
 
@@ -81,7 +78,7 @@
 	}
 
 	&__label {
-		align-items: center;
+		align-items: baseline;
 		display: flex;
 		gap: $space-5xs;
 	}
@@ -127,10 +124,7 @@
 	}
 
 	&__message {
-		align-items: flex-start;
-		display: flex;
 		flex: 1 0 0;
-		flex-direction: column;
 	}
 
 	&__fieldStatus {
