@@ -370,7 +370,7 @@ import DsButton, {
 	BUTTON_TYPES,
 } from '../Buttons/Button';
 import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
-import DsIcon, { IconItem, ICONS } from '../Icons/Icon';
+import { IconItem, ICONS } from '../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
 import {
 	BANNER_COLORS,
@@ -410,8 +410,8 @@ const {
 }>();
 
 const emit = defineEmits<{
-	'button-clicked': void;
-	close: void;
+	'button-clicked': [];
+	close: [];
 	'update:isExpanded': [isExpanded: boolean];
 }>();
 
