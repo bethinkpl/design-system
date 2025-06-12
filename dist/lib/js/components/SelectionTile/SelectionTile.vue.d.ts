@@ -61,6 +61,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -75,6 +76,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_BOOK_MEDICAL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOX: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOX_ARCHIVE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_CALCULATOR_SIMPLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CALENDAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CALENDAR_CLOCK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -124,6 +126,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CREDIT_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_DNA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_DOT_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -628,6 +631,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -642,6 +646,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_BOOK_MEDICAL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOX: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOX_ARCHIVE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CALCULATOR_SIMPLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR_CLOCK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -691,6 +696,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CREDIT_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_DNA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_DOT_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1071,6 +1077,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1085,6 +1092,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_BOOK_MEDICAL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOX: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOX_ARCHIVE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CALCULATOR_SIMPLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR_CLOCK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1134,6 +1142,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CREDIT_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_DNA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_DOT_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
