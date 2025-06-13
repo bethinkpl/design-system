@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "exclude": [
+    // excluded to prevent generating redundant d.ts files in dist on build
+    "lib/**/*.spec.ts",
+    "lib/**/*.stories.ts"
+  ]
+}
