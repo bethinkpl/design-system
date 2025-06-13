@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import FormFieldMessage from './FormFieldMessage.vue';
 import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
-import { FORM_FIELD_MESSAGE_VARIANTS } from './FormFieldMessage.consts';
+import { FORM_FIELD_STATES } from '../FormField.consts';
 
 const meta: Meta<
 	ComponentProps<typeof FormFieldMessage> & ComponentSlots<typeof FormFieldMessage>
@@ -20,9 +20,9 @@ const meta: Meta<
 		</FormFieldMessage>`,
 	}),
 	argTypes: {
-		variant: {
+		state: {
 			control: 'select',
-			options: [null, ...Object.values(FORM_FIELD_MESSAGE_VARIANTS)],
+			options: [null, ...Object.values(FORM_FIELD_STATES)],
 		},
 		messageId: {
 			control: 'text',

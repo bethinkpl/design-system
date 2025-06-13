@@ -2,8 +2,8 @@ import { describe, it, expect } from 'vitest';
 import FormFieldMessage from './FormFieldMessage.vue';
 import { mount } from '@vue/test-utils';
 import Icon, { ICONS } from '../../../Icons/Icon';
-import { FORM_FIELD_MESSAGE_VARIANTS } from './FormFieldMessage.consts';
 import { ComponentProps } from 'vue-component-type-helpers';
+import { FORM_FIELD_STATES } from '../FormField.consts';
 
 const id = 'message-id';
 
@@ -32,16 +32,16 @@ describe('FormFieldMessage', () => {
 
 	it.each([
 		{
-			variant: FORM_FIELD_MESSAGE_VARIANTS.ERROR,
+			state: FORM_FIELD_STATES.ERROR,
 			expectedIcon: ICONS.FA_CIRCLE_EXCLAMATION,
 		},
 		{
-			variant: FORM_FIELD_MESSAGE_VARIANTS.SUCCESS,
+			state: FORM_FIELD_STATES.SUCCESS,
 			expectedIcon: ICONS.FA_CIRCLE_CHECK,
 		},
-	])('should render icon for variant: $variant', ({ variant, expectedIcon }) => {
+	])('should render icon for state: $state', ({ state, expectedIcon }) => {
 		const wrapper = setup({
-			variant,
+			state,
 			messageId: id,
 		});
 

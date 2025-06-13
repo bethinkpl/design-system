@@ -4,14 +4,14 @@
 		:class="[
 			'ds-formFieldMessage',
 			{
-				['-ds-error']: variant === FORM_FIELD_MESSAGE_VARIANTS.ERROR,
-				['-ds-success']: variant === FORM_FIELD_MESSAGE_VARIANTS.SUCCESS,
-				['-ds-disabled']: variant === FORM_FIELD_MESSAGE_VARIANTS.DISABLED,
+				['-ds-error']: state === FORM_FIELD_STATES.ERROR,
+				['-ds-success']: state === FORM_FIELD_STATES.SUCCESS,
+				['-ds-disabled']: state === FORM_FIELD_STATES.DISABLED,
 			},
 		]"
 	>
-		<div v-if="variantIcon" class="ds-formFieldMessage__iconWrapper">
-			<icon :icon="variantIcon" :size="ICON_SIZES.XX_SMALL" />
+		<div v-if="stateIcon" class="ds-formFieldMessage__iconWrapper">
+			<icon :icon="stateIcon" :size="ICON_SIZES.XX_SMALL" />
 		</div>
 		<slot></slot>
 	</div>
@@ -63,12 +63,12 @@
 </style>
 
 <script lang="ts" setup>
-import { FORM_FIELD_MESSAGE_VARIANTS, FormFieldMessageVariant } from './FormFieldMessage.consts';
-import Icon, { ICON_SIZES, ICONS } from '../../../Icons/Icon';
 import { computed } from 'vue';
+import { FORM_FIELD_STATES, FormFieldState } from '../FormField.consts';
+import Icon, { ICON_SIZES, ICONS } from '../../../Icons/Icon';
 
-const { variant = FORM_FIELD_MESSAGE_VARIANTS.DEFAULT, messageId } = defineProps<{
-	variant?: FormFieldMessageVariant;
+const { state = FORM_FIELD_STATES.DEFAULT, messageId } = defineProps<{
+	state?: FormFieldState;
 	messageId: string;
 }>();
 
@@ -76,11 +76,11 @@ defineSlots<{
 	default: () => any;
 }>();
 
-const variantIcon = computed(() => {
-	switch (variant) {
-		case FORM_FIELD_MESSAGE_VARIANTS.ERROR:
+const stateIcon = computed(() => {
+	switch (state) {
+		case FORM_FIELD_STATES.ERROR:
 			return ICONS.FA_CIRCLE_EXCLAMATION;
-		case FORM_FIELD_MESSAGE_VARIANTS.SUCCESS:
+		case FORM_FIELD_STATES.SUCCESS:
 			return ICONS.FA_CIRCLE_CHECK;
 		default:
 			return null;
