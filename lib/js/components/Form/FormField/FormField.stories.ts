@@ -1,13 +1,12 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import FormField from './FormField.vue';
 import HelpButton from '../../Buttons/HelpButton/HelpButton.vue';
-import Modal from '../../Modals/Modal';
 
 const meta: Meta<typeof FormField> = {
 	title: 'Components/Form/FormField',
 	component: FormField,
 	render: (args) => ({
-		components: { FormField, Modal, HelpButton },
+		components: { FormField, HelpButton },
 		setup() {
 			return {
 				args,
