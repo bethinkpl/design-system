@@ -33,6 +33,8 @@
 </template>
 
 <style scoped lang="scss">
+@use 'sass:math';
+
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/colors/tokens';
@@ -51,11 +53,11 @@ $badge-content-size-m: 12px;
 $badge-content-size-s: 8px;
 $badge-content-size-xs: 6px;
 
-$elevation-gap-xl: ($badge-elevation-size-xl - $badge-content-size-xl) / 2;
-$elevation-gap-l: ($badge-elevation-size-l - $badge-content-size-l) / 2;
-$elevation-gap-m: ($badge-elevation-size-m - $badge-content-size-m) / 2;
-$elevation-gap-s: ($badge-elevation-size-s - $badge-content-size-s) / 2;
-$elevation-gap-xs: ($badge-elevation-size-xs - $badge-content-size-xs) / 2;
+$elevation-gap-xl: math.div($badge-elevation-size-xl - $badge-content-size-xl, 2);
+$elevation-gap-l: math.div($badge-elevation-size-l - $badge-content-size-l, 2);
+$elevation-gap-m: math.div($badge-elevation-size-m - $badge-content-size-m, 2);
+$elevation-gap-s: math.div($badge-elevation-size-s - $badge-content-size-s, 2);
+$elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2);
 
 .ds-badge {
 	$root: &;
