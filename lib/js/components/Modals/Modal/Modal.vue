@@ -10,6 +10,7 @@
 						:size="ICON_SIZES.SMALL"
 						:elevation="BUTTON_ELEVATIONS.X_SMALL"
 						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
+						data-test-id="ds-modal__closeButton"
 						@click.stop="$emit('close-modal')"
 					/>
 				</div>

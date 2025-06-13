@@ -59,7 +59,7 @@ describe('HelpButton', () => {
 
 		expect(wrapper.find('.ds-modal').exists()).toBe(true);
 
-		const closeButton = wrapper.find('.ds-modal__close');
+		const closeButton = wrapper.find('[data-test-id="ds-modal__closeButton"]');
 		await closeButton.trigger('click');
 
 		expect(wrapper.find('.ds-modal').exists()).toBe(false);
