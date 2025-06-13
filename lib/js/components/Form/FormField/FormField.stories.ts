@@ -1,11 +1,12 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import FormField from './FormField.vue';
+import HelpButton from '../../Buttons/HelpButton/HelpButton.vue';
 
 const meta: Meta<typeof FormField> = {
 	title: 'Components/Form/FormField',
 	component: FormField,
 	render: (args) => ({
-		components: { FormField },
+		components: { FormField, HelpButton },
 		setup() {
 			return {
 				args,
@@ -13,7 +14,11 @@ const meta: Meta<typeof FormField> = {
 		},
 		template: `<FormField v-bind="args">
 			<template #help>
-				<div v-html="args.help" />
+				<HelpButton modal-title="Help modal title">
+					<template #modalContent>
+						Modal
+					</template>
+				</HelpButton>
 			</template>
 			<template v-if="args.labelAside" #labelAside>
 				<div v-html="args.labelAside" />
@@ -48,9 +53,6 @@ const meta: Meta<typeof FormField> = {
 		labelAside: {
 			control: 'text',
 		},
-		help: {
-			control: 'text',
-		},
 		message: {
 			control: 'text',
 		},
@@ -81,7 +83,6 @@ export const Interactive: Story = {
 		labelAside: 'Label aside',
 		message: '',
 		fieldStatus: 'Field status',
-		help: 'Help',
 		messageText: '',
 		messageErrorText: 'Error message text',
 		messageSuccessText: '',
