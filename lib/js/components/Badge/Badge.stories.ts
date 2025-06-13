@@ -1,5 +1,5 @@
 import { ComponentProps } from 'vue-component-type-helpers';
-import { Meta, StoryObj } from '@storybook/vue3';
+import { Meta, StoryObj } from '@storybook/vue3-vite';
 
 import Badge from './Badge.vue';
 import { BADGE_COLORS, BADGE_ELEVATIONS, BADGE_SIZES } from './Badge.consts';

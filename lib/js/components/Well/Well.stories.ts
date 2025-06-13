@@ -1,6 +1,6 @@
 // SB8.0 Good code to copy when creating a new story - this code use new API
 
-import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3-vite';
 import Well from './Well.vue';
 import { WELL_PADDINGS } from './Well.consts';
 import type { ComponentProps } from 'vue-component-type-helpers';

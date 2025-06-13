@@ -1,4 +1,4 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 import FeatureIcon from './FeatureIcon.vue';
 import { ICONS } from '../Icon';

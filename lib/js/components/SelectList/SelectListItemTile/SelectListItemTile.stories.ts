@@ -1,9 +1,9 @@
 import SelectListItemTile from './SelectListItemTile.vue';
 import { TILE_STATES } from '../../Tile';
 
-import { Args, Meta, StoryFn } from '@storybook/vue3';
+import { Args, Meta, StoryFn } from '@storybook/vue3-vite';
 import { args, argTypes, data, template } from '../../Tile/Tile.sb.shared';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/SelectList/SelectListItemTile',

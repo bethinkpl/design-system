@@ -6,9 +6,9 @@ import RichListItem, {
 	RICH_LIST_ITEM_TYPE,
 } from '../RichListItem';
 import Divider from '../../Divider';
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import {
 	GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR,
 	GROUP_RICH_LIST_ITEM_BORDER_COLOR,

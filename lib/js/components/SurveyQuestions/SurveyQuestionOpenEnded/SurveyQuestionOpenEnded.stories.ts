@@ -1,8 +1,8 @@
 import SurveyQuestionOpenEnded from './SurveyQuestionOpenEnded.vue';
 import { SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { useArgs } from '@storybook/preview-api';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
+import { useArgs } from 'storybook/preview-api';
 
 export default {
 	title: 'Components/SurveyQuestions/SurveyQuestionOpenEnded',

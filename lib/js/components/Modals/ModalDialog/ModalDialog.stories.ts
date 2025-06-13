@@ -1,4 +1,4 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 import ModalDialog from './ModalDialog.vue';
 import { ICONS } from '../../Icons/Icon';

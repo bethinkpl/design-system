@@ -1,5 +1,5 @@
-import { useArgs } from '@storybook/preview-api';
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { useArgs } from 'storybook/preview-api';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { ICONS } from '../../Icons/Icon';
 import DsSwitch from '../../Switch';
 import {

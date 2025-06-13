@@ -2,8 +2,8 @@ import Banner from './Banner.vue';
 import { BANNER_COLORS, BANNER_LAYOUTS } from './Banner.consts';
 import { ICONS } from '../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { useArgs } from '@storybook/preview-api';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
+import { useArgs } from 'storybook/preview-api';
 
 export default {
 	title: 'Components/Banner',

@@ -1,10 +1,10 @@
 import SelectionTile from './SelectionTile.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { SELECTION_TILE_STATE, SELECTION_TILE_TYPE } from './SelectionTile.consts';
 import { ICONS } from '../Icons/Icon';
-import { useArgs } from '@storybook/preview-api';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { useArgs } from 'storybook/preview-api';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/SelectionTile',

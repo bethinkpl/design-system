@@ -6,7 +6,7 @@ import {
 } from './Dropdown.consts';
 import SelectList from '../SelectList/SelectList.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
 
 export default {

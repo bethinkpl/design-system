@@ -1,6 +1,6 @@
 import Card from './Card.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { CARD_BORDER_COLORS, CARD_BORDER_POSITIONS, CARD_BORDER_SIZES } from './Card.consts';
 import { LOADING_BAR_COLORS } from '../../LoadingBar';
 

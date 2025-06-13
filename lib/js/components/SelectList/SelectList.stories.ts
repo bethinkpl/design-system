@@ -6,7 +6,7 @@ import {
 } from './SelectListItem/SelectListItem.consts';
 import { ICONS } from '../Icons/Icon';
 
-import { Meta, StoryFn } from '@storybook/vue3';
+import { Meta, StoryFn } from '@storybook/vue3-vite';
 import SelectListItem from './SelectListItem/SelectListItem.vue';
 import SelectListItemDivider from './SelectListItemDivider/SelectListItemDivider.vue';
 import SelectListItemToggle from './SelectListItemToggle/SelectListItemToggle.vue';

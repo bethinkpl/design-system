@@ -1,4 +1,4 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import IconText from './IconText.vue';
 import { ICON_TEXT_COLORS, ICON_TEXT_SIZES, ICON_TEXT_STATES } from './IconText.consts';
 import { ICONS } from '../Icons/Icon';

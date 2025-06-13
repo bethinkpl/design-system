@@ -1,6 +1,6 @@
 import DrawerListItem from './DrawerListItem.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { DRAWER_LIST_ITEM_STATES } from './DrawerListItem.consts';
 
 export default {

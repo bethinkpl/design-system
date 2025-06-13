@@ -1,10 +1,10 @@
 import RadioButton from './RadioButton.vue';
 
-import { Meta, StoryFn } from '@storybook/vue3';
+import { Meta, StoryFn } from '@storybook/vue3-vite';
 import { args, argTypes, template } from '../SelectionControl/SelectionControl.sb.shared';
 import { RADIO_BUTTON_SIZE, RADIO_BUTTON_STATE } from './RadioButton.consts';
-import { useArgs } from '@storybook/preview-api';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { useArgs } from 'storybook/preview-api';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/Form/RadioButton',

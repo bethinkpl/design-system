@@ -1,6 +1,6 @@
 import OverlayHeader from './OverlayHeader.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { OVERLAY_HEADER_BORDER_COLORS, OVERLAY_HEADER_STATES } from './OverlayHeader.consts';
 import { ICONS } from '../../Icons/Icon';
 

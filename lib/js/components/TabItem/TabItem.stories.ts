@@ -1,7 +1,7 @@
 import TabItem from './TabItem.vue';
 import { ICONS } from '../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 export default {

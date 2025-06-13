@@ -1,8 +1,8 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import DsToast from './Toast.vue';
 import { TOAST_COLORS, TOAST_POSITIONS, TOAST_SIZES } from './Toast.consts';
 import { ICONS } from '../Icons/Icon';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/Toast',

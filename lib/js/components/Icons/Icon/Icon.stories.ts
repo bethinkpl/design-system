@@ -1,8 +1,8 @@
 import Icon from './Icon.vue';
 import { ICON_SIZES, ICONS } from './Icon.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/Icons/Icon',

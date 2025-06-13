@@ -1,5 +1,5 @@
-import { useArgs } from '@storybook/preview-api';
-import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
+import { useArgs } from 'storybook/preview-api';
+import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3-vite';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { ICONS } from '../../Icons/Icon';
 import {

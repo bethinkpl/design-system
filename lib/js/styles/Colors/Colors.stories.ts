@@ -1,4 +1,4 @@
-import { Args, Meta, StoryFn } from '@storybook/vue3';
+import { Args, Meta, StoryFn } from '@storybook/vue3-vite';
 
 import ItemsList from './../ItemsList.vue';
 import rawColorsList from '../../../styles/settings/colors/_raw.json';

@@ -1,6 +1,6 @@
 import DrawerHeader from './DrawerHeader.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { ICONS } from '../../Icons/Icon';
 import { DRAWER_HEADER_TITLE_COLORS } from './DrawerHeader.consts';
 

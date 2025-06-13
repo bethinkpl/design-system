@@ -3,10 +3,10 @@
 import Tile from './Tile.vue';
 import { TILE_STATES } from './Tile.consts';
 
-import type { Args, Meta, StoryObj } from '@storybook/vue3';
+import type { Args, Meta, StoryObj } from '@storybook/vue3-vite';
 import { args, argTypes, components, data, template } from './Tile.sb.shared';
 import type { ComponentProps } from 'vue-component-type-helpers';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 
 type TileProps = ComponentProps<typeof Tile>;
 

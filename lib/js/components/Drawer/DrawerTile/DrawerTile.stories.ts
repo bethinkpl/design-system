@@ -1,6 +1,6 @@
 import DrawerTile from './DrawerTile.vue';
 
-import { Meta, StoryFn } from '@storybook/vue3';
+import { Meta, StoryFn } from '@storybook/vue3-vite';
 import { args, argTypes, data, template } from '../../Tile/Tile.sb.shared';
 
 export default {

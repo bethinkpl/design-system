@@ -1,6 +1,6 @@
 import SelectListItemDivider from './SelectListItemDivider.vue';
 
-import { Meta, StoryFn } from '@storybook/vue3';
+import { Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/SelectList/SelectListItemDivider',

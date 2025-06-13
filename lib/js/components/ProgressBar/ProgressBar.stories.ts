@@ -9,7 +9,7 @@ import {
 	ProgressBarRange,
 } from './ProgressBar.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/ProgressBar',

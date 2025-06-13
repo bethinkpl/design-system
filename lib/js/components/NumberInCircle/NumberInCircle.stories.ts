@@ -1,7 +1,7 @@
 import NumberInCircle from './NumberInCircle.vue';
 import { NUMBER_IN_CIRCLE_COLORS } from './NumberInCircle.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/NumberInCircle',

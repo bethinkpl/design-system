@@ -1,6 +1,6 @@
 import Tooltip from './Tooltip.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { TOOLTIP_PLACEMENTS } from './Tooltip.consts';
 import DsSwitch from '../Switch/Switch.vue';
 import DsButton from '../Buttons/Button/Button.vue';

@@ -1,7 +1,7 @@
 import Drawer from './Drawer.vue';
 import { DRAWER_POSITIONS } from './Drawer.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/Drawer',

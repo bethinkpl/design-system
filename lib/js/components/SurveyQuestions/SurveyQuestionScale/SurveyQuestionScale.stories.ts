@@ -2,8 +2,8 @@ import SurveyQuestionScale from './SurveyQuestionScale.vue';
 import { SURVEY_TOGGLE_MEANINGS } from '../../SurveyToggle';
 import { SURVEY_QUESTION_SCALE_CONTAINERS, SURVEY_QUESTION_STATES } from '../SurveyQuestion.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { useArgs } from '@storybook/preview-api';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
+import { useArgs } from 'storybook/preview-api';
 
 export default {
 	title: 'Components/SurveyQuestions/SurveyQuestionScale',

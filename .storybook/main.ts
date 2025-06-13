@@ -9,14 +9,7 @@ const ignoredProductionPlugins = ['vite:dts'];
 
 const config: StorybookConfig = {
 	stories: ['../lib/**/*.stories.@(js|ts)'],
-	addons: [
-		'@storybook/addon-actions',
-		'@storybook/addon-designs',
-		'@storybook/addon-docs',
-		'@storybook/addon-controls',
-		'@storybook/addon-storysource',
-		'@storybook/addon-viewport',
-	],
+	addons: ['@storybook/addon-designs', '@storybook/addon-docs'],
 	staticDirs: [
 		{
 			from: '../lib/fonts',

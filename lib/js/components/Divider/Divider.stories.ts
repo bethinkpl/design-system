@@ -1,7 +1,7 @@
 import Divider from './Divider.vue';
 import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from './Divider.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/Divider',

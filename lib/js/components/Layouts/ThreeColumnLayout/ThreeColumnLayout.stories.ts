@@ -1,6 +1,6 @@
 import ThreeColumnLayout from './ThreeColumnLayout.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE } from './ThreeColumnLayout.consts';
 
 export default {

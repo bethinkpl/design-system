@@ -1,7 +1,7 @@
 import SelectListSectionTitle from './SelectListSectionTitle.vue';
 
 import SelectList from './../SelectList.vue';
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/SelectList/SelectListSectionTitle',

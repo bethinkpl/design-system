@@ -1,6 +1,6 @@
 import ProgressDonutChart from './ProgressDonutChart.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import {
 	PROGRESS_DONUT_CHART_RANGE_COLORS,
 	PROGRESS_DONUT_CHART_STATES,

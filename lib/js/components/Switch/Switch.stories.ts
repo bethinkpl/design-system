@@ -1,8 +1,8 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import DsSwitch from './Switch.vue';
 import Icon, { ICONS } from '../Icons/Icon';
 import { SWITCH_RADIUSES, SWITCH_SIDE, SWITCH_SIZES, SWITCH_STATE } from './Switch.consts';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/Switch',

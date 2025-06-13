@@ -1,4 +1,4 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import LoadingBar from './LoadingBar.vue';
 import { LOADING_BAR_COLORS, LOADING_BAR_SIZES } from './LoadingBar.consts';
 

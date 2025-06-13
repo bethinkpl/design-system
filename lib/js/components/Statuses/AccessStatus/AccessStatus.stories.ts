@@ -1,7 +1,7 @@
 import AccessStatus from './AccessStatus.vue';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/Statuses/AccessStatus',

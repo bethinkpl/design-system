@@ -1,8 +1,8 @@
 import PageHeader from './PageHeader.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { PAGE_HEADER_MOBILE_LAYOUTS } from './PageHeader.consts';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/Headers/PageHeader',

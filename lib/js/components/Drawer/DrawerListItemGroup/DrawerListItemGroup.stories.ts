@@ -1,6 +1,6 @@
 import DrawerListItemGroup from './DrawerListItemGroup.vue';
 
-import { Meta, StoryFn } from '@storybook/vue3';
+import { Meta, StoryFn } from '@storybook/vue3-vite';
 import DrawerListItem from '../DrawerListItem/DrawerListItem.vue';
 
 export default {

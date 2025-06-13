@@ -1,4 +1,4 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import DsDivider from '../Divider/Divider.vue';
 import DsTextGroup from './TextGroup.vue';
 import {

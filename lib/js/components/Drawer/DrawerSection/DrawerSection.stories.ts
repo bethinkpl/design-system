@@ -1,9 +1,9 @@
 import DrawerSection from './DrawerSection.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { SECTION_HEADER_ICON_COLORS, SECTION_HEADER_SIZES } from '../../Headers/SectionHeader';
 import { ICONS } from '../../Icons/Icon';
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 
 export default {
 	title: 'Components/Drawer/DrawerSection',

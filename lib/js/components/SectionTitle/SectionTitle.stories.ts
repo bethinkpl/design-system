@@ -1,7 +1,7 @@
 import SectionTitle from './SectionTitle.vue';
 import { SECTION_TITLE_SIZES } from './SectionTitle.consts';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/SectionTitle',

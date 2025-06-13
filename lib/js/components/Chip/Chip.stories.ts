@@ -8,7 +8,7 @@ import {
 } from './Chip.consts';
 import { ICONS } from '../Icons/Icon';
 import LogoBadge from '../../../images/logo-badge.svg';
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/Chip',

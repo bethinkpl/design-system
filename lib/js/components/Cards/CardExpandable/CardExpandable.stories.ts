@@ -1,6 +1,6 @@
 import CardExpandable from './CardExpandable.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/Cards/CardExpandable',

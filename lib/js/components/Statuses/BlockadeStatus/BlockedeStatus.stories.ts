@@ -1,7 +1,7 @@
 import BlockadeStatus from './BlockadeStatus.vue';
 import { COURSE_BLOCKADE_ACCESS_STATUS } from '../../../consts/user';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 
 export default {
 	title: 'Components/Statuses/BlockadeStatus',

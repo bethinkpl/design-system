@@ -1,6 +1,6 @@
 import OutlineItem from './OutlineItem.vue';
 import DsChip from '../../Chip/Chip.vue';
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import { ICONS } from '../../Icons/Icon';
 import {
 	OUTLINE_ITEM_BACKGROUND_COLORS,

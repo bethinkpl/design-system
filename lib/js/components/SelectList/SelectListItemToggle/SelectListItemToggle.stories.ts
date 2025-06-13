@@ -1,12 +1,12 @@
 import SelectListItemToggle from './SelectListItemToggle.vue';
 import { ICONS } from '../../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import {
 	SELECT_LIST_ITEM_SIZES,
 	SELECT_LIST_ITEM_STATES,
 } from '../SelectListItem/SelectListItem.consts';
-import { useArgs } from '@storybook/preview-api';
+import { useArgs } from 'storybook/preview-api';
 
 export default {
 	title: 'Components/SelectList/SelectListItemToggle',

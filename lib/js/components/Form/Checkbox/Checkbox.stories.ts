@@ -1,10 +1,10 @@
 import Checkbox from './Checkbox.vue';
 
-import { Meta, StoryFn } from '@storybook/vue3';
+import { Meta, StoryFn } from '@storybook/vue3-vite';
 import { args, argTypes, template } from '../SelectionControl/SelectionControl.sb.shared';
 import { CHECKBOX_SIZE, CHECKBOX_STATE } from './Checkbox.consts';
-import { useArgs } from '@storybook/preview-api';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { useArgs } from 'storybook/preview-api';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/Form/Checkbox',

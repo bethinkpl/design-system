@@ -79,11 +79,13 @@ const customViewports = {
 };
 
 export const parameters = {
-	controls: {
+    controls: {
 		disableSaveFromUI: true,
 	},
-	viewport: { viewports: customViewports },
-	options: {
+
+    viewport: { viewports: customViewports },
+
+    options: {
 		storySort: {
 			order: [
 				'foundations',
@@ -96,6 +98,10 @@ export const parameters = {
 			],
 		},
 	},
+
+    docs: {
+        codePanel: true
+    }
 };
 
 setup((app) => {

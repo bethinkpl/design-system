@@ -1,4 +1,4 @@
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import DsSkeleton from './Skeleton.vue';
 import { SKELETON_RADIUS_SIZES } from './Skeleton.consts';
 

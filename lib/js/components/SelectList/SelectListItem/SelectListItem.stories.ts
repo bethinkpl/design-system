@@ -1,7 +1,7 @@
 import SelectListItem from './SelectListItem.vue';
 import { ICONS } from '../../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import {
 	SELECT_LIST_ITEM_SELECTION_MODE,
 	SELECT_LIST_ITEM_SIZES,

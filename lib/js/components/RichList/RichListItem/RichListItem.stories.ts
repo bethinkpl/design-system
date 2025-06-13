@@ -1,6 +1,6 @@
 import RichListItem from './RichListItem.vue';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
 	RICH_LIST_ITEM_BORDER_COLOR,
@@ -12,8 +12,8 @@ import {
 } from './RichListItem.consts';
 import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 import { DsImage } from '../../../index';
-import { useArgs } from '@storybook/preview-api';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { useArgs } from 'storybook/preview-api';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/RichList/RichListItem',

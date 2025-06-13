@@ -9,8 +9,8 @@ import {
 } from './Button.consts';
 import { ICONS } from '../../Icons/Icon';
 
-import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { withActions } from '@storybook/addon-actions/decorator';
+import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3-vite';
+import { withActions } from 'storybook/actions/decorator';
 
 export default {
 	title: 'Components/Buttons/Button',
