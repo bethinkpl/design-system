@@ -15,9 +15,9 @@ const meta: Meta<typeof FormField> = {
 		},
 		template: `<FormField v-bind="args">
 			<template #help>
-				<HelpButton>
-					<template #modal="{onClose}">
-						<Modal @close-modal="onClose">Modal</Modal>
+				<HelpButton modal-title="Help modal title">
+					<template #modalContent>
+						Modal
 					</template>
 				</HelpButton>
 			</template>
