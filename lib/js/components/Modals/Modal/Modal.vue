@@ -1,110 +1,114 @@
 <template>
-	<div class="ds-modal" @click.self="$emit('close-modal')">
-		<div class="ds-modal__wrapper" :class="{ '-ds-small': size === MODAL_SIZES.SMALL }">
-			<wnl-icon-button
-				touchable
-				:icon="ICONS.FA_XMARK"
-				class="ds-modal__close"
-				:size="ICON_SIZES.SMALL"
-				:elevation="BUTTON_ELEVATIONS.X_SMALL"
-				:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
-				@click.stop="$emit('close-modal')"
-			/>
-			<div class="ds-modal__scrollableWrapper">
-				<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
-				<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
-					<div v-if="headerTitle" class="ds-modal__header">
-						<feature-icon
-							v-if="headerFeatureIcon"
-							class="ds-modal__headerFeatureIcon"
-							:color="calcHeaderFeatureIconColor"
-							:icon="headerFeatureIcon"
-							:size="FEATURE_ICON_SIZES.X_LARGE"
-							double-background
-						/>
-						<h4
-							class="ds-modal__headerTitle"
-							:class="{
-								'-ds-small': headerTitleSize === MODAL_HEADER_TITLE_SIZES.SMALL,
-							}"
-							>{{ headerTitle }}</h4
-						>
-						<h5 v-if="headerSubtitle" class="ds-modal__headerSubtitle">{{
-							headerSubtitle
-						}}</h5>
-					</div>
-					<div v-if="$slots.default" class="ds-modal__slotContent">
-						<slot />
-					</div>
-					<div
-						v-if="displayFooter"
-						class="ds-modal__footer"
-						:class="{ '-ds-singleColumn': calcSingleColumn }"
-					>
-						<div
-							v-if="footerTertiaryButtonText || footerCheckboxText"
-							class="ds-modal__footerCtaSecondary"
-						>
-							<div v-if="footerCheckboxText" class="ds-modal__checkbox">
-								<input
-									id="ds-modal__checkboxInput"
-									type="checkbox"
-									:checked="false"
-									@change="
-										$emit(
-											'checkbox-change',
-											($event.target as HTMLInputElement).checked,
-										)
-									"
-								/>
-								<label
-									for="ds-modal__checkboxInput"
-									class="ds-modal__checkboxLabel"
-								>
-									{{ footerCheckboxText }}
-								</label>
-							</div>
-							<wnl-button
-								v-if="footerTertiaryButtonText"
-								:type="BUTTON_TYPES.TEXT"
-								:color="BUTTON_COLORS.NEUTRAL"
-								:icon-left="footerTertiaryButtonIcon"
-								:state="footerTertiaryButtonState"
-								class="ds-modal__tertiaryButton"
-								@click="$emit('tertiary-button-click')"
+	<teleport to="body">
+		<div class="ds-modal" v-bind="$attrs" @click.self="$emit('close-modal')">
+			<div class="ds-modal__wrapper" :class="{ '-ds-small': size === MODAL_SIZES.SMALL }">
+				<div class="ds-modal__rightActions">
+					<slot name="rightActions" />
+					<wnl-icon-button
+						touchable
+						:icon="ICONS.FA_XMARK"
+						:size="ICON_SIZES.SMALL"
+						:elevation="BUTTON_ELEVATIONS.X_SMALL"
+						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
+						@click.stop="$emit('close-modal')"
+					/>
+				</div>
+				<div class="ds-modal__scrollableWrapper">
+					<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
+					<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
+						<div v-if="headerTitle" class="ds-modal__header">
+							<feature-icon
+								v-if="headerFeatureIcon"
+								class="ds-modal__headerFeatureIcon"
+								:color="calcHeaderFeatureIconColor"
+								:icon="headerFeatureIcon"
+								:size="FEATURE_ICON_SIZES.X_LARGE"
+								double-background
+							/>
+							<h4
+								class="ds-modal__headerTitle"
+								:class="{
+									'-ds-small': headerTitleSize === MODAL_HEADER_TITLE_SIZES.SMALL,
+								}"
+								>{{ headerTitle }}</h4
 							>
-								{{ footerTertiaryButtonText }}
-							</wnl-button>
+							<h5 v-if="headerSubtitle" class="ds-modal__headerSubtitle">{{
+								headerSubtitle
+							}}</h5>
+						</div>
+						<div v-if="$slots.default" class="ds-modal__slotContent">
+							<slot />
 						</div>
 						<div
-							v-if="footerSecondaryButtonText || footerPrimaryButtonText"
-							class="ds-modal__footerCtaPrimary"
+							v-if="displayFooter"
+							class="ds-modal__footer"
+							:class="{ '-ds-singleColumn': calcSingleColumn }"
 						>
-							<wnl-button
-								v-if="footerSecondaryButtonText"
-								:type="BUTTON_TYPES.OUTLINED"
-								:color="calcFooterSecondaryButtonColor"
-								:icon-right="footerSecondaryButtonIcon"
-								:state="footerSecondaryButtonState"
-								@click="$emit('secondary-button-click')"
+							<div
+								v-if="footerTertiaryButtonText || footerCheckboxText"
+								class="ds-modal__footerCtaSecondary"
 							>
-								{{ footerSecondaryButtonText }}
-							</wnl-button>
-							<wnl-button
-								v-if="footerPrimaryButtonText"
-								:color="calcFooterPrimaryButtonColor"
-								:icon-right="footerPrimaryButtonIcon"
-								:state="footerPrimaryButtonState"
-								@click="$emit('primary-button-click')"
+								<div v-if="footerCheckboxText" class="ds-modal__checkbox">
+									<input
+										id="ds-modal__checkboxInput"
+										type="checkbox"
+										:checked="false"
+										@change="
+											$emit(
+												'checkbox-change',
+												($event.target as HTMLInputElement).checked,
+											)
+										"
+									/>
+									<label
+										for="ds-modal__checkboxInput"
+										class="ds-modal__checkboxLabel"
+									>
+										{{ footerCheckboxText }}
+									</label>
+								</div>
+								<wnl-button
+									v-if="footerTertiaryButtonText"
+									:type="BUTTON_TYPES.TEXT"
+									:color="BUTTON_COLORS.NEUTRAL"
+									:icon-left="footerTertiaryButtonIcon"
+									:state="footerTertiaryButtonState"
+									class="ds-modal__tertiaryButton"
+									@click="$emit('tertiary-button-click')"
+								>
+									{{ footerTertiaryButtonText }}
+								</wnl-button>
+							</div>
+							<div
+								v-if="footerSecondaryButtonText || footerPrimaryButtonText"
+								class="ds-modal__footerCtaPrimary"
 							>
-								{{ footerPrimaryButtonText }}
-							</wnl-button>
+								<wnl-button
+									v-if="footerSecondaryButtonText"
+									:type="BUTTON_TYPES.OUTLINED"
+									:color="calcFooterSecondaryButtonColor"
+									:icon-right="footerSecondaryButtonIcon"
+									:state="footerSecondaryButtonState"
+									@click="$emit('secondary-button-click')"
+								>
+									{{ footerSecondaryButtonText }}
+								</wnl-button>
+								<wnl-button
+									v-if="footerPrimaryButtonText"
+									:color="calcFooterPrimaryButtonColor"
+									:icon-right="footerPrimaryButtonIcon"
+									:state="footerPrimaryButtonState"
+									@click="$emit('primary-button-click')"
+								>
+									{{ footerPrimaryButtonText }}
+								</wnl-button>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+	</teleport>
 </template>
 
 <style lang="scss" scoped>
@@ -117,7 +121,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/z-indexes';
 
-$modal-medium-width: 700px;
+$modal-medium-width: 800px;
 $modal-small-width: 460px;
 $image-height: 200px;
 $image-height-small: 140px;
@@ -145,11 +149,18 @@ $image-height-small: 140px;
 		background: $color-default-background;
 		border-radius: $radius-m;
 		box-shadow: $shadow-xl;
+		display: flex;
 		margin: 0 auto;
+		max-height: calc(100vh - #{2 * $space-l});
 		max-width: $modal-medium-width;
 		overflow: hidden;
+		padding-top: $space-xl;
 		position: relative;
 		width: 100%;
+
+		@media #{breakpoint-s()} {
+			max-height: 84vh;
+		}
 
 		&.-ds-small {
 			max-width: $modal-small-width;
@@ -168,19 +179,15 @@ $image-height-small: 140px;
 	}
 
 	&__scrollableWrapper {
-		max-height: calc(100vh - #{2 * $space-l});
+		flex: 1;
 		overflow-y: auto;
-
-		@media #{breakpoint-s()} {
-			max-height: 84vh;
-		}
 	}
 
 	&__content {
-		padding: $space-l $space-s;
+		padding: 0 $space-s $space-l;
 
 		@media #{breakpoint-s()} {
-			padding: $space-l $space-xl;
+			padding: 0 $space-xl $space-l;
 		}
 
 		&.-ds-centered {
@@ -244,10 +251,12 @@ $image-height-small: 140px;
 		margin-left: $space-2xs;
 	}
 
-	&__close {
+	&__rightActions {
 		position: absolute;
-		right: $space-3xs;
-		top: $space-3xs;
+		right: $space-4xs;
+		top: $space-4xs;
+		// z-index needs to be higher than 0 to cover the content elements with `position: relative`
+		z-index: 1;
 	}
 
 	&__image {

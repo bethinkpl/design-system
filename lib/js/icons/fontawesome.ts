@@ -16,6 +16,7 @@ import { faArrowsRotate } from '@fortawesome/pro-regular-svg-icons/faArrowsRotat
 import { faArrowUpRightAndArrowDownLeftFromCenter } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightAndArrowDownLeftFromCenter';
 import { faArrowUpRightFromSquare } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightFromSquare';
 import { faAtom } from '@fortawesome/pro-regular-svg-icons/faAtom';
+import { faAtom as fasAtom } from '@fortawesome/pro-solid-svg-icons/faAtom';
 import { faBadgePercent } from '@fortawesome/pro-regular-svg-icons/faBadgePercent';
 import { faBan } from '@fortawesome/pro-regular-svg-icons/faBan';
 import { faBars } from '@fortawesome/pro-regular-svg-icons/faBars';
@@ -27,6 +28,7 @@ import { faBookBlank } from '@fortawesome/pro-regular-svg-icons/faBookBlank';
 import { faBookCopy } from '@fortawesome/pro-regular-svg-icons/faBookCopy';
 import { faBox } from '@fortawesome/pro-regular-svg-icons/faBox';
 import { faBoxArchive } from '@fortawesome/pro-regular-svg-icons/faBoxArchive';
+import { faCalculatorSimple as fasCalculatorSimple } from '@fortawesome/pro-solid-svg-icons/faCalculatorSimple';
 import { faCalendar } from '@fortawesome/pro-regular-svg-icons/faCalendar';
 import { faCalendarDays } from '@fortawesome/pro-regular-svg-icons/faCalendarDays';
 import { faCalendarDay } from '@fortawesome/pro-regular-svg-icons/faCalendarDay';
@@ -63,6 +65,7 @@ import { faComments } from '@fortawesome/pro-regular-svg-icons/faComments';
 import { faCompress } from '@fortawesome/pro-regular-svg-icons/faCompress';
 import { faCopy } from '@fortawesome/pro-regular-svg-icons/faCopy';
 import { faCreditCard } from '@fortawesome/pro-regular-svg-icons/faCreditCard';
+import { faDna as fasDna } from '@fortawesome/pro-solid-svg-icons/faDna';
 import { faEarthAmericas } from '@fortawesome/pro-regular-svg-icons/faEarthAmericas';
 import { faEllipsis } from '@fortawesome/pro-regular-svg-icons/faEllipsis';
 import { faEllipsisVertical } from '@fortawesome/pro-regular-svg-icons/faEllipsisVertical';
@@ -121,6 +124,7 @@ import { faPresentationScreen } from '@fortawesome/pro-regular-svg-icons/faPrese
 import { faPrint } from '@fortawesome/pro-regular-svg-icons/faPrint';
 import { faRectangleCode } from '@fortawesome/pro-regular-svg-icons/faRectangleCode';
 import { faRectangleList } from '@fortawesome/pro-regular-svg-icons/faRectangleList';
+import { faRectangleHistory } from '@fortawesome/pro-regular-svg-icons/faRectangleHistory';
 import { faReply } from '@fortawesome/pro-regular-svg-icons/faReply';
 import { faRotateLeft } from '@fortawesome/pro-regular-svg-icons/faRotateLeft';
 import { faShare } from '@fortawesome/pro-regular-svg-icons/faShare';
@@ -161,6 +165,7 @@ import { faArrowRight as fasArrowRight } from '@fortawesome/pro-solid-svg-icons/
 import { faArrowsLeftRight as fasArrowsLeftRight } from '@fortawesome/pro-solid-svg-icons/faArrowsLeftRight';
 import { faArrowUp as fasArrowUp } from '@fortawesome/pro-solid-svg-icons/faArrowUp';
 import { faBookmark as fasBookmark } from '@fortawesome/pro-solid-svg-icons/faBookmark';
+import { faBookMedical as fasBookMedical } from '@fortawesome/pro-solid-svg-icons/faBookMedical';
 import { faBookSparkles as fasBookSparkles } from '@fortawesome/pro-solid-svg-icons/faBookSparkles';
 import { faCamera as fasCamera } from '@fortawesome/pro-solid-svg-icons/faCamera';
 import { faCaretSquareRight as fasCaretSquareRight } from '@fortawesome/pro-solid-svg-icons/faCaretSquareRight';
@@ -211,6 +216,7 @@ import { faSpinnerThird as fadSpinnerThird } from '@fortawesome/pro-duotone-svg-
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
 import { faUserGear } from '@fortawesome/pro-regular-svg-icons/faUserGear';
+import { faCardsBlank } from '@fortawesome/pro-regular-svg-icons/faCardsBlank';
 
 export const FONTAWESOME_ICONS = {
 	FA_ADDRESS_CARD: faAddressCard,
@@ -234,6 +240,7 @@ export const FONTAWESOME_ICONS = {
 	FA_ARROWS_MAXIMIZE: faArrowsMaximize,
 	FA_ARROWS_ROTATE: faArrowsRotate,
 	FA_ATOM: faAtom,
+	FA_ATOM_SOLID: fasAtom,
 	FA_BADGE_PERCENT: faBadgePercent,
 	FA_BAN: faBan,
 	FA_BARS: faBars,
@@ -245,8 +252,10 @@ export const FONTAWESOME_ICONS = {
 	FA_BOOK_COPY: faBookCopy,
 	FA_BOOK_SPARKLES_SOLID: fasBookSparkles,
 	FA_BOOKMARK_SOLID: fasBookmark,
+	FA_BOOK_MEDICAL_SOLID: fasBookMedical,
 	FA_BOX: faBox,
 	FA_BOX_ARCHIVE: faBoxArchive,
+	FA_CALCULATOR_SIMPLE_SOLID: fasCalculatorSimple,
 	FA_CALENDAR: faCalendar,
 	FA_CALENDAR_CLOCK: faCalendarClock,
 	FA_CALENDAR_CIRCLE_EXCLAMATION: faCalendarCircleExclamation,
@@ -256,6 +265,7 @@ export const FONTAWESOME_ICONS = {
 	FA_CALENDAR_RANGE: faCalendarRange,
 	FA_CALENDAR_XMARK: faCalendarXmark,
 	FA_CAMERA_SOLID: fasCamera,
+	FA_CARDS_BLANK: faCardsBlank,
 	FA_CARET_SQUARE_RIGHT_SOLID: fasCaretSquareRight,
 	FA_CART_SHOPPING: faCartShopping,
 	FA_CHART_COLUMN: faChartColumn,
@@ -295,6 +305,7 @@ export const FONTAWESOME_ICONS = {
 	FA_COMPRESS: faCompress,
 	FA_COPY: faCopy,
 	FA_CREDIT_CARD: faCreditCard,
+	FA_DNA_SOLID: fasDna,
 	FA_DOT_CIRCLE_SOLID: fasCircleDot,
 	FA_EARTH_AMERICAS: faEarthAmericas,
 	FA_ELLIPSIS: faEllipsis,
@@ -375,6 +386,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PRESENTATION_SCREEN: faPresentationScreen,
 	FA_PRINT: faPrint,
 	FA_RECTANGLE_CODE: faRectangleCode,
+	FA_RECTANGLE_HISTORY: faRectangleHistory,
 	FA_RECTANGLE_LIST: faRectangleList,
 	FA_REPLY: faReply,
 	FA_ROTATE_LEFT: faRotateLeft,
