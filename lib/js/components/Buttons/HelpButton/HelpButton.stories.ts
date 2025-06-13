@@ -3,12 +3,13 @@ import { Meta, StoryObj } from '@storybook/vue3';
 import HelpButton from './HelpButton.vue';
 import Modal from '../../Modals/Modal';
 import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
+import DsBanner, { BANNER_COLORS } from '../../Banner';
 
 const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpButton>> = {
 	title: 'Components/Buttons/HelpButton',
 	component: HelpButton,
 	render: (args) => ({
-		components: { HelpButton, Modal },
+		components: { HelpButton, Modal, DsBanner },
 		setup() {
 			const { tooltipText, modalTitle, modalContent } = toRefs(args);
 
@@ -16,6 +17,7 @@ const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpB
 				tooltipText,
 				modalTitle,
 				modalContent,
+				BANNER_COLORS,
 			};
 		},
 		template: `<HelpButton :tooltip-text="tooltipText" :modal-title="modalTitle">
@@ -25,7 +27,8 @@ const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpB
 			<template v-else #modal="{onClose}">
 				<modal @close-modal="onClose">test</modal>
 			</template>
-		</HelpButton>`,
+		</HelpButton>
+		<ds-banner style="margin-top: 20px;" :color="BANNER_COLORS.WARNING" title="Uwaga, z uwagi na brak lokalizacji w DS, na Modalu (tworzonym za pomocą propsa modalTitle i slota modalContent) nie wyświetla się Button w footerze do zamykania modala. Poprawimy to w ramach LMS-2762. Jako alternatywa można skorzystać ze slota modal i wstawić do modala co się chce ;)" />`,
 	}),
 	argTypes: {
 		modalTitle: {

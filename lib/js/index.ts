@@ -33,6 +33,7 @@ export { default as FormField } from './components/Form/FormField';
 export * from './components/Form/FormField';
 export { default as FormFieldMessage } from './components/Form/FormField/FormFieldMessage';
 export * from './components/Form/FormField/FormFieldMessage';
+export { default as HelpButton } from './components/Buttons/HelpButton';
 export { default as Icon } from './components/Icons/Icon';
 export { default as DsIcon } from './components/Icons/Icon';
 export * from './components/Icons/Icon/Icon.consts';

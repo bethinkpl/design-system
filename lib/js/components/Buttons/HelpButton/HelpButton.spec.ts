@@ -15,6 +15,7 @@ function setup(
 ) {
 	return mount(HelpButton, {
 		props,
+		// @ts-expect-error - it looks like a bug in vue-component-type-helpers or vue-test-utils
 		slots,
 		attrs,
 		global: {
