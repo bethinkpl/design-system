@@ -71,4 +71,19 @@ describe('Button', () => {
 		expect(component.find('.ds-button__icon.-ds-left').exists()).toBe(false);
 		expect(component.find('.ds-button__content').text()).toBe('Hello');
 	});
+
+	it('renders as span by default', () => {
+		const component = createComponent();
+		expect(component.element.tagName).toBe('SPAN');
+	});
+
+	it('renders as button if "as" prop is set to "button"', () => {
+		const component = createComponent({ as: 'button' });
+		expect(component.element.tagName).toBe('BUTTON');
+	});
+
+	it('renders as anchor if "as" prop is set to "a"', () => {
+		const component = createComponent({ as: 'a' });
+		expect(component.element.tagName).toBe('A');
+	});
 });
