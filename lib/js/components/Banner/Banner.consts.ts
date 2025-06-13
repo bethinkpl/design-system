@@ -12,13 +12,6 @@ export const BANNER_COLORS = {
 
 export type BannerColor = Value<typeof BANNER_COLORS>;
 
-export const BANNER_LAYOUTS = {
-	HORIZONTAL: 'horizontal',
-	VERTICAL: 'vertical',
-} as const;
-
-export type BannerLayout = Value<typeof BANNER_LAYOUTS>;
-
 export const BANNER_SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',

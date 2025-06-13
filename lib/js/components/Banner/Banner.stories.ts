@@ -1,5 +1,5 @@
 import Banner from './Banner.vue';
-import { BANNER_COLORS, BANNER_LAYOUTS, BANNER_SIZES } from './Banner.consts';
+import { BANNER_COLORS, BANNER_SIZES } from './Banner.consts';
 import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -37,14 +37,13 @@ const StoryTemplate: StoryFn<typeof Banner> = (args) => {
 						:color="color"
 						:title="title"
 						:buttonText="buttonText"
-						:layout="layout"
 						:is-expanded="isExpanded"
 						:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
 						:size="size"
 						:title-in-color="titleInColor"
 						@update:isExpanded="onIsExpandedUpdated"
 				>
-				<template #defaultText><span v-html="defaultText" /></template>
+				<template v-if="defaultText" #defaultText><span v-html="defaultText" /></template>
 				<template v-if="expandedText" #expandedText>
 					<div v-html="expandedText" />
 				</template>
@@ -63,7 +62,6 @@ const args = {
 	color: BANNER_COLORS.DEFAULT,
 	title: 'Banner Title',
 	buttonText: '',
-	layout: BANNER_LAYOUTS.HORIZONTAL,
 	defaultText:
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices malesuada vehicula. Mauris egestas scelerisque enim, condimentum aliquet arcu bibendum nec.',
 	expandedText: '',
@@ -92,10 +90,6 @@ const argTypes = {
 	},
 	buttonText: {
 		control: 'text',
-	},
-	layout: {
-		control: 'select',
-		options: Object.values(BANNER_LAYOUTS),
 	},
 	defaultText: {
 		control: 'text',
