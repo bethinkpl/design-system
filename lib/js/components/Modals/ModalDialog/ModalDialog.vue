@@ -21,6 +21,9 @@
 		@secondary-button-click="$emit('secondary-button-click')"
 	>
 		<slot />
+		<template #rightActions>
+			<slot name="rightActions" />
+		</template>
 	</ds-modal>
 </template>
 

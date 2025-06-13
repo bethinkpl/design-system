@@ -1,8 +1,5 @@
 module.exports = {
-	"extends": [
-		'stylelint-config-standard-scss',
-		'stylelint-config-standard-vue/scss'
-	],
+	extends: ['stylelint-config-standard-scss', 'stylelint-config-standard-vue/scss'],
 	plugins: ['stylelint-order'],
 	rules: {
 		// Support SCSS imports
@@ -50,7 +47,6 @@ module.exports = {
 		],
 		'order/properties-alphabetical-order': true,
 		'selector-class-pattern': '-?ds-[a-z][a-zA-Z_]*',
-
 
 		// Disable recommended rules, consider enabling them when you have time
 		'alpha-value-notation': null,
