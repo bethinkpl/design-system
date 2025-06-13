@@ -11,16 +11,17 @@ const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpB
 	render: (args) => ({
 		components: { HelpButton, Modal, DsBanner },
 		setup() {
-			const { tooltipText, modalTitle, modalContent } = toRefs(args);
+			const { tooltipText, modalTitle, modalContent, isDisabled } = toRefs(args);
 
 			return {
 				tooltipText,
+				isDisabled,
 				modalTitle,
 				modalContent,
 				BANNER_COLORS,
 			};
 		},
-		template: `<HelpButton :tooltip-text="tooltipText" :modal-title="modalTitle">
+		template: `<HelpButton :tooltip-text="tooltipText" :modal-title="modalTitle" :is-disabled="isDisabled">
 			<template v-if="modalContent || modalTitle" #modalContent>
 				<div v-html="modalContent" />
 			</template>
@@ -37,6 +38,9 @@ const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpB
 		modalContent: {
 			control: 'text',
 		},
+		isDisabled: {
+			control: 'boolean',
+		},
 	},
 };
 export default meta;
@@ -46,6 +50,7 @@ type Story = StoryObj<typeof HelpButton>;
 export const Interactive: Story = {
 	args: {
 		tooltipText: 'Tooltip text',
+		isDisabled: false,
 		modalContent: '',
 		modalTitle: '',
 	},
