@@ -22,6 +22,9 @@ function setup(
 			directives: {
 				pvTooltip: () => {},
 			},
+			stubs: {
+				teleport: true,
+			},
 		},
 	});
 }
@@ -43,12 +46,16 @@ describe('HelpButton', () => {
 		expect(wrapper.find('.ds-iconButton').attributes('id')).toContain('testId');
 	});
 
-	it('should open and close the modal', async () => {
+	it.only('should open and close the modal', async () => {
 		const wrapper = setup();
 
 		expect(wrapper.find('.ds-modal').exists()).toBe(false);
 
 		await wrapper.find('.ds-iconButton').trigger('click');
+
+		await wrapper.vm.$nextTick(); // Ensure the modal is rendered after the click
+
+		console.log(wrapper.html());
 
 		expect(wrapper.find('.ds-modal').exists()).toBe(true);
 

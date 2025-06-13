@@ -9,7 +9,7 @@
 			@click="isOpen = true"
 		/>
 	</tooltip>
-	<slot v-if="isOpen" name="modal" :on-close="onClose">
+	<slot v-if="isOpen" name="modal" @close="onClose">
 		<modal :header-title="modalTitle" @close-modal="onClose">
 			<slot name="modalContent" />
 		</modal>

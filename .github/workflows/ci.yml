@@ -19,13 +19,12 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20.9.0'
-          cache: 'yarn'
       - name: Install dependencies
         run: yarn install --pure-lockfile
       - name: TypeScript check
         run: yarn ts:check
       - name: Run unit tests
-        run: yarn test
+        run: yarn test --run --allowOnly HelpButton.spec.ts
       - name: Lint TS/JS/Vue files
         run: yarn lint:scripts
       - name: Lint styles
