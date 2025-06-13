@@ -28,7 +28,6 @@
 	// if you ever change the line-height here, make sure to also update the height of the iconWrapper
 	@include formCaption-m-default-regular;
 
-	align-items: center;
 	color: $color-neutral-text;
 	display: flex;
 	gap: $space-4xs;

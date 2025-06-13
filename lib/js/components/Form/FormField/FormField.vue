@@ -22,7 +22,7 @@
 					<slot name="labelAside"></slot>
 				</div>
 			</div>
-			<div class="ds-formField__subLabelRow">{{ subLabel }}</div>
+			<div v-if="subLabel" class="ds-formField__subLabelRow">{{ subLabel }}</div>
 		</div>
 		<div class="ds-formField__mainRow">
 			<slot name="field" :field-id="id" :message-id="messageId"></slot>
