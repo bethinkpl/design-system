@@ -1,3 +1,4 @@
+import { toRefs } from 'vue';
 import { Meta, StoryObj } from '@storybook/vue3';
 import HelpButton from './HelpButton.vue';
 import Modal from '../../Modals/Modal';
@@ -9,17 +10,31 @@ const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpB
 	render: (args) => ({
 		components: { HelpButton, Modal },
 		setup() {
+			const { tooltipText, modalTitle, modalContent } = toRefs(args);
+
 			return {
-				args,
+				tooltipText,
+				modalTitle,
+				modalContent,
 			};
 		},
-		template: `<HelpButton v-bind="args">
-			<template #modal="{onClose}">
+		template: `<HelpButton :tooltip-text="tooltipText" :modal-title="modalTitle">
+			<template v-if="modalContent || modalTitle" #modalContent>
+				<div v-html="modalContent" />
+			</template>
+			<template v-else #modal="{onClose}">
 				<modal @close-modal="onClose">test</modal>
 			</template>
 		</HelpButton>`,
 	}),
-	argTypes: {},
+	argTypes: {
+		modalTitle: {
+			control: 'text',
+		},
+		modalContent: {
+			control: 'text',
+		},
+	},
 };
 export default meta;
 
@@ -28,6 +43,8 @@ type Story = StoryObj<typeof HelpButton>;
 export const Interactive: Story = {
 	args: {
 		tooltipText: 'Tooltip text',
+		modalContent: '',
+		modalTitle: '',
 	},
 };
 

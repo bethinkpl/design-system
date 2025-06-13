@@ -3,15 +3,19 @@ import { mount } from '@vue/test-utils';
 import { h } from 'vue';
 import HelpButton from './HelpButton.vue';
 import Modal from '../../Modals/Modal';
-import { ComponentProps } from 'vue-component-type-helpers';
+import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
 import Tooltip from '../../Tooltip';
 
-function setup(props: ComponentProps<typeof HelpButton> = {}, attrs?: Record<string, unknown>) {
+function setup(
+	props: ComponentProps<typeof HelpButton> = {},
+	slots: ComponentSlots<typeof HelpButton> = {
+		modal: ({ onClose }) => [h(Modal, { onCloseModal: onClose }, () => 'Test')],
+	},
+	attrs?: Record<string, unknown>,
+) {
 	return mount(HelpButton, {
 		props,
-		slots: {
-			modal: ({ onClose }) => [h(Modal, { onCloseModal: onClose }, () => 'Test')],
-		},
+		slots,
 		attrs,
 		global: {
 			directives: {
@@ -29,13 +33,10 @@ describe('HelpButton', () => {
 	});
 
 	it('should pass attributes to the button', () => {
-		const wrapper = setup(
-			{},
-			{
-				class: 'customClass',
-				id: 'testId',
-			},
-		);
+		const wrapper = setup({}, undefined, {
+			class: 'customClass',
+			id: 'testId',
+		});
 
 		expect(wrapper.find('.ds-iconButton').classes()).toContain('customClass');
 		expect(wrapper.find('.ds-iconButton').attributes('id')).toContain('testId');
@@ -62,5 +63,21 @@ describe('HelpButton', () => {
 		});
 
 		expect(wrapper.findComponent(Tooltip).props().text).toBe('Tooltip text');
+	});
+
+	it('should accept modalTitle prop and modalContent slot', async () => {
+		const wrapper = setup(
+			{
+				modalTitle: 'Test Title',
+			},
+			{
+				modalContent: () => [h('div', 'Test Content')],
+			},
+		);
+
+		await wrapper.find('.ds-iconButton').trigger('click');
+
+		expect(wrapper.find('.ds-modal__headerTitle').text()).toBe('Test Title');
+		expect(wrapper.find('.ds-modal__slotContent').text()).toBe('Test Content');
 	});
 });
