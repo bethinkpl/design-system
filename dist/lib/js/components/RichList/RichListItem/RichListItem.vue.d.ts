@@ -184,6 +184,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ELLIPSIS_VERTICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ENVELOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_EXCLAMATION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_EYE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_EYE_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -445,13 +446,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     elevation: "small";
     backgroundColor: RichListItemBackgroundColor;
     state: RichListItemState;
-    layout: RichListItemLayout;
+    iconColor: string;
     borderColor: RichListItemBorderColor;
     isInteractive: boolean;
     isSelected: boolean;
+    layout: RichListItemLayout;
     isDimmed: boolean;
     isDraggable: boolean;
-    iconColor: string;
     iconColorHex: string;
     borderColorHex: string;
     draggableIconClassName: string;
@@ -578,6 +579,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS_VERTICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ENVELOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EXCLAMATION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EYE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EYE_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;

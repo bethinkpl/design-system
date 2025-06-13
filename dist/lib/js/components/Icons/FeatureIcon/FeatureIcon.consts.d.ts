@@ -1,15 +1,21 @@
+import { Value } from '../../../utils/type.utils';
+
 export declare const FEATURE_ICON_SIZES: {
-    SMALL: string;
-    MEDIUM: string;
-    LARGE: string;
-    X_LARGE: string;
+    readonly X_SMALL: "xSmall";
+    readonly SMALL: "small";
+    readonly MEDIUM: "medium";
+    readonly LARGE: "large";
+    readonly X_LARGE: "xLarge";
 };
+export type FeatureIconSize = Value<typeof FEATURE_ICON_SIZES>;
 export declare const FEATURE_ICON_COLOR: {
-    DANGER: string;
-    INFO: string;
-    NEUTRAL: string;
-    NEUTRAL_WEAK: string;
-    PRIMARY: string;
-    SUCCESS: string;
-    WARNING: string;
+    readonly DANGER: "danger";
+    readonly INFO: "info";
+    readonly NEUTRAL: "neutral";
+    readonly NEUTRAL_WEAK: "neutralWeak";
+    readonly PRIMARY: "primary";
+    readonly SUCCESS: "success";
+    readonly WARNING: "warning";
+    readonly FAIL: "fail";
 };
+export type FeatureIconColor = Value<typeof FEATURE_ICON_COLOR>;
