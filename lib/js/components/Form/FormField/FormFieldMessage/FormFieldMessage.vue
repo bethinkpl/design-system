@@ -23,6 +23,8 @@
 @import '../../../../../styles/settings/colors/tokens';
 
 .ds-formFieldMessage {
+	$root: &;
+
 	// if you ever change the line-height here, make sure to also update the height of the iconWrapper
 	@include formCaption-m-default-regular;
 
@@ -49,6 +51,14 @@
 		// height is equal to the line-height of the text to ensure proper alignment
 		// if we ever decide to introduce different sizes for the messages, we should adjust this accordingly
 		height: $typography-line-height-3xs;
+
+		#{$root}.-ds-error & {
+			color: $color-danger-icon;
+		}
+
+		#{$root}.-ds-success & {
+			color: $color-success-icon;
+		}
 	}
 }
 </style>
