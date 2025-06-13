@@ -12,9 +12,9 @@ export const BANNER_COLORS = {
 
 export type BannerColor = Value<typeof BANNER_COLORS>;
 
-export const BANNER_LAYOUTS = {
-	HORIZONTAL: 'horizontal',
-	VERTICAL: 'vertical',
-} as const;
+export const BANNER_SIZES = {
+	SMALL: 'small',
+	MEDIUM: 'medium',
+};
 
-export type BannerLayout = Value<typeof BANNER_LAYOUTS>;
+export type BannerSize = Value<typeof BANNER_SIZES>;

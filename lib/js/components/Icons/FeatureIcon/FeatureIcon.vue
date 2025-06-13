@@ -4,12 +4,14 @@
 		:class="{
 			'-ds-doubleBackground': doubleBackground,
 			'-ds-danger': color === FEATURE_ICON_COLOR.DANGER,
+			'-ds-fail': color === FEATURE_ICON_COLOR.FAIL,
 			'-ds-info': color === FEATURE_ICON_COLOR.INFO,
 			'-ds-neutral': color === FEATURE_ICON_COLOR.NEUTRAL,
 			'-ds-neutralWeak': color === FEATURE_ICON_COLOR.NEUTRAL_WEAK,
 			'-ds-primary': color === FEATURE_ICON_COLOR.PRIMARY,
 			'-ds-success': color === FEATURE_ICON_COLOR.SUCCESS,
 			'-ds-warning': color === FEATURE_ICON_COLOR.WARNING,
+			'-ds-xSmall': size === FEATURE_ICON_SIZES.X_SMALL,
 			'-ds-small': size === FEATURE_ICON_SIZES.SMALL,
 			'-ds-medium': size === FEATURE_ICON_SIZES.MEDIUM,
 			'-ds-large': size === FEATURE_ICON_SIZES.LARGE,
@@ -50,6 +52,11 @@ $feature-icon-colors: (
 		'background': $color-danger-background-medium,
 		'border': $color-danger-background,
 		'icon': $color-danger-icon,
+	),
+	'fail': (
+		'background': $color-fail-background-medium,
+		'border': $color-fail-background,
+		'icon': $color-fail-icon,
 	),
 	'warning': (
 		'background': $color-warning-background-medium,
@@ -100,6 +107,11 @@ $feature-icon-padding-large: 10px;
 	display: inline-flex;
 	padding: $space-3xs;
 
+	&.-ds-xSmall {
+		border-width: $space-5xs;
+		padding: $space-5xs;
+	}
+
 	&.-ds-small {
 		border-width: $space-4xs;
 		padding: $space-4xs;
@@ -117,63 +129,37 @@ $feature-icon-padding-large: 10px;
 }
 </style>
 
-<script lang="ts">
-import WnlIcon, { ICON_SIZES, ICONS } from '../Icon';
-import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from './FeatureIcon.consts';
-import { defineComponent, toRaw } from 'vue';
+<script lang="ts" setup>
+import WnlIcon, { ICON_SIZES, IconItem, IconSize } from '../Icon';
+import {
+	FEATURE_ICON_COLOR,
+	FEATURE_ICON_SIZES,
+	FeatureIconColor,
+	FeatureIconSize,
+} from './FeatureIcon.consts';
+import { computed } from 'vue';
 
-export default defineComponent({
-	name: 'FeatureIcon',
-	components: {
-		WnlIcon,
-	},
-	props: {
-		icon: {
-			type: Object,
-			default: null,
-			validator(icon) {
-				return Object.values(ICONS).includes(toRaw(icon));
-			},
-		},
-		size: {
-			type: String,
-			default: FEATURE_ICON_SIZES.MEDIUM,
-			validator: (value: string) => Object.values(FEATURE_ICON_SIZES).includes(value),
-		},
-		color: {
-			type: String,
-			required: true,
-			validator(color: string) {
-				return Object.values(FEATURE_ICON_COLOR).includes(color);
-			},
-		},
-		doubleBackground: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	data() {
-		return {
-			FEATURE_ICON_COLOR: Object.freeze(FEATURE_ICON_COLOR),
-			FEATURE_ICON_SIZES: Object.freeze(FEATURE_ICON_SIZES),
-		};
-	},
-	computed: {
-		iconSize(): string {
-			if (this.size === FEATURE_ICON_SIZES.SMALL) {
-				return ICON_SIZES.X_SMALL;
-			}
+const {
+	icon,
+	size = FEATURE_ICON_SIZES.MEDIUM,
+	color,
+	doubleBackground = false,
+} = defineProps<{
+	icon: IconItem;
+	size?: FeatureIconSize;
+	color: FeatureIconColor;
+	doubleBackground?: boolean;
+}>();
 
-			if (this.size === FEATURE_ICON_SIZES.LARGE) {
-				return ICON_SIZES.LARGE;
-			}
+const iconSizeMap: Record<FeatureIconSize, IconSize> = {
+	[FEATURE_ICON_SIZES.X_SMALL]: ICON_SIZES.XX_SMALL,
+	[FEATURE_ICON_SIZES.SMALL]: ICON_SIZES.X_SMALL,
+	[FEATURE_ICON_SIZES.MEDIUM]: ICON_SIZES.MEDIUM,
+	[FEATURE_ICON_SIZES.LARGE]: ICON_SIZES.LARGE,
+	[FEATURE_ICON_SIZES.X_LARGE]: ICON_SIZES.X_LARGE,
+};
 
-			if (this.size === FEATURE_ICON_SIZES.X_LARGE) {
-				return ICON_SIZES.X_LARGE;
-			}
-
-			return ICON_SIZES.MEDIUM;
-		},
-	},
+const iconSize = computed(() => {
+	return iconSizeMap[size];
 });
 </script>
