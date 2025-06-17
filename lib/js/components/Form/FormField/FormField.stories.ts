@@ -10,7 +10,7 @@ const meta: Meta<typeof FormField> = {
 	title: 'Components/Form/FormField',
 	component: FormField,
 	render: (args) => ({
-		components: { FormField, Modal, HelpButton },
+		components: { FormField, HelpButton },
 		setup() {
 			const { field, help, labelAside, message, fieldStatus, ...restRefs } = toRefs(args);
 			const props = reactive({ ...restRefs });
@@ -31,21 +31,21 @@ const meta: Meta<typeof FormField> = {
 				<div v-else v-html="field" />
 			</template>
 			<template #help>
-				<HelpButton v-if="!help" :is-disabled="props.state === FORM_FIELD_STATES.DISABLED">
-					<template #modal="{onClose}">
-						<Modal @close-modal="onClose">Modal</Modal>
+				<HelpButton v-if="!help" :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
+					<template #modalContent>
+						Modal
 					</template>
 				</HelpButton>
 				<div v-else v-html="help" />
 			</template>
-			<template #labelAside v-if="labelAside">
+			<template v-if="labelAside" #labelAside>
 				<div v-html="labelAside" />
 			</template>
-			<template #fieldStatus v-if="fieldStatus">
+			<template v-if="fieldStatus" #fieldStatus>
 				<div v-html="fieldStatus" />
 			</template>
-			<template #message v-if="message">
-				<div v-if="message" v-html="message" />
+			<template v-if="message" #message>
+				<div v-html="message" />
 			</template>
 		</FormField>`,
 	}),

@@ -13,6 +13,11 @@ describe('Modal', () => {
 				header: headerSlot,
 				slot,
 			},
+			global: {
+				stubs: {
+					teleport: true,
+				},
+			},
 		});
 	};
 

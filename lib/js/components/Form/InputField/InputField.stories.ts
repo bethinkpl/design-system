@@ -32,11 +32,12 @@ const meta: Meta<typeof InputField> = {
 		}),
 		template: `<InputField v-bind="props" :left-icon="props.leftIcon ? ICONS[props.leftIcon] : null" v-model="value">
 			<template #help>
-				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED">
-					<template #modal="{onClose}">
-						<Modal @close-modal="onClose">Modal</Modal>
+				<HelpButton v-if="!help" :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
+					<template #modalContent>
+						Modal
 					</template>
 				</HelpButton>
+				<div v-else v-html="help" />
 			</template>
 			<template #labelAside v-if="labelAside">
 				<div v-html="labelAside" />

@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "26.14.5",
+  "version": "26.15.1",
   "description": "Bethink universe design-system",
   "repository": {
     "type": "git",
@@ -24,8 +24,8 @@
     "lint:scripts:fix": "eslint 'lib/js/**/*.{js,vue,ts}' --fix --cache",
     "lint:styles": "stylelint 'lib/**/*.{vue,scss}' --cache",
     "lint:styles:fix": "stylelint 'lib/**/*.{vue,scss}' --fix",
-    "format:check": "prettier --check 'lib/**/*.{js,ts,vue,scss}'",
-    "format:fix": "prettier --write 'lib/**/*.{js,ts,vue,scss}'",
+    "format:check": "prettier --check './*.{cjs,js,ts,vue,scss}' './{lib,.storybook,tools}/**/*.{cjs,js,ts,vue,scss}'",
+    "format:fix": "prettier --write './*.{cjs,js,ts,vue,scss}' './{lib,.storybook,tools}/**/*.{cjs,js,ts,vue,scss}'",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -c .storybook -o public/storybook",
     "test": "vitest",
@@ -92,6 +92,6 @@
   "dependencies": {
     "@primevue/themes": "4.0.0-rc.3",
     "primevue": "4.0.0-rc.3",
-    "vue-component-type-helpers": "^2.2.2"
+    "vue-component-type-helpers": "2.2.10"
   }
 }

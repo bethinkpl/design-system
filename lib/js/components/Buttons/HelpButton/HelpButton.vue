@@ -10,7 +10,11 @@
 			@click="isOpen = true"
 		/>
 	</tooltip>
-	<slot v-if="isOpen" name="modal" @close="onClose"></slot>
+	<slot v-if="isOpen" name="modal" :on-close="onClose">
+		<modal :header-title="modalTitle" @close-modal="onClose">
+			<slot name="modalContent" />
+		</modal>
+	</slot>
 </template>
 
 <script lang="ts" setup>
@@ -22,14 +26,17 @@ import IconButton, {
 } from '../IconButton';
 import Tooltip from '../../Tooltip';
 import { ICONS } from '../../Icons/Icon';
+import Modal from '../../Modals/Modal';
 
 defineProps<{
 	tooltipText?: string;
 	isDisabled?: boolean;
+	modalTitle?: string;
 }>();
 
 defineSlots<{
-	modal: (props: { onClose: () => void }) => any;
+	modal?: (props: { onClose: () => void }) => any;
+	modalContent?: () => any;
 }>();
 
 defineOptions({
