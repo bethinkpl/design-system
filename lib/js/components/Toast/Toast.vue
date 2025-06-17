@@ -101,8 +101,6 @@ import {
 import { defineComponent, PropType, toRaw } from 'vue';
 import { ICONS } from '../Icons/Icon';
 
-const TOAST_OFFSET = 24;
-
 function calculateBoundariesOffset(boundariesElement: HTMLElement) {
 	const borderLeftWidth = window.getComputedStyle(boundariesElement).borderLeftWidth;
 	const borderRightWidth = window.getComputedStyle(boundariesElement).borderRightWidth;

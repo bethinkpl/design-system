@@ -6,7 +6,7 @@
 					<h2 class="itemsList__title">{{ itemsList.title }}</h2>
 					<ol class="itemsList__categories">
 						<li
-							v-for="(items, itemCategory) in itemsList.list"
+							v-for="(_items, itemCategory) in itemsList.list"
 							:key="itemCategory"
 							class="itemsListItem__category"
 						>

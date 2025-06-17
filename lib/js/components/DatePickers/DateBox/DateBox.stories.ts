@@ -2,7 +2,6 @@ import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
 import { DATE_PICKER_COLORS, DATE_PICKER_STATES } from '../DatePicker';
 import { ComponentProps } from 'vue-component-type-helpers';
-import { useArgs } from '@storybook/preview-api';
 import DateBox from './index';
 
 type DateBoxProps = ComponentProps<typeof DateBox>;
@@ -11,8 +10,6 @@ const meta: Meta<DateBoxProps> = {
 	title: 'Components/DatePickers/DateBox',
 	component: DateBox,
 	render: (args) => {
-		const [_, updateArgs] = useArgs();
-
 		return {
 			components: { DateBox },
 			setup() {

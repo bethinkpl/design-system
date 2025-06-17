@@ -34,36 +34,33 @@
 							'-ds-oneContainer': containers === SURVEY_QUESTION_CONTAINERS.ONE,
 						}"
 					>
-						<template
+						<div
 							v-for="(option, index) in scaleOptions"
 							:key="`ds-surveyQuestionScale-${index}`"
+							class="ds-surveyQuestionScale__toggle"
+							:class="{
+								'-ds-hideOnDesktop':
+									option.standalone &&
+									containers === SURVEY_QUESTION_CONTAINERS.TWO,
+							}"
 						>
-							<div
-								class="ds-surveyQuestionScale__toggle"
-								:class="{
-									'-ds-hideOnDesktop':
-										option.standalone &&
-										containers === SURVEY_QUESTION_CONTAINERS.TWO,
-								}"
-							>
-								<survey-toggle
-									:meaning="option.meaning"
-									:content-text="option.content"
-									:label="option.label"
-									:status="
-										selectedValue === option.value
-											? SURVEY_TOGGLE_STATUSES.SELECTED
-											: SURVEY_TOGGLE_STATUSES.DEFAULT
-									"
-									:state="
-										state === SURVEY_QUESTION_STATES.DISABLED
-											? SURVEY_TOGGLE_STATES.DISABLED
-											: SURVEY_TOGGLE_STATES.DEFAULT
-									"
-									@click="onToggleClick(option.value)"
-								/>
-							</div>
-						</template>
+							<survey-toggle
+								:meaning="option.meaning"
+								:content-text="option.content"
+								:label="option.label"
+								:status="
+									selectedValue === option.value
+										? SURVEY_TOGGLE_STATUSES.SELECTED
+										: SURVEY_TOGGLE_STATUSES.DEFAULT
+								"
+								:state="
+									state === SURVEY_QUESTION_STATES.DISABLED
+										? SURVEY_TOGGLE_STATES.DISABLED
+										: SURVEY_TOGGLE_STATES.DEFAULT
+								"
+								@click="onToggleClick(option.value)"
+							/>
+						</div>
 					</div>
 
 					<div
@@ -73,29 +70,28 @@
 						"
 						class="ds-surveyQuestionScale__container -ds-justifyEnd -ds-hideOnMobile"
 					>
-						<template
+						<div
 							v-for="(option, index) in standaloneOptions"
 							:key="`ds-surveyQuestionScale-standalone-${index}`"
+							class="ds-surveyQuestionScale__toggle"
 						>
-							<div class="ds-surveyQuestionScale__toggle">
-								<survey-toggle
-									:meaning="option.meaning"
-									:content-text="option.content"
-									:label="option.label"
-									:status="
-										selectedValue === option.value
-											? SURVEY_TOGGLE_STATUSES.SELECTED
-											: SURVEY_TOGGLE_STATUSES.DEFAULT
-									"
-									:state="
-										state === SURVEY_QUESTION_STATES.DISABLED
-											? SURVEY_TOGGLE_STATES.DISABLED
-											: SURVEY_TOGGLE_STATES.DEFAULT
-									"
-									@click="onToggleClick(option.value)"
-								/>
-							</div>
-						</template>
+							<survey-toggle
+								:meaning="option.meaning"
+								:content-text="option.content"
+								:label="option.label"
+								:status="
+									selectedValue === option.value
+										? SURVEY_TOGGLE_STATUSES.SELECTED
+										: SURVEY_TOGGLE_STATUSES.DEFAULT
+								"
+								:state="
+									state === SURVEY_QUESTION_STATES.DISABLED
+										? SURVEY_TOGGLE_STATES.DISABLED
+										: SURVEY_TOGGLE_STATES.DEFAULT
+								"
+								@click="onToggleClick(option.value)"
+							/>
+						</div>
 					</div>
 				</div>
 
