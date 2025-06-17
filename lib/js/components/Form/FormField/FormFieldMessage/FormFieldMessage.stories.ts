@@ -7,7 +7,6 @@ import Icon, { ICONS, ICON_SIZES } from '../../../Icons/Icon';
 const meta: Meta<
 	ComponentProps<typeof FormFieldMessage> & ComponentSlots<typeof FormFieldMessage>
 > = {
-	components: { Icon },
 	title: 'Components/Form/FormFieldMessage',
 	component: FormFieldMessage,
 	render: (args) => ({
