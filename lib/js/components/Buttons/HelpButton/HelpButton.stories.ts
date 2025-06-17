@@ -1,9 +1,11 @@
 import { toRefs } from 'vue';
 import { Meta, StoryObj } from '@storybook/vue3';
 import HelpButton from './HelpButton.vue';
-import Modal from '../../Modals/Modal';
+import Modal, { MODAL_SIZES } from '../../Modals/Modal';
 import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
 import DsBanner, { BANNER_COLORS } from '../../Banner';
+import { ICONS } from '../../Icons/Icon';
+import { BUTTON_TYPES } from '../Button';
 
 const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpButton>> = {
 	title: 'Components/Buttons/HelpButton',
@@ -11,17 +13,18 @@ const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpB
 	render: (args) => ({
 		components: { HelpButton, Modal, DsBanner },
 		setup() {
-			const { tooltipText, modalTitle, modalContent, isDisabled } = toRefs(args);
+			const { tooltipText, modalTitle, modalContent, modalSize, isDisabled } = toRefs(args);
 
 			return {
 				tooltipText,
 				isDisabled,
 				modalTitle,
 				modalContent,
+				modalSize,
 				BANNER_COLORS,
 			};
 		},
-		template: `<HelpButton :tooltip-text="tooltipText" :modal-title="modalTitle" :is-disabled="isDisabled">
+		template: `<HelpButton :tooltip-text="tooltipText" :modal-title="modalTitle" :modal-size="modalSize" :is-disabled="isDisabled">
 			<template v-if="modalContent || modalTitle" #modalContent>
 				<div v-html="modalContent" />
 			</template>
@@ -38,6 +41,10 @@ const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpB
 		modalContent: {
 			control: 'text',
 		},
+		modalSize: {
+			control: 'select',
+			options: Object.values(MODAL_SIZES),
+		},
 		isDisabled: {
 			control: 'boolean',
 		},
@@ -53,12 +60,13 @@ export const Interactive: Story = {
 		isDisabled: false,
 		modalContent: '',
 		modalTitle: '',
+		modalSize: MODAL_SIZES.MEDIUM,
 	},
 };
 
 Interactive.parameters = {
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13519-192984&m=dev',
+		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13519-192453',
 	},
 };
