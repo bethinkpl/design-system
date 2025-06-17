@@ -76,6 +76,15 @@ module.exports = {
 			},
 		],
 		'@typescript-eslint/ban-tslint-comment': ['error'],
+		'@typescript-eslint/ban-ts-comment': [
+			'error',
+			{
+				'ts-ignore': true,
+				'ts-nocheck': true,
+				'ts-check': false,
+				'ts-expect-error': false,
+			},
+		],
 		'@typescript-eslint/consistent-type-definitions': ['error', 'interface'],
 		'@typescript-eslint/no-empty-interface': 'error',
 		'@typescript-eslint/no-this-alias': 'error',

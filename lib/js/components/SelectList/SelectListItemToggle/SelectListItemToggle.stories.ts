@@ -47,7 +47,6 @@ const StoryTemplate: StoryFn<typeof SelectListItemToggle> = (args) => {
 					() =>
 						updateArgs({
 							isLoading: false,
-							// @ts-ignore
 							isOn: !this.isOn,
 						}),
 					1000,

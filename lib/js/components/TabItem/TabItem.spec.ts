@@ -7,7 +7,6 @@ import { TAB_ITEM_SIZES } from './TabItem.consts';
 
 describe('TabItem', () => {
 	const createComponent = ({ isSelected = false } = {}) => {
-		//@ts-ignore
 		return shallowMount(TabItem, {
 			props: {
 				icon: ICONS.FA_CALENDAR_DAYS,
