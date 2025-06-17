@@ -34,7 +34,6 @@
 
 <style scoped lang="scss">
 @use 'sass:math';
-
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/colors/tokens';
