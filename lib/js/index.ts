@@ -48,7 +48,7 @@ export { default as DsModalDialog } from './components/Modals/ModalDialog';
 export { default as NumberInCircle } from './components/NumberInCircle';
 export { default as DsNumberInCircle } from './components/NumberInCircle';
 export * from './components/NumberInCircle/NumberInCircle.consts';
-export { default as PasswordField } from './components/Form/PasswordField';
+export { default as DsPasswordField } from './components/Form/PasswordField';
 export { default as TabItem } from './components/TabItem';
 export { default as DsTabItem } from './components/TabItem';
 export * from './components/TabItem/TabItem.consts';
