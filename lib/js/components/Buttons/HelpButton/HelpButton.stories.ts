@@ -4,8 +4,6 @@ import HelpButton from './HelpButton.vue';
 import Modal, { MODAL_SIZES } from '../../Modals/Modal';
 import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
 import DsBanner, { BANNER_COLORS } from '../../Banner';
-import { ICONS } from '../../Icons/Icon';
-import { BUTTON_TYPES } from '../Button';
 
 const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpButton>> = {
 	title: 'Components/Buttons/HelpButton',
