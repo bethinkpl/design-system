@@ -54,7 +54,7 @@ describe('FormField', () => {
 		expect(wrapper.find('.ds-formField__labelRequired').text()).toBe('*');
 		expect(wrapper.find('.ds-formField__labelInfo').text()).toBe('Label info');
 		expect(wrapper.find('.ds-formField__subLabelRow').text()).toBe('Sub Label');
-		expect(wrapper.find('.ds-formField__mainRow input').exists()).toBe(true);
+		expect(wrapper.find('.ds-formField__field input').exists()).toBe(true);
 		expect(wrapper.find('.ds-formField__labelAside').text()).toBe('Label aside');
 		expect(wrapper.find(`#${messageId}`).text()).toBe('Message');
 		expect(wrapper.find('.ds-formField__fieldStatus').text()).toBe('Field status');
