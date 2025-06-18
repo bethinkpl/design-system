@@ -1,4 +1,3 @@
-import { Value } from '../../utils/type.utils';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_STATES } from '../Buttons/IconButton';
 import { ChipColor, ChipRadius, ChipSize, ChipState } from './Chip.consts';
@@ -490,7 +489,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         state: {
             type: StringConstructor;
             default: "default";
-            validator(value: Value<typeof ICON_BUTTON_STATES>): boolean;
+            validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_STATES>): boolean;
         };
     }>, {
         isHovered: import('vue').Ref<boolean>;
@@ -823,7 +822,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         state: {
             type: StringConstructor;
             default: "default";
-            validator(value: Value<typeof ICON_BUTTON_STATES>): boolean;
+            validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_STATES>): boolean;
         };
     }>> & Readonly<{}>, {
         size: string;
@@ -914,27 +913,27 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             size: {
                 type: StringConstructor;
                 default: "medium";
-                validator(value: Value<typeof import('../Buttons/Button').BUTTON_SIZES>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_SIZES>): boolean;
             };
             type: {
                 type: StringConstructor;
                 default: "filled";
-                validator(value: Value<typeof import('../Buttons/Button').BUTTON_TYPES>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_TYPES>): boolean;
             };
             color: {
                 type: (StringConstructor | null)[];
                 default: "primary";
-                validator(value: Value<typeof ICON_BUTTON_COLORS>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
             };
             radius: {
                 type: StringConstructor;
                 default: "capsule";
-                validator(value: Value<typeof import('../Buttons/Button').BUTTON_RADIUSES>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_RADIUSES>): boolean;
             };
             state: {
                 type: StringConstructor;
                 default: "default";
-                validator(value: Value<typeof import('../Buttons/Button').BUTTON_STATES>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_STATES>): boolean;
             };
             iconLeft: {
                 type: ObjectConstructor;
@@ -949,7 +948,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             elevation: {
                 type: StringConstructor;
                 default: "none";
-                validator(value: Value<typeof BUTTON_ELEVATIONS>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof BUTTON_ELEVATIONS>): boolean;
             };
         }>, {}, {
             ICONS: Readonly<{
@@ -1227,27 +1226,27 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             size: {
                 type: StringConstructor;
                 default: "medium";
-                validator(value: Value<typeof import('../Buttons/Button').BUTTON_SIZES>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_SIZES>): boolean;
             };
             type: {
                 type: StringConstructor;
                 default: "filled";
-                validator(value: Value<typeof import('../Buttons/Button').BUTTON_TYPES>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_TYPES>): boolean;
             };
             color: {
                 type: (StringConstructor | null)[];
                 default: "primary";
-                validator(value: Value<typeof ICON_BUTTON_COLORS>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof ICON_BUTTON_COLORS>): boolean;
             };
             radius: {
                 type: StringConstructor;
                 default: "capsule";
-                validator(value: Value<typeof import('../Buttons/Button').BUTTON_RADIUSES>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_RADIUSES>): boolean;
             };
             state: {
                 type: StringConstructor;
                 default: "default";
-                validator(value: Value<typeof import('../Buttons/Button').BUTTON_STATES>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof import('../Buttons/Button').BUTTON_STATES>): boolean;
             };
             iconLeft: {
                 type: ObjectConstructor;
@@ -1262,7 +1261,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             elevation: {
                 type: StringConstructor;
                 default: "none";
-                validator(value: Value<typeof BUTTON_ELEVATIONS>): boolean;
+                validator(value: import('../../utils/type.utils').Value<typeof BUTTON_ELEVATIONS>): boolean;
             };
         }>> & Readonly<{}>, {
             size: string;
