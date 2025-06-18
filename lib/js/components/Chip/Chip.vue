@@ -238,7 +238,6 @@ $chip-colors: (
 
 <script lang="ts">
 import { defineComponent, toRaw } from 'vue';
-import { Value } from '../../utils/type.utils';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 import IconButton, {
 	ICON_BUTTON_COLORS,
