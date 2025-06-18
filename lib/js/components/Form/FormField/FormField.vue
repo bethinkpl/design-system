@@ -87,6 +87,7 @@
 
 	&__label {
 		@include formLabel-m-default-bold;
+
 		margin: $space-5xs 0;
 	}
 
