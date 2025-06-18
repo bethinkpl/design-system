@@ -61,7 +61,7 @@
 	gap: $space-5xs;
 
 	&__labelRow {
-		align-items: center;
+		align-items: flex-start;
 		display: flex;
 		gap: $space-xs;
 	}
