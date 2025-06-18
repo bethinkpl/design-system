@@ -78,15 +78,16 @@
 	}
 
 	&__labelWrapper {
-		align-items: center;
+		align-items: flex-start;
 		display: flex;
 		flex: 1 0 0;
 		gap: $space-5xs;
+		padding: $space-4xs 0;
 	}
 
 	&__label {
 		@include formLabel-m-default-bold;
-		margin: $space-3xs 0;
+		margin: $space-5xs 0;
 	}
 
 	&__labelText {
