@@ -16,9 +16,8 @@
 							v-if="hasRequiredIndicator"
 							class="ds-formField__labelRequired"
 							aria-hidden="true"
+							>*</span
 						>
-							*
-						</span>
 						<span v-if="labelInfo" class="ds-formField__labelInfo">{{
 							labelInfo
 						}}</span>
@@ -31,7 +30,7 @@
 			</div>
 			<div v-if="subLabel" class="ds-formField__subLabelRow">{{ subLabel }}</div>
 		</div>
-		<div class="ds-formField__mainRow">
+		<div class="ds-formField__field">
 			<slot name="field" :field-id="id" :message-id="messageId"></slot>
 		</div>
 		<div v-if="hasMessage || $slots.fieldStatus" class="ds-formField__footerRow">
@@ -62,7 +61,7 @@
 	gap: $space-5xs;
 
 	&__labelRow {
-		align-items: center;
+		align-items: flex-start;
 		display: flex;
 		gap: $space-xs;
 	}
@@ -79,22 +78,20 @@
 	}
 
 	&__labelWrapper {
-		align-items: center;
+		align-items: flex-start;
 		display: flex;
 		flex: 1 0 0;
 		gap: $space-5xs;
-		min-height: 28px;
+		padding: $space-4xs 0;
 	}
 
 	&__label {
-		align-items: baseline;
-		display: flex;
-		gap: $space-5xs;
+		@include formLabel-m-default-bold;
+
+		margin: $space-5xs 0;
 	}
 
 	&__labelText {
-		@include formLabel-m-default-bold;
-
 		color: $color-neutral-text-strong;
 
 		#{$root}.-ds-disabled & {
@@ -106,6 +103,7 @@
 		@include formLabel-m-default-regular;
 
 		color: $color-danger-text;
+		margin-left: $space-5xs;
 
 		#{$root}.-ds-disabled & {
 			color: $color-danger-text-disabled;
@@ -116,6 +114,7 @@
 		@include formLabel-s-default-regular-italic;
 
 		color: $color-neutral-text;
+		margin-left: $space-5xs;
 
 		#{$root}.-ds-disabled & {
 			color: $color-neutral-text-disabled;
@@ -129,7 +128,7 @@
 		min-height: 28px;
 	}
 
-	&__mainRow {
+	&__field {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;

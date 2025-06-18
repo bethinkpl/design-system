@@ -11,7 +11,7 @@
 		/>
 	</tooltip>
 	<slot v-if="isOpen" name="modal" :on-close="onClose">
-		<modal :header-title="modalTitle" @close-modal="onClose">
+		<modal :header-title="modalTitle" :size="modalSize" @close-modal="onClose">
 			<slot name="modalContent" />
 		</modal>
 	</slot>
@@ -26,12 +26,13 @@ import IconButton, {
 } from '../IconButton';
 import Tooltip from '../../Tooltip';
 import { ICONS } from '../../Icons/Icon';
-import Modal from '../../Modals/Modal';
+import Modal, { ModalSize } from '../../Modals/Modal';
 
 defineProps<{
 	tooltipText?: string;
 	isDisabled?: boolean;
 	modalTitle?: string;
+	modalSize?: ModalSize;
 }>();
 
 defineSlots<{
