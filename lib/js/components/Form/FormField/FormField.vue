@@ -85,13 +85,11 @@
 	}
 
 	&__label {
-		line-height: $typography-line-height-2xs;
+		@include formLabel-m-default-bold;
 		margin: $space-3xs 0;
 	}
 
 	&__labelText {
-		@include formLabel-m-default-bold;
-
 		color: $color-neutral-text-strong;
 
 		#{$root}.-ds-disabled & {
