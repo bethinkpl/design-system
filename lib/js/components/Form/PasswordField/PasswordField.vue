@@ -39,7 +39,7 @@ import { ICONS } from '../../Icons/Icon';
 import { computed, ref, InputHTMLAttributes } from 'vue';
 import { InputFieldProps, InputFieldSlots } from '../InputField/InputField.types';
 
-const { inputProps: baseInputProps } = defineProps<InputFieldProps>();
+const { inputProps: baseInputProps } = defineProps<Omit<InputFieldProps, 'leftIcon'>>();
 const value = defineModel<string>();
 defineSlots<Omit<InputFieldSlots, 'action'>>();
 

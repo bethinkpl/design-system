@@ -14,7 +14,7 @@ const meta: Meta<typeof PasswordField> = {
 		components: { PasswordField, HelpButton, Modal },
 		setup() {
 			const { help, labelAside, message, fieldStatus, ...restRefs } = toRefs(args);
-			const props = reactive({ ...restRefs }); // Create reactive props
+			const props = reactive({ ...restRefs });
 
 			return {
 				props,
@@ -29,7 +29,7 @@ const meta: Meta<typeof PasswordField> = {
 		data: () => ({
 			value: '',
 		}),
-		template: `<PasswordField v-bind="props" :left-icon="props.leftIcon ? ICONS[props.leftIcon] : null" v-model="value">
+		template: `<PasswordField v-bind="props" v-model="value">
 			<template v-if="help" #help>
 				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED">
 					<template #modal="{onClose}">
@@ -53,10 +53,6 @@ const meta: Meta<typeof PasswordField> = {
 	}),
 	argTypes: {
 		...argTypes,
-		leftIcon: {
-			control: 'select',
-			options: [null, ...Object.keys(ICONS)],
-		},
 		suffixText: {
 			control: 'text',
 		},
@@ -69,7 +65,6 @@ type Story = StoryObj<typeof PasswordField>;
 export const Interactive: Story = {
 	args: {
 		...args,
-		leftIcon: null,
 		suffixText: '%',
 		inputProps: {
 			placeholder: 'Placeholder',
