@@ -14,7 +14,7 @@ const meta: Meta<typeof InputField> = {
 		components: { InputField, HelpButton, Modal },
 		setup() {
 			const { help, labelAside, message, fieldStatus, action, ...restRefs } = toRefs(args);
-			const props = reactive({ ...restRefs }); // Create reactive props
+			const props = reactive({ ...restRefs });
 
 			return {
 				props,
@@ -31,13 +31,12 @@ const meta: Meta<typeof InputField> = {
 			value: '',
 		}),
 		template: `<InputField v-bind="props" :left-icon="props.leftIcon ? ICONS[props.leftIcon] : null" v-model="value">
-			<template #help>
-				<HelpButton v-if="!help" :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
+			<template v-if="help" #help>
+				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
 					<template #modalContent>
 						Modal
 					</template>
 				</HelpButton>
-				<div v-else v-html="help" />
 			</template>
 			<template #labelAside v-if="labelAside">
 				<div v-html="labelAside" />

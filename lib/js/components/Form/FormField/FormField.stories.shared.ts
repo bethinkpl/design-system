@@ -32,7 +32,7 @@ export const argTypes: Meta<typeof FormField>['argTypes'] = {
 		control: 'text',
 	},
 	help: {
-		control: 'text',
+		control: 'boolean',
 	},
 	messageText: {
 		control: 'text',
@@ -47,7 +47,7 @@ export const args: StoryObj<typeof FormField>['args'] = {
 	subLabel: 'Sublabel write here',
 	labelAside: 'Label aside',
 	message: '',
-	help: '',
+	help: true,
 	fieldStatus: 'Field status',
 	messageText: 'Error message text',
 };

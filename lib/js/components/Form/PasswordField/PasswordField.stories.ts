@@ -30,7 +30,7 @@ const meta: Meta<typeof PasswordField> = {
 			value: '',
 		}),
 		template: `<PasswordField v-bind="props" :left-icon="props.leftIcon ? ICONS[props.leftIcon] : null" v-model="value">
-			<template #help>
+			<template v-if="help" #help>
 				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED">
 					<template #modal="{onClose}">
 						<Modal @close-modal="onClose">Modal</Modal>

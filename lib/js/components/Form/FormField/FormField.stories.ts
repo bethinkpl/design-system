@@ -29,13 +29,12 @@ const meta: Meta<typeof FormField> = {
 				<input v-if="!field" :id="fieldId" :aria-describedby="messageId" />
 				<div v-else v-html="field" />
 			</template>
-			<template #help>
-				<HelpButton v-if="!help" :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
+			<template v-if="help" #help>
+				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
 					<template #modalContent>
 						Modal
 					</template>
 				</HelpButton>
-				<div v-else v-html="help" />
 			</template>
 			<template v-if="labelAside" #labelAside>
 				<div v-html="labelAside" />
