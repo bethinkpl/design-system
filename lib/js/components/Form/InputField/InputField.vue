@@ -107,6 +107,8 @@
 		color: $color-neutral-text-heavy;
 		flex: 1;
 		height: 100%;
+		// override default browser min-width
+		min-width: 0;
 		outline: none;
 
 		&::placeholder {
