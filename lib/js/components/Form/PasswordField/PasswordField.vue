@@ -3,7 +3,7 @@
 		v-bind="$props"
 		v-model="value"
 		:input-props="inputProps"
-		:left-icon="ICONS.FA_LOCK_KEYHOLE"
+		:left-icon="ICONS.FA_UNLOCK_KEYHOLE"
 	>
 		<template #action>
 			<icon-button
