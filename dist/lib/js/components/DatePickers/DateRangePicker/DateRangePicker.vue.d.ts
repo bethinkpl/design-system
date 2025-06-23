@@ -949,6 +949,7 @@ declare const _default: import('vue').DefineComponent<{
     }>> & Readonly<{}>, {
         color: string;
         state: string;
+        isOpen: boolean;
         isInteractive: boolean;
         placeholder: string;
         startDate: Date;
@@ -956,7 +957,6 @@ declare const _default: import('vue').DefineComponent<{
         startIcon: Record<string, any>;
         endIcon: Record<string, any>;
         areIconsHiddenOnMobile: boolean;
-        isOpen: boolean;
     }, {}, {
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             icon: {

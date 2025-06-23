@@ -144,12 +144,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>, {
     size: ToastSizes;
     color: string;
-    position: string;
-    boundariesSelector: string | HTMLElement;
     footerPrimaryButtonText: string;
     footerPrimaryButtonIcon: Record<string, any>;
     footerSecondaryButtonText: string;
     footerSecondaryButtonIcon: Record<string, any>;
+    position: string;
+    boundariesSelector: string | HTMLElement;
     isDisappearing: boolean;
     disappearingTimeout: string;
 }, {}, {

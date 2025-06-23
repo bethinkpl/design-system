@@ -1,11 +1,12 @@
+import { ModalHeaderTitleSize, ModalSize } from './Modal.consts';
 import { BUTTON_ELEVATIONS, BUTTON_STATES, BUTTON_TYPES, ButtonState } from '../../Buttons/Button';
 import { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     size: {
         type: StringConstructor;
-        default: string;
-        validator: (value: string) => boolean;
+        default: "medium";
+        validator: (value: ModalSize) => boolean;
     };
     danger: {
         type: BooleanConstructor;
@@ -13,8 +14,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     headerTitleSize: {
         type: StringConstructor;
-        default: string;
-        validator: (value: string) => boolean;
+        default: "medium";
+        validator: (value: ModalHeaderTitleSize) => boolean;
     };
     headerTitle: {
         type: StringConstructor;
@@ -352,12 +353,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         XX_LARGE: string;
     }>;
     MODAL_SIZES: Readonly<{
-        SMALL: string;
-        MEDIUM: string;
+        readonly SMALL: "small";
+        readonly MEDIUM: "medium";
     }>;
     MODAL_HEADER_TITLE_SIZES: Readonly<{
-        SMALL: string;
-        MEDIUM: string;
+        readonly SMALL: "small";
+        readonly MEDIUM: "medium";
     }>;
     FEATURE_ICON_SIZES: Readonly<{
         SMALL: string;
@@ -371,11 +372,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     calcFooterSecondaryButtonColor(): "danger" | "neutral";
     calcSingleColumn(): boolean;
     displayFooter(): any;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("close-modal" | "tertiary-button-click" | "checkbox-change" | "secondary-button-click" | "primary-button-click")[], "close-modal" | "tertiary-button-click" | "checkbox-change" | "secondary-button-click" | "primary-button-click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("tertiary-button-click" | "checkbox-change" | "close-modal" | "secondary-button-click" | "primary-button-click")[], "tertiary-button-click" | "checkbox-change" | "close-modal" | "secondary-button-click" | "primary-button-click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     size: {
         type: StringConstructor;
-        default: string;
-        validator: (value: string) => boolean;
+        default: "medium";
+        validator: (value: ModalSize) => boolean;
     };
     danger: {
         type: BooleanConstructor;
@@ -383,8 +384,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     headerTitleSize: {
         type: StringConstructor;
-        default: string;
-        validator: (value: string) => boolean;
+        default: "medium";
+        validator: (value: ModalHeaderTitleSize) => boolean;
     };
     headerTitle: {
         type: StringConstructor;
@@ -459,9 +460,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
 }>> & Readonly<{
-    "onClose-modal"?: ((...args: any[]) => any) | undefined;
     "onTertiary-button-click"?: ((...args: any[]) => any) | undefined;
     "onCheckbox-change"?: ((...args: any[]) => any) | undefined;
+    "onClose-modal"?: ((...args: any[]) => any) | undefined;
     "onSecondary-button-click"?: ((...args: any[]) => any) | undefined;
     "onPrimary-button-click"?: ((...args: any[]) => any) | undefined;
 }>, {
