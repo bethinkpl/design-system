@@ -330,7 +330,12 @@ $image-height-small: 140px;
 
 <script lang="ts">
 import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
-import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from './Modal.consts';
+import {
+	MODAL_HEADER_TITLE_SIZES,
+	MODAL_SIZES,
+	ModalHeaderTitleSize,
+	ModalSize,
+} from './Modal.consts';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
 import WnlButton, {
@@ -350,7 +355,7 @@ export default defineComponent({
 		size: {
 			type: String,
 			default: MODAL_SIZES.MEDIUM,
-			validator: (value: string) => Object.values(MODAL_SIZES).includes(value),
+			validator: (value: ModalSize) => Object.values(MODAL_SIZES).includes(value),
 		},
 		danger: {
 			type: Boolean,
@@ -359,7 +364,8 @@ export default defineComponent({
 		headerTitleSize: {
 			type: String,
 			default: MODAL_HEADER_TITLE_SIZES.MEDIUM,
-			validator: (value: string) => Object.values(MODAL_HEADER_TITLE_SIZES).includes(value),
+			validator: (value: ModalHeaderTitleSize) =>
+				Object.values(MODAL_HEADER_TITLE_SIZES).includes(value),
 		},
 		headerTitle: {
 			type: String,

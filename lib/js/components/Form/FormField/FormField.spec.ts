@@ -30,7 +30,7 @@ describe('FormField', () => {
 				label: 'Label',
 				labelInfo: 'Label info',
 				subLabel: 'Sub Label',
-				isRequired: true,
+				hasRequiredIndicator: true,
 			},
 			{
 				labelAside: () => [h('span', 'Label aside')],
@@ -54,7 +54,7 @@ describe('FormField', () => {
 		expect(wrapper.find('.ds-formField__labelRequired').text()).toBe('*');
 		expect(wrapper.find('.ds-formField__labelInfo').text()).toBe('Label info');
 		expect(wrapper.find('.ds-formField__subLabelRow').text()).toBe('Sub Label');
-		expect(wrapper.find('.ds-formField__mainRow input').exists()).toBe(true);
+		expect(wrapper.find('.ds-formField__field input').exists()).toBe(true);
 		expect(wrapper.find('.ds-formField__labelAside').text()).toBe('Label aside');
 		expect(wrapper.find(`#${messageId}`).text()).toBe('Message');
 		expect(wrapper.find('.ds-formField__fieldStatus').text()).toBe('Field status');
@@ -126,29 +126,13 @@ describe('FormField', () => {
 		expect(wrapper.find('.ds-formField__footerRow').exists()).toBe(expected);
 	});
 
-	it.each([
-		{
-			props: {
-				messageText: 'Default message',
-			},
-			expectedMessage: 'Default message',
-		},
-		{
-			props: {
-				messageErrorText: 'Error message',
-			},
-			expectedMessage: 'Error message',
-		},
-		{
-			props: {
-				messageSuccessText: 'Success message',
-			},
-			expectedMessage: 'Success message',
-		},
-	])('should render message: $expectedMessage', ({ props, expectedMessage }) => {
-		const wrapper = setup(props);
+	it('should render message', () => {
+		const messageText = 'Message text';
+		const wrapper = setup({
+			messageText,
+		});
 
 		expect(wrapper.find('.ds-formField__message').exists()).toBe(true);
-		expect(wrapper.find(`#${messageId}`).text()).toBe(expectedMessage);
+		expect(wrapper.find(`#${messageId}`).text()).toBe(messageText);
 	});
 });

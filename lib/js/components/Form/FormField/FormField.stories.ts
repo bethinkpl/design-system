@@ -1,6 +1,9 @@
 import { Meta, StoryObj } from '@storybook/vue3';
 import FormField from './FormField.vue';
 import HelpButton from '../../Buttons/HelpButton/HelpButton.vue';
+import { FORM_FIELD_STATES } from './FormField.consts';
+import { args, argTypes } from './FormField.stories.shared';
+import { reactive, toRefs } from 'vue';
 
 const meta: Meta<typeof FormField> = {
 	title: 'Components/Form/FormField',
@@ -8,64 +11,46 @@ const meta: Meta<typeof FormField> = {
 	render: (args) => ({
 		components: { FormField, HelpButton },
 		setup() {
+			const { field, help, labelAside, message, fieldStatus, ...restRefs } = toRefs(args);
+			const props = reactive({ ...restRefs }); // Create reactive props
+
 			return {
-				args,
+				props,
+				labelAside,
+				fieldStatus,
+				message,
+				help,
+				field,
+				FORM_FIELD_STATES,
 			};
 		},
-		template: `<FormField v-bind="args">
+		template: `<FormField v-bind="props">
+			<template #field="{fieldId, messageId}">
+				<input v-if="!field" :id="fieldId" :aria-describedby="messageId" />
+				<div v-else v-html="field" />
+			</template>
 			<template #help>
-				<HelpButton modal-title="Help modal title">
+				<HelpButton v-if="!help" :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
 					<template #modalContent>
 						Modal
 					</template>
 				</HelpButton>
+				<div v-else v-html="help" />
 			</template>
-			<template v-if="args.labelAside" #labelAside>
-				<div v-html="args.labelAside" />
+			<template v-if="labelAside" #labelAside>
+				<div v-html="labelAside" />
 			</template>
-			<template #field="{fieldId, messageId}">
-				<input :id="fieldId" :aria-describedby="messageId" />
+			<template v-if="fieldStatus" #fieldStatus>
+				<div v-html="fieldStatus" />
 			</template>
-			<template v-if="args.fieldStatus" #fieldStatus>
-				<div v-html="args.fieldStatus" />
-			</template>
-			<template v-if="args.message" #message>
-				<div v-html="args.message" />
+			<template v-if="message" #message>
+				<div v-html="message" />
 			</template>
 		</FormField>`,
 	}),
 	argTypes: {
-		label: {
-			control: 'text',
-		},
-		isRequired: {
-			control: 'boolean',
-		},
-		labelInfo: {
-			control: 'text',
-		},
-		subLabel: {
-			control: 'text',
-		},
-		fieldId: {
-			control: 'text',
-		},
-		labelAside: {
-			control: 'text',
-		},
-		message: {
-			control: 'text',
-		},
-		fieldStatus: {
-			control: 'text',
-		},
-		messageText: {
-			control: 'text',
-		},
-		messageErrorText: {
-			control: 'text',
-		},
-		messageSuccessText: {
+		...argTypes,
+		field: {
 			control: 'text',
 		},
 	},
@@ -76,16 +61,8 @@ type Story = StoryObj<typeof FormField>;
 
 export const Interactive: Story = {
 	args: {
-		label: 'Label',
-		isRequired: false,
-		labelInfo: '(opcjonalne)',
-		subLabel: 'Sublabel write here',
-		labelAside: 'Label aside',
-		message: '',
-		fieldStatus: 'Field status',
-		messageText: '',
-		messageErrorText: 'Error message text',
-		messageSuccessText: '',
+		...args,
+		field: '',
 	},
 };
 

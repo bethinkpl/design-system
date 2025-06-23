@@ -1,17 +1,23 @@
 <template>
-	<div class="ds-formField">
+	<div
+		:class="[
+			'ds-formField',
+			{
+				'-ds-disabled': state === FORM_FIELD_STATES.DISABLED,
+			},
+		]"
+	>
 		<div v-if="label || subLabel || $slots.labelAside" class="ds-formField__labels">
 			<div class="ds-formField__labelRow">
 				<div class="ds-formField__labelWrapper">
 					<label v-if="label" class="ds-formField__label" :for="id">
 						<span class="ds-formField__labelText">{{ label }}</span>
 						<span
-							v-if="isRequired"
+							v-if="hasRequiredIndicator"
 							class="ds-formField__labelRequired"
 							aria-hidden="true"
+							>*</span
 						>
-							*
-						</span>
 						<span v-if="labelInfo" class="ds-formField__labelInfo">{{
 							labelInfo
 						}}</span>
@@ -24,18 +30,14 @@
 			</div>
 			<div v-if="subLabel" class="ds-formField__subLabelRow">{{ subLabel }}</div>
 		</div>
-		<div class="ds-formField__mainRow">
+		<div class="ds-formField__field">
 			<slot name="field" :field-id="id" :message-id="messageId"></slot>
 		</div>
 		<div v-if="hasMessage || $slots.fieldStatus" class="ds-formField__footerRow">
 			<div class="ds-formField__message">
 				<slot name="message" :message-id="messageId">
-					<form-field-message
-						v-if="simpleMessageText"
-						:variant="simpleMessageVariant"
-						:message-id="messageId"
-					>
-						{{ simpleMessageText }}
+					<form-field-message v-if="messageText" :state="state" :message-id="messageId">
+						{{ messageText }}
 					</form-field-message>
 				</slot>
 			</div>
@@ -52,12 +54,14 @@
 @import '../../../../styles/settings/colors/tokens';
 
 .ds-formField {
+	$root: &;
+
 	display: flex;
 	flex-direction: column;
 	gap: $space-5xs;
 
 	&__labelRow {
-		align-items: center;
+		align-items: flex-start;
 		display: flex;
 		gap: $space-xs;
 	}
@@ -67,38 +71,54 @@
 
 		color: $color-neutral-text;
 		padding-bottom: $space-2xs;
+
+		#{$root}.-ds-disabled & {
+			color: $color-neutral-text-disabled;
+		}
 	}
 
 	&__labelWrapper {
-		align-items: center;
+		align-items: flex-start;
 		display: flex;
 		flex: 1 0 0;
 		gap: $space-5xs;
-		min-height: 28px;
+		padding: $space-4xs 0;
 	}
 
 	&__label {
-		align-items: baseline;
-		display: flex;
-		gap: $space-5xs;
+		@include formLabel-m-default-bold;
+
+		margin: $space-5xs 0;
 	}
 
 	&__labelText {
-		@include formLabel-m-default-bold;
-
 		color: $color-neutral-text-strong;
+
+		#{$root}.-ds-disabled & {
+			color: $color-neutral-text-strong-disabled;
+		}
 	}
 
 	&__labelRequired {
 		@include formLabel-m-default-regular;
 
 		color: $color-danger-text;
+		margin-left: $space-5xs;
+
+		#{$root}.-ds-disabled & {
+			color: $color-danger-text-disabled;
+		}
 	}
 
 	&__labelInfo {
 		@include formLabel-s-default-regular-italic;
 
 		color: $color-neutral-text;
+		margin-left: $space-5xs;
+
+		#{$root}.-ds-disabled & {
+			color: $color-neutral-text-disabled;
+		}
 	}
 
 	&__labelAside {
@@ -108,7 +128,7 @@
 		min-height: 28px;
 	}
 
-	&__mainRow {
+	&__field {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
@@ -138,65 +158,34 @@
 <script lang="ts" setup>
 import { computed, useId } from 'vue';
 import FormFieldMessage from './FormFieldMessage/FormFieldMessage.vue';
-import { FORM_FIELD_MESSAGE_VARIANTS } from './FormFieldMessage';
+import { FORM_FIELD_STATES } from './FormField.consts';
+import { FormFieldProps, FormFieldSlots } from './FormField.types';
 
 const {
 	label,
-	isRequired = false,
+	hasRequiredIndicator = false,
 	subLabel,
 	labelInfo,
 	fieldId,
 	messageText,
-	messageErrorText,
-	messageSuccessText,
-} = defineProps<{
-	label?: string;
-	isRequired?: boolean;
-	labelInfo?: string;
-	subLabel?: string;
-	fieldId?: string;
-	messageText?: string;
-	messageErrorText?: string;
-	messageSuccessText?: string;
-}>();
+	state = FORM_FIELD_STATES.DEFAULT,
+} = defineProps<FormFieldProps>();
 
-const slots = defineSlots<{
-	labelAside?: () => any;
-	help?: () => any;
-	field: (props: { fieldId: string; messageId: string }) => any;
-	message?: (props: { messageId: string }) => any;
-	fieldStatus?: () => any;
-}>();
+const slots = defineSlots<FormFieldSlots>();
 
 const baseId = useId();
 const id = computed(() => fieldId || `form-field-${baseId}`);
-const { hasMessage, simpleMessageText, simpleMessageVariant, messageId } = useMessage();
+const { hasMessage, messageId } = useMessage();
 
 function useMessage() {
 	const hasMessage = computed(() => {
-		return !!(slots.message || messageText || messageErrorText || messageSuccessText);
-	});
-
-	const simpleMessageText = computed(() => {
-		return messageErrorText || messageSuccessText || messageText;
-	});
-
-	const simpleMessageVariant = computed(() => {
-		if (messageErrorText) {
-			return FORM_FIELD_MESSAGE_VARIANTS.ERROR;
-		}
-		if (messageSuccessText) {
-			return FORM_FIELD_MESSAGE_VARIANTS.SUCCESS;
-		}
-		return FORM_FIELD_MESSAGE_VARIANTS.DEFAULT;
+		return !!(slots.message || messageText);
 	});
 
 	const messageId = computed(() => `${id.value}-message`);
 
 	return {
 		hasMessage,
-		simpleMessageText,
-		simpleMessageVariant,
 		messageId,
 	};
 }
