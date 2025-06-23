@@ -41,7 +41,7 @@ export const argTypes: Meta<typeof FormField>['argTypes'] = {
 
 export const args: StoryObj<typeof FormField>['args'] = {
 	label: 'Label',
-	state: FORM_FIELD_STATES.ERROR,
+	state: FORM_FIELD_STATES.DEFAULT,
 	hasRequiredIndicator: false,
 	labelInfo: '(opcjonalne)',
 	subLabel: 'Sublabel write here',
@@ -49,5 +49,5 @@ export const args: StoryObj<typeof FormField>['args'] = {
 	message: '',
 	help: true,
 	fieldStatus: 'Field status',
-	messageText: 'Error message text',
+	messageText: '',
 };

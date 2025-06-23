@@ -80,11 +80,19 @@ export const Interactive: Story = {
 			placeholder: 'Placeholder',
 		},
 	},
+	parameters: {
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13198-38645&t=BlkZV83eerbMSMyv-4',
+		},
+	},
 };
 
-Interactive.parameters = {
-	design: {
-		type: 'figma',
-		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13198-38645&t=BlkZV83eerbMSMyv-4',
+export const Error: Story = {
+	...Interactive,
+	args: {
+		...Interactive.args,
+		state: FORM_FIELD_STATES.ERROR,
+		messageText: 'Error message text',
 	},
 };

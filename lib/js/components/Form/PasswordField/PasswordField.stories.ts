@@ -70,11 +70,19 @@ export const Interactive: Story = {
 			placeholder: 'Placeholder',
 		},
 	},
+	parameters: {
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13576-21478&m=dev',
+		},
+	},
 };
 
-Interactive.parameters = {
-	design: {
-		type: 'figma',
-		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13576-21478&m=dev',
+export const Error: Story = {
+	...Interactive,
+	args: {
+		...Interactive.args,
+		state: FORM_FIELD_STATES.ERROR,
+		messageText: 'Error message text',
 	},
 };
