@@ -1,48 +1,47 @@
 <template>
-	<div class="ds-card__container">
+	<div
+		:class="[
+			'ds-card',
+			borderColorClass,
+			borderSizeClass,
+			{
+				'-ds-top-border': hasTopBoarder,
+				'-ds-left-border': hasLeftBoarder,
+				'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
+				'-ds-flat': isFlat,
+			},
+		]"
+	>
+		<ds-loading-bar
+			v-if="hasLoadingBar"
+			class="ds-card__loadingBar"
+			:time="loadingBarTime"
+			:color="loadingBarColor"
+			:size="borderSize"
+		/>
 		<div
-			:class="[
-				'ds-card',
-				borderColorClass,
-				borderSizeClass,
-				{
-					'-ds-top-border': hasTopBoarder,
-					'-ds-left-border': hasLeftBoarder,
-					'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
-					'-ds-responsive-flat': isResponsiveFlat,
-				},
-			]"
+			v-if="$slots.header"
+			class="ds-card__header"
+			:class="{ '-ds-withPadding': headerHasPadding }"
 		>
-			<ds-loading-bar
-				v-if="hasLoadingBar"
-				class="ds-card__loadingBar"
-				:time="loadingBarTime"
-				:color="loadingBarColor"
-				:size="borderSize"
-			/>
-			<div
-				v-if="$slots.header"
-				class="ds-card__header"
-				:class="{ '-ds-withPadding': headerHasPadding }"
-			>
-				<slot name="header" />
-			</div>
-			<ds-divider
-				v-if="$slots.header && $slots.content && dividerUnderHeader"
-				class="ds-card__headerDivider"
-				:class="{ '-ds-withHorizontalMargin': headerHasPadding }"
-			/>
-			<div v-if="$slots.content" class="ds-card__content">
-				<slot name="content" />
-			</div>
-			<div
-				v-if="$slots.footer"
-				class="ds-card__footer"
-				:class="{ '-ds-withPadding': footerHasPadding }"
-			>
-				<slot name="footer" />
-			</div> </div
-	></div>
+			<slot name="header" />
+		</div>
+		<ds-divider
+			v-if="$slots.header && $slots.content && dividerUnderHeader"
+			class="ds-card__headerDivider"
+			:class="{ '-ds-withHorizontalMargin': headerHasPadding }"
+		/>
+		<div v-if="$slots.content" class="ds-card__content">
+			<slot name="content" />
+		</div>
+		<div
+			v-if="$slots.footer"
+			class="ds-card__footer"
+			:class="{ '-ds-withPadding': footerHasPadding }"
+		>
+			<slot name="footer" />
+		</div>
+	</div>
 </template>
 
 <style lang="scss" scoped>
@@ -52,25 +51,16 @@
 @import '../../../../styles/settings/borders';
 @import '../../../../styles/settings/colors/tokens';
 
-.ds-card__container {
-	container-type: size;
-}
-
 .ds-card {
 	$root: &;
 
-	background-color: $color-default-background;
-	border-radius: $radius-m;
-	box-shadow: $shadow-s;
 	position: relative;
 	width: inherit;
 
-	@container (max-width: 459px) {
-		&.-ds-responsive-flat {
-			background-color: transparent;
-			border-radius: 0;
-			box-shadow: none;
-		}
+	&:not(.-ds-flat) {
+		background-color: $color-default-background;
+		border-radius: $radius-m;
+		box-shadow: $shadow-s;
 	}
 
 	&.-ds-top-border {
@@ -227,7 +217,7 @@ const {
 	hasLoadingBar = false,
 	loadingBarColor = LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime = '0',
-	isResponsiveFlat = false,
+	isFlat = false,
 } = defineProps<{
 	headerHasPadding?: boolean;
 	footerHasPadding?: boolean;
@@ -240,7 +230,7 @@ const {
 	hasLoadingBar?: boolean;
 	loadingBarColor?: LoadingBarColors;
 	loadingBarTime?: string;
-	isResponsiveFlat?: boolean;
+	isFlat?: boolean;
 }>();
 
 defineSlots<{
