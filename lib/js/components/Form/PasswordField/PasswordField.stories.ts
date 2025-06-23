@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/vue3';
-import InputField from './InputField.vue';
+import PasswordField from './PasswordField.vue';
 import HelpButton from '../../Buttons/HelpButton/HelpButton.vue';
 import Modal from '../../Modals/Modal';
 import { ICONS } from '../../Icons/Icon';
@@ -7,13 +7,13 @@ import { args, argTypes } from '../FormField/FormField.stories.shared';
 import { FORM_FIELD_STATES } from '../FormField/FormField.consts';
 import { reactive, toRefs } from 'vue';
 
-const meta: Meta<typeof InputField> = {
-	title: 'Components/Form/InputField',
-	component: InputField,
+const meta: Meta<typeof PasswordField> = {
+	title: 'Components/Form/PasswordField',
+	component: PasswordField,
 	render: (args) => ({
-		components: { InputField, HelpButton, Modal },
+		components: { PasswordField, HelpButton, Modal },
 		setup() {
-			const { help, labelAside, message, fieldStatus, action, ...restRefs } = toRefs(args);
+			const { help, labelAside, message, fieldStatus, ...restRefs } = toRefs(args);
 			const props = reactive({ ...restRefs });
 
 			return {
@@ -22,7 +22,6 @@ const meta: Meta<typeof InputField> = {
 				fieldStatus,
 				message,
 				help,
-				action,
 				FORM_FIELD_STATES,
 				ICONS,
 			};
@@ -30,11 +29,11 @@ const meta: Meta<typeof InputField> = {
 		data: () => ({
 			value: '',
 		}),
-		template: `<InputField v-bind="props" :left-icon="props.leftIcon ? ICONS[props.leftIcon] : null" v-model="value">
+		template: `<PasswordField v-bind="props" v-model="value">
 			<template v-if="help" #help>
-				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
-					<template #modalContent>
-						Modal
+				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED">
+					<template #modal="{onClose}">
+						<Modal @close-modal="onClose">Modal</Modal>
 					</template>
 				</HelpButton>
 			</template>
@@ -50,32 +49,23 @@ const meta: Meta<typeof InputField> = {
 			<template #action v-if="action">
 				<div v-html="action" />
 			</template>
-		</InputField>`,
+		</PasswordField>`,
 	}),
 	argTypes: {
 		...argTypes,
-		leftIcon: {
-			control: 'select',
-			options: [null, ...Object.keys(ICONS)],
-		},
 		suffixText: {
-			control: 'text',
-		},
-		action: {
 			control: 'text',
 		},
 	},
 };
 export default meta;
 
-type Story = StoryObj<typeof InputField>;
+type Story = StoryObj<typeof PasswordField>;
 
 export const Interactive: Story = {
 	args: {
 		...args,
-		leftIcon: null,
 		suffixText: '%',
-		action: 'Action',
 		inputProps: {
 			placeholder: 'Placeholder',
 		},
@@ -83,7 +73,7 @@ export const Interactive: Story = {
 	parameters: {
 		design: {
 			type: 'figma',
-			url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13198-38645&t=BlkZV83eerbMSMyv-4',
+			url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13576-21478&m=dev',
 		},
 	},
 };

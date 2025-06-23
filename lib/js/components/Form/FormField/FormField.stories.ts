@@ -12,7 +12,7 @@ const meta: Meta<typeof FormField> = {
 		components: { FormField, HelpButton },
 		setup() {
 			const { field, help, labelAside, message, fieldStatus, ...restRefs } = toRefs(args);
-			const props = reactive({ ...restRefs }); // Create reactive props
+			const props = reactive({ ...restRefs });
 
 			return {
 				props,
@@ -29,13 +29,12 @@ const meta: Meta<typeof FormField> = {
 				<input v-if="!field" :id="fieldId" :aria-describedby="messageId" />
 				<div v-else v-html="field" />
 			</template>
-			<template #help>
-				<HelpButton v-if="!help" :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
+			<template v-if="help" #help>
+				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
 					<template #modalContent>
 						Modal
 					</template>
 				</HelpButton>
-				<div v-else v-html="help" />
 			</template>
 			<template v-if="labelAside" #labelAside>
 				<div v-html="labelAside" />
@@ -64,11 +63,19 @@ export const Interactive: Story = {
 		...args,
 		field: '',
 	},
+	parameters: {
+		design: {
+			type: 'figma',
+			url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13267-86654&t=ezos5nMsGrZyaqmC-4',
+		},
+	},
 };
 
-Interactive.parameters = {
-	design: {
-		type: 'figma',
-		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13267-86654&t=ezos5nMsGrZyaqmC-4',
+export const Error: Story = {
+	...Interactive,
+	args: {
+		...Interactive.args,
+		state: FORM_FIELD_STATES.ERROR,
+		messageText: 'Error message text',
 	},
 };
