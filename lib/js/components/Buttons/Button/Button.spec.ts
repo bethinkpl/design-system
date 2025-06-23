@@ -10,9 +10,10 @@ import {
 	BUTTON_TYPES,
 } from './Button.consts';
 import Icon, { ICONS } from '../../Icons/Icon';
+import { ComponentProps } from 'vue-component-type-helpers';
 
 describe('Button', () => {
-	const createComponent = (props = {} as any) => {
+	const createComponent = (props = {} as ComponentProps<typeof Button>) => {
 		return shallowMount(Button, {
 			props,
 			slots: {
@@ -53,13 +54,13 @@ describe('Button', () => {
 	});
 
 	it('should render icon', () => {
-		const leftIcon = createComponent({ 'icon-left': Object.freeze(ICONS.FA_XMARK) });
+		const leftIcon = createComponent({ iconLeft: Object.freeze(ICONS.FA_XMARK) });
 		expect(leftIcon.find('.ds-button__icon.-ds-left').exists()).toBe(true);
 		expect(
 			leftIcon.findComponent<typeof Icon>('.ds-button__icon.-ds-left').props().icon,
 		).toEqual(ICONS.FA_XMARK);
 
-		const rightIcon = createComponent({ 'icon-right': Object.freeze(ICONS.FA_CLOCK) });
+		const rightIcon = createComponent({ iconRight: Object.freeze(ICONS.FA_CLOCK) });
 		expect(rightIcon.find('.ds-button__icon.-ds-right').exists()).toBe(true);
 		expect(
 			rightIcon.findComponent<typeof Icon>('.ds-button__icon.-ds-right').props().icon,
@@ -67,7 +68,7 @@ describe('Button', () => {
 	});
 
 	it('correct slot content', () => {
-		const component = createComponent({ 'icon-left': null });
+		const component = createComponent({ iconLeft: null });
 		expect(component.find('.ds-button__icon.-ds-left').exists()).toBe(false);
 		expect(component.find('.ds-button__content').text()).toBe('Hello');
 	});
@@ -85,5 +86,15 @@ describe('Button', () => {
 	it('renders as anchor if "as" prop is set to "a"', () => {
 		const component = createComponent({ as: 'a' });
 		expect(component.element.tagName).toBe('A');
+	});
+
+	it('applies type attribute when "as" prop is set to "button"', () => {
+		const component = createComponent({ as: 'button', buttonTypeAttr: 'submit' });
+		expect(component.attributes('type')).toBe('submit');
+	});
+
+	it('does not apply type attribute when "as" prop is not "button"', () => {
+		const component = createComponent({ buttonTypeAttr: 'submit' });
+		expect(component.attributes('type')).toBeUndefined();
 	});
 });
