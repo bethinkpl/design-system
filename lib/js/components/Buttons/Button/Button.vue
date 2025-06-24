@@ -2,7 +2,6 @@
 	<component
 		:is="as"
 		class="ds-button"
-		:type="as === 'button' ? buttonTypeAttr : undefined"
 		:class="{
 			'-ds-outlined': type === BUTTON_TYPES.OUTLINED,
 			'-ds-text': type === BUTTON_TYPES.TEXT,
@@ -88,10 +87,6 @@ const {
 	iconRight?: IconItem | null;
 	elevation?: ButtonElevation | string;
 	as?: 'button' | 'a' | 'span';
-	/**
-	 * The type attribute for the button element. Only applicable when `as` is 'button'.
-	 */
-	buttonTypeAttr?: 'button' | 'submit' | 'reset';
 }>();
 
 const iconSize = computed((): IconSize => {
