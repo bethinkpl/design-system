@@ -193,7 +193,7 @@
 			background-color: $color-danger-background;
 			border-color: $color-danger-border-weak;
 
-			.-ds-titleInColor & {
+			&.-ds-titleInColor {
 				--ds-banner-title-color: #{$color-danger-text};
 			}
 		}
