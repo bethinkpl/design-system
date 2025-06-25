@@ -22,7 +22,7 @@ export default defineConfig({
 		lib: {
 			entry: resolve(__dirname, 'lib/js/index.ts'),
 			name: 'design-system',
-			formats: ['umd'],
+			formats: ['es'],
 			fileName: 'design-system',
 		},
 		rollupOptions: {
