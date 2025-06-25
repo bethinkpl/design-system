@@ -2,9 +2,11 @@ import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import InputField from './InputField.vue';
 import Icon, { ICONS } from '../../Icons/Icon';
-import { h } from 'vue';
+import { ComputedRef, h, Ref } from 'vue';
 import { FORM_FIELD_STATES } from '../FormField';
 import { ComponentProps, ComponentSlots } from 'vue-component-type-helpers';
+import { FormMeta, useForm } from 'vee-validate';
+import { waitForExpectShort } from '../../../tests/helpers';
 
 const fieldId = 'form-field-v-0';
 const messageId = `${fieldId}-message`;
@@ -131,5 +133,120 @@ describe('InputField', () => {
 		});
 		const input = wrapper.find('input');
 		expect(input.attributes('disabled')).toBeDefined();
+	});
+
+	describe('with vee-validate', () => {
+		const fieldName = 'siema';
+		const initialValue = 'siemanko!';
+		function setupWithForm(props?: ComponentProps<typeof InputField>) {
+			let controlledValuesRef: Ref<{ siema: string }> | undefined;
+			let errorsRef: ComputedRef<Partial<Record<'siema', string | undefined>>> | undefined;
+			let metaRef: Ref<FormMeta<{ siema: string }>> | undefined;
+
+			const FormComponent = {
+				template: `
+				<form>
+					<InputField
+						v-bind="props"
+						:name="name"
+					/>
+				</form>
+			`,
+				components: { InputField },
+				setup() {
+					const { controlledValues, errors, meta } = useForm({
+						initialValues: {
+							[fieldName]: initialValue,
+						},
+						validationSchema: {
+							siema: (val: string) => (val.length < 5 ? 'Too short' : true),
+						},
+					});
+
+					controlledValuesRef = controlledValues;
+					errorsRef = errors;
+					metaRef = meta;
+
+					return {
+						name: fieldName,
+						props,
+					};
+				},
+			};
+
+			return {
+				wrapper: mount(FormComponent),
+				controlledValuesRef,
+				errorsRef,
+				metaRef,
+			};
+		}
+
+		it('should bind input value with vee-validate form values', async () => {
+			const { wrapper, controlledValuesRef } = setupWithForm();
+
+			const input = wrapper.find('input');
+
+			expect(input.element.value).toBe(initialValue);
+			expect(controlledValuesRef?.value[fieldName]).toBe(initialValue);
+
+			const newValue = 'no cześć!';
+			await input.setValue(newValue);
+
+			expect(input.element.value).toBe(newValue);
+			expect(controlledValuesRef?.value[fieldName]).toBe(newValue);
+		});
+
+		it('should call onBlur and mark form as touched on blur', async () => {
+			const onBlur = vi.fn();
+			const { wrapper, metaRef } = setupWithForm({
+				inputProps: {
+					onBlur,
+				},
+			});
+			expect(metaRef?.value.touched).toBe(false);
+
+			const input = wrapper.find('input');
+			await input.trigger('blur');
+
+			expect(onBlur).toHaveBeenCalled();
+			expect(metaRef?.value.touched).toBe(true);
+		});
+
+		it('should call onInput and show handle error messages', async () => {
+			const onInput = vi.fn();
+			const { wrapper, errorsRef } = setupWithForm({
+				inputProps: {
+					onInput,
+				},
+			});
+
+			const input = wrapper.find('input');
+			await input.setValue('test');
+
+			expect(onInput).toHaveBeenCalled();
+
+			await input.trigger('blur');
+
+			await waitForExpectShort(() => {
+				expect(errorsRef?.value?.siema).toBeDefined();
+			});
+
+			await input.setValue('valid value');
+
+			await waitForExpectShort(() => {
+				expect(errorsRef?.value?.siema).toBeUndefined();
+			});
+		});
+
+		it('should throw an error if used outside of a form context', () => {
+			expect(() => {
+				setup({
+					props: {
+						name: 'siema',
+					},
+				});
+			}).toThrowError();
+		});
 	});
 });

@@ -132,10 +132,17 @@ import FormField, { FORM_FIELD_STATES } from '../FormField';
 import Icon, { ICON_SIZES } from '../../Icons/Icon';
 import { extractFormFieldProps } from '../FormField/FormField.utils';
 import { InputFieldProps, InputFieldSlots } from './InputField.types';
+import { useFormField } from '../../../composables/useFormField';
 
-const { inputProps, leftIcon, suffixText, ...rest } = defineProps<InputFieldProps>();
+const { inputProps, leftIcon, suffixText, name, ...rest } = defineProps<InputFieldProps>();
 defineSlots<InputFieldSlots>();
-const value = defineModel<string>();
+const modelValue = defineModel<string>();
+
+const {
+	value,
+	onInput: onFormFieldInput,
+	onBlur: onFormFieldBlur,
+} = useFormField(() => name, modelValue);
 
 // this is needed to avoid passing modelValue to FormField as prop
 const formFieldProps = computed(() => extractFormFieldProps(rest));
@@ -144,6 +151,14 @@ const finalInputProps = computed<InputHTMLAttributes>(() => {
 	return {
 		disabled: formFieldProps.value.state === FORM_FIELD_STATES.DISABLED,
 		...inputProps,
+		onInput: (event: Event) => {
+			onFormFieldInput();
+			inputProps?.onInput?.(event);
+		},
+		onBlur: (event: FocusEvent) => {
+			onFormFieldBlur(event);
+			inputProps?.onBlur?.(event);
+		},
 	};
 });
 </script>

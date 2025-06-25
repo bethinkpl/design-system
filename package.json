@@ -87,11 +87,17 @@
     "vue": "3.5.16",
     "vue-eslint-parser": "^10.1.1",
     "vue-popperjs": "github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f",
-    "vue-tsc": "2.2.10"
+    "vue-tsc": "2.2.10",
+    "wait-for-expect": "^3.0.2"
   },
   "dependencies": {
     "@primevue/themes": "4.0.0-rc.3",
     "primevue": "4.0.0-rc.3",
+    "vee-validate": "4.15.1",
     "vue-component-type-helpers": "2.2.10"
+  },
+  "peerDependencies": {
+    "vue": ">=3.5.0",
+    "vee-validate": ">=4.15.0"
   }
 }
