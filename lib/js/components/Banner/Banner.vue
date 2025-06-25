@@ -43,7 +43,7 @@
 								<slot name="defaultText" />
 							</div>
 						</div>
-						<div class="ds-banner__rightWrapper">
+						<div v-if="buttonText || $slots.rightSlot" class="ds-banner__rightWrapper">
 							<div v-if="buttonText" class="ds-banner__buttonWrapper">
 								<ds-button
 									class="ds-banner__ctaButton"
@@ -127,19 +127,24 @@
 
 			#{$self}__textWrapper {
 				flex-direction: row;
+				gap: $space-s;
 			}
 
 			#{$self}__rightWrapper {
-				padding: 0 0 0 $space-s;
+				padding: 0;
 			}
 
 			#{$self}__rightSlot,
 			#{$self}__buttonWrapper {
 				padding: $space-xs 0;
+			}
 
-				.-ds-small & {
-					padding: $space-2xs 0 $space-5xs 0;
-				}
+			#{$self}__close {
+				padding: 0 $space-2xs;
+			}
+
+			#{$self}__expandedContainer {
+				padding: 0;
 			}
 		}
 
@@ -219,10 +224,9 @@
 	}
 
 	&__header {
+		align-items: center;
 		display: flex;
-		justify-content: space-between;
-		padding: 0 $space-2xs;
-		width: 100%;
+		padding: 0 $space-4xs;
 	}
 
 	&__title {
@@ -231,11 +235,11 @@
 		align-items: center;
 		color: var(--ds-banner-title-color);
 		display: flex;
+		gap: $space-3xs;
 	}
 
 	&__iconWrapperSmall {
 		align-self: stretch;
-		padding-right: $space-3xs;
 	}
 
 	&__defaultText {
@@ -284,7 +288,7 @@
 	}
 
 	&__close {
-		padding-left: $space-2xs;
+		padding-left: $space-3xs;
 	}
 
 	&__expander {
