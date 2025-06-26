@@ -185,3 +185,5 @@ export {
 } from './icons/fontawesome';
 
 export type { IconDefinition } from './icons/fontawesome';
+
+export * from 'vee-validate';

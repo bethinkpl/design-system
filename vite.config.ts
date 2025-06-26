@@ -26,11 +26,10 @@ export default defineConfig({
 			fileName: 'design-system',
 		},
 		rollupOptions: {
-			external: ['vue', 'vee-validate'],
+			external: ['vue'],
 			output: {
 				globals: {
 					vue: 'Vue',
-					'vee-validate': 'VeeValidate',
 				},
 			},
 		},

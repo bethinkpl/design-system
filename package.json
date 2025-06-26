@@ -95,9 +95,5 @@
     "primevue": "4.0.0-rc.3",
     "vee-validate": "4.15.1",
     "vue-component-type-helpers": "2.2.10"
-  },
-  "peerDependencies": {
-    "vue": ">=3.5.0",
-    "vee-validate": ">=4.15.0"
   }
 }
