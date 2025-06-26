@@ -213,7 +213,7 @@ describe('InputField', () => {
 			expect(metaRef?.value.touched).toBe(true);
 		});
 
-		it('should call onInput and show handle error messages', async () => {
+		it('should call onInput and show error message', async () => {
 			const onInput = vi.fn();
 			const { wrapper, errorsRef } = setupWithForm({
 				inputProps: {
@@ -232,6 +232,9 @@ describe('InputField', () => {
 				expect(errorsRef?.value?.siema).toBeDefined();
 			});
 
+			expect(wrapper.find('.ds-inputField').classes()).toContain('-ds-error');
+			expect(wrapper.find(`#${messageId}`).text()).toBe('Too short');
+
 			await input.setValue('valid value');
 
 			await waitForExpectShort(() => {
@@ -247,6 +250,25 @@ describe('InputField', () => {
 					},
 				});
 			}).toThrowError();
+		});
+
+		it('overrides state and message on vee-validate form error', async () => {
+			const { wrapper, errorsRef } = setupWithForm({
+				state: FORM_FIELD_STATES.SUCCESS,
+				messageText: 'Success message',
+			});
+
+			const input = wrapper.find('input');
+			await input.setValue('test');
+
+			await input.trigger('blur');
+
+			await waitForExpectShort(() => {
+				expect(errorsRef?.value?.siema).toBeDefined();
+			});
+
+			expect(wrapper.find(`#${messageId}`).classes()).toContain('-ds-success');
+			expect(wrapper.find(`#${messageId}`).text()).toBe('Success message');
 		});
 	});
 });

@@ -49,5 +49,6 @@ export function useInputFieldWithinForm(
 		onBlur,
 		onInput,
 		value,
+		errors: field?.errors ?? ref<Array<string>>([]),
 	};
 }

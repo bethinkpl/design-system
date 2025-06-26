@@ -128,7 +128,7 @@
 
 <script lang="ts" setup>
 import { computed, InputHTMLAttributes } from 'vue';
-import FormField, { FORM_FIELD_STATES } from '../FormField';
+import FormField, { FORM_FIELD_STATES, FormFieldProps } from '../FormField';
 import Icon, { ICON_SIZES } from '../../Icons/Icon';
 import { extractFormFieldProps } from '../FormField/FormField.utils';
 import { InputFieldProps, InputFieldSlots } from './InputField.types';
@@ -140,12 +140,21 @@ const modelValue = defineModel<string>();
 
 const {
 	value,
+	errors,
 	onInput: onFormFieldInput,
 	onBlur: onFormFieldBlur,
 } = useInputFieldWithinForm(() => name, modelValue);
 
-// this is needed to avoid passing modelValue to FormField as prop
-const formFieldProps = computed(() => extractFormFieldProps(rest));
+const formFieldProps = computed<FormFieldProps>(() => {
+	// this is needed to avoid passing modelValue to FormField as prop
+	const extractedProps = extractFormFieldProps(rest);
+
+	return {
+		...extractedProps,
+		messageText: extractedProps.messageText ?? errors.value[0],
+		state: extractedProps.state ?? (errors.value[0] ? FORM_FIELD_STATES.ERROR : undefined),
+	};
+});
 
 const finalInputProps = computed<InputHTMLAttributes>(() => {
 	return {
