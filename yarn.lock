@@ -6342,9 +6342,9 @@ vue-inbrowser-compiler-independent-utils@^4.69.0:
   resolved "https://registry.yarnpkg.com/vue-inbrowser-compiler-independent-utils/-/vue-inbrowser-compiler-independent-utils-4.71.1.tgz#dc6830b204f7cfdc30ffc4f31ba81b0c72c52136"
   integrity sha512-K3wt3iVmNGaFEOUR4JIThQRWfqokxLfnPslD41FDZB2ajXp789+wCqJyGYlIFsvEQ2P61PInw6/ph5iiqg51gg==
 
-"vue-popperjs@github:bethinkpl/vue-popper#03c7912c4729386743b0cca8f39b35448cc3db7f":
+"vue-popperjs@github:bethinkpl/vue-popper#df07fdb562d604fad966f0e8d6db1fc48febad6e":
   version "2.3.0"
-  resolved "https://codeload.github.com/bethinkpl/vue-popper/tar.gz/03c7912c4729386743b0cca8f39b35448cc3db7f"
+  resolved "https://codeload.github.com/bethinkpl/vue-popper/tar.gz/df07fdb562d604fad966f0e8d6db1fc48febad6e"
   dependencies:
     opencollective-postinstall "^2.0.2"
     popper.js "^1.15.0"
