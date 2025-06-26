@@ -337,7 +337,7 @@ import {
 	ModalSize,
 } from './Modal.consts';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES } from '../../Icons/FeatureIcon';
+import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES, FeatureIconColor } from '../../Icons/FeatureIcon';
 import WnlButton, {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
@@ -385,7 +385,7 @@ export default defineComponent({
 		headerFeatureIconColor: {
 			type: String,
 			default: FEATURE_ICON_COLOR.NEUTRAL,
-			validator(color: string) {
+			validator(color: FeatureIconColor) {
 				return Object.values(FEATURE_ICON_COLOR).includes(color);
 			},
 		},

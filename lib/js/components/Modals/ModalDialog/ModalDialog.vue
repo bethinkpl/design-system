@@ -31,7 +31,7 @@
 import DsModal from '../Modal/Modal.vue';
 import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from '../Modal';
 import { ICONS } from '../../Icons/Icon';
-import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
+import { FEATURE_ICON_COLOR, FeatureIconColor } from '../../Icons/FeatureIcon';
 import { defineComponent, toRaw } from 'vue';
 import { BUTTON_STATES, ButtonState } from '../../Buttons/Button';
 
@@ -61,7 +61,7 @@ export default defineComponent({
 		headerFeatureIconColor: {
 			type: String,
 			default: FEATURE_ICON_COLOR.NEUTRAL,
-			validator(color: string) {
+			validator(color: FeatureIconColor) {
 				return Object.values(FEATURE_ICON_COLOR).includes(color);
 			},
 		},
