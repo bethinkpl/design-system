@@ -132,7 +132,7 @@ import FormField, { FORM_FIELD_STATES } from '../FormField';
 import Icon, { ICON_SIZES } from '../../Icons/Icon';
 import { extractFormFieldProps } from '../FormField/FormField.utils';
 import { InputFieldProps, InputFieldSlots } from './InputField.types';
-import { useFormField } from '../../../composables/useFormField';
+import { useInputFieldWithinForm } from './useInputFieldWithinForm';
 
 const { inputProps, leftIcon, suffixText, name, ...rest } = defineProps<InputFieldProps>();
 defineSlots<InputFieldSlots>();
@@ -142,7 +142,7 @@ const {
 	value,
 	onInput: onFormFieldInput,
 	onBlur: onFormFieldBlur,
-} = useFormField(() => name, modelValue);
+} = useInputFieldWithinForm(() => name, modelValue);
 
 // this is needed to avoid passing modelValue to FormField as prop
 const formFieldProps = computed(() => extractFormFieldProps(rest));

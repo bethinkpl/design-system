@@ -1,7 +1,7 @@
 import { computed, inject, MaybeRefOrGetter, ref, Ref, toValue } from 'vue';
 import { FormContextKey, useField } from 'vee-validate';
 
-export function useFormField(
+export function useInputFieldWithinForm(
 	name: MaybeRefOrGetter<string | undefined>,
 	modelValue: Ref<string | undefined>,
 ) {
