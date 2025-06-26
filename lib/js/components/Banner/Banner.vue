@@ -226,6 +226,7 @@
 	&__header {
 		align-items: center;
 		display: flex;
+		flex: 1;
 		padding: 0 $space-4xs;
 	}
 
