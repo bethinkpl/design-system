@@ -604,12 +604,12 @@ declare const _default: import('vue').DefineComponent<{
     color: string;
     state: string;
     isIconHiddenOnMobile: boolean;
+    date: Date;
     isLabelUppercase: boolean;
     isInteractive: boolean;
     placeholder: string;
     additionalText: string;
     triggerType: string;
-    date: Date;
     helpMessage: string;
     errorMessage: string;
     calendarPosition: string;
@@ -781,6 +781,7 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS_VERTICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ENVELOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EXCLAMATION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EYE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EYE_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1224,6 +1225,7 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS_VERTICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ENVELOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EXCLAMATION_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EYE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EYE_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1421,6 +1423,7 @@ declare const _default: import('vue').DefineComponent<{
     }>> & Readonly<{}>, {
         color: string;
         state: string;
+        isOpen: boolean;
         isInteractive: boolean;
         placeholder: string;
         startDate: Date;
@@ -1428,7 +1431,6 @@ declare const _default: import('vue').DefineComponent<{
         startIcon: Record<string, any>;
         endIcon: Record<string, any>;
         areIconsHiddenOnMobile: boolean;
-        isOpen: boolean;
     }, {}, {
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             icon: {
