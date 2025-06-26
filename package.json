@@ -7,7 +7,7 @@
     "url": "git+ssh://git@github.com/bethinkpl/design-system.git"
   },
   "author": "nerdy@bethink.pl",
-  "main": "./dist/design-system.js",
+  "main": "./dist/design-system.umd.cjs",
   "type": "module",
   "typings": "./dist/lib/js/index.d.ts",
   "license": "UNLICENSED",
