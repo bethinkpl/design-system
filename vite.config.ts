@@ -22,16 +22,11 @@ export default defineConfig({
 		lib: {
 			entry: resolve(__dirname, 'lib/js/index.ts'),
 			name: 'design-system',
-			formats: ['umd'],
+			formats: ['es'],
 			fileName: 'design-system',
 		},
 		rollupOptions: {
-			external: ['vue'],
-			output: {
-				globals: {
-					vue: 'Vue',
-				},
-			},
+			external: ['vue', 'vee-validate'],
 		},
 		sourcemap: true,
 		target: 'es2019',
