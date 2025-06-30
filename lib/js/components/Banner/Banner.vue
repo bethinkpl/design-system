@@ -140,7 +140,7 @@
 			}
 
 			#{$self}__close {
-				padding: 0 $space-2xs;
+				padding-left: $space-2xs;
 			}
 
 			#{$self}__expandedContainer {
@@ -224,7 +224,7 @@
 	}
 
 	&__header {
-		align-items: center;
+		align-items: flex-start;
 		display: flex;
 		flex: 1;
 		padding: 0 $space-4xs;
