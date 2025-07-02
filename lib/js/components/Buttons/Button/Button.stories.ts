@@ -34,6 +34,7 @@ const StoryTemplate: StoryFn<typeof Button> = (args) => ({
 					:elevation="elevation"
 					:icon-left="ICONS[iconLeft]"
 					:icon-right="ICONS[iconRight]"
+					:as="as"
 			>
 				{{ slotText }}
 			</Button>
@@ -62,6 +63,7 @@ const args = {
 	elevation: BUTTON_ELEVATIONS.NONE,
 	iconLeft: 'FA_CHEVRON_LEFT',
 	iconRight: null,
+	as: 'span',
 } as Args;
 
 const argTypes = {
@@ -96,6 +98,10 @@ const argTypes = {
 	iconRight: {
 		control: 'select',
 		options: [null, ...Object.keys(ICONS)],
+	},
+	as: {
+		control: 'select',
+		options: ['button', 'a', 'span'],
 	},
 } as ArgTypes;
 

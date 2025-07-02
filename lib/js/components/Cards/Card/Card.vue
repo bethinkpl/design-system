@@ -1,12 +1,16 @@
 <template>
 	<div
-		:class="{
-			'ds-card': true,
-			[borderColorClass]: true,
-			[borderSizeClass]: true,
-			'-ds-top-border': hasTopBoarder,
-			'-ds-left-border': hasLeftBoarder,
-		}"
+		:class="[
+			'ds-card',
+			borderColorClass,
+			borderSizeClass,
+			{
+				'-ds-top-border': hasTopBoarder,
+				'-ds-left-border': hasLeftBoarder,
+				'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
+				'-ds-flat': isFlat,
+			},
+		]"
 	>
 		<ds-loading-bar
 			v-if="hasLoadingBar"
@@ -30,7 +34,13 @@
 		<div v-if="$slots.content" class="ds-card__content">
 			<slot name="content" />
 		</div>
-		<slot name="footer" />
+		<div
+			v-if="$slots.footer"
+			class="ds-card__footer"
+			:class="{ '-ds-withPadding': footerHasPadding }"
+		>
+			<slot name="footer" />
+		</div>
 	</div>
 </template>
 
@@ -44,11 +54,14 @@
 .ds-card {
 	$root: &;
 
-	background-color: $color-default-background;
-	border-radius: $radius-m;
-	box-shadow: $shadow-s;
 	position: relative;
 	width: inherit;
+
+	&:not(.-ds-flat) {
+		background-color: $color-default-background;
+		border-radius: $radius-m;
+		box-shadow: $shadow-s;
+	}
 
 	&.-ds-top-border {
 		border-top: $border-l transparent solid;
@@ -59,32 +72,50 @@
 	}
 
 	&.-ds-border-size-small {
-		border-radius: $radius-xs;
 		border-top-width: $border-s;
 
+		#{$root}:not(.-ds-flat) & {
+			border-radius: $radius-xs;
+		}
+
 		#{$root}__loadingBar {
-			border-radius: $radius-xs $radius-xs 0 0;
 			top: -$border-s;
+
+			#{$root}:not(.-ds-flat) & {
+				border-radius: $radius-xs $radius-xs 0 0;
+			}
 		}
 	}
 
 	&.-ds-border-size-medium {
-		border-radius: $radius-s;
 		border-top-width: $border-m;
 
+		#{$root}:not(.-ds-flat) & {
+			border-radius: $radius-s;
+		}
+
 		#{$root}__loadingBar {
-			border-radius: $radius-s $radius-s 0 0;
 			top: -$border-m;
+
+			#{$root}:not(.-ds-flat) & {
+				border-radius: $radius-s $radius-s 0 0;
+			}
 		}
 	}
 
 	&.-ds-border-size-large {
-		border-radius: $radius-m;
 		border-top-width: $border-l;
 
+		#{$root}:not(.-ds-flat) & {
+			border-radius: $radius-m;
+		}
+
 		#{$root}__loadingBar {
-			border-radius: $radius-m $radius-m 0 0;
 			top: -$border-l;
+
+			#{$root}:not(.-ds-flat) & {
+				border-radius: $radius-m $radius-m 0 0;
+			}
 		}
 	}
 
@@ -121,23 +152,45 @@
 	&__header {
 		&.-ds-withPadding {
 			padding: $space-s;
+
+			#{$root}.-ds-paddingLarge & {
+				padding: $space-l $space-l $space-s;
+			}
 		}
 	}
 
 	&__headerDivider {
 		&.-ds-withHorizontalMargin {
 			margin: 0 $space-s;
+
+			#{$root}.-ds-paddingLarge & {
+				margin: 0 $space-l;
+			}
 		}
 	}
 
 	&__content {
 		padding: $space-s;
+
+		#{$root}.-ds-paddingLarge & {
+			padding: $space-s $space-l;
+		}
+	}
+
+	&__footer {
+		&.-ds-withPadding {
+			padding: 0 $space-s $space-s;
+
+			#{$root}.-ds-paddingLarge & {
+				padding: 0 $space-l $space-l;
+			}
+		}
 	}
 }
 </style>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
+<script lang="ts" setup>
+import { computed } from 'vue';
 
 import DsDivider from '../../Divider/Divider.vue';
 import DsLoadingBar, { LOADING_BAR_COLORS, LoadingBarColors } from '../../LoadingBar';
@@ -145,79 +198,66 @@ import {
 	CARD_BORDER_COLORS,
 	CARD_BORDER_POSITIONS,
 	CARD_BORDER_SIZES,
+	CARD_PADDING_SIZES,
 	CardBorderColors,
 	CardBorderPositions,
 	CardBorderSizes,
+	CardPaddingSize,
 } from './Card.consts';
 
-export default defineComponent({
-	name: 'Card',
-	components: { DsDivider, DsLoadingBar },
-	props: {
-		headerHasPadding: {
-			type: Boolean,
-			default: false,
-		},
-		dividerUnderHeader: {
-			type: Boolean,
-			default: false,
-		},
-		hasBorder: {
-			type: Boolean,
-			default: false,
-		},
-		borderPosition: {
-			type: String as PropType<CardBorderPositions>,
-			default: CARD_BORDER_POSITIONS.TOP,
-		},
-		borderSize: {
-			type: String as PropType<CardBorderSizes>,
-			default: CARD_BORDER_SIZES.LARGE,
-		},
-		borderColor: {
-			type: String as PropType<CardBorderColors>,
-			default: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
-		},
-		hasLoadingBar: {
-			type: Boolean,
-			default: false,
-		},
-		loadingBarColor: {
-			type: String as PropType<LoadingBarColors>,
-			default: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
-		},
-		loadingBarTime: {
-			type: String,
-			default: '0',
-		},
-	},
+const {
+	headerHasPadding = false,
+	footerHasPadding = false,
+	paddingSize = CARD_PADDING_SIZES.SMALL,
+	dividerUnderHeader = false,
+	hasBorder = false,
+	borderPosition = CARD_BORDER_POSITIONS.TOP,
+	borderSize = CARD_BORDER_SIZES.LARGE,
+	borderColor = CARD_BORDER_COLORS.NEUTRAL_HEAVY,
+	hasLoadingBar = false,
+	loadingBarColor = LOADING_BAR_COLORS.NEUTRAL_HEAVY,
+	loadingBarTime = '0',
+	isFlat = false,
+} = defineProps<{
+	headerHasPadding?: boolean;
+	footerHasPadding?: boolean;
+	paddingSize?: CardPaddingSize;
+	dividerUnderHeader?: boolean;
+	hasBorder?: boolean;
+	borderPosition?: CardBorderPositions;
+	borderSize?: CardBorderSizes;
+	borderColor?: CardBorderColors;
+	hasLoadingBar?: boolean;
+	loadingBarColor?: LoadingBarColors;
+	loadingBarTime?: string;
+	isFlat?: boolean;
+}>();
 
-	computed: {
-		hasLeftBoarder() {
-			return (
-				this.hasBorder &&
-				this.borderPosition === CARD_BORDER_POSITIONS.LEFT &&
-				!this.hasLoadingBar
-			);
-		},
-		hasTopBoarder() {
-			return (
-				(this.hasBorder && this.borderPosition === CARD_BORDER_POSITIONS.TOP) ||
-				this.hasLoadingBar
-			);
-		},
-		borderColorClass() {
-			if (this.hasLoadingBar) {
-				return '-ds-border-color-transparent';
-			}
-			return `-ds-border-color-${this.borderColor}`;
-		},
-		borderSizeClass() {
-			if (!this.hasBorder && !this.hasLoadingBar) {
-				return '';
-			}
-			return `-ds-border-size-${this.borderSize}`;
-		},
-	},
+defineSlots<{
+	header?: () => any;
+	content?: () => any;
+	footer?: () => any;
+}>();
+
+const hasLeftBoarder = computed(() => {
+	return hasBorder && borderPosition === CARD_BORDER_POSITIONS.LEFT && !hasLoadingBar;
+});
+
+const hasTopBoarder = computed(() => {
+	return (hasBorder && borderPosition === CARD_BORDER_POSITIONS.TOP) || hasLoadingBar;
+});
+
+const borderColorClass = computed(() => {
+	if (hasLoadingBar) {
+		return '-ds-border-color-transparent';
+	}
+	return `-ds-border-color-${borderColor}`;
+});
+
+const borderSizeClass = computed(() => {
+	if (!hasBorder && !hasLoadingBar) {
+		return null;
+	}
+	return `-ds-border-size-${borderSize}`;
 });
 </script>

@@ -56,6 +56,6 @@ Interactive.args = args;
 Interactive.parameters = {
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34963',
+		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=5604-96259',
 	},
 };
