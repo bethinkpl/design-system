@@ -10,8 +10,8 @@ export declare const BANNER_COLORS: {
     readonly DANGER: "danger";
 };
 export type BannerColor = Value<typeof BANNER_COLORS>;
-export declare const BANNER_LAYOUTS: {
-    readonly HORIZONTAL: "horizontal";
-    readonly VERTICAL: "vertical";
+export declare const BANNER_SIZES: {
+    SMALL: string;
+    MEDIUM: string;
 };
-export type BannerLayout = Value<typeof BANNER_LAYOUTS>;
+export type BannerSize = Value<typeof BANNER_SIZES>;

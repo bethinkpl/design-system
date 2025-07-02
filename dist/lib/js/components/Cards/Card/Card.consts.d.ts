@@ -1,5 +1,10 @@
 import { Value } from '../../../utils/type.utils';
 
+export declare const CARD_PADDING_SIZES: {
+    SMALL: string;
+    LARGE: string;
+};
+export type CardPaddingSize = Value<typeof CARD_PADDING_SIZES>;
 export declare const CARD_BORDER_COLORS: {
     NEUTRAL_HEAVY: string;
     NEUTRAL_STRONG: string;
