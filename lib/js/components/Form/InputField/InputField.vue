@@ -130,22 +130,46 @@
 
 <script lang="ts" setup>
 import { computed, InputHTMLAttributes } from 'vue';
-import FormField, { FORM_FIELD_STATES } from '../FormField';
+import FormField, { FORM_FIELD_STATES, FormFieldProps } from '../FormField';
 import Icon, { ICON_SIZES } from '../../Icons/Icon';
 import { extractFormFieldProps } from '../FormField/FormField.utils';
 import { InputFieldProps, InputFieldSlots } from './InputField.types';
+import { useInputFieldWithinForm } from './useInputFieldWithinForm';
 
-const { inputProps, leftIcon, suffixText, ...rest } = defineProps<InputFieldProps>();
+const { inputProps, leftIcon, suffixText, name, ...rest } = defineProps<InputFieldProps>();
 defineSlots<InputFieldSlots>();
-const value = defineModel<string>();
+const modelValue = defineModel<string>();
 
-// this is needed to avoid passing modelValue to FormField as prop
-const formFieldProps = computed(() => extractFormFieldProps(rest));
+const {
+	value,
+	errors,
+	onInput: onFormFieldInput,
+	onBlur: onFormFieldBlur,
+} = useInputFieldWithinForm(() => name, modelValue);
+
+const formFieldProps = computed<FormFieldProps>(() => {
+	// this is needed to avoid passing modelValue to FormField as prop
+	const extractedProps = extractFormFieldProps(rest);
+
+	return {
+		...extractedProps,
+		messageText: extractedProps.messageText ?? errors.value[0],
+		state: extractedProps.state ?? (errors.value[0] ? FORM_FIELD_STATES.ERROR : undefined),
+	};
+});
 
 const finalInputProps = computed<InputHTMLAttributes>(() => {
 	return {
 		disabled: formFieldProps.value.state === FORM_FIELD_STATES.DISABLED,
 		...inputProps,
+		onInput: (event: Event) => {
+			onFormFieldInput();
+			inputProps?.onInput?.(event);
+		},
+		onBlur: (event: FocusEvent) => {
+			onFormFieldBlur(event);
+			inputProps?.onBlur?.(event);
+		},
 	};
 });
 </script>
