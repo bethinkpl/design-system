@@ -98,7 +98,7 @@
 	}
 
 	&__input {
-		@include formLabel-m-default-regular;
+		@include formText-s-default-regular;
 
 		background: transparent;
 		// hacky solution to override default browser styles for autofill
@@ -121,7 +121,7 @@
 	}
 
 	&__suffixText {
-		@include formLabel-m-default-regular;
+		@include formText-s-default-regular;
 
 		color: $color-neutral-text;
 	}
