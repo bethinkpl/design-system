@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "26.16.0",
+  "version": "27.0.0",
   "description": "Bethink universe design-system",
   "repository": {
     "type": "git",
@@ -97,7 +97,7 @@
     "vue-component-type-helpers": "2.2.10"
   },
   "peerDependencies": {
-    "vue": ">=3.5.0",
-    "vee-validate": ">=4.15.0"
+    "vee-validate": ">=4.15.0",
+    "vue": ">=3.5.0"
   }
 }
