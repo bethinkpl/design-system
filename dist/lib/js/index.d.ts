@@ -179,3 +179,4 @@ export { default as DsSkeleton } from './components/Skeleton/Skeleton.vue';
 export { initializePrimeVue } from './primevue';
 export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, } from './icons/fontawesome';
 export type { IconDefinition } from './icons/fontawesome';
+export * from 'vee-validate';

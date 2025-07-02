@@ -11,6 +11,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     suffixText: {
         type: import('vue').PropType<string>;
     };
+    name: {
+        type: import('vue').PropType<string>;
+    };
     label: {
         type: import('vue').PropType<string>;
     };
@@ -39,6 +42,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
     leftIcon: import('../../Icons/Icon').IconItem | null;
     suffixText: {
+        type: import('vue').PropType<string>;
+    };
+    name: {
         type: import('vue').PropType<string>;
     };
     label: {

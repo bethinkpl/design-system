@@ -6,6 +6,7 @@ export interface InputFieldProps extends FormFieldProps {
     inputProps?: InputHTMLAttributes;
     leftIcon?: IconItem | null;
     suffixText?: string;
+    name?: string;
 }
 export interface InputFieldSlots extends Omit<FormFieldSlots, 'field'> {
     action?: () => any;

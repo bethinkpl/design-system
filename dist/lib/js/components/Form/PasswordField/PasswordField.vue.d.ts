@@ -4,6 +4,9 @@ import { InputFieldSlots } from '../InputField/InputField.types';
 declare function __VLS_template(): Readonly<Omit<InputFieldSlots, "action">> & Omit<InputFieldSlots, "action">;
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     modelValue: import('vue').PropType<string>;
+    name: {
+        type: import('vue').PropType<string>;
+    };
     label: {
         type: import('vue').PropType<string>;
     };
@@ -33,6 +36,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     modelValue: import('vue').PropType<string>;
+    name: {
+        type: import('vue').PropType<string>;
+    };
     label: {
         type: import('vue').PropType<string>;
     };
