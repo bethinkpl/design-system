@@ -114,6 +114,12 @@
 		&::placeholder {
 			color: $color-neutral-text-weak;
 		}
+
+		&[type='password'] {
+			// On iOS, the default `$font-family` including `-apple-system` causes password dots to render larger than normal.
+			// To fix this visual inconsistency, we override the font-family to prevent oversized dots.
+			font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		}
 	}
 
 	&__leftIcon {
