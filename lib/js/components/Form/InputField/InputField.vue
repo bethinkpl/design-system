@@ -76,7 +76,7 @@
 		border-color: $color-danger-border;
 	}
 
-	&:hover:not(.-ds-disabled) {
+	&:hover:not(.-ds-disabled):not(:focus-within) {
 		border-color: $color-neutral-border-strong-hovered;
 	}
 
