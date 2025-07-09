@@ -110,6 +110,7 @@
 		// override default browser min-width
 		min-width: 0;
 		outline: none;
+		padding: 0;
 
 		&::placeholder {
 			color: $color-neutral-text-weak;

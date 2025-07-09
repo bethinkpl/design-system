@@ -57,19 +57,19 @@ const StoryTemplate: StoryFn<typeof Banner> = (args) => {
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	closable: false,
-	icon: null,
+	size: BANNER_SIZES.MEDIUM,
 	color: BANNER_COLORS.DEFAULT,
+	icon: null,
+	isIconHiddenOnMobile: false,
 	title: 'Banner Title',
+	titleInColor: false,
 	buttonText: '',
+	closable: false,
+	isExpanded: false,
 	defaultText:
 		'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices malesuada vehicula. Mauris egestas scelerisque enim, condimentum aliquet arcu bibendum nec.',
 	expandedText: '',
 	rightSlot: '',
-	isExpanded: false,
-	isIconHiddenOnMobile: false,
-	size: BANNER_SIZES.MEDIUM,
-	titleInColor: false,
 } as Args;
 
 const argTypes = {

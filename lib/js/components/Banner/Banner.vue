@@ -7,16 +7,13 @@
 				sizeClass,
 				{
 					'-ds-titleInColor': titleInColor,
+					'-ds-iconHiddenOnMobile': isIconHiddenOnMobile,
 				},
 			]"
 		>
 			<div class="ds-banner__content">
 				<div class="ds-banner__header">
-					<div
-						v-if="icon && size === BANNER_SIZES.MEDIUM"
-						class="ds-banner__iconWrapper"
-						:class="{ '-ds-hideOnMobile': isIconHiddenOnMobile }"
-					>
+					<div v-if="icon && size === BANNER_SIZES.MEDIUM" class="ds-banner__iconWrapper">
 						<feature-icon
 							:icon="icon"
 							:color="iconColor"
@@ -130,21 +127,27 @@
 				gap: $space-s;
 			}
 
-			#{$self}__rightWrapper {
-				padding: 0;
-			}
-
 			#{$self}__rightSlot,
 			#{$self}__buttonWrapper {
 				padding: $space-xs 0;
 			}
 
-			#{$self}__close {
-				padding-left: $space-2xs;
+			&.-ds-medium {
+				#{$self}__expander {
+					padding: $space-xs 0 $space-xs $space-2xs;
+				}
 			}
 
-			#{$self}__expandedContainer {
-				padding: 0;
+			// double class name selector to override -ds-small styles without container query, which are defined below
+			&.-ds-small.-ds-small {
+				#{$self}__textWrapper {
+					gap: $space-2xs;
+				}
+
+				#{$self}__rightSlot,
+				#{$self}__buttonWrapper {
+					padding: 0;
+				}
 			}
 		}
 
@@ -208,13 +211,28 @@
 				padding: 0;
 			}
 
-			#{$self}__rightSlot,
-			#{$self}__buttonWrapper {
+			#{$self}__titleWrapper {
 				padding: 0;
 			}
 
-			#{$self}__expander {
-				padding: 0 0 0 $space-2xs;
+			#{$self}__rightSlot,
+			#{$self}__buttonWrapper {
+				padding: $space-xs 0 $space-5xs;
+			}
+
+			#{$self}__expandedContainer {
+				padding: 0;
+			}
+		}
+
+		&.-ds-iconHiddenOnMobile {
+			#{$self}__iconWrapper,
+			#{$self}__iconWrapperSmall {
+				display: none;
+
+				@media #{breakpoint-s()} {
+					display: initial;
+				}
 			}
 		}
 	}
@@ -248,6 +266,7 @@
 	}
 
 	&__textWrapper {
+		align-self: stretch;
 		display: flex;
 		flex: 1;
 		flex-direction: column;
@@ -268,32 +287,24 @@
 		flex-shrink: 0;
 		flex-wrap: nowrap;
 		gap: $space-3xs;
-		padding: $space-4xs 0 0;
+		padding: 0;
 	}
 
 	&__rightSlot,
 	&__buttonWrapper {
-		padding: $space-2xs 0 $space-3xs 0;
+		padding: $space-xs 0 $space-3xs 0;
 	}
 
 	&__iconWrapper {
 		padding: $space-2xs $space-xs $space-2xs 0;
-
-		&.-ds-hideOnMobile {
-			display: none;
-
-			@media #{breakpoint-s()} {
-				display: initial;
-			}
-		}
 	}
 
 	&__close {
-		padding-left: $space-3xs;
+		padding-left: $space-2xs;
 	}
 
 	&__expander {
-		padding: $space-xs $space-4xs $space-xs $space-2xs;
+		padding: 0 0 0 $space-2xs;
 	}
 
 	&__expandedContainer {
