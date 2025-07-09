@@ -1,4 +1,4 @@
-import{I as t}from"./Icon-DUeXRUm6.js";import{T as e,a as r,b as o}from"./Tile-ByL6drhn.js";import{B as l,a as i}from"./Banner-D5riYdGJ.js";const R=s=>`
+import{I as t}from"./Icon-DUeXRUm6.js";import{T as e,a as r,b as o}from"./Tile-ByL6drhn.js";import{B as l,a as i}from"./Banner-vhOMD_c2.js";const R=s=>`
 <div style="display: flex; row-gap: 16px; flex-direction: column">
 		<${s}
 			:additional-text="additionalText"
