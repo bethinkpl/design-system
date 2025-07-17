@@ -15,7 +15,6 @@ import { faArrowsMaximize } from '@fortawesome/pro-regular-svg-icons/faArrowsMax
 import { faArrowsRotate } from '@fortawesome/pro-regular-svg-icons/faArrowsRotate';
 import { faArrowUpRightAndArrowDownLeftFromCenter } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightAndArrowDownLeftFromCenter';
 import { faArrowUpRightFromSquare } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightFromSquare';
-import { faAtom } from '@fortawesome/pro-regular-svg-icons/faAtom';
 import { faAtom as fasAtom } from '@fortawesome/pro-solid-svg-icons/faAtom';
 import { faBadgePercent } from '@fortawesome/pro-regular-svg-icons/faBadgePercent';
 import { faBan } from '@fortawesome/pro-regular-svg-icons/faBan';
@@ -193,7 +192,6 @@ import { faMessageQuestion as fasMessageQuestion } from '@fortawesome/pro-solid-
 import { faMessageQuestion } from '@fortawesome/pro-regular-svg-icons/faMessageQuestion';
 import { faMessageXmark } from '@fortawesome/pro-regular-svg-icons/faMessageXmark';
 import { faMessage } from '@fortawesome/pro-regular-svg-icons/faMessage';
-import { faPills as fasPills } from '@fortawesome/pro-solid-svg-icons/faPills';
 import { faSitemap as fasSitemap } from '@fortawesome/pro-solid-svg-icons/faSitemap';
 import { faSquareCheck as fasSquareCheck } from '@fortawesome/pro-solid-svg-icons/faSquareCheck';
 import { faSquareList as fasSquareList } from '@fortawesome/pro-solid-svg-icons/faSquareList';
@@ -240,7 +238,6 @@ export const FONTAWESOME_ICONS = {
 	FA_ARROWS_LEFT_RIGHT_SOLID: fasArrowsLeftRight,
 	FA_ARROWS_MAXIMIZE: faArrowsMaximize,
 	FA_ARROWS_ROTATE: faArrowsRotate,
-	FA_ATOM: faAtom,
 	FA_ATOM_SOLID: fasAtom,
 	FA_BADGE_PERCENT: faBadgePercent,
 	FA_BAN: faBan,
@@ -382,7 +379,6 @@ export const FONTAWESOME_ICONS = {
 	FA_PEN_CIRCLE: faPenCircle,
 	FA_PEN_FIELD: faPenField,
 	FA_PENCIL: faPencil,
-	FA_PILLS_SOLID: fasPills,
 	FA_PLAY: faPlay,
 	FA_PLUS: faPlus,
 	FA_PRESENTATION_SCREEN: faPresentationScreen,
