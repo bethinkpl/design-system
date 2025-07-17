@@ -5,8 +5,6 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import svgLoader from 'vite-svg-loader';
 import dts from 'vite-plugin-dts';
-import cssInjectedByJsPlugin from 'vite-plugin-css-injected-by-js';
-// import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -16,7 +14,6 @@ export default defineConfig({
 		dts({
 			tsconfigPath: './tsconfig.build.json',
 		}),
-		cssInjectedByJsPlugin(),
 	],
 	build: {
 		lib: {
