@@ -91,7 +91,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
-        readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -233,7 +232,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
-        readonly FA_PILLS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -654,7 +652,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
-            readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -796,7 +793,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
-            readonly FA_PILLS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1199,7 +1195,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
-            readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1341,7 +1336,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
-            readonly FA_PILLS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1653,7 +1647,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
-                readonly FA_ATOM: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1795,7 +1788,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
-                readonly FA_PILLS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
