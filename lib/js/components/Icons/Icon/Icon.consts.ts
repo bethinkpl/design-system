@@ -6,6 +6,7 @@ import Answers from '../../../../images/icons/icon-answers.svg';
 import HideAnswers from '../../../../images/icons/icon-hide-answers.svg';
 import SidebarFlipSolid from '../../../../images/icons/sidebar-flip-solid.svg';
 import Change from '../../../../images/icons/change.svg';
+import CloudDisconnected from '../../../../images/icons/cloud-disconnected.svg';
 
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
 import { Value } from '../../../utils/type.utils';
@@ -50,6 +51,7 @@ const BETHINK_ICONS = {
 	RIBBON: Ribbon,
 	SIDEBAR_FLIP_SOLID: SidebarFlipSolid,
 	SLIDERS_SEARCH: SlidersSearch,
+	CLOUD_DISCONNECTED: CloudDisconnected,
 } as const;
 
 export const ICONS = {
