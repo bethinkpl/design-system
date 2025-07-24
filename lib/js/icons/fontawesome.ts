@@ -43,6 +43,7 @@ import { faChevronLeft } from '@fortawesome/pro-regular-svg-icons/faChevronLeft'
 import { faChevronRight } from '@fortawesome/pro-regular-svg-icons/faChevronRight';
 import { faChevronUp } from '@fortawesome/pro-regular-svg-icons/faChevronUp';
 import { faCircle } from '@fortawesome/pro-regular-svg-icons/faCircle';
+import { faCircle as faCircleSolid } from '@fortawesome/pro-solid-svg-icons/faCircle';
 import { faCircleArrowLeft } from '@fortawesome/pro-regular-svg-icons/faCircleArrowLeft';
 import { faCircleArrowRight } from '@fortawesome/pro-regular-svg-icons/faCircleArrowRight';
 import { faCircleCheck } from '@fortawesome/pro-regular-svg-icons/faCircleCheck';
@@ -113,6 +114,7 @@ import { faMemoCircleInfo } from '@fortawesome/pro-regular-svg-icons/faMemoCircl
 import { faMinus } from '@fortawesome/pro-regular-svg-icons/faMinus';
 import { faMoneyBill1 } from '@fortawesome/pro-regular-svg-icons/faMoneyBill1';
 import { faMusic } from '@fortawesome/pro-regular-svg-icons/faMusic';
+import { faNotes } from '@fortawesome/pro-regular-svg-icons/faNotes';
 import { faPaperclip } from '@fortawesome/pro-regular-svg-icons/faPaperclip';
 import { faPaperPlane } from '@fortawesome/pro-regular-svg-icons/faPaperPlane';
 import { faPencil } from '@fortawesome/pro-regular-svg-icons/faPencil';
@@ -154,6 +156,7 @@ import { faUpload } from '@fortawesome/pro-regular-svg-icons/faUpload';
 import { faUser } from '@fortawesome/pro-regular-svg-icons/faUser';
 import { faWandMagicSparkles } from '@fortawesome/pro-regular-svg-icons/faWandMagicSparkles';
 import { faWindowMaximize } from '@fortawesome/pro-regular-svg-icons/faWindowMaximize';
+import { faQuestion } from '@fortawesome/pro-regular-svg-icons/faQuestion';
 import { faXmark } from '@fortawesome/pro-regular-svg-icons/faXmark';
 import { faCommentsQuestion } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestion';
 import { faCommentsQuestionCheck } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestionCheck';
@@ -276,6 +279,7 @@ export const FONTAWESOME_ICONS = {
 	FA_CHEVRON_RIGHT_LIGHT: falChevronRight,
 	FA_CHEVRON_UP: faChevronUp,
 	FA_CIRCLE: faCircle,
+	FA_CIRCLE_SOLID: faCircleSolid,
 	FA_CIRCLE_ARROW_LEFT: faCircleArrowLeft,
 	FA_CIRCLE_ARROW_RIGHT: faCircleArrowRight,
 	FA_CIRCLE_CHECK: faCircleCheck,
@@ -374,6 +378,7 @@ export const FONTAWESOME_ICONS = {
 	FA_MINUS: faMinus,
 	FA_MONEY_BILL1: faMoneyBill1,
 	FA_MUSIC: faMusic,
+	FA_NOTES: faNotes,
 	FA_PAPER_PLANE: faPaperPlane,
 	FA_PAPERCLIP: faPaperclip,
 	FA_PEN_CIRCLE: faPenCircle,
@@ -429,6 +434,7 @@ export const FONTAWESOME_ICONS = {
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
+	FA_QUESTION: faQuestion,
 	FA_XMARK: faXmark,
 	FAD_SPINNER_THIRD: fadSpinnerThird,
 } as const;
