@@ -6,6 +6,7 @@
 			{
 				'-ds-interactive': interactive,
 				[`-ds-border-${borderColor}`]: borderColor !== null,
+				[`${tileCompactLayoutClass}`]: !!tileCompactLayoutClass,
 			},
 		]"
 		class="ds-tile"
@@ -38,7 +39,6 @@
 		<ds-icon
 			v-else-if="iconRight"
 			class="ds-tile__iconRight"
-			:class="{ '-ds-hiddenOnMobile': isIconRightHiddenOnMobile }"
 			:icon="iconRight"
 			:size="ICON_SIZES.SMALL"
 		/>
@@ -300,6 +300,8 @@ $tile-colors: (
 	border-radius: $radius-s;
 	display: flex;
 	flex-direction: row;
+	gap: $space-xs;
+	justify-content: center;
 	min-height: 48px;
 	padding: $space-2xs $space-xs;
 	transition: background-color ease-in-out $default-transition-time;
@@ -315,6 +317,40 @@ $tile-colors: (
 
 		#{$self}__text {
 			color: $color-neutral-text-heavy-disabled;
+		}
+	}
+
+	&.-ds-iconLeftOnly {
+		#{$self}__center,
+		#{$self}__iconRight {
+			display: none;
+		}
+	}
+
+	&.-ds-iconRightOnly {
+		#{$self}__center,
+		#{$self}__iconLeft {
+			display: none;
+		}
+	}
+
+	&.-ds-iconRightHidden {
+		#{$self}__iconRight {
+			display: none;
+		}
+	}
+
+	&.-ds-iconRightHidden,
+	&.-ds-iconLeftOnly,
+	&.-ds-iconRightOnly {
+		container-type: inline-size;
+
+		@container (width > 165px) {
+			#{$self}__center,
+			#{$self}__iconRight,
+			#{$self}__iconLeft {
+				display: flex;
+			}
 		}
 	}
 
@@ -370,68 +406,58 @@ $tile-colors: (
 		}
 	}
 
-	&__iconLeft {
-		margin-right: $space-xs;
-	}
-
-	&__iconRight {
-		margin-left: $space-xs;
-
-		&.-ds-hiddenOnMobile {
-			display: none;
-
-			@media #{breakpoint-s()} {
-				display: block;
-			}
-		}
-	}
-
 	&.-ds-interactive:not(.-ds-disabled):not(.-ds-loading) {
 		cursor: pointer;
 	}
 }
 </style>
 
-<script lang="ts">
+<script setup lang="ts">
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
-import { TILE_ADDITIONAL_TEXT_MAX_WIDTHS, TILE_COLORS, TILE_STATES } from './Tile.consts';
-import { props } from './Tile.shared';
-import { defineComponent } from 'vue';
+import {
+	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
+	TILE_COLORS,
+	TILE_COMPACT_LAYOUTS,
+	TILE_STATES,
+} from './Tile.consts';
+import { props as TileProps } from './Tile.shared';
+import { computed } from 'vue';
 
-export default defineComponent({
-	name: 'Tile',
-	components: {
-		DsIcon,
-	},
-	props,
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
-			TILE_STATES: Object.freeze(TILE_STATES),
-			TILE_ADDITIONAL_TEXT_MAX_WIDTHS: Object.freeze(TILE_ADDITIONAL_TEXT_MAX_WIDTHS),
-		};
-	},
-	computed: {
-		tileColor() {
-			return {
-				[TILE_COLORS.NEUTRAL]: '-ds-neutral',
-				[TILE_COLORS.NEUTRAL_WEAK]: '-ds-neutralWeak',
-				[TILE_COLORS.PRIMARY]: '-ds-primary',
-				[TILE_COLORS.SUCCESS]: '-ds-success',
-				[TILE_COLORS.FAIL]: '-ds-fail',
-				[TILE_COLORS.DANGER]: '-ds-danger',
-				[TILE_COLORS.WARNING]: '-ds-warning',
-				[TILE_COLORS.INFO]: '-ds-info',
-			}[this.color];
-		},
-		tileState() {
-			return {
-				[TILE_STATES.DEFAULT]: null,
-				[TILE_STATES.DISABLED]: '-ds-disabled',
-				[TILE_STATES.LOADING]: '-ds-loading',
-			}[this.state];
-		},
-	},
+const props = defineProps(TileProps);
+
+const tileCompactLayoutClass = computed(() => {
+	switch (props.compactLayout) {
+		case TILE_COMPACT_LAYOUTS.ICON_LEFT_ONLY:
+			return '-ds-iconLeftOnly';
+		case TILE_COMPACT_LAYOUTS.ICON_RIGHT_ONLY:
+			return '-ds-iconRightOnly';
+		case TILE_COMPACT_LAYOUTS.ICON_RIGHT_HIDDEN:
+			return '-ds-iconRightHidden';
+		default:
+			return false;
+	}
 });
+
+const tileColor = computed(
+	() =>
+		({
+			[TILE_COLORS.NEUTRAL]: '-ds-neutral',
+			[TILE_COLORS.NEUTRAL_WEAK]: '-ds-neutralWeak',
+			[TILE_COLORS.PRIMARY]: '-ds-primary',
+			[TILE_COLORS.SUCCESS]: '-ds-success',
+			[TILE_COLORS.FAIL]: '-ds-fail',
+			[TILE_COLORS.DANGER]: '-ds-danger',
+			[TILE_COLORS.WARNING]: '-ds-warning',
+			[TILE_COLORS.INFO]: '-ds-info',
+		}[props.color]),
+);
+
+const tileState = computed(
+	() =>
+		({
+			[TILE_STATES.DEFAULT]: null,
+			[TILE_STATES.DISABLED]: '-ds-disabled',
+			[TILE_STATES.LOADING]: '-ds-loading',
+		}[props.state]),
+);
 </script>

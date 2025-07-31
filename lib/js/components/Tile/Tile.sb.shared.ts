@@ -1,5 +1,5 @@
 import { ICONS } from '../Icons/Icon';
-import { TILE_BORDER_COLORS, TILE_COLORS, TILE_STATES } from './Tile.consts';
+import { TILE_BORDER_COLORS, TILE_COLORS, TILE_COMPACT_LAYOUTS, TILE_STATES } from './Tile.consts';
 import { Args, ArgTypes } from '@storybook/vue3';
 import DsBanner, { BANNER_COLORS } from '../Banner';
 
@@ -12,13 +12,13 @@ export const template = (componentTag: string) => `
 			:eyebrow-text="eyebrowText"
 			:icon-left="ICONS[iconLeft]"
 			:icon-right="ICONS[iconRight]"
-			:is-icon-right-hidden-on-mobile="isIconRightHiddenOnMobile"
 			:interactive="interactive"
 			:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
 			:state="state"
 			:text-ellipsis="textEllipsis"
 			:text="text"
 			:border-color="borderColor"
+			:compact-layout="compactLayout"
 		/>
 		<ds-banner :color="BANNER_COLORS.WARNING" title="Taka kombinacja koloru komponentu z kolorem bordera jest niezgodna z design systemem!" v-if="borderColor && !allowedColorsToBorderColorsMap[color].includes(borderColor)" />
 </div>
@@ -59,7 +59,6 @@ export const args = {
 	borderColor: null,
 	iconLeft: null,
 	iconRight: null,
-	isIconRightHiddenOnMobile: false,
 	eyebrowText: 'this is an eyebrowText text',
 	eyebrowEllipsis: true,
 	isEyebrowTextUppercase: false,
@@ -67,6 +66,7 @@ export const args = {
 	textEllipsis: true,
 	additionalText: '',
 	state: TILE_STATES.DEFAULT,
+	compactLayout: TILE_COMPACT_LAYOUTS.DEFAULT,
 } as Args;
 
 export const argTypes = {
@@ -89,5 +89,9 @@ export const argTypes = {
 	state: {
 		control: 'select',
 		options: [...Object.values(TILE_STATES)],
+	},
+	compactLayout: {
+		control: 'select',
+		options: [...Object.values(TILE_COMPACT_LAYOUTS)],
 	},
 } as ArgTypes;
