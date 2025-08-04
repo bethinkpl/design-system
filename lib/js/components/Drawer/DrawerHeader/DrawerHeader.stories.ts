@@ -59,6 +59,7 @@ const args = {
 	isSecondLevel: false,
 	actions: 'actions slot',
 	titleTrailing: 'trailing slot',
+	back: false,
 } as Args;
 
 const argTypes = {
