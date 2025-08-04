@@ -39,3 +39,10 @@ export declare const TILE_ADDITIONAL_TEXT_MAX_WIDTHS: {
     readonly MEDIUM: "medium";
 };
 export type TileAdditionalTextMaxWidth = Value<typeof TILE_ADDITIONAL_TEXT_MAX_WIDTHS>;
+export declare const TILE_COMPACT_LAYOUTS: {
+    readonly DEFAULT: "default";
+    readonly ICON_RIGHT_HIDDEN: "iconRightHidden";
+    readonly ICON_LEFT_ONLY: "iconLeftOnly";
+    readonly ICON_RIGHT_ONLY: "iconRightOnly";
+};
+export type TileCompactLayout = Value<typeof TILE_COMPACT_LAYOUTS>;
