@@ -3,10 +3,10 @@
 		:class="[
 			tileColor,
 			tileState,
+			tileCompactLayoutClass,
 			{
 				'-ds-interactive': interactive,
 				[`-ds-border-${borderColor}`]: borderColor !== null,
-				[`${tileCompactLayoutClass}`]: !!tileCompactLayoutClass,
 			},
 		]"
 		class="ds-tile"
@@ -434,7 +434,7 @@ const tileCompactLayoutClass = computed(() => {
 		case TILE_COMPACT_LAYOUTS.ICON_RIGHT_HIDDEN:
 			return '-ds-iconRightHidden';
 		default:
-			return false;
+			return '';
 	}
 });
 
