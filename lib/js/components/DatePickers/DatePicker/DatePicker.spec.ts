@@ -9,7 +9,7 @@ const createComponent = (props = {}) => {
 	});
 };
 
-describe('DrawerHeader', () => {
+describe('DatePicker', () => {
 	describe('Hidden Icon', () => {
 		it('should pass DEFAULT compact layout to Tile when isIconHiddenOnMobile is not set', () => {
 			const component = createComponent();
