@@ -31,7 +31,7 @@
 				:eyebrow-text="eyebrowText"
 				:additional-text-max-width="TILE_ADDITIONAL_TEXT_MAX_WIDTHS.MEDIUM"
 				has-border
-				:small-variant="
+				:compact-layout="
 					isIconHiddenOnMobile
 						? TILE_COMPACT_LAYOUTS.ICON_RIGHT_HIDDEN
 						: TILE_COMPACT_LAYOUTS.DEFAULT
