@@ -88,6 +88,7 @@ $minimal-drawer-header-height: 82px;
 	&__firstLevel {
 		align-items: center;
 		display: flex;
+		min-width: 0;
 
 		&.-ds-hidden {
 			visibility: hidden; // by this we make sure that height does not change when switching to second level
