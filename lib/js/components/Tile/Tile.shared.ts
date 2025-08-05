@@ -3,10 +3,12 @@ import { ICONS } from '../Icons/Icon';
 import {
 	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
 	TILE_COLORS,
+	TILE_COMPACT_LAYOUTS,
 	TILE_STATES,
 	TileAdditionalTextMaxWidth,
 	TileBorderColors,
 	TileColor,
+	TileCompactLayout,
 	TileState,
 } from './Tile.consts';
 
@@ -28,10 +30,6 @@ export const props = {
 		validator(iconRight) {
 			return Object.values(ICONS).includes(toRaw(iconRight));
 		},
-	},
-	isIconRightHiddenOnMobile: {
-		type: Boolean,
-		default: false,
 	},
 	text: {
 		type: String,
@@ -80,6 +78,13 @@ export const props = {
 		default: TILE_ADDITIONAL_TEXT_MAX_WIDTHS.SMALL,
 		validator(value: TileAdditionalTextMaxWidth) {
 			return Object.values(TILE_ADDITIONAL_TEXT_MAX_WIDTHS).includes(value);
+		},
+	},
+	compactLayout: {
+		type: String as PropType<TileCompactLayout>,
+		default: TILE_COMPACT_LAYOUTS.DEFAULT,
+		validator(value: TileCompactLayout) {
+			return Object.values(TILE_COMPACT_LAYOUTS).includes(value);
 		},
 	},
 };
