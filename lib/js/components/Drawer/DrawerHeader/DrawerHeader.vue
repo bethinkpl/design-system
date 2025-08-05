@@ -15,6 +15,7 @@
 					v-if="back"
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:icon="ICONS.FA_CHEVRON_LEFT"
+					:touchable="false"
 					@click="$emit('backClicked')"
 				/>
 				<div class="ds-drawerHeader__textWrapper">
@@ -97,6 +98,7 @@ $minimal-drawer-header-height: 82px;
 		display: flex;
 		flex-direction: column;
 		min-width: 0;
+		padding-left: $space-4xs;
 		row-gap: $space-4xs;
 	}
 
@@ -147,7 +149,7 @@ $minimal-drawer-header-height: 82px;
 		display: flex;
 		justify-content: space-between;
 		min-height: $minimal-drawer-header-height;
-		padding: $space-m $space-xs $space-m $space-s;
+		padding: $space-m $space-xs;
 	}
 
 	&__actions {
