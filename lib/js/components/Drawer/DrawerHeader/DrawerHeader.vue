@@ -12,7 +12,7 @@
 			</ds-button>
 			<div :class="{ '-ds-hidden': isSecondLevel }" class="ds-drawerHeader__firstLevel">
 				<icon-button
-					v-if="back"
+					v-if="hasBackButton"
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:icon="ICONS.FA_CHEVRON_LEFT"
 					:touchable="false"
@@ -227,7 +227,7 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
-		back: {
+		hasBackButton: {
 			type: Boolean,
 			default: false,
 		},

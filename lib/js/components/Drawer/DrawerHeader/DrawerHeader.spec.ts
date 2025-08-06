@@ -10,9 +10,9 @@ const createComponent = (props = {}) => {
 };
 
 describe('DrawerHeader', () => {
-	describe('Back', () => {
-		it('should show back button on first level when back set to true', () => {
-			const component = createComponent({ back: true });
+	describe('hasBackButton', () => {
+		it('should show back button on first level when hasBackButton set to true', () => {
+			const component = createComponent({ hasBackButton: true });
 
 			const backButton = component
 				.find('.ds-drawerHeader__firstLevel')
@@ -29,8 +29,8 @@ describe('DrawerHeader', () => {
 
 			expect(backButton.exists()).toBeFalsy();
 		});
-		it('should hide back button on first level when back set to false', () => {
-			const component = createComponent({ back: false });
+		it('should hide back button on first level when hasBackButton set to false', () => {
+			const component = createComponent({ hasBackButton: false });
 
 			const backButton = component
 				.find('.ds-drawerHeader__firstLevel')
@@ -39,7 +39,7 @@ describe('DrawerHeader', () => {
 			expect(backButton.exists()).toBeFalsy();
 		});
 		it('should emit backClicked when clicking on back', async () => {
-			const component = createComponent({ back: true });
+			const component = createComponent({ hasBackButton: true });
 
 			const backButton = component
 				.find('.ds-drawerHeader__firstLevel')
