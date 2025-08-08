@@ -46,6 +46,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    hasBackButton: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>, {}, {
     BUTTON_TYPES: Readonly<{
         readonly FILLED: "filled";
@@ -348,6 +352,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    hasBackButton: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>> & Readonly<{
     onClose?: ((...args: any[]) => any) | undefined;
     onBackClicked?: ((...args: any[]) => any) | undefined;
@@ -364,6 +372,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isClosable: boolean;
     hasDivider: boolean;
     isSecondLevel: boolean;
+    hasBackButton: boolean;
 }, {}, {
     DsButton: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
