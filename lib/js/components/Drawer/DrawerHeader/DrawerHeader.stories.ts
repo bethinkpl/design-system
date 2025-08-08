@@ -32,6 +32,7 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 			:title-color="titleColor"
 			:title-ellipsis="titleEllipsis"
 			:title="title"
+			:has-back-button="hasBackButton"
 		>
 			<template #actions v-if="actions">
 				<div v-html="actions" />
@@ -58,6 +59,7 @@ const args = {
 	isSecondLevel: false,
 	actions: 'actions slot',
 	titleTrailing: 'trailing slot',
+	hasBackButton: false,
 } as Args;
 
 const argTypes = {
@@ -80,6 +82,7 @@ const argTypes = {
 	isClosable: { control: 'boolean' },
 	actions: { control: 'text' },
 	titleTrailing: { control: 'text' },
+	hasBackButton: { control: 'boolean' },
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

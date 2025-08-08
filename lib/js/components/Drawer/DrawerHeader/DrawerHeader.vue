@@ -11,34 +11,43 @@
 				Wróć
 			</ds-button>
 			<div :class="{ '-ds-hidden': isSecondLevel }" class="ds-drawerHeader__firstLevel">
-				<span
-					v-if="eyebrowText"
-					:class="{
-						'-ds-isInteractive': isInteractiveEyebrow,
-						'-ds-ellipsis': eyebrowEllipsis,
-					}"
-					class="ds-drawerHeader__eyebrow"
-					@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
-				>
-					{{ eyebrowText }}
-				</span>
-				<div class="ds-drawerHeader__title">
-					<icon
-						v-if="leftIcon"
-						:icon="leftIcon"
-						:size="ICON_SIZES.X_SMALL"
-						class="ds-drawerHeader__leftIcon"
-					/>
+				<icon-button
+					v-if="hasBackButton"
+					:size="ICON_BUTTON_SIZES.MEDIUM"
+					:icon="ICONS.FA_CHEVRON_LEFT"
+					:touchable="false"
+					@click="$emit('backClicked')"
+				/>
+				<div class="ds-drawerHeader__textWrapper">
 					<span
-						v-if="title"
-						class="ds-drawerHeader__titleText"
-						:class="{ '-ds-ellipsis': titleEllipsis, [`-ds-${titleColor}`]: true }"
-						:title="titleEllipsis ? title : undefined"
-						>{{ title }}</span
+						v-if="eyebrowText"
+						:class="{
+							'-ds-isInteractive': isInteractiveEyebrow,
+							'-ds-ellipsis': eyebrowEllipsis,
+						}"
+						class="ds-drawerHeader__eyebrow"
+						@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
 					>
-					<chip v-if="chipLabel" :label="chipLabel" />
-					<div v-if="$slots.titleTrailing">
-						<slot name="titleTrailing" />
+						{{ eyebrowText }}
+					</span>
+					<div class="ds-drawerHeader__title">
+						<icon
+							v-if="leftIcon"
+							:icon="leftIcon"
+							:size="ICON_SIZES.X_SMALL"
+							class="ds-drawerHeader__leftIcon"
+						/>
+						<span
+							v-if="title"
+							class="ds-drawerHeader__titleText"
+							:class="{ '-ds-ellipsis': titleEllipsis, [`-ds-${titleColor}`]: true }"
+							:title="titleEllipsis ? title : undefined"
+							>{{ title }}</span
+						>
+						<chip v-if="chipLabel" :label="chipLabel" />
+						<div v-if="$slots.titleTrailing">
+							<slot name="titleTrailing" />
+						</div>
 					</div>
 				</div>
 			</div>
@@ -77,14 +86,21 @@ $minimal-drawer-header-height: 82px;
 	}
 
 	&__firstLevel {
+		align-items: center;
 		display: flex;
-		flex-direction: column;
 		min-width: 0;
-		row-gap: $space-4xs;
 
 		&.-ds-hidden {
 			visibility: hidden; // by this we make sure that height does not change when switching to second level
 		}
+	}
+
+	&__textWrapper {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+		padding-left: $space-4xs;
+		row-gap: $space-4xs;
 	}
 
 	&__eyebrow {
@@ -134,7 +150,7 @@ $minimal-drawer-header-height: 82px;
 		display: flex;
 		justify-content: space-between;
 		min-height: $minimal-drawer-header-height;
-		padding: $space-m $space-xs $space-m $space-s;
+		padding: $space-m $space-xs;
 	}
 
 	&__actions {
@@ -208,6 +224,10 @@ export default defineComponent({
 			default: false,
 		},
 		isSecondLevel: {
+			type: Boolean,
+			default: false,
+		},
+		hasBackButton: {
 			type: Boolean,
 			default: false,
 		},
