@@ -203,6 +203,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_HAND_POINT_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HAND_SPOCK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HANDS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_HEAD_SIDE_BRAIN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HEART_PULSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HEART_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HOURGLASS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -237,6 +238,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PAPER_PLANE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PAPERCLIP: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_PARTY_HORN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -244,6 +246,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_PUZZLE_PIECE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_RECTANGLE_HISTORY: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -681,6 +684,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_HAND_POINT_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HAND_SPOCK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HANDS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_HEAD_SIDE_BRAIN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEART_PULSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEART_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HOURGLASS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -715,6 +719,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PAPER_PLANE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PAPERCLIP: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_PARTY_HORN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -722,6 +727,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PRESENTATION_SCREEN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_PUZZLE_PIECE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_HISTORY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
