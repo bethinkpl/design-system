@@ -219,6 +219,7 @@ import { faSpinnerThird as fadSpinnerThird } from '@fortawesome/pro-duotone-svg-
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
 import { faUserGear } from '@fortawesome/pro-regular-svg-icons/faUserGear';
 import { faCardsBlank } from '@fortawesome/pro-regular-svg-icons/faCardsBlank';
+import { faMobileRotate } from '@fortawesome/pro-regular-svg-icons/faMobileRotate';
 
 export const FONTAWESOME_ICONS = {
 	FA_ADDRESS_CARD: faAddressCard,
@@ -376,6 +377,7 @@ export const FONTAWESOME_ICONS = {
 	FA_MESSAGE_XMARK: faMessageXmark,
 	FA_MESSAGE: faMessage,
 	FA_MINUS: faMinus,
+	FA_MOBILE_ROTATE: faMobileRotate,
 	FA_MONEY_BILL1: faMoneyBill1,
 	FA_MUSIC: faMusic,
 	FA_PAPER_PLANE: faPaperPlane,
