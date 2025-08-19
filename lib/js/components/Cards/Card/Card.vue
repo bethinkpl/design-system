@@ -143,6 +143,10 @@
 		border-color: $color-info-border;
 	}
 
+	&.-ds-border-color-fail {
+		border-color: $color-fail-border;
+	}
+
 	&__loadingBar {
 		overflow: hidden;
 		position: absolute;

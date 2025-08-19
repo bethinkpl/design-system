@@ -13,6 +13,7 @@ export const CARD_BORDER_COLORS = {
 	SUCCESS: 'success',
 	WARNING: 'warning',
 	DANGER: 'danger',
+	FAIL: 'fail',
 	INFO: 'info',
 	TRANSPARENT: 'transparent',
 };
