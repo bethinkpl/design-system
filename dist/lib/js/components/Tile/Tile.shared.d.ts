@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import { TileAdditionalTextMaxWidth, TileBorderColors, TileColor, TileState } from './Tile.consts';
+import { TileAdditionalTextMaxWidth, TileBorderColors, TileColor, TileCompactLayout, TileState } from './Tile.consts';
 
 export declare const props: {
     interactive: {
@@ -15,10 +15,6 @@ export declare const props: {
         type: ObjectConstructor;
         default: null;
         validator(iconRight: any): boolean;
-    };
-    isIconRightHiddenOnMobile: {
-        type: BooleanConstructor;
-        default: boolean;
     };
     text: {
         type: StringConstructor;
@@ -62,5 +58,10 @@ export declare const props: {
         type: PropType<TileAdditionalTextMaxWidth>;
         default: "small";
         validator(value: TileAdditionalTextMaxWidth): boolean;
+    };
+    compactLayout: {
+        type: PropType<TileCompactLayout>;
+        default: "default";
+        validator(value: TileCompactLayout): boolean;
     };
 };

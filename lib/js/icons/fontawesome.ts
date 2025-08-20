@@ -91,6 +91,7 @@ import { faGraduationCap } from '@fortawesome/pro-regular-svg-icons/faGraduation
 import { faGrid } from '@fortawesome/pro-regular-svg-icons/faGrid';
 import { faHandPointLeft } from '@fortawesome/pro-regular-svg-icons/faHandPointLeft';
 import { faHandPointRight } from '@fortawesome/pro-regular-svg-icons/faHandPointRight';
+import { faHeadSideBrain } from '@fortawesome/pro-regular-svg-icons/faHeadSideBrain';
 import { faHeartPulse } from '@fortawesome/pro-regular-svg-icons/faHeartPulse';
 import { faHourglass } from '@fortawesome/pro-regular-svg-icons/faHourglass';
 import { faHourglassEnd } from '@fortawesome/pro-regular-svg-icons/faHourglassEnd';
@@ -117,6 +118,7 @@ import { faMusic } from '@fortawesome/pro-regular-svg-icons/faMusic';
 import { faNotes } from '@fortawesome/pro-regular-svg-icons/faNotes';
 import { faPaperclip } from '@fortawesome/pro-regular-svg-icons/faPaperclip';
 import { faPaperPlane } from '@fortawesome/pro-regular-svg-icons/faPaperPlane';
+import { faPartyHorn } from '@fortawesome/pro-regular-svg-icons/faPartyHorn';
 import { faPencil } from '@fortawesome/pro-regular-svg-icons/faPencil';
 import { faPenCircle } from '@fortawesome/pro-regular-svg-icons/faPenCircle';
 import { faPenField } from '@fortawesome/pro-regular-svg-icons/faPenField';
@@ -124,6 +126,7 @@ import { faPlay } from '@fortawesome/pro-regular-svg-icons/faPlay';
 import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
 import { faPresentationScreen } from '@fortawesome/pro-regular-svg-icons/faPresentationScreen';
 import { faPrint } from '@fortawesome/pro-regular-svg-icons/faPrint';
+import { faPuzzlePiece } from '@fortawesome/pro-regular-svg-icons/faPuzzlePiece';
 import { faRectangleCode } from '@fortawesome/pro-regular-svg-icons/faRectangleCode';
 import { faRectangleList } from '@fortawesome/pro-regular-svg-icons/faRectangleList';
 import { faRectangleHistory } from '@fortawesome/pro-regular-svg-icons/faRectangleHistory';
@@ -346,6 +349,7 @@ export const FONTAWESOME_ICONS = {
 	FA_HAND_POINT_RIGHT: faHandPointRight,
 	FA_HAND_SPOCK_SOLID: fasHandSpock,
 	FA_HANDS_SOLID: fasHands,
+	FA_HEAD_SIDE_BRAIN: faHeadSideBrain,
 	FA_HEART_PULSE: faHeartPulse,
 	FA_HEART_SOLID: fasHeart,
 	FA_HOURGLASS: faHourglass,
@@ -381,6 +385,7 @@ export const FONTAWESOME_ICONS = {
 	FA_NOTES: faNotes,
 	FA_PAPER_PLANE: faPaperPlane,
 	FA_PAPERCLIP: faPaperclip,
+	FA_PARTY_HORN: faPartyHorn,
 	FA_PEN_CIRCLE: faPenCircle,
 	FA_PEN_FIELD: faPenField,
 	FA_PENCIL: faPencil,
@@ -388,6 +393,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PLUS: faPlus,
 	FA_PRESENTATION_SCREEN: faPresentationScreen,
 	FA_PRINT: faPrint,
+	FA_PUZZLE_PIECE: faPuzzlePiece,
 	FA_RECTANGLE_CODE: faRectangleCode,
 	FA_RECTANGLE_HISTORY: faRectangleHistory,
 	FA_RECTANGLE_LIST: faRectangleList,

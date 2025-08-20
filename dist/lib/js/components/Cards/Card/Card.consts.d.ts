@@ -11,6 +11,7 @@ export declare const CARD_BORDER_COLORS: {
     SUCCESS: string;
     WARNING: string;
     DANGER: string;
+    FAIL: string;
     INFO: string;
     TRANSPARENT: string;
 };

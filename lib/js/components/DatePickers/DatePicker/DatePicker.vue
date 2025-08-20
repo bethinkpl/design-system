@@ -28,10 +28,14 @@
 				:border-color="borderColor"
 				:state="tileState"
 				:icon-right="tileIcon"
-				:is-icon-right-hidden-on-mobile="isIconHiddenOnMobile"
 				:eyebrow-text="eyebrowText"
 				:additional-text-max-width="TILE_ADDITIONAL_TEXT_MAX_WIDTHS.MEDIUM"
 				has-border
+				:compact-layout="
+					isIconHiddenOnMobile
+						? TILE_COMPACT_LAYOUTS.ICON_RIGHT_HIDDEN
+						: TILE_COMPACT_LAYOUTS.DEFAULT
+				"
 				@click.stop.prevent="toggle"
 			/>
 		</template>
@@ -145,6 +149,7 @@ import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import DsTile, {
 	TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
 	TILE_BORDER_COLORS,
+	TILE_COMPACT_LAYOUTS,
 	TileColor,
 	TileState,
 } from '../../Tile';
@@ -297,11 +302,12 @@ export default defineComponent({
 			toggleDatePicker,
 			updateDatePicker,
 			createDatePicker,
-			DATE_PICKER_CALENDAR_POSITIONS: Object.freeze(DATE_PICKER_CALENDAR_POSITIONS),
-			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
-			DATE_PICKER_STATES: Object.freeze(DATE_PICKER_STATES),
-			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
-			TILE_ADDITIONAL_TEXT_MAX_WIDTHS: Object.freeze(TILE_ADDITIONAL_TEXT_MAX_WIDTHS),
+			DATE_PICKER_CALENDAR_POSITIONS,
+			DATE_PICKER_COLORS,
+			DATE_PICKER_STATES,
+			DATE_PICKER_TRIGGER_TYPES,
+			TILE_ADDITIONAL_TEXT_MAX_WIDTHS,
+			TILE_COMPACT_LAYOUTS,
 		};
 	},
 	computed: {
