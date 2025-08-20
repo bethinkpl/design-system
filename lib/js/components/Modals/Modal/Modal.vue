@@ -152,7 +152,7 @@ $image-height-small: 140px;
 		box-shadow: $shadow-xl;
 		display: flex;
 		margin: 0 auto;
-		max-height: calc(100vh - #{2 * $space-l});
+		max-height: 100%;
 		max-width: $modal-medium-width;
 		overflow: hidden;
 		padding-top: $space-xl;
