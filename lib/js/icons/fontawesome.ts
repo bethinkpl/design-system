@@ -162,6 +162,8 @@ import { faCommentsQuestion } from '@fortawesome/pro-regular-svg-icons/faComment
 import { faCommentsQuestionCheck } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestionCheck';
 import { faCalendarClock } from '@fortawesome/pro-regular-svg-icons/faCalendarClock';
 import { faFileCheck } from '@fortawesome/pro-regular-svg-icons/faFileCheck';
+import { faQuestion } from '@fortawesome/pro-regular-svg-icons/faQuestion';
+
 import { faArrowDown as fasArrowDown } from '@fortawesome/pro-solid-svg-icons/faArrowDown';
 import { faArrowLeft as fasArrowLeft } from '@fortawesome/pro-solid-svg-icons/faArrowLeft';
 import { faArrowRight as fasArrowRight } from '@fortawesome/pro-solid-svg-icons/faArrowRight';
@@ -210,7 +212,6 @@ import { faVideo as fasVideo } from '@fortawesome/pro-solid-svg-icons/faVideo';
 import { faVolumeHigh as fasVolumeHigh } from '@fortawesome/pro-solid-svg-icons/faVolumeHigh';
 import { faCircleDot as fasCircleDot } from '@fortawesome/pro-solid-svg-icons/faCircleDot';
 import { faFlagCheckered as fasFlagCheckered } from '@fortawesome/pro-solid-svg-icons/faFlagCheckered';
-
 import { faChevronLeft as falChevronLeft } from '@fortawesome/pro-light-svg-icons/faChevronLeft';
 import { faChevronRight as falChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
 
@@ -431,6 +432,7 @@ export const FONTAWESOME_ICONS = {
 	FA_USER: faUser,
 	FA_USER_GEAR: faUserGear,
 	FA_USER_DOCTOR_SOLID: fasUserDoctor,
+	FA_QUESTION: faQuestion,
 	FA_VIDEO_SOLID: fasVideo,
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
