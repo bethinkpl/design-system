@@ -58,7 +58,7 @@ import { faClipboardList } from '@fortawesome/pro-regular-svg-icons/faClipboardL
 import { faClock } from '@fortawesome/pro-regular-svg-icons/faClock';
 import { faClockRotateLeft } from '@fortawesome/pro-regular-svg-icons/faClockRotateLeft';
 import { faCode } from '@fortawesome/pro-regular-svg-icons/faCode';
-import { faCodeSimple } from '@fortawesome/pro-regular-svg-icons';
+import { faCodeSimple } from '@fortawesome/pro-regular-svg-icons/faCodeSimple';
 import { faComment } from '@fortawesome/pro-regular-svg-icons/faComment';
 import { faCommentDots } from '@fortawesome/pro-regular-svg-icons/faCommentDots';
 import { faComments } from '@fortawesome/pro-regular-svg-icons/faComments';
@@ -87,6 +87,7 @@ import { faGaugeHigh } from '@fortawesome/pro-regular-svg-icons/faGaugeHigh';
 import { faGear } from '@fortawesome/pro-regular-svg-icons/faGear';
 import { faGem } from '@fortawesome/pro-regular-svg-icons/faGem';
 import { faGift } from '@fortawesome/pro-regular-svg-icons/faGift';
+import { faGiftCard } from '@fortawesome/pro-regular-svg-icons/faGiftCard';
 import { faGraduationCap } from '@fortawesome/pro-regular-svg-icons/faGraduationCap';
 import { faGrid } from '@fortawesome/pro-regular-svg-icons/faGrid';
 import { faHandPointLeft } from '@fortawesome/pro-regular-svg-icons/faHandPointLeft';
@@ -343,6 +344,7 @@ export const FONTAWESOME_ICONS = {
 	FA_GEARS_SOLID: fasGears,
 	FA_GEM: faGem,
 	FA_GIFT: faGift,
+	FA_GIFT_CARD: faGiftCard,
 	FA_GRADUATION_CAP: faGraduationCap,
 	FA_GRID: faGrid,
 	FA_HAND_POINT_LEFT: faHandPointLeft,
