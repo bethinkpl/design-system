@@ -53,7 +53,7 @@ const BETHINK_ICONS = {
 	SIDEBAR_FLIP_SOLID: SidebarFlipSolid,
 	SLIDERS_SEARCH: SlidersSearch,
 	CLOUD_DISCONNECTED: CloudDisconnected,
-	MOBILE_ROTATE: MobileRotate,
+	MOBILE_ROTATE: MobileRotate, // this is FontAwesome 7 icon, after migration to v7, it should be moved to fontawesome.ts
 } as const;
 
 export const ICONS = {
