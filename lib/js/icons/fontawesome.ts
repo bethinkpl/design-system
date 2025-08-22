@@ -451,7 +451,7 @@ export const FONTAWESOME_ICONS = {
 	FAD_SPINNER_THIRD: fadSpinnerThird,
 	FA_ICON_ARROW_DOWN_BIG_SMALL: faArrowDownBigSmall,
 	FA_ICON_ARROW_UP_BIG_SMALL: faArrowUpBigSmall,
-	FA_ICON_BULLSEYE_ARROW: faBullseyeArrow
+	FA_ICON_BULLSEYE_ARROW: faBullseyeArrow,
 } as const;
 
 export function initialize() {
