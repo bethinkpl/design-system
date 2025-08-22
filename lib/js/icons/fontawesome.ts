@@ -224,6 +224,10 @@ import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
 import { faUserGear } from '@fortawesome/pro-regular-svg-icons/faUserGear';
 import { faCardsBlank } from '@fortawesome/pro-regular-svg-icons/faCardsBlank';
 
+import { faArrowDownBigSmall } from '@fortawesome/pro-regular-svg-icons/faArrowDownBigSmall';
+import { faArrowUpBigSmall } from '@fortawesome/pro-regular-svg-icons/faArrowUpBigSmall';
+import { faBullseyeArrow } from '@fortawesome/pro-regular-svg-icons/faBullseyeArrow';
+
 export const FONTAWESOME_ICONS = {
 	FA_ADDRESS_CARD: faAddressCard,
 	FA_ANGLE_DOWN: faAngleDown,
@@ -445,6 +449,9 @@ export const FONTAWESOME_ICONS = {
 	FA_QUESTION: faQuestion,
 	FA_XMARK: faXmark,
 	FAD_SPINNER_THIRD: fadSpinnerThird,
+	FA_ICON_ARROW_DOWN_BIG_SMALL: faArrowDownBigSmall,
+	FA_ICON_ARROW_UP_BIG_SMALL: faArrowUpBigSmall,
+	FA_ICON_BULLSEYE_ARROW: faBullseyeArrow
 } as const;
 
 export function initialize() {
