@@ -148,6 +148,7 @@
 	&__content {
 		background: $color-neutral-background;
 		border-radius: $radius-s;
+		container-type: inline-size;
 		display: flex;
 		overflow-x: auto;
 		padding: $space-s $space-2xs;
@@ -203,7 +204,13 @@
 		display: flex;
 		flex: 1;
 		flex-direction: row;
-		gap: $space-l;
+		gap: $space-4xs;
+		justify-content: space-between;
+
+		@container (width > 400px) {
+			gap: $space-l;
+			justify-content: initial;
+		}
 
 		&.-ds-justifyEnd {
 			justify-content: flex-end;
@@ -246,6 +253,7 @@ import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
 
 import { defineComponent } from 'vue';
+
 export default defineComponent({
 	name: 'SurveyQuestionScale',
 	components: {
