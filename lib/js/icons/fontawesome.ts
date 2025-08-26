@@ -25,7 +25,7 @@ import { faBooks } from '@fortawesome/pro-regular-svg-icons/faBooks';
 import { faBook } from '@fortawesome/pro-regular-svg-icons/faBook';
 import { faBookBlank } from '@fortawesome/pro-regular-svg-icons/faBookBlank';
 import { faBookCopy } from '@fortawesome/pro-regular-svg-icons/faBookCopy';
-import { faBookSkull as fasBookSkull } from '@fortawesome/free-solid-svg-icons/faBookSkull';
+import { faBookSkull as fasBookSkull } from '@fortawesome/pro-solid-svg-icons/faBookSkull';
 import { faBox } from '@fortawesome/pro-regular-svg-icons/faBox';
 import { faBoxArchive } from '@fortawesome/pro-regular-svg-icons/faBoxArchive';
 import { faCalculatorSimple as fasCalculatorSimple } from '@fortawesome/pro-solid-svg-icons/faCalculatorSimple';
