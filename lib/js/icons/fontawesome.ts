@@ -25,6 +25,7 @@ import { faBooks } from '@fortawesome/pro-regular-svg-icons/faBooks';
 import { faBook } from '@fortawesome/pro-regular-svg-icons/faBook';
 import { faBookBlank } from '@fortawesome/pro-regular-svg-icons/faBookBlank';
 import { faBookCopy } from '@fortawesome/pro-regular-svg-icons/faBookCopy';
+import { faBookSkull as fasBookSkull } from '@fortawesome/free-solid-svg-icons/faBookSkull';
 import { faBox } from '@fortawesome/pro-regular-svg-icons/faBox';
 import { faBoxArchive } from '@fortawesome/pro-regular-svg-icons/faBoxArchive';
 import { faCalculatorSimple as fasCalculatorSimple } from '@fortawesome/pro-solid-svg-icons/faCalculatorSimple';
@@ -254,6 +255,7 @@ export const FONTAWESOME_ICONS = {
 	FA_BOOK: faBook,
 	FA_BOOK_BLANK: faBookBlank,
 	FA_BOOK_COPY: faBookCopy,
+	FA_BOOK_SKULL_SOLID: fasBookSkull,
 	FA_BOOK_SPARKLES_SOLID: fasBookSparkles,
 	FA_BOOKMARK_SOLID: fasBookmark,
 	FA_BOOK_MEDICAL_SOLID: fasBookMedical,
