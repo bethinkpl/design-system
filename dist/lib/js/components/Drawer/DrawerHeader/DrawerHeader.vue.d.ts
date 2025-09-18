@@ -76,7 +76,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
         readonly SLIDERS_SEARCH: VueConstructor<Vue>;
         readonly CLOUD_DISCONNECTED: VueConstructor<Vue>;
-        readonly MOBILE_ROTATE: VueConstructor<Vue>;
         readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -240,6 +239,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_MESSAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_MOBILE_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_NOTES: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -657,7 +657,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
             readonly SLIDERS_SEARCH: VueConstructor<Vue>;
             readonly CLOUD_DISCONNECTED: VueConstructor<Vue>;
-            readonly MOBILE_ROTATE: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -821,6 +820,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_MESSAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MOBILE_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_NOTES: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1215,7 +1215,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
             readonly SLIDERS_SEARCH: VueConstructor<Vue>;
             readonly CLOUD_DISCONNECTED: VueConstructor<Vue>;
-            readonly MOBILE_ROTATE: VueConstructor<Vue>;
             readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1379,6 +1378,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_MESSAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_MOBILE_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_NOTES: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1682,7 +1682,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
                 readonly SLIDERS_SEARCH: VueConstructor<Vue>;
                 readonly CLOUD_DISCONNECTED: VueConstructor<Vue>;
-                readonly MOBILE_ROTATE: VueConstructor<Vue>;
                 readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1846,6 +1845,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_MESSAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_MOBILE_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_NOTES: import('@fortawesome/fontawesome-common-types').IconDefinition;
