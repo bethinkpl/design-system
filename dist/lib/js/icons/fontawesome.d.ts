@@ -162,7 +162,6 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_MESSAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MESSAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
-    readonly FA_MOBILE_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_NOTES: import('@fortawesome/fontawesome-common-types').IconDefinition;
