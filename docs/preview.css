@@ -117,6 +117,10 @@ img {
   border: 0;
 }
 
+svg:not(:root) {
+  overflow: hidden;
+}
+
 figure {
   margin: 0;
 }
