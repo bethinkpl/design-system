@@ -117,7 +117,6 @@ import { faMagnifyingGlass } from '@fortawesome/pro-regular-svg-icons/faMagnifyi
 import { faMedal } from '@fortawesome/pro-regular-svg-icons/faMedal';
 import { faMemoCircleInfo } from '@fortawesome/pro-regular-svg-icons/faMemoCircleInfo';
 import { faMinus } from '@fortawesome/pro-regular-svg-icons/faMinus';
-import { faMobileRotate } from '@fortawesome/pro-regular-svg-icons/faMobileRotate';
 import { faMoneyBill1 } from '@fortawesome/pro-regular-svg-icons/faMoneyBill1';
 import { faMusic } from '@fortawesome/pro-regular-svg-icons/faMusic';
 import { faNotes } from '@fortawesome/pro-regular-svg-icons/faNotes';
@@ -396,7 +395,6 @@ export const FONTAWESOME_ICONS = {
 	FA_MESSAGE: faMessage,
 	FA_MESSAGES: faMessages,
 	FA_MINUS: faMinus,
-	FA_MOBILE_ROTATE: faMobileRotate,
 	FA_MONEY_BILL1: faMoneyBill1,
 	FA_MUSIC: faMusic,
 	FA_NOTES: faNotes,

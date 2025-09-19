@@ -7,6 +7,7 @@ import HideAnswers from '../../../../images/icons/icon-hide-answers.svg';
 import SidebarFlipSolid from '../../../../images/icons/sidebar-flip-solid.svg';
 import Change from '../../../../images/icons/change.svg';
 import CloudDisconnected from '../../../../images/icons/cloud-disconnected.svg';
+import MobileRotate from '../../../../images/icons/mobile-rotate.svg';
 
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
 import { Value } from '../../../utils/type.utils';
@@ -52,6 +53,7 @@ const BETHINK_ICONS = {
 	SIDEBAR_FLIP_SOLID: SidebarFlipSolid,
 	SLIDERS_SEARCH: SlidersSearch,
 	CLOUD_DISCONNECTED: CloudDisconnected,
+	MOBILE_ROTATE: MobileRotate, // this is FontAwesome 7 icon, after migration to v7, it should be moved to fontawesome.ts
 } as const;
 
 export const ICONS = {
