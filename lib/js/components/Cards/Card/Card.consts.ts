@@ -10,6 +10,7 @@ export type CardPaddingSize = Value<typeof CARD_PADDING_SIZES>;
 export const CARD_BORDER_COLORS = {
 	NEUTRAL_HEAVY: 'neutralHeavy',
 	NEUTRAL_STRONG: 'neutralStrong',
+	PRIMARY: 'primary',
 	SUCCESS: 'success',
 	WARNING: 'warning',
 	DANGER: 'danger',

@@ -2,16 +2,24 @@
 	<div
 		:class="[
 			'ds-card',
-			borderColorClass,
-			borderSizeClass,
 			{
-				'-ds-top-border': hasTopBoarder,
-				'-ds-left-border': hasLeftBoarder,
 				'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
 				'-ds-flat': isFlat,
+				'-ds-with-ribbon': hasBorder && !hasLoadingBar,
 			},
 		]"
+		:data-ribbon-layout="hasBorder && !hasLoadingBar ? ribbonLayout : undefined"
 	>
+		<!-- Container Ribbon for borders -->
+		<ds-container-ribbon
+			v-if="hasBorder && !hasLoadingBar"
+			class="ds-card__ribbon"
+			:size="ribbonSize"
+			:color="ribbonColor"
+			:layout="ribbonLayout"
+		/>
+		
+		<!-- Loading Bar (replaces top border when active) -->
 		<ds-loading-bar
 			v-if="hasLoadingBar"
 			class="ds-card__loadingBar"
@@ -19,27 +27,30 @@
 			:color="loadingBarColor"
 			:size="borderSize"
 		/>
-		<div
-			v-if="$slots.header"
-			class="ds-card__header"
-			:class="{ '-ds-withPadding': headerHasPadding }"
-		>
-			<slot name="header" />
-		</div>
-		<ds-divider
-			v-if="$slots.header && $slots.content && dividerUnderHeader"
-			class="ds-card__headerDivider"
-			:class="{ '-ds-withHorizontalMargin': headerHasPadding }"
-		/>
-		<div v-if="$slots.content" class="ds-card__content">
-			<slot name="content" />
-		</div>
-		<div
-			v-if="$slots.footer"
-			class="ds-card__footer"
-			:class="{ '-ds-withPadding': footerHasPadding }"
-		>
-			<slot name="footer" />
+		
+		<div class="ds-card__body">
+			<div
+				v-if="$slots.header"
+				class="ds-card__header"
+				:class="{ '-ds-withPadding': headerHasPadding }"
+			>
+				<slot name="header" />
+			</div>
+			<ds-divider
+				v-if="$slots.header && $slots.content && dividerUnderHeader"
+				class="ds-card__headerDivider"
+				:class="{ '-ds-withHorizontalMargin': headerHasPadding }"
+			/>
+			<div v-if="$slots.content" class="ds-card__content">
+				<slot name="content" />
+			</div>
+			<div
+				v-if="$slots.footer"
+				class="ds-card__footer"
+				:class="{ '-ds-withPadding': footerHasPadding }"
+			>
+				<slot name="footer" />
+			</div>
 		</div>
 	</div>
 </template>
@@ -61,96 +72,70 @@
 		background-color: $color-default-background;
 		border-radius: $radius-m;
 		box-shadow: $shadow-s;
+		overflow: hidden; // Ensures ribbon doesn't extend outside border radius
 	}
 
-	&.-ds-top-border {
-		border-top: $border-l transparent solid;
+	// Default layout for cards without ribbons
+	&:not(.-ds-with-ribbon) {
+		display: block;
 	}
 
-	&.-ds-left-border {
-		border-left: $border-l transparent solid;
-	}
-
-	&.-ds-border-size-small {
-		border-top-width: $border-s;
-
-		#{$root}:not(.-ds-flat) & {
-			border-radius: $radius-xs;
+	// Flex layout for cards with ribbons
+	&.-ds-with-ribbon {
+		display: flex;
+		
+		// Vertical ribbon (left side) - row layout
+		&[data-ribbon-layout="vertical"] {
+			flex-direction: row;
+			align-items: stretch; // Ensures all flex items stretch to container height
 		}
-
-		#{$root}__loadingBar {
-			top: -$border-s;
-
-			#{$root}:not(.-ds-flat) & {
-				border-radius: $radius-xs $radius-xs 0 0;
-			}
+		
+		// Horizontal ribbon (top side) - column layout  
+		&[data-ribbon-layout="horizontal"] {
+			flex-direction: column;
 		}
 	}
 
-	&.-ds-border-size-medium {
-		border-top-width: $border-m;
-
-		#{$root}:not(.-ds-flat) & {
-			border-radius: $radius-s;
-		}
-
-		#{$root}__loadingBar {
-			top: -$border-m;
-
-			#{$root}:not(.-ds-flat) & {
-				border-radius: $radius-s $radius-s 0 0;
-			}
-		}
+	&__ribbon {
+		flex-shrink: 0;
 	}
 
-	&.-ds-border-size-large {
-		border-top-width: $border-l;
-
-		#{$root}:not(.-ds-flat) & {
-			border-radius: $radius-m;
-		}
-
-		#{$root}__loadingBar {
-			top: -$border-l;
-
-			#{$root}:not(.-ds-flat) & {
-				border-radius: $radius-m $radius-m 0 0;
-			}
-		}
-	}
-
-	&.-ds-border-color-neutralHeavy {
-		border-color: $color-neutral-border-heavy;
-	}
-
-	&.-ds-border-color-neutralStrong {
-		border-color: $color-neutral-border-strong;
-	}
-
-	&.-ds-border-color-success {
-		border-color: $color-success-border;
-	}
-
-	&.-ds-border-color-warning {
-		border-color: $color-warning-border;
-	}
-
-	&.-ds-border-color-danger {
-		border-color: $color-danger-border;
-	}
-
-	&.-ds-border-color-info {
-		border-color: $color-info-border;
-	}
-
-	&.-ds-border-color-fail {
-		border-color: $color-fail-border;
+	&__body {
+		flex: 1;
+		min-width: 0; // Prevents flex item from overflowing
 	}
 
 	&__loadingBar {
 		overflow: hidden;
 		position: absolute;
 		width: 100%;
+		top: 0;
+		left: 0;
+		z-index: 1;
+
+		// Border radius adjustments for different sizes
+		#{$root}:not(.-ds-flat) & {
+			border-radius: $radius-m $radius-m 0 0;
+		}
+
+		// Adjust top position based on loading bar size
+		&[data-size="small"] {
+			#{$root}:not(.-ds-flat) & {
+				border-radius: $radius-xs $radius-xs 0 0;
+			}
+		}
+
+		&[data-size="medium"] {
+			#{$root}:not(.-ds-flat) & {
+				border-radius: $radius-s $radius-s 0 0;
+			}
+		}
+
+		&[data-size="large"] {
+			#{$root}:not(.-ds-flat) & {
+				border-radius: $radius-m $radius-m 0 0;
+			}
+		}
 	}
 
 	&__header {
@@ -198,6 +183,14 @@ import { computed } from 'vue';
 
 import DsDivider from '../../Divider/Divider.vue';
 import DsLoadingBar, { LOADING_BAR_COLORS, LoadingBarColors } from '../../LoadingBar';
+import DsContainerRibbon from '../../ContainerRibbon/ContainerRibbon.vue';
+import {
+	CONTAINER_RIBBON_COLORS,
+	CONTAINER_RIBBON_SIZES,
+	type ContainerRibbonColor,
+	type ContainerRibbonSize,
+	type ContainerRibbonLayout,
+} from '../../ContainerRibbon/ContainerRibbon.consts';
 import {
 	CARD_BORDER_COLORS,
 	CARD_BORDER_POSITIONS,
@@ -243,25 +236,34 @@ defineSlots<{
 	footer?: () => any;
 }>();
 
-const hasLeftBoarder = computed(() => {
-	return hasBorder && borderPosition === CARD_BORDER_POSITIONS.LEFT && !hasLoadingBar;
+// Convert Card border position to ContainerRibbon layout
+const ribbonLayout = computed((): ContainerRibbonLayout => {
+	return borderPosition === CARD_BORDER_POSITIONS.LEFT ? 'vertical' : 'horizontal';
 });
 
-const hasTopBoarder = computed(() => {
-	return (hasBorder && borderPosition === CARD_BORDER_POSITIONS.TOP) || hasLoadingBar;
+// Convert Card border size to ContainerRibbon size
+const ribbonSize = computed((): ContainerRibbonSize => {
+	const sizeMap: Record<CardBorderSizes, ContainerRibbonSize> = {
+		[CARD_BORDER_SIZES.SMALL]: CONTAINER_RIBBON_SIZES.SMALL,
+		[CARD_BORDER_SIZES.MEDIUM]: CONTAINER_RIBBON_SIZES.MEDIUM,
+		[CARD_BORDER_SIZES.LARGE]: CONTAINER_RIBBON_SIZES.LARGE,
+	};
+	return sizeMap[borderSize];
 });
 
-const borderColorClass = computed(() => {
-	if (hasLoadingBar) {
-		return '-ds-border-color-transparent';
-	}
-	return `-ds-border-color-${borderColor}`;
-});
-
-const borderSizeClass = computed(() => {
-	if (!hasBorder && !hasLoadingBar) {
-		return null;
-	}
-	return `-ds-border-size-${borderSize}`;
+// Convert Card border color to ContainerRibbon color
+const ribbonColor = computed((): ContainerRibbonColor => {
+	const colorMap: Record<CardBorderColors, ContainerRibbonColor> = {
+		[CARD_BORDER_COLORS.NEUTRAL_HEAVY]: CONTAINER_RIBBON_COLORS.NEUTRAL_HEAVY,
+		[CARD_BORDER_COLORS.NEUTRAL_STRONG]: CONTAINER_RIBBON_COLORS.NEUTRAL_STRONG,
+		[CARD_BORDER_COLORS.PRIMARY]: CONTAINER_RIBBON_COLORS.PRIMARY,
+		[CARD_BORDER_COLORS.SUCCESS]: CONTAINER_RIBBON_COLORS.SUCCESS,
+		[CARD_BORDER_COLORS.WARNING]: CONTAINER_RIBBON_COLORS.WARNING,
+		[CARD_BORDER_COLORS.DANGER]: CONTAINER_RIBBON_COLORS.DANGER,
+		[CARD_BORDER_COLORS.FAIL]: CONTAINER_RIBBON_COLORS.FAIL,
+		[CARD_BORDER_COLORS.INFO]: CONTAINER_RIBBON_COLORS.INFO,
+		[CARD_BORDER_COLORS.TRANSPARENT]: CONTAINER_RIBBON_COLORS.TRANSPARENT,
+	};
+	return colorMap[borderColor];
 });
 </script>

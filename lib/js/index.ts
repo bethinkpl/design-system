@@ -110,6 +110,9 @@ export { default as DsOutlineSectionHeader } from './components/Outline/OutlineS
 export { default as Chip } from './components/Chip';
 export { default as DsChip } from './components/Chip';
 export * from './components/Chip/Chip.consts';
+export { default as ContainerRibbon } from './components/ContainerRibbon';
+export { default as DsContainerRibbon } from './components/ContainerRibbon';
+export * from './components/ContainerRibbon/ContainerRibbon.consts';
 export { default as CounterToggle } from './components/Toggles/CounterToggle';
 export { default as DsCounterToggle } from './components/Toggles/CounterToggle';
 export * from './components/Toggles/CounterToggle/CounterToggle.consts';
