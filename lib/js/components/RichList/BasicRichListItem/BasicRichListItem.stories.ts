@@ -90,6 +90,9 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		metadata: {
 			control: 'text',
 		},
+		mainTextSlot: {
+			control: 'text',
+		},
 		actions: {
 			control: 'text',
 		},
@@ -138,6 +141,7 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		isSupportingTextTooltipEnabled: false,
 
 		metadata: 'Metadata Slot',
+		mainTextSlot: '',
 		actions: 'ACS',
 
 		...args,
@@ -208,6 +212,9 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
 		>
 			<template v-if="metadata" #metadata>
 				<div v-html="metadata" />
+			</template>
+			<template v-if="mainTextSlot" #mainTextSlot>
+				<div v-html="mainTextSlot" />
 			</template>
 			<template v-if="actions" #actions>
 				<div v-html="actions" />
