@@ -31,7 +31,7 @@
 			<span v-else>{{ eyebrowText }}</span>
 		</div>
 		<div
-			v-if="mainText !== null"
+			v-if="mainText !== null || $slots.mainTextSlot"
 			class="ds-textGroup__main"
 			:class="{
 				'-ds-ellipsis': mainTextEllipsis,
@@ -40,6 +40,7 @@
 			<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
 				<ds-skeleton width="100%" height="100%" />
 			</div>
+			<template v-else-if="$slots.mainTextSlot"><slot name="mainTextSlot" /></template>
 			<span v-else-if="mainText === ''">&nbsp;</span>
 			<span v-else>{{ mainText }}</span>
 		</div>
