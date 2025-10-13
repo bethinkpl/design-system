@@ -38,7 +38,7 @@ const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 			:is-supporting-text-tooltip-auto-filled-with-content="isSupportingTextTooltipAutoFilledWithContent"
 			:supporting-text-tooltip-content="supportingTextTooltipContent"
 		>
-			<template v-if="mainTextSlot?.length > 0" #mainTextSlot><div v-html="mainTextSlot" /></template>
+			<template v-if="mainTextSlot" #mainText><div v-html="mainTextSlot" /></template>
 		</ds-text-group>
 		<div style="margin-top: 100px; color: #888">
 			<ds-divider />

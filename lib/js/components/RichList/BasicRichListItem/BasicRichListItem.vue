@@ -46,8 +46,8 @@
 					:state="textGroupState"
 					:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
 				>
-					<template v-if="$slots.mainTextSlot" #mainTextSlot>
-						<slot name="mainTextSlot" />
+					<template v-if="$slots.text" #mainText>
+						<slot name="text" />
 					</template>
 				</ds-text-group>
 			</div>
