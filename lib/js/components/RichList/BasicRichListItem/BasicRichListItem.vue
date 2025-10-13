@@ -197,7 +197,7 @@ export default defineComponent({
 		},
 		text: {
 			type: String,
-			required: true,
+			default: null,
 		},
 		textEllipsis: {
 			type: Boolean,
