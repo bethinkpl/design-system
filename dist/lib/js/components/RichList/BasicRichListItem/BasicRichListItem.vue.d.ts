@@ -61,7 +61,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     text: {
         type: StringConstructor;
-        required: true;
+        default: null;
     };
     textEllipsis: {
         type: BooleanConstructor;
@@ -195,7 +195,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     text: {
         type: StringConstructor;
-        required: true;
+        default: null;
     };
     textEllipsis: {
         type: BooleanConstructor;
@@ -261,6 +261,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     icon: any;
     size: RichListItemSize;
     type: RichListItemType;
+    text: string;
     elevation: "small";
     backgroundColor: RichListItemBackgroundColor;
     state: RichListItemState;
