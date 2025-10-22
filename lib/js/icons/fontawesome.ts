@@ -231,6 +231,8 @@ import { faCardsBlank } from '@fortawesome/pro-regular-svg-icons/faCardsBlank';
 import { faArrowDownBigSmall } from '@fortawesome/pro-regular-svg-icons/faArrowDownBigSmall';
 import { faArrowUpBigSmall } from '@fortawesome/pro-regular-svg-icons/faArrowUpBigSmall';
 import { faBullseyeArrow } from '@fortawesome/pro-regular-svg-icons/faBullseyeArrow';
+import { faForward } from '@fortawesome/pro-regular-svg-icons/faForward';
+import { faBolt } from '@fortawesome/pro-regular-svg-icons/faBolt';
 
 export const FONTAWESOME_ICONS = {
 	FA_ADDRESS_CARD: faAddressCard,
@@ -261,6 +263,7 @@ export const FONTAWESOME_ICONS = {
 	FA_BARS: faBars,
 	FA_BELL_SLASH: faBellSlash,
 	FA_BELL: faBell,
+	FA_BOLT: faBolt,
 	FA_BOOK_BLANK: faBookBlank,
 	FA_BOOK_COPY: faBookCopy,
 	FA_BOOK_SKULL_SOLID: fasBookSkull,
@@ -350,6 +353,7 @@ export const FONTAWESOME_ICONS = {
 	FA_FLASK_SOLID: fasFlask,
 	FA_FLOPPY_DISK: faFloppyDisk,
 	FA_FOLDER_SOLID: fasFolder,
+	FA_FORWARD: faForward,
 	FA_GAUGE_HIGH: faGaugeHigh,
 	FA_GEAR_SOLID: fasGear,
 	FA_GEAR: faGear,
