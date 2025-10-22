@@ -48,6 +48,7 @@
 import { defineComponent } from 'vue';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 export default defineComponent({
 	name: 'AccessStatus',
@@ -59,6 +60,13 @@ export default defineComponent({
 			type: String,
 			required: true,
 		},
+	},
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return {
+			t,
+		};
 	},
 	data() {
 		return {
@@ -87,10 +95,10 @@ export default defineComponent({
 		},
 		text() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return 'Aktywny';
+				return this.t('ds.accessStatus.active');
 			}
 			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return 'Oczekujący';
+				return this.t('ds.accessStatus.awaiting');
 			}
 			if (this.status === COURSE_ACCESS_STATUS.SUSPENDED) {
 				return 'Zawieszony';

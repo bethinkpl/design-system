@@ -1,7 +1,10 @@
 import { initialize } from '../lib/js/icons/fontawesome';
 import { initializePrimeVue } from '../lib/js';
+import accessStatusPL from '../lib/js/i18n/locales/pl/accessStatus.json';
+import accessStatusEN from '../lib/js/i18n/locales/en/accessStatus.json';
 
 import { setup } from '@storybook/vue3';
+import { createI18n } from 'vue-i18n';
 
 const customViewports = {
 	mobile: {
@@ -99,6 +102,26 @@ export const parameters = {
 };
 
 setup((app) => {
+	const i18n = createI18n({
+		locale: 'pl',
+		fallbackLocale: 'pl',
+		messages: {
+			pl: {
+				ds: {
+					accessStatus: accessStatusPL,
+				},
+			},
+			en: {
+				ds: {
+					accessStatus: accessStatusEN,
+				},
+			},
+		},
+		legacy: false,
+	});
+
+	app.use(i18n);
+
 	// https://storybook.js.org/docs/get-started/frameworks/vue3-vite?renderer=vue#extending-the-vue-application
 	initializePrimeVue(app);
 	initialize();
