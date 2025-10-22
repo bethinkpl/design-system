@@ -45,7 +45,11 @@
 					:size="textGroupSize"
 					:state="textGroupState"
 					:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
-				/>
+				>
+					<template v-if="$slots.text" #mainText>
+						<slot name="text" />
+					</template>
+				</ds-text-group>
 			</div>
 		</template>
 		<template v-if="$slots.metadata" #metadata>
@@ -193,7 +197,7 @@ export default defineComponent({
 		},
 		text: {
 			type: String,
-			required: true,
+			default: null,
 		},
 		textEllipsis: {
 			type: Boolean,

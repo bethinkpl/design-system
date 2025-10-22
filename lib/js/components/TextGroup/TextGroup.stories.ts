@@ -37,7 +37,9 @@ const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 			:is-supporting-text-tooltip-enabled-on-mobile="isSupportingTextTooltipEnabledOnMobile"
 			:is-supporting-text-tooltip-auto-filled-with-content="isSupportingTextTooltipAutoFilledWithContent"
 			:supporting-text-tooltip-content="supportingTextTooltipContent"
-		/>
+		>
+			<template v-if="mainTextSlot" #mainText><div v-html="mainTextSlot" /></template>
+		</ds-text-group>
 		<div style="margin-top: 100px; color: #888">
 			<ds-divider />
 			<small>Use "null" in *Text props to get nullable value</small>
@@ -47,6 +49,7 @@ const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
+	mainTextSlot: '',
 	size: TEXT_GROUP_SIZES.MEDIUM,
 	color: TEXT_GROUP_COLORS.NEUTRAL,
 	eyebrowText: 'Eyebrow Uppercase Veritatis aspernatur cupiditate magnam quidem',
@@ -121,6 +124,9 @@ Interactive.argTypes = {
 		control: 'boolean',
 	},
 	supportingTextTooltipContent: {
+		control: 'text',
+	},
+	mainTextSlot: {
 		control: 'text',
 	},
 } as ArgTypes;
