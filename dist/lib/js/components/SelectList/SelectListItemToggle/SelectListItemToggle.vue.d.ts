@@ -173,6 +173,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_SKULL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -262,6 +263,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_FLASK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FLOPPY_DISK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FOLDER_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FORWARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_GAUGE_HIGH: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_GEAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
