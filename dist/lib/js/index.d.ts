@@ -180,3 +180,5 @@ export { initializePrimeVue } from './primevue';
 export { initialize as initializeIcons, initializeWithDomWatcher as initializeIconsWithDomWatcher, } from './icons/fontawesome';
 export type { IconDefinition } from './icons/fontawesome';
 export * from 'vee-validate';
+export { default as i18nAccessStatusPL } from './i18n/locales/pl/accessStatus.json';
+export { default as i18nAccessStatusEN } from './i18n/locales/en/accessStatus.json';
