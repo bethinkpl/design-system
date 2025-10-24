@@ -10,9 +10,11 @@ import {
 } from './ProgressBar.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { ICONS } from '../Icons/Icon';
+import { PROGRESS_BAR_LEGEND_SIZES } from './ProgressBarLegend.consts';
 
 export default {
-	title: 'Components/ProgressBar',
+	title: 'Components/ProgressBar/ProgressBar',
 	component: ProgressBar,
 } as Meta<typeof ProgressBar>;
 
@@ -70,6 +72,16 @@ const argTypes = {
 	labelTextEllipsis: {
 		control: 'boolean',
 	},
+	hasLegend: {
+		control: 'boolean',
+	},
+	hasLegendPercentValue: {
+		control: 'boolean',
+	},
+	legendSize: {
+		control: 'select',
+		options: Object.values(PROGRESS_BAR_LEGEND_SIZES),
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
@@ -81,16 +93,25 @@ Interactive.args = {
 			color: PROGRESS_BAR_RANGE_COLORS.INFO,
 			start: 0,
 			length: 30,
+			label: 'First Label',
+			data: 'First Data',
+			icon: ICONS.FA_ADDRESS_CARD,
 		} as ProgressBarRange,
 		{
 			color: PROGRESS_BAR_RANGE_COLORS.INFO_WEAK,
 			start: 30,
 			length: 10,
+			label: 'Second Label',
+			data: 'Second Data',
+			icon: ICONS.FA_CARDS_BLANK,
 		} as ProgressBarRange,
 		{
 			color: PROGRESS_BAR_RANGE_COLORS.INFO_GHOST,
 			start: 40,
 			length: 10,
+			label: 'Third Label',
+			data: 'Third Data',
+			icon: ICONS.FA_CIRCLE_ARROW_LEFT,
 		} as ProgressBarRange,
 	],
 	radius: PROGRESS_BAR_RADII.DEFAULT,
@@ -102,6 +123,9 @@ Interactive.args = {
 	badgePosition: '50',
 	badgeColor: PROGRESS_BAR_BADGE_COLORS.INFO,
 	labelTextEllipsis: false,
+	hasLegend: true,
+	hasLegendPercentValue: true,
+	legendSize: PROGRESS_BAR_LEGEND_SIZES.SMALL,
 } as Args;
 
 Interactive.parameters = {
@@ -188,4 +212,35 @@ Compact.args = {
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
 	labelTextEllipsis: false,
+} as Args;
+
+export const LegendWithoutIcons = StoryTemplate.bind({});
+
+LegendWithoutIcons.argTypes = argTypes;
+LegendWithoutIcons.args = {
+	layout: PROGRESS_BAR_LAYOUTS.DEFAULT,
+	ranges: [
+		{
+			color: PROGRESS_BAR_RANGE_COLORS.SUCCESS,
+			start: 0,
+			length: 30,
+			label: 'First Label',
+			data: 'First Data',
+		} as ProgressBarRange,
+		{
+			color: PROGRESS_BAR_RANGE_COLORS.WARNING,
+			start: 30,
+			length: 10,
+			label: 'Second Label',
+			data: 'Second Data',
+		} as ProgressBarRange,
+	],
+	labelText: 'Label text',
+	labelData: '30',
+	labelDataSupporting: '100',
+	labelDataSuffix: '(%)',
+	labelTextEllipsis: false,
+	hasLegend: true,
+	hasLegendPercentValue: true,
+	legendSize: PROGRESS_BAR_LEGEND_SIZES.SMALL,
 } as Args;
