@@ -12,7 +12,7 @@ import {
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
-	title: 'Components/ProgressBar',
+	title: 'Components/ProgressBar/ProgressBar',
 	component: ProgressBar,
 } as Meta<typeof ProgressBar>;
 
