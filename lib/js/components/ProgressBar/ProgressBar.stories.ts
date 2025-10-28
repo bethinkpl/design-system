@@ -12,19 +12,35 @@ import {
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../Icons/Icon';
 import { PROGRESS_BAR_LEGEND_SIZES } from './ProgressBarLegend.consts';
+import DsBanner, { BANNER_COLORS } from '../Banner';
 
 export default {
 	title: 'Components/ProgressBar/ProgressBar',
 	component: ProgressBar,
 } as Meta<typeof ProgressBar>;
 
+function wrapWithContainer(template: string): string {
+	return `<div style="display: inline-flex; flex-direction: column; width: 100%; gap: 20px;">${template}
+<ds-banner v-if="invalidUsage" :color="BANNER_COLORS.WARNING" title="Taka kombinacja jest niezgodna z design systemem!"  />
+</div>
+`;
+}
+
 const StoryTemplate: StoryFn<typeof ProgressBar> = (args) => ({
-	components: { ProgressBar },
+	components: { ProgressBar, DsBanner },
 	setup() {
-		return { args };
+		return { args, BANNER_COLORS };
 	},
-	template: `
-		<progress-bar v-bind=args></progress-bar>`,
+	computed: {
+		invalidUsage() {
+			return (
+				args.legendSize === PROGRESS_BAR_LEGEND_SIZES.MEDIUM &&
+				args.layout === PROGRESS_BAR_LAYOUTS.COMPACT &&
+				args.hasLegend === true
+			);
+		},
+	},
+	template: wrapWithContainer(`<progress-bar v-bind=args></progress-bar>`),
 });
 
 export const Interactive = StoryTemplate.bind({});

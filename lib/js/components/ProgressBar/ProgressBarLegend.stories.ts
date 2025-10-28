@@ -7,19 +7,34 @@ import {
 	ProgressBarRange,
 } from './ProgressBar.consts';
 import { ICONS } from '../Icons/Icon';
+import DsBanner, { BANNER_COLORS } from '../Banner';
 
 export default {
 	title: 'Components/ProgressBar/ProgressBarLegend',
 	component: ProgressBarLegend,
 } as Meta<typeof ProgressBarLegend>;
 
+function wrapWithContainer(template: string): string {
+	return `<div style="display: inline-flex; flex-direction: column; width: 100%; gap: 20px;">${template}
+<ds-banner v-if="invalidUsage" :color="BANNER_COLORS.WARNING" title="Taka kombinacja jest niezgodna z design systemem!"  />
+</div>
+`;
+}
+
 const StoryTemplate: StoryFn<typeof ProgressBarLegend> = (args) => ({
-	components: { ProgressBarLegend },
+	components: { ProgressBarLegend, DsBanner },
 	setup() {
-		return { args };
+		return { args, BANNER_COLORS };
 	},
-	template: `
-		<progress-bar-legend v-bind=args></progress-bar-legend>`,
+	computed: {
+		invalidUsage() {
+			return (
+				args.size === PROGRESS_BAR_LEGEND_SIZES.MEDIUM &&
+				args.layout === PROGRESS_BAR_LEGEND_LAYOUTS.COMPACT
+			);
+		},
+	},
+	template: wrapWithContainer(`<progress-bar-legend v-bind=args></progress-bar-legend>`),
 });
 
 export const Interactive = StoryTemplate.bind({});
