@@ -1,9 +1,9 @@
 <template>
 	<div
 		class="ds-progressBarLegendItem"
-		:class="{ '-ds-small': size === PROGRESS_BAR_LEGEND_ITEM_SIZES.SMALL }"
+		:class="{ '-ds-small': size === PROGRESS_BAR_LEGEND_SIZES.SMALL }"
 	>
-		<template v-if="size === PROGRESS_BAR_LEGEND_ITEM_SIZES.MEDIUM">
+		<template v-if="size === PROGRESS_BAR_LEGEND_SIZES.MEDIUM">
 			<div class="ds-progressBarLegendItem__label">{{ label }}</div>
 			<div class="ds-progressBarLegendItem__wrapper">
 				<div
@@ -236,23 +236,20 @@ $progress-bar-legend-item-colors: (
 </style>
 
 <script setup lang="ts">
-import {
-	PROGRESS_BAR_LEGEND_ITEM_SIZES,
-	ProgressBarLegendItemSize,
-} from './ProgressBarLegendItem.consts';
 import { computed } from 'vue';
 import DsIcon, { ICON_SIZES, IconItem } from '../Icons/Icon';
 import { ProgressBarRangeColor } from './ProgressBar.consts';
+import { PROGRESS_BAR_LEGEND_SIZES, ProgressBarLegendSize } from './ProgressBarLegend.consts';
 
 const {
-	size = PROGRESS_BAR_LEGEND_ITEM_SIZES.SMALL,
+	size = PROGRESS_BAR_LEGEND_SIZES.SMALL,
 	color,
 	icon = null,
 	label = '',
 	data = '',
 	percentValue = '',
 } = defineProps<{
-	size?: ProgressBarLegendItemSize;
+	size?: ProgressBarLegendSize;
 	color: ProgressBarRangeColor;
 	icon?: IconItem | null;
 	label?: string;

@@ -6,7 +6,7 @@
 		<progress-bar-legend-item
 			v-for="(data, index) in ranges"
 			:key="index"
-			:size
+			:size="size"
 			:color="data.color"
 			:data="data.data"
 			:label="data.label"
@@ -20,9 +20,7 @@
 @import '../../../styles/settings/spacings';
 
 .ds-progressBarLegend {
-	align-content: flex-start;
-	align-items: flex-start;
-	display: inline-flex;
+	display: flex;
 	flex-wrap: wrap;
 	gap: $space-xs $space-m;
 	padding-top: $space-2xs;

@@ -65,8 +65,8 @@
 		<progress-bar-legend
 			v-if="hasLegend"
 			class="ds-progressBar__legend"
-			:ranges
-			:layout
+			:ranges="ranges"
+			:layout="layout"
 			:size="legendSize"
 			:has-percent-value="hasLegendPercentValue"
 		/>
