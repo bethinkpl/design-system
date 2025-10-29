@@ -45,7 +45,7 @@ const argTypes = {
 	},
 	icon: {
 		control: 'select',
-		options: Object.keys(ICONS),
+		options: [null, ...Object.keys(ICONS)],
 	},
 	label: {
 		control: 'text',
