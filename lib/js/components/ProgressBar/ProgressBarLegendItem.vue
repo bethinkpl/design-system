@@ -223,7 +223,6 @@ $progress-bar-legend-item-colors: (
 
 		#{$self}__dataIndicator {
 			height: $space-s;
-			padding: $space-4xs;
 			width: $space-s;
 		}
 	}
