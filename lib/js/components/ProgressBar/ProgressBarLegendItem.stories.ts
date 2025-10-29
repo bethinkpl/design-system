@@ -1,6 +1,6 @@
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import ProgressBarLegendItem from './ProgressBarLegendItem.vue';
-import { PROGRESS_BAR_LEGEND_ITEM_SIZES } from './ProgressBarLegendItem.consts';
+import { PROGRESS_BAR_LEGEND_SIZES } from './ProgressBarLegend.consts';
 import { ICONS } from '../Icons/Icon';
 import { PROGRESS_BAR_RANGE_COLORS } from './ProgressBar.consts';
 
@@ -37,7 +37,7 @@ export const Interactive = StoryTemplate.bind({});
 const argTypes = {
 	size: {
 		control: 'select',
-		options: Object.values(PROGRESS_BAR_LEGEND_ITEM_SIZES),
+		options: Object.values(PROGRESS_BAR_LEGEND_SIZES),
 	},
 	color: {
 		control: 'select',
@@ -54,7 +54,7 @@ const argTypes = {
 
 Interactive.argTypes = argTypes;
 Interactive.args = {
-	size: PROGRESS_BAR_LEGEND_ITEM_SIZES.MEDIUM,
+	size: PROGRESS_BAR_LEGEND_SIZES.MEDIUM,
 	color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
 	label: 'Random label',
 	data: 'Some Data',

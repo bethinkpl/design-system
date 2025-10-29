@@ -189,18 +189,13 @@ $progress-bar-legend-item-colors: (
 			}
 		}
 
-		align-items: flex-start;
+		align-items: center;
 		border-radius: 100px;
 		display: flex;
 		height: $space-m;
+		justify-content: center;
 		margin-right: $space-5xs;
-		padding: $space-3xs;
 		width: $space-m;
-
-		&.-ds-hasIcon {
-			height: auto;
-			width: auto;
-		}
 	}
 
 	&__dataWrapper {
