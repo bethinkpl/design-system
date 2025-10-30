@@ -415,13 +415,13 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
-		hasLegendPercentValue: {
-			type: Boolean,
-			default: true,
-		},
 		legendSize: {
 			type: String as PropType<ProgressBarLegendSize>,
 			default: PROGRESS_BAR_LEGEND_SIZES.SMALL,
+		},
+		hasLegendPercentValue: {
+			type: Boolean,
+			default: true,
 		},
 	},
 	data() {

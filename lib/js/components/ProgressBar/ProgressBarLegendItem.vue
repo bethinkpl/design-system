@@ -219,6 +219,8 @@ $progress-bar-legend-item-colors: (
 	&.-ds-small {
 		#{$self}__label {
 			@include label-m-default-regular;
+
+			color: $color-neutral-text-strong;
 		}
 
 		#{$self}__dataIndicator {

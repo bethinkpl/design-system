@@ -68,6 +68,9 @@ const argTypes = {
 	labelText: {
 		control: 'text',
 	},
+	labelTextEllipsis: {
+		control: 'boolean',
+	},
 	labelData: {
 		control: 'text',
 	},
@@ -85,18 +88,15 @@ const argTypes = {
 		control: 'select',
 		options: Object.values(PROGRESS_BAR_BADGE_COLORS),
 	},
-	labelTextEllipsis: {
-		control: 'boolean',
-	},
 	hasLegend: {
-		control: 'boolean',
-	},
-	hasLegendPercentValue: {
 		control: 'boolean',
 	},
 	legendSize: {
 		control: 'select',
 		options: Object.values(PROGRESS_BAR_LEGEND_SIZES),
+	},
+	hasLegendPercentValue: {
+		control: 'boolean',
 	},
 } as ArgTypes;
 
@@ -133,15 +133,15 @@ Interactive.args = {
 	radius: PROGRESS_BAR_RADII.DEFAULT,
 	layout: PROGRESS_BAR_LAYOUTS.DEFAULT,
 	labelText: 'Label text',
+	labelTextEllipsis: false,
 	labelData: '30',
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
 	badgePosition: '50',
 	badgeColor: PROGRESS_BAR_BADGE_COLORS.INFO,
-	labelTextEllipsis: false,
-	hasLegend: true,
-	hasLegendPercentValue: true,
+	hasLegend: false,
 	legendSize: PROGRESS_BAR_LEGEND_SIZES.SMALL,
+	hasLegendPercentValue: true,
 } as Args;
 
 Interactive.parameters = {

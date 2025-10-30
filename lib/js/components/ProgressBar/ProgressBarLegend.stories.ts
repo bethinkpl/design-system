@@ -44,12 +44,12 @@ const argTypes = {
 		control: 'select',
 		options: Object.values(PROGRESS_BAR_LEGEND_SIZES),
 	},
+	ranges: {
+		control: 'object',
+	},
 	layout: {
 		control: 'select',
 		options: Object.values(PROGRESS_BAR_LEGEND_LAYOUTS),
-	},
-	ranges: {
-		control: 'object',
 	},
 	hasPercentValue: {
 		control: 'boolean',
@@ -59,7 +59,6 @@ const argTypes = {
 Interactive.argTypes = argTypes;
 Interactive.args = {
 	size: PROGRESS_BAR_LEGEND_SIZES.SMALL,
-	layout: PROGRESS_BAR_LAYOUTS.DEFAULT,
 	ranges: [
 		{
 			color: PROGRESS_BAR_RANGE_COLORS.INFO,
@@ -86,6 +85,7 @@ Interactive.args = {
 			icon: ICONS.FA_CIRCLE_ARROW_LEFT,
 		} as ProgressBarRange,
 	],
+	layout: PROGRESS_BAR_LAYOUTS.DEFAULT,
 	hasPercentValue: true,
 } as Args;
 

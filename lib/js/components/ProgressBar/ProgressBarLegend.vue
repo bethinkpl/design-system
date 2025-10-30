@@ -1,7 +1,10 @@
 <template>
 	<div
 		class="ds-progressBarLegend"
-		:class="{ '-ds-compact': layout === PROGRESS_BAR_LEGEND_LAYOUTS.COMPACT }"
+		:class="{
+			'-ds-compact': layout === PROGRESS_BAR_LEGEND_LAYOUTS.COMPACT,
+			'-ds-small': size === PROGRESS_BAR_LEGEND_SIZES.SMALL,
+		}"
 	>
 		<progress-bar-legend-item
 			v-for="(data, index) in ranges"
@@ -23,10 +26,14 @@
 	display: flex;
 	flex-wrap: wrap;
 	gap: $space-xs $space-m;
-	padding-top: $space-2xs;
+	padding-top: $space-xs;
 
 	&.-ds-compact {
 		gap: $space-2xs $space-s;
+	}
+
+	&.-ds-small {
+		padding-top: $space-2xs;
 	}
 }
 </style>

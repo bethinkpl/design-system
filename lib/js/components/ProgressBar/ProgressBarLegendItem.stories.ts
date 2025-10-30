@@ -50,12 +50,19 @@ const argTypes = {
 	label: {
 		control: 'text',
 	},
+	data: {
+		control: 'text',
+	},
+	percentValue: {
+		control: 'text',
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
 Interactive.args = {
-	size: PROGRESS_BAR_LEGEND_SIZES.MEDIUM,
+	size: PROGRESS_BAR_LEGEND_SIZES.SMALL,
 	color: PROGRESS_BAR_RANGE_COLORS.PRIMARY,
+	icon: null,
 	label: 'Random label',
 	data: 'Some Data',
 	percentValue: '10',
