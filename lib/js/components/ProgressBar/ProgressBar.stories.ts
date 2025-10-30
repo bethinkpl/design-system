@@ -10,19 +10,37 @@ import {
 } from './ProgressBar.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { ICONS } from '../Icons/Icon';
+import { PROGRESS_BAR_LEGEND_SIZES } from './ProgressBarLegend.consts';
+import DsBanner, { BANNER_COLORS } from '../Banner';
 
 export default {
-	title: 'Components/ProgressBar',
+	title: 'Components/ProgressBar/ProgressBar',
 	component: ProgressBar,
 } as Meta<typeof ProgressBar>;
 
+function wrapWithContainer(template: string): string {
+	return `<div style="display: inline-flex; flex-direction: column; width: 100%; gap: 20px;">${template}
+<ds-banner v-if="invalidUsage" :color="BANNER_COLORS.WARNING" title="Taka kombinacja jest niezgodna z design systemem!"  />
+</div>
+`;
+}
+
 const StoryTemplate: StoryFn<typeof ProgressBar> = (args) => ({
-	components: { ProgressBar },
+	components: { ProgressBar, DsBanner },
 	setup() {
-		return { args };
+		return { args, BANNER_COLORS };
 	},
-	template: `
-		<progress-bar v-bind=args></progress-bar>`,
+	computed: {
+		invalidUsage() {
+			return (
+				args.legendSize === PROGRESS_BAR_LEGEND_SIZES.MEDIUM &&
+				args.layout === PROGRESS_BAR_LAYOUTS.COMPACT &&
+				args.hasLegend === true
+			);
+		},
+	},
+	template: wrapWithContainer(`<progress-bar v-bind=args></progress-bar>`),
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -50,6 +68,9 @@ const argTypes = {
 	labelText: {
 		control: 'text',
 	},
+	labelTextEllipsis: {
+		control: 'boolean',
+	},
 	labelData: {
 		control: 'text',
 	},
@@ -67,7 +88,14 @@ const argTypes = {
 		control: 'select',
 		options: Object.values(PROGRESS_BAR_BADGE_COLORS),
 	},
-	labelTextEllipsis: {
+	hasLegend: {
+		control: 'boolean',
+	},
+	legendSize: {
+		control: 'select',
+		options: Object.values(PROGRESS_BAR_LEGEND_SIZES),
+	},
+	hasLegendPercentValue: {
 		control: 'boolean',
 	},
 } as ArgTypes;
@@ -81,27 +109,39 @@ Interactive.args = {
 			color: PROGRESS_BAR_RANGE_COLORS.INFO,
 			start: 0,
 			length: 30,
+			label: 'First Label',
+			data: 'First Data',
+			icon: ICONS.FA_ADDRESS_CARD,
 		} as ProgressBarRange,
 		{
 			color: PROGRESS_BAR_RANGE_COLORS.INFO_WEAK,
 			start: 30,
 			length: 10,
+			label: 'Second Label',
+			data: 'Second Data',
+			icon: ICONS.FA_CARDS_BLANK,
 		} as ProgressBarRange,
 		{
 			color: PROGRESS_BAR_RANGE_COLORS.INFO_GHOST,
 			start: 40,
 			length: 10,
+			label: 'Third Label',
+			data: 'Third Data',
+			icon: ICONS.FA_CIRCLE_ARROW_LEFT,
 		} as ProgressBarRange,
 	],
 	radius: PROGRESS_BAR_RADII.DEFAULT,
 	layout: PROGRESS_BAR_LAYOUTS.DEFAULT,
 	labelText: 'Label text',
+	labelTextEllipsis: false,
 	labelData: '30',
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
 	badgePosition: '50',
 	badgeColor: PROGRESS_BAR_BADGE_COLORS.INFO,
-	labelTextEllipsis: false,
+	hasLegend: false,
+	legendSize: PROGRESS_BAR_LEGEND_SIZES.SMALL,
+	hasLegendPercentValue: true,
 } as Args;
 
 Interactive.parameters = {
@@ -188,4 +228,35 @@ Compact.args = {
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
 	labelTextEllipsis: false,
+} as Args;
+
+export const LegendWithoutIcons = StoryTemplate.bind({});
+
+LegendWithoutIcons.argTypes = argTypes;
+LegendWithoutIcons.args = {
+	layout: PROGRESS_BAR_LAYOUTS.DEFAULT,
+	ranges: [
+		{
+			color: PROGRESS_BAR_RANGE_COLORS.SUCCESS,
+			start: 0,
+			length: 30,
+			label: 'First Label',
+			data: 'First Data',
+		} as ProgressBarRange,
+		{
+			color: PROGRESS_BAR_RANGE_COLORS.WARNING,
+			start: 30,
+			length: 10,
+			label: 'Second Label',
+			data: 'Second Data',
+		} as ProgressBarRange,
+	],
+	labelText: 'Label text',
+	labelData: '30',
+	labelDataSupporting: '100',
+	labelDataSuffix: '(%)',
+	labelTextEllipsis: false,
+	hasLegend: true,
+	hasLegendPercentValue: true,
+	legendSize: PROGRESS_BAR_LEGEND_SIZES.SMALL,
 } as Args;

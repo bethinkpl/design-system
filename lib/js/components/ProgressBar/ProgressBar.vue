@@ -62,6 +62,14 @@
 				"
 			/>
 		</div>
+		<progress-bar-legend
+			v-if="hasLegend"
+			class="ds-progressBar__legend"
+			:ranges="ranges"
+			:layout="layout"
+			:size="legendSize"
+			:has-percent-value="hasLegendPercentValue"
+		/>
 	</div>
 </template>
 
@@ -321,10 +329,13 @@ import {
 } from './ProgressBar.consts';
 
 import DsIcon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import ProgressBarLegend from './ProgressBarLegend.vue';
+import { PROGRESS_BAR_LEGEND_SIZES, ProgressBarLegendSize } from './ProgressBarLegend.consts';
 
 export default defineComponent({
 	name: 'ProgressBar',
 	components: {
+		ProgressBarLegend,
 		DsIcon,
 	},
 	props: {
@@ -360,7 +371,7 @@ export default defineComponent({
 			},
 		},
 		layout: {
-			type: String,
+			type: String as PropType<ProgressBarLayout>,
 			default: PROGRESS_BAR_LAYOUTS.DEFAULT,
 			validator(size: ProgressBarLayout) {
 				return Object.values(PROGRESS_BAR_LAYOUTS).includes(size);
@@ -399,6 +410,18 @@ export default defineComponent({
 			validator(color: ProgressBarBadgeColor) {
 				return Object.values(PROGRESS_BAR_BADGE_COLORS).includes(color);
 			},
+		},
+		hasLegend: {
+			type: Boolean,
+			default: false,
+		},
+		legendSize: {
+			type: String as PropType<ProgressBarLegendSize>,
+			default: PROGRESS_BAR_LEGEND_SIZES.SMALL,
+		},
+		hasLegendPercentValue: {
+			type: Boolean,
+			default: true,
 		},
 	},
 	data() {
