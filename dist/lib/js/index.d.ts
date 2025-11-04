@@ -141,6 +141,7 @@ export * from './components/Dropdown/Dropdown.consts';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as DsProgressBar } from './components/ProgressBar';
 export * from './components/ProgressBar/ProgressBar.consts';
+export * from './components/ProgressBar/ProgressBarLegend.consts';
 export { default as ProgressDonutChart } from './components/ProgressDonutChart';
 export { default as DsProgressDonutChart } from './components/ProgressDonutChart';
 export * from './components/ProgressDonutChart/ProgressDonutChart.consts';

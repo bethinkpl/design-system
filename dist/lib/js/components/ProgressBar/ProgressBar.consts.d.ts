@@ -1,4 +1,5 @@
 import { Value } from '../../utils/type.utils';
+import { IconItem } from '../Icons/Icon';
 
 export declare const PROGRESS_BAR_RANGE_COLORS: {
     readonly PRIMARY_MEDIUM: "primaryMedium";
@@ -53,12 +54,15 @@ export declare const PROGRESS_BAR_RADII: {
 };
 export type ProgressBarRadius = Value<typeof PROGRESS_BAR_RADII>;
 export declare const PROGRESS_BAR_LAYOUTS: {
-    DEFAULT: string;
-    COMPACT: string;
+    readonly DEFAULT: "default";
+    readonly COMPACT: "compact";
 };
 export type ProgressBarLayout = Value<typeof PROGRESS_BAR_LAYOUTS>;
 export interface ProgressBarRange {
     color: typeof PROGRESS_BAR_RANGE_COLORS[keyof typeof PROGRESS_BAR_RANGE_COLORS];
     start: number;
     length: number;
+    label?: string;
+    icon?: IconItem;
+    data?: string;
 }
