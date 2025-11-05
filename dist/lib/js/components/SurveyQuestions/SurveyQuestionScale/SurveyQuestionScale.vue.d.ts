@@ -106,6 +106,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_CHART_COLUMN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CHART_LINE_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CHECK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_CHECK_TO_SLOT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_CHECK_TO_SLOT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CHEVRON_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CHEVRON_LEFT_LIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CHEVRON_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -663,6 +665,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CHART_COLUMN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHART_LINE_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHECK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CHECK_TO_SLOT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CHECK_TO_SLOT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHEVRON_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHEVRON_LEFT_LIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHEVRON_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1363,6 +1367,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CHART_COLUMN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHART_LINE_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHECK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CHECK_TO_SLOT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CHECK_TO_SLOT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHEVRON_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHEVRON_LEFT_LIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CHEVRON_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
