@@ -2,6 +2,7 @@
 	<div class="ds-accessStatus" :class="statusClass">
 		<icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="ds-accessStatus__icon" />
 		<span class="ds-accessStatus__text">{{ text }}</span>
+		<span class="ds-accessStatus__text">{{ text2 }}</span>
 	</div>
 </template>
 
@@ -48,6 +49,7 @@
 import { defineComponent } from 'vue';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { COURSE_ACCESS_STATUS } from '../../../consts/user';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 export default defineComponent({
 	name: 'AccessStatus',
@@ -59,6 +61,13 @@ export default defineComponent({
 			type: String,
 			required: true,
 		},
+	},
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return {
+			t,
+		};
 	},
 	data() {
 		return {
@@ -85,20 +94,24 @@ export default defineComponent({
 			}
 			return '';
 		},
+		text2() {
+			return 'test';
+			// return this.t('accessStatus.status.activeaaa');
+		},
 		text() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return 'Aktywny';
+				return this.t('accessStatus.status.active');
 			}
 			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return 'Oczekujący';
+				return this.t('accessStatus.status.awaiting');
 			}
 			if (this.status === COURSE_ACCESS_STATUS.SUSPENDED) {
-				return 'Zawieszony';
+				return this.t('accessStatus.status.suspended');
 			}
 			if (this.status === COURSE_ACCESS_STATUS.DEACTIVATED) {
-				return 'Dezaktywowany';
+				return this.t('accessStatus.status.deactivated');
 			}
-			return 'Zakończony';
+			return this.t('accessStatus.status.ended');
 		},
 	},
 });

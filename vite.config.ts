@@ -23,7 +23,7 @@ export default defineConfig({
 			fileName: 'design-system',
 		},
 		rollupOptions: {
-			external: ['vue', 'vee-validate'],
+			external: ['vue', 'vee-validate', 'vue-i18n'],
 		},
 		sourcemap: true,
 		target: 'es2019',

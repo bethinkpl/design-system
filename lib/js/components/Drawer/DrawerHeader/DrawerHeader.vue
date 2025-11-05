@@ -8,7 +8,7 @@
 				class="ds-drawerHeader__secondLevel"
 				@click="$emit('backClicked')"
 			>
-				Wróć
+				{{ t('globals.back') }}
 			</ds-button>
 			<div :class="{ '-ds-hidden': isSecondLevel }" class="ds-drawerHeader__firstLevel">
 				<icon-button
@@ -172,6 +172,7 @@ import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import { DRAWER_HEADER_TITLE_COLORS, DrawerHeaderTitleColor } from './DrawerHeader.consts';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 export default defineComponent({
 	name: 'DrawerHeader',
@@ -235,6 +236,11 @@ export default defineComponent({
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['backClicked', 'close', 'eyebrowClicked'],
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return { t };
+	},
 	data() {
 		return {
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
