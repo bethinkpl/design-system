@@ -2,7 +2,6 @@
 	<div class="ds-accessStatus" :class="statusClass">
 		<icon :size="ICON_SIZES.X_SMALL" :icon="icon" class="ds-accessStatus__icon" />
 		<span class="ds-accessStatus__text">{{ text }}</span>
-		<span class="ds-accessStatus__text">{{ text2 }}</span>
 	</div>
 </template>
 
@@ -93,10 +92,6 @@ export default defineComponent({
 				return '-ds-suspended';
 			}
 			return '';
-		},
-		text2() {
-			return 'test';
-			// return this.t('accessStatus.status.activeaaa');
 		},
 		text() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
