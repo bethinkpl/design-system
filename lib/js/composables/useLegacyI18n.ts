@@ -1,9 +1,8 @@
 import { getCurrentInstance } from 'vue';
-import type { ComposerTranslation } from 'vue-i18n';
-import { MessageSchema } from '../i18n';
+import { TranslateFunction } from '../i18n';
 
 interface IUseLegacyI18n {
-	t: ComposerTranslation<[MessageSchema]>;
+	t: TranslateFunction;
 }
 
 /**

@@ -3,6 +3,5 @@
 	"accessStatus.status.awaiting": "Oczekujący",
 	"accessStatus.status.deactivated": "Dezaktywowany",
 	"accessStatus.status.ended": "Zakończony",
-
 	"accessStatus.status.suspended": "Zawieszony"
 }
