@@ -157,7 +157,7 @@ module.exports = {
 			localeDir: {
 				pattern: './lib/js/i18n/*/*.json',
 				localeKey: 'path',
-				localePattern: /^.*\/(?<locale>[A-Za-z0-9-_]+)\/.*\.json$/,
+				localePattern: '^.*/(?<locale>[A-Za-z0-9-_]+)/.*.json$',
 			},
 			messageSyntaxVersion: '^11.0.0',
 		},
