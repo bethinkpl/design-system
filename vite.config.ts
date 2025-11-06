@@ -31,5 +31,6 @@ export default defineConfig({
 	test: {
 		environment: 'jsdom',
 		includeSource: ['lib/**/*.{ts,vue}'],
+		setupFiles: ['./vitest.setup.ts'],
 	},
 });
