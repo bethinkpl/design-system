@@ -142,7 +142,7 @@ module.exports = {
 		'@intlify/vue-i18n/no-unused-keys': [
 			'error',
 			{
-				extensions: ['.js', '.vue', '.ts'],
+				src: 'lib/js/**/*.{js,ts,vue}',
 			},
 		],
 		'@intlify/vue-i18n/no-raw-text': [
@@ -165,6 +165,7 @@ module.exports = {
 	overrides: [
 		{
 			files: ['*.json'],
+			parser: 'jsonc-eslint-parser',
 			rules: {
 				'quote-props': 'off',
 			},
