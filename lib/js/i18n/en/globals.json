@@ -1,6 +1,4 @@
 {
-    "globals": {
-        "back": "Back",
-        "confirmation": "OK, I understand"
-    }
+	"globals.back": "Back",
+	"globals.confirmation": "OK, I understand"
 }

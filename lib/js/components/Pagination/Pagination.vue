@@ -359,7 +359,7 @@ export default defineComponent({
 					? this.getRange(
 							Math.min(range.start, this.lastPage - delta),
 							Math.min(range.end, this.lastPage),
-					  )
+						)
 					: this.getRange(1, Math.min(this.lastPage, delta + 1));
 
 			const withDots = (value, pair) =>

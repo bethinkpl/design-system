@@ -28,7 +28,7 @@ export function useInputFieldWithinForm(
 	const field = nameValue
 		? useField(nameString, undefined, {
 				validateOnValueUpdate: false,
-		  })
+			})
 		: null;
 
 	const value = field ? field.value : modelValue;

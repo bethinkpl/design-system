@@ -3,4 +3,4 @@ export const IMAGE_FITS = {
 	COVER: 'cover',
 };
 
-export type ImageFit = typeof IMAGE_FITS[keyof typeof IMAGE_FITS];
+export type ImageFit = (typeof IMAGE_FITS)[keyof typeof IMAGE_FITS];
