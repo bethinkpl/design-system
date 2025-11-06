@@ -1,3 +1,6 @@
 {
-    "globals": {}
+    "globals": {
+        "back": "Back",
+        "confirmation": "OK, I understand"
+    }
 }
