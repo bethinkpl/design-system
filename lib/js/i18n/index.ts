@@ -1,6 +1,6 @@
 import { createI18n, NamedValue, TranslateOptions } from 'vue-i18n';
-import pl from './pl/index';
-import en from './en/index';
+import pl from './pl';
+import en from './en';
 
 export type MessageSchema = typeof pl;
 
