@@ -18,7 +18,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: "default";
         validator(state: SurveyQuestionState): boolean;
     };
-}>, {}, {
+}>, {
+    t: import('../../../i18n').TranslateFunction;
+}, {
     showModal: boolean;
     inputId: string;
     ICONS: Readonly<{

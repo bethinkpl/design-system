@@ -23,7 +23,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: NumberConstructor;
         required: true;
     };
-}>, {}, {
+}>, {
+    t: import('../../i18n').TranslateFunction;
+}, {
     DROPDOWN_PLACEMENTS: Readonly<{
         readonly BOTTOM_START: "bottom-start";
         readonly BOTTOM_END: "bottom-end";

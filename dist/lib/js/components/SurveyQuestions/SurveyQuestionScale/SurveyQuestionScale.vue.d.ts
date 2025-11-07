@@ -37,7 +37,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: "two";
         validator(containers: SurveyQuestionScaleContainer): boolean;
     };
-}>, {}, {
+}>, {
+    t: import('../../../i18n').TranslateFunction;
+}, {
     showModal: boolean;
     inputId: string;
     ICONS: Readonly<{

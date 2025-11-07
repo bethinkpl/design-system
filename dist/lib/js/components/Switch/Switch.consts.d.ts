@@ -14,9 +14,9 @@ export declare const SWITCH_STATE: {
     readonly DEFAULT: "default";
     readonly DISABLED: "disabled";
 };
-export type SwitchState = typeof SWITCH_STATE[keyof typeof SWITCH_STATE];
+export type SwitchState = (typeof SWITCH_STATE)[keyof typeof SWITCH_STATE];
 export declare const SWITCH_SIDE: {
     readonly LEFT: "left";
     readonly RIGHT: "right";
 };
-export type SwitchSelection = typeof SWITCH_SIDE[keyof typeof SWITCH_SIDE];
+export type SwitchSelection = (typeof SWITCH_SIDE)[keyof typeof SWITCH_SIDE];
