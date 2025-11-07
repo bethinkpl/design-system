@@ -1,7 +1,7 @@
 {
-	"accessStatus.status.active": "Aktywny",
-	"accessStatus.status.awaiting": "Oczekujący",
-	"accessStatus.status.deactivated": "Dezaktywowany",
-	"accessStatus.status.ended": "Zakończony",
-	"accessStatus.status.suspended": "Zawieszony"
+	"ds.accessStatus.status.active": "Aktywny",
+	"ds.accessStatus.status.awaiting": "Oczekujący",
+	"ds.accessStatus.status.deactivated": "Dezaktywowany",
+	"ds.accessStatus.status.ended": "Zakończony",
+	"ds.accessStatus.status.suspended": "Zawieszony"
 }

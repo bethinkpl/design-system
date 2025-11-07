@@ -5,7 +5,7 @@
 			<template #footer>
 				<div>
 					<ds-button :type="BUTTON_TYPES.OUTLINED" @click="showModal = false">
-						{{ t('globals.confirmation') }}
+						{{ t('ds.globals.confirmation') }}
 					</ds-button>
 				</div>
 			</template>

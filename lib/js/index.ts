@@ -187,3 +187,13 @@ export {
 export type { IconDefinition } from './icons/fontawesome';
 
 export * from 'vee-validate';
+
+export { default as DsI18nPL } from './i18n/pl';
+export { default as DsI18nPL_accessStatus } from './i18n/pl/accessStatus.json';
+export { default as DsI18nPL_globals } from './i18n/pl/globals.json';
+export { default as DsI18nPL_pagination } from './i18n/pl/pagination.json';
+
+export { default as DsI18nEN } from './i18n/en';
+export { default as DsI18nEN_accessStatus } from './i18n/en/accessStatus.json';
+export { default as DsI18nEN_globals } from './i18n/en/globals.json';
+export { default as DsI18nEN_pagination } from './i18n/en/pagination.json';

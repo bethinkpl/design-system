@@ -92,7 +92,7 @@
 						@keyup.enter="onInputValueConfirmed"
 					/>
 					<span class="ds-pagination__text"
-						>{{ t('pagination.from') }} {{ lastPage }}</span
+						>{{ t('ds.pagination.from') }} {{ lastPage }}</span
 					>
 				</div>
 

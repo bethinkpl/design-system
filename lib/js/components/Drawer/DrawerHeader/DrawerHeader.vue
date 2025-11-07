@@ -8,7 +8,7 @@
 				class="ds-drawerHeader__secondLevel"
 				@click="$emit('backClicked')"
 			>
-				{{ t('globals.back') }}
+				{{ t('ds.globals.back') }}
 			</ds-button>
 			<div :class="{ '-ds-hidden': isSecondLevel }" class="ds-drawerHeader__firstLevel">
 				<icon-button

@@ -95,18 +95,18 @@ export default defineComponent({
 		},
 		text() {
 			if (this.status === COURSE_ACCESS_STATUS.ACTIVE) {
-				return this.t('accessStatus.status.active');
+				return this.t('ds.accessStatus.status.active');
 			}
 			if (this.status === COURSE_ACCESS_STATUS.AWAITING) {
-				return this.t('accessStatus.status.awaiting');
+				return this.t('ds.accessStatus.status.awaiting');
 			}
 			if (this.status === COURSE_ACCESS_STATUS.SUSPENDED) {
-				return this.t('accessStatus.status.suspended');
+				return this.t('ds.accessStatus.status.suspended');
 			}
 			if (this.status === COURSE_ACCESS_STATUS.DEACTIVATED) {
-				return this.t('accessStatus.status.deactivated');
+				return this.t('ds.accessStatus.status.deactivated');
 			}
-			return this.t('accessStatus.status.ended');
+			return this.t('ds.accessStatus.status.ended');
 		},
 	},
 });
