@@ -189,11 +189,24 @@ export type { IconDefinition } from './icons/fontawesome';
 export * from 'vee-validate';
 
 export { default as DsI18nPL } from './i18n/pl';
-export { default as DsI18nPL_accessStatus } from './i18n/pl/accessStatus.json';
-export { default as DsI18nPL_globals } from './i18n/pl/globals.json';
-export { default as DsI18nPL_pagination } from './i18n/pl/pagination.json';
-
 export { default as DsI18nEN } from './i18n/en';
-export { default as DsI18nEN_accessStatus } from './i18n/en/accessStatus.json';
-export { default as DsI18nEN_globals } from './i18n/en/globals.json';
-export { default as DsI18nEN_pagination } from './i18n/en/pagination.json';
+
+// Individual JSON exports for tree-shaking
+// ❗❗❗Always import JSON file first and then export the imported object to make sure that TS types are generated correctly ❗❗❗
+import i18nJsonAccessStatus from './i18n/pl/accessStatus.json';
+export const DsI18nPL_accessStatus = i18nJsonAccessStatus;
+
+import i18nJsonGlobals from './i18n/pl/globals.json';
+export const DsI18nPL_globals = i18nJsonGlobals;
+
+import i18nJsonPagination from './i18n/pl/pagination.json';
+export const DsI18nPL_pagination = i18nJsonPagination;
+
+import i18nJsonENAccessStatus from './i18n/en/accessStatus.json';
+export const DsI18nEN_accessStatus = i18nJsonENAccessStatus;
+
+import i18nJsonENGlobals from './i18n/en/globals.json';
+export const DsI18nEN_globals = i18nJsonENGlobals;
+
+import i18nJsonENPagination from './i18n/en/pagination.json';
+export const DsI18nEN_pagination = i18nJsonENPagination;
