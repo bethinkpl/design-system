@@ -1,8 +1,8 @@
 import { initialize } from '../lib/js/icons/fontawesome';
 import { initializePrimeVue } from '../lib/js';
-import { i18n } from '../lib/js/i18n';
 
 import { setup } from '@storybook/vue3';
+import { i18n } from './i18n';
 
 const customViewports = {
 	mobile: {

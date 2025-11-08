@@ -1,4 +1,4 @@
-import { createI18n, NamedValue, TranslateOptions } from 'vue-i18n';
+import { NamedValue, TranslateOptions } from 'vue-i18n';
 import pl from './pl';
 import en from './en';
 
@@ -8,12 +8,6 @@ export const messages = {
 	pl,
 	en,
 };
-
-export const i18n = createI18n<[MessageSchema], 'pl'>({
-	fallbackLocale: 'pl',
-	locale: 'pl',
-	messages,
-});
 
 export type ValidI18nKey = keyof MessageSchema;
 

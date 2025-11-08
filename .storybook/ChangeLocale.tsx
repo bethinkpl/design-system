@@ -4,7 +4,7 @@ import { useStorybookApi, useChannel, useGlobals } from '@storybook/manager-api'
 import { Button } from 'storybook/internal/components';
 import { FORCE_REMOUNT } from '@storybook/core-events';
 
-import { i18n } from '../lib/js/i18n';
+import { i18n } from './i18n';
 
 export const ChangeLocale = memo(function MyAddonSelector() {
 	const emit = useChannel({});
