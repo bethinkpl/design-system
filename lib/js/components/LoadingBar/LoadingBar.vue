@@ -1,64 +1,38 @@
 <template>
-	<div class="ds-loadingBar" :class="[sizeClassName]">
-		<span
-			:class="['ds-loadingBar__loader', `-ds-border-color-${color}`]"
-			:style="loadingBarStyles"
-		/>
+	<div class="ds-loadingBar">
+		<div class="ds-loadingBar__progress" :style="loadingBarStyles">
+			<ds-container-ribbon
+				:size="ribbonSize"
+				:color="ribbonColor"
+				:layout="CONTAINER_RIBBON_LAYOUTS.HORIZONTAL"
+			/>
+		</div>
 	</div>
 </template>
 
 <style scoped lang="scss">
 @import '../../../styles/settings/colors/tokens';
-@import '../../../styles/settings/borders';
 
 .ds-loadingBar {
 	background-color: $color-neutral-background;
 	display: flex;
+	width: 100%;
 
-	&.-ds-size-small {
-		height: $border-s;
-	}
-
-	&.-ds-size-medium {
-		height: $border-m;
-	}
-
-	&.-ds-size-large {
-		height: $border-l;
-	}
-
-	&__loader {
+	&__progress {
+		overflow: hidden;
 		width: 0;
-
-		&.-ds-border-color-neutralHeavy {
-			background-color: $color-neutral-border-heavy;
-		}
-
-		&.-ds-border-color-neutralStrong {
-			background-color: $color-neutral-border-strong;
-		}
-
-		&.-ds-border-color-success {
-			background-color: $color-success-border;
-		}
-
-		&.-ds-border-color-warning {
-			background-color: $color-warning-border;
-		}
-
-		&.-ds-border-color-danger {
-			background-color: $color-danger-border;
-		}
-
-		&.-ds-border-color-info {
-			background-color: $color-info-border;
-		}
 	}
 }
 </style>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
+<script setup lang="ts">
+import { computed, onMounted, ref } from 'vue';
+import DsContainerRibbon from '../ContainerRibbon/ContainerRibbon.vue';
+import {
+	CONTAINER_RIBBON_COLORS,
+	CONTAINER_RIBBON_LAYOUTS,
+	CONTAINER_RIBBON_SIZES,
+} from '../ContainerRibbon';
 import {
 	LOADING_BAR_COLORS,
 	LOADING_BAR_SIZES,
@@ -66,49 +40,55 @@ import {
 	LoadingBarSizes,
 } from './LoadingBar.consts';
 
-export default defineComponent({
-	name: 'LoadingBar',
-	props: {
-		color: {
-			type: String as PropType<LoadingBarColors>,
-			default: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
-		},
-		size: {
-			type: String as PropType<LoadingBarSizes>,
-			default: LOADING_BAR_SIZES.LARGE,
-		},
-		time: {
-			type: String,
-			required: true,
-		},
+const props = withDefaults(
+	defineProps<{
+		color?: LoadingBarColors;
+		size?: LoadingBarSizes;
+		time: string;
+	}>(),
+	{
+		color: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
+		size: LOADING_BAR_SIZES.LARGE,
 	},
-	data() {
-		return {
-			intervalId: 0,
-			width: 0,
-		};
-	},
-	computed: {
-		sizeClassName() {
-			return `-ds-size-${this.size}`;
-		},
-		loadingBarStyles() {
-			return {
-				width: `${this.width}%`,
-				transition: `width ${this.time}s linear`,
-			};
-		},
-	},
-	mounted() {
-		if (this.time === '0') {
-			this.width = 100;
-			return;
-		}
-		// without postponing the width change, the transition won't work,
-		// and the loading bar is 100% width right away
-		setTimeout(() => {
-			this.width = 100;
-		}, 0);
-	},
+);
+
+const width = ref(0);
+
+const ribbonSize = computed(() => {
+	const sizeMap = {
+		[LOADING_BAR_SIZES.SMALL]: CONTAINER_RIBBON_SIZES.SMALL,
+		[LOADING_BAR_SIZES.MEDIUM]: CONTAINER_RIBBON_SIZES.MEDIUM,
+		[LOADING_BAR_SIZES.LARGE]: CONTAINER_RIBBON_SIZES.LARGE,
+	};
+	return sizeMap[props.size] || CONTAINER_RIBBON_SIZES.LARGE;
+});
+
+const ribbonColor = computed(() => {
+	const colorMap = {
+		[LOADING_BAR_COLORS.NEUTRAL_HEAVY]: CONTAINER_RIBBON_COLORS.NEUTRAL_HEAVY,
+		[LOADING_BAR_COLORS.NEUTRAL_STRONG]: CONTAINER_RIBBON_COLORS.NEUTRAL_STRONG,
+		[LOADING_BAR_COLORS.SUCCESS]: CONTAINER_RIBBON_COLORS.SUCCESS,
+		[LOADING_BAR_COLORS.WARNING]: CONTAINER_RIBBON_COLORS.WARNING,
+		[LOADING_BAR_COLORS.DANGER]: CONTAINER_RIBBON_COLORS.DANGER,
+		[LOADING_BAR_COLORS.INFO]: CONTAINER_RIBBON_COLORS.INFO,
+	};
+	return colorMap[props.color] || CONTAINER_RIBBON_COLORS.NEUTRAL_HEAVY;
+});
+
+const loadingBarStyles = computed(() => ({
+	width: `${width.value}%`,
+	transition: `width ${props.time}s linear`,
+}));
+
+onMounted(() => {
+	if (props.time === '0') {
+		width.value = 100;
+		return;
+	}
+	// without postponing the width change, the transition won't work,
+	// and the loading bar is 100% width right away
+	setTimeout(() => {
+		width.value = 100;
+	}, 0);
 });
 </script>

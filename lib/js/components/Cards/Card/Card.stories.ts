@@ -4,6 +4,7 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
 	CARD_BORDER_COLORS,
 	CARD_BORDER_POSITIONS,
+	CARD_BORDER_RADIUS,
 	CARD_BORDER_SIZES,
 	CARD_PADDING_SIZES,
 } from './Card.consts';
@@ -47,6 +48,7 @@ const args = {
 	borderPosition: CARD_BORDER_POSITIONS.TOP,
 	borderSize: CARD_BORDER_SIZES.LARGE,
 	borderColor: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
+	borderRadius: CARD_BORDER_RADIUS.NONE,
 	hasLoadingBar: false,
 	loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime: '0',
@@ -70,6 +72,10 @@ const argTypes = {
 	borderColor: {
 		control: 'select',
 		options: Object.values(CARD_BORDER_COLORS),
+	},
+	borderRadius: {
+		control: 'select',
+		options: Object.values(CARD_BORDER_RADIUS),
 	},
 	loadingBarColor: {
 		control: 'select',
