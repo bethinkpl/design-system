@@ -20,7 +20,7 @@ jobs:
           node-version: '20.9.0'
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn install --immutable --immutable-cache
+        run: YARN_ENABLE_HARDENED_MODE=0 yarn install --immutable --immutable-cache
       - name: TypeScript check
         run: yarn ts:check
       - name: Run unit tests
