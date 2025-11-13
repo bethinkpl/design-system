@@ -1,5 +1,5 @@
 import { LoadingBarColors } from '../../LoadingBar';
-import { CardBorderColors, CardBorderPositions, CardBorderSizes, CardPaddingSize } from './Card.consts';
+import { CardBorderColors, CardBorderPositions, CardBorderRadius, CardBorderSizes, CardPaddingSize } from './Card.consts';
 
 declare function __VLS_template(): Readonly<{
     header?: () => any;
@@ -19,6 +19,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     borderPosition?: CardBorderPositions;
     borderSize?: CardBorderSizes;
     borderColor?: CardBorderColors;
+    borderRadius?: CardBorderRadius;
     hasLoadingBar?: boolean;
     loadingBarColor?: LoadingBarColors;
     loadingBarTime?: string;
@@ -32,6 +33,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     borderPosition?: CardBorderPositions;
     borderSize?: CardBorderSizes;
     borderColor?: CardBorderColors;
+    borderRadius?: CardBorderRadius;
     hasLoadingBar?: boolean;
     loadingBarColor?: LoadingBarColors;
     loadingBarTime?: string;

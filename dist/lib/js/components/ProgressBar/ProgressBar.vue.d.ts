@@ -388,8 +388,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{}>, {
     size: string;
     radius: string;
-    labelTextSize: string;
     layout: string;
+    labelTextSize: string;
     labelText: string;
     labelData: string;
     labelDataSupporting: string;

@@ -422,7 +422,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<boolean>;
             };
             paddingSize: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../Cards/Card').CardPaddingSize>;
             };
             dividerUnderHeader: {
                 type: import('vue').PropType<boolean>;
@@ -431,13 +431,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<boolean>;
             };
             borderPosition: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../Cards/Card').CardBorderPositions>;
             };
             borderSize: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../Cards/Card').CardBorderSizes>;
             };
             borderColor: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../Cards/Card').CardBorderColors>;
+            };
+            borderRadius: {
+                type: import('vue').PropType<import('../../Cards/Card').CardBorderRadius>;
             };
             hasLoadingBar: {
                 type: import('vue').PropType<boolean>;
@@ -466,7 +469,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<boolean>;
             };
             paddingSize: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../Cards/Card').CardPaddingSize>;
             };
             dividerUnderHeader: {
                 type: import('vue').PropType<boolean>;
@@ -475,13 +478,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<boolean>;
             };
             borderPosition: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../Cards/Card').CardBorderPositions>;
             };
             borderSize: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../Cards/Card').CardBorderSizes>;
             };
             borderColor: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../../Cards/Card').CardBorderColors>;
+            };
+            borderRadius: {
+                type: import('vue').PropType<import('../../Cards/Card').CardBorderRadius>;
             };
             hasLoadingBar: {
                 type: import('vue').PropType<boolean>;
@@ -507,7 +513,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: import('vue').PropType<boolean>;
         };
         paddingSize: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../../Cards/Card').CardPaddingSize>;
         };
         dividerUnderHeader: {
             type: import('vue').PropType<boolean>;
@@ -516,13 +522,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: import('vue').PropType<boolean>;
         };
         borderPosition: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../../Cards/Card').CardBorderPositions>;
         };
         borderSize: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../../Cards/Card').CardBorderSizes>;
         };
         borderColor: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../../Cards/Card').CardBorderColors>;
+        };
+        borderRadius: {
+            type: import('vue').PropType<import('../../Cards/Card').CardBorderRadius>;
         };
         hasLoadingBar: {
             type: import('vue').PropType<boolean>;
