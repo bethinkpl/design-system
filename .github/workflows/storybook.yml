@@ -14,10 +14,15 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '20.9.0'
-          cache: 'yarn'
+      - uses: actions/cache@v4
+        name: Cache node_modules
+        id: cache-node-modules
+        with:
+          path: node_modules
+          key: design-system-node-modules-${{ hashFiles('yarn.lock') }}
       - name: Install and Build 🔧
         run: | # Install npm packages and build the Storybook files
-          yarn install --immutable
+          yarn install --immutable --immutable-cache
           yarn storybook:build
           touch ./public/storybook/.nojekyll
       - name: Deploy 🚀
