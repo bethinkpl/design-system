@@ -1,4 +1,5 @@
 import { Value } from '../../utils/type.utils';
+import { IconItem } from '../Icons/Icon';
 
 export const PROGRESS_BAR_RANGE_COLORS = {
 	PRIMARY_MEDIUM: 'primaryMedium',
@@ -70,7 +71,7 @@ export type ProgressBarRadius = Value<typeof PROGRESS_BAR_RADII>;
 export const PROGRESS_BAR_LAYOUTS = {
 	DEFAULT: 'default',
 	COMPACT: 'compact',
-};
+} as const;
 
 export type ProgressBarLayout = Value<typeof PROGRESS_BAR_LAYOUTS>;
 
@@ -78,4 +79,7 @@ export interface ProgressBarRange {
 	color: typeof PROGRESS_BAR_RANGE_COLORS[keyof typeof PROGRESS_BAR_RANGE_COLORS];
 	start: number;
 	length: number;
+	label?: string;
+	icon?: IconItem;
+	data?: string;
 }
