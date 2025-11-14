@@ -2,10 +2,12 @@
 
 ### Fontawesome PRO
 
-DS requires access to font-awesome PRO. Add `FONT_AWESOME_AUTH_TOKEN` environment variable to your .zshrc, .bashrc
+DS requires access to font-awesome PRO. Add `~/.yarnrc.yml` file with the following content:
 
 ```
-export FONT_AWESOME_AUTH_TOKEN=<TOKEN>
+npmRegistries:
+  https://npm.fontawesome.com/:
+    npmAuthToken: <TOKEN>
 ```
 
 To obtain the token visit https://fontawesome.com/account/general, look for "Package Token". 
