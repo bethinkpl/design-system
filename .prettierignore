@@ -1,0 +1,4 @@
+# Ignore all JSON files except i18n files
+# For example, we don't want to format package.json as it is automatically managed
+**/*.json
+!lib/js/i18n/**/*.json

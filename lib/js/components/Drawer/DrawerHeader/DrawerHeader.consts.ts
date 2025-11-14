@@ -4,4 +4,4 @@ export const DRAWER_HEADER_TITLE_COLORS = {
 } as const;
 
 export type DrawerHeaderTitleColor =
-	typeof DRAWER_HEADER_TITLE_COLORS[keyof typeof DRAWER_HEADER_TITLE_COLORS];
+	(typeof DRAWER_HEADER_TITLE_COLORS)[keyof typeof DRAWER_HEADER_TITLE_COLORS];

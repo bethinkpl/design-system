@@ -172,10 +172,10 @@ const ImportSingleTokenFile = (
 					obj.values.alpha == 1
 						? 'var(' + hexToCssVariable[obj.values.hex] + ')'
 						: 'rgba(var(' +
-						  hexToCssVariable[obj.values.hex] +
-						  '-rgb), ' +
-						  obj.values.alpha +
-						  ')',
+							hexToCssVariable[obj.values.hex] +
+							'-rgb), ' +
+							obj.values.alpha +
+							')',
 			};
 			if (resultJsonTokens[category] === undefined) {
 				resultJsonTokens[category] = [];

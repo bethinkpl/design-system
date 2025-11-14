@@ -14,8 +14,7 @@
 			</td>
 			<td v-if="item.attributes" class="itemsListItem__example">
 				<div :style="attributesAsStyle(item.attributesRaw)">
-					Enim ullam temporibus quasi unde quam. Eaque praesentium dolor qui
-					necessitatibus magnam voluptatem. Eos aut esse earum.
+					{{ exampleText }}
 				</div>
 			</td>
 		</tr>
@@ -39,6 +38,12 @@ export default defineComponent({
 			type: Array as PropType<Array<TypographyToken>>,
 			required: true,
 		},
+	},
+	setup() {
+		return {
+			exampleText:
+				'Enim ullam temporibus quasi unde quam. Eaque praesentium dolor qui necessitatibus magnam voluptatem. Eos aut esse earum.',
+		};
 	},
 	methods: {
 		attributesAsStyle(attributes) {

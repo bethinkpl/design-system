@@ -60,4 +60,4 @@ export const ICONS = {
 } as const;
 
 export type IconKey = keyof typeof ICONS;
-export type IconItem = typeof ICONS[IconKey];
+export type IconItem = (typeof ICONS)[IconKey];

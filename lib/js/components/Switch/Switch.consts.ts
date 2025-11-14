@@ -19,11 +19,11 @@ export const SWITCH_STATE = {
 	DISABLED: 'disabled',
 } as const;
 
-export type SwitchState = typeof SWITCH_STATE[keyof typeof SWITCH_STATE];
+export type SwitchState = (typeof SWITCH_STATE)[keyof typeof SWITCH_STATE];
 
 export const SWITCH_SIDE = {
 	LEFT: 'left',
 	RIGHT: 'right',
 } as const;
 
-export type SwitchSelection = typeof SWITCH_SIDE[keyof typeof SWITCH_SIDE];
+export type SwitchSelection = (typeof SWITCH_SIDE)[keyof typeof SWITCH_SIDE];

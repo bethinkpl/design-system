@@ -161,7 +161,8 @@ $survey-toggle-colors: (
 		display: flex;
 		height: $survey-toggle-size;
 		padding: $space-2xs;
-		transition: background-color ease-in-out $default-transition-time,
+		transition:
+			background-color ease-in-out $default-transition-time,
 			box-shadow ease-in-out $default-transition-time;
 		width: $survey-toggle-size;
 

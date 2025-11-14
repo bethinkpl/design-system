@@ -9,8 +9,20 @@
 @import '../lib/styles/settings/colors/tokens-wnl';
 @import '../lib/styles/settings/typography/tokens';
 
-$fontFamily: 'BlinkMacSystemFont', -apple-system, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
-	'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+$fontFamily:
+	'BlinkMacSystemFont',
+	-apple-system,
+	'Segoe UI',
+	'Roboto',
+	'Oxygen',
+	'Ubuntu',
+	'Cantarell',
+	'Fira Sans',
+	'Droid Sans',
+	'Helvetica Neue',
+	'Helvetica',
+	'Arial',
+	sans-serif;
 /* stylelint-disable selector-class-pattern */
 html,
 body {
