@@ -11,17 +11,21 @@ jobs:
     name: Frontend tests
     runs-on: ubuntu-latest
     timeout-minutes: 10
-
+    env:
+      FONT_AWESOME_AUTH_TOKEN: ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v3
-      - name: Insert auth font awesome auth token
-        run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
       - uses: actions/setup-node@v3
         with:
           node-version: '20.9.0'
-          cache: 'yarn'
+      - uses: actions/cache@v4
+        name: Cache node_modules
+        id: cache-node-modules
+        with:
+          path: node_modules
+          key: design-system-node-modules-${{ hashFiles('yarn.lock') }}
       - name: Install dependencies
-        run: yarn install --pure-lockfile
+        run: yarn install --immutable --immutable-cache
       - name: TypeScript check
         run: yarn ts:check
       - name: Run unit tests

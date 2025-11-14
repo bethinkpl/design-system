@@ -99,5 +99,6 @@
   "peerDependencies": {
     "vee-validate": ">=4.15.0",
     "vue": ">=3.5.0"
-  }
+  },
+  "packageManager": "yarn@4.11.0"
 }

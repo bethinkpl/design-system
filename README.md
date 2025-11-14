@@ -2,12 +2,12 @@
 
 ### Fontawesome PRO
 
-DS requires access to font-awesome PRO. Add `.npmrc` file to root catalog. File should look like:
+DS requires access to font-awesome PRO. Add `FONT_AWESOME_AUTH_TOKEN` environment variable to your .zshrc, .bashrc
 
 ```
-@fortawesome:registry=https://npm.fontawesome.com/
-//npm.fontawesome.com/:_authToken=<TOKEN>
+export FONT_AWESOME_AUTH_TOKEN=<TOKEN>
 ```
+
 To obtain the token visit https://fontawesome.com/account/general, look for "Package Token". 
 Login credentials: https://bethink.passwd.team/secrets/5ZldBeJcdG5L4YdrovDE
 
