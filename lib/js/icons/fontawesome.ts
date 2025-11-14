@@ -151,6 +151,7 @@ import { faSquare } from '@fortawesome/pro-regular-svg-icons/faSquare';
 import { faSquareCaretRight } from '@fortawesome/pro-regular-svg-icons/faSquareCaretRight';
 import { faSquareCheck } from '@fortawesome/pro-regular-svg-icons/faSquareCheck';
 import { faSquareList } from '@fortawesome/pro-regular-svg-icons/faSquareList';
+import { faSquareMinus } from '@fortawesome/pro-regular-svg-icons/faSquareMinus';
 import { faStar } from '@fortawesome/pro-regular-svg-icons/faStar';
 import { faTag } from '@fortawesome/pro-regular-svg-icons/faTag';
 import { faTags } from '@fortawesome/pro-regular-svg-icons/faTags';
@@ -441,6 +442,7 @@ export const FONTAWESOME_ICONS = {
 	FA_SQUARE_CHECK: faSquareCheck,
 	FA_SQUARE_LIST_SOLID: fasSquareList,
 	FA_SQUARE_LIST: faSquareList,
+	FA_SQUARE_MINUS: faSquareMinus,
 	FA_SQUARE: faSquare,
 	FA_STAR_SOLID: fasStar,
 	FA_STAR: faStar,
