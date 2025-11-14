@@ -1,5 +1,6 @@
 import { PropType } from 'vue';
 import { ProgressBarBadgeColor, ProgressBarLabelTextSize, ProgressBarLayout, ProgressBarRadius, ProgressBarRange, ProgressBarSize } from './ProgressBar.consts';
+import { ProgressBarLegendSize } from './ProgressBarLegend.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     size: {
@@ -23,8 +24,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         validator(size: ProgressBarRadius): boolean;
     };
     layout: {
-        type: StringConstructor;
-        default: string;
+        type: PropType<ProgressBarLayout>;
+        default: "default";
         validator(size: ProgressBarLayout): boolean;
     };
     labelText: {
@@ -57,6 +58,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: "info";
         validator(color: ProgressBarBadgeColor): boolean;
     };
+    hasLegend: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    legendSize: {
+        type: PropType<ProgressBarLegendSize>;
+        default: "small";
+    };
+    hasLegendPercentValue: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>, {}, {
     PROGRESS_BAR_SIZES: Readonly<{
         readonly MEDIUM: "medium";
@@ -68,8 +81,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         NONE: string;
     }>;
     PROGRESS_BAR_LAYOUTS: Readonly<{
-        DEFAULT: string;
-        COMPACT: string;
+        readonly DEFAULT: "default";
+        readonly COMPACT: "compact";
     }>;
     PROGRESS_BAR_LABEL_TEXT_SIZES: Readonly<{
         readonly MEDIUM: "medium";
@@ -125,6 +138,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_BOX_ARCHIVE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOX: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BULLSEYE_ARROW: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BRAIN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CALCULATOR_SIMPLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CALENDAR_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CALENDAR_CIRCLE_EXCLAMATION: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -351,8 +365,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         validator(size: ProgressBarRadius): boolean;
     };
     layout: {
-        type: StringConstructor;
-        default: string;
+        type: PropType<ProgressBarLayout>;
+        default: "default";
         validator(size: ProgressBarLayout): boolean;
     };
     labelText: {
@@ -385,11 +399,23 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: "info";
         validator(color: ProgressBarBadgeColor): boolean;
     };
+    hasLegend: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    legendSize: {
+        type: PropType<ProgressBarLegendSize>;
+        default: "small";
+    };
+    hasLegendPercentValue: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>> & Readonly<{}>, {
     size: string;
     radius: string;
+    layout: ProgressBarLayout;
     labelTextSize: string;
-    layout: string;
     labelText: string;
     labelData: string;
     labelDataSupporting: string;
@@ -397,7 +423,39 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     labelTextEllipsis: boolean;
     badgePosition: number;
     badgeColor: string;
+    hasLegend: boolean;
+    legendSize: ProgressBarLegendSize;
+    hasLegendPercentValue: boolean;
 }, {}, {
+    ProgressBarLegend: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        layout: {
+            type: PropType<import('./ProgressBarLegend.consts').ProgressBarLegendLayout>;
+        };
+        ranges: {
+            type: PropType<ProgressBarRange[]>;
+            required: true;
+        };
+        size: {
+            type: PropType<ProgressBarLegendSize>;
+        };
+        hasPercentValue: {
+            type: PropType<boolean>;
+        };
+    }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        layout: {
+            type: PropType<import('./ProgressBarLegend.consts').ProgressBarLegendLayout>;
+        };
+        ranges: {
+            type: PropType<ProgressBarRange[]>;
+            required: true;
+        };
+        size: {
+            type: PropType<ProgressBarLegendSize>;
+        };
+        hasPercentValue: {
+            type: PropType<boolean>;
+        };
+    }>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         icon: {
             type: ObjectConstructor;
