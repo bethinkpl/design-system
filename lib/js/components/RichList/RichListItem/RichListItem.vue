@@ -54,8 +54,9 @@
 				<div v-if="isSelectable" class="ds-richListItem__checkbox">
 					<ds-divider v-if="isHorizontal" is-vertical />
 					<ds-checkbox
-						:is-selected="isSelected"
-						@update:is-selected="$emit('update:is-selected', $event)"
+						:model-value="isSelected"
+						value="item-selected"
+						@update:model-value="(value) => $emit('update:is-selected', !!value)"
 						@click.stop
 					/>
 				</div>

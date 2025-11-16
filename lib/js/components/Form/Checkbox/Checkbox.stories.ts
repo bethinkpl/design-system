@@ -71,6 +71,7 @@ Interactive.args = {
 	size: CHECKBOX_SIZES.SMALL,
 	state: CHECKBOX_STATES.DEFAULT,
 	elevation: CHECKBOX_ELEVATIONS.X_SMALL,
+	value: 'example',
 };
 
 Interactive.parameters = {

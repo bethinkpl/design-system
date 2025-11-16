@@ -13,23 +13,24 @@
 		]"
 	>
 		<checkbox-root
-			v-model="value"
+			v-model="modelValue"
 			:disabled="state === CHECKBOX_STATES.DISABLED"
 			class="ds-checkbox__root"
+			:value="value"
 		>
 			<!-- As we also use icon for unchecked state, we need to force mount the indicator -->
 			<checkbox-indicator :force-mount="true" class="ds-checkbox__indicator" as="div">
 				<icon
-					v-if="value === CHECKBOX_VALUES.CHECKED"
+					class="ds-checkbox__checked"
 					:icon="ICONS.FA_SQUARE_CHECK_SOLID"
 					:size="iconSize"
 				/>
+				<icon class="ds-checkbox__unchecked" :icon="ICONS.FA_SQUARE" :size="iconSize" />
 				<icon
-					v-else-if="value === CHECKBOX_VALUES.UNCHECKED"
-					:icon="ICONS.FA_SQUARE"
+					class="ds-checkbox__indeterminate"
+					:icon="ICONS.FA_SQUARE_MINUS"
 					:size="iconSize"
 				/>
-				<icon v-else :icon="ICONS.FA_SQUARE_MINUS" :size="iconSize" />
 			</checkbox-indicator>
 		</checkbox-root>
 
@@ -142,6 +143,27 @@
 			right: 2px;
 			top: 2px;
 		}
+
+		&[data-state='checked'] {
+			& #{$root}__unchecked,
+			& #{$root}__indeterminate {
+				display: none;
+			}
+		}
+
+		&[data-state='unchecked'] {
+			& #{$root}__checked,
+			& #{$root}__indeterminate {
+				display: none;
+			}
+		}
+
+		&[data-state='indeterminate'] {
+			& #{$root}__checked,
+			& #{$root}__unchecked {
+				display: none;
+			}
+		}
 	}
 
 	&__label {
@@ -171,7 +193,6 @@ import { CheckboxRoot, CheckboxIndicator } from 'reka-ui';
 import {
 	CHECKBOX_SIZES,
 	CHECKBOX_STATES,
-	CHECKBOX_VALUES,
 	CHECKBOX_ELEVATIONS,
 	CheckboxSize,
 	CheckboxState,
@@ -180,26 +201,41 @@ import {
 } from './Checkbox.consts';
 import Icon from '../../Icons/Icon/Icon.vue';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { computed } from 'vue';
+import { computed, inject } from 'vue';
+import { CHECKBOX_GROUP_INJECTION_KEY } from '../CheckboxGroupField/CheckboxGroupField.consts';
 
-const {
-	size = CHECKBOX_SIZES.SMALL,
-	state = CHECKBOX_STATES.DEFAULT,
-	elevation = CHECKBOX_ELEVATIONS.X_SMALL,
-} = defineProps<{
+const props = defineProps<{
 	size?: CheckboxSize;
 	state?: CheckboxState;
 	elevation?: CheckboxElevation;
+	/**
+	 * String value set when the checkbox is checked
+	 */
+	value: string;
 }>();
 
-const value = defineModel<CheckboxValue>();
+const modelValue = defineModel<CheckboxValue>({
+	default: false,
+});
 
 defineSlots<{
 	default?(): any;
 }>();
 
+// Inject context from CheckboxGroupField
+const groupContext = inject(CHECKBOX_GROUP_INJECTION_KEY, null);
+
+// Use props if provided, otherwise fall back to injected values, then defaults
+const size = computed(() => props.size ?? groupContext?.size.value ?? CHECKBOX_SIZES.SMALL);
+
+const state = computed(() => props.state ?? groupContext?.state.value ?? CHECKBOX_STATES.DEFAULT);
+
+const elevation = computed(
+	() => props.elevation ?? groupContext?.elevation.value ?? CHECKBOX_ELEVATIONS.X_SMALL,
+);
+
 const iconSize = computed(() => {
-	switch (size) {
+	switch (size.value) {
 		case CHECKBOX_SIZES.X_SMALL:
 			return ICON_SIZES.XX_SMALL;
 		case CHECKBOX_SIZES.SMALL:

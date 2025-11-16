@@ -12,11 +12,14 @@ import {
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
 function setup(
-	props: ComponentProps<typeof Checkbox> = {},
+	props: Partial<ComponentProps<typeof Checkbox>> = {},
 	slots: Partial<ComponentSlots<typeof Checkbox>> = {},
 ) {
 	return mount(Checkbox, {
-		props,
+		props: {
+			value: 'test',
+			...props,
+		},
 		// @ts-expect-error - it looks like a bug in vue-component-type-helpers or vue-test-utils
 		slots,
 		attachTo: 'body',
@@ -158,22 +161,13 @@ describe('Checkbox', () => {
 		it('should display checked icon when value is checked', () => {
 			const wrapper = setup({ modelValue: CHECKBOX_VALUES.CHECKED });
 
-			const iconComponent = wrapper.findComponent({ name: 'Icon' });
-			expect(iconComponent.props('icon')).toEqual(ICONS.FA_SQUARE_CHECK_SOLID);
-		});
+			const [checkedIcon, uncheckedIcon, indeterminateIcon] = wrapper.findAllComponents({
+				name: 'Icon',
+			});
 
-		it('should display unchecked icon when value is unchecked', () => {
-			const wrapper = setup({ modelValue: CHECKBOX_VALUES.UNCHECKED });
-
-			const iconComponent = wrapper.findComponent({ name: 'Icon' });
-			expect(iconComponent.props('icon')).toEqual(ICONS.FA_SQUARE);
-		});
-
-		it('should display indeterminate icon when value is indeterminate', () => {
-			const wrapper = setup({ modelValue: CHECKBOX_VALUES.INDETERMINATE });
-
-			const iconComponent = wrapper.findComponent({ name: 'Icon' });
-			expect(iconComponent.props('icon')).toEqual(ICONS.FA_SQUARE_MINUS);
+			expect(checkedIcon.props('icon')).toEqual(ICONS.FA_SQUARE_CHECK_SOLID);
+			expect(uncheckedIcon.props('icon')).toEqual(ICONS.FA_SQUARE);
+			expect(indeterminateIcon.props('icon')).toEqual(ICONS.FA_SQUARE_MINUS);
 		});
 	});
 
@@ -271,33 +265,17 @@ describe('Checkbox', () => {
 		});
 	});
 
-	describe('v-model behavior', () => {
-		it('should work with v-model pattern', async () => {
-			const modelValue = CHECKBOX_VALUES.UNCHECKED;
-			const onUpdate = vi.fn();
+	it('should work with v-model pattern', async () => {
+		const modelValue = CHECKBOX_VALUES.UNCHECKED;
+		const onUpdate = vi.fn();
 
-			const wrapper = setup({
-				modelValue,
-				'onUpdate:modelValue': onUpdate,
-			});
-
-			await wrapper.find('label').trigger('click');
-
-			expect(onUpdate).toHaveBeenCalledWith(CHECKBOX_VALUES.CHECKED);
+		const wrapper = setup({
+			modelValue,
+			'onUpdate:modelValue': onUpdate,
 		});
 
-		it('should update icon when modelValue changes', async () => {
-			const wrapper = setup({ modelValue: CHECKBOX_VALUES.UNCHECKED });
+		await wrapper.find('label').trigger('click');
 
-			// Initially shows unchecked icon
-			let iconComponent = wrapper.findComponent({ name: 'Icon' });
-			expect(iconComponent.props('icon')).toEqual(ICONS.FA_SQUARE);
-
-			await wrapper.find('label').trigger('click');
-
-			// Should now show checked icon
-			iconComponent = wrapper.findComponent({ name: 'Icon' });
-			expect(iconComponent.props('icon')).toEqual(ICONS.FA_SQUARE_CHECK_SOLID);
-		});
+		expect(onUpdate).toHaveBeenCalledWith(CHECKBOX_VALUES.CHECKED);
 	});
 });
