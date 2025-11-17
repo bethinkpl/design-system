@@ -86,7 +86,7 @@
 			padding: $space-2xs 0;
 		}
 
-		&:focus-visible {
+		&:focus {
 			outline: none;
 		}
 
@@ -105,7 +105,7 @@
 		}
 
 		#{$root}:hover:not(.-ds-disabled) &::before,
-		&:focus-visible::before {
+		&:focus::before {
 			transform: scale(1);
 		}
 
@@ -125,7 +125,7 @@
 			background-color: $color-neutral-background-ghost-hovered;
 		}
 
-		&:focus-visible::before {
+		&:focus::before {
 			background-color: $color-neutral-background-ghost-focused;
 		}
 	}
