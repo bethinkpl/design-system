@@ -10,6 +10,12 @@
   "main": "./dist/design-system.js",
   "type": "module",
   "typings": "./dist/lib/js/index.d.ts",
+  "files": [
+    "dist/",
+    "lib/",
+	"package.json",
+	"README.md"
+  ],
   "license": "UNLICENSED",
   "engines": {
     "yarn": "^1.22.1",
