@@ -106,6 +106,7 @@ describe('CheckboxGroupField', () => {
 
 	describe('vee-validate integration', () => {
 		it('integrates with vee-validate form context and reflects initial values', async () => {
+			// eslint-disable-next-line vue/one-component-per-file
 			const TestForm = defineComponent({
 				name: 'TestForm',
 				components: {
@@ -155,6 +156,7 @@ describe('CheckboxGroupField', () => {
 				}),
 			);
 
+			// eslint-disable-next-line vue/one-component-per-file
 			const TestForm = defineComponent({
 				name: 'TestForm',
 				components: {
@@ -216,6 +218,7 @@ describe('CheckboxGroupField', () => {
 		});
 
 		it('works without vee-validate form context using v-model', async () => {
+			// eslint-disable-next-line vue/one-component-per-file
 			const TestComponent = defineComponent({
 				name: 'TestComponent',
 				components: {
