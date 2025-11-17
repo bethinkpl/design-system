@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "30.0.0",
+  "version": "30.0.1",
   "description": "Bethink universe design-system",
   "repository": {
     "type": "git",
@@ -13,8 +13,8 @@
   "files": [
     "dist/",
     "lib/",
-	"package.json",
-	"README.md"
+    "package.json",
+    "README.md"
   ],
   "license": "UNLICENSED",
   "engines": {
