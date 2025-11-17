@@ -14,7 +14,7 @@ describe('SurveyToggle', () => {
 		contentText = '',
 		color = SURVEY_TOGGLE_MEANINGS.PRIMARY,
 		state = SURVEY_TOGGLE_STATES.DEFAULT,
-		status = SURVEY_TOGGLE_STATUSES.DEFAULT as typeof SURVEY_TOGGLE_STATUSES[keyof typeof SURVEY_TOGGLE_STATUSES], // TODO: make an util
+		status = SURVEY_TOGGLE_STATUSES.DEFAULT as (typeof SURVEY_TOGGLE_STATUSES)[keyof typeof SURVEY_TOGGLE_STATUSES], // TODO: make an util
 	} = {}) => {
 		return shallowMount(SurveyToggle, {
 			props: {

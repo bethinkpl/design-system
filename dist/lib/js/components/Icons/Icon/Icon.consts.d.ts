@@ -271,4 +271,4 @@ export declare const ICONS: {
     readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
 };
 export type IconKey = keyof typeof ICONS;
-export type IconItem = typeof ICONS[IconKey];
+export type IconItem = (typeof ICONS)[IconKey];

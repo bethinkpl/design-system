@@ -38,10 +38,10 @@ export const PROGRESS_DONUT_CHART_STATES = {
 };
 
 export type ProgressDonutChartState =
-	typeof PROGRESS_DONUT_CHART_STATES[keyof typeof PROGRESS_DONUT_CHART_STATES];
+	(typeof PROGRESS_DONUT_CHART_STATES)[keyof typeof PROGRESS_DONUT_CHART_STATES];
 
 export interface ProgressDonutChartRange {
-	color: typeof PROGRESS_DONUT_CHART_RANGE_COLORS[keyof typeof PROGRESS_DONUT_CHART_RANGE_COLORS];
+	color: (typeof PROGRESS_DONUT_CHART_RANGE_COLORS)[keyof typeof PROGRESS_DONUT_CHART_RANGE_COLORS];
 	start: number;
 	length: number;
 }

@@ -3,4 +3,4 @@ export const DRAWER_POSITIONS = {
 	RIGHT: 'right',
 } as const;
 
-export type DrawerPosition = typeof DRAWER_POSITIONS[keyof typeof DRAWER_POSITIONS];
+export type DrawerPosition = (typeof DRAWER_POSITIONS)[keyof typeof DRAWER_POSITIONS];

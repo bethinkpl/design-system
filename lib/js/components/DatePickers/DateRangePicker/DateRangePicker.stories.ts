@@ -33,12 +33,12 @@ const meta: Meta<DateRangePickerProps> = {
 						startDate: startDate
 							? `${startDate.getFullYear()}-${
 									startDate.getMonth() + 1
-							  }-${startDate.getDate()}`
+								}-${startDate.getDate()}`
 							: null,
 						endDate: endDate
 							? `${endDate.getFullYear()}-${
 									endDate.getMonth() + 1
-							  }-${endDate.getDate()}`
+								}-${endDate.getDate()}`
 							: null,
 					});
 				},

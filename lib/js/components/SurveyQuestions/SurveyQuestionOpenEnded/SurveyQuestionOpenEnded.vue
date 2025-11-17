@@ -8,7 +8,7 @@
 			<template #footer>
 				<div>
 					<ds-button :type="BUTTON_TYPES.OUTLINED" @click="showModal = false">
-						OK, rozumiem
+						{{ t('ds.globals.confirmation') }}
 					</ds-button>
 				</div>
 			</template>
@@ -90,6 +90,7 @@ import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { SURVEY_QUESTION_STATES, SurveyQuestionState } from '../SurveyQuestion.consts';
 import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
 import { randomString } from '../../../utils/string';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 import { defineComponent } from 'vue';
 
@@ -126,6 +127,11 @@ export default defineComponent({
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['input'],
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return { t };
+	},
 	data() {
 		return {
 			showModal: false,

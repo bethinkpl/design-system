@@ -5,7 +5,7 @@ export const SELECTION_CONTROL_SIZE = {
 } as const;
 
 export type SelectionControlSize =
-	typeof SELECTION_CONTROL_SIZE[keyof typeof SELECTION_CONTROL_SIZE];
+	(typeof SELECTION_CONTROL_SIZE)[keyof typeof SELECTION_CONTROL_SIZE];
 export const SELECTION_CONTROL_STATE = {
 	DEFAULT: 'default',
 	DISABLED: 'disabled',
@@ -13,7 +13,7 @@ export const SELECTION_CONTROL_STATE = {
 } as const;
 
 export type SelectionControlState =
-	typeof SELECTION_CONTROL_STATE[keyof typeof SELECTION_CONTROL_STATE];
+	(typeof SELECTION_CONTROL_STATE)[keyof typeof SELECTION_CONTROL_STATE];
 
 export const SELECTION_CONTROL_TYPE = {
 	RADIO_BUTTON: 'radioButton',
@@ -21,4 +21,4 @@ export const SELECTION_CONTROL_TYPE = {
 } as const;
 
 export type SelectionControlType =
-	typeof SELECTION_CONTROL_TYPE[keyof typeof SELECTION_CONTROL_TYPE];
+	(typeof SELECTION_CONTROL_TYPE)[keyof typeof SELECTION_CONTROL_TYPE];
