@@ -15,7 +15,7 @@ export const argTypes = (size, state) =>
 			control: 'select',
 			options: Object.values(state),
 		},
-	} as ArgTypes);
+	}) as ArgTypes;
 
 export const args = (size, state) =>
 	({
@@ -23,4 +23,4 @@ export const args = (size, state) =>
 		isSelected: false,
 		size: size.SMALL,
 		state: state.DEFAULT,
-	} as Args);
+	}) as Args;

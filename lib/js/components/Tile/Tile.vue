@@ -449,7 +449,7 @@ const tileColor = computed(
 			[TILE_COLORS.DANGER]: '-ds-danger',
 			[TILE_COLORS.WARNING]: '-ds-warning',
 			[TILE_COLORS.INFO]: '-ds-info',
-		}[props.color]),
+		})[props.color],
 );
 
 const tileState = computed(
@@ -458,6 +458,6 @@ const tileState = computed(
 			[TILE_STATES.DEFAULT]: null,
 			[TILE_STATES.DISABLED]: '-ds-disabled',
 			[TILE_STATES.LOADING]: '-ds-loading',
-		}[props.state]),
+		})[props.state],
 );
 </script>

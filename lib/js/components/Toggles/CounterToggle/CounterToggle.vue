@@ -208,7 +208,8 @@ $counter-toggle-colors: (
 	justify-content: center;
 	padding: $space-2xs;
 	position: relative;
-	transition: color ease-in-out $default-transition-time,
+	transition:
+		color ease-in-out $default-transition-time,
 		background-color ease-in-out $default-transition-time;
 	user-select: none;
 	width: auto;

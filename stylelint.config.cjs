@@ -68,6 +68,8 @@ module.exports = {
 		'selector-not-notation': null,
 		'value-list-comma-newline-after': null,
 		'value-no-vendor-prefix': null,
+		// `always` Conflicts with Prettier
+		'scss/dollar-variable-colon-space-after': 'always-single-line',
 	},
 	ignoreFiles: ['lib/styles/settings/typography/_tokens.scss'],
 };

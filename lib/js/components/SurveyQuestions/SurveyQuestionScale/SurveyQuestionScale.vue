@@ -5,7 +5,7 @@
 			<template #footer>
 				<div>
 					<ds-button :type="BUTTON_TYPES.OUTLINED" @click="showModal = false">
-						OK, rozumiem
+						{{ t('ds.globals.confirmation') }}
 					</ds-button>
 				</div>
 			</template>
@@ -251,7 +251,7 @@ import {
 import SurveyQuestionTextarea from '../';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
-
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -310,6 +310,11 @@ export default defineComponent({
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['elaboration-change', 'select-change'],
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return { t };
+	},
 	data() {
 		return {
 			showModal: false,

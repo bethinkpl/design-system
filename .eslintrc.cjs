@@ -5,6 +5,7 @@ module.exports = {
 		'plugin:vue/recommended',
 		'prettier',
 		'plugin:storybook/recommended',
+		'plugin:@intlify/vue-i18n/recommended-legacy',
 	],
 	env: {
 		browser: true,
@@ -134,5 +135,40 @@ module.exports = {
 		'vue/no-undef-components': 'error',
 		'vue/multi-word-component-names': 0,
 		'vue/require-emit-validator': 'error',
+		'@intlify/vue-i18n/no-v-html': 'off',
+		'@intlify/vue-i18n/no-missing-keys-in-other-locales': 'error',
+		'@intlify/vue-i18n/no-dynamic-keys': 'error',
+		'@intlify/vue-i18n/no-html-messages': 'error',
+		'@intlify/vue-i18n/no-unused-keys': [
+			'error',
+			{
+				src: 'lib/js/**/*.{js,ts,vue}',
+			},
+		],
+		'@intlify/vue-i18n/no-raw-text': [
+			'error',
+			{
+				ignorePattern: '^[-_#:()&{}=*./–…]+$',
+			},
+		],
 	},
+	settings: {
+		'vue-i18n': {
+			localeDir: {
+				pattern: './lib/js/i18n/*/*.json',
+				localeKey: 'path',
+				localePattern: '^.*/(?<locale>[A-Za-z0-9-_]+)/.*.json$',
+			},
+			messageSyntaxVersion: '^11.0.0',
+		},
+	},
+	overrides: [
+		{
+			files: ['*.json'],
+			parser: 'jsonc-eslint-parser',
+			rules: {
+				'quote-props': 'off',
+			},
+		},
+	],
 };

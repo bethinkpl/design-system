@@ -235,6 +235,7 @@ import { faArrowUpBigSmall } from '@fortawesome/pro-regular-svg-icons/faArrowUpB
 import { faBullseyeArrow } from '@fortawesome/pro-regular-svg-icons/faBullseyeArrow';
 import { faForward } from '@fortawesome/pro-regular-svg-icons/faForward';
 import { faBolt } from '@fortawesome/pro-regular-svg-icons/faBolt';
+import { faBrain } from '@fortawesome/pro-regular-svg-icons';
 
 export const FONTAWESOME_ICONS = {
 	FA_ADDRESS_CARD: faAddressCard,
@@ -277,6 +278,7 @@ export const FONTAWESOME_ICONS = {
 	FA_BOX_ARCHIVE: faBoxArchive,
 	FA_BOX: faBox,
 	FA_BULLSEYE_ARROW: faBullseyeArrow,
+	FA_BRAIN: faBrain,
 	FA_CALCULATOR_SIMPLE_SOLID: fasCalculatorSimple,
 	FA_CALENDAR_CHECK: faCalendarCheck,
 	FA_CALENDAR_CIRCLE_EXCLAMATION: faCalendarCircleExclamation,
