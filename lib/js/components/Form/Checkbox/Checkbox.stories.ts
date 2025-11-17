@@ -33,7 +33,6 @@ const StoryTemplate: StoryFn<typeof Checkbox> = (args) => {
 		template: `
 			<Checkbox 
 				v-bind="props"
-				:model-value="props.modelValue"
 			>
 				<span v-if="defaultSlot" v-html="defaultSlot" />
 			</Checkbox>
