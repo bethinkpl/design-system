@@ -6,18 +6,23 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    env:
+      FONT_AWESOME_AUTH_TOKEN: ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
-      - name: Insert auth font awesome auth token
-        run: echo "@fortawesome:registry=https://npm.fontawesome.com/" > .npmrc && echo "//npm.fontawesome.com/:_authToken=${{ secrets.FONT_AWESOME_AUTH_TOKEN }}" >> .npmrc
       - uses: actions/setup-node@v3
         with:
           node-version: '20.9.0'
-          cache: 'yarn'
+      - uses: actions/cache@v4
+        name: Cache node_modules
+        id: cache-node-modules
+        with:
+          path: node_modules
+          key: design-system-node-modules-${{ hashFiles('yarn.lock') }}
       - name: Install and Build 🔧
         run: | # Install npm packages and build the Storybook files
-          yarn install --pure-lockfile
+          yarn install --immutable --immutable-cache
           yarn storybook:build
           touch ./public/storybook/.nojekyll
       - name: Deploy 🚀

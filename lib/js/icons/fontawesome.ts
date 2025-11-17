@@ -37,6 +37,8 @@ import { faCalendarCircleExclamation } from '@fortawesome/pro-regular-svg-icons/
 import { faCalendarCheck } from '@fortawesome/pro-regular-svg-icons/faCalendarCheck';
 import { faCalendarXmark } from '@fortawesome/pro-regular-svg-icons/faCalendarXmark';
 import { faCartShopping } from '@fortawesome/pro-regular-svg-icons/faCartShopping';
+import { faCheckToSlot } from '@fortawesome/pro-regular-svg-icons/faCheckToSlot';
+import { faCheckToSlot as faCheckToSlotSolid } from '@fortawesome/pro-solid-svg-icons/faCheckToSlot';
 import { faChartColumn } from '@fortawesome/pro-regular-svg-icons/faChartColumn';
 import { faChartLineUp } from '@fortawesome/pro-regular-svg-icons/faChartLineUp';
 import { faChevronDown } from '@fortawesome/pro-regular-svg-icons/faChevronDown';
@@ -233,6 +235,7 @@ import { faArrowUpBigSmall } from '@fortawesome/pro-regular-svg-icons/faArrowUpB
 import { faBullseyeArrow } from '@fortawesome/pro-regular-svg-icons/faBullseyeArrow';
 import { faForward } from '@fortawesome/pro-regular-svg-icons/faForward';
 import { faBolt } from '@fortawesome/pro-regular-svg-icons/faBolt';
+import { faBrain } from '@fortawesome/pro-regular-svg-icons';
 
 export const FONTAWESOME_ICONS = {
 	FA_ADDRESS_CARD: faAddressCard,
@@ -275,6 +278,7 @@ export const FONTAWESOME_ICONS = {
 	FA_BOX_ARCHIVE: faBoxArchive,
 	FA_BOX: faBox,
 	FA_BULLSEYE_ARROW: faBullseyeArrow,
+	FA_BRAIN: faBrain,
 	FA_CALCULATOR_SIMPLE_SOLID: fasCalculatorSimple,
 	FA_CALENDAR_CHECK: faCalendarCheck,
 	FA_CALENDAR_CIRCLE_EXCLAMATION: faCalendarCircleExclamation,
@@ -291,6 +295,8 @@ export const FONTAWESOME_ICONS = {
 	FA_CHART_COLUMN: faChartColumn,
 	FA_CHART_LINE_UP: faChartLineUp,
 	FA_CHECK_SOLID: fasCheck,
+	FA_CHECK_TO_SLOT_SOLID: faCheckToSlotSolid,
+	FA_CHECK_TO_SLOT: faCheckToSlot,
 	FA_CHEVRON_DOWN: faChevronDown,
 	FA_CHEVRON_LEFT_LIGHT: falChevronLeft,
 	FA_CHEVRON_LEFT: faChevronLeft,
