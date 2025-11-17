@@ -188,3 +188,6 @@ export {
 export type { IconDefinition } from './icons/fontawesome';
 
 export * from 'vee-validate';
+
+export { default as DsI18nPL } from './i18n/pl';
+export { default as DsI18nEN } from './i18n/en';

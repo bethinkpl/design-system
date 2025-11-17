@@ -91,7 +91,9 @@
 						@change="onInputValueConfirmed"
 						@keyup.enter="onInputValueConfirmed"
 					/>
-					<span class="ds-pagination__text">z {{ lastPage }}</span>
+					<span class="ds-pagination__text"
+						>{{ t('ds.pagination.from') }} {{ lastPage }}</span
+					>
 				</div>
 
 				<icon-button
@@ -267,6 +269,7 @@ import { ICONS } from '../Icons/Icon';
 
 import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../Dropdown/Dropdown.consts';
 import Dropdown from '../Dropdown/Dropdown.vue';
+import { useLegacyI18n } from '../../composables/useLegacyI18n';
 
 import SelectList from '../SelectList/SelectList.vue';
 import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
@@ -310,6 +313,11 @@ export default defineComponent({
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['change-page'],
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return { t };
+	},
 	data() {
 		return {
 			DROPDOWN_PLACEMENTS: Object.freeze(DROPDOWN_PLACEMENTS),
@@ -351,7 +359,7 @@ export default defineComponent({
 					? this.getRange(
 							Math.min(range.start, this.lastPage - delta),
 							Math.min(range.end, this.lastPage),
-					  )
+						)
 					: this.getRange(1, Math.min(this.lastPage, delta + 1));
 
 			const withDots = (value, pair) =>

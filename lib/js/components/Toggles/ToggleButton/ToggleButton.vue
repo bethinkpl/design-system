@@ -317,7 +317,8 @@ $toggle-button-colors: (
 	outline: 6px solid transparent;
 	pointer-events: none;
 	position: relative;
-	transition: color ease-in-out $default-transition-time,
+	transition:
+		color ease-in-out $default-transition-time,
 		border-color ease-in-out $default-transition-time,
 		background-color ease-in-out $default-transition-time,
 		outline-color ease-in-out $default-transition-time;
