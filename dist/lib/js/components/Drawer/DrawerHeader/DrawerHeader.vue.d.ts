@@ -50,7 +50,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-}>, {}, {
+}>, {
+    t: import('../../../i18n').TranslateFunction;
+}, {
     BUTTON_TYPES: Readonly<{
         readonly FILLED: "filled";
         readonly OUTLINED: "outlined";
