@@ -111,6 +111,7 @@ __metadata:
     "@types/node": "npm:^17.0.9"
     "@typescript-eslint/eslint-plugin": "npm:5.18.0"
     "@typescript-eslint/parser": "npm:5.18.0"
+    "@vee-validate/zod": "npm:4.15.1"
     "@vitejs/plugin-vue": "npm:^5.1.4"
     "@vitest/coverage-c8": "npm:0.33.0"
     "@vitest/ui": "npm:3.1.4"
@@ -151,6 +152,7 @@ __metadata:
     vue-popperjs: "github:bethinkpl/vue-popper#df07fdb562d604fad966f0e8d6db1fc48febad6e"
     vue-tsc: "npm:2.2.10"
     wait-for-expect: "npm:^3.0.2"
+    zod: "npm:4.1.12"
   peerDependencies:
     vee-validate: ">=4.15.0"
     vue: ">=3.5.0"
@@ -1891,6 +1893,18 @@ __metadata:
     "@typescript-eslint/types": "npm:5.62.0"
     eslint-visitor-keys: "npm:^3.3.0"
   checksum: 10/dc613ab7569df9bbe0b2ca677635eb91839dfb2ca2c6fa47870a5da4f160db0b436f7ec0764362e756d4164e9445d49d5eb1ff0b87f4c058946ae9d8c92eb388
+  languageName: node
+  linkType: hard
+
+"@vee-validate/zod@npm:4.15.1":
+  version: 4.15.1
+  resolution: "@vee-validate/zod@npm:4.15.1"
+  dependencies:
+    type-fest: "npm:^4.8.3"
+    vee-validate: "npm:4.15.1"
+  peerDependencies:
+    zod: ^3.24.0
+  checksum: 10/3c907887dd430f28beb0a08041c57c9a7b4a9544d409276dd3056e83f74bfbeb285739b9692aec05377db4e0bb82ce2946aec630b8b409a2dc67ceab606a76f6
   languageName: node
   linkType: hard
 
@@ -9089,5 +9103,12 @@ __metadata:
   bin:
     z-schema: bin/z-schema
   checksum: 10/8ac2fa445f5a00e790d1f91a48aeff0ccfc340f84626771853e03f4d97cdc2f5f798cdb2e38418f7815ffc3aac3952c45caabcf077bf4f83fedf0cdef43b885b
+  languageName: node
+  linkType: hard
+
+"zod@npm:4.1.12":
+  version: 4.1.12
+  resolution: "zod@npm:4.1.12"
+  checksum: 10/c5f04e6ac306515c4db6ef73cf7705f521c7a2107c8c8912416a0658d689f361db9bee829b0bf01ef4a22492f1065c5cbcdb523ce532606ac6792fd714f3c326
   languageName: node
   linkType: hard

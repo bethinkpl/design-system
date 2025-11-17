@@ -10,7 +10,7 @@
 		<div v-if="label || subLabel || $slots.labelAside" class="ds-formField__labels">
 			<div class="ds-formField__labelRow">
 				<div class="ds-formField__labelWrapper">
-					<label v-if="label" class="ds-formField__label" :for="id">
+					<label v-if="label" :id="labelId" class="ds-formField__label" :for="id">
 						<span class="ds-formField__labelText">{{ label }}</span>
 						<span
 							v-if="hasRequiredIndicator"
@@ -31,7 +31,7 @@
 			<div v-if="subLabel" class="ds-formField__subLabelRow">{{ subLabel }}</div>
 		</div>
 		<div class="ds-formField__field">
-			<slot name="field" :field-id="id" :message-id="messageId"></slot>
+			<slot name="field" :field-id="id" :message-id="messageId" :label-id="labelId"></slot>
 		</div>
 		<div v-if="hasMessage || $slots.fieldStatus" class="ds-formField__footerRow">
 			<div class="ds-formField__message">
@@ -175,6 +175,7 @@ const slots = defineSlots<FormFieldSlots>();
 
 const baseId = useId();
 const id = computed(() => fieldId || `form-field-${baseId}`);
+const labelId = computed(() => `${id.value}-label`);
 const { hasMessage, messageId } = useMessage();
 
 function useMessage() {

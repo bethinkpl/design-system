@@ -14,7 +14,7 @@ const meta: Meta<typeof CheckboxGroupField> = {
 	render: (args) => ({
 		components: { CheckboxGroupField, Checkbox, HelpButton },
 		setup() {
-			const { help, labelAside, message, fieldStatus, ...restRefs } = toRefs(args);
+			const { help, labelAside, message, fieldStatus, field, ...restRefs } = toRefs(args);
 			const props = reactive({ ...restRefs });
 
 			return {

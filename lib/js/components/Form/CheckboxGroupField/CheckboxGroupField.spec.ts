@@ -94,8 +94,8 @@ describe('CheckboxGroupField', () => {
 		expect(fieldGroup.attributes('aria-describedby')).toBe(
 			wrapper.find('.ds-formFieldMessage').attributes('id'),
 		);
-		expect(fieldGroup.attributes('id')).toBe(
-			wrapper.find('.ds-formField__label').attributes('for'),
+		expect(fieldGroup.attributes('aria-labelledby')).toBe(
+			wrapper.find('.ds-formField__label').attributes('id'),
 		);
 	});
 });

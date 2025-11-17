@@ -1,32 +1,31 @@
 <template>
-	<checkbox-group-root v-model="modelValue">
-		<form-field v-bind="formFieldProps">
-			<template #field="{ fieldId, messageId }">
-				<div
-					:id="fieldId"
-					class="ds-checkboxGroupField"
-					role="group"
-					:aria-describedby="messageId"
-				>
-					<slot name="field"></slot>
-				</div>
-			</template>
-			<!-- begin: FormField slots -->
-			<template v-if="$slots.labelAside" #labelAside>
-				<slot name="labelAside" />
-			</template>
-			<template v-if="$slots.help" #help>
-				<slot name="help" />
-			</template>
-			<template v-if="$slots.message" #message="{ messageId }">
-				<slot name="message" :message-id="messageId" />
-			</template>
-			<template v-if="$slots.fieldStatus" #fieldStatus>
-				<slot name="fieldStatus" />
-			</template>
-			<!-- end: FormField slots -->
-		</form-field>
-	</checkbox-group-root>
+	<form-field v-bind="formFieldProps">
+		<template #field="{ messageId, labelId }">
+			<checkbox-group-root
+				v-model="value"
+				class="ds-checkboxGroupField"
+				role="group"
+				:aria-describedby="messageId"
+				:aria-labelledby="labelId"
+			>
+				<slot name="field"></slot>
+			</checkbox-group-root>
+		</template>
+		<!-- begin: FormField slots -->
+		<template v-if="$slots.labelAside" #labelAside>
+			<slot name="labelAside" />
+		</template>
+		<template v-if="$slots.help" #help>
+			<slot name="help" />
+		</template>
+		<template v-if="$slots.message" #message="{ messageId }">
+			<slot name="message" :message-id="messageId" />
+		</template>
+		<template v-if="$slots.fieldStatus" #fieldStatus>
+			<slot name="fieldStatus" />
+		</template>
+		<!-- end: FormField slots -->
+	</form-field>
 </template>
 
 <style scoped lang="scss">
@@ -54,10 +53,12 @@ import {
 import { CHECKBOX_GROUP_INJECTION_KEY } from './CheckboxGroupField.consts';
 import { FORM_FIELD_STATES, FormFieldState } from '../FormField';
 import { CheckboxGroupFieldProps, CheckboxGroupFieldSlots } from './CheckboxGroupField.types';
+import { useFormFieldWithinForm } from '../../../composables/useFormFieldWithinForm';
 
 const {
 	size = CHECKBOX_SIZES.SMALL,
 	elevation = CHECKBOX_ELEVATIONS.NONE,
+	name,
 	...rest
 } = defineProps<CheckboxGroupFieldProps>();
 
@@ -67,8 +68,17 @@ const modelValue = defineModel<Array<string>>({
 	default: [],
 });
 
+const { value, errors } = useFormFieldWithinForm(() => name, modelValue);
+
 const formFieldProps = computed<FormFieldProps>(() => {
-	return extractFormFieldProps(rest);
+	// this is needed to avoid passing modelValue to FormField as prop
+	const extractedProps = extractFormFieldProps(rest);
+
+	return {
+		...extractedProps,
+		messageText: extractedProps.messageText ?? errors.value[0],
+		state: extractedProps.state ?? (errors.value[0] ? FORM_FIELD_STATES.ERROR : undefined),
+	};
 });
 
 const mappedState = computed(() => {

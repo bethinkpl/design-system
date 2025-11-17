@@ -5,6 +5,7 @@ export interface CheckboxGroupFieldProps extends FormFieldProps {
 	size?: CheckboxSize;
 	state?: CheckboxState;
 	elevation?: CheckboxElevation;
+	name?: string;
 }
 
 export type CheckboxGroupFieldSlots = Omit<FormFieldSlots, 'field'> & {

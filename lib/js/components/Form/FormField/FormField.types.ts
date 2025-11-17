@@ -11,7 +11,7 @@ export interface FormFieldProps {
 export interface FormFieldSlots {
 	labelAside?: () => any;
 	help?: () => any;
-	field: (props: { fieldId: string; messageId: string }) => any;
+	field: (props: { fieldId: string; messageId: string; labelId: string }) => any;
 	message?: (props: { messageId: string }) => any;
 	fieldStatus?: () => any;
 }

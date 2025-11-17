@@ -45,6 +45,7 @@
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/radiuses';
+@import '../../../../styles/settings/animations';
 
 .ds-checkbox {
 	$root: &;
@@ -89,8 +90,7 @@
 			outline: none;
 		}
 
-		#{$root}:hover:not(.-ds-disabled) &::before,
-		&:focus-visible::before {
+		&::before {
 			aspect-ratio: 1;
 			border-radius: $radius-xl;
 			content: '';
@@ -98,7 +98,15 @@
 			height: 100%;
 			position: absolute;
 			top: 0;
+			transform: scale(0);
+			// see https://cubic-bezier.com/#.23,1,.32,1
+			transition: all $default-transition-time cubic-bezier(0.23, 1, 0.32, 1) 0ms;
 			width: auto;
+		}
+
+		#{$root}:hover:not(.-ds-disabled) &::before,
+		&:focus-visible::before {
+			transform: scale(1);
 		}
 
 		#{$root}.-ds-x-small &::before {
