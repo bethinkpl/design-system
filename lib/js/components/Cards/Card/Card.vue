@@ -4,25 +4,28 @@
 			'ds-card',
 			{
 				'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
-				'-ds-card-horizontal':
+				'-ds-leftBorder':
 					hasBorder && !hasLoadingBar && borderPosition === CARD_BORDER_POSITIONS.LEFT,
 				'-ds-flat': isFlat,
 			},
 		]"
 	>
-		<ds-container-ribbon
-			v-if="hasBorder && !hasLoadingBar"
-			:size="borderSize"
-			:color="borderColor"
-			:layout="ribbonLayout"
-			:radius="borderRadius"
-		/>
-		<ds-loading-bar
-			v-if="hasLoadingBar"
-			:time="loadingBarTime"
-			:color="loadingBarColor"
-			:size="borderSize"
-		/>
+		<div v-if="hasBorder || hasLoadingBar" class="ds-card__border">
+			<ds-container-ribbon
+				v-if="hasBorder && !hasLoadingBar"
+				:size="borderSize"
+				:color="borderColor"
+				:layout="ribbonLayout"
+				:radius="borderRadius"
+			/>
+			<ds-loading-bar
+				v-if="hasLoadingBar"
+				:time="loadingBarTime"
+				:color="loadingBarColor"
+				:size="borderSize"
+			/>
+		</div>
+
 		<div class="ds-card__wrapper">
 			<div
 				v-if="$slots.header"
@@ -59,7 +62,8 @@
 .ds-card {
 	$root: &;
 
-	overflow: hidden;
+	display: flex;
+	flex-direction: column;
 	position: relative;
 	width: inherit;
 
@@ -69,26 +73,13 @@
 		box-shadow: $shadow-s;
 	}
 
-	// Default layout (no border or top border)
-	&:not(.-ds-card-horizontal) {
-		display: flex;
-		flex-direction: column;
-	}
-
-	// Left border layout (horizontal)
-	&.-ds-card-horizontal {
-		display: grid;
-		grid-template-columns: auto 1fr;
+	&.-ds-leftBorder {
+		flex-direction: row;
 	}
 
 	&__wrapper {
 		display: flex;
 		flex-direction: column;
-
-		// For horizontal layout, ensure proper grid positioning
-		#{$root}.-ds-card-horizontal & {
-			grid-column: 2;
-		}
 	}
 
 	&__header {
@@ -126,6 +117,21 @@
 			#{$root}.-ds-paddingLarge & {
 				padding: 0 $space-l $space-l;
 			}
+		}
+	}
+
+	// the border container is added to avoid adding overflow hidden to the card itself
+	// which would clip floating elements rendered within the card (e.g. dropdowns)
+	&__border {
+		border-top-left-radius: $radius-m;
+		border-top-right-radius: $radius-m;
+		display: flex;
+		overflow: hidden;
+
+		#{$root}.-ds-leftBorder & {
+			border-bottom-left-radius: $radius-m;
+			border-top-left-radius: $radius-m;
+			border-top-right-radius: 0;
 		}
 	}
 }
