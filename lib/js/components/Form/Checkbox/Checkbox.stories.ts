@@ -9,6 +9,7 @@ import {
 } from './Checkbox.consts';
 import { withActions } from '@storybook/addon-actions/decorator';
 import { computed } from 'vue';
+import Banner from '../../Banner';
 
 export default {
 	title: 'Components/Form/Checkbox',
@@ -18,7 +19,7 @@ export default {
 
 const StoryTemplate: StoryFn<typeof Checkbox> = (args) => {
 	return {
-		components: { Checkbox },
+		components: { Checkbox, Banner },
 		setup() {
 			const props = computed(() => {
 				const { default: defaultSlot, ...rest } = args;
@@ -36,6 +37,7 @@ const StoryTemplate: StoryFn<typeof Checkbox> = (args) => {
 			>
 				<span v-if="defaultSlot" v-html="defaultSlot" />
 			</Checkbox>
+			<Banner color="danger" title="Uwaga! Mogą wystąpić problemy z pisaniem testów jednostkowych korzystających z tego komponentu. Unikaj jego używania. A jeśli jest rok 2026 i wciąż widzisz ten komunikat — nakrzycz na Karola!" title-in-color />
 		`,
 	};
 };

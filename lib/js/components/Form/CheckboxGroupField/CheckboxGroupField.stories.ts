@@ -7,12 +7,13 @@ import { args, argTypes } from '../FormField/FormField.stories.shared';
 import { reactive, toRefs } from 'vue';
 import { ICONS } from '../../Icons/Icon';
 import HelpButton from '../../Buttons/HelpButton';
+import Banner from '../../Banner';
 
 const meta: Meta<typeof CheckboxGroupField> = {
 	title: 'Components/Form/CheckboxGroupField',
 	component: CheckboxGroupField,
 	render: (args) => ({
-		components: { CheckboxGroupField, Checkbox, HelpButton },
+		components: { CheckboxGroupField, Checkbox, HelpButton, Banner },
 		setup() {
 			const { help, labelAside, message, fieldStatus, field, ...restRefs } = toRefs(args);
 			const props = reactive({ ...restRefs });
@@ -51,6 +52,7 @@ const meta: Meta<typeof CheckboxGroupField> = {
 					<div v-if="message" v-html="message" />
 				</template>
 			</CheckboxGroupField>
+			<Banner color="danger" title="Uwaga! Mogą wystąpić problemy z pisaniem testów jednostkowych korzystających z tego komponentu. Unikaj jego używania. A jeśli jest rok 2026 i wciąż widzisz ten komunikat — nakrzycz na Karola!" title-in-color />
 		`,
 	}),
 	argTypes,
