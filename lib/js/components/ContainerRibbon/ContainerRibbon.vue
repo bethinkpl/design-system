@@ -5,6 +5,7 @@
 			'-ds-size-small': size === CONTAINER_RIBBON_SIZES.SMALL,
 			'-ds-size-medium': size === CONTAINER_RIBBON_SIZES.MEDIUM,
 			'-ds-size-large': size === CONTAINER_RIBBON_SIZES.LARGE,
+			'-ds-color-neutral': color === CONTAINER_RIBBON_COLORS.NEUTRAL,
 			'-ds-color-neutral-heavy': color === CONTAINER_RIBBON_COLORS.NEUTRAL_HEAVY,
 			'-ds-color-neutral-strong': color === CONTAINER_RIBBON_COLORS.NEUTRAL_STRONG,
 			'-ds-color-primary': color === CONTAINER_RIBBON_COLORS.PRIMARY,
@@ -68,6 +69,10 @@
 	}
 
 	// Color variants
+	&.-ds-color-neutral {
+		background-color: $color-neutral-border;
+	}
+
 	&.-ds-color-neutral-heavy {
 		background-color: $color-neutral-border-heavy;
 	}

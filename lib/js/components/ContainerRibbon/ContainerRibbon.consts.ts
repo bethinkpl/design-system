@@ -9,6 +9,7 @@ export const CONTAINER_RIBBON_SIZES = {
 export type ContainerRibbonSize = Value<typeof CONTAINER_RIBBON_SIZES>;
 
 export const CONTAINER_RIBBON_COLORS = {
+	NEUTRAL: 'neutral',
 	NEUTRAL_HEAVY: 'neutral-heavy',
 	NEUTRAL_STRONG: 'neutral-strong',
 	PRIMARY: 'primary',
