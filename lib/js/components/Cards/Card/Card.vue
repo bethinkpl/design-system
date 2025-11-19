@@ -124,6 +124,7 @@
 	// which would clip floating elements rendered within the card (e.g. dropdowns)
 	&__border {
 		display: flex;
+		flex-shrink: 0;
 	}
 
 	&:not(.-ds-flat) &__border {
