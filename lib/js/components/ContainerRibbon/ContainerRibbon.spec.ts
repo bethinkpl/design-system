@@ -15,7 +15,7 @@ describe('ContainerRibbon', () => {
 
 		expect(wrapper.find('.ds-container-ribbon').classes().sort()).toEqual(
 			[
-				'-ds-color-neutral-heavy',
+				'-ds-color-neutral',
 				'-ds-size-large',
 				'-ds-layout-vertical',
 				'ds-container-ribbon',
