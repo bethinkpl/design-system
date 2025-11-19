@@ -26,7 +26,7 @@
 			/>
 		</div>
 
-		<div class="ds-card__wrapper">
+		<div class="ds-card__slotsWrapper">
 			<div
 				v-if="$slots.header"
 				class="ds-card__header"
@@ -77,7 +77,7 @@
 		flex-direction: row;
 	}
 
-	&__wrapper {
+	&__slotsWrapper {
 		display: flex;
 		flex-direction: column;
 	}
