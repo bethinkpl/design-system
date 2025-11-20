@@ -61,6 +61,7 @@
 
 .ds-card {
 	$root: &;
+	$card-border-radius: $radius-m;
 
 	display: flex;
 	flex-direction: column;
@@ -69,7 +70,7 @@
 
 	&:not(.-ds-flat) {
 		background-color: $color-default-background;
-		border-radius: $radius-m;
+		border-radius: $card-border-radius;
 		box-shadow: $shadow-s;
 	}
 
@@ -125,18 +126,18 @@
 	&__border {
 		display: flex;
 		flex-shrink: 0;
-	}
 
-	&:not(.-ds-flat) &__border {
-		border-top-left-radius: $radius-m;
-		border-top-right-radius: $radius-m;
-		overflow: hidden;
-	}
+		#{$root}:not(.-ds-flat) & {
+			border-top-left-radius: $card-border-radius;
+			border-top-right-radius: $card-border-radius;
+			overflow: hidden;
+		}
 
-	&.-ds-leftBorder &__border {
-		border-bottom-left-radius: $radius-m;
-		border-top-left-radius: $radius-m;
-		border-top-right-radius: 0;
+		#{$root}:not(.-ds-flat).-ds-leftBorder & {
+			border-bottom-left-radius: $card-border-radius;
+			border-top-left-radius: $card-border-radius;
+			border-top-right-radius: 0;
+		}
 	}
 }
 </style>
