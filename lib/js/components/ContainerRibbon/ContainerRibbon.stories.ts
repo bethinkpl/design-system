@@ -3,10 +3,10 @@ import { Meta, StoryObj } from '@storybook/vue3';
 
 import ContainerRibbon from './ContainerRibbon.vue';
 import {
-	CONTAINER_RIBBON_SIZES,
 	CONTAINER_RIBBON_COLORS,
 	CONTAINER_RIBBON_LAYOUTS,
 	CONTAINER_RIBBON_RADIUSES,
+	CONTAINER_RIBBON_SIZES,
 } from './ContainerRibbon.consts';
 
 type ContainerRibbonProps = ComponentProps<typeof ContainerRibbon>;
@@ -51,7 +51,7 @@ type Story = StoryObj<typeof ContainerRibbon>;
 export const Interactive: Story = {
 	args: {
 		size: CONTAINER_RIBBON_SIZES.LARGE,
-		color: CONTAINER_RIBBON_COLORS.NEUTRAL_HEAVY,
+		color: CONTAINER_RIBBON_COLORS.NEUTRAL,
 		layout: CONTAINER_RIBBON_LAYOUTS.VERTICAL,
 		radius: CONTAINER_RIBBON_RADIUSES.NONE,
 	},
