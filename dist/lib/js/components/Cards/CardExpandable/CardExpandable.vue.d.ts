@@ -328,7 +328,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<boolean>;
             };
             paddingSize: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../Card/Card.consts').CardPaddingSize>;
             };
             dividerUnderHeader: {
                 type: import('vue').PropType<boolean>;
@@ -337,13 +337,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<boolean>;
             };
             borderPosition: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../Card/Card.consts').CardBorderPositions>;
             };
             borderSize: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../Card/Card.consts').CardBorderSizes>;
             };
             borderColor: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../Card/Card.consts').CardBorderColors>;
+            };
+            hasRibbonRadius: {
+                type: import('vue').PropType<boolean>;
             };
             hasLoadingBar: {
                 type: import('vue').PropType<boolean>;
@@ -372,7 +375,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<boolean>;
             };
             paddingSize: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../Card/Card.consts').CardPaddingSize>;
             };
             dividerUnderHeader: {
                 type: import('vue').PropType<boolean>;
@@ -381,13 +384,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<boolean>;
             };
             borderPosition: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../Card/Card.consts').CardBorderPositions>;
             };
             borderSize: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../Card/Card.consts').CardBorderSizes>;
             };
             borderColor: {
-                type: import('vue').PropType<string>;
+                type: import('vue').PropType<import('../Card/Card.consts').CardBorderColors>;
+            };
+            hasRibbonRadius: {
+                type: import('vue').PropType<boolean>;
             };
             hasLoadingBar: {
                 type: import('vue').PropType<boolean>;
@@ -413,7 +419,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: import('vue').PropType<boolean>;
         };
         paddingSize: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardPaddingSize>;
         };
         dividerUnderHeader: {
             type: import('vue').PropType<boolean>;
@@ -422,13 +428,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: import('vue').PropType<boolean>;
         };
         borderPosition: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardBorderPositions>;
         };
         borderSize: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardBorderSizes>;
         };
         borderColor: {
-            type: import('vue').PropType<string>;
+            type: import('vue').PropType<import('../Card/Card.consts').CardBorderColors>;
+        };
+        hasRibbonRadius: {
+            type: import('vue').PropType<boolean>;
         };
         hasLoadingBar: {
             type: import('vue').PropType<boolean>;

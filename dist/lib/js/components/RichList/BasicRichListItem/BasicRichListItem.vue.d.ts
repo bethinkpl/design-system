@@ -266,6 +266,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     backgroundColor: RichListItemBackgroundColor;
     state: RichListItemState;
     iconColor: string;
+    layout: RichListItemLayout;
     borderColor: RichListItemBorderColor;
     isInteractive: boolean;
     eyebrowEllipsis: boolean;
@@ -273,7 +274,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     eyebrow: string;
     supportingText: string;
     isSelected: boolean;
-    layout: RichListItemLayout;
     supportingTextEllipsis: boolean;
     isSupportingTextTooltipEnabled: boolean;
     isDimmed: boolean;
@@ -1055,10 +1055,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         backgroundColor: RichListItemBackgroundColor;
         state: RichListItemState;
         iconColor: string;
+        layout: RichListItemLayout;
         borderColor: RichListItemBorderColor;
         isInteractive: boolean;
         isSelected: boolean;
-        layout: RichListItemLayout;
         isDimmed: boolean;
         isDraggable: boolean;
         iconColorHex: string;
