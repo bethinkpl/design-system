@@ -250,7 +250,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: PropType<boolean>;
             };
             paddingSize: {
-                type: PropType<string>;
+                type: PropType<import('../Cards/Card').CardPaddingSize>;
             };
             dividerUnderHeader: {
                 type: PropType<boolean>;
@@ -259,13 +259,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: PropType<boolean>;
             };
             borderPosition: {
-                type: PropType<string>;
+                type: PropType<import('../Cards/Card').CardBorderPositions>;
             };
             borderSize: {
-                type: PropType<string>;
+                type: PropType<import('../Cards/Card').CardBorderSizes>;
             };
             borderColor: {
-                type: PropType<string>;
+                type: PropType<import('../Cards/Card').CardBorderColors>;
+            };
+            hasRibbonRadius: {
+                type: PropType<boolean>;
             };
             hasLoadingBar: {
                 type: PropType<boolean>;
@@ -294,7 +297,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: PropType<boolean>;
             };
             paddingSize: {
-                type: PropType<string>;
+                type: PropType<import('../Cards/Card').CardPaddingSize>;
             };
             dividerUnderHeader: {
                 type: PropType<boolean>;
@@ -303,13 +306,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: PropType<boolean>;
             };
             borderPosition: {
-                type: PropType<string>;
+                type: PropType<import('../Cards/Card').CardBorderPositions>;
             };
             borderSize: {
-                type: PropType<string>;
+                type: PropType<import('../Cards/Card').CardBorderSizes>;
             };
             borderColor: {
-                type: PropType<string>;
+                type: PropType<import('../Cards/Card').CardBorderColors>;
+            };
+            hasRibbonRadius: {
+                type: PropType<boolean>;
             };
             hasLoadingBar: {
                 type: PropType<boolean>;
@@ -335,7 +341,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: PropType<boolean>;
         };
         paddingSize: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card').CardPaddingSize>;
         };
         dividerUnderHeader: {
             type: PropType<boolean>;
@@ -344,13 +350,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: PropType<boolean>;
         };
         borderPosition: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card').CardBorderPositions>;
         };
         borderSize: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card').CardBorderSizes>;
         };
         borderColor: {
-            type: PropType<string>;
+            type: PropType<import('../Cards/Card').CardBorderColors>;
+        };
+        hasRibbonRadius: {
+            type: PropType<boolean>;
         };
         hasLoadingBar: {
             type: PropType<boolean>;

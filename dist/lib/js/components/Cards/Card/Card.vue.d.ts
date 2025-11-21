@@ -19,6 +19,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     borderPosition?: CardBorderPositions;
     borderSize?: CardBorderSizes;
     borderColor?: CardBorderColors;
+    hasRibbonRadius?: boolean;
     hasLoadingBar?: boolean;
     loadingBarColor?: LoadingBarColors;
     loadingBarTime?: string;
@@ -32,6 +33,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     borderPosition?: CardBorderPositions;
     borderSize?: CardBorderSizes;
     borderColor?: CardBorderColors;
+    hasRibbonRadius?: boolean;
     hasLoadingBar?: boolean;
     loadingBarColor?: LoadingBarColors;
     loadingBarTime?: string;
