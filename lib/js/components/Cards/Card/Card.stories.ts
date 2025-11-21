@@ -46,7 +46,7 @@ const args = {
 	hasBorder: false,
 	borderPosition: CARD_BORDER_POSITIONS.TOP,
 	borderSize: CARD_BORDER_SIZES.LARGE,
-	borderColor: CARD_BORDER_COLORS.NEUTRAL,
+	borderColor: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
 	hasRibbonRadius: false,
 	hasLoadingBar: false,
 	loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
