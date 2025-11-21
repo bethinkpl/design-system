@@ -47,6 +47,7 @@ const args = {
 	borderPosition: CARD_BORDER_POSITIONS.TOP,
 	borderSize: CARD_BORDER_SIZES.LARGE,
 	borderColor: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
+	hasRibbonRadius: false,
 	hasLoadingBar: false,
 	loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime: '0',
@@ -70,6 +71,9 @@ const argTypes = {
 	borderColor: {
 		control: 'select',
 		options: Object.values(CARD_BORDER_COLORS),
+	},
+	hasRibbonRadius: {
+		control: 'boolean',
 	},
 	loadingBarColor: {
 		control: 'select',
