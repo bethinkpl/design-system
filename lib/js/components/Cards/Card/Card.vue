@@ -39,7 +39,11 @@
 				class="ds-card__headerDivider"
 				:class="{ '-ds-withHorizontalMargin': headerHasPadding }"
 			/>
-			<div v-if="$slots.content" class="ds-card__content" :class="{'-ds-scrollable': isContentScrollable }">
+			<div
+				v-if="$slots.content"
+				class="ds-card__content"
+				:class="{ '-ds-scrollable': isContentScrollable }"
+			>
 				<slot name="content" />
 			</div>
 			<div
