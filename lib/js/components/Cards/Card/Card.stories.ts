@@ -52,6 +52,7 @@ const args = {
 	loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime: '0',
 	isFlat: false,
+	isContentScrollable: false,
 } as Args;
 
 const argTypes = {
