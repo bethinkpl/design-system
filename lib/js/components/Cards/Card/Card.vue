@@ -26,7 +26,10 @@
 			/>
 		</div>
 
-		<div class="ds-card__slotsWrapper">
+		<div
+			class="ds-card__slotsWrapper"
+			:class="{ '-ds-containerIsScrollable': isContentScrollable }"
+		>
 			<div
 				v-if="$slots.header"
 				class="ds-card__header"
@@ -86,6 +89,10 @@
 		display: flex;
 		flex: 1;
 		flex-direction: column;
+
+		&.-ds-containerIsScrollable {
+			overflow: hidden;
+		}
 	}
 
 	&__header {
