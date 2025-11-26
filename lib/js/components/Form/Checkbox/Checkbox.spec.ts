@@ -10,6 +10,7 @@ import {
 	CHECKBOX_ELEVATIONS,
 } from './Checkbox.consts';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
+import Icon from '../../Icons/Icon/Icon.vue';
 
 function setup(
 	props: Partial<ComponentProps<typeof Checkbox>> = {},
@@ -44,8 +45,8 @@ describe('Checkbox', () => {
 			},
 		);
 
-		expect(wrapper.find('.ds-checkbox__label').exists()).toBe(true);
-		expect(wrapper.find('.ds-checkbox__label').text()).toBe('Test Label');
+		expect(wrapper.find('.ds-formControlLabel').exists()).toBe(true);
+		expect(wrapper.find('.ds-formControlLabel').text()).toBe('Test Label');
 	});
 
 	it('should not render label when no slot content provided', () => {
@@ -161,13 +162,25 @@ describe('Checkbox', () => {
 		it('should display checked icon when value is checked', () => {
 			const wrapper = setup({ modelValue: CHECKBOX_VALUES.CHECKED });
 
-			const [checkedIcon, uncheckedIcon, indeterminateIcon] = wrapper.findAllComponents({
-				name: 'Icon',
-			});
+			const icon = wrapper.findComponent(Icon);
 
-			expect(checkedIcon.props('icon')).toEqual(ICONS.FA_SQUARE_CHECK_SOLID);
-			expect(uncheckedIcon.props('icon')).toEqual(ICONS.FA_SQUARE);
-			expect(indeterminateIcon.props('icon')).toEqual(ICONS.FA_SQUARE_MINUS);
+			expect(icon.props('icon')).toBe(ICONS.FAD_SQUARE_CHECK);
+		});
+
+		it('should display checked icon when value is unchecked', () => {
+			const wrapper = setup({ modelValue: CHECKBOX_VALUES.UNCHECKED });
+
+			const icon = wrapper.findComponent(Icon);
+
+			expect(icon.props('icon')).toBe(ICONS.FAD_SQUARE);
+		});
+
+		it('should display checked icon when value is indeterminate', () => {
+			const wrapper = setup({ modelValue: CHECKBOX_VALUES.INDETERMINATE });
+
+			const icon = wrapper.findComponent(Icon);
+
+			expect(icon.props('icon')).toBe(ICONS.FAD_SQUARE_MINUS);
 		});
 	});
 

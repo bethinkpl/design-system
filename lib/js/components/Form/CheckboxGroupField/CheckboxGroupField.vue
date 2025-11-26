@@ -74,12 +74,11 @@ const { value, errors } = useFormFieldWithinForm(() => name, modelValue);
 
 const formFieldProps = computed<FormFieldProps>(() => {
 	// this is needed to avoid passing modelValue to FormField as prop
-	const extractedProps = extractFormFieldProps(rest);
+	const extractedProps = extractFormFieldProps(rest, errors.value);
 
 	return {
 		...extractedProps,
 		messageText: extractedProps.messageText ?? errors.value[0],
-		state: extractedProps.state ?? (errors.value[0] ? FORM_FIELD_STATES.ERROR : undefined),
 	};
 });
 
