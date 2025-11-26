@@ -13,6 +13,7 @@
 		]"
 	>
 		<checkbox-root
+			v-slot="{ state: rekaState }"
 			v-model="modelValue"
 			:disabled="state === CHECKBOX_STATES.DISABLED"
 			class="ds-checkbox__root"
@@ -20,23 +21,19 @@
 		>
 			<!-- As we also use icon for unchecked state, we need to force mount the indicator -->
 			<checkbox-indicator :force-mount="true" class="ds-checkbox__indicator" as="div">
-				<icon
-					class="ds-checkbox__checked"
-					:icon="ICONS.FA_SQUARE_CHECK_SOLID"
+				<ds-icon
+					v-if="rekaState === 'indeterminate'"
+					:icon="ICONS.FAD_SQUARE_MINUS"
 					:size="iconSize"
 				/>
-				<icon class="ds-checkbox__unchecked" :icon="ICONS.FA_SQUARE" :size="iconSize" />
-				<icon
-					class="ds-checkbox__indeterminate"
-					:icon="ICONS.FA_SQUARE_MINUS"
-					:size="iconSize"
-				/>
+				<ds-icon v-else-if="rekaState" :icon="ICONS.FAD_SQUARE_CHECK" :size="iconSize" />
+				<ds-icon v-else :icon="ICONS.FAD_SQUARE" :size="iconSize" />
 			</checkbox-indicator>
 		</checkbox-root>
 
-		<span v-if="$slots.default" class="ds-checkbox__label">
+		<ds-form-control-label v-if="$slots.default" :size="size" :state="labelState">
 			<slot />
-		</span>
+		</ds-form-control-label>
 	</label>
 </template>
 
@@ -50,8 +47,7 @@
 .ds-checkbox {
 	$root: &;
 
-	align-items: center;
-	cursor: pointer;
+	align-items: flex-start;
 	display: inline-flex;
 
 	&.-ds-x-small {
@@ -66,7 +62,15 @@
 		gap: $space-2xs;
 	}
 
+	&:not(.-ds-disabled) {
+		cursor: pointer;
+	}
+
 	&__root {
+		$checkbox-root-xs-space: $space-3xs;
+		$checkbox-root-s-space: $space-3xs;
+		$checkbox-root-m-space: $space-2xs;
+
 		background: none;
 		border: none;
 		line-height: 0;
@@ -75,15 +79,15 @@
 		position: relative;
 
 		#{$root}.-ds-x-small & {
-			padding: $space-3xs 0;
+			padding: $checkbox-root-xs-space 0;
 		}
 
 		#{$root}.-ds-small & {
-			padding: $space-3xs 0;
+			padding: $checkbox-root-s-space 0;
 		}
 
 		#{$root}.-ds-medium & {
-			padding: $space-2xs 0;
+			padding: $checkbox-root-m-space 0;
 		}
 
 		&:focus {
@@ -99,8 +103,7 @@
 			position: absolute;
 			top: 0;
 			transform: scale(0);
-			// see https://cubic-bezier.com/#.23,1,.32,1
-			transition: all $default-transition-time cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+			transition: $default-cubic-bezier-transition;
 			width: auto;
 		}
 
@@ -110,15 +113,15 @@
 		}
 
 		#{$root}.-ds-x-small &::before {
-			left: -6px;
+			left: -$checkbox-root-xs-space;
 		}
 
 		#{$root}.-ds-small &::before {
-			left: -6px;
+			left: -$checkbox-root-s-space;
 		}
 
 		#{$root}.-ds-medium &::before {
-			left: -8px;
+			left: -$checkbox-root-m-space;
 		}
 
 		#{$root}:hover &::before {
@@ -131,66 +134,47 @@
 	}
 
 	&__indicator {
-		color: $color-neutral-icon;
+		--checkbox-color: #{$color-primary-icon};
+		--checkbox-elevation-opacity: 0;
+
 		position: relative;
 
-		#{$root}.-ds-error & {
-			color: $color-danger-icon;
-		}
-
-		#{$root}.-ds-disabled & {
-			color: $color-neutral-icon-disabled;
-		}
-
-		#{$root}.-ds-elevation &::before {
-			background: $color-default-background;
-			bottom: 2px;
-			content: '';
-			left: 2px;
-			position: absolute;
-			right: 2px;
-			top: 2px;
+		&[data-state='unchecked'] {
+			--checkbox-color: #{$color-neutral-icon};
+			--fa-primary-color: var(--checkbox-color);
+			--fa-primary-opacity: 1;
+			--fa-secondary-color: #{$color-default-background};
+			--fa-secondary-opacity: var(--checkbox-elevation-opacity);
 		}
 
 		&[data-state='checked'] {
-			& #{$root}__unchecked,
-			& #{$root}__indeterminate {
-				display: none;
-			}
-		}
-
-		&[data-state='unchecked'] {
-			& #{$root}__checked,
-			& #{$root}__indeterminate {
-				display: none;
-			}
+			--fa-primary-color: #{$color-default-background};
+			--fa-primary-opacity: 1;
+			--fa-secondary-color: var(--checkbox-color);
+			--fa-secondary-opacity: 1;
 		}
 
 		&[data-state='indeterminate'] {
-			& #{$root}__checked,
-			& #{$root}__unchecked {
-				display: none;
-			}
-		}
-	}
-
-	&__label {
-		color: $color-neutral-text-strong;
-
-		#{$root}.-ds-x-small & {
-			@include formLabel-s-default-regular;
+			--fa-primary-color: var(--checkbox-color);
+			--fa-primary-opacity: 1;
+			--fa-secondary-color: #{$color-default-background};
+			--fa-secondary-opacity: var(--checkbox-elevation-opacity);
 		}
 
-		#{$root}.-ds-small & {
-			@include formLabel-m-default-regular;
-		}
-
-		#{$root}.-ds-medium & {
-			@include formLabel-l-default-regular;
+		#{$root}.-ds-error & {
+			--checkbox-color: #{$color-danger-icon};
 		}
 
 		#{$root}.-ds-disabled & {
-			color: $color-neutral-text-strong-disabled;
+			--checkbox-color: #{$color-primary-icon-disabled};
+		}
+
+		#{$root}.-ds-disabled &[data-state='unchecked'] {
+			--checkbox-color: #{$color-neutral-icon-disabled};
+		}
+
+		#{$root}.-ds-elevation & {
+			--checkbox-elevation-opacity: 1;
 		}
 	}
 }
@@ -207,10 +191,12 @@ import {
 	CheckboxValue,
 	CheckboxElevation,
 } from './Checkbox.consts';
-import Icon from '../../Icons/Icon/Icon.vue';
+import DsIcon from '../../Icons/Icon/Icon.vue';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { computed, inject } from 'vue';
 import { CHECKBOX_GROUP_INJECTION_KEY } from '../CheckboxGroupField/CheckboxGroupField.consts';
+import DsFormControlLabel from '../FormControlLabel/FormControlLabel.vue';
+import { FORM_CONTROL_STATE } from '../FormControlLabel/FormControlLabel.consts';
 
 const props = defineProps<{
 	size?: CheckboxSize;
@@ -252,5 +238,13 @@ const iconSize = computed(() => {
 		case CHECKBOX_SIZES.MEDIUM:
 			return ICON_SIZES.SMALL;
 	}
+});
+
+const labelState = computed(() => {
+	if (state.value === CHECKBOX_STATES.DISABLED) {
+		return FORM_CONTROL_STATE.DISABLED;
+	}
+
+	return FORM_CONTROL_STATE.DEFAULT;
 });
 </script>

@@ -10,6 +10,7 @@ import {
 import { withActions } from '@storybook/addon-actions/decorator';
 import { computed } from 'vue';
 import Banner from '../../Banner';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/Form/Checkbox',
@@ -18,22 +19,27 @@ export default {
 } as Meta<typeof Checkbox>;
 
 const StoryTemplate: StoryFn<typeof Checkbox> = (args) => {
+	const [_, updateArgs] = useArgs();
+
 	return {
 		components: { Checkbox, Banner },
 		setup() {
 			const props = computed(() => {
-				const { default: defaultSlot, ...rest } = args;
+				const { default: defaultSlot, modelValue, ...rest } = args;
 
 				return rest;
 			});
 
 			const defaultSlot = computed(() => args.default);
+			const modelValue = computed(() => args.modelValue);
 
-			return { defaultSlot, props };
+			return { defaultSlot, props, modelValue, updateArgs };
 		},
 		template: `
 			<Checkbox 
 				v-bind="props"
+				:model-value="modelValue"
+				@update:model-value="(value) => updateArgs({ modelValue: value })"
 			>
 				<span v-if="defaultSlot" v-html="defaultSlot" />
 			</Checkbox>

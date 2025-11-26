@@ -41,6 +41,7 @@
     "synchronizeTypography": "npx ts-node tools/importers/SynchronizeTypographyTokens.ts"
   },
   "devDependencies": {
+    "@fortawesome/duotone-regular-svg-icons": "7.0.1",
     "@fortawesome/fontawesome-svg-core": "7.0.1",
     "@fortawesome/free-brands-svg-icons": "7.0.1",
     "@fortawesome/pro-duotone-svg-icons": "7.0.1",

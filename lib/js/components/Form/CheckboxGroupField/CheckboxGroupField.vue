@@ -7,6 +7,8 @@
 				role="group"
 				:aria-describedby="messageId"
 				:aria-labelledby="labelId"
+				:disabled="formFieldProps.state === FORM_FIELD_STATES.DISABLED"
+				loop
 			>
 				<slot name="field"></slot>
 			</checkbox-group-root>

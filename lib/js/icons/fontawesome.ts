@@ -226,6 +226,9 @@ import { faChevronLeft as falChevronLeft } from '@fortawesome/pro-light-svg-icon
 import { faChevronRight as falChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
 
 import { faSpinnerThird as fadSpinnerThird } from '@fortawesome/pro-duotone-svg-icons/faSpinnerThird';
+import { faSquareMinus as fadSquareMinus } from '@fortawesome/duotone-regular-svg-icons/faSquareMinus';
+import { faSquare as fadSquare } from '@fortawesome/duotone-regular-svg-icons/faSquare';
+import { faSquareCheck as fadSquareCheck } from '@fortawesome/pro-duotone-svg-icons/faSquareCheck';
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
 import { faUserGear } from '@fortawesome/pro-regular-svg-icons/faUserGear';
@@ -472,6 +475,9 @@ export const FONTAWESOME_ICONS = {
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
 	FA_XMARK: faXmark,
 	FAD_SPINNER_THIRD: fadSpinnerThird,
+	FAD_SQUARE_MINUS: fadSquareMinus,
+	FAD_SQUARE: fadSquare,
+	FAD_SQUARE_CHECK: fadSquareCheck,
 } as const;
 
 export function initialize() {

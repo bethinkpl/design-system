@@ -1,8 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 import CheckboxGroupField from './CheckboxGroupField.vue';
 import Checkbox from '../Checkbox/Checkbox.vue';
-import { CHECKBOX_STATES } from '../Checkbox/Checkbox.consts';
-import { FORM_FIELD_STATES } from '../FormField/FormField.consts';
+import { CHECKBOX_ELEVATIONS, CHECKBOX_SIZES, CHECKBOX_STATES } from '../Checkbox/Checkbox.consts';
 import { args, argTypes } from '../FormField/FormField.stories.shared';
 import { reactive, toRefs } from 'vue';
 import { ICONS } from '../../Icons/Icon';
@@ -24,7 +23,7 @@ const meta: Meta<typeof CheckboxGroupField> = {
 				fieldStatus,
 				message,
 				help,
-				FORM_FIELD_STATES,
+				CHECKBOX_STATES,
 				ICONS,
 			};
 		},
@@ -36,7 +35,7 @@ const meta: Meta<typeof CheckboxGroupField> = {
 					<Checkbox value="option3">Option 3</Checkbox>
 				</template>
 				<template v-if="help" #help>
-					<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
+					<HelpButton :is-disabled="props.state === CHECKBOX_STATES.DISABLED" modal-title="Help modal title">
 						<template #modalContent>
 							Modal
 						</template>
@@ -65,6 +64,8 @@ export const Interactive: Story = {
 	args: {
 		...args,
 		state: CHECKBOX_STATES.DEFAULT,
+		size: CHECKBOX_SIZES.SMALL,
+		elevation: CHECKBOX_ELEVATIONS.X_SMALL,
 		// Override the field arg just to make TS happy; the story doesn't allow editing it anyway
 		field: () => {},
 	},
@@ -72,6 +73,20 @@ export const Interactive: Story = {
 		design: {
 			type: 'figma',
 			url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=14832-98644&m=dev',
+		},
+	},
+	argTypes: {
+		size: {
+			control: 'select',
+			options: Object.values(CHECKBOX_SIZES),
+		},
+		state: {
+			control: 'select',
+			options: Object.values(CHECKBOX_STATES),
+		},
+		elevation: {
+			control: 'select',
+			options: Object.values(CHECKBOX_ELEVATIONS),
 		},
 	},
 };

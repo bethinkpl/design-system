@@ -92,6 +92,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@bethinkpl/design-system@workspace:."
   dependencies:
+    "@fortawesome/duotone-regular-svg-icons": "npm:7.0.1"
     "@fortawesome/fontawesome-svg-core": "npm:7.0.1"
     "@fortawesome/free-brands-svg-icons": "npm:7.0.1"
     "@fortawesome/pro-duotone-svg-icons": "npm:7.0.1"
@@ -526,6 +527,15 @@ __metadata:
     "@floating-ui/utils": "npm:^0.2.10"
     vue-demi: "npm:>=0.13.0"
   checksum: 10/fa24ba72fb685e1a3128701af59b527a19d48cab7307e687c498177b25a5f56f756501f8f639265b6f6871acc09e7f5b7be5b4265e1e33ac6a84745e9373c987
+  languageName: node
+  linkType: hard
+
+"@fortawesome/duotone-regular-svg-icons@npm:7.0.1":
+  version: 7.0.1
+  resolution: "@fortawesome/duotone-regular-svg-icons@npm:7.0.1"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": "npm:7.0.1"
+  checksum: 10/a046ca55a31c7595ee4f48d0fd511389b0a20a3bfae13daeec837b5ec285663162d5a4fbe153af28b0b3c17e6c111d24048dd3fdfffa7ecf396fb7883b8217d6
   languageName: node
   linkType: hard
 
