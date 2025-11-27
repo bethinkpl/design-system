@@ -56,7 +56,7 @@
 					<ds-checkbox
 						:elevation="CHECKBOX_ELEVATIONS.NONE"
 						:model-value="isSelected"
-						value="item-selected"
+						value="on"
 						@update:model-value="(value) => $emit('update:is-selected', !!value)"
 						@click.stop
 					/>

@@ -71,12 +71,20 @@
 		$checkbox-root-s-space: $space-3xs;
 		$checkbox-root-m-space: $space-2xs;
 
+		--checkbox-circle-background-color-focused: #{$color-primary-background-ghost-focused};
+		--checkbox-circle-background-color-hovered: #{$color-primary-background-ghost-hovered};
+
 		background: none;
 		border: none;
 		line-height: 0;
 		margin: 0;
 		padding: 0;
 		position: relative;
+
+		&[data-state='unchecked'] {
+			--checkbox-circle-background-color-focused: #{$color-neutral-background-ghost-focused};
+			--checkbox-circle-background-color-hovered: #{$color-neutral-background-ghost-hovered};
+		}
 
 		#{$root}.-ds-x-small & {
 			padding: $checkbox-root-xs-space 0;
@@ -125,11 +133,11 @@
 		}
 
 		#{$root}:hover &::before {
-			background-color: $color-neutral-background-ghost-hovered;
+			background-color: var(--checkbox-circle-background-color-hovered);
 		}
 
 		&:focus::before {
-			background-color: $color-neutral-background-ghost-focused;
+			background-color: var(--checkbox-circle-background-color-focused);
 		}
 	}
 

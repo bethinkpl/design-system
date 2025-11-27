@@ -24,7 +24,7 @@
 				:size="CHECKBOX_SIZES.X_SMALL"
 				:model-value="isSelected"
 				:state="CHECKBOX_STATE_MAP[state]"
-				value="selection-tile-checkbox"
+				value="on"
 				@update:model-value="(value) => updateIsSelected(value !== false)"
 			/>
 
