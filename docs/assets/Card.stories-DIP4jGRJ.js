@@ -1,4 +1,4 @@
-import{C as a,a as n,b as s,c as d,d as l}from"./Card-DX18sTcJ.js";import{L as i}from"./LoadingBar-CM9zcnGi.js";import"./vue.esm-bundler-IFOcKaEy.js";import"./Divider-MUdRWzME.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./ContainerRibbon-rP_a0KTI.js";const C={title:"Components/Cards/Card",component:a},p=c=>({components:{Card:a},setup(){return{args:c}},template:`
+import{C as a,a as n,b as s,c as d,d as l}from"./Card-uwX3PNUQ.js";import{L as i}from"./LoadingBar-CM9zcnGi.js";import"./vue.esm-bundler-IFOcKaEy.js";import"./Divider-MUdRWzME.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./ContainerRibbon-rP_a0KTI.js";const C={title:"Components/Cards/Card",component:a},p=c=>({components:{Card:a},setup(){return{args:c}},template:`
         <card v-bind="args">
             <template v-if="args.header" #header>
                 <div v-html="args.header" />
