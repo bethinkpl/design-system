@@ -116,7 +116,7 @@
 		}
 
 		#{$root}:hover:not(.-ds-disabled) &::before,
-		&:focus::before {
+		&:focus-visible::before {
 			transform: scale(1);
 		}
 
@@ -136,7 +136,7 @@
 			background-color: var(--checkbox-circle-background-color-hovered);
 		}
 
-		&:focus::before {
+		&:focus-visible::before {
 			background-color: var(--checkbox-circle-background-color-focused);
 		}
 	}
