@@ -19,3 +19,6 @@
 }
 
 $default-transition-time: 0.3s;
+
+// see https://cubic-bezier.com/#.23,1,.32,1
+$default-cubic-bezier-transition: all $default-transition-time cubic-bezier(0.23, 1, 0.32, 1) 0ms;

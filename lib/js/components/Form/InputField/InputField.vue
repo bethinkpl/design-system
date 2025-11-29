@@ -156,13 +156,7 @@ const {
 
 const formFieldProps = computed<FormFieldProps>(() => {
 	// this is needed to avoid passing modelValue to FormField as prop
-	const extractedProps = extractFormFieldProps(rest);
-
-	return {
-		...extractedProps,
-		messageText: extractedProps.messageText ?? errors.value[0],
-		state: extractedProps.state ?? (errors.value[0] ? FORM_FIELD_STATES.ERROR : undefined),
-	};
+	return extractFormFieldProps(rest, errors.value);
 });
 
 const finalInputProps = computed<InputHTMLAttributes>(() => {

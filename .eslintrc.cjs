@@ -170,5 +170,11 @@ module.exports = {
 				'quote-props': 'off',
 			},
 		},
+		{
+			files: ['*.spec.ts'],
+			rules: {
+				'@intlify/vue-i18n/no-raw-text': 'off',
+			},
+		},
 	],
 };
