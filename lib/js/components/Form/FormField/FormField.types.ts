@@ -14,4 +14,5 @@ export interface FormFieldSlots {
 	field: (props: { fieldId: string; messageId: string; labelId: string }) => any;
 	message?: (props: { messageId: string }) => any;
 	fieldStatus?: () => any;
+	// !!!! If you ever add a new slot here, please remember to update all components using FormField component !!!! //
 }

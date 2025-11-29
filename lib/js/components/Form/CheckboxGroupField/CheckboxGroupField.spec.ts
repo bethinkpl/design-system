@@ -1,4 +1,4 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
 import { mount } from '@vue/test-utils';
 import { inject, defineComponent } from 'vue';
 import { useForm } from 'vee-validate';
@@ -155,6 +155,7 @@ describe('CheckboxGroupField', () => {
 						.min(1, { message: 'Please select at least one option' }),
 				}),
 			);
+			const onSubmitHandler = vi.fn();
 
 			// eslint-disable-next-line vue/one-component-per-file
 			const TestForm = defineComponent({
@@ -171,9 +172,7 @@ describe('CheckboxGroupField', () => {
 						},
 					});
 
-					const onSubmit = handleSubmit((values) => {
-						// This won't be called if validation fails
-					});
+					const onSubmit = handleSubmit(onSubmitHandler);
 
 					return {
 						onSubmit,
@@ -214,6 +213,7 @@ describe('CheckboxGroupField', () => {
 				const message = wrapper.find(`#${describedby}`);
 				expect(message.text()).toBe('Please select at least one option');
 				expect(formField.props('state')).toBe(FORM_FIELD_STATES.ERROR);
+				expect(onSubmitHandler).not.toHaveBeenCalled();
 			});
 		});
 

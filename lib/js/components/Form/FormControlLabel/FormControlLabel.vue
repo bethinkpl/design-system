@@ -54,7 +54,7 @@ import {
 	FormControlState,
 } from './FormControlLabel.consts';
 
-const { state = FORM_CONTROL_STATE.DEFAULT } = defineProps<{
+const { state = FORM_CONTROL_STATE.DEFAULT, size = FORM_CONTROL_SIZE.SMALL } = defineProps<{
 	size?: FormControlSize;
 	state?: FormControlState;
 }>();

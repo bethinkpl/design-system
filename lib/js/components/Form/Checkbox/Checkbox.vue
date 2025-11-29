@@ -213,7 +213,7 @@ const props = defineProps<{
 	/**
 	 * String value set when the checkbox is checked
 	 */
-	value: string;
+	value?: string;
 }>();
 
 const modelValue = defineModel<CheckboxValue>({
@@ -235,6 +235,16 @@ const state = computed(() => props.state ?? groupContext?.state.value ?? CHECKBO
 const elevation = computed(
 	() => props.elevation ?? groupContext?.elevation.value ?? CHECKBOX_ELEVATIONS.X_SMALL,
 );
+
+const value = computed(() => {
+	if (groupContext && !props.value) {
+		throw new Error(
+			'[Checkbox]: When used inside a CheckboxGroupField, each Checkbox should have a unique "value" prop.',
+		);
+	}
+
+	return props.value ?? 'on';
+});
 
 const iconSize = computed(() => {
 	switch (size.value) {
