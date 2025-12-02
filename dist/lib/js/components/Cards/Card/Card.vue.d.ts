@@ -24,6 +24,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     loadingBarColor?: LoadingBarColors;
     loadingBarTime?: string;
     isFlat?: boolean;
+    isContentScrollable?: boolean;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     headerHasPadding?: boolean;
     footerHasPadding?: boolean;
@@ -38,6 +39,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     loadingBarColor?: LoadingBarColors;
     loadingBarTime?: string;
     isFlat?: boolean;
+    isContentScrollable?: boolean;
 }>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;
