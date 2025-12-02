@@ -282,6 +282,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             isFlat: {
                 type: PropType<boolean>;
             };
+            isContentScrollable: {
+                type: PropType<boolean>;
+            };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
@@ -329,6 +332,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             isFlat: {
                 type: PropType<boolean>;
             };
+            isContentScrollable: {
+                type: PropType<boolean>;
+            };
         }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
         __isTeleport?: never;
@@ -371,6 +377,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: PropType<string>;
         };
         isFlat: {
+            type: PropType<boolean>;
+        };
+        isContentScrollable: {
             type: PropType<boolean>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
