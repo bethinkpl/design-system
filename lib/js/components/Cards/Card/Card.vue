@@ -89,6 +89,8 @@
 		display: flex;
 		flex: 1;
 		flex-direction: column;
+		// prevents excessive width due to child elements
+		min-width: 0;
 
 		&.-ds-containerIsScrollable {
 			overflow: hidden;
