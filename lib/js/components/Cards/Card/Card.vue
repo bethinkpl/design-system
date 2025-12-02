@@ -26,7 +26,10 @@
 			/>
 		</div>
 
-		<div class="ds-card__slotsWrapper">
+		<div
+			class="ds-card__slotsWrapper"
+			:class="{ '-ds-containerIsScrollable': isContentScrollable }"
+		>
 			<div
 				v-if="$slots.header"
 				class="ds-card__header"
@@ -39,7 +42,11 @@
 				class="ds-card__headerDivider"
 				:class="{ '-ds-withHorizontalMargin': headerHasPadding }"
 			/>
-			<div v-if="$slots.content" class="ds-card__content">
+			<div
+				v-if="$slots.content"
+				class="ds-card__content"
+				:class="{ '-ds-scrollable': isContentScrollable }"
+			>
 				<slot name="content" />
 			</div>
 			<div
@@ -84,6 +91,10 @@
 		flex-direction: column;
 		// prevents excessive width due to child elements
 		min-width: 0;
+
+		&.-ds-containerIsScrollable {
+			overflow: hidden;
+		}
 	}
 
 	&__header {
@@ -111,6 +122,11 @@
 
 		#{$root}.-ds-paddingLarge & {
 			padding: $space-s $space-l;
+		}
+
+		&.-ds-scrollable {
+			max-height: 100%;
+			overflow-y: auto;
 		}
 	}
 
@@ -177,6 +193,7 @@ const {
 	loadingBarColor = LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime = '0',
 	isFlat = false,
+	isContentScrollable = false,
 } = defineProps<{
 	headerHasPadding?: boolean;
 	footerHasPadding?: boolean;
@@ -191,6 +208,7 @@ const {
 	loadingBarColor?: LoadingBarColors;
 	loadingBarTime?: string;
 	isFlat?: boolean;
+	isContentScrollable?: boolean;
 }>();
 
 defineSlots<{
