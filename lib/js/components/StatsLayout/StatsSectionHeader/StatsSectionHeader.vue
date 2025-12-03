@@ -3,11 +3,11 @@
 		:title="t('ds.statsLayout.sectionHeader.title')"
 		:icon-left="ICONS.FA_CHART_COLUMN"
 		:has-divider="false"
-		:info="!!$slots['info-content']"
+		:info="!!$slots.infoContent"
 		:mobile-layout="SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL"
 		@info-click="infoContentModalVisible = true"
 	>
-		<template #default>
+		<template v-if="filterItems && filterItems.length > 0" #default>
 			<slot name="accessory">
 				<stats-filters-dropdown
 					:filter-items="filterItems"
@@ -19,11 +19,11 @@
 	</section-header>
 
 	<ds-modal
-		v-if="infoContentModalVisible && $slots['info-content']"
+		v-if="infoContentModalVisible && !!$slots.infoContent"
 		@close-modal="infoContentModalVisible = false"
 	>
 		<template #default>
-			<slot name="info-content" />
+			<slot name="infoContent" />
 		</template>
 	</ds-modal>
 </template>
@@ -49,7 +49,7 @@ const { filterItems = [], selectedFilterKey = null } = defineProps<{
 
 defineSlots<{
 	accessory?: string;
-	'info-content'?: string;
+	infoContent?: string;
 }>();
 
 const emit = defineEmits<{

@@ -3,7 +3,7 @@
 		<icon-button
 			:icon="ICONS.FA_CIRCLE_QUESTION"
 			:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
-			:size="ICON_BUTTON_SIZES.X_SMALL"
+			:size="size"
 			:state="isDisabled ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT"
 			:touchable="false"
 			v-bind="$attrs"
@@ -23,16 +23,24 @@ import IconButton, {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_STATES,
+	IconButtonSize,
 } from '../IconButton';
 import Tooltip from '../../Tooltip';
 import { ICONS } from '../../Icons/Icon';
 import Modal, { ModalSize } from '../../Modals/Modal';
 
-defineProps<{
+const {
+	tooltipText,
+	isDisabled,
+	modalTitle,
+	modalSize,
+	size = ICON_BUTTON_SIZES.X_SMALL,
+} = defineProps<{
 	tooltipText?: string;
 	isDisabled?: boolean;
 	modalTitle?: string;
 	modalSize?: ModalSize;
+	size?: IconButtonSize;
 }>();
 
 defineSlots<{

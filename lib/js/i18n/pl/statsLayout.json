@@ -1,4 +1,10 @@
 {
     "ds.statsLayout.filtersDropdown.title": "Filtruj",
-    "ds.statsLayout.sectionHeader.title": "Twoje statystyki"
+    "ds.statsLayout.sectionHeader.title": "Twoje statystyki",
+    "ds.statsLayout.statsErrorBanner.title": "Nie udało się załadować statystyk",
+    "ds.statsLayout.statsErrorBanner.buttonText": "Spróbuj ponownie",
+    "ds.statsLayout.statsErrorBanner.message": "Odśwież stronę, aby spróbować ponownie",
+    "ds.statsLayout.statsResetBanner.title": "Reset statystyk",
+    "ds.statsLayout.statsResetBanner.buttonText": "RESETUJ STATYSTYKI",
+    "ds.statsLayout.statsResetBanner.message": "Statystyki liczone od <strong>{0}</strong>"
 }
