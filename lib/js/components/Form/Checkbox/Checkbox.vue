@@ -82,7 +82,7 @@
 		position: relative;
 
 		&[data-state='unchecked'] {
-			--checkbox-circle-background-color-focused: #{$color-neutral-background-ghost-focused};
+			--checkbox-circle-background-color-focused: #{$color-primary-background-ghost-focused};
 			--checkbox-circle-background-color-hovered: #{$color-neutral-background-ghost-hovered};
 		}
 
