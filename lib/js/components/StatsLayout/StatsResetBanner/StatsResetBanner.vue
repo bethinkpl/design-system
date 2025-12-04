@@ -6,7 +6,10 @@
 		@button-clicked="$emit('button-clicked')"
 	>
 		<template #defaultText>
-			<span v-html="t('ds.statsLayout.statsResetBanner.message', [props.timeMarker])"></span>
+			<span
+				>{{ t('ds.statsLayout.statsResetBanner.message') }}
+				<strong>{{ props.timeMarker }}</strong></span
+			>
 		</template>
 		<template v-if="$slots.infoContent" #rightSlot>
 			<ds-help-button :size="ICON_BUTTON_SIZES.SMALL">
