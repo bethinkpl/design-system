@@ -169,6 +169,10 @@
 			--fa-secondary-opacity: var(--checkbox-elevation-opacity);
 		}
 
+		#{$root}__root:focus-visible & {
+			--checkbox-color: #{$color-primary-icon};
+		}
+
 		#{$root}.-ds-error & {
 			--checkbox-color: #{$color-danger-icon};
 		}
@@ -189,15 +193,15 @@
 </style>
 
 <script setup lang="ts">
-import { CheckboxRoot, CheckboxIndicator } from 'reka-ui';
+import { CheckboxIndicator, CheckboxRoot } from 'reka-ui';
 import {
+	CHECKBOX_ELEVATIONS,
 	CHECKBOX_SIZES,
 	CHECKBOX_STATES,
-	CHECKBOX_ELEVATIONS,
+	CheckboxElevation,
 	CheckboxSize,
 	CheckboxState,
 	CheckboxValue,
-	CheckboxElevation,
 } from './Checkbox.consts';
 import DsIcon from '../../Icons/Icon/Icon.vue';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
