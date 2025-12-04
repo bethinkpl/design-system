@@ -37,15 +37,17 @@ const meta: Meta<StatsLayoutProps> = {
 			template:
 				'<stats-layout v-bind="args">' +
 				'<template #sectionHeader>' +
-				'	<stats-section-header :filterItems="args.filterItems" :selectedFilterKey="args.selectedFilterKey" @select-filter="onSelectFilter">' +
-				'		' +
+				'	<stats-section-header v-if="args.filterItems" :filterItems="args.filterItems" :selectedFilterKey="args.selectedFilterKey" @select-filter="onSelectFilter">' +
+				'      <template #infoContent><span>Info content for filter</span></template>' +
 				'	</stats-section-header>' +
+				'   <slot-placeholder v-else :label="\'Slot nagłówka sekcji\'" />' +
 				'</template>' +
 				'<template #overallStatsItem><slot-placeholder /></template>' +
 				'<template #resetBanner>' +
-				'	<stats-reset-banner :timeMarker="args.timeMarker">' +
+				'	<stats-reset-banner v-if="args.timeMarker" :timeMarker="args.timeMarker">' +
 				'		<template #infoContent><p>Info content for reset banner</p></template>' +
 				'	</stats-reset-banner>' +
+				'   <slot-placeholder v-else :label="\'Slot banera resetu\'" />' +
 				'</template>' +
 				itemsTemplate +
 				'</stats-layout>',
@@ -62,7 +64,7 @@ export default meta;
 
 type Story = StoryObj<StatsLayoutProps>;
 
-export const Interactive: Story = {
+export const Raw: Story = {
 	args: {
 		hasGridHeader: true,
 		hasRightColumn: true,
@@ -71,7 +73,47 @@ export const Interactive: Story = {
 		statsItemsHeaderLabel: '{Nazwa użytej taksonomii}',
 		isLoading: false,
 		hasError: false,
-		items: [{}, {}, {}, {}],
+		items: [0, 0, 0],
+	} as Args,
+};
+
+Raw.argTypes = {
+	hasGridHeader: {
+		control: 'boolean',
+	},
+	hasRightColumn: {
+		control: 'boolean',
+	},
+	leftColumnLabel: {
+		control: 'text',
+	},
+	rightColumnLabel: {
+		control: 'text',
+	},
+	statsItemsHeaderLabel: {
+		control: 'text',
+	},
+	isLoading: {
+		control: 'boolean',
+	},
+	hasError: {
+		control: 'boolean',
+	},
+	items: {
+		control: 'object',
+	},
+} as ArgTypes;
+
+export const WithHeaders: Story = {
+	args: {
+		hasGridHeader: true,
+		hasRightColumn: true,
+		leftColumnLabel: 'Zakres',
+		rightColumnLabel: 'Wyniki',
+		statsItemsHeaderLabel: '{Nazwa użytej taksonomii}',
+		isLoading: false,
+		hasError: false,
+		items: [0, 0, 0],
 		filterItems: [
 			{ key: 'all', label: 'Wszystkie' },
 			{ key: 'week', label: 'Tydzień' },
@@ -82,7 +124,7 @@ export const Interactive: Story = {
 	} as Args,
 };
 
-Interactive.argTypes = {
+WithHeaders.argTypes = {
 	filterItems: {
 		control: 'object',
 	},

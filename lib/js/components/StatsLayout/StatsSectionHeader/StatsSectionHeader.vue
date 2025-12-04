@@ -1,5 +1,5 @@
 <template>
-	<section-header
+	<ds-section-header
 		:title="t('ds.statsLayout.sectionHeader.title')"
 		:icon-left="ICONS.FA_CHART_COLUMN"
 		:has-divider="false"
@@ -9,14 +9,14 @@
 	>
 		<template v-if="filterItems && filterItems.length > 0" #default>
 			<slot name="accessory">
-				<stats-filters-dropdown
+				<ds-stats-filters-dropdown
 					:filter-items="filterItems"
 					:selected-filter-key="selectedFilterKey"
 					@select="selectFilter"
 				/>
 			</slot>
 		</template>
-	</section-header>
+	</ds-section-header>
 
 	<ds-modal
 		v-if="infoContentModalVisible && !!$slots.infoContent"
@@ -30,8 +30,8 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import SectionHeader from '../../Headers/SectionHeader/SectionHeader.vue';
-import StatsFiltersDropdown from '../StatsFiltersDropdown/StatsFiltersDropdown.vue';
+import DsSectionHeader from '../../Headers/SectionHeader/SectionHeader.vue';
+import DsStatsFiltersDropdown from '../StatsFiltersDropdown/StatsFiltersDropdown.vue';
 import { SECTION_HEADER_MOBILE_LAYOUTS } from '../../Headers/SectionHeader/SectionHeader.consts';
 import { ICONS } from '../../Icons/Icon/Icon.consts';
 import DsModal from '../../Modals/Modal/Modal.vue';

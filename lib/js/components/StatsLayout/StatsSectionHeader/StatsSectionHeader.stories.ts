@@ -58,7 +58,7 @@ export const Interactive: Story = {
 	} as Args,
 };
 
-const argTypes = {
+Interactive.argTypes = {
 	filterItems: {
 		control: 'object',
 	},
@@ -66,5 +66,3 @@ const argTypes = {
 		control: 'text',
 	},
 } as ArgTypes;
-
-Interactive.argTypes = argTypes;

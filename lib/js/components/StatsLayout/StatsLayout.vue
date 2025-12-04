@@ -1,17 +1,14 @@
 <template>
 	<div class="statsLayout">
-		<!-- SectionHeader OverallStatsItem StatsItem -->
-		<slot name="sectionHeader">
-			<stats-section-header />
-		</slot>
+		<slot name="sectionHeader" />
 
 		<ds-card>
 			<template #content>
 				<div v-if="isLoading" class="statsLayout__loading">
-					<spinner-loading />
+					<ds-spinner-loading />
 				</div>
 				<div v-else-if="hasError" class="statsLayout__error">
-					<stats-error-banner />
+					<ds-stats-error-banner @button-clicked="$emit('tryAgainClicked')" />
 				</div>
 				<div v-else class="statsLayout__content">
 					<div class="statsLayout__wrapper">
@@ -40,12 +37,7 @@
 						</div>
 					</div>
 
-					<slot name="resetBanner">
-						<stats-reset-banner
-							time-marker="6 czerwca 2025"
-							@button-clicked="$emit('resetBannerClicked')"
-						/>
-					</slot>
+					<slot name="resetBanner" />
 				</div>
 			</template>
 		</ds-card>
@@ -56,6 +48,8 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
+
+$right-column-width: 96px;
 
 .statsLayout {
 	display: flex;
@@ -84,7 +78,7 @@
 		@include label-m-extensive-bold-uppercase();
 
 		display: grid;
-		grid-template-columns: 1fr 96px;
+		grid-template-columns: 1fr $right-column-width;
 		gap: $space-s;
 		background: $color-neutral-background;
 		color: $color-neutral-text;
@@ -100,7 +94,7 @@
 		@include label-m-extensive-bold-uppercase();
 
 		display: grid;
-		grid-template-columns: 1fr 96px;
+		grid-template-columns: 1fr $right-column-width;
 		gap: $space-s;
 		background: $color-neutral-background;
 		color: $color-neutral-text;
@@ -119,9 +113,10 @@
 		gap: $space-4xs;
 		flex: 1 0 0;
 	}
+
 	&__cellRight {
 		display: flex;
-		width: 96px;
+		width: $right-column-width;
 		padding: $space-2xs;
 		justify-content: flex-end;
 		align-items: center;
@@ -129,7 +124,7 @@
 
 	&__item {
 		display: grid;
-		grid-template-columns: 1fr 96px;
+		grid-template-columns: 1fr $right-column-width;
 	}
 
 	&__loading {
@@ -141,12 +136,10 @@
 </style>
 
 <script setup lang="ts">
-import StatsSectionHeader from './StatsSectionHeader/StatsSectionHeader.vue';
 import DsCard from '../Cards/Card/Card.vue';
-import StatsResetBanner from './StatsResetBanner/StatsResetBanner.vue';
 import DsDivider from '../Divider/Divider.vue';
-import StatsErrorBanner from './StatsErrorBanner/StatsErrorBanner.vue';
-import SpinnerLoading from '../SpinnerLoading/SpinnerLoading.vue';
+import DsStatsErrorBanner from './StatsErrorBanner/StatsErrorBanner.vue';
+import DsSpinnerLoading from '../SpinnerLoading/SpinnerLoading.vue';
 import { computed } from 'vue';
 
 interface StatsLayoutProps {
@@ -172,9 +165,7 @@ const {
 const slots = defineSlots<{
 	sectionHeader?: () => any;
 	overallStatsItem?: () => any;
-	'statsItem-0'?: () => any;
-	'statsItem-1'?: () => any;
-	'statsItem-2'?: () => any;
+	[key: `statsItem-${number}`]: (() => any) | undefined;
 	resetBanner?: () => any;
 }>();
 
@@ -185,6 +176,6 @@ const statsItems = computed(() => {
 });
 
 defineEmits<{
-	(e: 'resetBannerClicked'): void;
+	(e: 'tryAgainClicked'): void;
 }>();
 </script>

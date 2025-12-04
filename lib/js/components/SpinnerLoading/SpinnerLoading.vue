@@ -1,7 +1,7 @@
 <template>
 	<div class="spinnerLoading">
 		<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.SMALL" spinning />
-		<div class="spinnerLoading__message">{{ message }}</div>
+		<div class="spinnerLoading__message">{{ message || t('ds.globals.loading') }}</div>
 	</div>
 </template>
 
@@ -23,9 +23,11 @@
 <script setup lang="ts">
 import { ICON_SIZES, ICONS } from '../Icons/Icon/Icon.consts';
 import DsIcon from '../Icons/Icon/Icon.vue';
+import { useLegacyI18n } from '../../composables/useLegacyI18n';
 
-// TODO use i18n
-const { message = 'Momencik, ładuję dane...' } = defineProps<{
+const { t } = useLegacyI18n();
+
+const { message } = defineProps<{
 	message?: string;
 }>();
 </script>

@@ -9,15 +9,15 @@
 			>
 		</template>
 		<template #default="{ close }">
-			<select-list>
-				<select-list-item
+			<ds-select-list>
+				<ds-select-list-item
 					v-for="filterItem in filterItems"
 					:key="filterItem.key"
 					:label="filterItem.label"
 					:is-selected="filterItem.key === selectedFilterKey"
 					@click="select(filterItem, close)"
 				/>
-			</select-list>
+			</ds-select-list>
 		</template>
 	</ds-dropdown>
 </template>
@@ -26,8 +26,8 @@
 import DsButton from '../../Buttons/Button';
 import { ICONS } from '../../Icons/Icon/Icon.consts';
 import DsDropdown from '../../Dropdown/Dropdown.vue';
-import SelectList from '../../SelectList/SelectList.vue';
-import SelectListItem from '../../SelectList/SelectListItem/SelectListItem.vue';
+import DsSelectList from '../../SelectList/SelectList.vue';
+import DsSelectListItem from '../../SelectList/SelectListItem/SelectListItem.vue';
 import { BUTTON_TYPES } from '../../Buttons/Button/Button.consts';
 import { DROPDOWN_PLACEMENTS } from '../../Dropdown/Dropdown.consts';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';

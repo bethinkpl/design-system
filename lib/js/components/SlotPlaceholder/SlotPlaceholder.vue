@@ -1,6 +1,6 @@
 <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
 <template>
-	<div class="slotPlaceholder">Slot placeholder</div>
+	<div class="slotPlaceholder">{{ label || 'Slot' }}</div>
 </template>
 
 <style lang="scss" scoped>
@@ -20,3 +20,9 @@
 	line-height: 28px; /* 140% */
 }
 </style>
+
+<script setup lang="ts">
+defineProps<{
+	label?: string;
+}>();
+</script>

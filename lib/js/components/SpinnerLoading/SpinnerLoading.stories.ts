@@ -31,7 +31,7 @@ type Story = StoryObj<SpinnerLoadingProps>;
 
 export const Interactive: Story = {
 	args: {
-		message: 'Momencik, ładuję dane...',
+		message: '',
 	} as Args,
 };
 
