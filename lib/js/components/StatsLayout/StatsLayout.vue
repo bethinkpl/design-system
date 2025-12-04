@@ -1,36 +1,38 @@
 <template>
-	<div class="statsLayout">
+	<div class="ds-statsLayout">
 		<slot name="sectionHeader" />
 
 		<ds-card>
 			<template #content>
-				<div v-if="isLoading" class="statsLayout__loading">
+				<div v-if="isLoading" class="ds-statsLayout__loading">
 					<ds-spinner-loading />
 				</div>
-				<div v-else-if="hasError" class="statsLayout__error">
+				<div v-else-if="hasError" class="ds-statsLayout__error">
 					<ds-stats-error-banner @button-clicked="$emit('tryAgainClicked')" />
 				</div>
-				<div v-else class="statsLayout__content">
-					<div class="statsLayout__wrapper">
-						<div class="statsLayout__summary">
-							<div v-if="hasGridHeader" class="statsLayout__summaryHeader">
-								<div class="statsLayout__cellLeft">{{ leftColumnLabel }}</div>
-								<div v-if="hasRightColumn" class="statsLayout__cellRight">{{
+				<div v-else class="ds-statsLayout__content">
+					<div class="ds-statsLayout__wrapper">
+						<div class="ds-statsLayout__summary">
+							<div v-if="hasGridHeader" class="ds-statsLayout__summaryHeader">
+								<div class="ds-statsLayout__cellLeft">{{ leftColumnLabel }}</div>
+								<div v-if="hasRightColumn" class="ds-statsLayout__cellRight">{{
 									rightColumnLabel
 								}}</div>
 							</div>
-							<slot name="overallStatsItem" class="statsLayout__item" />
+							<slot name="overallStatsItem" class="ds-statsLayout__item" />
 						</div>
 
-						<div class="statsLayout__stats">
-							<div v-if="hasGridHeader" class="statsLayout__statsHeader">
-								<div class="statsLayout__cellLeft">{{ statsItemsHeaderLabel }}</div>
-								<div v-if="hasRightColumn" class="statsLayout__cellRight" />
+						<div class="ds-statsLayout__stats">
+							<div v-if="hasGridHeader" class="ds-statsLayout__statsHeader">
+								<div class="ds-statsLayout__cellLeft">{{
+									statsItemsHeaderLabel
+								}}</div>
+								<div v-if="hasRightColumn" class="ds-statsLayout__cellRight" />
 							</div>
 
-							<div class="statsLayout__statsList">
+							<div class="ds-statsLayout__statsList">
 								<template v-for="slotName in statsItems" :key="slotName">
-									<slot :name="slotName" class="statsLayout__item" />
+									<slot :name="slotName" class="ds-statsLayout__item" />
 									<ds-divider />
 								</template>
 							</div>
@@ -51,7 +53,7 @@
 
 $right-column-width: 96px;
 
-.statsLayout {
+.ds-statsLayout {
 	display: flex;
 	flex-direction: column;
 	gap: $space-xs;
@@ -77,11 +79,11 @@ $right-column-width: 96px;
 	&__summaryHeader {
 		@include label-m-extensive-bold-uppercase();
 
-		display: grid;
-		grid-template-columns: 1fr $right-column-width;
-		gap: $space-s;
 		background: $color-neutral-background;
 		color: $color-neutral-text;
+		display: grid;
+		gap: $space-s;
+		grid-template-columns: 1fr $right-column-width;
 	}
 
 	&__stats {
@@ -93,11 +95,11 @@ $right-column-width: 96px;
 	&__statsHeader {
 		@include label-m-extensive-bold-uppercase();
 
-		display: grid;
-		grid-template-columns: 1fr $right-column-width;
-		gap: $space-s;
 		background: $color-neutral-background;
 		color: $color-neutral-text;
+		display: grid;
+		gap: $space-s;
+		grid-template-columns: 1fr $right-column-width;
 	}
 
 	&__statsList {
@@ -107,19 +109,19 @@ $right-column-width: 96px;
 	}
 
 	&__cellLeft {
-		display: flex;
-		padding: $space-2xs;
 		align-items: center;
-		gap: $space-4xs;
+		display: flex;
 		flex: 1 0 0;
+		gap: $space-4xs;
+		padding: $space-2xs;
 	}
 
 	&__cellRight {
-		display: flex;
-		width: $right-column-width;
-		padding: $space-2xs;
-		justify-content: flex-end;
 		align-items: center;
+		display: flex;
+		justify-content: flex-end;
+		padding: $space-2xs;
+		width: $right-column-width;
 	}
 
 	&__item {
@@ -128,9 +130,9 @@ $right-column-width: 96px;
 	}
 
 	&__loading {
+		align-items: center;
 		display: flex;
 		justify-content: center;
-		align-items: center;
 	}
 }
 </style>

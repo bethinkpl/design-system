@@ -1,7 +1,7 @@
 <template>
-	<div class="spinnerLoading">
+	<div class="ds-spinnerLoading">
 		<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.SMALL" spinning />
-		<div class="spinnerLoading__message">{{ message || t('ds.globals.loading') }}</div>
+		<div class="ds-spinnerLoading__message">{{ message || t('ds.globals.loading') }}</div>
 	</div>
 </template>
 
@@ -10,13 +10,13 @@
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
 
-.spinnerLoading {
+.ds-spinnerLoading {
 	@include text-m-default-regular();
 
-	display: inline-flex;
 	align-items: center;
-	gap: $space-2xs;
 	color: $color-neutral-text;
+	display: inline-flex;
+	gap: $space-2xs;
 }
 </style>
 
