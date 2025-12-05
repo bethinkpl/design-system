@@ -86,6 +86,11 @@
 			--checkbox-circle-background-color-hovered: #{$color-neutral-background-ghost-hovered};
 		}
 
+		#{$root}.-ds-error & {
+			--checkbox-circle-background-color-focused: #{$color-danger-background-ghost-focused};
+			--checkbox-circle-background-color-hovered: #{$color-danger-background-ghost-hovered};
+		}
+
 		#{$root}.-ds-x-small & {
 			padding: $checkbox-root-xs-space 0;
 		}
