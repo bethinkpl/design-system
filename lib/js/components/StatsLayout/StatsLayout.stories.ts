@@ -4,13 +4,10 @@ import StatsLayout from './StatsLayout.vue';
 import type { ComponentProps } from 'vue-component-type-helpers';
 import StatsSectionHeader from './StatsSectionHeader/StatsSectionHeader.vue';
 import StatsResetBanner from './StatsResetBanner/StatsResetBanner.vue';
-import SlotPlaceholder from '../SlotPlaceholder/SlotPlaceholder.vue';
+import SlotPlaceholder from '../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 
 type StatsLayoutProps = ComponentProps<typeof StatsLayout> & {
 	items?: Array<any>;
-	filterItems?: Array<{ key: string; label: string }>;
-	selectedFilterKey?: string;
-	timeMarker?: string;
 };
 
 const meta: Meta<StatsLayoutProps> = {

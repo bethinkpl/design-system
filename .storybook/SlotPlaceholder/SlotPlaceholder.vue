@@ -5,8 +5,8 @@
 
 <style lang="scss" scoped>
 // this is a placeholder component for demo purposes only in the design system
-@import '../../../../lib/styles/settings/spacings';
-@import '../../../../lib/styles/settings/typography/tokens';
+@import '../../lib/styles/settings/spacings';
+@import '../../lib/styles/settings/typography/tokens';
 
 .ds-slotPlaceholder {
 	@include label-2xl-default-bold();

@@ -4,7 +4,9 @@
 	"ds.statsLayout.statsErrorBanner.buttonText": "Spróbuj ponownie",
 	"ds.statsLayout.statsErrorBanner.message": "Odśwież stronę, aby spróbować ponownie",
 	"ds.statsLayout.statsErrorBanner.title": "Nie udało się załadować statystyk",
-	"ds.statsLayout.statsResetBanner.buttonText": "RESETUJ STATYSTYKI",
+	"ds.statsLayout.statsResetBanner.buttonText": "Resetuj statystyki",
 	"ds.statsLayout.statsResetBanner.message": "Statystyki liczone od",
-	"ds.statsLayout.statsResetBanner.title": "Reset statystyk"
+	"ds.statsLayout.statsResetBanner.title": "Reset statystyk",
+	"ds.statsLayout.default.leftColumnLabel": "Zakres",
+	"ds.statsLayout.default.rightColumnLabel": "Wyniki"
 }

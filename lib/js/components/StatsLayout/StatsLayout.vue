@@ -8,15 +8,17 @@
 					<ds-spinner-loading />
 				</div>
 				<div v-else-if="hasError" class="ds-statsLayout__error">
-					<ds-stats-error-banner @button-clicked="$emit('tryAgainClicked')" />
+					<ds-stats-error-banner @button-clicked="$emit('retryClicked')" />
 				</div>
 				<div v-else class="ds-statsLayout__content">
 					<div class="ds-statsLayout__wrapper">
 						<div class="ds-statsLayout__summary">
 							<div v-if="hasGridHeader" class="ds-statsLayout__summaryHeader">
-								<div class="ds-statsLayout__cellLeft">{{ leftColumnLabel }}</div>
+								<div class="ds-statsLayout__cellLeft">{{
+									leftColumnLabel || t('ds.statsLayout.default.leftColumnLabel')
+								}}</div>
 								<div v-if="hasRightColumn" class="ds-statsLayout__cellRight">{{
-									rightColumnLabel
+									rightColumnLabel || t('ds.statsLayout.default.rightColumnLabel')
 								}}</div>
 							</div>
 							<slot name="overallStatsItem" class="ds-statsLayout__item" />
@@ -143,6 +145,9 @@ import DsDivider from '../Divider/Divider.vue';
 import DsStatsErrorBanner from './StatsErrorBanner/StatsErrorBanner.vue';
 import DsSpinnerLoading from '../SpinnerLoading/SpinnerLoading.vue';
 import { computed } from 'vue';
+import { useLegacyI18n } from '../../composables/useLegacyI18n';
+
+const { t } = useLegacyI18n();
 
 interface StatsLayoutProps {
 	hasGridHeader?: boolean;
@@ -157,8 +162,8 @@ interface StatsLayoutProps {
 const {
 	hasGridHeader = true,
 	hasRightColumn = true,
-	leftColumnLabel = 'Zakres',
-	rightColumnLabel = 'Wyniki',
+	leftColumnLabel = null,
+	rightColumnLabel = null,
 	statsItemsHeaderLabel = null,
 	isLoading = false,
 	hasError = false,
@@ -171,13 +176,9 @@ const slots = defineSlots<{
 	resetBanner?: () => any;
 }>();
 
-const statsItems = computed(() => {
-	return Object.entries(slots)
-		.filter(([key]) => key.startsWith('statsItem-'))
-		.map(([key]) => key);
-});
+const statsItems = computed(() => Object.keys(slots).filter((key) => key.startsWith('statsItem-')));
 
 defineEmits<{
-	(e: 'tryAgainClicked'): void;
+	(e: 'retryClicked'): void;
 }>();
 </script>

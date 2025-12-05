@@ -1,7 +1,7 @@
 <template>
 	<div class="ds-spinnerLoading">
 		<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.SMALL" spinning />
-		<div class="ds-spinnerLoading__message">{{ message || t('ds.globals.loading') }}</div>
+		<div>{{ message || t('ds.globals.loading') }}</div>
 	</div>
 </template>
 
