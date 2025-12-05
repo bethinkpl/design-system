@@ -141,6 +141,14 @@
 			border-top-left-radius: $card-border-radius;
 			border-top-right-radius: 0;
 		}
+
+		.-ds-leftBorder & {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: $card-border-radius;
+			height: 100%;
+		}
 	}
 }
 </style>
