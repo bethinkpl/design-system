@@ -147,7 +147,6 @@
 			left: 0;
 			position: absolute;
 			top: 0;
-			width: $card-border-radius;
 		}
 	}
 }
