@@ -143,11 +143,11 @@
 		}
 
 		.-ds-leftBorder & {
+			height: 100%;
+			left: 0;
 			position: absolute;
 			top: 0;
-			left: 0;
 			width: $card-border-radius;
-			height: 100%;
 		}
 	}
 }
