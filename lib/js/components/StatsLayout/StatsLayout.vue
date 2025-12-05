@@ -21,7 +21,9 @@
 									rightColumnLabel || t('ds.statsLayout.default.rightColumnLabel')
 								}}</div>
 							</div>
-							<slot name="overallStatsItem" class="ds-statsLayout__item" />
+							<div class="ds-statsLayout__item">
+								<slot name="overallStatsItem" />
+							</div>
 						</div>
 
 						<div class="ds-statsLayout__stats">
@@ -34,7 +36,9 @@
 
 							<div class="ds-statsLayout__statsList">
 								<template v-for="slotName in statsItems" :key="slotName">
-									<slot :name="slotName" class="ds-statsLayout__item" />
+									<div class="ds-statsLayout__item">
+										<slot :name="slotName" />
+									</div>
 									<ds-divider />
 								</template>
 							</div>
@@ -84,7 +88,6 @@ $right-column-width: 96px;
 		background: $color-neutral-background;
 		color: $color-neutral-text;
 		display: grid;
-		gap: $space-s;
 		grid-template-columns: 1fr $right-column-width;
 	}
 

@@ -120,7 +120,7 @@ export const WithHeaders: Story = {
 
 export const MultipleColumns: Story = {
 	render: (args) => {
-		const itemTemplate = `<div style="display: grid; grid-template-columns: 1fr auto; gap: 8px;"><div><slot-placeholder label="Slot left" /></div><div><slot-placeholder label="Slot right" /></div></div>`;
+		const itemTemplate = `<div><slot-placeholder label="Slot left" /></div><div><slot-placeholder label="Slot right" /></div>`;
 
 		return {
 			components: { StatsLayout, StatsSectionHeader, StatsResetBanner, SlotPlaceholder },
