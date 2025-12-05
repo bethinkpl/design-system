@@ -6,5 +6,7 @@
 	"ds.statsLayout.statsErrorBanner.title": "Failed to load statistics",
 	"ds.statsLayout.statsResetBanner.buttonText": "RESET STATISTICS",
 	"ds.statsLayout.statsResetBanner.message": "Statistics counted from",
-	"ds.statsLayout.statsResetBanner.title": "Reset statistics"
+	"ds.statsLayout.statsResetBanner.title": "Reset statistics",
+	"ds.statsLayout.default.leftColumnLabel": "Range",
+	"ds.statsLayout.default.rightColumnLabel": "Results"
 }
