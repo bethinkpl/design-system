@@ -13,33 +13,36 @@
 				<div v-else class="ds-statsLayout__content">
 					<div class="ds-statsLayout__wrapper">
 						<div class="ds-statsLayout__summary">
-							<div v-if="hasGridHeader" class="ds-statsLayout__summaryHeader">
-								<div class="ds-statsLayout__cellLeft">{{
+							<div v-if="hasGridHeader" class="ds-statsLayout__gridHeader">
+								<div class="ds-statsLayout__gridHeaderLeftColumn">{{
 									leftColumnLabel || t('ds.statsLayout.default.leftColumnLabel')
 								}}</div>
-								<div v-if="hasRightColumn" class="ds-statsLayout__cellRight">{{
-									rightColumnLabel || t('ds.statsLayout.default.rightColumnLabel')
-								}}</div>
+								<div
+									v-if="hasRightColumn"
+									class="ds-statsLayout__gridHeaderRightColumn"
+								>
+									{{
+										rightColumnLabel ||
+										t('ds.statsLayout.default.rightColumnLabel')
+									}}
+								</div>
 							</div>
-							<div class="ds-statsLayout__item">
+							<div class="ds-statsLayout__overallStats">
 								<slot name="overallStatsItem" />
 							</div>
 						</div>
 
 						<div class="ds-statsLayout__stats">
-							<div v-if="hasGridHeader" class="ds-statsLayout__statsHeader">
-								<div class="ds-statsLayout__cellLeft">{{
-									statsItemsHeaderLabel
-								}}</div>
-								<div v-if="hasRightColumn" class="ds-statsLayout__cellRight" />
+							<div v-if="hasGridHeader" class="ds-statsLayout__gridHeader">
+								<div class="ds-statsLayout__gridHeaderLeftColumn">
+									{{ statsItemsHeaderLabel }}
+								</div>
 							</div>
 
 							<div class="ds-statsLayout__statsList">
 								<template v-for="slotName in statsItems" :key="slotName">
-									<div class="ds-statsLayout__item">
-										<slot :name="slotName" />
-									</div>
-									<ds-divider />
+									<slot :name="slotName" />
+									<ds-divider class="ds-statsLayout__statsDivider" />
 								</template>
 							</div>
 						</div>
@@ -64,7 +67,9 @@ $right-column-width: 96px;
 	flex-direction: column;
 	gap: $space-xs;
 
-	&__content {
+	&__content,
+	&__summary,
+	&__stats {
 		display: flex;
 		flex-direction: column;
 		gap: $space-s;
@@ -76,62 +81,43 @@ $right-column-width: 96px;
 		gap: $space-l;
 	}
 
-	&__summary {
-		display: flex;
-		flex-direction: column;
-		gap: $space-s;
-	}
-
-	&__summaryHeader {
+	&__gridHeader {
 		@include label-m-extensive-bold-uppercase();
 
 		background: $color-neutral-background;
 		color: $color-neutral-text;
-		display: grid;
-		grid-template-columns: 1fr $right-column-width;
-	}
-
-	&__stats {
 		display: flex;
-		flex-direction: column;
-		gap: $space-s;
 	}
 
-	&__statsHeader {
-		@include label-m-extensive-bold-uppercase();
+	&__gridHeaderLeftColumn,
+	&__gridHeaderRightColumn {
+		align-items: center;
+		display: flex;
+	}
 
-		background: $color-neutral-background;
-		color: $color-neutral-text;
+	&__gridHeaderLeftColumn {
+		flex: 1 0 0;
+		padding: $space-2xs;
+	}
+
+	&__gridHeaderRightColumn {
+		justify-content: flex-end;
+		padding: $space-2xs;
+	}
+
+	&__overallStats,
+	&__statsList {
 		display: grid;
-		gap: $space-s;
-		grid-template-columns: 1fr $right-column-width;
+		grid-template-columns: 1fr auto;
 	}
 
 	&__statsList {
-		display: flex;
-		flex-direction: column;
-		gap: $space-s;
+		row-gap: $space-s;
 	}
 
-	&__cellLeft {
-		align-items: center;
-		display: flex;
-		flex: 1 0 0;
-		gap: $space-4xs;
-		padding: $space-2xs;
-	}
-
-	&__cellRight {
-		align-items: center;
-		display: flex;
-		justify-content: flex-end;
-		padding: $space-2xs;
-		width: $right-column-width;
-	}
-
-	&__item {
-		display: grid;
-		grid-template-columns: 1fr $right-column-width;
+	&__statsDivider {
+		grid-column: 1 / -1;
+		grid-row: auto;
 	}
 
 	&__loading {
