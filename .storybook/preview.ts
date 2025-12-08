@@ -84,6 +84,12 @@ export const parameters = {
 		disableSaveFromUI: true,
 	},
 	viewport: { viewports: customViewports },
+	backgrounds: {
+		values: [
+			{ name: 'Default', value: '#fff' },
+			{ name: 'NeutralStrong', value: '#a8afc0' },
+		],
+	},
 	options: {
 		storySort: {
 			order: [
