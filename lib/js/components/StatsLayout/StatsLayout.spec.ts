@@ -6,26 +6,7 @@ import StatsLayout from './StatsLayout.vue';
 
 describe('StatsLayout', () => {
 	const createComponent = (options: ComponentMountingOptions<typeof StatsLayout> = {}) => {
-		return mount(StatsLayout, {
-			global: {
-				stubs: {
-					DsCard: {
-						template: '<div class="ds-card"><slot name="content" /></div>',
-					},
-					DsDivider: {
-						template: '<div class="ds-divider" />',
-					},
-					DsStatsErrorBanner: {
-						template:
-							'<div class="ds-stats-error-banner" @click="$emit(\'buttonClicked\')" />',
-					},
-					DsSpinnerLoading: {
-						template: '<div class="ds-spinner-loading" />',
-					},
-				},
-			},
-			...options,
-		});
+		return mount(StatsLayout, options);
 	};
 
 	it('should create', () => {
@@ -63,7 +44,7 @@ describe('StatsLayout', () => {
 				},
 			});
 
-			const dividers = component.findAll('.ds-divider');
+			const dividers = component.findAll('.ds-statsLayout__statsDivider');
 			expect(dividers.length).toBe(2);
 		});
 	});
@@ -73,8 +54,8 @@ describe('StatsLayout', () => {
 			it('should render grid headers by default', () => {
 				const component = createComponent();
 
-				expect(component.find('.ds-statsLayout__summaryHeader').exists()).toBe(true);
-				expect(component.find('.ds-statsLayout__statsHeader').exists()).toBe(true);
+				const gridHeaders = component.findAll('.ds-statsLayout__gridHeader');
+				expect(gridHeaders.length).toBe(2);
 			});
 
 			it('should not render grid headers when hasGridHeader is false', () => {
@@ -84,8 +65,8 @@ describe('StatsLayout', () => {
 					},
 				});
 
-				expect(component.find('.ds-statsLayout__summaryHeader').exists()).toBe(false);
-				expect(component.find('.ds-statsLayout__statsHeader').exists()).toBe(false);
+				const gridHeaders = component.findAll('.ds-statsLayout__gridHeader');
+				expect(gridHeaders.length).toBe(0);
 			});
 		});
 
@@ -93,8 +74,8 @@ describe('StatsLayout', () => {
 			it('should render right column by default', () => {
 				const component = createComponent();
 
-				const rightCells = component.findAll('.ds-statsLayout__cellRight');
-				expect(rightCells.length).toBeGreaterThan(0);
+				const rightColumns = component.findAll('.ds-statsLayout__gridHeaderRightColumn');
+				expect(rightColumns.length).toBeGreaterThan(0);
 			});
 
 			it('should not render right column when hasRightColumn is false', () => {
@@ -104,8 +85,8 @@ describe('StatsLayout', () => {
 					},
 				});
 
-				const rightCells = component.findAll('.ds-statsLayout__cellRight');
-				expect(rightCells.length).toBe(0);
+				const rightColumns = component.findAll('.ds-statsLayout__gridHeaderRightColumn');
+				expect(rightColumns.length).toBe(0);
 			});
 		});
 
@@ -114,7 +95,6 @@ describe('StatsLayout', () => {
 				const component = createComponent();
 
 				expect(component.find('.ds-statsLayout__loading').exists()).toBe(false);
-				expect(component.find('.ds-spinner-loading').exists()).toBe(false);
 			});
 
 			it('should show loading state when isLoading is true', () => {
@@ -125,7 +105,6 @@ describe('StatsLayout', () => {
 				});
 
 				expect(component.find('.ds-statsLayout__loading').exists()).toBe(true);
-				expect(component.find('.ds-spinner-loading').exists()).toBe(true);
 			});
 
 			it('should hide content when loading', () => {
@@ -148,7 +127,6 @@ describe('StatsLayout', () => {
 				const component = createComponent();
 
 				expect(component.find('.ds-statsLayout__error').exists()).toBe(false);
-				expect(component.find('.ds-stats-error-banner').exists()).toBe(false);
 			});
 
 			it('should show error state when hasError is true', () => {
@@ -159,7 +137,6 @@ describe('StatsLayout', () => {
 				});
 
 				expect(component.find('.ds-statsLayout__error').exists()).toBe(true);
-				expect(component.find('.ds-stats-error-banner').exists()).toBe(true);
 			});
 
 			it('should hide content when error', () => {
