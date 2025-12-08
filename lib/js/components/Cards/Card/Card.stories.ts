@@ -39,6 +39,7 @@ const args = {
 	header: 'header slot',
 	content: 'content slot that supports <b>HTML markup</b>',
 	footer: 'footer slot',
+	contentHasPadding: true,
 	headerHasPadding: false,
 	footerHasPadding: false,
 	paddingSize: CARD_PADDING_SIZES.SMALL,
