@@ -71,7 +71,7 @@
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/colors/tokens';
 
-$minimal-drawer-header-height: 82px;
+$minimal-drawer-header-height: 58px;
 
 .ds-drawerHeader {
 	display: flex;
@@ -127,7 +127,7 @@ $minimal-drawer-header-height: 82px;
 	}
 
 	&__titleText {
-		@include heading-s-default-bold-uppercase;
+		@include heading-s-default-bold;
 
 		&.-ds-neutralStrong {
 			color: $color-neutral-text-strong;
@@ -150,7 +150,7 @@ $minimal-drawer-header-height: 82px;
 		display: flex;
 		justify-content: space-between;
 		min-height: $minimal-drawer-header-height;
-		padding: $space-m $space-xs;
+		padding: $space-xs;
 	}
 
 	&__actions {
