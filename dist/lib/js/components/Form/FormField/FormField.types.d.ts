@@ -13,6 +13,7 @@ export interface FormFieldSlots {
     field: (props: {
         fieldId: string;
         messageId: string;
+        labelId: string;
     }) => any;
     message?: (props: {
         messageId: string;
