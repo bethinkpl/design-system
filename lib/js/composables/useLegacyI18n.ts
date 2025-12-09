@@ -16,7 +16,6 @@ export const useLegacyI18n = (): IUseLegacyI18n => {
 		throw new Error('useLegacyI18n must be called within a Vue component');
 	}
 
-	// @ts-expect-error
 	const t = internalInstance.root.proxy.$t;
 
 	return {

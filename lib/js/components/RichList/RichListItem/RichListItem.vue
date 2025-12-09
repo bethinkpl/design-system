@@ -54,8 +54,9 @@
 				<div v-if="isSelectable" class="ds-richListItem__checkbox">
 					<ds-divider v-if="isHorizontal" is-vertical />
 					<ds-checkbox
-						:is-selected="isSelected"
-						@update:is-selected="$emit('update:is-selected', $event)"
+						:elevation="CHECKBOX_ELEVATIONS.NONE"
+						:model-value="isSelected"
+						@update:model-value="(value) => $emit('update:is-selected', !!value)"
 						@click.stop
 					/>
 				</div>
@@ -503,6 +504,7 @@ import {
 	RichListItemState,
 	RichListItemType,
 } from './RichListItem.consts';
+import { CHECKBOX_ELEVATIONS } from '../../Form/Checkbox';
 
 export default defineComponent({
 	name: 'RichListItem',
@@ -621,13 +623,14 @@ export default defineComponent({
 		click: (event: Event) => true,
 		'update:is-selected': (isSelected: boolean) => true,
 	},
-	data() {
+	setup() {
 		return {
-			ICONS: Object.freeze(ICONS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
-			RICH_LIST_ITEM_TYPE: Object.freeze(RICH_LIST_ITEM_TYPE),
-			RICH_LIST_ITEM_STATE: Object.freeze(RICH_LIST_ITEM_STATE),
-			RICH_LIST_ITEM_SIZE: Object.freeze(RICH_LIST_ITEM_SIZE),
+			ICONS,
+			ICON_SIZES,
+			RICH_LIST_ITEM_TYPE,
+			RICH_LIST_ITEM_STATE,
+			RICH_LIST_ITEM_SIZE,
+			CHECKBOX_ELEVATIONS,
 		};
 	},
 	computed: {

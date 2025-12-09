@@ -7,21 +7,26 @@
 				'-ds-default': state === SELECTION_TILE_STATE.DEFAULT,
 				'-ds-disabled': state === SELECTION_TILE_STATE.DISABLED,
 				'-ds-loading': isLoading,
-				'-ds-focused': inputIsFocused && !isLoading,
 			},
 		]"
 		@click="updateIsSelected(!isSelected)"
 	>
 		<div class="ds-selectionTile__wrapper">
-			<component
-				:is="type === SELECTION_TILE_TYPE.RADIO_BUTTON ? 'radio-button' : 'checkbox'"
+			<radio-button
+				v-if="type === SELECTION_TILE_TYPE.RADIO_BUTTON"
 				:size="SELECTION_CONTROL_SIZE.X_SMALL"
 				:is-selected="isSelected"
 				:state="SELECTION_CONTROL_STATE_MAP[state]"
 				@update:is-selected="updateIsSelected($event)"
-				@input:focus="onInputFocus"
-				@input:blur="onInputBlur"
 			/>
+			<checkbox
+				v-else
+				:size="CHECKBOX_SIZES.X_SMALL"
+				:model-value="isSelected"
+				:state="CHECKBOX_STATE_MAP[state]"
+				@update:model-value="(value) => updateIsSelected(value !== false)"
+			/>
+
 			<div class="ds-selectionTile__textWrapper">
 				<div class="ds-selectionTile__title">{{ title }}</div>
 
@@ -102,8 +107,8 @@ $selection-tile-min-height: 48px;
 		display: flex;
 	}
 
-	&:hover:not(.-ds-loading),
-	&.-ds-focused {
+	&:focus-within:not(.-ds-loading),
+	&:hover:not(.-ds-loading) {
 		background-color: $color-neutral-background-weak-hovered;
 		outline-color: $color-neutral-border-hovered;
 	}
@@ -112,8 +117,8 @@ $selection-tile-min-height: 48px;
 		background-color: $color-primary-background;
 		outline-color: $color-primary-border;
 
-		&:hover:not(.-ds-loading),
-		&.-ds-focused {
+		&:focus-within:not(.-ds-loading),
+		&:hover:not(.-ds-loading) {
 			background-color: $color-primary-background-hovered;
 			outline-color: $color-primary-border-hovered;
 		}
@@ -153,8 +158,8 @@ $selection-tile-min-height: 48px;
 }
 </style>
 
-<script lang="ts">
-import { defineAsyncComponent, defineComponent, PropType, toRaw } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 import {
 	SELECTION_TILE_STATE,
 	SELECTION_TILE_TYPE,
@@ -166,97 +171,61 @@ import Icon from '../Icons/Icon/Icon.vue';
 import {
 	SELECTION_CONTROL_SIZE,
 	SELECTION_CONTROL_STATE,
+	SelectionControlState,
 } from '../Form/SelectionControl/SelectionControl.consts';
-import SelectionControl from '../Form/SelectionControl/SelectionControl.vue';
+import { CHECKBOX_SIZES, CHECKBOX_STATES, CheckboxState } from '../Form/Checkbox';
+import Checkbox from '../Form/Checkbox/Checkbox.vue';
+import RadioButton from '../Form/RadioButton/RadioButton.vue';
 
-const SELECTION_CONTROL_STATE_MAP = {
+const SELECTION_CONTROL_STATE_MAP: Record<SelectionTileState, SelectionControlState> = {
 	[SELECTION_TILE_STATE.DEFAULT]: SELECTION_CONTROL_STATE.DEFAULT,
 	[SELECTION_TILE_STATE.LOADING]: SELECTION_CONTROL_STATE.LOADING,
 	[SELECTION_TILE_STATE.DISABLED]: SELECTION_CONTROL_STATE.DISABLED,
 };
 
-export default defineComponent({
-	name: 'SelectionTile',
-	components: {
-		SelectionControl,
-		Icon,
-		Checkbox: defineAsyncComponent(() => import('../Form/Checkbox/Checkbox.vue')),
-		RadioButton: defineAsyncComponent(() => import('../Form/RadioButton/RadioButton.vue')),
-	},
-	props: {
-		type: {
-			type: String as PropType<SelectionTileType>,
-			default: SELECTION_TILE_TYPE.RADIO_BUTTON,
-			validator(type: SelectionTileType) {
-				return Object.values(SELECTION_TILE_TYPE).includes(type);
-			},
-		},
-		title: {
-			type: String,
-			required: true,
-		},
-		supportingText: {
-			type: String,
-			default: null,
-		},
-		icon: {
-			type: Object,
-			default: null,
-			validator(icon: IconItem) {
-				return Object.values(ICONS).includes(toRaw(icon));
-			},
-		},
-		isSelected: {
-			type: Boolean,
-			default: false,
-		},
-		state: {
-			type: String as PropType<SelectionTileState>,
-			default: SELECTION_TILE_STATE.DEFAULT,
-			validator(state: SelectionTileState) {
-				return Object.values(SELECTION_TILE_STATE).includes(state);
-			},
-		},
-	},
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['update:is-selected', 'icon-click'],
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
-			SELECTION_CONTROL_SIZE: Object.freeze(SELECTION_CONTROL_SIZE),
-			SELECTION_TILE_STATE: Object.freeze(SELECTION_TILE_STATE),
-			SELECTION_TILE_TYPE: Object.freeze(SELECTION_TILE_TYPE),
-			SELECTION_CONTROL_STATE_MAP,
-			inputIsFocused: false,
-		};
-	},
-	computed: {
-		isLoading() {
-			return this.state === SELECTION_TILE_STATE.LOADING;
-		},
-	},
-	methods: {
-		updateIsSelected(value: boolean) {
-			if (this.isLoading || this.state === SELECTION_TILE_STATE.DISABLED) {
-				return;
-			}
+const CHECKBOX_STATE_MAP: Record<SelectionTileState, CheckboxState> = {
+	[SELECTION_TILE_STATE.DEFAULT]: CHECKBOX_STATES.DEFAULT,
+	[SELECTION_TILE_STATE.LOADING]: CHECKBOX_STATES.DEFAULT,
+	[SELECTION_TILE_STATE.DISABLED]: CHECKBOX_STATES.DISABLED,
+};
 
-			this.$emit('update:is-selected', value);
-		},
-		onIconClick(event: Event) {
-			if (!this.isLoading) {
-				event.stopPropagation();
-				this.$emit('icon-click');
-			}
-		},
-		onInputFocus() {
-			this.inputIsFocused = true;
-		},
-		onInputBlur() {
-			this.inputIsFocused = false;
-		},
-	},
+// Props
+const {
+	type = SELECTION_TILE_TYPE.RADIO_BUTTON,
+	supportingText = null,
+	icon = null,
+	isSelected = false,
+	state = SELECTION_TILE_STATE.DEFAULT,
+} = defineProps<{
+	type?: SelectionTileType;
+	title: string;
+	supportingText?: string | null;
+	icon?: IconItem | null;
+	isSelected?: boolean;
+	state?: SelectionTileState;
+}>();
+
+const emit = defineEmits<{
+	'update:is-selected': [value: boolean];
+	'icon-click': [];
+}>();
+
+const isLoading = computed(() => {
+	return state === SELECTION_TILE_STATE.LOADING;
 });
+
+const updateIsSelected = (value: boolean) => {
+	if (isLoading.value || state === SELECTION_TILE_STATE.DISABLED) {
+		return;
+	}
+
+	emit('update:is-selected', value);
+};
+
+const onIconClick = (event: Event) => {
+	if (!isLoading.value) {
+		event.stopPropagation();
+		emit('icon-click');
+	}
+};
 </script>
