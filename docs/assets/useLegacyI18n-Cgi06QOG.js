@@ -1,0 +1,1 @@
+import{g as n}from"./vue.esm-bundler-C98R7Ujk.js";const r=()=>{const t=n();if(!t||!t.root.proxy)throw new Error("useLegacyI18n must be called within a Vue component");return{t:t.root.proxy.$t}};export{r as u};
