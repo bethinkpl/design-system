@@ -56,6 +56,7 @@
 			</div>
 			<icon-button
 				v-if="isClosable"
+				:color="ICON_COLORS.NEUTRAL"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"
 				:touchable="false"
@@ -168,7 +169,7 @@ import IconButton from '../../Buttons/IconButton/IconButton.vue';
 import Chip from '../../Chip/Chip.vue';
 import Icon from '../../Icons/Icon/Icon.vue';
 import { BUTTON_TYPES } from '../../Buttons/Button';
-import { ICON_SIZES, ICONS } from '../../Icons/Icon';
+import { ICON_COLORS, ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import { DRAWER_HEADER_TITLE_COLORS, DrawerHeaderTitleColor } from './DrawerHeader.consts';
@@ -239,16 +240,15 @@ export default defineComponent({
 	setup() {
 		const { t } = useLegacyI18n();
 
-		return { t };
-	},
-	data() {
 		return {
-			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
-			DIVIDER_SIZES: Object.freeze(DIVIDER_SIZES),
-			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
-			ICONS: Object.freeze(ICONS),
-			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
+			t,
+			BUTTON_TYPES,
+			DIVIDER_SIZES,
+			DIVIDER_PROMINENCES,
+			ICONS,
+			ICON_BUTTON_SIZES,
+			ICON_SIZES,
+			ICON_COLORS,
 		};
 	},
 });
