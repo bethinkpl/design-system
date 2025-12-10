@@ -24,7 +24,7 @@ const meta: Meta<StatsSectionHeaderProps> = {
 					});
 				},
 			},
-			template: `<stats-section-header v-bind="args" @select-filter="selectFilter"><template #infoContent><p>Info content</p></template></stats-section-header>`,
+			template: `<stats-section-header v-bind="args" @select-filter="selectFilter"><template #infoModalContent><p>Info content</p></template></stats-section-header>`,
 		};
 	},
 	parameters: {

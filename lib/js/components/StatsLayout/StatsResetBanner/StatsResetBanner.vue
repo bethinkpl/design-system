@@ -11,10 +11,10 @@
 				<strong>{{ props.timeMarker }}</strong></span
 			>
 		</template>
-		<template v-if="$slots.infoContent" #rightSlot>
-			<ds-help-button :size="ICON_BUTTON_SIZES.SMALL">
+		<template v-if="$slots.infoModalContent" #rightSlot>
+			<ds-help-button :size="ICON_BUTTON_SIZES.SMALL" :modal-title="infoModalTitle">
 				<template #modalContent>
-					<slot name="infoContent" />
+					<slot name="infoModalContent" />
 				</template>
 			</ds-help-button>
 		</template>
@@ -32,10 +32,11 @@ const { t } = useLegacyI18n();
 
 const props = defineProps<{
 	timeMarker: string;
+	infoModalTitle?: string;
 }>();
 
 defineSlots<{
-	infoContent?: () => any;
+	infoModalContent?: () => any;
 }>();
 
 defineEmits<{

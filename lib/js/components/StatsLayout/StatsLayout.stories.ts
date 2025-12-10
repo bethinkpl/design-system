@@ -102,13 +102,13 @@ export const WithHeaders: Story = {
 			<stats-layout v-bind="args">
 				<template #sectionHeader>
 					<stats-section-header :filter-items="filterItems" selected-filter-key="all">
-						<template #infoContent><span>Info content for filter</span></template>
+						<template #infoModalContent><span>Info content for filter</span></template>
 					</stats-section-header>
 				</template>
 				<template #overallStatsItem><slot-placeholder /></template>
 				<template #resetBanner>
-					<stats-reset-banner timeMarker="2 czerwca 2025">
-						<template #infoContent><p>Info content for reset banner</p></template>
+					<stats-reset-banner timeMarker="2 czerwca 2025" infoModalTitle="Info modal title">
+						<template #infoModalContent><p>Info content for reset banner</p></template>
 					</stats-reset-banner>
 				</template>
 				${prepareItemsTemplate()}
@@ -138,15 +138,15 @@ export const MultipleColumns: Story = {
 			<stats-layout v-bind="args">
 				<template #sectionHeader>
 					<stats-section-header :filter-items="filterItems" selected-filter-key="all">
-						<template #infoContent><span>Info content for filter</span></template>
+						<template #infoModalContent><span>Info content for filter</span></template>
 					</stats-section-header>
 				</template>
 				<template #overallStatsItem>
 				${itemTemplate}
 				</template>
 				<template #resetBanner>
-					<stats-reset-banner timeMarker="2 czerwca 2025">
-						<template #infoContent><p>Info content for reset banner</p></template>
+					<stats-reset-banner timeMarker="2 czerwca 2025" infoModalTitle="Info modal title">
+						<template #infoModalContent><p>Info content for reset banner</p></template>
 					</stats-reset-banner>
 				</template>
 				${prepareItemsTemplate(5, itemTemplate)}

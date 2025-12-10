@@ -3,7 +3,7 @@
 		:title="t('ds.statsLayout.sectionHeader.title')"
 		:icon-left="ICONS.FA_CHART_COLUMN"
 		:has-divider="false"
-		:info="!!$slots.infoContent"
+		:info="!!$slots.infoModalContent"
 		:mobile-layout="SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL"
 		@info-click="infoContentModalVisible = true"
 	>
@@ -19,11 +19,12 @@
 	</ds-section-header>
 
 	<ds-modal
-		v-if="infoContentModalVisible && !!$slots.infoContent"
+		v-if="infoContentModalVisible && !!$slots.infoModalContent"
+		:header-title="infoModalTitle"
 		@close-modal="infoContentModalVisible = false"
 	>
 		<template #default>
-			<slot name="infoContent" />
+			<slot name="infoModalContent" />
 		</template>
 	</ds-modal>
 </template>
@@ -42,14 +43,19 @@ interface FilterItem {
 	label: string;
 }
 
-const { filterItems = [], selectedFilterKey = null } = defineProps<{
+const {
+	filterItems = [],
+	selectedFilterKey = null,
+	infoModalTitle,
+} = defineProps<{
 	filterItems?: Array<FilterItem>;
 	selectedFilterKey?: string | null;
+	infoModalTitle?: string;
 }>();
 
 defineSlots<{
 	accessory?: string;
-	infoContent?: string;
+	infoModalContent?: string;
 }>();
 
 const emit = defineEmits<{

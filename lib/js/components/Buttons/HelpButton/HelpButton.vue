@@ -11,7 +11,13 @@
 		/>
 	</tooltip>
 	<slot v-if="isOpen" name="modal" :on-close="onClose">
-		<modal :header-title="modalTitle" :size="modalSize" @close-modal="onClose">
+		<modal
+			:header-title="modalTitle"
+			:size="modalSize"
+			:footer-primary-button-text="t('ds.globals.confirmation')"
+			@close-modal="onClose"
+			@primary-button-click="onClose"
+		>
 			<slot name="modalContent" />
 		</modal>
 	</slot>
@@ -28,6 +34,9 @@ import IconButton, {
 import Tooltip from '../../Tooltip';
 import { ICONS } from '../../Icons/Icon';
 import Modal, { ModalSize } from '../../Modals/Modal';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
+
+const { t } = useLegacyI18n();
 
 const {
 	tooltipText,
