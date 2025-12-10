@@ -1,4 +1,4 @@
-import{D as o,a as r}from"./DrawerHeader-BDYLesuD.js";import{I as a}from"./Icon-CnR653sL.js";import"./vue.esm-bundler-C98R7Ujk.js";import"./Button-qdZYJ3AM.js";import"./Divider-B4IxPXqZ.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./IconButton-C30Nb-iK.js";import"./device-9fgosCm4.js";import"./Chip-bZKTAa7h.js";import"./useLegacyI18n-Cgi06QOG.js";const I={title:"Components/Drawer/DrawerHeader",component:o},s=n=>({components:{DrawerHeader:o},setup(){return n},data(){return{ICONS:Object.freeze(a)}},template:`
+import{D as o,a as r}from"./DrawerHeader-DyT0nFPz.js";import{I as a}from"./Icon-CnR653sL.js";import"./vue.esm-bundler-C98R7Ujk.js";import"./Button-qdZYJ3AM.js";import"./Divider-B4IxPXqZ.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./IconButton-C30Nb-iK.js";import"./device-9fgosCm4.js";import"./Chip-bZKTAa7h.js";import"./useLegacyI18n-Cgi06QOG.js";const I={title:"Components/Drawer/DrawerHeader",component:o},s=n=>({components:{DrawerHeader:o},setup(){return n},data(){return{ICONS:Object.freeze(a)}},template:`
         <drawer-header
             :eyebrow-ellipsis="eyebrowEllipsis"
             :eyebrow-text="eyebrowText"
