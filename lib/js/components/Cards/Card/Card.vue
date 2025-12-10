@@ -45,7 +45,10 @@
 			<div
 				v-if="$slots.content"
 				class="ds-card__content"
-				:class="{ '-ds-scrollable': isContentScrollable }"
+				:class="{
+					'-ds-scrollable': isContentScrollable,
+					'-ds-withPadding': contentHasPadding,
+				}"
 			>
 				<slot name="content" />
 			</div>
@@ -118,10 +121,14 @@
 	}
 
 	&__content {
-		padding: $space-s;
+		padding: $space-s 0;
 
-		#{$root}.-ds-paddingLarge & {
-			padding: $space-s $space-l;
+		&.-ds-withPadding {
+			padding: $space-s;
+
+			#{$root}.-ds-paddingLarge & {
+				padding: $space-s $space-l;
+			}
 		}
 
 		&.-ds-scrollable {
@@ -180,6 +187,8 @@ import {
 } from './Card.consts';
 
 const {
+	// only contentHasPadding is true by default for backward compatibility
+	contentHasPadding = true,
 	headerHasPadding = false,
 	footerHasPadding = false,
 	paddingSize = CARD_PADDING_SIZES.SMALL,
@@ -195,6 +204,7 @@ const {
 	isFlat = false,
 	isContentScrollable = false,
 } = defineProps<{
+	contentHasPadding?: boolean;
 	headerHasPadding?: boolean;
 	footerHasPadding?: boolean;
 	paddingSize?: CardPaddingSize;
