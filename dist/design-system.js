@@ -9556,6 +9556,7 @@ const tM = /* @__PURE__ */ D(bE, [["render", SE], ["__scopeId", "data-v-b2953bf0
 }, IE = /* @__PURE__ */ I({
   __name: "Card",
   props: {
+    contentHasPadding: { type: Boolean, default: !0 },
     headerHasPadding: { type: Boolean, default: !1 },
     footerHasPadding: { type: Boolean, default: !1 },
     paddingSize: { default: () => I1.SMALL },
@@ -9622,7 +9623,10 @@ const tM = /* @__PURE__ */ D(bE, [["render", SE], ["__scopeId", "data-v-b2953bf0
         }, null, 8, ["class"])) : p("", !0),
         t.$slots.content ? (u(), h("div", {
           key: 2,
-          class: _(["ds-card__content", { "-ds-scrollable": t.isContentScrollable }])
+          class: _(["ds-card__content", {
+            "-ds-scrollable": t.isContentScrollable,
+            "-ds-withPadding": t.contentHasPadding
+          }])
         }, [
           A(t.$slots, "content", {}, void 0, !0)
         ], 2)) : p("", !0),
@@ -9635,7 +9639,7 @@ const tM = /* @__PURE__ */ D(bE, [["render", SE], ["__scopeId", "data-v-b2953bf0
       ], 2)
     ], 2));
   }
-}), Vt = /* @__PURE__ */ D(IE, [["__scopeId", "data-v-b1c09472"]]), RE = I({
+}), Vt = /* @__PURE__ */ D(IE, [["__scopeId", "data-v-81ba9172"]]), RE = I({
   name: "CardExpandable",
   components: {
     DsCard: Vt,

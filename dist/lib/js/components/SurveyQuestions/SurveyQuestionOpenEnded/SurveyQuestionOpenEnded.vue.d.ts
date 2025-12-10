@@ -449,6 +449,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     });
     DsCard: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+            contentHasPadding: {
+                type: import('vue').PropType<boolean>;
+            };
             headerHasPadding: {
                 type: import('vue').PropType<boolean>;
             };
@@ -499,6 +502,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             M: {};
             Defaults: {};
         }, Readonly<import('vue').ExtractPropTypes<{
+            contentHasPadding: {
+                type: import('vue').PropType<boolean>;
+            };
             headerHasPadding: {
                 type: import('vue').PropType<boolean>;
             };
@@ -546,6 +552,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         __isTeleport?: never;
         __isSuspense?: never;
     } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
+        contentHasPadding: {
+            type: import('vue').PropType<boolean>;
+        };
         headerHasPadding: {
             type: import('vue').PropType<boolean>;
         };
