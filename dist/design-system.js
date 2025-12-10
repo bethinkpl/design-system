@@ -9639,7 +9639,7 @@ const tM = /* @__PURE__ */ D(bE, [["render", SE], ["__scopeId", "data-v-b2953bf0
       ], 2)
     ], 2));
   }
-}), Vt = /* @__PURE__ */ D(IE, [["__scopeId", "data-v-81ba9172"]]), RE = I({
+}), Vt = /* @__PURE__ */ D(IE, [["__scopeId", "data-v-a95c078e"]]), RE = I({
   name: "CardExpandable",
   components: {
     DsCard: Vt,
