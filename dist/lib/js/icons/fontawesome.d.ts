@@ -30,6 +30,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_BOOK_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_BOOK_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_BOOK_OPEN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_BOOK_SKULL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_BOOK_MEDICAL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_BOOK_SPARKLES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
