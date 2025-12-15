@@ -243,6 +243,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     });
     DsCard: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+            contentHasPadding: {
+                type: PropType<boolean>;
+            };
             headerHasPadding: {
                 type: PropType<boolean>;
             };
@@ -280,6 +283,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: PropType<string>;
             };
             isFlat: {
+                type: PropType<boolean>;
+            };
+            isContentScrollable: {
                 type: PropType<boolean>;
             };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
@@ -290,6 +296,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             M: {};
             Defaults: {};
         }, Readonly<import('vue').ExtractPropTypes<{
+            contentHasPadding: {
+                type: PropType<boolean>;
+            };
             headerHasPadding: {
                 type: PropType<boolean>;
             };
@@ -329,11 +338,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             isFlat: {
                 type: PropType<boolean>;
             };
+            isContentScrollable: {
+                type: PropType<boolean>;
+            };
         }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
         __isTeleport?: never;
         __isSuspense?: never;
     } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
+        contentHasPadding: {
+            type: PropType<boolean>;
+        };
         headerHasPadding: {
             type: PropType<boolean>;
         };
@@ -371,6 +386,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: PropType<string>;
         };
         isFlat: {
+            type: PropType<boolean>;
+        };
+        isContentScrollable: {
             type: PropType<boolean>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {

@@ -55,6 +55,29 @@ describe('Card', () => {
 		expect(component.text()).toContain(footer);
 	});
 
+	it('should render content slot with padding by default', () => {
+		const content = 'Wpłynąlem na suchego przestwór oceanu';
+		const component = createComponent({
+			slots: {
+				content: () => [h('span', content)],
+			},
+		});
+
+		expect(component.find('.ds-card__content').classes()).toContain('-ds-withPadding');
+	});
+
+	it('should render content slot without padding if contentHasPadding is false', () => {
+		const content = 'Wpłynąlem na suchego przestwór oceanu';
+		const component = createComponent({
+			props: { contentHasPadding: false },
+			slots: {
+				content: () => [h('span', content)],
+			},
+		});
+
+		expect(component.find('.ds-card__content').classes()).not.toContain('-ds-withPadding');
+	});
+
 	it('should render header slot with padding', () => {
 		const header = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({

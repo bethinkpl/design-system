@@ -101,6 +101,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BOOK_OPEN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_SKULL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_MEDICAL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_SPARKLES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -273,6 +274,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SQUARE_LIST_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SQUARE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -302,6 +304,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_WINDOW_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FAD_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FAD_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FAD_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
     }>;
     FIRST_PAGE_NUMBER: number;
 }, {
@@ -439,6 +444,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BOOK_OPEN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_SKULL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_MEDICAL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_SPARKLES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -611,6 +617,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_SQUARE_LIST_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_SQUARE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -640,6 +647,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_WINDOW_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FAD_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FAD_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FAD_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         }>;
         ICON_SIZES: Readonly<{
             XXX_SMALL: string;
@@ -1102,6 +1112,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BOOK_OPEN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_SKULL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_MEDICAL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOOK_SPARKLES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1274,6 +1285,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_SQUARE_LIST_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_SQUARE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1303,6 +1315,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_WINDOW_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FAD_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FAD_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FAD_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         }>;
         SELECT_LIST_ITEM_SELECTION_MODE: Readonly<{
             readonly SELECT_ONLY: "selectOnly";

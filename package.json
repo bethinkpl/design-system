@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "30.1.1",
+  "version": "30.3.2",
   "description": "Bethink universe design-system",
   "repository": {
     "type": "git",
@@ -41,6 +41,7 @@
     "synchronizeTypography": "npx ts-node tools/importers/SynchronizeTypographyTokens.ts"
   },
   "devDependencies": {
+    "@fortawesome/duotone-regular-svg-icons": "7.0.1",
     "@fortawesome/fontawesome-svg-core": "7.0.1",
     "@fortawesome/free-brands-svg-icons": "7.0.1",
     "@fortawesome/pro-duotone-svg-icons": "7.0.1",
@@ -53,6 +54,7 @@
     "@storybook/addon-controls": "^8.3.4",
     "@storybook/addon-designs": "^8.0.3",
     "@storybook/addon-docs": "^8.3.4",
+    "@storybook/addon-essentials": "8.6.14",
     "@storybook/addon-storysource": "^8.3.4",
     "@storybook/addon-viewport": "^8.3.4",
     "@storybook/vue3": "^8.3.4",
@@ -60,6 +62,7 @@
     "@types/node": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "8.45.0",
     "@typescript-eslint/parser": "8.45.0",
+    "@vee-validate/zod": "4.15.1",
     "@vitejs/plugin-vue": "^5.1.4",
     "@vitest/coverage-c8": "0.33.0",
     "@vitest/ui": "3.1.4",
@@ -100,11 +103,13 @@
     "vue-popperjs": "github:bethinkpl/vue-popper#df07fdb562d604fad966f0e8d6db1fc48febad6e",
     "vue-tsc": "2.2.10",
     "wait-for-expect": "^3.0.2",
-    "yaml-eslint-parser": "^1.3.0"
+    "yaml-eslint-parser": "^1.3.0",
+    "zod": "4.1.12"
   },
   "dependencies": {
     "@primevue/themes": "4.0.0-rc.3",
     "primevue": "4.0.0-rc.3",
+    "reka-ui": "2.6.0",
     "vee-validate": "4.15.1",
     "vue-component-type-helpers": "2.2.10"
   },

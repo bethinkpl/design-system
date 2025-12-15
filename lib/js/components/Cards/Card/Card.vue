@@ -26,7 +26,10 @@
 			/>
 		</div>
 
-		<div class="ds-card__slotsWrapper">
+		<div
+			class="ds-card__slotsWrapper"
+			:class="{ '-ds-containerIsScrollable': isContentScrollable }"
+		>
 			<div
 				v-if="$slots.header"
 				class="ds-card__header"
@@ -39,7 +42,14 @@
 				class="ds-card__headerDivider"
 				:class="{ '-ds-withHorizontalMargin': headerHasPadding }"
 			/>
-			<div v-if="$slots.content" class="ds-card__content">
+			<div
+				v-if="$slots.content"
+				class="ds-card__content"
+				:class="{
+					'-ds-scrollable': isContentScrollable,
+					'-ds-withPadding': contentHasPadding,
+				}"
+			>
 				<slot name="content" />
 			</div>
 			<div
@@ -84,6 +94,10 @@
 		flex-direction: column;
 		// prevents excessive width due to child elements
 		min-width: 0;
+
+		&.-ds-containerIsScrollable {
+			overflow: hidden;
+		}
 	}
 
 	&__header {
@@ -107,10 +121,19 @@
 	}
 
 	&__content {
-		padding: $space-s;
+		padding: $space-s 0;
 
-		#{$root}.-ds-paddingLarge & {
-			padding: $space-s $space-l;
+		&.-ds-withPadding {
+			padding: $space-s;
+
+			#{$root}.-ds-paddingLarge & {
+				padding: $space-s $space-l;
+			}
+		}
+
+		&.-ds-scrollable {
+			max-height: 100%;
+			overflow-y: auto;
 		}
 	}
 
@@ -141,6 +164,13 @@
 			border-top-left-radius: $card-border-radius;
 			border-top-right-radius: 0;
 		}
+
+		.-ds-leftBorder & {
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
+		}
 	}
 }
 </style>
@@ -164,6 +194,8 @@ import {
 } from './Card.consts';
 
 const {
+	// only contentHasPadding is true by default for backward compatibility
+	contentHasPadding = true,
 	headerHasPadding = false,
 	footerHasPadding = false,
 	paddingSize = CARD_PADDING_SIZES.SMALL,
@@ -177,7 +209,9 @@ const {
 	loadingBarColor = LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime = '0',
 	isFlat = false,
+	isContentScrollable = false,
 } = defineProps<{
+	contentHasPadding?: boolean;
 	headerHasPadding?: boolean;
 	footerHasPadding?: boolean;
 	paddingSize?: CardPaddingSize;
@@ -191,6 +225,7 @@ const {
 	loadingBarColor?: LoadingBarColors;
 	loadingBarTime?: string;
 	isFlat?: boolean;
+	isContentScrollable?: boolean;
 }>();
 
 defineSlots<{

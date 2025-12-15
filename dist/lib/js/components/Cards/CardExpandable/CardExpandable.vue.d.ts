@@ -66,6 +66,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_BLANK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_COPY: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BOOK_OPEN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_SKULL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_MEDICAL_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOOK_SPARKLES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -238,6 +239,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SQUARE_LIST_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SQUARE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -267,6 +269,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_WINDOW_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FAD_SPINNER_THIRD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FAD_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FAD_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FAD_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
     }>;
     ICON_SIZES: Readonly<{
         XXX_SMALL: string;
@@ -321,6 +326,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }, {}, {
     DsCard: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+            contentHasPadding: {
+                type: import('vue').PropType<boolean>;
+            };
             headerHasPadding: {
                 type: import('vue').PropType<boolean>;
             };
@@ -358,6 +366,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<string>;
             };
             isFlat: {
+                type: import('vue').PropType<boolean>;
+            };
+            isContentScrollable: {
                 type: import('vue').PropType<boolean>;
             };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
@@ -368,6 +379,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             M: {};
             Defaults: {};
         }, Readonly<import('vue').ExtractPropTypes<{
+            contentHasPadding: {
+                type: import('vue').PropType<boolean>;
+            };
             headerHasPadding: {
                 type: import('vue').PropType<boolean>;
             };
@@ -407,11 +421,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             isFlat: {
                 type: import('vue').PropType<boolean>;
             };
+            isContentScrollable: {
+                type: import('vue').PropType<boolean>;
+            };
         }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
         __isTeleport?: never;
         __isSuspense?: never;
     } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
+        contentHasPadding: {
+            type: import('vue').PropType<boolean>;
+        };
         headerHasPadding: {
             type: import('vue').PropType<boolean>;
         };
@@ -449,6 +469,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: import('vue').PropType<string>;
         };
         isFlat: {
+            type: import('vue').PropType<boolean>;
+        };
+        isContentScrollable: {
             type: import('vue').PropType<boolean>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {

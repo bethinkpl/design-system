@@ -1,10 +1,16 @@
 import Checkbox from './Checkbox.vue';
 
 import { Meta, StoryFn } from '@storybook/vue3';
-import { args, argTypes, template } from '../SelectionControl/SelectionControl.sb.shared';
-import { CHECKBOX_SIZE, CHECKBOX_STATE } from './Checkbox.consts';
-import { useArgs } from '@storybook/preview-api';
+import {
+	CHECKBOX_SIZES,
+	CHECKBOX_STATES,
+	CHECKBOX_VALUES,
+	CHECKBOX_ELEVATIONS,
+} from './Checkbox.consts';
 import { withActions } from '@storybook/addon-actions/decorator';
+import { computed } from 'vue';
+import Banner from '../../Banner';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/Form/Checkbox',
@@ -16,33 +22,68 @@ const StoryTemplate: StoryFn<typeof Checkbox> = (args) => {
 	const [_, updateArgs] = useArgs();
 
 	return {
-		components: { Checkbox },
+		components: { Checkbox, Banner },
 		setup() {
-			return { args };
+			const props = computed(() => {
+				const { default: defaultSlot, modelValue, ...rest } = args;
+
+				return rest;
+			});
+
+			const defaultSlot = computed(() => args.default);
+			const modelValue = computed(() => args.modelValue);
+
+			return { defaultSlot, props, modelValue, updateArgs };
 		},
-		methods: {
-			onIsSelectedUpdated(isSelected) {
-				updateArgs({
-					isSelected,
-				});
-			},
-		},
-		template: template('checkbox'),
+		template: `
+			<Checkbox 
+				v-bind="props"
+				:model-value="modelValue"
+				@update:model-value="(value) => updateArgs({ modelValue: value })"
+			>
+				<span v-if="defaultSlot" v-html="defaultSlot" />
+			</Checkbox>
+			<Banner color="danger" title="Uwaga! Mogą wystąpić problemy z pisaniem testów jednostkowych korzystających z tego komponentu. Unikaj jego używania. A jeśli jest rok 2026 i wciąż widzisz ten komunikat — nakrzycz na Karola!" title-in-color />
+		`,
 	};
 };
 
 export const Interactive = StoryTemplate.bind({});
 
-Interactive.argTypes = argTypes(CHECKBOX_SIZE, CHECKBOX_STATE);
+Interactive.argTypes = {
+	size: {
+		control: 'select',
+		options: Object.values(CHECKBOX_SIZES),
+	},
+	modelValue: {
+		control: 'select',
+		options: Object.values(CHECKBOX_VALUES),
+	},
+	state: {
+		control: 'select',
+		options: Object.values(CHECKBOX_STATES),
+	},
+	elevation: {
+		control: 'select',
+		options: Object.values(CHECKBOX_ELEVATIONS),
+	},
+	default: {
+		control: 'text',
+	},
+};
 
-Interactive.args = args(CHECKBOX_SIZE, CHECKBOX_STATE);
+Interactive.args = {
+	default: 'Example label',
+	modelValue: false,
+	size: CHECKBOX_SIZES.SMALL,
+	state: CHECKBOX_STATES.DEFAULT,
+	elevation: CHECKBOX_ELEVATIONS.X_SMALL,
+	value: 'example',
+};
 
 Interactive.parameters = {
-	actions: {
-		handles: ['click', 'toggle'],
-	},
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=1552-34962&t=Ui6dF84wekRpqsXb-0',
+		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=7269-127863&m=dev',
 	},
 };
