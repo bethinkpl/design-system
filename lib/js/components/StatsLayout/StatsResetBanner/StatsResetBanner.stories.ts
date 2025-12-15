@@ -1,6 +1,7 @@
 import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
 import StatsResetBanner from './StatsResetBanner.vue';
 import type { ComponentProps } from 'vue-component-type-helpers';
+import Modal from '../../Modals/Modal/Modal.vue';
 
 type StatsResetBannerProps = ComponentProps<typeof StatsResetBanner>;
 
@@ -9,14 +10,14 @@ const meta: Meta<StatsResetBannerProps> = {
 	component: StatsResetBanner,
 	render: (args) => {
 		return {
-			components: { StatsResetBanner },
+			components: { StatsResetBanner, Modal },
 			setup() {
 				return {
 					args,
 				};
 			},
 			template:
-				'<stats-reset-banner v-bind="args"><template #infoModalContent>Default content</template></stats-reset-banner>',
+				'<stats-reset-banner v-bind="args"><template #infoModalContent>Default content</template><template #resetModal="{onClose}"><modal @close-modal="onClose">Modal content</modal></template></stats-reset-banner>',
 		};
 	},
 	parameters: {

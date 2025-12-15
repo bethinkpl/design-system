@@ -3,7 +3,7 @@
 		:title="t('ds.statsLayout.statsResetBanner.title')"
 		:button-text="t('ds.statsLayout.statsResetBanner.buttonText')"
 		:color="BANNER_COLORS.NEUTRAL"
-		@button-clicked="$emit('button-clicked')"
+		@button-clicked="isOpen = true"
 	>
 		<template #defaultText>
 			<span
@@ -19,9 +19,12 @@
 			</ds-help-button>
 		</template>
 	</ds-banner>
+
+	<slot v-if="isOpen" name="resetModal" :on-close="onClose" />
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
 import { BANNER_COLORS } from '../../Banner/Banner.consts';
 import DsBanner from '../../Banner/Banner.vue';
 import DsHelpButton from '../../Buttons/HelpButton/HelpButton.vue';
@@ -37,9 +40,12 @@ const props = defineProps<{
 
 defineSlots<{
 	infoModalContent?: () => any;
+	resetModal?: (props: { onClose: () => void }) => any;
 }>();
 
-defineEmits<{
-	(e: 'button-clicked'): void;
-}>();
+const isOpen = ref(false);
+
+const onClose = () => {
+	isOpen.value = false;
+};
 </script>
