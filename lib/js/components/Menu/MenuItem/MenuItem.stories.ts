@@ -129,3 +129,31 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6148-111431&t=Amd0mke9FMknuKCX-0',
 	},
 };
+
+const NestedMenuTemplate: StoryFn<typeof MenuItem> = (args) => ({
+	components: { MenuItem },
+	template: `
+		<menu-item label="level 1">
+			<template #children>
+				<menu-item label="level 2">
+					<template #children>
+						<menu-item label="level 3">
+							<template #children>
+								<menu-item label="level 4">
+									<template #children>
+										<menu-item label="level 5">
+											<template #children>
+												<menu-item label="level 6" />
+											</template>
+										</menu-item>
+									</template>
+								</menu-item>
+							</template>
+						</menu-item>
+					</template>
+				</menu-item>
+				<menu-item label="level 2" />
+			</template>
+		</menu-item>`,
+});
+export const Nested = NestedMenuTemplate.bind({});

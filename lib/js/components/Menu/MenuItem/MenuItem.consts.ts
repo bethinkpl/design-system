@@ -1,4 +1,5 @@
 import { Value } from '../../../utils/type.utils';
+import type { InjectionKey } from 'vue';
 
 export const MENU_ITEM_SIZES = {
 	SMALL: 'small',
@@ -28,3 +29,5 @@ export const MENU_ITEM_ACCESSORY_STATES = {
 };
 
 export type MenuItemAccessoryState = Value<typeof MENU_ITEM_ACCESSORY_STATES>;
+
+export const MENU_ITEM_LEVEL_INJECTION_KEY: InjectionKey<number> = Symbol('menuItemLevel');

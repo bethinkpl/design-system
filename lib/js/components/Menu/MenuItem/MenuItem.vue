@@ -1,85 +1,89 @@
 <template>
-	<component
-		:is="as"
-		:class="[
-			'ds-menuItem',
-			levelClass,
-			{
-				'-ds-disabled': isDisabled,
-				'-ds-medium': props.size === MENU_ITEM_SIZES.MEDIUM,
-				'-ds-selected': props.isSelected,
-				'-ds-hoverable': !props.isSelected || props.isSelectedInteractive,
-				'-ds-backgroundNeutral':
-					props.backgroundColor === MENU_ITEM_BACKGROUND_COLORS.NEUTRAL,
-			},
-		]"
-	>
-		<div class="ds-menuItem__content" :class="{ '-ds-centeredContent': $slots.default }">
-			<ds-icon
-				v-if="accessoryState === MENU_ITEM_ACCESSORY_STATES.DOT"
-				class="ds-menuItem__accessory"
-				:icon="ICONS.FA_DOT_SOLID"
-				:size="ICON_SIZES.XXX_SMALL"
-			/>
-			<span
-				v-if="props.index !== null"
-				class="ds-menuItem__index"
-				:class="{ '-ds-active': props.isSelected }"
-			>
-				{{ props.index }}.
-			</span>
-			<ds-icon
-				v-if="props.iconLeft"
-				class="ds-menuItem__icon"
-				:class="{
-					'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
-				}"
-				:icon="props.iconLeft"
-				:size="ICON_SIZES.X_SMALL"
-			/>
-			<span class="ds-menuItem__text">
-				<span
-					class="ds-menuItem__label"
-					:class="{ '-ds-uppercase': props.isLabelUppercase }"
-				>
-					<template v-if="$slots.labelSlot">
-						<slot name="labelSlot" />
-					</template>
-					<template v-else>
-						{{ props.label }}
-					</template>
-				</span>
-				<span v-if="props.additionalText" class="ds-menuItem__additionalText">
-					{{ props.additionalText }}
-				</span>
-			</span>
-		</div>
-		<div
-			v-if="$slots.default || props.isDone || props.iconRight"
-			class="ds-menuItem__rightContent"
-			:class="{ '-ds-centeredContent': $slots.default }"
+	<li class="ds-menuItem__wrapper">
+		<span
+			:class="[
+				'ds-menuItem',
+				levelClass,
+				{
+					'-ds-disabled': isDisabled,
+					'-ds-medium': props.size === MENU_ITEM_SIZES.MEDIUM,
+					'-ds-selected': props.isSelected,
+					'-ds-hoverable': !props.isSelected || props.isSelectedInteractive,
+					'-ds-backgroundNeutral':
+						props.backgroundColor === MENU_ITEM_BACKGROUND_COLORS.NEUTRAL,
+				},
+			]"
 		>
-			<template v-if="$slots.default">
-				<slot />
-			</template>
-			<ds-icon
-				v-if="props.isDone"
-				class="ds-menuItem__icon -ds-active"
-				:icon="ICONS.FA_CHECK_SOLID"
-				:size="ICON_SIZES.X_SMALL"
-			/>
-			<ds-icon
-				v-else-if="props.iconRight"
-				class="ds-menuItem__icon"
-				:class="{
-					'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
-				}"
-				:icon="props.iconRight"
-				:size="ICON_SIZES.X_SMALL"
-				:rotation="props.iconRightRotation"
-			></ds-icon>
-		</div>
-	</component>
+			<span class="ds-menuItem__content" :class="{ '-ds-centeredContent': $slots.default }">
+				<ds-icon
+					v-if="accessoryState === MENU_ITEM_ACCESSORY_STATES.DOT"
+					class="ds-menuItem__accessory"
+					:icon="ICONS.FA_DOT_SOLID"
+					:size="ICON_SIZES.XXX_SMALL"
+				/>
+				<span
+					v-if="props.index !== null"
+					class="ds-menuItem__index"
+					:class="{ '-ds-active': props.isSelected }"
+				>
+					{{ props.index }}.
+				</span>
+				<ds-icon
+					v-if="props.iconLeft"
+					class="ds-menuItem__icon"
+					:class="{
+						'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
+					}"
+					:icon="props.iconLeft"
+					:size="ICON_SIZES.X_SMALL"
+				/>
+				<span class="ds-menuItem__text">
+					<span
+						class="ds-menuItem__label"
+						:class="{ '-ds-uppercase': props.isLabelUppercase }"
+					>
+						<template v-if="$slots.labelSlot">
+							<slot name="labelSlot" />
+						</template>
+						<template v-else>
+							{{ props.label }}
+						</template>
+					</span>
+					<span v-if="props.additionalText" class="ds-menuItem__additionalText">
+						{{ props.additionalText }}
+					</span>
+				</span>
+			</span>
+			<span
+				v-if="$slots.default || props.isDone || props.iconRight"
+				class="ds-menuItem__rightContent"
+				:class="{ '-ds-centeredContent': $slots.default }"
+			>
+				<template v-if="$slots.default">
+					<slot />
+				</template>
+				<ds-icon
+					v-if="props.isDone"
+					class="ds-menuItem__icon -ds-active"
+					:icon="ICONS.FA_CHECK_SOLID"
+					:size="ICON_SIZES.X_SMALL"
+				/>
+				<ds-icon
+					v-else-if="props.iconRight"
+					class="ds-menuItem__icon"
+					:class="{
+						'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
+					}"
+					:icon="props.iconRight"
+					:size="ICON_SIZES.X_SMALL"
+					:rotation="props.iconRightRotation"
+				></ds-icon>
+			</span>
+		</span>
+		<ul v-if="slots.children" class="ds-menuItem__children">
+			<slot name="children" />
+		</ul>
+	</li>
 </template>
 
 <style scoped lang="scss">
@@ -103,6 +107,10 @@
 			// TODO more bullet-prof solution for initial padding
 			padding-left: $space-xs + ($i - 1) * $space-3xs;
 		}
+	}
+
+	&__wrapper {
+		list-style-type: none;
 	}
 
 	&__rightContent,
@@ -238,15 +246,22 @@
 			background-color: $color-neutral-background-hovered;
 		}
 	}
+
+	&__children {
+		// TODO inherit spacing
+		margin: 0;
+		padding: 0;
+	}
 }
 </style>
 
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, inject, provide } from 'vue';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import {
 	MENU_ITEM_ACCESSORY_STATES,
 	MENU_ITEM_BACKGROUND_COLORS,
+	MENU_ITEM_LEVEL_INJECTION_KEY,
 	MENU_ITEM_SIZES,
 	MENU_ITEM_STATES,
 	type MenuItemAccessoryState,
@@ -256,7 +271,6 @@ import {
 } from './MenuItem.consts';
 
 export interface Props {
-	as: 'li' | 'div';
 	size?: MenuItemSize;
 	backgroundColor?: MenuItemBackgroundColor;
 	iconLeft?: IconItem | null;
@@ -272,11 +286,10 @@ export interface Props {
 	isDone?: boolean;
 	hasSelectedIconsColorPrimary?: boolean;
 	isSelectedInteractive?: boolean;
-	level: number;
+	level: number | null;
 }
 
 const props = withDefaults(defineProps<Props>(), {
-	as: 'li',
 	size: MENU_ITEM_SIZES.SMALL,
 	backgroundColor: MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
 	iconLeft: null,
@@ -292,16 +305,38 @@ const props = withDefaults(defineProps<Props>(), {
 	isDone: false,
 	hasSelectedIconsColorPrimary: true,
 	isSelectedInteractive: false,
-	level: 1,
+	level: null,
 });
+
+const slots = defineSlots<{
+	children?: () => any;
+	labelSlot?: () => any;
+	default?: () => any;
+}>();
 
 const isDisabled = computed(() => {
 	return props.state === MENU_ITEM_STATES.DISABLED;
 });
 
-const levelClass = computed(() => {
-	const level = props.level > 6 ? 6 : props.level;
+const level = computed(() => {
+	const injectedLevel = inject(MENU_ITEM_LEVEL_INJECTION_KEY, null);
 
-	return `-ds-level${level}`;
+	if (props.level !== null) {
+		return props.level;
+	}
+
+	if (injectedLevel !== null) {
+		return injectedLevel;
+	}
+
+	return 1;
 });
+
+const levelClass = computed(() => {
+	const limitedLevel = level.value > 6 ? 6 : level.value;
+
+	return `-ds-level${limitedLevel}`;
+});
+
+provide(MENU_ITEM_LEVEL_INJECTION_KEY, level.value + 1);
 </script>
