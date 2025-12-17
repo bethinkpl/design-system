@@ -29,7 +29,7 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 									:is-selected="isSelected" :background-color="backgroundColor" :index="index"
 									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
 									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
-									:is-selected-interactive="isSelectedInteractive">
+									:is-selected-interactive="isSelectedInteractive" :level="level">
 			<template #labelSlot v-if="labelSlot">
 				<span v-html="labelSlot" />
 			</template>
@@ -51,6 +51,7 @@ const args = {
 	iconRight: null,
 	iconRightRotation: null,
 	index: null,
+	level: 1,
 	label: 'Outline Item label',
 	isLabelUppercase: false,
 	state: OUTLINE_ITEM_STATES.DEFAULT,
@@ -84,6 +85,9 @@ const argTypes = {
 		options: [null, 90, 180, 270],
 	},
 	index: {
+		control: { type: 'number' },
+	},
+	level: {
 		control: { type: 'number' },
 	},
 	label: { control: 'text' },

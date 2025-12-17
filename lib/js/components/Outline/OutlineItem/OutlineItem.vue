@@ -1,47 +1,55 @@
 <template>
-	<div
-		class="ds-outlineItem"
-		:class="{
-			'-ds-disabled': isDisabled,
-			'-ds-medium': size === OUTLINE_ITEM_SIZES.MEDIUM,
-			'-ds-selected': isSelected,
-			'-ds-hoverable': !isSelected || isSelectedInteractive,
-			'-ds-backgroundNeutral': backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
-		}"
+	<component
+		:is="as"
+		:class="[
+			'ds-outlineItem',
+			levelClass,
+			{
+				'-ds-disabled': isDisabled,
+				'-ds-medium': props.size === OUTLINE_ITEM_SIZES.MEDIUM,
+				'-ds-selected': props.isSelected,
+				'-ds-hoverable': !props.isSelected || props.isSelectedInteractive,
+				'-ds-backgroundNeutral':
+					props.backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
+			},
+		]"
 	>
 		<div class="ds-outlineItem__content" :class="{ '-ds-centeredContent': $slots.default }">
 			<span
-				v-if="index !== null"
+				v-if="props.index !== null"
 				class="ds-outlineItem__index"
-				:class="{ '-ds-active': isSelected }"
+				:class="{ '-ds-active': props.isSelected }"
 			>
-				{{ index }}.
+				{{ props.index }}.
 			</span>
 			<ds-icon
-				v-if="iconLeft"
+				v-if="props.iconLeft"
 				class="ds-outlineItem__icon"
 				:class="{
-					'-ds-active': isSelected && hasSelectedIconsColorPrimary,
+					'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
 				}"
-				:icon="iconLeft"
+				:icon="props.iconLeft"
 				:size="ICON_SIZES.X_SMALL"
 			/>
 			<span class="ds-outlineItem__text">
-				<span class="ds-outlineItem__label" :class="{ '-ds-uppercase': isLabelUppercase }">
+				<span
+					class="ds-outlineItem__label"
+					:class="{ '-ds-uppercase': props.isLabelUppercase }"
+				>
 					<template v-if="$slots.labelSlot">
 						<slot name="labelSlot" />
 					</template>
 					<template v-else>
-						{{ label }}
+						{{ props.label }}
 					</template>
 				</span>
-				<span v-if="additionalText" class="ds-outlineItem__additionalText">
-					{{ additionalText }}
+				<span v-if="props.additionalText" class="ds-outlineItem__additionalText">
+					{{ props.additionalText }}
 				</span>
 			</span>
 		</div>
 		<div
-			v-if="$slots.default || isDone || iconRight"
+			v-if="$slots.default || props.isDone || props.iconRight"
 			class="ds-outlineItem__rightContent"
 			:class="{ '-ds-centeredContent': $slots.default }"
 		>
@@ -49,23 +57,23 @@
 				<slot />
 			</template>
 			<ds-icon
-				v-if="isDone"
+				v-if="props.isDone"
 				class="ds-outlineItem__icon -ds-active"
 				:icon="ICONS.FA_CHECK_SOLID"
 				:size="ICON_SIZES.X_SMALL"
 			/>
 			<ds-icon
-				v-else-if="iconRight"
+				v-else-if="props.iconRight"
 				class="ds-outlineItem__icon"
 				:class="{
-					'-ds-active': isSelected && hasSelectedIconsColorPrimary,
+					'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
 				}"
-				:icon="iconRight"
+				:icon="props.iconRight"
 				:size="ICON_SIZES.X_SMALL"
-				:rotation="iconRightRotation"
+				:rotation="props.iconRightRotation"
 			></ds-icon>
 		</div>
-	</div>
+	</component>
 </template>
 
 <style scoped lang="scss">
@@ -83,6 +91,13 @@
 	display: flex;
 	justify-content: space-between;
 	padding: $space-xs;
+
+	@for $i from 2 through 6 {
+		&.-ds-level#{$i} {
+			// TODO more bullet-prof solution for initial padding
+			padding-left: $space-xs + ($i - 1) * $space-3xs;
+		}
+	}
 
 	&__rightContent,
 	&__content {
@@ -210,112 +225,63 @@
 }
 </style>
 
-<script lang="ts">
-import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { defineComponent, toRaw } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
+import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import {
 	OUTLINE_ITEM_BACKGROUND_COLORS,
 	OUTLINE_ITEM_SIZES,
 	OUTLINE_ITEM_STATES,
-	OutlineItemBackgroundColor,
-	OutlineItemSize,
-	OutlineItemState,
+	type OutlineItemBackgroundColor,
+	type OutlineItemSize,
+	type OutlineItemState,
 } from './OutlineItem.consts';
 
-export default defineComponent({
-	name: 'OutlineItem',
-	components: {
-		DsIcon,
-	},
-	props: {
-		size: {
-			type: String,
-			default: OUTLINE_ITEM_SIZES.SMALL,
-			validator(size: OutlineItemSize) {
-				return Object.values(OUTLINE_ITEM_SIZES).includes(size);
-			},
-		},
-		backgroundColor: {
-			type: String,
-			default: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
-			validator(color: OutlineItemBackgroundColor) {
-				return Object.values(OUTLINE_ITEM_BACKGROUND_COLORS).includes(color);
-			},
-		},
-		iconLeft: {
-			type: Object,
-			default: null,
-			validator(icon) {
-				return icon == null || Object.values(ICONS).includes(toRaw(icon));
-			},
-		},
-		iconRight: {
-			type: Object,
-			default: null,
-			validator(icon) {
-				return icon == null || Object.values(ICONS).includes(toRaw(icon));
-			},
-		},
-		iconRightRotation: {
-			type: Number,
-			default: null,
-			validator(value: number) {
-				return [90, 180, 270].includes(value);
-			},
-		},
-		index: {
-			type: Number,
-			default: null,
-		},
-		label: {
-			type: String,
-			// Label can be passed either as a prop or in a slot
-			default: '',
-		},
-		isLabelUppercase: {
-			type: Boolean,
-			default: false,
-		},
-		additionalText: {
-			type: String,
-			default: null,
-		},
-		state: {
-			type: String,
-			default: OUTLINE_ITEM_STATES.DEFAULT,
-			validator(state: OutlineItemState) {
-				return Object.values(OUTLINE_ITEM_STATES).includes(state);
-			},
-		},
-		isSelected: {
-			type: Boolean,
-			default: false,
-		},
-		isDone: {
-			type: Boolean,
-			default: false,
-		},
-		hasSelectedIconsColorPrimary: {
-			type: Boolean,
-			default: true,
-		},
-		isSelectedInteractive: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
-			OUTLINE_ITEM_BACKGROUND_COLORS: Object.freeze(OUTLINE_ITEM_BACKGROUND_COLORS),
-			OUTLINE_ITEM_SIZES: Object.freeze(OUTLINE_ITEM_SIZES),
-		};
-	},
-	computed: {
-		isDisabled() {
-			return this.state === OUTLINE_ITEM_STATES.DISABLED;
-		},
-	},
+export interface Props {
+	as: 'li' | 'div';
+	size?: OutlineItemSize;
+	backgroundColor?: OutlineItemBackgroundColor;
+	iconLeft?: IconItem | null;
+	iconRight?: IconItem | null;
+	iconRightRotation?: 90 | 180 | 270 | null;
+	index?: number | null;
+	label?: string;
+	isLabelUppercase?: boolean;
+	additionalText: string;
+	state?: OutlineItemState;
+	isSelected?: boolean;
+	isDone?: boolean;
+	hasSelectedIconsColorPrimary?: boolean;
+	isSelectedInteractive?: boolean;
+	level: number;
+}
+
+const props = withDefaults(defineProps<Props>(), {
+	as: 'li',
+	size: OUTLINE_ITEM_SIZES.SMALL,
+	backgroundColor: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
+	iconLeft: null,
+	iconRight: null,
+	iconRightRotation: null,
+	index: null,
+	label: '',
+	isLabelUppercase: false,
+	additionalText: '',
+	state: OUTLINE_ITEM_STATES.DEFAULT,
+	isSelected: false,
+	isDone: false,
+	hasSelectedIconsColorPrimary: true,
+	isSelectedInteractive: false,
+	level: 1,
+});
+
+const isDisabled = computed(() => {
+	return props.state === OUTLINE_ITEM_STATES.DISABLED;
+});
+
+const levelClass = computed(() => {
+	const level = props.level > 6 ? 6 : props.level;
+
+	return `-ds-level${level}`;
 });
 </script>
