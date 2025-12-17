@@ -15,6 +15,12 @@
 		]"
 	>
 		<div class="ds-outlineItem__content" :class="{ '-ds-centeredContent': $slots.default }">
+			<ds-icon
+				v-if="accessoryState === OUTLINE_ITEM_ACCESSORY_STATES.DOT"
+				class="ds-outlineItem__accessory"
+				:icon="ICONS.FA_DOT_SOLID"
+				:size="ICON_SIZES.XXX_SMALL"
+			/>
 			<span
 				v-if="props.index !== null"
 				class="ds-outlineItem__index"
@@ -102,7 +108,6 @@
 	&__rightContent,
 	&__content {
 		align-items: flex-start;
-		column-gap: $space-2xs;
 		display: flex;
 		max-width: 100%;
 
@@ -111,14 +116,24 @@
 		}
 	}
 
+	&__rightContent {
+		column-gap: $space-2xs;
+	}
+
 	&__content {
 		overflow-x: clip;
+	}
+
+	&__accessory {
+		color: $color-neutral-icon-weak;
+		margin-right: $space-4xs;
 	}
 
 	&__index {
 		@include label-l-default-bold;
 
 		color: $color-neutral-text-weak;
+		margin-right: $space-3xs;
 
 		&.-ds-active {
 			color: $color-primary-text;
@@ -160,6 +175,7 @@
 
 	&__icon {
 		color: $color-neutral-icon-weak;
+		margin-right: $space-3xs;
 
 		&.-ds-active {
 			color: $color-primary-icon;
@@ -229,9 +245,11 @@
 import { computed } from 'vue';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import {
+	OUTLINE_ITEM_ACCESSORY_STATES,
 	OUTLINE_ITEM_BACKGROUND_COLORS,
 	OUTLINE_ITEM_SIZES,
 	OUTLINE_ITEM_STATES,
+	OutlineItemAccessoryState,
 	type OutlineItemBackgroundColor,
 	type OutlineItemSize,
 	type OutlineItemState,
@@ -249,6 +267,7 @@ export interface Props {
 	isLabelUppercase?: boolean;
 	additionalText: string;
 	state?: OutlineItemState;
+	accessoryState?: OutlineItemAccessoryState | null;
 	isSelected?: boolean;
 	isDone?: boolean;
 	hasSelectedIconsColorPrimary?: boolean;
@@ -268,6 +287,7 @@ const props = withDefaults(defineProps<Props>(), {
 	isLabelUppercase: false,
 	additionalText: '',
 	state: OUTLINE_ITEM_STATES.DEFAULT,
+	accessoryState: null,
 	isSelected: false,
 	isDone: false,
 	hasSelectedIconsColorPrimary: true,

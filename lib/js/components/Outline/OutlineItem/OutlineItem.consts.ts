@@ -20,3 +20,11 @@ export const OUTLINE_ITEM_BACKGROUND_COLORS = {
 };
 
 export type OutlineItemBackgroundColor = Value<typeof OUTLINE_ITEM_BACKGROUND_COLORS>;
+
+export const OUTLINE_ITEM_ACCESSORY_STATES = {
+	DOT: 'dot',
+	EXPANDED: 'expanded',
+	COLLAPSED: 'collapsed',
+};
+
+export type OutlineItemAccessoryState = Value<typeof OUTLINE_ITEM_ACCESSORY_STATES>;

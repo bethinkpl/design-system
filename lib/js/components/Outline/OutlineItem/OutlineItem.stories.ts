@@ -3,6 +3,7 @@ import DsChip from '../../Chip/Chip.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
 import {
+	OUTLINE_ITEM_ACCESSORY_STATES,
 	OUTLINE_ITEM_BACKGROUND_COLORS,
 	OUTLINE_ITEM_SIZES,
 	OUTLINE_ITEM_STATES,
@@ -29,7 +30,8 @@ const StoryTemplate: StoryFn<typeof OutlineItem> = (args) => ({
 									:is-selected="isSelected" :background-color="backgroundColor" :index="index"
 									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
 									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
-									:is-selected-interactive="isSelectedInteractive" :level="level">
+									:is-selected-interactive="isSelectedInteractive" :level="level"
+									:accessoryState="accessoryState">
 			<template #labelSlot v-if="labelSlot">
 				<span v-html="labelSlot" />
 			</template>
@@ -55,6 +57,7 @@ const args = {
 	label: 'Outline Item label',
 	isLabelUppercase: false,
 	state: OUTLINE_ITEM_STATES.DEFAULT,
+	accessoryState: null,
 	isSelected: false,
 	isDone: false,
 	hasSelectedIconsColorPrimary: true,
@@ -98,6 +101,10 @@ const argTypes = {
 	state: {
 		control: 'select',
 		options: Object.values(OUTLINE_ITEM_STATES),
+	},
+	accessoryState: {
+		control: 'select',
+		options: Object.values(OUTLINE_ITEM_ACCESSORY_STATES),
 	},
 	isSelected: {
 		control: 'boolean',
