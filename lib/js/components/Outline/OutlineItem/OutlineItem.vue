@@ -76,7 +76,6 @@
 
 .ds-outlineItem {
 	$root: &;
-	$border-width: 2px;
 
 	background-color: $color-neutral-background-weak;
 	border-radius: $radius-s;
@@ -126,6 +125,14 @@
 
 		&.-ds-uppercase {
 			@include label-l-default-regular-uppercase;
+
+			#{$root}.-ds-selected & {
+				@include label-l-default-bold-uppercase;
+			}
+		}
+
+		#{$root}.-ds-selected & {
+			@include label-l-default-bold;
 		}
 	}
 
@@ -151,17 +158,10 @@
 
 	&.-ds-selected {
 		background-color: $color-neutral-background;
-		border-left: $border-width solid $color-primary-border;
-		border-radius: $radius-xs $radius-s $radius-s $radius-xs;
-		padding-left: $space-xs - $border-width;
 	}
 
 	&.-ds-disabled {
 		pointer-events: none;
-
-		&.-ds-selected {
-			border-left: $border-width solid $color-primary-border-disabled;
-		}
 
 		#{$root}__icon {
 			color: $color-neutral-icon-weak-disabled;
@@ -197,10 +197,6 @@
 			&.-ds-uppercase {
 				@include label-l-default-bold-uppercase;
 			}
-		}
-
-		&.-ds-selected {
-			padding-left: $space-xs - $border-width;
 		}
 	}
 
