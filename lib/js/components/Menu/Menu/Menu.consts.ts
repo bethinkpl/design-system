@@ -3,7 +3,7 @@ import type { InjectionKey } from 'vue';
 
 export const MENU_LAYOUTS = {
 	DEFAULT: 'default',
-	SPACIOUS: 'spacious',
+	EXTENSIVE: 'extensive',
 };
 
 export type MenuLayout = Value<typeof MENU_LAYOUTS>;

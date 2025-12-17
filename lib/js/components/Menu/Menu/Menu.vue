@@ -3,7 +3,7 @@
 		:class="[
 			'ds-menu',
 			{
-				'-ds-spacious': layout === MENU_LAYOUTS.SPACIOUS,
+				'-ds-extensive': layout === MENU_LAYOUTS.EXTENSIVE,
 			},
 		]"
 		><!--	TODO check if ul is ok or do we need a div-->
@@ -24,7 +24,7 @@
 	margin: 0;
 	padding: 0;
 
-	&.-ds-spacious {
+	&.-ds-extensive {
 		gap: $space-2xs;
 	}
 }
