@@ -1,6 +1,7 @@
 <template>
 	<li class="ds-menuItem__wrapper">
-		<span
+		<component
+			:is="as"
 			:class="[
 				'ds-menuItem',
 				levelClass,
@@ -79,10 +80,10 @@
 					:rotation="props.iconRightRotation"
 				></ds-icon>
 			</span>
-		</span>
-		<ul v-if="slots.children" class="ds-menuItem__children">
+		</component>
+		<ds-menu v-if="slots.children" class="ds-menuItem__children">
 			<slot name="children" />
-		</ul>
+		</ds-menu>
 	</li>
 </template>
 
@@ -246,12 +247,6 @@
 			background-color: $color-neutral-background-hovered;
 		}
 	}
-
-	&__children {
-		// TODO inherit spacing
-		margin: 0;
-		padding: 0;
-	}
 }
 </style>
 
@@ -269,8 +264,11 @@ import {
 	type MenuItemSize,
 	type MenuItemState,
 } from './MenuItem.consts';
+import DsMenu from '../Menu';
 
 export interface Props {
+	// TODO check type for routerLink
+	as: 'span' | 'a' | 'router-link';
 	size?: MenuItemSize;
 	backgroundColor?: MenuItemBackgroundColor;
 	iconLeft?: IconItem | null;
@@ -290,6 +288,7 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+	as: 'span',
 	size: MENU_ITEM_SIZES.SMALL,
 	backgroundColor: MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
 	iconLeft: null,

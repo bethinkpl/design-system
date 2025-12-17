@@ -1,7 +1,7 @@
 <template>
-	<div class="ds-menuDivider">
+	<li class="ds-menuDivider">
 		<ds-divider :prominence="prominence" :size="size" />
-	</div>
+	</li>
 </template>
 
 <style scoped lang="scss">

@@ -135,6 +135,7 @@ const NestedMenuTemplate: StoryFn<typeof MenuItem> = (args) => ({
 	template: `
 		<menu-item label="level 1">
 			<template #children>
+				<menu-item label="level 2" />
 				<menu-item label="level 2">
 					<template #children>
 						<menu-item label="level 3">
