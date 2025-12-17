@@ -1,5 +1,5 @@
 <template>
-	<div class="ds-outlineDivider">
+	<div class="ds-menuDivider">
 		<ds-divider :prominence="prominence" :size="size" />
 	</div>
 </template>
@@ -7,7 +7,7 @@
 <style scoped lang="scss">
 @import '../../../../styles/settings/spacings';
 
-.ds-outlineDivider {
+.ds-menuDivider {
 	padding: $space-3xs 0;
 }
 </style>
@@ -18,7 +18,7 @@ import DsDivider, { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-	name: 'OutlineDivider',
+	name: 'MenuDivider',
 	components: {
 		DsDivider,
 	},

@@ -2,44 +2,44 @@
 	<component
 		:is="as"
 		:class="[
-			'ds-outlineItem',
+			'ds-menuItem',
 			levelClass,
 			{
 				'-ds-disabled': isDisabled,
-				'-ds-medium': props.size === OUTLINE_ITEM_SIZES.MEDIUM,
+				'-ds-medium': props.size === MENU_ITEM_SIZES.MEDIUM,
 				'-ds-selected': props.isSelected,
 				'-ds-hoverable': !props.isSelected || props.isSelectedInteractive,
 				'-ds-backgroundNeutral':
-					props.backgroundColor === OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL,
+					props.backgroundColor === MENU_ITEM_BACKGROUND_COLORS.NEUTRAL,
 			},
 		]"
 	>
-		<div class="ds-outlineItem__content" :class="{ '-ds-centeredContent': $slots.default }">
+		<div class="ds-menuItem__content" :class="{ '-ds-centeredContent': $slots.default }">
 			<ds-icon
-				v-if="accessoryState === OUTLINE_ITEM_ACCESSORY_STATES.DOT"
-				class="ds-outlineItem__accessory"
+				v-if="accessoryState === MENU_ITEM_ACCESSORY_STATES.DOT"
+				class="ds-menuItem__accessory"
 				:icon="ICONS.FA_DOT_SOLID"
 				:size="ICON_SIZES.XXX_SMALL"
 			/>
 			<span
 				v-if="props.index !== null"
-				class="ds-outlineItem__index"
+				class="ds-menuItem__index"
 				:class="{ '-ds-active': props.isSelected }"
 			>
 				{{ props.index }}.
 			</span>
 			<ds-icon
 				v-if="props.iconLeft"
-				class="ds-outlineItem__icon"
+				class="ds-menuItem__icon"
 				:class="{
 					'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
 				}"
 				:icon="props.iconLeft"
 				:size="ICON_SIZES.X_SMALL"
 			/>
-			<span class="ds-outlineItem__text">
+			<span class="ds-menuItem__text">
 				<span
-					class="ds-outlineItem__label"
+					class="ds-menuItem__label"
 					:class="{ '-ds-uppercase': props.isLabelUppercase }"
 				>
 					<template v-if="$slots.labelSlot">
@@ -49,14 +49,14 @@
 						{{ props.label }}
 					</template>
 				</span>
-				<span v-if="props.additionalText" class="ds-outlineItem__additionalText">
+				<span v-if="props.additionalText" class="ds-menuItem__additionalText">
 					{{ props.additionalText }}
 				</span>
 			</span>
 		</div>
 		<div
 			v-if="$slots.default || props.isDone || props.iconRight"
-			class="ds-outlineItem__rightContent"
+			class="ds-menuItem__rightContent"
 			:class="{ '-ds-centeredContent': $slots.default }"
 		>
 			<template v-if="$slots.default">
@@ -64,13 +64,13 @@
 			</template>
 			<ds-icon
 				v-if="props.isDone"
-				class="ds-outlineItem__icon -ds-active"
+				class="ds-menuItem__icon -ds-active"
 				:icon="ICONS.FA_CHECK_SOLID"
 				:size="ICON_SIZES.X_SMALL"
 			/>
 			<ds-icon
 				v-else-if="props.iconRight"
-				class="ds-outlineItem__icon"
+				class="ds-menuItem__icon"
 				:class="{
 					'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
 				}"
@@ -88,7 +88,7 @@
 @import '../../../../styles/settings/colors/tokens';
 @import '../../../../styles/settings/typography/tokens';
 
-.ds-outlineItem {
+.ds-menuItem {
 	$root: &;
 
 	background-color: $color-neutral-background-weak;
@@ -245,20 +245,20 @@
 import { computed } from 'vue';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import {
-	OUTLINE_ITEM_ACCESSORY_STATES,
-	OUTLINE_ITEM_BACKGROUND_COLORS,
-	OUTLINE_ITEM_SIZES,
-	OUTLINE_ITEM_STATES,
-	OutlineItemAccessoryState,
-	type OutlineItemBackgroundColor,
-	type OutlineItemSize,
-	type OutlineItemState,
-} from './OutlineItem.consts';
+	MENU_ITEM_ACCESSORY_STATES,
+	MENU_ITEM_BACKGROUND_COLORS,
+	MENU_ITEM_SIZES,
+	MENU_ITEM_STATES,
+	type MenuItemAccessoryState,
+	type MenuItemBackgroundColor,
+	type MenuItemSize,
+	type MenuItemState,
+} from './MenuItem.consts';
 
 export interface Props {
 	as: 'li' | 'div';
-	size?: OutlineItemSize;
-	backgroundColor?: OutlineItemBackgroundColor;
+	size?: MenuItemSize;
+	backgroundColor?: MenuItemBackgroundColor;
 	iconLeft?: IconItem | null;
 	iconRight?: IconItem | null;
 	iconRightRotation?: 90 | 180 | 270 | null;
@@ -266,8 +266,8 @@ export interface Props {
 	label?: string;
 	isLabelUppercase?: boolean;
 	additionalText: string;
-	state?: OutlineItemState;
-	accessoryState?: OutlineItemAccessoryState | null;
+	state?: MenuItemState;
+	accessoryState?: MenuItemAccessoryState | null;
 	isSelected?: boolean;
 	isDone?: boolean;
 	hasSelectedIconsColorPrimary?: boolean;
@@ -277,8 +277,8 @@ export interface Props {
 
 const props = withDefaults(defineProps<Props>(), {
 	as: 'li',
-	size: OUTLINE_ITEM_SIZES.SMALL,
-	backgroundColor: OUTLINE_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
+	size: MENU_ITEM_SIZES.SMALL,
+	backgroundColor: MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
 	iconLeft: null,
 	iconRight: null,
 	iconRightRotation: null,
@@ -286,7 +286,7 @@ const props = withDefaults(defineProps<Props>(), {
 	label: '',
 	isLabelUppercase: false,
 	additionalText: '',
-	state: OUTLINE_ITEM_STATES.DEFAULT,
+	state: MENU_ITEM_STATES.DEFAULT,
 	accessoryState: null,
 	isSelected: false,
 	isDone: false,
@@ -296,7 +296,7 @@ const props = withDefaults(defineProps<Props>(), {
 });
 
 const isDisabled = computed(() => {
-	return props.state === OUTLINE_ITEM_STATES.DISABLED;
+	return props.state === MENU_ITEM_STATES.DISABLED;
 });
 
 const levelClass = computed(() => {

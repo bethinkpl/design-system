@@ -100,11 +100,11 @@ export { default as DrawerTile } from './components/Drawer/DrawerTile/DrawerTile
 export { default as DsDrawerTile } from './components/Drawer/DrawerTile/DrawerTile.vue';
 export { default as DrawerSection } from './components/Drawer/DrawerSection/DrawerSection.vue';
 export { default as DsDrawerSection } from './components/Drawer/DrawerSection/DrawerSection.vue';
-export { default as OutlineItem } from './components/Outline/OutlineItem';
-export { default as DsOutlineItem } from './components/Outline/OutlineItem';
-export * from './components/Outline/OutlineItem/OutlineItem.consts';
-export { default as OutlineDivider } from './components/Outline/OutlineDivider';
-export { default as DsOutlineDivider } from './components/Outline/OutlineDivider';
+export { default as MenuItem } from './components/Menu/MenuItem';
+export { default as DsMenuItem } from './components/Menu/MenuItem';
+export * from './components/Menu/MenuItem/MenuItem.consts';
+export { default as MenuDivider } from './components/Menu/MenuDivider';
+export { default as DsMenuDivider } from './components/Menu/MenuDivider';
 export { default as Chip } from './components/Chip';
 export { default as DsChip } from './components/Chip';
 export * from './components/Chip/Chip.consts';
