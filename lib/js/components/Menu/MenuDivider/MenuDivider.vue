@@ -8,6 +8,7 @@
 @import '../../../../styles/settings/spacings';
 
 .ds-menuDivider {
+	list-style-type: none;
 	padding: $space-3xs 0;
 }
 </style>

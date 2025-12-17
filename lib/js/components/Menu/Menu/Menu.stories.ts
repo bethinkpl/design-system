@@ -1,6 +1,7 @@
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsMenu, { MENU_LAYOUTS } from './index';
 import MenuItem from '../MenuItem';
+import MenuDivider from '../MenuDivider';
 
 export default {
 	title: 'Components/Menu/Menu',
@@ -8,7 +9,7 @@ export default {
 } as Meta<typeof DsMenu>;
 
 const StoryTemplate: StoryFn<typeof DsMenu> = (args) => ({
-	components: { DsMenu, MenuItem },
+	components: { DsMenu, MenuItem, MenuDivider },
 	setup() {
 		return args;
 	},
@@ -16,6 +17,7 @@ const StoryTemplate: StoryFn<typeof DsMenu> = (args) => ({
 		<ds-menu :layout="layout" >
 			<menu-item label="level 1" />
 			<menu-item label="level 1" />
+			<menu-divider />
 			<menu-item label="level 1" />
 			<menu-item label="level 1" />
 			<menu-item label="level 1" />
