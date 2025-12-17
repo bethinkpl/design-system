@@ -105,8 +105,6 @@ export { default as DsOutlineItem } from './components/Outline/OutlineItem';
 export * from './components/Outline/OutlineItem/OutlineItem.consts';
 export { default as OutlineDivider } from './components/Outline/OutlineDivider';
 export { default as DsOutlineDivider } from './components/Outline/OutlineDivider';
-export { default as OutlineSectionHeader } from './components/Outline/OutlineSectionHeader';
-export { default as DsOutlineSectionHeader } from './components/Outline/OutlineSectionHeader';
 export { default as Chip } from './components/Chip';
 export { default as DsChip } from './components/Chip';
 export * from './components/Chip/Chip.consts';
