@@ -7,7 +7,5 @@
 	"ds.statsLayout.statsErrorBanner.message": "Refresh the page to try again",
 	"ds.statsLayout.statsErrorBanner.title": "Failed to load statistics",
 	"ds.statsLayout.statsResetBanner.buttonText": "RESET STATISTICS",
-	"ds.statsLayout.statsResetBanner.defaultMessage": "Resetting statistics is helpful when you want to start fresh work with questions.",
-	"ds.statsLayout.statsResetBanner.message": "Statistics counted from",
 	"ds.statsLayout.statsResetBanner.title": "Reset statistics"
 }

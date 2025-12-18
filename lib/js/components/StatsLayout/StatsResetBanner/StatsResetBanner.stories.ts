@@ -33,13 +33,13 @@ type Story = StoryObj<StatsResetBannerProps>;
 
 export const Interactive: Story = {
 	args: {
-		timeMarker: '2 czerwca 2025',
+		message: 'Statystyki liczone od <strong>2 czerwca 2025</strong>',
 		infoModalTitle: 'Info modal title',
 	} as Args,
 };
 
 Interactive.argTypes = {
-	timeMarker: {
+	message: {
 		control: 'text',
 	},
 	infoModalTitle: {

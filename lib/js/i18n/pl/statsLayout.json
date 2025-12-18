@@ -7,7 +7,5 @@
 	"ds.statsLayout.statsErrorBanner.message": "Odśwież stronę, aby spróbować ponownie",
 	"ds.statsLayout.statsErrorBanner.title": "Nie udało się załadować statystyk",
 	"ds.statsLayout.statsResetBanner.buttonText": "Resetuj statystyki",
-	"ds.statsLayout.statsResetBanner.defaultMessage": "Resetowanie statystyk przydaje się, gdy chcesz rozpocząć od nowa pracę z bazą.",
-	"ds.statsLayout.statsResetBanner.message": "Statystyki liczone od",
 	"ds.statsLayout.statsResetBanner.title": "Reset statystyk"
 }
