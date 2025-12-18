@@ -6,10 +6,11 @@
 		@button-clicked="isOpen = true"
 	>
 		<template #defaultText>
-			<span
+			<span v-if="props.timeMarker"
 				>{{ t('ds.statsLayout.statsResetBanner.message') }}
 				<strong>{{ props.timeMarker }}</strong></span
 			>
+			<span v-else>{{ t('ds.statsLayout.statsResetBanner.defaultMessage') }}</span>
 		</template>
 		<template v-if="$slots.infoModalContent" #rightSlot>
 			<ds-help-button :size="ICON_BUTTON_SIZES.SMALL" :modal-title="infoModalTitle">
@@ -34,7 +35,7 @@ import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 const { t } = useLegacyI18n();
 
 const props = defineProps<{
-	timeMarker: string;
+	timeMarker?: string | null;
 	infoModalTitle?: string;
 }>();
 
