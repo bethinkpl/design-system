@@ -5,8 +5,8 @@
 		:color="BANNER_COLORS.NEUTRAL"
 		@button-clicked="isOpen = true"
 	>
-		<template v-if="props.message" #defaultText>
-			<span v-html="props.message"></span>
+		<template v-if="$slots.message" #defaultText>
+			<slot name="message" />
 		</template>
 		<template v-if="$slots.infoModalContent" #rightSlot>
 			<ds-help-button :size="ICON_BUTTON_SIZES.SMALL" :modal-title="infoModalTitle">
@@ -38,6 +38,7 @@ const props = defineProps<{
 defineSlots<{
 	infoModalContent?: () => any;
 	resetModal?: (props: { onClose: () => void }) => any;
+	message?: () => any;
 }>();
 
 const isOpen = ref(false);
