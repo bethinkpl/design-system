@@ -6,7 +6,7 @@
 		@button-clicked="isOpen = true"
 	>
 		<template v-if="props.message" #defaultText>
-			<span>{{ props.message }}</span>
+			<span v-html="props.message"></span>
 		</template>
 		<template v-if="$slots.infoModalContent" #rightSlot>
 			<ds-help-button :size="ICON_BUTTON_SIZES.SMALL" :modal-title="infoModalTitle">
