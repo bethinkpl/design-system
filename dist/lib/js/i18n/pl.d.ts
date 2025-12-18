@@ -1,4 +1,13 @@
 declare const _default: {
+    "ds.statsLayout.default.leftColumnLabel": string;
+    "ds.statsLayout.default.rightColumnLabel": string;
+    "ds.statsLayout.filtersDropdown.title": string;
+    "ds.statsLayout.sectionHeader.title": string;
+    "ds.statsLayout.statsErrorBanner.buttonText": string;
+    "ds.statsLayout.statsErrorBanner.message": string;
+    "ds.statsLayout.statsErrorBanner.title": string;
+    "ds.statsLayout.statsResetBanner.buttonText": string;
+    "ds.statsLayout.statsResetBanner.title": string;
     "ds.pagination.from": string;
     "ds.accessStatus.status.active": string;
     "ds.accessStatus.status.awaiting": string;
@@ -7,5 +16,6 @@ declare const _default: {
     "ds.accessStatus.status.suspended": string;
     "ds.globals.back": string;
     "ds.globals.confirmation": string;
+    "ds.globals.loading": string;
 };
 export default _default;
