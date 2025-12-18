@@ -30,8 +30,7 @@ import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 
 const { t } = useLegacyI18n();
 
-const props = defineProps<{
-	message?: string | null;
+defineProps<{
 	infoModalTitle?: string;
 }>();
 
