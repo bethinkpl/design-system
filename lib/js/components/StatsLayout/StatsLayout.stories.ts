@@ -107,7 +107,8 @@ export const WithHeaders: Story = {
 				</template>
 				<template #overallStatsItem><slot-placeholder /></template>
 				<template #resetBanner>
-					<stats-reset-banner timeMarker="2 czerwca 2025" infoModalTitle="Info modal title">
+					<stats-reset-banner infoModalTitle="Info modal title">
+						<template #message>Statystyki liczone od <strong>2 czerwca 2025</strong></template>
 						<template #infoModalContent><p>Info content for reset banner</p></template>
 					</stats-reset-banner>
 				</template>
@@ -145,7 +146,8 @@ export const MultipleColumns: Story = {
 				${itemTemplate}
 				</template>
 				<template #resetBanner>
-					<stats-reset-banner timeMarker="2 czerwca 2025" infoModalTitle="Info modal title">
+					<stats-reset-banner infoModalTitle="Info modal title">
+						<template #message>Statystyki liczone od <strong>2 czerwca 2025</strong></template>
 						<template #infoModalContent><p>Info content for reset banner</p></template>
 					</stats-reset-banner>
 				</template>

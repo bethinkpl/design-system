@@ -17,7 +17,7 @@ const meta: Meta<StatsResetBannerProps> = {
 				};
 			},
 			template:
-				'<stats-reset-banner v-bind="args"><template #infoModalContent>Default content</template><template #resetModal="{onClose}"><modal @close-modal="onClose">Modal content</modal></template></stats-reset-banner>',
+				'<stats-reset-banner v-bind="args"><template #message>Statystyki liczone od <strong>2 czerwca 2025</strong></template><template #infoModalContent>Default content</template><template #resetModal="{onClose}"><modal @close-modal="onClose">Modal content</modal></template></stats-reset-banner>',
 		};
 	},
 	parameters: {
@@ -33,15 +33,11 @@ type Story = StoryObj<StatsResetBannerProps>;
 
 export const Interactive: Story = {
 	args: {
-		timeMarker: '2 czerwca 2025',
 		infoModalTitle: 'Info modal title',
 	} as Args,
 };
 
 Interactive.argTypes = {
-	timeMarker: {
-		control: 'text',
-	},
 	infoModalTitle: {
 		control: 'text',
 	},
