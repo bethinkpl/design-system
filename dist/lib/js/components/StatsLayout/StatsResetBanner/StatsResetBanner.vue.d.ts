@@ -3,17 +3,17 @@ declare function __VLS_template(): Readonly<{
     resetModal?: (props: {
         onClose: () => void;
     }) => any;
+    message?: () => any;
 }> & {
     infoModalContent?: () => any;
     resetModal?: (props: {
         onClose: () => void;
     }) => any;
+    message?: () => any;
 };
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    timeMarker: string;
     infoModalTitle?: string;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    timeMarker: string;
     infoModalTitle?: string;
 }>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;

@@ -12,7 +12,6 @@ export declare const messages: {
         "ds.statsLayout.statsErrorBanner.message": string;
         "ds.statsLayout.statsErrorBanner.title": string;
         "ds.statsLayout.statsResetBanner.buttonText": string;
-        "ds.statsLayout.statsResetBanner.message": string;
         "ds.statsLayout.statsResetBanner.title": string;
         "ds.pagination.from": string;
         "ds.accessStatus.status.active": string;
@@ -33,7 +32,6 @@ export declare const messages: {
         "ds.statsLayout.statsErrorBanner.message": string;
         "ds.statsLayout.statsErrorBanner.title": string;
         "ds.statsLayout.statsResetBanner.buttonText": string;
-        "ds.statsLayout.statsResetBanner.message": string;
         "ds.statsLayout.statsResetBanner.title": string;
         "ds.pagination.from": string;
         "ds.accessStatus.status.active": string;
