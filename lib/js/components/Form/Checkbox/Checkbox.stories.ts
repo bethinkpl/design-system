@@ -13,7 +13,7 @@ import Banner from '../../Banner';
 import { useArgs } from '@storybook/preview-api';
 
 export default {
-	title: 'Components/Form/Checkbox',
+	title: 'Internal Components/Form/#Checkbox',
 	component: Checkbox,
 	decorators: [withActions],
 } as Meta<typeof Checkbox>;
