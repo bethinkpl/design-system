@@ -3,6 +3,7 @@
 		<component
 			:is="as"
 			v-if="shouldRenderComponent"
+			v-bind="bindings"
 			:class="[
 				'ds-menuItem',
 				levelClass,
@@ -108,6 +109,7 @@
 	display: flex;
 	justify-content: space-between;
 	padding: $space-xs;
+	text-decoration: none;
 
 	&__wrapper {
 		list-style-type: none;
@@ -265,9 +267,12 @@ import {
 	type MenuItemState,
 } from './MenuItem.consts';
 
+// DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
+type RouterLocation = string | Record<string, unknown>;
+
 export interface Props {
-	// TODO check type for routerLink
-	as?: 'span' | 'a' | 'router-link';
+	href?: string;
+	to?: RouterLocation;
 	size?: MenuItemSize;
 	backgroundColor?: MenuItemBackgroundColor;
 	iconLeft?: IconItem | null;
@@ -287,7 +292,8 @@ export interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-	as: 'span',
+	href: '',
+	to: '',
 	size: MENU_ITEM_SIZES.SMALL,
 	backgroundColor: MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
 	iconLeft: null,
@@ -311,6 +317,26 @@ const slots = defineSlots<{
 	labelSlot?: () => any;
 	default?: () => any;
 }>();
+
+const as = computed(() => {
+	if (props.href) {
+		return 'a';
+	}
+	if (props.to) {
+		return 'router-link';
+	}
+	return 'span';
+});
+
+const bindings = computed(() => {
+	if (props.href) {
+		return { href: props.href };
+	}
+	if (props.to) {
+		return { to: props.to };
+	}
+	return {};
+});
 
 const isDisabled = computed(() => {
 	return props.state === MENU_ITEM_STATES.DISABLED;
