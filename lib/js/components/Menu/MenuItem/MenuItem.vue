@@ -1,8 +1,8 @@
 <template>
 	<li class="ds-menuItem__wrapper">
 		<component
-			v-if="shouldRenderComponent"
 			:is="as"
+			v-if="shouldRenderComponent"
 			:class="[
 				'ds-menuItem',
 				levelClass,
@@ -95,19 +95,19 @@
 .ds-menuItem {
 	$root: &;
 
-	background-color: $color-neutral-background-weak;
-	border-radius: $radius-s;
-	column-gap: $space-2xs;
-	display: flex;
-	justify-content: space-between;
-	padding: $space-xs;
-
 	@for $i from 2 through 6 {
 		&.-ds-level#{$i} {
 			// TODO more bullet-prof solution for initial padding
 			padding-left: $space-xs + ($i - 1) * $space-3xs;
 		}
 	}
+
+	background-color: $color-neutral-background-weak;
+	border-radius: $radius-s;
+	column-gap: $space-2xs;
+	display: flex;
+	justify-content: space-between;
+	padding: $space-xs;
 
 	&__wrapper {
 		list-style-type: none;

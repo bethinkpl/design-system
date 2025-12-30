@@ -176,6 +176,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_CREDIT_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_DNA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_DOT_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_DOT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ELLIPSIS_VERTICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -678,6 +679,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CREDIT_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_DNA_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_DOT_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_DOT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_EARTH_AMERICAS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS_VERTICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ELLIPSIS: import('@fortawesome/fontawesome-common-types').IconDefinition;
