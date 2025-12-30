@@ -100,6 +100,9 @@ export { default as DrawerTile } from './components/Drawer/DrawerTile/DrawerTile
 export { default as DsDrawerTile } from './components/Drawer/DrawerTile/DrawerTile.vue';
 export { default as DrawerSection } from './components/Drawer/DrawerSection/DrawerSection.vue';
 export { default as DsDrawerSection } from './components/Drawer/DrawerSection/DrawerSection.vue';
+export { default as Menu } from './components/Menu/Menu';
+export { default as DsMenu } from './components/Menu/Menu';
+export * from './components/Menu/Menu/Menu.consts';
 export { default as MenuItem } from './components/Menu/MenuItem';
 export { default as DsMenuItem } from './components/Menu/MenuItem';
 export * from './components/Menu/MenuItem/MenuItem.consts';

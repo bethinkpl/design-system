@@ -8,6 +8,7 @@ import {
 	MENU_ITEM_SIZES,
 	MENU_ITEM_STATES,
 } from './MenuItem.consts';
+import DsMenu from '../Menu';
 
 export default {
 	title: 'Components/Menu/MenuItem',
@@ -131,29 +132,39 @@ Interactive.parameters = {
 };
 
 const NestedMenuTemplate: StoryFn<typeof MenuItem> = (args) => ({
-	components: { MenuItem },
+	components: { MenuItem, DsMenu },
 	template: `
 		<menu-item label="level 1">
 			<template #children>
-				<menu-item label="level 2" />
-				<menu-item label="level 2">
-					<template #children>
-						<menu-item label="level 3">
-							<template #children>
-								<menu-item label="level 4">
+				<ds-menu>
+					<menu-item label="level 2" />
+					<menu-item label="level 2">
+						<template #children>
+							<ds-menu>
+								<menu-item label="level 3">
 									<template #children>
-										<menu-item label="level 5">
-											<template #children>
-												<menu-item label="level 6" />
-											</template>
-										</menu-item>
+										<ds-menu>
+											<menu-item label="level 4">
+												<template #children>
+													<ds-menu>
+														<menu-item label="level 5">
+															<template #children>
+																<ds-menu>
+																	<menu-item label="level 6" />
+																</ds-menu>
+															</template>
+														</menu-item>
+													</ds-menu>
+												</template>
+											</menu-item>
+										</ds-menu>
 									</template>
 								</menu-item>
-							</template>
-						</menu-item>
-					</template>
-				</menu-item>
-				<menu-item label="level 2" />
+							</ds-menu>
+						</template>
+					</menu-item>
+					<menu-item label="level 2" />
+				</ds-menu>
 			</template>
 		</menu-item>`,
 });

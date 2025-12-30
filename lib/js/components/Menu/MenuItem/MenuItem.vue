@@ -1,6 +1,7 @@
 <template>
 	<li class="ds-menuItem__wrapper">
 		<component
+			v-if="shouldRenderComponent"
 			:is="as"
 			:class="[
 				'ds-menuItem',
@@ -56,7 +57,7 @@
 				</span>
 			</span>
 			<span
-				v-if="$slots.default || props.isDone || props.iconRight"
+				v-if="shouldRenderRightContent"
 				class="ds-menuItem__rightContent"
 				:class="{ '-ds-centeredContent': $slots.default }"
 			>
@@ -81,9 +82,7 @@
 				></ds-icon>
 			</span>
 		</component>
-		<ds-menu v-if="slots.children" class="ds-menuItem__children">
-			<slot name="children" />
-		</ds-menu>
+		<slot name="children" />
 	</li>
 </template>
 
@@ -264,11 +263,10 @@ import {
 	type MenuItemSize,
 	type MenuItemState,
 } from './MenuItem.consts';
-import DsMenu from '../Menu';
 
 export interface Props {
 	// TODO check type for routerLink
-	as: 'span' | 'a' | 'router-link';
+	as?: 'span' | 'a' | 'router-link';
 	size?: MenuItemSize;
 	backgroundColor?: MenuItemBackgroundColor;
 	iconLeft?: IconItem | null;
@@ -277,14 +275,14 @@ export interface Props {
 	index?: number | null;
 	label?: string;
 	isLabelUppercase?: boolean;
-	additionalText: string;
+	additionalText?: string;
 	state?: MenuItemState;
 	accessoryState?: MenuItemAccessoryState | null;
 	isSelected?: boolean;
 	isDone?: boolean;
 	hasSelectedIconsColorPrimary?: boolean;
 	isSelectedInteractive?: boolean;
-	level: number | null;
+	level?: number | null;
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -330,6 +328,19 @@ const level = computed(() => {
 
 	return 1;
 });
+
+const shouldRenderRightContent = computed(() => slots.default || props.isDone || props.iconRight);
+
+const shouldRenderComponent = computed(
+	() =>
+		props.label ||
+		props.additionalText ||
+		slots.labelSlot ||
+		props.accessoryState ||
+		props.index !== null ||
+		props.iconLeft ||
+		shouldRenderRightContent.value,
+);
 
 const levelClass = computed(() => {
 	const limitedLevel = level.value > 6 ? 6 : level.value;

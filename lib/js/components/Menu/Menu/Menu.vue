@@ -6,7 +6,7 @@
 				'-ds-extensive': layout === MENU_LAYOUTS.EXTENSIVE,
 			},
 		]"
-		><!--	TODO check if ul is ok or do we need a div-->
+	>
 		<slot />
 	</ul>
 </template>
