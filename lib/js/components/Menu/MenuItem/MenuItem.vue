@@ -133,9 +133,9 @@
 	}
 
 	&__accessory {
-		align-self: center;
 		color: $color-neutral-icon-weak;
 		margin-right: $space-4xs;
+		padding: $space-4xs $space-5xs;
 	}
 
 	&__index {
