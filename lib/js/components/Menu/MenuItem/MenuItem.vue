@@ -95,11 +95,11 @@
 
 .ds-menuItem {
 	$root: &;
+	$menu-item-padding: $space-xs;
 
 	@for $i from 2 through 6 {
 		&.-ds-level#{$i} {
-			// TODO more bullet-prof solution for initial padding
-			padding-left: $space-xs + ($i - 1) * $space-3xs;
+			padding-left: $menu-item-padding + ($i - 1) * $space-3xs;
 		}
 	}
 
@@ -108,7 +108,7 @@
 	column-gap: $space-2xs;
 	display: flex;
 	justify-content: space-between;
-	padding: $space-xs;
+	padding: $menu-item-padding;
 	text-decoration: none;
 
 	&__wrapper {
