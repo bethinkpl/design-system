@@ -1,19 +1,19 @@
-import OutlineDivider from './OutlineDivider.vue';
+import MenuDivider from './MenuDivider.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 
 export default {
-	title: 'Components/Outline/OutlineDivider',
-	component: OutlineDivider,
-} as Meta<typeof OutlineDivider>;
+	title: 'Components/Menu/MenuDivider',
+	component: MenuDivider,
+} as Meta<typeof MenuDivider>;
 
-const StoryTemplate: StoryFn<typeof OutlineDivider> = (args) => ({
-	components: { OutlineDivider },
+const StoryTemplate: StoryFn<typeof MenuDivider> = (args) => ({
+	components: { MenuDivider },
 	setup() {
 		return args;
 	},
 	template: `
-		<outline-divider :prominence="prominence" :size="size" />`,
+		<menu-divider :prominence="prominence" :size="size" />`,
 });
 
 export const Interactive = StoryTemplate.bind({});
