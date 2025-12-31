@@ -5,11 +5,8 @@
 		:color="BANNER_COLORS.NEUTRAL"
 		@button-clicked="isOpen = true"
 	>
-		<template #defaultText>
-			<span
-				>{{ t('ds.statsLayout.statsResetBanner.message') }}
-				<strong>{{ props.timeMarker }}</strong></span
-			>
+		<template v-if="$slots.message" #defaultText>
+			<slot name="message" />
 		</template>
 		<template v-if="$slots.infoModalContent" #rightSlot>
 			<ds-help-button :size="ICON_BUTTON_SIZES.SMALL" :modal-title="infoModalTitle">
@@ -33,14 +30,14 @@ import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 
 const { t } = useLegacyI18n();
 
-const props = defineProps<{
-	timeMarker: string;
+defineProps<{
 	infoModalTitle?: string;
 }>();
 
 defineSlots<{
 	infoModalContent?: () => any;
 	resetModal?: (props: { onClose: () => void }) => any;
+	message?: () => any;
 }>();
 
 const isOpen = ref(false);
