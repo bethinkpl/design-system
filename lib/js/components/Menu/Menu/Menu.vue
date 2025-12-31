@@ -12,10 +12,7 @@
 </template>
 
 <style scoped lang="scss">
-@import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/spacings';
-@import '../../../../styles/settings/colors/tokens';
-@import '../../../../styles/settings/typography/tokens';
 
 .ds-menu {
 	display: flex;
@@ -43,13 +40,16 @@ const props = withDefaults(
 	},
 );
 
-const layout = computed(() => {
-	const injectedLayout = inject(MENU_LAYOUT_INJECTION_KEY, null);
+const slots = defineSlots<{
+	default?: () => any;
+}>();
 
+const layout = computed(() => {
 	if (props.layout !== null) {
 		return props.layout;
 	}
 
+	const injectedLayout = inject(MENU_LAYOUT_INJECTION_KEY, null);
 	if (injectedLayout !== null) {
 		return injectedLayout;
 	}

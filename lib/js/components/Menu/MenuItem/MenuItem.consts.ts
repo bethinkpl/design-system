@@ -24,8 +24,9 @@ export type MenuItemBackgroundColor = Value<typeof MENU_ITEM_BACKGROUND_COLORS>;
 
 export const MENU_ITEM_ACCESSORY_STATES = {
 	DOT: 'dot',
-	EXPANDED: 'expanded',
-	COLLAPSED: 'collapsed',
+	// not implemented for now
+	// EXPANDED: 'expanded',
+	// COLLAPSED: 'collapsed',
 };
 
 export type MenuItemAccessoryState = Value<typeof MENU_ITEM_ACCESSORY_STATES>;

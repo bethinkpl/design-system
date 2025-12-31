@@ -105,7 +105,7 @@ const argTypes = {
 	},
 	accessoryState: {
 		control: 'select',
-		options: Object.values(MENU_ITEM_ACCESSORY_STATES),
+		options: [null, ...Object.values(MENU_ITEM_ACCESSORY_STATES)],
 	},
 	isSelected: {
 		control: 'boolean',
