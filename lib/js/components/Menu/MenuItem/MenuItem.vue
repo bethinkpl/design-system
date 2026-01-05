@@ -20,7 +20,7 @@
 			<span class="ds-menuItem__content" :class="{ '-ds-centeredContent': $slots.default }">
 				<ds-icon
 					v-if="accessoryState === MENU_ITEM_ACCESSORY_STATES.DOT"
-					class="ds-menuItem__accessory"
+					:class="['ds-menuItem__accessory', { '-ds-active': isSelected }]"
 					:icon="ICONS.FA_DOT_SOLID"
 					:size="ICON_SIZES.XXX_SMALL"
 				/>
@@ -135,6 +135,10 @@
 		color: $color-neutral-icon-weak;
 		margin-right: $space-5xs;
 		padding: $space-4xs $space-5xs;
+
+		&.-ds-active {
+			color: $color-primary-icon;
+		}
 	}
 
 	&__index {
@@ -262,7 +266,7 @@ import {
 	type MenuItemBackgroundColor,
 	type MenuItemSize,
 	type MenuItemState,
-} from './MenuItem.consts';
+} from './MenuItem.consts'; // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
 
 // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
 type RouterLocation = string | Record<string, unknown>;

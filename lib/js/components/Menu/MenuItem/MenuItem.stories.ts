@@ -1,6 +1,7 @@
 import MenuItem from './MenuItem.vue';
 import DsChip from '../../Chip/Chip.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { computed, toRefs } from 'vue';
 import { ICONS } from '../../Icons/Icon';
 import {
 	MENU_ITEM_ACCESSORY_STATES,
@@ -18,10 +19,12 @@ export default {
 const StoryTemplate: StoryFn<typeof MenuItem> = (args) => ({
 	components: { MenuItem, DsChip },
 	setup() {
-		return args;
-	},
-	data() {
+		const reactiveArgs = toRefs(args);
+		const defaultSlot = computed(() => args.default || '');
+
 		return {
+			...reactiveArgs,
+			defaultSlot,
 			ICONS: Object.freeze(ICONS),
 		};
 	},
@@ -46,7 +49,7 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	additionalText: '',
-	defaultSlot: '10 / 20',
+	default: '10 / 20',
 	labelSlot: 'Menu Item label in slot',
 	size: MENU_ITEM_SIZES.SMALL,
 	backgroundColor: MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
@@ -66,7 +69,7 @@ const args = {
 } as Args;
 
 const argTypes = {
-	defaultSlot: { control: 'text' },
+	default: { control: 'text' },
 	labelSlot: { control: 'text' },
 	size: {
 		control: 'select',
