@@ -9,11 +9,11 @@
 				levelClass,
 				{
 					'-ds-disabled': isDisabled,
-					'-ds-medium': props.size === MENU_ITEM_SIZES.MEDIUM,
-					'-ds-selected': props.isSelected,
-					'-ds-hoverable': !props.isSelected || props.isSelectedInteractive,
+					'-ds-medium': size === MENU_ITEM_SIZES.MEDIUM,
+					'-ds-selected': isSelected,
+					'-ds-hoverable': !isSelected || isSelectedInteractive,
 					'-ds-backgroundNeutral':
-						props.backgroundColor === MENU_ITEM_BACKGROUND_COLORS.NEUTRAL,
+						backgroundColor === MENU_ITEM_BACKGROUND_COLORS.NEUTRAL,
 				},
 			]"
 		>
@@ -25,35 +25,32 @@
 					:size="ICON_SIZES.XXX_SMALL"
 				/>
 				<span
-					v-if="props.index !== null"
+					v-if="index !== null"
 					class="ds-menuItem__index"
-					:class="{ '-ds-active': props.isSelected }"
+					:class="{ '-ds-active': isSelected }"
 				>
-					{{ props.index }}.
+					{{ index }}.
 				</span>
 				<ds-icon
-					v-if="props.iconLeft"
+					v-if="iconLeft"
 					class="ds-menuItem__icon"
 					:class="{
-						'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
+						'-ds-active': isSelected && hasSelectedIconsColorPrimary,
 					}"
-					:icon="props.iconLeft"
+					:icon="iconLeft"
 					:size="ICON_SIZES.X_SMALL"
 				/>
 				<span class="ds-menuItem__text">
-					<span
-						class="ds-menuItem__label"
-						:class="{ '-ds-uppercase': props.isLabelUppercase }"
-					>
+					<span class="ds-menuItem__label" :class="{ '-ds-uppercase': isLabelUppercase }">
 						<template v-if="$slots.labelSlot">
 							<slot name="labelSlot" />
 						</template>
 						<template v-else>
-							{{ props.label }}
+							{{ label }}
 						</template>
 					</span>
-					<span v-if="props.additionalText" class="ds-menuItem__additionalText">
-						{{ props.additionalText }}
+					<span v-if="additionalText" class="ds-menuItem__additionalText">
+						{{ additionalText }}
 					</span>
 				</span>
 			</span>
@@ -66,20 +63,20 @@
 					<slot />
 				</template>
 				<ds-icon
-					v-if="props.isDone"
+					v-if="isDone"
 					class="ds-menuItem__icon -ds-active"
 					:icon="ICONS.FA_CHECK_SOLID"
 					:size="ICON_SIZES.X_SMALL"
 				/>
 				<ds-icon
-					v-else-if="props.iconRight"
+					v-else-if="iconRight"
 					class="ds-menuItem__icon"
 					:class="{
-						'-ds-active': props.isSelected && props.hasSelectedIconsColorPrimary,
+						'-ds-active': isSelected && hasSelectedIconsColorPrimary,
 					}"
-					:icon="props.iconRight"
+					:icon="iconRight"
 					:size="ICON_SIZES.X_SMALL"
-					:rotation="props.iconRightRotation"
+					:rotation="iconRightRotation"
 				></ds-icon>
 			</span>
 		</component>
@@ -270,7 +267,26 @@ import {
 // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
 type RouterLocation = string | Record<string, unknown>;
 
-export interface Props {
+const {
+	href = '',
+	to = '',
+	size = MENU_ITEM_SIZES.SMALL,
+	backgroundColor = MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
+	iconLeft = null,
+	iconRight = null,
+	iconRightRotation = null,
+	index = null,
+	label = '',
+	isLabelUppercase = false,
+	additionalText = '',
+	state = MENU_ITEM_STATES.DEFAULT,
+	accessoryState = null,
+	isSelected = false,
+	isDone = false,
+	hasSelectedIconsColorPrimary = true,
+	isSelectedInteractive = false,
+	level = null,
+} = defineProps<{
 	href?: string;
 	to?: RouterLocation;
 	size?: MenuItemSize;
@@ -289,28 +305,7 @@ export interface Props {
 	hasSelectedIconsColorPrimary?: boolean;
 	isSelectedInteractive?: boolean;
 	level?: number | null;
-}
-
-const props = withDefaults(defineProps<Props>(), {
-	href: '',
-	to: '',
-	size: MENU_ITEM_SIZES.SMALL,
-	backgroundColor: MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
-	iconLeft: null,
-	iconRight: null,
-	iconRightRotation: null,
-	index: null,
-	label: '',
-	isLabelUppercase: false,
-	additionalText: '',
-	state: MENU_ITEM_STATES.DEFAULT,
-	accessoryState: null,
-	isSelected: false,
-	isDone: false,
-	hasSelectedIconsColorPrimary: true,
-	isSelectedInteractive: false,
-	level: null,
-});
+}>();
 
 const slots = defineSlots<{
 	children?: () => any;
@@ -319,34 +314,34 @@ const slots = defineSlots<{
 }>();
 
 const as = computed(() => {
-	if (props.href) {
+	if (href) {
 		return 'a';
 	}
-	if (props.to) {
+	if (to) {
 		return 'router-link';
 	}
 	return 'span';
 });
 
 const bindings = computed(() => {
-	if (props.href) {
-		return { href: props.href };
+	if (href) {
+		return { href };
 	}
-	if (props.to) {
-		return { to: props.to };
+	if (to) {
+		return { to };
 	}
 	return {};
 });
 
 const isDisabled = computed(() => {
-	return props.state === MENU_ITEM_STATES.DISABLED;
+	return state === MENU_ITEM_STATES.DISABLED;
 });
 
-const level = computed(() => {
+const levelComputed = computed(() => {
 	const injectedLevel = inject(MENU_ITEM_LEVEL_INJECTION_KEY, null);
 
-	if (props.level !== null) {
-		return props.level;
+	if (level !== null) {
+		return level;
 	}
 
 	if (injectedLevel !== null) {
@@ -356,24 +351,24 @@ const level = computed(() => {
 	return 1;
 });
 
-const shouldRenderRightContent = computed(() => slots.default || props.isDone || props.iconRight);
+const shouldRenderRightContent = computed(() => slots.default || isDone || iconRight);
 
 const shouldRenderComponent = computed(
 	() =>
-		props.label ||
-		props.additionalText ||
+		label ||
+		additionalText ||
 		slots.labelSlot ||
-		props.accessoryState ||
-		props.index !== null ||
-		props.iconLeft ||
+		accessoryState ||
+		index !== null ||
+		iconLeft ||
 		shouldRenderRightContent.value,
 );
 
 const levelClass = computed(() => {
-	const limitedLevel = level.value > 6 ? 6 : level.value;
+	const limitedLevel = levelComputed.value > 6 ? 6 : levelComputed.value;
 
 	return `-ds-level${limitedLevel}`;
 });
 
-provide(MENU_ITEM_LEVEL_INJECTION_KEY, level.value + 1);
+provide(MENU_ITEM_LEVEL_INJECTION_KEY, levelComputed.value + 1);
 </script>

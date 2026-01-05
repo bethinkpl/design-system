@@ -3,7 +3,7 @@
 		:class="[
 			'ds-menu',
 			{
-				'-ds-extensive': layout === MENU_LAYOUTS.EXTENSIVE,
+				'-ds-extensive': calculatedLayout === MENU_LAYOUTS.EXTENSIVE,
 			},
 		]"
 	>
@@ -31,22 +31,17 @@
 import { MENU_LAYOUT_INJECTION_KEY, MENU_LAYOUTS, MenuLayout } from './Menu.consts';
 import { computed, inject, provide } from 'vue';
 
-const props = withDefaults(
-	defineProps<{
-		layout?: MenuLayout | null;
-	}>(),
-	{
-		layout: null,
-	},
-);
+const { layout = null } = defineProps<{
+	layout?: MenuLayout | null;
+}>();
 
 const slots = defineSlots<{
 	default?: () => any;
 }>();
 
-const layout = computed(() => {
-	if (props.layout !== null) {
-		return props.layout;
+const calculatedLayout = computed(() => {
+	if (layout !== null) {
+		return layout;
 	}
 
 	const injectedLayout = inject(MENU_LAYOUT_INJECTION_KEY, null);
@@ -57,5 +52,5 @@ const layout = computed(() => {
 	return MENU_LAYOUTS.DEFAULT;
 });
 
-provide(MENU_LAYOUT_INJECTION_KEY, layout.value);
+provide(MENU_LAYOUT_INJECTION_KEY, calculatedLayout.value);
 </script>
