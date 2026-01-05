@@ -133,7 +133,6 @@
 
 	&__accessory {
 		color: $color-neutral-icon-weak;
-		margin-right: $space-5xs;
 		padding: $space-4xs $space-5xs;
 
 		&.-ds-active {
