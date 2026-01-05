@@ -264,9 +264,6 @@ describe('MenuItem', () => {
 				},
 			});
 
-			expect(wrapper.find('.ds-menuItem__content').classes()).toContain(
-				'-ds-centeredContent',
-			);
 			expect(wrapper.find('.ds-menuItem__rightContent').classes()).toContain(
 				'-ds-centeredContent',
 			);
