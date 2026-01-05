@@ -19,7 +19,13 @@ const StoryTemplate: StoryFn<typeof DsMenu> = (args) => ({
 			<menu-item label="level 1" />
 			<menu-divider />
 			<menu-item label="level 1" />
-			<menu-item label="level 1" />
+			<menu-item label="level 1" >
+				<template #children>
+					<ds-menu>
+						<menu-item label="level 2" />
+					</ds-menu>
+				</template>
+			</menu-item>
 			<menu-item label="level 1" />
 		</ds-menu>`,
 });

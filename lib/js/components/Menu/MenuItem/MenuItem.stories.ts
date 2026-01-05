@@ -1,7 +1,7 @@
 import MenuItem from './MenuItem.vue';
 import DsChip from '../../Chip/Chip.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { computed, toRefs } from 'vue';
+import { toRefs } from 'vue';
 import { ICONS } from '../../Icons/Icon';
 import {
 	MENU_ITEM_ACCESSORY_STATES,
@@ -10,6 +10,9 @@ import {
 	MENU_ITEM_STATES,
 } from './MenuItem.consts';
 import DsMenu from '../Menu';
+import SlotPlaceholder, {
+	SLOT_PLACEHOLDER_SIZES,
+} from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 
 export default {
 	title: 'Components/Menu/MenuItem',
@@ -17,15 +20,14 @@ export default {
 } as Meta<typeof MenuItem>;
 
 const StoryTemplate: StoryFn<typeof MenuItem> = (args) => ({
-	components: { MenuItem, DsChip },
+	components: { MenuItem, DsChip, SlotPlaceholder },
 	setup() {
 		const reactiveArgs = toRefs(args);
-		const defaultSlot = computed(() => args.default || '');
 
 		return {
 			...reactiveArgs,
-			defaultSlot,
-			ICONS: Object.freeze(ICONS),
+			ICONS,
+			SLOT_PLACEHOLDER_SIZES,
 		};
 	},
 	template: `
@@ -39,8 +41,11 @@ const StoryTemplate: StoryFn<typeof MenuItem> = (args) => ({
 			<template #labelSlot v-if="labelSlot">
 				<span v-html="labelSlot" />
 			</template>
-			<template #default v-if="defaultSlot.length > 0">
-				<ds-chip :label="defaultSlot" />
+			<template #default>
+				<slot-placeholder label="defaul slot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
+			</template>
+			<template #children>
+				<slot-placeholder label="children slot" />
 			</template>
 		</menu-item>`,
 });
@@ -49,7 +54,6 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	additionalText: '',
-	default: '10 / 20',
 	labelSlot: 'Menu Item label in slot',
 	size: MENU_ITEM_SIZES.SMALL,
 	backgroundColor: MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
@@ -69,7 +73,6 @@ const args = {
 } as Args;
 
 const argTypes = {
-	default: { control: 'text' },
 	labelSlot: { control: 'text' },
 	size: {
 		control: 'select',

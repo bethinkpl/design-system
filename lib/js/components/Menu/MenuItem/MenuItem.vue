@@ -17,7 +17,7 @@
 				},
 			]"
 		>
-			<span class="ds-menuItem__content" :class="{ '-ds-centeredContent': $slots.default }">
+			<span class="ds-menuItem__content">
 				<ds-icon
 					v-if="accessoryState === MENU_ITEM_ACCESSORY_STATES.DOT"
 					:class="['ds-menuItem__accessory', { '-ds-active': isSelected }]"
@@ -117,14 +117,14 @@
 		align-items: flex-start;
 		display: flex;
 		max-width: 100%;
-
-		&.-ds-centeredContent {
-			align-items: center;
-		}
 	}
 
 	&__rightContent {
 		column-gap: $space-2xs;
+
+		&.-ds-centeredContent {
+			align-items: center;
+		}
 	}
 
 	&__content {
