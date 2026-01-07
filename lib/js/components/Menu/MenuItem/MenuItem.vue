@@ -229,10 +229,6 @@
 	&.-ds-medium {
 		padding: $space-s $space-xs;
 
-		#{$root}__content {
-			column-gap: $space-3xs;
-		}
-
 		#{$root}__label {
 			@include label-l-default-bold;
 
