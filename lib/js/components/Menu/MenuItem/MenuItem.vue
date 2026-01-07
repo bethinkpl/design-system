@@ -200,6 +200,10 @@
 
 	&.-ds-selected {
 		background-color: $color-neutral-background;
+
+		&.-ds-hoverable:hover {
+			background-color: $color-neutral-background-hovered;
+		}
 	}
 
 	&.-ds-disabled {
