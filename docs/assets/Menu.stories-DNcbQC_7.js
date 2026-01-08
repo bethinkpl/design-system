@@ -1,4 +1,4 @@
-import{D as m,M as u,a}from"./MenuItem-DPWdyUM0.js";import{M as r}from"./MenuDivider-CkEnsgQA.js";import"./vue.esm-bundler-ByLATHYC.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./Icon-DsmK7y8n.js";import"./Divider-DibbBBgz.js";const g={title:"Components/Menu/Menu",component:m},o=s=>({components:{DsMenu:m,MenuItem:u,MenuDivider:r},setup(){return s},template:`
+import{D as m,M as u,a}from"./MenuItem-fAgKQlyz.js";import{M as r}from"./MenuDivider-CkEnsgQA.js";import"./vue.esm-bundler-ByLATHYC.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./Icon-DsmK7y8n.js";import"./Divider-DibbBBgz.js";const g={title:"Components/Menu/Menu",component:m},o=s=>({components:{DsMenu:m,MenuItem:u,MenuDivider:r},setup(){return s},template:`
         <ds-menu :layout="layout" >
             <menu-item label="level 1" />
             <menu-item label="level 1" />
