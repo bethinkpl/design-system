@@ -1,6 +1,14 @@
 <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
 <template>
-	<div class="ds-slotPlaceholder">{{ label || 'Slot' }}</div>
+	<div
+		:class="[
+			'ds-slotPlaceholder',
+			{
+				'-ds-small': size === SLOT_PLACEHOLDER_SIZES.SMALL,
+			},
+		]"
+		>{{ label || 'Slot' }}</div
+	>
 </template>
 
 <style lang="scss" scoped>
@@ -16,13 +24,24 @@
 	background: rgba(226, 40, 189, 0.1);
 	color: #e228bd;
 	display: flex;
-	line-height: 28px;
 	padding: $space-4xs $space-2xs;
+
+	&.-ds-small {
+		@include label-s-default-bold();
+		padding: $space-5xs $space-4xs;
+	}
 }
 </style>
+<script lang="ts">
+export const SLOT_PLACEHOLDER_SIZES = {
+	SMALL: 'small',
+	MEDIUM: 'medium',
+} as const;
+</script>
 
 <script setup lang="ts">
-defineProps<{
+const { size = SLOT_PLACEHOLDER_SIZES.MEDIUM } = defineProps<{
 	label?: string;
+	size: string;
 }>();
 </script>
