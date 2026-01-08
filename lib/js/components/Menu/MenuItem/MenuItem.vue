@@ -92,11 +92,11 @@
 
 .ds-menuItem {
 	$root: &;
-	$menu-item-padding: $space-xs;
+	$menu-item-horizontal-padding: $space-2xs;
 
 	@for $i from 2 through 6 {
 		&.-ds-level#{$i} {
-			padding-left: $menu-item-padding + ($i - 1) * $space-3xs;
+			padding-left: $menu-item-horizontal-padding + ($i - 1) * $space-2xs;
 		}
 	}
 
@@ -105,7 +105,7 @@
 	column-gap: $space-2xs;
 	display: flex;
 	justify-content: space-between;
-	padding: $menu-item-padding;
+	padding: $space-s $menu-item-horizontal-padding;
 	text-decoration: none;
 
 	&__wrapper {
