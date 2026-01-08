@@ -13635,7 +13635,7 @@ const yP = /* @__PURE__ */ P(pO, [["render", _O]]), K1 = {
       L(c.$slots, "children", {}, void 0, !0)
     ]));
   }
-}), _P = /* @__PURE__ */ P(IO, [["__scopeId", "data-v-fe738e13"]]), RO = T({
+}), _P = /* @__PURE__ */ P(IO, [["__scopeId", "data-v-376c2f98"]]), RO = T({
   name: "MenuDivider",
   components: {
     DsDivider: Ue
