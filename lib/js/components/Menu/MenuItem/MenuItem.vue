@@ -23,7 +23,7 @@
 					:class="['ds-menuItem__accessory', { '-ds-active': isSelected }]"
 					:icon="ICONS.FA_DOT_SOLID"
 					:size="ICON_SIZES.XXX_SMALL"
-					@click="toggleExpanded"
+					@click.stop="toggleExpanded"
 				/>
 				<span
 					v-if="index !== null"
