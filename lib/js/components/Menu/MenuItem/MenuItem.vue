@@ -21,7 +21,7 @@
 				<ds-icon
 					v-if="isExpandable"
 					:class="['ds-menuItem__accessory', { '-ds-active': isSelected }]"
-					:icon="ICONS.FA_DOT_SOLID"
+					:icon="expandableIcon"
 					:size="ICON_SIZES.XXX_SMALL"
 					@click.stop="toggleExpanded"
 				/>
@@ -382,6 +382,14 @@ const levelClass = computed(() => {
 	const limitedLevel = levelComputed.value > 6 ? 6 : levelComputed.value;
 
 	return `-ds-level${limitedLevel}`;
+});
+
+const expandableIcon = computed(() => {
+	if (!slots.children) {
+		return ICONS.FA_DOT_SOLID;
+	}
+
+	return isExpandedInternal ? ICONS.FA_CHEVRON_DOWN : ICONS.FA_CHEVRON_RIGHT;
 });
 
 provide(MENU_ITEM_LEVEL_INJECTION_KEY, levelComputed.value + 1);
