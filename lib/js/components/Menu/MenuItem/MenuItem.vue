@@ -19,10 +19,11 @@
 		>
 			<span class="ds-menuItem__content">
 				<ds-icon
-					v-if="accessoryState === MENU_ITEM_ACCESSORY_STATES.DOT"
+					v-if="isExpandable"
 					:class="['ds-menuItem__accessory', { '-ds-active': isSelected }]"
 					:icon="ICONS.FA_DOT_SOLID"
 					:size="ICON_SIZES.XXX_SMALL"
+					@click="toggleExpanded"
 				/>
 				<span
 					v-if="index !== null"
@@ -80,7 +81,7 @@
 				></ds-icon>
 			</span>
 		</component>
-		<slot name="children" />
+		<slot v-if="!isExpandable || isExpandedInternal" name="children" />
 	</li>
 </template>
 
@@ -253,19 +254,18 @@
 </style>
 
 <script setup lang="ts">
-import { computed, inject, provide } from 'vue';
+import { computed, inject, provide, toRef } from 'vue';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import {
-	MENU_ITEM_ACCESSORY_STATES,
 	MENU_ITEM_BACKGROUND_COLORS,
 	MENU_ITEM_LEVEL_INJECTION_KEY,
 	MENU_ITEM_SIZES,
 	MENU_ITEM_STATES,
-	type MenuItemAccessoryState,
 	type MenuItemBackgroundColor,
 	type MenuItemSize,
 	type MenuItemState,
-} from './MenuItem.consts'; // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
+} from './MenuItem.consts';
+import useExpanded from '../../../composables/useExpanded'; // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
 
 // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
 type RouterLocation = string | Record<string, unknown>;
@@ -283,7 +283,8 @@ const {
 	isLabelUppercase = false,
 	additionalText = '',
 	state = MENU_ITEM_STATES.DEFAULT,
-	accessoryState = null,
+	isExpandable = false,
+	isExpanded = false,
 	isSelected = false,
 	isDone = false,
 	hasSelectedIconsColorPrimary = true,
@@ -302,7 +303,8 @@ const {
 	isLabelUppercase?: boolean;
 	additionalText?: string;
 	state?: MenuItemState;
-	accessoryState?: MenuItemAccessoryState | null;
+	isExpandable?: boolean;
+	isExpanded?: boolean;
 	isSelected?: boolean;
 	isDone?: boolean;
 	hasSelectedIconsColorPrimary?: boolean;
@@ -315,6 +317,15 @@ const slots = defineSlots<{
 	labelSlot?: () => any;
 	default?: () => any;
 }>();
+
+const emit = defineEmits<{
+	'update:isExpanded': [isExpanded: boolean];
+}>();
+
+const { toggleExpanded, isExpandedInternal } = useExpanded(
+	toRef(() => isExpanded),
+	emit,
+);
 
 const as = computed(() => {
 	if (href) {
@@ -361,7 +372,7 @@ const shouldRenderComponent = computed(
 		label ||
 		additionalText ||
 		slots.labelSlot ||
-		accessoryState ||
+		isExpandable ||
 		index !== null ||
 		iconLeft ||
 		shouldRenderRightContent.value,

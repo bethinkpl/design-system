@@ -3,12 +3,7 @@ import DsChip from '../../Chip/Chip.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { toRefs } from 'vue';
 import { ICONS } from '../../Icons/Icon';
-import {
-	MENU_ITEM_ACCESSORY_STATES,
-	MENU_ITEM_BACKGROUND_COLORS,
-	MENU_ITEM_SIZES,
-	MENU_ITEM_STATES,
-} from './MenuItem.consts';
+import { MENU_ITEM_BACKGROUND_COLORS, MENU_ITEM_SIZES, MENU_ITEM_STATES } from './MenuItem.consts';
 import DsMenu from '../Menu';
 import SlotPlaceholder, {
 	SLOT_PLACEHOLDER_SIZES,
@@ -37,7 +32,7 @@ const StoryTemplate: StoryFn<typeof MenuItem> = (args) => ({
 									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
 									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
 									:is-selected-interactive="isSelectedInteractive" :level="level"
-									:accessoryState="accessoryState">
+									:is-expandable="isExpandable">
 			<template #labelSlot v-if="labelSlot">
 				<span v-html="labelSlot" />
 			</template>
@@ -109,9 +104,8 @@ const argTypes = {
 		control: 'select',
 		options: Object.values(MENU_ITEM_STATES),
 	},
-	accessoryState: {
-		control: 'select',
-		options: [null, ...Object.values(MENU_ITEM_ACCESSORY_STATES)],
+	isExpandable: {
+		control: 'boolean',
 	},
 	isSelected: {
 		control: 'boolean',

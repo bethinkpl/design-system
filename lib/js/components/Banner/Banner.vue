@@ -64,7 +64,7 @@
 						:color="ICON_BUTTON_COLORS.NEUTRAL"
 						:radius="BUTTON_RADIUSES.CAPSULE"
 						:touchable="false"
-						@click="toggleExpandedText"
+						@click="toggleExpanded"
 					/>
 				</div>
 				<div v-if="!$slots.expandedText && closable" class="ds-banner__close">
@@ -330,12 +330,13 @@ import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
 import { IconItem, ICONS } from '../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
 import { BANNER_COLORS, BANNER_SIZES, BannerColor, BannerSize } from './Banner.consts';
-import { computed, ref, watch } from 'vue';
+import { computed, toRef } from 'vue';
 import FeatureIcon, {
 	FEATURE_ICON_COLOR,
 	FEATURE_ICON_SIZES,
 	FeatureIconColor,
 } from '../Icons/FeatureIcon';
+import useExpanded from '../../composables/useExpanded';
 
 const {
 	icon = null,
@@ -363,7 +364,11 @@ const emit = defineEmits<{
 	'update:isExpanded': [isExpanded: boolean];
 }>();
 
-const { toggleExpandedText, isExpandedInternal } = useExpanded();
+const { toggleExpanded, isExpandedInternal } = useExpanded(
+	toRef(() => isExpanded),
+	emit,
+);
+
 const { sizeClass, colorClass } = useBannerClasses();
 const iconColor = computed(() => {
 	const colorMap: Record<BannerColor, FeatureIconColor> = {
@@ -378,30 +383,6 @@ const iconColor = computed(() => {
 
 	return colorMap[color];
 });
-
-function useExpanded() {
-	const isExpandedInternal = ref(false);
-
-	watch(
-		() => isExpanded,
-		(newValue) => {
-			if (newValue !== isExpandedInternal.value) {
-				isExpandedInternal.value = newValue;
-			}
-		},
-		{ immediate: true },
-	);
-
-	const toggleExpandedText = () => {
-		isExpandedInternal.value = !isExpandedInternal.value;
-		emit('update:isExpanded', isExpandedInternal.value);
-	};
-
-	return {
-		isExpandedInternal,
-		toggleExpandedText,
-	};
-}
 
 function useBannerClasses() {
 	const colorClass = computed(() => {

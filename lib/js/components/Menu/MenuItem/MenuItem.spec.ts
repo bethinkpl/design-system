@@ -3,7 +3,6 @@ import { mount, shallowMount } from '@vue/test-utils';
 import { h } from 'vue';
 import MenuItem from './MenuItem.vue';
 import {
-	MENU_ITEM_ACCESSORY_STATES,
 	MENU_ITEM_BACKGROUND_COLORS,
 	MENU_ITEM_LEVEL_INJECTION_KEY,
 	MENU_ITEM_SIZES,
@@ -183,15 +182,15 @@ describe('MenuItem', () => {
 	});
 
 	describe('Accessory state', () => {
-		it('does not render accessory when accessoryState is null', () => {
-			const wrapper = createComponent({ accessoryState: null });
+		it('does not render accessory when isExpandable is false', () => {
+			const wrapper = createComponent({ isExpandable: false });
 
 			expect(wrapper.find('.ds-menuItem__accessory').exists()).toBe(false);
 		});
 
-		it('renders dot accessory when accessoryState is dot', () => {
+		it('renders dot accessory when isExpandable', () => {
 			const wrapper = createComponent({
-				accessoryState: MENU_ITEM_ACCESSORY_STATES.DOT,
+				isExpandable: true,
 			});
 
 			expect(wrapper.find('.ds-menuItem__accessory').exists()).toBe(true);
@@ -392,10 +391,10 @@ describe('MenuItem', () => {
 			expect(wrapper.find('.ds-menuItem').exists()).toBe(true);
 		});
 
-		it('renders when accessoryState is provided', () => {
+		it('renders when isExpandable is provided', () => {
 			const wrapper = createComponent({
 				label: '',
-				accessoryState: MENU_ITEM_ACCESSORY_STATES.DOT,
+				isExpandable: true,
 			});
 			expect(wrapper.find('.ds-menuItem').exists()).toBe(true);
 		});
