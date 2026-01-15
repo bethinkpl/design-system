@@ -389,7 +389,7 @@ const expandableIcon = computed(() => {
 		return ICONS.FA_DOT_SOLID;
 	}
 
-	return isExpandedInternal ? ICONS.FA_CHEVRON_DOWN : ICONS.FA_CHEVRON_RIGHT;
+	return isExpandedInternal.value ? ICONS.FA_CHEVRON_DOWN : ICONS.FA_CHEVRON_RIGHT;
 });
 
 provide(MENU_ITEM_LEVEL_INJECTION_KEY, levelComputed.value + 1);
