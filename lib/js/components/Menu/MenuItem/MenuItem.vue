@@ -11,50 +11,70 @@
 					'-ds-disabled': isDisabled,
 					'-ds-medium': size === MENU_ITEM_SIZES.MEDIUM,
 					'-ds-selected': isSelected,
+					'-ds-expandable': isExpandable,
 					'-ds-hoverable': !isSelected || isSelectedInteractive,
 					'-ds-backgroundNeutral':
 						backgroundColor === MENU_ITEM_BACKGROUND_COLORS.NEUTRAL,
 				},
 			]"
 		>
-			<span class="ds-menuItem__content">
-				<ds-icon
-					v-if="isExpandable"
-					:class="['ds-menuItem__accessory', { '-ds-active': isSelected }]"
-					:icon="expandableIcon"
-					:size="ICON_SIZES.XXX_SMALL"
-					@click.stop="toggleExpanded"
-				/>
-				<span
-					v-if="index !== null"
-					class="ds-menuItem__index"
-					:class="{ '-ds-active': isSelected }"
-				>
-					{{ index }}.
-				</span>
-				<ds-icon
-					v-if="iconLeft"
-					class="ds-menuItem__icon"
-					:class="{
-						'-ds-active': isSelected && hasSelectedIconsColorPrimary,
-					}"
-					:icon="iconLeft"
-					:size="ICON_SIZES.X_SMALL"
-				/>
-				<span class="ds-menuItem__text">
-					<span class="ds-menuItem__label" :class="{ '-ds-uppercase': isLabelUppercase }">
-						<template v-if="$slots.labelSlot">
-							<slot name="labelSlot" />
-						</template>
-						<template v-else>
-							{{ label }}
-						</template>
-					</span>
-					<span v-if="additionalText" class="ds-menuItem__additionalText">
-						{{ additionalText }}
+			<span class="ds-menuItem__contentWrapper">
+				<span class="ds-menuItem__content">
+					<span class="ds-menuItem__text">
+						<ds-icon-button
+							v-if="isExpandable && $slots.children"
+							class="ds-menuItem__expaneder"
+							:color="ICON_BUTTON_COLORS.NEUTRAL"
+							:radius="BUTTON_RADIUSES.ROUNDED"
+							:icon="expandableIcon"
+							:size="ICON_BUTTON_SIZES.X_SMALL"
+							:touchable="false"
+							@click.stop="toggleExpanded"
+						/>
+						<span
+							v-else-if="isExpandable && !$slots.children"
+							class="ds-menuItem__expanderDotWrapper"
+						>
+							<ds-icon :icon="ICONS.FA_DOT_SOLID" :size="ICON_SIZES.XXX_SMALL" />
+						</span>
+						<span class="ds-menuItem__itemsWrapper">
+							<span
+								v-if="index !== null"
+								class="ds-menuItem__index"
+								:class="{ '-ds-active': isSelected }"
+							>
+								{{ index }}.
+							</span>
+							<ds-icon
+								v-if="iconLeft"
+								class="ds-menuItem__icon"
+								:class="{
+									'-ds-active': isSelected && hasSelectedIconsColorPrimary,
+								}"
+								:icon="iconLeft"
+								:size="ICON_SIZES.X_SMALL"
+							/>
+							<span class="ds-menuItem__labelWrapper">
+								<span
+									class="ds-menuItem__label"
+									:class="{ '-ds-uppercase': isLabelUppercase }"
+								>
+									<template v-if="$slots.labelSlot">
+										<slot name="labelSlot" />
+									</template>
+									<template v-else>
+										{{ label }}
+									</template>
+								</span>
+								<span v-if="additionalText" class="ds-menuItem__additionalText">
+									{{ additionalText }}
+								</span>
+							</span>
+						</span>
 					</span>
 				</span>
 			</span>
+
 			<span
 				v-if="shouldRenderRightContent"
 				class="ds-menuItem__rightContent"
@@ -93,29 +113,40 @@
 
 .ds-menuItem {
 	$root: &;
-	$menu-item-horizontal-padding: $space-2xs;
+	$menu-item-horizontal-padding: $space-xs;
+	$menu-item-expandable-horizontal-padding: $space-4xs;
 
 	@for $i from 2 through 6 {
 		&.-ds-level#{$i} {
 			padding-left: $menu-item-horizontal-padding + ($i - 1) * $space-2xs;
+
+			&.-ds-expandable {
+				padding-left: $menu-item-expandable-horizontal-padding + ($i - 1) * $space-2xs;
+			}
 		}
 	}
 
+	align-items: center;
 	background-color: $color-neutral-background-weak;
 	border-radius: $radius-s;
 	column-gap: $space-2xs;
 	display: flex;
 	justify-content: space-between;
-	padding: $space-s $menu-item-horizontal-padding;
+	min-height: 40px;
+	padding: $space-2xs $space-2xs $space-2xs $menu-item-horizontal-padding;
 	text-decoration: none;
+
+	&.-ds-expandable {
+		padding-left: $menu-item-expandable-horizontal-padding;
+	}
 
 	&__wrapper {
 		list-style-type: none;
 	}
 
 	&__rightContent,
-	&__content {
-		align-items: flex-start;
+	&__contentWrapper {
+		align-items: center;
 		display: flex;
 		max-width: 100%;
 	}
@@ -128,17 +159,45 @@
 		}
 	}
 
-	&__content {
+	&__contentWrapper {
 		overflow-x: clip;
 	}
 
-	&__accessory {
-		color: $color-neutral-icon-weak;
-		padding: $space-4xs $space-5xs;
+	&__content {
+		align-items: flex-start;
+		display: flex;
+		flex: 1 0 0;
+		flex-direction: column;
+	}
 
-		&.-ds-active {
-			color: $color-primary-icon;
-		}
+	&__text {
+		align-items: flex-start;
+		align-self: stretch;
+		display: flex;
+	}
+
+	&__expander {
+		align-items: center;
+		color: $color-neutral-icon-weak;
+		display: flex;
+		padding-right: $space-5xs;
+	}
+
+	&__expanderDotWrapper {
+		align-items: center;
+		color: $color-neutral-icon-weak;
+		display: inline-flex;
+		height: 20px;
+		justify-content: center;
+		padding-right: $space-5xs;
+		width: 20px;
+	}
+
+	&__itemsWrapper {
+		align-items: flex-start;
+		display: flex;
+		flex: 1 0 0;
+		padding: $space-5xs 0;
 	}
 
 	&__index {
@@ -152,7 +211,7 @@
 		}
 	}
 
-	&__text {
+	&__labelWrapper {
 		@include label-l-default-regular; // it fixes whole component height
 
 		// To hide scrollbar in case Chrome renders __label higher than line-height - there are some problems with fraction of a pixel on Retina screens
@@ -232,7 +291,7 @@
 	}
 
 	&.-ds-medium {
-		padding: $space-s $space-xs;
+		padding: $space-xs $space-2xs $space-xs $space-xs;
 
 		#{$root}__label {
 			@include label-l-default-bold;
@@ -256,6 +315,7 @@
 <script setup lang="ts">
 import { computed, inject, provide, toRef } from 'vue';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
+import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import {
 	MENU_ITEM_BACKGROUND_COLORS,
 	MENU_ITEM_LEVEL_INJECTION_KEY,
@@ -265,7 +325,8 @@ import {
 	type MenuItemSize,
 	type MenuItemState,
 } from './MenuItem.consts';
-import useExpanded from '../../../composables/useExpanded'; // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
+import useExpanded from '../../../composables/useExpanded';
+import { BUTTON_RADIUSES } from '../../Buttons/Button'; // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
 
 // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
 type RouterLocation = string | Record<string, unknown>;

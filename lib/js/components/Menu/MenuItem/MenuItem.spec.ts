@@ -9,6 +9,7 @@ import {
 	MENU_ITEM_STATES,
 } from './MenuItem.consts';
 import { ICONS } from '../../Icons/Icon';
+import { DsIconButton } from '../../../index';
 
 describe('MenuItem', () => {
 	const createComponent = (props = {} as any, options = {}) => {
@@ -181,19 +182,93 @@ describe('MenuItem', () => {
 		});
 	});
 
-	describe('Accessory state', () => {
-		it('does not render accessory when isExpandable is false', () => {
+	describe('Expandable', () => {
+		it('does not render expandable icons when isExpandable is false', () => {
 			const wrapper = createComponent({ isExpandable: false });
 
-			expect(wrapper.find('.ds-menuItem__accessory').exists()).toBe(false);
+			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(false);
+			expect(wrapper.find('.ds-menuItem__expaneder').exists()).toBe(false);
 		});
 
-		it('renders dot accessory when isExpandable', () => {
+		it('renders dot when isExpandable is true and no children slot set', () => {
 			const wrapper = createComponent({
 				isExpandable: true,
 			});
 
-			expect(wrapper.find('.ds-menuItem__accessory').exists()).toBe(true);
+			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(true);
+			expect(wrapper.find('.ds-menuItem__expaneder').exists()).toBe(false);
+		});
+
+		it('renders chevron right icon button when isExpandable is true and children is set but not render children', () => {
+			const wrapper = createComponent(
+				{
+					isExpandable: true,
+					isExpanded: false,
+				},
+				{
+					slots: {
+						children: '<strong data-test-id="children-identifier">children</strong>',
+					},
+				},
+			);
+
+			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(false);
+			const expanderIconButton =
+				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expaneder');
+			expect(expanderIconButton.exists()).toBe(true);
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_RIGHT);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(false);
+		});
+
+		it('renders chevron down icon button when isExpandable is true and children is set and render it when is expanded', () => {
+			const wrapper = createComponent(
+				{
+					isExpandable: true,
+					isExpanded: true,
+				},
+				{
+					slots: {
+						children: '<strong data-test-id="children-identifier">children</strong>',
+					},
+				},
+			);
+
+			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(false);
+			const expanderIconButton =
+				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expaneder');
+			expect(expanderIconButton.exists()).toBe(true);
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_DOWN);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(true);
+		});
+
+		it('should change children and icon state when clicking on expander icon', async () => {
+			const wrapper = createComponent(
+				{
+					isExpandable: true,
+					isExpanded: false,
+				},
+				{
+					slots: {
+						children: '<strong data-test-id="children-identifier">children</strong>',
+					},
+				},
+			);
+
+			const expanderIconButton =
+				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expaneder');
+			expect(expanderIconButton.exists()).toBe(true);
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_RIGHT);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(false);
+
+			await expanderIconButton.trigger('click');
+
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_DOWN);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(true);
+
+			await expanderIconButton.trigger('click');
+
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_RIGHT);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(false);
 		});
 	});
 
@@ -354,7 +429,7 @@ describe('MenuItem', () => {
 					additionalText: '',
 					index: null,
 					iconLeft: null,
-					accessoryState: null,
+					isExpandable: false,
 				},
 			});
 
