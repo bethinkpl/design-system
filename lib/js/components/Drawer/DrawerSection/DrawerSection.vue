@@ -17,7 +17,11 @@
 			:has-divider="hasDivider"
 			@info-click="onInfoClick"
 			@update:is-expanded="onExpandableHeaderClick"
-		/>
+		>
+			<template v-if="$slots.sectionHeaderDefault" #default>
+				<slot name="sectionHeaderDefault" />
+			</template>
+		</ds-section-header>
 
 		<div v-if="isExpandedInternal || !isExpandable">
 			<slot />
