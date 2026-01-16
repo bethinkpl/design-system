@@ -1,5 +1,6 @@
 export const TEXT_GROUP_COLORS = {
 	NEUTRAL: 'neutral',
+	NEUTRAL_STRONG: 'neutralStrong',
 } as const;
 
 export const TEXT_GROUP_LOADING_SIZES = {

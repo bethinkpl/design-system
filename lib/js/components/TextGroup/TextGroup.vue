@@ -95,6 +95,20 @@ $text-group-colors: (
 		'supporting-text-color-hovered': $color-neutral-text-hovered,
 		'supporting-text-color-disabled': $color-neutral-text-disabled,
 	),
+	'neutralStrong': (
+		'eyebrow-color': $color-neutral-text,
+		'eyebrow-color-hovered': $color-neutral-text-hovered,
+		'eyebrow-color-disabled': $color-neutral-text-disabled,
+		'main-text-color': $color-neutral-text-heavy,
+		'main-text-color-hovered': $color-neutral-text-heavy-hovered,
+		'main-text-color-disabled': $color-neutral-text-heavy-disabled,
+		'main-text-color-selected': $color-primary-text,
+		'main-text-color-selected-hovered': $color-primary-text-hovered,
+		'main-text-color-selected-disabled': $color-primary-text-disabled,
+		'supporting-text-color': $color-neutral-text,
+		'supporting-text-color-hovered': $color-neutral-text-hovered,
+		'supporting-text-color-disabled': $color-neutral-text-disabled,
+	),
 );
 
 @mixin setTextGroupColors($self, $map) {
