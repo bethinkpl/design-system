@@ -243,6 +243,7 @@ import { faBullseyeArrow } from '@fortawesome/pro-regular-svg-icons/faBullseyeAr
 import { faForward } from '@fortawesome/pro-regular-svg-icons/faForward';
 import { faBolt } from '@fortawesome/pro-regular-svg-icons/faBolt';
 import { faBrain } from '@fortawesome/pro-regular-svg-icons/faBrain';
+import { faUsersSlash } from '@fortawesome/pro-regular-svg-icons/faUsersSlash';
 import { faBullseyePointer } from '@fortawesome/pro-regular-svg-icons/faBullseyePointer';
 
 export const FONTAWESOME_ICONS = {
@@ -477,6 +478,7 @@ export const FONTAWESOME_ICONS = {
 	FA_USER_DOCTOR_SOLID: fasUserDoctor,
 	FA_USER_GEAR: faUserGear,
 	FA_USER: faUser,
+	FA_USERS_SLASH: faUsersSlash,
 	FA_VIDEO_SOLID: fasVideo,
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
