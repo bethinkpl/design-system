@@ -35,7 +35,7 @@
 							v-else-if="isExpandable && !$slots.children"
 							class="ds-menuItem__expanderDotWrapper"
 						>
-							<ds-icon :icon="ICONS.FA_DOT_SOLID" :size="ICON_SIZES.XXX_SMALL" />
+							<ds-icon :icon="ICONS.FA_DOT_SOLID" :size="ICON_SIZES.XX_SMALL" />
 						</span>
 						<span class="ds-menuItem__itemsWrapper">
 							<span
