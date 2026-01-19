@@ -115,6 +115,7 @@ import { faListCheck } from '@fortawesome/pro-regular-svg-icons/faListCheck';
 import { faListOl } from '@fortawesome/pro-regular-svg-icons/faListOl';
 import { faLocationDot } from '@fortawesome/pro-regular-svg-icons/faLocationDot';
 import { faLockKeyhole } from '@fortawesome/pro-regular-svg-icons/faLockKeyhole';
+import { faMap } from '@fortawesome/pro-regular-svg-icons/faMap';
 import { faMagnifyingGlass } from '@fortawesome/pro-regular-svg-icons/faMagnifyingGlass';
 import { faMedal } from '@fortawesome/pro-regular-svg-icons/faMedal';
 import { faMemoCircleInfo } from '@fortawesome/pro-regular-svg-icons/faMemoCircleInfo';
@@ -394,6 +395,7 @@ export const FONTAWESOME_ICONS = {
 	FA_LIST: faList,
 	FA_LOCATION_DOT: faLocationDot,
 	FA_LOCK_KEYHOLE: faLockKeyhole,
+	FA_MAP: faMap,
 	FA_MAGNIFYING_GLASS: faMagnifyingGlass,
 	FA_MEDAL: faMedal,
 	FA_MEMO_CIRCLE_INFO_SOLID: fasMemoCircleInfo,
