@@ -359,13 +359,13 @@ const {
 } = defineProps<{
 	size?: TextGroupSize;
 	prominence?: TextGroupProminence;
-	eyebrowText?: string;
+	eyebrowText?: string | null;
 	eyebrowTextEllipsis?: boolean;
 	isEyebrowTextUppercase?: boolean;
 	hasEyebrowMask?: boolean;
-	mainText?: string;
+	mainText?: string | null;
 	mainTextEllipsis?: boolean;
-	supportingText?: string;
+	supportingText?: string | null;
 	supportingTextEllipsis?: boolean;
 	isInteractive?: boolean;
 	skeletonLoadingSize?: TextGroupLoadingSize;
