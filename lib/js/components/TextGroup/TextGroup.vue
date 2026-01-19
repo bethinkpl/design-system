@@ -218,6 +218,8 @@ $text-group-colors: (
 	}
 
 	&__eyebrowWrapper {
+		$text-group-eyebrow-mask-width: 20px;
+
 		&.-ds-mask-active {
 			direction: rtl;
 			position: relative;
@@ -231,11 +233,11 @@ $text-group-colors: (
 				left: 0;
 				position: absolute;
 				top: 0;
-				width: $space-l;
+				width: $text-group-eyebrow-mask-width;
 			}
 
 			#{$self}__eyebrow {
-				padding-left: $space-l;
+				padding-left: $text-group-eyebrow-mask-width;
 			}
 		}
 	}
