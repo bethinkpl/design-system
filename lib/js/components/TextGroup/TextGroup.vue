@@ -21,6 +21,7 @@
 			class="ds-textGroup__eyebrowWrapper"
 			:class="{
 				'-ds-mask-active': isEyebrowMaskActive,
+				'-ds-mask-hidden': isEyebrowMaskHidden,
 			}"
 		>
 			<div
@@ -218,13 +219,11 @@ $text-group-colors: (
 	}
 
 	&__eyebrowWrapper {
-		$text-group-eyebrow-mask-width: 20px;
-
 		&.-ds-mask-active {
 			direction: rtl;
 			position: relative;
 
-			&::before {
+			&:not(.-ds-mask-hidden)::before {
 				@include backgroundMask(white, -90deg);
 
 				bottom: 0;
@@ -233,11 +232,7 @@ $text-group-colors: (
 				left: 0;
 				position: absolute;
 				top: 0;
-				width: $text-group-eyebrow-mask-width;
-			}
-
-			#{$self}__eyebrow {
-				padding-left: $text-group-eyebrow-mask-width;
+				width: 20px;
 			}
 		}
 	}
@@ -323,7 +318,9 @@ $text-group-colors: (
 </style>
 
 <script setup lang="ts">
-import { computed, nextTick, ref, useTemplateRef, watch } from 'vue';
+import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
+import { throttle } from 'lodash';
+import { useElementSize } from '@vueuse/core';
 import DsSkeleton from '../Skeleton/Skeleton.vue';
 import {
 	TEXT_GROUP_LOADING_SIZES,
@@ -383,6 +380,27 @@ const loadingSizeClassName = computed(() => `-ds-loading-${skeletonLoadingSize}`
 
 const eyebrowRef = useTemplateRef('eyebrowRef');
 const isEyebrowMaskActive = ref(false);
+const isEyebrowMaskHidden = ref(false);
+
+const { width: eyebrowWidth } = useElementSize(eyebrowRef);
+
+const throttledCheckEyebrowMask = throttle(() => {
+	if (eyebrowRef.value) {
+		// Hide the mask when scrolled to the start (1px tolerance for sub-pixel rendering)
+		isEyebrowMaskHidden.value =
+			eyebrowRef.value.scrollLeft -
+				(eyebrowRef.value.clientWidth - eyebrowRef.value.scrollWidth) <
+			1;
+	}
+}, 100);
+
+onMounted(() => {
+	eyebrowRef.value?.addEventListener('scroll', throttledCheckEyebrowMask);
+});
+
+onUnmounted(() => {
+	eyebrowRef.value?.removeEventListener('scroll', throttledCheckEyebrowMask);
+});
 
 watch(
 	() => ({
@@ -390,6 +408,8 @@ watch(
 		eyebrowText,
 		isEyebrowTextUppercase,
 		eyebrowTextEllipsis,
+		state,
+		eyebrowWidth: eyebrowWidth.value,
 	}),
 	async () => {
 		await nextTick();
