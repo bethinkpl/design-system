@@ -8,31 +8,43 @@ import DsMenu from '../Menu';
 import SlotPlaceholder, {
 	SLOT_PLACEHOLDER_SIZES,
 } from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
+import { useArgs } from '@storybook/preview-api';
 
 export default {
 	title: 'Components/Menu/MenuItem',
 	component: MenuItem,
 } as Meta<typeof MenuItem>;
 
-const StoryTemplate: StoryFn<typeof MenuItem> = (args) => ({
-	components: { MenuItem, DsChip, SlotPlaceholder },
-	setup() {
-		const reactiveArgs = toRefs(args);
+const StoryTemplate: StoryFn<typeof MenuItem> = (args) => {
+	const [_, updateArgs] = useArgs();
 
-		return {
-			...reactiveArgs,
-			ICONS,
-			SLOT_PLACEHOLDER_SIZES,
-		};
-	},
-	template: `
+	return {
+		components: { MenuItem, DsChip, SlotPlaceholder },
+		setup() {
+			const reactiveArgs = toRefs(args);
+
+			return {
+				...reactiveArgs,
+				ICONS,
+				SLOT_PLACEHOLDER_SIZES,
+			};
+		},
+		methods: {
+			isExpandedUpdated(isExpanded: boolean) {
+				updateArgs({
+					isExpanded,
+				});
+			},
+		},
+		template: `
 		<menu-item :label="label" :additional-text="additionalText" :size="size" :state="state"
 									:icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone"
 									:is-selected="isSelected" :background-color="backgroundColor" :index="index"
 									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
 									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
 									:is-selected-interactive="isSelectedInteractive" :level="level"
-									:is-expandable="isExpandable" :is-expanded="isExpanded">
+									:is-expandable="isExpandable" :is-expanded="isExpanded"
+				   @update:isExpanded="isExpandedUpdated">
 			<template #labelSlot v-if="labelSlot">
 				<span v-html="labelSlot" />
 			</template>
@@ -40,10 +52,11 @@ const StoryTemplate: StoryFn<typeof MenuItem> = (args) => ({
 				<slot-placeholder label="defaul slot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
 			</template>
 			<template #children>
-				<slot-placeholder label="children slot" />
+				<slot-placeholder label="children slot" :size="SLOT_PLACEHOLDER_SIZES.MEDIUM" />
 			</template>
 		</menu-item>`,
-});
+	};
+};
 
 export const Interactive = StoryTemplate.bind({});
 
