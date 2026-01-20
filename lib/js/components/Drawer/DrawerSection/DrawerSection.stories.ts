@@ -4,6 +4,7 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { SECTION_HEADER_ICON_COLORS, SECTION_HEADER_SIZES } from '../../Headers/SectionHeader';
 import { ICONS } from '../../Icons/Icon';
 import { useArgs } from '@storybook/preview-api';
+import SlotPlaceholder from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 
 export default {
 	title: 'Components/Drawer/DrawerSection',
@@ -14,7 +15,7 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args) => {
 	const [_, updateArgs] = useArgs();
 
 	return {
-		components: { DrawerSection },
+		components: { DrawerSection, SlotPlaceholder },
 		setup() {
 			return args;
 		},
@@ -51,8 +52,12 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args) => {
 				@infoClick="infoClicked"
 				@update:isExpanded="isExpandedUpdated"
 			>
-				Default slot
-				<template #uncollapsible>Uncollapsible slot</template>
+				<slot-placeholder label="default slot" />
+				<template #uncollapsible>
+					<slot-placeholder label="uncollapsible slot" /></template>
+				<template #sectionHeaderDefault>
+					<slot-placeholder label="section header children slot" />
+				</template>
 			</drawer-section>`,
 	};
 };
