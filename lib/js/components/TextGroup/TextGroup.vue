@@ -418,6 +418,10 @@ watch(
 			const eyebrowElement = eyebrowRef.value as HTMLElement;
 
 			isEyebrowMaskActive.value = eyebrowElement.scrollWidth > eyebrowElement.clientWidth;
+
+			if (isEyebrowMaskActive.value) {
+				throttledCheckEyebrowMask();
+			}
 		} else {
 			isEyebrowMaskActive.value = false;
 		}
