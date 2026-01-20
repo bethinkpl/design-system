@@ -209,6 +209,7 @@ import { faMessageQuestion } from '@fortawesome/pro-regular-svg-icons/faMessageQ
 import { faMessageXmark } from '@fortawesome/pro-regular-svg-icons/faMessageXmark';
 import { faMessage } from '@fortawesome/pro-regular-svg-icons/faMessage';
 import { faSitemap as fasSitemap } from '@fortawesome/pro-solid-svg-icons/faSitemap';
+import { faMemo as fasMemo } from '@fortawesome/pro-solid-svg-icons/faMemo';
 import { faSquareCheck as fasSquareCheck } from '@fortawesome/pro-solid-svg-icons/faSquareCheck';
 import { faSquareList as fasSquareList } from '@fortawesome/pro-solid-svg-icons/faSquareList';
 import { faStar as fasStar } from '@fortawesome/pro-solid-svg-icons/faStar';
@@ -410,6 +411,7 @@ export const FONTAWESOME_ICONS = {
 	FA_LOCK_KEYHOLE: faLockKeyhole,
 	FA_MAGNIFYING_GLASS: faMagnifyingGlass,
 	FA_MEDAL: faMedal,
+	FA_MEMO_SOLID: fasMemo,
 	FA_MEMO: faMemo,
 	FA_MEMO_CIRCLE_INFO_SOLID: fasMemoCircleInfo,
 	FA_MEMO_CIRCLE_INFO: faMemoCircleInfo,
