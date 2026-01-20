@@ -29,7 +29,7 @@
 							:icon="expandableIcon"
 							:size="ICON_BUTTON_SIZES.X_SMALL"
 							:touchable="false"
-							@click.stop="toggleExpanded"
+							@click.stop="isExpanded = !isExpanded"
 						/>
 						<span
 							v-else-if="isExpandable && !$slots.children"
@@ -101,7 +101,7 @@
 				></ds-icon>
 			</span>
 		</component>
-		<slot v-if="!isExpandable || isExpandedInternal" name="children" />
+		<slot v-if="!isExpandable || isExpanded" name="children" />
 	</li>
 </template>
 
@@ -313,7 +313,7 @@
 </style>
 
 <script setup lang="ts">
-import { computed, inject, provide, toRef } from 'vue';
+import { computed, inject, provide } from 'vue';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import {
@@ -325,7 +325,6 @@ import {
 	type MenuItemSize,
 	type MenuItemState,
 } from './MenuItem.consts';
-import useExpanded from '../../../composables/useExpanded';
 import { BUTTON_RADIUSES } from '../../Buttons/Button'; // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
 
 // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
@@ -345,7 +344,6 @@ const {
 	additionalText = '',
 	state = MENU_ITEM_STATES.DEFAULT,
 	isExpandable = false,
-	isExpanded = false,
 	isSelected = false,
 	isDone = false,
 	hasSelectedIconsColorPrimary = true,
@@ -365,7 +363,6 @@ const {
 	additionalText?: string;
 	state?: MenuItemState;
 	isExpandable?: boolean;
-	isExpanded?: boolean;
 	isSelected?: boolean;
 	isDone?: boolean;
 	hasSelectedIconsColorPrimary?: boolean;
@@ -379,14 +376,7 @@ const slots = defineSlots<{
 	default?: () => any;
 }>();
 
-const emit = defineEmits<{
-	'update:isExpanded': [isExpanded: boolean];
-}>();
-
-const { toggleExpanded, isExpandedInternal } = useExpanded(
-	toRef(() => isExpanded),
-	emit,
-);
+const isExpanded = defineModel<boolean>('isExpanded');
 
 const as = computed(() => {
 	if (href) {
@@ -450,7 +440,7 @@ const expandableIcon = computed(() => {
 		return ICONS.FA_DOT_SOLID;
 	}
 
-	return isExpandedInternal.value ? ICONS.FA_CHEVRON_DOWN : ICONS.FA_CHEVRON_RIGHT;
+	return isExpanded.value ? ICONS.FA_CHEVRON_DOWN : ICONS.FA_CHEVRON_RIGHT;
 });
 
 provide(MENU_ITEM_LEVEL_INJECTION_KEY, levelComputed.value + 1);

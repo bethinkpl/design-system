@@ -60,11 +60,11 @@
 				<div v-if="$slots.expandedText" class="ds-banner__expander">
 					<ds-icon-button
 						:size="ICON_BUTTON_SIZES.SMALL"
-						:icon="isExpandedInternal ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
+						:icon="isExpanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
 						:color="ICON_BUTTON_COLORS.NEUTRAL"
 						:radius="BUTTON_RADIUSES.CAPSULE"
 						:touchable="false"
-						@click="toggleExpanded"
+						@click="isExpanded = !isExpanded"
 					/>
 				</div>
 				<div v-if="!$slots.expandedText && closable" class="ds-banner__close">
@@ -78,10 +78,7 @@
 					/>
 				</div>
 			</div>
-			<div
-				v-if="$slots.expandedText && isExpandedInternal"
-				class="ds-banner__expandedContainer"
-			>
+			<div v-if="$slots.expandedText && isExpanded" class="ds-banner__expandedContainer">
 				<ds-divider :prominence="DIVIDER_PROMINENCES.STRONG" />
 				<div class="ds-banner__expandedText">
 					<slot name="expandedText" />
@@ -330,19 +327,17 @@ import DsDivider, { DIVIDER_PROMINENCES } from '../Divider';
 import { IconItem, ICONS } from '../Icons/Icon';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
 import { BANNER_COLORS, BANNER_SIZES, BannerColor, BannerSize } from './Banner.consts';
-import { computed, toRef } from 'vue';
+import { computed } from 'vue';
 import FeatureIcon, {
 	FEATURE_ICON_COLOR,
 	FEATURE_ICON_SIZES,
 	FeatureIconColor,
 } from '../Icons/FeatureIcon';
-import useExpanded from '../../composables/useExpanded';
 
 const {
 	icon = null,
 	closable = false,
 	color = BANNER_COLORS.DEFAULT,
-	isExpanded = false,
 	isIconHiddenOnMobile = false,
 	size = BANNER_SIZES.MEDIUM,
 	titleInColor = false,
@@ -352,22 +347,17 @@ const {
 	closable?: boolean;
 	color?: BannerColor;
 	title: string;
-	isExpanded?: boolean;
 	isIconHiddenOnMobile?: boolean;
 	size?: BannerSize;
 	titleInColor?: boolean;
 }>();
 
-const emit = defineEmits<{
+defineEmits<{
 	'button-clicked': [];
 	close: [];
-	'update:isExpanded': [isExpanded: boolean];
 }>();
 
-const { toggleExpanded, isExpandedInternal } = useExpanded(
-	toRef(() => isExpanded),
-	emit,
-);
+const isExpanded = defineModel<boolean>('isExpanded', { default: false });
 
 const { sizeClass, colorClass } = useBannerClasses();
 const iconColor = computed(() => {
