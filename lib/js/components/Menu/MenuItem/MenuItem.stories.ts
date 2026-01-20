@@ -32,7 +32,7 @@ const StoryTemplate: StoryFn<typeof MenuItem> = (args) => ({
 									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
 									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
 									:is-selected-interactive="isSelectedInteractive" :level="level"
-									:is-expandable="isExpandable">
+									:is-expandable="isExpandable" :is-expanded="isExpanded">
 			<template #labelSlot v-if="labelSlot">
 				<span v-html="labelSlot" />
 			</template>
@@ -106,6 +106,9 @@ const argTypes = {
 		options: Object.values(MENU_ITEM_STATES),
 	},
 	isExpandable: {
+		control: 'boolean',
+	},
+	isExpanded: {
 		control: 'boolean',
 	},
 	isSelected: {
