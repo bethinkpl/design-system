@@ -119,6 +119,7 @@ import { faListCheck } from '@fortawesome/pro-regular-svg-icons/faListCheck';
 import { faListOl } from '@fortawesome/pro-regular-svg-icons/faListOl';
 import { faLocationDot } from '@fortawesome/pro-regular-svg-icons/faLocationDot';
 import { faLockKeyhole } from '@fortawesome/pro-regular-svg-icons/faLockKeyhole';
+import { faMap } from '@fortawesome/pro-regular-svg-icons/faMap';
 import { faMagnifyingGlass } from '@fortawesome/pro-regular-svg-icons/faMagnifyingGlass';
 import { faMedal } from '@fortawesome/pro-regular-svg-icons/faMedal';
 import { faMemo } from '@fortawesome/pro-regular-svg-icons/faMemo';
@@ -212,6 +213,7 @@ import { faMessageQuestion } from '@fortawesome/pro-regular-svg-icons/faMessageQ
 import { faMessageXmark } from '@fortawesome/pro-regular-svg-icons/faMessageXmark';
 import { faMessage } from '@fortawesome/pro-regular-svg-icons/faMessage';
 import { faSitemap as fasSitemap } from '@fortawesome/pro-solid-svg-icons/faSitemap';
+import { faMemo as fasMemo } from '@fortawesome/pro-solid-svg-icons/faMemo';
 import { faSquareCheck as fasSquareCheck } from '@fortawesome/pro-solid-svg-icons/faSquareCheck';
 import { faSquareList as fasSquareList } from '@fortawesome/pro-solid-svg-icons/faSquareList';
 import { faStar as fasStar } from '@fortawesome/pro-solid-svg-icons/faStar';
@@ -246,6 +248,7 @@ import { faBullseyeArrow } from '@fortawesome/pro-regular-svg-icons/faBullseyeAr
 import { faForward } from '@fortawesome/pro-regular-svg-icons/faForward';
 import { faBolt } from '@fortawesome/pro-regular-svg-icons/faBolt';
 import { faBrain } from '@fortawesome/pro-regular-svg-icons/faBrain';
+import { faUsersSlash } from '@fortawesome/pro-regular-svg-icons/faUsersSlash';
 import { faBullseyePointer } from '@fortawesome/pro-regular-svg-icons/faBullseyePointer';
 
 export const FONTAWESOME_ICONS = {
@@ -413,8 +416,10 @@ export const FONTAWESOME_ICONS = {
 	FA_LIST: faList,
 	FA_LOCATION_DOT: faLocationDot,
 	FA_LOCK_KEYHOLE: faLockKeyhole,
+	FA_MAP: faMap,
 	FA_MAGNIFYING_GLASS: faMagnifyingGlass,
 	FA_MEDAL: faMedal,
+	FA_MEMO_SOLID: fasMemo,
 	FA_MEMO: faMemo,
 	FA_MEMO_CIRCLE_INFO_SOLID: fasMemoCircleInfo,
 	FA_MEMO_CIRCLE_INFO: faMemoCircleInfo,
@@ -483,6 +488,7 @@ export const FONTAWESOME_ICONS = {
 	FA_USER_DOCTOR_SOLID: fasUserDoctor,
 	FA_USER_GEAR: faUserGear,
 	FA_USER: faUser,
+	FA_USERS_SLASH: faUsersSlash,
 	FA_VIDEO_SOLID: fasVideo,
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,

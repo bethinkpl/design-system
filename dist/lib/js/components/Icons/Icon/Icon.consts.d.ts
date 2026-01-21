@@ -198,8 +198,10 @@ export declare const ICONS: {
     readonly FA_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_LOCATION_DOT: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_LOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_MAP: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MAGNIFYING_GLASS: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_MEMO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MEMO: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MEMO_CIRCLE_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_MEMO_CIRCLE_INFO: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -268,6 +270,7 @@ export declare const ICONS: {
     readonly FA_USER_DOCTOR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_USER_GEAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_USER: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_USERS_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_WAND_MAGIC_SPARKLES: import('@fortawesome/fontawesome-common-types').IconDefinition;

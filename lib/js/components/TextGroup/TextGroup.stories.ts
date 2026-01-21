@@ -2,8 +2,8 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsDivider from '../Divider/Divider.vue';
 import DsTextGroup from './TextGroup.vue';
 import {
-	TEXT_GROUP_COLORS,
 	TEXT_GROUP_LOADING_SIZES,
+	TEXT_GROUP_PROMINENCE,
 	TEXT_GROUP_SIZES,
 	TEXT_GROUP_STATES,
 } from './TextGroup.consts';
@@ -21,7 +21,7 @@ const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 	template: `
 		<ds-text-group
 			:size="size"
-			:color="color"
+			:prominence="prominence"
 			:eyebrow-text="eyebrowText === 'null' ? null : eyebrowText"
 			:eyebrow-text-ellipsis="eyebrowTextEllipsis"
 			:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
@@ -37,8 +37,11 @@ const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 			:is-supporting-text-tooltip-enabled-on-mobile="isSupportingTextTooltipEnabledOnMobile"
 			:is-supporting-text-tooltip-auto-filled-with-content="isSupportingTextTooltipAutoFilledWithContent"
 			:supporting-text-tooltip-content="supportingTextTooltipContent"
+			:has-eyebrow-mask="hasEyebrowMask"
 		>
-			<template v-if="mainTextSlot" #mainText><div v-html="mainTextSlot" /></template>
+			<template v-if="mainTextSlot" #mainText>
+				<div v-html="mainTextSlot" />
+			</template>
 		</ds-text-group>
 		<div style="margin-top: 100px; color: #888">
 			<ds-divider />
@@ -51,10 +54,11 @@ export const Interactive = StoryTemplate.bind({});
 Interactive.args = {
 	mainTextSlot: '',
 	size: TEXT_GROUP_SIZES.MEDIUM,
-	color: TEXT_GROUP_COLORS.NEUTRAL,
+	prominence: TEXT_GROUP_PROMINENCE.DEFAULT,
 	eyebrowText: 'Eyebrow Uppercase Veritatis aspernatur cupiditate magnam quidem',
 	eyebrowTextEllipsis: false,
 	isEyebrowTextUppercase: true,
+	hasEyebrowMask: false,
 	mainText: 'Main text Veritatis aspernatur cupiditate magnam quidem',
 	mainTextEllipsis: false,
 	supportingText:
@@ -75,9 +79,9 @@ Interactive.argTypes = {
 		control: 'select',
 		options: Object.values(TEXT_GROUP_SIZES),
 	},
-	color: {
+	prominence: {
 		control: 'select',
-		options: Object.values(TEXT_GROUP_COLORS),
+		options: Object.values(TEXT_GROUP_PROMINENCE),
 	},
 	eyebrowText: {
 		control: 'text',
@@ -86,6 +90,9 @@ Interactive.argTypes = {
 		control: 'boolean',
 	},
 	isEyebrowTextUppercase: {
+		control: 'boolean',
+	},
+	hasEyebrowMask: {
 		control: 'boolean',
 	},
 	mainText: {
