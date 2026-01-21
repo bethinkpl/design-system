@@ -232,7 +232,9 @@ $text-group-colors: (
 				left: 0;
 				position: absolute;
 				top: 0;
-				width: 20px;
+				transform: translateX(v-bind(maskTranslateX));
+				transition: transform 0.1s linear;
+				width: v-bind(maskWidthPx);
 			}
 		}
 	}
@@ -381,18 +383,26 @@ const loadingSizeClassName = computed(() => `-ds-loading-${skeletonLoadingSize}`
 const eyebrowRef = useTemplateRef('eyebrowRef');
 const isEyebrowMaskActive = ref(false);
 const isEyebrowMaskHidden = ref(false);
+const maskTranslateX = ref('0px');
+
+const maskWidth = 20;
+const maskWidthPx = `${maskWidth}px`;
 
 const { width: eyebrowWidth } = useElementSize(eyebrowRef);
 
 const throttledCheckEyebrowMask = throttle(() => {
 	if (eyebrowRef.value) {
-		// Hide the mask when scrolled to the start (1px tolerance for sub-pixel rendering)
-		isEyebrowMaskHidden.value =
+		const pixelsToBeginning =
 			eyebrowRef.value.scrollLeft -
-				(eyebrowRef.value.clientWidth - eyebrowRef.value.scrollWidth) <
-			1;
+			(eyebrowRef.value.clientWidth - eyebrowRef.value.scrollWidth);
+
+		// Hide the mask when scrolled to the start (1px tolerance for sub-pixel rendering)
+		isEyebrowMaskHidden.value = pixelsToBeginning < 1;
+
+		// Move the mask when close to the beginning
+		maskTranslateX.value = `${pixelsToBeginning > maskWidth ? 0 : -Math.floor(maskWidth - pixelsToBeginning)}px`;
 	}
-}, 100);
+}, 50);
 
 onMounted(() => {
 	eyebrowRef.value?.addEventListener('scroll', throttledCheckEyebrowMask);
