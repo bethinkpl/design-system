@@ -28,6 +28,11 @@
 							:radius="BUTTON_RADIUSES.ROUNDED"
 							:icon="expanderIcon"
 							:size="ICON_BUTTON_SIZES.X_SMALL"
+							:state="
+								isDisabled
+									? ICON_BUTTON_STATES.DISABLED
+									: ICON_BUTTON_STATES.DEFAULT
+							"
 							:touchable="false"
 							@click.stop="isExpanded = !isExpanded"
 						/>
@@ -182,7 +187,7 @@
 		align-items: center;
 		color: $color-neutral-icon-weak;
 		display: flex;
-		padding-right: $space-5xs;
+		margin-right: $space-5xs;
 	}
 
 	&__expanderDotWrapper {
@@ -191,7 +196,7 @@
 		display: inline-flex;
 		height: 20px;
 		justify-content: center;
-		padding-right: $space-5xs;
+		margin-right: $space-5xs;
 		width: 20px;
 	}
 
@@ -271,9 +276,7 @@
 	&.-ds-disabled {
 		pointer-events: none;
 
-		#{$root}__icon,
-		#{$root}__expander,
-		#{$root}__expanderDotWrapper {
+		#{$root}__icon {
 			color: $color-neutral-icon-weak-disabled;
 
 			&.-ds-active {
@@ -320,7 +323,11 @@
 <script setup lang="ts">
 import { computed, inject, provide } from 'vue';
 import DsIcon, { ICON_SIZES, IconItem, ICONS } from '../../Icons/Icon';
-import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
+import DsIconButton, {
+	ICON_BUTTON_COLORS,
+	ICON_BUTTON_SIZES,
+	ICON_BUTTON_STATES,
+} from '../../Buttons/IconButton';
 import {
 	MENU_ITEM_BACKGROUND_COLORS,
 	MENU_ITEM_LEVEL_INJECTION_KEY,

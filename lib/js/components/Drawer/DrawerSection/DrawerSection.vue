@@ -15,6 +15,7 @@
 			:eyebrow="eyebrow"
 			:supporting-text="supportingText"
 			:has-divider="hasDivider"
+			:mobile-layout="SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL"
 			@info-click="onInfoClick"
 			@update:is-expanded="onExpandableHeaderClick"
 		>
@@ -35,6 +36,7 @@ import { IconItem, ICONS } from '../../Icons/Icon';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import SectionHeader, {
 	SECTION_HEADER_ICON_COLORS,
+	SECTION_HEADER_MOBILE_LAYOUTS,
 	SECTION_HEADER_SIZES,
 	SectionHeaderIconColor,
 	SectionHeaderSize,
@@ -125,6 +127,11 @@ export default defineComponent({
 			ICONS: Object.freeze(ICONS),
 			isExpandedInternal: this.isExpanded,
 		};
+	},
+	computed: {
+		SECTION_HEADER_MOBILE_LAYOUTS() {
+			return SECTION_HEADER_MOBILE_LAYOUTS;
+		},
 	},
 	watch: {
 		isExpanded: {
