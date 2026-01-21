@@ -13,22 +13,32 @@
 
 			[loadingSizeClassName]: isLoading,
 
-			[colorClassName]: true,
+			[prominenceClassName]: true,
 		}"
 	>
 		<div
 			v-if="eyebrowText !== null"
-			class="ds-textGroup__eyebrow"
+			class="ds-textGroup__eyebrowWrapper"
 			:class="{
-				'-ds-ellipsis': eyebrowTextEllipsis,
-				'-ds-uppercase': isEyebrowTextUppercase,
+				'-ds-mask-active': isEyebrowMaskActive,
+				'-ds-mask-hidden': isEyebrowMaskHidden,
 			}"
 		>
-			<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
-				<ds-skeleton width="50%" height="100%" />
+			<div
+				ref="eyebrowRef"
+				class="ds-textGroup__eyebrow"
+				:class="{
+					'-ds-ellipsis': eyebrowTextEllipsis,
+					'-ds-uppercase': isEyebrowTextUppercase,
+					'-ds-mask': hasEyebrowMask,
+				}"
+			>
+				<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
+					<ds-skeleton width="50%" height="100%" />
+				</div>
+				<span v-else-if="eyebrowText === ''">&nbsp;</span>
+				<span v-else>{{ eyebrowText }}</span>
 			</div>
-			<span v-else-if="eyebrowText === ''">&nbsp;</span>
-			<span v-else>{{ eyebrowText }}</span>
 		</div>
 		<div
 			v-if="mainText !== null || $slots.mainText"
@@ -79,15 +89,30 @@
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/mixins/background-mask';
 
 $text-group-colors: (
-	'neutral': (
+	'default': (
 		'eyebrow-color': $color-neutral-text-weak,
 		'eyebrow-color-hovered': $color-neutral-text-weak-hovered,
 		'eyebrow-color-disabled': $color-neutral-text-weak-disabled,
 		'main-text-color': $color-neutral-text-strong,
 		'main-text-color-hovered': $color-neutral-text-strong-hovered,
 		'main-text-color-disabled': $color-neutral-text-strong-disabled,
+		'main-text-color-selected': $color-primary-text,
+		'main-text-color-selected-hovered': $color-primary-text-hovered,
+		'main-text-color-selected-disabled': $color-primary-text-disabled,
+		'supporting-text-color': $color-neutral-text,
+		'supporting-text-color-hovered': $color-neutral-text-hovered,
+		'supporting-text-color-disabled': $color-neutral-text-disabled,
+	),
+	'strong': (
+		'eyebrow-color': $color-neutral-text,
+		'eyebrow-color-hovered': $color-neutral-text-hovered,
+		'eyebrow-color-disabled': $color-neutral-text-disabled,
+		'main-text-color': $color-neutral-text-heavy,
+		'main-text-color-hovered': $color-neutral-text-heavy-hovered,
+		'main-text-color-disabled': $color-neutral-text-heavy-disabled,
 		'main-text-color-selected': $color-primary-text,
 		'main-text-color-selected-hovered': $color-primary-text-hovered,
 		'main-text-color-selected-disabled': $color-primary-text-disabled,
@@ -182,6 +207,36 @@ $text-group-colors: (
 		&.-ds-uppercase {
 			@include info-s-extensive-bold-uppercase;
 		}
+
+		&.-ds-mask {
+			overflow: auto;
+			white-space: nowrap;
+
+			&::-webkit-scrollbar {
+				display: none;
+			}
+		}
+	}
+
+	&__eyebrowWrapper {
+		&.-ds-mask-active {
+			direction: rtl;
+			position: relative;
+
+			&:not(.-ds-mask-hidden)::before {
+				@include backgroundMask(white, -90deg);
+
+				bottom: 0;
+				content: '';
+				display: block;
+				left: 0;
+				position: absolute;
+				top: 0;
+				transform: translateX(v-bind(maskTranslateX));
+				transition: transform 0.1s linear;
+				width: v-bind(maskWidthPx);
+			}
+		}
 	}
 
 	&__main {
@@ -264,113 +319,125 @@ $text-group-colors: (
 }
 </style>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
+<script setup lang="ts">
+import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
+import { throttle } from 'lodash';
+import { useElementSize } from '@vueuse/core';
 import DsSkeleton from '../Skeleton/Skeleton.vue';
 import {
-	TEXT_GROUP_COLORS,
 	TEXT_GROUP_LOADING_SIZES,
 	TEXT_GROUP_SIZES,
 	TEXT_GROUP_STATES,
-	TextGroupColor,
+	TextGroupProminence,
 	TextGroupLoadingSize,
 	TextGroupSize,
 	TextGroupState,
+	TEXT_GROUP_PROMINENCE,
 } from './TextGroup.consts';
 import DsTooltip from '../Tooltip';
 
-export default defineComponent({
-	name: 'TextGroup',
-	components: {
-		DsSkeleton,
-		DsTooltip,
-	},
-	props: {
-		size: {
-			type: String as PropType<TextGroupSize>,
-			default: TEXT_GROUP_SIZES.MEDIUM,
-		},
-		color: {
-			type: String as PropType<TextGroupColor>,
-			default: TEXT_GROUP_COLORS.NEUTRAL,
-		},
-		eyebrowText: {
-			type: String as PropType<string | null>,
-			default: null,
-		},
-		eyebrowTextEllipsis: {
-			type: Boolean,
-			default: false,
-		},
-		isEyebrowTextUppercase: {
-			type: Boolean,
-			default: true,
-		},
-		mainText: {
-			type: String as PropType<string | null>,
-			default: null,
-		},
-		mainTextEllipsis: {
-			type: Boolean,
-			default: false,
-		},
-		supportingText: {
-			type: String as PropType<string | null>,
-			default: null,
-		},
-		supportingTextEllipsis: {
-			type: Boolean,
-			default: false,
-		},
-		isInteractive: {
-			type: Boolean,
-			default: true,
-		},
-		skeletonLoadingSize: {
-			type: String as PropType<TextGroupLoadingSize>,
-			default: TEXT_GROUP_LOADING_SIZES.LARGE,
-		},
-		isSelected: {
-			type: Boolean,
-			default: false,
-		},
-		state: {
-			type: String as PropType<TextGroupState>,
-			default: TEXT_GROUP_STATES.DEFAULT,
-		},
-		isSupportingTextTooltipEnabled: {
-			type: Boolean,
-			default: false,
-		},
-		isSupportingTextTooltipEnabledOnMobile: {
-			type: Boolean,
-			default: true,
-		},
-		isSupportingTextTooltipAutoFilledWithContent: {
-			type: Boolean,
-			default: true,
-		},
-		supportingTextTooltipContent: {
-			type: String,
-			default: null,
-		},
-	},
-	data() {
-		return {
-			TEXT_GROUP_SIZES: Object.freeze(TEXT_GROUP_SIZES),
-			TEXT_GROUP_STATES: Object.freeze(TEXT_GROUP_STATES),
-		};
-	},
-	computed: {
-		colorClassName(): string {
-			return `-ds-${this.color}`;
-		},
-		isLoading(): boolean {
-			return this.state === TEXT_GROUP_STATES.LOADING;
-		},
-		loadingSizeClassName(): string {
-			return `-ds-loading-${this.skeletonLoadingSize}`;
-		},
-	},
+const {
+	size = TEXT_GROUP_SIZES.MEDIUM,
+	prominence = TEXT_GROUP_PROMINENCE.DEFAULT,
+	eyebrowText,
+	eyebrowTextEllipsis = false,
+	isEyebrowTextUppercase = true,
+	hasEyebrowMask = false,
+	mainText,
+	mainTextEllipsis = false,
+	supportingText,
+	supportingTextEllipsis = false,
+	isInteractive = true,
+	skeletonLoadingSize = TEXT_GROUP_LOADING_SIZES.LARGE,
+	isSelected = false,
+	state = TEXT_GROUP_STATES.DEFAULT,
+	isSupportingTextTooltipEnabled = false,
+	isSupportingTextTooltipEnabledOnMobile = true,
+	isSupportingTextTooltipAutoFilledWithContent = true,
+	supportingTextTooltipContent,
+} = defineProps<{
+	size?: TextGroupSize;
+	prominence?: TextGroupProminence;
+	eyebrowText?: string | null;
+	eyebrowTextEllipsis?: boolean;
+	isEyebrowTextUppercase?: boolean;
+	hasEyebrowMask?: boolean;
+	mainText?: string | null;
+	mainTextEllipsis?: boolean;
+	supportingText?: string | null;
+	supportingTextEllipsis?: boolean;
+	isInteractive?: boolean;
+	skeletonLoadingSize?: TextGroupLoadingSize;
+	isSelected?: boolean;
+	state?: TextGroupState;
+	isSupportingTextTooltipEnabled?: boolean;
+	isSupportingTextTooltipEnabledOnMobile?: boolean;
+	isSupportingTextTooltipAutoFilledWithContent?: boolean;
+	supportingTextTooltipContent?: string;
+}>();
+
+const prominenceClassName = computed(() => `-ds-${prominence}`);
+const isLoading = computed(() => state === TEXT_GROUP_STATES.LOADING);
+const loadingSizeClassName = computed(() => `-ds-loading-${skeletonLoadingSize}`);
+
+const eyebrowRef = useTemplateRef('eyebrowRef');
+const isEyebrowMaskActive = ref(false);
+const isEyebrowMaskHidden = ref(false);
+const maskTranslateX = ref('0px');
+
+const maskWidth = 20;
+const maskWidthPx = `${maskWidth}px`;
+
+const { width: eyebrowWidth } = useElementSize(eyebrowRef);
+
+const throttledCheckEyebrowMask = throttle(() => {
+	if (eyebrowRef.value) {
+		const pixelsToBeginning =
+			eyebrowRef.value.scrollLeft -
+			(eyebrowRef.value.clientWidth - eyebrowRef.value.scrollWidth);
+
+		// Hide the mask when scrolled to the start (1px tolerance for sub-pixel rendering)
+		isEyebrowMaskHidden.value = pixelsToBeginning < 1;
+
+		// Move the mask when close to the beginning
+		maskTranslateX.value = `${pixelsToBeginning > maskWidth ? 0 : -Math.floor(maskWidth - pixelsToBeginning)}px`;
+	}
+}, 50);
+
+onMounted(() => {
+	eyebrowRef.value?.addEventListener('scroll', throttledCheckEyebrowMask);
 });
+
+onUnmounted(() => {
+	eyebrowRef.value?.removeEventListener('scroll', throttledCheckEyebrowMask);
+});
+
+watch(
+	() => ({
+		hasEyebrowMask,
+		eyebrowText,
+		isEyebrowTextUppercase,
+		eyebrowTextEllipsis,
+		state,
+		eyebrowWidth: eyebrowWidth.value,
+	}),
+	async () => {
+		await nextTick();
+
+		if (hasEyebrowMask && eyebrowRef.value && !eyebrowTextEllipsis) {
+			const eyebrowElement = eyebrowRef.value as HTMLElement;
+
+			isEyebrowMaskActive.value = eyebrowElement.scrollWidth > eyebrowElement.clientWidth;
+
+			if (isEyebrowMaskActive.value) {
+				throttledCheckEyebrowMask();
+			}
+		} else {
+			isEyebrowMaskActive.value = false;
+		}
+	},
+	{
+		immediate: true,
+	},
+);
 </script>

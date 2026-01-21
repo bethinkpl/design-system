@@ -1,5 +1,6 @@
-export const TEXT_GROUP_COLORS = {
-	NEUTRAL: 'neutral',
+export const TEXT_GROUP_PROMINENCE = {
+	DEFAULT: 'default',
+	STRONG: 'strong',
 } as const;
 
 export const TEXT_GROUP_LOADING_SIZES = {
@@ -20,7 +21,8 @@ export const TEXT_GROUP_STATES = {
 	LOADING: 'loading',
 } as const;
 
-export type TextGroupColor = (typeof TEXT_GROUP_COLORS)[keyof typeof TEXT_GROUP_COLORS];
+export type TextGroupProminence =
+	(typeof TEXT_GROUP_PROMINENCE)[keyof typeof TEXT_GROUP_PROMINENCE];
 export type TextGroupLoadingSize =
 	(typeof TEXT_GROUP_LOADING_SIZES)[keyof typeof TEXT_GROUP_LOADING_SIZES];
 export type TextGroupSize = (typeof TEXT_GROUP_SIZES)[keyof typeof TEXT_GROUP_SIZES];

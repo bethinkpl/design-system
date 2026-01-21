@@ -39,12 +39,7 @@ module.exports = {
 				ignorePseudoClasses: ['deep'],
 			},
 		],
-		'value-keyword-case': [
-			'lower',
-			{
-				ignoreProperties: ['--token'],
-			},
-		],
+		'value-keyword-case': null,
 		'order/properties-alphabetical-order': true,
 		'selector-class-pattern': '-?ds-[a-z][a-zA-Z_]*',
 
