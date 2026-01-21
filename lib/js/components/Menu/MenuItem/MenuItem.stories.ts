@@ -42,7 +42,7 @@ const StoryTemplate: StoryFn<typeof MenuItem> = (args) => {
 									:icon-left="ICONS[iconLeft]" :icon-right="ICONS[iconRight]" :is-done="isDone"
 									:is-selected="isSelected" :background-color="backgroundColor" :index="index"
 									:is-label-uppercase="isLabelUppercase" :icon-right-rotation="iconRightRotation"
-									:has-selected-icons-color-primary="hasSelectedIconsColorPrimary"
+									:has-selected-accessories-primary="hasSelectedAccessoriesPrimary"
 									:is-selected-interactive="isSelectedInteractive" :level="level"
 									:is-expandable="isExpandable" :is-expanded="isExpanded"
 				   @update:isExpanded="isExpandedUpdated">
@@ -78,7 +78,7 @@ const args = {
 	isExpanded: false,
 	isSelected: false,
 	isDone: false,
-	hasSelectedIconsColorPrimary: true,
+	hasSelectedAccessoriesPrimary: true,
 	isSelectedInteractive: false,
 } as Args;
 
@@ -131,7 +131,7 @@ const argTypes = {
 	isDone: {
 		control: 'boolean',
 	},
-	hasSelectedIconsColorPrimary: {
+	hasSelectedAccessoriesPrimary: {
 		control: 'boolean',
 	},
 	isSelectedInteractive: {
