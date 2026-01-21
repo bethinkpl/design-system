@@ -23,10 +23,10 @@
 					<span class="ds-menuItem__text">
 						<ds-icon-button
 							v-if="isExpandable && $slots.children"
-							class="ds-menuItem__expaneder"
+							class="ds-menuItem__expander"
 							:color="ICON_BUTTON_COLORS.NEUTRAL"
 							:radius="BUTTON_RADIUSES.ROUNDED"
-							:icon="expandableIcon"
+							:icon="expanderIcon"
 							:size="ICON_BUTTON_SIZES.X_SMALL"
 							:touchable="false"
 							@click.stop="isExpanded = !isExpanded"
@@ -41,7 +41,9 @@
 							<span
 								v-if="index !== null"
 								class="ds-menuItem__index"
-								:class="{ '-ds-active': isSelected }"
+								:class="{
+									'-ds-active': isSelected && hasSelectedAccessoriesPrimary,
+								}"
 							>
 								{{ index }}.
 							</span>
@@ -49,7 +51,7 @@
 								v-if="iconLeft"
 								class="ds-menuItem__icon"
 								:class="{
-									'-ds-active': isSelected && hasSelectedIconsColorPrimary,
+									'-ds-active': isSelected && hasSelectedAccessoriesPrimary,
 								}"
 								:icon="iconLeft"
 								:size="ICON_SIZES.X_SMALL"
@@ -93,7 +95,7 @@
 					v-else-if="iconRight"
 					class="ds-menuItem__icon"
 					:class="{
-						'-ds-active': isSelected && hasSelectedIconsColorPrimary,
+						'-ds-active': isSelected && hasSelectedAccessoriesPrimary,
 					}"
 					:icon="iconRight"
 					:size="ICON_SIZES.X_SMALL"
@@ -246,7 +248,7 @@
 
 	&__icon {
 		color: $color-neutral-icon-weak;
-		margin-right: $space-3xs;
+		margin-right: $space-4xs;
 
 		&.-ds-active {
 			color: $color-primary-icon;
@@ -269,7 +271,9 @@
 	&.-ds-disabled {
 		pointer-events: none;
 
-		#{$root}__icon {
+		#{$root}__icon,
+		#{$root}__expander,
+		#{$root}__expanderDotWrapper {
 			color: $color-neutral-icon-weak-disabled;
 
 			&.-ds-active {
@@ -291,7 +295,8 @@
 	}
 
 	&.-ds-medium {
-		padding: $space-xs $space-2xs $space-xs $space-xs;
+		min-height: 48px;
+		padding: $space-s $space-2xs $space-s $space-xs;
 
 		#{$root}__label {
 			@include label-l-default-bold;
@@ -325,7 +330,7 @@ import {
 	type MenuItemSize,
 	type MenuItemState,
 } from './MenuItem.consts';
-import { BUTTON_RADIUSES } from '../../Buttons/Button'; // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
+import { BUTTON_RADIUSES } from '../../Buttons/Button';
 
 // DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
 type RouterLocation = string | Record<string, unknown>;
@@ -346,7 +351,7 @@ const {
 	isExpandable = false,
 	isSelected = false,
 	isDone = false,
-	hasSelectedIconsColorPrimary = true,
+	hasSelectedAccessoriesPrimary = true,
 	isSelectedInteractive = false,
 	level = null,
 } = defineProps<{
@@ -365,7 +370,7 @@ const {
 	isExpandable?: boolean;
 	isSelected?: boolean;
 	isDone?: boolean;
-	hasSelectedIconsColorPrimary?: boolean;
+	hasSelectedAccessoriesPrimary?: boolean;
 	isSelectedInteractive?: boolean;
 	level?: number | null;
 }>();
@@ -423,7 +428,7 @@ const shouldRenderComponent = computed(
 		label ||
 		additionalText ||
 		slots.labelSlot ||
-		isExpandable ||
+		(slots.children && (!isExpandable || isExpanded.value)) ||
 		index !== null ||
 		iconLeft ||
 		shouldRenderRightContent.value,
@@ -435,7 +440,7 @@ const levelClass = computed(() => {
 	return `-ds-level${limitedLevel}`;
 });
 
-const expandableIcon = computed(() => {
+const expanderIcon = computed(() => {
 	if (!slots.children) {
 		return ICONS.FA_DOT_SOLID;
 	}

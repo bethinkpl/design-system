@@ -60,7 +60,7 @@ const StoryTemplate: StoryFn<typeof DrawerSection> = (args) => {
 				<template #uncollapsible>
 					<slot-placeholder label="uncollapsible slot" :size="SLOT_PLACEHOLDER_SIZES.MEDIUM" /></template>
 				<template #sectionHeaderDefault>
-					<slot-placeholder label="section header children slot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
+					<slot-placeholder label="section header default slot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
 				</template>
 			</drawer-section>`,
 	};

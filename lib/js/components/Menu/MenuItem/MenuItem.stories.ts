@@ -3,6 +3,7 @@ import DsChip from '../../Chip/Chip.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { toRefs } from 'vue';
 import { ICONS } from '../../Icons/Icon';
+import SectionHeader, { SECTION_HEADER_SIZES } from '../../Headers/SectionHeader';
 import { MENU_ITEM_BACKGROUND_COLORS, MENU_ITEM_SIZES, MENU_ITEM_STATES } from './MenuItem.consts';
 import DsMenu from '../Menu';
 import SlotPlaceholder, {
@@ -148,6 +149,31 @@ Interactive.parameters = {
 	},
 };
 
+const SectionHeaderMenuTemplate: StoryFn<typeof MenuItem> = (args) => ({
+	components: { MenuItem, DsMenu, SectionHeader },
+	setup() {
+		return {
+			SECTION_HEADER_SIZES,
+		};
+	},
+	template: `
+		<menu-item label="level 1">
+			<template #children>
+				<section-header title="Section Header XXS Level 2" :size="SECTION_HEADER_SIZES.XX_SMALL" :has-divider="false" />
+				<menu-item label="level 2">
+					<template #children>
+						<menu-item label="level 3 first item" />
+						<section-header title="Section Header XXS Level 3" :size="SECTION_HEADER_SIZES.XX_SMALL" :has-divider="false" />
+						<menu-item label="level 3 second item" />
+					</template>
+				</menu-item>
+				<menu-item label="level 2 another item" />
+			</template>
+		</menu-item>`,
+});
+
+export const SectionHeaderMenu = SectionHeaderMenuTemplate.bind({});
+
 const NestedMenuTemplate: StoryFn<typeof MenuItem> = (args) => ({
 	components: { MenuItem, DsMenu },
 	template: `
@@ -186,3 +212,42 @@ const NestedMenuTemplate: StoryFn<typeof MenuItem> = (args) => ({
 		</menu-item>`,
 });
 export const Nested = NestedMenuTemplate.bind({});
+
+const NestedExpandableMenuTemplate: StoryFn<typeof MenuItem> = (args) => ({
+	components: { MenuItem, DsMenu },
+	template: `
+		<menu-item is-expandable label="level 1">
+			<template #children>
+				<ds-menu>
+					<menu-item is-expandable label="level 2" />
+					<menu-item is-expandable label="level 2">
+						<template #children>
+							<ds-menu>
+								<menu-item is-expandable label="level 3">
+									<template #children>
+										<ds-menu>
+											<menu-item is-expandable label="level 4">
+												<template #children>
+													<ds-menu>
+														<menu-item is-expandable label="level 5">
+															<template #children>
+																<ds-menu>
+																	<menu-item is-expandable label="level 6" />
+																</ds-menu>
+															</template>
+														</menu-item>
+													</ds-menu>
+												</template>
+											</menu-item>
+										</ds-menu>
+									</template>
+								</menu-item>
+							</ds-menu>
+						</template>
+					</menu-item>
+					<menu-item is-expandable label="level 2" />
+				</ds-menu>
+			</template>
+		</menu-item>`,
+});
+export const NestedExpandable = NestedExpandableMenuTemplate.bind({});

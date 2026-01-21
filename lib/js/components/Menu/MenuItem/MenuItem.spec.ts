@@ -214,7 +214,7 @@ describe('MenuItem', () => {
 
 			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(false);
 			const expanderIconButton =
-				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expaneder');
+				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expander');
 			expect(expanderIconButton.exists()).toBe(true);
 			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_RIGHT);
 			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(false);
@@ -235,7 +235,7 @@ describe('MenuItem', () => {
 
 			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(false);
 			const expanderIconButton =
-				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expaneder');
+				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expander');
 			expect(expanderIconButton.exists()).toBe(true);
 			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_DOWN);
 			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(true);
@@ -255,7 +255,7 @@ describe('MenuItem', () => {
 			);
 
 			const expanderIconButton =
-				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expaneder');
+				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expander');
 			expect(expanderIconButton.exists()).toBe(true);
 			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_RIGHT);
 			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(false);
@@ -463,14 +463,6 @@ describe('MenuItem', () => {
 				iconLeft: ICONS.FA_CHEVRON_RIGHT,
 			});
 			// Component should render when iconLeft is provided with label
-			expect(wrapper.find('.ds-menuItem').exists()).toBe(true);
-		});
-
-		it('renders when isExpandable is provided', () => {
-			const wrapper = createComponent({
-				label: '',
-				isExpandable: true,
-			});
 			expect(wrapper.find('.ds-menuItem').exists()).toBe(true);
 		});
 

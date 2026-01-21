@@ -17,6 +17,7 @@ import { faArrowsRotate } from '@fortawesome/pro-regular-svg-icons/faArrowsRotat
 import { faArrowsToDottedLine } from '@fortawesome/pro-regular-svg-icons/faArrowsToDottedLine';
 import { faArrowUpRightAndArrowDownLeftFromCenter } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightAndArrowDownLeftFromCenter';
 import { faArrowUpRightFromSquare } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightFromSquare';
+import { faArrowUpToDottedLine } from '@fortawesome/pro-regular-svg-icons/faArrowUpToDottedLine';
 import { faAtom as fasAtom } from '@fortawesome/pro-solid-svg-icons/faAtom';
 import { faBadgePercent } from '@fortawesome/pro-regular-svg-icons/faBadgePercent';
 import { faBan } from '@fortawesome/pro-regular-svg-icons/faBan';
@@ -266,6 +267,7 @@ export const FONTAWESOME_ICONS = {
 	FA_ARROW_UP_BIG_SMALL: faArrowUpBigSmall,
 	FA_ARROW_UP_RIGHT_AND_ARROW_DOWN_LEFT_FROM_CENTER: faArrowUpRightAndArrowDownLeftFromCenter,
 	FA_ARROW_UP_RIGHT_FROM_SQUARE: faArrowUpRightFromSquare,
+	FA_ARROW_UP_TO_DOTTED_LINE: faArrowUpToDottedLine,
 	FA_ARROW_UP_SOLID: fasArrowUp,
 	FA_ARROWS_LEFT_RIGHT_SOLID: fasArrowsLeftRight,
 	FA_ARROWS_FROM_DOTTED_LINE: faArrowsFromDottedLine,
