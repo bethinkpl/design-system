@@ -120,18 +120,18 @@ export default defineComponent({
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['info-click', 'update:isExpanded'],
-	data() {
+	setup() {
 		return {
-			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
-			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
-			ICONS: Object.freeze(ICONS),
-			isExpandedInternal: this.isExpanded,
+			ICON_BUTTON_COLORS,
+			ICON_BUTTON_SIZES,
+			ICONS,
+			SECTION_HEADER_MOBILE_LAYOUTS,
 		};
 	},
-	computed: {
-		SECTION_HEADER_MOBILE_LAYOUTS() {
-			return SECTION_HEADER_MOBILE_LAYOUTS;
-		},
+	data() {
+		return {
+			isExpandedInternal: this.isExpanded,
+		};
 	},
 	watch: {
 		isExpanded: {
