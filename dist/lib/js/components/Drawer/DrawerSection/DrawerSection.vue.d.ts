@@ -59,8 +59,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-}>, {}, {
-    ICON_BUTTON_COLORS: Readonly<{
+}>, {
+    ICON_BUTTON_COLORS: {
         readonly PRIMARY: "primary";
         readonly NEUTRAL: "neutral";
         readonly NEUTRAL_WEAK: "neutral-weak";
@@ -70,15 +70,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly INVERTED: "inverted";
         readonly WARNING: "warning";
         readonly INFO: "info";
-    }>;
-    ICON_BUTTON_SIZES: Readonly<{
+    };
+    ICON_BUTTON_SIZES: {
         readonly XX_SMALL: "xx-small";
         readonly X_SMALL: "x-small";
         readonly SMALL: "small";
         readonly MEDIUM: "medium";
         readonly LARGE: "large";
-    }>;
-    ICONS: Readonly<{
+    };
+    ICONS: {
         readonly ANSWERS: VueConstructor<Vue>;
         readonly CHANGE: VueConstructor<Vue>;
         readonly COMMENTS_CHECK: VueConstructor<Vue>;
@@ -98,6 +98,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_ARROW_DOWN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_DOWN_TO_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_LEFT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROW_LEFT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_POINTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -108,8 +109,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROWS_FROM_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROWS_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -331,7 +334,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FAD_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FAD_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FAD_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
-    }>;
+    };
+    SECTION_HEADER_MOBILE_LAYOUTS: {
+        readonly VERTICAL: "vertical";
+        readonly HORIZONTAL: "horizontal";
+    };
+}, {
     isExpandedInternal: boolean;
 }, {}, {
     onExpandableHeaderClick(value: any): void;
@@ -500,6 +508,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_ARROW_DOWN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_DOWN_TO_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_LEFT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ARROW_LEFT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_POINTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -510,8 +519,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ARROWS_FROM_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ARROWS_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1008,6 +1019,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_ARROW_DOWN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_DOWN_TO_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_LEFT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_ARROW_LEFT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_POINTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1018,8 +1030,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_ARROWS_FROM_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_ARROWS_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;

@@ -16,8 +16,4 @@ export declare const MENU_ITEM_BACKGROUND_COLORS: {
     NEUTRAL: string;
 };
 export type MenuItemBackgroundColor = Value<typeof MENU_ITEM_BACKGROUND_COLORS>;
-export declare const MENU_ITEM_ACCESSORY_STATES: {
-    DOT: string;
-};
-export type MenuItemAccessoryState = Value<typeof MENU_ITEM_ACCESSORY_STATES>;
 export declare const MENU_ITEM_LEVEL_INJECTION_KEY: InjectionKey<number>;
