@@ -22,13 +22,4 @@ export const MENU_ITEM_BACKGROUND_COLORS = {
 
 export type MenuItemBackgroundColor = Value<typeof MENU_ITEM_BACKGROUND_COLORS>;
 
-export const MENU_ITEM_ACCESSORY_STATES = {
-	DOT: 'dot',
-	// not implemented for now
-	// EXPANDED: 'expanded',
-	// COLLAPSED: 'collapsed',
-};
-
-export type MenuItemAccessoryState = Value<typeof MENU_ITEM_ACCESSORY_STATES>;
-
 export const MENU_ITEM_LEVEL_INJECTION_KEY: InjectionKey<number> = Symbol('menuItemLevel');

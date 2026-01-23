@@ -3,13 +3,13 @@ import { mount, shallowMount } from '@vue/test-utils';
 import { h } from 'vue';
 import MenuItem from './MenuItem.vue';
 import {
-	MENU_ITEM_ACCESSORY_STATES,
 	MENU_ITEM_BACKGROUND_COLORS,
 	MENU_ITEM_LEVEL_INJECTION_KEY,
 	MENU_ITEM_SIZES,
 	MENU_ITEM_STATES,
 } from './MenuItem.consts';
 import { ICONS } from '../../Icons/Icon';
+import { DsIconButton } from '../../../index';
 
 describe('MenuItem', () => {
 	const createComponent = (props = {} as any, options = {}) => {
@@ -182,19 +182,93 @@ describe('MenuItem', () => {
 		});
 	});
 
-	describe('Accessory state', () => {
-		it('does not render accessory when accessoryState is null', () => {
-			const wrapper = createComponent({ accessoryState: null });
+	describe('Expandable', () => {
+		it('does not render expandable icons when isExpandable is false', () => {
+			const wrapper = createComponent({ isExpandable: false });
 
-			expect(wrapper.find('.ds-menuItem__accessory').exists()).toBe(false);
+			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(false);
+			expect(wrapper.find('.ds-menuItem__expaneder').exists()).toBe(false);
 		});
 
-		it('renders dot accessory when accessoryState is dot', () => {
+		it('renders dot when isExpandable is true and no children slot set', () => {
 			const wrapper = createComponent({
-				accessoryState: MENU_ITEM_ACCESSORY_STATES.DOT,
+				isExpandable: true,
 			});
 
-			expect(wrapper.find('.ds-menuItem__accessory').exists()).toBe(true);
+			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(true);
+			expect(wrapper.find('.ds-menuItem__expaneder').exists()).toBe(false);
+		});
+
+		it('renders chevron right icon button when isExpandable is true and children is set but not render children', () => {
+			const wrapper = createComponent(
+				{
+					isExpandable: true,
+					isExpanded: false,
+				},
+				{
+					slots: {
+						children: '<strong data-test-id="children-identifier">children</strong>',
+					},
+				},
+			);
+
+			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(false);
+			const expanderIconButton =
+				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expander');
+			expect(expanderIconButton.exists()).toBe(true);
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_RIGHT);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(false);
+		});
+
+		it('renders chevron down icon button when isExpandable is true and children is set and render it when is expanded', () => {
+			const wrapper = createComponent(
+				{
+					isExpandable: true,
+					isExpanded: true,
+				},
+				{
+					slots: {
+						children: '<strong data-test-id="children-identifier">children</strong>',
+					},
+				},
+			);
+
+			expect(wrapper.find('.ds-menuItem__expanderDotWrapper').exists()).toBe(false);
+			const expanderIconButton =
+				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expander');
+			expect(expanderIconButton.exists()).toBe(true);
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_DOWN);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(true);
+		});
+
+		it('should change children and icon state when clicking on expander icon', async () => {
+			const wrapper = createComponent(
+				{
+					isExpandable: true,
+					isExpanded: false,
+				},
+				{
+					slots: {
+						children: '<strong data-test-id="children-identifier">children</strong>',
+					},
+				},
+			);
+
+			const expanderIconButton =
+				wrapper.findComponent<typeof DsIconButton>('.ds-menuItem__expander');
+			expect(expanderIconButton.exists()).toBe(true);
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_RIGHT);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(false);
+
+			await expanderIconButton.trigger('click');
+
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_DOWN);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(true);
+
+			await expanderIconButton.trigger('click');
+
+			expect(expanderIconButton.props().icon).toEqual(ICONS.FA_CHEVRON_RIGHT);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(false);
 		});
 	});
 
@@ -355,7 +429,7 @@ describe('MenuItem', () => {
 					additionalText: '',
 					index: null,
 					iconLeft: null,
-					accessoryState: null,
+					isExpandable: false,
 				},
 			});
 
@@ -389,14 +463,6 @@ describe('MenuItem', () => {
 				iconLeft: ICONS.FA_CHEVRON_RIGHT,
 			});
 			// Component should render when iconLeft is provided with label
-			expect(wrapper.find('.ds-menuItem').exists()).toBe(true);
-		});
-
-		it('renders when accessoryState is provided', () => {
-			const wrapper = createComponent({
-				label: '',
-				accessoryState: MENU_ITEM_ACCESSORY_STATES.DOT,
-			});
 			expect(wrapper.find('.ds-menuItem').exists()).toBe(true);
 		});
 

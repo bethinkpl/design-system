@@ -15,9 +15,14 @@
 			:eyebrow="eyebrow"
 			:supporting-text="supportingText"
 			:has-divider="hasDivider"
+			:mobile-layout="SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL"
 			@info-click="onInfoClick"
 			@update:is-expanded="onExpandableHeaderClick"
-		/>
+		>
+			<template v-if="$slots.sectionHeaderDefault" #default>
+				<slot name="sectionHeaderDefault" />
+			</template>
+		</ds-section-header>
 
 		<div v-if="isExpandedInternal || !isExpandable">
 			<slot />
@@ -31,6 +36,7 @@ import { IconItem, ICONS } from '../../Icons/Icon';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import SectionHeader, {
 	SECTION_HEADER_ICON_COLORS,
+	SECTION_HEADER_MOBILE_LAYOUTS,
 	SECTION_HEADER_SIZES,
 	SectionHeaderIconColor,
 	SectionHeaderSize,
@@ -114,11 +120,16 @@ export default defineComponent({
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['info-click', 'update:isExpanded'],
+	setup() {
+		return {
+			ICON_BUTTON_COLORS,
+			ICON_BUTTON_SIZES,
+			ICONS,
+			SECTION_HEADER_MOBILE_LAYOUTS,
+		};
+	},
 	data() {
 		return {
-			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
-			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
-			ICONS: Object.freeze(ICONS),
 			isExpandedInternal: this.isExpanded,
 		};
 	},
