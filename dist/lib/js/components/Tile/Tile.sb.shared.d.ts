@@ -22,6 +22,7 @@ export declare const data: () => {
         readonly FA_ARROW_DOWN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_DOWN_TO_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_LEFT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROW_LEFT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_POINTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -32,8 +33,10 @@ export declare const data: () => {
         readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROWS_FROM_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROWS_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ATOM_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -279,6 +282,7 @@ export declare const data: () => {
 export declare const components: {
     DsBanner: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+            isExpanded: import('vue').PropType<boolean>;
             icon: import('../Icons/Icon').IconItem | null;
             buttonText: {
                 type: import('vue').PropType<string>;
@@ -293,9 +297,6 @@ export declare const components: {
                 type: import('vue').PropType<string>;
                 required: true;
             };
-            isExpanded: {
-                type: import('vue').PropType<boolean>;
-            };
             isIconHiddenOnMobile: {
                 type: import('vue').PropType<boolean>;
             };
@@ -308,11 +309,9 @@ export declare const components: {
         }>> & Readonly<{
             onClose?: (() => any) | undefined;
             "onButton-clicked"?: (() => any) | undefined;
-            "onUpdate:isExpanded"?: ((isExpanded: boolean) => any) | undefined;
         }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
             close: () => void;
             "button-clicked": () => void;
-            "update:isExpanded": (isExpanded: boolean) => void;
         }, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
@@ -321,6 +320,7 @@ export declare const components: {
             M: {};
             Defaults: {};
         }, Readonly<import('vue').ExtractPropTypes<{
+            isExpanded: import('vue').PropType<boolean>;
             icon: import('../Icons/Icon').IconItem | null;
             buttonText: {
                 type: import('vue').PropType<string>;
@@ -335,9 +335,6 @@ export declare const components: {
                 type: import('vue').PropType<string>;
                 required: true;
             };
-            isExpanded: {
-                type: import('vue').PropType<boolean>;
-            };
             isIconHiddenOnMobile: {
                 type: import('vue').PropType<boolean>;
             };
@@ -350,12 +347,12 @@ export declare const components: {
         }>> & Readonly<{
             onClose?: (() => any) | undefined;
             "onButton-clicked"?: (() => any) | undefined;
-            "onUpdate:isExpanded"?: ((isExpanded: boolean) => any) | undefined;
         }>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
         __isTeleport?: never;
         __isSuspense?: never;
     } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
+        isExpanded: import('vue').PropType<boolean>;
         icon: import('../Icons/Icon').IconItem | null;
         buttonText: {
             type: import('vue').PropType<string>;
@@ -370,9 +367,6 @@ export declare const components: {
             type: import('vue').PropType<string>;
             required: true;
         };
-        isExpanded: {
-            type: import('vue').PropType<boolean>;
-        };
         isIconHiddenOnMobile: {
             type: import('vue').PropType<boolean>;
         };
@@ -385,11 +379,9 @@ export declare const components: {
     }>> & Readonly<{
         onClose?: (() => any) | undefined;
         "onButton-clicked"?: (() => any) | undefined;
-        "onUpdate:isExpanded"?: ((isExpanded: boolean) => any) | undefined;
     }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
         close: () => void;
         "button-clicked": () => void;
-        "update:isExpanded": (isExpanded: boolean) => void;
     }, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {
             defaultText?(_: {}): any;
