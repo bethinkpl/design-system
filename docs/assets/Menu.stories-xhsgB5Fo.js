@@ -1,4 +1,4 @@
-import{D as l,M as s,a}from"./MenuItem-io4y1PO-.js";import{M as o}from"./MenuDivider-Dgyfsu8x.js";import"./vue.esm-bundler-DJk5tYYm.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./Icon-Bo2gGD6U.js";import"./IconButton-BwUIWo5r.js";import"./Button-6FZN3-82.js";import"./device-9fgosCm4.js";import"./Divider-B2bMofDY.js";const I={title:"Components/Menu/Menu",component:l},u=r=>({components:{DsMenu:l,MenuItem:s,MenuDivider:o},setup(){return r},template:`
+import{D as l,M as s,a}from"./MenuItem-DcTS-VLS.js";import{M as o}from"./MenuDivider-Dgyfsu8x.js";import"./vue.esm-bundler-DJk5tYYm.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./Icon-Bo2gGD6U.js";import"./IconButton-BwUIWo5r.js";import"./Button-6FZN3-82.js";import"./device-9fgosCm4.js";import"./Divider-B2bMofDY.js";const I={title:"Components/Menu/Menu",component:l},u=r=>({components:{DsMenu:l,MenuItem:s,MenuDivider:o},setup(){return r},template:`
         <ds-menu :layout="layout" >
             <menu-item label="level 1" />
             <menu-item label="level 1" />
