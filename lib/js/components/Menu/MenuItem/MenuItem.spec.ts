@@ -423,17 +423,30 @@ describe('MenuItem', () => {
 
 	describe('Conditional rendering', () => {
 		it('does not render when no content is provided', () => {
-			const wrapper = shallowMount(MenuItem, {
-				props: {
-					label: '',
-					additionalText: '',
-					index: null,
-					iconLeft: null,
-					isExpandable: false,
-				},
+			const wrapper = createComponent({
+				label: '',
+				additionalText: '',
+				index: null,
+				iconLeft: null,
 			});
 
 			expect(wrapper.find('.ds-menuItem').exists()).toBe(false);
+		});
+
+		it('does not render component but renders children slot if is provided', () => {
+			const wrapper = createComponent(
+				{
+					label: '',
+				},
+				{
+					slots: {
+						children: '<strong data-test-id="children-identifier">children</strong>',
+					},
+				},
+			);
+
+			expect(wrapper.find('.ds-menuItem').exists()).toBe(false);
+			expect(wrapper.find('[data-test-id="children-identifier"]').exists()).toBe(true);
 		});
 
 		it('renders when label is provided', () => {
