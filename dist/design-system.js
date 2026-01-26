@@ -13679,7 +13679,7 @@ const AJ = /* @__PURE__ */ $(cG, [["render", vG]]), B8 = {
       const v = Fn(q8, null);
       return e.level !== null ? e.level : v !== null ? v : 1;
     }), c = Y(() => r.default || e.isDone || e.iconRight), f = Y(
-      () => e.label || e.additionalText || r.labelSlot || r.children && (!e.isExpandable || t.value) || e.index !== null || e.iconLeft || c.value
+      () => e.label || e.additionalText || r.labelSlot || e.index !== null || e.iconLeft || c.value
     ), g = Y(() => `-ds-level${l.value > 6 ? 6 : l.value}`), m = Y(() => r.children ? t.value ? q.FA_CHEVRON_DOWN : q.FA_CHEVRON_RIGHT : q.FA_DOT_SOLID);
     return Ml(q8, l.value + 1), (v, y) => (p(), E("li", gG, [
       f.value ? (p(), j(Gi(a.value), xe({ key: 0 }, o.value, {
@@ -13771,7 +13771,7 @@ const AJ = /* @__PURE__ */ $(cG, [["render", vG]]), B8 = {
       !v.isExpandable || t.value ? H(v.$slots, "children", { key: 1 }, void 0, !0) : O("", !0)
     ]));
   }
-}), TJ = /* @__PURE__ */ $(CG, [["__scopeId", "data-v-f6eb8706"]]), LG = W({
+}), TJ = /* @__PURE__ */ $(CG, [["__scopeId", "data-v-98c1447f"]]), LG = W({
   name: "MenuDivider",
   components: {
     DsDivider: dt
