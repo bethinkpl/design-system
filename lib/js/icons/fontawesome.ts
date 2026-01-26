@@ -175,6 +175,7 @@ import { faWandMagicSparkles } from '@fortawesome/pro-regular-svg-icons/faWandMa
 import { faWindowMaximize } from '@fortawesome/pro-regular-svg-icons/faWindowMaximize';
 import { faQuestion } from '@fortawesome/pro-regular-svg-icons/faQuestion';
 import { faXmark } from '@fortawesome/pro-regular-svg-icons/faXmark';
+import { faXmark as fasXmark } from '@fortawesome/pro-solid-svg-icons/faXmark';
 import { faCommentsQuestion } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestion';
 import { faCommentsQuestionCheck } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestionCheck';
 import { faCalendarClock } from '@fortawesome/pro-regular-svg-icons/faCalendarClock';
@@ -494,6 +495,7 @@ export const FONTAWESOME_ICONS = {
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
 	FA_XMARK: faXmark,
+	FA_XMARK_SOLID: fasXmark,
 	FAD_SPINNER_THIRD: fadSpinnerThird,
 	FAD_SQUARE_MINUS: fadSquareMinus,
 	FAD_SQUARE: fadSquare,
