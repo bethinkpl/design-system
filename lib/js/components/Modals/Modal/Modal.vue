@@ -22,7 +22,7 @@
 				</div>
 				<div
 					class="ds-modal__scrollableWrapper"
-					:class="{ '-disable-scrollable': !isScrollable }"
+					:class="{ '-ds-disable-scrollable': !isScrollable }"
 				>
 					<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
 					<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
@@ -165,6 +165,7 @@ $image-height-small: 140px;
 		max-width: $modal-medium-width;
 		overflow: hidden;
 		padding-top: $space-xl;
+		padding-top: $space-xl;
 		position: relative;
 		width: 100%;
 
@@ -185,9 +186,9 @@ $image-height-small: 140px;
 			max-width: $modal-small-width;
 
 			@media #{breakpoint-s()} {
-				#{$self}__content {
-					padding-left: $space-m;
-					padding-right: $space-m;
+				#{$self}__scrollableWrapper {
+					margin-left: $space-m;
+					margin-right: $space-m;
 				}
 			}
 
@@ -206,7 +207,7 @@ $image-height-small: 140px;
 			margin: 0 $space-xl $space-l;
 		}
 
-		&.-disable-scrollable {
+		&.-ds-disable-scrollable {
 			overflow-y: hidden;
 			#{$self}__content,
 			#{$self}__slotContent {
