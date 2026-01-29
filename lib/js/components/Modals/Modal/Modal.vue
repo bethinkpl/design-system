@@ -199,7 +199,6 @@ $image-height-small: 140px;
 
 	&__scrollableWrapper {
 		flex: 1;
-		margin: 0 $space-s $space-l;
 		overflow-y: auto;
 
 		&.-ds-disable-scrollable {
@@ -214,6 +213,7 @@ $image-height-small: 140px;
 	&__content {
 		display: flex;
 		flex-direction: column;
+		padding: 0 $space-s $space-l;
 
 		@media #{breakpoint-s()} {
 			padding: 0 $space-xl $space-l;
