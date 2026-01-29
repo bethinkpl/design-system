@@ -1,7 +1,13 @@
 <template>
 	<teleport to="body">
 		<div class="ds-modal" v-bind="$attrs" @click.self="$emit('close-modal')">
-			<div class="ds-modal__wrapper" :class="{ '-ds-small': size === MODAL_SIZES.SMALL }">
+			<div
+				class="ds-modal__wrapper"
+				:class="{
+					'-ds-small': size === MODAL_SIZES.SMALL,
+					'-ds-fullHeight': isFullHeight,
+				}"
+			>
 				<div class="ds-modal__rightActions">
 					<slot name="rightActions" />
 					<wnl-icon-button
@@ -14,7 +20,10 @@
 						@click.stop="$emit('close-modal')"
 					/>
 				</div>
-				<div class="ds-modal__scrollableWrapper">
+				<div
+					class="ds-modal__scrollableWrapper"
+					:class="{ '-disable-scrollable': !isScrollable }"
+				>
 					<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
 					<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
 						<div v-if="headerTitle" class="ds-modal__header">
@@ -163,6 +172,15 @@ $image-height-small: 140px;
 			max-height: 84vh;
 		}
 
+		&.-ds-fullHeight {
+			height: 100%;
+
+			#{$self}__content,
+			#{$self}__slotContent {
+				height: 100%;
+			}
+		}
+
 		&.-ds-small {
 			max-width: $modal-small-width;
 
@@ -181,15 +199,25 @@ $image-height-small: 140px;
 
 	&__scrollableWrapper {
 		flex: 1;
+		margin: 0 $space-s $space-l;
 		overflow-y: auto;
+
+		@media #{breakpoint-s()} {
+			margin: 0 $space-xl $space-l;
+		}
+
+		&.-disable-scrollable {
+			overflow-y: hidden;
+			#{$self}__content,
+			#{$self}__slotContent {
+				overflow-y: hidden;
+			}
+		}
 	}
 
 	&__content {
-		padding: 0 $space-s $space-l;
-
-		@media #{breakpoint-s()} {
-			padding: 0 $space-xl $space-l;
-		}
+		display: flex;
+		flex-direction: column;
 
 		&.-ds-centered {
 			#{$self}__header,
@@ -455,27 +483,33 @@ export default defineComponent({
 			type: String,
 			default: null,
 		},
+		isFullHeight: {
+			type: Boolean,
+			default: false,
+		},
+		isScrollable: {
+			type: Boolean,
+			default: true,
+		},
 	},
-	// TODO fix me when touching this file
-	/* eslint vue/require-emit-validator: 0 */
-	emits: [
-		'tertiary-button-click',
-		'checkbox-change',
-		'close-modal',
-		'secondary-button-click',
-		'primary-button-click',
-	],
-	data() {
+	emits: {
+		'tertiary-button-click': () => true,
+		'checkbox-change': (checked: boolean) => true,
+		'close-modal': () => true,
+		'secondary-button-click': () => true,
+		'primary-button-click': () => true,
+	},
+	setup() {
 		return {
-			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
-			BUTTON_ELEVATIONS: Object.freeze(BUTTON_ELEVATIONS),
-			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
-			ICONS: Object.freeze(ICONS),
-			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
-			MODAL_SIZES: Object.freeze(MODAL_SIZES),
-			MODAL_HEADER_TITLE_SIZES: Object.freeze(MODAL_HEADER_TITLE_SIZES),
-			FEATURE_ICON_SIZES: Object.freeze(FEATURE_ICON_SIZES),
+			BUTTON_COLORS,
+			BUTTON_ELEVATIONS,
+			BUTTON_TYPES,
+			ICONS,
+			ICON_BUTTON_COLORS,
+			ICON_SIZES,
+			MODAL_SIZES,
+			MODAL_HEADER_TITLE_SIZES,
+			FEATURE_ICON_SIZES,
 		};
 	},
 	computed: {
