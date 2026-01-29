@@ -200,6 +200,7 @@ $image-height-small: 140px;
 	&__scrollableWrapper {
 		flex: 1;
 		overflow-y: auto;
+		margin-bottom: $space-l;
 
 		&.-ds-disable-scrollable {
 			overflow-y: hidden;
@@ -213,12 +214,11 @@ $image-height-small: 140px;
 	&__content {
 		display: flex;
 		flex-direction: column;
-		padding: 0 $space-s $space-l;
+		padding: 0 $space-s 0;
 
 		@media #{breakpoint-s()} {
-			padding: 0 $space-xl $space-l;
+			padding: 0 $space-xl 0;
 		}
-
 		&.-ds-centered {
 			#{$self}__header,
 			#{$self}__slotContent {

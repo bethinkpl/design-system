@@ -23,7 +23,7 @@ const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" :footerSecondaryButtonState="footerSecondaryButtonState" ' +
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" :footerTertiaryButtonState="footerTertiaryButtonState" ' +
 		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage" :is-full-height="isFullHeight" :is-scrollable="isScrollable">' +
-		'<div v-html="defaultSlot" />' +
+		'<div style="height: 100%; overflow: auto;" v-html="defaultSlot" />' +
 		'<template v-if="rightActionsSlot" #rightActions><div style="display: inline-flex;" v-html="rightActionsSlot" /></template>' +
 		'</modal>',
 	data() {
