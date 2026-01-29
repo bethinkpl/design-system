@@ -185,9 +185,9 @@ $image-height-small: 140px;
 			max-width: $modal-small-width;
 
 			@media #{breakpoint-s()} {
-				#{$self}__scrollableWrapper {
-					margin-left: $space-m;
-					margin-right: $space-m;
+				#{$self}__content {
+					padding-left: $space-m;
+					padding-right: $space-m;
 				}
 			}
 
@@ -202,10 +202,6 @@ $image-height-small: 140px;
 		margin: 0 $space-s $space-l;
 		overflow-y: auto;
 
-		@media #{breakpoint-s()} {
-			margin: 0 $space-xl $space-l;
-		}
-
 		&.-ds-disable-scrollable {
 			overflow-y: hidden;
 			#{$self}__content,
@@ -218,6 +214,10 @@ $image-height-small: 140px;
 	&__content {
 		display: flex;
 		flex-direction: column;
+
+		@media #{breakpoint-s()} {
+			padding: 0 $space-xl $space-l;
+		}
 
 		&.-ds-centered {
 			#{$self}__header,
