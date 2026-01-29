@@ -199,8 +199,8 @@ $image-height-small: 140px;
 
 	&__scrollableWrapper {
 		flex: 1;
-		overflow-y: auto;
 		margin-bottom: $space-l;
+		overflow-y: auto;
 
 		&.-ds-disable-scrollable {
 			overflow-y: hidden;
