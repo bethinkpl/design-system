@@ -165,7 +165,6 @@ $image-height-small: 140px;
 		max-width: $modal-medium-width;
 		overflow: hidden;
 		padding-top: $space-xl;
-		padding-top: $space-xl;
 		position: relative;
 		width: 100%;
 
