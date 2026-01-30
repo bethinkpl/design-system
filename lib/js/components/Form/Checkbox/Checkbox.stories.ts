@@ -43,7 +43,6 @@ const StoryTemplate: StoryFn<typeof Checkbox> = (args) => {
 			>
 				<span v-if="defaultSlot" v-html="defaultSlot" />
 			</Checkbox>
-			<Banner color="danger" title="Uwaga! Mogą wystąpić problemy z pisaniem testów jednostkowych korzystających z tego komponentu. Unikaj jego używania. A jeśli jest rok 2026 i wciąż widzisz ten komunikat — nakrzycz na Karola!" title-in-color />
 		`,
 	};
 };

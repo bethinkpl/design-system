@@ -1,6 +1,7 @@
 {
   "files": [
-    "lib/js/typings.d.ts"
+    "lib/js/typings.d.ts",
+	"lib/js/vue-custom.d.ts"
   ],
   "compilerOptions": {
     "module": "esnext",
