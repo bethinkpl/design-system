@@ -647,6 +647,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CIRCLE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CIRCLE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CIRCLE_XMARK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CLIPBOARD_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CLIPBOARD_MEDICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -971,15 +972,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     }, {}, {
         DsCheckbox: {
             new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
-                modelValue: import('vue').PropType<import('../../Form/Checkbox').CheckboxValue>;
+                modelValue: import('vue').PropType<import('../../..').CheckboxValue>;
                 size: {
-                    type: PropType<import('../../Form/Checkbox').CheckboxSize>;
+                    type: PropType<import('../../..').CheckboxSize>;
                 };
                 state: {
-                    type: PropType<import('../../Form/Checkbox').CheckboxState>;
+                    type: PropType<import('../../..').CheckboxState>;
                 };
                 elevation: {
-                    type: PropType<import('../../Form/Checkbox').CheckboxElevation>;
+                    type: PropType<import('../../..').CheckboxElevation>;
                 };
                 value: {
                     type: PropType<string>;
@@ -992,15 +993,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 M: {};
                 Defaults: {};
             }, Readonly<import('vue').ExtractPropTypes<{
-                modelValue: import('vue').PropType<import('../../Form/Checkbox').CheckboxValue>;
+                modelValue: import('vue').PropType<import('../../..').CheckboxValue>;
                 size: {
-                    type: PropType<import('../../Form/Checkbox').CheckboxSize>;
+                    type: PropType<import('../../..').CheckboxSize>;
                 };
                 state: {
-                    type: PropType<import('../../Form/Checkbox').CheckboxState>;
+                    type: PropType<import('../../..').CheckboxState>;
                 };
                 elevation: {
-                    type: PropType<import('../../Form/Checkbox').CheckboxElevation>;
+                    type: PropType<import('../../..').CheckboxElevation>;
                 };
                 value: {
                     type: PropType<string>;
@@ -1010,15 +1011,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             __isTeleport?: never;
             __isSuspense?: never;
         } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
-            modelValue: import('vue').PropType<import('../../Form/Checkbox').CheckboxValue>;
+            modelValue: import('vue').PropType<import('../../..').CheckboxValue>;
             size: {
-                type: PropType<import('../../Form/Checkbox').CheckboxSize>;
+                type: PropType<import('../../..').CheckboxSize>;
             };
             state: {
-                type: PropType<import('../../Form/Checkbox').CheckboxState>;
+                type: PropType<import('../../..').CheckboxState>;
             };
             elevation: {
-                type: PropType<import('../../Form/Checkbox').CheckboxElevation>;
+                type: PropType<import('../../..').CheckboxElevation>;
             };
             value: {
                 type: PropType<string>;

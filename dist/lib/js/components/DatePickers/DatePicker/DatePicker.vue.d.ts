@@ -901,6 +901,7 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_CIRCLE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CIRCLE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CIRCLE_XMARK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CLIPBOARD_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CLIPBOARD_MEDICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
