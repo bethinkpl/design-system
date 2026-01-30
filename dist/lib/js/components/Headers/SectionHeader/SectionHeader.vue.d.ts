@@ -214,6 +214,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_GEM: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_GIFT_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_GIFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_GLOBE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_GRADUATION_CAP: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_GRID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HAND_POINT_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -725,6 +726,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_GEM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_GIFT_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_GIFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_GLOBE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_GRADUATION_CAP: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_GRID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HAND_POINT_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
