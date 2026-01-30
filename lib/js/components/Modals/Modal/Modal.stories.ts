@@ -22,7 +22,7 @@ const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]" :footerPrimaryButtonState="footerPrimaryButtonState" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" :footerSecondaryButtonState="footerSecondaryButtonState" ' +
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" :footerTertiaryButtonState="footerTertiaryButtonState" ' +
-		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage" :is-full-height="isFullHeight" :is-scrollable="isScrollable">' +
+		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage" :is-content-scrollable="isContentScrollable">' +
 		'<div style="height: 100%; overflow: auto;" v-html="defaultSlot" />' +
 		'<template v-if="rightActionsSlot" #rightActions><div style="display: inline-flex;" v-html="rightActionsSlot" /></template>' +
 		'</modal>',
@@ -58,8 +58,7 @@ const args = {
 	footerTertiaryButtonIcon: null,
 	footerTertiaryButtonState: BUTTON_STATES.DEFAULT,
 	footerCheckboxText: '',
-	isFullHeight: false,
-	isScrollable: true,
+	isContentScrollable: true,
 } as Args;
 
 const argTypes = {

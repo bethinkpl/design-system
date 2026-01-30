@@ -5,7 +5,7 @@
 				class="ds-modal__wrapper"
 				:class="{
 					'-ds-small': size === MODAL_SIZES.SMALL,
-					'-ds-fullHeight': isFullHeight,
+					'-ds-isContentScrollable': isContentScrollable,
 				}"
 			>
 				<div class="ds-modal__rightActions">
@@ -20,10 +20,7 @@
 						@click.stop="$emit('close-modal')"
 					/>
 				</div>
-				<div
-					class="ds-modal__scrollableWrapper"
-					:class="{ '-ds-disable-scrollable': !isScrollable }"
-				>
+				<div class="ds-modal__scrollableWrapper">
 					<img v-if="headerImage" class="ds-modal__image" :src="headerImage" alt="" />
 					<div class="ds-modal__content" :class="{ '-ds-centered': contentCentered }">
 						<div v-if="headerTitle" class="ds-modal__header">
@@ -172,12 +169,13 @@ $image-height-small: 140px;
 			max-height: 84vh;
 		}
 
-		&.-ds-fullHeight {
+		&.-ds-isContentScrollable {
 			height: 100%;
 
 			#{$self}__content,
 			#{$self}__slotContent {
 				height: 100%;
+				overflow-y: hidden;
 			}
 		}
 
@@ -199,25 +197,16 @@ $image-height-small: 140px;
 
 	&__scrollableWrapper {
 		flex: 1;
-		margin-bottom: $space-l;
 		overflow-y: auto;
-
-		&.-ds-disable-scrollable {
-			overflow-y: hidden;
-			#{$self}__content,
-			#{$self}__slotContent {
-				overflow-y: hidden;
-			}
-		}
 	}
 
 	&__content {
 		display: flex;
 		flex-direction: column;
-		padding: 0 $space-s 0;
+		padding: 0 $space-s $space-l;
 
 		@media #{breakpoint-s()} {
-			padding: 0 $space-xl 0;
+			padding: 0 $space-xl $space-l;
 		}
 		&.-ds-centered {
 			#{$self}__header,
@@ -483,13 +472,9 @@ export default defineComponent({
 			type: String,
 			default: null,
 		},
-		isFullHeight: {
+		isContentScrollable: {
 			type: Boolean,
 			default: false,
-		},
-		isScrollable: {
-			type: Boolean,
-			default: true,
 		},
 	},
 	emits: {
