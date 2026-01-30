@@ -60,6 +60,7 @@ import { faCircleInfo } from '@fortawesome/pro-regular-svg-icons/faCircleInfo';
 import { faCircleNotch } from '@fortawesome/pro-regular-svg-icons/faCircleNotch';
 import { faCircleQuestion } from '@fortawesome/pro-regular-svg-icons/faCircleQuestion';
 import { faCircleXmark } from '@fortawesome/pro-regular-svg-icons/faCircleXmark';
+import { faCircleXmark as fasCircleXmark } from '@fortawesome/pro-solid-svg-icons/faCircleXmark';
 import { faClipboardMedical } from '@fortawesome/pro-regular-svg-icons/faClipboardMedical';
 import { faClipboardList } from '@fortawesome/pro-regular-svg-icons/faClipboardList';
 import { faClock } from '@fortawesome/pro-regular-svg-icons/faClock';
@@ -335,6 +336,7 @@ export const FONTAWESOME_ICONS = {
 	FA_CIRCLE_QUESTION: faCircleQuestion,
 	FA_CIRCLE_SOLID: faCircleSolid,
 	FA_CIRCLE_XMARK: faCircleXmark,
+	FA_CIRCLE_XMARK_SOLID: fasCircleXmark,
 	FA_CIRCLE: faCircle,
 	FA_CLIPBOARD_LIST: faClipboardList,
 	FA_CLIPBOARD_MEDICAL: faClipboardMedical,
