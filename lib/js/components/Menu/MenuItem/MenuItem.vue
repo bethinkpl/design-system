@@ -435,7 +435,6 @@ const shouldRenderComponent = computed(
 		label ||
 		additionalText ||
 		slots.labelSlot ||
-		(slots.children && (!isExpandable || isExpanded.value)) ||
 		index !== null ||
 		iconLeft ||
 		shouldRenderRightContent.value,
