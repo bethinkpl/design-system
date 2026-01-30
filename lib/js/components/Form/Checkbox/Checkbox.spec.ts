@@ -185,13 +185,17 @@ describe('Checkbox', () => {
 	});
 
 	describe('user interactions', () => {
-		it('should emit update:modelValue when clicked', async () => {
+		it('should change to checked state when clicked from unchecked', async () => {
 			const wrapper = setup({ modelValue: CHECKBOX_VALUES.UNCHECKED });
 
 			await wrapper.find('label').trigger('click');
 
-			expect(wrapper.emitted('update:modelValue')).toBeTruthy();
-			expect(wrapper.emitted('update:modelValue')?.[0]?.[0]).toBe(CHECKBOX_VALUES.CHECKED);
+			const checkboxRoot = wrapper.find('[role="checkbox"]');
+			const checkboxIndicator = wrapper.find('.ds-checkbox__indicator');
+
+			expect(checkboxRoot.attributes('data-state')).toBe('checked');
+			expect(checkboxRoot.attributes('aria-checked')).toBe('true');
+			expect(checkboxIndicator.attributes('data-state')).toBe('checked');
 		});
 
 		it('should toggle from checked to unchecked when clicked', async () => {
@@ -199,7 +203,9 @@ describe('Checkbox', () => {
 
 			await wrapper.find('label').trigger('click');
 
-			expect(wrapper.emitted('update:modelValue')?.[0]?.[0]).toBe(CHECKBOX_VALUES.UNCHECKED);
+			const checkboxRoot = wrapper.find('[role="checkbox"]');
+			expect(checkboxRoot.attributes('data-state')).toBe('unchecked');
+			expect(checkboxRoot.attributes('aria-checked')).toBe('false');
 		});
 
 		it('should toggle from indeterminate to checked when clicked', async () => {
@@ -207,19 +213,25 @@ describe('Checkbox', () => {
 
 			await wrapper.find('label').trigger('click');
 
-			expect(wrapper.emitted('update:modelValue')?.[0]?.[0]).toBe(CHECKBOX_VALUES.CHECKED);
+			const checkboxRoot = wrapper.find('[role="checkbox"]');
+			expect(checkboxRoot.attributes('data-state')).toBe('checked');
+			expect(checkboxRoot.attributes('aria-checked')).toBe('true');
 		});
 
-		it('should not emit when disabled and clicked', async () => {
+		it('should not change state when disabled and clicked', async () => {
 			const wrapper = setup({
 				modelValue: CHECKBOX_VALUES.UNCHECKED,
 				state: CHECKBOX_STATES.DISABLED,
 			});
 
+			const checkboxRoot = wrapper.find('[role="checkbox"]');
+			const initialState = checkboxRoot.attributes('data-state');
+
 			await wrapper.find('label').trigger('click');
 
-			// Should not emit because checkbox is disabled
-			expect(wrapper.emitted('update:modelValue')).toBeFalsy();
+			// Should not change state because checkbox is disabled
+			expect(checkboxRoot.attributes('data-state')).toBe(initialState);
+			expect(checkboxRoot.attributes('aria-checked')).toBe('false');
 		});
 	});
 

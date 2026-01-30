@@ -112,7 +112,7 @@
     "@vueuse/core": "14.1.0",
     "lodash-es": "4.17.22",
     "primevue": "4.0.0-rc.3",
-    "reka-ui": "2.6.0",
+    "reka-ui": "2.8.0",
     "vee-validate": "4.15.1",
     "vue-component-type-helpers": "2.2.10"
   },
