@@ -22,8 +22,8 @@ const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]" :footerPrimaryButtonState="footerPrimaryButtonState" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" :footerSecondaryButtonState="footerSecondaryButtonState" ' +
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" :footerTertiaryButtonState="footerTertiaryButtonState" ' +
-		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage" :is-content-scrollable="isContentScrollable">' +
-		'<div style="height: 100%; overflow: auto;" v-html="defaultSlot" />' +
+		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage" :is-footer-sticky="isFooterSticky" :is-full-height="isFullHeight">' +
+		'<div v-html="defaultSlot" />' +
 		'<template v-if="rightActionsSlot" #rightActions><div style="display: inline-flex;" v-html="rightActionsSlot" /></template>' +
 		'</modal>',
 	data() {
@@ -58,7 +58,8 @@ const args = {
 	footerTertiaryButtonIcon: null,
 	footerTertiaryButtonState: BUTTON_STATES.DEFAULT,
 	footerCheckboxText: '',
-	isContentScrollable: true,
+	isFooterSticky: false,
+	isFullHeight: false,
 } as Args;
 
 const argTypes = {
@@ -112,6 +113,7 @@ const argTypes = {
 	},
 	footerCheckboxText: { control: 'text' },
 	isFullHeight: { control: 'boolean' },
+	isFooterSticky: { control: 'boolean' },
 	onCloseModal: { action: 'close-modal' },
 	onCheckboxChange: { action: 'checkbox-change' },
 	onPrimaryButtonClick: { action: 'primary-button-click' },
