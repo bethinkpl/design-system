@@ -89,25 +89,33 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: StringConstructor;
         default: null;
     };
-}>, {}, {
-    BUTTON_COLORS: Readonly<{
+    isFooterSticky: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isFullHeight: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+}>, {
+    BUTTON_COLORS: {
         readonly PRIMARY: "primary";
         readonly NEUTRAL: "neutral";
         readonly DANGER: "danger";
         readonly SUCCESS: "success";
         readonly INVERTED: "inverted";
-    }>;
-    BUTTON_ELEVATIONS: Readonly<{
+    };
+    BUTTON_ELEVATIONS: {
         readonly NONE: "none";
         readonly X_SMALL: "x-small";
         readonly SMALL: "small";
-    }>;
-    BUTTON_TYPES: Readonly<{
+    };
+    BUTTON_TYPES: {
         readonly FILLED: "filled";
         readonly OUTLINED: "outlined";
         readonly TEXT: "text";
-    }>;
-    ICONS: Readonly<{
+    };
+    ICONS: {
         readonly ANSWERS: VueConstructor<Vue>;
         readonly CHANGE: VueConstructor<Vue>;
         readonly COMMENTS_CHECK: VueConstructor<Vue>;
@@ -199,6 +207,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_CIRCLE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CIRCLE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_CIRCLE_XMARK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CLIPBOARD_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CLIPBOARD_MEDICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -364,8 +373,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FAD_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FAD_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FAD_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
-    }>;
-    ICON_BUTTON_COLORS: Readonly<{
+    };
+    ICON_BUTTON_COLORS: {
         readonly PRIMARY: "primary";
         readonly NEUTRAL: "neutral";
         readonly NEUTRAL_WEAK: "neutral-weak";
@@ -375,8 +384,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly INVERTED: "inverted";
         readonly WARNING: "warning";
         readonly INFO: "info";
-    }>;
-    ICON_SIZES: Readonly<{
+    };
+    ICON_SIZES: {
         XXX_SMALL: string;
         XX_SMALL: string;
         X_SMALL: string;
@@ -385,29 +394,35 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         LARGE: string;
         X_LARGE: string;
         XX_LARGE: string;
-    }>;
-    MODAL_SIZES: Readonly<{
+    };
+    MODAL_SIZES: {
         readonly SMALL: "small";
         readonly MEDIUM: "medium";
-    }>;
-    MODAL_HEADER_TITLE_SIZES: Readonly<{
+    };
+    MODAL_HEADER_TITLE_SIZES: {
         readonly SMALL: "small";
         readonly MEDIUM: "medium";
-    }>;
-    FEATURE_ICON_SIZES: Readonly<{
+    };
+    FEATURE_ICON_SIZES: {
         readonly X_SMALL: "xSmall";
         readonly SMALL: "small";
         readonly MEDIUM: "medium";
         readonly LARGE: "large";
         readonly X_LARGE: "xLarge";
-    }>;
-}, {
+    };
+}, {}, {
     calcHeaderFeatureIconColor(): any;
     calcFooterPrimaryButtonColor(): "primary" | "neutral";
     calcFooterSecondaryButtonColor(): "danger" | "neutral";
     calcSingleColumn(): boolean;
     displayFooter(): any;
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("tertiary-button-click" | "checkbox-change" | "close-modal" | "secondary-button-click" | "primary-button-click")[], "tertiary-button-click" | "checkbox-change" | "close-modal" | "secondary-button-click" | "primary-button-click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    'tertiary-button-click': () => true;
+    'checkbox-change': (checked: boolean) => true;
+    'close-modal': () => true;
+    'secondary-button-click': () => true;
+    'primary-button-click': () => true;
+}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     size: {
         type: StringConstructor;
         default: "medium";
@@ -494,12 +509,20 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: StringConstructor;
         default: null;
     };
+    isFooterSticky: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
+    isFullHeight: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
 }>> & Readonly<{
-    "onTertiary-button-click"?: ((...args: any[]) => any) | undefined;
-    "onCheckbox-change"?: ((...args: any[]) => any) | undefined;
-    "onClose-modal"?: ((...args: any[]) => any) | undefined;
-    "onSecondary-button-click"?: ((...args: any[]) => any) | undefined;
-    "onPrimary-button-click"?: ((...args: any[]) => any) | undefined;
+    "onTertiary-button-click"?: (() => any) | undefined;
+    "onCheckbox-change"?: ((checked: boolean) => any) | undefined;
+    "onClose-modal"?: (() => any) | undefined;
+    "onSecondary-button-click"?: (() => any) | undefined;
+    "onPrimary-button-click"?: (() => any) | undefined;
 }>, {
     danger: boolean;
     size: string;
@@ -520,6 +543,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     footerTertiaryButtonIcon: Record<string, any>;
     footerTertiaryButtonState: string;
     footerCheckboxText: string;
+    isFooterSticky: boolean;
+    isFullHeight: boolean;
 }, {}, {
     FeatureIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         icon: import('../../Icons/Icon').IconItem;
@@ -779,6 +804,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CIRCLE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CIRCLE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_CIRCLE_XMARK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CLIPBOARD_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CLIPBOARD_MEDICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
