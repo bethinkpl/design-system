@@ -2,14 +2,13 @@ import Checkbox from './Checkbox.vue';
 
 import { Meta, StoryFn } from '@storybook/vue3';
 import {
+	CHECKBOX_ELEVATIONS,
 	CHECKBOX_SIZES,
 	CHECKBOX_STATES,
 	CHECKBOX_VALUES,
-	CHECKBOX_ELEVATIONS,
 } from './Checkbox.consts';
 import { withActions } from '@storybook/addon-actions/decorator';
 import { computed } from 'vue';
-import Banner from '../../Banner';
 import { useArgs } from '@storybook/preview-api';
 
 export default {
@@ -22,7 +21,7 @@ const StoryTemplate: StoryFn<typeof Checkbox> = (args) => {
 	const [_, updateArgs] = useArgs();
 
 	return {
-		components: { Checkbox, Banner },
+		components: { Checkbox },
 		setup() {
 			const props = computed(() => {
 				const { default: defaultSlot, modelValue, ...rest } = args;
@@ -43,7 +42,6 @@ const StoryTemplate: StoryFn<typeof Checkbox> = (args) => {
 			>
 				<span v-if="defaultSlot" v-html="defaultSlot" />
 			</Checkbox>
-			<Banner color="danger" title="Uwaga! Mogą wystąpić problemy z pisaniem testów jednostkowych korzystających z tego komponentu. Unikaj jego używania. A jeśli jest rok 2026 i wciąż widzisz ten komunikat — nakrzycz na Karola!" title-in-color />
 		`,
 	};
 };

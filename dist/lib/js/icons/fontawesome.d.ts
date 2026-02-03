@@ -81,6 +81,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_CIRCLE_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_CIRCLE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_CIRCLE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_CIRCLE_XMARK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_CLIPBOARD_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_CLIPBOARD_MEDICAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -134,6 +135,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_GEM: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_GIFT_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_GIFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_GLOBE: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_GRADUATION_CAP: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_GRID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_HAND_POINT_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
