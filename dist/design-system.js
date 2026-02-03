@@ -12708,7 +12708,7 @@ function dj(e, r, t, a, o, i) {
     ], 16)
   ]);
 }
-const R1 = /* @__PURE__ */ $(ej, [["render", dj], ["__scopeId", "data-v-86581d1b"]]), Zr = () => {
+const R1 = /* @__PURE__ */ $(ej, [["render", dj], ["__scopeId", "data-v-2be728c4"]]), Zr = () => {
   const e = Xa();
   if (!e || !e.root.proxy)
     throw new Error("useLegacyI18n must be called within a Vue component");
