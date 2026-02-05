@@ -18,6 +18,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
         readonly SLIDERS_SEARCH: VueConstructor<Vue>;
         readonly CLOUD_DISCONNECTED: VueConstructor<Vue>;
+        readonly BALLOT_CHECK_TIME: VueConstructor<Vue>;
         readonly FA_ADDRESS_CARD: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ANGLE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
