@@ -177,9 +177,11 @@ $image-height-small: 140px;
 		&.-ds-isFullHeight {
 			height: 100%;
 
-			#{$self}__content,
-			#{$self}__slotContent {
+			#{$self}__content {
 				height: 100%;
+			}
+			#{$self}__slotContent {
+				flex-grow: 1;
 			}
 		}
 
