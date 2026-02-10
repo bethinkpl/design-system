@@ -181,6 +181,7 @@ import { faCommentsQuestion } from '@fortawesome/pro-regular-svg-icons/faComment
 import { faCommentsQuestionCheck } from '@fortawesome/pro-regular-svg-icons/faCommentsQuestionCheck';
 import { faCalendarClock } from '@fortawesome/pro-regular-svg-icons/faCalendarClock';
 import { faFileCheck } from '@fortawesome/pro-regular-svg-icons/faFileCheck';
+import { faFileArrowDown } from '@fortawesome/pro-regular-svg-icons/faFileArrowDown';
 import { faArrowDown as fasArrowDown } from '@fortawesome/pro-solid-svg-icons/faArrowDown';
 import { faArrowLeft as fasArrowLeft } from '@fortawesome/pro-solid-svg-icons/faArrowLeft';
 import { faArrowRight as fasArrowRight } from '@fortawesome/pro-solid-svg-icons/faArrowRight';
@@ -369,6 +370,7 @@ export const FONTAWESOME_ICONS = {
 	FA_FACE_MEH: faFaceMeh,
 	FA_FACE_SMILE: faFaceSmile,
 	FA_FACEBOOK: faFacebook,
+	FA_FILE_FILE_ARROW_DOWN: faFileArrowDown,
 	FA_FILE_CHECK: faFileCheck,
 	FA_FILE_INVOICE_DOLLAR: faFileInvoiceDollar,
 	FA_FILE_LINES_SOLID: fasFileLines,
