@@ -370,7 +370,7 @@ export const FONTAWESOME_ICONS = {
 	FA_FACE_MEH: faFaceMeh,
 	FA_FACE_SMILE: faFaceSmile,
 	FA_FACEBOOK: faFacebook,
-	FA_FILE_FILE_ARROW_DOWN: faFileArrowDown,
+	FA_FILE_ARROW_DOWN: faFileArrowDown,
 	FA_FILE_CHECK: faFileCheck,
 	FA_FILE_INVOICE_DOLLAR: faFileInvoiceDollar,
 	FA_FILE_LINES_SOLID: fasFileLines,
