@@ -204,6 +204,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_FACE_MEH: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FACE_SMILE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_INVOICE_DOLLAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_LINES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -617,6 +618,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_FACE_MEH: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FACE_SMILE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_INVOICE_DOLLAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_LINES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1131,6 +1133,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_FACE_MEH: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FACE_SMILE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FILE_INVOICE_DOLLAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_FILE_LINES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
