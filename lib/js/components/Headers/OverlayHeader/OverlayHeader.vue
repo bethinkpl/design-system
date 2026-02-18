@@ -269,12 +269,8 @@
 
 	&__actions {
 		align-self: stretch;
-		display: none;
+		display: flex;
 		flex-shrink: 0;
-
-		@media #{breakpoint-s()} {
-			display: flex;
-		}
 	}
 
 	&__divider {
