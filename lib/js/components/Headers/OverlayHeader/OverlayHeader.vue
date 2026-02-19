@@ -69,7 +69,7 @@
 				<slot name="actions" />
 			</div>
 			<ds-divider
-				class="ds-overlayHeader__divider -ds-mobileHidden"
+				class="ds-overlayHeader__divider"
 				:prominence="DIVIDER_PROMINENCES.STRONG"
 				is-vertical
 			/>
@@ -280,14 +280,6 @@
 
 		@media #{breakpoint-s()} {
 			margin: $space-4xs $space-2xs;
-		}
-
-		&.-ds-mobileHidden {
-			display: none;
-
-			@media #{breakpoint-s()} {
-				display: block;
-			}
 		}
 	}
 
