@@ -19920,7 +19920,7 @@ function PX(e, r, t, a, o, i) {
         z(e.$slots, "actions", {}, void 0, !0)
       ]),
       Q(c, {
-        class: "ds-overlayHeader__divider -ds-mobileHidden",
+        class: "ds-overlayHeader__divider",
         prominence: e.DIVIDER_PROMINENCES.STRONG,
         "is-vertical": ""
       }, null, 8, ["prominence"])
@@ -19969,7 +19969,7 @@ function PX(e, r, t, a, o, i) {
     }, 8, ["placement"])
   ], 2);
 }
-const f$ = /* @__PURE__ */ $(yX, [["render", PX], ["__scopeId", "data-v-54d9a06e"]]), N5 = {
+const f$ = /* @__PURE__ */ $(yX, [["render", PX], ["__scopeId", "data-v-cdd36273"]]), N5 = {
   SMALL: "small",
   MEDIUM: "medium"
 }, FX = {
