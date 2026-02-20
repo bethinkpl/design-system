@@ -9,8 +9,8 @@
 			'-ds-rounded': radius === CHIP_RADIUSES.ROUNDED,
 			'-ds-removable': size !== CHIP_SIZES.X_SMALL && isRemovable,
 		}"
-		:title="label"
-		:style="{ backgroundColor: colorHex }"
+		:title="label ?? undefined"
+		:style="colorHex ? { backgroundColor: colorHex } : undefined"
 	>
 		<span v-if="$slots.accessory || leftIcon" class="ds-chip__leftIcon">
 			<slot name="accessory">
@@ -55,6 +55,16 @@ $chip-colors: (
 			'label': $color-neutral-text-strong-disabled,
 			'icon': $color-neutral-icon-disabled,
 			'background': $color-neutral-background-medium,
+		),
+	),
+	'neutralWeak': (
+		'label': $color-neutral-text,
+		'icon': $color-neutral-icon,
+		'background': $color-neutral-background,
+		'disabled': (
+			'label': $color-neutral-text-disabled,
+			'icon': $color-neutral-icon-disabled,
+			'background': $color-neutral-background,
 		),
 	),
 	'primaryStrong': (
@@ -236,15 +246,16 @@ $chip-colors: (
 }
 </style>
 
-<script lang="ts">
-import { defineComponent, toRaw } from 'vue';
+<script setup lang="ts">
+import { computed } from 'vue';
 import { BUTTON_ELEVATIONS } from '../Buttons/Button';
 import IconButton, {
 	ICON_BUTTON_COLORS,
 	ICON_BUTTON_SIZES,
 	ICON_BUTTON_STATES,
+	IconButtonColor,
 } from '../Buttons/IconButton';
-import Icon, { ICON_SIZES, ICONS } from '../Icons/Icon';
+import Icon, { ICON_SIZES, ICONS, IconItem } from '../Icons/Icon';
 import {
 	CHIP_COLORS,
 	CHIP_RADIUSES,
@@ -257,9 +268,10 @@ import {
 	ChipState,
 } from './Chip.consts';
 
-const CHIP_ICON_BUTTONS_COLOR_MAP = {
+const CHIP_ICON_BUTTONS_COLOR_MAP: Record<ChipColor, IconButtonColor> = {
 	[CHIP_COLORS.INVERTED]: ICON_BUTTON_COLORS.PRIMARY,
 	[CHIP_COLORS.NEUTRAL]: ICON_BUTTON_COLORS.NEUTRAL,
+	[CHIP_COLORS.NEUTRAL_WEAK]: ICON_BUTTON_COLORS.NEUTRAL,
 	[CHIP_COLORS.PRIMARY]: ICON_BUTTON_COLORS.PRIMARY,
 	[CHIP_COLORS.PRIMARY_STRONG]: ICON_BUTTON_COLORS.PRIMARY,
 	[CHIP_COLORS.FAIL]: ICON_BUTTON_COLORS.FAIL,
@@ -269,97 +281,43 @@ const CHIP_ICON_BUTTONS_COLOR_MAP = {
 	[CHIP_COLORS.INFO]: ICON_BUTTON_COLORS.INFO,
 };
 
-export default defineComponent({
-	name: 'Chip',
-	components: { Icon, IconButton },
-	props: {
-		label: {
-			type: String,
-			default: null,
-		},
-		isLabelUppercase: {
-			type: Boolean,
-			default: false,
-		},
-		leftIcon: {
-			type: Object,
-			default: null,
-			validator(icon) {
-				return Object.values(ICONS).includes(toRaw(icon));
-			},
-		},
-		radius: {
-			type: String,
-			default: CHIP_RADIUSES.CAPSULE,
-			validator(value: ChipRadius) {
-				return Object.values(CHIP_RADIUSES).includes(value);
-			},
-		},
-		size: {
-			type: String,
-			default: CHIP_SIZES.SMALL,
-			validator(size: ChipSize) {
-				return Object.values(CHIP_SIZES).includes(size);
-			},
-		},
-		color: {
-			type: String,
-			default: CHIP_DEFAULT_COLOR,
-			validator(color: ChipColor) {
-				return Object.values(CHIP_COLORS).includes(color);
-			},
-		},
-		colorHex: {
-			type: String,
-			default: null,
-		},
-		state: {
-			type: String,
-			default: CHIP_STATES.DEFAULT,
-			validator(value: ChipState) {
-				return Object.values(CHIP_STATES).includes(value);
-			},
-		},
-		isRemovable: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['remove'],
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-			BUTTON_ELEVATIONS: Object.freeze(BUTTON_ELEVATIONS),
-			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
-			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
-			CHIP_SIZES: Object.freeze(CHIP_SIZES),
-			CHIP_STATES: Object.freeze(CHIP_STATES),
-			CHIP_RADIUSES: Object.freeze(CHIP_RADIUSES),
-		};
-	},
-	computed: {
-		colorClassName(): string {
-			if (this.colorHex) {
-				return `-ds-color-invertedHex`;
-			}
-			return `-ds-color-${this.color}`;
-		},
-		customStyle() {
-			const styles: { backgroundColor?: string } = {};
-			if (this.colorHex) {
-				styles.backgroundColor = this.colorHex;
-			}
-			return styles;
-		},
-		iconButtonColor(): string {
-			if (this.colorHex) {
-				return ICON_BUTTON_COLORS.NEUTRAL;
-			}
-			return CHIP_ICON_BUTTONS_COLOR_MAP[this.color] || ICON_BUTTON_COLORS.PRIMARY;
-		},
-	},
+const {
+	label = null,
+	isLabelUppercase = false,
+	leftIcon = null,
+	radius = CHIP_RADIUSES.CAPSULE,
+	size = CHIP_SIZES.SMALL,
+	color = CHIP_DEFAULT_COLOR,
+	colorHex = null,
+	state = CHIP_STATES.DEFAULT,
+	isRemovable = false,
+} = defineProps<{
+	label?: string | null;
+	isLabelUppercase?: boolean;
+	leftIcon?: IconItem | null;
+	radius?: ChipRadius;
+	size?: ChipSize;
+	color?: ChipColor;
+	colorHex?: string | null;
+	state?: ChipState;
+	isRemovable?: boolean;
+}>();
+
+defineEmits<{
+	remove: [];
+}>();
+
+const colorClassName = computed(() => {
+	if (colorHex) {
+		return `-ds-color-invertedHex`;
+	}
+	return `-ds-color-${color}`;
+});
+
+const iconButtonColor = computed(() => {
+	if (colorHex) {
+		return ICON_BUTTON_COLORS.NEUTRAL;
+	}
+	return CHIP_ICON_BUTTONS_COLOR_MAP[color] || ICON_BUTTON_COLORS.PRIMARY;
 });
 </script>
