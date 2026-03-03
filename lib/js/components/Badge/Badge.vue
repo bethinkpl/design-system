@@ -89,6 +89,7 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 		color: $color-inverted-text;
 		display: flex;
 		justify-content: center;
+		height: 100%;
 		position: relative;
 		width: 100%;
 	}
