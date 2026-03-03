@@ -61,6 +61,7 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 .ds-badge {
 	$root: &;
 
+	align-items: center;
 	display: inline-flex;
 	justify-content: center;
 	position: relative;
@@ -258,8 +259,8 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 <script lang="ts" setup>
 import {
 	BADGE_COLORS,
-	BADGE_SIZES,
 	BADGE_ELEVATIONS,
+	BADGE_SIZES,
 	BadgeColor,
 	BadgeElevation,
 	BadgeSize,
