@@ -13,6 +13,7 @@ interface createComponentOptions {
 	isRemovable?: boolean;
 	size?: string;
 	color?: string;
+	interactive?: boolean;
 }
 
 describe('Chip', () => {
@@ -22,6 +23,7 @@ describe('Chip', () => {
 		isRemovable = false,
 		size = CHIP_SIZES.SMALL,
 		color = CHIP_COLORS.NEUTRAL,
+		interactive = false,
 	}: createComponentOptions = {}) => {
 		return shallowMount(Chip, {
 			props: {
@@ -30,6 +32,7 @@ describe('Chip', () => {
 				isRemovable,
 				size,
 				color,
+				interactive,
 			} as any,
 		});
 	};
@@ -129,6 +132,32 @@ describe('Chip', () => {
 			});
 		},
 	);
+
+	it('does not have interactive class by default', () => {
+		const component = createComponent();
+
+		expect(component.classes()).not.toContain('-ds-interactive');
+	});
+
+	it('has interactive class when interactive prop is true', () => {
+		const component = createComponent({ interactive: true });
+
+		expect(component.classes()).toContain('-ds-interactive');
+	});
+
+	it('emits click event when interactive and clicked', async () => {
+		const component = createComponent({ interactive: true });
+
+		await component.trigger('click');
+		expect(component.emitted('click')?.length).toBe(1);
+	});
+
+	it('does not emit click event when not interactive and clicked', async () => {
+		const component = createComponent({ interactive: false });
+
+		await component.trigger('click');
+		expect(component.emitted('click')).toBeUndefined();
+	});
 
 	it("doesn't render remove when size x-small", () => {
 		const component = createComponent({ isRemovable: true, size: CHIP_SIZES.X_SMALL });
