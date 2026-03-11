@@ -8,11 +8,11 @@
 			'-ds-uppercase': isLabelUppercase,
 			'-ds-rounded': radius === CHIP_RADIUSES.ROUNDED,
 			'-ds-removable': size !== CHIP_SIZES.X_SMALL && isRemovable,
-			'-ds-interactive': interactive,
+			'-ds-interactive': isInteractive,
 		}"
 		:title="label ?? undefined"
 		:style="colorHex ? { backgroundColor: colorHex } : undefined"
-		@click="interactive && $emit('click', $event)"
+		@click="isInteractive && $emit('chipClick', $event)"
 	>
 		<span v-if="$slots.accessory || leftIcon" class="ds-chip__leftIcon">
 			<slot name="accessory">
@@ -44,7 +44,6 @@
 <style lang="scss" scoped>
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
-@import '../../../styles/settings/animations';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 
@@ -186,7 +185,7 @@ $chip-colors: (
 				color: map-get($color-map, 'label');
 			}
 
-			&.-ds-interactive:not(.-ds-disabled):hover {
+			&.-ds-interactive:hover {
 				$background-hover: map-get($color-map, 'background-hover');
 
 				@if $background-hover {
@@ -214,9 +213,8 @@ $chip-colors: (
 	display: inline-flex;
 	gap: $space-4xs;
 	padding: $space-4xs $space-2xs;
-	transition: background-color ease-in-out $default-transition-time;
 
-	&.-ds-interactive:not(.-ds-disabled) {
+	&.-ds-interactive {
 		cursor: pointer;
 	}
 
@@ -333,8 +331,10 @@ const {
 
 defineEmits<{
 	remove: [];
-	click: [event: Event];
+	chipClick: [event: Event];
 }>();
+
+const isInteractive = computed(() => interactive && state !== CHIP_STATES.DISABLED);
 
 const colorClassName = computed(() => {
 	if (colorHex) {

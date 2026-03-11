@@ -149,14 +149,14 @@ describe('Chip', () => {
 		const component = createComponent({ interactive: true });
 
 		await component.trigger('click');
-		expect(component.emitted('click')?.length).toBe(1);
+		expect(component.emitted('chipClick')?.length).toBe(1);
 	});
 
 	it('does not emit click event when not interactive and clicked', async () => {
 		const component = createComponent({ interactive: false });
 
 		await component.trigger('click');
-		expect(component.emitted('click')).toBeUndefined();
+		expect(component.emitted('chipClick')).toBeUndefined();
 	});
 
 	it("doesn't render remove when size x-small", () => {
