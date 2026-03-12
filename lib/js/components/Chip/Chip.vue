@@ -42,6 +42,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/animations';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
@@ -216,6 +217,7 @@ $chip-colors: (
 
 	&.-ds-interactive {
 		cursor: pointer;
+		transition: background-color ease-in-out $default-transition-time;
 	}
 
 	&.-ds-removable {
