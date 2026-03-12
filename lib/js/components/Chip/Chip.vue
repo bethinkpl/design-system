@@ -8,11 +8,11 @@
 			'-ds-uppercase': isLabelUppercase,
 			'-ds-rounded': radius === CHIP_RADIUSES.ROUNDED,
 			'-ds-removable': size !== CHIP_SIZES.X_SMALL && isRemovable,
-			'-ds-interactive': isInteractive,
+			'-ds-interactive': isInteractiveComputed,
 		}"
 		:title="label ?? undefined"
 		:style="colorHex ? { backgroundColor: colorHex } : undefined"
-		@click="isInteractive && $emit('chipClick', $event)"
+		@click="isInteractiveComputed && $emit('chipClick', $event)"
 	>
 		<span v-if="$slots.accessory || leftIcon" class="ds-chip__leftIcon">
 			<slot name="accessory">
@@ -317,7 +317,7 @@ const {
 	colorHex = null,
 	state = CHIP_STATES.DEFAULT,
 	isRemovable = false,
-	interactive = false,
+	isInteractive = false,
 } = defineProps<{
 	label?: string | null;
 	isLabelUppercase?: boolean;
@@ -328,7 +328,7 @@ const {
 	colorHex?: string | null;
 	state?: ChipState;
 	isRemovable?: boolean;
-	interactive?: boolean;
+	isInteractive?: boolean;
 }>();
 
 defineEmits<{
@@ -336,7 +336,7 @@ defineEmits<{
 	chipClick: [event: Event];
 }>();
 
-const isInteractive = computed(() => interactive && state !== CHIP_STATES.DISABLED);
+const isInteractiveComputed = computed(() => isInteractive && state !== CHIP_STATES.DISABLED);
 
 const colorClassName = computed(() => {
 	if (colorHex) {
