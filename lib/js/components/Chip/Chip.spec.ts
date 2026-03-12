@@ -13,7 +13,7 @@ interface createComponentOptions {
 	isRemovable?: boolean;
 	size?: string;
 	color?: string;
-	interactive?: boolean;
+	isInteractive?: boolean;
 }
 
 describe('Chip', () => {
@@ -23,7 +23,7 @@ describe('Chip', () => {
 		isRemovable = false,
 		size = CHIP_SIZES.SMALL,
 		color = CHIP_COLORS.NEUTRAL,
-		interactive = false,
+		isInteractive = false,
 	}: createComponentOptions = {}) => {
 		return shallowMount(Chip, {
 			props: {
@@ -32,7 +32,7 @@ describe('Chip', () => {
 				isRemovable,
 				size,
 				color,
-				interactive,
+				isInteractive,
 			} as any,
 		});
 	};
@@ -140,20 +140,20 @@ describe('Chip', () => {
 	});
 
 	it('has interactive class when interactive prop is true', () => {
-		const component = createComponent({ interactive: true });
+		const component = createComponent({ isInteractive: true });
 
 		expect(component.classes()).toContain('-ds-interactive');
 	});
 
 	it('emits click event when interactive and clicked', async () => {
-		const component = createComponent({ interactive: true });
+		const component = createComponent({ isInteractive: true });
 
 		await component.trigger('click');
 		expect(component.emitted('chipClick')?.length).toBe(1);
 	});
 
 	it('does not emit click event when not interactive and clicked', async () => {
-		const component = createComponent({ interactive: false });
+		const component = createComponent({ isInteractive: false });
 
 		await component.trigger('click');
 		expect(component.emitted('chipClick')).toBeUndefined();
