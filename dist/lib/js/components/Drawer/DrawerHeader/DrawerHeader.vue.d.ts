@@ -1251,10 +1251,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             isRemovable: {
                 type: PropType<boolean>;
             };
+            isInteractive: {
+                type: PropType<boolean>;
+            };
         }>> & Readonly<{
             onRemove?: (() => any) | undefined;
+            onChipClick?: ((event: Event) => any) | undefined;
         }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
             remove: () => void;
+            chipClick: (event: Event) => void;
         }, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
@@ -1288,8 +1293,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             isRemovable: {
                 type: PropType<boolean>;
             };
+            isInteractive: {
+                type: PropType<boolean>;
+            };
         }>> & Readonly<{
             onRemove?: (() => any) | undefined;
+            onChipClick?: ((event: Event) => any) | undefined;
         }>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
         __isTeleport?: never;
@@ -1320,10 +1329,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         isRemovable: {
             type: PropType<boolean>;
         };
+        isInteractive: {
+            type: PropType<boolean>;
+        };
     }>> & Readonly<{
         onRemove?: (() => any) | undefined;
+        onChipClick?: ((event: Event) => any) | undefined;
     }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
         remove: () => void;
+        chipClick: (event: Event) => void;
     }, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {
             accessory?(_: {}): any;
