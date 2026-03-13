@@ -8,9 +8,11 @@
 			'-ds-uppercase': isLabelUppercase,
 			'-ds-rounded': radius === CHIP_RADIUSES.ROUNDED,
 			'-ds-removable': size !== CHIP_SIZES.X_SMALL && isRemovable,
+			'-ds-interactive': isInteractiveComputed,
 		}"
 		:title="label ?? undefined"
 		:style="colorHex ? { backgroundColor: colorHex } : undefined"
+		@click="isInteractiveComputed && $emit('chipClick', $event)"
 	>
 		<span v-if="$slots.accessory || leftIcon" class="ds-chip__leftIcon">
 			<slot name="accessory">
@@ -40,6 +42,7 @@
 </template>
 
 <style lang="scss" scoped>
+@import '../../../styles/settings/animations';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/colors/tokens';
@@ -51,6 +54,7 @@ $chip-colors: (
 		'label': $color-neutral-text-strong,
 		'icon': $color-neutral-icon,
 		'background': $color-neutral-background-medium,
+		'background-hover': $color-neutral-background-medium-hovered,
 		'disabled': (
 			'label': $color-neutral-text-strong-disabled,
 			'icon': $color-neutral-icon-disabled,
@@ -61,6 +65,7 @@ $chip-colors: (
 		'label': $color-neutral-text,
 		'icon': $color-neutral-icon,
 		'background': $color-neutral-background,
+		'background-hover': $color-neutral-background-hovered,
 		'disabled': (
 			'label': $color-neutral-text-disabled,
 			'icon': $color-neutral-icon-disabled,
@@ -71,6 +76,7 @@ $chip-colors: (
 		'label': $color-inverted-text,
 		'icon': $color-inverted-icon,
 		'background': $color-primary-background-strong,
+		'background-hover': $color-primary-background-strong-hovered,
 		'disabled': (
 			'label': $color-inverted-text,
 			'icon': $color-inverted-icon,
@@ -81,6 +87,7 @@ $chip-colors: (
 		'label': $color-primary-text,
 		'icon': $color-primary-icon,
 		'background': $color-primary-background,
+		'background-hover': $color-primary-background-hovered,
 		'disabled': (
 			'label': $color-primary-text-disabled,
 			'icon': $color-primary-icon-disabled,
@@ -91,6 +98,7 @@ $chip-colors: (
 		'label': $color-fail-text,
 		'icon': $color-fail-icon,
 		'background': $color-fail-background,
+		'background-hover': $color-fail-background-hovered,
 		'disabled': (
 			'label': $color-fail-text-disabled,
 			'icon': $color-fail-icon-disabled,
@@ -101,6 +109,7 @@ $chip-colors: (
 		'label': $color-danger-text,
 		'icon': $color-danger-icon,
 		'background': $color-danger-background,
+		'background-hover': $color-danger-background-hovered,
 		'disabled': (
 			'label': $color-danger-text-disabled,
 			'icon': $color-danger-icon-disabled,
@@ -111,6 +120,7 @@ $chip-colors: (
 		'label': $color-warning-text,
 		'icon': $color-warning-icon,
 		'background': $color-warning-background,
+		'background-hover': $color-warning-background-hovered,
 		'disabled': (
 			'label': $color-warning-text-disabled,
 			'icon': $color-warning-icon-disabled,
@@ -121,6 +131,7 @@ $chip-colors: (
 		'label': $color-success-text,
 		'icon': $color-success-icon,
 		'background': $color-success-background,
+		'background-hover': $color-success-background-hovered,
 		'disabled': (
 			'label': $color-success-text-disabled,
 			'icon': $color-success-icon-disabled,
@@ -131,6 +142,7 @@ $chip-colors: (
 		'label': $color-info-text,
 		'icon': $color-info-icon,
 		'background': $color-info-background,
+		'background-hover': $color-info-background-hovered,
 		'disabled': (
 			'label': $color-info-text-disabled,
 			'icon': $color-info-icon-disabled,
@@ -140,11 +152,12 @@ $chip-colors: (
 	'inverted': (
 		'label': $color-neutral-text,
 		'icon': $color-neutral-icon,
-		'background': $color-default-background,
+		'background': $color-neutral-background-weak,
+		'background-hover': $color-neutral-background-weak-hovered,
 		'disabled': (
 			'label': $color-neutral-text-disabled,
 			'icon': $color-neutral-icon-disabled,
-			'background': $color-default-background,
+			'background': $color-neutral-background-weak,
 		),
 	),
 	'invertedHex': (
@@ -173,6 +186,14 @@ $chip-colors: (
 				color: map-get($color-map, 'label');
 			}
 
+			&.-ds-interactive:hover {
+				$background-hover: map-get($color-map, 'background-hover');
+
+				@if $background-hover {
+					background-color: $background-hover;
+				}
+			}
+
 			&.-ds-disabled {
 				background-color: map-get(map-get($color-map, 'disabled'), 'background');
 
@@ -193,6 +214,11 @@ $chip-colors: (
 	display: inline-flex;
 	gap: $space-4xs;
 	padding: $space-4xs $space-2xs;
+
+	&.-ds-interactive {
+		cursor: pointer;
+		transition: background-color ease-in-out $default-transition-time;
+	}
 
 	&.-ds-removable {
 		padding: $space-5xs $space-5xs $space-5xs $space-2xs;
@@ -291,6 +317,7 @@ const {
 	colorHex = null,
 	state = CHIP_STATES.DEFAULT,
 	isRemovable = false,
+	isInteractive = false,
 } = defineProps<{
 	label?: string | null;
 	isLabelUppercase?: boolean;
@@ -301,11 +328,15 @@ const {
 	colorHex?: string | null;
 	state?: ChipState;
 	isRemovable?: boolean;
+	isInteractive?: boolean;
 }>();
 
 defineEmits<{
 	remove: [];
+	chipClick: [event: Event];
 }>();
+
+const isInteractiveComputed = computed(() => isInteractive && state !== CHIP_STATES.DISABLED);
 
 const colorClassName = computed(() => {
 	if (colorHex) {

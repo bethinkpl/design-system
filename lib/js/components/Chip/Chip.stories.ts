@@ -21,7 +21,7 @@ const StoryTemplate: StoryFn<typeof Chip> = (args) => ({
 		return args;
 	},
 	template:
-		'<chip :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius" />',
+		'<chip :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius" :is-interactive="isInteractive" />',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -34,7 +34,7 @@ const StoryTemplateWithAccessory: StoryFn<typeof Chip> = (args) => ({
 		return args;
 	},
 	template:
-		'<chip :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius">' +
+		'<chip :label="label" :is-label-uppercase="isLabelUppercase" :left-icon="ICONS[leftIcon]" :is-removable="isRemovable" :size="size" :color="color" :color-hex="colorHex" :state="state" :radius="radius" :is-interactive="isInteractive">' +
 		'<template #accessory><logo-badge :style="svgStyle" /></template>' +
 		'</chip>',
 	data() {
@@ -64,6 +64,7 @@ const args = {
 	color: CHIP_DEFAULT_COLOR,
 	colorHex: '',
 	isRemovable: false,
+	isInteractive: false,
 	state: CHIP_STATES.DEFAULT,
 } as Args;
 const argTypes = {
