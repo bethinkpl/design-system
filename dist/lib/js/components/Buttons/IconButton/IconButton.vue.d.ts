@@ -282,6 +282,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_SQUARE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_SQUARE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STETHOSCOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
