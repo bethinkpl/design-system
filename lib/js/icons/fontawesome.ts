@@ -232,6 +232,7 @@ import { faVolumeHigh as fasVolumeHigh } from '@fortawesome/pro-solid-svg-icons/
 import { faCircleDot as fasCircleDot } from '@fortawesome/pro-solid-svg-icons/faCircleDot';
 import { faDot as fasDot } from '@fortawesome/pro-solid-svg-icons/faDot';
 import { faFlagCheckered as fasFlagCheckered } from '@fortawesome/pro-solid-svg-icons/faFlagCheckered';
+import { faSquare as fasSquare } from '@fortawesome/pro-solid-svg-icons/faSquare';
 
 import { faChevronLeft as falChevronLeft } from '@fortawesome/pro-light-svg-icons/faChevronLeft';
 import { faChevronRight as falChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
@@ -472,6 +473,7 @@ export const FONTAWESOME_ICONS = {
 	FA_SQUARE_LIST: faSquareList,
 	FA_SQUARE_MINUS: faSquareMinus,
 	FA_SQUARE: faSquare,
+	FA_SQUARE_SOLID: fasSquare,
 	FA_STAR_SOLID: fasStar,
 	FA_STAR: faStar,
 	FA_STETHOSCOPE: faStethoscope,
