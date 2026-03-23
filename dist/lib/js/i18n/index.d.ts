@@ -4,6 +4,8 @@ import { default as pl } from './pl';
 export type MessageSchema = typeof pl;
 export declare const messages: {
     pl: {
+        "ds.datePicker.selectDate": string;
+        "ds.datePicker.set": string;
         "ds.statsLayout.default.leftColumnLabel": string;
         "ds.statsLayout.default.rightColumnLabel": string;
         "ds.statsLayout.filtersDropdown.title": string;
@@ -24,6 +26,8 @@ export declare const messages: {
         "ds.globals.loading": string;
     };
     en: {
+        "ds.datePicker.selectDate": string;
+        "ds.datePicker.set": string;
         "ds.statsLayout.default.leftColumnLabel": string;
         "ds.statsLayout.default.rightColumnLabel": string;
         "ds.statsLayout.filtersDropdown.title": string;
@@ -44,6 +48,7 @@ export declare const messages: {
         "ds.globals.loading": string;
     };
 };
+export type SupportedLocale = keyof typeof messages;
 export type ValidI18nKey = keyof MessageSchema;
 export interface TranslateFunction {
     (key: ValidI18nKey): string;
