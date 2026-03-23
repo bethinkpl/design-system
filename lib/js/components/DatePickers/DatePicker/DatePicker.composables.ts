@@ -3,9 +3,10 @@ import { FlatpickrFn, Instance as DatePickerInstance } from 'flatpickr/dist/type
 import { CustomLocale } from 'flatpickr/dist/types/locale';
 
 import { DatePickerCalendarPositions, FLATPICKR_POSITIONS } from './index';
+import { SupportedLocale } from '../../../i18n';
 
 let flatpickrFunction: FlatpickrFn | null = null;
-let locale: CustomLocale;
+const localeCache = new Map<string, CustomLocale>();
 
 export interface DatePickerComposablesProps {
 	disableDates: Array<Date>;
@@ -23,6 +24,7 @@ interface InitFlatpickrPrams {
 	onClose: () => void;
 	defaultDates: Date | Array<Date>;
 	mode: 'single' | 'range';
+	locale?: SupportedLocale;
 }
 
 interface InitFlatpickr {
@@ -44,6 +46,7 @@ export function initFlatpickr({
 	onClose,
 	defaultDates,
 	mode = 'single',
+	locale = 'pl',
 }: InitFlatpickrPrams): InitFlatpickr {
 	let datePicker: DatePickerInstance | null = null;
 	const isOpen = ref(false);
@@ -65,15 +68,26 @@ export function initFlatpickr({
 		if (!flatpickrFunction) {
 			try {
 				flatpickrFunction = (await import('flatpickr')).default;
-				locale = (await import('flatpickr/dist/l10n/pl')).Polish;
 			} catch (e) {
 				console.error('Failed to load flatpickr', e);
 				return;
 			}
 		}
+		let flatpickrLocale: CustomLocale | undefined;
+
+		if (locale === 'pl') {
+			if (!localeCache.has('pl')) {
+				try {
+					localeCache.set('pl', (await import('flatpickr/dist/l10n/pl')).Polish);
+				} catch (e) {
+					console.error('Failed to load flatpickr Polish locale', e);
+				}
+			}
+			flatpickrLocale = localeCache.get('pl');
+		}
 		datePicker = flatpickrFunction(flatpickrInputElement, {
 			mode,
-			locale,
+			locale: flatpickrLocale ?? 'en',
 			//disableMobile fixes mobile pickers on platform
 			disableMobile: true,
 			positionElement: datePickerElement,

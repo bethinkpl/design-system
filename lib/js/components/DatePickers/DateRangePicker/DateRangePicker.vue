@@ -2,7 +2,7 @@
 	<div ref="dateRangePickerRef" class="ds-dateRangePicker">
 		<date-box
 			:is-interactive="isInteractive"
-			:placeholder="placeholder"
+			:placeholder="resolvedPlaceholder"
 			:start-date="startDate"
 			:end-date="endDate"
 			:start-icon="startIcon"
@@ -62,6 +62,8 @@ import {
 	DatePickerStates,
 } from '../DatePicker';
 import { DatePickerComposablesProps, initFlatpickr } from '../DatePicker/DatePicker.composables';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
+import { SupportedLocale } from '../../../i18n';
 
 export default defineComponent({
 	name: 'DateRangePicker',
@@ -75,7 +77,7 @@ export default defineComponent({
 		},
 		placeholder: {
 			type: String,
-			default: 'Wybierz datę',
+			default: null,
 		},
 		startDate: {
 			type: Date,
@@ -147,6 +149,8 @@ export default defineComponent({
 		},
 		{ emit },
 	) {
+		const { locale, t } = useLegacyI18n();
+
 		const flatpickrInstance = ref<DatePickerInstance | null>(null);
 		const dateRangePickerRef = ref() as Ref<HTMLDivElement>;
 		const flatpickrInputRef = ref() as Ref<HTMLInputElement>;
@@ -175,6 +179,7 @@ export default defineComponent({
 			onClose,
 			defaultDates: [props.startDate, props.endDate],
 			mode: 'range',
+			locale: locale.value as SupportedLocale,
 		});
 
 		return {
@@ -186,11 +191,18 @@ export default defineComponent({
 			createDatePicker,
 			destroyDatePicker,
 			updateDatePicker,
+			locale,
+			t,
 			DATE_PICKER_CALENDAR_POSITIONS: Object.freeze(DATE_PICKER_CALENDAR_POSITIONS),
 			DATE_PICKER_COLORS: Object.freeze(DATE_PICKER_COLORS),
 			DATE_PICKER_STATES: Object.freeze(DATE_PICKER_STATES),
 			DATE_PICKER_TRIGGER_TYPES: Object.freeze(DATE_PICKER_TRIGGER_TYPES),
 		};
+	},
+	computed: {
+		resolvedPlaceholder() {
+			return this.placeholder ?? this.t('ds.datePicker.selectDate');
+		},
 	},
 	methods: {
 		async bindFlatpickrInstance() {

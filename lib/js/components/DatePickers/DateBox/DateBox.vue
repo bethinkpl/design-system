@@ -356,6 +356,7 @@ import {
 	localWeekdayName,
 } from '../../../../../tools/importers/helpers/dates';
 import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 export default defineComponent({
 	name: 'DateBox',
@@ -369,7 +370,7 @@ export default defineComponent({
 		},
 		placeholder: {
 			type: String,
-			default: 'Ustaw',
+			default: null,
 		},
 		startDate: {
 			type: Date,
@@ -406,6 +407,10 @@ export default defineComponent({
 			default: false,
 		},
 	},
+	setup() {
+		const { locale, t } = useLegacyI18n();
+		return { locale, t };
+	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -417,9 +422,9 @@ export default defineComponent({
 	computed: {
 		startDateText() {
 			if (this.startDate) {
-				return localMonthDayWithShortMonthDay(this.startDate);
+				return localMonthDayWithShortMonthDay(this.startDate, this.locale);
 			}
-			return this.placeholder;
+			return this.placeholder ?? this.t('ds.datePicker.set');
 		},
 		endDateIfDifferentThanStartDate() {
 			return this.startDate &&
@@ -429,19 +434,24 @@ export default defineComponent({
 				: null;
 		},
 		endDateText() {
-			return localMonthDayWithShortMonthDay(this.endDateIfDifferentThanStartDate);
+			return localMonthDayWithShortMonthDay(
+				this.endDateIfDifferentThanStartDate,
+				this.locale,
+			);
 		},
 		startDateEyebrowText() {
 			if (!this.startDate) {
 				return '';
 			}
-			return capitalizeFirstLetter(localWeekdayName(this.startDate));
+			return capitalizeFirstLetter(localWeekdayName(this.startDate, this.locale));
 		},
 		endDateEyebrowText() {
 			if (!this.endDateIfDifferentThanStartDate) {
 				return '';
 			}
-			return capitalizeFirstLetter(localWeekdayName(this.endDateIfDifferentThanStartDate));
+			return capitalizeFirstLetter(
+				localWeekdayName(this.endDateIfDifferentThanStartDate, this.locale),
+			);
 		},
 	},
 });

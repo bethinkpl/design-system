@@ -9,6 +9,8 @@ export const messages = {
 	en,
 };
 
+export type SupportedLocale = keyof typeof messages;
+
 export type ValidI18nKey = keyof MessageSchema;
 
 export interface TranslateFunction {
