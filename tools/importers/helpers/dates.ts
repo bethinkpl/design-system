@@ -1,4 +1,4 @@
-import { SupportedLocale } from '../../../lib/js/i18n';
+import type { SupportedLocale } from '../../../lib/js/i18n';
 
 const LOCALE_MAP: Record<SupportedLocale, string> = {
 	pl: 'pl-PL',

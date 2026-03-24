@@ -1,9 +1,9 @@
 import { computed, ComputedRef, getCurrentInstance } from 'vue';
-import { TranslateFunction } from '../i18n';
+import { SupportedLocale, TranslateFunction } from '../i18n';
 
 interface IUseLegacyI18n {
 	t: TranslateFunction;
-	locale: ComputedRef<string | undefined>;
+	locale: ComputedRef<SupportedLocale | undefined>;
 }
 
 /**

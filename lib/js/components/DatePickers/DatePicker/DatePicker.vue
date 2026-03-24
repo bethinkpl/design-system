@@ -173,7 +173,6 @@ import {
 	DatePickerTriggerTypes,
 } from './DatePicker.consts';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
-import { SupportedLocale } from '../../../i18n';
 
 export default defineComponent({
 	name: 'DatePicker',
@@ -296,7 +295,7 @@ export default defineComponent({
 			onClose,
 			defaultDates: props.date ?? new Date(),
 			mode: 'single',
-			locale: locale.value as SupportedLocale,
+			locale: locale.value,
 		});
 
 		return {

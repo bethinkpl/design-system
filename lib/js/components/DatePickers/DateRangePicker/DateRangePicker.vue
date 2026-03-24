@@ -63,7 +63,6 @@ import {
 } from '../DatePicker';
 import { DatePickerComposablesProps, initFlatpickr } from '../DatePicker/DatePicker.composables';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
-import { SupportedLocale } from '../../../i18n';
 
 export default defineComponent({
 	name: 'DateRangePicker',
@@ -179,7 +178,7 @@ export default defineComponent({
 			onClose,
 			defaultDates: [props.startDate, props.endDate],
 			mode: 'range',
-			locale: locale.value as SupportedLocale,
+			locale: locale.value,
 		});
 
 		return {
