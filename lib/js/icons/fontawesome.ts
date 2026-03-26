@@ -243,6 +243,10 @@ import { faSquare as fadSquare } from '@fortawesome/duotone-regular-svg-icons/fa
 import { faSquareCheck as fadSquareCheck } from '@fortawesome/pro-duotone-svg-icons/faSquareCheck';
 
 import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook';
+import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons/faFacebookSquare';
+import { faYoutube } from '@fortawesome/free-brands-svg-icons/faYoutube';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons/faInstagram';
+import { faTiktok } from '@fortawesome/free-brands-svg-icons/faTiktok';
 import { faUserGear } from '@fortawesome/pro-regular-svg-icons/faUserGear';
 import { faCardsBlank } from '@fortawesome/pro-regular-svg-icons/faCardsBlank';
 
@@ -371,6 +375,7 @@ export const FONTAWESOME_ICONS = {
 	FA_FACE_MEH: faFaceMeh,
 	FA_FACE_SMILE: faFaceSmile,
 	FA_FACEBOOK: faFacebook,
+	FA_FACEBOOK_SQUARE: faFacebookSquare,
 	FA_FILE_ARROW_DOWN: faFileArrowDown,
 	FA_FILE_CHECK: faFileCheck,
 	FA_FILE_INVOICE_DOLLAR: faFileInvoiceDollar,
@@ -412,6 +417,7 @@ export const FONTAWESOME_ICONS = {
 	FA_IMAGES_SOLID: fasImages,
 	FA_IMAGES: faImages,
 	FA_INFO_SOLID: fasInfo,
+	FA_INSTAGRAM: faInstagram,
 	FA_KEY: faKey,
 	FA_KEYBOARD: faKeyboard,
 	FA_LIGHTBULB_SOLID: fasLightbulb,
@@ -486,6 +492,7 @@ export const FONTAWESOME_ICONS = {
 	FA_THUMBS_UP: faThumbsUp,
 	FA_THUMBTACK_SOLID: fasThumbtack,
 	FA_THUMBTACK: faThumbtack,
+	FA_TIKTOK: faTiktok,
 	FA_TRASH_CAN: faTrashCan,
 	FA_TREE_PALM: faTreePalm,
 	FA_TRIANGLE_EXCLAMATION_SOLID: fasTriangleExclamation,
@@ -502,6 +509,7 @@ export const FONTAWESOME_ICONS = {
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
 	FA_XMARK: faXmark,
+	FA_YOUTUBE: faYoutube,
 	FAD_SPINNER_THIRD: fadSpinnerThird,
 	FAD_SQUARE_MINUS: fadSquareMinus,
 	FAD_SQUARE: fadSquare,
