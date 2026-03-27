@@ -3,6 +3,14 @@ name: Build Storybook to Design Review on trigger
 on:
   issue_comment:
     types: [ created ]
+  workflow_call:
+    inputs:
+      branch_name:
+        type: string
+        required: true
+      pr_number:
+        type: string
+        required: true
 
 jobs:
   deploy-for-review:
@@ -11,13 +19,15 @@ jobs:
       FONT_AWESOME_AUTH_TOKEN: ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
 
     if: |
-      github.event.comment &&
-      github.event.issue.pull_request &&
-      startsWith(github.event.comment.body, '/review')
+      github.event_name == 'workflow_call' ||
+      (github.event.comment &&
+       github.event.issue.pull_request &&
+       startsWith(github.event.comment.body, '/review'))
 
     steps:
       - name: Get PR branch name
         id: comment-pr-ref
+        if: github.event_name == 'issue_comment'
         uses: actions/github-script@v6
         with:
           result-encoding: string
@@ -31,12 +41,12 @@ jobs:
 
       - name: Set short branch name
         run: |
-          echo "BRANCH_NAME=${{ steps.comment-pr-ref.outputs.result }}" >> $GITHUB_ENV
+          echo "BRANCH_NAME=${{ inputs.branch_name || steps.comment-pr-ref.outputs.result }}" >> $GITHUB_ENV
 
       - name: Checkout PR code based on trigger comment
         uses: actions/checkout@v3
         with:
-          ref: ${{ steps.comment-pr-ref.outputs.result }}
+          ref: ${{ inputs.branch_name || steps.comment-pr-ref.outputs.result }}
 
       - uses: actions/setup-node@v3
         with:
@@ -85,6 +95,6 @@ jobs:
       - name: Add comment with URL
         uses: thollander/actions-comment-pull-request@v2
         with:
-          pr_number: ${{ github.event.issue.number }}
+          pr_number: ${{ inputs.pr_number || github.event.issue.number }}
           message: |
             Your storybook is available on: https://${{ vars.S3_REVIEW_BUCKET }}.s3.amazonaws.com/${{ env.BRANCH_NAME }}/index.html

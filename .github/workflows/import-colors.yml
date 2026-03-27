@@ -1,0 +1,96 @@
+name: Import colors from Figma
+
+on:
+  workflow_dispatch:
+    inputs:
+      wnl_path:
+        description: 'S3 path to DS RAWColors.WNL_*.json (e.g. s3://my-bucket/exports/raw-wnl.json)'
+        required: true
+      bw_path:
+        description: 'S3 path to DS RAWColors.BW_*.json'
+        required: true
+      tokens_path:
+        description: 'S3 path to DS ColorTokens_*.json'
+        required: true
+
+jobs:
+  import-and-open-pr:
+    runs-on: ubuntu-latest
+
+    env:
+      FONT_AWESOME_AUTH_TOKEN: ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
+      AWS_DEFAULT_REGION: eu-central-1
+
+    permissions:
+      contents: write
+      pull-requests: write
+
+    outputs:
+      pr_number: ${{ steps.pr.outputs.number }}
+
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v3
+
+      - name: Create import branch
+        run: git checkout -b colors/import-${{ github.run_id }}
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20.9.0'
+
+      - uses: actions/cache@v4
+        name: Cache node_modules
+        id: cache-node-modules
+        with:
+          path: node_modules
+          key: design-system-node-modules-${{ hashFiles('yarn.lock') }}
+
+      - name: Install dependencies 🔧
+        run: yarn install --immutable --immutable-cache
+
+      - name: Download files from S3
+        run: |
+          mkdir -p tools/importers/input
+          aws s3 cp "${{ inputs.wnl_path }}" tools/importers/input/raw-wnl.json
+          aws s3 cp "${{ inputs.bw_path }}" tools/importers/input/raw-bw.json
+          aws s3 cp "${{ inputs.tokens_path }}" tools/importers/input/raw-tokens.json
+
+      - name: Run import script
+        run: yarn importColors tools/importers/input/raw-wnl.json tools/importers/input/raw-bw.json tools/importers/input/raw-tokens.json
+
+      - name: Commit and push output
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add lib/styles/settings/colors/
+          git commit -m "Import colors from Figma tokens"
+          git push --set-upstream origin colors/import-${{ github.run_id }}
+
+      - name: Create pull request
+        id: pr
+        run: |
+          PR_URL=$(gh pr create \
+            --base master \
+            --title "Import colors from Figma tokens" \
+            --body "Automated import from Design Tokens Manager Figma plugin.
+
+          **Source files:**
+          - WNL: \`${{ inputs.wnl_path }}\`
+          - BW: \`${{ inputs.bw_path }}\`
+          - Tokens: \`${{ inputs.tokens_path }}\`
+
+          Triggered by: @${{ github.actor }}")
+          echo "number=$(basename "$PR_URL")" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  trigger-storybook-preview:
+    needs: import-and-open-pr
+    uses: ./.github/workflows/build-to-review-on-trigger.yml
+    with:
+      branch_name: colors/import-${{ github.run_id }}
+      pr_number: ${{ needs.import-and-open-pr.outputs.pr_number }}
+    secrets: inherit
