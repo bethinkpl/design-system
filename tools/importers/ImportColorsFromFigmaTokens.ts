@@ -4,7 +4,7 @@ import { arrayToFile, jsonToFile } from './helpers/fileWriter';
 import { cssFileFirstLine } from './helpers/modifiers';
 import { ColorsBinFiles, Dict, IResultJsonObject, ITokenJsonObject } from './helpers/structures';
 
-const defaultConfig = require('./configs/ImportColorsFromFigmaTokensConfig.json');
+import defaultConfig from './configs/ImportColorsFromFigmaTokensConfig.json';
 
 interface FigmaColorToken {
 	$type: string;
