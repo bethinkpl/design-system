@@ -279,7 +279,9 @@ describe('ImportColorsFromFigmaTokens', () => {
 
 		expect(variablesLines[0]).toBe('.-ds-theme-wnl {');
 		expect(variablesContent).toContain('\t--color-default-text: var(--raw-black);');
-		expect(variablesContent).toContain('\t--color-primary-background-strong: var(--theme-500);');
+		expect(variablesContent).toContain(
+			'\t--color-primary-background-strong: var(--theme-500);',
+		);
 		expect(variablesContent).toContain(
 			'\t--color-primary-ripple: rgba(var(--theme-500-rgb), 0.12);',
 		);

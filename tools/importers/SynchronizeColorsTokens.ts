@@ -202,7 +202,6 @@ const ImportSingleTokenFile = (
 	}
 };
 
-
 const SynchronizeSingleBin = async (bin: ColorsConfigFileBin) => {
 	const response = await axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');
 	let hexToCssVariable;

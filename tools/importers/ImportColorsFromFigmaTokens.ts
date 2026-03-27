@@ -54,10 +54,7 @@ const parseTokenReference = (reference: string): string => {
 	return `var(${cssVar})`;
 };
 
-export const validateRawSections = (
-	wnl: FigmaRawColorsJson,
-	bw: FigmaRawColorsJson,
-): void => {
+export const validateRawSections = (wnl: FigmaRawColorsJson, bw: FigmaRawColorsJson): void => {
 	if (sortedStringify(wnl.raw) !== sortedStringify(bw.raw)) {
 		throw new Error('Raw color sections in WNL and BW files differ!');
 	}
@@ -90,7 +87,10 @@ export const ImportRawColors = (
 	};
 
 	if (!isTheme) {
-		const processRawGroup = (group: { [key: string]: FigmaColorEntry }, category: string): void => {
+		const processRawGroup = (
+			group: { [key: string]: FigmaColorEntry },
+			category: string,
+		): void => {
 			for (const [key, entry] of Object.entries(group)) {
 				if (isAlphaVariant(key)) continue;
 
@@ -185,7 +185,10 @@ const run = async () => {
 		validateRawSections(wnlColorsJson, bwColorsJson);
 	}
 
-	const baseCfg = { destinationPath: defaultConfig.destinationPath, files: defaultConfig.base.files };
+	const baseCfg = {
+		destinationPath: defaultConfig.destinationPath,
+		files: defaultConfig.base.files,
+	};
 	ImportRawColors(baseCfg, wnlColorsJson);
 	console.log('Base raw colors imported successfully.');
 
