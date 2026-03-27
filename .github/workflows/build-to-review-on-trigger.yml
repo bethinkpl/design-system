@@ -19,7 +19,7 @@ jobs:
       FONT_AWESOME_AUTH_TOKEN: ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
 
     if: |
-      github.event_name == 'workflow_call' ||
+      inputs.branch_name != '' ||
       (github.event.comment &&
        github.event.issue.pull_request &&
        startsWith(github.event.comment.body, '/review'))
