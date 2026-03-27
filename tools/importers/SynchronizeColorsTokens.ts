@@ -1,7 +1,7 @@
 const axios = require('axios');
 const tokensFilesConfig = require('./configs/SynchronizeColorsTokensConfig.json');
 import { cssFileFirstLine } from './helpers/modifiers';
-import { makeHexShortcut } from './helpers/colorsModifiers';
+import { makeHexShortcut, hexToRgb } from './helpers/colorsModifiers';
 import { arrayToFile, jsonToFile } from './helpers/fileWriter';
 import {
 	ColorsBinFiles,
@@ -202,24 +202,6 @@ const ImportSingleTokenFile = (
 	}
 };
 
-const hexToRgb = (hex: string) => {
-	if (typeof hex !== 'string' || [4, 7].includes(hex.length) === false) {
-		return null;
-	}
-
-	if (hex.length === 4) {
-		hex = hex + hex[1] + hex[2] + hex[3];
-	}
-	let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	return result
-		? '' +
-				parseInt(result[1], 16) +
-				', ' +
-				parseInt(result[2], 16) +
-				', ' +
-				parseInt(result[3], 16)
-		: null;
-};
 
 const SynchronizeSingleBin = async (bin: ColorsConfigFileBin) => {
 	const response = await axios.get(tokensFilesConfig.jsonBinApiUrl + bin.id + '/latest');

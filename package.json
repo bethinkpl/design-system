@@ -37,6 +37,7 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "ts:check": "vue-tsc --noEmit --project ./tsconfig.base.json",
+    "importColors": "npx ts-node tools/importers/ImportColorsFromFigmaTokens.ts",
     "synchronizeColors": "npx ts-node tools/importers/SynchronizeColorsTokens.ts",
     "synchronizeTypography": "npx ts-node tools/importers/SynchronizeTypographyTokens.ts"
   },
