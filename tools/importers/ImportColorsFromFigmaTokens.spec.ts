@@ -216,17 +216,21 @@ describe('ImportColorsFromFigmaTokens', () => {
 		);
 		const json = JSON.parse(jsonContent);
 
-		expect(json.default[0].label).toBe('color-default-text');
-		expect(json.default[0].value).toBe('var(--raw-black)');
+		expect(json.text[0].label).toBe('color-default-text');
+		expect(json.text[0].value).toBe('var(--raw-black)');
 		expect(
-			json.default.find(
+			json.overlay.find(
 				(t: { value: string }) => t.value === 'rgba(var(--raw-black-rgb), 0.9)',
 			),
 		).toBeDefined();
-		expect(json.neutral[0].label).toBe('color-neutral-text');
-		expect(json.neutral[0].value).toBe('var(--raw-gray-900)');
-		expect(json.primary[0].label).toBe('color-primary-background-strong');
-		expect(json.primary[0].value).toBe('var(--theme-500)');
+		expect(
+			json.text.find((t: { label: string }) => t.label === 'color-neutral-text'),
+		).toMatchObject({ label: 'color-neutral-text', value: 'var(--raw-gray-900)' });
+		expect(
+			json.background.find(
+				(t: { label: string }) => t.label === 'color-primary-background-strong',
+			),
+		).toMatchObject({ label: 'color-primary-background-strong', value: 'var(--theme-500)' });
 	});
 
 	it('ImportRawColors (theme mode) generates correct _raw-wnl.scss and _raw-wnl.json', async () => {
@@ -278,13 +282,16 @@ describe('ImportColorsFromFigmaTokens', () => {
 		const variablesLines = variablesContent.split(/\r?\n/);
 
 		expect(variablesLines[0]).toBe('.-ds-theme-wnl {');
-		expect(variablesContent).toContain('\t--color-default-text: var(--raw-black);');
+		// only theme-referencing tokens should appear
 		expect(variablesContent).toContain(
 			'\t--color-primary-background-strong: var(--theme-500);',
 		);
 		expect(variablesContent).toContain(
 			'\t--color-primary-ripple: rgba(var(--theme-500-rgb), 0.12);',
 		);
+		// raw-referencing tokens must not appear in theme file
+		expect(variablesContent).not.toContain('--color-default-text');
+		expect(variablesContent).not.toContain('--color-neutral-text');
 
 		// --- _tokens-wnl.scss ---
 		const scssContent = await promises.readFile(
@@ -292,10 +299,10 @@ describe('ImportColorsFromFigmaTokens', () => {
 			'utf8',
 		);
 
-		expect(scssContent).toContain('$color-default-text: var(--color-default-text);');
 		expect(scssContent).toContain(
 			'$color-primary-background-strong: var(--color-primary-background-strong);',
 		);
+		expect(scssContent).not.toContain('$color-default-text');
 
 		// --- _tokens-wnl.json ---
 		const jsonContent = await promises.readFile(
@@ -304,10 +311,12 @@ describe('ImportColorsFromFigmaTokens', () => {
 		);
 		const json = JSON.parse(jsonContent);
 
-		expect(json.default[0].label).toBe('color-default-text');
-		expect(json.default[0].value).toBe('var(--raw-black)');
-		expect(json.primary[0].label).toBe('color-primary-background-strong');
-		expect(json.primary[0].value).toBe('var(--theme-500)');
+		expect(
+			json.background.find(
+				(t: { label: string }) => t.label === 'color-primary-background-strong',
+			),
+		).toMatchObject({ label: 'color-primary-background-strong', value: 'var(--theme-500)' });
+		expect(json.text).toBeUndefined();
 	});
 
 	it('validateRawSections does not throw when raw sections are equal', () => {

@@ -25,6 +25,8 @@ interface FigmaTokensJson {
 
 const isAlphaVariant = (key: string): boolean => /[-_]\d+%$/.test(key);
 
+const isThemeToken = (entry: FigmaColorToken): boolean => entry.$value.startsWith('{theme.');
+
 /** Serialise with sorted keys at every level so insertion-order differences don't cause false mismatches. */
 const sortedStringify = (obj: unknown): string =>
 	JSON.stringify(obj, (_, val) =>
@@ -139,15 +141,17 @@ export const ImportTokens = (
 	for (const [category, tokens] of Object.entries(tokensJson)) {
 		for (const [tokenKey, tokenEntry] of Object.entries(tokens)) {
 			if (tokenEntry.$type !== 'color') continue;
+			if (isTheme && !isThemeToken(tokenEntry)) continue;
 
 			const tokenName = `color-${category}-${tokenKey}`;
+			const tokenType = tokenKey.split('-')[0];
 			const resolvedValue = parseTokenReference(tokenEntry.$value);
 
 			variablesResult.push(`${tab}--${tokenName}: ${resolvedValue};`);
 			scssResult.push(`$${tokenName}: var(--${tokenName});`);
 
-			if (!jsonResult[category]) jsonResult[category] = [];
-			jsonResult[category].push({
+			if (!jsonResult[tokenType]) jsonResult[tokenType] = [];
+			jsonResult[tokenType].push({
 				id: cfg.files.tokens.destination + '_' + tokenName,
 				label: tokenName,
 				value: resolvedValue,
