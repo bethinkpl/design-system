@@ -1,11 +1,15 @@
-import { Dict, ColorToken } from '../../../tools/importers/helpers/structures';
-
-export { ColorToken };
+import { Dict } from '../../../tools/importers/helpers/structures';
 
 export const TOKENS_TYPES = {
 	COLORS: 'colors',
 	TYPOGRAPHY: 'typography',
 } as const;
+
+export interface ColorToken {
+	id: string;
+	label: string;
+	value: string;
+}
 
 interface AttributeRaw {
 	property: string;
