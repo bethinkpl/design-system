@@ -973,6 +973,7 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_HOURGLASS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HOUSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_IMAGE_CIRCLE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
