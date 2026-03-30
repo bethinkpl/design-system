@@ -6,7 +6,6 @@
 				colorClass,
 				sizeClass,
 				{
-					'-ds-titleInColor': titleInColor,
 					'-ds-iconHiddenOnMobile': isIconHiddenOnMobile,
 				},
 			]"
@@ -147,51 +146,59 @@
 		}
 
 		&.-ds-warning {
+			--ds-banner-title-color: #{$color-warning-text-strong};
+
 			background-color: $color-warning-background;
 			border-color: $color-warning-border-weak;
-			--ds-banner-title-color: #{$color-warning-text-strong};
 		}
 
 		&.-ds-success {
+			--ds-banner-title-color: #{$color-success-text-strong};
+
 			background-color: $color-success-background;
 			border-color: $color-success-border-weak;
-			--ds-banner-title-color: #{$color-success-text-strong};
 		}
 
 		&.-ds-info {
+			--ds-banner-title-color: #{$color-info-text-strong};
+
 			background-color: $color-info-background;
 			border-color: $color-info-border-weak;
-			--ds-banner-title-color: #{$color-info-text-strong};
 		}
 
 		&.-ds-fail {
+			--ds-banner-title-color: #{$color-fail-text-strong};
+
 			background-color: $color-fail-background;
 			border-color: $color-fail-border-weak;
-			--ds-banner-title-color: #{$color-fail-text-strong};
 		}
 
 		&.-ds-neutral {
+			--ds-banner-title-color: #{$color-neutral-text-strong};
+
 			background-color: $color-neutral-background;
 			border-color: $color-neutral-border-weak;
-			--ds-banner-title-color: #{$color-neutral-text-strong}
 		}
 
 		&.-ds-default {
+			--ds-banner-title-color: #{$color-neutral-text-strong};
+
 			background-color: $color-default-background;
 			border-color: $color-neutral-border-weak;
-			--ds-banner-title-color: #{$color-neutral-text-strong}
 		}
 
 		&.-ds-danger {
+			--ds-banner-title-color: #{$color-danger-text-strong};
+
 			background-color: $color-danger-background;
 			border-color: $color-danger-border-weak;
-			--ds-banner-title-color: #{$color-danger-text-strong};
 		}
-		
+
 		&.-ds-accent {
+			--ds-banner-title-color: #{$color-accent-text-strong};
+
 			background-color: $color-accent-background;
 			border-color: $color-accent-border-weak;
-			--ds-banner-title-color: #{$color-accent-text-strong};
 		}
 
 		&.-ds-small {
@@ -331,7 +338,6 @@ const {
 	color = BANNER_COLORS.DEFAULT,
 	isIconHiddenOnMobile = false,
 	size = BANNER_SIZES.MEDIUM,
-	titleInColor = false,
 } = defineProps<{
 	icon?: IconItem | null;
 	buttonText?: string;
@@ -340,7 +346,6 @@ const {
 	title: string;
 	isIconHiddenOnMobile?: boolean;
 	size?: BannerSize;
-	titleInColor?: boolean;
 }>();
 
 defineEmits<{

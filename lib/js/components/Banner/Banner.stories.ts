@@ -40,7 +40,6 @@ const StoryTemplate: StoryFn<typeof Banner> = (args) => {
 						:is-expanded="isExpanded"
 						:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
 						:size="size"
-						:title-in-color="titleInColor"
 						@update:isExpanded="onIsExpandedUpdated"
 				>
 				<template v-if="defaultText" #defaultText><span v-html="defaultText" /></template>
@@ -62,7 +61,6 @@ const args = {
 	icon: null,
 	isIconHiddenOnMobile: false,
 	title: 'Banner Title',
-	titleInColor: false,
 	buttonText: '',
 	closable: false,
 	isExpanded: false,
@@ -106,9 +104,6 @@ const argTypes = {
 	size: {
 		control: 'select',
 		options: Object.values(BANNER_SIZES),
-	},
-	titleInColor: {
-		control: 'boolean',
 	},
 } as ArgTypes;
 
