@@ -38,7 +38,7 @@
     "test:ui": "vitest --ui",
     "ts:check": "vue-tsc --noEmit --project ./tsconfig.base.json",
     "importColors": "npx tsx tools/importers/ImportColorsFromFigmaTokens.ts",
-"synchronizeTypography": "npx tsx tools/importers/SynchronizeTypographyTokens.ts"
+    "synchronizeTypography": "npx tsx tools/importers/SynchronizeTypographyTokens.ts"
   },
   "devDependencies": {
     "@fortawesome/duotone-regular-svg-icons": "7.0.1",
