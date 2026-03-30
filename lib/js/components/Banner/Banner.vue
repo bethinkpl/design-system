@@ -381,7 +381,7 @@ function useBannerClasses() {
 			[BANNER_COLORS.SUCCESS]: '-ds-success',
 			[BANNER_COLORS.WARNING]: '-ds-warning',
 			[BANNER_COLORS.DANGER]: '-ds-danger',
-			[BANNER_COLORS.ACCENT]: '-ds-accent'
+			[BANNER_COLORS.ACCENT]: '-ds-accent',
 		};
 
 		return colorMap[color];

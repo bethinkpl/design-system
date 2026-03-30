@@ -71,9 +71,9 @@ $feature-icon-colors: (
 	),
 	'accent': (
 		'background': $color-accent-background-medium,
-		'border':  $color-accent-background,
-		'icon': $color-accent-icon
-	)
+		'border': $color-accent-background,
+		'icon': $color-accent-icon,
+	),
 );
 
 $feature-icon-padding-large: 10px;

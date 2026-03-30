@@ -19,7 +19,7 @@ export const FEATURE_ICON_COLOR = {
 	SUCCESS: 'success',
 	WARNING: 'warning',
 	FAIL: 'fail',
-	ACCENT: 'accent'
+	ACCENT: 'accent',
 } as const;
 
 export type FeatureIconColor = Value<typeof FEATURE_ICON_COLOR>;
