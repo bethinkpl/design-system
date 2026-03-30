@@ -4,6 +4,6 @@ import { VueI18nInstance } from 'vue-i18n';
 declare module '@vue/runtime-core' {
 	interface ComponentCustomProperties {
 		$t: TranslateFunction<ValidI18nKey | string>;
-		$i18n: VueI18nInstance<any, SupportedLocale>;
+		$i18n: VueI18nInstance;
 	}
 }
