@@ -11,6 +11,10 @@ export const messages = {
 
 export type SupportedLocale = keyof typeof messages;
 
+export const SUPPORTED_LOCALE = Object.fromEntries(
+	Object.keys(messages).map((key) => [key, key]),
+) as Record<SupportedLocale, SupportedLocale>;
+
 export type ValidI18nKey = keyof MessageSchema;
 
 export interface TranslateFunction {
