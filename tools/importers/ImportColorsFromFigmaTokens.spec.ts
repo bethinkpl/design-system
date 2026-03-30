@@ -111,8 +111,10 @@ describe('ImportColorsFromFigmaTokens', () => {
 		expect(scssContent).toContain('\t--raw-gray-50: #f7f7f9;');
 		expect(scssContent).toContain('\t--raw-gray-900: #343c50;');
 
-		// theme vars go to dedicated theme files, not base _raw.scss
-		expect(scssContent).not.toContain('--theme-');
+		// default theme vars (from WNL) are included in the base _raw.scss
+		expect(scssContent).toContain('\t--theme-500: #078f96;');
+		expect(scssContent).toContain('\t--theme-500-rgb: 7, 143, 150;');
+		expect(scssContent).toContain('\t--theme-100: #d5eeef;');
 
 		// alpha variants must not appear
 		expect(scssContent).not.toContain('black-90%');
@@ -144,11 +146,14 @@ describe('ImportColorsFromFigmaTokens', () => {
 			value: '#f7f7f9',
 		});
 
-		// theme category not present in base _raw.json (goes to theme-specific files)
-		expect(json.theme).toBeUndefined();
+		// default theme vars (WNL) are present in base _raw.json
+		expect(json.theme.find((c: { label: string }) => c.label === 'theme-500')).toMatchObject({
+			label: 'theme-500',
+			value: '#078f96',
+		});
 
 		// no alpha variant entries in JSON
-		const allLabels: string[] = [...json.default, ...json.gray].map(
+		const allLabels: string[] = [...json.default, ...json.gray, ...json.theme].map(
 			(c: { label: string }) => c.label,
 		);
 		expect(allLabels.every((label) => !label.includes('%'))).toBe(true);

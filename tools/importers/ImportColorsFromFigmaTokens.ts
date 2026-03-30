@@ -2,7 +2,7 @@ import { readFileSync } from 'fs';
 import { makeHexShortcut, hexToRgb } from './helpers/colorsModifiers';
 import { arrayToFile, jsonToFile } from './helpers/fileWriter';
 import { cssFileFirstLine } from './helpers/modifiers';
-import { ColorsBinFiles, Dict, IResultJsonObject, ITokenJsonObject } from './helpers/structures';
+import { ColorsBinFiles, ColorToken, Dict } from './helpers/structures';
 
 import defaultConfig from './configs/ImportColorsFromFigmaTokensConfig.json';
 
@@ -70,7 +70,7 @@ export const ImportRawColors = (
 	const isTheme = !!themeName;
 	const tab = isTheme ? '\t' : '';
 	const scssResult: string[] = [cssFileFirstLine(isTheme, themeName)];
-	const jsonResult: Dict<IResultJsonObject[]> = {};
+	const jsonResult: Dict<ColorToken[]> = {};
 
 	const addColor = (key: string, value: string, cssVarName: string, category: string): void => {
 		const hex = makeHexShortcut(value);
@@ -107,6 +107,16 @@ export const ImportRawColors = (
 		if (rawColorsJson.raw) {
 			processRawGroup(rawColorsJson.raw, 'default');
 		}
+
+		const themeGroup = rawColorsJson.theme;
+		if (themeGroup) {
+			for (const [key, entry] of Object.entries(themeGroup)) {
+				if (isAlphaVariant(key)) continue;
+				if (entry.$type === 'color') {
+					addColor(key, entry.$value, `--${key}`, 'theme');
+				}
+			}
+		}
 	} else {
 		const themeGroup = rawColorsJson.theme;
 		if (themeGroup) {
@@ -136,7 +146,7 @@ export const ImportTokens = (
 	const tab = isTheme ? '\t' : '';
 	const variablesResult: string[] = [cssFileFirstLine(isTheme, themeName)];
 	const scssResult: string[] = [];
-	const jsonResult: Dict<ITokenJsonObject[]> = {};
+	const jsonResult: Dict<ColorToken[]> = {};
 
 	for (const [category, tokens] of Object.entries(tokensJson)) {
 		for (const [tokenKey, tokenEntry] of Object.entries(tokens)) {
