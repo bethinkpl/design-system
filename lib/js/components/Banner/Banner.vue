@@ -104,8 +104,6 @@
 	width: 100%;
 
 	&__inner {
-		--ds-banner-title-color: #{$color-neutral-text-strong};
-
 		border-radius: $radius-m;
 		border-style: solid;
 		border-width: 1px;
@@ -151,56 +149,49 @@
 		&.-ds-warning {
 			background-color: $color-warning-background;
 			border-color: $color-warning-border-weak;
-
-			&.-ds-titleInColor {
-				--ds-banner-title-color: #{$color-warning-text};
-			}
+			--ds-banner-title-color: #{$color-warning-text-strong};
 		}
 
 		&.-ds-success {
 			background-color: $color-success-background;
 			border-color: $color-success-border-weak;
-
-			&.-ds-titleInColor {
-				--ds-banner-title-color: #{$color-success-text};
-			}
+			--ds-banner-title-color: #{$color-success-text-strong};
 		}
 
 		&.-ds-info {
 			background-color: $color-info-background;
 			border-color: $color-info-border-weak;
-
-			&.-ds-titleInColor {
-				--ds-banner-title-color: #{$color-info-text};
-			}
+			--ds-banner-title-color: #{$color-info-text-strong};
 		}
 
 		&.-ds-fail {
 			background-color: $color-fail-background;
 			border-color: $color-fail-border-weak;
-
-			&.-ds-titleInColor {
-				--ds-banner-title-color: #{$color-fail-text};
-			}
+			--ds-banner-title-color: #{$color-fail-text-strong};
 		}
 
 		&.-ds-neutral {
 			background-color: $color-neutral-background;
 			border-color: $color-neutral-border-weak;
+			--ds-banner-title-color: #{$color-neutral-text-strong}
 		}
 
 		&.-ds-default {
 			background-color: $color-default-background;
 			border-color: $color-neutral-border-weak;
+			--ds-banner-title-color: #{$color-neutral-text-strong}
 		}
 
 		&.-ds-danger {
 			background-color: $color-danger-background;
 			border-color: $color-danger-border-weak;
-
-			&.-ds-titleInColor {
-				--ds-banner-title-color: #{$color-danger-text};
-			}
+			--ds-banner-title-color: #{$color-danger-text-strong};
+		}
+		
+		&.-ds-accent {
+			background-color: $color-accent-background;
+			border-color: $color-accent-border-weak;
+			--ds-banner-title-color: #{$color-accent-text-strong};
 		}
 
 		&.-ds-small {
@@ -369,6 +360,7 @@ const iconColor = computed(() => {
 		[BANNER_COLORS.WARNING]: FEATURE_ICON_COLOR.WARNING,
 		[BANNER_COLORS.FAIL]: FEATURE_ICON_COLOR.FAIL,
 		[BANNER_COLORS.DANGER]: FEATURE_ICON_COLOR.DANGER,
+		[BANNER_COLORS.ACCENT]: FEATURE_ICON_COLOR.ACCENT,
 	};
 
 	return colorMap[color];
@@ -384,6 +376,7 @@ function useBannerClasses() {
 			[BANNER_COLORS.SUCCESS]: '-ds-success',
 			[BANNER_COLORS.WARNING]: '-ds-warning',
 			[BANNER_COLORS.DANGER]: '-ds-danger',
+			[BANNER_COLORS.ACCENT]: '-ds-accent'
 		};
 
 		return colorMap[color];

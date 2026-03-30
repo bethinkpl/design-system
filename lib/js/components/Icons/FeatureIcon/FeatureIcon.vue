@@ -11,6 +11,7 @@
 			'-ds-primary': color === FEATURE_ICON_COLOR.PRIMARY,
 			'-ds-success': color === FEATURE_ICON_COLOR.SUCCESS,
 			'-ds-warning': color === FEATURE_ICON_COLOR.WARNING,
+			'-ds-accent': color === FEATURE_ICON_COLOR.ACCENT,
 			'-ds-xSmall': size === FEATURE_ICON_SIZES.X_SMALL,
 			'-ds-small': size === FEATURE_ICON_SIZES.SMALL,
 			'-ds-medium': size === FEATURE_ICON_SIZES.MEDIUM,
@@ -68,6 +69,11 @@ $feature-icon-colors: (
 		'border': $color-info-background,
 		'icon': $color-info-icon,
 	),
+	'accent': (
+		'background': $color-accent-background-medium,
+		'border':  $color-accent-background,
+		'icon': $color-accent-icon
+	)
 );
 
 $feature-icon-padding-large: 10px;
