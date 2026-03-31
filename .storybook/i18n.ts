@@ -1,8 +1,8 @@
 import { createI18n } from 'vue-i18n';
-import { messages, MessageSchema } from '../lib/js/i18n';
+import { messages, MessageSchema, SUPPORTED_LOCALE } from '../lib/js/i18n';
 
-export const i18n = createI18n<[MessageSchema], 'pl'>({
-	fallbackLocale: 'pl',
-	locale: 'pl',
+export const i18n = createI18n<[MessageSchema], typeof SUPPORTED_LOCALE.pl>({
+	fallbackLocale: SUPPORTED_LOCALE.pl,
+	locale: SUPPORTED_LOCALE.pl,
 	messages,
 });
