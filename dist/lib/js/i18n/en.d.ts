@@ -1,4 +1,6 @@
 declare const _default: {
+    "ds.datePicker.selectDate": string;
+    "ds.datePicker.set": string;
     "ds.statsLayout.default.leftColumnLabel": string;
     "ds.statsLayout.default.rightColumnLabel": string;
     "ds.statsLayout.filtersDropdown.title": string;

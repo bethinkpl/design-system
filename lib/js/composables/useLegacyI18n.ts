@@ -1,8 +1,9 @@
-import { getCurrentInstance } from 'vue';
-import { TranslateFunction } from '../i18n';
+import { computed, ComputedRef, getCurrentInstance } from 'vue';
+import { SupportedLocale, TranslateFunction } from '../i18n';
 
 interface IUseLegacyI18n {
 	t: TranslateFunction;
+	locale: ComputedRef<SupportedLocale>;
 }
 
 /**
@@ -18,7 +19,10 @@ export const useLegacyI18n = (): IUseLegacyI18n => {
 
 	const t = internalInstance.root.proxy.$t;
 
+	const locale = computed(() => internalInstance.root.proxy?.$i18n.locale as SupportedLocale);
+
 	return {
 		t,
+		locale,
 	};
 };
