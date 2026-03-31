@@ -3,6 +3,7 @@ import { initializePrimeVue } from '../lib/js';
 
 import { setup } from '@storybook/vue3';
 import { i18n } from './i18n';
+import { SUPPORTED_LOCALE } from '../lib/js/i18n';
 
 const customViewports = {
 	mobile: {
@@ -109,13 +110,13 @@ export const globalTypes = {
 	locale: {
 		name: 'Locale',
 		type: 'select',
-		defaultValue: 'pl',
-		options: ['pl', 'en'],
+		defaultValue: SUPPORTED_LOCALE.pl,
+		options: Object.keys(SUPPORTED_LOCALE),
 	},
 };
 
 setup((app, context) => {
-	i18n.global.locale = context.globals.locale;
+	i18n.global.locale = context?.globals.locale;
 	app.use(i18n);
 
 	// https://storybook.js.org/docs/get-started/frameworks/vue3-vite?renderer=vue#extending-the-vue-application
