@@ -544,6 +544,8 @@ declare const _default: import('vue').DefineComponent<{
     createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement, updatePositionBasedOnScrollableSelector: string) => Promise<DatePickerInstance | undefined>;
     destroyDatePicker: () => void;
     updateDatePicker: () => void;
+    locale: import('vue').ComputedRef<"pl" | "en">;
+    t: import('../../../i18n').TranslateFunction;
     DATE_PICKER_CALENDAR_POSITIONS: Readonly<{
         TOP: string;
         TOP_LEFT: string;
@@ -567,7 +569,9 @@ declare const _default: import('vue').DefineComponent<{
         BOX: string;
         TILE: string;
     }>;
-}, {}, {}, {
+}, {}, {
+    resolvedPlaceholder(): any;
+}, {
     bindFlatpickrInstance(): Promise<void>;
     toggle(): Promise<void>;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
@@ -615,7 +619,7 @@ declare const _default: import('vue').DefineComponent<{
         };
         placeholder: {
             type: StringConstructor;
-            default: string;
+            default: null;
         };
         startDate: {
             type: DateConstructor;
@@ -651,7 +655,10 @@ declare const _default: import('vue').DefineComponent<{
             type: BooleanConstructor;
             default: boolean;
         };
-    }>, {}, {
+    }>, {
+        locale: import('vue').ComputedRef<"pl" | "en">;
+        t: import('../../../i18n').TranslateFunction;
+    }, {
         ICONS: Readonly<{
             readonly ANSWERS: VueConstructor<Vue>;
             readonly CHANGE: VueConstructor<Vue>;
@@ -952,7 +959,7 @@ declare const _default: import('vue').DefineComponent<{
         };
         placeholder: {
             type: StringConstructor;
-            default: string;
+            default: null;
         };
         startDate: {
             type: DateConstructor;

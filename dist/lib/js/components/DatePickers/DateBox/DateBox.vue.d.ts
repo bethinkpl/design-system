@@ -8,7 +8,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     placeholder: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     startDate: {
         type: DateConstructor;
@@ -44,7 +44,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-}>, {}, {
+}>, {
+    locale: import('vue').ComputedRef<"pl" | "en">;
+    t: import('../../../i18n').TranslateFunction;
+}, {
     ICONS: Readonly<{
         readonly ANSWERS: VueConstructor<Vue>;
         readonly CHANGE: VueConstructor<Vue>;
@@ -345,7 +348,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     placeholder: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     startDate: {
         type: DateConstructor;

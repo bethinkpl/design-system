@@ -1,6 +1,7 @@
 import { Ref } from 'vue';
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { DatePickerCalendarPositions } from './index';
+import { SupportedLocale } from '../../../i18n';
 
 export interface DatePickerComposablesProps {
     disableDates: Array<Date>;
@@ -17,6 +18,7 @@ interface InitFlatpickrPrams {
     onClose: () => void;
     defaultDates: Date | Array<Date>;
     mode: 'single' | 'range';
+    locale?: SupportedLocale;
 }
 interface InitFlatpickr {
     datePicker: DatePickerInstance | null;
@@ -26,5 +28,5 @@ interface InitFlatpickr {
     isOpen: Ref<boolean>;
     toggle: () => void;
 }
-export declare function initFlatpickr({ props, onChange, onClose, defaultDates, mode, }: InitFlatpickrPrams): InitFlatpickr;
+export declare function initFlatpickr({ props, onChange, onClose, defaultDates, mode, locale, }: InitFlatpickrPrams): InitFlatpickr;
 export {};
