@@ -2,7 +2,7 @@ export const makeHexShortcut = (hex: string) => {
 	if (hex.split('').every((char) => char === hex[1] || char === '#')) {
 		hex = '#' + `${hex[1]}${hex[2]}${hex[3]}`;
 	}
-	return hex;
+	return hex.toUpperCase();
 };
 
 export const hexToRgb = (hex: string): string | null => {
