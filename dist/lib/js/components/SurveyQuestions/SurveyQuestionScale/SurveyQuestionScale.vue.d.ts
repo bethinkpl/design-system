@@ -245,6 +245,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_PARTY_HORN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_PEN_TO_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -856,6 +857,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PARTY_HORN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_PEN_TO_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1583,6 +1585,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PARTY_HORN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_PEN_TO_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
