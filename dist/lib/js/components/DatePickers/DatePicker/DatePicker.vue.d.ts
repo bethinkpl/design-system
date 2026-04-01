@@ -544,6 +544,8 @@ declare const _default: import('vue').DefineComponent<{
     toggleDatePicker: () => void;
     updateDatePicker: () => void;
     createDatePicker: (flatpickrInputElement: HTMLInputElement, dateRangePickerRef: HTMLElement, updatePositionBasedOnScrollableSelector: string) => Promise<DatePickerInstance | undefined>;
+    locale: import('vue').ComputedRef<"pl" | "en">;
+    t: import('../../../i18n').TranslateFunction;
     DATE_PICKER_CALENDAR_POSITIONS: {
         TOP: string;
         TOP_LEFT: string;
@@ -579,6 +581,7 @@ declare const _default: import('vue').DefineComponent<{
     };
 }, {}, {
     borderColor(): "primary" | "danger" | "neutralWeak" | "warning" | "dangerWeak" | "warningWeak";
+    resolvedPlaceholder(): any;
     eyebrowText(): string;
     text(): any;
     tileIcon(): any;
@@ -772,7 +775,7 @@ declare const _default: import('vue').DefineComponent<{
         };
         placeholder: {
             type: StringConstructor;
-            default: string;
+            default: null;
         };
         startDate: {
             type: DateConstructor;
@@ -808,7 +811,10 @@ declare const _default: import('vue').DefineComponent<{
             type: BooleanConstructor;
             default: boolean;
         };
-    }>, {}, {
+    }>, {
+        locale: import('vue').ComputedRef<"pl" | "en">;
+        t: import('../../../i18n').TranslateFunction;
+    }, {
         ICONS: Readonly<{
             readonly ANSWERS: VueConstructor<Vue>;
             readonly CHANGE: VueConstructor<Vue>;
@@ -973,6 +979,7 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_HOURGLASS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HOUSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_IMAGE_CIRCLE_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1109,7 +1116,7 @@ declare const _default: import('vue').DefineComponent<{
         };
         placeholder: {
             type: StringConstructor;
-            default: string;
+            default: null;
         };
         startDate: {
             type: DateConstructor;

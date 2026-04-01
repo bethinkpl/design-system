@@ -135,21 +135,21 @@ describe('ImportColorsFromFigmaTokens', () => {
 
 		expect(json.default.find((c: { label: string }) => c.label === 'black')).toMatchObject({
 			label: 'black',
-			value: '#0c1726',
+			value: '#0C1726',
 		});
 		expect(json.default.find((c: { label: string }) => c.label === 'white')).toMatchObject({
 			label: 'white',
-			value: '#fff',
+			value: '#FFF',
 		});
 		expect(json.gray.find((c: { label: string }) => c.label === 'gray-50')).toMatchObject({
 			label: 'gray-50',
-			value: '#f7f7f9',
+			value: '#F7F7F9',
 		});
 
 		// default theme vars (WNL) are present in base _raw.json
 		expect(json.theme.find((c: { label: string }) => c.label === 'theme-500')).toMatchObject({
 			label: 'theme-500',
-			value: '#078f96',
+			value: '#078F96',
 		});
 
 		// no alpha variant entries in JSON
@@ -270,7 +270,7 @@ describe('ImportColorsFromFigmaTokens', () => {
 
 		expect(json.theme.find((c: { label: string }) => c.label === 'theme-500')).toMatchObject({
 			label: 'theme-500',
-			value: '#078f96',
+			value: '#078F96',
 		});
 		expect(json.theme.every((c: { label: string }) => !c.label.includes('%'))).toBe(true);
 	});
