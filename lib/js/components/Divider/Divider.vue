@@ -16,6 +16,7 @@
 
 .ds-divider {
 	background-color: $color-neutral-divider;
+	flex-shrink: 0;
 
 	&.-ds-strong {
 		background-color: $color-neutral-divider-strong;
