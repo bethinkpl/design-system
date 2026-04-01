@@ -42,7 +42,7 @@
 		<date-box
 			v-else
 			:is-interactive="isInteractive"
-			:placeholder="placeholder"
+			:placeholder="resolvedPlaceholder"
 			:start-date="date"
 			:start-icon="icon"
 			:are-icons-hidden-on-mobile="isIconHiddenOnMobile"
@@ -172,6 +172,7 @@ import {
 	DatePickerStates,
 	DatePickerTriggerTypes,
 } from './DatePicker.consts';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 export default defineComponent({
 	name: 'DatePicker',
@@ -190,7 +191,7 @@ export default defineComponent({
 		},
 		placeholder: {
 			type: String,
-			default: 'Wybierz datę',
+			default: null,
 		},
 		date: {
 			type: Date,
@@ -271,6 +272,8 @@ export default defineComponent({
 		const flatpickrInputRef = ref<HTMLInputElement>() as Ref<HTMLInputElement>;
 		const datePickerRef = ref<HTMLDivElement>() as Ref<HTMLDivElement>;
 
+		const { locale, t } = useLegacyI18n();
+
 		const onChange = (event: Array<Date>) => {
 			emit('update:date', event[0]);
 		};
@@ -292,6 +295,7 @@ export default defineComponent({
 			onClose,
 			defaultDates: props.date ?? new Date(),
 			mode: 'single',
+			locale: locale.value,
 		});
 
 		return {
@@ -302,6 +306,8 @@ export default defineComponent({
 			toggleDatePicker,
 			updateDatePicker,
 			createDatePicker,
+			locale,
+			t,
 			DATE_PICKER_CALENDAR_POSITIONS,
 			DATE_PICKER_COLORS,
 			DATE_PICKER_STATES,
@@ -327,17 +333,20 @@ export default defineComponent({
 					: TILE_BORDER_COLORS.WARNING_WEAK,
 			}[this.color];
 		},
+		resolvedPlaceholder() {
+			return this.placeholder ?? this.t('ds.datePicker.selectDate');
+		},
 		eyebrowText() {
 			if (!this.date) {
 				return '';
 			}
-			return capitalizeFirstLetter(localWeekdayName(this.date));
+			return capitalizeFirstLetter(localWeekdayName(this.date, this.locale));
 		},
 		text() {
 			if (!this.date) {
-				return this.placeholder;
+				return this.resolvedPlaceholder;
 			}
-			return localFullDateWithShortMonthName(this.date);
+			return localFullDateWithShortMonthName(this.date, this.locale);
 		},
 		tileIcon() {
 			if (this.additionalText) {

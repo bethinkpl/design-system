@@ -1,0 +1,46 @@
+{
+	"destinationPath": "lib/styles/settings/colors/",
+	"base": {
+		"files": {
+			"variablesRaw": {
+				"destination": "_raw.scss",
+				"destinationJson": "_raw.json"
+			},
+			"tokens": {
+				"destination": "_tokens.scss",
+				"destinationJson": "_tokens.json",
+				"destinationVariables": "_tokens-variables.scss"
+			}
+		}
+	},
+	"themes": [
+		{
+			"name": "wnl",
+			"files": {
+				"variablesRaw": {
+					"destination": "_raw-wnl.scss",
+					"destinationJson": "_raw-wnl.json"
+				},
+				"tokens": {
+					"destination": "_tokens-wnl.scss",
+					"destinationJson": "_tokens-wnl.json",
+					"destinationVariables": "_tokens-wnl-variables.scss"
+				}
+			}
+		},
+		{
+			"name": "bodywork",
+			"files": {
+				"variablesRaw": {
+					"destination": "_raw-bodywork.scss",
+					"destinationJson": "_raw-bodywork.json"
+				},
+				"tokens": {
+					"destination": "_tokens-bodywork.scss",
+					"destinationJson": "_tokens-bodywork.json",
+					"destinationVariables": "_tokens-bodywork-variables.scss"
+				}
+			}
+		}
+	]
+}
