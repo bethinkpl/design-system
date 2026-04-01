@@ -11,6 +11,12 @@ export interface JsonAttribute<JsonAttributeValues> {
 	[key: string]: JsonAttributeValues;
 }
 
+export interface ColorToken {
+	id: string;
+	label: string;
+	value: string;
+}
+
 export interface ITokenJsonObject {
 	id: string;
 	label: string;
