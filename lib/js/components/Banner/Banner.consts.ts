@@ -8,6 +8,7 @@ export const BANNER_COLORS = {
 	WARNING: 'warning',
 	FAIL: 'fail',
 	DANGER: 'danger',
+	ACCENT: 'accent',
 } as const;
 
 export type BannerColor = Value<typeof BANNER_COLORS>;
