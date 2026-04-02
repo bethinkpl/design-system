@@ -278,6 +278,7 @@ export declare const data: () => {
         readonly WARNING: "warning";
         readonly FAIL: "fail";
         readonly DANGER: "danger";
+        readonly ACCENT: "accent";
     }>;
     allowedColorsToBorderColorsMap: {
         neutral: ("primary" | "neutral" | "neutralWeak" | "primaryWeak")[];
@@ -314,9 +315,6 @@ export declare const components: {
             size: {
                 type: import('vue').PropType<string>;
             };
-            titleInColor: {
-                type: import('vue').PropType<boolean>;
-            };
         }>> & Readonly<{
             onClose?: (() => any) | undefined;
             "onButton-clicked"?: (() => any) | undefined;
@@ -352,9 +350,6 @@ export declare const components: {
             size: {
                 type: import('vue').PropType<string>;
             };
-            titleInColor: {
-                type: import('vue').PropType<boolean>;
-            };
         }>> & Readonly<{
             onClose?: (() => any) | undefined;
             "onButton-clicked"?: (() => any) | undefined;
@@ -383,9 +378,6 @@ export declare const components: {
         };
         size: {
             type: import('vue').PropType<string>;
-        };
-        titleInColor: {
-            type: import('vue').PropType<boolean>;
         };
     }>> & Readonly<{
         onClose?: (() => any) | undefined;
