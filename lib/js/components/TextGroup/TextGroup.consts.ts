@@ -10,6 +10,7 @@ export const TEXT_GROUP_LOADING_SIZES = {
 };
 
 export const TEXT_GROUP_SIZES = {
+	X_SMALL: 'x-small',
 	SMALL: 'small',
 	MEDIUM: 'medium',
 };
