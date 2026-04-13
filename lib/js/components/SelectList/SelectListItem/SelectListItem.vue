@@ -56,6 +56,7 @@
 	color: $color-neutral-text-heavy;
 	cursor: pointer;
 	display: flex;
+	gap: $space-3xs;
 	min-height: $minHeight;
 	padding: $space-xs;
 
@@ -102,7 +103,6 @@
 
 	&__iconLeft {
 		color: $color-neutral-icon;
-		margin-right: $space-3xs;
 	}
 
 	&__iconRight {
