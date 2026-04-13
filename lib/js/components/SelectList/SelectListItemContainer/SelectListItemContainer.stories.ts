@@ -1,6 +1,5 @@
 import SelectListItemContainer from './SelectListItemContainer.vue';
-import Tile from '../../Tile';
-import { TILE_STATES } from '../../Tile';
+import Tile, { TILE_STATES } from '../../Tile';
 
 import { Args, Meta, StoryFn } from '@storybook/vue3';
 import { args, argTypes, data, components } from '../../Tile/Tile.sb.shared';
