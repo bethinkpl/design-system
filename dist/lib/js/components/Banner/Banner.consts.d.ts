@@ -8,6 +8,7 @@ export declare const BANNER_COLORS: {
     readonly WARNING: "warning";
     readonly FAIL: "fail";
     readonly DANGER: "danger";
+    readonly ACCENT: "accent";
 };
 export type BannerColor = Value<typeof BANNER_COLORS>;
 export declare const BANNER_SIZES: {

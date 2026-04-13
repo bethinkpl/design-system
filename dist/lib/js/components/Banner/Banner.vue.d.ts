@@ -28,9 +28,6 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     size: {
         type: import('vue').PropType<string>;
     };
-    titleInColor: {
-        type: import('vue').PropType<boolean>;
-    };
 }>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     close: () => void;
     "button-clicked": () => void;
@@ -55,9 +52,6 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
     size: {
         type: import('vue').PropType<string>;
-    };
-    titleInColor: {
-        type: import('vue').PropType<boolean>;
     };
 }>> & Readonly<{
     onClose?: (() => any) | undefined;

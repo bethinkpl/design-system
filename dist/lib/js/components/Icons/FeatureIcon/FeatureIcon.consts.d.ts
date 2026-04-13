@@ -17,5 +17,6 @@ export declare const FEATURE_ICON_COLOR: {
     readonly SUCCESS: "success";
     readonly WARNING: "warning";
     readonly FAIL: "fail";
+    readonly ACCENT: "accent";
 };
 export type FeatureIconColor = Value<typeof FEATURE_ICON_COLOR>;
