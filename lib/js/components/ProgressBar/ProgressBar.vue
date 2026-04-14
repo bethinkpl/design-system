@@ -16,15 +16,15 @@
 			>
 				{{ labelText }}
 			</div>
-			<div v-if="labelDataExists" class="ds-progressBar__labelDataWrapper">
+			<div v-if="labelDataExists && !isLabelDataUnderBar" class="ds-progressBar__labelDataWrapper">
 				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
 				<span v-if="labelDataSupporting" class="ds-progressBar__labelDataSupporting">
 					<span class="ds-progressBar__labelDataSeparator">/</span>
 					{{ labelDataSupporting }}
 				</span>
 				<span v-if="labelDataSuffix" class="ds-progressBar__labelDataSuffix">{{
-					labelDataSuffix
-				}}</span>
+						labelDataSuffix
+					}}</span>
 			</div>
 		</div>
 		<div
@@ -62,14 +62,27 @@
 				"
 			/>
 		</div>
-		<progress-bar-legend
-			v-if="hasLegend"
-			class="ds-progressBar__legend"
-			:ranges="ranges"
-			:layout="layout"
-			:size="legendSize"
-			:has-percent-value="hasLegendPercentValue"
-		/>
+		<div class="ds-progressBar__bottomWrapper">
+			<progress-bar-legend
+				v-if="hasLegend"
+				class="ds-progressBar__legend"
+				:ranges="ranges"
+				:layout="layout"
+				:size="legendSize"
+				:has-percent-value="hasLegendPercentValue"
+			/>
+
+			<div v-if="labelDataExists && isLabelDataUnderBar" class="ds-progressBar__labelDataWrapper -ds-bottom">
+				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
+				<span v-if="labelDataSupporting" class="ds-progressBar__labelDataSupporting">
+					<span class="ds-progressBar__labelDataSeparator">/</span>
+					{{ labelDataSupporting }}
+				</span>
+				<span v-if="labelDataSuffix" class="ds-progressBar__labelDataSuffix">{{
+						labelDataSuffix
+					}}</span>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -251,6 +264,10 @@ $progress-bar-badge-colors: (
 		margin-bottom: $space-5xs;
 		margin-left: $space-2xs;
 		max-width: $progress-bar-label-data-max-width;
+
+		&.-ds-bottom {
+			padding-top: 10px;
+		}
 	}
 
 	&__labelDataSupporting {
@@ -308,6 +325,14 @@ $progress-bar-badge-colors: (
 			margin-top: math.div(-$progress-bar-badge-size-small, 2);
 			width: $progress-bar-badge-size-small;
 		}
+	}
+
+	&__bottomWrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		gap: $space-4xs;
+		align-self: stretch;
 	}
 }
 </style>
@@ -422,6 +447,10 @@ export default defineComponent({
 		hasLegendPercentValue: {
 			type: Boolean,
 			default: true,
+		},
+		isLabelDataUnderBar: { // TODO
+			type: Boolean,
+			default: false,
 		},
 	},
 	data() {
