@@ -16,15 +16,18 @@
 			>
 				{{ labelText }}
 			</div>
-			<div v-if="labelDataExists && !isLabelDataUnderBar" class="ds-progressBar__labelDataWrapper">
+			<div
+				v-if="labelDataExists && !isLabelDataUnderBar"
+				class="ds-progressBar__labelDataWrapper"
+			>
 				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
 				<span v-if="labelDataSupporting" class="ds-progressBar__labelDataSupporting">
 					<span class="ds-progressBar__labelDataSeparator">/</span>
 					{{ labelDataSupporting }}
 				</span>
 				<span v-if="labelDataSuffix" class="ds-progressBar__labelDataSuffix">{{
-						labelDataSuffix
-					}}</span>
+					labelDataSuffix
+				}}</span>
 			</div>
 		</div>
 		<div
@@ -72,15 +75,18 @@
 				:has-percent-value="hasLegendPercentValue"
 			/>
 
-			<div v-if="labelDataExists && isLabelDataUnderBar" class="ds-progressBar__labelDataWrapper -ds-bottom">
+			<div
+				v-if="labelDataExists && isLabelDataUnderBar"
+				class="ds-progressBar__labelDataWrapper -ds-bottom"
+			>
 				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
 				<span v-if="labelDataSupporting" class="ds-progressBar__labelDataSupporting">
 					<span class="ds-progressBar__labelDataSeparator">/</span>
 					{{ labelDataSupporting }}
 				</span>
 				<span v-if="labelDataSuffix" class="ds-progressBar__labelDataSuffix">{{
-						labelDataSuffix
-					}}</span>
+					labelDataSuffix
+				}}</span>
 			</div>
 		</div>
 	</div>
@@ -447,7 +453,8 @@ export default defineComponent({
 			type: Boolean,
 			default: true,
 		},
-		isLabelDataUnderBar: { // TODO
+		isLabelDataUnderBar: {
+			// TODO
 			type: Boolean,
 			default: false,
 		},
