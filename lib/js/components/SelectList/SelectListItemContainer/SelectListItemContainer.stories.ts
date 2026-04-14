@@ -12,7 +12,7 @@ export default {
 } as Meta<typeof SelectListItemContainer>;
 
 const tileTemplate = `
-<ds-select-list-item-container>
+<select-list-item-container>
 	<ds-tile
 		:additional-text="additionalText"
 		:color="color"
@@ -28,7 +28,7 @@ const tileTemplate = `
 		:border-color="borderColor"
 		:compact-layout="compactLayout"
 	/>
-</ds-select-list-item-container>
+</select-list-item-container>
 `;
 
 const StoryTemplate: StoryFn<typeof SelectListItemContainer> = (args) => ({
