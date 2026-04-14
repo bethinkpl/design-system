@@ -328,11 +328,10 @@ $progress-bar-badge-colors: (
 	}
 
 	&__bottomWrapper {
-		display: flex;
-		justify-content: space-between;
 		align-items: center;
+		display: flex;
 		gap: $space-4xs;
-		align-self: stretch;
+		justify-content: space-between;
 	}
 }
 </style>
