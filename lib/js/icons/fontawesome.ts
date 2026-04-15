@@ -84,6 +84,7 @@ import { faFaceFrown } from '@fortawesome/pro-regular-svg-icons/faFaceFrown';
 import { faFaceGrimace } from '@fortawesome/pro-regular-svg-icons/faFaceGrimace';
 import { faFaceMeh } from '@fortawesome/pro-regular-svg-icons/faFaceMeh';
 import { faFaceSmile } from '@fortawesome/pro-regular-svg-icons/faFaceSmile';
+import { faFileExport } from '@fortawesome/pro-regular-svg-icons/faFileExport';
 import { faFileInvoiceDollar } from '@fortawesome/pro-regular-svg-icons/faFileInvoiceDollar';
 import { faFileLines } from '@fortawesome/pro-regular-svg-icons/faFileLines';
 import { faFileMagnifyingGlass } from '@fortawesome/pro-regular-svg-icons/faFileMagnifyingGlass';
@@ -379,6 +380,7 @@ export const FONTAWESOME_ICONS = {
 	FA_FACEBOOK: faFacebook,
 	FA_FACEBOOK_SQUARE: faFacebookSquare,
 	FA_FILE_ARROW_DOWN: faFileArrowDown,
+	FA_FILE_EXPORT: faFileExport,
 	FA_FILE_CHECK: faFileCheck,
 	FA_FILE_INVOICE_DOLLAR: faFileInvoiceDollar,
 	FA_FILE_LINES_SOLID: fasFileLines,
