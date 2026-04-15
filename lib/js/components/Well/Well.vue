@@ -6,19 +6,21 @@
 			'-ds-small': WELL_PADDINGS.SMALL === padding,
 		}"
 	>
-		<div v-if="hasChip" class="ds-well__chipContainer">
-			<chip
-				:label="chipLabel"
-				:is-label-uppercase="chipLabelUppercase"
-				:left-icon="chipLeftIcon"
-				:radius="chipRadius"
-				:color="chipColor"
-				:color-hex="chipColorHex"
-			>
-				<template v-if="$slots.chipAccessory" #accessory>
-					<slot name="chipAccessory" />
-				</template>
-			</chip>
+		<div v-if="hasChip || $slots.accessory" class="ds-well__accessorySlot">
+			<slot name="accessory">
+				<chip
+					:label="chipLabel"
+					:is-label-uppercase="chipLabelUppercase"
+					:left-icon="chipLeftIcon"
+					:radius="chipRadius"
+					:color="chipColor"
+					:color-hex="chipColorHex"
+				>
+					<template v-if="$slots.chipAccessory" #accessory>
+						<slot name="chipAccessory" />
+					</template>
+				</chip>
+			</slot>
 		</div>
 
 		<slot />
@@ -37,8 +39,9 @@
 	border-radius: $radius-m;
 	position: relative;
 
-	&__chipContainer {
+	&__accessorySlot {
 		display: flex;
+		gap: $space-4xs;
 		position: absolute;
 		right: 0;
 		top: -10px;
@@ -47,7 +50,7 @@
 	&.-ds-medium {
 		padding: $space-s;
 
-		#{$root}__chipContainer {
+		#{$root}__accessorySlot {
 			right: $space-s;
 		}
 	}
@@ -55,7 +58,7 @@
 	&.-ds-small {
 		padding: $space-xs;
 
-		#{$root}__chipContainer {
+		#{$root}__accessorySlot {
 			right: $space-xs;
 		}
 	}
