@@ -105,7 +105,7 @@
 							:id="inputId"
 							:value="elaborationValue"
 							class="ds-surveyQuestionScale__elaborationInput"
-							:placeholder="placeholder"
+							:placeholder="resolvedPlaceholder"
 							:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 							@input="$emit('elaboration-change', $event)"
 						/>
@@ -293,7 +293,7 @@ export default defineComponent({
 		},
 		placeholder: {
 			type: String,
-			default: 'Wpisz swoją odpowiedź',
+			default: null,
 		},
 		selectedValue: {
 			type: String,
@@ -331,6 +331,9 @@ export default defineComponent({
 		};
 	},
 	computed: {
+		resolvedPlaceholder(): string {
+			return this.placeholder ?? this.t('ds.survey.openEnded.placeholder');
+		},
 		standaloneOptions() {
 			return this.scaleOptions.filter(
 				(option: SurveyQuestionScaleOption) => option.standalone,

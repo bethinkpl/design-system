@@ -3,6 +3,7 @@ import accessStatus from './pl/accessStatus.json';
 import pagination from './pl/pagination.json';
 import statsLayout from './pl/statsLayout.json';
 import datePicker from './pl/datePicker.json';
+import survey from './pl/survey.json';
 
 export default {
 	...globals,
@@ -10,4 +11,5 @@ export default {
 	...pagination,
 	...statsLayout,
 	...datePicker,
+	...survey,
 };
