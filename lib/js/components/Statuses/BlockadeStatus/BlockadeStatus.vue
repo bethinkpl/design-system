@@ -40,6 +40,7 @@
 import { defineComponent } from 'vue';
 import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { COURSE_BLOCKADE_ACCESS_STATUS } from '../../../consts/user';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 export default defineComponent({
 	name: 'BlockadeStatus',
@@ -51,6 +52,11 @@ export default defineComponent({
 			type: String,
 			required: true,
 		},
+	},
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return { t };
 	},
 	data() {
 		return {
@@ -73,9 +79,9 @@ export default defineComponent({
 		},
 		text() {
 			if (this.status === COURSE_BLOCKADE_ACCESS_STATUS.ACTIVE) {
-				return 'Blokada dostępu';
+				return this.t('ds.blockadeStatus.active');
 			}
-			return 'Blokada zakończona';
+			return this.t('ds.blockadeStatus.ended');
 		},
 	},
 });

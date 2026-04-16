@@ -104,7 +104,7 @@
 		<ds-tooltip
 			:is-pointer-visible="false"
 			:placement="TOOLTIP_PLACEMENTS.LEFT"
-			text="Zamknij — Q"
+			:text="t('ds.overlayHeader.close')"
 		>
 			<ds-icon-button
 				data-test-selector="overlay-header-close-button"
@@ -320,6 +320,7 @@ import {
 } from './OverlayHeader.consts';
 import { Value } from '../../../utils/type.utils';
 import { isElementEditable } from '../../../utils/shortcut-keys';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 import { toRaw } from 'vue';
 
 import { defineComponent } from 'vue';
@@ -368,6 +369,11 @@ export default defineComponent({
 	emits: {
 		close: () => true,
 		titleClick: () => true,
+	},
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return { t };
 	},
 	data() {
 		return {
