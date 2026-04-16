@@ -8,7 +8,7 @@
 @import '../../../../styles/settings/spacings';
 
 .ds-selectListItemContainer {
-	padding: $space-xs;
+	padding: $space-2xs $space-xs;
 }
 </style>
 
