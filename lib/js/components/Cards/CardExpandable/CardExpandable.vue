@@ -16,7 +16,11 @@
 		<template v-if="isExpanderVisible" #footer>
 			<div class="ds-cardExpandable__expander" @click="onExpanderClick">
 				<span class="ds-cardExpandable__expanderLabel">
-					{{ isExpandedInternal ? resolvedExpanderTextExpanded : resolvedExpanderTextCollapsed }}
+					{{
+						isExpandedInternal
+							? resolvedExpanderTextExpanded
+							: resolvedExpanderTextCollapsed
+					}}
 				</span>
 				<ds-icon
 					class="ds-cardExpandable__expanderIcon"
