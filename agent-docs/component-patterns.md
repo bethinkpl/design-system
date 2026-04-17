@@ -129,18 +129,16 @@ Adjust the relative path depth to match the component's directory level.
 
 Translations live in `lib/js/i18n/pl/<module>.json` and `lib/js/i18n/en/<module>.json`.
 
-Add keys in both files. Use the component name as the JSON namespace:
+JSON files are flat — keys use dot-separated namespacing with a `ds.` prefix:
 
 ```json
 {
-  "componentName": {
-    "placeholder": "Wpisz wartość",
-    "errorMessage": "Pole jest wymagane"
-  }
+  "ds.componentName.placeholder": "Wpisz wartość",
+  "ds.componentName.errorMessage": "Pole jest wymagane"
 }
 ```
 
-Access in component via `useI18n()` or the `$t()` template helper.
+Create a new file per component (e.g. `componentName.json`) and register it in `lib/js/i18n/pl.ts` and `lib/js/i18n/en.ts`. Access keys in the component via `useI18n()` or the `$t()` template helper.
 
 ## Importing other DS components
 
