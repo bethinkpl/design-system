@@ -8,6 +8,7 @@ export declare const TEXT_GROUP_LOADING_SIZES: {
     LARGE: string;
 };
 export declare const TEXT_GROUP_SIZES: {
+    X_SMALL: string;
     SMALL: string;
     MEDIUM: string;
 };
