@@ -332,7 +332,7 @@ export default defineComponent({
 	},
 	computed: {
 		resolvedPlaceholder(): string {
-			return this.placeholder ?? this.t('ds.survey.openEnded.placeholder');
+			return this.placeholder ?? this.t('ds.survey.placeholder');
 		},
 		standaloneOptions() {
 			return this.scaleOptions.filter(
