@@ -5,13 +5,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     placeholder: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     disabled: {
         type: BooleanConstructor;
         default: boolean;
     };
-}>, {}, {}, {}, {
+}>, {
+    t: import('../../i18n').TranslateFunction;
+}, {}, {
+    resolvedPlaceholder(): string;
+}, {
     onInput(evt: any): void;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "input"[], "input", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     value: {
@@ -20,7 +24,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     placeholder: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     disabled: {
         type: BooleanConstructor;
