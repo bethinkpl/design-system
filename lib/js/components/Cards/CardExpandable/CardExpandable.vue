@@ -16,7 +16,11 @@
 		<template v-if="isExpanderVisible" #footer>
 			<div class="ds-cardExpandable__expander" @click="onExpanderClick">
 				<span class="ds-cardExpandable__expanderLabel">
-					{{ isExpandedInternal ? expanderTextExpanded : expanderTextCollapsed }}
+					{{
+						isExpandedInternal
+							? resolvedExpanderTextExpanded
+							: resolvedExpanderTextCollapsed
+					}}
 				</span>
 				<ds-icon
 					class="ds-cardExpandable__expanderIcon"
@@ -72,6 +76,7 @@
 import { defineComponent } from 'vue';
 import DsCard from '../Card/';
 import DsIcon, { ICON_SIZES, ICONS } from '../../../components/Icons/Icon';
+import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 export default defineComponent({
 	name: 'CardExpandable',
@@ -90,11 +95,11 @@ export default defineComponent({
 		},
 		expanderTextCollapsed: {
 			type: String,
-			default: 'Rozwiń',
+			default: null,
 		},
 		expanderTextExpanded: {
 			type: String,
-			default: 'Zwiń',
+			default: null,
 		},
 		headerHasPadding: {
 			type: Boolean,
@@ -106,6 +111,11 @@ export default defineComponent({
 		},
 	},
 	emits: { 'update:isExpanded': (payload: Boolean) => true },
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return { t };
+	},
 	data() {
 		return {
 			isExpandedInternal: false,
@@ -114,6 +124,12 @@ export default defineComponent({
 		};
 	},
 	computed: {
+		resolvedExpanderTextCollapsed(): string {
+			return this.expanderTextCollapsed ?? this.t('ds.cardExpandable.expand');
+		},
+		resolvedExpanderTextExpanded(): string {
+			return this.expanderTextExpanded ?? this.t('ds.cardExpandable.collapse');
+		},
 		chevronRotation(): number | null {
 			return this.isExpandedInternal ? 180 : null;
 		},

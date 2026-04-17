@@ -19,7 +19,7 @@ const StoryTemplate: StoryFn<typeof SurveyQuestionScale> = (args) => {
 			return args;
 		},
 		template:
-			'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :state="state" :containers="containers" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+			'<survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder !== \'\' ? placeholder: null" :selected-value="selectedValue" :state="state" :containers="containers" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
 			'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 			'</survey-question-scale>',
 		methods: {
@@ -41,7 +41,7 @@ const args = {
 	elaborationValue: '',
 	explanation:
 		'<h3 style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
-	placeholder: 'Wpisz swoją odpowiedź',
+	placeholder: '',
 	containers: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
 	selectedValue: null,
 	scaleOptions: [
@@ -126,7 +126,7 @@ const StoryLimitedWidthTemplate: StoryFn<typeof SurveyQuestionScale> = (args) =>
 			return args;
 		},
 		template:
-			'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder" :selected-value="selectedValue" :containers="containers" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
+			'<div style="max-width: 600px"><survey-question-scale :title="title" :scale-options="scaleOptions" :elaboration-value="elaborationValue" :elaborationLabel="elaborationLabel" :placeholder="placeholder !== \'\' ? placeholder: null" :selected-value="selectedValue" :containers="containers" :state="state" @select-change="selectedValueUpdate" @elaboration-change="elaborationUpdate">' +
 			'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 			'</survey-question-scale></div>',
 		methods: {
@@ -155,7 +155,7 @@ LimitedWidth.args = {
 	elaborationValue: '',
 	explanation:
 		'<h3 class="modalHeader" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3>\n<div>Wyczerpujące materiały dają poczucie pełnego zrozumienia, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
-	placeholder: 'Wpisz swoją odpowiedź',
+	placeholder: '',
 	containers: SURVEY_QUESTION_SCALE_CONTAINERS.TWO,
 	state: SURVEY_QUESTION_STATES.DEFAULT,
 	selectedValue: null,
