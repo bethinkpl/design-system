@@ -19,7 +19,7 @@ const StoryTemplate: StoryFn<typeof SurveyQuestionOpenEnded> = (args) => {
 		},
 		// TODO typing in textarea looses focus
 		template:
-			'<survey-question-open-ended  :title="title" :value="value" :state="state" :placeholder="placeholder" @input="explanationUpdate">' +
+			'<survey-question-open-ended  :title="title" :value="value" :state="state" :placeholder="placeholder !== \'\' ? placeholder: null" @input="explanationUpdate">' +
 			'<template v-if="explanation" #explanation><div v-html="explanation" /></template>' +
 			'</survey-question-open-ended>',
 		methods: {
@@ -37,7 +37,7 @@ const args = {
 	value: 'value',
 	explanation:
 		'<h3 class="modalHeader" style="text-align: center; margin-bottom: 16px;">Jak ocenić, czy slajdy i diagramy były zrozumiałe?</h3><div>Wyczerpujące materiały dają poczucie pełnego zrozumieina, przy jednoczesnym usystematyzowaniu informacji. Wpływa na to nie tylko ich jakość, ale też ilość.</div>',
-	placeholder: 'Wpisz swoją odpowiedź',
+	placeholder: '',
 	state: SURVEY_QUESTION_STATES.DEFAULT,
 } as Args;
 

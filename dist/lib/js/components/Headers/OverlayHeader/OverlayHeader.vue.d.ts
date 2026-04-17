@@ -34,7 +34,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: () => import('@fortawesome/fontawesome-common-types').IconDefinition;
         validator(icon: unknown): boolean;
     };
-}>, {}, {
+}>, {
+    t: import('../../../i18n').TranslateFunction;
+}, {
     ICON_BUTTON_SIZES: Readonly<{
         readonly XX_SMALL: "xx-small";
         readonly X_SMALL: "x-small";

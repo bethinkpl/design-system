@@ -9,11 +9,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     expanderTextCollapsed: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     expanderTextExpanded: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     headerHasPadding: {
         type: BooleanConstructor;
@@ -23,7 +23,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-}>, {}, {
+}>, {
+    t: import('../../../i18n').TranslateFunction;
+}, {
     isExpandedInternal: boolean;
     ICONS: Readonly<{
         readonly ANSWERS: VueConstructor<Vue>;
@@ -305,6 +307,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         XX_LARGE: string;
     }>;
 }, {
+    resolvedExpanderTextCollapsed(): string;
+    resolvedExpanderTextExpanded(): string;
     chevronRotation(): number | null;
 }, {
     onExpanderClick(): void;
@@ -321,11 +325,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     expanderTextCollapsed: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     expanderTextExpanded: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     headerHasPadding: {
         type: BooleanConstructor;

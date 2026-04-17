@@ -35,7 +35,7 @@
 						class="ds-surveyQuestionOpenEnded__input"
 						:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
 						:value="value"
-						:placeholder="placeholder"
+						:placeholder="resolvedPlaceholder"
 						@input="$emit('input', $event)"
 					/>
 				</div>
@@ -114,7 +114,7 @@ export default defineComponent({
 		},
 		placeholder: {
 			type: String,
-			default: 'Wpisz swoją odpowiedź',
+			default: null,
 		},
 		state: {
 			type: String,
@@ -142,6 +142,11 @@ export default defineComponent({
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
 		};
+	},
+	computed: {
+		resolvedPlaceholder(): string {
+			return this.placeholder ?? this.t('ds.survey.placeholder');
+		},
 	},
 });
 </script>

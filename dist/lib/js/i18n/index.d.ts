@@ -4,6 +4,12 @@ import { default as pl } from './pl';
 export type MessageSchema = typeof pl;
 export declare const messages: {
     pl: {
+        "ds.blockadeStatus.active": string;
+        "ds.blockadeStatus.ended": string;
+        "ds.cardExpandable.collapse": string;
+        "ds.cardExpandable.expand": string;
+        "ds.overlayHeader.close": string;
+        "ds.survey.placeholder": string;
         "ds.datePicker.selectDate": string;
         "ds.datePicker.set": string;
         "ds.statsLayout.default.leftColumnLabel": string;
@@ -26,6 +32,12 @@ export declare const messages: {
         "ds.globals.loading": string;
     };
     en: {
+        "ds.blockadeStatus.active": string;
+        "ds.blockadeStatus.ended": string;
+        "ds.cardExpandable.collapse": string;
+        "ds.cardExpandable.expand": string;
+        "ds.overlayHeader.close": string;
+        "ds.survey.placeholder": string;
         "ds.datePicker.selectDate": string;
         "ds.datePicker.set": string;
         "ds.statsLayout.default.leftColumnLabel": string;

@@ -13,8 +13,8 @@ const StoryTemplate: StoryFn<typeof CardExpandable> = (args) => ({
 		return args;
 	},
 	template: `
-			<card-expandable :is-expander-visible="isExpanderVisible" :expander-text-collapsed="expanderTextCollapsed"
-											 :expander-text-expanded="expanderTextExpanded" :is-expanded="isExpanded"
+			<card-expandable :is-expander-visible="isExpanderVisible" :expander-text-collapsed="expanderTextCollapsed !== '' ? expanderTextCollapsed : null"
+											 :expander-text-expanded="expanderTextExpanded !== '' ? expanderTextExpanded : null" :is-expanded="isExpanded"
 											 :header-has-padding="headerHasPadding" :divider-under-header="dividerUnderHeader">
 			<template v-if="header" #header>
 				<div v-html="header" />
