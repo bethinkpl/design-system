@@ -3,6 +3,7 @@ import { ChipRadius, ChipColor } from '../Chip';
 import { IconItem } from '../Icons/Icon';
 
 declare function __VLS_template(): {
+    accessory?(_: {}): any;
     chipAccessory?(_: {}): any;
     default?(_: {}): any;
 };

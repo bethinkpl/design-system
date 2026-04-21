@@ -3,7 +3,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: StringConstructor;
         required: true;
     };
-}>, {}, {
+}>, {
+    t: import('../../../i18n').TranslateFunction;
+}, {
     ICONS: Readonly<{
         readonly ANSWERS: VueConstructor<Vue>;
         readonly CHANGE: VueConstructor<Vue>;
@@ -132,6 +134,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FACEBOOK_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_FILE_EXPORT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_INVOICE_DOLLAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_LINES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -285,7 +288,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }, {
     icon(): import('@fortawesome/fontawesome-common-types').IconDefinition;
     statusClass(): "" | "-ds-active";
-    text(): "Blokada dostępu" | "Blokada zakończona";
+    text(): any;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     status: {
         type: StringConstructor;

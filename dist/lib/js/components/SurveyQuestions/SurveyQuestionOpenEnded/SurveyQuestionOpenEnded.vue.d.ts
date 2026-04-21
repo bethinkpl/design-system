@@ -11,7 +11,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     placeholder: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     state: {
         type: StringConstructor;
@@ -151,6 +151,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FACEBOOK_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_FILE_EXPORT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_INVOICE_DOLLAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_LINES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -321,7 +322,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly DEFAULT: "default";
         readonly DISABLED: "disabled";
     }>;
-}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "input"[], "input", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+}, {
+    resolvedPlaceholder(): string;
+}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "input"[], "input", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     title: {
         type: StringConstructor;
         required: true;
@@ -332,7 +335,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
     placeholder: {
         type: StringConstructor;
-        default: string;
+        default: null;
     };
     state: {
         type: StringConstructor;
@@ -352,13 +355,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
         placeholder: {
             type: StringConstructor;
-            default: string;
+            default: null;
         };
         disabled: {
             type: BooleanConstructor;
             default: boolean;
         };
-    }>, {}, {}, {}, {
+    }>, {
+        t: import('../../../i18n').TranslateFunction;
+    }, {}, {
+        resolvedPlaceholder(): string;
+    }, {
         onInput(evt: any): void;
     }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "input"[], "input", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
         value: {
@@ -367,7 +374,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
         placeholder: {
             type: StringConstructor;
-            default: string;
+            default: null;
         };
         disabled: {
             type: BooleanConstructor;
@@ -809,6 +816,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FACEBOOK_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FILE_EXPORT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_INVOICE_DOLLAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_LINES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1364,6 +1372,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FACEBOOK_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FILE_EXPORT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_INVOICE_DOLLAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_LINES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;

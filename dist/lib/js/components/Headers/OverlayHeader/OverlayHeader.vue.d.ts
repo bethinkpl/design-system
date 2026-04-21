@@ -34,7 +34,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: () => import('@fortawesome/fontawesome-common-types').IconDefinition;
         validator(icon: unknown): boolean;
     };
-}>, {}, {
+}>, {
+    t: import('../../../i18n').TranslateFunction;
+}, {
     ICON_BUTTON_SIZES: Readonly<{
         readonly XX_SMALL: "xx-small";
         readonly X_SMALL: "x-small";
@@ -188,6 +190,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FACEBOOK_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_FILE_EXPORT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_INVOICE_DOLLAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_LINES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -586,6 +589,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FACEBOOK_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_FILE_EXPORT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_INVOICE_DOLLAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_FILE_LINES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;

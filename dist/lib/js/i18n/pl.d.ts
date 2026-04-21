@@ -1,4 +1,10 @@
 declare const _default: {
+    "ds.blockadeStatus.active": string;
+    "ds.blockadeStatus.ended": string;
+    "ds.cardExpandable.collapse": string;
+    "ds.cardExpandable.expand": string;
+    "ds.overlayHeader.close": string;
+    "ds.survey.placeholder": string;
     "ds.datePicker.selectDate": string;
     "ds.datePicker.set": string;
     "ds.statsLayout.default.leftColumnLabel": string;

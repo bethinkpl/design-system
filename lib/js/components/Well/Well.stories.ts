@@ -5,7 +5,7 @@ import Well from './Well.vue';
 import { WELL_PADDINGS } from './Well.consts';
 import type { ComponentProps } from 'vue-component-type-helpers';
 import { ICONS } from '../Icons/Icon';
-import { CHIP_COLORS, CHIP_DEFAULT_COLOR, CHIP_RADIUSES } from '../Chip';
+import Chip, { CHIP_COLORS, CHIP_DEFAULT_COLOR, CHIP_RADIUSES } from '../Chip';
 import DsBanner, { BANNER_COLORS } from '../Banner';
 
 type WellProps = ComponentProps<typeof Well>;
@@ -90,3 +90,42 @@ const argTypes = {
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
+
+export const WithMultipleChips: Story = {
+	render: (args) => {
+		return {
+			components: { Chip, Well },
+			setup() {
+				return {
+					args,
+					CHIP_RADIUSES,
+					content:
+						'<h3 style="margin-top: 0">Content</h3>' +
+						'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+				};
+			},
+			template: `<well v-bind="args">
+				<template #accessory>
+					<chip
+						label="First Chip"
+						:radius="CHIP_RADIUSES.ROUNDED"
+					/>
+					<chip
+						label="Second Chip"
+						:radius="CHIP_RADIUSES.ROUNDED"
+					/>
+					<chip
+						label="Third Chip"
+						:radius="CHIP_RADIUSES.ROUNDED"
+					/>
+				</template>
+				<div v-html="content" />
+			</well>`,
+		};
+	},
+	args: {
+		padding: WELL_PADDINGS.SMALL,
+	},
+};
+
+WithMultipleChips.argTypes = argTypes;

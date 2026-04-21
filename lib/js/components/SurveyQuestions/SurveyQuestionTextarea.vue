@@ -3,7 +3,7 @@
 		ref="textarea"
 		class="ds-surveyQuestionTextarea"
 		:disabled="disabled"
-		:placeholder="placeholder"
+		:placeholder="resolvedPlaceholder"
 		:value="value"
 		@input="onInput"
 	/>
@@ -35,6 +35,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useLegacyI18n } from '../../composables/useLegacyI18n';
 
 export default defineComponent({
 	name: 'SurveyQuestionTextarea',
@@ -45,7 +46,7 @@ export default defineComponent({
 		},
 		placeholder: {
 			type: String,
-			default: 'Wpisz swoją odpowiedź',
+			default: null,
 		},
 		disabled: {
 			type: Boolean,
@@ -55,6 +56,16 @@ export default defineComponent({
 	// TODO fix me when touching this file
 	// eslint-disable-next-line vue/require-emit-validator
 	emits: ['input'],
+	setup() {
+		const { t } = useLegacyI18n();
+
+		return { t };
+	},
+	computed: {
+		resolvedPlaceholder(): string {
+			return this.placeholder ?? this.t('ds.survey.placeholder');
+		},
+	},
 	watch: {
 		value() {
 			// we want to update height of textarea based on content that is inside
