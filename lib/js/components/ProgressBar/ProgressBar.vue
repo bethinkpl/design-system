@@ -17,7 +17,9 @@
 				{{ labelText }}
 			</div>
 			<div
-				v-if="labelDataExists && !isLabelDataUnderBar"
+				v-if="
+					labelDataExists && labelDataPosition === PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP
+				"
 				class="ds-progressBar__labelDataWrapper"
 			>
 				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
@@ -76,7 +78,10 @@
 			/>
 
 			<div
-				v-if="labelDataExists && isLabelDataUnderBar"
+				v-if="
+					labelDataExists &&
+					labelDataPosition === PROGRESS_BAR_LABEL_DATA_POSITIONS.BOTTOM
+				"
 				class="ds-progressBar__labelDataWrapper -ds-bottom"
 			>
 				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
@@ -346,11 +351,13 @@ $progress-bar-badge-colors: (
 import { defineComponent, PropType } from 'vue';
 import {
 	PROGRESS_BAR_BADGE_COLORS,
+	PROGRESS_BAR_LABEL_DATA_POSITIONS,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_SIZES,
 	ProgressBarBadgeColor,
+	ProgressBarLabelDataPositions,
 	ProgressBarLabelTextSize,
 	ProgressBarLayout,
 	ProgressBarRadius,
@@ -453,20 +460,20 @@ export default defineComponent({
 			type: Boolean,
 			default: true,
 		},
-		isLabelDataUnderBar: {
-			// TODO
-			type: Boolean,
-			default: false,
+		labelDataPosition: {
+			type: String as PropType<ProgressBarLabelDataPositions>,
+			default: PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP,
 		},
 	},
-	data() {
+	setup() {
 		return {
-			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
-			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
-			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
-			PROGRESS_BAR_LABEL_TEXT_SIZES: Object.freeze(PROGRESS_BAR_LABEL_TEXT_SIZES),
-			ICONS: Object.freeze(ICONS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
+			PROGRESS_BAR_SIZES,
+			PROGRESS_BAR_RADII,
+			PROGRESS_BAR_LAYOUTS,
+			PROGRESS_BAR_LABEL_TEXT_SIZES,
+			ICONS,
+			ICON_SIZES,
+			PROGRESS_BAR_LABEL_DATA_POSITIONS,
 		};
 	},
 	computed: {
