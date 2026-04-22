@@ -66,3 +66,8 @@ export interface ProgressBarRange {
     icon?: IconItem;
     data?: string;
 }
+export declare const PROGRESS_BAR_LABEL_DATA_POSITIONS: {
+    readonly TOP: "top";
+    readonly BOTTOM: "bottom";
+};
+export type ProgressBarLabelDataPositions = Value<typeof PROGRESS_BAR_LABEL_DATA_POSITIONS>;

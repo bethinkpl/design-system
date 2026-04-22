@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import { ProgressBarBadgeColor, ProgressBarLabelTextSize, ProgressBarLayout, ProgressBarRadius, ProgressBarRange, ProgressBarSize } from './ProgressBar.consts';
+import { ProgressBarBadgeColor, ProgressBarLabelDataPositions, ProgressBarLabelTextSize, ProgressBarLayout, ProgressBarRadius, ProgressBarRange, ProgressBarSize } from './ProgressBar.consts';
 import { ProgressBarLegendSize } from './ProgressBarLegend.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -70,25 +70,29 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-}>, {}, {
-    PROGRESS_BAR_SIZES: Readonly<{
+    labelDataPosition: {
+        type: PropType<ProgressBarLabelDataPositions>;
+        default: "top";
+    };
+}>, {
+    PROGRESS_BAR_SIZES: {
         readonly MEDIUM: "medium";
         readonly SMALL: "small";
         readonly XSMALL: "extra small";
-    }>;
-    PROGRESS_BAR_RADII: Readonly<{
+    };
+    PROGRESS_BAR_RADII: {
         DEFAULT: string;
         NONE: string;
-    }>;
-    PROGRESS_BAR_LAYOUTS: Readonly<{
+    };
+    PROGRESS_BAR_LAYOUTS: {
         readonly DEFAULT: "default";
         readonly COMPACT: "compact";
-    }>;
-    PROGRESS_BAR_LABEL_TEXT_SIZES: Readonly<{
+    };
+    PROGRESS_BAR_LABEL_TEXT_SIZES: {
         readonly MEDIUM: "medium";
         readonly SMALL: "small";
-    }>;
-    ICONS: Readonly<{
+    };
+    ICONS: {
         readonly ANSWERS: VueConstructor<Vue>;
         readonly CHANGE: VueConstructor<Vue>;
         readonly COMMENTS_CHECK: VueConstructor<Vue>;
@@ -356,8 +360,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FAD_SQUARE_MINUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FAD_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FAD_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
-    }>;
-    ICON_SIZES: Readonly<{
+    };
+    ICON_SIZES: {
         XXX_SMALL: string;
         XX_SMALL: string;
         X_SMALL: string;
@@ -366,8 +370,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         LARGE: string;
         X_LARGE: string;
         XX_LARGE: string;
-    }>;
-}, {
+    };
+    PROGRESS_BAR_LABEL_DATA_POSITIONS: {
+        readonly TOP: "top";
+        readonly BOTTOM: "bottom";
+    };
+}, {}, {
     labelDataExists(): any;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     size: {
@@ -437,6 +445,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    labelDataPosition: {
+        type: PropType<ProgressBarLabelDataPositions>;
+        default: "top";
+    };
 }>> & Readonly<{}>, {
     size: string;
     radius: string;
@@ -452,6 +464,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     hasLegend: boolean;
     legendSize: ProgressBarLegendSize;
     hasLegendPercentValue: boolean;
+    labelDataPosition: ProgressBarLabelDataPositions;
 }, {}, {
     ProgressBarLegend: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         layout: {
