@@ -1,5 +1,8 @@
 import SelectListItem from './SelectListItem.vue';
 import { ICONS } from '../../Icons/Icon';
+import SlotPlaceholder, {
+	SLOT_PLACEHOLDER_SIZES,
+} from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
@@ -14,27 +17,30 @@ export default {
 } as Meta<typeof SelectListItem>;
 
 const StoryTemplate: StoryFn<typeof SelectListItem> = (args) => ({
-	components: { SelectListItem },
+	components: { SelectListItem, SlotPlaceholder },
 	setup() {
-		return args;
+		return {
+			args,
+			ICONS,
+			SLOT_PLACEHOLDER_SIZES,
+		};
 	},
 	template: `
 			<select-list-item
-					:icon-left="ICONS[iconLeft]"
-					:label="label"
-					:eyebrow-text="eyebrowText"
-					:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
-					:is-selected="isSelected"
-					:selection-mode="selectionMode"
-					:size="size"
-					:state="state"
-			/>
+					:icon-left="ICONS[args.iconLeft]"
+					:label="args.label"
+					:eyebrow-text="args.eyebrowText"
+					:is-eyebrow-text-uppercase="args.isEyebrowTextUppercase"
+					:is-selected="args.isSelected"
+					:selection-mode="args.selectionMode"
+					:size="args.size"
+					:state="args.state"
+			>
+				<template v-if="args.accessorySlot" #accessory>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" :label="args.accessorySlot" />
+				</template>
+			</select-list-item>
     `,
-	data() {
-		return {
-			ICONS: Object.freeze(ICONS),
-		};
-	},
 });
 
 export const Interactive = StoryTemplate.bind({});
@@ -48,6 +54,7 @@ const args = {
 	state: SELECT_LIST_ITEM_STATES.DEFAULT,
 	isSelected: false,
 	selectionMode: SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
+	accessorySlot: 'accessory',
 } as Args;
 
 const argTypes = {
@@ -66,6 +73,9 @@ const argTypes = {
 	state: {
 		control: 'select',
 		options: Object.values(SELECT_LIST_ITEM_STATES),
+	},
+	accessorySlot: {
+		control: 'text',
 	},
 } as ArgTypes;
 
