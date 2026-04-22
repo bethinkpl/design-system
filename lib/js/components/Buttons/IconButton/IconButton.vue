@@ -148,7 +148,8 @@
 		color: map-get($icon-button-colors, 'theme', 'hovered');
 	}
 
-	&__button {
+	// .ds-button increases specificity to ensure base button styles never override icon button styles
+	&__button.ds-button {
 		height: $icon-button-medium-size;
 		min-height: auto;
 		min-width: auto;
