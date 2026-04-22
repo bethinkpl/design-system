@@ -11,10 +11,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: string;
     };
     boundariesSelector: {
-        type: (StringConstructor | {
-            new (): HTMLElement;
-            prototype: HTMLElement;
-        })[];
+        type: PropType<string | HTMLElement>;
         default: null;
     };
     color: {
@@ -99,10 +96,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: string;
     };
     boundariesSelector: {
-        type: (StringConstructor | {
-            new (): HTMLElement;
-            prototype: HTMLElement;
-        })[];
+        type: PropType<string | HTMLElement>;
         default: null;
     };
     color: {
