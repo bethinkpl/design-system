@@ -10,6 +10,8 @@
 		}"
 		:title="label"
 	>
+		<slot name="accessory" />
+
 		<ds-icon
 			v-if="iconLeft || isLoading"
 			class="ds-selectListItem__iconLeft"
@@ -54,6 +56,7 @@
 	color: $color-neutral-text-heavy;
 	cursor: pointer;
 	display: flex;
+	gap: $space-3xs;
 	min-height: $minHeight;
 	padding: $space-xs;
 
@@ -100,7 +103,6 @@
 
 	&__iconLeft {
 		color: $color-neutral-icon;
-		margin-right: $space-3xs;
 	}
 
 	&__iconRight {
@@ -160,7 +162,8 @@
 }
 </style>
 
-<script lang="ts">
+<script setup lang="ts">
+import { computed } from 'vue';
 import {
 	SELECT_LIST_ITEM_SELECTION_MODE,
 	SELECT_LIST_ITEM_SIZES,
@@ -169,75 +172,28 @@ import {
 	SelectListItemSize,
 	SelectListItemState,
 } from './SelectListItem.consts';
-import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { defineComponent, toRaw } from 'vue';
+import DsIcon, { ICON_SIZES, ICONS, IconItem } from '../../Icons/Icon';
 
-export default defineComponent({
-	name: 'SelectListItem',
-	components: {
-		DsIcon,
-	},
-	props: {
-		iconLeft: {
-			type: Object,
-			default: null,
-			validator(icon) {
-				return Object.values(ICONS).includes(toRaw(icon));
-			},
-		},
-		isSelected: {
-			type: Boolean,
-			default: false,
-		},
-		label: {
-			type: String,
-			required: true,
-		},
-		eyebrowText: {
-			type: String,
-			default: '',
-		},
-		isEyebrowTextUppercase: {
-			type: Boolean,
-			default: false,
-		},
-		selectionMode: {
-			type: String,
-			default: SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
-			validator(selectionMode: SelectListItemSelectionMode) {
-				return Object.values(SELECT_LIST_ITEM_SELECTION_MODE).includes(selectionMode);
-			},
-		},
-		size: {
-			type: String,
-			default: SELECT_LIST_ITEM_SIZES.SMALL,
-			validator(size: SelectListItemSize) {
-				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size);
-			},
-		},
-		state: {
-			type: String,
-			default: SELECT_LIST_ITEM_STATES.DEFAULT,
-			validator(state: SelectListItemState) {
-				return Object.values(SELECT_LIST_ITEM_STATES).includes(state);
-			},
-		},
-	},
-	data() {
-		return {
-			ICON_SIZES: Object.freeze(ICON_SIZES),
-			ICONS: Object.freeze(ICONS),
-			SELECT_LIST_ITEM_SELECTION_MODE: Object.freeze(SELECT_LIST_ITEM_SELECTION_MODE),
-			SELECT_LIST_ITEM_STATES: Object.freeze(SELECT_LIST_ITEM_STATES),
-		};
-	},
-	computed: {
-		isLoading(): boolean {
-			return this.state === SELECT_LIST_ITEM_STATES.LOADING;
-		},
-		isDisabled(): boolean {
-			return this.state === SELECT_LIST_ITEM_STATES.DISABLED;
-		},
-	},
-});
+const {
+	iconLeft = null,
+	isSelected = false,
+	label,
+	eyebrowText = '',
+	isEyebrowTextUppercase = false,
+	selectionMode = SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
+	size = SELECT_LIST_ITEM_SIZES.SMALL,
+	state = SELECT_LIST_ITEM_STATES.DEFAULT,
+} = defineProps<{
+	iconLeft?: IconItem | null;
+	isSelected?: boolean;
+	label: string;
+	eyebrowText?: string;
+	isEyebrowTextUppercase?: boolean;
+	selectionMode?: SelectListItemSelectionMode;
+	size?: SelectListItemSize;
+	state?: SelectListItemState;
+}>();
+
+const isLoading = computed(() => state === SELECT_LIST_ITEM_STATES.LOADING);
+const isDisabled = computed(() => state === SELECT_LIST_ITEM_STATES.DISABLED);
 </script>

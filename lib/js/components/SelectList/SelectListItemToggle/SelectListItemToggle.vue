@@ -19,7 +19,7 @@ import {
 } from '../SelectListItem/SelectListItem.consts';
 import { IconItem, ICONS } from '../../Icons/Icon';
 import SelectListItem from '../SelectListItem/SelectListItem.vue';
-import { defineComponent, toRaw } from 'vue';
+import { defineComponent, PropType, toRaw } from 'vue';
 
 export default defineComponent({
 	name: 'SelectListItemToggle',
@@ -54,14 +54,14 @@ export default defineComponent({
 			required: true,
 		},
 		size: {
-			type: String,
+			type: String as PropType<SelectListItemSize>,
 			default: SELECT_LIST_ITEM_SIZES.SMALL,
 			validator(size: SelectListItemSize) {
 				return Object.values(SELECT_LIST_ITEM_SIZES).includes(size);
 			},
 		},
 		state: {
-			type: String,
+			type: String as PropType<SelectListItemState>,
 			default: SELECT_LIST_ITEM_STATES.DEFAULT,
 			validator(state: SelectListItemState) {
 				return Object.values(SELECT_LIST_ITEM_STATES).includes(state);

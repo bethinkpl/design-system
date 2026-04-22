@@ -2,6 +2,7 @@
 	<div
 		class="ds-textGroup"
 		:class="{
+			'-ds-x-small': size === TEXT_GROUP_SIZES.X_SMALL,
 			'-ds-small': size === TEXT_GROUP_SIZES.SMALL,
 
 			'-ds-hovered': state === TEXT_GROUP_STATES.HOVERED,
@@ -278,6 +279,26 @@ $text-group-colors: (
 
 		#{$self}__main {
 			@include text-s-compact-bold;
+		}
+	}
+
+	&.-ds-x-small {
+		#{$self}__eyebrow {
+			@include info-xs-default-bold;
+
+			margin-bottom: 0;
+
+			&.-ds-uppercase {
+				@include info-xs-extensive-bold-uppercase;
+			}
+		}
+
+		#{$self}__main {
+			@include info-s-default-bold;
+		}
+
+		#{$self}__supporting {
+			@include info-s-default-regular;
 		}
 	}
 

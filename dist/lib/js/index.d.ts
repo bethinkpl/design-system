@@ -127,8 +127,8 @@ export { default as SelectListItemDivider } from './components/SelectList/Select
 export { default as DsSelectListItemDivider } from './components/SelectList/SelectListItemDivider/SelectListItemDivider.vue';
 export { default as SelectListItemToggle } from './components/SelectList/SelectListItemToggle/SelectListItemToggle.vue';
 export { default as DsSelectListItemToggle } from './components/SelectList/SelectListItemToggle/SelectListItemToggle.vue';
-export { default as SelectListItemTile } from './components/SelectList/SelectListItemTile/SelectListItemTile.vue';
-export { default as DsSelectListItemTile } from './components/SelectList/SelectListItemTile/SelectListItemTile.vue';
+export { default as SelectListItemContainer } from './components/SelectList/SelectListItemContainer/SelectListItemContainer.vue';
+export { default as DsSelectListItemContainer } from './components/SelectList/SelectListItemContainer/SelectListItemContainer.vue';
 export { default as SelectListSectionTitle } from './components/SelectList/SelectListSectionTitle/SelectListSectionTitle.vue';
 export { default as DsSelectListSectionTitle } from './components/SelectList/SelectListSectionTitle/SelectListSectionTitle.vue';
 export * from './components/SelectList/SelectListItem/SelectListItem.consts';
