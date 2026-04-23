@@ -140,7 +140,7 @@ export default defineComponent({
 			default: TOAST_POSITIONS.CENTER,
 		},
 		boundariesSelector: {
-			type: [String, HTMLElement],
+			type: [String, Object] as PropType<string | HTMLElement>,
 			default: null,
 		},
 		color: {
