@@ -8765,7 +8765,7 @@ const ue = /* @__PURE__ */ x(aH, [["render", rH]]), nH = {
   BOTTOM: "bottom",
   LEFT: "left",
   RIGHT: "right"
-}, h9 = () => "ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0, lH = q({
+}, h9 = () => typeof window != "undefined" && ("ontouchstart" in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0), lH = q({
   name: "Tooltip",
   props: {
     placement: {
@@ -13669,7 +13669,7 @@ const qV = q({
       default: pp.CENTER
     },
     boundariesSelector: {
-      type: [String, HTMLElement],
+      type: [String, Object],
       default: null
     },
     color: {
@@ -13824,7 +13824,7 @@ function KV(e, t, a, r, o, i) {
     ]), 1032, ["loading-bar-color", "loading-bar-time"])
   ], 6);
 }
-const nce = /* @__PURE__ */ x(qV, [["render", KV], ["__scopeId", "data-v-50281eba"]]), fr = {
+const nce = /* @__PURE__ */ x(qV, [["render", KV], ["__scopeId", "data-v-15eb93fb"]]), fr = {
   ACTIVE: "active",
   AWAITING: "awaiting",
   SUSPENDED: "suspended",
