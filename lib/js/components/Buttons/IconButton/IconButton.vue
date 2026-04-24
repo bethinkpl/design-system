@@ -148,8 +148,8 @@
 		color: map-get($icon-button-colors, 'theme', 'hovered');
 	}
 
-	// .ds-button increases specificity to ensure base button styles never override icon button styles
-	&__button.ds-button {
+	// Doubled class selector increases specificity to ensure icon button styles never get overridden by .ds-button base styles
+	#{$self}__button#{$self}__button {
 		height: $icon-button-medium-size;
 		min-height: auto;
 		min-width: auto;
