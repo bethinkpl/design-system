@@ -8,6 +8,7 @@ import SidebarFlipSolid from '../../../../images/icons/sidebar-flip-solid.svg';
 import Change from '../../../../images/icons/change.svg';
 import CloudDisconnected from '../../../../images/icons/cloud-disconnected.svg';
 import BallotCheckTime from '../../../../images/icons/ballot-check-time.svg';
+import RectanglesVertical from '../../../../images/icons/rectangles-vertical.svg';
 
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
 import { Value } from '../../../utils/type.utils';
@@ -54,6 +55,7 @@ const BETHINK_ICONS = {
 	SLIDERS_SEARCH: SlidersSearch,
 	CLOUD_DISCONNECTED: CloudDisconnected,
 	BALLOT_CHECK_TIME: BallotCheckTime,
+	RECTANGLES_VERTICAL: RectanglesVertical,
 } as const;
 
 export const ICONS = {
