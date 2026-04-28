@@ -255,6 +255,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PUZZLE_PIECE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_RECTANGLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_RECTANGLE_HISTORY: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -874,6 +875,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PUZZLE_PIECE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_RECTANGLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_HISTORY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1604,6 +1606,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PRINT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PUZZLE_PIECE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_RECTANGLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_HISTORY: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_RECTANGLE_LIST: import('@fortawesome/fontawesome-common-types').IconDefinition;
