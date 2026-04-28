@@ -145,6 +145,7 @@ import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
 import { faPresentationScreen } from '@fortawesome/pro-regular-svg-icons/faPresentationScreen';
 import { faPrint } from '@fortawesome/pro-regular-svg-icons/faPrint';
 import { faPuzzlePiece } from '@fortawesome/pro-regular-svg-icons/faPuzzlePiece';
+import { faRectangle } from '@fortawesome/pro-regular-svg-icons/faRectangle';
 import { faRectangleCode } from '@fortawesome/pro-regular-svg-icons/faRectangleCode';
 import { faRectangleList } from '@fortawesome/pro-regular-svg-icons/faRectangleList';
 import { faRectangleHistory } from '@fortawesome/pro-regular-svg-icons/faRectangleHistory';
@@ -464,6 +465,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PRINT: faPrint,
 	FA_PUZZLE_PIECE: faPuzzlePiece,
 	FA_QUESTION: faQuestion,
+	FA_RECTANGLE: faRectangle,
 	FA_RECTANGLE_CODE: faRectangleCode,
 	FA_RECTANGLE_HISTORY: faRectangleHistory,
 	FA_RECTANGLE_LIST: faRectangleList,
