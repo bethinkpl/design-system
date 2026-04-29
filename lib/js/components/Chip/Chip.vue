@@ -36,7 +36,7 @@
 			:size="ICON_BUTTON_SIZES.XX_SMALL"
 			:icon="ICONS.FA_XMARK"
 			:elevation="BUTTON_ELEVATIONS.X_SMALL"
-			@click="$emit('remove')"
+			@click.stop="$emit('remove')"
 		/>
 	</div>
 </template>
