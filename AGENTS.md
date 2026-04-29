@@ -68,6 +68,16 @@ yarn format:fix       # Auto-fix formatting
 1. Add `FONT_AWESOME_AUTH_TOKEN=<token>` to your shell profile (see README for token location).
 2. Optionally create `.env` with `JSON_BIN_X_ACCESS_KEY` for color/typography sync scripts.
 
+## Docs
+
+Before implementing changes, read the relevant guide first:
+
+- **Component patterns** (file structure, naming, exports, props, SCSS classes, i18n): `@agent-docs/component-patterns.md`
+- **Storybook** (story structure, argTypes, Figma links, locale, event tracking): `@agent-docs/storybook-patterns.md`
+- **Testing** (Vitest patterns, it.each, assertions, directive mocking): `@agent-docs/testing.md`
+- **Verification** (commands to run after changes, release checklist): `@agent-docs/verification.md`
+- **Styling & design tokens** (CSS naming, token imports, themes, Figma sync): `@agent-docs/styling.md`
+
 ## Releasing
 
 1. Bump version in `package.json`.
