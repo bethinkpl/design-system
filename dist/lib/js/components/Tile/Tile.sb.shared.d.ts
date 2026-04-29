@@ -35,6 +35,7 @@ export declare const data: () => {
         readonly FA_ARROW_UP_RIGHT_FROM_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_LEFT_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROW_LEFT_ARROW_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_FROM_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROWS_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
