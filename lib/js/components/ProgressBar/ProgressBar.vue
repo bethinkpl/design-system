@@ -16,7 +16,12 @@
 			>
 				{{ labelText }}
 			</div>
-			<div v-if="labelDataExists" class="ds-progressBar__labelDataWrapper">
+			<div
+				v-if="
+					labelDataExists && labelDataPosition === PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP
+				"
+				class="ds-progressBar__labelDataWrapper"
+			>
 				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
 				<span v-if="labelDataSupporting" class="ds-progressBar__labelDataSupporting">
 					<span class="ds-progressBar__labelDataSeparator">/</span>
@@ -62,14 +67,33 @@
 				"
 			/>
 		</div>
-		<progress-bar-legend
-			v-if="hasLegend"
-			class="ds-progressBar__legend"
-			:ranges="ranges"
-			:layout="layout"
-			:size="legendSize"
-			:has-percent-value="hasLegendPercentValue"
-		/>
+		<div class="ds-progressBar__bottomWrapper">
+			<progress-bar-legend
+				v-if="hasLegend"
+				class="ds-progressBar__legend"
+				:ranges="ranges"
+				:layout="layout"
+				:size="legendSize"
+				:has-percent-value="hasLegendPercentValue"
+			/>
+
+			<div
+				v-if="
+					labelDataExists &&
+					labelDataPosition === PROGRESS_BAR_LABEL_DATA_POSITIONS.BOTTOM
+				"
+				class="ds-progressBar__labelDataWrapper -ds-bottom"
+			>
+				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
+				<span v-if="labelDataSupporting" class="ds-progressBar__labelDataSupporting">
+					<span class="ds-progressBar__labelDataSeparator">/</span>
+					{{ labelDataSupporting }}
+				</span>
+				<span v-if="labelDataSuffix" class="ds-progressBar__labelDataSuffix">{{
+					labelDataSuffix
+				}}</span>
+			</div>
+		</div>
 	</div>
 </template>
 
@@ -251,6 +275,10 @@ $progress-bar-badge-colors: (
 		margin-bottom: $space-5xs;
 		margin-left: $space-2xs;
 		max-width: $progress-bar-label-data-max-width;
+
+		&.-ds-bottom {
+			padding-top: 10px;
+		}
 	}
 
 	&__labelDataSupporting {
@@ -309,6 +337,13 @@ $progress-bar-badge-colors: (
 			width: $progress-bar-badge-size-small;
 		}
 	}
+
+	&__bottomWrapper {
+		align-items: center;
+		display: flex;
+		gap: $space-4xs;
+		justify-content: space-between;
+	}
 }
 </style>
 
@@ -316,11 +351,13 @@ $progress-bar-badge-colors: (
 import { defineComponent, PropType } from 'vue';
 import {
 	PROGRESS_BAR_BADGE_COLORS,
+	PROGRESS_BAR_LABEL_DATA_POSITIONS,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_RADII,
 	PROGRESS_BAR_SIZES,
 	ProgressBarBadgeColor,
+	ProgressBarLabelDataPositions,
 	ProgressBarLabelTextSize,
 	ProgressBarLayout,
 	ProgressBarRadius,
@@ -423,15 +460,20 @@ export default defineComponent({
 			type: Boolean,
 			default: true,
 		},
+		labelDataPosition: {
+			type: String as PropType<ProgressBarLabelDataPositions>,
+			default: PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP,
+		},
 	},
-	data() {
+	setup() {
 		return {
-			PROGRESS_BAR_SIZES: Object.freeze(PROGRESS_BAR_SIZES),
-			PROGRESS_BAR_RADII: Object.freeze(PROGRESS_BAR_RADII),
-			PROGRESS_BAR_LAYOUTS: Object.freeze(PROGRESS_BAR_LAYOUTS),
-			PROGRESS_BAR_LABEL_TEXT_SIZES: Object.freeze(PROGRESS_BAR_LABEL_TEXT_SIZES),
-			ICONS: Object.freeze(ICONS),
-			ICON_SIZES: Object.freeze(ICON_SIZES),
+			PROGRESS_BAR_SIZES,
+			PROGRESS_BAR_RADII,
+			PROGRESS_BAR_LAYOUTS,
+			PROGRESS_BAR_LABEL_TEXT_SIZES,
+			ICONS,
+			ICON_SIZES,
+			PROGRESS_BAR_LABEL_DATA_POSITIONS,
 		};
 	},
 	computed: {
