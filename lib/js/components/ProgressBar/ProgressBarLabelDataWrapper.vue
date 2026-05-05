@@ -1,5 +1,5 @@
 <template>
-	<div class="ds-progressBarLabelDataWrapper" :class="{ '-ds-bottom': isBottom }">
+	<div class="ds-progressBarLabelDataWrapper">
 		<span v-if="labelData" class="ds-progressBarLabelDataWrapper__labelData">{{
 			labelData
 		}}</span>
@@ -34,14 +34,6 @@ $progress-bar-label-data-max-width: 30%;
 	margin-left: $space-2xs;
 	max-width: $progress-bar-label-data-max-width;
 
-	&:not(.-ds-bottom) {
-		margin-bottom: $space-5xs;
-	}
-
-	&.-ds-bottom {
-		padding-top: 10px;
-	}
-
 	&__labelDataSupporting {
 		color: $color-neutral-text;
 		display: flex;
@@ -66,6 +58,5 @@ defineProps<{
 	labelData?: string;
 	labelDataSupporting?: string;
 	labelDataSuffix?: string;
-	isBottom?: boolean;
 }>();
 </script>

@@ -21,6 +21,7 @@
 				v-if="
 					labelDataExists && labelDataPosition === PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP
 				"
+				class="ds-progressBar__labelDataWrapperTop"
 				:label-data="labelData"
 				:label-data-supporting="labelDataSupporting"
 				:label-data-suffix="labelDataSuffix"
@@ -80,10 +81,10 @@
 				<div v-if="!hasLegend" />
 
 				<progress-bar-label-data-wrapper
+					class="ds-progressBar__labelDataWrapperBottom"
 					:label-data="labelData"
 					:label-data-supporting="labelDataSupporting"
 					:label-data-suffix="labelDataSuffix"
-					is-bottom
 				/>
 			</template>
 		</div>
@@ -301,6 +302,14 @@ $progress-bar-badge-colors: (
 		display: flex;
 		gap: $space-4xs;
 		justify-content: space-between;
+	}
+
+	&__labelDataWrapperTop {
+		margin-bottom: $space-5xs;
+	}
+
+	&__labelDataWrapperBottom {
+		padding-top: 10px;
 	}
 }
 </style>
