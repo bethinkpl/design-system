@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import ProgressBar from './ProgressBar.vue';
 import {
+	PROGRESS_BAR_LABEL_DATA_POSITIONS,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_RANGE_COLORS,
 	ProgressBarRange,
@@ -33,6 +34,7 @@ const defaultProps = {
 	labelDataSuffix: '(%)',
 	labelTextEllipsis: false,
 	hasLegend: false,
+	labelDataPosition: PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP
 };
 
 const createComponent = (props = defaultProps) => {

@@ -28,8 +28,8 @@
 					{{ labelDataSupporting }}
 				</span>
 				<span v-if="labelDataSuffix" class="ds-progressBar__labelDataSuffix">{{
-					labelDataSuffix
-				}}</span>
+						labelDataSuffix
+					}}</span>
 			</div>
 		</div>
 		<div
@@ -77,22 +77,24 @@
 				:has-percent-value="hasLegendPercentValue"
 			/>
 
-			<div
-				v-if="
-					labelDataExists &&
-					labelDataPosition === PROGRESS_BAR_LABEL_DATA_POSITIONS.BOTTOM
-				"
-				class="ds-progressBar__labelDataWrapper -ds-bottom"
-			>
-				<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
-				<span v-if="labelDataSupporting" class="ds-progressBar__labelDataSupporting">
-					<span class="ds-progressBar__labelDataSeparator">/</span>
-					{{ labelDataSupporting }}
-				</span>
-				<span v-if="labelDataSuffix" class="ds-progressBar__labelDataSuffix">{{
-					labelDataSuffix
-				}}</span>
-			</div>
+			<template
+				v-if="labelDataExists &&
+					labelDataPosition === PROGRESS_BAR_LABEL_DATA_POSITIONS.BOTTOM">
+
+				<div v-if="!hasLegend" />
+				<div
+					class="ds-progressBar__labelDataWrapper -ds-bottom"
+				>
+					<span v-if="labelData" class="ds-progressBar__labelData">{{ labelData }}</span>
+					<span v-if="labelDataSupporting" class="ds-progressBar__labelDataSupporting">
+						<span class="ds-progressBar__labelDataSeparator">/</span>
+						{{ labelDataSupporting }}
+					</span>
+					<span v-if="labelDataSuffix" class="ds-progressBar__labelDataSuffix">{{
+							labelDataSuffix
+						}}</span>
+				</div>
+			</template>
 		</div>
 	</div>
 </template>
@@ -272,10 +274,13 @@ $progress-bar-badge-colors: (
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: right;
-		margin-bottom: $space-5xs;
 		margin-left: $space-2xs;
 		max-width: $progress-bar-label-data-max-width;
 
+		&:not(.-ds-bottom) {
+			margin-bottom: $space-5xs;
+		}
+		
 		&.-ds-bottom {
 			padding-top: 10px;
 		}
