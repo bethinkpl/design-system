@@ -34,7 +34,7 @@ const defaultProps = {
 	labelDataSuffix: '(%)',
 	labelTextEllipsis: false,
 	hasLegend: false,
-	labelDataPosition: PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP
+	labelDataPosition: PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP,
 };
 
 const createComponent = (props = defaultProps) => {
