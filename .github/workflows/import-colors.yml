@@ -9,6 +9,9 @@ on:
       bw_path:
         description: 'S3 path to DS RAWColors.BW_*.json'
         required: true
+      mc_path:
+        description: 'S3 path to DS RAWColors.MC_*.json'
+        required: true
       tokens_path:
         description: 'S3 path to DS ColorTokens_*.json'
         required: true
@@ -56,10 +59,11 @@ jobs:
           mkdir -p tools/importers/input
           aws s3 cp "${{ inputs.wnl_path }}" tools/importers/input/raw-wnl.json
           aws s3 cp "${{ inputs.bw_path }}" tools/importers/input/raw-bw.json
+          aws s3 cp "${{ inputs.mc_path }}" tools/importers/input/raw-mc.json
           aws s3 cp "${{ inputs.tokens_path }}" tools/importers/input/raw-tokens.json
 
       - name: Run import script
-        run: yarn importColors tools/importers/input/raw-wnl.json tools/importers/input/raw-bw.json tools/importers/input/raw-tokens.json
+        run: yarn importColors tools/importers/input/raw-wnl.json tools/importers/input/raw-bw.json tools/importers/input/raw-mc.json tools/importers/input/raw-tokens.json
 
       - name: Commit and push output
         run: |
@@ -80,6 +84,7 @@ jobs:
           **Source files:**
           - WNL: \`${{ inputs.wnl_path }}\`
           - BW: \`${{ inputs.bw_path }}\`
+          - MC: \`${{ inputs.mc_path }}\`
           - Tokens: \`${{ inputs.tokens_path }}\`
 
           Triggered by: @${{ github.actor }}")

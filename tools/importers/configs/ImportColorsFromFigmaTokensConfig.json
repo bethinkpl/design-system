@@ -41,6 +41,20 @@
 					"destinationVariables": "_tokens-bodywork-variables.scss"
 				}
 			}
+		},
+		{
+			"name": "mc",
+			"files": {
+				"variablesRaw": {
+					"destination": "_raw-mc.scss",
+					"destinationJson": "_raw-mc.json"
+				},
+				"tokens": {
+					"destination": "_tokens-mc.scss",
+					"destinationJson": "_tokens-mc.json",
+					"destinationVariables": "_tokens-mc-variables.scss"
+				}
+			}
 		}
 	]
 }

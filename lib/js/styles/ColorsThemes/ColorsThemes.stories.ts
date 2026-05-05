@@ -3,6 +3,7 @@ import { Args, Meta, StoryFn } from '@storybook/vue3';
 import ItemsList from './../ItemsList.vue';
 import rawWnlColorsList from '../../../styles/settings/colors/_raw-wnl.json';
 import rawBodyworkColorsList from '../../../styles/settings/colors/_raw-bodywork.json';
+import rawMedcoursesColorsList from '../../../styles/settings/colors/_raw-mc.json';
 import { TOKENS_TYPES } from '../TokenTypes';
 
 export default {
@@ -28,6 +29,12 @@ const args = {
 			title: 'Bodywork',
 			list: rawBodyworkColorsList,
 			class: '-ds-theme-bodywork',
+			disabled: 'default',
+		},
+		{
+			title: 'Medcourses',
+			list: rawMedcoursesColorsList,
+			class: '-ds-theme-medcourses',
 			disabled: 'default',
 		},
 	],
