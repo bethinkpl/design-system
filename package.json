@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "35.0.0",
+  "version": "35.0.4",
   "description": "Bethink universe design-system",
   "repository": {
     "type": "git",
@@ -18,8 +18,9 @@
   ],
   "license": "UNLICENSED",
   "engines": {
-    "yarn": "^1.22.1",
-    "node": "^16.13.0 || ^18.17.0 || ^20.9.0"
+    "yarn": ">=1.22.1",
+    "npm": ">=6.0.0",
+    "node": "^16.13.0 || ^18.17.0 || ^20.9.0 || ^22.0.0 || ^24.0.0"
   },
   "scripts": {
     "build": "vite build",
