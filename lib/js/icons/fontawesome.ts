@@ -145,6 +145,7 @@ import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
 import { faPresentationScreen } from '@fortawesome/pro-regular-svg-icons/faPresentationScreen';
 import { faPrint } from '@fortawesome/pro-regular-svg-icons/faPrint';
 import { faPuzzlePiece } from '@fortawesome/pro-regular-svg-icons/faPuzzlePiece';
+import { faRectangle } from '@fortawesome/pro-regular-svg-icons/faRectangle';
 import { faRectangleCode } from '@fortawesome/pro-regular-svg-icons/faRectangleCode';
 import { faRectangleList } from '@fortawesome/pro-regular-svg-icons/faRectangleList';
 import { faRectangleHistory } from '@fortawesome/pro-regular-svg-icons/faRectangleHistory';
@@ -187,6 +188,7 @@ import { faFileCheck } from '@fortawesome/pro-regular-svg-icons/faFileCheck';
 import { faFileArrowDown } from '@fortawesome/pro-regular-svg-icons/faFileArrowDown';
 import { faArrowDown as fasArrowDown } from '@fortawesome/pro-solid-svg-icons/faArrowDown';
 import { faArrowLeft as fasArrowLeft } from '@fortawesome/pro-solid-svg-icons/faArrowLeft';
+import { faArrowLeftArrowRight as fasArrowLeftArrowRight } from '@fortawesome/pro-solid-svg-icons/faArrowLeftArrowRight';
 import { faArrowRight as fasArrowRight } from '@fortawesome/pro-solid-svg-icons/faArrowRight';
 import { faArrowsLeftRight as fasArrowsLeftRight } from '@fortawesome/pro-solid-svg-icons/faArrowsLeftRight';
 import { faArrowUp as fasArrowUp } from '@fortawesome/pro-solid-svg-icons/faArrowUp';
@@ -284,6 +286,7 @@ export const FONTAWESOME_ICONS = {
 	FA_ARROW_UP_RIGHT_FROM_SQUARE: faArrowUpRightFromSquare,
 	FA_ARROW_UP_SOLID: fasArrowUp,
 	FA_ARROWS_LEFT_RIGHT_SOLID: fasArrowsLeftRight,
+	FA_ARROW_LEFT_ARROW_RIGHT: fasArrowLeftArrowRight,
 	FA_ARROWS_FROM_DOTTED_LINE: faArrowsFromDottedLine,
 	FA_ARROWS_MAXIMIZE: faArrowsMaximize,
 	FA_ARROWS_ROTATE: faArrowsRotate,
@@ -464,6 +467,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PRINT: faPrint,
 	FA_PUZZLE_PIECE: faPuzzlePiece,
 	FA_QUESTION: faQuestion,
+	FA_RECTANGLE: faRectangle,
 	FA_RECTANGLE_CODE: faRectangleCode,
 	FA_RECTANGLE_HISTORY: faRectangleHistory,
 	FA_RECTANGLE_LIST: faRectangleList,
