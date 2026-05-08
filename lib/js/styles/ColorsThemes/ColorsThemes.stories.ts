@@ -34,7 +34,7 @@ const args = {
 		{
 			title: 'Medcourses',
 			list: rawMedcoursesColorsList,
-			class: '-ds-theme-medcourses',
+			class: '-ds-theme-mc',
 			disabled: 'default',
 		},
 	],
