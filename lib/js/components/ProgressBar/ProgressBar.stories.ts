@@ -1,6 +1,7 @@
 import ProgressBar from './ProgressBar.vue';
 import {
 	PROGRESS_BAR_BADGE_COLORS,
+	PROGRESS_BAR_LABEL_DATA_POSITIONS,
 	PROGRESS_BAR_LABEL_TEXT_SIZES,
 	PROGRESS_BAR_LAYOUTS,
 	PROGRESS_BAR_RADII,
@@ -98,6 +99,10 @@ const argTypes = {
 	hasLegendPercentValue: {
 		control: 'boolean',
 	},
+	labelDataPosition: {
+		control: 'select',
+		options: Object.values(PROGRESS_BAR_LABEL_DATA_POSITIONS),
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
@@ -142,6 +147,7 @@ Interactive.args = {
 	hasLegend: false,
 	legendSize: PROGRESS_BAR_LEGEND_SIZES.SMALL,
 	hasLegendPercentValue: true,
+	labelDataPosition: PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP,
 } as Args;
 
 Interactive.parameters = {
@@ -228,6 +234,7 @@ Compact.args = {
 	labelDataSupporting: '100',
 	labelDataSuffix: '(%)',
 	labelTextEllipsis: false,
+	labelDataPosition: PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP,
 } as Args;
 
 export const LegendWithoutIcons = StoryTemplate.bind({});
@@ -259,4 +266,5 @@ LegendWithoutIcons.args = {
 	hasLegend: true,
 	hasLegendPercentValue: true,
 	legendSize: PROGRESS_BAR_LEGEND_SIZES.SMALL,
+	labelDataPosition: PROGRESS_BAR_LABEL_DATA_POSITIONS.TOP,
 } as Args;
