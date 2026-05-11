@@ -69,8 +69,8 @@ export const ImportRawColors = (
 ): void => {
 	const isTheme = !!themeName;
 	const tab = isTheme ? '\t' : '';
-	const scssResult: string[] = [cssFileFirstLine(isTheme, themeName)];
-	const jsonResult: Dict<ColorToken[]> = {};
+	const scssResult: Array<string> = [cssFileFirstLine(isTheme, themeName)];
+	const jsonResult: Dict<Array<ColorToken>> = {};
 
 	const addColor = (key: string, value: string, cssVarName: string, category: string): void => {
 		const hex = makeHexShortcut(value);
@@ -144,9 +144,9 @@ export const ImportTokens = (
 ): void => {
 	const isTheme = !!themeName;
 	const tab = isTheme ? '\t' : '';
-	const variablesResult: string[] = [cssFileFirstLine(isTheme, themeName)];
-	const scssResult: string[] = [];
-	const jsonResult: Dict<ColorToken[]> = {};
+	const variablesResult: Array<string> = [cssFileFirstLine(isTheme, themeName)];
+	const scssResult: Array<string> = [];
+	const jsonResult: Dict<Array<ColorToken>> = {};
 
 	for (const [category, tokens] of Object.entries(tokensJson)) {
 		for (const [tokenKey, tokenEntry] of Object.entries(tokens)) {
@@ -181,18 +181,24 @@ export const ImportTokens = (
 const run = async () => {
 	const wnlColorsPath = process.argv[2];
 	if (!wnlColorsPath) {
-		console.error('Usage: importColors <wnl-raw.json> <bw-raw.json> <tokens.json>');
+		console.error(
+			'Usage: importColors <wnl-raw.json> <bw-raw.json> [mc-raw.json] <tokens.json>',
+		);
 		return;
 	}
 
 	const bwColorsPath = process.argv[3];
-	const tokensPath = process.argv[4];
+	const mcColorsPath = process.argv[4];
+	const tokensPath = process.argv[5];
 
 	console.log('Importing colors...');
 
 	const wnlColorsJson: FigmaRawColorsJson = JSON.parse(readFileSync(wnlColorsPath, 'utf8'));
 	const bwColorsJson: FigmaRawColorsJson | null = bwColorsPath
 		? JSON.parse(readFileSync(bwColorsPath, 'utf8'))
+		: null;
+	const mcColorsJson: FigmaRawColorsJson | null = mcColorsPath
+		? JSON.parse(readFileSync(mcColorsPath, 'utf8'))
 		: null;
 
 	if (bwColorsJson) {
@@ -215,8 +221,12 @@ const run = async () => {
 		console.log('Base tokens imported successfully.');
 	}
 
-	// Each theme maps to its source file by position: themes[0] → wnlColorsJson, themes[1] → bwColorsJson, etc.
-	const themeColorsJsons: (FigmaRawColorsJson | null)[] = [wnlColorsJson, bwColorsJson];
+	// Each theme maps to its source file by position: themes[0] → wnlColorsJson, themes[1] → bwColorsJson, themes[2] → mcColorsJson, etc.
+	const themeColorsJsons: Array<FigmaRawColorsJson | null> = [
+		wnlColorsJson,
+		bwColorsJson,
+		mcColorsJson,
+	];
 
 	for (let i = 0; i < defaultConfig.themes.length; i++) {
 		const theme = defaultConfig.themes[i];
