@@ -178,6 +178,7 @@ import { faUnlockKeyhole } from '@fortawesome/pro-regular-svg-icons/faUnlockKeyh
 import { faUpload } from '@fortawesome/pro-regular-svg-icons/faUpload';
 import { faUser } from '@fortawesome/pro-regular-svg-icons/faUser';
 import { faWandMagicSparkles } from '@fortawesome/pro-regular-svg-icons/faWandMagicSparkles';
+import { faSparkles } from '@fortawesome/pro-regular-svg-icons/faSparkles';
 import { faWindowMaximize } from '@fortawesome/pro-regular-svg-icons/faWindowMaximize';
 import { faQuestion } from '@fortawesome/pro-regular-svg-icons/faQuestion';
 import { faXmark } from '@fortawesome/pro-regular-svg-icons/faXmark';
@@ -516,6 +517,7 @@ export const FONTAWESOME_ICONS = {
 	FA_USERS_SLASH: faUsersSlash,
 	FA_VIDEO_SOLID: fasVideo,
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
+	FA_SPARKLES: faSparkles,
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
 	FA_XMARK: faXmark,
