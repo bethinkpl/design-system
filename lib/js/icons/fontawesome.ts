@@ -5,7 +5,9 @@ import { faAngleDown } from '@fortawesome/pro-regular-svg-icons/faAngleDown';
 import { faAngleLeft } from '@fortawesome/pro-regular-svg-icons/faAngleLeft';
 import { faAngleRight } from '@fortawesome/pro-regular-svg-icons/faAngleRight';
 import { faAngleUp } from '@fortawesome/pro-regular-svg-icons/faAngleUp';
-import { faArrowDownLeftAndArrowUpRightToCenter } from '@fortawesome/pro-regular-svg-icons/faArrowDownLeftAndArrowUpRightToCenter';
+import {
+	faArrowDownLeftAndArrowUpRightToCenter
+} from '@fortawesome/pro-regular-svg-icons/faArrowDownLeftAndArrowUpRightToCenter';
 import { faArrowDownToLine } from '@fortawesome/pro-regular-svg-icons/faArrowDownToLine';
 import { faArrowPointer } from '@fortawesome/pro-regular-svg-icons/faArrowPointer';
 import { faArrowRightFromBracket } from '@fortawesome/pro-regular-svg-icons/faArrowRightFromBracket';
@@ -15,7 +17,9 @@ import { faArrowsFromDottedLine } from '@fortawesome/pro-regular-svg-icons/faArr
 import { faArrowsMaximize } from '@fortawesome/pro-regular-svg-icons/faArrowsMaximize';
 import { faArrowsRotate } from '@fortawesome/pro-regular-svg-icons/faArrowsRotate';
 import { faArrowsToDottedLine } from '@fortawesome/pro-regular-svg-icons/faArrowsToDottedLine';
-import { faArrowUpRightAndArrowDownLeftFromCenter } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightAndArrowDownLeftFromCenter';
+import {
+	faArrowUpRightAndArrowDownLeftFromCenter
+} from '@fortawesome/pro-regular-svg-icons/faArrowUpRightAndArrowDownLeftFromCenter';
 import { faArrowUpRightFromSquare } from '@fortawesome/pro-regular-svg-icons/faArrowUpRightFromSquare';
 import { faArrowLeftToDottedLine } from '@fortawesome/pro-regular-svg-icons/faArrowLeftToDottedLine';
 import { faAtom as fasAtom } from '@fortawesome/pro-solid-svg-icons/faAtom';
@@ -178,6 +182,7 @@ import { faUnlockKeyhole } from '@fortawesome/pro-regular-svg-icons/faUnlockKeyh
 import { faUpload } from '@fortawesome/pro-regular-svg-icons/faUpload';
 import { faUser } from '@fortawesome/pro-regular-svg-icons/faUser';
 import { faWandMagicSparkles } from '@fortawesome/pro-regular-svg-icons/faWandMagicSparkles';
+import { faSparkles } from '@fortawesome/pro-regular-svg-icons/faSparkles';
 import { faWindowMaximize } from '@fortawesome/pro-regular-svg-icons/faWindowMaximize';
 import { faQuestion } from '@fortawesome/pro-regular-svg-icons/faQuestion';
 import { faXmark } from '@fortawesome/pro-regular-svg-icons/faXmark';
@@ -188,7 +193,9 @@ import { faFileCheck } from '@fortawesome/pro-regular-svg-icons/faFileCheck';
 import { faFileArrowDown } from '@fortawesome/pro-regular-svg-icons/faFileArrowDown';
 import { faArrowDown as fasArrowDown } from '@fortawesome/pro-solid-svg-icons/faArrowDown';
 import { faArrowLeft as fasArrowLeft } from '@fortawesome/pro-solid-svg-icons/faArrowLeft';
-import { faArrowLeftArrowRight as fasArrowLeftArrowRight } from '@fortawesome/pro-solid-svg-icons/faArrowLeftArrowRight';
+import {
+	faArrowLeftArrowRight as fasArrowLeftArrowRight
+} from '@fortawesome/pro-solid-svg-icons/faArrowLeftArrowRight';
 import { faArrowRight as fasArrowRight } from '@fortawesome/pro-solid-svg-icons/faArrowRight';
 import { faArrowsLeftRight as fasArrowsLeftRight } from '@fortawesome/pro-solid-svg-icons/faArrowsLeftRight';
 import { faArrowUp as fasArrowUp } from '@fortawesome/pro-solid-svg-icons/faArrowUp';
@@ -230,7 +237,9 @@ import { faStopwatch as fasStopwach } from '@fortawesome/pro-solid-svg-icons/faS
 import { faThumbsUp as fasThumbsUp } from '@fortawesome/pro-solid-svg-icons/faThumbsUp';
 import { faThumbtack as fasThumbtack } from '@fortawesome/pro-solid-svg-icons/faThumbtack';
 import { faThumbtack } from '@fortawesome/pro-regular-svg-icons/faThumbtack';
-import { faTriangleExclamation as fasTriangleExclamation } from '@fortawesome/pro-solid-svg-icons/faTriangleExclamation';
+import {
+	faTriangleExclamation as fasTriangleExclamation
+} from '@fortawesome/pro-solid-svg-icons/faTriangleExclamation';
 import { faUserDoctor as fasUserDoctor } from '@fortawesome/pro-solid-svg-icons/faUserDoctor';
 import { faVideo as fasVideo } from '@fortawesome/pro-solid-svg-icons/faVideo';
 import { faVolumeHigh as fasVolumeHigh } from '@fortawesome/pro-solid-svg-icons/faVolumeHigh';
@@ -516,6 +525,7 @@ export const FONTAWESOME_ICONS = {
 	FA_USERS_SLASH: faUsersSlash,
 	FA_VIDEO_SOLID: fasVideo,
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
+	FA_SPARKLES: faSparkles,
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
 	FA_XMARK: faXmark,
