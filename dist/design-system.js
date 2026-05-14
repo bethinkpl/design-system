@@ -12311,7 +12311,7 @@ const k9 = /* @__PURE__ */ x(NG, [["render", KG], ["__scopeId", "data-v-7a9bc601
 }, cV = {
   "ds.pagination.from": "of"
 }, dV = {
-  "ds.statsLayout.default.leftColumnLabel": "Range",
+  "ds.statsLayout.default.leftColumnLabel": "Scope",
   "ds.statsLayout.default.rightColumnLabel": "Results",
   "ds.statsLayout.filtersDropdown.title": "Filter",
   "ds.statsLayout.sectionHeader.title": "Your statistics",
