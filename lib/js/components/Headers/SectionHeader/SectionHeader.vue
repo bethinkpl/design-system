@@ -31,6 +31,7 @@
 								>{{ title }}
 							</div>
 						</div>
+						<slot name="titleAccessory" />
 						<ds-icon
 							v-if="iconRight"
 							class="ds-sectionHeader__icon"
