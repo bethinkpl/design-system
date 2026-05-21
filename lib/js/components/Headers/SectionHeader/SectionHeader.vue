@@ -63,9 +63,7 @@
 				</div>
 			</div>
 
-			<div
-				v-if="supportingText"
-				class="ds-sectionHeader__supportingText"
+			<div v-if="supportingText" class="ds-sectionHeader__supportingText"
 				>{{ supportingText }}
 			</div>
 
