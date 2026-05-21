@@ -365,6 +365,10 @@ export default defineComponent({
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
 		},
+		areKeyboardShortcutsDisabled: {
+			type: Boolean,
+			default: false,
+		},
 	},
 	emits: {
 		close: () => true,
@@ -402,6 +406,7 @@ export default defineComponent({
 	},
 	methods: {
 		onKeydown(e: KeyboardEvent) {
+			if (this.areKeyboardShortcutsDisabled) return;
 			if (isElementEditable(e.target as HTMLElement | null)) {
 				return;
 			}
