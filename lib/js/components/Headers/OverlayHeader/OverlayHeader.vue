@@ -351,6 +351,10 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
+		areKeyboardShortcutsDisabled: {
+			type: Boolean,
+			default: false,
+		},
 		state: {
 			type: String,
 			default: OVERLAY_HEADER_STATES.DEFAULT,
@@ -364,10 +368,6 @@ export default defineComponent({
 			validator(icon) {
 				return Object.values(ICONS).includes(toRaw(icon));
 			},
-		},
-		areKeyboardShortcutsDisabled: {
-			type: Boolean,
-			default: false,
 		},
 	},
 	emits: {
