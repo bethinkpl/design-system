@@ -1,26 +1,13 @@
 <template>
 	<div
 		class="ds-well"
-		:class="{
+		:class="[colorClass, {
 			'-ds-medium': WELL_PADDINGS.MEDIUM === padding,
 			'-ds-small': WELL_PADDINGS.SMALL === padding,
-		}"
+		}]"
 	>
-		<div v-if="hasChip || $slots.accessory" class="ds-well__accessorySlot">
-			<slot name="accessory">
-				<chip
-					:label="chipLabel"
-					:is-label-uppercase="chipLabelUppercase"
-					:left-icon="chipLeftIcon"
-					:radius="chipRadius"
-					:color="chipColor"
-					:color-hex="chipColorHex"
-				>
-					<template v-if="$slots.chipAccessory" #accessory>
-						<slot name="chipAccessory" />
-					</template>
-				</chip>
-			</slot>
+		<div v-if="$slots.accessory" class="ds-well__accessorySlot">
+			<slot name="accessory" />
 		</div>
 
 		<slot />
@@ -35,9 +22,17 @@
 .ds-well {
 	$root: &;
 
-	background-color: $color-neutral-background;
 	border-radius: $radius-m;
 	position: relative;
+
+	&.-ds-default  { background-color: $color-default-background; }
+	&.-ds-neutral  { background-color: $color-neutral-background; }
+	&.-ds-info     { background-color: $color-info-background; }
+	&.-ds-success  { background-color: $color-success-background; }
+	&.-ds-warning  { background-color: $color-warning-background; }
+	&.-ds-fail     { background-color: $color-fail-background; }
+	&.-ds-danger   { background-color: $color-danger-background; }
+	&.-ds-accent   { background-color: $color-accent-background; }
 
 	&__accessorySlot {
 		display: flex;
@@ -66,27 +61,28 @@
 </style>
 
 <script lang="ts" setup>
-import { WELL_PADDINGS, WellPadding } from './Well.consts';
-import Chip, { CHIP_DEFAULT_COLOR, CHIP_RADIUSES, ChipRadius, ChipColor } from '../Chip';
-import { IconItem } from '../Icons/Icon';
+import { computed } from 'vue';
+import { WELL_PADDINGS, WELL_COLORS, WELL_DEFAULT_COLOR, WellPadding, WellColor } from './Well.consts';
 
 const {
 	padding = null,
-	hasChip = false,
-	chipLabel,
-	chipLabelUppercase = false,
-	chipLeftIcon = null,
-	chipRadius = CHIP_RADIUSES.ROUNDED,
-	chipColor = CHIP_DEFAULT_COLOR,
-	chipColorHex,
+	color = WELL_DEFAULT_COLOR,
 } = defineProps<{
-	padding?: WellPadding;
-	hasChip?: boolean;
-	chipLabel?: string;
-	chipLabelUppercase?: boolean;
-	chipLeftIcon?: IconItem;
-	chipRadius?: ChipRadius;
-	chipColor?: ChipColor;
-	chipColorHex?: string;
+	padding?: WellPadding | null;
+	color?: WellColor;
 }>();
+
+const colorClass = computed(() => {
+	const colorMap: Record<WellColor, string> = {
+		[WELL_COLORS.DEFAULT]: '-ds-default',
+		[WELL_COLORS.NEUTRAL]: '-ds-neutral',
+		[WELL_COLORS.INFO]: '-ds-info',
+		[WELL_COLORS.SUCCESS]: '-ds-success',
+		[WELL_COLORS.WARNING]: '-ds-warning',
+		[WELL_COLORS.FAIL]: '-ds-fail',
+		[WELL_COLORS.DANGER]: '-ds-danger',
+		[WELL_COLORS.ACCENT]: '-ds-accent',
+	};
+	return colorMap[color];
+});
 </script>
