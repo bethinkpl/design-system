@@ -8,14 +8,14 @@ export const WELL_PADDINGS = {
 export type WellPadding = Value<typeof WELL_PADDINGS>;
 
 export const WELL_COLORS = {
-	DEFAULT: 'default',
-	NEUTRAL: 'neutral',
+	ACCENT: 'accent',
+	PRIMARY: 'primary',
+	FAIL: 'fail',
 	INFO: 'info',
+	INVERTED: 'inverted',
+	NEUTRAL: 'neutral',
 	SUCCESS: 'success',
 	WARNING: 'warning',
-	FAIL: 'fail',
-	DANGER: 'danger',
-	ACCENT: 'accent',
 } as const;
 
 export type WellColor = Value<typeof WELL_COLORS>;
