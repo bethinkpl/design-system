@@ -24,6 +24,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    areKeyboardShortcutsDisabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     state: {
         type: StringConstructor;
         default: "default";
@@ -392,6 +396,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    areKeyboardShortcutsDisabled: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     state: {
         type: StringConstructor;
         default: "default";
@@ -411,6 +419,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     eyebrowText: string;
     shortTitle: string;
     isTitleInteractive: boolean;
+    areKeyboardShortcutsDisabled: boolean;
     dropdownIcon: Record<string, any>;
 }, {}, {
     DsIconButton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{

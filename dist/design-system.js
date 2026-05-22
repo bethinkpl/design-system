@@ -20101,6 +20101,10 @@ const Pi = /* @__PURE__ */ x(HY, [["render", UY]]), G4 = {
       type: Boolean,
       default: !1
     },
+    areKeyboardShortcutsDisabled: {
+      type: Boolean,
+      default: !1
+    },
     state: {
       type: String,
       default: ul.DEFAULT,
@@ -20151,7 +20155,7 @@ const Pi = /* @__PURE__ */ x(HY, [["render", UY]]), G4 = {
   },
   methods: {
     onKeydown(e) {
-      if (!GY(e.target))
+      if (!this.areKeyboardShortcutsDisabled && !GY(e.target))
         switch (e.key) {
           case "q":
           case "Q":
@@ -20299,7 +20303,7 @@ function rZ(e, t, a, r, o, i) {
     }, 8, ["placement", "text"])
   ], 2);
 }
-const r4e = /* @__PURE__ */ x(VY, [["render", rZ], ["__scopeId", "data-v-96eb285d"]]), rg = {
+const r4e = /* @__PURE__ */ x(VY, [["render", rZ], ["__scopeId", "data-v-76251887"]]), rg = {
   SMALL: "small",
   MEDIUM: "medium"
 }, nZ = {
