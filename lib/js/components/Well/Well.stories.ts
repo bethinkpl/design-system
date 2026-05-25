@@ -2,46 +2,30 @@
 
 import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
 import Well from './Well.vue';
-import { WELL_PADDINGS } from './Well.consts';
+import { WELL_COLORS, WELL_PADDINGS } from './Well.consts';
 import type { ComponentProps } from 'vue-component-type-helpers';
-import { ICONS } from '../Icons/Icon';
-import Chip, { CHIP_COLORS, CHIP_DEFAULT_COLOR, CHIP_RADIUSES } from '../Chip';
-import DsBanner, { BANNER_COLORS } from '../Banner';
+import Chip, { CHIP_RADIUSES } from '../Chip';
 
 type WellProps = ComponentProps<typeof Well>;
-
-function wrapWithContainer(template: string): string {
-	// line-height: 0; is to remove extra space below the badge (as it's an inline element)
-	return `<div style="display: inline-flex; flex-direction: column; width: 100%; gap: 20px;">${template}
-<ds-banner :color="BANNER_COLORS.WARNING" title="Taka kombinacja jest niezgodna z design systemem!" v-if="invalidUsage" /></div>
-`;
-}
 
 const meta: Meta<WellProps> = {
 	title: 'Components/Well',
 	component: Well,
 	render: (args) => ({
-		components: { Well, DsBanner },
+		components: { Well },
 		setup() {
-			return {
-				args,
-				ICONS,
-				BANNER_COLORS,
-			};
+			return { args };
 		},
-		template: wrapWithContainer(
-			'<well v-bind="args" :chip-left-icon="ICONS[args.chipLeftIcon]"><div v-html="args.content" /></well>',
-		),
-		computed: {
-			invalidUsage() {
-				return args.hasChip && !args.padding;
-			},
-		},
+		template: '<well v-bind="args"><div v-html="args.content" /></well>',
 	}),
 	argTypes: {
 		padding: {
 			control: 'select',
 			options: [null, ...Object.values(WELL_PADDINGS)],
+		},
+		color: {
+			control: 'select',
+			options: Object.values(WELL_COLORS),
 		},
 		content: {
 			control: 'text',
@@ -64,32 +48,8 @@ export const Interactive: Story = {
 		content:
 			'<h3 style="margin-top: 0">Content</h3>' +
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
-		hasChip: false,
-		chipLabel: 'Chip z labelem',
-		chipLabelUppercase: false,
-		chipLeftIcon: null,
-		chipRadius: CHIP_RADIUSES.ROUNDED,
-		color: CHIP_DEFAULT_COLOR,
-		colorHex: '',
 	} as Args,
 };
-
-const argTypes = {
-	chipLeftIcon: {
-		control: 'select',
-		options: [null, ...Object.keys(ICONS)],
-	},
-	chipColor: {
-		control: 'select',
-		options: Object.values(CHIP_COLORS),
-	},
-	chipRadius: {
-		control: 'select',
-		options: Object.values(CHIP_RADIUSES),
-	},
-} as ArgTypes;
-
-Interactive.argTypes = argTypes;
 
 export const WithMultipleChips: Story = {
 	render: (args) => {
@@ -127,5 +87,3 @@ export const WithMultipleChips: Story = {
 		padding: WELL_PADDINGS.SMALL,
 	},
 };
-
-WithMultipleChips.argTypes = argTypes;
