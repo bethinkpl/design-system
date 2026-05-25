@@ -351,6 +351,10 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
+		areKeyboardShortcutsDisabled: {
+			type: Boolean,
+			default: false,
+		},
 		state: {
 			type: String,
 			default: OVERLAY_HEADER_STATES.DEFAULT,
@@ -402,6 +406,7 @@ export default defineComponent({
 	},
 	methods: {
 		onKeydown(e: KeyboardEvent) {
+			if (this.areKeyboardShortcutsDisabled) return;
 			if (isElementEditable(e.target as HTMLElement | null)) {
 				return;
 			}
