@@ -69,14 +69,7 @@
 				</div>
 			</div>
 
-			<div
-				v-if="supportingText"
-				class="ds-sectionHeader__supportingText"
-				:class="{
-					'-ds-withoutPadding':
-						!hasDivider ||
-						(!hasDivider && mobileLayout === SECTION_HEADER_MOBILE_LAYOUTS.HORIZONTAL),
-				}"
+			<div v-if="supportingText" class="ds-sectionHeader__supportingText"
 				>{{ supportingText }}
 			</div>
 
