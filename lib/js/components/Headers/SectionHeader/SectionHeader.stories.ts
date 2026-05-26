@@ -59,8 +59,8 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args) => {
 			' :supportingText="supportingText"' +
 			' @update:isExpanded="onIsExpandedUpdated"' +
 			'>' +
-			'<template #titleAccessory><slot-placeholder label="title accessory slot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" /></template>' +
-			'<slot-placeholder label="default slot" :size="SLOT_PLACEHOLDER_SIZES.MEDIUM" />' +
+			'<template v-if="titleAccessorySlot" #titleAccessory><slot-placeholder :label="titleAccessorySlot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" /></template>' +
+			'<slot-placeholder v-if="defaultSlot" :label="defaultSlot" :size="SLOT_PLACEHOLDER_SIZES.MEDIUM" />' +
 			'</section-header>',
 	};
 };
@@ -84,6 +84,8 @@ const args = {
 	isExpanded: false,
 	hideSlotWhenCollapsed: false,
 	mobileLayout: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
+	titleAccessorySlot: 'title accessory slot',
+	defaultSlot: 'default slot',
 } as Args;
 
 const argTypes = {
