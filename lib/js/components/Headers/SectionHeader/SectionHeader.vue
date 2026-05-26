@@ -31,7 +31,10 @@
 								>{{ title }}
 							</div>
 						</div>
-						<div v-if="$slots.titleAccessory">
+						<div
+							v-if="$slots.titleAccessory"
+							class="ds-sectionHeader__slotTitleAccessory"
+						>
 							<slot name="titleAccessory" />
 						</div>
 						<ds-icon
@@ -305,6 +308,12 @@
 				color: $color-neutral-text-weak-hovered;
 			}
 		}
+	}
+
+	&__slotTitleAccessory {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
 	}
 
 	&__slotHorizontal {
