@@ -31,7 +31,9 @@
 								>{{ title }}
 							</div>
 						</div>
-						<slot name="titleAccessory" />
+						<div v-if="$slots.titleAccessory">
+							<slot name="titleAccessory" />
+						</div>
 						<ds-icon
 							v-if="iconRight"
 							class="ds-sectionHeader__icon"
