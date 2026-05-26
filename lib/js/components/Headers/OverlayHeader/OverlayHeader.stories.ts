@@ -64,6 +64,7 @@ const args = {
 	titleLeadingSlot: 'leading',
 	titleTrailingSlot: 'trailing',
 	isTitleInteractive: false,
+	areKeyboardShortcutsDisabled: false,
 	borderColor: OVERLAY_HEADER_BORDER_COLORS.NEUTRAL_GHOST,
 	state: OVERLAY_HEADER_STATES.DEFAULT,
 } as Args;
