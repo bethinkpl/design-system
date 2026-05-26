@@ -5,6 +5,9 @@ import {
 	SECTION_HEADER_SIZES,
 } from './SectionHeader.consts';
 import { ICONS } from '../../Icons/Icon';
+import SlotPlaceholder, {
+	SLOT_PLACEHOLDER_SIZES,
+} from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { useArgs } from '@storybook/preview-api';
@@ -20,13 +23,14 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args) => {
 	const [_, updateArgs] = useArgs();
 
 	return {
-		components: { SectionHeader },
+		components: { SectionHeader, SlotPlaceholder },
 		setup() {
 			return args;
 		},
 		data() {
 			return {
 				ICONS: Object.freeze(ICONS),
+				SLOT_PLACEHOLDER_SIZES: Object.freeze(SLOT_PLACEHOLDER_SIZES),
 			};
 		},
 		methods: {
@@ -55,7 +59,8 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args) => {
 			' :supportingText="supportingText"' +
 			' @update:isExpanded="onIsExpandedUpdated"' +
 			'>' +
-			'<div style="border: 1px solid;">Slot content</div>' +
+			'<template v-if="titleAccessorySlot" #titleAccessory><slot-placeholder :label="titleAccessorySlot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" /></template>' +
+			'<slot-placeholder v-if="defaultSlot" :label="defaultSlot" :size="SLOT_PLACEHOLDER_SIZES.MEDIUM" />' +
 			'</section-header>',
 	};
 };
@@ -79,6 +84,8 @@ const args = {
 	isExpanded: false,
 	hideSlotWhenCollapsed: false,
 	mobileLayout: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
+	titleAccessorySlot: 'title accessory slot',
+	defaultSlot: 'default slot',
 } as Args;
 
 const argTypes = {
