@@ -1,0 +1,55 @@
+name: Publish to NPM
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_type:
+        description: 'Version bump type'
+        required: true
+        default: patch
+        type: choice
+        options:
+          - patch
+          - minor
+          - major
+
+concurrency:
+  group: publish-npm
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    name: Publish to NPM
+    runs-on: ubuntu-latest
+    # if: github.ref == 'refs/heads/master'
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '20.9.0'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Bump version
+        id: bump
+        run: |
+          NEW_VERSION=$(npm version ${{ inputs.release_type }} -m "Bump version to \`v%s\`")
+          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+      - name: Push commit and tag
+        run: git push origin HEAD:master --follow-tags
+      - name: Create GitHub release
+        run: gh release create "${{ steps.bump.outputs.version }}" --generate-notes --title "${{ steps.bump.outputs.version }}" --draft
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish
+        # NODE_AUTH_TOKEN is read by the .npmrc written by setup-node (registry-url triggers this).
+        # See: https://github.com/actions/setup-node/blob/0355742c943ddb13ca8a6b700f824231caa91e75/docs/advanced-usage.md#publish-to-npmjs-and-gpr-with-npm
+        run: npm publish --access public --dry-run
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

@@ -28,4 +28,6 @@ If you use the review command more than once and the changes are not visible in 
 1. Bump version in `package.json`
 2. Wait until `Build and Deploy Dist` Github Action finishes
 3. Create new tag and release in https://github.com/bethinkpl/design-system/releases
-4. Run `npm publish --access public`
+4. Publish to NPM by triggering the **Publish to NPM** action manually: Actions → Publish to NPM → Run workflow
+
+> **Note:** `NPM_TOKEN` must be set in repository secrets. The recommended token type is a [Granular Access Token](https://docs.npmjs.com/creating-and-viewing-access-tokens#creating-granular-access-tokens-on-the-website) scoped to this package only. Avoid running `npm publish` locally.
