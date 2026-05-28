@@ -12,6 +12,9 @@
 @import 'settings/colors/raw-wnl';
 @import 'settings/colors/raw-bodywork';
 @import 'settings/colors/raw-mc';
+@import 'settings/colors/raw-wnl-dark';
+@import 'settings/colors/raw-bodywork-dark';
+@import 'settings/colors/raw-mc-dark';
 @import 'settings/typography/variables-css';
 
 // Mixins
@@ -32,6 +35,10 @@
 @import 'settings/colors/tokens-wnl-variables';
 @import 'settings/colors/tokens-bodywork-variables';
 @import 'settings/colors/tokens-mc-variables';
+@import 'settings/colors/tokens-variables-dark';
+@import 'settings/colors/tokens-wnl-dark-variables';
+@import 'settings/colors/tokens-bodywork-dark-variables';
+@import 'settings/colors/tokens-mc-dark-variables';
 
 html,
 body {

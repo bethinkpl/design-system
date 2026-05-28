@@ -113,7 +113,48 @@ export const globalTypes = {
 		defaultValue: SUPPORTED_LOCALE.pl,
 		options: Object.keys(SUPPORTED_LOCALE),
 	},
+	colorScheme: {
+		name: 'Color scheme',
+		description: 'Toggle light / dark theme (applies the .-ds-dark class)',
+		defaultValue: 'light',
+		toolbar: {
+			icon: 'paintbrush',
+			items: [
+				{ value: 'light', icon: 'sun', title: 'Light' },
+				{ value: 'dark', icon: 'moon', title: 'Dark' },
+			],
+			dynamicTitle: true,
+		},
+	},
+	brand: {
+		name: 'Brand',
+		description: 'Switch brand theme (applies the .-ds-theme-<brand> class)',
+		defaultValue: 'wnl',
+		toolbar: {
+			icon: 'globe',
+			items: [
+				{ value: 'wnl', title: 'WNL' },
+				{ value: 'mc', title: 'MC' },
+				{ value: 'bodywork', title: 'Bodywork' },
+			],
+			dynamicTitle: true,
+		},
+	},
 };
+
+const BRAND_CLASSES = ['-ds-theme-wnl', '-ds-theme-mc', '-ds-theme-bodywork'];
+
+export const decorators = [
+	(story, context) => {
+		if (typeof document !== 'undefined') {
+			document.body.classList.toggle('-ds-dark', context.globals.colorScheme === 'dark');
+			BRAND_CLASSES.forEach((cls) =>
+				document.body.classList.toggle(cls, `-ds-theme-${context.globals.brand}` === cls),
+			);
+		}
+		return story();
+	},
+];
 
 setup((app, context) => {
 	i18n.global.locale = context?.globals.locale;

@@ -47,6 +47,11 @@ body {
 	}
 }
 
+body.-ds-dark {
+	background-color: var(--color-default-background);
+	color: var(--color-default-text);
+}
+
 * {
 	box-sizing: inherit;
 }
