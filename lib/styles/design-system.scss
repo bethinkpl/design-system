@@ -69,6 +69,21 @@ html {
 	overflow-y: auto; // Without this style, we always display a scrollbar that covers the scrollbar in a container that is full-width. eg. scrollable-main-container
 }
 
+// Dark theme scrollbars — flip the thumb to a dark gray. The track auto-adapts via the mixin's
+// `--color-default-background` default. `.-ds-dark` is on <body>; `.-ds-thick-scrollbar` is on <html>.
+.-ds-dark {
+	@include scrollbar(2px, var(--raw-gray-800));
+}
+
+// Thick variant: higher specificity than `html.-ds-thick-scrollbar` (0,1,2) is required, and the
+// 15px size must be re-asserted. Covers dark-on-<body> (descendant) and dark-on-same-element.
+.-ds-thick-scrollbar .-ds-dark,
+.-ds-thick-scrollbar.-ds-dark {
+	@media #{breakpoint-m()} {
+		@include scrollbar(15px, var(--raw-gray-800));
+	}
+}
+
 *,
 ::after,
 ::before {
