@@ -1,31 +1,7 @@
 .-ds-dark {
-	// Default dark teal --theme-X scale (active when .-ds-dark is used without a brand class).
-	// Inverted 1:1 from the light teal scale in _raw.scss.
-	--theme-50: #0a4c58;
-	--theme-50-rgb: 10, 76, 88;
-	--theme-100: #095d68;
-	--theme-100-rgb: 9, 93, 104;
-	--theme-200: #096b75;
-	--theme-200-rgb: 9, 107, 117;
-	--theme-300: #087e85;
-	--theme-300-rgb: 8, 126, 133;
-	--theme-400: #078f96;
-	--theme-400-rgb: 7, 143, 150;
-	--theme-500: #0d9ea4;
-	--theme-500-rgb: 13, 158, 164;
-	--theme-600: #5bbdc1;
-	--theme-600-rgb: 91, 189, 193;
-	--theme-700: #a6dcde;
-	--theme-700-rgb: 166, 220, 222;
-	--theme-800: #d5eeef;
-	--theme-800-rgb: 213, 238, 239;
-	--theme-900: #e8f6f6;
-	--theme-900-rgb: 232, 246, 246;
-
-	// Default colors
 	--color-default-text: var(--raw-white);
 	--color-default-icon: var(--raw-white);
-	--color-default-background: var(--raw-gray-1000);
+	--color-default-background: var(--raw-black);
 	--color-default-background-ghost: rgba(var(--raw-white-rgb), 0);
 	--color-default-background-ghost-hovered: rgba(var(--raw-white-rgb), 0.12);
 	--color-default-background-ghost-focused: rgba(var(--raw-white-rgb), 0.12);
@@ -34,14 +10,10 @@
 	--color-default-overlay: rgba(var(--raw-black-rgb), 0.92);
 	--color-default-border: var(--raw-white);
 	--color-default-ripple: rgba(var(--raw-white-rgb), 0.08);
-	// Shadow color uses pure black (not --raw-black) because the dark canvas (--raw-gray-1000)
-	// is already navy-tinted near-black; --raw-black is too close to it to be visible as a shadow.
 	--color-default-shadow-heavy: rgba(var(--raw-pure-black-rgb), 0.6);
 	--color-default-shadow-strong: rgba(var(--raw-pure-black-rgb), 0.45);
 	--color-default-shadow: rgba(var(--raw-pure-black-rgb), 0.3);
 	--color-default-shadow-weak: rgba(var(--raw-pure-black-rgb), 0.2);
-
-	// Inverted colors
 	--color-inverted-text: var(--raw-black);
 	--color-inverted-text-disabled: rgba(var(--raw-black-rgb), 0.6);
 	--color-inverted-icon: var(--raw-black);
@@ -50,17 +22,64 @@
 	--color-inverted-border: var(--raw-black);
 	--color-inverted-border-disabled: rgba(var(--raw-black-rgb), 0.7);
 	--color-inverted-ripple: rgba(var(--raw-black-rgb), 0.12);
-	// Inverted surfaces in dark mode are light (e.g. a white card on dark canvas) — shadow under
-	// them must be dark to read as elevation.
 	--color-inverted-shadow-strong: rgba(var(--raw-pure-black-rgb), 0.5);
 	--color-inverted-shadow: rgba(var(--raw-pure-black-rgb), 0.35);
 	--color-inverted-shadow-weak: rgba(var(--raw-pure-black-rgb), 0.2);
-
-	// Primary: override only the raw-color refs; theme-X-based tokens inherit and auto-flip via the brand-dark scale.
-	--color-primary-background-weak: var(--raw-gray-1000);
-	--color-primary-background-weak-disabled: var(--raw-gray-1000);
-
-	// Neutral text (gray scale flipped)
+	--color-primary-text-strong: var(--theme-700);
+	--color-primary-text-strong-hovered: var(--theme-900);
+	--color-primary-text-strong-focused: var(--theme-900);
+	--color-primary-text-strong-disabled: var(--theme-200);
+	--color-primary-text: var(--theme-600);
+	--color-primary-text-hovered: var(--theme-800);
+	--color-primary-text-focused: var(--theme-800);
+	--color-primary-text-disabled: var(--theme-200);
+	--color-primary-icon: var(--theme-500);
+	--color-primary-icon-hovered: var(--theme-700);
+	--color-primary-icon-focused: var(--theme-700);
+	--color-primary-icon-disabled: var(--theme-200);
+	--color-primary-icon-weak: var(--theme-300);
+	--color-primary-icon-weak-hovered: var(--theme-500);
+	--color-primary-icon-weak-focused: var(--theme-500);
+	--color-primary-icon-weak-disabled: var(--theme-100);
+	--color-primary-data-medium: var(--theme-600);
+	--color-primary-data: var(--theme-400);
+	--color-primary-data-weak: var(--theme-300);
+	--color-primary-data-ghost: var(--theme-200);
+	--color-primary-background-strong: var(--theme-500);
+	--color-primary-background-strong-hovered: var(--theme-600);
+	--color-primary-background-strong-focused: var(--theme-600);
+	--color-primary-background-strong-pressed: var(--theme-700);
+	--color-primary-background-strong-disabled: var(--theme-200);
+	--color-primary-background-medium: var(--theme-100);
+	--color-primary-background-medium-hovered: var(--theme-200);
+	--color-primary-background-medium-focused: var(--theme-200);
+	--color-primary-background-medium-pressed: var(--theme-300);
+	--color-primary-background-medium-disabled: var(--theme-50);
+	--color-primary-background: var(--theme-50);
+	--color-primary-background-hovered: var(--theme-100);
+	--color-primary-background-focused: var(--theme-100);
+	--color-primary-background-pressed: var(--theme-200);
+	--color-primary-background-disabled: var(--theme-50);
+	--color-primary-background-weak: var(--raw-black);
+	--color-primary-background-weak-hovered: var(--theme-100);
+	--color-primary-background-weak-focused: var(--theme-100);
+	--color-primary-background-weak-pressed: var(--theme-200);
+	--color-primary-background-weak-disabled: var(--raw-black);
+	--color-primary-background-ghost: rgba(var(--theme-500-rgb), 0);
+	--color-primary-background-ghost-hovered: rgba(var(--theme-500-rgb), 0.12);
+	--color-primary-background-ghost-focused: rgba(var(--theme-500-rgb), 0.12);
+	--color-primary-background-ghost-pressed: rgba(var(--theme-500-rgb), 0.18);
+	--color-primary-background-ghost-disabled: rgba(var(--theme-500-rgb), 0);
+	--color-primary-overlay: rgba(var(--theme-100-rgb), 0.8);
+	--color-primary-border: var(--theme-500);
+	--color-primary-border-hovered: var(--theme-700);
+	--color-primary-border-focused: var(--theme-700);
+	--color-primary-border-disabled: var(--theme-200);
+	--color-primary-border-weak: var(--theme-100);
+	--color-primary-border-weak-hovered: var(--theme-300);
+	--color-primary-border-weak-focused: var(--theme-300);
+	--color-primary-border-weak-disabled: var(--theme-100);
+	--color-primary-ripple: rgba(var(--theme-500-rgb), 0.12);
 	--color-neutral-text-heavy: var(--raw-gray-50);
 	--color-neutral-text-heavy-hovered: var(--raw-white);
 	--color-neutral-text-heavy-focused: var(--raw-white);
@@ -77,8 +96,6 @@
 	--color-neutral-text-weak-hovered: var(--raw-gray-200);
 	--color-neutral-text-weak-focused: var(--raw-gray-200);
 	--color-neutral-text-weak-disabled: var(--raw-gray-500);
-
-	// Neutral icon
 	--color-neutral-icon-strong: var(--raw-gray-100);
 	--color-neutral-icon-strong-hovered: var(--raw-gray-50);
 	--color-neutral-icon-strong-focused: var(--raw-gray-50);
@@ -91,14 +108,10 @@
 	--color-neutral-icon-weak-hovered: var(--raw-gray-300);
 	--color-neutral-icon-weak-focused: var(--raw-gray-300);
 	--color-neutral-icon-weak-disabled: var(--raw-gray-600);
-
-	// Neutral data
 	--color-neutral-data-medium: var(--raw-gray-300);
 	--color-neutral-data: var(--raw-gray-400);
 	--color-neutral-data-weak: var(--raw-gray-600);
 	--color-neutral-data-ghost: var(--raw-gray-700);
-
-	// Neutral background
 	--color-neutral-background-heavy: var(--raw-gray-300);
 	--color-neutral-background-heavy-hovered: var(--raw-gray-200);
 	--color-neutral-background-heavy-focused: var(--raw-gray-200);
@@ -119,18 +132,16 @@
 	--color-neutral-background-focused: var(--raw-gray-800);
 	--color-neutral-background-pressed: var(--raw-gray-700);
 	--color-neutral-background-disabled: var(--raw-gray-900);
-	--color-neutral-background-weak: var(--raw-gray-1000);
+	--color-neutral-background-weak: var(--raw-black);
 	--color-neutral-background-weak-hovered: var(--raw-gray-900);
 	--color-neutral-background-weak-focused: var(--raw-gray-900);
 	--color-neutral-background-weak-pressed: var(--raw-gray-800);
-	--color-neutral-background-weak-disabled: var(--raw-gray-1000);
+	--color-neutral-background-weak-disabled: var(--raw-black);
 	--color-neutral-background-ghost: rgba(var(--raw-gray-300-rgb), 0);
 	--color-neutral-background-ghost-hovered: rgba(var(--raw-gray-300-rgb), 0.12);
 	--color-neutral-background-ghost-focused: rgba(var(--raw-gray-300-rgb), 0.12);
 	--color-neutral-background-ghost-pressed: rgba(var(--raw-gray-300-rgb), 0.18);
 	--color-neutral-background-ghost-disabled: rgba(var(--raw-gray-300-rgb), 0);
-
-	// Neutral border
 	--color-neutral-border-heavy: var(--raw-gray-300);
 	--color-neutral-border-heavy-hovered: var(--raw-gray-50);
 	--color-neutral-border-heavy-focused: var(--raw-gray-50);
@@ -148,14 +159,10 @@
 	--color-neutral-border-weak-focused: var(--raw-gray-600);
 	--color-neutral-border-weak-disabled: var(--raw-gray-900);
 	--color-neutral-border-ghost: var(--raw-gray-900);
-
-	// Neutral divider / ripple
 	--color-neutral-divider-strong: var(--raw-gray-700);
 	--color-neutral-divider: var(--raw-gray-800);
 	--color-neutral-divider-weak: var(--raw-gray-900);
 	--color-neutral-ripple: rgba(var(--raw-gray-300-rgb), 0.12);
-
-	// Danger (red)
 	--color-danger-text-strong: var(--raw-red-300);
 	--color-danger-text-strong-hovered: var(--raw-red-100);
 	--color-danger-text-strong-focused: var(--raw-red-100);
@@ -187,11 +194,11 @@
 	--color-danger-background-focused: var(--raw-red-800);
 	--color-danger-background-pressed: var(--raw-red-700);
 	--color-danger-background-disabled: var(--raw-red-900);
-	--color-danger-background-weak: var(--raw-gray-1000);
+	--color-danger-background-weak: var(--raw-black);
 	--color-danger-background-weak-hovered: var(--raw-red-900);
 	--color-danger-background-weak-focused: var(--raw-red-900);
 	--color-danger-background-weak-pressed: var(--raw-red-800);
-	--color-danger-background-weak-disabled: var(--raw-gray-1000);
+	--color-danger-background-weak-disabled: var(--raw-black);
 	--color-danger-background-ghost: rgba(var(--raw-red-500-rgb), 0);
 	--color-danger-background-ghost-hovered: rgba(var(--raw-red-500-rgb), 0.18);
 	--color-danger-background-ghost-focused: rgba(var(--raw-red-500-rgb), 0.18);
@@ -206,8 +213,6 @@
 	--color-danger-border-weak-focused: var(--raw-red-600);
 	--color-danger-border-weak-disabled: var(--raw-red-800);
 	--color-danger-ripple: rgba(var(--raw-red-500-rgb), 0.18);
-
-	// Fail (orange)
 	--color-fail-text-strong: var(--raw-orange-300);
 	--color-fail-text-strong-hovered: var(--raw-orange-100);
 	--color-fail-text-strong-focused: var(--raw-orange-100);
@@ -243,11 +248,11 @@
 	--color-fail-background-focused: var(--raw-orange-800);
 	--color-fail-background-pressed: var(--raw-orange-700);
 	--color-fail-background-disabled: var(--raw-orange-900);
-	--color-fail-background-weak: var(--raw-gray-1000);
+	--color-fail-background-weak: var(--raw-black);
 	--color-fail-background-weak-hovered: var(--raw-orange-900);
 	--color-fail-background-weak-focused: var(--raw-orange-900);
 	--color-fail-background-weak-pressed: var(--raw-orange-800);
-	--color-fail-background-weak-disabled: var(--raw-gray-1000);
+	--color-fail-background-weak-disabled: var(--raw-black);
 	--color-fail-background-ghost: rgba(var(--raw-orange-500-rgb), 0);
 	--color-fail-background-ghost-hovered: rgba(var(--raw-orange-500-rgb), 0.18);
 	--color-fail-background-ghost-focused: rgba(var(--raw-orange-500-rgb), 0.18);
@@ -262,8 +267,6 @@
 	--color-fail-border-weak-focused: var(--raw-orange-600);
 	--color-fail-border-weak-disabled: var(--raw-orange-800);
 	--color-fail-ripple: rgba(var(--raw-orange-500-rgb), 0.18);
-
-	// Warning (gold)
 	--color-warning-text-strong: var(--raw-gold-300);
 	--color-warning-text-strong-hovered: var(--raw-gold-100);
 	--color-warning-text-strong-focused: var(--raw-gold-100);
@@ -299,11 +302,11 @@
 	--color-warning-background-focused: var(--raw-gold-800);
 	--color-warning-background-pressed: var(--raw-gold-700);
 	--color-warning-background-disabled: var(--raw-gold-900);
-	--color-warning-background-weak: var(--raw-gray-1000);
+	--color-warning-background-weak: var(--raw-black);
 	--color-warning-background-weak-hovered: var(--raw-gold-900);
 	--color-warning-background-weak-focused: var(--raw-gold-900);
 	--color-warning-background-weak-pressed: var(--raw-gold-800);
-	--color-warning-background-weak-disabled: var(--raw-gray-1000);
+	--color-warning-background-weak-disabled: var(--raw-black);
 	--color-warning-background-ghost: rgba(var(--raw-gold-500-rgb), 0);
 	--color-warning-background-ghost-hovered: rgba(var(--raw-gold-500-rgb), 0.18);
 	--color-warning-background-ghost-focused: rgba(var(--raw-gold-500-rgb), 0.18);
@@ -318,8 +321,6 @@
 	--color-warning-border-weak-focused: var(--raw-gold-600);
 	--color-warning-border-weak-disabled: var(--raw-gold-800);
 	--color-warning-ripple: rgba(var(--raw-gold-500-rgb), 0.18);
-
-	// Success (green)
 	--color-success-text-strong: var(--raw-green-300);
 	--color-success-text-strong-hovered: var(--raw-green-100);
 	--color-success-text-strong-focused: var(--raw-green-100);
@@ -355,11 +356,11 @@
 	--color-success-background-focused: var(--raw-green-800);
 	--color-success-background-pressed: var(--raw-green-700);
 	--color-success-background-disabled: var(--raw-green-900);
-	--color-success-background-weak: var(--raw-gray-1000);
+	--color-success-background-weak: var(--raw-black);
 	--color-success-background-weak-hovered: var(--raw-green-900);
 	--color-success-background-weak-focused: var(--raw-green-900);
 	--color-success-background-weak-pressed: var(--raw-green-800);
-	--color-success-background-weak-disabled: var(--raw-gray-1000);
+	--color-success-background-weak-disabled: var(--raw-black);
 	--color-success-background-ghost: rgba(var(--raw-green-500-rgb), 0);
 	--color-success-background-ghost-hovered: rgba(var(--raw-green-500-rgb), 0.18);
 	--color-success-background-ghost-focused: rgba(var(--raw-green-500-rgb), 0.18);
@@ -374,8 +375,6 @@
 	--color-success-border-weak-focused: var(--raw-green-600);
 	--color-success-border-weak-disabled: var(--raw-green-800);
 	--color-success-ripple: rgba(var(--raw-green-500-rgb), 0.18);
-
-	// Info (blue)
 	--color-info-text-strong: var(--raw-blue-300);
 	--color-info-text-strong-hovered: var(--raw-blue-100);
 	--color-info-text-strong-focused: var(--raw-blue-100);
@@ -407,11 +406,11 @@
 	--color-info-background-focused: var(--raw-blue-800);
 	--color-info-background-pressed: var(--raw-blue-700);
 	--color-info-background-disabled: var(--raw-blue-900);
-	--color-info-background-weak: var(--raw-gray-1000);
+	--color-info-background-weak: var(--raw-black);
 	--color-info-background-weak-hovered: var(--raw-blue-900);
 	--color-info-background-weak-focused: var(--raw-blue-900);
 	--color-info-background-weak-pressed: var(--raw-blue-800);
-	--color-info-background-weak-disabled: var(--raw-gray-1000);
+	--color-info-background-weak-disabled: var(--raw-black);
 	--color-info-background-ghost: rgba(var(--raw-blue-500-rgb), 0);
 	--color-info-background-ghost-hovered: rgba(var(--raw-blue-500-rgb), 0.18);
 	--color-info-background-ghost-focused: rgba(var(--raw-blue-500-rgb), 0.18);
@@ -426,8 +425,6 @@
 	--color-info-border-weak-focused: var(--raw-blue-600);
 	--color-info-border-weak-disabled: var(--raw-blue-800);
 	--color-info-ripple: rgba(var(--raw-blue-500-rgb), 0.18);
-
-	// Accent (indigo)
 	--color-accent-text-strong: var(--raw-indigo-300);
 	--color-accent-text-strong-hovered: var(--raw-indigo-100);
 	--color-accent-text-strong-focused: var(--raw-indigo-100);
@@ -455,11 +452,11 @@
 	--color-accent-background-focused: var(--raw-indigo-800);
 	--color-accent-background-pressed: var(--raw-indigo-700);
 	--color-accent-background-disabled: var(--raw-indigo-900);
-	--color-accent-background-weak: var(--raw-gray-1000);
+	--color-accent-background-weak: var(--raw-black);
 	--color-accent-background-weak-hovered: var(--raw-indigo-900);
 	--color-accent-background-weak-focused: var(--raw-indigo-900);
 	--color-accent-background-weak-pressed: var(--raw-indigo-800);
-	--color-accent-background-weak-disabled: var(--raw-gray-1000);
+	--color-accent-background-weak-disabled: var(--raw-black);
 	--color-accent-background-ghost: rgba(var(--raw-indigo-500-rgb), 0);
 	--color-accent-background-ghost-hovered: rgba(var(--raw-indigo-500-rgb), 0.18);
 	--color-accent-background-ghost-focused: rgba(var(--raw-indigo-500-rgb), 0.18);
@@ -474,8 +471,6 @@
 	--color-accent-border-weak-focused: var(--raw-indigo-600);
 	--color-accent-border-weak-disabled: var(--raw-indigo-800);
 	--color-accent-ripple: rgba(var(--raw-indigo-500-rgb), 0.18);
-
-	// Highlight (yellow)
 	--color-highlight-icon: var(--raw-yellow-400);
 	--color-highlight-icon-hovered: var(--raw-yellow-200);
 	--color-highlight-icon-focused: var(--raw-yellow-200);
@@ -495,11 +490,11 @@
 	--color-highlight-background-focused: var(--raw-yellow-800);
 	--color-highlight-background-pressed: var(--raw-yellow-700);
 	--color-highlight-background-disabled: var(--raw-yellow-900);
-	--color-highlight-background-weak: var(--raw-gray-1000);
+	--color-highlight-background-weak: var(--raw-black);
 	--color-highlight-background-weak-hovered: var(--raw-yellow-900);
 	--color-highlight-background-weak-focused: var(--raw-yellow-900);
 	--color-highlight-background-weak-pressed: var(--raw-yellow-800);
-	--color-highlight-background-weak-disabled: var(--raw-gray-1000);
+	--color-highlight-background-weak-disabled: var(--raw-black);
 	--color-highlight-background-ghost: rgba(var(--raw-yellow-500-rgb), 0);
 	--color-highlight-background-ghost-hovered: rgba(var(--raw-yellow-500-rgb), 0.18);
 	--color-highlight-background-ghost-focused: rgba(var(--raw-yellow-500-rgb), 0.18);
