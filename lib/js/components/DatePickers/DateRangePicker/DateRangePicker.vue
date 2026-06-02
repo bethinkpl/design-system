@@ -23,6 +23,11 @@
 
 <style lang="scss">
 @import 'flatpickr/dist/flatpickr';
+
+.-ds-dark {
+	// stylelint-disable-next-line no-invalid-position-at-import-rule -- nested import scopes flatpickr's dark theme under `.-ds-dark`
+	@import 'flatpickr/dist/themes/dark';
+}
 </style>
 
 <style scoped lang="scss">
