@@ -6,7 +6,7 @@
 	width: 100%;
 
 	td {
-		padding: $space-m $space-m;
+		padding: $space-12 $space-12;
 	}
 
 	&__row {
@@ -16,7 +16,7 @@
 	&__tile {
 		box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
 		display: block;
-		height: $space-xl;
+		height: $space-20;
 		width: 100%;
 	}
 

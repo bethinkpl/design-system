@@ -54,7 +54,7 @@
 	&__header {
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: $space-s;
+		margin-bottom: $space-8;
 		// header without explanation iconButton has to be the same size as with iconButton
 		min-height: $icon-button-medium-size;
 	}
@@ -67,7 +67,7 @@
 
 	&__explanation {
 		align-self: flex-start;
-		margin-left: $space-4xs;
+		margin-left: $space-2;
 	}
 
 	&__content {
@@ -76,7 +76,7 @@
 	}
 
 	&__input {
-		margin-top: $space-2xs;
+		margin-top: $space-4;
 	}
 }
 </style>

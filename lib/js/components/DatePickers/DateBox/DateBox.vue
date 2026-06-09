@@ -164,12 +164,12 @@
 
 	align-items: center;
 	border: $border-xs solid transparent;
-	column-gap: $space-2xs;
+	column-gap: $space-4;
 	display: flex;
 	justify-content: space-between;
 	min-height: 46px;
 	min-width: 76px;
-	padding: $space-2xs $space-xs;
+	padding: $space-4 $space-6;
 	pointer-events: none;
 
 	&__dateWrapper {
@@ -232,7 +232,7 @@
 	}
 
 	&__date {
-		column-gap: $space-4xs;
+		column-gap: $space-2;
 		display: inline-flex;
 
 		/* Prevent text select */

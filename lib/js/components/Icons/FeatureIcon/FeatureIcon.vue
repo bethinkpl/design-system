@@ -109,28 +109,28 @@ $feature-icon-padding-large: 10px;
 
 	border-radius: 100%;
 	border-style: solid;
-	border-width: $space-3xs;
+	border-width: $space-3;
 	display: inline-flex;
-	padding: $space-3xs;
+	padding: $space-3;
 
 	&.-ds-xSmall {
-		border-width: $space-5xs;
-		padding: $space-5xs;
+		border-width: $space-1;
+		padding: $space-1;
 	}
 
 	&.-ds-small {
-		border-width: $space-4xs;
-		padding: $space-4xs;
+		border-width: $space-2;
+		padding: $space-2;
 	}
 
 	&.-ds-large {
-		border-width: $space-3xs;
+		border-width: $space-3;
 		padding: $feature-icon-padding-large;
 	}
 
 	&.-ds-xLarge {
-		border-width: $space-2xs;
-		padding: $space-xs;
+		border-width: $space-4;
+		padding: $space-6;
 	}
 }
 </style>

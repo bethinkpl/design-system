@@ -37,22 +37,22 @@
 
 $selection-control-sizes: (
 	'x-small': (
-		'gap': $space-4xs,
-		'iconWrapperPadding': $space-3xs,
-		'labelWrapperPadding': $space-4xs,
-		'iconOutlinePadding': $space-3xs,
+		'gap': $space-2,
+		'iconWrapperPadding': $space-3,
+		'labelWrapperPadding': $space-2,
+		'iconOutlinePadding': $space-3,
 	),
 	'small': (
-		'gap': $space-2xs,
-		'iconWrapperPadding': $space-3xs,
-		'labelWrapperPadding': $space-3xs,
-		'iconOutlinePadding': $space-3xs,
+		'gap': $space-4,
+		'iconWrapperPadding': $space-3,
+		'labelWrapperPadding': $space-3,
+		'iconOutlinePadding': $space-3,
 	),
 	'medium': (
-		'gap': $space-2xs,
-		'iconWrapperPadding': $space-2xs,
-		'labelWrapperPadding': $space-2xs,
-		'iconOutlinePadding': $space-2xs,
+		'gap': $space-4,
+		'iconWrapperPadding': $space-4,
+		'labelWrapperPadding': $space-4,
+		'iconOutlinePadding': $space-4,
 	),
 );
 

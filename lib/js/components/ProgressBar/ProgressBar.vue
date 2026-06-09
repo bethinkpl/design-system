@@ -177,7 +177,7 @@ $progress-bar-badge-colors: (
 		}
 
 		#{$self}__label {
-			margin-bottom: $space-3xs;
+			margin-bottom: $space-3;
 		}
 	}
 
@@ -225,10 +225,10 @@ $progress-bar-badge-colors: (
 		align-items: flex-end;
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: $space-3xs;
+		margin-bottom: $space-3;
 
 		@media #{breakpoint-s()} {
-			margin-bottom: $space-3xs;
+			margin-bottom: $space-3;
 		}
 	}
 
@@ -300,12 +300,12 @@ $progress-bar-badge-colors: (
 	&__bottomWrapper {
 		align-items: center;
 		display: flex;
-		gap: $space-4xs;
+		gap: $space-2;
 		justify-content: space-between;
 	}
 
 	&__labelDataWrapperTop {
-		margin-bottom: $space-5xs;
+		margin-bottom: $space-1;
 	}
 
 	&__labelDataWrapperBottom {

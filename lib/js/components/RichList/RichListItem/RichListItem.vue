@@ -129,7 +129,7 @@ $rich-list-item-media-horizontal-height: 80px;
 		align-items: center;
 		flex-direction: initial;
 		justify-content: initial;
-		padding: 0 $space-4xs 0 calc($space-4xs - $border-xs);
+		padding: 0 $space-2 0 calc($space-2 - $border-xs);
 
 		#{$root}__container {
 			align-self: initial;
@@ -138,63 +138,63 @@ $rich-list-item-media-horizontal-height: 80px;
 		#{$root}__dragAndDrop,
 		#{$root}__iconWrapper {
 			align-items: center;
-			padding: $space-3xs $space-5xs $space-3xs $space-s;
+			padding: $space-3 $space-1 $space-3 $space-8;
 		}
 
 		#{$root}__content {
-			padding: 0 $space-4xs 0 $space-s;
+			padding: 0 $space-2 0 $space-8;
 		}
 
 		#{$root}__metadata {
 			justify-content: flex-start;
-			padding-left: $space-4xs;
+			padding-left: $space-2;
 		}
 
 		#{$root}__rightContainer {
 			align-items: center;
 			justify-content: initial;
-			padding: $space-xs 0;
+			padding: $space-6 0;
 		}
 
 		#{$root}__actionSlot {
 			align-items: center;
 			justify-content: initial;
-			padding: 0 $space-4xs;
+			padding: 0 $space-2;
 		}
 
 		#{$root}__checkbox {
 			align-items: center;
-			padding: 0 $space-s 0 $space-4xs;
+			padding: 0 $space-8 0 $space-2;
 		}
 
 		&.-ds-small {
-			padding: 0 $space-4xs 0 0;
+			padding: 0 $space-2 0 0;
 
 			#{$root}__dragAndDrop,
 			#{$root}__iconWrapper {
-				padding: $space-3xs 0 $space-3xs $space-xs;
+				padding: $space-3 0 $space-3 $space-6;
 			}
 
 			#{$root}__content {
-				padding: 0 $space-4xs 0 $space-xs;
+				padding: 0 $space-2 0 $space-6;
 			}
 
 			#{$root}__checkbox {
-				gap: $space-xs;
-				padding: 0 $space-xs 0 $space-4xs;
+				gap: $space-6;
+				padding: 0 $space-6 0 $space-2;
 			}
 
 			#{$root}__rightContainer {
-				padding: $space-2xs 0;
+				padding: $space-4 0;
 			}
 
 			#{$root}__actionSlot {
-				padding: 0 $space-4xs;
+				padding: 0 $space-2;
 			}
 
 			#{$root}__metadata {
 				justify-content: flex-start;
-				padding-left: $space-4xs;
+				padding-left: $space-2;
 			}
 		}
 	}
@@ -203,26 +203,26 @@ $rich-list-item-media-horizontal-height: 80px;
 		align-items: flex-start;
 		flex-direction: column;
 		justify-content: center;
-		padding-bottom: $space-4xs;
+		padding-bottom: $space-2;
 
 		#{$root}__container {
 			align-self: stretch;
-			padding: $space-4xs $space-4xs 0;
+			padding: $space-2 $space-2 0;
 		}
 
 		#{$root}__dragAndDrop,
 		#{$root}__iconWrapper {
 			align-items: flex-start;
-			padding: $space-xs 0 0 $space-xs;
+			padding: $space-6 0 0 $space-6;
 		}
 
 		#{$root}__content {
-			padding: 0 $space-4xs 0 $space-xs;
+			padding: 0 $space-2 0 $space-6;
 		}
 
 		#{$root}__metadata {
-			padding-left: $space-s;
-			padding-right: $space-2xs;
+			padding-left: $space-8;
+			padding-right: $space-4;
 			width: 100%;
 		}
 
@@ -234,35 +234,35 @@ $rich-list-item-media-horizontal-height: 80px;
 		#{$root}__actionSlot {
 			align-items: flex-start;
 			justify-content: flex-end;
-			padding: $space-4xs $space-4xs 0 $space-4xs;
+			padding: $space-2 $space-2 0 $space-2;
 		}
 
 		#{$root}__checkbox {
 			align-items: flex-start;
-			padding: $space-3xs $space-xs 0 $space-xs;
+			padding: $space-3 $space-6 0 $space-6;
 		}
 
 		&.-ds-small {
 			#{$root}__dragAndDrop,
 			#{$root}__iconWrapper {
-				padding: $space-2xs $space-4xs 0 $space-2xs;
+				padding: $space-4 $space-2 0 $space-4;
 			}
 
 			#{$root}__content {
-				padding: 0 $space-4xs 0 $space-2xs;
+				padding: 0 $space-2 0 $space-4;
 			}
 
 			#{$root}__checkbox {
-				gap: $space-s;
-				padding: $space-5xs $space-2xs 0 $space-2xs;
+				gap: $space-8;
+				padding: $space-1 $space-4 0 $space-4;
 			}
 
 			#{$root}__actionSlot {
-				padding: 0 $space-4xs 0 $space-5xs;
+				padding: 0 $space-2 0 $space-1;
 			}
 
 			#{$root}__metadata {
-				padding-left: $space-xs;
+				padding-left: $space-6;
 			}
 		}
 	}
@@ -386,7 +386,7 @@ $rich-list-item-media-horizontal-height: 80px;
 			left: -1px;
 			position: absolute;
 			top: -1px;
-			width: $space-4xs;
+			width: $space-2;
 		}
 	}
 
@@ -399,7 +399,7 @@ $rich-list-item-media-horizontal-height: 80px;
 
 	&__mediaHorizontal {
 		height: $rich-list-item-media-horizontal-height;
-		margin-right: $space-3xs;
+		margin-right: $space-3;
 		width: $rich-list-item-media-horizontal-width;
 	}
 
@@ -423,8 +423,8 @@ $rich-list-item-media-horizontal-height: 80px;
 
 	&__metadata {
 		align-items: center;
-		gap: $space-xs;
-		padding-right: $space-4xs;
+		gap: $space-6;
+		padding-right: $space-2;
 	}
 
 	&__rightContainer {
@@ -435,13 +435,13 @@ $rich-list-item-media-horizontal-height: 80px;
 	&__actionSlot {
 		align-self: stretch;
 		display: flex;
-		gap: $space-2xs;
+		gap: $space-4;
 	}
 
 	&__checkbox {
 		align-self: stretch;
 		display: flex;
-		gap: $space-s;
+		gap: $space-8;
 		justify-content: flex-end;
 	}
 
@@ -471,7 +471,7 @@ $rich-list-item-media-horizontal-height: 80px;
 
 	&.-ds-small {
 		#{$root}__actionSlot {
-			gap: $space-2xs;
+			gap: $space-4;
 		}
 	}
 }

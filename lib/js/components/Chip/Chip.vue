@@ -212,8 +212,8 @@ $chip-colors: (
 	align-items: center;
 	border-radius: $radius-xl;
 	display: inline-flex;
-	gap: $space-4xs;
-	padding: $space-4xs $space-2xs;
+	gap: $space-2;
+	padding: $space-2 $space-4;
 
 	&.-ds-interactive {
 		cursor: pointer;
@@ -221,7 +221,7 @@ $chip-colors: (
 	}
 
 	&.-ds-removable {
-		padding: $space-5xs $space-5xs $space-5xs $space-2xs;
+		padding: $space-1 $space-1 $space-1 $space-4;
 	}
 
 	&.-ds-disabled {
@@ -251,9 +251,9 @@ $chip-colors: (
 	}
 
 	&.-ds-x-small {
-		gap: $space-5xs;
+		gap: $space-1;
 		min-height: $chip-min-height;
-		padding: $space-5xs $space-3xs;
+		padding: $space-1 $space-3;
 
 		#{$self}__label {
 			@include label-xs-default-bold;

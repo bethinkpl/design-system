@@ -33,7 +33,7 @@
 .ds-dateRangePicker {
 	display: flex;
 	flex-direction: column;
-	row-gap: $space-4xs;
+	row-gap: $space-2;
 
 	&__hiddenInput {
 		display: none;

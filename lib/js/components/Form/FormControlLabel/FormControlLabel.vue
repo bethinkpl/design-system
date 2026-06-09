@@ -25,19 +25,19 @@
 	&.-ds-x-small {
 		@include formLabel-s-default-regular;
 
-		padding: $space-4xs 0;
+		padding: $space-2 0;
 	}
 
 	&.-ds-small {
 		@include formLabel-m-default-regular;
 
-		padding: $space-3xs 0;
+		padding: $space-3 0;
 	}
 
 	&.-ds-medium {
 		@include formLabel-l-default-regular;
 
-		padding: $space-2xs 0;
+		padding: $space-4 0;
 	}
 
 	&.-ds-disabled {

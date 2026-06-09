@@ -326,7 +326,7 @@ $toggle-button-colors: (
 	&__contentWrapper {
 		align-items: center;
 		display: flex;
-		gap: $space-4xs;
+		gap: $space-2;
 		justify-content: center;
 	}
 
@@ -360,10 +360,10 @@ $toggle-button-colors: (
 	&.-ds-small {
 		min-height: $toggle-button-size-small;
 		min-width: $toggle-button-size-small;
-		padding: substract-border($space-3xs, 'small') substract-border($space-xs, 'small');
+		padding: substract-border($space-3, 'small') substract-border($space-6, 'small');
 
 		&.-ds-hasSmallHorizontalPadding {
-			padding: substract-border($space-3xs, 'small') substract-border($space-5xs, 'small');
+			padding: substract-border($space-3, 'small') substract-border($space-1, 'small');
 		}
 
 		#{$root}__content.-ds-small {
@@ -378,10 +378,10 @@ $toggle-button-colors: (
 	&.-ds-medium {
 		min-height: $toggle-button-size-medium;
 		min-width: $toggle-button-size-medium;
-		padding: substract-border($space-2xs, 'medium') substract-border($space-xs, 'medium');
+		padding: substract-border($space-4, 'medium') substract-border($space-6, 'medium');
 
 		&.-ds-hasSmallHorizontalPadding {
-			padding: substract-border($space-2xs, 'medium') substract-border($space-5xs, 'medium');
+			padding: substract-border($space-4, 'medium') substract-border($space-1, 'medium');
 		}
 
 		#{$root}__content.-ds-small {
@@ -397,10 +397,10 @@ $toggle-button-colors: (
 		border-width: $toggle-button-border-size-large;
 		min-height: $toggle-button-size-large;
 		min-width: $toggle-button-size-large;
-		padding: substract-border($space-xs, 'large') substract-border($space-s, 'large');
+		padding: substract-border($space-6, 'large') substract-border($space-8, 'large');
 
 		&.-ds-hasSmallHorizontalPadding {
-			padding: substract-border($space-2xs, 'large') substract-border($space-5xs, 'large');
+			padding: substract-border($space-4, 'large') substract-border($space-1, 'large');
 		}
 	}
 

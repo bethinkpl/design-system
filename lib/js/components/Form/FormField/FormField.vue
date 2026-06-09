@@ -58,19 +58,19 @@
 
 	display: flex;
 	flex-direction: column;
-	gap: $space-5xs;
+	gap: $space-1;
 
 	&__labelRow {
 		align-items: flex-start;
 		display: flex;
-		gap: $space-xs;
+		gap: $space-6;
 	}
 
 	&__subLabelRow {
 		@include formLabel-s-default-regular;
 
 		color: $color-neutral-text;
-		padding-bottom: $space-2xs;
+		padding-bottom: $space-4;
 
 		#{$root}.-ds-disabled & {
 			color: $color-neutral-text-disabled;
@@ -81,14 +81,14 @@
 		align-items: flex-start;
 		display: flex;
 		flex: 1 0 0;
-		gap: $space-5xs;
-		padding: $space-4xs 0;
+		gap: $space-1;
+		padding: $space-2 0;
 	}
 
 	&__label {
 		@include formLabel-m-default-bold;
 
-		margin: $space-5xs 0;
+		margin: $space-1 0;
 	}
 
 	&__labelText {
@@ -103,7 +103,7 @@
 		@include formLabel-m-default-regular;
 
 		color: $color-danger-text;
-		margin-left: $space-5xs;
+		margin-left: $space-1;
 
 		#{$root}.-ds-disabled & {
 			color: $color-danger-text-disabled;
@@ -114,7 +114,7 @@
 		@include formLabel-s-default-regular-italic;
 
 		color: $color-neutral-text;
-		margin-left: $space-5xs;
+		margin-left: $space-1;
 
 		#{$root}.-ds-disabled & {
 			color: $color-neutral-text-disabled;
@@ -124,7 +124,7 @@
 	&__labelAside {
 		align-items: center;
 		display: flex;
-		gap: $space-4xs;
+		gap: $space-2;
 		min-height: 28px;
 	}
 
@@ -139,8 +139,8 @@
 	&__footerRow {
 		align-items: flex-start;
 		display: flex;
-		gap: $space-2xs;
-		padding-top: $space-4xs;
+		gap: $space-4;
+		padding-top: $space-2;
 	}
 
 	&__message {
@@ -150,7 +150,7 @@
 	&__fieldStatus {
 		align-items: flex-start;
 		display: flex;
-		gap: $space-4xs;
+		gap: $space-2;
 	}
 }
 </style>

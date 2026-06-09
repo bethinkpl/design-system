@@ -8,7 +8,7 @@
 @import '../../../../styles/settings/spacings';
 
 .ds-drawerListItemGroup {
-	padding: 0 0 $space-3xs;
+	padding: 0 0 $space-3;
 }
 </style>
 

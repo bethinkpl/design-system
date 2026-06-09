@@ -119,14 +119,14 @@ $switch-transition: all $default-transition-time ease-out;
 		cursor: pointer;
 		display: flex;
 		flex-grow: 1;
-		gap: $space-3xs;
+		gap: $space-3;
 		justify-content: center;
 		margin: -1px;
 		max-width: calc(100% - 64px);
 		min-height: 32px;
 		min-width: 64px;
 		overflow: hidden;
-		padding: 0 $space-s;
+		padding: 0 $space-8;
 		position: relative;
 		transition: $switch-transition;
 		z-index: 2;
@@ -188,11 +188,11 @@ $switch-transition: all $default-transition-time ease-out;
 	}
 
 	&.-ds-small &__item {
-		gap: $space-4xs;
+		gap: $space-2;
 		max-width: calc(100% - 48px);
 		min-height: 24px;
 		min-width: 48px;
-		padding: 0 $space-xs;
+		padding: 0 $space-6;
 	}
 
 	&.-ds-disabled &__item {

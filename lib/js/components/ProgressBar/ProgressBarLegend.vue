@@ -25,15 +25,15 @@
 .ds-progressBarLegend {
 	display: flex;
 	flex-wrap: wrap;
-	gap: $space-xs $space-m;
-	padding-top: $space-xs;
+	gap: $space-6 $space-12;
+	padding-top: $space-6;
 
 	&.-ds-compact {
-		gap: $space-2xs $space-s;
+		gap: $space-4 $space-8;
 	}
 
 	&.-ds-small {
-		padding-top: $space-2xs;
+		padding-top: $space-4;
 	}
 }
 </style>

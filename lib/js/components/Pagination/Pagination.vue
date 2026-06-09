@@ -187,7 +187,7 @@ $pagination-input-height: 32px;
 		border-radius: $radius-s;
 		box-shadow: inset 0 1px 3px $color-neutral-border-strong;
 		height: $pagination-input-height;
-		padding: $space-3xs $space-2xs;
+		padding: $space-3 $space-4;
 
 		&:hover {
 			border-color: $color-neutral-border-strong-hovered;
@@ -203,7 +203,7 @@ $pagination-input-height: 32px;
 		@include label-l-default-regular;
 
 		color: $color-neutral-text;
-		padding: $space-2xs $space-3xs;
+		padding: $space-4 $space-3;
 		text-align: center;
 	}
 
@@ -216,7 +216,7 @@ $pagination-input-height: 32px;
 	&__itemWrapper {
 		@include label-l-default-regular;
 
-		padding: $space-4xs;
+		padding: $space-2;
 		text-align: center;
 
 		&.-ds-touchable:hover {
@@ -237,7 +237,7 @@ $pagination-input-height: 32px;
 		flex-direction: column;
 		justify-content: center;
 		min-width: $pagination-item-min-width;
-		padding: $space-2xs;
+		padding: $space-4;
 
 		&.-ds-selected {
 			@include label-l-default-bold;

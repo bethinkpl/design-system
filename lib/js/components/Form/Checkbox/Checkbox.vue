@@ -51,15 +51,15 @@
 	display: inline-flex;
 
 	&.-ds-x-small {
-		gap: $space-4xs;
+		gap: $space-2;
 	}
 
 	&.-ds-small {
-		gap: $space-2xs;
+		gap: $space-4;
 	}
 
 	&.-ds-medium {
-		gap: $space-2xs;
+		gap: $space-4;
 	}
 
 	&:not(.-ds-disabled) {
@@ -67,9 +67,9 @@
 	}
 
 	&__root {
-		$checkbox-root-xs-space: $space-3xs;
-		$checkbox-root-s-space: $space-3xs;
-		$checkbox-root-m-space: $space-2xs;
+		$checkbox-root-xs-space: $space-3;
+		$checkbox-root-s-space: $space-3;
+		$checkbox-root-m-space: $space-4;
 
 		--checkbox-circle-background-color-focused: #{$color-primary-background-ghost-focused};
 		--checkbox-circle-background-color-hovered: #{$color-primary-background-ghost-hovered};

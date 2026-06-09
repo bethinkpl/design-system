@@ -52,7 +52,7 @@
 		cursor: pointer;
 		display: flex;
 		justify-content: center;
-		padding: $space-xs $space-s;
+		padding: $space-6 $space-8;
 
 		&:hover {
 			background-color: $color-neutral-background-hovered;
@@ -63,7 +63,7 @@
 		@include label-s-extensive-bold-uppercase();
 
 		color: $color-primary-text;
-		margin-right: $space-4xs;
+		margin-right: $space-2;
 	}
 
 	&__expanderIcon {

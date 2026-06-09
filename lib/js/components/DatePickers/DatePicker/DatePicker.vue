@@ -76,7 +76,7 @@
 
 	display: flex;
 	flex-direction: column;
-	row-gap: $space-4xs;
+	row-gap: $space-2;
 
 	&.-ds-box {
 		display: inline-flex;
@@ -90,7 +90,7 @@
 		align-items: flex-end;
 		display: flex;
 		justify-content: space-between;
-		padding-bottom: $space-2xs;
+		padding-bottom: $space-4;
 	}
 
 	&__label {
@@ -127,7 +127,7 @@
 		color: $color-danger-text;
 		// In case we have two date pickers in a row, we want them to have the same height.
 		// When one have a message visible, the second should get an empty string in a prop in such case
-		min-height: $space-xs;
+		min-height: $space-6;
 	}
 
 	&__helpMessage {
@@ -136,7 +136,7 @@
 		color: $color-neutral-text;
 		// In case we have two date pickers in a row, we want them to have the same height.
 		// When one have a message visible, the second should get an empty string in a prop in such case
-		min-height: $space-xs;
+		min-height: $space-6;
 	}
 }
 </style>

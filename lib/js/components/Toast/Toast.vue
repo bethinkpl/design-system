@@ -44,17 +44,17 @@
 	width: 100%;
 
 	&.-ds-size-small {
-		max-width: 320px + $space-s * 2;
-		padding: $space-s;
+		max-width: 320px + $space-8 * 2;
+		padding: $space-8;
 	}
 
 	&.-ds-size-medium {
-		max-width: 500px + $space-s * 2;
-		padding: $space-s;
+		max-width: 500px + $space-8 * 2;
+		padding: $space-8;
 
 		@media (#{breakpoint-s()}) {
-			max-width: 500px + $space-m * 2;
-			padding: $space-m;
+			max-width: 500px + $space-12 * 2;
+			padding: $space-12;
 		}
 	}
 
@@ -79,10 +79,10 @@
 	}
 
 	&__footerButtons {
-		column-gap: $space-xs;
+		column-gap: $space-6;
 		display: flex;
 		justify-content: flex-end;
-		padding: 0 $space-s $space-s;
+		padding: 0 $space-8 $space-8;
 	}
 }
 </style>

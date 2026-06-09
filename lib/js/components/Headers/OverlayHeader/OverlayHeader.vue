@@ -131,27 +131,27 @@
 	border-bottom: 2px solid $color-neutral-border-ghost;
 	box-shadow: $shadow-s;
 	display: flex;
-	padding: $space-2xs $space-3xs $space-2xs 0;
+	padding: $space-4 $space-3 $space-4 0;
 
 	@media #{breakpoint-s()} {
-		padding: $space-xs $space-2xs $space-xs 0;
+		padding: $space-6 $space-4 $space-6 0;
 	}
 
 	&__accessory {
 		align-self: stretch;
-		margin-left: $space-xs;
+		margin-left: $space-6;
 	}
 
 	&__loadingWrapper {
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
-		gap: $space-3xs;
-		margin: 0 $space-4xs 0 $space-xs;
+		gap: $space-3;
+		margin: 0 $space-2 0 $space-6;
 
 		@media #{breakpoint-s()} {
-			gap: $space-2xs;
-			margin: 0 $space-2xs 0 $space-s;
+			gap: $space-4;
+			margin: 0 $space-4 0 $space-8;
 		}
 	}
 
@@ -173,22 +173,22 @@
 
 	&__content {
 		flex-grow: 1;
-		margin: 0 $space-4xs 0 $space-xs;
+		margin: 0 $space-2 0 $space-6;
 		// We need to set min-width to allow children to apply ellipsis
 		min-width: 0;
 
 		@media #{breakpoint-s()} {
-			margin: 0 $space-2xs 0 $space-s;
+			margin: 0 $space-4 0 $space-8;
 		}
 	}
 
 	&__eyebrow {
 		align-items: center;
 		display: flex;
-		margin-bottom: $space-3xs;
+		margin-bottom: $space-3;
 
 		@media #{breakpoint-s()} {
-			margin-bottom: $space-2xs;
+			margin-bottom: $space-4;
 		}
 	}
 
@@ -201,7 +201,7 @@
 		white-space: nowrap;
 
 		&.-ds-withRightMargin {
-			margin-right: $space-2xs;
+			margin-right: $space-4;
 		}
 	}
 
@@ -214,7 +214,7 @@
 	&__main {
 		align-items: center;
 		display: flex;
-		gap: $space-2xs;
+		gap: $space-4;
 		// title is required, but in some edge-cases we don't render it. We need to set min-height to avoid jumping
 		// Keep value in sync with &__title line-height
 		min-height: $typography-line-height-s;
@@ -276,10 +276,10 @@
 	&__divider {
 		align-self: stretch;
 		height: auto !important;
-		margin: $space-4xs $space-3xs;
+		margin: $space-2 $space-3;
 
 		@media #{breakpoint-s()} {
-			margin: $space-4xs $space-2xs;
+			margin: $space-2 $space-4;
 		}
 	}
 

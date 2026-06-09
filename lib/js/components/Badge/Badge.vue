@@ -151,7 +151,7 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 		& #{$root}__content {
 			@include label-xs-default-bold;
 
-			padding: 0 $space-5xs;
+			padding: 0 $space-1;
 		}
 
 		& #{$root}__image {
@@ -174,7 +174,7 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 		& #{$root}__content {
 			@include label-xs-default-bold;
 
-			padding: 0 $space-4xs;
+			padding: 0 $space-2;
 		}
 
 		& #{$root}__image {
@@ -197,7 +197,7 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 		& #{$root}__content {
 			@include label-s-default-bold;
 
-			padding: 0 $space-4xs;
+			padding: 0 $space-2;
 		}
 
 		& #{$root}__image {
