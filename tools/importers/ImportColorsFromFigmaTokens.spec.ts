@@ -176,6 +176,12 @@ describe('ImportColorsFromFigmaTokens', () => {
 			'\t--color-default-overlay: rgba(var(--raw-black-rgb), 0.9);',
 		);
 		expect(variablesContent).toContain('\t--color-default-background: var(--raw-white);');
+		// color-default-background gets an extra -rgb companion var pointing at the raw rgb value
+		expect(variablesContent).toContain(
+			'\t--color-default-background-rgb: var(--raw-white-rgb);',
+		);
+		// other tokens must not get an -rgb companion
+		expect(variablesContent).not.toContain('--color-default-text-rgb');
 		expect(variablesContent).toContain(
 			'\t--color-default-background-ghost: rgba(var(--raw-white-rgb), 0);',
 		);
@@ -206,6 +212,12 @@ describe('ImportColorsFromFigmaTokens', () => {
 		);
 
 		expect(scssContent).toContain('$color-default-text: var(--color-default-text);');
+		expect(scssContent).toContain(
+			'$color-default-background: var(--color-default-background);',
+		);
+		expect(scssContent).toContain(
+			'$color-default-background-rgb: var(--color-default-background-rgb);',
+		);
 		expect(scssContent).toContain('$color-default-overlay: var(--color-default-overlay);');
 		expect(scssContent).toContain(
 			'$color-neutral-background-ghost: var(--color-neutral-background-ghost);',
@@ -236,6 +248,14 @@ describe('ImportColorsFromFigmaTokens', () => {
 				(t: { label: string }) => t.label === 'color-primary-background-strong',
 			),
 		).toMatchObject({ label: 'color-primary-background-strong', value: 'var(--theme-500)' });
+		expect(
+			json.background.find(
+				(t: { label: string }) => t.label === 'color-default-background-rgb',
+			),
+		).toMatchObject({
+			label: 'color-default-background-rgb',
+			value: 'var(--raw-white-rgb)',
+		});
 	});
 
 	it('ImportRawColors (theme mode) generates correct _raw-wnl.scss and _raw-wnl.json', async () => {

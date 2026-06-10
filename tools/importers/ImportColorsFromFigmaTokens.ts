@@ -23,6 +23,9 @@ interface FigmaTokensJson {
 	[category: string]: { [tokenName: string]: FigmaColorToken };
 }
 
+/** Token names that additionally need an `-rgb` companion variable emitted (e.g. for use in rgba()). */
+const TOKENS_WITH_RGB_VARIANT = new Set(['color-default-background']);
+
 const isAlphaVariant = (key: string): boolean => /[-_]\d+%$/.test(key);
 
 const isThemeToken = (entry: FigmaColorToken): boolean => entry.$value.startsWith('{theme.');
@@ -54,6 +57,20 @@ const parseTokenReference = (reference: string): string => {
 
 	const cssVar = group === 'raw' ? `--raw-${colorKey}` : `--${colorKey}`;
 	return `var(${cssVar})`;
+};
+
+/**
+ * Derive the `-rgb` companion of a resolved reference, e.g. `var(--raw-white)` -> `var(--raw-white-rgb)`.
+ * Only plain `var(--name)` references are supported, since the `-rgb` var must point at a raw RGB value.
+ */
+const toRgbReference = (resolvedValue: string): string => {
+	const match = resolvedValue.match(/^var\((--[\w-]+)\)$/);
+	if (!match) {
+		throw new Error(
+			`Cannot derive an -rgb variant from a non-reference value: ${resolvedValue}`,
+		);
+	}
+	return `var(${match[1]}-rgb)`;
 };
 
 export const validateRawSections = (wnl: FigmaRawColorsJson, bw: FigmaRawColorsJson): void => {
@@ -166,6 +183,20 @@ export const ImportTokens = (
 				label: tokenName,
 				value: resolvedValue,
 			});
+
+			if (TOKENS_WITH_RGB_VARIANT.has(tokenName)) {
+				const rgbTokenName = `${tokenName}-rgb`;
+				const rgbValue = toRgbReference(resolvedValue);
+
+				variablesResult.push(`${tab}--${rgbTokenName}: ${rgbValue};`);
+				scssResult.push(`$${rgbTokenName}: var(--${rgbTokenName});`);
+
+				jsonResult[tokenType].push({
+					id: cfg.files.tokens.destination + '_' + rgbTokenName,
+					label: rgbTokenName,
+					value: rgbValue,
+				});
+			}
 		}
 	}
 
