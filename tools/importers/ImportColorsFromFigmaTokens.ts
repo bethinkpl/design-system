@@ -59,20 +59,6 @@ const parseTokenReference = (reference: string): string => {
 	return `var(${cssVar})`;
 };
 
-/**
- * Derive the `-rgb` companion of a resolved reference, e.g. `var(--raw-white)` -> `var(--raw-white-rgb)`.
- * Only plain `var(--name)` references are supported, since the `-rgb` var must point at a raw RGB value.
- */
-const toRgbReference = (resolvedValue: string): string => {
-	const match = resolvedValue.match(/^var\((--[\w-]+)\)$/);
-	if (!match) {
-		throw new Error(
-			`Cannot derive an -rgb variant from a non-reference value: ${resolvedValue}`,
-		);
-	}
-	return `var(${match[1]}-rgb)`;
-};
-
 export const validateRawSections = (wnl: FigmaRawColorsJson, bw: FigmaRawColorsJson): void => {
 	if (sortedStringify(wnl.raw) !== sortedStringify(bw.raw)) {
 		throw new Error('Raw color sections in WNL and BW files differ!');
@@ -186,7 +172,7 @@ export const ImportTokens = (
 
 			if (TOKENS_WITH_RGB_VARIANT.has(tokenName)) {
 				const rgbTokenName = `${tokenName}-rgb`;
-				const rgbValue = toRgbReference(resolvedValue);
+				const rgbValue = parseTokenReference(tokenEntry.$value + '-rgb');
 
 				variablesResult.push(`${tab}--${rgbTokenName}: ${rgbValue};`);
 				scssResult.push(`$${rgbTokenName}: var(--${rgbTokenName});`);
