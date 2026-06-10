@@ -23,6 +23,9 @@ interface FigmaTokensJson {
 	[category: string]: { [tokenName: string]: FigmaColorToken };
 }
 
+/** Token names that additionally need an `-rgb` companion variable emitted (e.g. for use in rgba()). */
+const TOKENS_WITH_RGB_VARIANT = new Set(['color-default-background']);
+
 const isAlphaVariant = (key: string): boolean => /[-_]\d+%$/.test(key);
 
 const isThemeToken = (entry: FigmaColorToken): boolean => entry.$value.startsWith('{theme.');
@@ -166,6 +169,20 @@ export const ImportTokens = (
 				label: tokenName,
 				value: resolvedValue,
 			});
+
+			if (TOKENS_WITH_RGB_VARIANT.has(tokenName)) {
+				const rgbTokenName = `${tokenName}-rgb`;
+				const rgbValue = parseTokenReference(tokenEntry.$value + '-rgb');
+
+				variablesResult.push(`${tab}--${rgbTokenName}: ${rgbValue};`);
+				scssResult.push(`$${rgbTokenName}: var(--${rgbTokenName});`);
+
+				jsonResult[tokenType].push({
+					id: cfg.files.tokens.destination + '_' + rgbTokenName,
+					label: rgbTokenName,
+					value: rgbValue,
+				});
+			}
 		}
 	}
 
