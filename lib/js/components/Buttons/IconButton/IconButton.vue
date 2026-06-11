@@ -165,7 +165,7 @@
 		@include button-m-default-bold-uppercase;
 
 		display: none;
-		margin-right: $space-xs;
+		margin-right: $space-6;
 
 		@media #{breakpoint-s()} {
 			display: initial;
@@ -208,7 +208,7 @@
 	&.-ds-xx-small {
 		#{$self}__button {
 			height: $icon-button-xx-small-size;
-			padding: $space-4xs;
+			padding: $space-2;
 			width: $icon-button-xx-small-size;
 		}
 
@@ -220,7 +220,7 @@
 	&.-ds-x-small {
 		#{$self}__button {
 			height: $icon-button-x-small-size;
-			padding: $space-4xs;
+			padding: $space-2;
 			width: $icon-button-x-small-size;
 		}
 

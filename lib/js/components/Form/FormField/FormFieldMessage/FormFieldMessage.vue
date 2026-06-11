@@ -30,7 +30,7 @@
 
 	color: $color-neutral-text;
 	display: flex;
-	gap: $space-4xs;
+	gap: $space-2;
 
 	&.-ds-error {
 		color: $color-danger-text;

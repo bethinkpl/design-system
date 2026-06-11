@@ -31,24 +31,24 @@ $progress-bar-label-data-max-width: 30%;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: right;
-	margin-left: $space-2xs;
+	margin-left: $space-4;
 	max-width: $progress-bar-label-data-max-width;
 
 	&__labelDataSupporting {
 		color: $color-neutral-text;
 		display: flex;
-		margin-left: $space-5xs;
+		margin-left: $space-1;
 	}
 
 	&__labelDataSeparator {
-		margin-right: $space-5xs;
+		margin-right: $space-1;
 	}
 
 	&__labelDataSuffix {
 		@include label-s-default-regular;
 
 		color: $color-neutral-text-weak;
-		margin-left: $space-4xs;
+		margin-left: $space-2;
 	}
 }
 </style>

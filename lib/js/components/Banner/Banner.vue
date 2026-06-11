@@ -108,34 +108,34 @@
 		border-width: 1px;
 		display: flex;
 		flex-direction: column;
-		gap: $space-xs;
-		padding: $space-xs;
+		gap: $space-6;
+		padding: $space-6;
 
 		@container (width > 500px) {
 			#{$self}__header {
-				padding: 0 $space-2xs 0 $space-4xs;
+				padding: 0 $space-4 0 $space-2;
 			}
 
 			#{$self}__textWrapper {
 				flex-direction: row;
-				gap: $space-s;
+				gap: $space-8;
 			}
 
 			#{$self}__rightSlot,
 			#{$self}__buttonWrapper {
-				padding: $space-xs 0;
+				padding: $space-6 0;
 			}
 
 			&.-ds-medium {
 				#{$self}__expander {
-					padding: $space-xs 0 $space-xs $space-2xs;
+					padding: $space-6 0 $space-6 $space-4;
 				}
 			}
 
 			// double class name selector to override -ds-small styles without container query, which are defined below
 			&.-ds-small.-ds-small {
 				#{$self}__textWrapper {
-					gap: $space-2xs;
+					gap: $space-4;
 				}
 
 				#{$self}__rightSlot,
@@ -212,7 +212,7 @@
 
 			#{$self}__rightSlot,
 			#{$self}__buttonWrapper {
-				padding: $space-xs 0 $space-5xs;
+				padding: $space-6 0 $space-1;
 			}
 
 			#{$self}__expandedContainer {
@@ -240,7 +240,7 @@
 		align-items: flex-start;
 		display: flex;
 		flex: 1;
-		padding: 0 $space-4xs;
+		padding: 0 $space-2;
 	}
 
 	&__title {
@@ -249,7 +249,7 @@
 		align-items: center;
 		color: var(--ds-banner-title-color);
 		display: flex;
-		gap: $space-3xs;
+		gap: $space-3;
 	}
 
 	&__iconWrapperSmall {
@@ -272,44 +272,44 @@
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
-		gap: $space-5xs;
+		gap: $space-1;
 		justify-content: center;
-		padding: $space-4xs 0;
+		padding: $space-2 0;
 	}
 
 	&__rightWrapper {
 		display: flex;
 		flex-shrink: 0;
 		flex-wrap: nowrap;
-		gap: $space-3xs;
+		gap: $space-3;
 		padding: 0;
 	}
 
 	&__rightSlot,
 	&__buttonWrapper {
-		padding: $space-xs 0 $space-3xs 0;
+		padding: $space-6 0 $space-3 0;
 	}
 
 	&__iconWrapper {
-		padding: $space-2xs $space-xs $space-2xs 0;
+		padding: $space-4 $space-6 $space-4 0;
 	}
 
 	&__close {
-		padding-left: $space-2xs;
+		padding-left: $space-4;
 	}
 
 	&__expander {
-		padding: 0 0 0 $space-2xs;
+		padding: 0 0 0 $space-4;
 	}
 
 	&__expandedContainer {
 		@include text-m-default-regular;
 
-		padding: 0 $space-4xs $space-4xs;
+		padding: 0 $space-2 $space-2;
 	}
 
 	&__expandedText {
-		margin-top: $space-xs;
+		margin-top: $space-6;
 	}
 }
 </style>

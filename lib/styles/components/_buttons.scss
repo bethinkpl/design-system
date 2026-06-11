@@ -162,7 +162,7 @@ $button-disabled-alpha: 0.6;
 	justify-content: center;
 	min-height: $button-medium-min-height;
 	outline: none;
-	padding: $space-4xs $space-s;
+	padding: $space-2 $space-8;
 	position: relative;
 	transform-style: preserve-3d;
 	transition:
@@ -205,8 +205,8 @@ $button-disabled-alpha: 0.6;
 		@include button-l-default-bold-uppercase;
 
 		min-height: $button-large-min-height;
-		padding-left: $space-m;
-		padding-right: $space-m;
+		padding-left: $space-12;
+		padding-right: $space-12;
 	}
 
 	&.-ds-text {
@@ -244,12 +244,12 @@ $button-disabled-alpha: 0.6;
 
 		&.-ds-rounded {
 			border-radius: $radius-s;
-			padding-left: $space-xs;
-			padding-right: $space-xs;
+			padding-left: $space-6;
+			padding-right: $space-6;
 
 			&.-ds-large {
-				padding-left: $space-s;
-				padding-right: $space-s;
+				padding-left: $space-8;
+				padding-right: $space-8;
 			}
 		}
 	}
@@ -306,11 +306,11 @@ $button-disabled-alpha: 0.6;
 
 	&__icon {
 		&.-ds-left {
-			margin-right: $space-4xs;
+			margin-right: $space-2;
 		}
 
 		&.-ds-right {
-			margin-left: $space-4xs;
+			margin-left: $space-2;
 		}
 	}
 

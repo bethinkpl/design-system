@@ -13,9 +13,9 @@
 .ds-sectionTitle {
 	display: flex;
 	flex-direction: column;
-	gap: $space-4xs;
+	gap: $space-2;
 	overflow-wrap: break-word;
-	padding: $space-2xs 0;
+	padding: $space-4 0;
 
 	&__title {
 		@include heading-xs-default-bold;

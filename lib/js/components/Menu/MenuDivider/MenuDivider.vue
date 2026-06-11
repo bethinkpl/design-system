@@ -9,7 +9,7 @@
 
 .ds-menuDivider {
 	list-style-type: none;
-	padding: $space-3xs 0;
+	padding: $space-3 0;
 }
 </style>
 

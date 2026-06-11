@@ -203,7 +203,7 @@ $text-group-colors: (
 	&__eyebrow {
 		@include info-s-default-bold;
 
-		margin-bottom: $space-5xs;
+		margin-bottom: $space-1;
 
 		&.-ds-uppercase {
 			@include info-s-extensive-bold-uppercase;

@@ -120,15 +120,15 @@
 
 .ds-menuItem {
 	$root: &;
-	$menu-item-horizontal-padding: $space-xs;
-	$menu-item-expandable-horizontal-padding: $space-4xs;
+	$menu-item-horizontal-padding: $space-6;
+	$menu-item-expandable-horizontal-padding: $space-2;
 
 	@for $i from 2 through 6 {
 		&.-ds-level#{$i} {
-			padding-left: $menu-item-horizontal-padding + ($i - 1) * $space-2xs;
+			padding-left: $menu-item-horizontal-padding + ($i - 1) * $space-4;
 
 			&.-ds-expandable {
-				padding-left: $menu-item-expandable-horizontal-padding + ($i - 1) * $space-2xs;
+				padding-left: $menu-item-expandable-horizontal-padding + ($i - 1) * $space-4;
 			}
 		}
 	}
@@ -136,11 +136,11 @@
 	align-items: center;
 	background-color: $color-neutral-background-weak;
 	border-radius: $radius-s;
-	column-gap: $space-2xs;
+	column-gap: $space-4;
 	display: flex;
 	justify-content: space-between;
 	min-height: 40px;
-	padding: $space-2xs $space-2xs $space-2xs $menu-item-horizontal-padding;
+	padding: $space-4 $space-4 $space-4 $menu-item-horizontal-padding;
 	text-decoration: none;
 
 	&.-ds-expandable {
@@ -159,7 +159,7 @@
 	}
 
 	&__rightContent {
-		column-gap: $space-2xs;
+		column-gap: $space-4;
 
 		&.-ds-centeredContent {
 			align-items: center;
@@ -187,7 +187,7 @@
 		align-items: center;
 		color: $color-neutral-icon-weak;
 		display: flex;
-		margin-right: $space-5xs;
+		margin-right: $space-1;
 	}
 
 	&__expanderDotWrapper {
@@ -196,7 +196,7 @@
 		display: inline-flex;
 		height: 20px;
 		justify-content: center;
-		margin-right: $space-5xs;
+		margin-right: $space-1;
 		width: 20px;
 	}
 
@@ -204,14 +204,14 @@
 		align-items: flex-start;
 		display: flex;
 		flex: 1 0 0;
-		padding: $space-5xs 0;
+		padding: $space-1 0;
 	}
 
 	&__index {
 		@include label-l-default-bold;
 
 		color: $color-neutral-text-weak;
-		margin-right: $space-3xs;
+		margin-right: $space-3;
 
 		&.-ds-active {
 			color: $color-primary-text;
@@ -248,12 +248,12 @@
 		@include label-m-default-bold;
 
 		color: $color-neutral-text-weak;
-		margin-left: $space-4xs;
+		margin-left: $space-2;
 	}
 
 	&__icon {
 		color: $color-neutral-icon-weak;
-		margin-right: $space-4xs;
+		margin-right: $space-2;
 
 		&.-ds-active {
 			color: $color-primary-icon;
@@ -299,7 +299,7 @@
 
 	&.-ds-medium {
 		min-height: 48px;
-		padding: $space-s $space-2xs $space-s $space-xs;
+		padding: $space-8 $space-4 $space-8 $space-6;
 
 		#{$root}__label {
 			@include label-l-default-bold;

@@ -131,7 +131,7 @@
 
 		display: flex;
 		justify-content: space-between;
-		margin-bottom: $space-m;
+		margin-bottom: $space-12;
 		// title without explanation iconButton has to be the same size as with iconButton
 		min-height: $icon-button-medium-size;
 	}
@@ -142,7 +142,7 @@
 
 	&__explanation {
 		align-self: flex-start;
-		margin-left: $space-4xs;
+		margin-left: $space-2;
 	}
 
 	&__content {
@@ -151,11 +151,11 @@
 		container-type: inline-size;
 		display: flex;
 		overflow-x: auto;
-		padding: $space-s $space-2xs;
+		padding: $space-8 $space-4;
 
 		@media #{breakpoint-s()} {
-			gap: $space-l;
-			padding: $space-s $space-l;
+			gap: $space-16;
+			padding: $space-8 $space-16;
 
 			&:not(.-ds-oneContainer) {
 				justify-content: center;
@@ -184,7 +184,7 @@
 	&__separator {
 		border-bottom: none;
 		border-top: 1px solid $color-neutral-border-weak;
-		margin: $space-m 0 $space-s 0;
+		margin: $space-12 0 $space-8 0;
 	}
 
 	&__elaboration {
@@ -197,18 +197,18 @@
 	}
 
 	&__elaborationInput {
-		margin-top: $space-2xs;
+		margin-top: $space-4;
 	}
 
 	&__container {
 		display: flex;
 		flex: 1;
 		flex-direction: row;
-		gap: $space-4xs;
+		gap: $space-2;
 		justify-content: space-between;
 
 		@container (width > 400px) {
-			gap: $space-l;
+			gap: $space-16;
 			justify-content: initial;
 		}
 

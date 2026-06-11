@@ -102,32 +102,32 @@
 
 	&__header {
 		&.-ds-withPadding {
-			padding: $space-s;
+			padding: $space-8;
 
 			#{$root}.-ds-paddingLarge & {
-				padding: $space-l $space-l $space-s;
+				padding: $space-16 $space-16 $space-8;
 			}
 		}
 	}
 
 	&__headerDivider {
 		&.-ds-withHorizontalMargin {
-			margin: 0 $space-s;
+			margin: 0 $space-8;
 
 			#{$root}.-ds-paddingLarge & {
-				margin: 0 $space-l;
+				margin: 0 $space-16;
 			}
 		}
 	}
 
 	&__content {
-		padding: $space-s 0;
+		padding: $space-8 0;
 
 		&.-ds-withPadding {
-			padding: $space-s;
+			padding: $space-8;
 
 			#{$root}.-ds-paddingLarge & {
-				padding: $space-s $space-l;
+				padding: $space-8 $space-16;
 			}
 		}
 
@@ -139,10 +139,10 @@
 
 	&__footer {
 		&.-ds-withPadding {
-			padding: 0 $space-s $space-s;
+			padding: 0 $space-8 $space-8;
 
 			#{$root}.-ds-paddingLarge & {
-				padding: 0 $space-l $space-l;
+				padding: 0 $space-16 $space-16;
 			}
 		}
 	}

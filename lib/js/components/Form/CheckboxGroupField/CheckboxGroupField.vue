@@ -36,7 +36,7 @@
 .ds-checkboxGroupField {
 	display: flex;
 	flex-direction: column;
-	gap: $space-2xs;
+	gap: $space-4;
 }
 </style>
 

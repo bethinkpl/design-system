@@ -24,11 +24,11 @@
 	background: rgba(226, 40, 189, 0.1);
 	color: #e228bd;
 	display: flex;
-	padding: $space-4xs $space-2xs;
+	padding: $space-2 $space-4;
 
 	&.-ds-small {
 		@include label-s-default-bold();
-		padding: $space-5xs $space-4xs;
+		padding: $space-1 $space-2;
 	}
 }
 </style>

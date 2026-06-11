@@ -16,12 +16,12 @@
 	color: $color-neutral-text;
 	display: flex;
 	min-height: 40px;
-	padding: $space-3xs $space-xs;
+	padding: $space-3 $space-6;
 
 	&.-ds-isUppercase {
 		@include info-m-extensive-bold-uppercase;
 
-		padding: $space-xs $space-xs;
+		padding: $space-6 $space-6;
 	}
 }
 </style>

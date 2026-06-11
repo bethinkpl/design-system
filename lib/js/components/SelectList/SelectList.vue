@@ -8,7 +8,7 @@
 @import '../../../styles/settings/spacings';
 
 .ds-selectList {
-	padding: $space-2xs 0;
+	padding: $space-4 0;
 }
 </style>
 
