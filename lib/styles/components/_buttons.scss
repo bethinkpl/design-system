@@ -240,6 +240,7 @@ $button-disabled-alpha: 0.6;
 			right: -$magic-glow-spread;
 			top: -$magic-glow-spread;
 			transform: translateZ(-1px);
+			z-index: -1;
 		}
 
 		// Hover / pressed add a faint gradient tint over the white pill.
