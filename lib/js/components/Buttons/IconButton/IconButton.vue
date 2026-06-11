@@ -36,13 +36,10 @@
 			class="ds-iconButton__button"
 			:class="{
 				'-ds-iconOnly': type === ICON_BUTTON_TYPES.ICON_ONLY,
-				'-ds-hovered': state === ICON_BUTTON_STATES.HOVERED,
-				'-ds-focused': state === ICON_BUTTON_STATES.FOCUSED,
-				'-ds-disabled': state === ICON_BUTTON_STATES.DISABLED,
 			}"
 			:radius="radius"
 			:type="buttonType"
-			:state="isHovered ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT"
+			:state="state"
 			:elevation="elevation"
 			:color="isButtonColor ? color : null"
 		>
@@ -61,6 +58,7 @@
 <style lang="scss" scoped>
 @import '../../../../styles/settings/animations';
 @import '../../../../styles/settings/buttons';
+@import '../../../../styles/settings/gradients';
 @import '../../../../styles/settings/icons';
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
@@ -148,6 +146,14 @@
 		color: map-get($icon-button-colors, 'theme', 'hovered');
 	}
 
+	&.-ds-color-magic {
+		#{$self}__icon {
+			:deep(svg path) {
+				fill: var(--ds-magic-fill, currentColor);
+			}
+		}
+	}
+
 	// Doubled class selector increases specificity to ensure icon button styles never get overridden by .ds-button base styles
 	#{$self}__button#{$self}__button {
 		height: $icon-button-medium-size;
@@ -158,6 +164,27 @@
 
 		&.-ds-iconOnly.-ds-outlined {
 			border: none;
+
+			&.-ds-color-magic {
+				background: none;
+
+				&.-ds-hovered,
+				&:hover,
+				&.-ds-active,
+				&:active {
+					background: $gradient-magic-background-ghost-hovered;
+				}
+
+				&.-ds-focused,
+				&:focus {
+					background: $gradient-magic-background-ghost-focused;
+				}
+
+				// no glow (blurred gradient shadow) in iconOnly magic IconButton
+				&::after {
+					display: none;
+				}
+			}
 		}
 	}
 
@@ -266,9 +293,11 @@ import WnlButton, {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
 	BUTTON_RADIUSES,
+	BUTTON_STATES,
 	BUTTON_TYPES,
 	ButtonElevation,
 	ButtonRadius,
+	ButtonState,
 } from '../Button';
 import {
 	ICON_BUTTON_COLOR_SCHEMES,
@@ -279,6 +308,7 @@ import {
 	IconButtonColor,
 	IconButtonColorScheme,
 	IconButtonSize,
+	IconButtonState,
 	IconButtonType,
 } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
@@ -292,6 +322,14 @@ const ICON_ONLY_ICON_SIZES_MAP = {
 	[ICON_BUTTON_SIZES.MEDIUM]: ICON_SIZES.SMALL,
 	[ICON_BUTTON_SIZES.LARGE]: ICON_SIZES.MEDIUM,
 } as const;
+
+const ICON_BUTTON_STATE_MAP: Record<IconButtonState, ButtonState> = {
+	[ICON_BUTTON_STATES.DEFAULT]: BUTTON_STATES.DEFAULT,
+	[ICON_BUTTON_STATES.HOVERED]: BUTTON_STATES.HOVERED,
+	[ICON_BUTTON_STATES.FOCUSED]: BUTTON_STATES.FOCUSED,
+	[ICON_BUTTON_STATES.LOADING]: BUTTON_STATES.LOADING,
+	[ICON_BUTTON_STATES.DISABLED]: BUTTON_STATES.DISABLED,
+};
 
 export default defineComponent({
 	name: 'IconButton',
@@ -364,6 +402,7 @@ export default defineComponent({
 	setup() {
 		return {
 			...useHoverState(),
+			ICON_BUTTON_STATE_MAP,
 		};
 	},
 	data() {

@@ -9,6 +9,7 @@ import {
 	BUTTON_STATES,
 	BUTTON_TYPES,
 } from './Button.consts';
+import { MAGIC_GRADIENT_DISABLED_ID, MAGIC_GRADIENT_ID } from './useMagicGradient';
 import Icon, { ICONS } from '../../Icons/Icon';
 
 describe('Button', () => {
@@ -49,6 +50,34 @@ describe('Button', () => {
 	])('correct class for props', ({ props, expectedClass }) => {
 		const outlinedButton = createComponent(props);
 		expect(outlinedButton.classes()).toContain(expectedClass);
+	});
+
+	it('magic button fills with the magic gradient', () => {
+		const component = createComponent({ color: BUTTON_COLORS.MAGIC });
+
+		expect(component.element.style.getPropertyValue('--ds-magic-fill')).toBe(
+			`url(#${MAGIC_GRADIENT_ID})`,
+		);
+	});
+
+	it('disabled magic button fills with the disabled magic gradient', () => {
+		const component = createComponent({
+			color: BUTTON_COLORS.MAGIC,
+			state: BUTTON_STATES.DISABLED,
+		});
+
+		expect(component.element.style.getPropertyValue('--ds-magic-fill')).toBe(
+			`url(#${MAGIC_GRADIENT_DISABLED_ID})`,
+		);
+	});
+
+	it('non-magic button has no magic fill style', () => {
+		const component = createComponent({
+			color: BUTTON_COLORS.PRIMARY,
+			state: BUTTON_STATES.DISABLED,
+		});
+
+		expect(component.element.style.getPropertyValue('--ds-magic-fill')).toBe('');
 	});
 
 	it('loading should have correct text container and loading icon', () => {

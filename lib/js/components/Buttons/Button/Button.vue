@@ -23,7 +23,13 @@
 		}"
 		:style="
 			color === BUTTON_COLORS.MAGIC
-				? { '--ds-magic-fill': `url(#${MAGIC_GRADIENT_ID})` }
+				? {
+						'--ds-magic-fill': `url(#${
+							state === BUTTON_STATES.DISABLED
+								? MAGIC_GRADIENT_DISABLED_ID
+								: MAGIC_GRADIENT_ID
+						})`,
+					}
 				: undefined
 		"
 	>
@@ -70,7 +76,11 @@ import {
 	ButtonElevation,
 } from './Button.consts';
 import { computed } from 'vue';
-import { MAGIC_GRADIENT_ID, useMagicGradient } from './useMagicGradient';
+import {
+	MAGIC_GRADIENT_DISABLED_ID,
+	MAGIC_GRADIENT_ID,
+	useMagicGradient,
+} from './useMagicGradient';
 
 const {
 	size = BUTTON_SIZES.MEDIUM,

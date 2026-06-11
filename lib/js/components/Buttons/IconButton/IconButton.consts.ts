@@ -36,6 +36,7 @@ export const ICON_BUTTON_COLORS = {
 	INVERTED: 'inverted',
 	WARNING: 'warning',
 	INFO: 'info',
+	MAGIC: 'magic',
 } as const;
 
 export type IconButtonColor = Value<typeof ICON_BUTTON_COLORS>;
