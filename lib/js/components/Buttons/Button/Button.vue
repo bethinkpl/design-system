@@ -21,6 +21,11 @@
 			'-ds-elevation-x-small': elevation === BUTTON_ELEVATIONS.X_SMALL,
 			'-ds-elevation-small': elevation === BUTTON_ELEVATIONS.SMALL,
 		}"
+		:style="
+			color === BUTTON_COLORS.MAGIC
+				? { '--ds-magic-fill': `url(#${MAGIC_GRADIENT_ID})` }
+				: undefined
+		"
 	>
 		<span class="ds-button__content">
 			<wnl-icon
@@ -65,6 +70,7 @@ import {
 	ButtonElevation,
 } from './Button.consts';
 import { computed } from 'vue';
+import { MAGIC_GRADIENT_ID, useMagicGradient } from './useMagicGradient';
 
 const {
 	size = BUTTON_SIZES.MEDIUM,
@@ -99,6 +105,9 @@ const iconSize = computed((): IconSize => {
 const colorClassName = computed((): string => {
 	return `-ds-color-${color}`;
 });
+
+// The loading spinner's icon fills via `url(#MAGIC_GRADIENT_ID)`; ensure that def exists.
+useMagicGradient(() => color === BUTTON_COLORS.MAGIC);
 
 const loadingIconSize = computed((): IconSize => {
 	if (size === BUTTON_SIZES.LARGE) {

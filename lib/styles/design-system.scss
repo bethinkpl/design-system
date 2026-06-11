@@ -1,6 +1,7 @@
 // Settings
 @import 'settings/animations';
 @import 'settings/buttons';
+@import 'settings/gradients';
 @import 'settings/fonts';
 @import 'settings/icons';
 @import 'settings/media-queries';
@@ -32,6 +33,7 @@
 @import 'settings/colors/tokens-wnl-variables';
 @import 'settings/colors/tokens-bodywork-variables';
 @import 'settings/colors/tokens-mc-variables';
+@import 'settings/colors/magic-variables';
 
 html,
 body {

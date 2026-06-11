@@ -35,6 +35,12 @@ describe('Button', () => {
 		[{ props: { color: BUTTON_COLORS.PRIMARY }, expectedClass: '-ds-color-primary' }],
 		[{ props: { color: BUTTON_COLORS.DANGER }, expectedClass: '-ds-color-danger' }],
 		[{ props: { color: BUTTON_COLORS.SUCCESS }, expectedClass: '-ds-color-success' }],
+		[
+			{
+				props: { color: BUTTON_COLORS.MAGIC, type: BUTTON_TYPES.OUTLINED },
+				expectedClass: '-ds-color-magic',
+			},
+		],
 		[{ props: { radius: BUTTON_RADIUSES.ROUNDED }, expectedClass: '-ds-rounded' }],
 		[{ props: { state: BUTTON_STATES.HOVERED }, expectedClass: '-ds-hovered' }],
 		[{ props: { state: BUTTON_STATES.FOCUSED }, expectedClass: '-ds-focused' }],
