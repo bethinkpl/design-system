@@ -9,7 +9,7 @@ import {
 	BUTTON_STATES,
 	BUTTON_TYPES,
 } from './Button.consts';
-import { MAGIC_GRADIENT_DISABLED_ID, MAGIC_GRADIENT_ID } from './useMagicGradient';
+import { GRADIENT_MAGIC_ICON_DISABLED_ID, GRADIENT_MAGIC_ICON_ID } from './useMagicGradient';
 import Icon, { ICONS } from '../../Icons/Icon';
 
 describe('Button', () => {
@@ -56,7 +56,7 @@ describe('Button', () => {
 		const component = createComponent({ color: BUTTON_COLORS.MAGIC });
 
 		expect(component.element.style.getPropertyValue('--ds-magic-fill')).toBe(
-			`url(#${MAGIC_GRADIENT_ID})`,
+			`url(#${GRADIENT_MAGIC_ICON_ID})`,
 		);
 	});
 
@@ -67,7 +67,7 @@ describe('Button', () => {
 		});
 
 		expect(component.element.style.getPropertyValue('--ds-magic-fill')).toBe(
-			`url(#${MAGIC_GRADIENT_DISABLED_ID})`,
+			`url(#${GRADIENT_MAGIC_ICON_DISABLED_ID})`,
 		);
 	});
 

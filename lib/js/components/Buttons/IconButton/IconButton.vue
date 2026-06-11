@@ -39,7 +39,7 @@
 			}"
 			:radius="radius"
 			:type="buttonType"
-			:state="state"
+			:state="ICON_BUTTON_STATE_MAP[state]"
 			:elevation="elevation"
 			:color="isButtonColor ? color : null"
 		>
@@ -138,7 +138,8 @@
 	transition: color ease-in-out $default-transition-time;
 
 	&:disabled,
-	&.-ds-disabled {
+	&.-ds-disabled,
+	&.-ds-loading {
 		pointer-events: none;
 	}
 

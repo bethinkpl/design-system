@@ -25,15 +25,6 @@ $gradient-magic-border-angular: conic-gradient(
 	$gradient-magic-color-4 100%
 );
 
-$gradient-magic-background-angular-ghost-hovered: conic-gradient(
-	from 90deg,
-	rgba($gradient-magic-color-4-rgb, 0.12) 0%,
-	rgba($gradient-magic-color-1-rgb, 0.12) 25%,
-	rgba($gradient-magic-color-2-rgb, 0.12) 50%,
-	rgba($gradient-magic-color-3-rgb, 0.12) 75%,
-	rgba($gradient-magic-color-4-rgb, 0.12) 100%
-);
-
 $gradient-magic-border-angular-disabled: conic-gradient(
 	from 90deg,
 	rgba($gradient-magic-color-4-rgb, 0.4) 0%,

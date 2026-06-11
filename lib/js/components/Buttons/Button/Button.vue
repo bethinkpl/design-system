@@ -26,8 +26,8 @@
 				? {
 						'--ds-magic-fill': `url(#${
 							state === BUTTON_STATES.DISABLED
-								? MAGIC_GRADIENT_DISABLED_ID
-								: MAGIC_GRADIENT_ID
+								? GRADIENT_MAGIC_ICON_DISABLED_ID
+								: GRADIENT_MAGIC_ICON_ID
 						})`,
 					}
 				: undefined
@@ -77,8 +77,8 @@ import {
 } from './Button.consts';
 import { computed } from 'vue';
 import {
-	MAGIC_GRADIENT_DISABLED_ID,
-	MAGIC_GRADIENT_ID,
+	GRADIENT_MAGIC_ICON_DISABLED_ID,
+	GRADIENT_MAGIC_ICON_ID,
 	useMagicGradient,
 } from './useMagicGradient';
 
