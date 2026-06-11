@@ -10,6 +10,7 @@ import {
 } from './IconButton.consts';
 import Button, { BUTTON_TYPES } from '../Button';
 import Icon, { ICONS } from '../../Icons/Icon';
+import { GRADIENT_MAGIC_ICON_ID } from '../Button/useMagicGradient';
 
 describe('IconButton', () => {
 	const createComponent = (props = {} as any) => {
@@ -78,7 +79,7 @@ describe('IconButton', () => {
 
 	describe('magic color', () => {
 		afterEach(() => {
-			document.getElementById('ds-magic-gradient')?.remove();
+			document.getElementById(GRADIENT_MAGIC_ICON_ID)?.remove();
 		});
 
 		it('passes the magic color through to the inner button', () => {
@@ -94,13 +95,13 @@ describe('IconButton', () => {
 		it('injects the shared gradient paint server into the document when color is magic', () => {
 			createComponent({ color: ICON_BUTTON_COLORS.MAGIC });
 
-			expect(document.getElementById('ds-magic-gradient')).not.toBeNull();
+			expect(document.getElementById(GRADIENT_MAGIC_ICON_ID)).not.toBeNull();
 		});
 
 		it('does not inject the gradient paint server for non-magic colors', () => {
 			createComponent({ color: ICON_BUTTON_COLORS.PRIMARY });
 
-			expect(document.getElementById('ds-magic-gradient')).toBeNull();
+			expect(document.getElementById(GRADIENT_MAGIC_ICON_ID)).toBeNull();
 		});
 	});
 });
