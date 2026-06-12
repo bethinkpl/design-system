@@ -108,6 +108,7 @@ import { faHourglass } from '@fortawesome/pro-regular-svg-icons/faHourglass';
 import { faHourglassEnd } from '@fortawesome/pro-regular-svg-icons/faHourglassEnd';
 import { faHourglassStart } from '@fortawesome/pro-regular-svg-icons/faHourglassStart';
 import { faHouse } from '@fortawesome/pro-regular-svg-icons/faHouse';
+import { faInboxIn } from '@fortawesome/pro-regular-svg-icons/faInboxIn';
 import { faImage } from '@fortawesome/pro-regular-svg-icons/faImage';
 import { faImageCircleXmark } from '@fortawesome/pro-regular-svg-icons/faImageCircleXmark';
 import { faImage as fasImage } from '@fortawesome/pro-solid-svg-icons/faImage';
@@ -420,6 +421,7 @@ export const FONTAWESOME_ICONS = {
 	FA_HOURGLASS_START: faHourglassStart,
 	FA_HOURGLASS: faHourglass,
 	FA_HOUSE: faHouse,
+	FA_INBOX_IN: faInboxIn,
 	FA_IMAGE: faImage,
 	FA_IMAGE_CIRCLE_XMARK: faImageCircleXmark,
 	FA_IMAGE_SOLID: fasImage,
