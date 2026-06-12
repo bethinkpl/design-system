@@ -24,6 +24,8 @@ jobs:
     if: github.ref == 'refs/heads/master'
     permissions:
       contents: write
+    env:
+      FONT_AWESOME_AUTH_TOKEN: ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
     steps:
       - uses: actions/checkout@v6
         with:
@@ -32,15 +34,28 @@ jobs:
         with:
           node-version-file: 'package.json'
           registry-url: 'https://registry.npmjs.org'
+      - uses: actions/cache@v4
+        name: Cache node_modules
+        id: cache-node-modules
+        with:
+          path: node_modules
+          key: design-system-node-modules-${{ hashFiles('yarn.lock') }}
+      - name: Install and Build 🔧
+        run: | # Install npm packages and build the dist files
+          yarn install --immutable --immutable-cache
+          yarn build
       - name: Configure git identity
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Bump version
+      - name: Bump version and commit dist
         id: bump
         run: |
-          NEW_VERSION=$(npm version ${{ inputs.release_type }} -m "Bump version to \`v%s\`")
-          echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+          NEW_VERSION=$(npm version ${{ inputs.release_type }} --no-git-tag-version)
+          git add -A
+          git commit -m "Bump version to $NEW_VERSION and build dist"
+          git tag -a "$NEW_VERSION" -m "$NEW_VERSION"
+          echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Push commit and tag
         run: git push origin HEAD:master --follow-tags
       - name: Create GitHub release
