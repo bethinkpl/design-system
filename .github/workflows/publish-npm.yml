@@ -21,7 +21,6 @@ jobs:
   publish:
     name: Publish to NPM
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master'
     permissions:
       contents: write
     steps:
