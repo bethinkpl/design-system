@@ -108,12 +108,12 @@ import { faHourglass } from '@fortawesome/pro-regular-svg-icons/faHourglass';
 import { faHourglassEnd } from '@fortawesome/pro-regular-svg-icons/faHourglassEnd';
 import { faHourglassStart } from '@fortawesome/pro-regular-svg-icons/faHourglassStart';
 import { faHouse } from '@fortawesome/pro-regular-svg-icons/faHouse';
-import { faInboxIn } from '@fortawesome/pro-regular-svg-icons/faInboxIn';
 import { faImage } from '@fortawesome/pro-regular-svg-icons/faImage';
 import { faImageCircleXmark } from '@fortawesome/pro-regular-svg-icons/faImageCircleXmark';
 import { faImage as fasImage } from '@fortawesome/pro-solid-svg-icons/faImage';
 import { faImages } from '@fortawesome/pro-regular-svg-icons/faImages';
 import { faImages as fasImages } from '@fortawesome/pro-solid-svg-icons/faImages';
+import { faInboxIn } from '@fortawesome/pro-regular-svg-icons/faInboxIn';
 import { faKey } from '@fortawesome/pro-regular-svg-icons/faKey';
 import { faKeyboard } from '@fortawesome/pro-regular-svg-icons/faKeyboard';
 import { faLightbulb } from '@fortawesome/pro-regular-svg-icons/faLightbulb';
@@ -421,12 +421,12 @@ export const FONTAWESOME_ICONS = {
 	FA_HOURGLASS_START: faHourglassStart,
 	FA_HOURGLASS: faHourglass,
 	FA_HOUSE: faHouse,
-	FA_INBOX_IN: faInboxIn,
 	FA_IMAGE: faImage,
 	FA_IMAGE_CIRCLE_XMARK: faImageCircleXmark,
 	FA_IMAGE_SOLID: fasImage,
 	FA_IMAGES_SOLID: fasImages,
 	FA_IMAGES: faImages,
+	FA_INBOX_IN: faInboxIn,
 	FA_INFO_SOLID: fasInfo,
 	FA_INSTAGRAM: faInstagram,
 	FA_KEY: faKey,
