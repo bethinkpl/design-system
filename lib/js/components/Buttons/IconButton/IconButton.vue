@@ -65,6 +65,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/mixins/touchable';
 
 @mixin setIconButtonAdditions($border: null, $icon: null) {
 	@if $border {
@@ -133,10 +134,13 @@
 		}
 	}
 
+	@include touchableHitArea;
+
 	align-items: center;
 	color: $color-primary-text;
 	cursor: pointer;
 	display: inline-flex;
+	position: relative;
 	transition: color ease-in-out $default-transition-time;
 
 	&:disabled,
@@ -349,6 +353,12 @@ export default defineComponent({
 				return Object.values(BUTTON_ELEVATIONS).includes(value);
 			},
 		},
+		/**
+		 * @deprecated No longer has any effect — the enlarged touch target is now applied
+		 * automatically on touch devices (see `@media (pointer: coarse)` in the styles) without
+		 * inflating the layout footprint. Scheduled for removal; kept temporarily so existing
+		 * call sites passing this prop don't break.
+		 */
 		touchable: {
 			type: Boolean,
 			default: true,
