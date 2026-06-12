@@ -41,19 +41,21 @@ jobs:
           path: node_modules
           key: design-system-node-modules-${{ hashFiles('yarn.lock') }}
       - name: Install and Build 🔧
-        run: | # Install npm packages and build the dist files
+        run: | # Install npm packages, build dist and Storybook
           yarn install --immutable --immutable-cache
           yarn build
+          yarn storybook:build:docs
+          touch ./docs/.nojekyll
       - name: Configure git identity
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-      - name: Bump version and commit dist
+      - name: Bump version and commit build output
         id: bump
         run: |
           NEW_VERSION=$(npm version ${{ inputs.release_type }} --no-git-tag-version)
           git add -A
-          git commit -m "Bump version to $NEW_VERSION and build dist"
+          git commit -m "Release $NEW_VERSION: bump version, build dist and Storybook"
           git tag -a "$NEW_VERSION" -m "$NEW_VERSION"
           echo "version=$NEW_VERSION" >> "$GITHUB_OUTPUT"
       - name: Push commit and tag
