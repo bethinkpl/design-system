@@ -21,6 +21,7 @@ jobs:
   publish:
     name: Publish to NPM
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/master'
     permissions:
       contents: write
     steps:
@@ -43,12 +44,12 @@ jobs:
       - name: Push commit and tag
         run: git push origin HEAD:master --follow-tags
       - name: Create GitHub release
-        run: gh release create "${{ steps.bump.outputs.version }}" --generate-notes --title "${{ steps.bump.outputs.version }}" --draft
+        run: gh release create "${{ steps.bump.outputs.version }}" --generate-notes --title "${{ steps.bump.outputs.version }}"
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish
         # NODE_AUTH_TOKEN is read by the .npmrc written by setup-node (registry-url triggers this).
         # See: https://github.com/actions/setup-node/blob/0355742c943ddb13ca8a6b700f824231caa91e75/docs/advanced-usage.md#publish-to-npmjs-and-gpr-with-npm
-        run: npm publish --access public --dry-run
+        run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
