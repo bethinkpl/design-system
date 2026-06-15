@@ -238,6 +238,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_IMAGE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_IMAGES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_IMAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_INBOX_IN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_INSTAGRAM: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_KEY: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -869,6 +870,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_IMAGE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_IMAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_INBOX_IN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_INSTAGRAM: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_KEY: import('@fortawesome/fontawesome-common-types').IconDefinition;

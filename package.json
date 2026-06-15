@@ -1,6 +1,6 @@
 {
   "name": "@bethinkpl/design-system",
-  "version": "37.0.2",
+  "version": "37.0.5",
   "description": "Bethink universe design-system",
   "repository": {
     "type": "git",
@@ -34,7 +34,7 @@
     "format:check": "prettier --check './*.{cjs,js,ts,vue,scss}' './{lib,.storybook,tools}/**/*.{cjs,js,ts,vue,scss,json}'",
     "format:fix": "prettier --write './*.{cjs,js,ts,vue,scss}' './{lib,.storybook,tools}/**/*.{cjs,js,ts,vue,scss,json}'",
     "storybook": "storybook dev -p 6006",
-    "storybook:build": "storybook build -c .storybook -o public/storybook",
+    "storybook:build": "storybook build -c .storybook -o docs",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "ts:check": "vue-tsc --noEmit --project ./tsconfig.base.json",
