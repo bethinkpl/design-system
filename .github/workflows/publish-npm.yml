@@ -44,7 +44,7 @@ jobs:
         run: | # Install npm packages, build dist and Storybook
           yarn install --immutable --immutable-cache
           yarn build
-          yarn storybook:build:docs
+          yarn storybook:build
           touch ./docs/.nojekyll
       - name: Configure git identity
         run: |
