@@ -35,6 +35,7 @@
     "format:fix": "prettier --write './*.{cjs,js,ts,vue,scss}' './{lib,.storybook,tools}/**/*.{cjs,js,ts,vue,scss,json}'",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build -c .storybook -o public/storybook",
+    "storybook:build:docs": "storybook build -c .storybook -o docs",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "ts:check": "vue-tsc --noEmit --project ./tsconfig.base.json",
