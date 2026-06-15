@@ -64,33 +64,22 @@ jobs:
           yarn install --immutable --immutable-cache
           yarn storybook:build
 
-      - name: Set up S3cmd cli tool
-        uses: s3-actions/s3cmd@v1.4.0
-        with:
-          provider: aws
-          region: 'eu-central-1'
-          access_key: ${{ secrets.S3_ACCESS_KEY }}
-          secret_key: ${{ secrets.S3_SECRET_KEY }}
-
       - name: Push to S3 🚀
-        run: s3cmd put -r -P docs/* s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/
-
-      - name: "Setting Content-Type to application/javascript for all .js files"
-        run: >-
-          find docs -type f -name "*.js" | while read FILE; do
-            RELATIVE_PATH="${FILE#docs/}"
-            echo "s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/$RELATIVE_PATH"
-            s3cmd modify --add-header="Content-Type: application/javascript" s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/$RELATIVE_PATH
-          done
-
-
-      - name: "Set Content-Type to text/css for all .css files"
-        run: >-
-          find docs -type f -name "*.css" | while read FILE; do
-            RELATIVE_PATH="${FILE#docs/}"
-            echo "s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/$RELATIVE_PATH"
-            s3cmd modify --add-header="Content-Type: text/css" s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/$RELATIVE_PATH
-          done
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.S3_ACCESS_KEY }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_SECRET_KEY }}
+          AWS_DEFAULT_REGION: eu-central-1
+        run: |
+          DEST="s3://${{ vars.S3_REVIEW_BUCKET }}/${{ env.BRANCH_NAME }}/"
+          # Everything except js/css — sync infers correct content-types
+          aws s3 sync docs/ "$DEST" --no-progress --acl public-read \
+            --exclude "*.js" --exclude "*.css"
+          # .js files with explicit Content-Type
+          aws s3 sync docs/ "$DEST" --no-progress --acl public-read \
+            --exclude "*" --include "*.js" --content-type "application/javascript"
+          # .css files with explicit Content-Type
+          aws s3 sync docs/ "$DEST" --no-progress --acl public-read \
+            --exclude "*" --include "*.css" --content-type "text/css"
 
       - name: Add comment with URL
         uses: thollander/actions-comment-pull-request@v2
