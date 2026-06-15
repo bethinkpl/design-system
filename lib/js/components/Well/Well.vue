@@ -55,25 +55,25 @@
 
 	&__accessorySlot {
 		display: flex;
-		gap: $space-4xs;
+		gap: $space-2;
 		position: absolute;
 		right: 0;
 		top: -10px;
 	}
 
 	&.-ds-medium {
-		padding: $space-s;
+		padding: $space-8;
 
 		#{$root}__accessorySlot {
-			right: $space-s;
+			right: $space-8;
 		}
 	}
 
 	&.-ds-small {
-		padding: $space-xs;
+		padding: $space-6;
 
 		#{$root}__accessorySlot {
-			right: $space-xs;
+			right: $space-6;
 		}
 	}
 }

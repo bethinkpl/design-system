@@ -10,7 +10,7 @@
 
 .ds-selectListItemDivider {
 	background-color: $color-neutral-background-ghost;
-	padding: $space-2xs 0;
+	padding: $space-4 0;
 }
 </style>
 

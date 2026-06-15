@@ -10,8 +10,8 @@
 .ds-drawerContent {
 	display: flex;
 	flex-direction: column;
-	gap: $space-s;
-	padding: $space-s;
+	gap: $space-8;
+	padding: $space-8;
 }
 </style>
 

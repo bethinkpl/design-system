@@ -104,74 +104,74 @@
 	}
 
 	&[x-placement^='bottom'] {
-		margin-top: $space-4xs;
+		margin-top: $space-2;
 
 		&.-ds-visible-arrow {
-			margin-top: $space-s + $space-4xs;
+			margin-top: $space-8 + $space-2;
 		}
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
 			border-color: transparent transparent $color-inverted-border transparent;
-			border-width: 0 $space-xs $space-s $space-xs;
-			left: calc(50% - #{$space-xs});
+			border-width: 0 $space-6 $space-8 $space-6;
+			left: calc(50% - #{$space-6});
 			margin-bottom: 0;
 			margin-top: 0;
-			top: -$space-s;
+			top: -$space-8;
 		}
 	}
 
 	&[x-placement^='top'] {
-		margin-bottom: $space-4xs;
+		margin-bottom: $space-2;
 
 		&.-ds-visible-arrow {
-			margin-bottom: $space-s + $space-4xs;
+			margin-bottom: $space-8 + $space-2;
 		}
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
 			border-color: $color-inverted-border transparent transparent transparent;
-			border-width: $space-s $space-xs 0 $space-xs;
-			bottom: -$space-s;
-			left: calc(50% - #{$space-xs});
+			border-width: $space-8 $space-6 0 $space-6;
+			bottom: -$space-8;
+			left: calc(50% - #{$space-6});
 			margin-bottom: 0;
 			margin-top: 0;
 		}
 	}
 
 	&[x-placement^='right'] {
-		margin-left: $space-4xs;
+		margin-left: $space-2;
 
 		&.-ds-visible-arrow {
-			margin-left: $space-s + $space-4xs;
+			margin-left: $space-8 + $space-2;
 		}
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
 			border-color: transparent $color-inverted-border transparent transparent;
-			border-width: $space-xs $space-s $space-xs 0;
-			left: -$space-s;
+			border-width: $space-6 $space-8 $space-6 0;
+			left: -$space-8;
 			margin-left: 0;
 			margin-right: 0;
-			top: calc(50% - #{$space-xs});
+			top: calc(50% - #{$space-6});
 		}
 	}
 
 	&[x-placement^='left'] {
-		margin-right: $space-4xs;
+		margin-right: $space-2;
 
 		&.-ds-visible-arrow {
-			margin-right: $space-s + $space-4xs;
+			margin-right: $space-8 + $space-2;
 		}
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
 			border-color: transparent transparent transparent $color-inverted-border;
-			border-width: $space-xs 0 $space-xs $space-s;
+			border-width: $space-6 0 $space-6 $space-8;
 			margin-left: 0;
 			margin-right: 0;
-			right: -$space-s;
-			top: calc(50% - #{$space-xs});
+			right: -$space-8;
+			top: calc(50% - #{$space-6});
 		}
 	}
 
@@ -185,7 +185,7 @@
 		@include text-m-default-regular;
 
 		color: $color-neutral-text-heavy;
-		padding: $space-s;
+		padding: $space-8;
 		// Override popperjs styles
 		text-align: left;
 	}
@@ -194,19 +194,19 @@
 		@include heading-m-default-bold;
 
 		color: $color-default-text;
-		margin-bottom: $space-2xs;
+		margin-bottom: $space-4;
 	}
 
 	&__subtitle {
 		@include heading-s-default-regular;
 
 		color: $color-neutral-text;
-		margin-bottom: $space-2xs;
+		margin-bottom: $space-4;
 	}
 
 	&__button {
 		align-self: flex-end;
-		margin: 0 $space-s $space-xs;
+		margin: 0 $space-8 $space-6;
 	}
 }
 </style>

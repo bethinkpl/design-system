@@ -147,14 +147,14 @@ $image-height-small: 140px;
 	height: 100%;
 	justify-content: center;
 	left: 0;
-	padding: $space-l $space-s;
+	padding: $space-16 $space-8;
 	position: fixed;
 	top: 0;
 	width: 100%;
 	z-index: $z-index-modal;
 
 	@media #{breakpoint-s()} {
-		padding: $space-l;
+		padding: $space-16;
 	}
 
 	&__wrapper {
@@ -166,7 +166,7 @@ $image-height-small: 140px;
 		max-height: 100%;
 		max-width: $modal-medium-width;
 		overflow: hidden;
-		padding-top: $space-xl;
+		padding-top: $space-20;
 		position: relative;
 		width: 100%;
 
@@ -190,8 +190,8 @@ $image-height-small: 140px;
 
 			@media #{breakpoint-s()} {
 				#{$self}__content {
-					padding-left: $space-m;
-					padding-right: $space-m;
+					padding-left: $space-12;
+					padding-right: $space-12;
 				}
 			}
 
@@ -209,10 +209,10 @@ $image-height-small: 140px;
 	&__content {
 		display: flex;
 		flex-direction: column;
-		padding: 0 $space-s 0;
+		padding: 0 $space-8 0;
 
 		@media #{breakpoint-s()} {
-			padding: 0 $space-xl 0;
+			padding: 0 $space-20 0;
 		}
 		&.-ds-centered {
 			#{$self}__header,
@@ -225,13 +225,13 @@ $image-height-small: 140px;
 	&__header {
 		display: flex;
 		flex-direction: column;
-		margin-bottom: $space-s;
-		row-gap: $space-xs;
+		margin-bottom: $space-8;
+		row-gap: $space-6;
 	}
 
 	&__headerFeatureIcon {
 		align-self: center;
-		margin-bottom: $space-xs;
+		margin-bottom: $space-6;
 	}
 
 	&__headerTitle {
@@ -272,13 +272,13 @@ $image-height-small: 140px;
 
 		color: $color-neutral-text-heavy;
 		cursor: pointer;
-		margin-left: $space-2xs;
+		margin-left: $space-4;
 	}
 
 	&__rightActions {
 		position: absolute;
-		right: $space-4xs;
-		top: $space-4xs;
+		right: $space-2;
+		top: $space-2;
 		// z-index needs to be higher than 0 to cover the content elements with `position: relative`
 		z-index: 1;
 	}
@@ -289,7 +289,7 @@ $image-height-small: 140px;
 	}
 
 	&__footerWrapper {
-		padding-bottom: $space-l;
+		padding-bottom: $space-16;
 
 		&.-ds-stickyFooter {
 			background: $color-default-background;
@@ -299,12 +299,12 @@ $image-height-small: 140px;
 	}
 
 	&__footer {
-		column-gap: $space-s;
+		column-gap: $space-8;
 		display: flex;
 		flex-direction: column-reverse;
 		justify-content: space-between;
 		line-break: anywhere;
-		padding-top: $space-m;
+		padding-top: $space-12;
 
 		@media #{breakpoint-s()} {
 			align-items: center;
@@ -331,16 +331,16 @@ $image-height-small: 140px;
 		display: flex;
 		flex-direction: column-reverse;
 		flex-shrink: 0;
-		gap: $space-s 0;
+		gap: $space-8 0;
 
 		@media #{breakpoint-s()} {
 			flex-direction: row;
-			gap: 0 $space-s;
+			gap: 0 $space-8;
 		}
 
 		&:not(:first-child) {
 			// first-child because of reverse order in flex-direction
-			margin-bottom: $space-xs;
+			margin-bottom: $space-6;
 
 			@media #{breakpoint-s()} {
 				margin-bottom: 0;
@@ -351,7 +351,7 @@ $image-height-small: 140px;
 	&__footerCtaSecondary {
 		align-items: center;
 		display: flex;
-		gap: 0 $space-m;
+		gap: 0 $space-12;
 		justify-content: space-between;
 
 		@media #{breakpoint-s()} {

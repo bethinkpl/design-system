@@ -137,7 +137,7 @@ $right-column-large-l-max-width: $right-column-large-max-width;
 	&__content {
 		margin: 0 auto;
 		max-width: $content-column-max-width;
-		padding: $space-s;
+		padding: $space-8;
 
 		&.-ds-noPadding {
 			padding: 0;

@@ -158,6 +158,7 @@ export declare const FONTAWESOME_ICONS: {
     readonly FA_IMAGE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_IMAGES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_IMAGES: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_INBOX_IN: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_INFO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_INSTAGRAM: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_KEY: import('@fortawesome/fontawesome-common-types').IconDefinition;

@@ -72,15 +72,15 @@
 	&__content {
 		display: flex;
 		flex-direction: column;
-		gap: $space-4xs;
+		gap: $space-2;
 		justify-content: center;
 		min-width: 0; // to prevent the component from being pushed by the ellipses
-		padding: $space-xs 0;
+		padding: $space-6 0;
 	}
 
 	&.-ds-small {
 		#{$root}__content {
-			padding: $space-2xs 0;
+			padding: $space-4 0;
 		}
 	}
 

@@ -107,16 +107,16 @@
 		align-items: center;
 		display: flex;
 		flex-direction: row;
-		gap: $space-2xs;
+		gap: $space-4;
 		justify-content: space-between;
-		padding: $space-4xs 0;
+		padding: $space-2 0;
 	}
 
 	&__supportingText {
 		@include text-s-compact-regular;
 
 		color: $color-neutral-text;
-		padding: 0 0 $space-xs;
+		padding: 0 0 $space-6;
 
 		&.-ds-withoutPadding {
 			padding: 0;
@@ -126,7 +126,7 @@
 	&__header {
 		align-items: center;
 		display: flex;
-		gap: $space-2xs;
+		gap: $space-4;
 		min-width: 0;
 		width: 100%;
 
@@ -172,9 +172,9 @@
 	&__titleContainer {
 		display: flex;
 		flex-direction: column;
-		gap: $space-5xs;
+		gap: $space-1;
 		min-width: 0;
-		padding: $space-2xs 0;
+		padding: $space-4 0;
 	}
 
 	&__title {
@@ -190,7 +190,7 @@
 
 	&__info {
 		line-height: 0;
-		padding: $space-3xs 0;
+		padding: $space-3 0;
 	}
 
 	&__eyebrow {
@@ -201,7 +201,7 @@
 
 	&.-ds-size-large {
 		#{$root}__main {
-			padding: $space-5xs 0;
+			padding: $space-1 0;
 		}
 
 		#{$root}__header {
@@ -209,11 +209,11 @@
 		}
 
 		#{$root}__titleWrapper {
-			gap: $space-2xs;
+			gap: $space-4;
 		}
 
 		#{$root}__info {
-			padding: $space-2xs 0;
+			padding: $space-4 0;
 		}
 
 		#{$root}__eyebrow {
@@ -227,11 +227,11 @@
 		}
 
 		#{$root}__titleWrapper {
-			gap: $space-2xs;
+			gap: $space-4;
 		}
 
 		#{$root}__info {
-			padding: $space-2xs 0;
+			padding: $space-4 0;
 		}
 
 		#{$root}__eyebrow {
@@ -241,7 +241,7 @@
 
 	&.-ds-size-small {
 		#{$root}__main {
-			padding: $space-5xs 0;
+			padding: $space-1 0;
 		}
 
 		#{$root}__header {
@@ -249,21 +249,21 @@
 		}
 
 		#{$root}__titleWrapper {
-			gap: $space-3xs;
+			gap: $space-3;
 		}
 
 		#{$root}__info {
-			padding: $space-2xs 0;
+			padding: $space-4 0;
 		}
 	}
 
 	&.-ds-size-x-small {
 		#{$root}__main {
-			padding: $space-5xs 0;
+			padding: $space-1 0;
 		}
 
 		#{$root}__titleWrapper {
-			gap: $space-3xs;
+			gap: $space-3;
 		}
 
 		#{$root}__header {
@@ -273,11 +273,11 @@
 
 	&.-ds-size-xx-small {
 		#{$root}__main {
-			padding: $space-5xs 0;
+			padding: $space-1 0;
 		}
 
 		#{$root}__titleWrapper {
-			gap: $space-3xs;
+			gap: $space-3;
 		}
 
 		#{$root}__header {
@@ -320,7 +320,7 @@
 
 	&__slotVertical {
 		display: block;
-		padding: 0 0 $space-3xs;
+		padding: 0 0 $space-3;
 
 		@media #{breakpoint-s()} {
 			display: none;

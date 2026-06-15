@@ -100,8 +100,8 @@ $minimal-drawer-header-height: 58px;
 		display: flex;
 		flex-direction: column;
 		min-width: 0;
-		padding-left: $space-4xs;
-		row-gap: $space-4xs;
+		padding-left: $space-2;
+		row-gap: $space-2;
 	}
 
 	&__eyebrow {
@@ -123,7 +123,7 @@ $minimal-drawer-header-height: 58px;
 
 	&__title {
 		align-items: center;
-		column-gap: $space-3xs;
+		column-gap: $space-3;
 		display: flex;
 	}
 
@@ -147,11 +147,11 @@ $minimal-drawer-header-height: 58px;
 
 	&__titleWrapper {
 		align-items: center;
-		column-gap: $space-4xs;
+		column-gap: $space-2;
 		display: flex;
 		justify-content: space-between;
 		min-height: $minimal-drawer-header-height;
-		padding: $space-xs;
+		padding: $space-6;
 	}
 
 	&__actions {

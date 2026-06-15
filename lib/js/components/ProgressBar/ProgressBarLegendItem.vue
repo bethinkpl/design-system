@@ -166,7 +166,7 @@ $progress-bar-legend-item-colors: (
 	align-items: flex-start;
 	display: inline-flex;
 	flex-direction: column;
-	gap: $space-4xs;
+	gap: $space-2;
 
 	&__label {
 		@include label-xs-extensive-bold-uppercase;
@@ -177,7 +177,7 @@ $progress-bar-legend-item-colors: (
 	&__wrapper {
 		align-items: center;
 		display: flex;
-		gap: $space-4xs;
+		gap: $space-2;
 	}
 
 	&__dataIndicator {
@@ -192,16 +192,16 @@ $progress-bar-legend-item-colors: (
 		align-items: center;
 		border-radius: 100px;
 		display: flex;
-		height: $space-m;
+		height: $space-12;
 		justify-content: center;
-		margin-right: $space-5xs;
-		width: $space-m;
+		margin-right: $space-1;
+		width: $space-12;
 	}
 
 	&__dataWrapper {
 		align-items: baseline;
 		display: flex;
-		gap: $space-5xs;
+		gap: $space-1;
 	}
 
 	&__data {
@@ -224,8 +224,8 @@ $progress-bar-legend-item-colors: (
 		}
 
 		#{$self}__dataIndicator {
-			height: $space-s;
-			width: $space-s;
+			height: $space-8;
+			width: $space-8;
 		}
 	}
 }

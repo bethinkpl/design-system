@@ -16,7 +16,7 @@
 	align-items: center;
 	color: $color-neutral-text;
 	display: inline-flex;
-	gap: $space-2xs;
+	gap: $space-4;
 }
 </style>
 

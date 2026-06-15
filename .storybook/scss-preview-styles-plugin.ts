@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import sass from 'sass';
 
-const cssFilePath = path.resolve(__dirname, '../public/storybook/preview.css');
+const cssFilePath = path.resolve(__dirname, '../docs/preview.css');
 const previewStylesPath = path.resolve(__dirname, '../.storybook/preview.scss');
 
 // Custom plugin to compile global styles for storybook preview and load them at the very beginning
@@ -14,8 +14,8 @@ export const scssPreviewStylesPlugin = ({ isProductionMode }) => ({
 			const result = sass.compile(previewStylesPath);
 
 			// Compile and save preview.css file, so we can serve it in build storybook (using preview-head.html)
-			if (!fs.existsSync(path.resolve(__dirname, '../public/storybook'))) {
-				fs.mkdirSync(path.resolve(__dirname, '../public/storybook'), { recursive: true });
+			if (!fs.existsSync(path.resolve(__dirname, '../docs'))) {
+				fs.mkdirSync(path.resolve(__dirname, '../docs'), { recursive: true });
 			}
 
 			fs.writeFileSync(cssFilePath, result.css.toString());

@@ -178,7 +178,7 @@ $progress-donut-chart-range-colors: (
 
 		&.-ds-hasOverage {
 			color: $color-success-text;
-			margin-left: -$space-5xs;
+			margin-left: -$space-1;
 		}
 	}
 
@@ -189,7 +189,7 @@ $progress-donut-chart-range-colors: (
 		border-radius: 100%;
 		color: $color-neutral-text;
 		height: $progress-donut-chart-loading-dot-size;
-		margin-top: $space-3xs;
+		margin-top: $space-3;
 		position: relative;
 		width: $progress-donut-chart-loading-dot-size;
 

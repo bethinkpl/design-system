@@ -1,13 +1,16 @@
-$space-5xs: 2px;
-$space-4xs: 4px;
-$space-3xs: 6px;
-$space-2xs: 8px;
-$space-xs: 12px;
-$space-s: 16px;
-$space-m: 24px;
-$space-l: 32px;
-$space-xl: 40px;
-$space-2xl: 56px;
+$space-base: 2px;
+$space-1: $space-base * 1;
+$space-2: $space-base * 2;
+$space-3: $space-base * 3;
+$space-4: $space-base * 4;
+$space-5: $space-base * 5;
+$space-6: $space-base * 6;
+$space-8: $space-base * 8;
+$space-10: $space-base * 10;
+$space-12: $space-base * 12;
+$space-16: $space-base * 16;
+$space-20: $space-base * 20;
+$space-28: $space-base * 28;
 
 // deprecated
 $DEPRECATED-space-3xl: 64px;

@@ -17,12 +17,12 @@
 .ds-menu {
 	display: flex;
 	flex-direction: column;
-	gap: $space-5xs;
+	gap: $space-1;
 	margin: 0;
 	padding: 0;
 
 	&.-ds-extensive {
-		gap: $space-2xs;
+		gap: $space-4;
 	}
 }
 </style>

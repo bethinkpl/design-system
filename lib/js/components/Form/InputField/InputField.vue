@@ -64,9 +64,9 @@
 	border-radius: $radius-s;
 	box-shadow: $shadow-inset-m;
 	display: flex;
-	gap: $space-2xs;
+	gap: $space-4;
 	height: 32px;
-	padding: 0 $space-2xs;
+	padding: 0 $space-4;
 
 	&:focus-within {
 		border-color: $color-primary-border;

@@ -56,9 +56,9 @@
 	color: $color-neutral-text-heavy;
 	cursor: pointer;
 	display: flex;
-	gap: $space-3xs;
+	gap: $space-3;
 	min-height: $minHeight;
-	padding: $space-xs;
+	padding: $space-6;
 
 	&:focus {
 		background-color: $color-neutral-background-ghost-focused;
@@ -107,12 +107,12 @@
 
 	&__iconRight {
 		color: $color-primary-icon;
-		margin-left: $space-xs;
+		margin-left: $space-6;
 	}
 
 	&__placeholderRight {
 		flex-shrink: 0;
-		margin-left: $space-xs;
+		margin-left: $space-6;
 		width: $icon-xs;
 	}
 
@@ -120,7 +120,7 @@
 		display: flex;
 		flex-direction: column;
 		flex-grow: 1;
-		gap: $space-5xs;
+		gap: $space-1;
 		overflow: hidden;
 		white-space: nowrap;
 	}

@@ -300,10 +300,10 @@ $tile-colors: (
 	border-radius: $radius-s;
 	display: flex;
 	flex-direction: row;
-	gap: $space-xs;
+	gap: $space-6;
 	justify-content: center;
 	min-height: 48px;
-	padding: $space-2xs $space-xs;
+	padding: $space-4 $space-6;
 	transition: background-color ease-in-out $default-transition-time;
 
 	&.-ds-disabled {
@@ -359,7 +359,7 @@ $tile-colors: (
 
 		color: $color-neutral-text;
 		flex-grow: 1;
-		margin-left: $space-xs;
+		margin-left: $space-6;
 		text-align: right;
 
 		&.-ds-max-width-small {
@@ -381,7 +381,7 @@ $tile-colors: (
 	&__eyebrowText {
 		@include info-m-default-bold;
 
-		margin-bottom: $space-4xs;
+		margin-bottom: $space-2;
 
 		&.-ds-uppercase {
 			@include info-m-extensive-bold-uppercase();

@@ -80,15 +80,15 @@
 	&.-ds-sizeSmall {
 		@include label-m-default-bold;
 
-		column-gap: $space-4xs;
-		padding: $space-xs;
+		column-gap: $space-2;
+		padding: $space-6;
 	}
 
 	&.-ds-sizeMedium {
 		@include label-l-default-bold;
 
-		column-gap: $space-2xs;
-		padding: $space-xs $space-s;
+		column-gap: $space-4;
+		padding: $space-6 $space-8;
 	}
 }
 </style>

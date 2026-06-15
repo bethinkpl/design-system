@@ -65,20 +65,20 @@ $right-column-width: 96px;
 .ds-statsLayout {
 	display: flex;
 	flex-direction: column;
-	gap: $space-xs;
+	gap: $space-6;
 
 	&__content,
 	&__summary,
 	&__stats {
 		display: flex;
 		flex-direction: column;
-		gap: $space-s;
+		gap: $space-8;
 	}
 
 	&__wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: $space-l;
+		gap: $space-16;
 	}
 
 	&__gridHeader {
@@ -97,12 +97,12 @@ $right-column-width: 96px;
 
 	&__gridHeaderLeftColumn {
 		flex: 1 0 0;
-		padding: $space-2xs;
+		padding: $space-4;
 	}
 
 	&__gridHeaderRightColumn {
 		justify-content: flex-end;
-		padding: $space-2xs;
+		padding: $space-4;
 	}
 
 	&__overallStats,
@@ -112,7 +112,7 @@ $right-column-width: 96px;
 	}
 
 	&__statsList {
-		row-gap: $space-s;
+		row-gap: $space-8;
 	}
 
 	&__statsDivider {

@@ -56,8 +56,8 @@
 
 	&__row {
 		border: 1px solid var(--raw-gray-100);
-		margin-bottom: $space-m;
-		padding: $space-m;
+		margin-bottom: $space-12;
+		padding: $space-12;
 	}
 
 	&__categories {

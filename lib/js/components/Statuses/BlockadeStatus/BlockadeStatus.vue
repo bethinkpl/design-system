@@ -19,7 +19,7 @@
 
 	&__icon {
 		color: $color-neutral-icon;
-		margin-right: $space-4xs;
+		margin-right: $space-2;
 	}
 
 	&.-ds-active {
