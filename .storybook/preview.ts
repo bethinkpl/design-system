@@ -147,7 +147,10 @@ const BRAND_CLASSES = ['-ds-theme-wnl', '-ds-theme-mc', '-ds-theme-bodywork'];
 export const decorators = [
 	(story, context) => {
 		if (typeof document !== 'undefined') {
-			document.body.classList.toggle('-ds-dark', context.globals.colorScheme === 'dark');
+			document.documentElement.classList.toggle(
+				'-ds-dark',
+				context.globals.colorScheme === 'dark',
+			);
 			BRAND_CLASSES.forEach((cls) =>
 				document.body.classList.toggle(cls, `-ds-theme-${context.globals.brand}` === cls),
 			);
