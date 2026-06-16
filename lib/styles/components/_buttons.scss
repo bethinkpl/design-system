@@ -324,7 +324,7 @@ $button-disabled-alpha: 0.6;
 	}
 
 	&:not(.-ds-text) {
-		min-width: 50px;
+		min-width: 80px;
 
 		&.-ds-rounded {
 			border-radius: $radius-s;
