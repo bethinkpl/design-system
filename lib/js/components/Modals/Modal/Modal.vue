@@ -11,7 +11,7 @@
 				<div class="ds-modal__rightActions">
 					<slot name="rightActions" />
 					<wnl-icon-button
-						touchable
+						touchable-deprecated
 						:icon="ICONS.FA_XMARK"
 						:size="ICON_SIZES.SMALL"
 						:elevation="BUTTON_ELEVATIONS.X_SMALL"

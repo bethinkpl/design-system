@@ -14,7 +14,7 @@
 
 			[colorClassName]: isButtonColor,
 
-			'-ds-touchable': touchable,
+			'-ds-touchable': touchableDeprecated,
 		}"
 		:style="{ color: computedColor }"
 		@mouseover="mouseOver"
@@ -354,12 +354,12 @@ export default defineComponent({
 			},
 		},
 		/**
-		 * @deprecated No longer has any effect — the enlarged touch target is now applied
-		 * automatically on touch devices (see `@media (pointer: coarse)` in the styles) without
-		 * inflating the layout footprint. Scheduled for removal; kept temporarily so existing
-		 * call sites passing this prop don't break.
+		 * @deprecated Adds the `-ds-touchable` class, which inflates the layout footprint via
+		 * the deprecated `$DEPRECATED-min-touchable-size`. The non-inflating touch target is now
+		 * applied automatically on touch devices via `touchableHitArea` (`@media (pointer: coarse)`),
+		 * so this prop is redundant — renamed to flag it for removal once call sites migrate.
 		 */
-		touchable: {
+		touchableDeprecated: {
 			type: Boolean,
 			default: true,
 		},

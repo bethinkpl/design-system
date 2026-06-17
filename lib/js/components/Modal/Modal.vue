@@ -5,7 +5,7 @@
 				<div v-if="showHeader" class="m-modal__header">
 					<slot name="header" />
 					<wnl-icon
-						touchable
+						touchable-deprecated
 						:icon="ICONS.FA_XMARK"
 						class="m-modal__header__close"
 						:size="ICON_SIZES.SMALL"

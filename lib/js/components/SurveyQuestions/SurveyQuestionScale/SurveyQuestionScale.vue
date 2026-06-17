@@ -20,7 +20,7 @@
 						:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
 						:icon="ICONS.FA_CIRCLE_QUESTION"
 						:size="ICON_SIZES.MEDIUM"
-						:touchable="false"
+						:touchable-deprecated="false"
 						@click="showModal = true"
 					/>
 				</div>

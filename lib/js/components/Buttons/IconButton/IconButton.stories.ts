@@ -41,7 +41,7 @@ const StoryTemplate: StoryFn<typeof IconButton> = (args) => ({
 		:type="type"
 		:radius="radius"
 		:color-scheme="colorScheme"
-		:touchable="touchable"
+		:touchable-deprecated="touchableDeprecated"
 		:elevation="elevation"
 		:color="color"
 		:state="state"
@@ -57,7 +57,7 @@ const args = {
 	radius: BUTTON_RADIUSES.CAPSULE,
 	label: 'Zamknij',
 	colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
-	touchable: true,
+	touchableDeprecated: true,
 	elevation: BUTTON_ELEVATIONS.NONE,
 	color: 'primary',
 	state: ICON_BUTTON_STATES.DEFAULT,
@@ -137,7 +137,7 @@ const argTypesDisabled = {
 	state: {
 		disable: true,
 	},
-	touchable: {
+	touchableDeprecated: {
 		disable: true,
 	},
 	default: {

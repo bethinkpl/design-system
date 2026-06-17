@@ -26,7 +26,7 @@
 		<icon-button
 			v-if="size !== CHIP_SIZES.X_SMALL && isRemovable"
 			class="ds-chip__remove"
-			:touchable="false"
+			:touchable-deprecated="false"
 			:state="
 				state === CHIP_STATES.DISABLED
 					? ICON_BUTTON_STATES.DISABLED
