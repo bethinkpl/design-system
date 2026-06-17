@@ -123,6 +123,25 @@
 	}
 }
 
+// The magic outlined background stack: a solid white fill clipped to `padding-box` over a
+// gradient ring clipped to `border-box`, showing through only in the 1px transparent border.
+// `$tint` adds a faint gradient over the white pill (hover / focus states); `$border` swaps the
+// gradient ring (e.g. the faded disabled variant).
+@mixin setMagicOutlinedBackground($tint: null, $border: $gradient-magic-border-angular) {
+	$fill: linear-gradient($color-default-background, $color-default-background) padding-box;
+
+	@if $tint {
+		background:
+			$tint padding-box,
+			$fill,
+			$border border-box;
+	} @else {
+		background:
+			$fill,
+			$border border-box;
+	}
+}
+
 $button-small-min-height: 28px;
 $button-medium-min-height: 32px;
 $button-large-min-height: 48px;
@@ -211,9 +230,8 @@ $button-disabled-alpha: 0.6;
 		// border with two background layers: a solid fill clipped to `padding-box` over the
 		// gradient clipped to `border-box`, showing through only in the 1px border gap. The
 		// conic gradient starts and ends on the same color so its wrap-around has no seam.
-		background:
-			linear-gradient($color-default-background, $color-default-background) padding-box,
-			$gradient-magic-border-angular border-box;
+		@include setMagicOutlinedBackground;
+
 		border: 1px solid transparent;
 		color: $color-neutral-text;
 
@@ -250,28 +268,21 @@ $button-disabled-alpha: 0.6;
 		&.-ds-active {
 			// Re-declare the full stack so the gradient ring survives, with the ghost tint
 			// layered on top.
-			background:
-				$gradient-magic-background-ghost-hovered padding-box,
-				linear-gradient($color-default-background, $color-default-background) padding-box,
-				$gradient-magic-border-angular border-box;
+			@include setMagicOutlinedBackground($tint: $gradient-magic-background-ghost-hovered);
 		}
 
 		// Focused uses its own ghost tint.
 		&:focus,
 		&.-ds-focused {
-			background:
-				$gradient-magic-background-ghost-focused padding-box,
-				linear-gradient($color-default-background, $color-default-background) padding-box,
-				$gradient-magic-border-angular border-box;
+			@include setMagicOutlinedBackground($tint: $gradient-magic-background-ghost-focused);
 		}
 
 		// Disabled drops the glow entirely and fades text/icon.
 		&.-ds-disabled,
 		&:disabled {
 			// Keep the gradient ring but drop the hover tint; the glow is removed below.
-			background:
-				linear-gradient($color-default-background, $color-default-background) padding-box,
-				$gradient-magic-border-angular-disabled border-box;
+			@include setMagicOutlinedBackground($border: $gradient-magic-border-angular-disabled);
+
 			color: $color-neutral-text-disabled;
 
 			#{$self}__icon,
