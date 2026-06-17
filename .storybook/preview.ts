@@ -152,7 +152,10 @@ export const decorators = [
 				context.globals.colorScheme === 'dark',
 			);
 			BRAND_CLASSES.forEach((cls) =>
-				document.body.classList.toggle(cls, `-ds-theme-${context.globals.brand}` === cls),
+				document.documentElement.classList.toggle(
+					cls,
+					`-ds-theme-${context.globals.brand}` === cls,
+				),
 			);
 		}
 		return story();
