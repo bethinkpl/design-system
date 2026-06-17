@@ -57,7 +57,7 @@ const args = {
 	radius: BUTTON_RADIUSES.CAPSULE,
 	label: 'Zamknij',
 	colorScheme: ICON_BUTTON_COLOR_SCHEMES.ALL_IN_COLOR,
-	touchableDeprecated: true,
+	touchableDeprecated: false,
 	elevation: BUTTON_ELEVATIONS.NONE,
 	color: 'primary',
 	state: ICON_BUTTON_STATES.DEFAULT,

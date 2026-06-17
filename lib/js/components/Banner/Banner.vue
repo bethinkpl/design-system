@@ -62,7 +62,6 @@
 						:icon="isExpanded ? ICONS.FA_CHEVRON_UP : ICONS.FA_CHEVRON_DOWN"
 						:color="ICON_BUTTON_COLORS.NEUTRAL"
 						:radius="BUTTON_RADIUSES.CAPSULE"
-						:touchable-deprecated="false"
 						@click="isExpanded = !isExpanded"
 					/>
 				</div>
@@ -72,7 +71,6 @@
 						:icon="ICONS.FA_XMARK"
 						:color="ICON_BUTTON_COLORS.NEUTRAL"
 						:radius="BUTTON_RADIUSES.CAPSULE"
-						:touchable-deprecated="false"
 						@click="$emit('close')"
 					/>
 				</div>

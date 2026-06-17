@@ -361,7 +361,7 @@ export default defineComponent({
 		 */
 		touchableDeprecated: {
 			type: Boolean,
-			default: true,
+			default: false,
 		},
 		state: {
 			type: String,

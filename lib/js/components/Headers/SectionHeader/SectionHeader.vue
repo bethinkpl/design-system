@@ -59,7 +59,6 @@
 							:icon="ICONS.FA_CIRCLE_QUESTION"
 							:size="ICON_BUTTON_SIZES.X_SMALL"
 							:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
-							:touchable-deprecated="false"
 							@click.prevent.stop="onInfoClicked"
 						/>
 					</div>

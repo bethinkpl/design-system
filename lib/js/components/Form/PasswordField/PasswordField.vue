@@ -10,7 +10,6 @@
 				:icon="eyeIcon"
 				:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
 				:size="ICON_BUTTON_SIZES.X_SMALL"
-				:touchable-deprecated="false"
 				data-test-id="password-toggle"
 				@click="isPasswordVisible = !isPasswordVisible"
 			/>
