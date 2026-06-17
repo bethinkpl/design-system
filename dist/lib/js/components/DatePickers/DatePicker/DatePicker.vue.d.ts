@@ -1194,7 +1194,7 @@ declare const _default: import('vue').DefineComponent<{
                 type: BooleanConstructor;
                 default: boolean;
             };
-            touchable: {
+            touchableDeprecated: {
                 type: BooleanConstructor;
                 default: boolean;
             };
@@ -1228,7 +1228,7 @@ declare const _default: import('vue').DefineComponent<{
                 type: BooleanConstructor;
                 default: boolean;
             };
-            touchable: {
+            touchableDeprecated: {
                 type: BooleanConstructor;
                 default: boolean;
             };
@@ -1241,7 +1241,7 @@ declare const _default: import('vue').DefineComponent<{
             size: string;
             flippedVertical: boolean;
             flippedHorizontal: boolean;
-            touchable: boolean;
+            touchableDeprecated: boolean;
             spinning: boolean;
         }, {}, {
             FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;

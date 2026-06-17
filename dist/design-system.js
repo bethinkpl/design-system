@@ -8744,7 +8744,12 @@ const vt = {
       type: Boolean,
       default: !1
     },
-    touchable: {
+    /**
+     * @deprecated Adds the `-ds-touchable` class, which enlarges the hit area to the
+     * deprecated `$DEPRECATED-min-touchable-size`. Still has effect; renamed to flag it
+     * for removal so call sites can migrate away from this layout-inflating behavior.
+     */
+    touchableDeprecated: {
       type: Boolean,
       default: !1
     },
@@ -8772,7 +8777,7 @@ function AH(e, t, a, r, o, i) {
   const l = $("font-awesome-icon");
   return u(), v("div", {
     class: P(["ds-icon", {
-      "-ds-touchable": e.touchable,
+      "-ds-touchable": e.touchableDeprecated,
       "-ds-spin": e.spinning,
       "-ds-flipped-vertical": e.flippedVertical,
       "-ds-flipped-horizontal": e.flippedHorizontal,
@@ -9453,9 +9458,15 @@ const qH = {
         return Object.values(qr).includes(e);
       }
     },
-    touchable: {
+    /**
+     * @deprecated Adds the `-ds-touchable` class, which inflates the layout footprint via
+     * the deprecated `$DEPRECATED-min-touchable-size`. The non-inflating touch target is now
+     * applied automatically on touch devices via `touchableHitArea` (`@media (pointer: coarse)`),
+     * so this prop is redundant — renamed to flag it for removal once call sites migrate.
+     */
+    touchableDeprecated: {
       type: Boolean,
-      default: !0
+      default: !1
     },
     state: {
       type: String,
@@ -9517,7 +9528,7 @@ function WH(e, t, a, r, o, i) {
       "-ds-disabled": e.state === e.ICON_BUTTON_STATES.DISABLED,
       "-ds-loading": e.state === e.ICON_BUTTON_STATES.LOADING,
       [e.colorClassName]: e.isButtonColor,
-      "-ds-touchable": e.touchable
+      "-ds-touchable": e.touchableDeprecated
     }]),
     style: kt({ color: e.computedColor }),
     onMouseover: t[0] || (t[0] = (...h) => e.mouseOver && e.mouseOver(...h)),
@@ -9565,7 +9576,7 @@ function WH(e, t, a, r, o, i) {
     }, 8, ["class", "radius", "type", "state", "elevation", "color"])
   ], 38);
 }
-const Bt = /* @__PURE__ */ x(jH, [["render", WH], ["__scopeId", "data-v-71e61279"]]), Je = {
+const Bt = /* @__PURE__ */ x(jH, [["render", WH], ["__scopeId", "data-v-999f8410"]]), Je = {
   DEFAULT: "default",
   NEUTRAL: "neutral",
   INFO: "info",
@@ -9769,7 +9780,6 @@ const Bt = /* @__PURE__ */ x(jH, [["render", WH], ["__scopeId", "data-v-71e61279
               icon: t.value ? S(W).FA_CHEVRON_UP : S(W).FA_CHEVRON_DOWN,
               color: S(Fe).NEUTRAL,
               radius: S(Er).CAPSULE,
-              touchable: !1,
               onClick: c[1] || (c[1] = (h) => t.value = !t.value)
             }, null, 8, ["size", "icon", "color", "radius"])
           ])) : z("", !0),
@@ -9779,7 +9789,6 @@ const Bt = /* @__PURE__ */ x(jH, [["render", WH], ["__scopeId", "data-v-71e61279
               icon: S(W).FA_XMARK,
               color: S(Fe).NEUTRAL,
               radius: S(Er).CAPSULE,
-              touchable: !1,
               onClick: c[2] || (c[2] = (h) => l.$emit("close"))
             }, null, 8, ["size", "icon", "color", "radius"])
           ])) : z("", !0)
@@ -9795,7 +9804,7 @@ const Bt = /* @__PURE__ */ x(jH, [["render", WH], ["__scopeId", "data-v-71e61279
       ], 2)
     ]));
   }
-}), w9 = /* @__PURE__ */ x(sU, [["__scopeId", "data-v-801e94fd"]]), Ai = {
+}), w9 = /* @__PURE__ */ x(sU, [["__scopeId", "data-v-6fa643d6"]]), Ai = {
   SMALL: "small",
   MEDIUM: "medium",
   LARGE: "large"
@@ -13073,7 +13082,7 @@ function qV(e, t, a, r, o, i) {
         O("div", IV, [
           B(e.$slots, "rightActions", {}, void 0, !0),
           J(l, {
-            touchable: "",
+            "touchable-deprecated": "",
             icon: e.ICONS.FA_XMARK,
             size: e.ICON_SIZES.SMALL,
             elevation: e.BUTTON_ELEVATIONS.X_SMALL,
@@ -13181,7 +13190,7 @@ function qV(e, t, a, r, o, i) {
     ], 16)
   ]);
 }
-const Wd = /* @__PURE__ */ x(TV, [["render", qV], ["__scopeId", "data-v-0b9f13f7"]]), jV = /* @__PURE__ */ q({
+const Wd = /* @__PURE__ */ x(TV, [["render", qV], ["__scopeId", "data-v-06f587aa"]]), jV = /* @__PURE__ */ q({
   inheritAttrs: !1,
   __name: "HelpButton",
   props: {
@@ -13205,8 +13214,7 @@ const Wd = /* @__PURE__ */ x(TV, [["render", qV], ["__scopeId", "data-v-0b9f13f7
             icon: S(W).FA_CIRCLE_QUESTION,
             color: S(Fe).NEUTRAL_WEAK,
             size: o.size,
-            state: o.isDisabled ? S(fa).DISABLED : S(fa).DEFAULT,
-            touchable: !1
+            state: o.isDisabled ? S(fa).DISABLED : S(fa).DEFAULT
           }, o.$attrs, {
             onClick: i[0] || (i[0] = (l) => a.value = !0)
           }), null, 16, ["icon", "color", "size", "state"])
@@ -13391,7 +13399,7 @@ function $V(e, t, a, r, o, i) {
         e.showHeader ? (u(), v("div", JV, [
           B(e.$slots, "header", {}, void 0, !0),
           J(l, {
-            touchable: "",
+            "touchable-deprecated": "",
             icon: e.ICONS.FA_XMARK,
             class: "m-modal__header__close",
             size: e.ICON_SIZES.SMALL,
@@ -13411,7 +13419,7 @@ function $V(e, t, a, r, o, i) {
     ], 16)
   ]);
 }
-const j9 = /* @__PURE__ */ x(QV, [["render", $V], ["__scopeId", "data-v-3f76323e"]]), eq = q({
+const j9 = /* @__PURE__ */ x(QV, [["render", $V], ["__scopeId", "data-v-1698543a"]]), eq = q({
   name: "ModalDialog",
   components: { DsModal: Wd },
   props: {
@@ -13609,7 +13617,6 @@ const Fce = /* @__PURE__ */ x(aq, [["render", rq], ["__scopeId", "data-v-0e41d81
           icon: o.value,
           color: S(Fe).NEUTRAL_WEAK,
           size: S(je).X_SMALL,
-          touchable: !1,
           "data-test-id": "password-toggle",
           onClick: l[0] || (l[0] = (c) => a.value = !a.value)
         }, null, 8, ["icon", "color", "size"])
@@ -14393,7 +14400,6 @@ function Nq(e, t, a, r, o, i) {
             color: e.ICON_BUTTON_COLORS.NEUTRAL_WEAK,
             icon: e.ICONS.FA_CIRCLE_QUESTION,
             size: e.ICON_SIZES.MEDIUM,
-            touchable: !1,
             onClick: t[2] || (t[2] = (A) => e.showModal = !0)
           }, null, 8, ["color", "icon", "size"])) : z("", !0)
         ]),
@@ -14459,7 +14465,7 @@ function Nq(e, t, a, r, o, i) {
     })
   ]);
 }
-const kce = /* @__PURE__ */ x(Cq, [["render", Nq], ["__scopeId", "data-v-f1b89f9f"]]), Pq = q({
+const kce = /* @__PURE__ */ x(Cq, [["render", Nq], ["__scopeId", "data-v-e4c637f2"]]), Pq = q({
   name: "SurveyQuestionOpenEnded",
   components: {
     SurveyQuestionTextarea: W9,
@@ -14554,7 +14560,6 @@ function Uq(e, t, a, r, o, i) {
             color: e.ICON_BUTTON_COLORS.NEUTRAL_WEAK,
             icon: e.ICONS.FA_CIRCLE_QUESTION,
             size: e.ICON_SIZES.MEDIUM,
-            touchable: !1,
             onClick: t[2] || (t[2] = (p) => e.showModal = !0)
           }, null, 8, ["color", "icon", "size"])) : z("", !0)
         ]),
@@ -14573,7 +14578,7 @@ function Uq(e, t, a, r, o, i) {
     })
   ], 2);
 }
-const Bce = /* @__PURE__ */ x(Pq, [["render", Uq], ["__scopeId", "data-v-a31e94d9"]]), wn = {
+const Bce = /* @__PURE__ */ x(Pq, [["render", Uq], ["__scopeId", "data-v-acfbdd79"]]), wn = {
   XX_SMALL: "xx-small",
   X_SMALL: "x-small",
   SMALL: "small",
@@ -14795,7 +14800,6 @@ function xq(e, t, a, r, o, i) {
               icon: e.ICONS.FA_CIRCLE_QUESTION,
               size: e.ICON_BUTTON_SIZES.X_SMALL,
               color: e.ICON_BUTTON_COLORS.NEUTRAL_WEAK,
-              touchable: !1,
               onClick: yt(e.onInfoClicked, ["prevent", "stop"])
             }, null, 8, ["icon", "size", "color", "onClick"])
           ])) : z("", !0)
@@ -14815,7 +14819,7 @@ function xq(e, t, a, r, o, i) {
     e.hasDivider ? (u(), V(h, { key: 0 })) : z("", !0)
   ], 2);
 }
-const X9 = /* @__PURE__ */ x(Gq, [["render", xq], ["__scopeId", "data-v-8e1ed803"]]), M4 = {
+const X9 = /* @__PURE__ */ x(Gq, [["render", xq], ["__scopeId", "data-v-f895f4b5"]]), M4 = {
   VERTICAL: "vertical",
   HORIZONTAL: "horizontal"
 }, $q = q({
@@ -15092,7 +15096,6 @@ const qce = /* @__PURE__ */ x(Aj, [["render", wj], ["__scopeId", "data-v-8bf644d
         i.size !== S(Li).X_SMALL && i.isRemovable ? (u(), V(S(Bt), {
           key: 2,
           class: "ds-chip__remove",
-          touchable: !1,
           state: i.state === S(ll).DISABLED ? S(fa).DISABLED : S(fa).DEFAULT,
           color: o.value,
           size: S(je).XX_SMALL,
@@ -15103,7 +15106,7 @@ const qce = /* @__PURE__ */ x(Aj, [["render", wj], ["__scopeId", "data-v-8bf644d
       ], 14, Ej);
     };
   }
-}), Dj = /* @__PURE__ */ x(Fj, [["__scopeId", "data-v-1a29cb82"]]), Oj = {
+}), Dj = /* @__PURE__ */ x(Fj, [["__scopeId", "data-v-260758b2"]]), Oj = {
   NEUTRAL_STRONG: "neutralStrong",
   NEUTRAL_WEAK: "neutralWeak"
 }, Tj = q({
@@ -15208,7 +15211,6 @@ function Uj(e, t, a, r, o, i) {
           key: 0,
           size: e.ICON_BUTTON_SIZES.MEDIUM,
           icon: e.ICONS.FA_CHEVRON_LEFT,
-          touchable: !1,
           onClick: t[1] || (t[1] = (p) => e.$emit("backClicked"))
         }, null, 8, ["size", "icon"])) : z("", !0),
         O("div", Nj, [
@@ -15250,7 +15252,6 @@ function Uj(e, t, a, r, o, i) {
         color: e.ICON_COLORS.NEUTRAL,
         icon: e.ICONS.FA_XMARK,
         size: e.ICON_BUTTON_SIZES.MEDIUM,
-        touchable: !1,
         onClick: t[3] || (t[3] = (p) => e.$emit("close"))
       }, null, 8, ["color", "icon", "size"])) : z("", !0)
     ]),
@@ -15261,7 +15262,7 @@ function Uj(e, t, a, r, o, i) {
     }, null, 8, ["size", "prominence"])) : z("", !0)
   ]);
 }
-const jce = /* @__PURE__ */ x(Tj, [["render", Uj], ["__scopeId", "data-v-fa1e7de5"]]), z4 = {
+const jce = /* @__PURE__ */ x(Tj, [["render", Uj], ["__scopeId", "data-v-02039746"]]), z4 = {
   DEFAULT: "default",
   LOADING: "loading"
 }, Gj = q({
@@ -15581,7 +15582,6 @@ const Yce = /* @__PURE__ */ x(xj, [["render", aW]]), Ep = {
                   icon: _.value,
                   size: S(je).X_SMALL,
                   state: i.value ? S(fa).DISABLED : S(fa).DEFAULT,
-                  touchable: !1,
                   onClick: A[0] || (A[0] = yt((M) => a.value = !a.value, ["stop"]))
                 }, null, 8, ["color", "radius", "icon", "size", "state"])) : p.isExpandable && !p.$slots.children ? (u(), v("span", sW, [
                   J(S(ue), {
@@ -15644,7 +15644,7 @@ const Yce = /* @__PURE__ */ x(xj, [["render", aW]]), Ep = {
       !p.isExpandable || a.value ? B(p.$slots, "children", { key: 1 }, void 0, !0) : z("", !0)
     ]));
   }
-}), Qce = /* @__PURE__ */ x(fW, [["__scopeId", "data-v-d98f6e83"]]), hW = q({
+}), Qce = /* @__PURE__ */ x(fW, [["__scopeId", "data-v-1f480e25"]]), hW = q({
   name: "MenuDivider",
   components: {
     DsDivider: va
@@ -18387,6 +18387,7 @@ function VX(e, t, a, r, o, i) {
       ])) : z("", !0),
       e.navigationItems.length > 1 ? (u(), v("div", kX, [
         J(g, {
+          "touchable-deprecated": "",
           size: e.ICON_BUTTON_SIZES.MEDIUM,
           color: e.ICON_BUTTON_COLORS.NEUTRAL,
           icon: e.ICONS.FA_ANGLE_LEFT,
@@ -18407,6 +18408,7 @@ function VX(e, t, a, r, o, i) {
           O("span", UX, K(e.t("ds.pagination.from")) + " " + K(e.lastPage), 1)
         ]),
         J(g, {
+          "touchable-deprecated": "",
           size: e.ICON_BUTTON_SIZES.MEDIUM,
           color: e.ICON_BUTTON_COLORS.NEUTRAL,
           icon: e.ICONS.FA_ANGLE_RIGHT,
@@ -18420,7 +18422,7 @@ function VX(e, t, a, r, o, i) {
     ])
   ], 2);
 }
-const d4e = /* @__PURE__ */ x(TX, [["render", VX], ["__scopeId", "data-v-7e6bcb3b"]]);
+const d4e = /* @__PURE__ */ x(TX, [["render", VX], ["__scopeId", "data-v-17c2dfe4"]]);
 var br = {
   _loadedStyleNames: /* @__PURE__ */ new Set(),
   getLoadedStyleNames: function() {
@@ -20291,6 +20293,7 @@ function dZ(e, t, a, r, o, i) {
       }, {
         reference: Q(() => [
           J(h, {
+            "touchable-deprecated": "",
             icon: e.dropdownIcon,
             size: e.ICON_BUTTON_SIZES.MEDIUM,
             color: e.ICON_BUTTON_COLORS.NEUTRAL,
@@ -20315,6 +20318,7 @@ function dZ(e, t, a, r, o, i) {
     }, {
       default: Q(() => [
         J(h, {
+          "touchable-deprecated": "",
           "data-test-selector": "overlay-header-close-button",
           icon: e.ICONS.FA_XMARK,
           size: e.ICON_BUTTON_SIZES.MEDIUM,
@@ -20326,7 +20330,7 @@ function dZ(e, t, a, r, o, i) {
     }, 8, ["placement", "text"])
   ], 2);
 }
-const u4e = /* @__PURE__ */ x(ZY, [["render", dZ], ["__scopeId", "data-v-16077e67"]]), og = {
+const u4e = /* @__PURE__ */ x(ZY, [["render", dZ], ["__scopeId", "data-v-f6b104be"]]), og = {
   SMALL: "small",
   MEDIUM: "medium"
 }, qa = {
