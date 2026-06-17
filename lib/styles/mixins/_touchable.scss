@@ -1,4 +1,4 @@
-@import '../settings/icons';
+$touchable-size: 32px;
 
 // Enlarge the touch target on touch devices without affecting the layout footprint.
 // The visual element keeps its real size; a transparent ::after extends the hit area.
@@ -8,12 +8,12 @@
 	@media (pointer: coarse) {
 		&::after {
 			content: '';
-			height: max(100%, #{$min-touchable-size});
+			height: max(100%, #{$touchable-size});
 			left: 50%;
 			position: absolute;
 			top: 50%;
 			transform: translate(-50%, -50%);
-			width: max(100%, #{$min-touchable-size});
+			width: max(100%, #{$touchable-size});
 		}
 	}
 }

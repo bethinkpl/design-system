@@ -258,8 +258,8 @@
 	&.-ds-touchable {
 		align-items: center;
 		justify-content: center;
-		min-height: $min-touchable-size;
-		min-width: $min-touchable-size;
+		min-height: $DEPRECATED-min-touchable-size;
+		min-width: $DEPRECATED-min-touchable-size;
 	}
 }
 </style>
