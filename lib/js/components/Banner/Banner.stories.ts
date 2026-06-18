@@ -40,7 +40,7 @@ const StoryTemplate: StoryFn<typeof Banner> = (args) => {
 						:is-expanded="isExpanded"
 						:is-icon-hidden-on-mobile="isIconHiddenOnMobile"
 						:size="size"
-						:title-weak="titleWeak"
+						:is-title-weak="isTitleWeak"
 						@update:isExpanded="onIsExpandedUpdated"
 				>
 				<template v-if="defaultText" #defaultText><span v-html="defaultText" /></template>
@@ -62,7 +62,7 @@ const args = {
 	icon: null,
 	isIconHiddenOnMobile: false,
 	title: 'Banner Title',
-	titleWeak: false,
+	isTitleWeak: false,
 	buttonText: '',
 	closable: false,
 	isExpanded: false,
@@ -88,7 +88,7 @@ const argTypes = {
 	title: {
 		control: 'text',
 	},
-	titleWeak: {
+	isTitleWeak: {
 		control: 'boolean',
 	},
 	buttonText: {

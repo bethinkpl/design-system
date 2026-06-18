@@ -92,11 +92,11 @@ describe('Banner', () => {
 		expect(wrapper.find('.ds-banner__inner').classes()).toContain(expectedClass);
 	});
 
-	it('renders title with weak weight when titleWeak is set', () => {
+	it('renders title with weak weight when isTitleWeak is set', () => {
 		const wrapper = mount(Banner, {
 			props: {
 				title: 'Test Banner',
-				titleWeak: true,
+				isTitleWeak: true,
 			},
 		});
 

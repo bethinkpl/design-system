@@ -22,7 +22,7 @@
 
 					<div class="ds-banner__textWrapper">
 						<div class="ds-banner__titleWrapper">
-							<div class="ds-banner__title" :class="{ '-ds-titleWeak': titleWeak }">
+							<div class="ds-banner__title" :class="{ '-ds-titleWeak': isTitleWeak }">
 								<div
 									v-if="icon && size === BANNER_SIZES.SMALL"
 									class="ds-banner__iconWrapperSmall"
@@ -349,7 +349,7 @@ const {
 	color = BANNER_COLORS.DEFAULT,
 	isIconHiddenOnMobile = false,
 	size = BANNER_SIZES.MEDIUM,
-	titleWeak = false,
+	isTitleWeak = false,
 } = defineProps<{
 	icon?: IconItem | null;
 	buttonText?: string;
@@ -358,7 +358,7 @@ const {
 	title: string;
 	isIconHiddenOnMobile?: boolean;
 	size?: BannerSize;
-	titleWeak?: boolean;
+	isTitleWeak?: boolean;
 }>();
 
 defineEmits<{
