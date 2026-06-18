@@ -279,6 +279,7 @@ export declare const data: () => {
     BANNER_COLORS: Readonly<{
         readonly DEFAULT: "default";
         readonly NEUTRAL: "neutral";
+        readonly PRIMARY: "primary";
         readonly INFO: "info";
         readonly SUCCESS: "success";
         readonly WARNING: "warning";
@@ -321,6 +322,9 @@ export declare const components: {
             size: {
                 type: import('vue').PropType<string>;
             };
+            isTitleWeak: {
+                type: import('vue').PropType<boolean>;
+            };
         }>> & Readonly<{
             onClose?: (() => any) | undefined;
             "onButton-clicked"?: (() => any) | undefined;
@@ -356,6 +360,9 @@ export declare const components: {
             size: {
                 type: import('vue').PropType<string>;
             };
+            isTitleWeak: {
+                type: import('vue').PropType<boolean>;
+            };
         }>> & Readonly<{
             onClose?: (() => any) | undefined;
             "onButton-clicked"?: (() => any) | undefined;
@@ -384,6 +391,9 @@ export declare const components: {
         };
         size: {
             type: import('vue').PropType<string>;
+        };
+        isTitleWeak: {
+            type: import('vue').PropType<boolean>;
         };
     }>> & Readonly<{
         onClose?: (() => any) | undefined;

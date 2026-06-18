@@ -3,6 +3,7 @@ import { Value } from '../../utils/type.utils';
 export declare const BANNER_COLORS: {
     readonly DEFAULT: "default";
     readonly NEUTRAL: "neutral";
+    readonly PRIMARY: "primary";
     readonly INFO: "info";
     readonly SUCCESS: "success";
     readonly WARNING: "warning";
