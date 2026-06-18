@@ -54,30 +54,15 @@ textarea {
 
 html.-ds-thick-scrollbar {
 	@media #{breakpoint-m()} {
-		@include scrollbar(15px, var(--raw-gray-100));
+		@include scrollbar(15px, var(--color-neutral-background-hovered));
 	}
 }
 
 html {
-	// Scrollbars
-	@include scrollbar(2px, var(--raw-gray-100));
+	@include scrollbar(2px, var(--color-neutral-background-hovered));
 
 	box-sizing: border-box;
 	overflow-y: auto; // Without this style, we always display a scrollbar that covers the scrollbar in a container that is full-width. eg. scrollable-main-container
-}
-
-// Dark theme scrollbars — flip the thumb to a dark gray. The track auto-adapts via the mixin's
-// `--color-default-background` default. Both `.-ds-dark` and `.-ds-thick-scrollbar` are on <html>.
-.-ds-dark {
-	@include scrollbar(2px, var(--raw-gray-800));
-}
-
-// Thick variant: higher specificity than `html.-ds-thick-scrollbar` (0,1,1) is required, and the
-// 15px size must be re-asserted. Both classes are on <html>, so the compound selector is used.
-.-ds-thick-scrollbar.-ds-dark {
-	@media #{breakpoint-m()} {
-		@include scrollbar(15px, var(--raw-gray-800));
-	}
 }
 
 *,
