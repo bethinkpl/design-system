@@ -58,6 +58,10 @@ describe('Banner', () => {
 			expectedClass: '-ds-neutral',
 		},
 		{
+			color: BANNER_COLORS.PRIMARY,
+			expectedClass: '-ds-primary',
+		},
+		{
 			color: BANNER_COLORS.INFO,
 			expectedClass: '-ds-info',
 		},
@@ -86,6 +90,17 @@ describe('Banner', () => {
 		});
 
 		expect(wrapper.find('.ds-banner__inner').classes()).toContain(expectedClass);
+	});
+
+	it('renders title with weak weight when titleWeak is set', () => {
+		const wrapper = mount(Banner, {
+			props: {
+				title: 'Test Banner',
+				titleWeak: true,
+			},
+		});
+
+		expect(wrapper.find('.ds-banner__title').classes()).toContain('-ds-titleWeak');
 	});
 
 	it('handles closable', async () => {

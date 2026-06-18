@@ -22,7 +22,7 @@
 
 					<div class="ds-banner__textWrapper">
 						<div class="ds-banner__titleWrapper">
-							<div class="ds-banner__title">
+							<div class="ds-banner__title" :class="{ '-ds-titleWeak': titleWeak }">
 								<div
 									v-if="icon && size === BANNER_SIZES.SMALL"
 									class="ds-banner__iconWrapperSmall"
@@ -201,6 +201,13 @@
 			border-color: $color-accent-border-weak;
 		}
 
+		&.-ds-primary {
+			--ds-banner-title-color: #{$color-primary-text-strong};
+
+			background-color: $color-primary-background;
+			border-color: $color-primary-border-weak;
+		}
+
 		&.-ds-small {
 			#{$self}__header {
 				padding: 0;
@@ -250,6 +257,10 @@
 		color: var(--ds-banner-title-color);
 		display: flex;
 		gap: $space-3;
+
+		&.-ds-titleWeak {
+			@include heading-s-default-regular;
+		}
 	}
 
 	&__iconWrapperSmall {
@@ -338,6 +349,7 @@ const {
 	color = BANNER_COLORS.DEFAULT,
 	isIconHiddenOnMobile = false,
 	size = BANNER_SIZES.MEDIUM,
+	titleWeak = false,
 } = defineProps<{
 	icon?: IconItem | null;
 	buttonText?: string;
@@ -346,6 +358,7 @@ const {
 	title: string;
 	isIconHiddenOnMobile?: boolean;
 	size?: BannerSize;
+	titleWeak?: boolean;
 }>();
 
 defineEmits<{
@@ -360,6 +373,7 @@ const iconColor = computed(() => {
 	const colorMap: Record<BannerColor, FeatureIconColor> = {
 		[BANNER_COLORS.DEFAULT]: FEATURE_ICON_COLOR.NEUTRAL,
 		[BANNER_COLORS.NEUTRAL]: FEATURE_ICON_COLOR.NEUTRAL,
+		[BANNER_COLORS.PRIMARY]: FEATURE_ICON_COLOR.PRIMARY,
 		[BANNER_COLORS.INFO]: FEATURE_ICON_COLOR.INFO,
 		[BANNER_COLORS.SUCCESS]: FEATURE_ICON_COLOR.SUCCESS,
 		[BANNER_COLORS.WARNING]: FEATURE_ICON_COLOR.WARNING,
@@ -376,6 +390,7 @@ function useBannerClasses() {
 		const colorMap: Record<BannerColor, string> = {
 			[BANNER_COLORS.NEUTRAL]: '-ds-neutral',
 			[BANNER_COLORS.DEFAULT]: '-ds-default',
+			[BANNER_COLORS.PRIMARY]: '-ds-primary',
 			[BANNER_COLORS.FAIL]: '-ds-fail',
 			[BANNER_COLORS.INFO]: '-ds-info',
 			[BANNER_COLORS.SUCCESS]: '-ds-success',

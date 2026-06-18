@@ -3,6 +3,7 @@ import { Value } from '../../utils/type.utils';
 export const BANNER_COLORS = {
 	DEFAULT: 'default',
 	NEUTRAL: 'neutral',
+	PRIMARY: 'primary',
 	INFO: 'info',
 	SUCCESS: 'success',
 	WARNING: 'warning',
