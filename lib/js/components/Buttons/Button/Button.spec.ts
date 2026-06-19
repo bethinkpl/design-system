@@ -9,6 +9,7 @@ import {
 	BUTTON_STATES,
 	BUTTON_TYPES,
 } from './Button.consts';
+import { GRADIENT_MAGIC_ICON_DISABLED_ID, GRADIENT_MAGIC_ICON_ID } from './useMagicGradient';
 import Icon, { ICONS } from '../../Icons/Icon';
 
 describe('Button', () => {
@@ -35,6 +36,12 @@ describe('Button', () => {
 		[{ props: { color: BUTTON_COLORS.PRIMARY }, expectedClass: '-ds-color-primary' }],
 		[{ props: { color: BUTTON_COLORS.DANGER }, expectedClass: '-ds-color-danger' }],
 		[{ props: { color: BUTTON_COLORS.SUCCESS }, expectedClass: '-ds-color-success' }],
+		[
+			{
+				props: { color: BUTTON_COLORS.MAGIC, type: BUTTON_TYPES.OUTLINED },
+				expectedClass: '-ds-color-magic',
+			},
+		],
 		[{ props: { radius: BUTTON_RADIUSES.ROUNDED }, expectedClass: '-ds-rounded' }],
 		[{ props: { state: BUTTON_STATES.HOVERED }, expectedClass: '-ds-hovered' }],
 		[{ props: { state: BUTTON_STATES.FOCUSED }, expectedClass: '-ds-focused' }],
@@ -43,6 +50,34 @@ describe('Button', () => {
 	])('correct class for props', ({ props, expectedClass }) => {
 		const outlinedButton = createComponent(props);
 		expect(outlinedButton.classes()).toContain(expectedClass);
+	});
+
+	it('magic button fills with the magic gradient', () => {
+		const component = createComponent({ color: BUTTON_COLORS.MAGIC });
+
+		expect(component.element.style.getPropertyValue('--ds-magic-fill')).toBe(
+			`url(#${GRADIENT_MAGIC_ICON_ID})`,
+		);
+	});
+
+	it('disabled magic button fills with the disabled magic gradient', () => {
+		const component = createComponent({
+			color: BUTTON_COLORS.MAGIC,
+			state: BUTTON_STATES.DISABLED,
+		});
+
+		expect(component.element.style.getPropertyValue('--ds-magic-fill')).toBe(
+			`url(#${GRADIENT_MAGIC_ICON_DISABLED_ID})`,
+		);
+	});
+
+	it('non-magic button has no magic fill style', () => {
+		const component = createComponent({
+			color: BUTTON_COLORS.PRIMARY,
+			state: BUTTON_STATES.DISABLED,
+		});
+
+		expect(component.element.style.getPropertyValue('--ds-magic-fill')).toBe('');
 	});
 
 	it('loading should have correct text container and loading icon', () => {

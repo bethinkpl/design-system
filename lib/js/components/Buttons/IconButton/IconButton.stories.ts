@@ -45,7 +45,11 @@ const StoryTemplate: StoryFn<typeof IconButton> = (args) => ({
 		:elevation="elevation"
 		:color="color"
 		:state="state"
-	><span v-if="label !== ''">{{label}}</span></icon-button>
+	>
+		<template v-if="label !== ''" #default>
+			<span>{{label}}</span>
+		</template>
+	</icon-button>
 	</div>`,
 });
 
