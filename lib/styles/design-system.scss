@@ -13,6 +13,9 @@
 @import 'settings/colors/raw-wnl';
 @import 'settings/colors/raw-bodywork';
 @import 'settings/colors/raw-mc';
+@import 'settings/colors/raw-wnl-dark';
+@import 'settings/colors/raw-bodywork-dark';
+@import 'settings/colors/raw-mc-dark';
 @import 'settings/typography/variables-css';
 
 // Mixins
@@ -33,6 +36,7 @@
 @import 'settings/colors/tokens-wnl-variables';
 @import 'settings/colors/tokens-bodywork-variables';
 @import 'settings/colors/tokens-mc-variables';
+@import 'settings/colors/tokens-variables-dark';
 @import 'settings/colors/magic-variables';
 @import 'settings/gradients-variables';
 
@@ -53,13 +57,12 @@ textarea {
 
 html.-ds-thick-scrollbar {
 	@media #{breakpoint-m()} {
-		@include scrollbar(15px, var(--raw-gray-100));
+		@include scrollbar(15px, var(--color-neutral-background-hovered));
 	}
 }
 
 html {
-	// Scrollbars
-	@include scrollbar(2px, var(--raw-gray-100));
+	@include scrollbar(2px, var(--color-neutral-background-hovered));
 
 	box-sizing: border-box;
 	overflow-y: auto; // Without this style, we always display a scrollbar that covers the scrollbar in a container that is full-width. eg. scrollable-main-container

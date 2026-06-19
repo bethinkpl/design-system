@@ -1,4 +1,4 @@
-@mixin scrollbar($size, $foreground-color, $background-color: white) {
+@mixin scrollbar($size, $foreground-color, $background-color: var(--color-default-background)) {
 	::-webkit-scrollbar {
 		height: $size;
 		width: $size;
@@ -13,7 +13,11 @@
 	}
 }
 
-@mixin scrollbar-on-self($size, $foreground-color, $background-color: white) {
+@mixin scrollbar-on-self(
+	$size,
+	$foreground-color,
+	$background-color: var(--color-default-background)
+) {
 	&::-webkit-scrollbar {
 		height: $size;
 		width: $size;
