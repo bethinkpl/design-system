@@ -22,6 +22,7 @@ export const BUTTON_COLORS = {
 	DANGER: 'danger',
 	SUCCESS: 'success',
 	INVERTED: 'inverted',
+	MAGIC: 'magic',
 } as const;
 
 export type ButtonColor = Value<typeof BUTTON_COLORS>;

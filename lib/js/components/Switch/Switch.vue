@@ -78,7 +78,7 @@ $switch-transition: all $default-transition-time ease-out;
 	$root: &;
 
 	background-color: $color-default-background;
-	border: 1px solid $color-neutral-border;
+	border: 1px solid $color-neutral-border-weak;
 	border-radius: $radius-xs;
 	display: inline-flex;
 	max-width: 100%;
@@ -107,7 +107,7 @@ $switch-transition: all $default-transition-time ease-out;
 		}
 
 		#{$root}__label {
-			color: $color-neutral-text-heavy;
+			color: $color-primary-text-strong;
 		}
 	}
 
@@ -213,7 +213,7 @@ $switch-transition: all $default-transition-time ease-out;
 			}
 
 			#{$root}__label {
-				color: $color-neutral-text-heavy;
+				color: $color-primary-text-strong;
 			}
 		}
 

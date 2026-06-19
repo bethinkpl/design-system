@@ -1,0 +1,34 @@
+@import 'colors/magic';
+
+:root {
+	--gradient-magic-background-ghost-hovered: linear-gradient(
+		100deg,
+		rgba(#{$gradient-magic-color-1-rgb}, 0.12) 7.16%,
+		rgba(#{$gradient-magic-color-2-rgb}, 0.12) 36.18%,
+		rgba(#{$gradient-magic-color-3-rgb}, 0.12) 65.19%,
+		rgba(#{$gradient-magic-color-4-rgb}, 0.12) 95.08%
+	);
+	--gradient-magic-background-ghost-focused: linear-gradient(
+		100deg,
+		rgba(#{$gradient-magic-color-1-rgb}, 0.12) 7.16%,
+		rgba(#{$gradient-magic-color-2-rgb}, 0.12) 36.18%,
+		rgba(#{$gradient-magic-color-3-rgb}, 0.12) 65.19%,
+		rgba(#{$gradient-magic-color-4-rgb}, 0.12) 95.08%
+	);
+	--gradient-magic-border-angular: conic-gradient(
+		from 90deg,
+		#{$gradient-magic-color-4} 0%,
+		#{$gradient-magic-color-1} 25%,
+		#{$gradient-magic-color-2} 50%,
+		#{$gradient-magic-color-3} 75%,
+		#{$gradient-magic-color-4} 100%
+	);
+	--gradient-magic-border-angular-disabled: conic-gradient(
+		from 90deg,
+		rgba(#{$gradient-magic-color-4-rgb}, 0.4) 0%,
+		rgba(#{$gradient-magic-color-1-rgb}, 0.4) 25%,
+		rgba(#{$gradient-magic-color-2-rgb}, 0.4) 50%,
+		rgba(#{$gradient-magic-color-3-rgb}, 0.4) 75%,
+		rgba(#{$gradient-magic-color-4-rgb}, 0.4) 100%
+	);
+}

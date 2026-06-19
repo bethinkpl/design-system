@@ -2,6 +2,7 @@
 @import '../settings/spacings';
 @import '../settings/radiuses';
 @import '../settings/buttons';
+@import '../settings/gradients';
 @import '../settings/shadows';
 @import '../settings/icons';
 @import '../settings/typography/tokens';
@@ -122,6 +123,25 @@
 	}
 }
 
+// The magic outlined background stack: a solid white fill clipped to `padding-box` over a
+// gradient ring clipped to `border-box`, showing through only in the 1px transparent border.
+// `$tint` adds a faint gradient over the white pill (hover / focus states); `$border` swaps the
+// gradient ring (e.g. the faded disabled variant).
+@mixin setMagicOutlinedBackground($tint: null, $border: $gradient-magic-border-angular) {
+	$fill: linear-gradient($color-default-background, $color-default-background) padding-box;
+
+	@if $tint {
+		background:
+			$tint padding-box,
+			$fill,
+			$border border-box;
+	} @else {
+		background:
+			$fill,
+			$border border-box;
+	}
+}
+
 $button-small-min-height: 28px;
 $button-medium-min-height: 32px;
 $button-large-min-height: 48px;
@@ -201,6 +221,81 @@ $button-disabled-alpha: 0.6;
 		}
 	}
 
+	// `magic` is a gradient color that doesn't fit the flat color maps. Outlined only:
+	// a white fill over a blurred gradient glow.
+	&.-ds-color-magic.-ds-outlined {
+		$magic-glow-spread: 1px;
+
+		// `border-image` can't follow `border-radius`, so the gradient ring is a transparent
+		// border with two background layers: a solid fill clipped to `padding-box` over the
+		// gradient clipped to `border-box`, showing through only in the 1px border gap. The
+		// conic gradient starts and ends on the same color so its wrap-around has no seam.
+		@include setMagicOutlinedBackground;
+
+		border: 1px solid transparent;
+		color: $color-neutral-text;
+
+		#{$self}__icon {
+			color: $color-neutral-icon;
+		}
+
+		#{$self}__loadingIcon {
+			svg path {
+				fill: var(--ds-magic-fill, currentColor);
+			}
+		}
+
+		// Blurred conic gradient creating the glow.
+		&::after {
+			background: $gradient-magic-border-angular;
+			border-radius: inherit;
+			bottom: -$magic-glow-spread;
+			content: '';
+			display: block;
+			filter: blur(4px);
+			left: -$magic-glow-spread;
+			position: absolute;
+			right: -$magic-glow-spread;
+			top: -$magic-glow-spread;
+			transform: translateZ(-1px);
+			z-index: -1;
+		}
+
+		// Hover / pressed add a faint gradient tint over the white pill.
+		&:hover,
+		&.-ds-hovered,
+		&:active,
+		&.-ds-active {
+			// Re-declare the full stack so the gradient ring survives, with the ghost tint
+			// layered on top.
+			@include setMagicOutlinedBackground($tint: $gradient-magic-background-ghost-hovered);
+		}
+
+		// Focused uses its own ghost tint.
+		&:focus,
+		&.-ds-focused {
+			@include setMagicOutlinedBackground($tint: $gradient-magic-background-ghost-focused);
+		}
+
+		// Disabled drops the glow entirely and fades text/icon.
+		&.-ds-disabled,
+		&:disabled {
+			// Keep the gradient ring but drop the hover tint; the glow is removed below.
+			@include setMagicOutlinedBackground($border: $gradient-magic-border-angular-disabled);
+
+			color: $color-neutral-text-disabled;
+
+			#{$self}__icon,
+			#{$self}__loadingIcon {
+				color: $color-neutral-icon-disabled;
+			}
+
+			&::after {
+				display: none;
+			}
+		}
+	}
+
 	&.-ds-large {
 		@include button-l-default-bold-uppercase;
 
@@ -240,7 +335,7 @@ $button-disabled-alpha: 0.6;
 	}
 
 	&:not(.-ds-text) {
-		min-width: 100px;
+		min-width: 80px;
 
 		&.-ds-rounded {
 			border-radius: $radius-s;
