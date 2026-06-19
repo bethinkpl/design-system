@@ -70,6 +70,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly INVERTED: "inverted";
         readonly WARNING: "warning";
         readonly INFO: "info";
+        readonly MAGIC: "magic";
     };
     ICON_BUTTON_SIZES: {
         readonly XX_SMALL: "xx-small";
@@ -806,6 +807,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly INVERTED: "inverted";
             readonly WARNING: "warning";
             readonly INFO: "info";
+            readonly MAGIC: "magic";
         }>;
         SECTION_HEADER_MOBILE_LAYOUTS: Readonly<{
             readonly VERTICAL: "vertical";
@@ -1027,6 +1029,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 validator(value: import('../../../utils/type.utils').Value<typeof import('../../Buttons/IconButton').ICON_BUTTON_STATES>): boolean;
             };
         }>, {
+            ICON_BUTTON_STATE_MAP: Record<import('../../Buttons/IconButton').IconButtonState, import('../../..').ButtonState>;
             isHovered: import('vue').Ref<boolean>;
             mouseOver: () => void;
             mouseLeave: () => void;
@@ -1350,6 +1353,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly INVERTED: "inverted";
                 readonly WARNING: "warning";
                 readonly INFO: "info";
+                readonly MAGIC: "magic";
             }>;
             BUTTON_COLORS: Readonly<{
                 readonly PRIMARY: "primary";
@@ -1357,6 +1361,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly DANGER: "danger";
                 readonly SUCCESS: "success";
                 readonly INVERTED: "inverted";
+                readonly MAGIC: "magic";
             }>;
         }, {
             iconSize(): string;

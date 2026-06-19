@@ -29,6 +29,7 @@ export declare const ICON_BUTTON_COLORS: {
     readonly INVERTED: "inverted";
     readonly WARNING: "warning";
     readonly INFO: "info";
+    readonly MAGIC: "magic";
 };
 export type IconButtonColor = Value<typeof ICON_BUTTON_COLORS>;
 export declare const ICON_BUTTON_STATES: {

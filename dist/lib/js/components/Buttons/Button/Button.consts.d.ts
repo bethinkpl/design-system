@@ -18,6 +18,7 @@ export declare const BUTTON_COLORS: {
     readonly DANGER: "danger";
     readonly SUCCESS: "success";
     readonly INVERTED: "inverted";
+    readonly MAGIC: "magic";
 };
 export type ButtonColor = Value<typeof BUTTON_COLORS>;
 export declare const BUTTON_RADIUSES: {

@@ -1,5 +1,5 @@
-import { ButtonElevation, ButtonRadius } from '../Button';
-import { ICON_BUTTON_STATES, IconButtonColor, IconButtonColorScheme, IconButtonSize, IconButtonType } from './IconButton.consts';
+import { ButtonElevation, ButtonRadius, ButtonState } from '../Button';
+import { ICON_BUTTON_STATES, IconButtonColor, IconButtonColorScheme, IconButtonSize, IconButtonState, IconButtonType } from './IconButton.consts';
 import { Value } from '../../../utils/type.utils';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -48,6 +48,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         validator(value: Value<typeof ICON_BUTTON_STATES>): boolean;
     };
 }>, {
+    ICON_BUTTON_STATE_MAP: Record<IconButtonState, ButtonState>;
     isHovered: import('vue').Ref<boolean>;
     mouseOver: () => void;
     mouseLeave: () => void;
@@ -371,6 +372,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly INVERTED: "inverted";
         readonly WARNING: "warning";
         readonly INFO: "info";
+        readonly MAGIC: "magic";
     }>;
     BUTTON_COLORS: Readonly<{
         readonly PRIMARY: "primary";
@@ -378,6 +380,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly DANGER: "danger";
         readonly SUCCESS: "success";
         readonly INVERTED: "inverted";
+        readonly MAGIC: "magic";
     }>;
 }, {
     iconSize(): string;

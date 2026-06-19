@@ -58,6 +58,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly INVERTED: "inverted";
         readonly WARNING: "warning";
         readonly INFO: "info";
+        readonly MAGIC: "magic";
     }>;
     ICON_BUTTON_STATES: Readonly<{
         readonly DEFAULT: "default";
@@ -469,6 +470,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             validator(value: Value<typeof ICON_BUTTON_STATES>): boolean;
         };
     }>, {
+        ICON_BUTTON_STATE_MAP: Record<import('../../Buttons/IconButton').IconButtonState, import('../../..').ButtonState>;
         isHovered: import('vue').Ref<boolean>;
         mouseOver: () => void;
         mouseLeave: () => void;
@@ -792,6 +794,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly INVERTED: "inverted";
             readonly WARNING: "warning";
             readonly INFO: "info";
+            readonly MAGIC: "magic";
         }>;
         BUTTON_COLORS: Readonly<{
             readonly PRIMARY: "primary";
@@ -799,6 +802,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly DANGER: "danger";
             readonly SUCCESS: "success";
             readonly INVERTED: "inverted";
+            readonly MAGIC: "magic";
         }>;
     }, {
         iconSize(): string;

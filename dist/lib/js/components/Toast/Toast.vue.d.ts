@@ -55,6 +55,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly DANGER: "danger";
         readonly SUCCESS: "success";
         readonly INVERTED: "inverted";
+        readonly MAGIC: "magic";
     }>;
     BUTTON_RADIUSES: Readonly<{
         readonly CAPSULE: "capsule";
