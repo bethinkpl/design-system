@@ -207,6 +207,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_LOCATION_DOT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_LOCK_KEYHOLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MAP: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_MARKER: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MAGNIFYING_GLASS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MEDAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MEMO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -247,6 +248,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_SHIELD_HALVED: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SIDEBAR_FLIP: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SIGNAL: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_SIGN_POST: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SITEMAP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SITEMAP: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SLIDERS: import('@fortawesome/fontawesome-common-types').IconDefinition;
