@@ -14,7 +14,7 @@
 
 			[colorClassName]: isButtonColor,
 
-			'-ds-touchable': touchable,
+			'-ds-touchable': touchableDeprecated,
 		}"
 		:style="{ color: computedColor }"
 		@mouseover="mouseOver"
@@ -63,6 +63,7 @@
 @import '../../../../styles/settings/media-queries';
 @import '../../../../styles/settings/spacings';
 @import '../../../../styles/settings/typography/tokens';
+@import '../../../../styles/mixins/touchable';
 
 @mixin setIconButtonAdditions($border: null, $icon: null) {
 	@if $border {
@@ -131,10 +132,13 @@
 		}
 	}
 
+	@include touchableHitArea;
+
 	align-items: center;
 	color: $color-primary-text;
 	cursor: pointer;
 	display: inline-flex;
+	position: relative;
 	transition: color ease-in-out $default-transition-time;
 
 	&:disabled,
@@ -282,8 +286,8 @@
 	&.-ds-touchable {
 		align-items: center;
 		justify-content: center;
-		min-height: $min-touchable-size;
-		min-width: $min-touchable-size;
+		min-height: $DEPRECATED-min-touchable-size;
+		min-width: $DEPRECATED-min-touchable-size;
 	}
 }
 </style>
@@ -388,9 +392,15 @@ export default defineComponent({
 				return Object.values(BUTTON_ELEVATIONS).includes(value);
 			},
 		},
-		touchable: {
+		/**
+		 * @deprecated Adds the `-ds-touchable` class, which inflates the layout footprint via
+		 * the deprecated `$DEPRECATED-min-touchable-size`. The non-inflating touch target is now
+		 * applied automatically on touch devices via `touchableHitArea` (`@media (pointer: coarse)`),
+		 * so this prop is redundant — renamed to flag it for removal once call sites migrate.
+		 */
+		touchableDeprecated: {
 			type: Boolean,
-			default: true,
+			default: false,
 		},
 		state: {
 			type: String,

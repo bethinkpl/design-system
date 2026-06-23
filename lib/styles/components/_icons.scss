@@ -11,8 +11,8 @@
 		cursor: pointer;
 		display: flex;
 		justify-content: center;
-		min-height: $min-touchable-size;
-		min-width: $min-touchable-size;
+		min-height: $DEPRECATED-min-touchable-size;
+		min-width: $DEPRECATED-min-touchable-size;
 	}
 
 	&.-ds-spin {

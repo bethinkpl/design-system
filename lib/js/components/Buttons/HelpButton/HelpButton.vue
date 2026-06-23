@@ -5,7 +5,6 @@
 			:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
 			:size="size"
 			:state="isDisabled ? ICON_BUTTON_STATES.DISABLED : ICON_BUTTON_STATES.DEFAULT"
-			:touchable="false"
 			v-bind="$attrs"
 			@click="isOpen = true"
 		/>

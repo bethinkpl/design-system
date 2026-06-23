@@ -83,6 +83,7 @@
 			>
 				<template #reference>
 					<ds-icon-button
+						touchable-deprecated
 						:icon="dropdownIcon"
 						:size="ICON_BUTTON_SIZES.MEDIUM"
 						:color="ICON_BUTTON_COLORS.NEUTRAL"
@@ -107,6 +108,7 @@
 			:text="t('ds.overlayHeader.close')"
 		>
 			<ds-icon-button
+				touchable-deprecated
 				data-test-selector="overlay-header-close-button"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"

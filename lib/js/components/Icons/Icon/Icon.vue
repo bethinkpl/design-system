@@ -2,7 +2,7 @@
 	<div
 		class="ds-icon"
 		:class="{
-			'-ds-touchable': touchable,
+			'-ds-touchable': touchableDeprecated,
 			'-ds-spin': spinning,
 			'-ds-flipped-vertical': flippedVertical,
 			'-ds-flipped-horizontal': flippedHorizontal,
@@ -55,7 +55,12 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
-		touchable: {
+		/**
+		 * @deprecated Adds the `-ds-touchable` class, which enlarges the hit area to the
+		 * deprecated `$DEPRECATED-min-touchable-size`. Still has effect; renamed to flag it
+		 * for removal so call sites can migrate away from this layout-inflating behavior.
+		 */
+		touchableDeprecated: {
 			type: Boolean,
 			default: false,
 		},

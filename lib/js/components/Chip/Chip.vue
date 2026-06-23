@@ -26,7 +26,6 @@
 		<icon-button
 			v-if="size !== CHIP_SIZES.X_SMALL && isRemovable"
 			class="ds-chip__remove"
-			:touchable="false"
 			:state="
 				state === CHIP_STATES.DISABLED
 					? ICON_BUTTON_STATES.DISABLED
@@ -43,8 +42,10 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/animations';
+@import '../../../styles/settings/icons';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/radiuses';
+@import '../../../styles/mixins/touchable';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 
@@ -216,7 +217,10 @@ $chip-colors: (
 	padding: $space-2 $space-4;
 
 	&.-ds-interactive {
+		@include touchableHitArea;
+
 		cursor: pointer;
+		position: relative;
 		transition: background-color ease-in-out $default-transition-time;
 	}
 

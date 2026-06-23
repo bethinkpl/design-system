@@ -15,7 +15,6 @@
 					v-if="hasBackButton"
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:icon="ICONS.FA_CHEVRON_LEFT"
-					:touchable="false"
 					@click="$emit('backClicked')"
 				/>
 				<div class="ds-drawerHeader__textWrapper">
@@ -59,7 +58,6 @@
 				:color="ICON_COLORS.NEUTRAL"
 				:icon="ICONS.FA_XMARK"
 				:size="ICON_BUTTON_SIZES.MEDIUM"
-				:touchable="false"
 				@click="$emit('close')"
 			/>
 		</div>

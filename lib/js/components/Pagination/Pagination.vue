@@ -69,6 +69,7 @@
 
 			<div v-if="navigationItems.length > 1" class="ds-pagination__items -ds-compact">
 				<icon-button
+					touchable-deprecated
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:icon="ICONS.FA_ANGLE_LEFT"
@@ -97,6 +98,7 @@
 				</div>
 
 				<icon-button
+					touchable-deprecated
 					:size="ICON_BUTTON_SIZES.MEDIUM"
 					:color="ICON_BUTTON_COLORS.NEUTRAL"
 					:icon="ICONS.FA_ANGLE_RIGHT"

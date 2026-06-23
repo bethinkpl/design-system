@@ -1,0 +1,19 @@
+$touchable-size: 32px;
+
+// Enlarge the touch target on touch devices without affecting the layout footprint.
+// The visual element keeps its real size; a transparent ::after extends the hit area.
+// NOTE: the host element must establish a positioning context (e.g. `position: relative`)
+// so the absolutely-positioned ::after anchors to it.
+@mixin touchableHitArea {
+	@media (pointer: coarse) {
+		&::after {
+			content: '';
+			height: max(100%, #{$touchable-size});
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transform: translate(-50%, -50%);
+			width: max(100%, #{$touchable-size});
+		}
+	}
+}

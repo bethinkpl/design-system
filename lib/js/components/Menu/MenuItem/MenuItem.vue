@@ -33,7 +33,6 @@
 									? ICON_BUTTON_STATES.DISABLED
 									: ICON_BUTTON_STATES.DEFAULT
 							"
-							:touchable="false"
 							@click.stop="isExpanded = !isExpanded"
 						/>
 						<span

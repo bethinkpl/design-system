@@ -16,7 +16,7 @@ const StoryTemplate: StoryFn<typeof Icon> = (args) => ({
 		return args;
 	},
 	template:
-		'<div class="sbIconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
+		'<div class="sbIconList__singleIcon"><icon :icon="ICONS[icon]" :size="size" :touchable-deprecated="touchableDeprecated" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" /></div>',
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
@@ -30,7 +30,7 @@ const args = {
 	size: ICON_SIZES.MEDIUM,
 	icon: 'HEAD_WITH_QUESTION_MARK',
 	spinning: false,
-	touchable: false,
+	touchableDeprecated: false,
 	rotation: null,
 	flippedVertical: false,
 	flippedHorizontal: false,
@@ -68,7 +68,7 @@ const StoryAllIconsTemplate: StoryFn<typeof Icon> = (args) => ({
 	template:
 		'<div class="sbIconList">' +
 		'<div v-for="(icon, iconName) in ICONS" :key="iconName" class="sbIconList__icon">' +
-		'<icon :icon="icon" :size="size" :touchable="touchable" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" />' +
+		'<icon :icon="icon" :size="size" :touchable-deprecated="touchableDeprecated" :spinning="spinning" :rotation="rotation" :flipped-vertical="flippedVertical" :flipped-horizontal="flippedHorizontal" />' +
 		'<div>{{iconName}}</div>' +
 		'</div>' +
 		'</div>',

@@ -29,8 +29,7 @@ const meta: Meta<ComponentProps<typeof HelpButton> & ComponentSlots<typeof HelpB
 			<template v-else #modal="{onClose}">
 				<modal @close-modal="onClose">test</modal>
 			</template>
-		</HelpButton>
-		<ds-banner style="margin-top: 20px;" :color="BANNER_COLORS.WARNING" title="Uwaga, z uwagi na brak lokalizacji w DS, na Modalu (tworzonym za pomocą propsa modalTitle i slota modalContent) nie wyświetla się Button w footerze do zamykania modala. Poprawimy to w ramach LMS-2762. Jako alternatywa można skorzystać ze slota modal i wstawić do modala co się chce ;)" />`,
+		</HelpButton>`,
 	}),
 	argTypes: {
 		modalTitle: {
