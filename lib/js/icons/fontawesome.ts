@@ -126,6 +126,7 @@ import { faLocationDot } from '@fortawesome/pro-regular-svg-icons/faLocationDot'
 import { faLockKeyhole } from '@fortawesome/pro-regular-svg-icons/faLockKeyhole';
 import { faMap } from '@fortawesome/pro-regular-svg-icons/faMap';
 import { faMagnifyingGlass } from '@fortawesome/pro-regular-svg-icons/faMagnifyingGlass';
+import { faMarker } from '@fortawesome/pro-regular-svg-icons/faMarker';
 import { faMedal } from '@fortawesome/pro-regular-svg-icons/faMedal';
 import { faMemo } from '@fortawesome/pro-regular-svg-icons/faMemo';
 import { faMemoCircleInfo } from '@fortawesome/pro-regular-svg-icons/faMemoCircleInfo';
@@ -158,6 +159,7 @@ import { faShieldHalved } from '@fortawesome/pro-regular-svg-icons/faShieldHalve
 import { faSidebarFlip } from '@fortawesome/pro-regular-svg-icons/faSidebarFlip';
 import { faSignal } from '@fortawesome/pro-regular-svg-icons/faSignal';
 import { faSitemap } from '@fortawesome/pro-regular-svg-icons/faSitemap';
+import { faSignPost } from '@fortawesome/pro-regular-svg-icons/faSignPost';
 import { faSliders } from '@fortawesome/pro-regular-svg-icons/faSliders';
 import { faSpellCheck } from '@fortawesome/pro-regular-svg-icons/faSpellCheck';
 import { faSquare } from '@fortawesome/pro-regular-svg-icons/faSquare';
@@ -441,6 +443,7 @@ export const FONTAWESOME_ICONS = {
 	FA_LOCATION_DOT: faLocationDot,
 	FA_LOCK_KEYHOLE: faLockKeyhole,
 	FA_MAP: faMap,
+	FA_MARKER: faMarker,
 	FA_MAGNIFYING_GLASS: faMagnifyingGlass,
 	FA_MEDAL: faMedal,
 	FA_MEMO_SOLID: fasMemo,
@@ -481,6 +484,7 @@ export const FONTAWESOME_ICONS = {
 	FA_SHIELD_HALVED: faShieldHalved,
 	FA_SIDEBAR_FLIP: faSidebarFlip,
 	FA_SIGNAL: faSignal,
+	FA_SIGN_POST: faSignPost,
 	FA_SITEMAP_SOLID: fasSitemap,
 	FA_SITEMAP: faSitemap,
 	FA_SLIDERS: faSliders,
