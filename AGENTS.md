@@ -70,7 +70,6 @@ yarn format:fix       # Auto-fix formatting
 
 ## Releasing
 
-1. Bump version in `package.json`.
-2. Wait for the `Build and Deploy Dist` GitHub Action to finish.
-3. Create a new tag and release on GitHub.
-4. Run `npm publish --access public`.
+Trigger the **Publish to NPM** GitHub Actions workflow manually: Actions → Publish to NPM → Run workflow → select `patch`, `minor`, or `major`.
+
+The workflow automatically bumps the version in `package.json`, builds and commits dist and Storybook, tags the commit, creates a GitHub release, and publishes to npm using OIDC Trusted Publishing (no `NPM_TOKEN` needed).
