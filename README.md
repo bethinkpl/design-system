@@ -27,4 +27,4 @@ If you use the review command more than once and the changes are not visible in 
 ## Releasing
 Build, deploy Storybook and publish to NPM by triggering the **Publish to NPM** action manually: Actions → Publish to NPM → Run workflow
 
-> **Note:** `NPM_TOKEN` must be set in repository secrets. The recommended token type is a [Granular Access Token](https://docs.npmjs.com/creating-and-viewing-access-tokens#creating-granular-access-tokens-on-the-website) scoped to this package only. Avoid running `npm publish` locally.
+> **Note:** Publishing uses [npm OIDC Trusted Publishing](https://docs.npmjs.com/generating-provenance-statements) — no `NPM_TOKEN` secret is needed. Avoid running `npm publish` locally.
