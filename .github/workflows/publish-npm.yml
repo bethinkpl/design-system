@@ -24,6 +24,7 @@ jobs:
     if: github.ref == 'refs/heads/master'
     permissions:
       contents: write
+      id-token: write
     env:
       FONT_AWESOME_AUTH_TOKEN: ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
     steps:
@@ -34,6 +35,8 @@ jobs:
         with:
           node-version-file: 'package.json'
           registry-url: 'https://registry.npmjs.org'
+      - name: Upgrade npm for Trusted Publishing
+        run: npm install -g npm@latest
       - uses: actions/cache@v5
         name: Cache node_modules
         id: cache-node-modules
@@ -65,8 +68,8 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Publish
-        # NODE_AUTH_TOKEN is read by the .npmrc written by setup-node (registry-url triggers this).
-        # See: https://github.com/actions/setup-node/blob/0355742c943ddb13ca8a6b700f824231caa91e75/docs/advanced-usage.md#publish-to-npmjs-and-gpr-with-npm
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        # OIDC Trusted Publishing: npm exchanges the GitHub-issued id-token for a
+        # short-lived publish credential. No NPM_TOKEN needed.
+        # Requires id-token: write permission (above) and a Trusted Publisher
+        # configured on the package at npmjs.com.
+        run: npm publish --access public --provenance
