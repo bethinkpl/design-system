@@ -14,7 +14,7 @@ export const TEXT_GROUP_SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
 	LARGE: 'large',
-};
+} as const;
 
 export const TEXT_GROUP_ALIGNS = {
 	LEFT: 'left',

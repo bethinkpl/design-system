@@ -206,7 +206,7 @@ describe('Card', () => {
 		expect(component.find('.ds-card').classes()).toContain('-ds-backgroundNeutral');
 	});
 
-	it('should not give the ribbon a radius by default', () => {
+	it('should not give the ribbon a radius when only hasRibbonRadius is set', () => {
 		const component = createComponent({
 			props: { hasRibbon: true, hasRibbonRadius: true },
 		});
