@@ -13,7 +13,18 @@ export const TEXT_GROUP_SIZES = {
 	X_SMALL: 'x-small',
 	SMALL: 'small',
 	MEDIUM: 'medium',
+	LARGE: 'large',
 };
+
+export const TEXT_GROUP_ALIGNS = {
+	LEFT: 'left',
+	CENTER: 'center',
+} as const;
+
+export const TEXT_GROUP_MAIN_TEXT_COLORS = {
+	NEUTRAL: 'neutral',
+	PRIMARY: 'primary',
+} as const;
 
 export const TEXT_GROUP_STATES = {
 	DEFAULT: 'default',
@@ -28,3 +39,6 @@ export type TextGroupLoadingSize =
 	(typeof TEXT_GROUP_LOADING_SIZES)[keyof typeof TEXT_GROUP_LOADING_SIZES];
 export type TextGroupSize = (typeof TEXT_GROUP_SIZES)[keyof typeof TEXT_GROUP_SIZES];
 export type TextGroupState = (typeof TEXT_GROUP_STATES)[keyof typeof TEXT_GROUP_STATES];
+export type TextGroupAlign = (typeof TEXT_GROUP_ALIGNS)[keyof typeof TEXT_GROUP_ALIGNS];
+export type TextGroupMainTextColor =
+	(typeof TEXT_GROUP_MAIN_TEXT_COLORS)[keyof typeof TEXT_GROUP_MAIN_TEXT_COLORS];

@@ -4,13 +4,16 @@
 		:class="{
 			'-ds-x-small': size === TEXT_GROUP_SIZES.X_SMALL,
 			'-ds-small': size === TEXT_GROUP_SIZES.SMALL,
+			'-ds-large': size === TEXT_GROUP_SIZES.LARGE,
+
+			'-ds-align-center': align === TEXT_GROUP_ALIGNS.CENTER,
 
 			'-ds-hovered': state === TEXT_GROUP_STATES.HOVERED,
 			'-ds-loading': isLoading,
 			'-ds-disabled': state === TEXT_GROUP_STATES.DISABLED,
 
 			'-ds-interactive': isInteractive,
-			'-ds-selected': isSelected,
+			'-ds-mainTextColor-primary': mainTextColor === TEXT_GROUP_MAIN_TEXT_COLORS.PRIMARY,
 
 			[loadingSizeClassName]: isLoading,
 
@@ -100,9 +103,6 @@ $text-group-colors: (
 		'main-text-color': $color-neutral-text-strong,
 		'main-text-color-hovered': $color-neutral-text-strong-hovered,
 		'main-text-color-disabled': $color-neutral-text-strong-disabled,
-		'main-text-color-selected': $color-primary-text,
-		'main-text-color-selected-hovered': $color-primary-text-hovered,
-		'main-text-color-selected-disabled': $color-primary-text-disabled,
 		'supporting-text-color': $color-neutral-text,
 		'supporting-text-color-hovered': $color-neutral-text-hovered,
 		'supporting-text-color-disabled': $color-neutral-text-disabled,
@@ -114,9 +114,6 @@ $text-group-colors: (
 		'main-text-color': $color-neutral-text-heavy,
 		'main-text-color-hovered': $color-neutral-text-heavy-hovered,
 		'main-text-color-disabled': $color-neutral-text-heavy-disabled,
-		'main-text-color-selected': $color-primary-text,
-		'main-text-color-selected-hovered': $color-primary-text-hovered,
-		'main-text-color-selected-disabled': $color-primary-text-disabled,
 		'supporting-text-color': $color-neutral-text,
 		'supporting-text-color-hovered': $color-neutral-text-hovered,
 		'supporting-text-color-disabled': $color-neutral-text-disabled,
@@ -164,25 +161,6 @@ $text-group-colors: (
 
 		#{$self}__supporting {
 			color: map-get($map, 'supporting-text-color-disabled');
-		}
-	}
-
-	&.-ds-selected {
-		#{$self}__main {
-			color: map-get($map, 'main-text-color-selected');
-		}
-
-		&.-ds-interactive:hover,
-		&.-ds-hovered {
-			#{$self}__main {
-				color: map-get($map, 'main-text-color-selected-hovered');
-			}
-		}
-
-		&.-ds-disabled {
-			#{$self}__main {
-				color: map-get($map, 'main-text-color-selected-disabled');
-			}
 		}
 	}
 }
@@ -302,6 +280,40 @@ $text-group-colors: (
 		}
 	}
 
+	&.-ds-large {
+		#{$self}__main {
+			@include text-l-compact-bold;
+		}
+
+		#{$self}__supporting {
+			@include text-m-compact-regular;
+		}
+	}
+
+	&.-ds-align-center {
+		align-items: center;
+		text-align: center;
+	}
+
+	&.-ds-mainTextColor-primary {
+		#{$self}__main {
+			color: $color-primary-text;
+		}
+
+		&.-ds-interactive:hover,
+		&.-ds-hovered {
+			#{$self}__main {
+				color: $color-primary-text-hovered;
+			}
+		}
+
+		&.-ds-disabled {
+			#{$self}__main {
+				color: $color-primary-text-disabled;
+			}
+		}
+	}
+
 	&.-ds-interactive:hover,
 	&.-ds-hovered {
 		cursor: pointer;
@@ -346,9 +358,13 @@ import { throttle } from 'lodash';
 import { useElementSize } from '@vueuse/core';
 import DsSkeleton from '../Skeleton/Skeleton.vue';
 import {
+	TEXT_GROUP_ALIGNS,
 	TEXT_GROUP_LOADING_SIZES,
+	TEXT_GROUP_MAIN_TEXT_COLORS,
 	TEXT_GROUP_SIZES,
 	TEXT_GROUP_STATES,
+	TextGroupAlign,
+	TextGroupMainTextColor,
 	TextGroupProminence,
 	TextGroupLoadingSize,
 	TextGroupSize,
@@ -359,6 +375,8 @@ import DsTooltip from '../Tooltip';
 
 const {
 	size = TEXT_GROUP_SIZES.MEDIUM,
+	align = TEXT_GROUP_ALIGNS.LEFT,
+	mainTextColor = TEXT_GROUP_MAIN_TEXT_COLORS.NEUTRAL,
 	prominence = TEXT_GROUP_PROMINENCE.DEFAULT,
 	eyebrowText,
 	eyebrowTextEllipsis = false,
@@ -370,7 +388,6 @@ const {
 	supportingTextEllipsis = false,
 	isInteractive = true,
 	skeletonLoadingSize = TEXT_GROUP_LOADING_SIZES.LARGE,
-	isSelected = false,
 	state = TEXT_GROUP_STATES.DEFAULT,
 	isSupportingTextTooltipEnabled = false,
 	isSupportingTextTooltipEnabledOnMobile = true,
@@ -378,6 +395,8 @@ const {
 	supportingTextTooltipContent,
 } = defineProps<{
 	size?: TextGroupSize;
+	align?: TextGroupAlign;
+	mainTextColor?: TextGroupMainTextColor;
 	prominence?: TextGroupProminence;
 	eyebrowText?: string | null;
 	eyebrowTextEllipsis?: boolean;
@@ -389,7 +408,6 @@ const {
 	supportingTextEllipsis?: boolean;
 	isInteractive?: boolean;
 	skeletonLoadingSize?: TextGroupLoadingSize;
-	isSelected?: boolean;
 	state?: TextGroupState;
 	isSupportingTextTooltipEnabled?: boolean;
 	isSupportingTextTooltipEnabledOnMobile?: boolean;
