@@ -3,7 +3,7 @@ import { ComponentMountingOptions, mount } from '@vue/test-utils';
 import { h } from 'vue';
 
 import Card from './Card.vue';
-import { CARD_PADDING_SIZES } from './Card.consts';
+import { CARD_BACKGROUND_COLORS, CARD_PADDING_SIZES } from './Card.consts';
 
 describe('Card', () => {
 	const createComponent = (options: ComponentMountingOptions<typeof Card> = {}) => {
@@ -176,5 +176,65 @@ describe('Card', () => {
 		});
 
 		expect(component.find('.ds-card').classes()).toContain('-ds-flat');
+	});
+
+	it('should not set no-radius class by default', () => {
+		const component = createComponent();
+
+		expect(component.find('.ds-card').classes()).not.toContain('-ds-noRadius');
+	});
+
+	it('should set no-radius class when hasRadius is false', () => {
+		const component = createComponent({
+			props: { hasRadius: false },
+		});
+
+		expect(component.find('.ds-card').classes()).toContain('-ds-noRadius');
+	});
+
+	it('should not set neutral background class by default', () => {
+		const component = createComponent();
+
+		expect(component.find('.ds-card').classes()).not.toContain('-ds-backgroundNeutral');
+	});
+
+	it('should set neutral background class when backgroundColor is neutral', () => {
+		const component = createComponent({
+			props: { backgroundColor: CARD_BACKGROUND_COLORS.NEUTRAL },
+		});
+
+		expect(component.find('.ds-card').classes()).toContain('-ds-backgroundNeutral');
+	});
+
+	it('should not give the ribbon a radius by default', () => {
+		const component = createComponent({
+			props: { hasRibbon: true, hasRibbonRadius: true },
+		});
+
+		expect(component.find('.-ds-radius-bottom').exists()).toBe(false);
+	});
+
+	it('should give the ribbon a radius when hasRibbonRadius and card has no radius', () => {
+		const component = createComponent({
+			props: { hasRibbon: true, hasRibbonRadius: true, hasRadius: false },
+		});
+
+		expect(component.find('.-ds-radius-bottom').exists()).toBe(true);
+	});
+
+	it('should not give the ribbon a radius when hasRadius is false but hasRibbonRadius is false', () => {
+		const component = createComponent({
+			props: { hasRibbon: true, hasRibbonRadius: false, hasRadius: false },
+		});
+
+		expect(component.find('.-ds-radius-bottom').exists()).toBe(false);
+	});
+
+	it('should give the ribbon a radius when hasRibbonRadius and card is flat', () => {
+		const component = createComponent({
+			props: { hasRibbon: true, hasRibbonRadius: true, isFlat: true },
+		});
+
+		expect(component.find('.-ds-radius-bottom').exists()).toBe(true);
 	});
 });

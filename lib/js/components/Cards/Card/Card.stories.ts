@@ -2,9 +2,10 @@ import Card from './Card.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
-	CARD_BORDER_COLORS,
-	CARD_BORDER_POSITIONS,
-	CARD_BORDER_SIZES,
+	CARD_BACKGROUND_COLORS,
+	CARD_RIBBON_COLORS,
+	CARD_RIBBON_POSITIONS,
+	CARD_RIBBON_SIZES,
 	CARD_PADDING_SIZES,
 } from './Card.consts';
 import { LOADING_BAR_COLORS } from '../../LoadingBar';
@@ -44,10 +45,12 @@ const args = {
 	footerHasPadding: false,
 	paddingSize: CARD_PADDING_SIZES.SMALL,
 	dividerUnderHeader: false,
-	hasBorder: false,
-	borderPosition: CARD_BORDER_POSITIONS.TOP,
-	borderSize: CARD_BORDER_SIZES.LARGE,
-	borderColor: CARD_BORDER_COLORS.NEUTRAL_HEAVY,
+	hasRibbon: false,
+	hasRadius: true,
+	backgroundColor: CARD_BACKGROUND_COLORS.DEFAULT,
+	ribbonPosition: CARD_RIBBON_POSITIONS.TOP,
+	ribbonSize: CARD_RIBBON_SIZES.LARGE,
+	ribbonColor: CARD_RIBBON_COLORS.NEUTRAL_HEAVY,
 	hasRibbonRadius: false,
 	hasLoadingBar: false,
 	loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
@@ -62,17 +65,21 @@ const argTypes = {
 		control: 'text',
 	},
 	footer: { control: 'text' },
-	borderPosition: {
+	backgroundColor: {
 		control: 'select',
-		options: Object.values(CARD_BORDER_POSITIONS),
+		options: Object.values(CARD_BACKGROUND_COLORS),
 	},
-	borderSize: {
+	ribbonPosition: {
 		control: 'select',
-		options: Object.values(CARD_BORDER_SIZES),
+		options: Object.values(CARD_RIBBON_POSITIONS),
 	},
-	borderColor: {
+	ribbonSize: {
 		control: 'select',
-		options: Object.values(CARD_BORDER_COLORS),
+		options: Object.values(CARD_RIBBON_SIZES),
+	},
+	ribbonColor: {
+		control: 'select',
+		options: Object.values(CARD_RIBBON_COLORS),
 	},
 	hasRibbonRadius: {
 		control: 'boolean',
