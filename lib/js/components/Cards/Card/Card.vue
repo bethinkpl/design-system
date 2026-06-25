@@ -192,6 +192,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
+import { RemovedProp } from '../../../utils/type.utils';
 import DsDivider from '../../Divider/Divider.vue';
 import DsLoadingBar, { LOADING_BAR_COLORS, LoadingBarColors } from '../../LoadingBar';
 import DsContainerRibbon from '../../ContainerRibbon/ContainerRibbon.vue';
@@ -246,6 +247,16 @@ const {
 	loadingBarTime?: string;
 	isFlat?: boolean;
 	isContentScrollable?: boolean;
+
+	// Renamed props kept as removal markers so existing usages fail type-checking.
+	/** @deprecated renamed to `hasRibbon` */
+	hasBorder?: RemovedProp<'renamed to hasRibbon'>;
+	/** @deprecated renamed to `ribbonPosition` */
+	borderPosition?: RemovedProp<'renamed to ribbonPosition'>;
+	/** @deprecated renamed to `ribbonSize` */
+	borderSize?: RemovedProp<'renamed to ribbonSize'>;
+	/** @deprecated renamed to `ribbonColor` */
+	borderColor?: RemovedProp<'renamed to ribbonColor'>;
 }>();
 
 defineSlots<{
