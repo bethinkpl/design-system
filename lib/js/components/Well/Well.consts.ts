@@ -1,4 +1,5 @@
 import { Value } from '../../utils/type.utils';
+import { CONTAINER_RIBBON_COLORS, CONTAINER_RIBBON_SIZES } from '../ContainerRibbon';
 
 export const WELL_PADDINGS = {
 	SMALL: 'small',
@@ -21,3 +22,18 @@ export const WELL_COLORS = {
 export type WellColor = Value<typeof WELL_COLORS>;
 
 export const WELL_DEFAULT_COLOR = WELL_COLORS.NEUTRAL;
+
+export const WELL_RIBBON_COLORS = CONTAINER_RIBBON_COLORS;
+
+export type WellRibbonColor = Value<typeof WELL_RIBBON_COLORS>;
+
+export const WELL_RIBBON_SIZES = CONTAINER_RIBBON_SIZES;
+
+export type WellRibbonSize = Value<typeof WELL_RIBBON_SIZES>;
+
+export const WELL_RIBBON_POSITIONS = {
+	TOP: 'top',
+	LEFT: 'left',
+} as const;
+
+export type WellRibbonPosition = Value<typeof WELL_RIBBON_POSITIONS>;
