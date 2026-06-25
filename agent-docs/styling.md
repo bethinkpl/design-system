@@ -20,6 +20,7 @@ lib/js/styles/
   ColorsThemes/            # theme overrides
   ColorsTokensLms/         # LMS color tokens
   ColorsTokensPrimaryBodywork/
+  ColorsTokensPrimaryMedcourses/
   ColorsTokensPrimaryWnl/  # WNL color tokens
   Spacings/
   TypographyTokensLms/     # LMS typography tokens
@@ -78,9 +79,10 @@ Both commands require a `JSON_BIN_X_ACCESS_KEY` in `.env`. After running, commit
 
 ## Color themes
 
-The design system supports three themes, each with its own token set:
+The design system supports four themes, each with its own token set:
 - **LMS** (`ColorsTokensLms`, `TypographyTokensLms`) — default for the learning platform
 - **Primary WNL** (`ColorsTokensPrimaryWnl`) — WNL brand colors
 - **Primary Bodywork** (`ColorsTokensPrimaryBodywork`) — Bodywork brand colors
+- **Primary Medcourses** (`ColorsTokensPrimaryMedcourses`) — Medcourses brand colors
 
 Theme tokens follow the same variable naming convention — swapping the import path changes the theme.

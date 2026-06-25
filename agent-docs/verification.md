@@ -37,13 +37,13 @@ Check:
 | `yarn lint` | ESLint (scripts) + Stylelint (SCSS) |
 | `yarn lint:fix` | Auto-fix lint issues |
 | `yarn build` | Vite library build |
-| `yarn storybook:build` | Build static Storybook to `public/storybook/` |
+| `yarn storybook:build` | Build static Storybook to `docs/` |
 
 ## Before releasing
 
 1. Run the full quality check: `yarn format:fix && yarn test && yarn ts:check && yarn lint`
 2. Confirm the Storybook build succeeds: `yarn storybook:build`
 3. Bump the version in `package.json`
-4. Wait for the `Build and Deploy Dist` GitHub Action
+4. Wait for the `Build dist on trigger` GitHub Action
 5. Create a tag and release on GitHub
 6. Run `npm publish --access public`

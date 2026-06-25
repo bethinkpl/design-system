@@ -46,9 +46,9 @@ export const Interactive: Story = {
 |----------|-------------|
 | Standalone component | `'Components/ComponentName'` |
 | Grouped component | `'Components/Category/ComponentName'` |
-| Foundation / tokens | `'Foundations/ComponentName'` |
+| Foundation / tokens | `'foundations/ComponentName'` |
 
-The story sort order is: Foundations first, then Components. Within Foundations, Colors and Design Tokens appear first.
+The `foundations/` segment is lowercase (e.g. `'foundations/Borders'`, `'foundations/Design Tokens/Color Tokens/LMS'`); `Components/` is capitalised. The story sort order is: foundations first, then Components. Within foundations, Colors and Design Tokens appear first.
 
 ## Figma link
 
