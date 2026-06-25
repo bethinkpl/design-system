@@ -228,6 +228,7 @@ import { faSitemap as fasSitemap } from '@fortawesome/pro-solid-svg-icons/faSite
 import { faMemo as fasMemo } from '@fortawesome/pro-solid-svg-icons/faMemo';
 import { faSquareCheck as fasSquareCheck } from '@fortawesome/pro-solid-svg-icons/faSquareCheck';
 import { faSquareList as fasSquareList } from '@fortawesome/pro-solid-svg-icons/faSquareList';
+import { faSparkles as fasSparkles } from '@fortawesome/pro-solid-svg-icons/faSparkles';
 import { faStar as fasStar } from '@fortawesome/pro-solid-svg-icons/faStar';
 import { faStethoscope } from '@fortawesome/pro-regular-svg-icons/faStethoscope';
 import { faStopwatch as fasStopwach } from '@fortawesome/pro-solid-svg-icons/faStopwatch';
@@ -524,6 +525,7 @@ export const FONTAWESOME_ICONS = {
 	FA_VIDEO_SOLID: fasVideo,
 	FA_VOLUME_HIGH_SOLID: fasVolumeHigh,
 	FA_SPARKLES: faSparkles,
+	FA_SPARKLES_SOLID: fasSparkles,
 	FA_WAND_MAGIC_SPARKLES: faWandMagicSparkles,
 	FA_WINDOW_MAXIMIZE: faWindowMaximize,
 	FA_XMARK: faXmark,
