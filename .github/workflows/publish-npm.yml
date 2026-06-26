@@ -33,10 +33,11 @@ jobs:
           fetch-depth: 0
       - uses: actions/setup-node@v6
         with:
+          # engines.node is pinned to ^24.5.0 because Node 24.5.0+ bundles npm >= 11.5.1,
+          # the minimum that supports OIDC Trusted Publishing (`npm publish --provenance`).
+          # No separate `npm install -g` is needed.
           node-version-file: 'package.json'
           registry-url: 'https://registry.npmjs.org'
-      - name: Upgrade npm for Trusted Publishing
-        run: npm install -g npm@11.17.0
       - uses: actions/cache@v5
         name: Cache node_modules
         id: cache-node-modules

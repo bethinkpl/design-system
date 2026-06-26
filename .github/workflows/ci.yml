@@ -14,11 +14,11 @@ jobs:
     env:
       FONT_AWESOME_AUTH_TOKEN: ${{ secrets.FONT_AWESOME_AUTH_TOKEN }}
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
-          node-version: '20.9.0'
-      - uses: actions/cache@v4
+          node-version-file: 'package.json'
+      - uses: actions/cache@v5
         name: Cache node_modules
         id: cache-node-modules
         with:
