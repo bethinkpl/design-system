@@ -4,6 +4,7 @@ import { initializePrimeVue } from '../lib/js';
 import { setup } from '@storybook/vue3';
 import { i18n } from './i18n';
 import { SUPPORTED_LOCALE } from '../lib/js/i18n';
+import { disableRemovedProps } from './disable-removed-props';
 
 const customViewports = {
 	mobile: {
@@ -105,6 +106,8 @@ export const parameters = {
 		},
 	},
 };
+
+export const argTypesEnhancers = [disableRemovedProps];
 
 export const globalTypes = {
 	locale: {
