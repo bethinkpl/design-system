@@ -87,11 +87,9 @@ const WithActionsSlotTemplate: StoryFn<typeof ActionContent> = (args) => {
 	return {
 		components: { ActionContent, DsButton },
 		setup() {
-			return args;
-		},
-		data() {
 			return {
-				ICONS: Object.freeze(ICONS),
+				...args,
+				ICONS,
 				BUTTON_COLORS,
 				BUTTON_SIZES,
 				BUTTON_TYPES,
