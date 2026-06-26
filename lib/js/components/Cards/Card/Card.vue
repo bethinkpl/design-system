@@ -4,7 +4,7 @@
 			'ds-card',
 			{
 				'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
-				'-ds-leftBorder':
+				'-ds-leftRibbon':
 					hasRibbon && !hasLoadingBar && ribbonPosition === CARD_RIBBON_POSITIONS.LEFT,
 				'-ds-flat': isFlat,
 				'-ds-noRadius': !hasRadius,
@@ -94,7 +94,7 @@
 		}
 	}
 
-	&.-ds-leftBorder {
+	&.-ds-leftRibbon {
 		flex-direction: row;
 	}
 
@@ -157,7 +157,7 @@
 		}
 	}
 
-	// the border container is added to avoid adding overflow hidden to the card itself
+	// the ribbon container is added to avoid adding overflow hidden to the card itself
 	// which would clip floating elements rendered within the card (e.g. dropdowns)
 	&__ribbon {
 		display: flex;
@@ -169,7 +169,7 @@
 			overflow: hidden;
 		}
 
-		#{$root}:not(.-ds-flat).-ds-leftBorder & {
+		#{$root}:not(.-ds-flat).-ds-leftRibbon & {
 			border-bottom-left-radius: $card-border-radius;
 			border-top-left-radius: $card-border-radius;
 			border-top-right-radius: 0;
@@ -179,7 +179,7 @@
 			border-radius: 0;
 		}
 
-		.-ds-leftBorder & {
+		.-ds-leftRibbon & {
 			height: 100%;
 			left: 0;
 			position: absolute;
