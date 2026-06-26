@@ -53,71 +53,57 @@
 		flex-direction: row;
 	}
 
+	// box-shadow is used instead of border so the border doesn't add to the well's size
 	&.-ds-hasBorder {
-		border: $border-xs solid transparent;
+		box-shadow: inset 0 0 0 $border-xs var(--ds-well-border-color);
 
 		// when the well is square it spans edge-to-edge, so only top/bottom rules are drawn
 		&.-ds-noRadius {
-			border-left: 0;
-			border-right: 0;
+			box-shadow:
+				inset 0 $border-xs 0 0 var(--ds-well-border-color),
+				inset 0 (-$border-xs) 0 0 var(--ds-well-border-color);
 		}
 	}
 
 	&.-ds-accent {
-		background-color: $color-accent-background;
+		--ds-well-border-color: #{$color-accent-border-weak};
 
-		&.-ds-hasBorder {
-			border-color: $color-accent-border-weak;
-		}
+		background-color: $color-accent-background;
 	}
 	&.-ds-primary {
-		background-color: $color-primary-background;
+		--ds-well-border-color: #{$color-primary-border-weak};
 
-		&.-ds-hasBorder {
-			border-color: $color-primary-border-weak;
-		}
+		background-color: $color-primary-background;
 	}
 	&.-ds-fail {
-		background-color: $color-fail-background;
+		--ds-well-border-color: #{$color-fail-border-weak};
 
-		&.-ds-hasBorder {
-			border-color: $color-fail-border-weak;
-		}
+		background-color: $color-fail-background;
 	}
 	&.-ds-info {
-		background-color: $color-info-background;
+		--ds-well-border-color: #{$color-info-border-weak};
 
-		&.-ds-hasBorder {
-			border-color: $color-info-border-weak;
-		}
+		background-color: $color-info-background;
 	}
 	&.-ds-inverted {
-		background-color: $color-default-background;
+		--ds-well-border-color: #{$color-neutral-border-weak};
 
-		&.-ds-hasBorder {
-			border-color: $color-neutral-border-weak;
-		}
+		background-color: $color-default-background;
 	}
 	&.-ds-neutral {
-		background-color: $color-neutral-background;
+		--ds-well-border-color: #{$color-neutral-border-weak};
 
-		&.-ds-hasBorder {
-			border-color: $color-neutral-border-weak;
-		}
+		background-color: $color-neutral-background;
 	}
 	&.-ds-success {
-		background-color: $color-success-background;
+		--ds-well-border-color: #{$color-success-border-weak};
 
-		&.-ds-hasBorder {
-			border-color: $color-success-border-weak;
-		}
+		background-color: $color-success-background;
 	}
 	&.-ds-warning {
-		background-color: $color-warning-background;
+		--ds-well-border-color: #{$color-warning-border-weak};
 
-		&.-ds-hasBorder {
-			border-color: $color-warning-border-weak;
-		}
+		background-color: $color-warning-background;
 	}
 
 	// the border container is added to avoid adding overflow hidden to the well itself
