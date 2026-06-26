@@ -75,6 +75,9 @@ export const Interactive: Story = {
 		content:
 			'<h3 style="margin-top: 0">Content</h3>' +
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+		hasRadius: true,
+		hasBorder: false,
+		hasRibbon: false,
 	} as Args,
 };
 
