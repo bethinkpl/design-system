@@ -55,7 +55,7 @@ describe('Well', () => {
 	it('should not render a ribbon by default', () => {
 		const component = createComponent();
 
-		expect(component.find('.ds-well__border').exists()).toBe(false);
+		expect(component.find('.ds-well__ribbon').exists()).toBe(false);
 		expect(component.find('.ds-container-ribbon').exists()).toBe(false);
 	});
 
