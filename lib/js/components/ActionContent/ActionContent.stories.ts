@@ -4,6 +4,7 @@ import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button/But
 import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
+import { toRefs } from 'vue';
 
 export default {
 	title: 'Components/ActionContent',
@@ -14,11 +15,9 @@ const StoryTemplate: StoryFn<typeof ActionContent> = (args) => {
 	return {
 		components: { ActionContent },
 		setup() {
-			return args;
-		},
-		data() {
 			return {
-				ICONS: Object.freeze(ICONS),
+				...toRefs(args),
+				ICONS,
 			};
 		},
 		template: `
@@ -88,7 +87,7 @@ const WithActionsSlotTemplate: StoryFn<typeof ActionContent> = (args) => {
 		components: { ActionContent, DsButton },
 		setup() {
 			return {
-				...args,
+				...toRefs(args),
 				ICONS,
 				BUTTON_COLORS,
 				BUTTON_SIZES,
