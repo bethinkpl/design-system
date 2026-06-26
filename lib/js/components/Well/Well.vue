@@ -12,7 +12,7 @@
 			},
 		]"
 	>
-		<div v-if="hasRibbon" class="ds-well__border">
+		<div v-if="hasRibbon" class="ds-well__ribbon">
 			<ds-container-ribbon
 				:size="ribbonSize"
 				:color="ribbonColor"
@@ -122,7 +122,7 @@
 
 	// the border container is added to avoid adding overflow hidden to the well itself
 	// which would clip the accessory slot rendered above its top edge
-	&__border {
+	&__ribbon {
 		border-top-left-radius: $radius-m;
 		border-top-right-radius: $radius-m;
 		display: flex;
@@ -234,7 +234,7 @@ const ribbonLayout = computed(() => {
 		[WELL_RIBBON_POSITIONS.TOP]: CONTAINER_RIBBON_LAYOUTS.HORIZONTAL,
 		[WELL_RIBBON_POSITIONS.LEFT]: CONTAINER_RIBBON_LAYOUTS.VERTICAL,
 	};
-	return layoutMap[ribbonPosition] || CONTAINER_RIBBON_LAYOUTS.HORIZONTAL;
+	return layoutMap[ribbonPosition];
 });
 
 const ribbonRadius = computed(() => {
