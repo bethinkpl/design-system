@@ -228,7 +228,7 @@ const ribbonRadius = computed(() => {
 		[WELL_RIBBON_POSITIONS.TOP]: CONTAINER_RIBBON_RADIUSES.BOTTOM,
 		[WELL_RIBBON_POSITIONS.LEFT]: CONTAINER_RIBBON_RADIUSES.RIGHT,
 	};
-	// when the well is rounded the outer corners are clipped by .ds-well__border,
+	// when the well is rounded the outer corners are clipped by .ds-well__ribbon,
 	// so the ribbon only needs its own radius on the inner edge of a square well
 	return hasRadius
 		? CONTAINER_RIBBON_RADIUSES.NONE
