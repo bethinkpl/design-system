@@ -12,7 +12,7 @@
 			},
 		]"
 	>
-		<div v-if="hasRibbon || hasLoadingBar" class="ds-card__border">
+		<div v-if="hasRibbon || hasLoadingBar" class="ds-card__ribbon">
 			<ds-container-ribbon
 				v-if="hasRibbon && !hasLoadingBar"
 				:size="ribbonSize"
@@ -159,7 +159,7 @@
 
 	// the border container is added to avoid adding overflow hidden to the card itself
 	// which would clip floating elements rendered within the card (e.g. dropdowns)
-	&__border {
+	&__ribbon {
 		display: flex;
 		flex-shrink: 0;
 
