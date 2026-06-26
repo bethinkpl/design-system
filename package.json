@@ -122,5 +122,13 @@
     "vue": ">=3.5.0",
     "vue-i18n": ">=9.8.0"
   },
+  "dependenciesMeta": {
+    "esbuild": {
+      "built": true
+    },
+    "vue-demi": {
+      "built": true
+    }
+  },
   "packageManager": "yarn@4.17.0"
 }
