@@ -18,9 +18,9 @@
   ],
   "license": "UNLICENSED",
   "engines": {
-    "yarn": ">=1.22.1",
-    "npm": ">=6.0.0",
-    "node": "^16.13.0 || ^18.17.0 || ^20.9.0 || ^22.0.0 || ^24.0.0"
+    "yarn": "^4.17.0",
+    "npm": ">=11.5.1",
+    "node": "^24.5.0"
   },
   "scripts": {
     "build": "vite build",
@@ -122,5 +122,5 @@
     "vue": ">=3.5.0",
     "vue-i18n": ">=9.8.0"
   },
-  "packageManager": "yarn@4.11.0"
+  "packageManager": "yarn@4.17.0"
 }
