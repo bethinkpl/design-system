@@ -115,6 +115,9 @@ export const WithMultipleChips: Story = {
 	},
 	args: {
 		padding: WELL_PADDINGS.SMALL,
+		hasRadius: true,
+		hasBorder: false,
+		hasRibbon: false,
 	},
 };
 
@@ -127,6 +130,8 @@ export const WithRibbon: Story = {
 		content:
 			'<h3 style="margin-top: 0">Content</h3>' +
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+		hasRadius: true,
+		hasBorder: false,
 	} as Args,
 };
 
@@ -140,6 +145,7 @@ export const WithLeftRibbonNoRadius: Story = {
 		content:
 			'<h3 style="margin-top: 0">Content</h3>' +
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+		hasBorder: false,
 	} as Args,
 };
 
@@ -151,5 +157,7 @@ export const WithBorder: Story = {
 		content:
 			'<h3 style="margin-top: 0">Content</h3>' +
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+		hasRadius: true,
+		hasRibbon: false,
 	} as Args,
 };
