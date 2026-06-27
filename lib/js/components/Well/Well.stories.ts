@@ -4,6 +4,7 @@ import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
 import Well from './Well.vue';
 import {
 	WELL_COLORS,
+	WELL_DEFAULT_COLOR,
 	WELL_PADDINGS,
 	WELL_RIBBON_COLORS,
 	WELL_RIBBON_POSITIONS,
@@ -78,6 +79,10 @@ export const Interactive: Story = {
 		hasRadius: true,
 		hasBorder: false,
 		hasRibbon: false,
+		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
+		ribbonColor: WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
+		ribbonSize: WELL_RIBBON_SIZES.LARGE,
+		color: WELL_DEFAULT_COLOR,
 	} as Args,
 };
 
@@ -118,6 +123,10 @@ export const WithMultipleChips: Story = {
 		hasRadius: true,
 		hasBorder: false,
 		hasRibbon: false,
+		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
+		ribbonColor: WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
+		ribbonSize: WELL_RIBBON_SIZES.LARGE,
+		color: WELL_DEFAULT_COLOR,
 	},
 };
 
@@ -132,6 +141,7 @@ export const WithRibbon: Story = {
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
 		hasRadius: true,
 		hasBorder: false,
+		color: WELL_DEFAULT_COLOR,
 	} as Args,
 };
 
@@ -146,6 +156,8 @@ export const WithLeftRibbonNoRadius: Story = {
 			'<h3 style="margin-top: 0">Content</h3>' +
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
 		hasBorder: false,
+		ribbonSize: WELL_RIBBON_SIZES.LARGE,
+		color: WELL_DEFAULT_COLOR,
 	} as Args,
 };
 
@@ -159,5 +171,8 @@ export const WithBorder: Story = {
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
 		hasRadius: true,
 		hasRibbon: false,
+		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
+		ribbonColor: WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
+		ribbonSize: WELL_RIBBON_SIZES.LARGE,
 	} as Args,
 };
