@@ -334,6 +334,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SPARKLES: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_SPARKLES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_WAND_MAGIC_SPARKLES: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_WINDOW_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -746,6 +747,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_VIDEO_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_VOLUME_HIGH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_SPARKLES: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_SPARKLES_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_WAND_MAGIC_SPARKLES: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_WINDOW_MAXIMIZE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_XMARK: import('@fortawesome/fontawesome-common-types').IconDefinition;

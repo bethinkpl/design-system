@@ -89,8 +89,8 @@ describe('ProgressDonutChart', () => {
 		});
 		const tracks = component.findAll('.ds-progressDonutChart__track');
 		expect(tracks.length).toBe(3);
-		expect(tracks.at(0)?.attributes('style')).toBe('--length: 30; transform: rotate(90deg);');
-		expect(tracks.at(1)?.attributes('style')).toBe('--length: 25; transform: rotate(198deg);');
-		expect(tracks.at(2)?.attributes('style')).toBe('--length: 25; transform: rotate(288deg);');
+		expect(tracks[0]?.attributes('style')).toBe('--length: 30; transform: rotate(90deg);');
+		expect(tracks[1]?.attributes('style')).toBe('--length: 25; transform: rotate(198deg);');
+		expect(tracks[2]?.attributes('style')).toBe('--length: 25; transform: rotate(288deg);');
 	});
 });

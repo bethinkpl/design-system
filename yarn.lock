@@ -2,7 +2,7 @@
 # Manual changes might be lost - proceed with caution!
 
 __metadata:
-  version: 8
+  version: 10
   cacheKey: 10
 
 "@ampproject/remapping@npm:^2.2.1":
@@ -112,7 +112,7 @@ __metadata:
     "@storybook/vue3": "npm:^8.3.4"
     "@storybook/vue3-vite": "npm:^8.3.4"
     "@types/lodash-es": "npm:^4"
-    "@types/node": "npm:^17.0.9"
+    "@types/node": "npm:^24.0.0"
     "@typescript-eslint/eslint-plugin": "npm:8.45.0"
     "@typescript-eslint/parser": "npm:8.45.0"
     "@vee-validate/zod": "npm:4.15.1"
@@ -168,6 +168,11 @@ __metadata:
     vee-validate: ">=4.15.0"
     vue: ">=3.5.0"
     vue-i18n: ">=9.8.0"
+  dependenciesMeta:
+    esbuild:
+      built: true
+    vue-demi:
+      built: true
   languageName: unknown
   linkType: soft
 
@@ -1875,10 +1880,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:^17.0.9":
-  version: 17.0.45
-  resolution: "@types/node@npm:17.0.45"
-  checksum: 10/b45fff7270b5e81be19ef91a66b764a8b21473a97a8d211218a52e3426b79ad48f371819ab9153370756b33ba284e5c875463de4d2cf48a472e9098d7f09e8a2
+"@types/node@npm:^24.0.0":
+  version: 24.13.2
+  resolution: "@types/node@npm:24.13.2"
+  dependencies:
+    undici-types: "npm:~7.18.0"
+  checksum: 10/2b8cb95ada191ecc788fef91d7cdb86dff24f6895b510e1fb495cc001832709fa8fc3e1eeb27d64bda52b3f74f9e91acf42431e98e3e6876de1e53acce7f7602
   languageName: node
   linkType: hard
 
@@ -8565,6 +8572,13 @@ __metadata:
     has-symbols: "npm:^1.1.0"
     which-boxed-primitive: "npm:^1.1.1"
   checksum: 10/fadb347020f66b2c8aeacf8b9a79826fa34cc5e5457af4eb0bbc4e79bd87fed0fa795949825df534320f7c13f199259516ad30abc55a6e7b91d8d996ca069e50
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~7.18.0":
+  version: 7.18.2
+  resolution: "undici-types@npm:7.18.2"
+  checksum: 10/e61a5918f624d68420c3ca9d301e9f15b61cba6e97be39fe2ce266dd6151e4afe424d679372638826cb506be33952774e0424141200111a9857e464216c009af
   languageName: node
   linkType: hard
 
