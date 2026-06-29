@@ -119,6 +119,10 @@
 			border-bottom-left-radius: $radius-m;
 			border-top-left-radius: $radius-m;
 			border-top-right-radius: 0;
+			height: 100%;
+			left: 0;
+			position: absolute;
+			top: 0;
 		}
 
 		#{$root}.-ds-noRadius & {
