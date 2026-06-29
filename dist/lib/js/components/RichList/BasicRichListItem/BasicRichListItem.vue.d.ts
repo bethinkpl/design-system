@@ -1,6 +1,6 @@
 import { PropType } from 'vue';
 import { IconColor, IconItem } from '../../Icons/Icon';
-import { TextGroupSize, TextGroupState } from '../../TextGroup';
+import { TextGroupMainTextColor, TextGroupSize, TextGroupState } from '../../TextGroup';
 import { RichListItemBackgroundColor, RichListItemBorderColor, RichListItemElevation, RichListItemLayout, RichListItemSize, RichListItemState, RichListItemType } from '../RichListItem';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -135,6 +135,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }, {
     textGroupSize(): TextGroupSize;
     textGroupState(): TextGroupState;
+    textGroupMainTextColor(): TextGroupMainTextColor;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     'update:is-selected': (value: boolean) => true;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
@@ -262,20 +263,20 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     size: RichListItemSize;
     type: RichListItemType;
     text: string;
+    supportingText: string;
+    supportingTextEllipsis: boolean;
+    isInteractive: boolean;
+    state: RichListItemState;
+    isSupportingTextTooltipEnabled: boolean;
+    isSelected: boolean;
     elevation: "small";
     backgroundColor: RichListItemBackgroundColor;
-    state: RichListItemState;
     iconColor: string;
     layout: RichListItemLayout;
     borderColor: RichListItemBorderColor;
-    isInteractive: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
     eyebrow: string;
-    supportingText: string;
-    isSelected: boolean;
-    supportingTextEllipsis: boolean;
-    isSupportingTextTooltipEnabled: boolean;
     isDimmed: boolean;
     isDraggable: boolean;
     iconColorHex: string;
@@ -289,7 +290,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     DsTextGroup: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
             size: {
-                type: PropType<string>;
+                type: PropType<TextGroupSize>;
+            };
+            align: {
+                type: PropType<import('../../TextGroup').TextGroupAlign>;
+            };
+            mainTextColor: {
+                type: PropType<TextGroupMainTextColor>;
             };
             prominence: {
                 type: PropType<import('../../TextGroup').TextGroupProminence>;
@@ -324,9 +331,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             skeletonLoadingSize: {
                 type: PropType<string>;
             };
-            isSelected: {
-                type: PropType<boolean>;
-            };
             state: {
                 type: PropType<TextGroupState>;
             };
@@ -341,6 +345,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             };
             supportingTextTooltipContent: {
                 type: PropType<string>;
+            };
+            isSelected: {
+                type: PropType<import('../../../utils/type.utils').RemovedProp<"use mainTextColor=primary instead">>;
             };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
@@ -351,7 +358,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             Defaults: {};
         }, Readonly<import('vue').ExtractPropTypes<{
             size: {
-                type: PropType<string>;
+                type: PropType<TextGroupSize>;
+            };
+            align: {
+                type: PropType<import('../../TextGroup').TextGroupAlign>;
+            };
+            mainTextColor: {
+                type: PropType<TextGroupMainTextColor>;
             };
             prominence: {
                 type: PropType<import('../../TextGroup').TextGroupProminence>;
@@ -386,9 +399,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             skeletonLoadingSize: {
                 type: PropType<string>;
             };
-            isSelected: {
-                type: PropType<boolean>;
-            };
             state: {
                 type: PropType<TextGroupState>;
             };
@@ -404,13 +414,22 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             supportingTextTooltipContent: {
                 type: PropType<string>;
             };
+            isSelected: {
+                type: PropType<import('../../../utils/type.utils').RemovedProp<"use mainTextColor=primary instead">>;
+            };
         }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
         __isTeleport?: never;
         __isSuspense?: never;
     } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
         size: {
-            type: PropType<string>;
+            type: PropType<TextGroupSize>;
+        };
+        align: {
+            type: PropType<import('../../TextGroup').TextGroupAlign>;
+        };
+        mainTextColor: {
+            type: PropType<TextGroupMainTextColor>;
         };
         prominence: {
             type: PropType<import('../../TextGroup').TextGroupProminence>;
@@ -445,9 +464,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         skeletonLoadingSize: {
             type: PropType<string>;
         };
-        isSelected: {
-            type: PropType<boolean>;
-        };
         state: {
             type: PropType<TextGroupState>;
         };
@@ -462,6 +478,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
         supportingTextTooltipContent: {
             type: PropType<string>;
+        };
+        isSelected: {
+            type: PropType<import('../../../utils/type.utils').RemovedProp<"use mainTextColor=primary instead">>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {
@@ -659,6 +678,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -971,14 +991,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         icon: any;
         size: RichListItemSize;
         type: RichListItemType;
+        isInteractive: boolean;
+        state: RichListItemState;
+        isSelected: boolean;
         elevation: "small";
         backgroundColor: RichListItemBackgroundColor;
-        state: RichListItemState;
         iconColor: string;
         layout: RichListItemLayout;
         borderColor: RichListItemBorderColor;
-        isInteractive: boolean;
-        isSelected: boolean;
         isDimmed: boolean;
         isDraggable: boolean;
         iconColorHex: string;
@@ -1089,8 +1109,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             };
         }>> & Readonly<{}>, {
             size: string;
-            isVertical: boolean;
             prominence: string;
+            isVertical: boolean;
         }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             icon: {

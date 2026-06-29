@@ -1,3 +1,4 @@
+export { default as DsActionContent } from './components/ActionContent';
 export { default as Avatar } from './components/Avatar';
 export * from './components/Avatar/Avatar.consts';
 export { default as Badge } from './components/Badge';

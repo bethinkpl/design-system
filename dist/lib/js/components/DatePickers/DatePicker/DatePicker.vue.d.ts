@@ -580,7 +580,7 @@ declare const _default: import('vue').DefineComponent<{
         readonly ICON_RIGHT_ONLY: "iconRightOnly";
     };
 }, {}, {
-    borderColor(): "primary" | "danger" | "neutralWeak" | "warning" | "dangerWeak" | "warningWeak";
+    borderColor(): "danger" | "neutralWeak" | "primary" | "warning" | "dangerWeak" | "warningWeak";
     resolvedPlaceholder(): any;
     eyebrowText(): string;
     text(): any;
@@ -611,11 +611,11 @@ declare const _default: import('vue').DefineComponent<{
     icon: any;
     label: string;
     color: string;
+    isInteractive: boolean;
     state: string;
     isIconHiddenOnMobile: boolean;
     date: Date;
     isLabelUppercase: boolean;
-    isInteractive: boolean;
     placeholder: string;
     additionalText: string;
     triggerType: string;
@@ -755,14 +755,14 @@ declare const _default: import('vue').DefineComponent<{
         };
     }>> & Readonly<{}>, {
         color: TileColor;
+        eyebrowText: string;
+        isEyebrowTextUppercase: boolean;
         state: TileState;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
         borderColor: import('../../Tile').TileBorderColors;
         interactive: boolean;
-        eyebrowText: string;
         additionalText: string;
-        isEyebrowTextUppercase: boolean;
         eyebrowEllipsis: boolean;
         textEllipsis: boolean;
         additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidth;
@@ -919,6 +919,7 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1164,9 +1165,9 @@ declare const _default: import('vue').DefineComponent<{
         };
     }>> & Readonly<{}>, {
         color: string;
+        isInteractive: boolean;
         state: string;
         isOpen: boolean;
-        isInteractive: boolean;
         placeholder: string;
         startDate: Date;
         endDate: Date;

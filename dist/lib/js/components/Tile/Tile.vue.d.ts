@@ -126,14 +126,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
 }>> & Readonly<{}>, {
     color: import('./Tile.consts').TileColor;
+    eyebrowText: string;
+    isEyebrowTextUppercase: boolean;
     state: import('./Tile.consts').TileState;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
     borderColor: import('./Tile.consts').TileBorderColors;
     interactive: boolean;
-    eyebrowText: string;
     additionalText: string;
-    isEyebrowTextUppercase: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
     additionalTextMaxWidth: import('./Tile.consts').TileAdditionalTextMaxWidth;

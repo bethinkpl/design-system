@@ -220,6 +220,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -432,7 +433,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
 }, {}, {
     calcHeaderFeatureIconColor(): any;
-    calcFooterPrimaryButtonColor(): "primary" | "neutral";
+    calcFooterPrimaryButtonColor(): "neutral" | "primary";
     calcFooterSecondaryButtonColor(): "danger" | "neutral";
     calcSingleColumn(): boolean;
     displayFooter(): any;
@@ -837,6 +838,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1119,9 +1121,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: string;
         touchableDeprecated: boolean;
         color: string;
-        elevation: string;
         radius: string;
         state: string;
+        elevation: string;
         colorScheme: string;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{

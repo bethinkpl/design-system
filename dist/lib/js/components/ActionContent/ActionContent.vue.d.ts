@@ -1,39 +1,28 @@
 import { IconItem } from '../Icons/Icon';
-import { ChipColor, ChipRadius, ChipSize, ChipState } from './Chip.consts';
 
-declare function __VLS_template(): {
-    accessory?(_: {}): any;
+declare function __VLS_template(): Readonly<{
+    actions?: () => any;
+}> & {
+    actions?: () => any;
 };
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    label?: string | null;
-    isLabelUppercase?: boolean;
-    leftIcon?: IconItem | null;
-    rightIcon?: IconItem | null;
-    radius?: ChipRadius;
-    size?: ChipSize;
-    color?: ChipColor;
-    colorHex?: string | null;
-    state?: ChipState;
-    isRemovable?: boolean;
-    isInteractive?: boolean;
+    icon?: IconItem | null;
+    mainText?: string | null;
+    supportingText?: string | null;
+    buttonLabel?: string;
+    buttonIcon?: IconItem | null;
+    isActionVertical?: boolean;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    remove: () => void;
-    chipClick: (event: Event) => void;
+    "button-clicked": () => void;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    label?: string | null;
-    isLabelUppercase?: boolean;
-    leftIcon?: IconItem | null;
-    rightIcon?: IconItem | null;
-    radius?: ChipRadius;
-    size?: ChipSize;
-    color?: ChipColor;
-    colorHex?: string | null;
-    state?: ChipState;
-    isRemovable?: boolean;
-    isInteractive?: boolean;
+    icon?: IconItem | null;
+    mainText?: string | null;
+    supportingText?: string | null;
+    buttonLabel?: string;
+    buttonIcon?: IconItem | null;
+    isActionVertical?: boolean;
 }>>> & Readonly<{
-    onRemove?: (() => any) | undefined;
-    onChipClick?: ((event: Event) => any) | undefined;
+    "onButton-clicked"?: (() => any) | undefined;
 }>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;

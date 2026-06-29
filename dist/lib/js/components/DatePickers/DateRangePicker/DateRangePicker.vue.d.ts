@@ -597,8 +597,8 @@ declare const _default: import('vue').DefineComponent<{
     }) => any) | undefined;
 }>, {
     color: string;
-    state: string;
     isInteractive: boolean;
+    state: string;
     placeholder: string;
     startDate: Date;
     endDate: Date;
@@ -763,6 +763,7 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1008,9 +1009,9 @@ declare const _default: import('vue').DefineComponent<{
         };
     }>> & Readonly<{}>, {
         color: string;
+        isInteractive: boolean;
         state: string;
         isOpen: boolean;
-        isInteractive: boolean;
         placeholder: string;
         startDate: Date;
         endDate: Date;

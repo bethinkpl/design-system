@@ -130,14 +130,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     onClick?: (() => any) | undefined;
 }>, {
     color: import('../../Tile').TileColor;
+    eyebrowText: string;
+    isEyebrowTextUppercase: boolean;
     state: import('../../Tile').TileState;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
     borderColor: import('../../Tile').TileBorderColors;
     interactive: boolean;
-    eyebrowText: string;
     additionalText: string;
-    isEyebrowTextUppercase: boolean;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
     additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidth;
@@ -271,14 +271,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     }>> & Readonly<{}>, {
         color: import('../../Tile').TileColor;
+        eyebrowText: string;
+        isEyebrowTextUppercase: boolean;
         state: import('../../Tile').TileState;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
         borderColor: import('../../Tile').TileBorderColors;
         interactive: boolean;
-        eyebrowText: string;
         additionalText: string;
-        isEyebrowTextUppercase: boolean;
         eyebrowEllipsis: boolean;
         textEllipsis: boolean;
         additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidth;

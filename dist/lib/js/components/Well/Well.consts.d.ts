@@ -17,3 +17,27 @@ export declare const WELL_COLORS: {
 };
 export type WellColor = Value<typeof WELL_COLORS>;
 export declare const WELL_DEFAULT_COLOR: "neutral";
+export declare const WELL_RIBBON_COLORS: {
+    readonly NEUTRAL: "neutral";
+    readonly NEUTRAL_HEAVY: "neutral-heavy";
+    readonly NEUTRAL_STRONG: "neutral-strong";
+    readonly PRIMARY: "primary";
+    readonly SUCCESS: "success";
+    readonly WARNING: "warning";
+    readonly DANGER: "danger";
+    readonly FAIL: "fail";
+    readonly INFO: "info";
+    readonly TRANSPARENT: "transparent";
+};
+export type WellRibbonColor = Value<typeof WELL_RIBBON_COLORS>;
+export declare const WELL_RIBBON_SIZES: {
+    readonly SMALL: "small";
+    readonly MEDIUM: "medium";
+    readonly LARGE: "large";
+};
+export type WellRibbonSize = Value<typeof WELL_RIBBON_SIZES>;
+export declare const WELL_RIBBON_POSITIONS: {
+    readonly TOP: "top";
+    readonly LEFT: "left";
+};
+export type WellRibbonPosition = Value<typeof WELL_RIBBON_POSITIONS>;

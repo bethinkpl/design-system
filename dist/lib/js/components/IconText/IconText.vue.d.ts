@@ -96,8 +96,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{}>, {
     size: string;
     color: string;
-    state: string;
     isInteractive: boolean;
+    state: string;
     isLabelBold: boolean;
 }, {}, {
     Icon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{

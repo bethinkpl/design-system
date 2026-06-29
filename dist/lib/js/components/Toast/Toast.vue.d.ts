@@ -76,7 +76,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         RIGHT: string;
     }>;
 }, {
-    buttonPrimaryColor(): "primary" | "neutral";
+    buttonPrimaryColor(): "neutral" | "primary";
     buttonSecondaryColor(): "danger" | "neutral";
     toastPosition(): string;
     toastSize(): string;
@@ -253,17 +253,23 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             dividerUnderHeader: {
                 type: PropType<boolean>;
             };
-            hasBorder: {
+            hasRibbon: {
                 type: PropType<boolean>;
             };
-            borderPosition: {
-                type: PropType<import('../Cards/Card').CardBorderPositions>;
+            hasRadius: {
+                type: PropType<boolean>;
             };
-            borderSize: {
-                type: PropType<import('../Cards/Card').CardBorderSizes>;
+            backgroundColor: {
+                type: PropType<import('../Cards/Card').CardBackgroundColor>;
             };
-            borderColor: {
-                type: PropType<import('../Cards/Card').CardBorderColors>;
+            ribbonPosition: {
+                type: PropType<import('../Cards/Card').CardRibbonPositions>;
+            };
+            ribbonSize: {
+                type: PropType<import('../Cards/Card').CardRibbonSizes>;
+            };
+            ribbonColor: {
+                type: PropType<import('../Cards/Card').CardRibbonColors>;
             };
             hasRibbonRadius: {
                 type: PropType<boolean>;
@@ -282,6 +288,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             };
             isContentScrollable: {
                 type: PropType<boolean>;
+            };
+            hasBorder: {
+                type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to hasRibbon">>;
+            };
+            borderPosition: {
+                type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to ribbonPosition">>;
+            };
+            borderSize: {
+                type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to ribbonSize">>;
+            };
+            borderColor: {
+                type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to ribbonColor">>;
             };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
@@ -306,17 +324,23 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             dividerUnderHeader: {
                 type: PropType<boolean>;
             };
-            hasBorder: {
+            hasRibbon: {
                 type: PropType<boolean>;
             };
-            borderPosition: {
-                type: PropType<import('../Cards/Card').CardBorderPositions>;
+            hasRadius: {
+                type: PropType<boolean>;
             };
-            borderSize: {
-                type: PropType<import('../Cards/Card').CardBorderSizes>;
+            backgroundColor: {
+                type: PropType<import('../Cards/Card').CardBackgroundColor>;
             };
-            borderColor: {
-                type: PropType<import('../Cards/Card').CardBorderColors>;
+            ribbonPosition: {
+                type: PropType<import('../Cards/Card').CardRibbonPositions>;
+            };
+            ribbonSize: {
+                type: PropType<import('../Cards/Card').CardRibbonSizes>;
+            };
+            ribbonColor: {
+                type: PropType<import('../Cards/Card').CardRibbonColors>;
             };
             hasRibbonRadius: {
                 type: PropType<boolean>;
@@ -335,6 +359,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             };
             isContentScrollable: {
                 type: PropType<boolean>;
+            };
+            hasBorder: {
+                type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to hasRibbon">>;
+            };
+            borderPosition: {
+                type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to ribbonPosition">>;
+            };
+            borderSize: {
+                type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to ribbonSize">>;
+            };
+            borderColor: {
+                type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to ribbonColor">>;
             };
         }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
@@ -356,17 +392,23 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         dividerUnderHeader: {
             type: PropType<boolean>;
         };
-        hasBorder: {
+        hasRibbon: {
             type: PropType<boolean>;
         };
-        borderPosition: {
-            type: PropType<import('../Cards/Card').CardBorderPositions>;
+        hasRadius: {
+            type: PropType<boolean>;
         };
-        borderSize: {
-            type: PropType<import('../Cards/Card').CardBorderSizes>;
+        backgroundColor: {
+            type: PropType<import('../Cards/Card').CardBackgroundColor>;
         };
-        borderColor: {
-            type: PropType<import('../Cards/Card').CardBorderColors>;
+        ribbonPosition: {
+            type: PropType<import('../Cards/Card').CardRibbonPositions>;
+        };
+        ribbonSize: {
+            type: PropType<import('../Cards/Card').CardRibbonSizes>;
+        };
+        ribbonColor: {
+            type: PropType<import('../Cards/Card').CardRibbonColors>;
         };
         hasRibbonRadius: {
             type: PropType<boolean>;
@@ -385,6 +427,18 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
         isContentScrollable: {
             type: PropType<boolean>;
+        };
+        hasBorder: {
+            type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to hasRibbon">>;
+        };
+        borderPosition: {
+            type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to ribbonPosition">>;
+        };
+        borderSize: {
+            type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to ribbonSize">>;
+        };
+        borderColor: {
+            type: PropType<import('../../utils/type.utils').RemovedProp<"renamed to ribbonColor">>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: Readonly<{
