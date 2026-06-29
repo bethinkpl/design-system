@@ -192,7 +192,7 @@ const {
 	hasBorder = false,
 	hasRibbon = false,
 	ribbonPosition = WELL_RIBBON_POSITIONS.TOP,
-	ribbonSize = WELL_RIBBON_SIZES.LARGE,
+	ribbonSize = WELL_RIBBON_SIZES.MEDIUM,
 	ribbonColor = WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
 } = defineProps<{
 	padding?: WellPadding | null;

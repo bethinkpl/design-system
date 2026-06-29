@@ -81,7 +81,7 @@ export const Interactive: Story = {
 		hasRibbon: false,
 		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
 		ribbonColor: WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
-		ribbonSize: WELL_RIBBON_SIZES.LARGE,
+		ribbonSize: WELL_RIBBON_SIZES.MEDIUM,
 		color: WELL_DEFAULT_COLOR,
 	} as Args,
 };
@@ -125,7 +125,7 @@ export const WithMultipleChips: Story = {
 		hasRibbon: false,
 		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
 		ribbonColor: WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
-		ribbonSize: WELL_RIBBON_SIZES.LARGE,
+		ribbonSize: WELL_RIBBON_SIZES.MEDIUM,
 		color: WELL_DEFAULT_COLOR,
 	},
 };
@@ -156,7 +156,7 @@ export const WithLeftRibbonNoRadius: Story = {
 			'<h3 style="margin-top: 0">Content</h3>' +
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
 		hasBorder: false,
-		ribbonSize: WELL_RIBBON_SIZES.LARGE,
+		ribbonSize: WELL_RIBBON_SIZES.MEDIUM,
 		color: WELL_DEFAULT_COLOR,
 	} as Args,
 };
@@ -173,6 +173,6 @@ export const WithBorder: Story = {
 		hasRibbon: false,
 		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
 		ribbonColor: WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
-		ribbonSize: WELL_RIBBON_SIZES.LARGE,
+		ribbonSize: WELL_RIBBON_SIZES.MEDIUM,
 	} as Args,
 };
