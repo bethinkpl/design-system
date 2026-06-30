@@ -85,6 +85,7 @@ export * from './components/Headers/PageHeader/PageHeader.consts';
 export { default as SectionTitle } from './components/SectionTitle/SectionTitle.vue';
 export { default as DsSectionTitle } from './components/SectionTitle/SectionTitle.vue';
 export * from './components/SectionTitle/SectionTitle.consts';
+export { default as DsSpinnerLoading } from './components/SpinnerLoading/SpinnerLoading.vue';
 export { default as Drawer } from './components/Drawer';
 export { default as DsDrawer } from './components/Drawer';
 export * from './components/Drawer/Drawer.consts';
