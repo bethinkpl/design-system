@@ -2,6 +2,7 @@ import HeadWithQuestionMark from '../../../../images/icons/head-with-question-ma
 import Ribbon from '../../../../images/icons/ribbon.svg';
 import SlidersSearch from '../../../../images/icons/sliders-search.svg';
 import CommentsCheck from '../../../../images/icons/comments-check.svg';
+import CommentLock from '../../../../images/icons/comment-lock.svg';
 import Answers from '../../../../images/icons/icon-answers.svg';
 import HideAnswers from '../../../../images/icons/icon-hide-answers.svg';
 import SidebarFlipSolid from '../../../../images/icons/sidebar-flip-solid.svg';
@@ -47,6 +48,7 @@ export type IconSize = Value<typeof ICON_SIZES>;
 const BETHINK_ICONS = {
 	ANSWERS: Answers,
 	CHANGE: Change,
+	COMMENT_LOCK: CommentLock,
 	COMMENTS_CHECK: CommentsCheck,
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
 	HIDE_ANSWERS: HideAnswers,

@@ -2,7 +2,14 @@
 
 import { Args, ArgTypes, Meta, StoryObj } from '@storybook/vue3';
 import Well from './Well.vue';
-import { WELL_COLORS, WELL_PADDINGS } from './Well.consts';
+import {
+	WELL_COLORS,
+	WELL_DEFAULT_COLOR,
+	WELL_PADDINGS,
+	WELL_RIBBON_COLORS,
+	WELL_RIBBON_POSITIONS,
+	WELL_RIBBON_SIZES,
+} from './Well.consts';
 import type { ComponentProps } from 'vue-component-type-helpers';
 import Chip, { CHIP_RADIUSES } from '../Chip';
 
@@ -27,6 +34,27 @@ const meta: Meta<WellProps> = {
 			control: 'select',
 			options: Object.values(WELL_COLORS),
 		},
+		hasRadius: {
+			control: 'boolean',
+		},
+		hasBorder: {
+			control: 'boolean',
+		},
+		hasRibbon: {
+			control: 'boolean',
+		},
+		ribbonPosition: {
+			control: 'select',
+			options: Object.values(WELL_RIBBON_POSITIONS),
+		},
+		ribbonSize: {
+			control: 'select',
+			options: Object.values(WELL_RIBBON_SIZES),
+		},
+		ribbonColor: {
+			control: 'select',
+			options: Object.values(WELL_RIBBON_COLORS),
+		},
 		content: {
 			control: 'text',
 		},
@@ -48,6 +76,13 @@ export const Interactive: Story = {
 		content:
 			'<h3 style="margin-top: 0">Content</h3>' +
 			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+		hasRadius: true,
+		hasBorder: false,
+		hasRibbon: false,
+		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
+		ribbonColor: WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
+		ribbonSize: WELL_RIBBON_SIZES.MEDIUM,
+		color: WELL_DEFAULT_COLOR,
 	} as Args,
 };
 
@@ -85,5 +120,59 @@ export const WithMultipleChips: Story = {
 	},
 	args: {
 		padding: WELL_PADDINGS.SMALL,
+		hasRadius: true,
+		hasBorder: false,
+		hasRibbon: false,
+		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
+		ribbonColor: WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
+		ribbonSize: WELL_RIBBON_SIZES.MEDIUM,
+		color: WELL_DEFAULT_COLOR,
 	},
+};
+
+export const WithRibbon: Story = {
+	args: {
+		padding: WELL_PADDINGS.MEDIUM,
+		hasRibbon: true,
+		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
+		ribbonColor: WELL_RIBBON_COLORS.PRIMARY,
+		content:
+			'<h3 style="margin-top: 0">Content</h3>' +
+			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+		hasRadius: true,
+		hasBorder: false,
+		color: WELL_DEFAULT_COLOR,
+	} as Args,
+};
+
+export const WithLeftRibbonNoRadius: Story = {
+	args: {
+		padding: WELL_PADDINGS.MEDIUM,
+		hasRadius: false,
+		hasRibbon: true,
+		ribbonPosition: WELL_RIBBON_POSITIONS.LEFT,
+		ribbonColor: WELL_RIBBON_COLORS.SUCCESS,
+		content:
+			'<h3 style="margin-top: 0">Content</h3>' +
+			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+		hasBorder: false,
+		ribbonSize: WELL_RIBBON_SIZES.MEDIUM,
+		color: WELL_DEFAULT_COLOR,
+	} as Args,
+};
+
+export const WithBorder: Story = {
+	args: {
+		padding: WELL_PADDINGS.MEDIUM,
+		hasBorder: true,
+		color: WELL_COLORS.PRIMARY,
+		content:
+			'<h3 style="margin-top: 0">Content</h3>' +
+			'Voluptatem saepe suscipit optio et delectus esse sed velit. Autem maxime soluta aliquam perspiciatis quidem dolor saepe rerum.',
+		hasRadius: true,
+		hasRibbon: false,
+		ribbonPosition: WELL_RIBBON_POSITIONS.TOP,
+		ribbonColor: WELL_RIBBON_COLORS.NEUTRAL_HEAVY,
+		ribbonSize: WELL_RIBBON_SIZES.MEDIUM,
+	} as Args,
 };

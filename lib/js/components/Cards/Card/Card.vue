@@ -4,17 +4,19 @@
 			'ds-card',
 			{
 				'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
-				'-ds-leftBorder':
-					hasBorder && !hasLoadingBar && borderPosition === CARD_BORDER_POSITIONS.LEFT,
+				'-ds-leftRibbon':
+					hasRibbon && !hasLoadingBar && ribbonPosition === CARD_RIBBON_POSITIONS.LEFT,
 				'-ds-flat': isFlat,
+				'-ds-noRadius': !hasRadius,
+				'-ds-backgroundNeutral': backgroundColor === CARD_BACKGROUND_COLORS.NEUTRAL,
 			},
 		]"
 	>
-		<div v-if="hasBorder || hasLoadingBar" class="ds-card__border">
+		<div v-if="hasRibbon || hasLoadingBar" class="ds-card__ribbon">
 			<ds-container-ribbon
-				v-if="hasBorder && !hasLoadingBar"
-				:size="borderSize"
-				:color="borderColor"
+				v-if="hasRibbon && !hasLoadingBar"
+				:size="ribbonSize"
+				:color="ribbonColor"
 				:layout="ribbonLayout"
 				:radius="ribbonRadius"
 			/>
@@ -22,7 +24,7 @@
 				v-if="hasLoadingBar"
 				:time="loadingBarTime"
 				:color="loadingBarColor"
-				:size="borderSize"
+				:size="ribbonSize"
 			/>
 		</div>
 
@@ -82,9 +84,17 @@
 		background-color: $color-default-background;
 		border-radius: $card-border-radius;
 		box-shadow: $shadow-s;
+
+		&.-ds-backgroundNeutral {
+			background-color: $color-neutral-background;
+		}
+
+		&.-ds-noRadius {
+			border-radius: 0;
+		}
 	}
 
-	&.-ds-leftBorder {
+	&.-ds-leftRibbon {
 		flex-direction: row;
 	}
 
@@ -147,9 +157,9 @@
 		}
 	}
 
-	// the border container is added to avoid adding overflow hidden to the card itself
+	// the ribbon container is added to avoid adding overflow hidden to the card itself
 	// which would clip floating elements rendered within the card (e.g. dropdowns)
-	&__border {
+	&__ribbon {
 		display: flex;
 		flex-shrink: 0;
 
@@ -159,13 +169,17 @@
 			overflow: hidden;
 		}
 
-		#{$root}:not(.-ds-flat).-ds-leftBorder & {
+		#{$root}:not(.-ds-flat).-ds-leftRibbon & {
 			border-bottom-left-radius: $card-border-radius;
 			border-top-left-radius: $card-border-radius;
 			border-top-right-radius: 0;
 		}
 
-		.-ds-leftBorder & {
+		#{$root}:not(.-ds-flat).-ds-noRadius & {
+			border-radius: 0;
+		}
+
+		.-ds-leftRibbon & {
 			height: 100%;
 			left: 0;
 			position: absolute;
@@ -178,18 +192,21 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
+import { RemovedProp } from '../../../utils/type.utils';
 import DsDivider from '../../Divider/Divider.vue';
 import DsLoadingBar, { LOADING_BAR_COLORS, LoadingBarColors } from '../../LoadingBar';
 import DsContainerRibbon from '../../ContainerRibbon/ContainerRibbon.vue';
 import { CONTAINER_RIBBON_LAYOUTS, CONTAINER_RIBBON_RADIUSES } from '../../ContainerRibbon';
 import {
-	CARD_BORDER_COLORS,
-	CARD_BORDER_POSITIONS,
-	CARD_BORDER_SIZES,
+	CARD_BACKGROUND_COLORS,
+	CARD_RIBBON_COLORS,
+	CARD_RIBBON_POSITIONS,
+	CARD_RIBBON_SIZES,
 	CARD_PADDING_SIZES,
-	CardBorderColors,
-	CardBorderPositions,
-	CardBorderSizes,
+	CardBackgroundColor,
+	CardRibbonColors,
+	CardRibbonPositions,
+	CardRibbonSizes,
 	CardPaddingSize,
 } from './Card.consts';
 
@@ -200,10 +217,12 @@ const {
 	footerHasPadding = false,
 	paddingSize = CARD_PADDING_SIZES.SMALL,
 	dividerUnderHeader = false,
-	hasBorder = false,
-	borderPosition = CARD_BORDER_POSITIONS.TOP,
-	borderSize = CARD_BORDER_SIZES.LARGE,
-	borderColor = CARD_BORDER_COLORS.NEUTRAL_HEAVY,
+	hasRibbon = false,
+	hasRadius = true,
+	backgroundColor = CARD_BACKGROUND_COLORS.DEFAULT,
+	ribbonPosition = CARD_RIBBON_POSITIONS.TOP,
+	ribbonSize = CARD_RIBBON_SIZES.MEDIUM,
+	ribbonColor = CARD_RIBBON_COLORS.NEUTRAL_HEAVY,
 	hasRibbonRadius = false,
 	hasLoadingBar = false,
 	loadingBarColor = LOADING_BAR_COLORS.NEUTRAL_HEAVY,
@@ -216,16 +235,28 @@ const {
 	footerHasPadding?: boolean;
 	paddingSize?: CardPaddingSize;
 	dividerUnderHeader?: boolean;
-	hasBorder?: boolean;
-	borderPosition?: CardBorderPositions;
-	borderSize?: CardBorderSizes;
-	borderColor?: CardBorderColors;
+	hasRibbon?: boolean;
+	hasRadius?: boolean;
+	backgroundColor?: CardBackgroundColor;
+	ribbonPosition?: CardRibbonPositions;
+	ribbonSize?: CardRibbonSizes;
+	ribbonColor?: CardRibbonColors;
 	hasRibbonRadius?: boolean;
 	hasLoadingBar?: boolean;
 	loadingBarColor?: LoadingBarColors;
 	loadingBarTime?: string;
 	isFlat?: boolean;
 	isContentScrollable?: boolean;
+
+	// Renamed props kept as removal markers so existing usages fail type-checking.
+	/** @deprecated renamed to `hasRibbon` */
+	hasBorder?: RemovedProp<'renamed to hasRibbon'>;
+	/** @deprecated renamed to `ribbonPosition` */
+	borderPosition?: RemovedProp<'renamed to ribbonPosition'>;
+	/** @deprecated renamed to `ribbonSize` */
+	borderSize?: RemovedProp<'renamed to ribbonSize'>;
+	/** @deprecated renamed to `ribbonColor` */
+	borderColor?: RemovedProp<'renamed to ribbonColor'>;
 }>();
 
 defineSlots<{
@@ -236,19 +267,19 @@ defineSlots<{
 
 const ribbonLayout = computed(() => {
 	const layoutMap = {
-		[CARD_BORDER_POSITIONS.TOP]: CONTAINER_RIBBON_LAYOUTS.HORIZONTAL,
-		[CARD_BORDER_POSITIONS.LEFT]: CONTAINER_RIBBON_LAYOUTS.VERTICAL,
+		[CARD_RIBBON_POSITIONS.TOP]: CONTAINER_RIBBON_LAYOUTS.HORIZONTAL,
+		[CARD_RIBBON_POSITIONS.LEFT]: CONTAINER_RIBBON_LAYOUTS.VERTICAL,
 	};
-	return layoutMap[borderPosition] || CONTAINER_RIBBON_LAYOUTS.HORIZONTAL;
+	return layoutMap[ribbonPosition] || CONTAINER_RIBBON_LAYOUTS.HORIZONTAL;
 });
 
 const ribbonRadius = computed(() => {
-	const borderPositionToRibbonRadiusMap = {
-		[CARD_BORDER_POSITIONS.TOP]: CONTAINER_RIBBON_RADIUSES.BOTTOM,
-		[CARD_BORDER_POSITIONS.LEFT]: CONTAINER_RIBBON_RADIUSES.RIGHT,
+	const ribbonPositionToRibbonRadiusMap = {
+		[CARD_RIBBON_POSITIONS.TOP]: CONTAINER_RIBBON_RADIUSES.BOTTOM,
+		[CARD_RIBBON_POSITIONS.LEFT]: CONTAINER_RIBBON_RADIUSES.RIGHT,
 	};
-	return hasRibbonRadius && isFlat
-		? borderPositionToRibbonRadiusMap[borderPosition]
+	return hasRibbonRadius && (isFlat || !hasRadius)
+		? ribbonPositionToRibbonRadiusMap[ribbonPosition]
 		: CONTAINER_RIBBON_RADIUSES.NONE;
 });
 </script>

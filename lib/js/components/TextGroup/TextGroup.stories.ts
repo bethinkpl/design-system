@@ -2,7 +2,9 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import DsDivider from '../Divider/Divider.vue';
 import DsTextGroup from './TextGroup.vue';
 import {
+	TEXT_GROUP_ALIGNS,
 	TEXT_GROUP_LOADING_SIZES,
+	TEXT_GROUP_MAIN_TEXT_COLORS,
 	TEXT_GROUP_PROMINENCE,
 	TEXT_GROUP_SIZES,
 	TEXT_GROUP_STATES,
@@ -21,6 +23,8 @@ const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 	template: `
 		<ds-text-group
 			:size="size"
+			:align="align"
+			:main-text-color="mainTextColor"
 			:prominence="prominence"
 			:eyebrow-text="eyebrowText === 'null' ? null : eyebrowText"
 			:eyebrow-text-ellipsis="eyebrowTextEllipsis"
@@ -31,7 +35,6 @@ const StoryTemplate: StoryFn<typeof DsTextGroup> = (args) => ({
 			:supporting-text-ellipsis="supportingTextEllipsis"
 			:is-interactive="isInteractive"
 			:skeleton-loading-size="skeletonLoadingSize"
-			:is-selected="isSelected"
 			:state="state"
 			:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
 			:is-supporting-text-tooltip-enabled-on-mobile="isSupportingTextTooltipEnabledOnMobile"
@@ -54,6 +57,8 @@ export const Interactive = StoryTemplate.bind({});
 Interactive.args = {
 	mainTextSlot: '',
 	size: TEXT_GROUP_SIZES.MEDIUM,
+	align: TEXT_GROUP_ALIGNS.LEFT,
+	mainTextColor: TEXT_GROUP_MAIN_TEXT_COLORS.NEUTRAL,
 	prominence: TEXT_GROUP_PROMINENCE.DEFAULT,
 	eyebrowText: 'Eyebrow Uppercase Veritatis aspernatur cupiditate magnam quidem',
 	eyebrowTextEllipsis: false,
@@ -66,7 +71,6 @@ Interactive.args = {
 	supportingTextEllipsis: false,
 	isInteractive: true,
 	skeletonLoadingSize: TEXT_GROUP_LOADING_SIZES.LARGE,
-	isSelected: false,
 	state: TEXT_GROUP_STATES.DEFAULT,
 	isSupportingTextTooltipEnabled: false,
 	isSupportingTextTooltipEnabledOnMobile: true,
@@ -78,6 +82,14 @@ Interactive.argTypes = {
 	size: {
 		control: 'select',
 		options: Object.values(TEXT_GROUP_SIZES),
+	},
+	align: {
+		control: 'select',
+		options: Object.values(TEXT_GROUP_ALIGNS),
+	},
+	mainTextColor: {
+		control: 'select',
+		options: Object.values(TEXT_GROUP_MAIN_TEXT_COLORS),
 	},
 	prominence: {
 		control: 'select',
@@ -113,9 +125,6 @@ Interactive.argTypes = {
 	skeletonLoadingSize: {
 		control: 'select',
 		options: Object.values(TEXT_GROUP_LOADING_SIZES),
-	},
-	isSelected: {
-		control: 'boolean',
 	},
 	state: {
 		control: 'select',
