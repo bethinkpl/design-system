@@ -26,6 +26,7 @@
 					:color="BUTTON_COLORS.PRIMARY"
 					:type="BUTTON_TYPES.FILLED"
 					:size="BUTTON_SIZES.SMALL"
+					:radius="BUTTON_RADIUSES.ROUNDED"
 					:icon-left="buttonIcon"
 					@click="$emit('button-clicked')"
 					>{{ buttonLabel }}</ds-button
@@ -73,7 +74,7 @@ import {
 	TEXT_GROUP_MAIN_TEXT_COLORS,
 	TEXT_GROUP_SIZES,
 } from '../TextGroup/TextGroup.consts';
-import DsButton from '../Buttons/Button';
+import DsButton, { BUTTON_RADIUSES } from '../Buttons/Button';
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button/Button.consts';
 import { IconItem } from '../Icons/Icon';
 
