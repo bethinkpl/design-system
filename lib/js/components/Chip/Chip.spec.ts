@@ -10,6 +10,7 @@ import IconButton from '../Buttons/IconButton';
 interface createComponentOptions {
 	label?: string;
 	leftIcon?: IconDefinition | null;
+	rightIcon?: IconDefinition | null;
 	isRemovable?: boolean;
 	size?: string;
 	color?: string;
@@ -20,6 +21,7 @@ describe('Chip', () => {
 	const createComponent = ({
 		label = 'random label',
 		leftIcon = null,
+		rightIcon = null,
 		isRemovable = false,
 		size = CHIP_SIZES.SMALL,
 		color = CHIP_COLORS.NEUTRAL,
@@ -29,6 +31,7 @@ describe('Chip', () => {
 			props: {
 				label,
 				leftIcon,
+				rightIcon,
 				isRemovable,
 				size,
 				color,
@@ -63,6 +66,31 @@ describe('Chip', () => {
 		expect(component.find('.ds-chip__leftIcon').findComponent(Icon).props().icon).toEqual(
 			ICONS.FA_TAG,
 		);
+	});
+
+	it("doesn't render rightIcon by default", () => {
+		const component = createComponent({ rightIcon: null });
+
+		expect(component.find('.ds-chip__rightIcon').exists()).toBe(false);
+	});
+
+	it('renders rightIcon', () => {
+		const component = createComponent({ rightIcon: Object.freeze(ICONS.FA_TAG) });
+
+		expect(component.find('.ds-chip__rightIcon').exists()).toBe(true);
+		expect(component.find('.ds-chip__rightIcon').findComponent(Icon).props().icon).toEqual(
+			ICONS.FA_TAG,
+		);
+	});
+
+	it('renders rightIcon before the remove button', () => {
+		const component = createComponent({
+			rightIcon: Object.freeze(ICONS.FA_TAG),
+			isRemovable: true,
+		});
+
+		const html = component.html();
+		expect(html.indexOf('ds-chip__rightIcon')).toBeLessThan(html.indexOf('ds-chip__remove'));
 	});
 
 	it("doesn't render leftIcon by default", () => {

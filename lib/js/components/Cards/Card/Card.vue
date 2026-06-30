@@ -221,7 +221,7 @@ const {
 	hasRadius = true,
 	backgroundColor = CARD_BACKGROUND_COLORS.DEFAULT,
 	ribbonPosition = CARD_RIBBON_POSITIONS.TOP,
-	ribbonSize = CARD_RIBBON_SIZES.LARGE,
+	ribbonSize = CARD_RIBBON_SIZES.MEDIUM,
 	ribbonColor = CARD_RIBBON_COLORS.NEUTRAL_HEAVY,
 	hasRibbonRadius = false,
 	hasLoadingBar = false,

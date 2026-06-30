@@ -69,6 +69,7 @@ import { faCode } from '@fortawesome/pro-regular-svg-icons/faCode';
 import { faCodeSimple } from '@fortawesome/pro-regular-svg-icons/faCodeSimple';
 import { faComment } from '@fortawesome/pro-regular-svg-icons/faComment';
 import { faCommentDots } from '@fortawesome/pro-regular-svg-icons/faCommentDots';
+import { faCommentPlus } from '@fortawesome/pro-regular-svg-icons/faCommentPlus';
 import { faComments } from '@fortawesome/pro-regular-svg-icons/faComments';
 import { faCompress } from '@fortawesome/pro-regular-svg-icons/faCompress';
 import { faCopy } from '@fortawesome/pro-regular-svg-icons/faCopy';
@@ -362,6 +363,7 @@ export const FONTAWESOME_ICONS = {
 	FA_CODE_SIMPLE: faCodeSimple,
 	FA_CODE: faCode,
 	FA_COMMENT_DOTS: faCommentDots,
+	FA_COMMENT_PLUS: faCommentPlus,
 	FA_COMMENT_SOLID: fasComment,
 	FA_COMMENT: faComment,
 	FA_COMMENTS_QUESTION_CHECK: faCommentsQuestionCheck,
