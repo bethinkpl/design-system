@@ -70,6 +70,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     ICONS: Readonly<{
         readonly ANSWERS: VueConstructor<Vue>;
         readonly CHANGE: VueConstructor<Vue>;
+        readonly COMMENT_LOCK: VueConstructor<Vue>;
         readonly COMMENTS_CHECK: VueConstructor<Vue>;
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly HIDE_ANSWERS: VueConstructor<Vue>;
@@ -171,6 +172,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -419,9 +421,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     onClose?: (() => any) | undefined;
     onTitleClick?: (() => any) | undefined;
 }>, {
+    eyebrowText: string;
     state: string;
     borderColor: string;
-    eyebrowText: string;
     shortTitle: string;
     isTitleInteractive: boolean;
     areKeyboardShortcutsDisabled: boolean;
@@ -483,6 +485,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         ICONS: Readonly<{
             readonly ANSWERS: VueConstructor<Vue>;
             readonly CHANGE: VueConstructor<Vue>;
+            readonly COMMENT_LOCK: VueConstructor<Vue>;
             readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
@@ -584,6 +587,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -866,9 +870,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: string;
         touchableDeprecated: boolean;
         color: string;
-        elevation: string;
         radius: string;
         state: string;
+        elevation: string;
         colorScheme: string;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -1076,8 +1080,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     }>> & Readonly<{}>, {
         size: string;
-        isVertical: boolean;
         prominence: string;
+        isVertical: boolean;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     DsDropdown: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         boundariesSelector: {
@@ -1164,8 +1168,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         onHide?: ((...args: any[]) => any) | undefined;
         "onDocument-click"?: ((...args: any[]) => any) | undefined;
     }>, {
-        placement: string;
         radius: string;
+        placement: string;
         boundariesSelector: string;
         forceShow: boolean;
         sameWidth: boolean;
@@ -1210,9 +1214,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: string;
         };
     }>> & Readonly<{}>, {
+        height: string;
         radius: string;
         width: string;
-        height: string;
     }, {}, {
         PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void>;
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
