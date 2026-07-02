@@ -5,6 +5,7 @@ export declare const data: () => {
     ICONS: Readonly<{
         readonly ANSWERS: VueConstructor<Vue>;
         readonly CHANGE: VueConstructor<Vue>;
+        readonly COMMENT_LOCK: VueConstructor<Vue>;
         readonly COMMENTS_CHECK: VueConstructor<Vue>;
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly HIDE_ANSWERS: VueConstructor<Vue>;
@@ -106,6 +107,7 @@ export declare const data: () => {
         readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -291,8 +293,8 @@ export declare const data: () => {
         readonly ACCENT: "accent";
     }>;
     allowedColorsToBorderColorsMap: {
-        neutral: ("primary" | "neutral" | "neutralWeak" | "primaryWeak")[];
-        neutralWeak: ("primary" | "neutral" | "neutralWeak" | "primaryWeak")[];
+        neutral: ("neutral" | "neutralWeak" | "primary" | "primaryWeak")[];
+        neutralWeak: ("neutral" | "neutralWeak" | "primary" | "primaryWeak")[];
         primary: ("primary" | "primaryWeak")[];
         success: ("success" | "successWeak")[];
         fail: ("fail" | "failWeak")[];

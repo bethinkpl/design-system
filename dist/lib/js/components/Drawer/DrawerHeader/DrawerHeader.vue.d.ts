@@ -70,6 +70,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     ICONS: {
         readonly ANSWERS: VueConstructor<Vue>;
         readonly CHANGE: VueConstructor<Vue>;
+        readonly COMMENT_LOCK: VueConstructor<Vue>;
         readonly COMMENTS_CHECK: VueConstructor<Vue>;
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly HIDE_ANSWERS: VueConstructor<Vue>;
@@ -171,6 +172,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -431,8 +433,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     onEyebrowClicked?: ((...args: any[]) => any) | undefined;
 }>, {
     title: string;
-    leftIcon: Record<string, any> | null;
     eyebrowText: string;
+    leftIcon: Record<string, any> | null;
     eyebrowEllipsis: boolean;
     isInteractiveEyebrow: boolean;
     titleEllipsis: boolean;
@@ -572,8 +574,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     }>> & Readonly<{}>, {
         size: string;
-        isVertical: boolean;
         prominence: string;
+        isVertical: boolean;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     Icon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         icon: {
@@ -706,6 +708,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         ICONS: Readonly<{
             readonly ANSWERS: VueConstructor<Vue>;
             readonly CHANGE: VueConstructor<Vue>;
+            readonly COMMENT_LOCK: VueConstructor<Vue>;
             readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
@@ -807,6 +810,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_CODE_SIMPLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_CODE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1089,9 +1093,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: string;
         touchableDeprecated: boolean;
         color: string;
-        elevation: string;
         radius: string;
         state: string;
+        elevation: string;
         colorScheme: string;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -1268,6 +1272,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: PropType<boolean>;
             };
             leftIcon: import('../../Icons/Icon').IconItem | null;
+            rightIcon: import('../../Icons/Icon').IconItem | null;
             radius: {
                 type: PropType<import('../../Chip').ChipRadius>;
             };
@@ -1310,6 +1315,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: PropType<boolean>;
             };
             leftIcon: import('../../Icons/Icon').IconItem | null;
+            rightIcon: import('../../Icons/Icon').IconItem | null;
             radius: {
                 type: PropType<import('../../Chip').ChipRadius>;
             };
@@ -1346,6 +1352,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: PropType<boolean>;
         };
         leftIcon: import('../../Icons/Icon').IconItem | null;
+        rightIcon: import('../../Icons/Icon').IconItem | null;
         radius: {
             type: PropType<import('../../Chip').ChipRadius>;
         };

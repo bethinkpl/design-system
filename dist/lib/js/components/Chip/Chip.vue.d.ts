@@ -8,6 +8,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     label?: string | null;
     isLabelUppercase?: boolean;
     leftIcon?: IconItem | null;
+    rightIcon?: IconItem | null;
     radius?: ChipRadius;
     size?: ChipSize;
     color?: ChipColor;
@@ -22,6 +23,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     label?: string | null;
     isLabelUppercase?: boolean;
     leftIcon?: IconItem | null;
+    rightIcon?: IconItem | null;
     radius?: ChipRadius;
     size?: ChipSize;
     color?: ChipColor;
