@@ -23,6 +23,12 @@
 			</slot>
 		</span>
 		<span v-if="label" class="ds-chip__label">{{ label }}</span>
+		<span v-if="rightIcon" class="ds-chip__rightIcon">
+			<icon
+				:icon="rightIcon"
+				:size="size === CHIP_SIZES.X_SMALL ? ICON_SIZES.XXX_SMALL : ICON_SIZES.XX_SMALL"
+			/>
+		</span>
 		<icon-button
 			v-if="size !== CHIP_SIZES.X_SMALL && isRemovable"
 			class="ds-chip__remove"
@@ -178,7 +184,8 @@ $chip-colors: (
 		&.-ds-color-#{$color-name} {
 			background-color: map-get($color-map, 'background');
 
-			#{$self}__leftIcon {
+			#{$self}__leftIcon,
+			#{$self}__rightIcon {
 				color: map-get($color-map, 'icon');
 				fill: map-get($color-map, 'icon');
 			}
@@ -198,7 +205,8 @@ $chip-colors: (
 			&.-ds-disabled {
 				background-color: map-get(map-get($color-map, 'disabled'), 'background');
 
-				#{$self}__leftIcon {
+				#{$self}__leftIcon,
+				#{$self}__rightIcon {
 					color: map-get(map-get($color-map, 'disabled'), 'icon');
 					fill: map-get($color-map, 'icon');
 				}
@@ -250,7 +258,8 @@ $chip-colors: (
 		white-space: nowrap;
 	}
 
-	&__leftIcon {
+	&__leftIcon,
+	&__rightIcon {
 		display: flex;
 	}
 
@@ -315,6 +324,7 @@ const {
 	label = null,
 	isLabelUppercase = false,
 	leftIcon = null,
+	rightIcon = null,
 	radius = CHIP_RADIUSES.CAPSULE,
 	size = CHIP_SIZES.SMALL,
 	color = CHIP_DEFAULT_COLOR,
@@ -326,6 +336,7 @@ const {
 	label?: string | null;
 	isLabelUppercase?: boolean;
 	leftIcon?: IconItem | null;
+	rightIcon?: IconItem | null;
 	radius?: ChipRadius;
 	size?: ChipSize;
 	color?: ChipColor;

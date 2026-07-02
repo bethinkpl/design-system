@@ -36,7 +36,7 @@
 					:eyebrow-text="eyebrow"
 					:eyebrow-text-ellipsis="eyebrowEllipsis"
 					:is-eyebrow-text-uppercase="isEyebrowUppercase"
-					:is-selected="isTextGroupSelected"
+					:main-text-color="textGroupMainTextColor"
 					:is-interactive="false"
 					:main-text="text"
 					:main-text-ellipsis="textEllipsis"
@@ -96,8 +96,10 @@
 import { defineComponent, PropType, toRaw } from 'vue';
 import { ICON_COLORS, IconColor, IconItem, ICONS } from '../../Icons/Icon';
 import {
+	TEXT_GROUP_MAIN_TEXT_COLORS,
 	TEXT_GROUP_SIZES,
 	TEXT_GROUP_STATES,
+	TextGroupMainTextColor,
 	TextGroupSize,
 	TextGroupState,
 } from '../../TextGroup';
@@ -289,6 +291,11 @@ export default defineComponent({
 				return TEXT_GROUP_STATES.HOVERED;
 			}
 			return TEXT_GROUP_STATES.DEFAULT;
+		},
+		textGroupMainTextColor(): TextGroupMainTextColor {
+			return this.isTextGroupSelected
+				? TEXT_GROUP_MAIN_TEXT_COLORS.PRIMARY
+				: TEXT_GROUP_MAIN_TEXT_COLORS.NEUTRAL;
 		},
 	},
 });
