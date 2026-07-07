@@ -96,11 +96,9 @@ export { default as DsDrawerDivider } from './components/Drawer/DrawerDivider/Dr
 export { default as DrawerHeader } from './components/Drawer/DrawerHeader/DrawerHeader.vue';
 export { default as DsDrawerHeader } from './components/Drawer/DrawerHeader/DrawerHeader.vue';
 export * from './components/Drawer/DrawerHeader/DrawerHeader.consts';
-export { default as DrawerListItem } from './components/Drawer/DrawerListItem/DrawerListItem.vue';
-export { default as DsDrawerListItem } from './components/Drawer/DrawerListItem/DrawerListItem.vue';
-export { default as DrawerListItemGroup } from './components/Drawer/DrawerListItemGroup/DrawerListItemGroup.vue';
-export { default as DsDrawerListItemGroup } from './components/Drawer/DrawerListItemGroup/DrawerListItemGroup.vue';
-export * from './components/Drawer/DrawerListItem/DrawerListItem.consts';
+export { default as DsLabelValueItem } from './components/LabelValue/LabelValueItem/LabelValueItem.vue';
+export { default as DsLabelValueItemGroup } from './components/LabelValue/LabelValueItemGroup/LabelValueItemGroup.vue';
+export * from './components/LabelValue/LabelValueItem/LabelValueItem.consts';
 export { default as DrawerTile } from './components/Drawer/DrawerTile/DrawerTile.vue';
 export { default as DsDrawerTile } from './components/Drawer/DrawerTile/DrawerTile.vue';
 export { default as DrawerSection } from './components/Drawer/DrawerSection/DrawerSection.vue';

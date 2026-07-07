@@ -1,20 +1,20 @@
-import DrawerListItem from './DrawerListItem.vue';
+import LabelValueItem from './LabelValueItem.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { DRAWER_LIST_ITEM_STATES } from './DrawerListItem.consts';
+import { LABEL_VALUE_ITEM_STATES } from './LabelValueItem.consts';
 
 export default {
-	title: 'Components/Drawer/DrawerListItem',
-	component: DrawerListItem,
-} as Meta<typeof DrawerListItem>;
+	title: 'Components/LabelValue/LabelValueItem',
+	component: LabelValueItem,
+} as Meta<typeof LabelValueItem>;
 
-const StoryTemplate: StoryFn<typeof DrawerListItem> = (args) => ({
-	components: { DrawerListItem },
+const StoryTemplate: StoryFn<typeof LabelValueItem> = (args) => ({
+	components: { LabelValueItem },
 	setup() {
 		return args;
 	},
 	template: `<div style="height: 300px; width: 200px;">
-		<drawer-list-item :label="label" :value-text="valueText" :state="state" />
+		<label-value-item :label="label" :value-text="valueText" :state="state" />
 		</div>`,
 });
 
@@ -23,13 +23,13 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	label: 'Label',
 	valueText: 'value',
-	state: DRAWER_LIST_ITEM_STATES.DEFAULT,
+	state: LABEL_VALUE_ITEM_STATES.DEFAULT,
 } as Args;
 
 const argTypes = {
 	state: {
 		control: 'select',
-		options: Object.values(DRAWER_LIST_ITEM_STATES),
+		options: Object.values(LABEL_VALUE_ITEM_STATES),
 	},
 } as ArgTypes;
 
