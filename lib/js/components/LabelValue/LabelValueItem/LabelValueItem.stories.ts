@@ -1,7 +1,11 @@
 import LabelValueItem from './LabelValueItem.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
-import { LABEL_VALUE_ITEM_STATES } from './LabelValueItem.consts';
+import {
+	LABEL_VALUE_ITEM_SIZES,
+	LABEL_VALUE_ITEM_STATES,
+	LABEL_VALUE_ITEM_VALUE_COLORS,
+} from './LabelValueItem.consts';
 
 export default {
 	title: 'Components/LabelValue/LabelValueItem',
@@ -14,7 +18,14 @@ const StoryTemplate: StoryFn<typeof LabelValueItem> = (args) => ({
 		return args;
 	},
 	template: `<div style="height: 300px; width: 200px;">
-		<label-value-item :label="label" :value-text="valueText" :state="state" />
+		<label-value-item
+			:label="label"
+			:value-text="valueText"
+			:state="state"
+			:size="size"
+			:is-label-strong="isLabelStrong"
+			:value-color="valueColor"
+		/>
 		</div>`,
 });
 
@@ -24,12 +35,26 @@ const args = {
 	label: 'Label',
 	valueText: 'value',
 	state: LABEL_VALUE_ITEM_STATES.DEFAULT,
+	size: LABEL_VALUE_ITEM_SIZES.MEDIUM,
+	isLabelStrong: false,
+	valueColor: LABEL_VALUE_ITEM_VALUE_COLORS.NEUTRAL,
 } as Args;
 
 const argTypes = {
 	state: {
 		control: 'select',
 		options: Object.values(LABEL_VALUE_ITEM_STATES),
+	},
+	size: {
+		control: 'select',
+		options: Object.values(LABEL_VALUE_ITEM_SIZES),
+	},
+	valueColor: {
+		control: 'select',
+		options: Object.values(LABEL_VALUE_ITEM_VALUE_COLORS),
+	},
+	isLabelStrong: {
+		control: 'boolean',
 	},
 } as ArgTypes;
 
