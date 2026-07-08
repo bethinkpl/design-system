@@ -187,6 +187,8 @@ export { default as DsStatsLayout } from './components/StatsLayout/StatsLayout.v
 export { default as DsStatsResetBanner } from './components/StatsLayout/StatsResetBanner/StatsResetBanner.vue';
 export { default as DsStatsSectionHeader } from './components/StatsLayout/StatsSectionHeader/StatsSectionHeader.vue';
 export { default as DsStepper } from './components/Stepper';
+export { default as DsTopNav } from './components/TopNav/TopNav/TopNav.vue';
+export { default as DsTopNavBranding } from './components/TopNav/TopNavBranding/TopNavBranding.vue';
 export { default as DsFlag } from './components/Flag';
 export * from './components/Flag/Flag.consts';
 export * from './components/Flag/flags';
