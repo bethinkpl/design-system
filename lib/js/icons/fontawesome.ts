@@ -181,6 +181,7 @@ import { faTrophyStar } from '@fortawesome/pro-regular-svg-icons/faTrophyStar';
 import { faUnlockKeyhole } from '@fortawesome/pro-regular-svg-icons/faUnlockKeyhole';
 import { faUpload } from '@fortawesome/pro-regular-svg-icons/faUpload';
 import { faUser } from '@fortawesome/pro-regular-svg-icons/faUser';
+import { faPaste } from '@fortawesome/pro-regular-svg-icons/faPaste';
 import { faWandMagicSparkles } from '@fortawesome/pro-regular-svg-icons/faWandMagicSparkles';
 import { faSparkles } from '@fortawesome/pro-regular-svg-icons/faSparkles';
 import { faWindowMaximize } from '@fortawesome/pro-regular-svg-icons/faWindowMaximize';
@@ -466,6 +467,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PAPER_PLANE: faPaperPlane,
 	FA_PAPERCLIP: faPaperclip,
 	FA_PARTY_HORN: faPartyHorn,
+	FA_PASTE: faPaste,
 	FA_PEN_CIRCLE: faPenCircle,
 	FA_PEN_FIELD: faPenField,
 	FA_PEN_TO_SQUARE: faPenToSquare,
