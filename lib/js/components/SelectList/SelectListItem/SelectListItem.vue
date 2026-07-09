@@ -113,7 +113,6 @@
 
 	&__placeholderRight {
 		flex-shrink: 0;
-		margin-left: $space-6;
 		width: $icon-xs;
 	}
 
