@@ -37,6 +37,9 @@
 					@click.prevent="$emit('icon-click')"
 				/>
 			</div>
+			<div v-if="$slots.leadingAccessory" class="ds-richListItem__leadingAccessory">
+				<slot name="leadingAccessory" />
+			</div>
 			<div class="ds-richListItem__content">
 				<slot name="content" />
 			</div>
@@ -136,7 +139,8 @@ $rich-list-item-media-horizontal-height: 80px;
 		}
 
 		#{$root}__dragAndDrop,
-		#{$root}__iconWrapper {
+		#{$root}__iconWrapper,
+		#{$root}__leadingAccessory {
 			align-items: center;
 			padding: $space-3 $space-1 $space-3 $space-8;
 		}
@@ -171,7 +175,8 @@ $rich-list-item-media-horizontal-height: 80px;
 			padding: 0 $space-2 0 0;
 
 			#{$root}__dragAndDrop,
-			#{$root}__iconWrapper {
+			#{$root}__iconWrapper,
+			#{$root}__leadingAccessory {
 				padding: $space-3 0 $space-3 $space-6;
 			}
 
@@ -211,7 +216,8 @@ $rich-list-item-media-horizontal-height: 80px;
 		}
 
 		#{$root}__dragAndDrop,
-		#{$root}__iconWrapper {
+		#{$root}__iconWrapper,
+		#{$root}__leadingAccessory {
 			align-items: flex-start;
 			padding: $space-6 0 0 $space-6;
 		}
@@ -244,7 +250,8 @@ $rich-list-item-media-horizontal-height: 80px;
 
 		&.-ds-small {
 			#{$root}__dragAndDrop,
-			#{$root}__iconWrapper {
+			#{$root}__iconWrapper,
+			#{$root}__leadingAccessory {
 				padding: $space-4 $space-2 0 $space-4;
 			}
 
@@ -409,7 +416,8 @@ $rich-list-item-media-horizontal-height: 80px;
 	}
 
 	&__dragAndDrop,
-	&__iconWrapper {
+	&__iconWrapper,
+	&__leadingAccessory {
 		align-self: stretch;
 		display: flex;
 	}
