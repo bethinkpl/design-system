@@ -38,7 +38,6 @@
 		align-items: center;
 		display: flex;
 		flex: 1 0 0;
-		gap: $space-3;
 		min-width: 0;
 
 		@media #{breakpoint-s()} {
@@ -54,7 +53,12 @@
 
 	&__default {
 		flex: 1 0 0;
+		margin-left: $space-3;
 		min-width: 0;
+
+		@media #{breakpoint-s()} {
+			margin-left: 0;
+		}
 	}
 
 	&__trailing {
