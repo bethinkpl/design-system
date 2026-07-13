@@ -1,0 +1,32 @@
+@import '../../../styles/settings/shadows';
+
+.sb-shadow {
+	border-radius: 6px;
+	background-color: var(--color-default-background);
+	height: 80px;
+	width: 240px;
+
+	&.-shadow-s {
+		box-shadow: $shadow-s;
+	}
+
+	&.-shadow-m {
+		box-shadow: $shadow-m;
+	}
+
+	&.-shadow-l {
+		box-shadow: $shadow-l;
+	}
+
+	&.-shadow-xl {
+		box-shadow: $shadow-xl;
+	}
+
+	&.-shadow-inset-s {
+		box-shadow: $shadow-inset-s;
+	}
+
+	&.-shadow-inset-m {
+		box-shadow: $shadow-inset-m;
+	}
+}
