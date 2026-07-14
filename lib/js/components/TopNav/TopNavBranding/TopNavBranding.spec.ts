@@ -56,4 +56,48 @@ describe('TopNavBranding', () => {
 
 		expect(component.find('.ds-topNavBranding__accessory').exists()).toBe(false);
 	});
+
+	describe('link rendering', () => {
+		it('renders the brand as a non-interactive div by default', () => {
+			const component = createComponent();
+			const brand = component.find('.ds-topNavBranding__brand');
+
+			expect(brand.element.tagName).toBe('DIV');
+		});
+
+		it('renders the brand as an anchor when href is provided', () => {
+			const component = createComponent({ href: 'https://example.com' });
+			const brand = component.find('.ds-topNavBranding__brand');
+
+			expect(brand.element.tagName).toBe('A');
+			expect(brand.attributes('href')).toBe('https://example.com');
+			expect(brand.find('.ds-topNavBranding__title').text()).toBe('Title');
+		});
+
+		it('renders the brand as a router-link when to is provided', () => {
+			const component = createComponent({ to: '/home' });
+			const brand = component.find('.ds-topNavBranding__brand');
+
+			expect(brand.element.tagName).toBe('ROUTER-LINK');
+		});
+
+		it('prioritizes href over to', () => {
+			const component = createComponent({ href: 'https://example.com', to: '/home' });
+			const brand = component.find('.ds-topNavBranding__brand');
+
+			expect(brand.element.tagName).toBe('A');
+			expect(brand.attributes('href')).toBe('https://example.com');
+		});
+
+		it('keeps the accessory outside the link', () => {
+			const component = createComponent(
+				{ href: 'https://example.com' },
+				{ accessory: () => h('span', { class: 'child' }, 'Accessory') },
+			);
+			const brand = component.find('.ds-topNavBranding__brand');
+
+			expect(brand.find('.ds-topNavBranding__accessory').exists()).toBe(false);
+			expect(component.find('.ds-topNavBranding__accessory .child').text()).toBe('Accessory');
+		});
+	});
 });

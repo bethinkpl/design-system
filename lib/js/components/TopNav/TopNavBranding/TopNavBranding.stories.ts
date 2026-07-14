@@ -26,7 +26,7 @@ const FilledTemplate: StoryFn<typeof TopNavBranding> = (args) => ({
 		};
 	},
 	template: `
-		<top-nav-branding :title="title">
+		<top-nav-branding :title="title" :href="href" :to="to">
 			<template #logo>
 				<span v-html="logo" style="display: inline-flex;" />
 			</template>
@@ -38,6 +38,8 @@ const FilledTemplate: StoryFn<typeof TopNavBranding> = (args) => ({
 });
 
 export const Filled = FilledTemplate.bind({});
+
+export const Linked = FilledTemplate.bind({});
 
 const SlotPlaceholdersTemplate: StoryFn<typeof TopNavBranding> = (args) => ({
 	components: { TopNavBranding, SlotPlaceholder },
@@ -63,11 +65,22 @@ export const SlotPlaceholders = SlotPlaceholdersTemplate.bind({});
 
 const args = {
 	title: 'Bethink',
+	href: '',
+	to: '',
 } as Args;
 
 const argTypes = {
 	title: {
 		control: 'text',
+	},
+	href: {
+		control: 'text',
+		description: 'Renders the logo + title as an `<a>` linking to this URL.',
+	},
+	to: {
+		control: 'text',
+		description:
+			'Renders the logo + title as a `<router-link>` (resolved by the host app). Ignored when `href` is set.',
 	},
 } as ArgTypes;
 
@@ -81,6 +94,13 @@ const parameters = {
 Filled.args = args;
 Filled.argTypes = argTypes;
 Filled.parameters = parameters;
+
+Linked.args = {
+	...args,
+	href: '/',
+} as Args;
+Linked.argTypes = argTypes;
+Linked.parameters = parameters;
 
 SlotPlaceholders.args = args;
 SlotPlaceholders.argTypes = argTypes;
