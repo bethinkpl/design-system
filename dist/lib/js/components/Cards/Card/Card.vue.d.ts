@@ -1,4 +1,3 @@
-import { RemovedProp } from '../../../utils/type.utils';
 import { LoadingBarColors } from '../../LoadingBar';
 import { CardBackgroundColor, CardRibbonColors, CardRibbonPositions, CardRibbonSizes, CardPaddingSize } from './Card.consts';
 
@@ -29,10 +28,6 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     loadingBarTime?: string;
     isFlat?: boolean;
     isContentScrollable?: boolean;
-    hasBorder?: RemovedProp<"renamed to hasRibbon">;
-    borderPosition?: RemovedProp<"renamed to ribbonPosition">;
-    borderSize?: RemovedProp<"renamed to ribbonSize">;
-    borderColor?: RemovedProp<"renamed to ribbonColor">;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     contentHasPadding?: boolean;
     headerHasPadding?: boolean;
@@ -51,10 +46,6 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     loadingBarTime?: string;
     isFlat?: boolean;
     isContentScrollable?: boolean;
-    hasBorder?: RemovedProp<"renamed to hasRibbon">;
-    borderPosition?: RemovedProp<"renamed to ribbonPosition">;
-    borderSize?: RemovedProp<"renamed to ribbonSize">;
-    borderColor?: RemovedProp<"renamed to ribbonColor">;
 }>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;

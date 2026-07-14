@@ -268,15 +268,15 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isInteractive: boolean;
     state: RichListItemState;
     isSupportingTextTooltipEnabled: boolean;
-    isSelected: boolean;
     elevation: "small";
     backgroundColor: RichListItemBackgroundColor;
     iconColor: string;
     layout: RichListItemLayout;
-    borderColor: RichListItemBorderColor;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
+    borderColor: RichListItemBorderColor;
     eyebrow: string;
+    isSelected: boolean;
     isDimmed: boolean;
     isDraggable: boolean;
     iconColorHex: string;
@@ -346,9 +346,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             supportingTextTooltipContent: {
                 type: PropType<string>;
             };
-            isSelected: {
-                type: PropType<import('../../../utils/type.utils').RemovedProp<"use mainTextColor=primary instead">>;
-            };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
@@ -414,9 +411,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             supportingTextTooltipContent: {
                 type: PropType<string>;
             };
-            isSelected: {
-                type: PropType<import('../../../utils/type.utils').RemovedProp<"use mainTextColor=primary instead">>;
-            };
         }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
         __isTeleport?: never;
@@ -478,9 +472,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
         supportingTextTooltipContent: {
             type: PropType<string>;
-        };
-        isSelected: {
-            type: PropType<import('../../../utils/type.utils').RemovedProp<"use mainTextColor=primary instead">>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {
@@ -994,12 +985,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: RichListItemType;
         isInteractive: boolean;
         state: RichListItemState;
-        isSelected: boolean;
         elevation: "small";
         backgroundColor: RichListItemBackgroundColor;
         iconColor: string;
         layout: RichListItemLayout;
         borderColor: RichListItemBorderColor;
+        isSelected: boolean;
         isDimmed: boolean;
         isDraggable: boolean;
         iconColorHex: string;

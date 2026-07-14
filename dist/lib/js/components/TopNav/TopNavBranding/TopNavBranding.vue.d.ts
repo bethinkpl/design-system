@@ -1,31 +1,19 @@
-import { SelectListItemSelectionMode, SelectListItemSize, SelectListItemState } from './SelectListItem.consts';
-import { IconItem } from '../../Icons/Icon';
-
+type RouterLocation = string | Record<string, unknown>;
 declare function __VLS_template(): Readonly<{
+    logo?: () => any;
     accessory?: () => any;
-    metadata?: () => any;
 }> & {
+    logo?: () => any;
     accessory?: () => any;
-    metadata?: () => any;
 };
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    iconLeft?: IconItem | null;
-    isSelected?: boolean;
-    label: string;
-    eyebrowText?: string;
-    isEyebrowTextUppercase?: boolean;
-    selectionMode?: SelectListItemSelectionMode;
-    size?: SelectListItemSize;
-    state?: SelectListItemState;
+    title: string;
+    href?: string;
+    to?: RouterLocation;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    iconLeft?: IconItem | null;
-    isSelected?: boolean;
-    label: string;
-    eyebrowText?: string;
-    isEyebrowTextUppercase?: boolean;
-    selectionMode?: SelectListItemSelectionMode;
-    size?: SelectListItemSize;
-    state?: SelectListItemState;
+    title: string;
+    href?: string;
+    to?: RouterLocation;
 }>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;

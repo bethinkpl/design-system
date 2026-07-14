@@ -511,18 +511,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             isContentScrollable: {
                 type: import('vue').PropType<boolean>;
             };
-            hasBorder: {
-                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to hasRibbon">>;
-            };
-            borderPosition: {
-                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to ribbonPosition">>;
-            };
-            borderSize: {
-                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to ribbonSize">>;
-            };
-            borderColor: {
-                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to ribbonColor">>;
-            };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
             B: {};
@@ -582,18 +570,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             isContentScrollable: {
                 type: import('vue').PropType<boolean>;
             };
-            hasBorder: {
-                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to hasRibbon">>;
-            };
-            borderPosition: {
-                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to ribbonPosition">>;
-            };
-            borderSize: {
-                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to ribbonSize">>;
-            };
-            borderColor: {
-                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to ribbonColor">>;
-            };
         }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
         __isTeleport?: never;
@@ -649,18 +625,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
         isContentScrollable: {
             type: import('vue').PropType<boolean>;
-        };
-        hasBorder: {
-            type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to hasRibbon">>;
-        };
-        borderPosition: {
-            type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to ribbonPosition">>;
-        };
-        borderSize: {
-            type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to ribbonSize">>;
-        };
-        borderColor: {
-            type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to ribbonColor">>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: Readonly<{

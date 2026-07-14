@@ -429,10 +429,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     radius: ToggleButtonRadius;
     isInteractive: boolean;
     state: ToggleButtonState;
-    isSelected: boolean;
     iconLeft: any;
     iconRight: any;
     isLabelUppercase: boolean;
+    isSelected: boolean;
     hasSmallHorizontalPadding: boolean;
     labelSize: ToggleButtonLabelSize;
 }, {}, {

@@ -760,11 +760,11 @@ declare const _default: import('vue').DefineComponent<{
         state: TileState;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
-        borderColor: import('../../Tile').TileBorderColors;
         interactive: boolean;
         additionalText: string;
         eyebrowEllipsis: boolean;
         textEllipsis: boolean;
+        borderColor: import('../../Tile').TileBorderColors;
         additionalTextMaxWidth: import('../../Tile').TileAdditionalTextMaxWidth;
         compactLayout: import('../../Tile').TileCompactLayout;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

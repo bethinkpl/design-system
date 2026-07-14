@@ -509,12 +509,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     type: RichListItemType;
     isInteractive: boolean;
     state: RichListItemState;
-    isSelected: boolean;
     elevation: "small";
     backgroundColor: RichListItemBackgroundColor;
     iconColor: string;
     layout: RichListItemLayout;
     borderColor: RichListItemBorderColor;
+    isSelected: boolean;
     isDimmed: boolean;
     isDraggable: boolean;
     iconColorHex: string;
