@@ -1,32 +1,32 @@
 @import '../../../styles/settings/shadows';
 
-.sb-shadow {
-	border-radius: 6px;
+.ds-shadow {
 	background-color: var(--color-default-background);
+	border-radius: 6px;
 	height: 80px;
 	width: 240px;
 
-	&.-shadow-s {
+	&.-ds-shadowS {
 		box-shadow: $shadow-s;
 	}
 
-	&.-shadow-m {
+	&.-ds-shadowM {
 		box-shadow: $shadow-m;
 	}
 
-	&.-shadow-l {
+	&.-ds-shadowL {
 		box-shadow: $shadow-l;
 	}
 
-	&.-shadow-xl {
+	&.-ds-shadowXl {
 		box-shadow: $shadow-xl;
 	}
 
-	&.-shadow-inset-s {
+	&.-ds-shadowInsetS {
 		box-shadow: $shadow-inset-s;
 	}
 
-	&.-shadow-inset-m {
+	&.-ds-shadowInsetM {
 		box-shadow: $shadow-inset-m;
 	}
 }

@@ -6,14 +6,14 @@ export default {
 } as Meta;
 
 // Names mirror lib/styles/settings/_shadows.scss; the shadows themselves are
-// applied from that source via the `.sb-shadow` classes in Shadows.stories.scss.
+// applied from that source via the `.ds-shadow` classes in Shadows.stories.scss.
 const shadows = [
-	'shadow-s',
-	'shadow-m',
-	'shadow-l',
-	'shadow-xl',
-	'shadow-inset-s',
-	'shadow-inset-m',
+	{ name: 'shadow-s', modifier: '-ds-shadowS' },
+	{ name: 'shadow-m', modifier: '-ds-shadowM' },
+	{ name: 'shadow-l', modifier: '-ds-shadowL' },
+	{ name: 'shadow-xl', modifier: '-ds-shadowXl' },
+	{ name: 'shadow-inset-s', modifier: '-ds-shadowInsetS' },
+	{ name: 'shadow-inset-m', modifier: '-ds-shadowInsetM' },
 ];
 
 const StoryTemplate: StoryFn = () => ({
@@ -26,9 +26,9 @@ const StoryTemplate: StoryFn = () => ({
 		<div style="padding: 24px;">
 			<div v-for="shadow in shadows" style="margin-bottom: 48px;">
 				<code>
-					\${{ shadow }}
+					\${{ shadow.name }}
 				</code>
-				<div :class="['sb-shadow', '-' + shadow]" style="margin-top: 12px;"></div>
+				<div :class="['ds-shadow', shadow.modifier]" style="margin-top: 12px;"></div>
 			</div>
 		</div>
 	`,
