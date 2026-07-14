@@ -416,8 +416,7 @@ $rich-list-item-media-horizontal-height: 80px;
 	}
 
 	&__dragAndDrop,
-	&__iconWrapper,
-	&__leadingAccessory {
+	&__iconWrapper {
 		align-self: stretch;
 		display: flex;
 	}
