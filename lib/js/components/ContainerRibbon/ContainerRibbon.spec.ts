@@ -23,12 +23,15 @@ describe('ContainerRibbon', () => {
 		);
 	});
 
-	it('applies size classes correctly', () => {
-		const wrapper = mount(ContainerRibbon, {
-			props: { size: CONTAINER_RIBBON_SIZES.SMALL },
-		});
-		expect(wrapper.find('.ds-container-ribbon').classes()).toContain('-ds-size-small');
-	});
+	it.each(Object.values(CONTAINER_RIBBON_SIZES))(
+		'applies size class correctly for size "%s"',
+		(size) => {
+			const wrapper = mount(ContainerRibbon, {
+				props: { size },
+			});
+			expect(wrapper.find('.ds-container-ribbon').classes()).toContain(`-ds-size-${size}`);
+		},
+	);
 
 	it('applies color classes correctly', () => {
 		const wrapper = mount(ContainerRibbon, {

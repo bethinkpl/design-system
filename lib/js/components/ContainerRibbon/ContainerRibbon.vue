@@ -2,6 +2,7 @@
 	<div
 		class="ds-container-ribbon"
 		:class="{
+			'-ds-size-x-small': size === CONTAINER_RIBBON_SIZES.X_SMALL,
 			'-ds-size-small': size === CONTAINER_RIBBON_SIZES.SMALL,
 			'-ds-size-medium': size === CONTAINER_RIBBON_SIZES.MEDIUM,
 			'-ds-size-large': size === CONTAINER_RIBBON_SIZES.LARGE,
@@ -38,6 +39,16 @@
 	}
 
 	// Size variants
+	&.-ds-size-x-small {
+		&.-ds-layout-vertical {
+			width: $border-xs;
+		}
+
+		&.-ds-layout-horizontal {
+			height: $border-xs;
+		}
+	}
+
 	&.-ds-size-small {
 		&.-ds-layout-vertical {
 			width: $border-s;
