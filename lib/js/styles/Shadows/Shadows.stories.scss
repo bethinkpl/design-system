@@ -1,8 +1,9 @@
 @import '../../../styles/settings/shadows';
+@import '../../../styles/settings/radiuses';
 
 .ds-shadow {
 	background-color: var(--color-default-background);
-	border-radius: 6px;
+	border-radius: $radius-m;
 	height: 80px;
 	width: 240px;
 
