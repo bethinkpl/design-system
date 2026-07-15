@@ -24,6 +24,7 @@ export declare const CARD_RIBBON_COLORS: {
 };
 export type CardRibbonColors = Value<typeof CARD_RIBBON_COLORS>;
 export declare const CARD_RIBBON_SIZES: {
+    readonly X_SMALL: "x-small";
     readonly SMALL: "small";
     readonly MEDIUM: "medium";
     readonly LARGE: "large";

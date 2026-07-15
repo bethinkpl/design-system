@@ -1,6 +1,7 @@
 import { Value } from '../../utils/type.utils';
 
 export declare const CONTAINER_RIBBON_SIZES: {
+    readonly X_SMALL: "x-small";
     readonly SMALL: "small";
     readonly MEDIUM: "medium";
     readonly LARGE: "large";

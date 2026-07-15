@@ -31,6 +31,7 @@ export declare const WELL_RIBBON_COLORS: {
 };
 export type WellRibbonColor = Value<typeof WELL_RIBBON_COLORS>;
 export declare const WELL_RIBBON_SIZES: {
+    readonly X_SMALL: "x-small";
     readonly SMALL: "small";
     readonly MEDIUM: "medium";
     readonly LARGE: "large";
