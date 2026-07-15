@@ -445,10 +445,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             header?: () => any;
             content?: () => any;
             footer?: () => any;
+            experimentalContent?: () => any;
         }> & {
             header?: () => any;
             content?: () => any;
             footer?: () => any;
+            experimentalContent?: () => any;
         };
     });
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

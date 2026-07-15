@@ -569,10 +569,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             header?: () => any;
             content?: () => any;
             footer?: () => any;
+            experimentalContent?: () => any;
         }> & {
             header?: () => any;
             content?: () => any;
             footer?: () => any;
+            experimentalContent?: () => any;
         };
     });
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
