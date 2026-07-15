@@ -55,6 +55,56 @@ describe('Card', () => {
 		expect(component.text()).toContain(footer);
 	});
 
+	it('should render experimentalContent slot', () => {
+		const experimentalContent = 'Wpłynąlem na suchego przestwór oceanu';
+		const component = createComponent({
+			slots: {
+				experimentalContent: () => [h('span', experimentalContent)],
+			},
+		});
+
+		expect(component.find('.ds-card__experimentalContent').exists()).toBe(true);
+		expect(component.find('.ds-card__experimentalContent').text()).toContain(
+			experimentalContent,
+		);
+	});
+
+	it('should skip standard slots when experimentalContent is used', () => {
+		const component = createComponent({
+			slots: {
+				header: () => [h('span', 'header')],
+				content: () => [h('span', 'content')],
+				footer: () => [h('span', 'footer')],
+				experimentalContent: () => [h('span', 'experimental')],
+			},
+		});
+
+		expect(component.find('.ds-card__header').exists()).toBe(false);
+		expect(component.find('.ds-card__content').exists()).toBe(false);
+		expect(component.find('.ds-card__footer').exists()).toBe(false);
+	});
+
+	it('should not render the slotsWrapper when experimentalContent is used', () => {
+		const component = createComponent({
+			slots: {
+				experimentalContent: () => [h('span', 'experimental')],
+			},
+		});
+
+		expect(component.find('.ds-card__slotsWrapper').exists()).toBe(false);
+	});
+
+	it('should still render the ribbon when experimentalContent is used', () => {
+		const component = createComponent({
+			props: { hasRibbon: true },
+			slots: {
+				experimentalContent: () => [h('span', 'experimental')],
+			},
+		});
+
+		expect(component.find('.ds-card__ribbon').exists()).toBe(true);
+	});
+
 	it('should render content slot with padding by default', () => {
 		const content = 'Wpłynąlem na suchego przestwór oceanu';
 		const component = createComponent({

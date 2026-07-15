@@ -28,7 +28,12 @@
 			/>
 		</div>
 
+		<div v-if="$slots.experimentalContent" class="ds-card__experimentalContent">
+			<slot name="experimentalContent" />
+		</div>
+
 		<div
+			v-else
 			class="ds-card__slotsWrapper"
 			:class="{ '-ds-containerIsScrollable': isContentScrollable }"
 		>
@@ -108,6 +113,14 @@
 		&.-ds-containerIsScrollable {
 			overflow: hidden;
 		}
+	}
+
+	&__experimentalContent {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		// prevents excessive width due to child elements
+		min-width: 0;
 	}
 
 	&__header {
@@ -263,6 +276,7 @@ defineSlots<{
 	header?: () => any;
 	content?: () => any;
 	footer?: () => any;
+	experimentalContent?: () => any;
 }>();
 
 const ribbonLayout = computed(() => {
