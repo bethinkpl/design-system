@@ -5,10 +5,12 @@ declare function __VLS_template(): Readonly<{
     header?: () => any;
     content?: () => any;
     footer?: () => any;
+    experimentalContent?: () => any;
 }> & {
     header?: () => any;
     content?: () => any;
     footer?: () => any;
+    experimentalContent?: () => any;
 };
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     contentHasPadding?: boolean;
