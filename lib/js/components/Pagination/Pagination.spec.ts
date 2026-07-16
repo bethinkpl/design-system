@@ -38,13 +38,13 @@ describe('Pagination', () => {
 	});
 
 	it('should not render the loading spinner by default', () => {
-		const component = createComponent();
+		const component = createComponent({ itemsTotalAmount: 60 });
 
 		expect(component.find('.ds-pagination__loading').exists()).toBe(false);
 	});
 
 	it('should render the loading spinner when isLoading is true', () => {
-		const component = createComponent({ isLoading: true });
+		const component = createComponent({ itemsTotalAmount: 60, isLoading: true });
 
 		expect(component.find('.ds-pagination__loading').exists()).toBe(true);
 	});
