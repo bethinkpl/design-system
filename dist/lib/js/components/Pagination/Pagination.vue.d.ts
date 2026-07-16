@@ -10,6 +10,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    isLoading: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     isCentered: {
         type: BooleanConstructor;
         default: boolean;
@@ -341,6 +345,16 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FAD_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FAD_SQUARE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
     }>;
+    ICON_SIZES: Readonly<{
+        XXX_SMALL: string;
+        XX_SMALL: string;
+        X_SMALL: string;
+        SMALL: string;
+        MEDIUM: string;
+        LARGE: string;
+        X_LARGE: string;
+        XX_LARGE: string;
+    }>;
     FIRST_PAGE_NUMBER: number;
 }, {
     lastPage(): number;
@@ -363,6 +377,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    isLoading: {
+        type: BooleanConstructor;
+        default: boolean;
+    };
     isCentered: {
         type: BooleanConstructor;
         default: boolean;
@@ -379,6 +397,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>> & Readonly<{
     "onChange-page"?: ((...args: any[]) => any) | undefined;
 }>, {
+    isLoading: boolean;
     currentPage: number;
     forceCompact: boolean;
     isCentered: boolean;
@@ -1185,5 +1204,80 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     });
     SelectList: import('vue').DefineComponent<{}, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<{}> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+    DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+        rotation: {
+            type: (NumberConstructor | null)[];
+            default: null;
+        };
+        flippedVertical: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        flippedHorizontal: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        touchableDeprecated: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        spinning: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>, {}, {}, {
+        sizeClassName(): string;
+        isFontawesomeIcon(): boolean;
+    }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        icon: {
+            type: ObjectConstructor;
+            required: true;
+            validator(icon: unknown): boolean;
+        };
+        size: {
+            type: StringConstructor;
+            default: string;
+            validator: (value: string) => boolean;
+        };
+        rotation: {
+            type: (NumberConstructor | null)[];
+            default: null;
+        };
+        flippedVertical: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        flippedHorizontal: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        touchableDeprecated: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+        spinning: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
+    }>> & Readonly<{}>, {
+        rotation: number | null;
+        size: string;
+        flippedVertical: boolean;
+        flippedHorizontal: boolean;
+        touchableDeprecated: boolean;
+        spinning: boolean;
+    }, {}, {
+        FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
+    }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
