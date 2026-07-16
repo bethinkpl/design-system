@@ -22,9 +22,9 @@ const StoryTemplate: StoryFn<typeof Pagination> = (args) => {
 			},
 		},
 		template: `
-			<Pagination v-bind=args @change-page="onChangePage">
-				<template #accessory>
-					<div v-if="args.accessory" v-html="args.accessory" />
+			<Pagination v-bind="args" @change-page="onChangePage">
+				<template v-if="args.accessory" #accessory>
+					<div  v-html="args.accessory" />
 				</template>
 			</Pagination>`,
 	};

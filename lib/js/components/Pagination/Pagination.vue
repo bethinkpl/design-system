@@ -65,6 +65,10 @@
 						</dropdown>
 					</div>
 				</template>
+
+				<div v-if="isLoading" class="ds-pagination__loading">
+					<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.SMALL" spinning />
+				</div>
 			</div>
 
 			<div v-if="navigationItems.length > 1" class="ds-pagination__items -ds-compact">
@@ -109,10 +113,10 @@
 					"
 					@click="changePage(currentPage + 1)"
 				/>
-			</div>
 
-			<div v-if="isLoading" class="ds-pagination__loading">
-				<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.SMALL" spinning />
+				<div v-if="isLoading" class="ds-pagination__loading">
+					<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.SMALL" spinning />
+				</div>
 			</div>
 		</div>
 
@@ -150,7 +154,6 @@ $pagination-input-height: 32px;
 		display: flex;
 		flex-wrap: nowrap;
 		justify-content: center;
-		position: relative;
 	}
 
 	&.-ds-centered {
@@ -164,6 +167,7 @@ $pagination-input-height: 32px;
 		align-items: center;
 		flex-direction: row;
 		padding: 0;
+		position: relative;
 
 		&.-ds-default {
 			display: none;
