@@ -4,6 +4,7 @@
 		:class="[
 			colorClass,
 			{
+				'-ds-large': WELL_PADDINGS.LARGE === padding,
 				'-ds-medium': WELL_PADDINGS.MEDIUM === padding,
 				'-ds-small': WELL_PADDINGS.SMALL === padding,
 				'-ds-noRadius': !hasRadius,
@@ -142,6 +143,16 @@
 		position: absolute;
 		right: 0;
 		top: -10px;
+	}
+
+	&.-ds-large {
+		#{$root}__content {
+			padding: $space-12;
+		}
+
+		#{$root}__accessorySlot {
+			right: $space-12;
+		}
 	}
 
 	&.-ds-medium {

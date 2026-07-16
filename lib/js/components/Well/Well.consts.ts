@@ -4,6 +4,7 @@ import { CONTAINER_RIBBON_COLORS, CONTAINER_RIBBON_SIZES } from '../ContainerRib
 export const WELL_PADDINGS = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
+	LARGE: 'large',
 } as const;
 
 export type WellPadding = Value<typeof WELL_PADDINGS>;

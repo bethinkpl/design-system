@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { ComponentMountingOptions, mount } from '@vue/test-utils';
 
 import Well from './Well.vue';
-import { WELL_RIBBON_POSITIONS } from './Well.consts';
+import { WELL_PADDINGS, WELL_RIBBON_POSITIONS } from './Well.consts';
 
 describe('Well', () => {
 	const createComponent = (options: ComponentMountingOptions<typeof Well> = {}) => {
@@ -22,6 +22,14 @@ describe('Well', () => {
 		});
 
 		expect(component.find('.ds-well__content').text()).toContain(content);
+	});
+
+	it.each(Object.values(WELL_PADDINGS))('should set the padding class for %s', (padding) => {
+		const component = createComponent({
+			props: { padding },
+		});
+
+		expect(component.find('.ds-well').classes()).toContain(`-ds-${padding}`);
 	});
 
 	it('should not set no-radius class by default', () => {
