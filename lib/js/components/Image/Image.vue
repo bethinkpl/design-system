@@ -9,7 +9,7 @@
 			draggable="false"
 			loading="lazy"
 			:src="src"
-			@error="isLoading = false"
+			@error="onError"
 			@load="isLoading = false"
 		/>
 		<div v-if="isLoading" class="ds-image__loader">
@@ -73,12 +73,21 @@ export default defineComponent({
 			required: true,
 		},
 	},
+	emits: {
+		error: (event: Event) => event instanceof Event,
+	},
 	data() {
 		return {
 			isLoading: true,
 			IMAGE_FITS: Object.freeze(IMAGE_FITS),
 			SKELETON_RADIUS_SIZES: Object.freeze(SKELETON_RADIUS_SIZES),
 		};
+	},
+	methods: {
+		onError(event: Event) {
+			this.isLoading = false;
+			this.$emit('error', event);
+		},
 	},
 });
 </script>
