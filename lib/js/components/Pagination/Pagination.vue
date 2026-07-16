@@ -120,7 +120,7 @@
 			</div>
 		</div>
 
-		<div class="ds-pagination__accessorySlot">
+		<div v-if="$slots.accessory" class="ds-pagination__accessorySlot">
 			<slot name="accessory" />
 		</div>
 	</div>
