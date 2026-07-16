@@ -21,7 +21,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         MEDIUM: string;
         LARGE: string;
     }>;
-}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+}, {}, {
+    onError(event: Event): void;
+}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    error: (event: Event) => boolean;
+}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     fit: {
         type: PropType<ImageFit>;
         default: string;
@@ -30,7 +34,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: StringConstructor;
         required: true;
     };
-}>> & Readonly<{}>, {
+}>> & Readonly<{
+    onError?: ((event: Event) => any) | undefined;
+}>, {
     fit: string;
 }, {}, {
     DsSkeleton: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
