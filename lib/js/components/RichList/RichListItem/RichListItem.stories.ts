@@ -12,6 +12,9 @@ import {
 } from './RichListItem.consts';
 import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 import { DsImage } from '../../../index';
+import SlotPlaceholder, {
+	SLOT_PLACEHOLDER_SIZES,
+} from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 import { useArgs } from '@storybook/preview-api';
 import { withActions } from '@storybook/addon-actions/decorator';
 
@@ -66,6 +69,9 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 		content: {
 			control: 'text',
 		},
+		leadingAccessory: {
+			control: 'text',
+		},
 		metadata: {
 			control: 'text',
 		},
@@ -107,6 +113,7 @@ const expandStory = (story: StoryFn<typeof RichListItem>, args = {}) => {
 		draggableIconClassName: 'draggableIconClassName-1',
 
 		content: 'Content Slot',
+		leadingAccessory: '',
 		metadata: 'Metadata Slot',
 		actions: 'ACS',
 
@@ -170,6 +177,9 @@ const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args) => {
 				<template v-if="content" #content>
 					<div v-html="content" />
 				</template>
+				<template v-if="leadingAccessory" #leadingAccessory>
+					<div v-html="leadingAccessory" />
+				</template>
 				<template v-if="metadata" #metadata>
 					<div v-html="metadata" />
 				</template>
@@ -182,6 +192,74 @@ const InteractiveStoryTemplate: StoryFn<typeof RichListItem> = (args) => {
 
 export const Interactive = InteractiveStoryTemplate.bind({});
 expandStory(Interactive);
+
+const PlaceholderSlotsStoryTemplate: StoryFn<typeof RichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { RichListItem, SlotPlaceholder },
+		setup() {
+			return args;
+		},
+		data() {
+			return {
+				SLOT_PLACEHOLDER_SIZES,
+			};
+		},
+		methods: {
+			updateIsSelected(isSelected) {
+				updateArgs({ isSelected });
+			},
+		},
+		template: `
+			<rich-list-item
+				:size="size"
+				:type="type"
+				:layout="layout"
+				:is-interactive="isInteractive"
+				:is-draggable="isDraggable"
+				:is-dimmed="isDimmed"
+				:border-color="borderColor"
+				:border-color-hex="borderColorHex"
+				:draggable-icon-class-name="draggableIconClassName"
+				:state="state"
+				:background-color="backgroundColor"
+				:elevation="elevation"
+				:has-draggable-handler="hasDraggableHandler"
+				:has-actions-slot-divider="hasActionsSlotDivider"
+				:is-selectable="isSelectable"
+				:is-selected="isSelected"
+				@update:is-selected="updateIsSelected"
+			>
+				<template #media>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="media" />
+				</template>
+				<template #leadingAccessory>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="leadingAccessory" />
+				</template>
+				<template #content>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="content" />
+				</template>
+				<template #metadata>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="metadata" />
+				</template>
+				<template #actions>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="actions" />
+				</template>
+			</rich-list-item>`,
+	};
+};
+
+export const PlaceholderSlots = PlaceholderSlotsStoryTemplate.bind({});
+expandStory(PlaceholderSlots);
+// All slots are provided by the story template, so their controls are not editable.
+PlaceholderSlots.argTypes = {
+	...PlaceholderSlots.argTypes,
+	content: { control: false },
+	leadingAccessory: { control: false },
+	metadata: { control: false },
+	actions: { control: false },
+} as ArgTypes;
 
 const WithMediaStoryTemplate: StoryFn<typeof RichListItem> = (args) => {
 	const [_, updateArgs] = useArgs();
@@ -245,3 +323,8 @@ expandStory(WithMedia, {
 	imageSrcUsedInStoryBook:
 		'https://storage.googleapis.com/media-manager/lek/018f6291-3956-7342-8e6b-0ee901d48643/018f6291-3a56-7213-aef6-b5da7253839f.jpg',
 });
+// The media story does not use the leadingAccessory slot, so its control is not editable.
+WithMedia.argTypes = {
+	...WithMedia.argTypes,
+	leadingAccessory: { control: false },
+} as ArgTypes;

@@ -28,7 +28,12 @@
 			/>
 		</div>
 
+		<div v-if="$slots.experimentalContent" class="ds-card__experimentalContent">
+			<slot name="experimentalContent" />
+		</div>
+
 		<div
+			v-else
 			class="ds-card__slotsWrapper"
 			:class="{ '-ds-containerIsScrollable': isContentScrollable }"
 		>
@@ -108,6 +113,14 @@
 		&.-ds-containerIsScrollable {
 			overflow: hidden;
 		}
+	}
+
+	&__experimentalContent {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		// prevents excessive width due to child elements
+		min-width: 0;
 	}
 
 	&__header {
@@ -192,7 +205,6 @@
 <script lang="ts" setup>
 import { computed } from 'vue';
 
-import { RemovedProp } from '../../../utils/type.utils';
 import DsDivider from '../../Divider/Divider.vue';
 import DsLoadingBar, { LOADING_BAR_COLORS, LoadingBarColors } from '../../LoadingBar';
 import DsContainerRibbon from '../../ContainerRibbon/ContainerRibbon.vue';
@@ -247,22 +259,13 @@ const {
 	loadingBarTime?: string;
 	isFlat?: boolean;
 	isContentScrollable?: boolean;
-
-	// Renamed props kept as removal markers so existing usages fail type-checking.
-	/** @deprecated renamed to `hasRibbon` */
-	hasBorder?: RemovedProp<'renamed to hasRibbon'>;
-	/** @deprecated renamed to `ribbonPosition` */
-	borderPosition?: RemovedProp<'renamed to ribbonPosition'>;
-	/** @deprecated renamed to `ribbonSize` */
-	borderSize?: RemovedProp<'renamed to ribbonSize'>;
-	/** @deprecated renamed to `ribbonColor` */
-	borderColor?: RemovedProp<'renamed to ribbonColor'>;
 }>();
 
 defineSlots<{
 	header?: () => any;
 	content?: () => any;
 	footer?: () => any;
+	experimentalContent?: () => any;
 }>();
 
 const ribbonLayout = computed(() => {

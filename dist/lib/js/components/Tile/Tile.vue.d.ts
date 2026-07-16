@@ -131,11 +131,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: import('./Tile.consts').TileState;
     iconLeft: Record<string, any>;
     iconRight: Record<string, any>;
-    borderColor: import('./Tile.consts').TileBorderColors;
     interactive: boolean;
     additionalText: string;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
+    borderColor: import('./Tile.consts').TileBorderColors;
     additionalTextMaxWidth: import('./Tile.consts').TileAdditionalTextMaxWidth;
     compactLayout: import('./Tile.consts').TileCompactLayout;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

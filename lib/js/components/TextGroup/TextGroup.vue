@@ -372,7 +372,6 @@ import {
 	TEXT_GROUP_PROMINENCE,
 } from './TextGroup.consts';
 import DsTooltip from '../Tooltip';
-import { RemovedProp } from '../../utils/type.utils';
 
 const {
 	size = TEXT_GROUP_SIZES.MEDIUM,
@@ -414,10 +413,6 @@ const {
 	isSupportingTextTooltipEnabledOnMobile?: boolean;
 	isSupportingTextTooltipAutoFilledWithContent?: boolean;
 	supportingTextTooltipContent?: string;
-
-	// Removed prop kept as a removal marker so existing usages fail type-checking.
-	/** @deprecated use `mainTextColor` set to `primary` instead */
-	isSelected?: RemovedProp<'use mainTextColor=primary instead'>;
 }>();
 
 const prominenceClassName = computed(() => `-ds-${prominence}`);

@@ -173,8 +173,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: PropType<SelectListItemState>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
-        $slots: {
-            accessory?(_: {}): any;
+        $slots: Readonly<{
+            accessory?: () => any;
+            metadata?: () => any;
+        }> & {
+            accessory?: () => any;
+            metadata?: () => any;
         };
     });
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

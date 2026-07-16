@@ -13,19 +13,38 @@ Modifiers are applied conditionally via `:class` bindings — they are never har
 
 ## Design tokens location
 
+The SCSS token sources live in `lib/styles/settings/` (e.g. `_radiuses.scss`, `_shadows.scss`, `_borders.scss`, `_spacings.scss`, `colors/`, `typography/`). Each token group is visualised by a matching **foundation story** under `lib/js/styles/`:
+
 ```
 lib/js/styles/
-  Borders/
+  Borders/                 # $border-* sizes
   Colors/                  # color variables (not yet tokenised)
   ColorsThemes/            # theme overrides
   ColorsTokensLms/         # LMS color tokens
   ColorsTokensPrimaryBodywork/
   ColorsTokensPrimaryMedcourses/
   ColorsTokensPrimaryWnl/  # WNL color tokens
+  Radiuses/                # $radius-* values
+  Shadows/                 # $shadow-* values (story SCSS @imports settings/shadows)
   Spacings/
   TypographyTokensLms/     # LMS typography tokens
   TypographyVariables/     # global typography mixins/variables
 ```
+
+## Keep foundation stories in sync with tokens
+
+Whenever you add, remove, rename, or change a value of a design token in `lib/styles/settings/*.scss`, update the matching foundation story under `lib/js/styles/` in the **same change** so Storybook stays accurate. Token source → story mapping:
+
+| Token source (`lib/styles/settings/`) | Foundation story (`lib/js/styles/`) |
+|----------------------------------------|--------------------------------------|
+| `_radiuses.scss` (`$radius-*`)         | `Radiuses/Radiuses.stories.ts` |
+| `_shadows.scss` (`$shadow-*`)          | `Shadows/Shadows.stories.*` |
+| `_borders.scss` (`$border-*`)          | `Borders/BorderSizes.stories.ts` |
+| `_spacings.scss` (`$space-*`)          | `Spacings/Spacings.stories.ts` |
+| `colors/` tokens                       | `Colors*` / `ColorsTokens*` stories |
+| `typography/` tokens                   | `Typography*` stories |
+
+Prefer sourcing values from SCSS in the story so the two can't drift — the `Shadows` story is the reference pattern: its `Shadows.stories.scss` `@import`s `settings/shadows` and applies each `$shadow-*` variable through a class, and the `.stories.ts` only lists token names. Stories that currently inline their values (e.g. `Borders`, `Radiuses`) must be edited by hand to match the SCSS.
 
 ## Importing tokens in component SCSS
 
