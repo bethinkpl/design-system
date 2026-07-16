@@ -31,6 +31,9 @@ const StoryTemplate: StoryFn<typeof Card> = (args) => ({
 			<template v-if="args.footer" #footer>
 				<div v-html="args.footer" />
 			</template>
+			<template v-if="args.experimentalContent" #experimentalContent>
+				<div v-html="args.experimentalContent" />
+			</template>
 		</card>`,
 });
 
@@ -40,6 +43,7 @@ const args = {
 	header: 'header slot',
 	content: 'content slot that supports <b>HTML markup</b>',
 	footer: 'footer slot',
+	experimentalContent: '',
 	contentHasPadding: true,
 	headerHasPadding: false,
 	footerHasPadding: false,
@@ -65,6 +69,7 @@ const argTypes = {
 		control: 'text',
 	},
 	footer: { control: 'text' },
+	experimentalContent: { control: 'text' },
 	backgroundColor: {
 		control: 'select',
 		options: Object.values(CARD_BACKGROUND_COLORS),
