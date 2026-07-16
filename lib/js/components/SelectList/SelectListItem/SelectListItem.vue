@@ -30,13 +30,15 @@
 			<span class="ds-selectListItem__text">{{ label }}</span>
 		</span>
 
+		<slot name="metadata" />
+
 		<ds-icon
 			v-if="isSelected"
 			class="ds-selectListItem__iconRight"
 			:icon="ICONS.FA_CHECK_SOLID"
 			:size="ICON_SIZES.XX_SMALL"
 		/>
-		<div v-else class="ds-selectListItem__placeholderRight" />
+		<div v-else-if="!hasMetadata" class="ds-selectListItem__placeholderRight" />
 	</div>
 </template>
 
@@ -107,12 +109,10 @@
 
 	&__iconRight {
 		color: $color-primary-icon;
-		margin-left: $space-6;
 	}
 
 	&__placeholderRight {
 		flex-shrink: 0;
-		margin-left: $space-6;
 		width: $icon-xs;
 	}
 
@@ -194,6 +194,12 @@ const {
 	state?: SelectListItemState;
 }>();
 
+const slots = defineSlots<{
+	accessory?: () => any;
+	metadata?: () => any;
+}>();
+
 const isLoading = computed(() => state === SELECT_LIST_ITEM_STATES.LOADING);
 const isDisabled = computed(() => state === SELECT_LIST_ITEM_STATES.DISABLED);
+const hasMetadata = computed(() => !!slots.metadata);
 </script>

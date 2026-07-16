@@ -39,6 +39,9 @@ const StoryTemplate: StoryFn<typeof SelectListItem> = (args) => ({
 				<template v-if="args.accessorySlot" #accessory>
 					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" :label="args.accessorySlot" />
 				</template>
+				<template v-if="args.metadataSlot" #metadata>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" :label="args.metadataSlot" />
+				</template>
 			</select-list-item>
     `,
 });
@@ -55,6 +58,7 @@ const args = {
 	isSelected: false,
 	selectionMode: SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
 	accessorySlot: 'accessory',
+	metadataSlot: 'metadata',
 } as Args;
 
 const argTypes = {
@@ -75,6 +79,9 @@ const argTypes = {
 		options: Object.values(SELECT_LIST_ITEM_STATES),
 	},
 	accessorySlot: {
+		control: 'text',
+	},
+	metadataSlot: {
 		control: 'text',
 	},
 } as ArgTypes;

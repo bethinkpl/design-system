@@ -4,6 +4,9 @@ import { withActions } from '@storybook/addon-actions/decorator';
 import { useArgs } from '@storybook/preview-api';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { DsImage } from '../../../index';
+import SlotPlaceholder, {
+	SLOT_PLACEHOLDER_SIZES,
+} from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 import { ICON_COLORS, ICONS } from '../../Icons/Icon';
 import {
 	RICH_LIST_ITEM_BACKGROUND_COLOR,
@@ -14,6 +17,7 @@ import {
 	RICH_LIST_ITEM_STATE,
 	RICH_LIST_ITEM_TYPE,
 } from '../RichListItem';
+import { toRefs } from 'vue';
 
 export default {
 	title: 'Components/RichList/BasicRichListItem',
@@ -90,6 +94,9 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		metadata: {
 			control: 'text',
 		},
+		leadingAccessory: {
+			control: 'text',
+		},
 		textSlot: {
 			control: 'text',
 		},
@@ -141,6 +148,7 @@ const expandStory = (story: StoryFn<typeof BasicRichListItem>, args = {}) => {
 		isSupportingTextTooltipEnabled: false,
 
 		metadata: 'Metadata Slot',
+		leadingAccessory: '',
 		textSlot: '',
 		actions: 'ACS',
 
@@ -167,11 +175,9 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
 	return {
 		components: { BasicRichListItem },
 		setup() {
-			return args;
-		},
-		data() {
 			return {
-				ICONS: Object.freeze(ICONS),
+				...toRefs(args),
+				ICONS,
 			};
 		},
 		methods: {
@@ -213,6 +219,9 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
 			<template v-if="metadata" #metadata>
 				<div v-html="metadata" />
 			</template>
+			<template v-if="leadingAccessory" #leadingAccessory>
+				<div v-html="leadingAccessory" />
+			</template>
 			<template v-if="textSlot" #text>
 				<div v-html="textSlot" />
 			</template>
@@ -226,17 +235,88 @@ const InteractiveStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
 export const Interactive = InteractiveStoryTemplate.bind({});
 expandStory(Interactive);
 
+const PlaceholderSlotsStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
+	const [_, updateArgs] = useArgs();
+
+	return {
+		components: { BasicRichListItem, SlotPlaceholder },
+		setup() {
+			return {
+				...toRefs(args),
+				SLOT_PLACEHOLDER_SIZES,
+			};
+		},
+		methods: {
+			updateIsSelected(isSelected) {
+				updateArgs({ isSelected });
+			},
+		},
+		template: `
+			<basic-rich-list-item
+				:size="size"
+				:type="type"
+				:layout="layout"
+				:is-interactive="isInteractive"
+				:is-draggable="isDraggable"
+				:is-dimmed="isDimmed"
+				:border-color="borderColor"
+				:border-color-hex="borderColorHex"
+				:eyebrow="eyebrow === 'null' ? null : eyebrow"
+				:eyebrow-ellipsis="eyebrowEllipsis"
+				:is-eyebrow-uppercase="isEyebrowUppercase"
+				:text="text"
+				:text-ellipsis="textEllipsis"
+				:supporting-text="supportingText === 'null' ? null : supportingText"
+				:supporting-text-ellipsis="supportingTextEllipsis"
+				:is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
+				:state="state"
+				:background-color="backgroundColor"
+				:elevation="elevation"
+				:has-draggable-handler="hasDraggableHandler"
+				:has-actions-slot-divider="hasActionsSlotDivider"
+				:is-selectable="isSelectable"
+				:is-selected="isSelected"
+				@update:is-selected="updateIsSelected"
+			>
+				<template #media>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="media" />
+				</template>
+				<template #leadingAccessory>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="leadingAccessory" />
+				</template>
+				<template #text>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="text" />
+				</template>
+				<template #metadata>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="metadata" />
+				</template>
+				<template #actions>
+					<slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="actions" />
+				</template>
+			</basic-rich-list-item>`,
+	};
+};
+
+export const PlaceholderSlots = PlaceholderSlotsStoryTemplate.bind({});
+expandStory(PlaceholderSlots);
+// All slots are provided by the story template, so their controls are not editable.
+PlaceholderSlots.argTypes = {
+	...PlaceholderSlots.argTypes,
+	leadingAccessory: { control: false },
+	metadata: { control: false },
+	textSlot: { control: false },
+	actions: { control: false },
+} as ArgTypes;
+
 const WithMediaStoryTemplate: StoryFn<typeof BasicRichListItem> = (args) => {
 	const [_, updateArgs] = useArgs();
 
 	return {
 		components: { BasicRichListItem, DsImage },
 		setup() {
-			return args;
-		},
-		data() {
 			return {
-				ICONS: Object.freeze(ICONS),
+				...toRefs(args),
+				ICONS,
 			};
 		},
 		methods: {
@@ -293,3 +373,8 @@ expandStory(WithMedia, {
 	imageSrcUsedInStoryBook:
 		'https://storage.googleapis.com/media-manager/lek/018f6291-3956-7342-8e6b-0ee901d48643/018f6291-3a56-7213-aef6-b5da7253839f.jpg',
 });
+// The media story does not use the leadingAccessory slot, so its control is not editable.
+WithMedia.argTypes = {
+	...WithMedia.argTypes,
+	leadingAccessory: { control: false },
+} as ArgTypes;

@@ -30,6 +30,9 @@
 		<template v-if="$slots.media" #media>
 			<slot name="media" />
 		</template>
+		<template v-if="$slots.leadingAccessory" #leadingAccessory>
+			<slot name="leadingAccessory" />
+		</template>
 		<template #content>
 			<div class="ds-basicRichListItem__content">
 				<ds-text-group

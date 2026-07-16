@@ -1,0 +1,33 @@
+@import '../../../styles/settings/shadows';
+@import '../../../styles/settings/radiuses';
+
+.ds-shadow {
+	background-color: var(--color-default-background);
+	border-radius: $radius-m;
+	height: 80px;
+	width: 240px;
+
+	&.-ds-shadowS {
+		box-shadow: $shadow-s;
+	}
+
+	&.-ds-shadowM {
+		box-shadow: $shadow-m;
+	}
+
+	&.-ds-shadowL {
+		box-shadow: $shadow-l;
+	}
+
+	&.-ds-shadowXl {
+		box-shadow: $shadow-xl;
+	}
+
+	&.-ds-shadowInsetS {
+		box-shadow: $shadow-inset-s;
+	}
+
+	&.-ds-shadowInsetM {
+		box-shadow: $shadow-inset-m;
+	}
+}
