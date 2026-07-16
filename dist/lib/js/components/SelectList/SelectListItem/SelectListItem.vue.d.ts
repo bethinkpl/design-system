@@ -1,8 +1,12 @@
 import { SelectListItemSelectionMode, SelectListItemSize, SelectListItemState } from './SelectListItem.consts';
 import { IconItem } from '../../Icons/Icon';
 
-declare function __VLS_template(): {
-    accessory?(_: {}): any;
+declare function __VLS_template(): Readonly<{
+    accessory?: () => any;
+    metadata?: () => any;
+}> & {
+    accessory?: () => any;
+    metadata?: () => any;
 };
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     iconLeft?: IconItem | null;
