@@ -4,11 +4,16 @@ import { shallowMount } from '@vue/test-utils';
 import Pagination from './Pagination.vue';
 
 describe('Pagination', () => {
-	const createComponent = ({ currentPage = 1, itemsTotalAmount = 30 } = {}) => {
+	const createComponent = ({
+		currentPage = 1,
+		itemsTotalAmount = 30,
+		isLoading = false,
+	} = {}) => {
 		return shallowMount(Pagination, {
 			props: {
 				currentPage,
 				itemsTotalAmount,
+				isLoading,
 			} as any,
 			global: {
 				stubs: {
@@ -30,6 +35,18 @@ describe('Pagination', () => {
 		const component = createComponent();
 
 		expect(component.exists()).toBe(true);
+	});
+
+	it('should not render the loading spinner by default', () => {
+		const component = createComponent({ itemsTotalAmount: 60 });
+
+		expect(component.find('.ds-pagination__loading').exists()).toBe(false);
+	});
+
+	it('should render the loading spinner when isLoading is true', () => {
+		const component = createComponent({ itemsTotalAmount: 60, isLoading: true });
+
+		expect(component.find('.ds-pagination__loading').exists()).toBe(true);
 	});
 
 	test.each([

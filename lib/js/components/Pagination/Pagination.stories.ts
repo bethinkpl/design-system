@@ -22,9 +22,9 @@ const StoryTemplate: StoryFn<typeof Pagination> = (args) => {
 			},
 		},
 		template: `
-			<Pagination v-bind=args @change-page="onChangePage">
-				<template #accessory>
-					<div v-if="args.accessory" v-html="args.accessory" />
+			<Pagination v-bind="args" @change-page="onChangePage">
+				<template v-if="args.accessory" #accessory>
+					<div  v-html="args.accessory" />
 				</template>
 			</Pagination>`,
 	};
@@ -35,6 +35,7 @@ export const Interactive = StoryTemplate.bind({});
 const argTypes = {
 	currentPage: { control: { type: 'number', min: 1 } },
 	forceCompact: { control: 'boolean' },
+	isLoading: { control: 'boolean' },
 	isCentered: { control: 'boolean' },
 	itemsPerPage: { control: { type: 'number', min: 1 } },
 	itemsTotalAmount: { control: { type: 'number', min: 1 } },
@@ -45,6 +46,7 @@ Interactive.argTypes = argTypes;
 Interactive.args = {
 	currentPage: 1,
 	forceCompact: false,
+	isLoading: false,
 	isCentered: false,
 	itemsPerPage: 30,
 	itemsTotalAmount: 600,

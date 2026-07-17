@@ -65,6 +65,10 @@
 						</dropdown>
 					</div>
 				</template>
+
+				<div v-if="isLoading" class="ds-pagination__loading">
+					<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.SMALL" spinning />
+				</div>
 			</div>
 
 			<div v-if="navigationItems.length > 1" class="ds-pagination__items -ds-compact">
@@ -109,10 +113,14 @@
 					"
 					@click="changePage(currentPage + 1)"
 				/>
+
+				<div v-if="isLoading" class="ds-pagination__loading">
+					<ds-icon :icon="ICONS.FAD_SPINNER_THIRD" :size="ICON_SIZES.SMALL" spinning />
+				</div>
 			</div>
 		</div>
 
-		<div class="ds-pagination__accessorySlot">
+		<div v-if="$slots.accessory" class="ds-pagination__accessorySlot">
 			<slot name="accessory" />
 		</div>
 	</div>
@@ -138,6 +146,8 @@ $pagination-input-height: 32px;
 	align-items: stretch;
 	flex-direction: row;
 	flex-grow: 1;
+	// leaves room for the loading spinner so it doesn't overlap the accessory slot
+	gap: $space-20;
 
 	&__itemsWrapper {
 		align-content: center;
@@ -157,6 +167,7 @@ $pagination-input-height: 32px;
 		align-items: center;
 		flex-direction: row;
 		padding: 0;
+		position: relative;
 
 		&.-ds-default {
 			display: none;
@@ -260,6 +271,17 @@ $pagination-input-height: 32px;
 		min-height: 0;
 		padding: 0;
 	}
+
+	&__loading {
+		align-items: center;
+		color: $color-primary-icon;
+		display: flex;
+		left: 100%;
+		margin-left: $space-6;
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+	}
 }
 </style>
 
@@ -267,7 +289,8 @@ $pagination-input-height: 32px;
 import { PAGINATION_DEFAULT_ITEMS_PER_PAGE } from './Pagination.consts';
 import IconButton from '../Buttons/IconButton/IconButton.vue';
 import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Buttons/IconButton';
-import { ICONS } from '../Icons/Icon';
+import DsIcon from '../Icons/Icon/Icon.vue';
+import { ICON_SIZES, ICONS } from '../Icons/Icon';
 
 import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../Dropdown/Dropdown.consts';
 import Dropdown from '../Dropdown/Dropdown.vue';
@@ -283,7 +306,7 @@ const FIRST_PAGE_NUMBER = 1;
 
 export default defineComponent({
 	name: 'Pagination',
-	components: { IconButton, Dropdown, SelectListItem, SelectList },
+	components: { IconButton, Dropdown, SelectListItem, SelectList, DsIcon },
 	props: {
 		currentPage: {
 			type: Number,
@@ -293,6 +316,10 @@ export default defineComponent({
 			},
 		},
 		forceCompact: {
+			type: Boolean,
+			default: false,
+		},
+		isLoading: {
 			type: Boolean,
 			default: false,
 		},
@@ -328,6 +355,7 @@ export default defineComponent({
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_BUTTON_STATES: Object.freeze(ICON_BUTTON_STATES),
 			ICONS: Object.freeze(ICONS),
+			ICON_SIZES: Object.freeze(ICON_SIZES),
 			FIRST_PAGE_NUMBER,
 		};
 	},
