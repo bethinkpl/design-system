@@ -133,6 +133,7 @@ describe('Chip', () => {
 		[CHIP_COLORS.INFO, '-ds-color-info'],
 		[CHIP_COLORS.WARNING, '-ds-color-warning'],
 		[CHIP_COLORS.INVERTED, '-ds-color-inverted'],
+		[CHIP_COLORS.ACCENT, '-ds-color-accent'],
 	])(
 		'correct class for color: %s prop, expectedClass: %s',
 		(color: string, expectedClass: string) => {
@@ -147,6 +148,7 @@ describe('Chip', () => {
 				'-ds-color-info',
 				'-ds-color-warning',
 				'-ds-color-inverted',
+				'-ds-color-accent',
 			];
 			const component = createComponent({ color });
 			const componentClasses = component.classes();

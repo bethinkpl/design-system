@@ -33,12 +33,15 @@ describe('ContainerRibbon', () => {
 		},
 	);
 
-	it('applies color classes correctly', () => {
-		const wrapper = mount(ContainerRibbon, {
-			props: { color: CONTAINER_RIBBON_COLORS.PRIMARY },
-		});
-		expect(wrapper.find('.ds-container-ribbon').classes()).toContain('-ds-color-primary');
-	});
+	it.each(Object.values(CONTAINER_RIBBON_COLORS))(
+		'applies color class correctly for color "%s"',
+		(color) => {
+			const wrapper = mount(ContainerRibbon, {
+				props: { color },
+			});
+			expect(wrapper.find('.ds-container-ribbon').classes()).toContain(`-ds-color-${color}`);
+		},
+	);
 
 	it('applies layout classes correctly', () => {
 		const wrapper = mount(ContainerRibbon, {

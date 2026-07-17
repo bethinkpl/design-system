@@ -38,6 +38,7 @@ describe('IconButton', () => {
 		[{ props: { state: ICON_BUTTON_STATES.LOADING }, expectedClass: '-ds-loading' }],
 		[{ props: { color: ICON_BUTTON_COLORS.PRIMARY }, expectedClass: '-ds-color-primary' }],
 		[{ props: { color: ICON_BUTTON_COLORS.MAGIC }, expectedClass: '-ds-color-magic' }],
+		[{ props: { color: ICON_BUTTON_COLORS.ACCENT }, expectedClass: '-ds-color-accent' }],
 	])('correct class for props', ({ props, expectedClass }) => {
 		const component = createComponent(props);
 		expect(component.classes()).toContain(expectedClass);

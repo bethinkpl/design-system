@@ -156,6 +156,17 @@ $chip-colors: (
 			'background': $color-info-background,
 		),
 	),
+	'accent': (
+		'label': $color-accent-text,
+		'icon': $color-accent-icon,
+		'background': $color-accent-background,
+		'background-hover': $color-accent-background-hovered,
+		'disabled': (
+			'label': $color-accent-text-disabled,
+			'icon': $color-accent-icon-disabled,
+			'background': $color-accent-background,
+		),
+	),
 	'inverted': (
 		'label': $color-neutral-text,
 		'icon': $color-neutral-icon,
@@ -318,6 +329,7 @@ const CHIP_ICON_BUTTONS_COLOR_MAP: Record<ChipColor, IconButtonColor> = {
 	[CHIP_COLORS.WARNING]: ICON_BUTTON_COLORS.WARNING,
 	[CHIP_COLORS.SUCCESS]: ICON_BUTTON_COLORS.SUCCESS,
 	[CHIP_COLORS.INFO]: ICON_BUTTON_COLORS.INFO,
+	[CHIP_COLORS.ACCENT]: ICON_BUTTON_COLORS.ACCENT,
 };
 
 const {

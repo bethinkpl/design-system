@@ -18,6 +18,7 @@ export const CHIP_COLORS = {
 	INVERTED: 'inverted',
 	WARNING: 'warning',
 	INFO: 'info',
+	ACCENT: 'accent',
 } as const;
 
 export const CHIP_DEFAULT_COLOR = CHIP_COLORS.NEUTRAL;

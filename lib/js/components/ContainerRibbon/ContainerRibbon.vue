@@ -15,6 +15,7 @@
 			'-ds-color-danger': color === CONTAINER_RIBBON_COLORS.DANGER,
 			'-ds-color-fail': color === CONTAINER_RIBBON_COLORS.FAIL,
 			'-ds-color-info': color === CONTAINER_RIBBON_COLORS.INFO,
+			'-ds-color-accent': color === CONTAINER_RIBBON_COLORS.ACCENT,
 			'-ds-color-transparent': color === CONTAINER_RIBBON_COLORS.TRANSPARENT,
 			'-ds-layout-vertical': layout === CONTAINER_RIBBON_LAYOUTS.VERTICAL,
 			'-ds-layout-horizontal': layout === CONTAINER_RIBBON_LAYOUTS.HORIZONTAL,
@@ -114,6 +115,10 @@
 
 	&.-ds-color-info {
 		background-color: $color-info-border;
+	}
+
+	&.-ds-color-accent {
+		background-color: $color-accent-border;
 	}
 
 	&.-ds-color-transparent {
