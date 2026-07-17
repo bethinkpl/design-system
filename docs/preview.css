@@ -990,6 +990,31 @@ table {
 .ds-button.-ds-color-fail .ds-button__icon, .ds-button.-ds-color-fail .ds-button__loadingIcon {
   color: var(--color-inverted-icon);
 }
+.ds-button.-ds-color-accent {
+  color: var(--color-inverted-text);
+}
+.ds-button.-ds-color-accent {
+  background-color: var(--color-accent-background-strong);
+}
+.ds-button.-ds-color-accent:hover, .ds-button.-ds-color-accent.-ds-hovered, .ds-button.-ds-color-accent:active, .ds-button.-ds-color-accent.-ds-active {
+  background-color: var(--color-accent-background-strong-hovered);
+}
+.ds-button.-ds-color-accent:focus, .ds-button.-ds-color-accent.-ds-focused {
+  background-color: var(--color-accent-background-strong-focused);
+}
+.ds-button.-ds-color-accent:disabled, .ds-button.-ds-color-accent.-ds-disabled {
+  background-color: var(--color-accent-background-strong-disabled);
+}
+.ds-button.-ds-color-accent:disabled, .ds-button.-ds-color-accent.-ds-disabled {
+  background-color: var(--color-accent-background-strong-disabled);
+  color: var(--color-inverted-text);
+}
+.ds-button.-ds-color-accent:disabled .ds-button__icon, .ds-button.-ds-color-accent.-ds-disabled .ds-button__icon {
+  color: var(--color-inverted-icon);
+}
+.ds-button.-ds-color-accent .ds-button__icon, .ds-button.-ds-color-accent .ds-button__loadingIcon {
+  color: var(--color-inverted-icon);
+}
 .ds-button {
   align-items: center;
   background-color: transparent;
@@ -1270,6 +1295,35 @@ table {
 }
 .ds-button.-ds-outlined.-ds-color-fail .ds-button__icon, .ds-button.-ds-outlined.-ds-color-fail .ds-button__loadingIcon {
   color: var(--color-fail-icon);
+}
+.ds-button.-ds-outlined.-ds-color-accent {
+  color: var(--color-accent-text);
+}
+.ds-button.-ds-outlined.-ds-color-accent {
+  background-color: var(--color-accent-background-ghost);
+}
+.ds-button.-ds-outlined.-ds-color-accent:hover, .ds-button.-ds-outlined.-ds-color-accent.-ds-hovered, .ds-button.-ds-outlined.-ds-color-accent:active, .ds-button.-ds-outlined.-ds-color-accent.-ds-active {
+  background-color: var(--color-accent-background-ghost-hovered);
+}
+.ds-button.-ds-outlined.-ds-color-accent:focus, .ds-button.-ds-outlined.-ds-color-accent.-ds-focused {
+  background-color: var(--color-accent-background-ghost-focused);
+}
+.ds-button.-ds-outlined.-ds-color-accent:disabled, .ds-button.-ds-outlined.-ds-color-accent.-ds-disabled {
+  background-color: var(--color-accent-background-ghost-disabled);
+}
+.ds-button.-ds-outlined.-ds-color-accent:disabled, .ds-button.-ds-outlined.-ds-color-accent.-ds-disabled {
+  background-color: var(--color-accent-background-ghost-disabled);
+  border-color: var(--color-accent-border-disabled);
+  color: var(--color-accent-text);
+}
+.ds-button.-ds-outlined.-ds-color-accent:disabled .ds-button__icon, .ds-button.-ds-outlined.-ds-color-accent.-ds-disabled .ds-button__icon {
+  color: var(--color-accent-icon-disabled);
+}
+.ds-button.-ds-outlined.-ds-color-accent {
+  border: 1px solid var(--color-accent-border);
+}
+.ds-button.-ds-outlined.-ds-color-accent .ds-button__icon, .ds-button.-ds-outlined.-ds-color-accent .ds-button__loadingIcon {
+  color: var(--color-accent-icon);
 }
 .ds-button.-ds-color-magic.-ds-outlined {
   background: linear-gradient(var(--color-default-background), var(--color-default-background)) padding-box, var(--gradient-magic-border-angular) border-box;
@@ -1563,6 +1617,24 @@ table {
 }
 .ds-button.-ds-text.-ds-color-fail.-ds-disabled .ds-button__icon, .ds-button.-ds-text.-ds-color-fail.-ds-disabled .ds-button__loadingIcon {
   color: var(--color-fail-icon-disabled);
+}
+.ds-button.-ds-text.-ds-color-accent {
+  color: var(--color-accent-text);
+}
+.ds-button.-ds-text.-ds-color-accent {
+  background-color: transparent;
+}
+.ds-button.-ds-text.-ds-color-accent:disabled, .ds-button.-ds-text.-ds-color-accent.-ds-disabled {
+  color: var(--color-accent-text);
+}
+.ds-button.-ds-text.-ds-color-accent:disabled .ds-button__icon, .ds-button.-ds-text.-ds-color-accent.-ds-disabled .ds-button__icon {
+  color: var(--color-accent-icon-disabled);
+}
+.ds-button.-ds-text.-ds-color-accent .ds-button__icon, .ds-button.-ds-text.-ds-color-accent .ds-button__loadingIcon {
+  color: var(--color-accent-icon);
+}
+.ds-button.-ds-text.-ds-color-accent.-ds-disabled .ds-button__icon, .ds-button.-ds-text.-ds-color-accent.-ds-disabled .ds-button__loadingIcon {
+  color: var(--color-accent-icon-disabled);
 }
 .ds-button.-ds-text {
   border: none;

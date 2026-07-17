@@ -30,6 +30,7 @@ export declare const ICON_BUTTON_COLORS: {
     readonly WARNING: "warning";
     readonly INFO: "info";
     readonly MAGIC: "magic";
+    readonly ACCENT: "accent";
 };
 export type IconButtonColor = Value<typeof ICON_BUTTON_COLORS>;
 export declare const ICON_BUTTON_STATES: {

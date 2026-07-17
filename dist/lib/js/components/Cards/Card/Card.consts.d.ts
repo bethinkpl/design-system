@@ -20,6 +20,7 @@ export declare const CARD_RIBBON_COLORS: {
     readonly DANGER: "danger";
     readonly FAIL: "fail";
     readonly INFO: "info";
+    readonly ACCENT: "accent";
     readonly TRANSPARENT: "transparent";
 };
 export type CardRibbonColors = Value<typeof CARD_RIBBON_COLORS>;
