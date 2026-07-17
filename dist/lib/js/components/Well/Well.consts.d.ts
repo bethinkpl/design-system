@@ -3,6 +3,7 @@ import { Value } from '../../utils/type.utils';
 export declare const WELL_PADDINGS: {
     readonly SMALL: "small";
     readonly MEDIUM: "medium";
+    readonly LARGE: "large";
 };
 export type WellPadding = Value<typeof WELL_PADDINGS>;
 export declare const WELL_COLORS: {
