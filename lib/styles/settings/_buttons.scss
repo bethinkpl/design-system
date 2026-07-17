@@ -185,6 +185,48 @@ $only-icon-button-colors: (
 			),
 		),
 	),
+	'accent': (
+		'filled': (
+			'color': $color-inverted-text,
+			'icon': $color-inverted-icon,
+			'background': $color-accent-background-strong,
+			'background-hovered': $color-accent-background-strong-hovered,
+			'background-focused': $color-accent-background-strong-focused,
+			'background-disabled': $color-accent-background-strong-disabled,
+			'disabled': (
+				'color': $color-inverted-text,
+				'icon': $color-inverted-icon,
+				'background': $color-accent-background-strong-disabled,
+			),
+		),
+		'outlined': (
+			'color': $color-accent-text,
+			'icon': $color-accent-icon,
+			'border': $color-accent-border,
+			'background': $color-accent-background-ghost,
+			'background-hovered': $color-accent-background-ghost-hovered,
+			'background-focused': $color-accent-background-ghost-focused,
+			'background-disabled': $color-accent-background-ghost-disabled,
+			'disabled': (
+				'color': $color-accent-text,
+				'border': $color-accent-border-disabled,
+				'icon': $color-accent-icon-disabled,
+				'background': $color-accent-background-ghost-disabled,
+			),
+		),
+		'text': (
+			'color': $color-accent-text,
+			'icon': $color-accent-icon,
+			'background': $color-accent-background-ghost,
+			'background-hovered': $color-accent-background-ghost-hovered,
+			'background-focused': $color-accent-background-ghost-focused,
+			'background-disabled': $color-accent-background-ghost-disabled,
+			'disabled': (
+				'color': $color-accent-text,
+				'icon': $color-accent-icon-disabled,
+			),
+		),
+	),
 );
 
 $button-colors: (

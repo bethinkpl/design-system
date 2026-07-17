@@ -19,6 +19,7 @@ export const CONTAINER_RIBBON_COLORS = {
 	DANGER: 'danger',
 	FAIL: 'fail',
 	INFO: 'info',
+	ACCENT: 'accent',
 	TRANSPARENT: 'transparent',
 } as const;
 
