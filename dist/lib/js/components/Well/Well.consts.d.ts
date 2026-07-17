@@ -27,6 +27,7 @@ export declare const WELL_RIBBON_COLORS: {
     readonly DANGER: "danger";
     readonly FAIL: "fail";
     readonly INFO: "info";
+    readonly ACCENT: "accent";
     readonly TRANSPARENT: "transparent";
 };
 export type WellRibbonColor = Value<typeof WELL_RIBBON_COLORS>;

@@ -16,6 +16,7 @@ export declare const CHIP_COLORS: {
     readonly INVERTED: "inverted";
     readonly WARNING: "warning";
     readonly INFO: "info";
+    readonly ACCENT: "accent";
 };
 export declare const CHIP_DEFAULT_COLOR: "neutral";
 export type ChipColor = Value<typeof CHIP_COLORS>;

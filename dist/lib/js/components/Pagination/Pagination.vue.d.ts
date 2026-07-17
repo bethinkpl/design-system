@@ -53,6 +53,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly WARNING: "warning";
         readonly INFO: "info";
         readonly MAGIC: "magic";
+        readonly ACCENT: "accent";
     }>;
     ICON_BUTTON_STATES: Readonly<{
         readonly DEFAULT: "default";
@@ -761,6 +762,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly WARNING: "warning";
             readonly INFO: "info";
             readonly MAGIC: "magic";
+            readonly ACCENT: "accent";
         }>;
         BUTTON_COLORS: Readonly<{
             readonly PRIMARY: "primary";

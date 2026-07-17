@@ -377,6 +377,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly WARNING: "warning";
         readonly INFO: "info";
         readonly MAGIC: "magic";
+        readonly ACCENT: "accent";
     }>;
     SECTION_HEADER_MOBILE_LAYOUTS: Readonly<{
         readonly VERTICAL: "vertical";
@@ -929,6 +930,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly WARNING: "warning";
             readonly INFO: "info";
             readonly MAGIC: "magic";
+            readonly ACCENT: "accent";
         }>;
         BUTTON_COLORS: Readonly<{
             readonly PRIMARY: "primary";

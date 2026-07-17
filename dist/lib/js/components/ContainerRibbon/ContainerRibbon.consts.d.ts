@@ -17,6 +17,7 @@ export declare const CONTAINER_RIBBON_COLORS: {
     readonly DANGER: "danger";
     readonly FAIL: "fail";
     readonly INFO: "info";
+    readonly ACCENT: "accent";
     readonly TRANSPARENT: "transparent";
 };
 export type ContainerRibbonColor = Value<typeof CONTAINER_RIBBON_COLORS>;
