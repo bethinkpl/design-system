@@ -25495,12 +25495,20 @@ const wde = /* @__PURE__ */ x(WQ, [["render", JQ], ["__scopeId", "data-v-ccaa1a8
       required: !0
     }
   },
+  emits: {
+    error: (e) => e instanceof Event
+  },
   data() {
     return {
       isLoading: !0,
       IMAGE_FITS: Object.freeze(zg),
       SKELETON_RADIUS_SIZES: Object.freeze(Ti)
     };
+  },
+  methods: {
+    onError(e) {
+      this.isLoading = !1, this.$emit("error", e);
+    }
   }
 }), $Q = { class: "ds-image" }, eJ = ["src"], tJ = {
   key: 0,
@@ -25517,7 +25525,7 @@ function aJ(e, t, a, r, o, i) {
       draggable: "false",
       loading: "lazy",
       src: e.src,
-      onError: t[0] || (t[0] = (c) => e.isLoading = !1),
+      onError: t[0] || (t[0] = (...c) => e.onError && e.onError(...c)),
       onLoad: t[1] || (t[1] = (c) => e.isLoading = !1)
     }, null, 42, eJ),
     e.isLoading ? (u(), v("div", tJ, [
@@ -25527,7 +25535,7 @@ function aJ(e, t, a, r, o, i) {
     ])) : E("", !0)
   ]);
 }
-const Mde = /* @__PURE__ */ x(xQ, [["render", aJ], ["__scopeId", "data-v-b1dcf768"]]), rJ = /* @__PURE__ */ q({
+const Mde = /* @__PURE__ */ x(xQ, [["render", aJ], ["__scopeId", "data-v-22eed58d"]]), rJ = /* @__PURE__ */ q({
   __name: "StatsErrorBanner",
   emits: ["button-clicked"],
   setup(e) {
