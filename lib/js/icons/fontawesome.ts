@@ -170,6 +170,7 @@ import { faSquareCheck } from '@fortawesome/pro-regular-svg-icons/faSquareCheck'
 import { faSquareList } from '@fortawesome/pro-regular-svg-icons/faSquareList';
 import { faSquareMinus } from '@fortawesome/pro-regular-svg-icons/faSquareMinus';
 import { faStar } from '@fortawesome/pro-regular-svg-icons/faStar';
+import { faSunBright } from '@fortawesome/pro-regular-svg-icons/faSunBright';
 import { faTag } from '@fortawesome/pro-regular-svg-icons/faTag';
 import { faTags } from '@fortawesome/pro-regular-svg-icons/faTags';
 import { faText } from '@fortawesome/pro-regular-svg-icons/faText';
@@ -234,6 +235,7 @@ import { faSquareCheck as fasSquareCheck } from '@fortawesome/pro-solid-svg-icon
 import { faSquareList as fasSquareList } from '@fortawesome/pro-solid-svg-icons/faSquareList';
 import { faSparkles as fasSparkles } from '@fortawesome/pro-solid-svg-icons/faSparkles';
 import { faStar as fasStar } from '@fortawesome/pro-solid-svg-icons/faStar';
+import { faSunBright as fasSunBright } from '@fortawesome/pro-solid-svg-icons/faSunBright';
 import { faStethoscope } from '@fortawesome/pro-regular-svg-icons/faStethoscope';
 import { faStopwatch as fasStopwach } from '@fortawesome/pro-solid-svg-icons/faStopwatch';
 import { faThumbsUp as fasThumbsUp } from '@fortawesome/pro-solid-svg-icons/faThumbsUp';
@@ -508,6 +510,8 @@ export const FONTAWESOME_ICONS = {
 	FA_SQUARE_SOLID: fasSquare,
 	FA_STAR_SOLID: fasStar,
 	FA_STAR: faStar,
+	FA_SUN_BRIGHT: faSunBright,
+	FA_SUN_BRIGHT_SOLID: fasSunBright,
 	FA_STETHOSCOPE: faStethoscope,
 	FA_STOPWATCH_SOLID: fasStopwach,
 	FA_TAG: faTag,
