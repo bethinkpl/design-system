@@ -1549,7 +1549,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                         type: import('vue').PropType<string>;
                     };
                     as: {
-                        type: import('vue').PropType<"a" | "button" | "span">;
+                        type: import('vue').PropType<"a" | "button" | "span" | "router-link" | "nuxt-link">;
                     };
                 }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
                     P: {};
@@ -1580,7 +1580,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                         type: import('vue').PropType<string>;
                     };
                     as: {
-                        type: import('vue').PropType<"a" | "button" | "span">;
+                        type: import('vue').PropType<"a" | "button" | "span" | "router-link" | "nuxt-link">;
                     };
                 }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
                 __isFragment?: never;
@@ -1608,7 +1608,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                     type: import('vue').PropType<string>;
                 };
                 as: {
-                    type: import('vue').PropType<"a" | "button" | "span">;
+                    type: import('vue').PropType<"a" | "button" | "span" | "router-link" | "nuxt-link">;
                 };
             }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
                 $slots: {

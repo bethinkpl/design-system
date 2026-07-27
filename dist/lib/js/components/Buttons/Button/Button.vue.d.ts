@@ -13,7 +13,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     iconLeft?: IconItem | null;
     iconRight?: IconItem | null;
     elevation?: ButtonElevation | string;
-    as?: "button" | "a" | "span";
+    as?: "button" | "a" | "span" | "router-link" | "nuxt-link";
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     size?: ButtonSize | string;
     type?: ButtonType | string;
@@ -23,7 +23,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     iconLeft?: IconItem | null;
     iconRight?: IconItem | null;
     elevation?: ButtonElevation | string;
-    as?: "button" | "a" | "span";
+    as?: "button" | "a" | "span" | "router-link" | "nuxt-link";
 }>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;
