@@ -102,7 +102,7 @@ const {
 	iconLeft?: IconItem | null;
 	iconRight?: IconItem | null;
 	elevation?: ButtonElevation | string;
-	as?: 'button' | 'a' | 'span';
+	as?: 'button' | 'a' | 'span' | 'router-link' | 'nuxt-link';
 }>();
 
 const iconSize = computed((): IconSize => {
