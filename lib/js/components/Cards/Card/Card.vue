@@ -197,6 +197,10 @@
 			left: 0;
 			position: absolute;
 			top: 0;
+			// keeps the ribbon above content elements with `position: relative` and no z-index.
+			// the default leaves room for content to layer within itself (1-9); override via
+			// `--ds-card-ribbon-z-index` when content needs a higher stacking order.
+			z-index: var(--ds-card-ribbon-z-index, 10);
 		}
 	}
 }
