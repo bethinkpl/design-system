@@ -23,6 +23,22 @@
 		box-shadow: $shadow-xl;
 	}
 
+	&.-ds-shadowTopS {
+		box-shadow: $shadow-top-s;
+	}
+
+	&.-ds-shadowTopM {
+		box-shadow: $shadow-top-m;
+	}
+
+	&.-ds-shadowTopL {
+		box-shadow: $shadow-top-l;
+	}
+
+	&.-ds-shadowTopXl {
+		box-shadow: $shadow-top-xl;
+	}
+
 	&.-ds-shadowInsetS {
 		box-shadow: $shadow-inset-s;
 	}

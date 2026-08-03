@@ -3,12 +3,16 @@
 		:class="[
 			'ds-card',
 			{
+				'-ds-paddingMedium': paddingSize === CARD_PADDING_SIZES.MEDIUM,
 				'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
 				'-ds-leftRibbon':
 					hasRibbon && !hasLoadingBar && ribbonPosition === CARD_RIBBON_POSITIONS.LEFT,
-				'-ds-flat': isFlat,
-				'-ds-noRadius': !hasRadius,
+				'-ds-elevationTop': elevation === CARD_ELEVATIONS.TOP,
+				'-ds-elevationNone': elevation === CARD_ELEVATIONS.NONE,
+				'-ds-radiusTop': radius === CARD_RADIUSES.TOP,
+				'-ds-radiusNone': radius === CARD_RADIUSES.NONE,
 				'-ds-backgroundNeutral': backgroundColor === CARD_BACKGROUND_COLORS.NEUTRAL,
+				'-ds-backgroundNone': backgroundColor === CARD_BACKGROUND_COLORS.NONE,
 			},
 		]"
 	>
@@ -80,23 +84,36 @@
 	$root: &;
 	$card-border-radius: $radius-m;
 
+	background-color: $color-default-background;
+	border-radius: $card-border-radius;
+	box-shadow: $shadow-s;
 	display: flex;
 	flex-direction: column;
 	position: relative;
 	width: inherit;
 
-	&:not(.-ds-flat) {
-		background-color: $color-default-background;
-		border-radius: $card-border-radius;
-		box-shadow: $shadow-s;
+	&.-ds-backgroundNeutral {
+		background-color: $color-neutral-background;
+	}
 
-		&.-ds-backgroundNeutral {
-			background-color: $color-neutral-background;
-		}
+	&.-ds-backgroundNone {
+		background-color: transparent;
+	}
 
-		&.-ds-noRadius {
-			border-radius: 0;
-		}
+	&.-ds-elevationTop {
+		box-shadow: $shadow-top-s;
+	}
+
+	&.-ds-elevationNone {
+		box-shadow: none;
+	}
+
+	&.-ds-radiusTop {
+		border-radius: $card-border-radius $card-border-radius 0 0;
+	}
+
+	&.-ds-radiusNone {
+		border-radius: 0;
 	}
 
 	&.-ds-leftRibbon {
@@ -127,6 +144,10 @@
 		&.-ds-withPadding {
 			padding: $space-8;
 
+			#{$root}.-ds-paddingMedium & {
+				padding: $space-12 $space-12 $space-8;
+			}
+
 			#{$root}.-ds-paddingLarge & {
 				padding: $space-16 $space-16 $space-8;
 			}
@@ -136,6 +157,10 @@
 	&__headerDivider {
 		&.-ds-withHorizontalMargin {
 			margin: 0 $space-8;
+
+			#{$root}.-ds-paddingMedium & {
+				margin: 0 $space-12;
+			}
 
 			#{$root}.-ds-paddingLarge & {
 				margin: 0 $space-16;
@@ -148,6 +173,10 @@
 
 		&.-ds-withPadding {
 			padding: $space-8;
+
+			#{$root}.-ds-paddingMedium & {
+				padding: $space-8 $space-12;
+			}
 
 			#{$root}.-ds-paddingLarge & {
 				padding: $space-8 $space-16;
@@ -164,6 +193,10 @@
 		&.-ds-withPadding {
 			padding: 0 $space-8 $space-8;
 
+			#{$root}.-ds-paddingMedium & {
+				padding: 0 $space-12 $space-12;
+			}
+
 			#{$root}.-ds-paddingLarge & {
 				padding: 0 $space-16 $space-16;
 			}
@@ -176,20 +209,21 @@
 		display: flex;
 		flex-shrink: 0;
 
-		#{$root}:not(.-ds-flat) & {
+		#{$root}:not(.-ds-radiusNone) & {
 			border-top-left-radius: $card-border-radius;
 			border-top-right-radius: $card-border-radius;
 			overflow: hidden;
 		}
 
-		#{$root}:not(.-ds-flat).-ds-leftRibbon & {
-			border-bottom-left-radius: $card-border-radius;
+		#{$root}:not(.-ds-radiusNone).-ds-leftRibbon & {
 			border-top-left-radius: $card-border-radius;
 			border-top-right-radius: 0;
 		}
 
-		#{$root}:not(.-ds-flat).-ds-noRadius & {
-			border-radius: 0;
+		// a left ribbon spans the full height of the card, so its bottom corner is
+		// only rounded when the card itself is rounded at the bottom
+		#{$root}:not(.-ds-radiusNone):not(.-ds-radiusTop).-ds-leftRibbon & {
+			border-bottom-left-radius: $card-border-radius;
 		}
 
 		.-ds-leftRibbon & {
@@ -213,13 +247,18 @@ import DsDivider from '../../Divider/Divider.vue';
 import DsLoadingBar, { LOADING_BAR_COLORS, LoadingBarColors } from '../../LoadingBar';
 import DsContainerRibbon from '../../ContainerRibbon/ContainerRibbon.vue';
 import { CONTAINER_RIBBON_LAYOUTS, CONTAINER_RIBBON_RADIUSES } from '../../ContainerRibbon';
+import { RemovedProp } from '../../../utils/type.utils';
 import {
 	CARD_BACKGROUND_COLORS,
+	CARD_ELEVATIONS,
+	CARD_RADIUSES,
 	CARD_RIBBON_COLORS,
 	CARD_RIBBON_POSITIONS,
 	CARD_RIBBON_SIZES,
 	CARD_PADDING_SIZES,
 	CardBackgroundColor,
+	CardElevation,
+	CardRadius,
 	CardRibbonColors,
 	CardRibbonPositions,
 	CardRibbonSizes,
@@ -234,7 +273,8 @@ const {
 	paddingSize = CARD_PADDING_SIZES.SMALL,
 	dividerUnderHeader = false,
 	hasRibbon = false,
-	hasRadius = true,
+	elevation = CARD_ELEVATIONS.DEFAULT,
+	radius = CARD_RADIUSES.ALL,
 	backgroundColor = CARD_BACKGROUND_COLORS.DEFAULT,
 	ribbonPosition = CARD_RIBBON_POSITIONS.TOP,
 	ribbonSize = CARD_RIBBON_SIZES.MEDIUM,
@@ -243,7 +283,6 @@ const {
 	hasLoadingBar = false,
 	loadingBarColor = LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime = '0',
-	isFlat = false,
 	isContentScrollable = false,
 } = defineProps<{
 	contentHasPadding?: boolean;
@@ -252,7 +291,8 @@ const {
 	paddingSize?: CardPaddingSize;
 	dividerUnderHeader?: boolean;
 	hasRibbon?: boolean;
-	hasRadius?: boolean;
+	elevation?: CardElevation;
+	radius?: CardRadius;
 	backgroundColor?: CardBackgroundColor;
 	ribbonPosition?: CardRibbonPositions;
 	ribbonSize?: CardRibbonSizes;
@@ -261,8 +301,12 @@ const {
 	hasLoadingBar?: boolean;
 	loadingBarColor?: LoadingBarColors;
 	loadingBarTime?: string;
-	isFlat?: boolean;
 	isContentScrollable?: boolean;
+	// Removed props kept as removal markers so existing usages fail type-checking.
+	/** @deprecated use `elevation="none"`, `radius="none"` and `background-color="none"` */
+	isFlat?: RemovedProp<'use elevation, radius and backgroundColor'>;
+	/** @deprecated renamed to `radius` (all | top | none) */
+	hasRadius?: RemovedProp<'renamed to radius'>;
 }>();
 
 defineSlots<{
@@ -285,7 +329,7 @@ const ribbonRadius = computed(() => {
 		[CARD_RIBBON_POSITIONS.TOP]: CONTAINER_RIBBON_RADIUSES.BOTTOM,
 		[CARD_RIBBON_POSITIONS.LEFT]: CONTAINER_RIBBON_RADIUSES.RIGHT,
 	};
-	return hasRibbonRadius && (isFlat || !hasRadius)
+	return hasRibbonRadius && radius === CARD_RADIUSES.NONE
 		? ribbonPositionToRibbonRadiusMap[ribbonPosition]
 		: CONTAINER_RIBBON_RADIUSES.NONE;
 });
