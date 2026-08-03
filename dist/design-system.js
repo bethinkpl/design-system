@@ -16092,7 +16092,7 @@ const N4e = /* @__PURE__ */ x(TV, [["render", RV], ["__scopeId", "data-v-f8e388a
       ], 2))
     ], 2));
   }
-}), io = /* @__PURE__ */ x(qV, [["__scopeId", "data-v-de7e4381"]]), rt = () => {
+}), io = /* @__PURE__ */ x(qV, [["__scopeId", "data-v-a97b7382"]]), rt = () => {
   const e = Jr();
   if (!e || !e.root.proxy)
     throw new Error("useLegacyI18n must be called within a Vue component");
