@@ -39,10 +39,10 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 			:has-back-button="hasBackButton"
 		>
 			<template #actions v-if="actions">
-				<div v-html="actions" />
+				<slot-placeholder :label="actions" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
 			</template>
 			<template #titleTrailing v-if="titleTrailing">
-				<div v-html="titleTrailing" />
+				<slot-placeholder :label="titleTrailing" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
 			</template>
 			<template #supporting v-if="supporting">
 				<slot-placeholder :label="supporting" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
