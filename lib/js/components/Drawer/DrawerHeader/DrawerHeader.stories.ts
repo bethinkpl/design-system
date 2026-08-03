@@ -6,6 +6,7 @@ import { DRAWER_HEADER_TITLE_COLORS } from './DrawerHeader.consts';
 import SlotPlaceholder, {
 	SLOT_PLACEHOLDER_SIZES,
 } from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
+import { toRefs } from 'vue';
 
 export default {
 	title: 'Components/Drawer/DrawerHeader',
@@ -15,12 +16,10 @@ export default {
 const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 	components: { DrawerHeader, SlotPlaceholder },
 	setup() {
-		return args;
-	},
-	data() {
 		return {
-			ICONS: Object.freeze(ICONS),
-			SLOT_PLACEHOLDER_SIZES: Object.freeze(SLOT_PLACEHOLDER_SIZES),
+			...toRefs(args),
+			ICONS,
+			SLOT_PLACEHOLDER_SIZES,
 		};
 	},
 	template: `
