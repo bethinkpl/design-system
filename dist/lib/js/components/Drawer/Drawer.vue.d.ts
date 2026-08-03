@@ -1,5 +1,5 @@
 import { PropType } from 'vue';
-import { DrawerPosition } from './Drawer.consts';
+import { DrawerBackgroundColor, DrawerPosition } from './Drawer.consts';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     position: {
@@ -15,8 +15,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    backgroundColor: {
+        type: PropType<DrawerBackgroundColor>;
+        default: "none";
+        validator(backgroundColor: DrawerBackgroundColor): boolean;
+    };
 }>, {}, {}, {
     positionClassName(): string;
+    backgroundColorClassName(): string | null;
 }, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     position: {
         type: PropType<DrawerPosition>;
@@ -31,7 +37,13 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    backgroundColor: {
+        type: PropType<DrawerBackgroundColor>;
+        default: "none";
+        validator(backgroundColor: DrawerBackgroundColor): boolean;
+    };
 }>> & Readonly<{}>, {
+    backgroundColor: DrawerBackgroundColor;
     position: DrawerPosition;
     stickyHeader: boolean;
     stickyFooter: boolean;
