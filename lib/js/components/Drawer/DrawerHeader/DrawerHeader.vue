@@ -92,6 +92,7 @@ $minimal-drawer-header-height: 58px;
 	}
 
 	&__headerWrapper {
+		min-height: $minimal-drawer-header-height;
 		padding: $space-6;
 	}
 
@@ -167,7 +168,6 @@ $minimal-drawer-header-height: 58px;
 		column-gap: $space-2;
 		display: flex;
 		justify-content: space-between;
-		min-height: $minimal-drawer-header-height;
 	}
 
 	&__actions {
