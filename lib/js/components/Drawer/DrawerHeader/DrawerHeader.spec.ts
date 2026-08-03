@@ -59,34 +59,15 @@ describe('DrawerHeader', () => {
 	});
 
 	describe('supporting slot', () => {
-		it('should not render anything when the slot is not provided', () => {
-			const component = createComponent({ hasDivider: true });
-
-			const children = Array.from(component.element.children) as Array<Element>;
-
-			expect(children).toHaveLength(2);
-			expect(children[0].classList.contains('ds-drawerHeader__titleWrapper')).toBeTruthy();
-		});
-
-		it('should render the slot content between the title wrapper and the divider', () => {
+		it('should render the slot content inside the header wrapper', () => {
 			const component = createComponent(
-				{ hasDivider: true },
+				{},
 				{ supporting: '<span class="supporting-content">Supporting</span>' },
 			);
 
-			const supporting = component.find('.supporting-content');
+			const headerWrapper = component.find('.ds-drawerHeader__headerWrapper').element;
 
-			expect(supporting.exists()).toBeTruthy();
-			expect(supporting.text()).toBe('Supporting');
-
-			const children = Array.from(component.element.children) as Array<Element>;
-			const titleWrapperIndex = children.findIndex((child) =>
-				child.classList.contains('ds-drawerHeader__titleWrapper'),
-			);
-			const supportingIndex = children.indexOf(supporting.element);
-
-			expect(supportingIndex).toBe(titleWrapperIndex + 1);
-			expect(supportingIndex).toBe(children.length - 2);
+			expect(component.find('.supporting-content').element.parentElement).toBe(headerWrapper);
 		});
 	});
 

@@ -5,68 +5,73 @@
 			'-ds-backgroundDefault': backgroundColor === DRAWER_HEADER_BACKGROUND_COLORS.DEFAULT,
 		}"
 	>
-		<div class="ds-drawerHeader__titleWrapper">
-			<ds-button
-				v-if="isSecondLevel"
-				:icon-left="ICONS.FA_CHEVRON_LEFT"
-				:type="BUTTON_TYPES.TEXT"
-				class="ds-drawerHeader__secondLevel"
-				@click="$emit('backClicked')"
-			>
-				{{ t('ds.globals.back') }}
-			</ds-button>
-			<div :class="{ '-ds-hidden': isSecondLevel }" class="ds-drawerHeader__firstLevel">
-				<icon-button
-					v-if="hasBackButton"
-					:size="ICON_BUTTON_SIZES.MEDIUM"
-					:icon="ICONS.FA_CHEVRON_LEFT"
+		<div class="ds-drawerHeader__headerWrapper">
+			<div class="ds-drawerHeader__titleWrapper">
+				<ds-button
+					v-if="isSecondLevel"
+					:icon-left="ICONS.FA_CHEVRON_LEFT"
+					:type="BUTTON_TYPES.TEXT"
+					class="ds-drawerHeader__secondLevel"
 					@click="$emit('backClicked')"
-				/>
-				<div class="ds-drawerHeader__textWrapper">
-					<span
-						v-if="eyebrowText"
-						:class="{
-							'-ds-isInteractive': isInteractiveEyebrow,
-							'-ds-ellipsis': eyebrowEllipsis,
-						}"
-						class="ds-drawerHeader__eyebrow"
-						@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
-					>
-						{{ eyebrowText }}
-					</span>
-					<div class="ds-drawerHeader__title">
-						<icon
-							v-if="leftIcon"
-							:icon="leftIcon"
-							:size="ICON_SIZES.X_SMALL"
-							class="ds-drawerHeader__leftIcon"
-						/>
+				>
+					{{ t('ds.globals.back') }}
+				</ds-button>
+				<div :class="{ '-ds-hidden': isSecondLevel }" class="ds-drawerHeader__firstLevel">
+					<icon-button
+						v-if="hasBackButton"
+						:size="ICON_BUTTON_SIZES.MEDIUM"
+						:icon="ICONS.FA_CHEVRON_LEFT"
+						@click="$emit('backClicked')"
+					/>
+					<div class="ds-drawerHeader__textWrapper">
 						<span
-							v-if="title"
-							class="ds-drawerHeader__titleText"
-							:class="{ '-ds-ellipsis': titleEllipsis, [`-ds-${titleColor}`]: true }"
-							:title="titleEllipsis ? title : undefined"
-							>{{ title }}</span
+							v-if="eyebrowText"
+							:class="{
+								'-ds-isInteractive': isInteractiveEyebrow,
+								'-ds-ellipsis': eyebrowEllipsis,
+							}"
+							class="ds-drawerHeader__eyebrow"
+							@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
 						>
-						<chip v-if="chipLabel" :label="chipLabel" />
-						<div v-if="$slots.titleTrailing">
-							<slot name="titleTrailing" />
+							{{ eyebrowText }}
+						</span>
+						<div class="ds-drawerHeader__title">
+							<icon
+								v-if="leftIcon"
+								:icon="leftIcon"
+								:size="ICON_SIZES.X_SMALL"
+								class="ds-drawerHeader__leftIcon"
+							/>
+							<span
+								v-if="title"
+								class="ds-drawerHeader__titleText"
+								:class="{
+									'-ds-ellipsis': titleEllipsis,
+									[`-ds-${titleColor}`]: true,
+								}"
+								:title="titleEllipsis ? title : undefined"
+								>{{ title }}</span
+							>
+							<chip v-if="chipLabel" :label="chipLabel" />
+							<div v-if="$slots.titleTrailing">
+								<slot name="titleTrailing" />
+							</div>
 						</div>
 					</div>
 				</div>
+				<div v-if="$slots.actions" class="ds-drawerHeader__actions">
+					<slot name="actions" />
+				</div>
+				<icon-button
+					v-if="isClosable"
+					:color="ICON_COLORS.NEUTRAL"
+					:icon="ICONS.FA_XMARK"
+					:size="ICON_BUTTON_SIZES.MEDIUM"
+					@click="$emit('close')"
+				/>
 			</div>
-			<div v-if="$slots.actions" class="ds-drawerHeader__actions">
-				<slot name="actions" />
-			</div>
-			<icon-button
-				v-if="isClosable"
-				:color="ICON_COLORS.NEUTRAL"
-				:icon="ICONS.FA_XMARK"
-				:size="ICON_BUTTON_SIZES.MEDIUM"
-				@click="$emit('close')"
-			/>
+			<slot name="supporting" />
 		</div>
-		<slot name="supporting" />
 		<divider v-if="hasDivider" :size="DIVIDER_SIZES.L" :prominence="DIVIDER_PROMINENCES.WEAK" />
 	</div>
 </template>
@@ -84,6 +89,10 @@ $minimal-drawer-header-height: 58px;
 
 	&.-ds-backgroundDefault {
 		background-color: $color-default-background;
+	}
+
+	&__headerWrapper {
+		padding: $space-6;
 	}
 
 	&__secondLevel {
@@ -159,7 +168,6 @@ $minimal-drawer-header-height: 58px;
 		display: flex;
 		justify-content: space-between;
 		min-height: $minimal-drawer-header-height;
-		padding: $space-6;
 	}
 
 	&__actions {
