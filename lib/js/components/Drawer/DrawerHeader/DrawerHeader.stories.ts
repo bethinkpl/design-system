@@ -2,7 +2,7 @@ import DrawerHeader from './DrawerHeader.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
-import { DRAWER_HEADER_TITLE_COLORS } from './DrawerHeader.consts';
+import { DRAWER_HEADER_BACKGROUND_COLORS, DRAWER_HEADER_TITLE_COLORS } from './DrawerHeader.consts';
 import SlotPlaceholder, {
 	SLOT_PLACEHOLDER_SIZES,
 } from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
@@ -36,6 +36,7 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 			:title-ellipsis="titleEllipsis"
 			:title="title"
 			:has-back-button="hasBackButton"
+			:background-color="backgroundColor"
 		>
 			<template #actions v-if="actions">
 				<slot-placeholder :label="actions" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
@@ -67,6 +68,7 @@ const args = {
 	titleTrailing: 'trailing slot',
 	supporting: 'supporting slot',
 	hasBackButton: false,
+	backgroundColor: DRAWER_HEADER_BACKGROUND_COLORS.NONE,
 } as Args;
 
 const argTypes = {
@@ -91,6 +93,10 @@ const argTypes = {
 	titleTrailing: { control: 'text' },
 	supporting: { control: 'text' },
 	hasBackButton: { control: 'boolean' },
+	backgroundColor: {
+		control: 'select',
+		options: Object.values(DRAWER_HEADER_BACKGROUND_COLORS),
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

@@ -1,5 +1,5 @@
 import Drawer from './Drawer.vue';
-import { DRAWER_POSITIONS } from './Drawer.consts';
+import { DRAWER_BACKGROUND_COLORS, DRAWER_POSITIONS } from './Drawer.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
@@ -14,7 +14,7 @@ const StoryTemplate: StoryFn<typeof Drawer> = (args) => ({
 		return args;
 	},
 	template: `<div style="height: 300px; width: 200px;">
-		<drawer :position="position" :sticky-header="stickyHeader" :sticky-footer="stickyFooter">
+		<drawer :position="position" :sticky-header="stickyHeader" :sticky-footer="stickyFooter" :background-color="backgroundColor">
 		<template v-slot:header><div style="background-color: var(--raw-gray-100)">Header<br><br></div></template>
 		<div>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br>Content<br></div>
 		<template v-slot:footer><div style="background-color: var(--raw-gray-100)">Footer<br><br></div></template>
@@ -28,12 +28,17 @@ const args = {
 	position: DRAWER_POSITIONS.RIGHT,
 	stickyHeader: true,
 	stickyFooter: true,
+	backgroundColor: DRAWER_BACKGROUND_COLORS.NONE,
 } as Args;
 
 const argTypes = {
 	position: {
 		control: 'select',
 		options: Object.values(DRAWER_POSITIONS),
+	},
+	backgroundColor: {
+		control: 'select',
+		options: Object.values(DRAWER_BACKGROUND_COLORS),
 	},
 } as ArgTypes;
 

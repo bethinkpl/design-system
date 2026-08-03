@@ -1,5 +1,10 @@
 <template>
-	<div class="ds-drawerHeader">
+	<div
+		class="ds-drawerHeader"
+		:class="{
+			'-ds-backgroundDefault': backgroundColor === DRAWER_HEADER_BACKGROUND_COLORS.DEFAULT,
+		}"
+	>
 		<div class="ds-drawerHeader__titleWrapper">
 			<ds-button
 				v-if="isSecondLevel"
@@ -76,6 +81,10 @@ $minimal-drawer-header-height: 58px;
 .ds-drawerHeader {
 	display: flex;
 	flex-direction: column;
+
+	&.-ds-backgroundDefault {
+		background-color: $color-default-background;
+	}
 
 	&__secondLevel {
 		position: absolute !important; // it is required so firstLevel content does not make component wider when hidden, and important is needed so component does not change its width when button was clicked
@@ -165,7 +174,12 @@ import Divider, { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
 import IconButton, { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
 import Chip from '../../Chip';
 import Icon, { ICON_COLORS, ICON_SIZES, ICONS, IconItem } from '../../Icons/Icon';
-import { DRAWER_HEADER_TITLE_COLORS, DrawerHeaderTitleColor } from './DrawerHeader.consts';
+import {
+	DRAWER_HEADER_BACKGROUND_COLORS,
+	DRAWER_HEADER_TITLE_COLORS,
+	DrawerHeaderBackgroundColor,
+	DrawerHeaderTitleColor,
+} from './DrawerHeader.consts';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 const {
@@ -181,6 +195,7 @@ const {
 	hasDivider = false,
 	isSecondLevel = false,
 	hasBackButton = false,
+	backgroundColor = DRAWER_HEADER_BACKGROUND_COLORS.NONE,
 } = defineProps<{
 	eyebrowText?: string | null;
 	isInteractiveEyebrow?: boolean;
@@ -194,6 +209,7 @@ const {
 	hasDivider?: boolean;
 	isSecondLevel?: boolean;
 	hasBackButton?: boolean;
+	backgroundColor?: DrawerHeaderBackgroundColor;
 }>();
 
 defineSlots<{

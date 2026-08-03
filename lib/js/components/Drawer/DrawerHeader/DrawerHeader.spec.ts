@@ -2,6 +2,10 @@ import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 import DrawerHeader from './DrawerHeader.vue';
 import { IconButton } from '../../../';
+import {
+	DRAWER_HEADER_BACKGROUND_COLORS,
+	DrawerHeaderBackgroundColor,
+} from './DrawerHeader.consts';
 
 const createComponent = (props = {}, slots = {}) => {
 	return mount(DrawerHeader, {
@@ -84,5 +88,26 @@ describe('DrawerHeader', () => {
 			expect(supportingIndex).toBe(titleWrapperIndex + 1);
 			expect(supportingIndex).toBe(children.length - 2);
 		});
+	});
+
+	describe('backgroundColor', () => {
+		it('should set the default background class when backgroundColor is default', () => {
+			const component = createComponent({
+				backgroundColor: DRAWER_HEADER_BACKGROUND_COLORS.DEFAULT,
+			});
+
+			expect(component.find('.ds-drawerHeader').classes()).toContain('-ds-backgroundDefault');
+		});
+
+		it.each([undefined, DRAWER_HEADER_BACKGROUND_COLORS.NONE])(
+			'should not set any background class when backgroundColor is %s',
+			(backgroundColor?: DrawerHeaderBackgroundColor) => {
+				const component = createComponent({ backgroundColor });
+
+				expect(component.find('.ds-drawerHeader').classes()).not.toContain(
+					'-ds-backgroundDefault',
+				);
+			},
+		);
 	});
 });
