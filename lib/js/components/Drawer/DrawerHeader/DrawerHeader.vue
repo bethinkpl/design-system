@@ -61,6 +61,7 @@
 				@click="$emit('close')"
 			/>
 		</div>
+		<slot name="supporting" />
 		<divider v-if="hasDivider" :size="DIVIDER_SIZES.L" :prominence="DIVIDER_PROMINENCES.WEAK" />
 	</div>
 </template>

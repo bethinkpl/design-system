@@ -3,6 +3,9 @@ import DrawerHeader from './DrawerHeader.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
 import { DRAWER_HEADER_TITLE_COLORS } from './DrawerHeader.consts';
+import SlotPlaceholder, {
+	SLOT_PLACEHOLDER_SIZES,
+} from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 
 export default {
 	title: 'Components/Drawer/DrawerHeader',
@@ -10,13 +13,14 @@ export default {
 } as Meta<typeof DrawerHeader>;
 
 const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
-	components: { DrawerHeader },
+	components: { DrawerHeader, SlotPlaceholder },
 	setup() {
 		return args;
 	},
 	data() {
 		return {
 			ICONS: Object.freeze(ICONS),
+			SLOT_PLACEHOLDER_SIZES: Object.freeze(SLOT_PLACEHOLDER_SIZES),
 		};
 	},
 	template: `
@@ -40,6 +44,9 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 			<template #titleTrailing v-if="titleTrailing">
 				<div v-html="titleTrailing" />
 			</template>
+			<template #supporting v-if="supporting">
+				<slot-placeholder :label="supporting" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
+			</template>
 		</drawer-header>`,
 });
 
@@ -59,6 +66,7 @@ const args = {
 	isSecondLevel: false,
 	actions: 'actions slot',
 	titleTrailing: 'trailing slot',
+	supporting: 'supporting slot',
 	hasBackButton: false,
 } as Args;
 
@@ -82,6 +90,7 @@ const argTypes = {
 	isClosable: { control: 'boolean' },
 	actions: { control: 'text' },
 	titleTrailing: { control: 'text' },
+	supporting: { control: 'text' },
 	hasBackButton: { control: 'boolean' },
 } as ArgTypes;
 
