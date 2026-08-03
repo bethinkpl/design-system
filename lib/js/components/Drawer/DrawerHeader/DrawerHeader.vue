@@ -159,96 +159,54 @@ $minimal-drawer-header-height: 58px;
 }
 </style>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
-
-import Button from '../../Buttons/Button/Button.vue';
-import Divider from '../../Divider/Divider.vue';
-import IconButton from '../../Buttons/IconButton/IconButton.vue';
-import Chip from '../../Chip/Chip.vue';
-import Icon from '../../Icons/Icon/Icon.vue';
-import { BUTTON_TYPES } from '../../Buttons/Button';
-import { ICON_COLORS, ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
-import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
+<script setup lang="ts">
+import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
+import Divider, { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
+import IconButton, { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
+import Chip from '../../Chip';
+import Icon, { ICON_COLORS, ICON_SIZES, ICONS, IconItem } from '../../Icons/Icon';
 import { DRAWER_HEADER_TITLE_COLORS, DrawerHeaderTitleColor } from './DrawerHeader.consts';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
-export default defineComponent({
-	name: 'DrawerHeader',
-	components: {
-		DsButton: Button,
-		Divider,
-		Icon,
-		IconButton,
-		Chip,
-	},
-	props: {
-		eyebrowText: {
-			type: String,
-			default: null,
-		},
-		isInteractiveEyebrow: {
-			type: Boolean,
-			default: false,
-		},
-		eyebrowEllipsis: {
-			type: Boolean,
-			default: false,
-		},
-		title: {
-			type: String,
-			default: null,
-		},
-		titleEllipsis: {
-			type: Boolean,
-			default: false,
-		},
-		titleColor: {
-			type: String as PropType<DrawerHeaderTitleColor>,
-			default: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
-		},
-		leftIcon: {
-			type: [Object, null],
-			default: null,
-		},
-		chipLabel: {
-			type: String,
-			default: null,
-		},
-		isClosable: {
-			type: Boolean,
-			default: true,
-		},
-		hasDivider: {
-			type: Boolean,
-			default: false,
-		},
-		isSecondLevel: {
-			type: Boolean,
-			default: false,
-		},
-		hasBackButton: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['backClicked', 'close', 'eyebrowClicked'],
-	setup() {
-		const { t } = useLegacyI18n();
+const {
+	eyebrowText = null,
+	isInteractiveEyebrow = false,
+	eyebrowEllipsis = false,
+	title = null,
+	titleEllipsis = false,
+	titleColor = DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
+	leftIcon = null,
+	chipLabel = null,
+	isClosable = true,
+	hasDivider = false,
+	isSecondLevel = false,
+	hasBackButton = false,
+} = defineProps<{
+	eyebrowText?: string | null;
+	isInteractiveEyebrow?: boolean;
+	eyebrowEllipsis?: boolean;
+	title?: string | null;
+	titleEllipsis?: boolean;
+	titleColor?: DrawerHeaderTitleColor;
+	leftIcon?: IconItem | null;
+	chipLabel?: string | null;
+	isClosable?: boolean;
+	hasDivider?: boolean;
+	isSecondLevel?: boolean;
+	hasBackButton?: boolean;
+}>();
 
-		return {
-			t,
-			BUTTON_TYPES,
-			DIVIDER_SIZES,
-			DIVIDER_PROMINENCES,
-			ICONS,
-			ICON_BUTTON_SIZES,
-			ICON_SIZES,
-			ICON_COLORS,
-		};
-	},
-});
+defineSlots<{
+	titleTrailing?: () => any;
+	actions?: () => any;
+	supporting?: () => any;
+}>();
+
+defineEmits<{
+	backClicked: [];
+	close: [];
+	eyebrowClicked: [];
+}>();
+
+const { t } = useLegacyI18n();
 </script>
