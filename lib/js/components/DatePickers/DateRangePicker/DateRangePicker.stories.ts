@@ -8,6 +8,7 @@ import {
 	DATE_PICKER_STATES,
 } from '../DatePicker';
 import DateRangePicker from './DateRangePicker.vue';
+import { CalendarDate, formatCalendarDate } from '../calendarDate';
 
 type DateRangePickerProps = ComponentProps<typeof DateRangePicker>;
 
@@ -28,51 +29,39 @@ const meta: Meta<DateRangePickerProps> = {
 				};
 			},
 			methods: {
-				updateDate({ startDate, endDate }: { startDate: Date; endDate: Date }) {
+				updateDate({
+					startDate,
+					endDate,
+				}: {
+					startDate: CalendarDate;
+					endDate: CalendarDate;
+				}) {
 					updateArgs({
-						startDate: startDate
-							? `${startDate.getFullYear()}-${
-									startDate.getMonth() + 1
-								}-${startDate.getDate()}`
-							: null,
-						endDate: endDate
-							? `${endDate.getFullYear()}-${
-									endDate.getMonth() + 1
-								}-${endDate.getDate()}`
-							: null,
+						startDate: startDate ?? null,
+						endDate: endDate ?? null,
 					});
 				},
 			},
 			computed: {
-				formattedStartDate() {
-					if (!this.startDate) {
-						return null;
-					}
-					return new Date(this.startDate);
+				// The text controls hand back an empty string once cleared — the picker only
+				// accepts a 'YYYY-MM-DD' day or null.
+				resolvedStartDate() {
+					return this.startDate || null;
 				},
-				formattedEndDate() {
-					if (!this.endDate) {
-						return null;
-					}
-					return new Date(this.endDate);
+				resolvedEndDate() {
+					return this.endDate || null;
 				},
-				formattedMinDate() {
-					if (!this.minDate) {
-						return null;
-					}
-					return new Date(this.minDate);
+				resolvedToday() {
+					return this.today || null;
 				},
-				formattedMaxDate() {
-					if (!this.maxDate) {
-						return null;
-					}
-					return new Date(this.maxDate);
+				resolvedMinDate() {
+					return this.minDate || null;
 				},
-				formattedDisableDates() {
-					if (!this.disableDates || !this.disableDates.length) {
-						return [];
-					}
-					return this.disableDates.map((date: string) => new Date(date));
+				resolvedMaxDate() {
+					return this.maxDate || null;
+				},
+				resolvedDisableDates() {
+					return this.disableDates ?? [];
 				},
 			},
 			template: `
@@ -80,8 +69,9 @@ const meta: Meta<DateRangePickerProps> = {
 					<date-range-picker
 						:is-interactive="isInteractive"
 						:placeholder="placeholder"
-						:start-date="formattedStartDate"
-						:end-date="formattedEndDate"
+						:start-date="resolvedStartDate"
+						:end-date="resolvedEndDate"
+						:today="resolvedToday"
 						:start-icon="startIcon ? ICONS[startIcon] : null"
 						:end-icon="endIcon ? ICONS[endIcon] : null"
 						:are-icons-hidden-on-mobile="areIconsHiddenOnMobile"
@@ -89,9 +79,9 @@ const meta: Meta<DateRangePickerProps> = {
 						:error-message="errorMessage"
 						:state="state"
 						:color="color"
-						:disable-dates="formattedDisableDates"
-						:min-date="formattedMinDate"
-						:max-date="formattedMaxDate"
+						:disable-dates="resolvedDisableDates"
+						:min-date="resolvedMinDate"
+						:max-date="resolvedMaxDate"
 						@update:date="updateDate"
 					/>
 				</div>`,
@@ -100,6 +90,9 @@ const meta: Meta<DateRangePickerProps> = {
 	argTypes: {
 		startDate: { control: 'text' },
 		endDate: { control: 'text' },
+		today: { control: 'text' },
+		minDate: { control: 'text' },
+		maxDate: { control: 'text' },
 		startIcon: { control: 'select', options: [null, ...Object.keys(ICONS)] },
 		endIcon: { control: 'select', options: [null, ...Object.keys(ICONS)] },
 		calendarPosition: {
@@ -132,8 +125,16 @@ export default meta;
 
 type Story = StoryObj<DateRangePickerProps>;
 
-const now = Date.now();
-const oneDayMili = 86400000;
+const browserToday = new Date();
+const dayFromBrowserToday = (offsetInDays: number): CalendarDate =>
+	formatCalendarDate(
+		new Date(
+			browserToday.getFullYear(),
+			browserToday.getMonth(),
+			browserToday.getDate() + offsetInDays,
+		),
+	);
+
 export const Interactive: Story = {
 	args: {
 		isInteractive: true,
@@ -141,9 +142,10 @@ export const Interactive: Story = {
 		placeholder: 'Ustaw',
 		startDate: '',
 		endDate: '',
-		disableDates: [new Date(now + oneDayMili * 2).toISOString().slice(0, 10)],
-		minDate: new Date(now).toISOString().slice(0, 10),
-		maxDate: new Date(now + oneDayMili * 30).toISOString().slice(0, 10),
+		today: '',
+		disableDates: [dayFromBrowserToday(2)],
+		minDate: dayFromBrowserToday(0),
+		maxDate: dayFromBrowserToday(30),
 		startIcon: 'FA_CALENDAR_DAY',
 		endIcon: 'FA_CALENDAR_DAY',
 		areIconsHiddenOnMobile: false,
