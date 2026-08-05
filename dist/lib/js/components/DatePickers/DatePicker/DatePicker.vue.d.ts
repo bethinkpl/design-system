@@ -1,15 +1,17 @@
 import { PropType, Ref } from 'vue';
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { TileColor, TileState } from '../../Tile';
+import { CalendarDate, isCalendarDateOrNull } from '../calendarDate';
 import { DatePickerCalendarPositions, DatePickerColors, DatePickerStates } from './DatePicker.consts';
 
 declare const _default: import('vue').DefineComponent<{
-    disableDates: Array<Date>;
-    date?: (Date | null) | undefined;
-    startDate?: (Date | null) | undefined;
-    endDate?: (Date | null) | undefined;
-    minDate: Date | null;
-    maxDate: Date | null;
+    disableDates: Array<CalendarDate>;
+    date?: (CalendarDate | null) | undefined;
+    startDate?: (CalendarDate | null) | undefined;
+    endDate?: (CalendarDate | null) | undefined;
+    minDate: CalendarDate | null;
+    maxDate: CalendarDate | null;
+    today?: (CalendarDate | null) | undefined;
     calendarPosition: DatePickerCalendarPositions;
     isInteractive: boolean;
     state: DatePickerStates;
@@ -593,20 +595,21 @@ declare const _default: import('vue').DefineComponent<{
     bindFlatpickrInstance(): Promise<void>;
     toggle(): Promise<void>;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    'update:date': (date: Date) => true;
+    'update:date': (day: CalendarDate) => true;
 }, string, import('vue').PublicProps, Readonly<{
-    disableDates: Array<Date>;
-    date?: (Date | null) | undefined;
-    startDate?: (Date | null) | undefined;
-    endDate?: (Date | null) | undefined;
-    minDate: Date | null;
-    maxDate: Date | null;
+    disableDates: Array<CalendarDate>;
+    date?: (CalendarDate | null) | undefined;
+    startDate?: (CalendarDate | null) | undefined;
+    endDate?: (CalendarDate | null) | undefined;
+    minDate: CalendarDate | null;
+    maxDate: CalendarDate | null;
+    today?: (CalendarDate | null) | undefined;
     calendarPosition: DatePickerCalendarPositions;
     isInteractive: boolean;
     state: DatePickerStates;
     updatePositionBasedOnScrollableSelector: string;
 }> & Readonly<{
-    "onUpdate:date"?: ((date: Date) => any) | undefined;
+    "onUpdate:date"?: ((day: string) => any) | undefined;
 }>, {
     icon: any;
     label: string;
@@ -614,17 +617,18 @@ declare const _default: import('vue').DefineComponent<{
     isInteractive: boolean;
     state: string;
     isIconHiddenOnMobile: boolean;
-    date: Date;
+    date: string | null;
     isLabelUppercase: boolean;
     placeholder: string;
     additionalText: string;
     triggerType: string;
+    today: string | null;
     helpMessage: string;
     errorMessage: string;
     calendarPosition: string;
-    disableDates: Date[];
-    minDate: Date;
-    maxDate: Date;
+    disableDates: string[];
+    minDate: string | null;
+    maxDate: string | null;
     updatePositionBasedOnScrollableSelector: string;
 }, {}, {
     DsTile: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -778,12 +782,14 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         startDate: {
-            type: DateConstructor;
+            type: PropType<CalendarDate | null>;
             default: null;
+            validator: typeof isCalendarDateOrNull;
         };
         endDate: {
-            type: DateConstructor;
+            type: PropType<CalendarDate | null>;
             default: null;
+            validator: typeof isCalendarDateOrNull;
         };
         startIcon: {
             type: ObjectConstructor;
@@ -1134,12 +1140,14 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         startDate: {
-            type: DateConstructor;
+            type: PropType<CalendarDate | null>;
             default: null;
+            validator: typeof isCalendarDateOrNull;
         };
         endDate: {
-            type: DateConstructor;
+            type: PropType<CalendarDate | null>;
             default: null;
+            validator: typeof isCalendarDateOrNull;
         };
         startIcon: {
             type: ObjectConstructor;
@@ -1173,8 +1181,8 @@ declare const _default: import('vue').DefineComponent<{
         state: string;
         isOpen: boolean;
         placeholder: string;
-        startDate: Date;
-        endDate: Date;
+        startDate: string | null;
+        endDate: string | null;
         startIcon: Record<string, any>;
         endIcon: Record<string, any>;
         areIconsHiddenOnMobile: boolean;

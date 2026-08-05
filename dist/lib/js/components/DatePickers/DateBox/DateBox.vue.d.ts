@@ -1,5 +1,6 @@
 import { DatePickerColors } from '../DatePicker/DatePicker.consts';
 import { PropType } from 'vue';
+import { CalendarDate, isCalendarDateOrNull } from '../calendarDate';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
     isInteractive: {
@@ -11,12 +12,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     startDate: {
-        type: DateConstructor;
+        type: PropType<CalendarDate | null>;
         default: null;
+        validator: typeof isCalendarDateOrNull;
     };
     endDate: {
-        type: DateConstructor;
+        type: PropType<CalendarDate | null>;
         default: null;
+        validator: typeof isCalendarDateOrNull;
     };
     startIcon: {
         type: ObjectConstructor;
@@ -367,12 +370,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         default: null;
     };
     startDate: {
-        type: DateConstructor;
+        type: PropType<CalendarDate | null>;
         default: null;
+        validator: typeof isCalendarDateOrNull;
     };
     endDate: {
-        type: DateConstructor;
+        type: PropType<CalendarDate | null>;
         default: null;
+        validator: typeof isCalendarDateOrNull;
     };
     startIcon: {
         type: ObjectConstructor;
@@ -406,8 +411,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     state: string;
     isOpen: boolean;
     placeholder: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string | null;
+    endDate: string | null;
     startIcon: Record<string, any>;
     endIcon: Record<string, any>;
     areIconsHiddenOnMobile: boolean;

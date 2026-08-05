@@ -2,14 +2,16 @@ import { Ref } from 'vue';
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { DatePickerCalendarPositions } from './index';
 import { SupportedLocale } from '../../../i18n';
+import { CalendarDate } from '../calendarDate';
 
 export interface DatePickerComposablesProps {
-    disableDates: Array<Date>;
-    date?: Date | null;
-    startDate?: Date | null;
-    endDate?: Date | null;
-    minDate: Date | null;
-    maxDate: Date | null;
+    disableDates: Array<CalendarDate>;
+    date?: CalendarDate | null;
+    startDate?: CalendarDate | null;
+    endDate?: CalendarDate | null;
+    minDate: CalendarDate | null;
+    maxDate: CalendarDate | null;
+    today?: CalendarDate | null;
     calendarPosition: DatePickerCalendarPositions;
 }
 interface InitFlatpickrPrams {

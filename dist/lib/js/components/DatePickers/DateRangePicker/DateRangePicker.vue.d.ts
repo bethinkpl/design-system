@@ -1,14 +1,16 @@
 import { Instance as DatePickerInstance } from 'flatpickr/dist/types/instance';
 import { PropType, Ref } from 'vue';
 import { DatePickerCalendarPositions, DatePickerColors, DatePickerStates } from '../DatePicker';
+import { CalendarDate, isCalendarDateOrNull } from '../calendarDate';
 
 declare const _default: import('vue').DefineComponent<{
-    disableDates: Array<Date>;
-    date?: (Date | null) | undefined;
-    startDate: Date;
-    endDate: Date;
-    minDate: Date | null;
-    maxDate: Date | null;
+    disableDates: Array<CalendarDate>;
+    date?: (CalendarDate | null) | undefined;
+    startDate: CalendarDate | null;
+    endDate: CalendarDate | null;
+    minDate: CalendarDate | null;
+    maxDate: CalendarDate | null;
+    today?: (CalendarDate | null) | undefined;
     calendarPosition: DatePickerCalendarPositions;
     isInteractive: boolean;
     state: DatePickerStates;
@@ -576,40 +578,42 @@ declare const _default: import('vue').DefineComponent<{
     toggle(): Promise<void>;
 }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     'update:date': (value: {
-        startDate: Date;
-        endDate: Date;
+        startDate: CalendarDate;
+        endDate: CalendarDate;
     }) => true;
 }, string, import('vue').PublicProps, Readonly<{
-    disableDates: Array<Date>;
-    date?: (Date | null) | undefined;
-    startDate: Date;
-    endDate: Date;
-    minDate: Date | null;
-    maxDate: Date | null;
+    disableDates: Array<CalendarDate>;
+    date?: (CalendarDate | null) | undefined;
+    startDate: CalendarDate | null;
+    endDate: CalendarDate | null;
+    minDate: CalendarDate | null;
+    maxDate: CalendarDate | null;
+    today?: (CalendarDate | null) | undefined;
     calendarPosition: DatePickerCalendarPositions;
     isInteractive: boolean;
     state: DatePickerStates;
     updatePositionBasedOnScrollableSelector: string;
 }> & Readonly<{
     "onUpdate:date"?: ((value: {
-        startDate: Date;
-        endDate: Date;
+        startDate: CalendarDate;
+        endDate: CalendarDate;
     }) => any) | undefined;
 }>, {
     color: string;
     isInteractive: boolean;
     state: string;
     placeholder: string;
-    startDate: Date;
-    endDate: Date;
+    startDate: string | null;
+    endDate: string | null;
     startIcon: any;
     endIcon: any;
     areIconsHiddenOnMobile: boolean;
+    today: string | null;
     errorMessage: string;
     calendarPosition: string;
-    disableDates: Date[];
-    minDate: Date;
-    maxDate: Date;
+    disableDates: string[];
+    minDate: string | null;
+    maxDate: string | null;
     updatePositionBasedOnScrollableSelector: string;
 }, {}, {
     DateBox: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -622,12 +626,14 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         startDate: {
-            type: DateConstructor;
+            type: PropType<CalendarDate | null>;
             default: null;
+            validator: typeof isCalendarDateOrNull;
         };
         endDate: {
-            type: DateConstructor;
+            type: PropType<CalendarDate | null>;
             default: null;
+            validator: typeof isCalendarDateOrNull;
         };
         startIcon: {
             type: ObjectConstructor;
@@ -978,12 +984,14 @@ declare const _default: import('vue').DefineComponent<{
             default: null;
         };
         startDate: {
-            type: DateConstructor;
+            type: PropType<CalendarDate | null>;
             default: null;
+            validator: typeof isCalendarDateOrNull;
         };
         endDate: {
-            type: DateConstructor;
+            type: PropType<CalendarDate | null>;
             default: null;
+            validator: typeof isCalendarDateOrNull;
         };
         startIcon: {
             type: ObjectConstructor;
@@ -1017,8 +1025,8 @@ declare const _default: import('vue').DefineComponent<{
         state: string;
         isOpen: boolean;
         placeholder: string;
-        startDate: Date;
-        endDate: Date;
+        startDate: string | null;
+        endDate: string | null;
         startIcon: Record<string, any>;
         endIcon: Record<string, any>;
         areIconsHiddenOnMobile: boolean;
