@@ -6,6 +6,7 @@ import { useForm } from 'vee-validate';
 import { toTypedSchema } from '@vee-validate/zod';
 import { array, object, string } from 'zod';
 import CheckboxGroupField from './CheckboxGroupField/CheckboxGroupField.vue';
+import SelectField from './SelectField';
 import Button from '../Buttons/Button';
 
 export default {
@@ -14,16 +15,18 @@ export default {
 } as Meta<any>;
 
 export const SimpleForm = () => ({
-	components: { InputField, CheckboxGroupField, Checkbox, Button },
+	components: { InputField, CheckboxGroupField, Checkbox, SelectField, Button },
 	setup: () => {
 		const { handleSubmit } = useForm({
 			initialValues: {
 				fullName: '',
+				country: '',
 				newsletterTopics: [],
 			},
 			validationSchema: toTypedSchema(
 				object({
 					fullName: string().min(1, 'Imię i nazwisko jest wymagane'),
+					country: string().min(1, 'Kraj jest wymagany'),
 					newsletterTopics: array(string()).min(
 						1,
 						'Wybierz przynajmniej jeden temat newslettera',
@@ -43,11 +46,22 @@ export const SimpleForm = () => ({
 
 		return {
 			onSubmit,
+			countryOptions: [
+				{ value: 'pl', label: 'Polska' },
+				{ value: 'de', label: 'Niemcy' },
+				{ value: 'cz', label: 'Czechy' },
+			],
 		};
 	},
 	template: `
 		<form @submit.prevent="onSubmit" style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
 			<InputField label="Imię i nazwisko" name="fullName" />
+			<SelectField
+				label="Kraj"
+				name="country"
+				placeholder="Wybierz kraj"
+				:options="countryOptions"
+			/>
 			<CheckboxGroupField label="Jakie tematy newslettera Cię interesują?" name="newsletterTopics">
 				<template #field>
 					<Checkbox value="technology">Technologia</Checkbox>

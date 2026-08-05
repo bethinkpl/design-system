@@ -36,30 +36,26 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../../../../lib/styles/settings/colors/tokens';
-@import '../../../../lib/styles/settings/radiuses';
 @import '../../../../lib/styles/settings/spacings';
-@import '../../../../lib/styles/settings/shadows';
+@import '../../../../lib/styles/mixins/dropdown-surface';
 
 .ds-dropdown {
-	background-color: $color-default-background;
+	@include dropdownSurface;
+
+	// Resets for the styles vue-popperjs ships in vue-popper.css.
 	border: 0;
 	border-radius: 0;
-	box-shadow: $shadow-m;
 	max-width: 100%;
 	min-width: 128px;
-	overflow: hidden;
 	padding: 0;
 	text-align: left;
 
 	&.-ds-radiusBottom {
-		border-bottom-left-radius: $radius-s;
-		border-bottom-right-radius: $radius-s;
+		@include dropdownSurfaceRadiusBottom;
 	}
 
 	&.-ds-radiusTop {
-		border-top-left-radius: $radius-s;
-		border-top-right-radius: $radius-s;
+		@include dropdownSurfaceRadiusTop;
 	}
 
 	&[x-placement^='bottom'] {

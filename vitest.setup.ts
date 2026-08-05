@@ -14,3 +14,11 @@ const i18n = createI18n({
 });
 
 config.global.plugins = [i18n];
+
+// jsdom does not implement ResizeObserver, which floating-ui's `autoUpdate` (used by
+// reka-ui's popper-based components, e.g. SelectField) requires.
+global.ResizeObserver = class ResizeObserver {
+	observe() {}
+	unobserve() {}
+	disconnect() {}
+};

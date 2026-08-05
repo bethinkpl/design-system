@@ -54,6 +54,8 @@ export { default as NumberInCircle } from './components/NumberInCircle';
 export { default as DsNumberInCircle } from './components/NumberInCircle';
 export * from './components/NumberInCircle/NumberInCircle.consts';
 export { default as DsPasswordField } from './components/Form/PasswordField';
+export { default as DsSelectField } from './components/Form/SelectField';
+export * from './components/Form/SelectField';
 export { default as TabItem } from './components/TabItem';
 export { default as DsTabItem } from './components/TabItem';
 export * from './components/TabItem/TabItem.consts';
