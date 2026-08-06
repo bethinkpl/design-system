@@ -13,7 +13,7 @@ export function useSelectFieldWithinForm(
 	name: MaybeRefOrGetter<string | undefined>,
 	modelValue: Ref<SelectFieldValue | undefined>,
 ) {
-	const { value, errors, field } = useFormFieldWithinForm<SelectFieldValue>(name, modelValue);
+	const { value, errors, field } = useFormFieldWithinForm(name, modelValue);
 
 	const onClose = (event: Event) => {
 		field?.handleBlur(event, true);

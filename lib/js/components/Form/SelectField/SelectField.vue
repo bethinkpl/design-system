@@ -220,7 +220,6 @@
 	`:deep()` has no ancestor to hang off either. Same approach as DatePicker.vue.
 -->
 <style lang="scss">
-@import '../../../../styles/settings/radiuses';
 @import '../../../../styles/settings/z-indexes';
 @import '../../../../styles/mixins/dropdown-surface';
 
@@ -239,8 +238,10 @@
 	// than the space available in the viewport.
 	max-width: var(--reka-select-content-available-width);
 	min-width: var(--reka-select-trigger-width);
-	// Portalled to <body>, so it has to clear modals
-	z-index: $z-index-modal + 1;
+	// Portalled to <body>, so it needs to clear modal content. It sits on the modal layer
+	// rather than above it: the listbox is appended after the (also teleported) modal, so an
+	// equal z-index still paints it on top, and tooltips at 16777271 stay above both.
+	z-index: $z-index-modal;
 }
 </style>
 
@@ -275,7 +276,7 @@ const { options, placeholder, leftIcon, ariaLabel, maxHeight, name, ...rest } =
 const slots = defineSlots<SelectFieldSlots>();
 
 const emit = defineEmits<{
-	'update:open': [isOpen: boolean];
+	'open-change': [isOpen: boolean];
 }>();
 
 const modelValue = defineModel<SelectFieldValue>();
@@ -299,7 +300,7 @@ function onOpenChange(isOpen: boolean) {
 		onClose(new Event('blur'));
 	}
 
-	emit('update:open', isOpen);
+	emit('open-change', isOpen);
 }
 
 function useFormFieldState() {

@@ -311,18 +311,17 @@ describe('SelectField', () => {
 			});
 		});
 
-		it('should emit update:open when opening and closing', async () => {
-			const onOpen = vi.fn();
-			const wrapper = setup({ label: 'Label', 'onUpdate:open': onOpen });
+		it('should emit open-change when opening and closing', async () => {
+			const wrapper = setup({ label: 'Label' });
 
 			await open(wrapper);
 
-			expect(onOpen).toHaveBeenCalledWith(true);
+			expect(wrapper.emitted('open-change')).toEqual([[true]]);
 
 			await close();
 
 			expect(wrapper.find('button').attributes('aria-expanded')).toBe('false');
-			expect(onOpen).toHaveBeenCalledWith(false);
+			expect(wrapper.emitted('open-change')).toEqual([[true], [false]]);
 		});
 	});
 
