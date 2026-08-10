@@ -4,6 +4,8 @@ import { h } from 'vue';
 import Toast from './Toast.vue';
 import { TOAST_COLORS, TOAST_POSITIONS, TOAST_SIZES } from './Toast.consts';
 import DsButton, { BUTTON_SIZES } from '../Buttons/Button';
+import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
+import { ICONS } from '../Icons/Icon';
 import { ComponentProps } from 'vue-component-type-helpers';
 
 const setup = (props: ComponentProps<typeof Toast> = {}) =>
@@ -125,5 +127,51 @@ describe('Toast', () => {
 		vi.advanceTimersByTime(3 * 1000 + 100);
 
 		expect(wrapper.emitted('close')).toBeUndefined();
+	});
+
+	it('should not render the close button by default', () => {
+		const wrapper = setup();
+
+		expect(wrapper.find('.ds-toast__close').exists()).toBe(false);
+		expect(wrapper.find('.ds-toast').classes()).not.toContain('-ds-closable');
+	});
+
+	it('should render the close button when it is closable', () => {
+		const wrapper = setup({ isClosable: true });
+
+		expect(wrapper.find('.ds-toast__close').exists()).toBe(true);
+		expect(wrapper.find('.ds-toast').classes()).toContain('-ds-closable');
+	});
+
+	it('should render the close button as a small neutral-weak xmark', () => {
+		const wrapper = setup({ isClosable: true });
+
+		const closeButton = wrapper.findComponent(DsIconButton);
+
+		expect(closeButton.props('icon')).toBe(ICONS.FA_XMARK);
+		expect(closeButton.props('size')).toBe(ICON_BUTTON_SIZES.SMALL);
+		expect(closeButton.props('color')).toBe(ICON_BUTTON_COLORS.NEUTRAL_WEAK);
+	});
+
+	it('should emit close on the close button click', async () => {
+		const wrapper = setup({ isClosable: true });
+
+		await wrapper.find('.ds-toast__close > *').trigger('click');
+
+		expect(wrapper.emitted('close')).toHaveLength(1);
+	});
+
+	it('should emit close only once when the close button pre-empts the disappearing timeout', async () => {
+		vi.useFakeTimers();
+		const wrapper = setup({
+			isClosable: true,
+			isDisappearing: true,
+			disappearingTimeout: '3',
+		});
+
+		await wrapper.find('.ds-toast__close > *').trigger('click');
+		vi.advanceTimersByTime(3 * 1000 + 100);
+
+		expect(wrapper.emitted('close')).toHaveLength(1);
 	});
 });

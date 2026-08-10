@@ -1,5 +1,7 @@
 <template>
-	<div :class="['ds-toast', toastSize, toastPosition, toastColor]">
+	<div
+		:class="['ds-toast', toastSize, toastPosition, toastColor, { '-ds-closable': isClosable }]"
+	>
 		<ds-card :loading-bar-color="color" has-loading-bar :loading-bar-time="disappearingTimeout">
 			<template #content>
 				<div class="ds-toast__body">
@@ -36,6 +38,14 @@
 				</div>
 			</template>
 		</ds-card>
+		<div v-if="isClosable" class="ds-toast__close">
+			<ds-icon-button
+				:icon="ICONS.FA_XMARK"
+				:size="ICON_BUTTON_SIZES.SMALL"
+				:color="ICON_BUTTON_COLORS.NEUTRAL_WEAK"
+				@click="close"
+			/>
+		</div>
 	</div>
 </template>
 
@@ -49,6 +59,8 @@
 	$root: &;
 
 	max-width: var(--ds-toast-max-width);
+	// anchors the absolutely positioned close button, including under `position: none`
+	position: relative;
 	width: 100%;
 
 	&.-ds-size-small {
@@ -101,10 +113,21 @@
 		row-gap: $space-2;
 	}
 
+	&__close {
+		position: absolute;
+		right: $space-1;
+		top: $space-3;
+	}
+
 	&__title {
 		@include heading-s-default-bold;
 
 		color: $color-neutral-text-heavy;
+
+		// the close button overlaps the top row, so the title wraps before reaching it
+		#{$root}.-ds-closable & {
+			padding-right: $space-12;
+		}
 
 		#{$root}.-ds-size-large & {
 			@include heading-m-default-bold;
@@ -129,6 +152,12 @@
 
 	&__content {
 		@include text-m-default-regular;
+
+		// only the top row is overlapped by the close button — without a title, that row is the
+		// content itself (the falsy `v-if` leaves a comment node, which `:first-child` ignores)
+		#{$root}.-ds-closable &:first-child {
+			padding-right: $space-12;
+		}
 	}
 
 	&__footerButtons {
@@ -148,6 +177,7 @@ import DsButton, {
 	BUTTON_TYPES,
 } from '../Buttons/Button';
 import DsCard from '../Cards/Card';
+import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
 import {
 	TOAST_COLORS,
 	TOAST_POSITIONS,
@@ -156,8 +186,8 @@ import {
 	ToastPositions,
 	ToastSizes,
 } from './Toast.consts';
-import { computed, onMounted } from 'vue';
-import { IconItem } from '../Icons/Icon';
+import { computed, onMounted, onUnmounted } from 'vue';
+import { ICONS, IconItem } from '../Icons/Icon';
 
 const {
 	title = '',
@@ -170,6 +200,7 @@ const {
 	footerSecondaryButtonIcon = null,
 	isDisappearing = true,
 	disappearingTimeout = '0',
+	isClosable = false,
 } = defineProps<{
 	title?: string;
 	size?: ToastSizes;
@@ -182,6 +213,7 @@ const {
 	isDisappearing?: boolean;
 	/** Seconds, as a numeric string. `'0'` disables the auto-close. */
 	disappearingTimeout?: string;
+	isClosable?: boolean;
 }>();
 
 const emit = defineEmits<{
@@ -212,12 +244,30 @@ const toastPosition = computed(() => `-ds-position-${position.toLowerCase()}`);
 
 const toastColor = computed(() => `-ds-color-${color}`);
 
+let disappearingTimeoutId: ReturnType<typeof setTimeout> | null = null;
+
+const clearDisappearingTimeout = () => {
+	if (disappearingTimeoutId !== null) {
+		clearTimeout(disappearingTimeoutId);
+		disappearingTimeoutId = null;
+	}
+};
+
+// `close` is emitted at most once per toast — dismissing it by hand cancels the pending auto-close
+// so consumers driving a queue (or analytics) off the event never see it twice.
+const close = () => {
+	clearDisappearingTimeout();
+	emit('close');
+};
+
 onMounted(() => {
 	if (isDisappearing && disappearingTimeout !== '0') {
-		setTimeout(
-			() => emit('close'),
+		disappearingTimeoutId = setTimeout(
+			close,
 			parseInt(disappearingTimeout, 10) * 1000 + 100, // 100 ms is to let loading bar animation to finish
 		);
 	}
 });
+
+onUnmounted(clearDisappearingTimeout);
 </script>

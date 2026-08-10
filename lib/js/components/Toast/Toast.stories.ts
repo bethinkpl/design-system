@@ -22,6 +22,7 @@ const toastTemplate = `<ds-toast
 		:footer-secondary-button-icon="ICONS[footerSecondaryButtonIcon]"
 		:is-disappearing="isDisappearing"
 		:disappearing-timeout="disappearingTimeout"
+		:is-closable="isClosable"
 		@close="isVisible = false"
 	>
 		<template #content>
@@ -80,6 +81,7 @@ const args = {
 	footerSecondaryButtonIcon: null,
 	isDisappearing: false,
 	disappearingTimeout: '0',
+	isClosable: true,
 	content: 'Wpłynąłem na suchego przestwór oceanu',
 } as Args;
 
@@ -106,6 +108,9 @@ const argTypes = {
 	footerSecondaryButtonIcon: {
 		control: 'select',
 		options: [null, ...Object.keys(ICONS)],
+	},
+	isClosable: {
+		control: 'boolean',
 	},
 	content: {
 		control: 'text',
