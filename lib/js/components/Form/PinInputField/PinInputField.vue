@@ -156,7 +156,7 @@ watch(chars, (next) => {
 });
 
 watch([value, () => length], ([next]) => {
-	if (chars.value.join('') !== (next ?? '')) {
+	if (chars.value.length > length || chars.value.join('') !== (next ?? '')) {
 		chars.value = toPinChars(next, length);
 	}
 });

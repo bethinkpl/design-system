@@ -63,6 +63,18 @@ describe('PinInputField', () => {
 		expect(boxValues(wrapper)).toEqual(['1', '2', '3', '4']);
 	});
 
+	// A shrink leaves the joined value matching the model, so only the surplus entries reveal it.
+	// Keeping them would report characters that no longer have a box to edit them in.
+	it('should drop the surplus characters when the length shrinks', async () => {
+		const onUpdate = vi.fn();
+		const wrapper = setup({ props: { modelValue: '123456', 'onUpdate:modelValue': onUpdate } });
+
+		await wrapper.setProps({ length: 4 });
+
+		expect(boxValues(wrapper)).toEqual(['1', '2', '3', '4']);
+		expect(onUpdate).toHaveBeenLastCalledWith('1234');
+	});
+
 	it('should update the model value as the boxes are filled', async () => {
 		const onUpdate = vi.fn();
 		const wrapper = setup({ props: { 'onUpdate:modelValue': onUpdate } });

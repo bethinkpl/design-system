@@ -3,7 +3,7 @@
 		<ds-card :loading-bar-color="color" has-loading-bar :loading-bar-time="disappearingTimeout">
 			<template #content>
 				<div class="ds-toast__body">
-					<div v-if="title.length" class="ds-toast__title">{{ title }}</div>
+					<div v-if="title" class="ds-toast__title">{{ title }}</div>
 					<div class="ds-toast__content">
 						<slot name="content" />
 					</div>
