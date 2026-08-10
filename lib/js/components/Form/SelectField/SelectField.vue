@@ -40,7 +40,7 @@
 						class="ds-selectField__content"
 						position="popper"
 						align="start"
-						:side-offset="0"
+						:side-offset="4"
 						:style="contentStyle"
 					>
 						<select-viewport as-child>
