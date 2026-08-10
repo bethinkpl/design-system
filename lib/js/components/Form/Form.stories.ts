@@ -7,6 +7,7 @@ import { toTypedSchema } from '@vee-validate/zod';
 import { array, object, string } from 'zod';
 import CheckboxGroupField from './CheckboxGroupField/CheckboxGroupField.vue';
 import SelectField from './SelectField';
+import TextAreaField from './TextAreaField';
 import Button from '../Buttons/Button';
 
 export default {
@@ -15,13 +16,14 @@ export default {
 } as Meta<any>;
 
 export const SimpleForm = () => ({
-	components: { InputField, CheckboxGroupField, Checkbox, SelectField, Button },
+	components: { InputField, CheckboxGroupField, Checkbox, SelectField, TextAreaField, Button },
 	setup: () => {
 		const { handleSubmit } = useForm({
 			initialValues: {
 				fullName: '',
 				country: '',
 				newsletterTopics: [],
+				notes: '',
 			},
 			validationSchema: toTypedSchema(
 				object({
@@ -31,6 +33,7 @@ export const SimpleForm = () => ({
 						1,
 						'Wybierz przynajmniej jeden temat newslettera',
 					),
+					notes: string().max(500, 'Maksymalnie 500 znaków'),
 				}),
 			),
 		});
@@ -70,6 +73,12 @@ export const SimpleForm = () => ({
 					<Checkbox value="sports">Sport</Checkbox>
 				</template>
 			</CheckboxGroupField>
+			<TextAreaField
+				label="Uwagi"
+				name="notes"
+				is-autoresizing
+				:input-props="{ rows: 4, maxlength: 500, placeholder: 'Coś jeszcze?' }"
+			/>
 			<Button as="button">
 				Wyślij
 			</Button>

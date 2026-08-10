@@ -59,6 +59,8 @@ export * from './components/Form/SelectField';
 export { default as TabItem } from './components/TabItem';
 export { default as DsTabItem } from './components/TabItem';
 export * from './components/TabItem/TabItem.consts';
+export { default as DsTextAreaField } from './components/Form/TextAreaField';
+export * from './components/Form/TextAreaField';
 export { default as Tile } from './components/Tile';
 export { default as DsTile } from './components/Tile';
 export * from './components/Tile/Tile.consts';

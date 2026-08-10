@@ -3,30 +3,30 @@
 		<template #field="{ fieldId, messageId }">
 			<div
 				:class="[
-					'ds-inputField',
+					'ds-textAreaField',
 					{
+						'-ds-autoresizing': isAutoresizing,
 						'-ds-error': formFieldProps.state === FORM_FIELD_STATES.ERROR,
-						'-ds-disabled': formFieldProps.state === FORM_FIELD_STATES.DISABLED,
+						'-ds-disabled': isDisabled,
 					},
 				]"
 			>
-				<icon
-					v-if="leftIcon"
-					:icon="leftIcon"
-					class="ds-inputField__leftIcon"
-					:size="ICON_SIZES.X_SMALL"
-				/>
-				<input
+				<text-area-field-autosized
+					v-if="isAutoresizing"
 					v-bind="finalInputProps"
 					:id="fieldId"
 					v-model="value"
-					class="ds-inputField__input"
+					class="ds-textAreaField__input"
 					:aria-describedby="hasMessage ? messageId : undefined"
 				/>
-				<div v-if="suffixText" class="ds-inputField__suffixText">
-					{{ suffixText }}
-				</div>
-				<slot name="action" />
+				<textarea
+					v-else
+					v-bind="finalInputProps"
+					:id="fieldId"
+					v-model="value"
+					class="ds-textAreaField__input"
+					:aria-describedby="hasMessage ? messageId : undefined"
+				/>
 			</div>
 		</template>
 		<!-- begin: FormField slots -->
@@ -54,19 +54,32 @@
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/shadows';
 
-.ds-inputField {
+.ds-textAreaField {
 	$root: &;
 
-	align-items: center;
 	align-self: stretch;
 	background: $color-default-background;
 	border: $border-xs solid $color-neutral-border-strong;
 	border-radius: $radius-s;
 	box-shadow: $shadow-inset-m;
 	display: flex;
-	gap: $space-4;
-	height: 32px;
-	padding: 0 $space-4;
+
+	&__input {
+		@include formText-s-default-regular;
+
+		background: transparent;
+		border: none;
+		color: $color-neutral-text-heavy;
+		flex: 1;
+		min-width: 0;
+		outline: none;
+		padding: $space-4;
+		resize: vertical;
+
+		&::placeholder {
+			color: $color-neutral-text-weak;
+		}
+	}
 
 	&:focus-within {
 		border-color: $color-primary-border;
@@ -80,6 +93,13 @@
 		border-color: $color-neutral-border-strong-hovered;
 	}
 
+	&.-ds-autoresizing {
+		#{$root}__input {
+			overflow: hidden;
+			resize: none;
+		}
+	}
+
 	&.-ds-disabled {
 		border-color: $color-neutral-border-strong-disabled;
 		box-shadow: none;
@@ -91,60 +111,23 @@
 				color: $color-neutral-text-weak-disabled;
 			}
 		}
-
-		#{$root}__leftIcon {
-			color: $color-neutral-icon-weak-disabled;
-		}
-	}
-
-	&__input {
-		@include formText-s-default-regular;
-
-		background: transparent;
-		// hacky solution to override default browser styles for autofill
-		background-clip: text !important;
-		border: none;
-		color: $color-neutral-text-heavy;
-		flex: 1;
-		height: 100%;
-		// override default browser min-width
-		min-width: 0;
-		outline: none;
-		padding: 0;
-
-		&::placeholder {
-			color: $color-neutral-text-weak;
-		}
-
-		&[type='password'] {
-			// On iOS, the default `$font-family` including `-apple-system` causes password dots to render larger than normal.
-			// To fix this visual inconsistency, we override the font-family to prevent oversized dots.
-			font-family: Lato, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-		}
-	}
-
-	&__leftIcon {
-		color: $color-neutral-icon-weak;
-	}
-
-	&__suffixText {
-		@include formText-s-default-regular;
-
-		color: $color-neutral-text;
 	}
 }
 </style>
 
 <script lang="ts" setup>
-import { computed, InputHTMLAttributes } from 'vue';
+import { computed, TextareaHTMLAttributes } from 'vue';
 import FormField, { FORM_FIELD_STATES, FormFieldProps } from '../FormField';
-import Icon, { ICON_SIZES } from '../../Icons/Icon';
 import { extractFormFieldProps } from '../FormField/FormField.utils';
-import { InputFieldProps, InputFieldSlots } from './InputField.types';
+import TextAreaFieldAutosized from './TextAreaFieldAutosized.vue';
+import { TextAreaFieldProps, TextAreaFieldSlots } from './TextAreaField.types';
 import { useTextFieldWithinForm } from '../../../composables/useTextFieldWithinForm';
 
-const { inputProps, leftIcon, suffixText, name, ...rest } = defineProps<InputFieldProps>();
-const slots = defineSlots<InputFieldSlots>();
+const DEFAULT_ROWS = 3;
+
+const { inputProps, isAutoresizing = false, name, ...rest } = defineProps<TextAreaFieldProps>();
+
+const slots = defineSlots<TextAreaFieldSlots>();
 const modelValue = defineModel<string>();
 
 const {
@@ -154,17 +137,27 @@ const {
 	onBlur: onFormFieldBlur,
 } = useTextFieldWithinForm(() => name, modelValue);
 
-const formFieldProps = computed<FormFieldProps>(() => {
-	// this is needed to avoid passing modelValue to FormField as prop
-	return extractFormFieldProps(rest, errors.value);
-});
+const { formFieldProps, isDisabled, hasMessage } = useFormFieldState();
+const { finalInputProps } = useTextArea();
 
-// Avoids pointing `aria-describedby` at a message element that is never rendered.
-const hasMessage = computed(() => !!(formFieldProps.value.messageText || slots.message));
+function useFormFieldState() {
+	const formFieldProps = computed<FormFieldProps>(() =>
+		// this is needed to avoid passing modelValue to FormField as prop
+		extractFormFieldProps(rest, errors.value),
+	);
 
-const finalInputProps = computed<InputHTMLAttributes>(() => {
-	return {
-		disabled: formFieldProps.value.state === FORM_FIELD_STATES.DISABLED,
+	const isDisabled = computed(() => formFieldProps.value.state === FORM_FIELD_STATES.DISABLED);
+
+	// Avoids pointing `aria-describedby` at a message element that is never rendered.
+	const hasMessage = computed(() => !!(formFieldProps.value.messageText || slots.message));
+
+	return { formFieldProps, isDisabled, hasMessage };
+}
+
+function useTextArea() {
+	const finalInputProps = computed<TextareaHTMLAttributes>(() => ({
+		disabled: isDisabled.value,
+		rows: DEFAULT_ROWS,
 		...inputProps,
 		onInput: (event: Event) => {
 			onFormFieldInput();
@@ -174,6 +167,8 @@ const finalInputProps = computed<InputHTMLAttributes>(() => {
 			onFormFieldBlur(event);
 			inputProps?.onBlur?.(event);
 		},
-	};
-});
+	}));
+
+	return { finalInputProps };
+}
 </script>
