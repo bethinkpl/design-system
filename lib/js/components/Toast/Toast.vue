@@ -1,9 +1,12 @@
 <template>
-	<div :style="styles" :class="['ds-toast', toastSize, toastPosition]">
+	<div :class="['ds-toast', toastSize, toastPosition, toastColor]">
 		<ds-card :loading-bar-color="color" has-loading-bar :loading-bar-time="disappearingTimeout">
 			<template #content>
-				<div class="ds-toast__content">
-					<slot name="content" />
+				<div class="ds-toast__body">
+					<div v-if="title.length" class="ds-toast__title">{{ title }}</div>
+					<div class="ds-toast__content">
+						<slot name="content" />
+					</div>
 				</div>
 			</template>
 			<template
@@ -14,6 +17,7 @@
 					<ds-button
 						v-if="footerSecondaryButtonText.length"
 						:color="buttonSecondaryColor"
+						:size="buttonSize"
 						:icon-right="footerSecondaryButtonIcon"
 						:type="BUTTON_TYPES.OUTLINED"
 						:radius="BUTTON_RADIUSES.ROUNDED"
@@ -23,6 +27,7 @@
 					<ds-button
 						v-if="footerPrimaryButtonText.length"
 						:color="buttonPrimaryColor"
+						:size="buttonSize"
 						:icon-right="footerPrimaryButtonIcon"
 						:radius="BUTTON_RADIUSES.ROUNDED"
 						@click="$emit('primary-button-click')"
@@ -35,43 +40,91 @@
 </template>
 
 <style scoped lang="scss">
+@import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/media-queries';
 
 .ds-toast {
-	position: fixed;
+	$root: &;
+
+	max-width: var(--ds-toast-max-width);
 	width: 100%;
 
 	&.-ds-size-small {
-		max-width: 320px + $space-8 * 2;
-		padding: $space-8;
+		--ds-toast-max-width: 320px;
 	}
 
 	&.-ds-size-medium {
-		max-width: 500px + $space-8 * 2;
-		padding: $space-8;
+		--ds-toast-max-width: 500px;
+	}
+
+	&.-ds-size-large {
+		--ds-toast-max-width: 700px;
+	}
+
+	// The viewport spacing lives in the offsets rather than in padding, so it applies only to the
+	// fixed positions — `none` lets the consumer place (and space) the toast themselves.
+	&.-ds-position-left,
+	&.-ds-position-center,
+	&.-ds-position-right {
+		--ds-toast-offset: #{$space-8};
+
+		bottom: var(--ds-toast-offset);
+		max-width: min(var(--ds-toast-max-width), calc(100% - var(--ds-toast-offset) * 2));
+		position: fixed;
 
 		@media (#{breakpoint-s()}) {
-			max-width: 500px + $space-12 * 2;
-			padding: $space-12;
+			&.-ds-size-medium,
+			&.-ds-size-large {
+				--ds-toast-offset: #{$space-12};
+			}
 		}
 	}
 
 	&.-ds-position-left {
-		bottom: 0;
-		left: 0;
+		left: var(--ds-toast-offset);
 	}
 
 	&.-ds-position-right {
-		bottom: 0;
-		right: 0;
+		right: var(--ds-toast-offset);
 	}
 
 	&.-ds-position-center {
-		bottom: 0;
 		left: 50%;
 		transform: translateX(-50%);
+	}
+
+	&__body {
+		display: flex;
+		flex-direction: column;
+		row-gap: $space-2;
+	}
+
+	&__title {
+		@include heading-s-default-bold;
+
+		color: $color-neutral-text-heavy;
+
+		#{$root}.-ds-size-large & {
+			@include heading-m-default-bold;
+		}
+
+		#{$root}.-ds-color-success & {
+			color: $color-success-text-strong;
+		}
+
+		#{$root}.-ds-color-warning & {
+			color: $color-warning-text-strong;
+		}
+
+		#{$root}.-ds-color-danger & {
+			color: $color-danger-text-strong;
+		}
+
+		#{$root}.-ds-color-info & {
+			color: $color-info-text-strong;
+		}
 	}
 
 	&__content {
@@ -87,8 +140,13 @@
 }
 </style>
 
-<script lang="ts">
-import DsButton, { BUTTON_COLORS, BUTTON_RADIUSES, BUTTON_TYPES } from '../Buttons/Button';
+<script lang="ts" setup>
+import DsButton, {
+	BUTTON_COLORS,
+	BUTTON_RADIUSES,
+	BUTTON_SIZES,
+	BUTTON_TYPES,
+} from '../Buttons/Button';
 import DsCard from '../Cards/Card';
 import {
 	TOAST_COLORS,
@@ -98,184 +156,68 @@ import {
 	ToastPositions,
 	ToastSizes,
 } from './Toast.consts';
-import { defineComponent, PropType, toRaw } from 'vue';
-import { ICONS } from '../Icons/Icon';
+import { computed, onMounted } from 'vue';
+import { IconItem } from '../Icons/Icon';
 
-function calculateBoundariesOffset(boundariesElement: HTMLElement) {
-	const borderLeftWidth = window.getComputedStyle(boundariesElement).borderLeftWidth;
-	const borderRightWidth = window.getComputedStyle(boundariesElement).borderRightWidth;
-	const boundingClientRect = boundariesElement.getBoundingClientRect();
-	const boundariesOffsetLeft = boundingClientRect.left + parseInt(borderLeftWidth, 10);
-	const boundariesOffsetRight =
-		boundingClientRect.right - parseInt(borderRightWidth, 10) - parseInt(borderLeftWidth, 10);
-	const boundariesOffsetWidth = boundingClientRect.width;
-	return {
-		left: {
-			left: `${boundariesOffsetLeft}px`,
-		},
-		right: {
-			left: `${boundariesOffsetRight}px`,
-			transform: 'translateX(-100%)',
-		},
-		center: {
-			left: `${boundariesOffsetLeft + boundariesOffsetWidth / 2}px`,
-			transform: 'translateX(-50%)',
-		},
-	};
-}
+const {
+	title = '',
+	size = TOAST_SIZES.MEDIUM,
+	position = TOAST_POSITIONS.CENTER,
+	color = TOAST_COLORS.INFO,
+	footerPrimaryButtonText = '',
+	footerPrimaryButtonIcon = null,
+	footerSecondaryButtonText = '',
+	footerSecondaryButtonIcon = null,
+	isDisappearing = true,
+	disappearingTimeout = '0',
+} = defineProps<{
+	title?: string;
+	size?: ToastSizes;
+	position?: ToastPositions;
+	color?: ToastColors;
+	footerPrimaryButtonText?: string;
+	footerPrimaryButtonIcon?: IconItem | null;
+	footerSecondaryButtonText?: string;
+	footerSecondaryButtonIcon?: IconItem | null;
+	isDisappearing?: boolean;
+	/** Seconds, as a numeric string. `'0'` disables the auto-close. */
+	disappearingTimeout?: string;
+}>();
 
-export default defineComponent({
-	name: 'Toast',
-	components: {
-		DsButton,
-		DsCard,
-	},
-	props: {
-		size: {
-			type: String as PropType<ToastSizes>,
-			default: TOAST_SIZES.MEDIUM,
-		},
-		position: {
-			type: String as PropType<ToastPositions>,
-			default: TOAST_POSITIONS.CENTER,
-		},
-		boundariesSelector: {
-			type: [String, Object] as PropType<string | HTMLElement>,
-			default: null,
-		},
-		color: {
-			type: String as PropType<ToastColors>,
-			default: TOAST_COLORS.INFO,
-		},
-		footerPrimaryButtonText: {
-			type: String,
-			default: '',
-		},
-		footerPrimaryButtonIcon: {
-			type: Object,
-			default: null,
-			validator(footerPrimaryButtonIcon: any) {
-				return (
-					footerPrimaryButtonIcon == null ||
-					Object.values(ICONS).includes(toRaw(footerPrimaryButtonIcon))
-				);
-			},
-		},
-		footerSecondaryButtonText: {
-			type: String,
-			default: '',
-		},
-		footerSecondaryButtonIcon: {
-			type: Object,
-			default: null,
-			validator(footerSecondaryButtonIcon: any) {
-				return (
-					footerSecondaryButtonIcon == null ||
-					Object.values(ICONS).includes(toRaw(footerSecondaryButtonIcon))
-				);
-			},
-		},
-		isDisappearing: {
-			type: Boolean,
-			default: true,
-		},
-		disappearingTimeout: {
-			type: String,
-			default: '0',
-			validator(disappearingTimeout: string) {
-				return (
-					(disappearingTimeout === '0' || !isNaN(parseInt(disappearingTimeout, 10))) &&
-					parseInt(disappearingTimeout, 10) >= 0
-				);
-			},
-		},
-	},
-	emits: {
-		close: () => true,
-		'primary-button-click': () => true,
-		'secondary-button-click': () => true,
-	},
-	data() {
-		return {
-			boundariesSelectorElement: null,
-			boundariesSelectorElementResizeObserver: null,
-			styles: {},
-			BUTTON_COLORS: Object.freeze(BUTTON_COLORS),
-			BUTTON_RADIUSES: Object.freeze(BUTTON_RADIUSES),
-			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
-			TOAST_SIZES: Object.freeze(TOAST_SIZES),
-			TOAST_POSITIONS: Object.freeze(TOAST_POSITIONS),
-		};
-	},
-	computed: {
-		buttonPrimaryColor() {
-			return this.color === TOAST_COLORS.DANGER
-				? BUTTON_COLORS.NEUTRAL
-				: BUTTON_COLORS.PRIMARY;
-		},
-		buttonSecondaryColor() {
-			return this.color === TOAST_COLORS.DANGER
-				? BUTTON_COLORS.DANGER
-				: BUTTON_COLORS.NEUTRAL;
-		},
-		toastPosition() {
-			return `-ds-position-${this.position.toLowerCase()}`;
-		},
-		toastSize() {
-			return `-ds-size-${this.size.toLowerCase()}`;
-		},
-	},
-	mounted() {
-		this.setBoundariesSelectorElement();
-		this.calculateStyles();
-		this.boundariesSelectorElementResizeObserver?.disconnect();
-		this.boundariesSelectorElementResizeObserver = new ResizeObserver(() => {
-			this.calculateStyles();
-		});
-		if (this.boundariesSelectorElement) {
-			this.boundariesSelectorElementResizeObserver.observe(this.boundariesSelectorElement);
-		} else {
-			//window resize does not work for some reason, so we observe body
-			this.boundariesSelectorElementResizeObserver.observe(document.querySelector('body'));
-		}
-		if (this.isDisappearing && this.disappearingTimeout !== '0') {
-			setTimeout(
-				() => this.$emit('close'),
-				parseInt(this.disappearingTimeout, 10) * 1000 + 100, // 100 ms is to let loading bar animation to finish
-			);
-		}
-	},
-	beforeUnmount() {
-		this.boundariesSelectorElementResizeObserver.disconnect();
-		this.boundariesSelectorElementResizeObserver = null;
-	},
-	updated() {
-		const { right, left } = this.$el.getClientRects()[0];
-		if (parseInt(left, 10) < 0 || right > document.documentElement.clientWidth) {
-			this.styles = {
-				left: '50%',
-				transform: 'translateX(-50%)',
-			};
-		}
-	},
-	methods: {
-		calculateStyles() {
-			if (this.boundariesSelectorElement) {
-				this.styles = calculateBoundariesOffset(this.boundariesSelectorElement)[
-					this.position
-				];
-			} else {
-				this.styles = {};
-			}
-		},
-		setBoundariesSelectorElement() {
-			if (typeof this.boundariesSelector === 'string') {
-				this.boundariesSelectorElement =
-					document.querySelector(this.boundariesSelector) || null;
-			} else if (this.boundariesSelector instanceof HTMLElement) {
-				this.boundariesSelectorElement = this.boundariesSelector;
-			}
-		},
-	},
+const emit = defineEmits<{
+	close: [];
+	'primary-button-click': [];
+	'secondary-button-click': [];
+}>();
+
+defineSlots<{
+	content?: () => any;
+}>();
+
+const buttonPrimaryColor = computed(() =>
+	color === TOAST_COLORS.DANGER ? BUTTON_COLORS.NEUTRAL : BUTTON_COLORS.PRIMARY,
+);
+
+const buttonSecondaryColor = computed(() =>
+	color === TOAST_COLORS.DANGER ? BUTTON_COLORS.DANGER : BUTTON_COLORS.NEUTRAL,
+);
+
+const buttonSize = computed(() =>
+	size === TOAST_SIZES.SMALL ? BUTTON_SIZES.SMALL : BUTTON_SIZES.MEDIUM,
+);
+
+const toastSize = computed(() => `-ds-size-${size.toLowerCase()}`);
+
+const toastPosition = computed(() => `-ds-position-${position.toLowerCase()}`);
+
+const toastColor = computed(() => `-ds-color-${color}`);
+
+onMounted(() => {
+	if (isDisappearing && disappearingTimeout !== '0') {
+		setTimeout(
+			() => emit('close'),
+			parseInt(disappearingTimeout, 10) * 1000 + 100, // 100 ms is to let loading bar animation to finish
+		);
+	}
 });
 </script>

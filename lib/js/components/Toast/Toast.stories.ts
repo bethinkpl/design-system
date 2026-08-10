@@ -10,6 +10,25 @@ export default {
 	decorators: [withActions],
 } as Meta<typeof DsToast>;
 
+const toastTemplate = `<ds-toast
+		v-if="isVisible"
+		:title="title"
+		:size="size"
+		:position="position"
+		:color="color"
+		:footer-primary-button-text="footerPrimaryButtonText"
+		:footer-primary-button-icon="ICONS[footerPrimaryButtonIcon]"
+		:footer-secondary-button-text="footerSecondaryButtonText"
+		:footer-secondary-button-icon="ICONS[footerSecondaryButtonIcon]"
+		:is-disappearing="isDisappearing"
+		:disappearing-timeout="disappearingTimeout"
+		@close="isVisible = false"
+	>
+		<template #content>
+			<span v-html="content" />
+		</template>
+	</ds-toast>`;
+
 const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 	components: { DsToast },
 	setup() {
@@ -19,40 +38,41 @@ const StoryTemplate: StoryFn<typeof DsToast> = (args) => ({
 		return {
 			ICONS: Object.freeze(ICONS),
 			isVisible: true,
-			boundariesSelectorId:
-				this.boundariesSelector != null ? `#${this.boundariesSelector}` : null,
 		};
 	},
-	template: `<div style="display: flex; justify-content: space-around; height: 1200px; width: 100%;">
-		<ds-toast
-			v-if="isVisible"
-			:size="size"
-			:position="position"
-			:boundaries-selector="boundariesSelectorId"
-			:color="color"
-			:footer-primary-button-text="footerPrimaryButtonText"
-			:footer-primary-button-icon="ICONS[footerPrimaryButtonIcon]"
-			:footer-secondary-button-text="footerSecondaryButtonText"
-			:footer-secondary-button-icon="ICONS[footerSecondaryButtonIcon]"
-			:is-disappearing="isDisappearing"
-			:disappearing-timeout="disappearingTimeout"
-			@close="isVisible = false"
-		>
-			<template #content>
-				<span v-html="content" />
-			</template>
-		</ds-toast>
-		<div id="left" style="width: 25%; height: 100%;  border: 1px black solid;"></div>
-		<div id="right" style="width: 25%; height: 100%;  border: 1px black solid;"></div>
+	template: `<div style="height: 1200px; width: 100%;">
+		${toastTemplate}
+	</div>`,
+});
+
+// `position: none` leaves the placement to the consumer — here the wrapper anchors the toast to the
+// bottom right of its own container instead of the viewport.
+const ClientPositionedStoryTemplate: StoryFn<typeof DsToast> = (args) => ({
+	components: { DsToast },
+	setup() {
+		return args;
+	},
+	data() {
+		return {
+			ICONS: Object.freeze(ICONS),
+			isVisible: true,
+		};
+	},
+	template: `<div style="height: 400px; padding: 24px; width: 100%;">
+		<div style="position: relative; height: 100%; border: 1px black solid;">
+			<div style="position: absolute; bottom: 16px; right: 16px;">
+				${toastTemplate}
+			</div>
+		</div>
 	</div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
+	title: 'Opcjonalny Title wpisz tutaj',
 	size: TOAST_SIZES.MEDIUM,
 	position: TOAST_POSITIONS.CENTER,
-	boundariesSelector: null,
 	color: TOAST_COLORS.INFO,
 	footerPrimaryButtonText: 'primary',
 	footerPrimaryButtonIcon: null,
@@ -64,6 +84,9 @@ const args = {
 } as Args;
 
 const argTypes = {
+	title: {
+		control: 'text',
+	},
 	size: {
 		control: 'select',
 		options: Object.values(TOAST_SIZES),
@@ -71,10 +94,6 @@ const argTypes = {
 	position: {
 		control: 'select',
 		options: Object.values(TOAST_POSITIONS),
-	},
-	boundariesSelector: {
-		control: 'select',
-		options: [null, 'left', 'right'],
 	},
 	color: {
 		control: 'select',
@@ -93,15 +112,25 @@ const argTypes = {
 	},
 } as ArgTypes;
 
+const actionsParameters = {
+	actions: {
+		handles: ['close', 'primary-button-click', 'secondary-button-click'],
+	},
+};
+
 Interactive.argTypes = argTypes;
 Interactive.args = args;
 
 Interactive.parameters = {
-	actions: {
-		handles: ['close', 'primary-button-click', 'secondary-button-click'],
-	},
+	...actionsParameters,
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=8091-108960',
 	},
 };
+
+export const ClientPositioned = ClientPositionedStoryTemplate.bind({});
+
+ClientPositioned.argTypes = argTypes;
+ClientPositioned.args = { ...args, position: TOAST_POSITIONS.NONE };
+ClientPositioned.parameters = actionsParameters;

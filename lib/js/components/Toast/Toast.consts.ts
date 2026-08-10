@@ -3,6 +3,7 @@ import { Value } from '../../utils/type.utils';
 export const TOAST_SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
+	LARGE: 'large',
 } as const;
 
 export type ToastSizes = Value<typeof TOAST_SIZES>;
@@ -14,7 +15,7 @@ export const TOAST_COLORS = {
 	WARNING: 'warning',
 	DANGER: 'danger',
 	INFO: 'info',
-};
+} as const;
 
 export type ToastColors = Value<typeof TOAST_COLORS>;
 
@@ -22,6 +23,7 @@ export const TOAST_POSITIONS = {
 	LEFT: 'left',
 	CENTER: 'center',
 	RIGHT: 'right',
-};
+	NONE: 'none',
+} as const;
 
 export type ToastPositions = Value<typeof TOAST_POSITIONS>;
