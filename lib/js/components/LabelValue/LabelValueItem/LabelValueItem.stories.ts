@@ -1,4 +1,7 @@
 import LabelValueItem from './LabelValueItem.vue';
+import SlotPlaceholder, {
+	SLOT_PLACEHOLDER_SIZES,
+} from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
@@ -6,6 +9,7 @@ import {
 	LABEL_VALUE_ITEM_STATES,
 	LABEL_VALUE_ITEM_VALUE_COLORS,
 } from './LabelValueItem.consts';
+import { toRefs } from 'vue';
 
 export default {
 	title: 'Components/LabelValue/LabelValueItem',
@@ -13,9 +17,9 @@ export default {
 } as Meta<typeof LabelValueItem>;
 
 const StoryTemplate: StoryFn<typeof LabelValueItem> = (args) => ({
-	components: { LabelValueItem },
+	components: { LabelValueItem, SlotPlaceholder },
 	setup() {
-		return args;
+		return { ...toRefs(args), SLOT_PLACEHOLDER_SIZES };
 	},
 	template: `<div style="height: 300px; width: 200px;">
 		<label-value-item
@@ -25,7 +29,12 @@ const StoryTemplate: StoryFn<typeof LabelValueItem> = (args) => ({
 			:size="size"
 			:is-label-strong="isLabelStrong"
 			:value-color="valueColor"
-		/>
+		>
+			<template #accessory>
+				<div v-if="accessorySlot" v-html="accessorySlot" />
+				<slot-placeholder v-else :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="accessory" />
+			</template>
+		</label-value-item>
 		</div>`,
 });
 
@@ -38,6 +47,7 @@ const args = {
 	size: LABEL_VALUE_ITEM_SIZES.MEDIUM,
 	isLabelStrong: false,
 	valueColor: LABEL_VALUE_ITEM_VALUE_COLORS.NEUTRAL,
+	accessorySlot: 'accessory slot',
 } as Args;
 
 const argTypes = {
@@ -55,6 +65,9 @@ const argTypes = {
 	},
 	isLabelStrong: {
 		control: 'boolean',
+	},
+	accessorySlot: {
+		control: 'text',
 	},
 } as ArgTypes;
 
