@@ -77,12 +77,6 @@ export default meta;
 
 type Story = StoryObj<typeof PinInputField>;
 
-const actionsParameters = {
-	actions: {
-		handles: ['complete'],
-	},
-};
-
 export const Interactive: Story = {
 	args: {
 		...args,
@@ -92,7 +86,6 @@ export const Interactive: Story = {
 		type: PIN_INPUT_FIELD_TYPES.NUMBER,
 	},
 	parameters: {
-		...actionsParameters,
 		design: {
 			type: 'figma',
 			url: 'https://www.figma.com/design/xym3gXf0vBCofzksDtRDaU/INI-201---E-commerce?node-id=1763-34732&m=dev',
@@ -107,7 +100,6 @@ export const Error: Story = {
 		state: PIN_INPUT_FIELD_STATES.ERROR,
 		messageText: 'Kod jest nieprawidłowy',
 	},
-	parameters: actionsParameters,
 };
 
 export const Loading: Story = {
@@ -116,7 +108,6 @@ export const Loading: Story = {
 		...Interactive.args,
 		state: PIN_INPUT_FIELD_STATES.LOADING,
 	},
-	parameters: actionsParameters,
 };
 
 /**
@@ -130,5 +121,4 @@ export const Alphanumeric: Story = {
 		otp: false,
 		type: PIN_INPUT_FIELD_TYPES.TEXT,
 	},
-	parameters: actionsParameters,
 };

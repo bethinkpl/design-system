@@ -86,7 +86,6 @@ export const Autoresizing: Story = {
 		...Interactive.args,
 		isAutoresizing: true,
 	},
-	parameters: {},
 };
 
 export const Error: Story = {
@@ -96,5 +95,4 @@ export const Error: Story = {
 		state: FORM_FIELD_STATES.ERROR,
 		messageText: 'Error message text',
 	},
-	parameters: {},
 };

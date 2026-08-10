@@ -150,7 +150,6 @@ export const WithGroups: Story = {
 		...Interactive.args,
 		options: GROUPED_OPTIONS,
 	},
-	parameters: {},
 };
 
 export const WithIconsAndEyebrow: Story = {
@@ -160,7 +159,6 @@ export const WithIconsAndEyebrow: Story = {
 		options: RICH_OPTIONS,
 		placeholder: 'Wybierz status',
 	},
-	parameters: {},
 };
 
 /**
@@ -206,7 +204,6 @@ export const LongList: Story = {
 		options: LONG_OPTIONS,
 		placeholder: 'Wybierz opcję',
 	},
-	parameters: {},
 };
 
 export const Disabled: Story = {
@@ -215,7 +212,6 @@ export const Disabled: Story = {
 		...Interactive.args,
 		state: FORM_FIELD_STATES.DISABLED,
 	},
-	parameters: {},
 };
 
 export const Error: Story = {
@@ -225,5 +221,4 @@ export const Error: Story = {
 		state: FORM_FIELD_STATES.ERROR,
 		messageText: 'Error message text',
 	},
-	parameters: {},
 };
