@@ -140,6 +140,9 @@ const meta: Meta<typeof SelectField> = {
 		maxHeight: {
 			control: 'text',
 		},
+		isGroupLabelUppercase: {
+			control: 'boolean',
+		},
 	},
 };
 export default meta;
@@ -152,6 +155,7 @@ export const Interactive: Story = {
 		options: OPTIONS,
 		placeholder: 'Wybierz kraj',
 		leftIcon: null,
+		isGroupLabelUppercase: true,
 	},
 	parameters: {
 		design: {

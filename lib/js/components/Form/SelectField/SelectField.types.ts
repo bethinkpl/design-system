@@ -47,6 +47,13 @@ export interface SelectFieldProps extends FormFieldProps {
 	 * vee-validate field name. Requires a surrounding `useForm()` context.
 	 */
 	name?: string;
+	/**
+	 * Renders the labels of grouped options in the uppercase section-title style. Set to `false`
+	 * for a lighter, sentence-case label.
+	 *
+	 * @default true
+	 */
+	isGroupLabelUppercase?: boolean;
 }
 
 export type SelectFieldSlots = Omit<FormFieldSlots, 'field'>;

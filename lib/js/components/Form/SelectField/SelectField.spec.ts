@@ -354,6 +354,36 @@ describe('SelectField', () => {
 			expect(optionElements()).toHaveLength(3);
 		});
 
+		it('should render the group labels in uppercase by default', async () => {
+			const wrapper = setup({ label: 'Label', options: GROUPED_OPTIONS });
+
+			await open(wrapper);
+
+			const titles = portal().findAll('.ds-selectListSectionTitle');
+
+			expect(titles).toHaveLength(2);
+			titles.forEach((title) => {
+				expect(title.classes()).toContain('-ds-isUppercase');
+			});
+		});
+
+		it('should not render the group labels in uppercase when isGroupLabelUppercase is false', async () => {
+			const wrapper = setup({
+				label: 'Label',
+				options: GROUPED_OPTIONS,
+				isGroupLabelUppercase: false,
+			});
+
+			await open(wrapper);
+
+			const titles = portal().findAll('.ds-selectListSectionTitle');
+
+			expect(titles).toHaveLength(2);
+			titles.forEach((title) => {
+				expect(title.classes()).not.toContain('-ds-isUppercase');
+			});
+		});
+
 		it('should hide the separators between groups from assistive technology', async () => {
 			const wrapper = setup({ label: 'Label', options: GROUPED_OPTIONS });
 
