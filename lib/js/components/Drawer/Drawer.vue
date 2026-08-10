@@ -1,5 +1,8 @@
 <template>
-	<div class="ds-drawer scrollable-container" :class="{ [positionClassName]: true }">
+	<div
+		class="ds-drawer scrollable-container"
+		:class="[positionClassName, backgroundColorClassName]"
+	>
 		<div v-if="$slots.header && stickyHeader" class="ds-drawer__header -ds-sticky">
 			<slot name="header" />
 		</div>
@@ -48,6 +51,14 @@
 		}
 	}
 
+	&.-ds-backgroundDefault {
+		background-color: $color-default-background;
+	}
+
+	&.-ds-backgroundNeutral {
+		background-color: $color-neutral-background;
+	}
+
 	&__header,
 	&__footer {
 		flex-shrink: 0;
@@ -73,7 +84,12 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue';
 
-import { DRAWER_POSITIONS, DrawerPosition } from './Drawer.consts';
+import {
+	DRAWER_BACKGROUND_COLORS,
+	DRAWER_POSITIONS,
+	DrawerBackgroundColor,
+	DrawerPosition,
+} from './Drawer.consts';
 
 export default defineComponent({
 	name: 'Drawer',
@@ -93,6 +109,13 @@ export default defineComponent({
 			type: Boolean,
 			default: true,
 		},
+		backgroundColor: {
+			type: String as PropType<DrawerBackgroundColor>,
+			default: DRAWER_BACKGROUND_COLORS.NONE,
+			validator(backgroundColor: DrawerBackgroundColor) {
+				return Object.values(DRAWER_BACKGROUND_COLORS).includes(backgroundColor);
+			},
+		},
 	},
 	computed: {
 		positionClassName(): string {
@@ -101,6 +124,16 @@ export default defineComponent({
 			}
 
 			return '-ds-positionRight';
+		},
+		backgroundColorClassName(): string | null {
+			switch (this.backgroundColor) {
+				case DRAWER_BACKGROUND_COLORS.DEFAULT:
+					return '-ds-backgroundDefault';
+				case DRAWER_BACKGROUND_COLORS.NEUTRAL:
+					return '-ds-backgroundNeutral';
+				default:
+					return null;
+			}
 		},
 	},
 });

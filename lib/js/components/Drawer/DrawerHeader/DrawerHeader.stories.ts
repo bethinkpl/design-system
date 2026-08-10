@@ -2,7 +2,11 @@ import DrawerHeader from './DrawerHeader.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ICONS } from '../../Icons/Icon';
-import { DRAWER_HEADER_TITLE_COLORS } from './DrawerHeader.consts';
+import { DRAWER_HEADER_BACKGROUND_COLORS, DRAWER_HEADER_TITLE_COLORS } from './DrawerHeader.consts';
+import SlotPlaceholder, {
+	SLOT_PLACEHOLDER_SIZES,
+} from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
+import { toRefs } from 'vue';
 
 export default {
 	title: 'Components/Drawer/DrawerHeader',
@@ -10,13 +14,12 @@ export default {
 } as Meta<typeof DrawerHeader>;
 
 const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
-	components: { DrawerHeader },
+	components: { DrawerHeader, SlotPlaceholder },
 	setup() {
-		return args;
-	},
-	data() {
 		return {
-			ICONS: Object.freeze(ICONS),
+			...toRefs(args),
+			ICONS,
+			SLOT_PLACEHOLDER_SIZES,
 		};
 	},
 	template: `
@@ -33,12 +36,16 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 			:title-ellipsis="titleEllipsis"
 			:title="title"
 			:has-back-button="hasBackButton"
+			:background-color="backgroundColor"
 		>
 			<template #actions v-if="actions">
-				<div v-html="actions" />
+				<slot-placeholder :label="actions" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
 			</template>
 			<template #titleTrailing v-if="titleTrailing">
-				<div v-html="titleTrailing" />
+				<slot-placeholder :label="titleTrailing" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
+			</template>
+			<template #supporting v-if="supporting">
+				<slot-placeholder :label="supporting" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
 			</template>
 		</drawer-header>`,
 });
@@ -59,7 +66,9 @@ const args = {
 	isSecondLevel: false,
 	actions: 'actions slot',
 	titleTrailing: 'trailing slot',
+	supporting: 'supporting slot',
 	hasBackButton: false,
+	backgroundColor: DRAWER_HEADER_BACKGROUND_COLORS.NONE,
 } as Args;
 
 const argTypes = {
@@ -82,7 +91,12 @@ const argTypes = {
 	isClosable: { control: 'boolean' },
 	actions: { control: 'text' },
 	titleTrailing: { control: 'text' },
+	supporting: { control: 'text' },
 	hasBackButton: { control: 'boolean' },
+	backgroundColor: {
+		control: 'select',
+		options: Object.values(DRAWER_HEADER_BACKGROUND_COLORS),
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;

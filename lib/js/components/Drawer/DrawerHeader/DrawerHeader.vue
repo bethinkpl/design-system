@@ -1,65 +1,76 @@
 <template>
-	<div class="ds-drawerHeader">
-		<div class="ds-drawerHeader__titleWrapper">
-			<ds-button
-				v-if="isSecondLevel"
-				:icon-left="ICONS.FA_CHEVRON_LEFT"
-				:type="BUTTON_TYPES.TEXT"
-				class="ds-drawerHeader__secondLevel"
-				@click="$emit('backClicked')"
-			>
-				{{ t('ds.globals.back') }}
-			</ds-button>
-			<div :class="{ '-ds-hidden': isSecondLevel }" class="ds-drawerHeader__firstLevel">
-				<icon-button
-					v-if="hasBackButton"
-					:size="ICON_BUTTON_SIZES.MEDIUM"
-					:icon="ICONS.FA_CHEVRON_LEFT"
+	<div
+		class="ds-drawerHeader"
+		:class="{
+			'-ds-backgroundDefault': backgroundColor === DRAWER_HEADER_BACKGROUND_COLORS.DEFAULT,
+		}"
+	>
+		<div class="ds-drawerHeader__headerWrapper">
+			<div class="ds-drawerHeader__titleWrapper">
+				<ds-button
+					v-if="isSecondLevel"
+					:icon-left="ICONS.FA_CHEVRON_LEFT"
+					:type="BUTTON_TYPES.TEXT"
+					class="ds-drawerHeader__secondLevel"
 					@click="$emit('backClicked')"
-				/>
-				<div class="ds-drawerHeader__textWrapper">
-					<span
-						v-if="eyebrowText"
-						:class="{
-							'-ds-isInteractive': isInteractiveEyebrow,
-							'-ds-ellipsis': eyebrowEllipsis,
-						}"
-						class="ds-drawerHeader__eyebrow"
-						@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
-					>
-						{{ eyebrowText }}
-					</span>
-					<div class="ds-drawerHeader__title">
-						<icon
-							v-if="leftIcon"
-							:icon="leftIcon"
-							:size="ICON_SIZES.X_SMALL"
-							class="ds-drawerHeader__leftIcon"
-						/>
+				>
+					{{ t('ds.globals.back') }}
+				</ds-button>
+				<div :class="{ '-ds-hidden': isSecondLevel }" class="ds-drawerHeader__firstLevel">
+					<icon-button
+						v-if="hasBackButton"
+						:size="ICON_BUTTON_SIZES.MEDIUM"
+						:icon="ICONS.FA_CHEVRON_LEFT"
+						@click="$emit('backClicked')"
+					/>
+					<div class="ds-drawerHeader__textWrapper">
 						<span
-							v-if="title"
-							class="ds-drawerHeader__titleText"
-							:class="{ '-ds-ellipsis': titleEllipsis, [`-ds-${titleColor}`]: true }"
-							:title="titleEllipsis ? title : undefined"
-							>{{ title }}</span
+							v-if="eyebrowText"
+							:class="{
+								'-ds-isInteractive': isInteractiveEyebrow,
+								'-ds-ellipsis': eyebrowEllipsis,
+							}"
+							class="ds-drawerHeader__eyebrow"
+							@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
 						>
-						<chip v-if="chipLabel" :label="chipLabel" />
-						<div v-if="$slots.titleTrailing">
-							<slot name="titleTrailing" />
+							{{ eyebrowText }}
+						</span>
+						<div class="ds-drawerHeader__title">
+							<icon
+								v-if="leftIcon"
+								:icon="leftIcon"
+								:size="ICON_SIZES.X_SMALL"
+								class="ds-drawerHeader__leftIcon"
+							/>
+							<span
+								v-if="title"
+								class="ds-drawerHeader__titleText"
+								:class="{
+									'-ds-ellipsis': titleEllipsis,
+									[`-ds-${titleColor}`]: true,
+								}"
+								:title="titleEllipsis ? title : undefined"
+								>{{ title }}</span
+							>
+							<chip v-if="chipLabel" :label="chipLabel" />
+							<div v-if="$slots.titleTrailing">
+								<slot name="titleTrailing" />
+							</div>
 						</div>
 					</div>
 				</div>
+				<div v-if="$slots.actions" class="ds-drawerHeader__actions">
+					<slot name="actions" />
+				</div>
+				<icon-button
+					v-if="isClosable"
+					:color="ICON_COLORS.NEUTRAL"
+					:icon="ICONS.FA_XMARK"
+					:size="ICON_BUTTON_SIZES.MEDIUM"
+					@click="$emit('close')"
+				/>
 			</div>
-			<div v-if="$slots.actions" class="ds-drawerHeader__actions">
-				<slot name="actions" />
-			</div>
-			<icon-button
-				v-if="isClosable"
-				:color="ICON_COLORS.NEUTRAL"
-				:icon="ICONS.FA_XMARK"
-				:size="ICON_BUTTON_SIZES.MEDIUM"
-				@click="$emit('close')"
-			/>
+			<slot name="supporting" />
 		</div>
 		<divider v-if="hasDivider" :size="DIVIDER_SIZES.L" :prominence="DIVIDER_PROMINENCES.WEAK" />
 	</div>
@@ -75,6 +86,15 @@ $minimal-drawer-header-height: 58px;
 .ds-drawerHeader {
 	display: flex;
 	flex-direction: column;
+
+	&.-ds-backgroundDefault {
+		background-color: $color-default-background;
+	}
+
+	&__headerWrapper {
+		min-height: $minimal-drawer-header-height;
+		padding: $space-6;
+	}
 
 	&__secondLevel {
 		position: absolute !important; // it is required so firstLevel content does not make component wider when hidden, and important is needed so component does not change its width when button was clicked
@@ -148,8 +168,6 @@ $minimal-drawer-header-height: 58px;
 		column-gap: $space-2;
 		display: flex;
 		justify-content: space-between;
-		min-height: $minimal-drawer-header-height;
-		padding: $space-6;
 	}
 
 	&__actions {
@@ -158,96 +176,61 @@ $minimal-drawer-header-height: 58px;
 }
 </style>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
-
-import Button from '../../Buttons/Button/Button.vue';
-import Divider from '../../Divider/Divider.vue';
-import IconButton from '../../Buttons/IconButton/IconButton.vue';
-import Chip from '../../Chip/Chip.vue';
-import Icon from '../../Icons/Icon/Icon.vue';
-import { BUTTON_TYPES } from '../../Buttons/Button';
-import { ICON_COLORS, ICON_SIZES, ICONS } from '../../Icons/Icon';
-import { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
-import { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
-import { DRAWER_HEADER_TITLE_COLORS, DrawerHeaderTitleColor } from './DrawerHeader.consts';
+<script setup lang="ts">
+import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
+import Divider, { DIVIDER_PROMINENCES, DIVIDER_SIZES } from '../../Divider';
+import IconButton, { ICON_BUTTON_SIZES } from '../../Buttons/IconButton';
+import Chip from '../../Chip';
+import Icon, { ICON_COLORS, ICON_SIZES, ICONS, IconItem } from '../../Icons/Icon';
+import {
+	DRAWER_HEADER_BACKGROUND_COLORS,
+	DRAWER_HEADER_TITLE_COLORS,
+	DrawerHeaderBackgroundColor,
+	DrawerHeaderTitleColor,
+} from './DrawerHeader.consts';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
-export default defineComponent({
-	name: 'DrawerHeader',
-	components: {
-		DsButton: Button,
-		Divider,
-		Icon,
-		IconButton,
-		Chip,
-	},
-	props: {
-		eyebrowText: {
-			type: String,
-			default: null,
-		},
-		isInteractiveEyebrow: {
-			type: Boolean,
-			default: false,
-		},
-		eyebrowEllipsis: {
-			type: Boolean,
-			default: false,
-		},
-		title: {
-			type: String,
-			default: null,
-		},
-		titleEllipsis: {
-			type: Boolean,
-			default: false,
-		},
-		titleColor: {
-			type: String as PropType<DrawerHeaderTitleColor>,
-			default: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
-		},
-		leftIcon: {
-			type: [Object, null],
-			default: null,
-		},
-		chipLabel: {
-			type: String,
-			default: null,
-		},
-		isClosable: {
-			type: Boolean,
-			default: true,
-		},
-		hasDivider: {
-			type: Boolean,
-			default: false,
-		},
-		isSecondLevel: {
-			type: Boolean,
-			default: false,
-		},
-		hasBackButton: {
-			type: Boolean,
-			default: false,
-		},
-	},
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['backClicked', 'close', 'eyebrowClicked'],
-	setup() {
-		const { t } = useLegacyI18n();
+const {
+	eyebrowText = null,
+	isInteractiveEyebrow = false,
+	eyebrowEllipsis = false,
+	title = null,
+	titleEllipsis = false,
+	titleColor = DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
+	leftIcon = null,
+	chipLabel = null,
+	isClosable = true,
+	hasDivider = false,
+	isSecondLevel = false,
+	hasBackButton = false,
+	backgroundColor = DRAWER_HEADER_BACKGROUND_COLORS.NONE,
+} = defineProps<{
+	eyebrowText?: string | null;
+	isInteractiveEyebrow?: boolean;
+	eyebrowEllipsis?: boolean;
+	title?: string | null;
+	titleEllipsis?: boolean;
+	titleColor?: DrawerHeaderTitleColor;
+	leftIcon?: IconItem | null;
+	chipLabel?: string | null;
+	isClosable?: boolean;
+	hasDivider?: boolean;
+	isSecondLevel?: boolean;
+	hasBackButton?: boolean;
+	backgroundColor?: DrawerHeaderBackgroundColor;
+}>();
 
-		return {
-			t,
-			BUTTON_TYPES,
-			DIVIDER_SIZES,
-			DIVIDER_PROMINENCES,
-			ICONS,
-			ICON_BUTTON_SIZES,
-			ICON_SIZES,
-			ICON_COLORS,
-		};
-	},
-});
+defineSlots<{
+	titleTrailing?: () => any;
+	actions?: () => any;
+	supporting?: () => any;
+}>();
+
+defineEmits<{
+	backClicked: [];
+	close: [];
+	eyebrowClicked: [];
+}>();
+
+const { t } = useLegacyI18n();
 </script>
