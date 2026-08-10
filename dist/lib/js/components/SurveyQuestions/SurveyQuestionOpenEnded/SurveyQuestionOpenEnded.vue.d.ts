@@ -66,6 +66,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BELL_SLASH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BELL_ON_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -768,6 +770,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BELL_SLASH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BELL_ON_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1341,6 +1345,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BELL_SLASH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BELL_ON_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
