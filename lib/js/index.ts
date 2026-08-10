@@ -46,7 +46,6 @@ export { default as IconButton } from './components/Buttons/IconButton';
 export { default as DsIconButton } from './components/Buttons/IconButton';
 export * from './components/Buttons/IconButton/IconButton.consts';
 export { default as DsInputField } from './components/Form/InputField';
-export { default as Modal } from './components/Modal';
 export { default as DsModal } from './components/Modals/Modal';
 export * from './components/Modals/Modal/Modal.consts';
 export { default as DsModalDialog } from './components/Modals/ModalDialog';
