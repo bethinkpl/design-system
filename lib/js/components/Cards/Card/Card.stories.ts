@@ -52,6 +52,7 @@ const args = {
 	paddingSize: CARD_PADDING_SIZES.SMALL,
 	dividerUnderHeader: false,
 	hasRibbon: false,
+	isFlat: false,
 	elevation: CARD_ELEVATIONS.DEFAULT,
 	radius: CARD_RADIUSES.ALL,
 	backgroundColor: CARD_BACKGROUND_COLORS.DEFAULT,
@@ -72,6 +73,9 @@ const argTypes = {
 	},
 	footer: { control: 'text' },
 	experimentalContent: { control: 'text' },
+	isFlat: {
+		control: 'boolean',
+	},
 	elevation: {
 		control: 'select',
 		options: Object.values(CARD_ELEVATIONS),
@@ -118,3 +122,8 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34959',
 	},
 };
+
+export const Flat = StoryTemplate.bind({});
+
+Flat.argTypes = argTypes;
+Flat.args = { ...args, isFlat: true };

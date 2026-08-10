@@ -313,6 +313,54 @@ describe('Card', () => {
 		expectOnlyModifier(component.find('.ds-card').classes(), BACKGROUND_MODIFIERS, null);
 	});
 
+	it('should set the none modifiers of all three visual axes when isFlat is true', () => {
+		const classes = createComponent({ props: { isFlat: true } })
+			.find('.ds-card')
+			.classes();
+
+		expectOnlyModifier(classes, ELEVATION_MODIFIERS, '-ds-elevationNone');
+		expectOnlyModifier(classes, RADIUS_MODIFIERS, '-ds-radiusNone');
+		expectOnlyModifier(classes, BACKGROUND_MODIFIERS, '-ds-backgroundNone');
+	});
+
+	it('should not change the padding when isFlat is true', () => {
+		const component = createComponent({ props: { isFlat: true } });
+
+		expectOnlyModifier(component.find('.ds-card').classes(), PADDING_MODIFIERS, null);
+	});
+
+	it('should let an explicit elevation override isFlat', () => {
+		const component = createComponent({
+			props: { isFlat: true, elevation: CARD_ELEVATIONS.TOP },
+		});
+
+		expectOnlyModifier(
+			component.find('.ds-card').classes(),
+			ELEVATION_MODIFIERS,
+			'-ds-elevationTop',
+		);
+	});
+
+	it('should let an explicit radius override isFlat', () => {
+		const component = createComponent({
+			props: { isFlat: true, radius: CARD_RADIUSES.TOP },
+		});
+
+		expectOnlyModifier(component.find('.ds-card').classes(), RADIUS_MODIFIERS, '-ds-radiusTop');
+	});
+
+	it('should let an explicit backgroundColor override isFlat', () => {
+		const component = createComponent({
+			props: { isFlat: true, backgroundColor: CARD_BACKGROUND_COLORS.NEUTRAL },
+		});
+
+		expectOnlyModifier(
+			component.find('.ds-card').classes(),
+			BACKGROUND_MODIFIERS,
+			'-ds-backgroundNeutral',
+		);
+	});
+
 	it('should not give the ribbon a radius when only hasRibbonRadius is set', () => {
 		const component = createComponent({
 			props: { hasRibbon: true, hasRibbonRadius: true },
@@ -340,6 +388,27 @@ describe('Card', () => {
 	it('should not give the ribbon a radius when the card is rounded at the top', () => {
 		const component = createComponent({
 			props: { hasRibbon: true, hasRibbonRadius: true, radius: CARD_RADIUSES.TOP },
+		});
+
+		expect(component.find('.-ds-radius-bottom').exists()).toBe(false);
+	});
+
+	it('should give the ribbon a radius when hasRibbonRadius and the card is flat', () => {
+		const component = createComponent({
+			props: { hasRibbon: true, hasRibbonRadius: true, isFlat: true },
+		});
+
+		expect(component.find('.-ds-radius-bottom').exists()).toBe(true);
+	});
+
+	it('should not give the ribbon a radius when a flat card is overridden with radius top', () => {
+		const component = createComponent({
+			props: {
+				hasRibbon: true,
+				hasRibbonRadius: true,
+				isFlat: true,
+				radius: CARD_RADIUSES.TOP,
+			},
 		});
 
 		expect(component.find('.-ds-radius-bottom').exists()).toBe(false);

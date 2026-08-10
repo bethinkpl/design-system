@@ -7,12 +7,13 @@
 				'-ds-paddingLarge': paddingSize === CARD_PADDING_SIZES.LARGE,
 				'-ds-leftRibbon':
 					hasRibbon && !hasLoadingBar && ribbonPosition === CARD_RIBBON_POSITIONS.LEFT,
-				'-ds-elevationTop': elevation === CARD_ELEVATIONS.TOP,
-				'-ds-elevationNone': elevation === CARD_ELEVATIONS.NONE,
-				'-ds-radiusTop': radius === CARD_RADIUSES.TOP,
-				'-ds-radiusNone': radius === CARD_RADIUSES.NONE,
-				'-ds-backgroundNeutral': backgroundColor === CARD_BACKGROUND_COLORS.NEUTRAL,
-				'-ds-backgroundNone': backgroundColor === CARD_BACKGROUND_COLORS.NONE,
+				'-ds-elevationTop': effectiveElevation === CARD_ELEVATIONS.TOP,
+				'-ds-elevationNone': effectiveElevation === CARD_ELEVATIONS.NONE,
+				'-ds-radiusTop': effectiveRadius === CARD_RADIUSES.TOP,
+				'-ds-radiusNone': effectiveRadius === CARD_RADIUSES.NONE,
+				'-ds-backgroundNeutral':
+					effectiveBackgroundColor === CARD_BACKGROUND_COLORS.NEUTRAL,
+				'-ds-backgroundNone': effectiveBackgroundColor === CARD_BACKGROUND_COLORS.NONE,
 			},
 		]"
 	>
@@ -276,6 +277,7 @@ const {
 	elevation = CARD_ELEVATIONS.DEFAULT,
 	radius = CARD_RADIUSES.ALL,
 	backgroundColor = CARD_BACKGROUND_COLORS.DEFAULT,
+	isFlat = false,
 	ribbonPosition = CARD_RIBBON_POSITIONS.TOP,
 	ribbonSize = CARD_RIBBON_SIZES.MEDIUM,
 	ribbonColor = CARD_RIBBON_COLORS.NEUTRAL_HEAVY,
@@ -294,6 +296,12 @@ const {
 	elevation?: CardElevation;
 	radius?: CardRadius;
 	backgroundColor?: CardBackgroundColor;
+	/**
+	 * Shorthand for `elevation="none"`, `radius="none"` and `background-color="none"`.
+	 * An axis explicitly set to a non-default value still wins over `isFlat`,
+	 * so `is-flat radius="top"` keeps the top corners rounded.
+	 */
+	isFlat?: boolean;
 	ribbonPosition?: CardRibbonPositions;
 	ribbonSize?: CardRibbonSizes;
 	ribbonColor?: CardRibbonColors;
@@ -303,8 +311,6 @@ const {
 	loadingBarTime?: string;
 	isContentScrollable?: boolean;
 	// Removed props kept as removal markers so existing usages fail type-checking.
-	/** @deprecated use `elevation="none"`, `radius="none"` and `background-color="none"` */
-	isFlat?: RemovedProp<'use elevation, radius and backgroundColor'>;
 	/** @deprecated renamed to `radius` (all | top | none) */
 	hasRadius?: RemovedProp<'renamed to radius'>;
 }>();
@@ -324,12 +330,29 @@ const ribbonLayout = computed(() => {
 	return layoutMap[ribbonPosition] || CONTAINER_RIBBON_LAYOUTS.HORIZONTAL;
 });
 
+// `isFlat` is a shorthand that lowers the defaults of the three visual axes to `none`.
+// An axis explicitly set to a non-default value still wins, so `isFlat` combines with
+// e.g. `radius="top"`.
+const effectiveElevation = computed(() =>
+	isFlat && elevation === CARD_ELEVATIONS.DEFAULT ? CARD_ELEVATIONS.NONE : elevation,
+);
+
+const effectiveRadius = computed(() =>
+	isFlat && radius === CARD_RADIUSES.ALL ? CARD_RADIUSES.NONE : radius,
+);
+
+const effectiveBackgroundColor = computed(() =>
+	isFlat && backgroundColor === CARD_BACKGROUND_COLORS.DEFAULT
+		? CARD_BACKGROUND_COLORS.NONE
+		: backgroundColor,
+);
+
 const ribbonRadius = computed(() => {
 	const ribbonPositionToRibbonRadiusMap = {
 		[CARD_RIBBON_POSITIONS.TOP]: CONTAINER_RIBBON_RADIUSES.BOTTOM,
 		[CARD_RIBBON_POSITIONS.LEFT]: CONTAINER_RIBBON_RADIUSES.RIGHT,
 	};
-	return hasRibbonRadius && radius === CARD_RADIUSES.NONE
+	return hasRibbonRadius && effectiveRadius.value === CARD_RADIUSES.NONE
 		? ribbonPositionToRibbonRadiusMap[ribbonPosition]
 		: CONTAINER_RIBBON_RADIUSES.NONE;
 });
