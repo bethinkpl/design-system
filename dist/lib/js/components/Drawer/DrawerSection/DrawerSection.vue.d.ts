@@ -190,6 +190,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_COMMENTS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMPASS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -625,6 +626,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_COMMENTS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMPASS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1164,6 +1166,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_COMMENTS_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_COMMENTS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_COMMENTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_COMPASS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;

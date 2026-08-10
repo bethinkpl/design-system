@@ -1,0 +1,316 @@
+import{B as a}from"./BasicRichListItem-87z2zICX.js";import{w as A}from"./decorator-dmUe8Ksx.js";import"./ActionContent-DXWfOXE5.js";import"./Avatar-CIZp6cxc.js";import"./Badge-DP0NYYfY.js";import"./BadgeScore-BefE8cUU.js";import"./Banner-VWUeLOVQ.js";import"./Button-B7yXy-7T.js";import"./ToggleButton-DfZlIhsu.js";import"./Card-CLAw7aWu.js";import"./ContainerRibbon-iedRlmu8.js";import"./CardExpandable-Dx7Z80lG.js";import"./Checkbox-YSDAhUtf.js";import"./CheckboxGroupField-BPjWPXQc.js";import"./DatePicker-DZX14KiZ.js";import"./DateRangePicker-CQGVpBOF.js";import"./Divider-BPKGZVAH.js";import"./FeatureIcon-YzcsgLbs.js";import"./FormField-DT9975bW.js";import"./FormFieldMessage-D5uLTFqA.js";import"./HelpButton-Bx0ABS5g.js";import{I as p,c as _}from"./Icon-B4tHv4zx.js";import"./IconButton-CbmoYOmP.js";import"./InputField-Dg6hFw9e.js";import"./string-phVimFZt.js";import"./Modal-OnCQN5QA.js";import"./ModalDialog-DsgQ94Au.js";import"./NumberInCircle-JCOAEy_J.js";import"./PasswordField-Ca9eFEJ0.js";import"./TabItem-BUaTdvag.js";import"./Tile-5txotj7O.js";import"./Toast-CfVJqVhe.js";import"./AccessStatus-08eR23u2.js";import"./BlockadeStatus-B-5I6qiB.js";import"./SurveyToggle-4Syqimik.js";import"./SurveyQuestionScale-CeBLATBd.js";import"./SurveyQuestionOpenEnded-Dtm6RWZI.js";import"./SectionHeader-CGzT1wA0.js";import"./PageHeader-C9h_ulnG.js";import"./SectionTitle-V7T-w7w5.js";import"./SpinnerLoading-DSn87-1K.js";import"./Drawer-6RLQTPd7.js";import"./DrawerContent-CKuZbhw6.js";import"./DrawerDivider-B9h7N1qZ.js";import"./DrawerHeader-BWj-SrGp.js";import"./LabelValueItem-BC33k0QT.js";import"./LabelValueItemGroup-D7gUbQvC.js";import"./DrawerTile-BZKpbhx3.js";import"./DrawerSection-K6yB-QW3.js";import"./MenuItem-B2Mh1Kka.js";import"./MenuDivider-BzEVsD2z.js";import"./Chip-BvQe0wAx.js";import"./CounterToggle-Bpo3Pfph.js";import"./SelectList--Khxt9pR.js";import"./SelectListItem-Dx_PkSLr.js";import"./SelectListItemDivider-BkQdm0p6.js";import"./SelectListItemToggle-Dh-u3end.js";import"./SelectListItemContainer-ByEVT4D4.js";import"./SelectListSectionTitle-CYIkgbBp.js";import"./SelectionTile-CNLXegHy.js";import"./LoadingBar-DJLP9Pq7.js";import"./PopOver-CHg5kJlW.js";import"./Dropdown-wFC1DUBi.js";import"./ProgressBar-zF3CYjlD.js";import"./ProgressDonutChart-DYtiLw2S.js";import"./IconText-C3JtqYtR.js";import"./Pagination-CM6LxmGX.js";import"./OverlayHeader-D_Hq7TGC.js";import"./Well-CtvMKEM7.js";import"./ThreeColumnLayout--rX2bA4X.js";import{R as O,a as m,b as w,c as u,d as b,e as g,f as S}from"./GroupRichListItem-CRkbGa8v.js";import"./Switch-BHeahVwb.js";import"./TextGroup-CFC72x_s.js";import"./Tooltip-CFsl4BrK.js";import{I as D}from"./Image-nID63-oZ.js";import"./Skeleton-ieGfbcq1.js";import"./StatsLayout-BUs9KF9p.js";import"./StatsResetBanner-j7z1KXk7.js";import"./StatsSectionHeader-C2O_EqW-.js";import"./Stepper-CDGyQ3nA.js";import"./TopNav-B49JVkNl.js";import"./TopNavBranding-CTVIHyES.js";import"./Flag-bUgw_7n3.js";import{t as c}from"./vue.esm-bundler-yuXcNhMB.js";import{S as f,a as R}from"./SlotPlaceholder-CuZiU-PR.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./v4-CwV2VaSl.js";import"./useLegacyI18n-DK3QJ9_8.js";import"./index-CFarlLNu.js";import"./useFormFieldWithinForm-BuwC0jvT.js";import"./iframe-DJ_dbS5Q.js";import"./device-mzBmLsxe.js";import"./user-_JB5aHqq.js";import"./RadioButton-C2NpnCBw.js";import"./vue-popper-CjuaM6Jg.js";import"./ProgressBarLegendItem-DrEhLJ_t.js";import"./ProgressBarLegend-D40woFFz.js";import"./_commonjsHelpers-D6Ya60D-.js";import"./StatsErrorBanner-n0J_ir7B.js";import"./StatsFiltersDropdown-D026Ru85.js";const{useArgs:n}=__STORYBOOK_MODULE_PREVIEW_API__,Ot={title:"Components/RichList/BasicRichListItem",component:a,decorators:[e=>({components:{story:e},template:"<div style='display: flex;padding: 16px;'><story /></div>"}),A]},d=(e,r={})=>(e.argTypes={type:{options:Object.values(S),control:"select"},size:{options:Object.values(g),control:"select"},layout:{options:Object.values(b),control:{type:"select"}},state:{options:Object.values(u),control:"select"},iconColor:{options:[null,...Object.values(_)],control:"select"},borderColor:{options:[null,...Object.values(w)],control:"select"},icon:{options:[null,...Object.keys(p)],control:"select"},iconColorHex:{control:"text"},borderColorHex:{control:"text"},eyebrow:{control:"text"},eyebrowEllipsis:{control:"boolean"},isEyebrowUppercase:{control:"boolean"},text:{control:"text"},textEllipsis:{control:"boolean"},supportingText:{control:"text"},supportingTextEllipsis:{control:"boolean"},isSupportingTextTooltipEnabled:{control:"boolean"},metadata:{control:"text"},leadingAccessory:{control:"text"},textSlot:{control:"text"},actions:{control:"text"},draggableIconClassName:{control:"text"},backgroundColor:{options:[null,...Object.values(m)],control:"select"},elevation:{options:[null,...Object.values(O)],control:"select"}},e.args={size:g.MEDIUM,type:S.DEFAULT,layout:b.HORIZONTAL,backgroundColor:m.NEUTRAL,elevation:null,isDimmed:!1,isDraggable:!0,hasDraggableHandler:!0,icon:null,iconColor:null,iconColorHex:"",hasActionsSlotDivider:!0,isSelectable:!0,isSelected:!0,isTextGroupSelected:!1,borderColor:null,borderColorHex:"",state:u.DEFAULT,isInteractive:!0,draggableIconClassName:"draggableIconClassName-1",eyebrow:"Eyebrow Uppercase",eyebrowEllipsis:!1,isEyebrowUppercase:!1,text:"Długa nazwa gdy się nie mieści Praesentium dicta sit. Molestiae unde voluptatem eaque labore.",textEllipsis:!1,supportingText:"null",supportingTextEllipsis:!1,isSupportingTextTooltipEnabled:!1,metadata:"Metadata Slot",leadingAccessory:"",textSlot:"",actions:"ACS",...r},e.parameters={actions:{handles:["icon-click","click","update:is-selected"]},layout:"fullscreen",design:{type:"figma",url:"https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=8673-2345&mode=design&t=QeEz8TmzxDbrGYK3-4"}},e),H=e=>{const[r,i]=n();return{components:{BasicRichListItem:a},setup(){return{...c(e),ICONS:p}},methods:{updateIsSelected(s){i({isSelected:s})}},template:`
+        <basic-rich-list-item
+            :size="size"
+            :type="type"
+            :layout="layout"
+            :is-interactive="isInteractive"
+            :is-draggable="isDraggable"
+            :icon="ICONS[icon]"
+            :icon-color="iconColor"
+            :icon-color-hex="iconColorHex"
+            :is-dimmed="isDimmed"
+            :border-color="borderColor"
+            :border-color-hex="borderColorHex"
+            :state="state"
+            :eyebrow="eyebrow === 'null' ? null : eyebrow"
+            :eyebrow-ellipsis="eyebrowEllipsis"
+            :is-eyebrow-uppercase="isEyebrowUppercase"
+            :text="text"
+            :text-ellipsis="textEllipsis"
+            :supporting-text="supportingText === 'null' ? null : supportingText"
+            :supporting-text-ellipsis="supportingTextEllipsis"
+            :is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
+            :background-color="backgroundColor"
+            :elevation="elevation"
+            :has-draggable-handler="hasDraggableHandler"
+            :has-actions-slot-divider="hasActionsSlotDivider"
+            :is-selectable="isSelectable"
+            :is-selected="isSelected"
+            :is-text-group-selected="isTextGroupSelected"
+            @update:is-selected="updateIsSelected"
+        >
+            <template v-if="metadata" #metadata>
+                <div v-html="metadata" />
+            </template>
+            <template v-if="leadingAccessory" #leadingAccessory>
+                <div v-html="leadingAccessory" />
+            </template>
+            <template v-if="textSlot" #text>
+                <div v-html="textSlot" />
+            </template>
+            <template v-if="actions" #actions>
+                <div v-html="actions" />
+            </template>
+        </basic-rich-list-item>`}},l=H.bind({});d(l);const z=e=>{const[r,i]=n();return{components:{BasicRichListItem:a,SlotPlaceholder:f},setup(){return{...c(e),SLOT_PLACEHOLDER_SIZES:R}},methods:{updateIsSelected(s){i({isSelected:s})}},template:`
+            <basic-rich-list-item
+                :size="size"
+                :type="type"
+                :layout="layout"
+                :is-interactive="isInteractive"
+                :is-draggable="isDraggable"
+                :is-dimmed="isDimmed"
+                :border-color="borderColor"
+                :border-color-hex="borderColorHex"
+                :eyebrow="eyebrow === 'null' ? null : eyebrow"
+                :eyebrow-ellipsis="eyebrowEllipsis"
+                :is-eyebrow-uppercase="isEyebrowUppercase"
+                :text="text"
+                :text-ellipsis="textEllipsis"
+                :supporting-text="supportingText === 'null' ? null : supportingText"
+                :supporting-text-ellipsis="supportingTextEllipsis"
+                :is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
+                :state="state"
+                :background-color="backgroundColor"
+                :elevation="elevation"
+                :has-draggable-handler="hasDraggableHandler"
+                :has-actions-slot-divider="hasActionsSlotDivider"
+                :is-selectable="isSelectable"
+                :is-selected="isSelected"
+                @update:is-selected="updateIsSelected"
+            >
+                <template #media>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="media" />
+                </template>
+                <template #leadingAccessory>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="leadingAccessory" />
+                </template>
+                <template #text>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="text" />
+                </template>
+                <template #metadata>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="metadata" />
+                </template>
+                <template #actions>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="actions" />
+                </template>
+            </basic-rich-list-item>`}},t=z.bind({});d(t);t.argTypes={...t.argTypes,leadingAccessory:{control:!1},metadata:{control:!1},textSlot:{control:!1},actions:{control:!1}};const M=e=>{const[r,i]=n();return{components:{BasicRichListItem:a,DsImage:D},setup(){return{...c(e),ICONS:p}},methods:{updateIsSelected(s){i({isSelected:s})}},template:`
+            <basic-rich-list-item
+                :size="size"
+                :type="type"
+                :layout="layout"
+                :is-interactive="isInteractive"
+                :is-draggable="isDraggable"
+                :icon="ICONS[icon]"
+                :icon-color="iconColor"
+                :icon-color-hex="iconColorHex"
+                :is-dimmed="isDimmed"
+                :border-color="borderColor"
+                :border-color-hex="borderColorHex"
+                :state="state"
+                :eyebrow="eyebrow === 'null' ? null : eyebrow"
+                :eyebrow-ellipsis="eyebrowEllipsis"
+                :is-eyebrow-uppercase="isEyebrowUppercase"
+                :text="text"
+                :text-ellipsis="textEllipsis"
+                :supporting-text="supportingText === 'null' ? null : supportingText"
+                :supporting-text-ellipsis="supportingTextEllipsis"
+                :is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
+                :background-color="backgroundColor"
+                :elevation="elevation"
+                :has-draggable-handler="hasDraggableHandler"
+                :has-actions-slot-divider="hasActionsSlotDivider"
+                :is-selectable="isSelectable"
+                :is-selected="isSelected"
+                :is-text-group-selected="isTextGroupSelected"
+                @update:is-selected="updateIsSelected"
+            >
+                <template #media>
+                    <ds-image :src="imageSrcUsedInStoryBook"/>
+                </template>
+                <template v-if="metadata" #metadata>
+                    <div v-html="metadata"/>
+                </template>
+                <template v-if="actions" #actions>
+                    <div v-html="actions"/>
+                </template>
+            </basic-rich-list-item>`}},o=M.bind({});d(o,{imageSrcUsedInStoryBook:"https://storage.googleapis.com/media-manager/lek/018f6291-3956-7342-8e6b-0ee901d48643/018f6291-3a56-7213-aef6-b5da7253839f.jpg"});o.argTypes={...o.argTypes,leadingAccessory:{control:!1}};var x,y,h;l.parameters={...l.parameters,docs:{...(x=l.parameters)==null?void 0:x.docs,source:{originalSource:`args => {
+  const [_, updateArgs] = useArgs();
+  return {
+    components: {
+      BasicRichListItem
+    },
+    setup() {
+      return {
+        ...toRefs(args),
+        ICONS
+      };
+    },
+    methods: {
+      updateIsSelected(isSelected) {
+        updateArgs({
+          isSelected
+        });
+      }
+    },
+    template: \`
+        <basic-rich-list-item
+            :size="size"
+            :type="type"
+            :layout="layout"
+            :is-interactive="isInteractive"
+            :is-draggable="isDraggable"
+            :icon="ICONS[icon]"
+            :icon-color="iconColor"
+            :icon-color-hex="iconColorHex"
+            :is-dimmed="isDimmed"
+            :border-color="borderColor"
+            :border-color-hex="borderColorHex"
+            :state="state"
+            :eyebrow="eyebrow === 'null' ? null : eyebrow"
+            :eyebrow-ellipsis="eyebrowEllipsis"
+            :is-eyebrow-uppercase="isEyebrowUppercase"
+            :text="text"
+            :text-ellipsis="textEllipsis"
+            :supporting-text="supportingText === 'null' ? null : supportingText"
+            :supporting-text-ellipsis="supportingTextEllipsis"
+            :is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
+            :background-color="backgroundColor"
+            :elevation="elevation"
+            :has-draggable-handler="hasDraggableHandler"
+            :has-actions-slot-divider="hasActionsSlotDivider"
+            :is-selectable="isSelectable"
+            :is-selected="isSelected"
+            :is-text-group-selected="isTextGroupSelected"
+            @update:is-selected="updateIsSelected"
+        >
+            <template v-if="metadata" #metadata>
+                <div v-html="metadata" />
+            </template>
+            <template v-if="leadingAccessory" #leadingAccessory>
+                <div v-html="leadingAccessory" />
+            </template>
+            <template v-if="textSlot" #text>
+                <div v-html="textSlot" />
+            </template>
+            <template v-if="actions" #actions>
+                <div v-html="actions" />
+            </template>
+        </basic-rich-list-item>\`
+  };
+}`,...(h=(y=l.parameters)==null?void 0:y.docs)==null?void 0:h.source}}};var E,v,I;t.parameters={...t.parameters,docs:{...(E=t.parameters)==null?void 0:E.docs,source:{originalSource:`args => {
+  const [_, updateArgs] = useArgs();
+  return {
+    components: {
+      BasicRichListItem,
+      SlotPlaceholder
+    },
+    setup() {
+      return {
+        ...toRefs(args),
+        SLOT_PLACEHOLDER_SIZES
+      };
+    },
+    methods: {
+      updateIsSelected(isSelected) {
+        updateArgs({
+          isSelected
+        });
+      }
+    },
+    template: \`
+            <basic-rich-list-item
+                :size="size"
+                :type="type"
+                :layout="layout"
+                :is-interactive="isInteractive"
+                :is-draggable="isDraggable"
+                :is-dimmed="isDimmed"
+                :border-color="borderColor"
+                :border-color-hex="borderColorHex"
+                :eyebrow="eyebrow === 'null' ? null : eyebrow"
+                :eyebrow-ellipsis="eyebrowEllipsis"
+                :is-eyebrow-uppercase="isEyebrowUppercase"
+                :text="text"
+                :text-ellipsis="textEllipsis"
+                :supporting-text="supportingText === 'null' ? null : supportingText"
+                :supporting-text-ellipsis="supportingTextEllipsis"
+                :is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
+                :state="state"
+                :background-color="backgroundColor"
+                :elevation="elevation"
+                :has-draggable-handler="hasDraggableHandler"
+                :has-actions-slot-divider="hasActionsSlotDivider"
+                :is-selectable="isSelectable"
+                :is-selected="isSelected"
+                @update:is-selected="updateIsSelected"
+            >
+                <template #media>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="media" />
+                </template>
+                <template #leadingAccessory>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="leadingAccessory" />
+                </template>
+                <template #text>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="text" />
+                </template>
+                <template #metadata>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="metadata" />
+                </template>
+                <template #actions>
+                    <slot-placeholder :size="SLOT_PLACEHOLDER_SIZES.SMALL" label="actions" />
+                </template>
+            </basic-rich-list-item>\`
+  };
+}`,...(I=(v=t.parameters)==null?void 0:v.docs)==null?void 0:I.source}}};var T,L,C;o.parameters={...o.parameters,docs:{...(T=o.parameters)==null?void 0:T.docs,source:{originalSource:`args => {
+  const [_, updateArgs] = useArgs();
+  return {
+    components: {
+      BasicRichListItem,
+      DsImage
+    },
+    setup() {
+      return {
+        ...toRefs(args),
+        ICONS
+      };
+    },
+    methods: {
+      updateIsSelected(isSelected) {
+        updateArgs({
+          isSelected
+        });
+      }
+    },
+    template: \`
+            <basic-rich-list-item
+                :size="size"
+                :type="type"
+                :layout="layout"
+                :is-interactive="isInteractive"
+                :is-draggable="isDraggable"
+                :icon="ICONS[icon]"
+                :icon-color="iconColor"
+                :icon-color-hex="iconColorHex"
+                :is-dimmed="isDimmed"
+                :border-color="borderColor"
+                :border-color-hex="borderColorHex"
+                :state="state"
+                :eyebrow="eyebrow === 'null' ? null : eyebrow"
+                :eyebrow-ellipsis="eyebrowEllipsis"
+                :is-eyebrow-uppercase="isEyebrowUppercase"
+                :text="text"
+                :text-ellipsis="textEllipsis"
+                :supporting-text="supportingText === 'null' ? null : supportingText"
+                :supporting-text-ellipsis="supportingTextEllipsis"
+                :is-supporting-text-tooltip-enabled="isSupportingTextTooltipEnabled"
+                :background-color="backgroundColor"
+                :elevation="elevation"
+                :has-draggable-handler="hasDraggableHandler"
+                :has-actions-slot-divider="hasActionsSlotDivider"
+                :is-selectable="isSelectable"
+                :is-selected="isSelected"
+                :is-text-group-selected="isTextGroupSelected"
+                @update:is-selected="updateIsSelected"
+            >
+                <template #media>
+                    <ds-image :src="imageSrcUsedInStoryBook"/>
+                </template>
+                <template v-if="metadata" #metadata>
+                    <div v-html="metadata"/>
+                </template>
+                <template v-if="actions" #actions>
+                    <div v-html="actions"/>
+                </template>
+            </basic-rich-list-item>\`
+  };
+}`,...(C=(L=o.parameters)==null?void 0:L.docs)==null?void 0:C.source}}};const wt=["Interactive","PlaceholderSlots","WithMedia"];export{l as Interactive,t as PlaceholderSlots,o as WithMedia,wt as __namedExportsOrder,Ot as default};
