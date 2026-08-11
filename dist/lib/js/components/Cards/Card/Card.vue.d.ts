@@ -1,5 +1,6 @@
 import { LoadingBarColors } from '../../LoadingBar';
-import { CardBackgroundColor, CardRibbonColors, CardRibbonPositions, CardRibbonSizes, CardPaddingSize } from './Card.consts';
+import { RemovedProp } from '../../../utils/type.utils';
+import { CardBackgroundColor, CardElevation, CardRadius, CardRibbonColors, CardRibbonPositions, CardRibbonSizes, CardPaddingSize } from './Card.consts';
 
 declare function __VLS_template(): Readonly<{
     header?: () => any;
@@ -19,8 +20,10 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     paddingSize?: CardPaddingSize;
     dividerUnderHeader?: boolean;
     hasRibbon?: boolean;
-    hasRadius?: boolean;
+    elevation?: CardElevation;
+    radius?: CardRadius;
     backgroundColor?: CardBackgroundColor;
+    isFlat?: boolean;
     ribbonPosition?: CardRibbonPositions;
     ribbonSize?: CardRibbonSizes;
     ribbonColor?: CardRibbonColors;
@@ -28,8 +31,8 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     hasLoadingBar?: boolean;
     loadingBarColor?: LoadingBarColors;
     loadingBarTime?: string;
-    isFlat?: boolean;
     isContentScrollable?: boolean;
+    hasRadius?: RemovedProp<"renamed to radius">;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     contentHasPadding?: boolean;
     headerHasPadding?: boolean;
@@ -37,8 +40,10 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     paddingSize?: CardPaddingSize;
     dividerUnderHeader?: boolean;
     hasRibbon?: boolean;
-    hasRadius?: boolean;
+    elevation?: CardElevation;
+    radius?: CardRadius;
     backgroundColor?: CardBackgroundColor;
+    isFlat?: boolean;
     ribbonPosition?: CardRibbonPositions;
     ribbonSize?: CardRibbonSizes;
     ribbonColor?: CardRibbonColors;
@@ -46,8 +51,8 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     hasLoadingBar?: boolean;
     loadingBarColor?: LoadingBarColors;
     loadingBarTime?: string;
-    isFlat?: boolean;
     isContentScrollable?: boolean;
+    hasRadius?: RemovedProp<"renamed to radius">;
 }>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;
