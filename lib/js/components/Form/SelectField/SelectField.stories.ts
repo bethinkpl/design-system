@@ -143,6 +143,9 @@ const meta: Meta<typeof SelectField> = {
 		isGroupLabelUppercase: {
 			control: 'boolean',
 		},
+		autocomplete: {
+			control: 'text',
+		},
 	},
 };
 export default meta;

@@ -3,6 +3,7 @@
 		<template #field="{ fieldId, messageId }">
 			<select-root
 				v-model="value"
+				:autocomplete="autocomplete"
 				:disabled="isDisabled"
 				:required="formFieldProps.hasRequiredIndicator"
 				@update:open="onOpenChange"
@@ -280,6 +281,7 @@ const {
 	ariaLabel,
 	maxHeight,
 	name,
+	autocomplete,
 	isGroupLabelUppercase = true,
 	...rest
 } = defineProps<SelectFieldProps>();

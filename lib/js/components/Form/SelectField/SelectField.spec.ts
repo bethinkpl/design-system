@@ -399,6 +399,36 @@ describe('SelectField', () => {
 		});
 	});
 
+	describe('autocomplete', () => {
+		/**
+		 * reka renders the visually hidden native `<select>` that carries the autofill
+		 * attributes only when the trigger sits inside a `<form>`.
+		 */
+		function setupWithinForm(props?: Partial<ComponentProps<typeof SelectField>>) {
+			return mount({
+				template: '<form><SelectField v-bind="props" /></form>',
+				components: { SelectField },
+				setup: () => ({ props: { options: OPTIONS, ...props } }),
+			});
+		}
+
+		it('should forward autocomplete to the hidden native select', async () => {
+			const wrapper = setupWithinForm({ label: 'Label', autocomplete: 'country' });
+
+			await nextTick();
+
+			expect(wrapper.find('select').attributes('autocomplete')).toBe('country');
+		});
+
+		it('should leave the hidden native select without autocomplete by default', async () => {
+			const wrapper = setupWithinForm({ label: 'Label' });
+
+			await nextTick();
+
+			expect(wrapper.find('select').attributes('autocomplete')).toBeUndefined();
+		});
+	});
+
 	describe('with vee-validate', () => {
 		const fieldName = 'country';
 
