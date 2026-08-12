@@ -47,6 +47,19 @@ export interface SelectFieldProps extends FormFieldProps {
 	 * vee-validate field name. Requires a surrounding `useForm()` context.
 	 */
 	name?: string;
+	/**
+	 * Native `autocomplete` attribute of the visually hidden `<select>` reka renders for form
+	 * autofill (e.g. `'country'`, `'off'`). That element only exists when the field is inside a
+	 * `<form>`, so outside one the prop has no effect.
+	 */
+	autocomplete?: string;
+	/**
+	 * Renders the labels of grouped options in the uppercase section-title style. Set to `false`
+	 * for a lighter, sentence-case label.
+	 *
+	 * @default true
+	 */
+	isGroupLabelUppercase?: boolean;
 }
 
 export type SelectFieldSlots = Omit<FormFieldSlots, 'field'>;

@@ -3,6 +3,7 @@
 		<template #field="{ fieldId, messageId }">
 			<select-root
 				v-model="value"
+				:autocomplete="autocomplete"
 				:disabled="isDisabled"
 				:required="formFieldProps.hasRequiredIndicator"
 				@update:open="onOpenChange"
@@ -40,7 +41,7 @@
 						class="ds-selectField__content"
 						position="popper"
 						align="start"
-						:side-offset="0"
+						:side-offset="4"
 						:style="contentStyle"
 					>
 						<select-viewport as-child>
@@ -56,7 +57,10 @@
 									<!-- A labelled group gets real `role="group"` semantics. -->
 									<select-group v-if="group.label">
 										<select-label as-child>
-											<ds-select-list-section-title :label="group.label" />
+											<ds-select-list-section-title
+												:label="group.label"
+												:is-uppercase="isGroupLabelUppercase"
+											/>
 										</select-label>
 										<select-field-option
 											v-for="option in group.options"
@@ -270,8 +274,17 @@ import { SelectFieldProps, SelectFieldSlots, SelectFieldValue } from './SelectFi
 import { assertOptionValues, normalizeOptions, toCssLength } from './SelectField.utils';
 import { useSelectFieldWithinForm } from './useSelectFieldWithinForm';
 
-const { options, placeholder, leftIcon, ariaLabel, maxHeight, name, ...rest } =
-	defineProps<SelectFieldProps>();
+const {
+	options,
+	placeholder,
+	leftIcon,
+	ariaLabel,
+	maxHeight,
+	name,
+	autocomplete,
+	isGroupLabelUppercase = true,
+	...rest
+} = defineProps<SelectFieldProps>();
 
 const slots = defineSlots<SelectFieldSlots>();
 

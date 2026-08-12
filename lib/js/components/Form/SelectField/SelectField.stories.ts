@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/vue3';
-import { reactive, toRefs } from 'vue';
+import { computed } from 'vue';
 import { withActions } from '@storybook/addon-actions/decorator';
 import SelectField from './SelectField.vue';
 import HelpButton from '../../Buttons/HelpButton/HelpButton.vue';
@@ -63,6 +63,23 @@ const LONG_LABEL_OPTIONS: Array<SelectFieldOption> = [
 	},
 ];
 
+/**
+ * The `maxHeight` control is a text input, so a unitless `320` would reach the component as the
+ * string `'320'` and produce invalid CSS. Turn such a value into a number, which the component
+ * reads as pixels; anything carrying a unit is passed through.
+ */
+function normalizeMaxHeight(maxHeight: string | number | undefined): string | number | undefined {
+	if (
+		typeof maxHeight === 'string' &&
+		maxHeight.trim() !== '' &&
+		!Number.isNaN(Number(maxHeight))
+	) {
+		return Number(maxHeight);
+	}
+
+	return maxHeight;
+}
+
 const meta: Meta<typeof SelectField> = {
 	title: 'Components/Form/SelectField',
 	component: SelectField,
@@ -70,15 +87,15 @@ const meta: Meta<typeof SelectField> = {
 	render: (args) => ({
 		components: { SelectField, HelpButton, Modal },
 		setup() {
-			const { help, labelAside, message, fieldStatus, ...restRefs } = toRefs(args);
-			const props = reactive({ ...restRefs });
+			const props = computed(() => {
+				const { help, labelAside, message, fieldStatus, ...rest } = args;
+
+				return { ...rest, maxHeight: normalizeMaxHeight(rest.maxHeight) };
+			});
 
 			return {
+				args,
 				props,
-				labelAside,
-				fieldStatus,
-				message,
-				help,
 				FORM_FIELD_STATES,
 				ICONS,
 			};
@@ -87,21 +104,21 @@ const meta: Meta<typeof SelectField> = {
 			value: undefined,
 		}),
 		template: `<SelectField v-bind="props" :left-icon="props.leftIcon ? ICONS[props.leftIcon] : null" v-model="value">
-			<template v-if="help" #help>
+			<template v-if="args.help" #help>
 				<HelpButton :is-disabled="props.state === FORM_FIELD_STATES.DISABLED" modal-title="Help modal title">
 					<template #modalContent>
 						Modal
 					</template>
 				</HelpButton>
 			</template>
-			<template #labelAside v-if="labelAside">
-				<div v-html="labelAside" />
+			<template #labelAside v-if="args.labelAside">
+				<div v-html="args.labelAside" />
 			</template>
-			<template #fieldStatus v-if="fieldStatus">
-				<div v-html="fieldStatus" />
+			<template #fieldStatus v-if="args.fieldStatus">
+				<div v-html="args.fieldStatus" />
 			</template>
-			<template #message v-if="message">
-				<div v-html="message" />
+			<template #message v-if="args.message">
+				<div v-html="args.message" />
 			</template>
 		</SelectField>`,
 	}),
@@ -123,6 +140,12 @@ const meta: Meta<typeof SelectField> = {
 		maxHeight: {
 			control: 'text',
 		},
+		isGroupLabelUppercase: {
+			control: 'boolean',
+		},
+		autocomplete: {
+			control: 'text',
+		},
 	},
 };
 export default meta;
@@ -135,6 +158,7 @@ export const Interactive: Story = {
 		options: OPTIONS,
 		placeholder: 'Wybierz kraj',
 		leftIcon: null,
+		isGroupLabelUppercase: true,
 	},
 	parameters: {
 		design: {
@@ -203,6 +227,40 @@ export const LongList: Story = {
 		...Interactive.args,
 		options: LONG_OPTIONS,
 		placeholder: 'Wybierz opcję',
+	},
+};
+
+/**
+ * The field sits at the bottom of the viewport, so there is no room for the dropdown below the
+ * trigger — the popper flips and the list opens upwards. Uses the long list to make sure the
+ * dropdown is tall enough to force the flip on any viewport height.
+ */
+export const OpeningUpwards: Story = {
+	parameters: {
+		layout: 'fullscreen',
+	},
+	render: (args) => ({
+		components: { SelectField },
+		setup() {
+			return { args };
+		},
+		data: () => ({
+			value: undefined,
+		}),
+		template: `
+			<div
+				style="display: flex; align-items: flex-end; box-sizing: border-box; min-height: 100vh; padding: 16px;"
+			>
+				<div style="width: 360px;">
+					<SelectField v-bind="args" v-model="value" />
+				</div>
+			</div>
+		`,
+	}),
+	args: {
+		label: 'Opcja',
+		placeholder: 'Wybierz opcję',
+		options: LONG_OPTIONS,
 	},
 };
 
