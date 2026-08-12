@@ -10,11 +10,10 @@ const model = defineModel<string>();
 
 const textareaEl = useTemplateRef<HTMLTextAreaElement>('textarea');
 
+// Writes `height`, so the `min-height` / `max-height` from the CSS stay in charge of the bounds —
+// `min-height` would otherwise win over `max-height` and let the field grow past the cap.
 useTextareaAutosize({
 	element: textareaEl,
 	input: computed(() => model.value ?? ''),
-	// `min-height` rather than `height`, so the `rows` attribute keeps supplying the intrinsic
-	// height and the measured content can only raise the floor.
-	styleProp: 'minHeight',
 });
 </script>

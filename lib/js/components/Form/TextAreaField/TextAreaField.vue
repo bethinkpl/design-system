@@ -54,6 +54,9 @@
 @import '../../../../styles/settings/typography/tokens';
 @import '../../../../styles/settings/shadows';
 
+$input-padding: $space-4;
+$autoresizing-max-height: 500px;
+
 .ds-textAreaField {
 	$root: &;
 
@@ -63,6 +66,7 @@
 	border-radius: $radius-s;
 	box-shadow: $shadow-inset-m;
 	display: flex;
+	overflow: hidden;
 
 	&__input {
 		@include formText-s-default-regular;
@@ -71,9 +75,10 @@
 		border: none;
 		color: $color-neutral-text-heavy;
 		flex: 1;
+		min-height: 32px;
 		min-width: 0;
 		outline: none;
-		padding: $space-4;
+		padding: $input-padding;
 		resize: vertical;
 
 		&::placeholder {
@@ -95,7 +100,15 @@
 
 	&.-ds-autoresizing {
 		#{$root}__input {
-			overflow: hidden;
+			max-height: $autoresizing-max-height;
+			// The autosize writes an explicit `height`, which makes the browser ignore `rows`, so
+			// the starting height has to be restated here. Capped as well, since `min-height` would
+			// otherwise win over `max-height`.
+			min-height: min(
+				#{$autoresizing-max-height},
+				calc(v-bind(rows) * #{$typography-line-height-2xs} + #{$input-padding * 2})
+			);
+			overflow-y: auto;
 			resize: none;
 		}
 	}
@@ -139,6 +152,9 @@ const {
 
 const { formFieldProps, isDisabled, hasMessage } = useFormFieldState();
 const { finalInputProps } = useTextArea();
+
+// Used by the `min-height` of the autoresizing field, see the style block.
+const rows = computed(() => finalInputProps.value.rows);
 
 function useFormFieldState() {
 	const formFieldProps = computed<FormFieldProps>(() =>

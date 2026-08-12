@@ -78,7 +78,8 @@ export const Interactive: Story = {
 };
 
 /**
- * The field grows with its content instead of showing the resize handle. `rows` stays the minimum.
+ * The field grows with its content instead of showing the resize handle. `rows` stays the starting
+ * height, and the field grows up to 500px, after which it scrolls.
  */
 export const Autoresizing: Story = {
 	...Interactive,

@@ -9,7 +9,7 @@ export interface TextAreaFieldProps extends FormFieldProps {
 	inputProps?: TextareaHTMLAttributes;
 	/**
 	 * Grows the field with its content instead of showing the resize handle. `rows` stays the
-	 * minimum height; there is no upper bound.
+	 * starting height, and the field grows up to 500px, after which it scrolls.
 	 *
 	 * @default false
 	 */
