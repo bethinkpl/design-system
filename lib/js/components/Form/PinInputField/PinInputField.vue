@@ -18,9 +18,9 @@
 			<pin-input-root
 				v-else
 				:id="fieldId"
-				v-model="chars"
 				class="ds-pinInputField"
 				role="group"
+				:model-value="chars as Array<string>"
 				:otp="otp"
 				:type="type"
 				:required="formFieldProps.hasRequiredIndicator"
@@ -29,6 +29,7 @@
 				:aria-describedby="hasMessage ? messageId : undefined"
 				@complete="onPinComplete"
 				@focusout="onFieldFocusOut"
+				@update:model-value="onCharsUpdate"
 			>
 				<pin-input-input
 					v-for="index in length"
@@ -117,7 +118,7 @@ import {
 	PIN_INPUT_FIELD_TYPES,
 } from './PinInputField.consts';
 import { PinInputFieldProps, PinInputFieldSlots } from './PinInputField.types';
-import { toPinChars } from './PinInputField.utils';
+import { PinChars, toPinChars } from './PinInputField.utils';
 import { usePinInputFieldWithinForm } from './usePinInputFieldWithinForm';
 
 const {
@@ -142,22 +143,37 @@ const modelValue = defineModel<string>();
 
 const { value, errors, onComplete, onBlur } = usePinInputFieldWithinForm(() => name, modelValue);
 
-// The array, not the joined string, is the source of truth: reka writes `''` into a cleared middle
-// box, so rebuilding it from the string would shift the later boxes leftwards. In `type: 'number'`
-// mode reka stores numbers rather than strings, which `join('')` handles either way.
-const chars = ref<Array<string>>(toPinChars(value.value, length));
+// The array, not the joined string, is the source of truth: clearing a middle box leaves a hole in
+// it (`delete` in `type: 'number'` mode, `''` in `type: 'text'` mode), so rebuilding it from the
+// string would shift the later boxes leftwards. In numeric mode reka also stores numbers rather than
+// strings, which its own `modelValue` type does not admit — hence the cast on the binding.
+const chars = ref<PinChars>(toPinChars(value.value, length));
 
-watch(chars, (next) => {
-	const joined = next.join('');
+// reka rewrites the whole array on every keystroke; `join('')` flattens the numbers it stores in
+// numeric mode and the holes a cleared box leaves behind.
+function onCharsUpdate(next: PinChars) {
+	chars.value = next;
+	value.value = next.join('');
+}
 
-	if (joined !== (value.value ?? '')) {
-		value.value = joined;
-	}
-});
-
+// Inbound only: parent `v-model`, a vee-validate reset, or a shrinking `length`. The write from
+// `onCharsUpdate` lands here too, but is already in sync — rebuilding would collapse a cleared
+// middle box onto its neighbours.
 watch([value, () => length], ([next]) => {
-	if (chars.value.length > length || chars.value.join('') !== (next ?? '')) {
-		chars.value = toPinChars(next, length);
+	const nextValue = next ?? '';
+
+	if (chars.value.length <= length && chars.value.join('') === nextValue) {
+		return;
+	}
+
+	chars.value = toPinChars(next, length);
+
+	// A shrink drops the surplus characters, and the model has to follow: they no longer have a box
+	// to edit them in.
+	const joined = chars.value.join('');
+
+	if (joined !== nextValue) {
+		value.value = joined;
 	}
 });
 
