@@ -3,20 +3,22 @@ import { Value } from '../../utils/type.utils';
 export declare const TOAST_SIZES: {
     readonly SMALL: "small";
     readonly MEDIUM: "medium";
+    readonly LARGE: "large";
 };
 export type ToastSizes = Value<typeof TOAST_SIZES>;
 export declare const TOAST_COLORS: {
-    NEUTRAL_HEAVY: string;
-    NEUTRAL_STRONG: string;
-    SUCCESS: string;
-    WARNING: string;
-    DANGER: string;
-    INFO: string;
+    readonly NEUTRAL_HEAVY: "neutralHeavy";
+    readonly NEUTRAL_STRONG: "neutralStrong";
+    readonly SUCCESS: "success";
+    readonly WARNING: "warning";
+    readonly DANGER: "danger";
+    readonly INFO: "info";
 };
 export type ToastColors = Value<typeof TOAST_COLORS>;
 export declare const TOAST_POSITIONS: {
-    LEFT: string;
-    CENTER: string;
-    RIGHT: string;
+    readonly LEFT: "left";
+    readonly CENTER: "center";
+    readonly RIGHT: "right";
+    readonly NONE: "none";
 };
 export type ToastPositions = Value<typeof TOAST_POSITIONS>;
