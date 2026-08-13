@@ -47,6 +47,8 @@
 @import '../../../styles/settings/spacings';
 
 .ds-callout {
+	$self: &;
+
 	display: flex;
 	flex-direction: column;
 	gap: $space-8;
@@ -60,16 +62,15 @@
 	&__content {
 		display: flex;
 
-		.ds-callout.-ds-layout-vertical & {
+		#{$self}.-ds-layout-vertical & {
 			align-items: center;
 			flex-direction: column;
 			gap: $space-4;
 		}
 
-		.ds-callout.-ds-layout-horizontal & {
+		#{$self}.-ds-layout-horizontal & {
 			align-items: center;
 			flex: 1 1 auto;
-			flex-direction: row;
 			gap: $space-6;
 			min-width: 0;
 		}
@@ -79,16 +80,16 @@
 		display: flex;
 		gap: $space-8;
 
-		.ds-callout.-ds-layout-vertical & {
+		#{$self}.-ds-layout-vertical & {
 			justify-content: center;
 			width: 100%;
 		}
 
-		.ds-callout.-ds-layout-horizontal & {
+		#{$self}.-ds-layout-horizontal & {
 			flex-shrink: 0;
 		}
 
-		.ds-callout.-ds-actions-vertical & {
+		#{$self}.-ds-actions-vertical & {
 			align-items: stretch;
 			flex-direction: column;
 			width: 100%;
