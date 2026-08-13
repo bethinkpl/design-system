@@ -7,6 +7,7 @@ import {
 
 export const CARD_PADDING_SIZES = {
 	SMALL: 'small',
+	MEDIUM: 'medium',
 	LARGE: 'large',
 } as const;
 
@@ -15,9 +16,26 @@ export type CardPaddingSize = Value<typeof CARD_PADDING_SIZES>;
 export const CARD_BACKGROUND_COLORS = {
 	DEFAULT: 'default',
 	NEUTRAL: 'neutral',
+	NONE: 'none',
 } as const;
 
 export type CardBackgroundColor = Value<typeof CARD_BACKGROUND_COLORS>;
+
+export const CARD_ELEVATIONS = {
+	DEFAULT: 'default',
+	TOP: 'top',
+	NONE: 'none',
+} as const;
+
+export type CardElevation = Value<typeof CARD_ELEVATIONS>;
+
+export const CARD_RADIUSES = {
+	ALL: 'all',
+	TOP: 'top',
+	NONE: 'none',
+} as const;
+
+export type CardRadius = Value<typeof CARD_RADIUSES>;
 
 export const CARD_RIBBON_COLORS = CONTAINER_RIBBON_COLORS;
 
