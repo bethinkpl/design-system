@@ -122,12 +122,7 @@
 	&__title {
 		@include heading-s-default-bold;
 
-		color: $color-neutral-text-heavy;
-
-		// the close button overlaps the top row, so the title wraps before reaching it
-		#{$root}.-ds-closable & {
-			padding-right: $space-12;
-		}
+		color: $color-neutral-text-strong;
 
 		#{$root}.-ds-size-large & {
 			@include heading-m-default-bold;
@@ -152,12 +147,6 @@
 
 	&__content {
 		@include text-m-default-regular;
-
-		// only the top row is overlapped by the close button — without a title, that row is the
-		// content itself (the falsy `v-if` leaves a comment node, which `:first-child` ignores)
-		#{$root}.-ds-closable &:first-child {
-			padding-right: $space-12;
-		}
 	}
 
 	&__footerButtons {
