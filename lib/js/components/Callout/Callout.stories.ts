@@ -1,5 +1,6 @@
 import { ComponentProps } from 'vue-component-type-helpers';
 import { Meta, StoryObj } from '@storybook/vue3';
+import { action } from '@storybook/addon-actions';
 
 import Callout from './Callout.vue';
 import {
@@ -10,7 +11,7 @@ import {
 } from './Callout.consts';
 import DsButton from '../Buttons/Button';
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button/Button.consts';
-import { IconKey, ICONS } from '../Icons/Icon';
+import { ICONS } from '../Icons/Icon';
 
 type CalloutProps = ComponentProps<typeof Callout>;
 
@@ -27,8 +28,8 @@ const emptyToNull = (value?: string | null) => value || null;
 
 const mapArgs = (args: CalloutProps) => ({
 	...args,
-	icon: ICONS[args.icon as unknown as IconKey],
-	buttonIcon: ICONS[args.buttonIcon as unknown as IconKey],
+	icon: ICONS[args.icon],
+	buttonIcon: ICONS[args.buttonIcon],
 	eyebrowText: emptyToNull(args.eyebrowText),
 	mainText: emptyToNull(args.mainText),
 	supportingText: emptyToNull(args.supportingText),
@@ -40,12 +41,15 @@ const meta: Meta<typeof Callout> = {
 	component: Callout,
 	render: (args: CalloutProps) => ({
 		components: { Callout },
+		setup() {
+			return { onButtonClicked: action('button-clicked') };
+		},
 		computed: {
 			props() {
 				return mapArgs(args);
 			},
 		},
-		template: `<div style="max-width: 500px;"><Callout v-bind="props" /></div>`,
+		template: `<div style="max-width: 500px;"><Callout v-bind="props" @button-clicked="onButtonClicked" /></div>`,
 	}),
 	argTypes: {
 		layout: {
@@ -66,7 +70,7 @@ const meta: Meta<typeof Callout> = {
 		},
 		icon: {
 			control: 'select',
-			options: [null, ...Object.keys(ICONS)],
+			options: Object.keys(ICONS),
 		},
 		buttonIcon: {
 			control: 'select',

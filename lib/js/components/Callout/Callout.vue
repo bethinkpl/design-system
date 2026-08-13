@@ -4,15 +4,11 @@
 		:class="{
 			'-ds-layout-vertical': layout === CALLOUT_LAYOUTS.VERTICAL,
 			'-ds-layout-horizontal': layout === CALLOUT_LAYOUTS.HORIZONTAL,
-			'-ds-size-small': size === CALLOUT_SIZES.SMALL,
-			'-ds-size-medium': size === CALLOUT_SIZES.MEDIUM,
-			'-ds-size-large': size === CALLOUT_SIZES.LARGE,
 			'-ds-actions-vertical': isActionVertical,
 		}"
 	>
 		<div class="ds-callout__content">
 			<ds-feature-icon
-				v-if="icon"
 				class="ds-callout__icon"
 				:icon="icon"
 				:color="color"
@@ -39,7 +35,7 @@
 					:size="BUTTON_SIZES.SMALL"
 					:radius="BUTTON_RADIUSES.ROUNDED"
 					:icon-left="buttonIcon"
-					@click="$emit('button-clicked')"
+					@click="$emit('button-clicked', $event)"
 					>{{ buttonLabel }}</ds-button
 				>
 			</slot>
@@ -122,7 +118,6 @@ import {
 } from './Callout.consts';
 
 const {
-	icon = null,
 	layout = CALLOUT_LAYOUTS.VERTICAL,
 	size = CALLOUT_SIZES.MEDIUM,
 	color = CALLOUT_COLORS.PRIMARY,
@@ -134,7 +129,7 @@ const {
 	buttonIcon = null,
 	isActionVertical = false,
 } = defineProps<{
-	icon?: IconItem | null;
+	icon: IconItem;
 	layout?: CalloutLayout;
 	size?: CalloutSize;
 	color?: CalloutColor;
@@ -148,7 +143,7 @@ const {
 }>();
 
 defineEmits<{
-	'button-clicked': [];
+	'button-clicked': [e: Event];
 }>();
 
 defineSlots<{
