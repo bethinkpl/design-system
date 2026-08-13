@@ -7,6 +7,8 @@ import { toTypedSchema } from '@vee-validate/zod';
 import { array, object, string } from 'zod';
 import CheckboxGroupField from './CheckboxGroupField/CheckboxGroupField.vue';
 import SelectField from './SelectField';
+import TextAreaField from './TextAreaField';
+import PinInputField from './PinInputField';
 import Button from '../Buttons/Button';
 
 export default {
@@ -15,13 +17,23 @@ export default {
 } as Meta<any>;
 
 export const SimpleForm = () => ({
-	components: { InputField, CheckboxGroupField, Checkbox, SelectField, Button },
+	components: {
+		InputField,
+		CheckboxGroupField,
+		Checkbox,
+		SelectField,
+		TextAreaField,
+		PinInputField,
+		Button,
+	},
 	setup: () => {
 		const { handleSubmit } = useForm({
 			initialValues: {
 				fullName: '',
 				country: '',
 				newsletterTopics: [],
+				notes: '',
+				code: '',
 			},
 			validationSchema: toTypedSchema(
 				object({
@@ -31,6 +43,8 @@ export const SimpleForm = () => ({
 						1,
 						'Wybierz przynajmniej jeden temat newslettera',
 					),
+					notes: string().max(500, 'Maksymalnie 500 znaków'),
+					code: string().length(6, 'Kod ma 6 cyfr'),
 				}),
 			),
 		});
@@ -54,7 +68,7 @@ export const SimpleForm = () => ({
 		};
 	},
 	template: `
-		<form @submit.prevent="onSubmit" style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
+		<form novalidate @submit.prevent="onSubmit" style="display: flex; flex-direction: column; gap: 16px; max-width: 400px;">
 			<InputField label="Imię i nazwisko" name="fullName" />
 			<SelectField
 				label="Kraj"
@@ -70,6 +84,13 @@ export const SimpleForm = () => ({
 					<Checkbox value="sports">Sport</Checkbox>
 				</template>
 			</CheckboxGroupField>
+			<TextAreaField
+				label="Uwagi"
+				name="notes"
+				is-autoresizing
+				:input-props="{ rows: 4, maxlength: 500, placeholder: 'Coś jeszcze?' }"
+			/>
+			<PinInputField label="Kod z e-maila" name="code" />
 			<Button as="button">
 				Wyślij
 			</Button>

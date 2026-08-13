@@ -3,6 +3,7 @@
 		<div class="ds-labelValueItem__label" :class="{ '-ds-strong': isLabelStrong }">
 			{{ label }}
 		</div>
+		<slot name="accessory" />
 		<ds-icon
 			v-if="state === LABEL_VALUE_ITEM_STATES.LOADING"
 			:icon="ICONS.FAD_SPINNER_THIRD"
@@ -97,5 +98,9 @@ const {
 	size?: LabelValueItemSize;
 	isLabelStrong?: boolean;
 	valueColor?: LabelValueItemValueColor;
+}>();
+
+defineSlots<{
+	accessory?: () => any;
 }>();
 </script>

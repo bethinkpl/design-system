@@ -3,7 +3,7 @@ import { useFormFieldWithinForm } from '../../../composables/useFormFieldWithinF
 import { SelectFieldValue } from './SelectField.types';
 
 /**
- * Select counterpart of `useInputFieldWithinForm`. A select has no `input` event, so closing
+ * Select counterpart of `useTextFieldWithinForm`. A select has no `input` event, so closing
  * the listbox stands in for blur — that is when the field is marked touched.
  *
  * Revalidation on selection needs no handler here: vee-validate's `useField` defaults to

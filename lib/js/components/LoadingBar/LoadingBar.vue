@@ -13,12 +13,33 @@
 <style scoped lang="scss">
 @import '../../../styles/settings/colors/tokens';
 
+// A keyframe animation carries its own start value, so — unlike a transition — it needs no resolved
+// *before-change* style and runs from the first style pass the element gets. That is what makes it
+// the right tool here: the bar is mounted and animated in the same breath, and the previous
+// `width: 0 -> 100%` transition (flipped from JS just after mount) could lose the race against the
+// browser's first style pass. When it did, the freshly inserted node went straight to its final
+// width with nothing to interpolate from, and the bar snapped to full instead of filling.
+// Only the duration is set from JS, inline. The animation *name* has to stay in this block so that
+// `scoped` rewrites it together with the keyframes — Vue does not rewrite inline styles.
+@keyframes ds-loading-bar-fill {
+	from {
+		width: 0;
+	}
+
+	to {
+		width: 100%;
+	}
+}
+
 .ds-loadingBar {
 	background-color: $color-neutral-background;
 	display: flex;
 	width: 100%;
 
 	&__progress {
+		animation-fill-mode: forwards;
+		animation-name: ds-loading-bar-fill;
+		animation-timing-function: linear;
 		overflow: hidden;
 		width: 0;
 	}
@@ -26,7 +47,7 @@
 </style>
 
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue';
+import { computed } from 'vue';
 import DsContainerRibbon from '../ContainerRibbon/ContainerRibbon.vue';
 import {
 	CONTAINER_RIBBON_COLORS,
@@ -52,8 +73,6 @@ const props = withDefaults(
 	},
 );
 
-const width = ref(0);
-
 const ribbonSize = computed(() => {
 	const sizeMap = {
 		[LOADING_BAR_SIZES.SMALL]: CONTAINER_RIBBON_SIZES.SMALL,
@@ -75,20 +94,12 @@ const ribbonColor = computed(() => {
 	return colorMap[props.color] || CONTAINER_RIBBON_COLORS.NEUTRAL_HEAVY;
 });
 
-const loadingBarStyles = computed(() => ({
-	width: `${width.value}%`,
-	transition: `width ${props.time}s linear`,
-}));
-
-onMounted(() => {
-	if (props.time === '0') {
-		width.value = 100;
-		return;
-	}
-	// without postponing the width change, the transition won't work,
-	// and the loading bar is 100% width right away
-	setTimeout(() => {
-		width.value = 100;
-	}, 0);
-});
+// The fill is driven entirely by the `ds-loading-bar-fill` keyframes in this component's styles, so
+// there is nothing to start from JS — no mounted hook, no timer, no frame juggling. `'0'` opts out
+// of the animation altogether and shows a full bar right away.
+const loadingBarStyles = computed(() =>
+	props.time === '0'
+		? { animation: 'none', width: '100%' }
+		: { animationDuration: `${props.time}s` },
+);
 </script>
