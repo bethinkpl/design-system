@@ -94,7 +94,7 @@ export const Interactive: Story = {
 		color: CALLOUT_COLORS.PRIMARY,
 		mainTextColor: CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
 		icon: 'FA_COMMENT_DOTS' as unknown as CalloutProps['icon'],
-		eyebrowText: null,
+		eyebrowText: '',
 		mainText: 'Main text tutaj sobie będzie',
 		supportingText: 'Supporting text tutaj będzie',
 		buttonLabel: 'Button label',
