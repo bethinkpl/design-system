@@ -85,10 +85,6 @@
 			width: 100%;
 		}
 
-		#{$self}.-ds-layout-horizontal & {
-			flex-shrink: 0;
-		}
-
 		#{$self}.-ds-actions-vertical & {
 			align-items: stretch;
 			flex-direction: column;
