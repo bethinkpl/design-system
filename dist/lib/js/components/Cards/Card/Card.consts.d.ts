@@ -2,14 +2,28 @@ import { Value } from '../../../utils/type.utils';
 
 export declare const CARD_PADDING_SIZES: {
     readonly SMALL: "small";
+    readonly MEDIUM: "medium";
     readonly LARGE: "large";
 };
 export type CardPaddingSize = Value<typeof CARD_PADDING_SIZES>;
 export declare const CARD_BACKGROUND_COLORS: {
     readonly DEFAULT: "default";
     readonly NEUTRAL: "neutral";
+    readonly NONE: "none";
 };
 export type CardBackgroundColor = Value<typeof CARD_BACKGROUND_COLORS>;
+export declare const CARD_ELEVATIONS: {
+    readonly DEFAULT: "default";
+    readonly TOP: "top";
+    readonly NONE: "none";
+};
+export type CardElevation = Value<typeof CARD_ELEVATIONS>;
+export declare const CARD_RADIUSES: {
+    readonly ALL: "all";
+    readonly TOP: "top";
+    readonly NONE: "none";
+};
+export type CardRadius = Value<typeof CARD_RADIUSES>;
 export declare const CARD_RIBBON_COLORS: {
     readonly NEUTRAL: "neutral";
     readonly NEUTRAL_HEAVY: "neutral-heavy";
