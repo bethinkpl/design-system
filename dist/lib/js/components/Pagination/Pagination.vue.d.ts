@@ -1028,6 +1028,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         });
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     Dropdown: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+        appendToBody: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         boundariesSelector: {
             type: StringConstructor;
             default: null;
@@ -1076,6 +1080,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         onHide(): void;
         onShow(): void;
     }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("show" | "hide" | "document-click")[], "show" | "hide" | "document-click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+        appendToBody: {
+            type: BooleanConstructor;
+            default: boolean;
+        };
         boundariesSelector: {
             type: StringConstructor;
             default: null;
@@ -1114,6 +1122,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     }>, {
         radius: string;
         placement: string;
+        appendToBody: boolean;
         boundariesSelector: string;
         forceShow: boolean;
         sameWidth: boolean;

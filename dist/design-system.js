@@ -27057,6 +27057,10 @@ const O5e = /* @__PURE__ */ ae(iee, [["render", dee], ["__scopeId", "data-v-77b6
     VuePopper: $f
   },
   props: {
+    appendToBody: {
+      type: Boolean,
+      default: !1
+    },
     boundariesSelector: {
       type: String,
       default: null
@@ -27127,6 +27131,9 @@ const O5e = /* @__PURE__ */ ae(iee, [["render", dee], ["__scopeId", "data-v-77b6
     }
   },
   watch: {
+    appendToBody() {
+      this.updateKey();
+    },
     triggerAction() {
       this.updateKey();
     },
@@ -27160,6 +27167,7 @@ function fee(e, t, a, r, i, n) {
   return f(), G(l, {
     ref: "popper",
     key: e.key,
+    "append-to-body": e.appendToBody,
     "boundaries-selector": e.boundariesSelector,
     "force-show": e.forceShow,
     options: e.options,
@@ -27176,6 +27184,7 @@ function fee(e, t, a, r, i, n) {
     default: q(() => [
       R("div", {
         class: V(["popper ds-dropdown", {
+          "-ds-appendedToBody": e.appendToBody,
           "-ds-radiusBottom": e.radius === e.DROPDOWN_RADIUSES.BOTTOM,
           "-ds-radiusTop": e.radius === e.DROPDOWN_RADIUSES.TOP,
           "-ds-radiusBottom -ds-radiusTop": e.radius === e.DROPDOWN_RADIUSES.BOTH
@@ -27190,9 +27199,9 @@ function fee(e, t, a, r, i, n) {
       ], 2)
     ]),
     _: 3
-  }, 8, ["boundaries-selector", "force-show", "options", "trigger", "onHide", "onShow"]);
+  }, 8, ["append-to-body", "boundaries-selector", "force-show", "options", "trigger", "onHide", "onShow"]);
 }
-const e6 = /* @__PURE__ */ ae(uee, [["render", fee], ["__scopeId", "data-v-ae6eb9fc"]]), D5e = {
+const e6 = /* @__PURE__ */ ae(uee, [["render", fee], ["__scopeId", "data-v-0c1db4bb"]]), D5e = {
   PRIMARY_MEDIUM: "primaryMedium",
   PRIMARY: "primary",
   PRIMARY_WEAK: "primaryWeak",
