@@ -1,4 +1,5 @@
 import { IconItem } from '../Icons/Icon';
+import { CalloutIconColor, CalloutLayout, CalloutMainTextColor, CalloutSize } from './Callout.consts';
 
 declare function __VLS_template(): Readonly<{
     actions?: () => any;
@@ -6,23 +7,33 @@ declare function __VLS_template(): Readonly<{
     actions?: () => any;
 };
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    icon?: IconItem | null;
+    icon: IconItem;
+    layout?: CalloutLayout;
+    size?: CalloutSize;
+    iconColor?: CalloutIconColor;
+    eyebrowText?: string | null;
     mainText?: string | null;
     supportingText?: string | null;
-    buttonLabel?: string;
+    mainTextColor?: CalloutMainTextColor;
+    buttonLabel?: string | null;
     buttonIcon?: IconItem | null;
     isActionVertical?: boolean;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    "button-clicked": () => void;
+    "button-clicked": (e: Event) => void;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    icon?: IconItem | null;
+    icon: IconItem;
+    layout?: CalloutLayout;
+    size?: CalloutSize;
+    iconColor?: CalloutIconColor;
+    eyebrowText?: string | null;
     mainText?: string | null;
     supportingText?: string | null;
-    buttonLabel?: string;
+    mainTextColor?: CalloutMainTextColor;
+    buttonLabel?: string | null;
     buttonIcon?: IconItem | null;
     isActionVertical?: boolean;
 }>>> & Readonly<{
-    "onButton-clicked"?: (() => any) | undefined;
+    "onButton-clicked"?: ((e: Event) => any) | undefined;
 }>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;

@@ -1046,9 +1046,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: string;
         touchableDeprecated: boolean;
         color: string;
+        elevation: string;
         radius: string;
         state: string;
-        elevation: string;
         colorScheme: string;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -1655,7 +1655,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     }, {}, {
         calcHeaderFeatureIconColor(): any;
-        calcFooterPrimaryButtonColor(): "neutral" | "primary";
+        calcFooterPrimaryButtonColor(): "primary" | "neutral";
         calcFooterSecondaryButtonColor(): "danger" | "neutral";
         calcSingleColumn(): boolean;
         displayFooter(): any;
@@ -2351,9 +2351,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: string;
             touchableDeprecated: boolean;
             color: string;
+            elevation: string;
             radius: string;
             state: string;
-            elevation: string;
             colorScheme: string;
         }, {}, {
             WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{

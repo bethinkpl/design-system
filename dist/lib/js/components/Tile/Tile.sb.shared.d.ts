@@ -299,8 +299,8 @@ export declare const data: () => {
         readonly ACCENT: "accent";
     }>;
     allowedColorsToBorderColorsMap: {
-        neutral: ("neutral" | "neutralWeak" | "primary" | "primaryWeak")[];
-        neutralWeak: ("neutral" | "neutralWeak" | "primary" | "primaryWeak")[];
+        neutral: ("primary" | "neutral" | "neutralWeak" | "primaryWeak")[];
+        neutralWeak: ("primary" | "neutral" | "neutralWeak" | "primaryWeak")[];
         primary: ("primary" | "primaryWeak")[];
         success: ("success" | "successWeak")[];
         fail: ("fail" | "failWeak")[];

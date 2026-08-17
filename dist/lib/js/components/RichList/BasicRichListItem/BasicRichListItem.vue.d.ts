@@ -263,14 +263,14 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     size: RichListItemSize;
     type: RichListItemType;
     text: string;
+    elevation: "small";
+    backgroundColor: RichListItemBackgroundColor;
+    state: RichListItemState;
+    iconColor: string;
     supportingText: string;
     supportingTextEllipsis: boolean;
     isInteractive: boolean;
-    state: RichListItemState;
     isSupportingTextTooltipEnabled: boolean;
-    elevation: "small";
-    backgroundColor: RichListItemBackgroundColor;
-    iconColor: string;
     layout: RichListItemLayout;
     eyebrowEllipsis: boolean;
     textEllipsis: boolean;
@@ -989,11 +989,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         icon: any;
         size: RichListItemSize;
         type: RichListItemType;
-        isInteractive: boolean;
-        state: RichListItemState;
         elevation: "small";
         backgroundColor: RichListItemBackgroundColor;
+        state: RichListItemState;
         iconColor: string;
+        isInteractive: boolean;
         layout: RichListItemLayout;
         borderColor: RichListItemBorderColor;
         isSelected: boolean;
@@ -1107,8 +1107,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             };
         }>> & Readonly<{}>, {
             size: string;
-            prominence: string;
             isVertical: boolean;
+            prominence: string;
         }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
         DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
             icon: {

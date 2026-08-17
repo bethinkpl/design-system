@@ -30,7 +30,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
         type: import('vue').PropType<string>;
     };
     state: {
-        type: import('vue').PropType<"default" | "success" | "error" | "disabled">;
+        type: import('vue').PropType<"success" | "default" | "error" | "disabled">;
     };
     hasRequiredIndicator: {
         type: import('vue').PropType<boolean>;
@@ -78,7 +78,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
         type: import('vue').PropType<string>;
     };
     state: {
-        type: import('vue').PropType<"default" | "success" | "error" | "disabled">;
+        type: import('vue').PropType<"success" | "default" | "error" | "disabled">;
     };
     hasRequiredIndicator: {
         type: import('vue').PropType<boolean>;
