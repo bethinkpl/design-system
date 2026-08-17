@@ -139,7 +139,7 @@ describe('Callout', () => {
 			);
 		});
 
-		it('defaults to neutral when color is danger', () => {
+		it('is neutral when color is danger', () => {
 			const wrapper = mountCallout({ props: { color: CALLOUT_COLORS.DANGER } });
 
 			expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(
@@ -161,21 +161,21 @@ describe('Callout', () => {
 		it.each([
 			[CALLOUT_COLORS.DANGER, CALLOUT_MAIN_TEXT_COLORS.NEUTRAL],
 			[CALLOUT_COLORS.PRIMARY, CALLOUT_MAIN_TEXT_COLORS.PRIMARY],
-		])('falls back to the default for color "%s" when null is passed', (color, expected) => {
+		])('resolves to "%s" -> "%s" when null is passed', (color, expected) => {
 			const wrapper = mountCallout({ props: { color, mainTextColor: null } });
 
 			expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(expected);
 		});
 
 		it.each(Object.values(CALLOUT_MAIN_TEXT_COLORS))(
-			'lets an explicit "%s" override the danger default',
+			'cannot be overridden to "%s" when color is danger',
 			(mainTextColor) => {
 				const wrapper = mountCallout({
 					props: { color: CALLOUT_COLORS.DANGER, mainTextColor },
 				});
 
 				expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(
-					mainTextColor,
+					CALLOUT_MAIN_TEXT_COLORS.NEUTRAL,
 				);
 			},
 		);

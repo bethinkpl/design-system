@@ -66,7 +66,8 @@ const meta: Meta<typeof Callout> = {
 		},
 		mainTextColor: {
 			control: 'select',
-			// `null` stands for "prop not passed", which falls back to the color-driven default.
+			// `null` stands for "prop not passed", which falls back to primary.
+			// The danger color pins the text to neutral and ignores this control entirely.
 			options: [null, ...Object.values(CALLOUT_MAIN_TEXT_COLORS)],
 		},
 		icon: {

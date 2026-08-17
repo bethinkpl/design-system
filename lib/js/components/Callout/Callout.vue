@@ -165,10 +165,10 @@ const buttonColor = computed(() => (isDanger.value ? BUTTON_COLORS.DANGER : BUTT
 
 const buttonType = computed(() => (isDanger.value ? BUTTON_TYPES.OUTLINED : BUTTON_TYPES.FILLED));
 
-// Danger defaults to neutral text, every other color to primary — an explicit prop wins over both.
-const textGroupMainTextColor = computed(
-	() =>
-		mainTextColor ??
-		(isDanger.value ? CALLOUT_MAIN_TEXT_COLORS.NEUTRAL : CALLOUT_MAIN_TEXT_COLORS.PRIMARY),
+// Danger is always paired with neutral text, so the prop is not honoured for it.
+const textGroupMainTextColor = computed(() =>
+	isDanger.value
+		? CALLOUT_MAIN_TEXT_COLORS.NEUTRAL
+		: (mainTextColor ?? CALLOUT_MAIN_TEXT_COLORS.PRIMARY),
 );
 </script>
