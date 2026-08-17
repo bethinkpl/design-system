@@ -66,7 +66,8 @@ const meta: Meta<typeof Callout> = {
 		},
 		mainTextColor: {
 			control: 'select',
-			options: Object.values(CALLOUT_MAIN_TEXT_COLORS),
+			// `null` stands for "prop not passed", which falls back to the color-driven default.
+			options: [null, ...Object.values(CALLOUT_MAIN_TEXT_COLORS)],
 		},
 		icon: {
 			control: 'select',
@@ -92,7 +93,7 @@ export const Interactive: Story = {
 		layout: CALLOUT_LAYOUTS.VERTICAL,
 		size: CALLOUT_SIZES.MEDIUM,
 		color: CALLOUT_COLORS.PRIMARY,
-		mainTextColor: CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
+		mainTextColor: null,
 		icon: 'FA_COMMENT_DOTS' as unknown as CalloutProps['icon'],
 		eyebrowText: '',
 		mainText: 'Main text tutaj sobie będzie',
@@ -135,7 +136,7 @@ export const WithActionsSlot: Story = {
 		layout: CALLOUT_LAYOUTS.VERTICAL,
 		size: CALLOUT_SIZES.MEDIUM,
 		color: CALLOUT_COLORS.PRIMARY,
-		mainTextColor: CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
+		mainTextColor: null,
 		icon: 'FA_COMMENT_DOTS' as unknown as CalloutProps['icon'],
 		mainText: 'Main text tutaj sobie będzie',
 		supportingText: 'Supporting text tutaj będzie',
@@ -162,7 +163,6 @@ export const Variants: Story = {
 				ICONS,
 				CALLOUT_COLORS,
 				CALLOUT_LAYOUTS,
-				CALLOUT_MAIN_TEXT_COLORS,
 				CALLOUT_SIZES,
 				sizes: Object.values(CALLOUT_SIZES),
 			};
@@ -186,7 +186,6 @@ export const Variants: Story = {
 						<Callout
 							:layout="layout"
 							:color="CALLOUT_COLORS.DANGER"
-							:main-text-color="CALLOUT_MAIN_TEXT_COLORS.NEUTRAL"
 							:icon="ICONS.FA_COMMENT_DOTS"
 							main-text="Main text tutaj sobie będzie (danger)"
 							supporting-text="Supporting text tutaj będzie"

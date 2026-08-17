@@ -23,7 +23,7 @@
 				:supporting-text="supportingText"
 				:size="textGroupSize"
 				:align="textGroupAlign"
-				:main-text-color="mainTextColor"
+				:main-text-color="textGroupMainTextColor"
 				:is-interactive="false"
 			/>
 		</div>
@@ -121,7 +121,7 @@ const {
 	eyebrowText = null,
 	mainText = null,
 	supportingText = null,
-	mainTextColor = CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
+	mainTextColor = null,
 	buttonLabel = null,
 	buttonIcon = null,
 	isActionVertical = false,
@@ -133,7 +133,7 @@ const {
 	eyebrowText?: string | null;
 	mainText?: string | null;
 	supportingText?: string | null;
-	mainTextColor?: CalloutMainTextColor;
+	mainTextColor?: CalloutMainTextColor | null;
 	buttonLabel?: string | null;
 	buttonIcon?: IconItem | null;
 	isActionVertical?: boolean;
@@ -164,4 +164,11 @@ const isDanger = computed(() => color === CALLOUT_COLORS.DANGER);
 const buttonColor = computed(() => (isDanger.value ? BUTTON_COLORS.DANGER : BUTTON_COLORS.PRIMARY));
 
 const buttonType = computed(() => (isDanger.value ? BUTTON_TYPES.OUTLINED : BUTTON_TYPES.FILLED));
+
+// Danger defaults to neutral text, every other color to primary — an explicit prop wins over both.
+const textGroupMainTextColor = computed(
+	() =>
+		mainTextColor ??
+		(isDanger.value ? CALLOUT_MAIN_TEXT_COLORS.NEUTRAL : CALLOUT_MAIN_TEXT_COLORS.PRIMARY),
+);
 </script>

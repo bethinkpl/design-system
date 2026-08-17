@@ -138,6 +138,47 @@ describe('Callout', () => {
 				CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
 			);
 		});
+
+		it('defaults to neutral when color is danger', () => {
+			const wrapper = mountCallout({ props: { color: CALLOUT_COLORS.DANGER } });
+
+			expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(
+				CALLOUT_MAIN_TEXT_COLORS.NEUTRAL,
+			);
+		});
+
+		it.each(Object.values(CALLOUT_COLORS).filter((color) => color !== CALLOUT_COLORS.DANGER))(
+			'defaults to primary for color "%s"',
+			(color) => {
+				const wrapper = mountCallout({ props: { color } });
+
+				expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(
+					CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
+				);
+			},
+		);
+
+		it.each([
+			[CALLOUT_COLORS.DANGER, CALLOUT_MAIN_TEXT_COLORS.NEUTRAL],
+			[CALLOUT_COLORS.PRIMARY, CALLOUT_MAIN_TEXT_COLORS.PRIMARY],
+		])('falls back to the default for color "%s" when null is passed', (color, expected) => {
+			const wrapper = mountCallout({ props: { color, mainTextColor: null } });
+
+			expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(expected);
+		});
+
+		it.each(Object.values(CALLOUT_MAIN_TEXT_COLORS))(
+			'lets an explicit "%s" override the danger default',
+			(mainTextColor) => {
+				const wrapper = mountCallout({
+					props: { color: CALLOUT_COLORS.DANGER, mainTextColor },
+				});
+
+				expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(
+					mainTextColor,
+				);
+			},
+		);
 	});
 
 	describe('eyebrow text', () => {
