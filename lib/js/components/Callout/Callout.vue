@@ -11,7 +11,7 @@
 			<ds-feature-icon
 				class="ds-callout__icon"
 				:icon="icon"
-				:color="color"
+				:color="iconColor"
 				:size="featureIconSize"
 				double-background
 			/>
@@ -23,15 +23,15 @@
 				:supporting-text="supportingText"
 				:size="textGroupSize"
 				:align="textGroupAlign"
-				:main-text-color="textGroupMainTextColor"
+				:main-text-color="mainTextColor"
 				:is-interactive="false"
 			/>
 		</div>
 		<div v-if="$slots.actions || buttonLabel" class="ds-callout__actions">
 			<slot name="actions">
 				<ds-button
-					:color="buttonColor"
-					:type="buttonType"
+					:color="BUTTON_COLORS.PRIMARY"
+					:type="BUTTON_TYPES.FILLED"
 					:size="BUTTON_SIZES.SMALL"
 					:radius="BUTTON_RADIUSES.ROUNDED"
 					:icon-left="buttonIcon"
@@ -104,11 +104,11 @@ import DsButton, { BUTTON_RADIUSES } from '../Buttons/Button';
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button/Button.consts';
 import { IconItem } from '../Icons/Icon';
 import {
-	CALLOUT_COLORS,
+	CALLOUT_ICON_COLORS,
 	CALLOUT_LAYOUTS,
 	CALLOUT_MAIN_TEXT_COLORS,
 	CALLOUT_SIZES,
-	CalloutColor,
+	CalloutIconColor,
 	CalloutLayout,
 	CalloutMainTextColor,
 	CalloutSize,
@@ -117,7 +117,7 @@ import {
 const {
 	layout = CALLOUT_LAYOUTS.VERTICAL,
 	size = CALLOUT_SIZES.MEDIUM,
-	color = CALLOUT_COLORS.PRIMARY,
+	iconColor = CALLOUT_ICON_COLORS.PRIMARY,
 	eyebrowText = null,
 	mainText = null,
 	supportingText = null,
@@ -129,7 +129,7 @@ const {
 	icon: IconItem;
 	layout?: CalloutLayout;
 	size?: CalloutSize;
-	color?: CalloutColor;
+	iconColor?: CalloutIconColor;
 	eyebrowText?: string | null;
 	mainText?: string | null;
 	supportingText?: string | null;
@@ -157,16 +157,5 @@ const textGroupSize = computed(() =>
 
 const textGroupAlign = computed(() =>
 	layout === CALLOUT_LAYOUTS.VERTICAL ? TEXT_GROUP_ALIGNS.CENTER : TEXT_GROUP_ALIGNS.LEFT,
-);
-
-const isDanger = computed(() => color === CALLOUT_COLORS.DANGER);
-
-const buttonColor = computed(() => (isDanger.value ? BUTTON_COLORS.DANGER : BUTTON_COLORS.PRIMARY));
-
-const buttonType = computed(() => (isDanger.value ? BUTTON_TYPES.OUTLINED : BUTTON_TYPES.FILLED));
-
-// Danger is always paired with neutral text, so the prop is not honoured for it.
-const textGroupMainTextColor = computed(() =>
-	isDanger.value ? CALLOUT_MAIN_TEXT_COLORS.NEUTRAL : mainTextColor,
 );
 </script>

@@ -18,8 +18,8 @@ export const CALLOUT_SIZES = {
 export type CalloutSize = Value<typeof CALLOUT_SIZES>;
 
 // Aliased so the sets can never drift from the components they are forwarded to.
-export const CALLOUT_COLORS = FEATURE_ICON_COLOR;
-export type CalloutColor = FeatureIconColor;
+export const CALLOUT_ICON_COLORS = FEATURE_ICON_COLOR;
+export type CalloutIconColor = FeatureIconColor;
 
 export const CALLOUT_MAIN_TEXT_COLORS = TEXT_GROUP_MAIN_TEXT_COLORS;
 export type CalloutMainTextColor = TextGroupMainTextColor;

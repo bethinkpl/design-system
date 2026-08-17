@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 
 import Callout from './Callout.vue';
 import {
-	CALLOUT_COLORS,
+	CALLOUT_ICON_COLORS,
 	CALLOUT_LAYOUTS,
 	CALLOUT_MAIN_TEXT_COLORS,
 	CALLOUT_SIZES,
@@ -60,13 +60,12 @@ const meta: Meta<typeof Callout> = {
 			control: 'select',
 			options: Object.values(CALLOUT_SIZES),
 		},
-		color: {
+		iconColor: {
 			control: 'select',
-			options: Object.values(CALLOUT_COLORS),
+			options: Object.values(CALLOUT_ICON_COLORS),
 		},
 		mainTextColor: {
 			control: 'select',
-			// The danger color pins the text to neutral and ignores this control entirely.
 			options: Object.values(CALLOUT_MAIN_TEXT_COLORS),
 		},
 		icon: {
@@ -92,7 +91,7 @@ export const Interactive: Story = {
 	args: {
 		layout: CALLOUT_LAYOUTS.VERTICAL,
 		size: CALLOUT_SIZES.MEDIUM,
-		color: CALLOUT_COLORS.PRIMARY,
+		iconColor: CALLOUT_ICON_COLORS.PRIMARY,
 		mainTextColor: CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
 		icon: 'FA_COMMENT_DOTS' as unknown as CalloutProps['icon'],
 		eyebrowText: '',
@@ -135,7 +134,7 @@ export const WithActionsSlot: Story = {
 	args: {
 		layout: CALLOUT_LAYOUTS.VERTICAL,
 		size: CALLOUT_SIZES.MEDIUM,
-		color: CALLOUT_COLORS.PRIMARY,
+		iconColor: CALLOUT_ICON_COLORS.PRIMARY,
 		mainTextColor: CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
 		icon: 'FA_COMMENT_DOTS' as unknown as CalloutProps['icon'],
 		mainText: 'Main text tutaj sobie będzie',
@@ -161,7 +160,6 @@ export const Variants: Story = {
 		setup() {
 			return {
 				ICONS,
-				CALLOUT_COLORS,
 				CALLOUT_LAYOUTS,
 				CALLOUT_SIZES,
 				sizes: Object.values(CALLOUT_SIZES),
@@ -180,14 +178,6 @@ export const Variants: Story = {
 							:icon="ICONS.FA_COMMENT_DOTS"
 							:eyebrow-text="size === CALLOUT_SIZES.SMALL ? 'Eyebrow text' : null"
 							:main-text="'Main text tutaj sobie będzie (' + size + ')'"
-							supporting-text="Supporting text tutaj będzie"
-							button-label="Button small"
-						/>
-						<Callout
-							:layout="layout"
-							:color="CALLOUT_COLORS.DANGER"
-							:icon="ICONS.FA_COMMENT_DOTS"
-							main-text="Main text tutaj sobie będzie (danger)"
 							supporting-text="Supporting text tutaj będzie"
 							button-label="Button small"
 						/>

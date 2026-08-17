@@ -4,7 +4,7 @@ import { ComponentProps } from 'vue-component-type-helpers';
 import { h } from 'vue';
 import Callout from './Callout.vue';
 import {
-	CALLOUT_COLORS,
+	CALLOUT_ICON_COLORS,
 	CALLOUT_LAYOUTS,
 	CALLOUT_MAIN_TEXT_COLORS,
 	CALLOUT_SIZES,
@@ -103,18 +103,21 @@ describe('Callout', () => {
 		);
 	});
 
-	describe('color', () => {
-		it.each(Object.values(CALLOUT_COLORS))('passes color "%s" to the feature icon', (color) => {
-			const wrapper = mountCallout({ props: { color } });
+	describe('icon color', () => {
+		it.each(Object.values(CALLOUT_ICON_COLORS))(
+			'passes icon color "%s" to the feature icon',
+			(iconColor) => {
+				const wrapper = mountCallout({ props: { iconColor } });
 
-			expect(wrapper.findComponent(DsFeatureIcon).props('color')).toBe(color);
-		});
+				expect(wrapper.findComponent(DsFeatureIcon).props('color')).toBe(iconColor);
+			},
+		);
 
 		it('is primary by default', () => {
 			const wrapper = mountCallout();
 
 			expect(wrapper.findComponent(DsFeatureIcon).props('color')).toBe(
-				CALLOUT_COLORS.PRIMARY,
+				CALLOUT_ICON_COLORS.PRIMARY,
 			);
 		});
 	});
@@ -138,38 +141,6 @@ describe('Callout', () => {
 				CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
 			);
 		});
-
-		it('is neutral when color is danger', () => {
-			const wrapper = mountCallout({ props: { color: CALLOUT_COLORS.DANGER } });
-
-			expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(
-				CALLOUT_MAIN_TEXT_COLORS.NEUTRAL,
-			);
-		});
-
-		it.each(Object.values(CALLOUT_COLORS).filter((color) => color !== CALLOUT_COLORS.DANGER))(
-			'defaults to primary for color "%s"',
-			(color) => {
-				const wrapper = mountCallout({ props: { color } });
-
-				expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(
-					CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
-				);
-			},
-		);
-
-		it.each(Object.values(CALLOUT_MAIN_TEXT_COLORS))(
-			'cannot be overridden to "%s" when color is danger',
-			(mainTextColor) => {
-				const wrapper = mountCallout({
-					props: { color: CALLOUT_COLORS.DANGER, mainTextColor },
-				});
-
-				expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(
-					CALLOUT_MAIN_TEXT_COLORS.NEUTRAL,
-				);
-			},
-		);
 	});
 
 	describe('eyebrow text', () => {
@@ -213,25 +184,10 @@ describe('Callout', () => {
 			expect(button.props('radius')).toBe(BUTTON_RADIUSES.ROUNDED);
 		});
 
-		it('turns the default button into an outlined danger button when color is danger', () => {
-			const wrapper = mountCallout({
-				props: {
-					buttonLabel: 'Delete',
-					color: CALLOUT_COLORS.DANGER,
-				},
-			});
-
-			const button = wrapper.findComponent(DsButton);
-			expect(button.props('color')).toBe(BUTTON_COLORS.DANGER);
-			expect(button.props('type')).toBe(BUTTON_TYPES.OUTLINED);
-			expect(button.props('size')).toBe(BUTTON_SIZES.SMALL);
-			expect(button.props('radius')).toBe(BUTTON_RADIUSES.ROUNDED);
-		});
-
-		it.each(Object.values(CALLOUT_COLORS).filter((color) => color !== CALLOUT_COLORS.DANGER))(
-			'keeps the filled primary button for color "%s"',
-			(color) => {
-				const wrapper = mountCallout({ props: { buttonLabel: 'Confirm', color } });
+		it.each(Object.values(CALLOUT_ICON_COLORS))(
+			'keeps the filled primary button for icon color "%s"',
+			(iconColor) => {
+				const wrapper = mountCallout({ props: { buttonLabel: 'Confirm', iconColor } });
 
 				const button = wrapper.findComponent(DsButton);
 				expect(button.props('color')).toBe(BUTTON_COLORS.PRIMARY);
