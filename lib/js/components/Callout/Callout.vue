@@ -121,7 +121,7 @@ const {
 	eyebrowText = null,
 	mainText = null,
 	supportingText = null,
-	mainTextColor = null,
+	mainTextColor = CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
 	buttonLabel = null,
 	buttonIcon = null,
 	isActionVertical = false,
@@ -133,7 +133,7 @@ const {
 	eyebrowText?: string | null;
 	mainText?: string | null;
 	supportingText?: string | null;
-	mainTextColor?: CalloutMainTextColor | null;
+	mainTextColor?: CalloutMainTextColor;
 	buttonLabel?: string | null;
 	buttonIcon?: IconItem | null;
 	isActionVertical?: boolean;
@@ -167,8 +167,6 @@ const buttonType = computed(() => (isDanger.value ? BUTTON_TYPES.OUTLINED : BUTT
 
 // Danger is always paired with neutral text, so the prop is not honoured for it.
 const textGroupMainTextColor = computed(() =>
-	isDanger.value
-		? CALLOUT_MAIN_TEXT_COLORS.NEUTRAL
-		: (mainTextColor ?? CALLOUT_MAIN_TEXT_COLORS.PRIMARY),
+	isDanger.value ? CALLOUT_MAIN_TEXT_COLORS.NEUTRAL : mainTextColor,
 );
 </script>

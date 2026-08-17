@@ -158,15 +158,6 @@ describe('Callout', () => {
 			},
 		);
 
-		it.each([
-			[CALLOUT_COLORS.DANGER, CALLOUT_MAIN_TEXT_COLORS.NEUTRAL],
-			[CALLOUT_COLORS.PRIMARY, CALLOUT_MAIN_TEXT_COLORS.PRIMARY],
-		])('resolves to "%s" -> "%s" when null is passed', (color, expected) => {
-			const wrapper = mountCallout({ props: { color, mainTextColor: null } });
-
-			expect(wrapper.findComponent(DsTextGroup).props('mainTextColor')).toBe(expected);
-		});
-
 		it.each(Object.values(CALLOUT_MAIN_TEXT_COLORS))(
 			'cannot be overridden to "%s" when color is danger',
 			(mainTextColor) => {

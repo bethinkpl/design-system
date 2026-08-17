@@ -66,9 +66,8 @@ const meta: Meta<typeof Callout> = {
 		},
 		mainTextColor: {
 			control: 'select',
-			// `null` stands for "prop not passed", which falls back to primary.
 			// The danger color pins the text to neutral and ignores this control entirely.
-			options: [null, ...Object.values(CALLOUT_MAIN_TEXT_COLORS)],
+			options: Object.values(CALLOUT_MAIN_TEXT_COLORS),
 		},
 		icon: {
 			control: 'select',
@@ -94,7 +93,7 @@ export const Interactive: Story = {
 		layout: CALLOUT_LAYOUTS.VERTICAL,
 		size: CALLOUT_SIZES.MEDIUM,
 		color: CALLOUT_COLORS.PRIMARY,
-		mainTextColor: null,
+		mainTextColor: CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
 		icon: 'FA_COMMENT_DOTS' as unknown as CalloutProps['icon'],
 		eyebrowText: '',
 		mainText: 'Main text tutaj sobie będzie',
@@ -137,7 +136,7 @@ export const WithActionsSlot: Story = {
 		layout: CALLOUT_LAYOUTS.VERTICAL,
 		size: CALLOUT_SIZES.MEDIUM,
 		color: CALLOUT_COLORS.PRIMARY,
-		mainTextColor: null,
+		mainTextColor: CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
 		icon: 'FA_COMMENT_DOTS' as unknown as CalloutProps['icon'],
 		mainText: 'Main text tutaj sobie będzie',
 		supportingText: 'Supporting text tutaj będzie',
