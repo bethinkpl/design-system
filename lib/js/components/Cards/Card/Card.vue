@@ -102,7 +102,7 @@
 	}
 
 	&.-ds-elevationTop {
-		box-shadow: $shadow-top-s;
+		box-shadow: $shadow-top-l;
 	}
 
 	&.-ds-elevationNone {
