@@ -1,0 +1,24 @@
+@import '../settings/colors/tokens';
+@import '../settings/radiuses';
+@import '../settings/shadows';
+
+// The visual surface shared by floating panels — DsDropdown and SelectField's listbox.
+// Deliberately covers appearance only: sizing, scrolling and positioning stay with the
+// consumer, because those legitimately differ between popper engines and use cases.
+@mixin dropdownSurface {
+	background-color: $color-default-background;
+	box-shadow: $shadow-m;
+	overflow: hidden;
+}
+
+// Applied separately from `dropdownSurface`, since a panel anchored below its trigger keeps
+// its top corners square (and vice versa).
+@mixin dropdownSurfaceRadiusTop {
+	border-top-left-radius: $radius-s;
+	border-top-right-radius: $radius-s;
+}
+
+@mixin dropdownSurfaceRadiusBottom {
+	border-bottom-left-radius: $radius-s;
+	border-bottom-right-radius: $radius-s;
+}

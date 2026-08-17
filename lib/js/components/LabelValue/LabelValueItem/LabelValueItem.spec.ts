@@ -19,6 +19,7 @@ interface createComponentOptions {
 	size?: LabelValueItemSize;
 	isLabelStrong?: boolean;
 	valueColor?: LabelValueItemValueColor;
+	slots?: Record<string, string>;
 }
 
 describe('LabelValueItem', () => {
@@ -29,6 +30,7 @@ describe('LabelValueItem', () => {
 		size = LABEL_VALUE_ITEM_SIZES.MEDIUM,
 		isLabelStrong = false,
 		valueColor = LABEL_VALUE_ITEM_VALUE_COLORS.NEUTRAL,
+		slots = {},
 	}: createComponentOptions = {}) => {
 		return mount(LabelValueItem, {
 			props: {
@@ -39,6 +41,7 @@ describe('LabelValueItem', () => {
 				isLabelStrong,
 				valueColor,
 			},
+			slots,
 		});
 	};
 
@@ -121,5 +124,28 @@ describe('LabelValueItem', () => {
 		expect(component.find('.ds-labelValueItem__value').classes()).toContain(
 			'-ds-color-primary',
 		);
+	});
+
+	it('does not render the accessory slot content when the slot is empty', () => {
+		const component = createComponent();
+
+		expect(component.find('.accessory-content').exists()).toBe(false);
+	});
+
+	it('renders the accessory slot content', () => {
+		const component = createComponent({
+			slots: { accessory: '<span class="accessory-content">chip</span>' },
+		});
+
+		expect(component.find('.accessory-content').text()).toBe('chip');
+	});
+
+	it('renders the accessory slot in the loading state', () => {
+		const component = createComponent({
+			state: LABEL_VALUE_ITEM_STATES.LOADING,
+			slots: { accessory: '<span class="accessory-content">chip</span>' },
+		});
+
+		expect(component.find('.accessory-content').exists()).toBe(true);
 	});
 });

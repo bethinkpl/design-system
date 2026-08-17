@@ -104,6 +104,21 @@ describe('CheckboxGroupField', () => {
 		);
 	});
 
+	it('sets aria-describedby only when a message is rendered', () => {
+		const wrapper = mount(CheckboxGroupField, {
+			props: {
+				label: 'Test Label',
+			},
+			slots: {
+				field: '<div>Content</div>',
+			},
+		});
+
+		expect(
+			wrapper.find('.ds-checkboxGroupField').attributes('aria-describedby'),
+		).toBeUndefined();
+	});
+
 	describe('vee-validate integration', () => {
 		it('integrates with vee-validate form context and reflects initial values', async () => {
 			// eslint-disable-next-line vue/one-component-per-file

@@ -21,7 +21,7 @@
 					:id="fieldId"
 					v-model="value"
 					class="ds-inputField__input"
-					:aria-describedby="messageId"
+					:aria-describedby="hasMessage ? messageId : undefined"
 				/>
 				<div v-if="suffixText" class="ds-inputField__suffixText">
 					{{ suffixText }}
@@ -141,10 +141,10 @@ import FormField, { FORM_FIELD_STATES, FormFieldProps } from '../FormField';
 import Icon, { ICON_SIZES } from '../../Icons/Icon';
 import { extractFormFieldProps } from '../FormField/FormField.utils';
 import { InputFieldProps, InputFieldSlots } from './InputField.types';
-import { useInputFieldWithinForm } from './useInputFieldWithinForm';
+import { useTextFieldWithinForm } from '../../../composables/useTextFieldWithinForm';
 
 const { inputProps, leftIcon, suffixText, name, ...rest } = defineProps<InputFieldProps>();
-defineSlots<InputFieldSlots>();
+const slots = defineSlots<InputFieldSlots>();
 const modelValue = defineModel<string>();
 
 const {
@@ -152,12 +152,15 @@ const {
 	errors,
 	onInput: onFormFieldInput,
 	onBlur: onFormFieldBlur,
-} = useInputFieldWithinForm(() => name, modelValue);
+} = useTextFieldWithinForm(() => name, modelValue);
 
 const formFieldProps = computed<FormFieldProps>(() => {
 	// this is needed to avoid passing modelValue to FormField as prop
 	return extractFormFieldProps(rest, errors.value);
 });
+
+// Avoids pointing `aria-describedby` at a message element that is never rendered.
+const hasMessage = computed(() => !!(formFieldProps.value.messageText || slots.message));
 
 const finalInputProps = computed<InputHTMLAttributes>(() => {
 	return {

@@ -27,7 +27,9 @@
 				:class="{ '-ds-uppercase': isEyebrowTextUppercase }"
 				>{{ eyebrowText }}</span
 			>
-			<span class="ds-selectListItem__text">{{ label }}</span>
+			<span class="ds-selectListItem__text"
+				><slot name="text">{{ label }}</slot></span
+			>
 		</span>
 
 		<slot name="metadata" />
@@ -197,6 +199,7 @@ const {
 const slots = defineSlots<{
 	accessory?: () => any;
 	metadata?: () => any;
+	text?: () => any;
 }>();
 
 const isLoading = computed(() => state === SELECT_LIST_ITEM_STATES.LOADING);

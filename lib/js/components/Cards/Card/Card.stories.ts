@@ -3,6 +3,8 @@ import Card from './Card.vue';
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import {
 	CARD_BACKGROUND_COLORS,
+	CARD_ELEVATIONS,
+	CARD_RADIUSES,
 	CARD_RIBBON_COLORS,
 	CARD_RIBBON_POSITIONS,
 	CARD_RIBBON_SIZES,
@@ -50,7 +52,9 @@ const args = {
 	paddingSize: CARD_PADDING_SIZES.SMALL,
 	dividerUnderHeader: false,
 	hasRibbon: false,
-	hasRadius: true,
+	isFlat: false,
+	elevation: CARD_ELEVATIONS.DEFAULT,
+	radius: CARD_RADIUSES.ALL,
 	backgroundColor: CARD_BACKGROUND_COLORS.DEFAULT,
 	ribbonPosition: CARD_RIBBON_POSITIONS.TOP,
 	ribbonSize: CARD_RIBBON_SIZES.MEDIUM,
@@ -59,7 +63,6 @@ const args = {
 	hasLoadingBar: false,
 	loadingBarColor: LOADING_BAR_COLORS.NEUTRAL_HEAVY,
 	loadingBarTime: '0',
-	isFlat: false,
 	isContentScrollable: false,
 } as Args;
 
@@ -70,6 +73,17 @@ const argTypes = {
 	},
 	footer: { control: 'text' },
 	experimentalContent: { control: 'text' },
+	isFlat: {
+		control: 'boolean',
+	},
+	elevation: {
+		control: 'select',
+		options: Object.values(CARD_ELEVATIONS),
+	},
+	radius: {
+		control: 'select',
+		options: Object.values(CARD_RADIUSES),
+	},
 	backgroundColor: {
 		control: 'select',
 		options: Object.values(CARD_BACKGROUND_COLORS),
@@ -108,3 +122,8 @@ Interactive.parameters = {
 		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS---Components?node-id=1552%3A34959',
 	},
 };
+
+export const Flat = StoryTemplate.bind({});
+
+Flat.argTypes = argTypes;
+Flat.args = { ...args, isFlat: true };

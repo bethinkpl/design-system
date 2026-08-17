@@ -12,6 +12,10 @@ const shadows = [
 	{ name: 'shadow-m', modifier: '-ds-shadowM' },
 	{ name: 'shadow-l', modifier: '-ds-shadowL' },
 	{ name: 'shadow-xl', modifier: '-ds-shadowXl' },
+	{ name: 'shadow-top-s', modifier: '-ds-shadowTopS' },
+	{ name: 'shadow-top-m', modifier: '-ds-shadowTopM' },
+	{ name: 'shadow-top-l', modifier: '-ds-shadowTopL' },
+	{ name: 'shadow-top-xl', modifier: '-ds-shadowTopXl' },
 	{ name: 'shadow-inset-s', modifier: '-ds-shadowInsetS' },
 	{ name: 'shadow-inset-m', modifier: '-ds-shadowInsetM' },
 ];

@@ -1,421 +1,57 @@
 import { ToastColors, ToastPositions, ToastSizes } from './Toast.consts';
-import { PropType } from 'vue';
+import { IconItem } from '../Icons/Icon';
 
-declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
-    size: {
-        type: PropType<ToastSizes>;
-        default: "medium";
-    };
-    position: {
-        type: PropType<ToastPositions>;
-        default: string;
-    };
-    boundariesSelector: {
-        type: PropType<string | HTMLElement>;
-        default: null;
-    };
-    color: {
-        type: PropType<ToastColors>;
-        default: string;
-    };
-    footerPrimaryButtonText: {
-        type: StringConstructor;
-        default: string;
-    };
-    footerPrimaryButtonIcon: {
-        type: ObjectConstructor;
-        default: null;
-        validator(footerPrimaryButtonIcon: any): boolean;
-    };
-    footerSecondaryButtonText: {
-        type: StringConstructor;
-        default: string;
-    };
-    footerSecondaryButtonIcon: {
-        type: ObjectConstructor;
-        default: null;
-        validator(footerSecondaryButtonIcon: any): boolean;
-    };
-    isDisappearing: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    disappearingTimeout: {
-        type: StringConstructor;
-        default: string;
-        validator(disappearingTimeout: string): boolean;
-    };
-}>, {}, {
-    boundariesSelectorElement: null;
-    boundariesSelectorElementResizeObserver: null;
-    styles: {};
-    BUTTON_COLORS: Readonly<{
-        readonly PRIMARY: "primary";
-        readonly NEUTRAL: "neutral";
-        readonly DANGER: "danger";
-        readonly SUCCESS: "success";
-        readonly INVERTED: "inverted";
-        readonly MAGIC: "magic";
-    }>;
-    BUTTON_RADIUSES: Readonly<{
-        readonly CAPSULE: "capsule";
-        readonly ROUNDED: "rounded";
-    }>;
-    BUTTON_TYPES: Readonly<{
-        readonly FILLED: "filled";
-        readonly OUTLINED: "outlined";
-        readonly TEXT: "text";
-    }>;
-    TOAST_SIZES: Readonly<{
-        readonly SMALL: "small";
-        readonly MEDIUM: "medium";
-    }>;
-    TOAST_POSITIONS: Readonly<{
-        LEFT: string;
-        CENTER: string;
-        RIGHT: string;
-    }>;
-}, {
-    buttonPrimaryColor(): "neutral" | "primary";
-    buttonSecondaryColor(): "danger" | "neutral";
-    toastPosition(): string;
-    toastSize(): string;
-}, {
-    calculateStyles(): void;
-    setBoundariesSelectorElement(): void;
-}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    close: () => true;
-    'primary-button-click': () => true;
-    'secondary-button-click': () => true;
-}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
-    size: {
-        type: PropType<ToastSizes>;
-        default: "medium";
-    };
-    position: {
-        type: PropType<ToastPositions>;
-        default: string;
-    };
-    boundariesSelector: {
-        type: PropType<string | HTMLElement>;
-        default: null;
-    };
-    color: {
-        type: PropType<ToastColors>;
-        default: string;
-    };
-    footerPrimaryButtonText: {
-        type: StringConstructor;
-        default: string;
-    };
-    footerPrimaryButtonIcon: {
-        type: ObjectConstructor;
-        default: null;
-        validator(footerPrimaryButtonIcon: any): boolean;
-    };
-    footerSecondaryButtonText: {
-        type: StringConstructor;
-        default: string;
-    };
-    footerSecondaryButtonIcon: {
-        type: ObjectConstructor;
-        default: null;
-        validator(footerSecondaryButtonIcon: any): boolean;
-    };
-    isDisappearing: {
-        type: BooleanConstructor;
-        default: boolean;
-    };
-    disappearingTimeout: {
-        type: StringConstructor;
-        default: string;
-        validator(disappearingTimeout: string): boolean;
-    };
-}>> & Readonly<{
+declare function __VLS_template(): Readonly<{
+    content?: () => any;
+}> & {
+    content?: () => any;
+};
+declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
+    title?: string;
+    size?: ToastSizes;
+    position?: ToastPositions;
+    color?: ToastColors;
+    footerPrimaryButtonText?: string;
+    footerPrimaryButtonIcon?: IconItem | null;
+    footerSecondaryButtonText?: string;
+    footerSecondaryButtonIcon?: IconItem | null;
+    isDisappearing?: boolean;
+    disappearingTimeout?: string;
+    isClosable?: boolean;
+}>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+    close: () => void;
+    "secondary-button-click": () => void;
+    "primary-button-click": () => void;
+}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
+    title?: string;
+    size?: ToastSizes;
+    position?: ToastPositions;
+    color?: ToastColors;
+    footerPrimaryButtonText?: string;
+    footerPrimaryButtonIcon?: IconItem | null;
+    footerSecondaryButtonText?: string;
+    footerSecondaryButtonIcon?: IconItem | null;
+    isDisappearing?: boolean;
+    disappearingTimeout?: string;
+    isClosable?: boolean;
+}>>> & Readonly<{
     onClose?: (() => any) | undefined;
     "onSecondary-button-click"?: (() => any) | undefined;
     "onPrimary-button-click"?: (() => any) | undefined;
-}>, {
-    size: ToastSizes;
-    color: string;
-    footerPrimaryButtonText: string;
-    footerPrimaryButtonIcon: Record<string, any>;
-    footerSecondaryButtonText: string;
-    footerSecondaryButtonIcon: Record<string, any>;
-    position: string;
-    boundariesSelector: string | HTMLElement;
-    isDisappearing: boolean;
-    disappearingTimeout: string;
-}, {}, {
-    DsButton: {
-        new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
-            size: {
-                type: PropType<string>;
-            };
-            type: {
-                type: PropType<string>;
-            };
-            color: {
-                type: PropType<string | null>;
-            };
-            radius: {
-                type: PropType<string>;
-            };
-            state: {
-                type: PropType<string>;
-            };
-            iconLeft: import('../Icons/Icon').IconItem | null;
-            iconRight: import('../Icons/Icon').IconItem | null;
-            elevation: {
-                type: PropType<string>;
-            };
-            as: {
-                type: PropType<"a" | "button" | "span" | "router-link" | "nuxt-link">;
-            };
-        }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
-            P: {};
-            B: {};
-            D: {};
-            C: {};
-            M: {};
-            Defaults: {};
-        }, Readonly<import('vue').ExtractPropTypes<{
-            size: {
-                type: PropType<string>;
-            };
-            type: {
-                type: PropType<string>;
-            };
-            color: {
-                type: PropType<string | null>;
-            };
-            radius: {
-                type: PropType<string>;
-            };
-            state: {
-                type: PropType<string>;
-            };
-            iconLeft: import('../Icons/Icon').IconItem | null;
-            iconRight: import('../Icons/Icon').IconItem | null;
-            elevation: {
-                type: PropType<string>;
-            };
-            as: {
-                type: PropType<"a" | "button" | "span" | "router-link" | "nuxt-link">;
-            };
-        }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
-        __isFragment?: never;
-        __isTeleport?: never;
-        __isSuspense?: never;
-    } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
-        size: {
-            type: PropType<string>;
-        };
-        type: {
-            type: PropType<string>;
-        };
-        color: {
-            type: PropType<string | null>;
-        };
-        radius: {
-            type: PropType<string>;
-        };
-        state: {
-            type: PropType<string>;
-        };
-        iconLeft: import('../Icons/Icon').IconItem | null;
-        iconRight: import('../Icons/Icon').IconItem | null;
-        elevation: {
-            type: PropType<string>;
-        };
-        as: {
-            type: PropType<"a" | "button" | "span" | "router-link" | "nuxt-link">;
-        };
-    }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
-        $slots: {
-            default?(_: {}): any;
-        };
-    });
-    DsCard: {
-        new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
-            contentHasPadding: {
-                type: PropType<boolean>;
-            };
-            headerHasPadding: {
-                type: PropType<boolean>;
-            };
-            footerHasPadding: {
-                type: PropType<boolean>;
-            };
-            paddingSize: {
-                type: PropType<import('../Cards/Card').CardPaddingSize>;
-            };
-            dividerUnderHeader: {
-                type: PropType<boolean>;
-            };
-            hasRibbon: {
-                type: PropType<boolean>;
-            };
-            hasRadius: {
-                type: PropType<boolean>;
-            };
-            backgroundColor: {
-                type: PropType<import('../Cards/Card').CardBackgroundColor>;
-            };
-            ribbonPosition: {
-                type: PropType<import('../Cards/Card').CardRibbonPositions>;
-            };
-            ribbonSize: {
-                type: PropType<import('../Cards/Card').CardRibbonSizes>;
-            };
-            ribbonColor: {
-                type: PropType<import('../Cards/Card').CardRibbonColors>;
-            };
-            hasRibbonRadius: {
-                type: PropType<boolean>;
-            };
-            hasLoadingBar: {
-                type: PropType<boolean>;
-            };
-            loadingBarColor: {
-                type: PropType<string>;
-            };
-            loadingBarTime: {
-                type: PropType<string>;
-            };
-            isFlat: {
-                type: PropType<boolean>;
-            };
-            isContentScrollable: {
-                type: PropType<boolean>;
-            };
-        }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
-            P: {};
-            B: {};
-            D: {};
-            C: {};
-            M: {};
-            Defaults: {};
-        }, Readonly<import('vue').ExtractPropTypes<{
-            contentHasPadding: {
-                type: PropType<boolean>;
-            };
-            headerHasPadding: {
-                type: PropType<boolean>;
-            };
-            footerHasPadding: {
-                type: PropType<boolean>;
-            };
-            paddingSize: {
-                type: PropType<import('../Cards/Card').CardPaddingSize>;
-            };
-            dividerUnderHeader: {
-                type: PropType<boolean>;
-            };
-            hasRibbon: {
-                type: PropType<boolean>;
-            };
-            hasRadius: {
-                type: PropType<boolean>;
-            };
-            backgroundColor: {
-                type: PropType<import('../Cards/Card').CardBackgroundColor>;
-            };
-            ribbonPosition: {
-                type: PropType<import('../Cards/Card').CardRibbonPositions>;
-            };
-            ribbonSize: {
-                type: PropType<import('../Cards/Card').CardRibbonSizes>;
-            };
-            ribbonColor: {
-                type: PropType<import('../Cards/Card').CardRibbonColors>;
-            };
-            hasRibbonRadius: {
-                type: PropType<boolean>;
-            };
-            hasLoadingBar: {
-                type: PropType<boolean>;
-            };
-            loadingBarColor: {
-                type: PropType<string>;
-            };
-            loadingBarTime: {
-                type: PropType<string>;
-            };
-            isFlat: {
-                type: PropType<boolean>;
-            };
-            isContentScrollable: {
-                type: PropType<boolean>;
-            };
-        }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
-        __isFragment?: never;
-        __isTeleport?: never;
-        __isSuspense?: never;
-    } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
-        contentHasPadding: {
-            type: PropType<boolean>;
-        };
-        headerHasPadding: {
-            type: PropType<boolean>;
-        };
-        footerHasPadding: {
-            type: PropType<boolean>;
-        };
-        paddingSize: {
-            type: PropType<import('../Cards/Card').CardPaddingSize>;
-        };
-        dividerUnderHeader: {
-            type: PropType<boolean>;
-        };
-        hasRibbon: {
-            type: PropType<boolean>;
-        };
-        hasRadius: {
-            type: PropType<boolean>;
-        };
-        backgroundColor: {
-            type: PropType<import('../Cards/Card').CardBackgroundColor>;
-        };
-        ribbonPosition: {
-            type: PropType<import('../Cards/Card').CardRibbonPositions>;
-        };
-        ribbonSize: {
-            type: PropType<import('../Cards/Card').CardRibbonSizes>;
-        };
-        ribbonColor: {
-            type: PropType<import('../Cards/Card').CardRibbonColors>;
-        };
-        hasRibbonRadius: {
-            type: PropType<boolean>;
-        };
-        hasLoadingBar: {
-            type: PropType<boolean>;
-        };
-        loadingBarColor: {
-            type: PropType<string>;
-        };
-        loadingBarTime: {
-            type: PropType<string>;
-        };
-        isFlat: {
-            type: PropType<boolean>;
-        };
-        isContentScrollable: {
-            type: PropType<boolean>;
-        };
-    }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
-        $slots: Readonly<{
-            header?: () => any;
-            content?: () => any;
-            footer?: () => any;
-            experimentalContent?: () => any;
-        }> & {
-            header?: () => any;
-            content?: () => any;
-            footer?: () => any;
-            experimentalContent?: () => any;
-        };
-    });
-}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;
+type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
+type __VLS_TypePropsToRuntimeProps<T> = {
+    [K in keyof T]-?: {} extends Pick<T, K> ? {
+        type: import('vue').PropType<__VLS_NonUndefinedable<T[K]>>;
+    } : {
+        type: import('vue').PropType<T[K]>;
+        required: true;
+    };
+};
+type __VLS_WithTemplateSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
