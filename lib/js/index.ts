@@ -1,4 +1,3 @@
-export { default as DsActionContent } from './components/ActionContent';
 export { default as Avatar } from './components/Avatar';
 export * from './components/Avatar/Avatar.consts';
 export { default as Badge } from './components/Badge';
@@ -15,6 +14,8 @@ export * from './components/Buttons/Button/Button.consts';
 export { default as ToggleButton } from './components/Toggles/ToggleButton';
 export { default as DsToggleButton } from './components/Toggles/ToggleButton';
 export * from './components/Toggles/ToggleButton/ToggleButton.consts';
+export { default as DsCallout } from './components/Callout';
+export * from './components/Callout/Callout.consts';
 export { default as Card } from './components/Cards/Card/';
 export * from './components/Cards/Card';
 export { default as DsCard } from './components/Cards/Card';
