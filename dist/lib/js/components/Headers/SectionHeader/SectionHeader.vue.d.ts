@@ -470,10 +470,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }>, {
     info: boolean;
     size: string;
-    supportingText: string;
     iconLeft: any;
     iconRight: any;
     isExpanded: boolean;
+    supportingText: string;
     titleEllipsis: boolean;
     hasDivider: boolean;
     isExpandable: boolean;
@@ -1006,9 +1006,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: string;
         touchableDeprecated: boolean;
         color: string;
+        elevation: string;
         radius: string;
         state: string;
-        elevation: string;
         colorScheme: string;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -1216,8 +1216,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     }>> & Readonly<{}>, {
         size: string;
-        prominence: string;
         isVertical: boolean;
+        prominence: string;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

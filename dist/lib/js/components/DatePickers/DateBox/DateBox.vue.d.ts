@@ -405,9 +405,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
 }>> & Readonly<{}>, {
     color: string;
-    isInteractive: boolean;
     state: string;
     isOpen: boolean;
+    isInteractive: boolean;
     placeholder: string;
     startDate: Date;
     endDate: Date;

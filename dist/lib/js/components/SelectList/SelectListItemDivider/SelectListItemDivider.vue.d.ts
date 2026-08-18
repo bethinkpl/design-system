@@ -39,8 +39,8 @@ declare const _default: import('vue').DefineComponent<{}, {}, {}, {}, {}, import
         };
     }>> & Readonly<{}>, {
         size: string;
-        prominence: string;
         isVertical: boolean;
+        prominence: string;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;

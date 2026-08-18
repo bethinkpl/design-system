@@ -428,8 +428,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     onClose?: (() => any) | undefined;
     onTitleClick?: (() => any) | undefined;
 }>, {
-    eyebrowText: string;
     state: string;
+    eyebrowText: string;
     borderColor: string;
     shortTitle: string;
     isTitleInteractive: boolean;
@@ -884,9 +884,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: string;
         touchableDeprecated: boolean;
         color: string;
+        elevation: string;
         radius: string;
         state: string;
-        elevation: string;
         colorScheme: string;
     }, {}, {
         WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -1094,8 +1094,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     }>> & Readonly<{}>, {
         size: string;
-        prominence: string;
         isVertical: boolean;
+        prominence: string;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     DsDropdown: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         boundariesSelector: {
@@ -1182,8 +1182,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         onHide?: ((...args: any[]) => any) | undefined;
         "onDocument-click"?: ((...args: any[]) => any) | undefined;
     }>, {
-        radius: string;
         placement: string;
+        radius: string;
         boundariesSelector: string;
         forceShow: boolean;
         sameWidth: boolean;
@@ -1228,8 +1228,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: string;
         };
     }>> & Readonly<{}>, {
-        height: string;
         radius: string;
+        height: string;
         width: string;
     }, {}, {
         PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void>;

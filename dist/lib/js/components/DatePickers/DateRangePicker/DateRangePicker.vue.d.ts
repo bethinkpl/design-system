@@ -597,8 +597,8 @@ declare const _default: import('vue').DefineComponent<{
     }) => any) | undefined;
 }>, {
     color: string;
-    isInteractive: boolean;
     state: string;
+    isInteractive: boolean;
     placeholder: string;
     startDate: Date;
     endDate: Date;
@@ -1016,9 +1016,9 @@ declare const _default: import('vue').DefineComponent<{
         };
     }>> & Readonly<{}>, {
         color: string;
-        isInteractive: boolean;
         state: string;
         isOpen: boolean;
+        isInteractive: boolean;
         placeholder: string;
         startDate: Date;
         endDate: Date;

@@ -75,8 +75,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             default: string;
         };
     }>> & Readonly<{}>, {
-        height: string;
         radius: string;
+        height: string;
         width: string;
     }, {}, {
         PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void>;
