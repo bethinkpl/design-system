@@ -132,6 +132,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BELL_SLASH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BELL_ON_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -199,6 +201,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_COMMENTS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMPASS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -510,11 +513,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     icon: any;
     size: RichListItemSize;
     type: RichListItemType;
-    isInteractive: boolean;
-    state: RichListItemState;
     elevation: "small";
     backgroundColor: RichListItemBackgroundColor;
+    state: RichListItemState;
     iconColor: string;
+    isInteractive: boolean;
     layout: RichListItemLayout;
     borderColor: RichListItemBorderColor;
     isSelected: boolean;
@@ -628,8 +631,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
     }>> & Readonly<{}>, {
         size: string;
-        prominence: string;
         isVertical: boolean;
+        prominence: string;
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
     DsIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
         icon: {

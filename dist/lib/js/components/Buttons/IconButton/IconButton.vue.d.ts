@@ -98,6 +98,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BELL_SLASH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BELL_ON_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -165,6 +167,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_COMMENTS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMPASS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -447,9 +450,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     type: string;
     touchableDeprecated: boolean;
     color: string;
+    elevation: string;
     radius: string;
     state: string;
-    elevation: string;
     colorScheme: string;
 }, {}, {
     WnlIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -550,7 +553,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<string>;
             };
             as: {
-                type: import('vue').PropType<"a" | "button" | "span">;
+                type: import('vue').PropType<"a" | "button" | "span" | "router-link" | "nuxt-link">;
             };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
@@ -581,7 +584,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 type: import('vue').PropType<string>;
             };
             as: {
-                type: import('vue').PropType<"a" | "button" | "span">;
+                type: import('vue').PropType<"a" | "button" | "span" | "router-link" | "nuxt-link">;
             };
         }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
@@ -609,7 +612,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: import('vue').PropType<string>;
         };
         as: {
-            type: import('vue').PropType<"a" | "button" | "span">;
+            type: import('vue').PropType<"a" | "button" | "span" | "router-link" | "nuxt-link">;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: {

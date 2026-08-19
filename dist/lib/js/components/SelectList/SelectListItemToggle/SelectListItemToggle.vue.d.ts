@@ -176,9 +176,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         $slots: Readonly<{
             accessory?: () => any;
             metadata?: () => any;
+            text?: () => any;
         }> & {
             accessory?: () => any;
             metadata?: () => any;
+            text?: () => any;
         };
     });
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;

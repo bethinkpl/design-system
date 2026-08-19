@@ -580,7 +580,7 @@ declare const _default: import('vue').DefineComponent<{
         readonly ICON_RIGHT_ONLY: "iconRightOnly";
     };
 }, {}, {
-    borderColor(): "danger" | "neutralWeak" | "primary" | "warning" | "dangerWeak" | "warningWeak";
+    borderColor(): "primary" | "danger" | "neutralWeak" | "warning" | "dangerWeak" | "warningWeak";
     resolvedPlaceholder(): any;
     eyebrowText(): string;
     text(): any;
@@ -611,10 +611,10 @@ declare const _default: import('vue').DefineComponent<{
     icon: any;
     label: string;
     color: string;
-    isInteractive: boolean;
     state: string;
     isIconHiddenOnMobile: boolean;
     date: Date;
+    isInteractive: boolean;
     isLabelUppercase: boolean;
     placeholder: string;
     additionalText: string;
@@ -755,11 +755,11 @@ declare const _default: import('vue').DefineComponent<{
         };
     }>> & Readonly<{}>, {
         color: TileColor;
-        eyebrowText: string;
-        isEyebrowTextUppercase: boolean;
         state: TileState;
         iconLeft: Record<string, any>;
         iconRight: Record<string, any>;
+        eyebrowText: string;
+        isEyebrowTextUppercase: boolean;
         interactive: boolean;
         additionalText: string;
         eyebrowEllipsis: boolean;
@@ -858,6 +858,8 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BELL_SLASH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_BELL_ON_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -925,6 +927,7 @@ declare const _default: import('vue').DefineComponent<{
             readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_COMMENTS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMMENTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMPASS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1169,9 +1172,9 @@ declare const _default: import('vue').DefineComponent<{
         };
     }>> & Readonly<{}>, {
         color: string;
-        isInteractive: boolean;
         state: string;
         isOpen: boolean;
+        isInteractive: boolean;
         placeholder: string;
         startDate: Date;
         endDate: Date;

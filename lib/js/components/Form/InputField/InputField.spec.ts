@@ -87,6 +87,16 @@ describe('InputField', () => {
 		expect(wrapper.find(`#${messageId}`).exists()).toBe(true);
 	});
 
+	it('should set aria-describedby only when a message is rendered', () => {
+		const wrapper = setup({
+			props: {
+				label: 'Label',
+			},
+		});
+
+		expect(wrapper.find('input').attributes('aria-describedby')).toBeUndefined();
+	});
+
 	it('should pass inputProps to the input element', () => {
 		const inputProps = {
 			placeholder: 'Enter text',
@@ -252,7 +262,7 @@ describe('InputField', () => {
 			}).toThrowError();
 		});
 
-		it('overrides state and message on vee-validate form error', async () => {
+		it('should keep an explicit state and message over a vee-validate error', async () => {
 			const { wrapper, errorsRef } = setupWithForm({
 				state: FORM_FIELD_STATES.SUCCESS,
 				messageText: 'Success message',

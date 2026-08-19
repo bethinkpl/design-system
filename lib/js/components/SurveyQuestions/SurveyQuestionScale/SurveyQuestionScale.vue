@@ -1,14 +1,12 @@
 <template>
 	<div class="ds-surveyQuestionScale">
-		<ds-modal v-if="showModal" @close-modal="showModal = false">
+		<ds-modal
+			v-if="showModal"
+			:footer-secondary-button-text="t('ds.globals.confirmation')"
+			@close-modal="showModal = false"
+			@secondary-button-click="showModal = false"
+		>
 			<slot name="explanation" />
-			<template #footer>
-				<div>
-					<ds-button :type="BUTTON_TYPES.OUTLINED" @click="showModal = false">
-						{{ t('ds.globals.confirmation') }}
-					</ds-button>
-				</div>
-			</template>
 		</ds-modal>
 		<ds-card>
 			<template #content>
@@ -234,8 +232,7 @@
 import DsCard from '../../Cards/Card';
 import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
-import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
-import DsModal from '../../Modal';
+import DsModal from '../../Modals/Modal';
 import SurveyToggle, {
 	SURVEY_TOGGLE_MEANINGS,
 	SURVEY_TOGGLE_STATES,
@@ -261,7 +258,6 @@ export default defineComponent({
 		IconButton,
 		SurveyToggle,
 		DsModal,
-		DsButton,
 	},
 	props: {
 		title: {
@@ -321,7 +317,6 @@ export default defineComponent({
 			ICONS: Object.freeze(ICONS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
-			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			SURVEY_TOGGLE_COLORS: Object.freeze(SURVEY_TOGGLE_MEANINGS),
 			SURVEY_TOGGLE_STATES: Object.freeze(SURVEY_TOGGLE_STATES),
 			SURVEY_TOGGLE_STATUSES: Object.freeze(SURVEY_TOGGLE_STATUSES),

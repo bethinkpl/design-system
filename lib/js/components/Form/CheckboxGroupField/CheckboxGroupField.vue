@@ -5,7 +5,7 @@
 				v-model="value"
 				class="ds-checkboxGroupField"
 				role="group"
-				:aria-describedby="messageId"
+				:aria-describedby="hasMessage ? messageId : undefined"
 				:aria-labelledby="labelId"
 				:disabled="formFieldProps.state === FORM_FIELD_STATES.DISABLED"
 				loop
@@ -64,7 +64,7 @@ const {
 	...rest
 } = defineProps<CheckboxGroupFieldProps>();
 
-defineSlots<CheckboxGroupFieldSlots>();
+const slots = defineSlots<CheckboxGroupFieldSlots>();
 
 const modelValue = defineModel<Array<string>>({
 	default: [],
@@ -76,6 +76,9 @@ const formFieldProps = computed<FormFieldProps>(() => {
 	// this is needed to avoid passing modelValue to FormField as prop
 	return extractFormFieldProps(rest, errors.value);
 });
+
+// Avoids pointing `aria-describedby` at a message element that is never rendered.
+const hasMessage = computed(() => !!(formFieldProps.value.messageText || slots.message));
 
 const mappedState = computed(() => {
 	const stateMap: Record<FormFieldState, CheckboxState> = {

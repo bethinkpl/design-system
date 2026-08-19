@@ -209,6 +209,7 @@ import { faCheck as fasCheck } from '@fortawesome/pro-solid-svg-icons/faCheck';
 import { faCircleCheck as fasCircleCheck } from '@fortawesome/pro-solid-svg-icons/faCircleCheck';
 import { faCirclePlay as fasCirclePlay } from '@fortawesome/pro-solid-svg-icons/faCirclePlay';
 import { faComment as fasComment } from '@fortawesome/pro-solid-svg-icons/faComment';
+import { faComments as fasComments } from '@fortawesome/pro-solid-svg-icons/faComments';
 import { faCompass as fasCompass } from '@fortawesome/pro-solid-svg-icons/faCompass';
 import { faExclamation as fasExclamation } from '@fortawesome/pro-solid-svg-icons/faExclamation';
 import { faFileLines as fasFileLines } from '@fortawesome/pro-solid-svg-icons/faFileLines';
@@ -247,6 +248,8 @@ import { faCircleDot as fasCircleDot } from '@fortawesome/pro-solid-svg-icons/fa
 import { faDot as fasDot } from '@fortawesome/pro-solid-svg-icons/faDot';
 import { faFlagCheckered as fasFlagCheckered } from '@fortawesome/pro-solid-svg-icons/faFlagCheckered';
 import { faSquare as fasSquare } from '@fortawesome/pro-solid-svg-icons/faSquare';
+import { faBellSlash as fasBellSlash } from '@fortawesome/pro-solid-svg-icons/faBellSlash';
+import { faBellOn as fasBellOn } from '@fortawesome/pro-solid-svg-icons/faBellOn';
 
 import { faChevronLeft as falChevronLeft } from '@fortawesome/pro-light-svg-icons/faChevronLeft';
 import { faChevronRight as falChevronRight } from '@fortawesome/pro-light-svg-icons/faChevronRight';
@@ -304,6 +307,8 @@ export const FONTAWESOME_ICONS = {
 	FA_BADGE_PERCENT: faBadgePercent,
 	FA_BAN: faBan,
 	FA_BARS: faBars,
+	FA_BELL_SLASH_SOLID: fasBellSlash,
+	FA_BELL_ON_SOLID: fasBellOn,
 	FA_BELL_SLASH: faBellSlash,
 	FA_BELL: faBell,
 	FA_BOLT: faBolt,
@@ -371,6 +376,7 @@ export const FONTAWESOME_ICONS = {
 	FA_COMMENT: faComment,
 	FA_COMMENTS_QUESTION_CHECK: faCommentsQuestionCheck,
 	FA_COMMENTS_QUESTION: faCommentsQuestion,
+	FA_COMMENTS_SOLID: fasComments,
 	FA_COMMENTS: faComments,
 	FA_COMPASS_SOLID: fasCompass,
 	FA_COMPRESS: faCompress,

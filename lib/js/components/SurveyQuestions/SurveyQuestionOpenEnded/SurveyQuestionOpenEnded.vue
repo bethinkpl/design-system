@@ -3,15 +3,13 @@
 		class="ds-surveyQuestionOpenEnded"
 		:class="{ '-ds-disabled': state === SURVEY_QUESTION_STATES.DISABLED }"
 	>
-		<ds-modal v-if="showModal" @close-modal="showModal = false">
+		<ds-modal
+			v-if="showModal"
+			:footer-secondary-button-text="t('ds.globals.confirmation')"
+			@close-modal="showModal = false"
+			@secondary-button-click="showModal = false"
+		>
 			<slot name="explanation" />
-			<template #footer>
-				<div>
-					<ds-button :type="BUTTON_TYPES.OUTLINED" @click="showModal = false">
-						{{ t('ds.globals.confirmation') }}
-					</ds-button>
-				</div>
-			</template>
 		</ds-modal>
 		<ds-card>
 			<template #content>
@@ -82,8 +80,7 @@
 
 <script lang="ts">
 import DsCard from '../../Cards/Card';
-import DsModal from '../../Modal';
-import DsButton, { BUTTON_TYPES } from '../../Buttons/Button';
+import DsModal from '../../Modals/Modal';
 import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { SURVEY_QUESTION_STATES, SurveyQuestionState } from '../SurveyQuestion.consts';
@@ -97,7 +94,6 @@ export default defineComponent({
 	name: 'SurveyQuestionOpenEnded',
 	components: {
 		SurveyQuestionTextarea,
-		DsButton,
 		DsCard,
 		IconButton,
 		DsModal,
@@ -138,7 +134,6 @@ export default defineComponent({
 			ICONS: Object.freeze(ICONS),
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),
 			ICON_SIZES: Object.freeze(ICON_SIZES),
-			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			SURVEY_QUESTION_STATES: Object.freeze(SURVEY_QUESTION_STATES),
 		};
 	},

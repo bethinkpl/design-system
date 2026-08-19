@@ -4,9 +4,11 @@ import { IconItem } from '../../Icons/Icon';
 declare function __VLS_template(): Readonly<{
     accessory?: () => any;
     metadata?: () => any;
+    text?: () => any;
 }> & {
     accessory?: () => any;
     metadata?: () => any;
+    text?: () => any;
 };
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     iconLeft?: IconItem | null;

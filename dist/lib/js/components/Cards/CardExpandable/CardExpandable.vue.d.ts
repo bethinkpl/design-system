@@ -70,6 +70,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_BADGE_PERCENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BAN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BARS: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BELL_SLASH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_BELL_ON_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BELL_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BELL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_BOLT: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -137,6 +139,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_COMMENTS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMMENTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMPASS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_COMPRESS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -382,11 +385,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             hasRibbon: {
                 type: import('vue').PropType<boolean>;
             };
-            hasRadius: {
-                type: import('vue').PropType<boolean>;
+            elevation: {
+                type: import('vue').PropType<import('../Card/Card.consts').CardElevation>;
+            };
+            radius: {
+                type: import('vue').PropType<import('../Card/Card.consts').CardRadius>;
             };
             backgroundColor: {
                 type: import('vue').PropType<import('../Card/Card.consts').CardBackgroundColor>;
+            };
+            isFlat: {
+                type: import('vue').PropType<boolean>;
             };
             ribbonPosition: {
                 type: import('vue').PropType<import('../Card/Card.consts').CardRibbonPositions>;
@@ -409,11 +418,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             loadingBarTime: {
                 type: import('vue').PropType<string>;
             };
-            isFlat: {
-                type: import('vue').PropType<boolean>;
-            };
             isContentScrollable: {
                 type: import('vue').PropType<boolean>;
+            };
+            hasRadius: {
+                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to radius">>;
             };
         }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
             P: {};
@@ -441,11 +450,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             hasRibbon: {
                 type: import('vue').PropType<boolean>;
             };
-            hasRadius: {
-                type: import('vue').PropType<boolean>;
+            elevation: {
+                type: import('vue').PropType<import('../Card/Card.consts').CardElevation>;
+            };
+            radius: {
+                type: import('vue').PropType<import('../Card/Card.consts').CardRadius>;
             };
             backgroundColor: {
                 type: import('vue').PropType<import('../Card/Card.consts').CardBackgroundColor>;
+            };
+            isFlat: {
+                type: import('vue').PropType<boolean>;
             };
             ribbonPosition: {
                 type: import('vue').PropType<import('../Card/Card.consts').CardRibbonPositions>;
@@ -468,11 +483,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             loadingBarTime: {
                 type: import('vue').PropType<string>;
             };
-            isFlat: {
-                type: import('vue').PropType<boolean>;
-            };
             isContentScrollable: {
                 type: import('vue').PropType<boolean>;
+            };
+            hasRadius: {
+                type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to radius">>;
             };
         }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
         __isFragment?: never;
@@ -497,11 +512,17 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         hasRibbon: {
             type: import('vue').PropType<boolean>;
         };
-        hasRadius: {
-            type: import('vue').PropType<boolean>;
+        elevation: {
+            type: import('vue').PropType<import('../Card/Card.consts').CardElevation>;
+        };
+        radius: {
+            type: import('vue').PropType<import('../Card/Card.consts').CardRadius>;
         };
         backgroundColor: {
             type: import('vue').PropType<import('../Card/Card.consts').CardBackgroundColor>;
+        };
+        isFlat: {
+            type: import('vue').PropType<boolean>;
         };
         ribbonPosition: {
             type: import('vue').PropType<import('../Card/Card.consts').CardRibbonPositions>;
@@ -524,11 +545,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         loadingBarTime: {
             type: import('vue').PropType<string>;
         };
-        isFlat: {
-            type: import('vue').PropType<boolean>;
-        };
         isContentScrollable: {
             type: import('vue').PropType<boolean>;
+        };
+        hasRadius: {
+            type: import('vue').PropType<import('../../../utils/type.utils').RemovedProp<"renamed to radius">>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
         $slots: Readonly<{

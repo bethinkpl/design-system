@@ -1,9 +1,9 @@
 import { inject, MaybeRefOrGetter, ref, Ref, toValue } from 'vue';
 import { FormContextKey, useField } from 'vee-validate';
 
-export function useFormFieldWithinForm<T = string>(
+export function useFormFieldWithinForm<T>(
 	name: MaybeRefOrGetter<string | undefined>,
-	modelValue: Ref<T | undefined>,
+	modelValue: Ref<T>,
 ) {
 	const nameValue = toValue(name);
 	const form = inject(FormContextKey, null);
@@ -14,9 +14,9 @@ export function useFormFieldWithinForm<T = string>(
 		);
 	}
 
-	const field = nameValue ? useField<Array<string>>(nameValue, undefined) : null;
+	const field = nameValue ? useField<T>(nameValue, undefined) : null;
 
-	const value = field ? field.value : modelValue;
+	const value: Ref<T> = field ? field.value : modelValue;
 
 	return {
 		field,
