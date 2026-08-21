@@ -43,7 +43,19 @@
 				:icon="accessStatusIcon"
 				:size="accessStatusSize"
 				:image-url="accessStatusImage"
-			/>
+			>
+				<!-- The v-if matters: without it the badge always receives an `image` slot,
+					 which would suppress the icon of every other access status. -->
+				<template
+					v-if="
+						$slots.teamMemberImage &&
+						accessStatus === AVATAR_ACCESS_STATUSES.TEAM_MEMBER
+					"
+					#image
+				>
+					<slot name="teamMemberImage" />
+				</template>
+			</ds-badge>
 		</div>
 	</div>
 </template>
@@ -217,6 +229,10 @@ const {
 	accessStatus?: AvatarAccessStatus;
 	teamMemberImageUrl?: string;
 	activityStatusTooltip?: string;
+}>();
+
+defineSlots<{
+	teamMemberImage?: () => any;
 }>();
 
 const { initials, initialBackgroundColor } = useInitials();
