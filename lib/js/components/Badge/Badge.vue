@@ -24,11 +24,20 @@
 			]"
 		>
 		</div>
-		<div v-if="!imageUrl && !icon" class="ds-badge__content">
+		<div v-if="!$slots.image && !imageUrl && !icon" class="ds-badge__content">
 			{{ label }}
 		</div>
-		<icon v-if="!imageUrl && icon" :icon="icon" :size="iconSize" class="ds-badge__icon" />
-		<img v-if="imageUrl" :src="imageUrl" class="ds-badge__image" />
+		<icon
+			v-if="!$slots.image && !imageUrl && icon"
+			:icon="icon"
+			:size="iconSize"
+			class="ds-badge__icon"
+		/>
+		<span v-if="$slots.image || imageUrl" class="ds-badge__image">
+			<slot name="image">
+				<img :src="imageUrl" />
+			</slot>
+		</span>
 	</div>
 </template>
 
@@ -99,7 +108,25 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 	}
 
 	&__image {
+		align-items: center;
+		// An SVG with no width/height attributes defaults to 100% in both axes, so the box it sits
+		// in must be definite - otherwise the two size off each other and collapse to zero.
+		// `height` resolves against the badge, `aspect-ratio` then gives an equally definite width.
+		aspect-ratio: 1;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		// Keeps the content above the absolutely positioned elevation layer.
 		position: relative;
+
+		// Slotted content carries the parent's scope id, so `:deep()` is required to reach it.
+		// Filling the box makes any aspect ratio fit: SVGs letterbox via `preserveAspectRatio`,
+		// raster images via `object-fit`. Both stay centred.
+		:deep(> *) {
+			height: 100%;
+			object-fit: contain;
+			width: 100%;
+		}
 	}
 
 	&.-ds-x-small {
@@ -281,6 +308,10 @@ const {
 	icon?: IconItem;
 	imageUrl?: string;
 	elevation?: BadgeElevation;
+}>();
+
+defineSlots<{
+	image?: () => any;
 }>();
 
 const iconSize = computed(() => {

@@ -3,6 +3,7 @@ import { Meta, StoryObj } from '@storybook/vue3';
 
 import Avatar from './Avatar.vue';
 import { AVATAR_ACCESS_STATUSES, AVATAR_ACTIVITY_STATUSES, AVATAR_SIZES } from './Avatar.consts';
+import LogoBadge from '../../../images/logo-badge.svg';
 
 type AvatarProps = ComponentProps<typeof Avatar>;
 
@@ -55,7 +56,7 @@ export const Interactive: Story = {
 		size: AVATAR_SIZES.X_SMALL,
 		username: 'Dariusz Chrapek',
 		avatarUrl:
-			'https://wiecejnizlek.pl/wp-content/uploads/2021/08/Dariusz_Chrapek-uai-2996x2996-1-scaled.jpeg',
+			'https://wiecejnizlek.pl/_cms/glide/http/aHR0cHM6Ly9jbXMubGFuZGluZy5iZXRoaW5rLnRlY2gvYXNzZXRzL3RlYW0vZGFyaXVzemlyZW5ldXN6X2NocmFwZWsucG5n?w=400&h=400&fit=contain&q=85&fm=webp&dpr=1&t=',
 		teamMemberImageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
 		activityStatusTooltip: 'Active now',
 	},
@@ -65,6 +66,25 @@ Interactive.parameters = {
 	design: {
 		type: 'figma',
 		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=12364-12175&t=UpUoIm9oCAaH4dEp-4',
+	},
+};
+
+export const InteractiveWithTeamMemberImageSlot: Story = {
+	render: (args: AvatarProps) => ({
+		components: { Avatar, LogoBadge },
+		setup() {
+			return {
+				args,
+			};
+		},
+		template: `<Avatar v-bind="args"><template #teamMemberImage><logo-badge /></template></Avatar>`,
+	}),
+	args: {
+		size: AVATAR_SIZES.MEDIUM,
+		username: 'Dariusz Chrapek',
+		avatarUrl:
+			'https://wiecejnizlek.pl/_cms/glide/http/aHR0cHM6Ly9jbXMubGFuZGluZy5iZXRoaW5rLnRlY2gvYXNzZXRzL3RlYW0vZGFyaXVzemlyZW5ldXN6X2NocmFwZWsucG5n?w=400&h=400&fit=contain&q=85&fm=webp&dpr=1&t=',
+		accessStatus: AVATAR_ACCESS_STATUSES.TEAM_MEMBER,
 	},
 };
 
