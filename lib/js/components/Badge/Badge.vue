@@ -24,11 +24,20 @@
 			]"
 		>
 		</div>
-		<div v-if="!imageUrl && !icon" class="ds-badge__content">
+		<div v-if="!$slots.image && !imageUrl && !icon" class="ds-badge__content">
 			{{ label }}
 		</div>
-		<icon v-if="!imageUrl && icon" :icon="icon" :size="iconSize" class="ds-badge__icon" />
-		<img v-if="imageUrl" :src="imageUrl" class="ds-badge__image" />
+		<icon
+			v-if="!$slots.image && !imageUrl && icon"
+			:icon="icon"
+			:size="iconSize"
+			class="ds-badge__icon"
+		/>
+		<span v-if="$slots.image || imageUrl" class="ds-badge__image">
+			<slot name="image">
+				<img :src="imageUrl" />
+			</slot>
+		</span>
 	</div>
 </template>
 
@@ -99,7 +108,20 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 	}
 
 	&__image {
+		align-items: center;
+		// Gives the box a definite width: an SVG with no width/height attributes is 100% wide and
+		// would otherwise collapse to zero.
+		aspect-ratio: 1;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		// Keeps the content above the absolutely positioned elevation layer.
 		position: relative;
+
+		:deep(> *) {
+			max-height: 100%;
+			max-width: 100%;
+		}
 	}
 
 	&.-ds-x-small {
@@ -281,6 +303,10 @@ const {
 	icon?: IconItem;
 	imageUrl?: string;
 	elevation?: BadgeElevation;
+}>();
+
+defineSlots<{
+	image?: () => any;
 }>();
 
 const iconSize = computed(() => {

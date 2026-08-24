@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { h } from 'vue';
 import { mount } from '@vue/test-utils';
 import Badge from './Badge.vue';
 import { BADGE_COLORS, BADGE_ELEVATIONS, BADGE_SIZES } from './Badge.consts';
@@ -45,7 +46,7 @@ describe('Badge', () => {
 		});
 
 		expect(wrapper.find('.ds-badge__image').exists()).toBe(true);
-		expect(wrapper.find('.ds-badge__image').attributes('src')).toBe(imageUrl);
+		expect(wrapper.find('.ds-badge__image img').attributes('src')).toBe(imageUrl);
 	});
 
 	it('should not render icon if image is present', () => {
@@ -70,6 +71,72 @@ describe('Badge', () => {
 
 		expect(wrapper.find('.ds-badge__image').exists()).toBe(true);
 		expect(wrapper.find('.ds-badge__content').exists()).toBe(false);
+	});
+
+	describe('image slot', () => {
+		const imageSlot = () => h('span', { class: 'custom-image' }, 'SVG');
+
+		it('should render the image slot content', () => {
+			const wrapper = mount(Badge, {
+				slots: {
+					image: imageSlot,
+				},
+			});
+
+			expect(wrapper.find('.ds-badge__image .custom-image').exists()).toBe(true);
+		});
+
+		it('should render the image slot instead of the default image', () => {
+			const wrapper = mount(Badge, {
+				props: {
+					imageUrl: 'https://via.placeholder.com/150',
+				},
+				slots: {
+					image: imageSlot,
+				},
+			});
+
+			expect(wrapper.find('.custom-image').exists()).toBe(true);
+			expect(wrapper.find('.ds-badge__image img').exists()).toBe(false);
+		});
+
+		it('should not render icon if the image slot is present', () => {
+			const wrapper = mount(Badge, {
+				props: {
+					icon: ICONS.FA_BELL,
+				},
+				slots: {
+					image: imageSlot,
+				},
+			});
+
+			expect(wrapper.find('.custom-image').exists()).toBe(true);
+			expect(wrapper.find('.ds-icon').exists()).toBe(false);
+		});
+
+		it('should not render label if the image slot is present', () => {
+			const wrapper = mount(Badge, {
+				props: {
+					label: '1',
+				},
+				slots: {
+					image: imageSlot,
+				},
+			});
+
+			expect(wrapper.find('.custom-image').exists()).toBe(true);
+			expect(wrapper.find('.ds-badge__content').exists()).toBe(false);
+		});
+
+		it('should not render the image wrapper without an image slot nor imageUrl', () => {
+			const wrapper = mount(Badge, {
+				props: {
+					label: '1',
+				},
+			});
+
+			expect(wrapper.find('.ds-badge__image').exists()).toBe(false);
+		});
 	});
 
 	it.each([
