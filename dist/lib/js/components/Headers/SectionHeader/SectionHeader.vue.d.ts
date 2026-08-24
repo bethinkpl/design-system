@@ -276,7 +276,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_MOBILE_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MOON_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
-        readonly FA_MOON_STAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_NOTES: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PAPER_PLANE: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -319,6 +318,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_SQUARE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_SUN_BRIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STETHOSCOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STOPWATCH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_TAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -818,7 +818,6 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_MOBILE_ROTATE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MONEY_BILL1: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MOON_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
-            readonly FA_MOON_STAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_MUSIC: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_NOTES: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PAPER_PLANE: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -861,6 +860,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_SQUARE_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STAR_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_SUN_BRIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STETHOSCOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STOPWATCH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_TAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
