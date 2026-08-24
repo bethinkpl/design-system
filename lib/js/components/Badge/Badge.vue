@@ -109,9 +109,8 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 
 	&__image {
 		align-items: center;
-		// An SVG with no width/height attributes defaults to 100% in both axes, so the box it sits
-		// in must be definite - otherwise the two size off each other and collapse to zero.
-		// `height` resolves against the badge, `aspect-ratio` then gives an equally definite width.
+		// Gives the box a definite width: an SVG with no width/height attributes is 100% wide and
+		// would otherwise collapse to zero.
 		aspect-ratio: 1;
 		display: flex;
 		height: 100%;
@@ -119,13 +118,9 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 		// Keeps the content above the absolutely positioned elevation layer.
 		position: relative;
 
-		// Slotted content carries the parent's scope id, so `:deep()` is required to reach it.
-		// Filling the box makes any aspect ratio fit: SVGs letterbox via `preserveAspectRatio`,
-		// raster images via `object-fit`. Both stay centred.
 		:deep(> *) {
-			height: 100%;
-			object-fit: contain;
-			width: 100%;
+			max-height: 100%;
+			max-width: 100%;
 		}
 	}
 
