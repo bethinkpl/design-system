@@ -199,10 +199,7 @@ $progress-bar-badge-colors: (
 	}
 
 	&__bar {
-		// Intentionally the hovered token instead of $color-default-background: on the dark theme
-		// the default background made empty progress bars almost invisible. Chosen under time
-		// pressure for the dark theme beta - not ideal, but empty bars read clearly on dark backgrounds.
-		background-color: $color-neutral-background-hovered;
+		background-color: $color-neutral-background;
 		border-radius: $progress-bar-border-radius;
 		height: 100%;
 		overflow: hidden;

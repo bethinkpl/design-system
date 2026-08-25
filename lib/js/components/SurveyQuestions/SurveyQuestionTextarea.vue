@@ -18,10 +18,12 @@
 .ds-surveyQuestionTextarea {
 	@include formText-s-default-regular;
 
+	background-color: $color-default-background;
 	border: 1px solid $color-neutral-border-weak;
 	border-radius: $radius-s;
 	box-shadow: inset 0 1px 3px var(--raw-gray-400);
 	box-sizing: border-box;
+	color: $color-default-text;
 	min-height: 2em;
 	padding: $space-4;
 	resize: none;
