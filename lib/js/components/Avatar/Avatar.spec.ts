@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { h } from 'vue';
 import { mount } from '@vue/test-utils';
 import Avatar from './Avatar.vue';
 import { AVATAR_ACCESS_STATUSES, AVATAR_ACTIVITY_STATUSES, AVATAR_SIZES } from './Avatar.consts';
@@ -7,9 +8,10 @@ import { ComponentProps } from 'vue-component-type-helpers';
 
 const avatarUrl = 'https://wiecejnizlek.pl/avatar.jpg';
 
-const setup = (props: ComponentProps<typeof Avatar>) =>
+const setup = (props: ComponentProps<typeof Avatar>, slots = {}) =>
 	mount(Avatar, {
 		props,
+		slots,
 		global: {
 			directives: {
 				pvTooltip: () => {},
@@ -211,6 +213,68 @@ describe('Avatar', () => {
 		const accessStatusElement = wrapper.find('.ds-avatar__accessStatus');
 		expect(accessStatusElement.exists()).toBe(true);
 		expect(accessStatusElement.find('img').attributes('src')).toBe(teamMemberImageUrl);
+	});
+
+	describe('teamMemberImage slot', () => {
+		const teamMemberImage = () => h('span', { class: 'custom-team-member-image' }, 'SVG');
+
+		it('should render the slot content in the access status badge', () => {
+			const wrapper = setup(
+				{
+					size: AVATAR_SIZES.MEDIUM,
+					username: 'Dariusz Chrapek',
+					avatarUrl,
+					accessStatus: AVATAR_ACCESS_STATUSES.TEAM_MEMBER,
+				},
+				{ teamMemberImage },
+			);
+
+			const accessStatusElement = wrapper.find('.ds-avatar__accessStatus');
+			expect(accessStatusElement.find('.custom-team-member-image').exists()).toBe(true);
+		});
+
+		it('should render the slot instead of teamMemberImageUrl', () => {
+			const wrapper = setup(
+				{
+					size: AVATAR_SIZES.MEDIUM,
+					username: 'Dariusz Chrapek',
+					accessStatus: AVATAR_ACCESS_STATUSES.TEAM_MEMBER,
+					teamMemberImageUrl: 'https://lek.wiecejnizlek.pl/images/lek/logo-badge.svg',
+				},
+				{ teamMemberImage },
+			);
+
+			const accessStatusElement = wrapper.find('.ds-avatar__accessStatus');
+			expect(accessStatusElement.find('.custom-team-member-image').exists()).toBe(true);
+			expect(accessStatusElement.find('img').exists()).toBe(false);
+		});
+
+		it('should ignore the slot for other access statuses', () => {
+			const wrapper = setup(
+				{
+					size: AVATAR_SIZES.MEDIUM,
+					username: 'Dariusz Chrapek',
+					accessStatus: AVATAR_ACCESS_STATUSES.ACTIVE,
+				},
+				{ teamMemberImage },
+			);
+
+			const accessStatusElement = wrapper.find('.ds-avatar__accessStatus');
+			expect(accessStatusElement.find('.custom-team-member-image').exists()).toBe(false);
+			expect(accessStatusElement.find('.ds-icon .fa-unlock-keyhole').exists()).toBe(true);
+		});
+
+		it('should not render the access status badge without an access status', () => {
+			const wrapper = setup(
+				{
+					size: AVATAR_SIZES.MEDIUM,
+					username: 'Dariusz Chrapek',
+				},
+				{ teamMemberImage },
+			);
+
+			expect(wrapper.find('.ds-avatar__accessStatus').exists()).toBe(false);
+		});
 	});
 
 	it('should pass activityStatusTooltip to the tooltip component', () => {

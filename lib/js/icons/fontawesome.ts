@@ -170,6 +170,7 @@ import { faSquareCheck } from '@fortawesome/pro-regular-svg-icons/faSquareCheck'
 import { faSquareList } from '@fortawesome/pro-regular-svg-icons/faSquareList';
 import { faSquareMinus } from '@fortawesome/pro-regular-svg-icons/faSquareMinus';
 import { faStar } from '@fortawesome/pro-regular-svg-icons/faStar';
+import { faSunBright } from '@fortawesome/pro-regular-svg-icons/faSunBright';
 import { faTag } from '@fortawesome/pro-regular-svg-icons/faTag';
 import { faTags } from '@fortawesome/pro-regular-svg-icons/faTags';
 import { faText } from '@fortawesome/pro-regular-svg-icons/faText';
@@ -230,7 +231,6 @@ import { faMessageXmark } from '@fortawesome/pro-regular-svg-icons/faMessageXmar
 import { faMessage } from '@fortawesome/pro-regular-svg-icons/faMessage';
 import { faSitemap as fasSitemap } from '@fortawesome/pro-solid-svg-icons/faSitemap';
 import { faMemo as fasMemo } from '@fortawesome/pro-solid-svg-icons/faMemo';
-import { faMoonStar as fasMoonStar } from '@fortawesome/pro-solid-svg-icons/faMoonStar';
 import { faSquareCheck as fasSquareCheck } from '@fortawesome/pro-solid-svg-icons/faSquareCheck';
 import { faSquareList as fasSquareList } from '@fortawesome/pro-solid-svg-icons/faSquareList';
 import { faSparkles as fasSparkles } from '@fortawesome/pro-solid-svg-icons/faSparkles';
@@ -471,7 +471,6 @@ export const FONTAWESOME_ICONS = {
 	FA_MOBILE_ROTATE: faMobileRotate,
 	FA_MONEY_BILL1: faMoneyBill1,
 	FA_MOON_STAR: faMoonStar,
-	FA_MOON_STAR_SOLID: fasMoonStar,
 	FA_MUSIC: faMusic,
 	FA_NOTES: faNotes,
 	FA_PAPER_PLANE: faPaperPlane,
@@ -514,6 +513,7 @@ export const FONTAWESOME_ICONS = {
 	FA_SQUARE_SOLID: fasSquare,
 	FA_STAR_SOLID: fasStar,
 	FA_STAR: faStar,
+	FA_SUN_BRIGHT: faSunBright,
 	FA_STETHOSCOPE: faStethoscope,
 	FA_STOPWATCH_SOLID: fasStopwach,
 	FA_TAG: faTag,

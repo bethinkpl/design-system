@@ -199,7 +199,7 @@ $progress-bar-badge-colors: (
 	}
 
 	&__bar {
-		background-color: $color-default-background;
+		background-color: $color-neutral-background;
 		border-radius: $progress-bar-border-radius;
 		height: 100%;
 		overflow: hidden;
