@@ -1,1 +1,0 @@
-import{r as a}from"./vue.esm-bundler-B82wjiSt.js";import{u as l}from"./useFormFieldWithinForm-Oc6Cld1h.js";function F(t,u){const{value:n,errors:e,field:r}=l(t,u),o=a(!1);return{onBlur:s=>{r==null||r.handleBlur(s,!0),o.value=!0},onInput:()=>{o.value&&(r==null||r.validate())},value:n,errors:e}}export{F as u};

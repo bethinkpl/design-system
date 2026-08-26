@@ -1,9 +1,0 @@
-import{P as r,a as i}from"./PageHeader-BhmuA8TH.js";import{w as p}from"./decorator-CcL-F-0p.js";import"./Divider-Bxxz8Ron.js";import"./vue.esm-bundler-B82wjiSt.js";import"./_plugin-vue_export-helper-DlAUqK2U.js";import"./chunk-4XZ63LWV-laKUlqim.js";import"./v4-CwV2VaSl.js";const h={title:"Components/Headers/PageHeader",component:r,decorators:[p]},n=s=>({components:{PageHeader:r},setup(){return s},template:'<page-header :page-title="pageTitle" :supporting-info="supportingInfo" :mobile-layout="mobileLayout" :divider="divider"><template v-if="breadcrumbs" #breadcrumbs><div v-html="breadcrumbs" /></template><template v-if="actions" #actions><div v-html="actions" /></template></page-header>'}),e=n.bind({}),m={breadcrumbs:"",actions:"",pageTitle:"Page title",supportingInfo:"Supporting info write here",divider:!0,mobileLayout:i.VERTICAL},d={breadcrumbs:{control:"text"},actions:{control:"text"},pageTitle:{control:"text"},supportingInfo:{control:"text"},divider:{control:"boolean"},mobileLayout:{control:"select",options:Object.values(i)}};e.argTypes=d;e.args=m;e.parameters={actions:{handles:["click"]},design:{type:"figma",url:"https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6984-129711&t=ivzu5dM9vSgW20Re-0"}};var t,o,a;e.parameters={...e.parameters,docs:{...(t=e.parameters)==null?void 0:t.docs,source:{originalSource:`args => ({
-  components: {
-    PageHeader
-  },
-  setup() {
-    return args;
-  },
-  template: '<page-header' + ' :page-title="pageTitle"' + ' :supporting-info="supportingInfo"' + ' :mobile-layout="mobileLayout"' + ' :divider="divider"' + '>' + '<template v-if="breadcrumbs" #breadcrumbs><div v-html="breadcrumbs" /></template>' + '<template v-if="actions" #actions><div v-html="actions" /></template>' + '</page-header>'
-})`,...(a=(o=e.parameters)==null?void 0:o.docs)==null?void 0:a.source}}};const y=["Interactive"];export{e as Interactive,y as __namedExportsOrder,h as default};
