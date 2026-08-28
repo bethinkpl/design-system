@@ -168,6 +168,13 @@ import {
 import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
 import { DatePickerComposablesProps, initFlatpickr } from './DatePicker.composables';
 import {
+	areCalendarDates,
+	CalendarDate,
+	formatCalendarDate,
+	isCalendarDateOrNull,
+	parseCalendarDate,
+} from '../calendarDate';
+import {
 	DATE_PICKER_CALENDAR_POSITIONS,
 	DATE_PICKER_COLORS,
 	DATE_PICKER_STATES,
@@ -199,8 +206,14 @@ export default defineComponent({
 			default: null,
 		},
 		date: {
-			type: Date,
+			type: String as PropType<CalendarDate | null>,
 			default: null,
+			validator: isCalendarDateOrNull,
+		},
+		today: {
+			type: String as PropType<CalendarDate | null>,
+			default: null,
+			validator: isCalendarDateOrNull,
 		},
 		additionalText: {
 			type: String,
@@ -246,16 +259,19 @@ export default defineComponent({
 			default: DATE_PICKER_CALENDAR_POSITIONS.BOTTOM_LEFT,
 		},
 		disableDates: {
-			type: Array as PropType<Array<Date>>,
+			type: Array as PropType<Array<CalendarDate>>,
 			default: () => [],
+			validator: areCalendarDates,
 		},
 		minDate: {
-			type: Date,
+			type: String as PropType<CalendarDate | null>,
 			default: null,
+			validator: isCalendarDateOrNull,
 		},
 		maxDate: {
-			type: Date,
+			type: String as PropType<CalendarDate | null>,
 			default: null,
+			validator: isCalendarDateOrNull,
 		},
 		updatePositionBasedOnScrollableSelector: {
 			type: String,
@@ -263,7 +279,7 @@ export default defineComponent({
 		},
 	},
 	emits: {
-		'update:date': (date: Date) => true,
+		'update:date': (day: CalendarDate) => true,
 	},
 	setup(
 		props: DatePickerComposablesProps & {
@@ -280,13 +296,16 @@ export default defineComponent({
 		const { locale, t } = useLegacyI18n();
 
 		const onChange = (event: Array<Date>) => {
-			emit('update:date', event[0]);
+			emit('update:date', formatCalendarDate(event[0]));
 		};
 
 		const onClose = () => {
 			destroyDatePicker();
 			flatpickrInstance.value = null;
 		};
+
+		// An empty calendar opens on the consumer's today when it knows one, browser now otherwise.
+		const defaultDay = props.date ?? props.today;
 
 		const {
 			isOpen,
@@ -298,7 +317,7 @@ export default defineComponent({
 			props,
 			onChange,
 			onClose,
-			defaultDates: props.date ?? new Date(),
+			defaultDates: defaultDay ? parseCalendarDate(defaultDay) : new Date(),
 			mode: 'single',
 			locale: locale.value,
 		});
@@ -345,13 +364,15 @@ export default defineComponent({
 			if (!this.date) {
 				return '';
 			}
-			return capitalizeFirstLetter(localWeekdayName(this.date, this.locale));
+			return capitalizeFirstLetter(
+				localWeekdayName(parseCalendarDate(this.date), this.locale),
+			);
 		},
 		text() {
 			if (!this.date) {
 				return this.resolvedPlaceholder;
 			}
-			return localFullDateWithShortMonthName(this.date, this.locale);
+			return localFullDateWithShortMonthName(parseCalendarDate(this.date), this.locale);
 		},
 		tileIcon() {
 			if (this.additionalText) {
