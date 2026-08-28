@@ -39,8 +39,6 @@ describe('Typography Tokens', () => {
 			inputTokens.values.LMSDesignSystemTypography,
 		);
 
-		await new Promise((r) => setTimeout(r, 1));
-
 		let variableFileRaw = await promises.readFile(
 			tokensFilesConfig.destinationPath +
 				tokensFilesConfig.bin.files.variablesRaw.destinationVariables,
