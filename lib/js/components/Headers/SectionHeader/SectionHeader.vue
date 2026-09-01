@@ -11,6 +11,9 @@
 			<div class="ds-sectionHeader__main">
 				<div class="ds-sectionHeader__header">
 					<div class="ds-sectionHeader__titleWrapper" @click="onTitleWrapperClicked">
+						<div v-if="$slots.titleLeading" class="ds-sectionHeader__slotTitleLeading">
+							<slot name="titleLeading" />
+						</div>
 						<ds-icon
 							v-if="iconLeft"
 							class="ds-sectionHeader__icon"
@@ -32,10 +35,10 @@
 							</div>
 						</div>
 						<div
-							v-if="$slots.titleAccessory"
-							class="ds-sectionHeader__slotTitleAccessory"
+							v-if="$slots.titleTrailing"
+							class="ds-sectionHeader__slotTitleTrailing"
 						>
-							<slot name="titleAccessory" />
+							<slot name="titleTrailing" />
 						</div>
 						<ds-icon
 							v-if="iconRight"
@@ -302,7 +305,8 @@
 		}
 	}
 
-	&__slotTitleAccessory {
+	&__slotTitleLeading,
+	&__slotTitleTrailing {
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;

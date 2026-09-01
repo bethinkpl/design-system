@@ -59,7 +59,8 @@ const StoryTemplate: StoryFn<typeof SectionHeader> = (args) => {
 			' :supportingText="supportingText"' +
 			' @update:isExpanded="onIsExpandedUpdated"' +
 			'>' +
-			'<template v-if="titleAccessorySlot" #titleAccessory><slot-placeholder :label="titleAccessorySlot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" /></template>' +
+			'<template v-if="titleLeadingSlot" #titleLeading><slot-placeholder :label="titleLeadingSlot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" /></template>' +
+			'<template v-if="titleTrailingSlot" #titleTrailing><slot-placeholder :label="titleTrailingSlot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" /></template>' +
 			'<slot-placeholder v-if="defaultSlot" :label="defaultSlot" :size="SLOT_PLACEHOLDER_SIZES.MEDIUM" />' +
 			'</section-header>',
 	};
@@ -84,7 +85,8 @@ const args = {
 	isExpanded: false,
 	hideSlotWhenCollapsed: false,
 	mobileLayout: SECTION_HEADER_MOBILE_LAYOUTS.VERTICAL,
-	titleAccessorySlot: 'title accessory slot',
+	titleLeadingSlot: 'title leading slot',
+	titleTrailingSlot: 'title trailing slot',
 	defaultSlot: 'default slot',
 } as Args;
 

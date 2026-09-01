@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { mount } from '@vue/test-utils';
 
 import LabelValueItem from './LabelValueItem.vue';
-import Icon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
+import Icon, { ICON_SIZES, ICONS, IconItem } from '../../Icons/Icon';
 import {
 	LABEL_VALUE_ITEM_SIZES,
 	LABEL_VALUE_ITEM_STATES,
@@ -19,6 +19,7 @@ interface createComponentOptions {
 	size?: LabelValueItemSize;
 	isLabelStrong?: boolean;
 	valueColor?: LabelValueItemValueColor;
+	icon?: IconItem | null;
 	slots?: Record<string, string>;
 }
 
@@ -30,6 +31,7 @@ describe('LabelValueItem', () => {
 		size = LABEL_VALUE_ITEM_SIZES.MEDIUM,
 		isLabelStrong = false,
 		valueColor = LABEL_VALUE_ITEM_VALUE_COLORS.NEUTRAL,
+		icon = null,
 		slots = {},
 	}: createComponentOptions = {}) => {
 		return mount(LabelValueItem, {
@@ -40,6 +42,7 @@ describe('LabelValueItem', () => {
 				size,
 				isLabelStrong,
 				valueColor,
+				icon,
 			},
 			slots,
 		});
@@ -124,6 +127,21 @@ describe('LabelValueItem', () => {
 		expect(component.find('.ds-labelValueItem__value').classes()).toContain(
 			'-ds-color-primary',
 		);
+	});
+
+	it('does not render the icon by default', () => {
+		const component = createComponent();
+
+		expect(component.find('.ds-labelValueItem__icon').exists()).toBe(false);
+	});
+
+	it('renders the icon when the icon prop is set', () => {
+		const component = createComponent({ icon: ICONS.FA_CIRCLE_INFO });
+
+		const icon = component.findComponent(Icon);
+		expect(icon.exists()).toBe(true);
+		expect(icon.props().icon).toEqual(ICONS.FA_CIRCLE_INFO);
+		expect(icon.props().size).toBe(ICON_SIZES.XX_SMALL);
 	});
 
 	it('does not render the accessory slot content when the slot is empty', () => {
