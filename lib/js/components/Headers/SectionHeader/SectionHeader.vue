@@ -309,7 +309,6 @@
 	&__slotTitleTrailing {
 		align-items: flex-start;
 		display: flex;
-		flex: 1 1 0;
 		flex-direction: column;
 		min-width: 0;
 	}
