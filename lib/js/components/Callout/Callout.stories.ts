@@ -70,7 +70,7 @@ const meta: Meta<typeof Callout> = {
 		},
 		icon: {
 			control: 'select',
-			options: Object.keys(ICONS),
+			options: [null, ...Object.keys(ICONS)],
 		},
 		buttonIcon: {
 			control: 'select',
@@ -194,6 +194,12 @@ export const Variants: Story = {
 							:icon="ICONS.FA_COMMENT_DOTS"
 							main-text="Main text tutaj sobie będzie (no actions)"
 							supporting-text="Supporting text tutaj będzie"
+						/>
+						<Callout
+							:layout="layout"
+							main-text="Main text tutaj sobie będzie (no icon)"
+							supporting-text="Supporting text tutaj będzie"
+							button-label="Button small"
 						/>
 					</div>
 				</section>

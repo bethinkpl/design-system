@@ -43,6 +43,13 @@ describe('Callout', () => {
 		);
 	});
 
+	it('does not render the feature icon when no icon is provided', () => {
+		const wrapper = mount(Callout);
+
+		expect(wrapper.findComponent(DsFeatureIcon).exists()).toBe(false);
+		expect(wrapper.find('.ds-callout__content').exists()).toBe(true);
+	});
+
 	it('passes main and supporting text to the text group', () => {
 		const wrapper = mountCallout({
 			props: {
