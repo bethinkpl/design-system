@@ -111,6 +111,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly X_SMALL: "x-small";
         readonly SMALL: "small";
     };
+    BUTTON_RADIUSES: {
+        readonly CAPSULE: "capsule";
+        readonly ROUNDED: "rounded";
+    };
     BUTTON_TYPES: {
         readonly FILLED: "filled";
         readonly OUTLINED: "outlined";

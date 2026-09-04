@@ -14,8 +14,10 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     eyebrowText?: string | null;
     isInteractiveEyebrow?: boolean;
     eyebrowEllipsis?: boolean;
+    isEyebrowTextUppercase?: boolean;
     title?: string | null;
     titleEllipsis?: boolean;
+    isTitleTextUppercase?: boolean;
     titleColor?: DrawerHeaderTitleColor;
     leftIcon?: IconItem | null;
     chipLabel?: string | null;
@@ -32,8 +34,10 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     eyebrowText?: string | null;
     isInteractiveEyebrow?: boolean;
     eyebrowEllipsis?: boolean;
+    isEyebrowTextUppercase?: boolean;
     title?: string | null;
     titleEllipsis?: boolean;
+    isTitleTextUppercase?: boolean;
     titleColor?: DrawerHeaderTitleColor;
     leftIcon?: IconItem | null;
     chipLabel?: string | null;

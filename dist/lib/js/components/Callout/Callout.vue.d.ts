@@ -7,7 +7,7 @@ declare function __VLS_template(): Readonly<{
     actions?: () => any;
 };
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    icon: IconItem;
+    icon?: IconItem | null;
     layout?: CalloutLayout;
     size?: CalloutSize;
     iconColor?: CalloutIconColor;
@@ -21,7 +21,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "button-clicked": (e: Event) => void;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    icon: IconItem;
+    icon?: IconItem | null;
     layout?: CalloutLayout;
     size?: CalloutSize;
     iconColor?: CalloutIconColor;
