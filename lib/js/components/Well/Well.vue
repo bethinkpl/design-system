@@ -81,6 +81,11 @@
 
 		background-color: $color-fail-background;
 	}
+	&.-ds-highlight {
+		--ds-well-border-color: #{$color-highlight-border-weak};
+
+		background-color: $color-highlight-background;
+	}
 	&.-ds-info {
 		--ds-well-border-color: #{$color-info-border-weak};
 
@@ -221,6 +226,7 @@ const colorClass = computed(() => {
 		[WELL_COLORS.ACCENT]: '-ds-accent',
 		[WELL_COLORS.PRIMARY]: '-ds-primary',
 		[WELL_COLORS.FAIL]: '-ds-fail',
+		[WELL_COLORS.HIGHLIGHT]: '-ds-highlight',
 		[WELL_COLORS.INFO]: '-ds-info',
 		[WELL_COLORS.INVERTED]: '-ds-inverted',
 		[WELL_COLORS.NEUTRAL]: '-ds-neutral',

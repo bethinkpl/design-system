@@ -13,6 +13,7 @@ export const WELL_COLORS = {
 	ACCENT: 'accent',
 	PRIMARY: 'primary',
 	FAIL: 'fail',
+	HIGHLIGHT: 'highlight',
 	INFO: 'info',
 	INVERTED: 'inverted',
 	NEUTRAL: 'neutral',
