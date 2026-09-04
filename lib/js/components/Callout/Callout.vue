@@ -9,6 +9,7 @@
 	>
 		<div class="ds-callout__content">
 			<ds-feature-icon
+				v-if="icon"
 				class="ds-callout__icon"
 				:icon="icon"
 				:color="iconColor"
@@ -115,6 +116,7 @@ import {
 } from './Callout.consts';
 
 const {
+	icon = null,
 	layout = CALLOUT_LAYOUTS.VERTICAL,
 	size = CALLOUT_SIZES.MEDIUM,
 	iconColor = CALLOUT_ICON_COLORS.PRIMARY,
@@ -126,7 +128,7 @@ const {
 	buttonIcon = null,
 	isActionVertical = false,
 } = defineProps<{
-	icon: IconItem;
+	icon?: IconItem | null;
 	layout?: CalloutLayout;
 	size?: CalloutSize;
 	iconColor?: CalloutIconColor;

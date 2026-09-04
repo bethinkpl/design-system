@@ -9,6 +9,7 @@ import {
 	LABEL_VALUE_ITEM_STATES,
 	LABEL_VALUE_ITEM_VALUE_COLORS,
 } from './LabelValueItem.consts';
+import { ICONS } from '../../Icons/Icon';
 import { toRefs } from 'vue';
 
 export default {
@@ -19,7 +20,7 @@ export default {
 const StoryTemplate: StoryFn<typeof LabelValueItem> = (args) => ({
 	components: { LabelValueItem, SlotPlaceholder },
 	setup() {
-		return { ...toRefs(args), SLOT_PLACEHOLDER_SIZES };
+		return { ...toRefs(args), SLOT_PLACEHOLDER_SIZES, ICONS };
 	},
 	template: `<div style="height: 300px; width: 200px;">
 		<label-value-item
@@ -29,6 +30,7 @@ const StoryTemplate: StoryFn<typeof LabelValueItem> = (args) => ({
 			:size="size"
 			:is-label-strong="isLabelStrong"
 			:value-color="valueColor"
+			:icon="icon ? ICONS[icon] : null"
 		>
 			<template #accessory>
 				<div v-if="accessorySlot" v-html="accessorySlot" />
@@ -48,6 +50,7 @@ const args = {
 	isLabelStrong: false,
 	valueColor: LABEL_VALUE_ITEM_VALUE_COLORS.NEUTRAL,
 	accessorySlot: 'accessory slot',
+	icon: null,
 } as Args;
 
 const argTypes = {
@@ -68,6 +71,10 @@ const argTypes = {
 	},
 	accessorySlot: {
 		control: 'text',
+	},
+	icon: {
+		control: 'select',
+		options: [null, ...Object.keys(ICONS)],
 	},
 } as ArgTypes;
 
