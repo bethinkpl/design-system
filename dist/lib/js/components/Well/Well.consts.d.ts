@@ -10,6 +10,7 @@ export declare const WELL_COLORS: {
     readonly ACCENT: "accent";
     readonly PRIMARY: "primary";
     readonly FAIL: "fail";
+    readonly HIGHLIGHT: "highlight";
     readonly INFO: "info";
     readonly INVERTED: "inverted";
     readonly NEUTRAL: "neutral";
