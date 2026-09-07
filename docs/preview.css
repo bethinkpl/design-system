@@ -2725,7 +2725,7 @@ table {
   --color-neutral-background-strong-focused: var(--raw-gray-600);
   --color-neutral-background-strong-pressed: var(--raw-gray-500);
   --color-neutral-background-strong-disabled: var(--raw-gray-800);
-  --color-neutral-background-medium: var(--raw-gray-800);
+  --color-neutral-background-medium: var(--raw-gray-900);
   --color-neutral-background-medium-hovered: var(--raw-gray-700);
   --color-neutral-background-medium-focused: var(--raw-gray-700);
   --color-neutral-background-medium-pressed: var(--raw-gray-600);
