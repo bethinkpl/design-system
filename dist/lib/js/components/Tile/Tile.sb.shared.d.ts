@@ -136,6 +136,7 @@ export declare const data: () => {
         readonly FA_FACE_SMILE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FACEBOOK: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FACEBOOK_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_FILE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_ARROW_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_EXPORT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_FILE_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
