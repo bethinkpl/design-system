@@ -22,7 +22,7 @@
 			<div class="ds-userDropdown__panel">
 				<ds-select-list>
 					<ds-select-list-item-container>
-						<div class="ds-userDropdown__header">
+						<div class="ds-userDropdown__userInfo">
 							<ds-avatar
 								v-bind="avatarProps"
 								:username="username"
@@ -32,7 +32,7 @@
 									<slot name="teamMemberImage" />
 								</template>
 							</ds-avatar>
-							<div class="ds-userDropdown__headerText">
+							<div class="ds-userDropdown__userInfoText">
 								<ds-text-group
 									:size="TEXT_GROUP_SIZES.X_SMALL"
 									:main-text="username"
@@ -68,16 +68,13 @@
 		width: 220px;
 	}
 
-	&__header {
+	&__userInfo {
 		align-items: center;
 		display: flex;
-		gap: $space-3;
+		gap: $space-6;
 	}
 
-	&__headerText {
-		// Required for DsTextGroup's ellipsis: `.ds-textGroup` is `width: 100%` and a flex
-		// item's default `min-width: auto` refuses to shrink below its content width.
-		flex: 1;
+	&__userInfoText {
 		min-width: 0;
 	}
 }
