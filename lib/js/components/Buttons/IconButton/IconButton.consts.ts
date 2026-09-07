@@ -38,6 +38,7 @@ export const ICON_BUTTON_COLORS = {
 	INFO: 'info',
 	MAGIC: 'magic',
 	ACCENT: 'accent',
+	HIGHLIGHT: 'highlight',
 } as const;
 
 export type IconButtonColor = Value<typeof ICON_BUTTON_COLORS>;

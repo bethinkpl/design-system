@@ -227,6 +227,48 @@ $only-icon-button-colors: (
 			),
 		),
 	),
+	'highlight': (
+					'filled': (
+									'color': $color-neutral-text,
+									'icon': $color-inverted-icon,
+									'background': $color-highlight-background-strong,
+									'background-hovered': $color-highlight-background-strong-hovered,
+									'background-focused': $color-highlight-background-strong-focused,
+									'background-disabled': $color-highlight-background-strong-disabled,
+									'disabled': (
+													'color': $color-neutral-text,
+													'icon': $color-inverted-icon,
+													'background': $color-highlight-background-strong-disabled,
+									),
+					),
+					'outlined': (
+									'color': $color-neutral-text,
+									'icon': $color-highlight-icon,
+									'border': $color-highlight-border,
+									'background': $color-highlight-background-ghost,
+									'background-hovered': $color-highlight-background-ghost-hovered,
+									'background-focused': $color-highlight-background-ghost-focused,
+									'background-disabled': $color-highlight-background-ghost-disabled,
+									'disabled': (
+													'color': $color-neutral-text,
+													'border': $color-highlight-border-disabled,
+													'icon': $color-highlight-icon-disabled,
+													'background': $color-highlight-background-ghost-disabled,
+									),
+					),
+					'text': (
+									'color': $color-neutral-text,
+									'icon': $color-highlight-icon,
+									'background': $color-highlight-background-ghost,
+									'background-hovered': $color-highlight-background-ghost-hovered,
+									'background-focused': $color-highlight-background-ghost-focused,
+									'background-disabled': $color-highlight-background-ghost-disabled,
+									'disabled': (
+													'color': $color-neutral-text,
+													'icon': $color-highlight-icon-disabled,
+									),
+					),
+	),
 );
 
 $button-colors: (
