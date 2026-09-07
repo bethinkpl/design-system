@@ -82,6 +82,7 @@
 										v-if="footerTertiaryButtonText"
 										:type="BUTTON_TYPES.TEXT"
 										:color="BUTTON_COLORS.NEUTRAL"
+										:radius="BUTTON_RADIUSES.ROUNDED"
 										:icon-left="footerTertiaryButtonIcon"
 										:state="footerTertiaryButtonState"
 										class="ds-modal__tertiaryButton"
@@ -98,6 +99,7 @@
 										v-if="footerSecondaryButtonText"
 										:type="BUTTON_TYPES.OUTLINED"
 										:color="calcFooterSecondaryButtonColor"
+										:radius="BUTTON_RADIUSES.ROUNDED"
 										:icon-right="footerSecondaryButtonIcon"
 										:state="footerSecondaryButtonState"
 										@click="$emit('secondary-button-click')"
@@ -107,6 +109,7 @@
 									<wnl-button
 										v-if="footerPrimaryButtonText"
 										:color="calcFooterPrimaryButtonColor"
+										:radius="BUTTON_RADIUSES.ROUNDED"
 										:icon-right="footerPrimaryButtonIcon"
 										:state="footerPrimaryButtonState"
 										@click="$emit('primary-button-click')"
@@ -374,6 +377,7 @@ import { FEATURE_ICON_COLOR, FEATURE_ICON_SIZES, FeatureIconColor } from '../../
 import WnlButton, {
 	BUTTON_COLORS,
 	BUTTON_ELEVATIONS,
+	BUTTON_RADIUSES,
 	BUTTON_STATES,
 	BUTTON_TYPES,
 	ButtonState,
@@ -508,6 +512,7 @@ export default defineComponent({
 		return {
 			BUTTON_COLORS,
 			BUTTON_ELEVATIONS,
+			BUTTON_RADIUSES,
 			BUTTON_TYPES,
 			ICONS,
 			ICON_BUTTON_COLORS,

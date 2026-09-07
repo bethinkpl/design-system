@@ -91,4 +91,42 @@ describe('DrawerHeader', () => {
 			},
 		);
 	});
+	describe('isEyebrowTextUppercase', () => {
+		it('should uppercase the eyebrow by default', () => {
+			const component = createComponent({ eyebrowText: 'eyebrow' });
+
+			expect(component.find('.ds-drawerHeader__eyebrow').classes()).toContain(
+				'-ds-uppercase',
+			);
+		});
+
+		it('should not uppercase the eyebrow when isEyebrowTextUppercase is false', () => {
+			const component = createComponent({
+				eyebrowText: 'eyebrow',
+				isEyebrowTextUppercase: false,
+			});
+
+			expect(component.find('.ds-drawerHeader__eyebrow').classes()).not.toContain(
+				'-ds-uppercase',
+			);
+		});
+	});
+
+	describe('isTitleTextUppercase', () => {
+		it('should not uppercase the title by default', () => {
+			const component = createComponent({ title: 'title' });
+
+			expect(component.find('.ds-drawerHeader__titleText').classes()).not.toContain(
+				'-ds-uppercase',
+			);
+		});
+
+		it('should uppercase the title when isTitleTextUppercase is true', () => {
+			const component = createComponent({ title: 'title', isTitleTextUppercase: true });
+
+			expect(component.find('.ds-drawerHeader__titleText').classes()).toContain(
+				'-ds-uppercase',
+			);
+		});
+	});
 });

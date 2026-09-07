@@ -29,6 +29,7 @@
 							:class="{
 								'-ds-isInteractive': isInteractiveEyebrow,
 								'-ds-ellipsis': eyebrowEllipsis,
+								'-ds-uppercase': isEyebrowTextUppercase,
 							}"
 							class="ds-drawerHeader__eyebrow"
 							@click="isInteractiveEyebrow && $emit('eyebrowClicked')"
@@ -47,6 +48,7 @@
 								class="ds-drawerHeader__titleText"
 								:class="{
 									'-ds-ellipsis': titleEllipsis,
+									'-ds-uppercase': isTitleTextUppercase,
 									[`-ds-${titleColor}`]: true,
 								}"
 								:title="titleEllipsis ? title : undefined"
@@ -123,9 +125,13 @@ $minimal-drawer-header-height: 58px;
 	}
 
 	&__eyebrow {
-		@include info-s-extensive-bold-uppercase;
+		@include info-s-default-bold;
 
 		color: $color-neutral-text-weak;
+
+		&.-ds-uppercase {
+			@include info-s-extensive-bold-uppercase;
+		}
 
 		&.-ds-isInteractive:hover {
 			color: $color-neutral-text-weak-hovered;
@@ -147,6 +153,10 @@ $minimal-drawer-header-height: 58px;
 
 	&__titleText {
 		@include heading-s-default-bold;
+
+		&.-ds-uppercase {
+			@include heading-s-default-bold-uppercase;
+		}
 
 		&.-ds-neutralStrong {
 			color: $color-neutral-text-strong;
@@ -194,8 +204,10 @@ const {
 	eyebrowText = null,
 	isInteractiveEyebrow = false,
 	eyebrowEllipsis = false,
+	isEyebrowTextUppercase = true,
 	title = null,
 	titleEllipsis = false,
+	isTitleTextUppercase = false,
 	titleColor = DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
 	leftIcon = null,
 	chipLabel = null,
@@ -208,8 +220,10 @@ const {
 	eyebrowText?: string | null;
 	isInteractiveEyebrow?: boolean;
 	eyebrowEllipsis?: boolean;
+	isEyebrowTextUppercase?: boolean;
 	title?: string | null;
 	titleEllipsis?: boolean;
+	isTitleTextUppercase?: boolean;
 	titleColor?: DrawerHeaderTitleColor;
 	leftIcon?: IconItem | null;
 	chipLabel?: string | null;

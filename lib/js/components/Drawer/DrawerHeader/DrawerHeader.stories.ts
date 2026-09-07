@@ -25,6 +25,7 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 	template: `
 		<drawer-header
 			:eyebrow-ellipsis="eyebrowEllipsis"
+			:is-eyebrow-text-uppercase="isEyebrowTextUppercase"
 			:eyebrow-text="eyebrowText"
 			:has-divider="hasDivider"
 			:is-closable="isClosable"
@@ -34,6 +35,7 @@ const StoryTemplate: StoryFn<typeof DrawerHeader> = (args) => ({
 			:chip-label="chipLabel"
 			:title-color="titleColor"
 			:title-ellipsis="titleEllipsis"
+			:is-title-text-uppercase="isTitleTextUppercase"
 			:title="title"
 			:has-back-button="hasBackButton"
 			:background-color="backgroundColor"
@@ -56,8 +58,10 @@ const args = {
 	eyebrowText: 'eyebrow',
 	isInteractiveEyebrow: false,
 	eyebrowEllipsis: false,
+	isEyebrowTextUppercase: true,
 	title: 'Header Title',
 	titleEllipsis: false,
+	isTitleTextUppercase: false,
 	titleColor: DRAWER_HEADER_TITLE_COLORS.NEUTRAL_STRONG,
 	leftIcon: null,
 	chipLabel: 'chip',
@@ -75,8 +79,10 @@ const argTypes = {
 	eyebrowText: { control: 'text' },
 	isInteractiveEyebrow: { control: 'boolean' },
 	eyebrowEllipsis: { control: 'boolean' },
+	isEyebrowTextUppercase: { control: 'boolean' },
 	title: { control: 'text' },
 	titleEllipsis: { control: 'boolean' },
+	isTitleTextUppercase: { control: 'boolean' },
 	titleColor: {
 		control: 'select',
 		options: Object.values(DRAWER_HEADER_TITLE_COLORS),

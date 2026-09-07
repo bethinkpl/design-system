@@ -1,5 +1,11 @@
 <template>
 	<div class="ds-labelValueItem" :class="{ '-ds-large': size === LABEL_VALUE_ITEM_SIZES.LARGE }">
+		<ds-icon
+			v-if="icon"
+			class="ds-labelValueItem__icon"
+			:icon="icon"
+			:size="ICON_SIZES.XX_SMALL"
+		/>
 		<div class="ds-labelValueItem__label" :class="{ '-ds-strong': isLabelStrong }">
 			{{ label }}
 		</div>
@@ -34,6 +40,11 @@
 	gap: $space-4;
 	padding: $space-4 0;
 	width: 100%;
+
+	&__icon {
+		color: $color-neutral-icon;
+		flex-shrink: 0;
+	}
 
 	&__label {
 		@include label-m-default-regular;
@@ -84,13 +95,14 @@ import {
 	LabelValueItemState,
 	LabelValueItemValueColor,
 } from './LabelValueItem.consts';
-import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
+import DsIcon, { ICON_SIZES, ICONS, IconItem } from '../../Icons/Icon';
 
 const {
 	state = LABEL_VALUE_ITEM_STATES.DEFAULT,
 	size = LABEL_VALUE_ITEM_SIZES.MEDIUM,
 	isLabelStrong = false,
 	valueColor = LABEL_VALUE_ITEM_VALUE_COLORS.NEUTRAL,
+	icon = null,
 } = defineProps<{
 	state?: LabelValueItemState;
 	label: string;
@@ -98,6 +110,7 @@ const {
 	size?: LabelValueItemSize;
 	isLabelStrong?: boolean;
 	valueColor?: LabelValueItemValueColor;
+	icon?: IconItem | null;
 }>();
 
 defineSlots<{
