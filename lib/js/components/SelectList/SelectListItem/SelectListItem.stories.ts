@@ -28,6 +28,7 @@ const StoryTemplate: StoryFn<typeof SelectListItem> = (args) => ({
 	template: `
 			<select-list-item
 					:icon-left="ICONS[args.iconLeft]"
+					:href="args.href"
 					:label="args.label"
 					:eyebrow-text="args.eyebrowText"
 					:is-eyebrow-text-uppercase="args.isEyebrowTextUppercase"
@@ -51,6 +52,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	size: SELECT_LIST_ITEM_SIZES.SMALL,
 	iconLeft: null,
+	href: '',
 	label: 'Label',
 	eyebrowText: 'Eyebrow Text',
 	isEyebrowTextUppercase: false,
@@ -77,6 +79,9 @@ const argTypes = {
 	state: {
 		control: 'select',
 		options: Object.values(SELECT_LIST_ITEM_STATES),
+	},
+	href: {
+		control: 'text',
 	},
 	accessorySlot: {
 		control: 'text',

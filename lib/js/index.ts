@@ -195,6 +195,11 @@ export { default as DsStatsSectionHeader } from './components/StatsLayout/StatsS
 export { default as DsStepper } from './components/Stepper';
 export { default as DsTopNav } from './components/TopNav/TopNav/TopNav.vue';
 export { default as DsTopNavBranding } from './components/TopNav/TopNavBranding/TopNavBranding.vue';
+export { default as DsUserDropdown } from './components/TopNav/UserDropdown';
+export { default as DsUserDropdownItem } from './components/TopNav/UserDropdown/UserDropdownItem';
+export { default as DsUserDropdownDivider } from './components/TopNav/UserDropdown/UserDropdownDivider';
+export * from './components/Avatar/Avatar.types';
+export * from './components/SelectList/SelectListItem/SelectListItem.types';
 export { default as DsFlag } from './components/Flag';
 export * from './components/Flag/Flag.consts';
 export * from './components/Flag/flags';
