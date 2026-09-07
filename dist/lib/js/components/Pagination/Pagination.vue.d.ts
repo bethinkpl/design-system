@@ -58,6 +58,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly INFO: "info";
         readonly MAGIC: "magic";
         readonly ACCENT: "accent";
+        readonly HIGHLIGHT: "highlight";
     }>;
     ICON_BUTTON_STATES: Readonly<{
         readonly DEFAULT: "default";
@@ -234,6 +235,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_HEAD_SIDE_BRAIN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HEART_PULSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HEART_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_HIGHLIGHTER_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HOURGLASS_END: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HOURGLASS_START: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HOURGLASS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -631,6 +633,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_HEAD_SIDE_BRAIN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEART_PULSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEART_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_HIGHLIGHTER_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HOURGLASS_END: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HOURGLASS_START: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HOURGLASS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -794,6 +797,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly INFO: "info";
             readonly MAGIC: "magic";
             readonly ACCENT: "accent";
+            readonly HIGHLIGHT: "highlight";
         }>;
         BUTTON_COLORS: Readonly<{
             readonly PRIMARY: "primary";
