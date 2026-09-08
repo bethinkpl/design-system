@@ -357,6 +357,7 @@ import {
 } from '../../../../../tools/importers/helpers/dates';
 import { capitalizeFirstLetter } from '../../../../../tools/importers/helpers/modifiers';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
+import { CalendarDate, isCalendarDateOrNull, parseCalendarDate } from '../calendarDate';
 
 export default defineComponent({
 	name: 'DateBox',
@@ -373,12 +374,14 @@ export default defineComponent({
 			default: null,
 		},
 		startDate: {
-			type: Date,
+			type: String as PropType<CalendarDate | null>,
 			default: null,
+			validator: isCalendarDateOrNull,
 		},
 		endDate: {
-			type: Date,
+			type: String as PropType<CalendarDate | null>,
 			default: null,
+			validator: isCalendarDateOrNull,
 		},
 		startIcon: {
 			type: Object,
@@ -422,20 +425,24 @@ export default defineComponent({
 	computed: {
 		startDateText() {
 			if (this.startDate) {
-				return localMonthDayWithShortMonthDay(this.startDate, this.locale);
+				return localMonthDayWithShortMonthDay(
+					parseCalendarDate(this.startDate),
+					this.locale,
+				);
 			}
 			return this.placeholder ?? this.t('ds.datePicker.set');
 		},
 		endDateIfDifferentThanStartDate() {
-			return this.startDate &&
-				this.endDate &&
-				this.startDate.toDateString() !== this.endDate.toDateString()
+			return this.startDate && this.endDate && this.startDate !== this.endDate
 				? this.endDate
 				: null;
 		},
 		endDateText() {
+			if (!this.endDateIfDifferentThanStartDate) {
+				return '';
+			}
 			return localMonthDayWithShortMonthDay(
-				this.endDateIfDifferentThanStartDate,
+				parseCalendarDate(this.endDateIfDifferentThanStartDate),
 				this.locale,
 			);
 		},
@@ -443,14 +450,19 @@ export default defineComponent({
 			if (!this.startDate) {
 				return '';
 			}
-			return capitalizeFirstLetter(localWeekdayName(this.startDate, this.locale));
+			return capitalizeFirstLetter(
+				localWeekdayName(parseCalendarDate(this.startDate), this.locale),
+			);
 		},
 		endDateEyebrowText() {
 			if (!this.endDateIfDifferentThanStartDate) {
 				return '';
 			}
 			return capitalizeFirstLetter(
-				localWeekdayName(this.endDateIfDifferentThanStartDate, this.locale),
+				localWeekdayName(
+					parseCalendarDate(this.endDateIfDifferentThanStartDate),
+					this.locale,
+				),
 			);
 		},
 	},

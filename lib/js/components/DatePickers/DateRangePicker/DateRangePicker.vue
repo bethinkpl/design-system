@@ -68,6 +68,13 @@ import {
 } from '../DatePicker';
 import { DatePickerComposablesProps, initFlatpickr } from '../DatePicker/DatePicker.composables';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
+import {
+	areCalendarDates,
+	CalendarDate,
+	formatCalendarDate,
+	isCalendarDateOrNull,
+	parseCalendarDateOrNull,
+} from '../calendarDate';
 
 export default defineComponent({
 	name: 'DateRangePicker',
@@ -84,12 +91,19 @@ export default defineComponent({
 			default: null,
 		},
 		startDate: {
-			type: Date,
+			type: String as PropType<CalendarDate | null>,
 			default: null,
+			validator: isCalendarDateOrNull,
 		},
 		endDate: {
-			type: Date,
+			type: String as PropType<CalendarDate | null>,
 			default: null,
+			validator: isCalendarDateOrNull,
+		},
+		today: {
+			type: String as PropType<CalendarDate | null>,
+			default: null,
+			validator: isCalendarDateOrNull,
 		},
 		startIcon: {
 			type: [Object, null] as PropType<IconItem | null>,
@@ -126,27 +140,32 @@ export default defineComponent({
 			default: DATE_PICKER_COLORS.NEUTRAL_WEAK,
 		},
 		disableDates: {
-			type: Array as PropType<Array<Date>>,
+			type: Array as PropType<Array<CalendarDate>>,
 			default: () => [],
+			validator: areCalendarDates,
 		},
 		minDate: {
-			type: Date,
+			type: String as PropType<CalendarDate | null>,
 			default: null,
+			validator: isCalendarDateOrNull,
 		},
 		maxDate: {
-			type: Date,
+			type: String as PropType<CalendarDate | null>,
 			default: null,
+			validator: isCalendarDateOrNull,
 		},
 		updatePositionBasedOnScrollableSelector: {
 			type: String,
 			default: '',
 		},
 	},
-	emits: { 'update:date': (value: { startDate: Date; endDate: Date }) => true },
+	emits: {
+		'update:date': (value: { startDate: CalendarDate; endDate: CalendarDate }) => true,
+	},
 	setup(
 		props: DatePickerComposablesProps & {
-			startDate: Date;
-			endDate: Date;
+			startDate: CalendarDate | null;
+			endDate: CalendarDate | null;
 			isInteractive: boolean;
 			state: DatePickerStates;
 			updatePositionBasedOnScrollableSelector: string;
@@ -163,7 +182,10 @@ export default defineComponent({
 			if (event.length !== 2) {
 				return;
 			}
-			emit('update:date', { startDate: event[0], endDate: event[1] });
+			emit('update:date', {
+				startDate: formatCalendarDate(event[0]),
+				endDate: formatCalendarDate(event[1]),
+			});
 		};
 
 		const onClose = () => {
@@ -181,7 +203,9 @@ export default defineComponent({
 			props,
 			onChange,
 			onClose,
-			defaultDates: [props.startDate, props.endDate],
+			defaultDates: [props.startDate, props.endDate]
+				.map((day) => parseCalendarDateOrNull(day))
+				.filter((date): date is Date => date !== null),
 			mode: 'range',
 			locale: locale.value,
 		});

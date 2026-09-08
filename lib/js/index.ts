@@ -29,6 +29,7 @@ export { default as DatePicker } from './components/DatePickers/DatePicker';
 export { default as DsDatePicker } from './components/DatePickers/DatePicker';
 export { default as DsDateRangePicker } from './components/DatePickers/DateRangePicker';
 export * from './components/DatePickers/DatePicker';
+export type { CalendarDate } from './components/DatePickers/calendarDate';
 export { default as Divider } from './components/Divider';
 export { default as DsDivider } from './components/Divider';
 export * from './components/Divider/Divider.consts';
