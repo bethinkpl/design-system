@@ -7,7 +7,7 @@ import { useArgs } from '@storybook/preview-api';
 import { withActions } from '@storybook/addon-actions/decorator';
 
 export default {
-	title: 'Components/Form/RadioButton',
+	title: 'Internal Components/Form/#RadioButton',
 	component: RadioButton,
 	decorators: [withActions],
 } as Meta<typeof RadioButton>;
