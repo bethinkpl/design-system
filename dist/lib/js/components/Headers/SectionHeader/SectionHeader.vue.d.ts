@@ -76,6 +76,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly COMMENTS_CHECK: VueConstructor<Vue>;
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly HIDE_ANSWERS: VueConstructor<Vue>;
+        readonly ONLINE_PAYMENT: VueConstructor<Vue>;
         readonly RIBBON: VueConstructor<Vue>;
         readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
         readonly SLIDERS_SEARCH: VueConstructor<Vue>;
@@ -619,6 +620,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly COMMENTS_CHECK: VueConstructor<Vue>;
             readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
             readonly HIDE_ANSWERS: VueConstructor<Vue>;
+            readonly ONLINE_PAYMENT: VueConstructor<Vue>;
             readonly RIBBON: VueConstructor<Vue>;
             readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
             readonly SLIDERS_SEARCH: VueConstructor<Vue>;
