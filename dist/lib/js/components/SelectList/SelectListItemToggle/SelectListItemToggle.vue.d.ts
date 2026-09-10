@@ -90,6 +90,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
 }, {}, {
     SelectListItem: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+            href: {
+                type: PropType<string>;
+            };
+            to: {
+                type: PropType<import('../SelectListItem/SelectListItem.types').RouterLocation>;
+            };
             iconLeft: IconItem | null;
             isSelected: {
                 type: PropType<boolean>;
@@ -121,6 +127,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             M: {};
             Defaults: {};
         }, Readonly<import('vue').ExtractPropTypes<{
+            href: {
+                type: PropType<string>;
+            };
+            to: {
+                type: PropType<import('../SelectListItem/SelectListItem.types').RouterLocation>;
+            };
             iconLeft: IconItem | null;
             isSelected: {
                 type: PropType<boolean>;
@@ -149,6 +161,12 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         __isTeleport?: never;
         __isSuspense?: never;
     } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
+        href: {
+            type: PropType<string>;
+        };
+        to: {
+            type: PropType<import('../SelectListItem/SelectListItem.types').RouterLocation>;
+        };
         iconLeft: IconItem | null;
         isSelected: {
             type: PropType<boolean>;
@@ -173,15 +191,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             type: PropType<SelectListItemState>;
         };
     }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
-        $slots: Readonly<{
-            accessory?: () => any;
-            metadata?: () => any;
-            text?: () => any;
-        }> & {
-            accessory?: () => any;
-            metadata?: () => any;
-            text?: () => any;
-        };
+        $slots: Readonly<import('../SelectListItem/SelectListItem.types').SelectListItemSlots> & import('../SelectListItem/SelectListItem.types').SelectListItemSlots;
     });
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
