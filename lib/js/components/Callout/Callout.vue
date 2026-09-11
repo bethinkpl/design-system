@@ -34,6 +34,7 @@
 					:color="BUTTON_COLORS.PRIMARY"
 					:type="BUTTON_TYPES.FILLED"
 					:size="BUTTON_SIZES.SMALL"
+					:state="buttonState"
 					:radius="BUTTON_RADIUSES.ROUNDED"
 					:icon-left="buttonIcon"
 					@click="$emit('button-clicked', $event)"
@@ -101,7 +102,7 @@ import DsFeatureIcon from '../Icons/FeatureIcon';
 import { FEATURE_ICON_SIZES } from '../Icons/FeatureIcon/FeatureIcon.consts';
 import DsTextGroup from '../TextGroup/TextGroup.vue';
 import { TEXT_GROUP_ALIGNS, TEXT_GROUP_SIZES } from '../TextGroup/TextGroup.consts';
-import DsButton, { BUTTON_RADIUSES } from '../Buttons/Button';
+import DsButton, { BUTTON_RADIUSES, BUTTON_STATES } from '../Buttons/Button';
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button/Button.consts';
 import { IconItem } from '../Icons/Icon';
 import {
@@ -126,6 +127,7 @@ const {
 	mainTextColor = CALLOUT_MAIN_TEXT_COLORS.PRIMARY,
 	buttonLabel = null,
 	buttonIcon = null,
+	buttonState = BUTTON_STATES.DEFAULT,
 	isActionVertical = false,
 } = defineProps<{
 	icon?: IconItem | null;
@@ -138,6 +140,7 @@ const {
 	mainTextColor?: CalloutMainTextColor;
 	buttonLabel?: string | null;
 	buttonIcon?: IconItem | null;
+	buttonState?: string;
 	isActionVertical?: boolean;
 }>();
 
