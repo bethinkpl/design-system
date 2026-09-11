@@ -2,3 +2,4 @@ import { default as DatePicker } from './DatePicker.vue';
 
 export default DatePicker;
 export * from './DatePicker.consts';
+//# sourceMappingURL=index.d.ts.map

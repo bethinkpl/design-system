@@ -74,3 +74,4 @@ export interface TranslateFunction {
     (key: ValidI18nKey, named: NamedValue, plural: number): string;
     (key: ValidI18nKey, named: NamedValue, defaultMsg: string): string;
 }
+//# sourceMappingURL=index.d.ts.map

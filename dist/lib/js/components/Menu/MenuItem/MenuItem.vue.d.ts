@@ -122,3 +122,4 @@ type __VLS_WithTemplateSlots<T, S> = T & {
         $slots: S;
     };
 };
+//# sourceMappingURL=MenuItem.vue.d.ts.map

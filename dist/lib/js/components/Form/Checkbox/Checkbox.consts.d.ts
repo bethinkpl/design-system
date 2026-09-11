@@ -23,3 +23,4 @@ export declare const CHECKBOX_ELEVATIONS: {
     readonly X_SMALL: "x-small";
 };
 export type CheckboxElevation = Value<typeof CHECKBOX_ELEVATIONS>;
+//# sourceMappingURL=Checkbox.consts.d.ts.map

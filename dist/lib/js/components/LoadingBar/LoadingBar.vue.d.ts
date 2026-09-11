@@ -36,3 +36,4 @@ type __VLS_WithDefaults<P, D> = {
 type __VLS_Prettify<T> = {
     [K in keyof T]: T[K];
 } & {};
+//# sourceMappingURL=LoadingBar.vue.d.ts.map

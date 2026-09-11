@@ -38,3 +38,4 @@ type __VLS_WithTemplateSlots<T, S> = T & {
         $slots: S;
     };
 };
+//# sourceMappingURL=Avatar.vue.d.ts.map

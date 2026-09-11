@@ -9,3 +9,4 @@ interface HoverState {
 }
 export declare function useHoverState(): HoverState;
 export {};
+//# sourceMappingURL=hover-state.d.ts.map

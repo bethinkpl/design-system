@@ -11,3 +11,4 @@ export declare const FLAG_SIZES: {
     readonly XXL: "xxl";
 };
 export type FlagSize = Value<typeof FLAG_SIZES>;
+//# sourceMappingURL=Flag.consts.d.ts.map

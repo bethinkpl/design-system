@@ -18,3 +18,4 @@ type __VLS_TypePropsToRuntimeProps<T> = {
         required: true;
     };
 };
+//# sourceMappingURL=Flag.vue.d.ts.map

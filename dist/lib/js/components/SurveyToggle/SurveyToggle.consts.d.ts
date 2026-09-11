@@ -16,3 +16,4 @@ export declare const SURVEY_TOGGLE_STATES: {
     readonly DISABLED: "disabled";
 };
 export type SurveyToggleState = Value<typeof SURVEY_TOGGLE_STATES>;
+//# sourceMappingURL=SurveyToggle.consts.d.ts.map

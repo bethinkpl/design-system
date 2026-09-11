@@ -16,3 +16,4 @@ export declare const ICON_TEXT_STATES: {
     DISABLED: string;
 };
 export type IconTextState = Value<typeof ICON_TEXT_STATES>;
+//# sourceMappingURL=IconText.consts.d.ts.map

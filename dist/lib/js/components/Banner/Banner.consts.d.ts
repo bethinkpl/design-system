@@ -17,3 +17,4 @@ export declare const BANNER_SIZES: {
     MEDIUM: string;
 };
 export type BannerSize = Value<typeof BANNER_SIZES>;
+//# sourceMappingURL=Banner.consts.d.ts.map

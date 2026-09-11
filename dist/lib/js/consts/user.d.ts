@@ -9,3 +9,4 @@ export declare const COURSE_BLOCKADE_ACCESS_STATUS: {
     ACTIVE: string;
     EXPIRED: string;
 };
+//# sourceMappingURL=user.d.ts.map

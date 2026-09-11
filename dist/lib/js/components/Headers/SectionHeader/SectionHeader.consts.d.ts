@@ -29,3 +29,4 @@ export declare const SECTION_HEADER_ICON_COLORS: {
     WARNING: string;
 };
 export type SectionHeaderIconColor = Value<typeof SECTION_HEADER_ICON_COLORS>;
+//# sourceMappingURL=SectionHeader.consts.d.ts.map

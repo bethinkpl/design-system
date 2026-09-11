@@ -87,3 +87,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isHiddenOnMobile: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=Tooltip.vue.d.ts.map

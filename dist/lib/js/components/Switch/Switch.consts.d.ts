@@ -20,3 +20,4 @@ export declare const SWITCH_SIDE: {
     readonly RIGHT: "right";
 };
 export type SwitchSelection = (typeof SWITCH_SIDE)[keyof typeof SWITCH_SIDE];
+//# sourceMappingURL=Switch.consts.d.ts.map

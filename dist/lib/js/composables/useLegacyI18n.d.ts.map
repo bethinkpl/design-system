@@ -1,0 +1,1 @@
+{"version":3,"file":"useLegacyI18n.d.ts","sourceRoot":"","sources":["../../../../lib/js/composables/useLegacyI18n.ts"],"names":[],"mappings":"AAAA,OAAO,EAAY,WAAW,EAAsB,MAAM,KAAK,CAAC;AAChE,OAAO,EAAE,eAAe,EAAE,iBAAiB,EAAE,MAAM,SAAS,CAAC;AAE7D,UAAU,cAAc;IACvB,CAAC,EAAE,iBAAiB,CAAC;IACrB,MAAM,EAAE,WAAW,CAAC,eAAe,CAAC,CAAC;CACrC;AAMD,eAAO,MAAM,aAAa,QAAO,cAehC,CAAC"}

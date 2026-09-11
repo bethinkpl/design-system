@@ -17,3 +17,4 @@ type __VLS_TypePropsToRuntimeProps<T> = {
         required: true;
     };
 };
+//# sourceMappingURL=ProgressBarLabelDataWrapper.vue.d.ts.map

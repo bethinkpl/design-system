@@ -20,3 +20,4 @@ export declare const FEATURE_ICON_COLOR: {
     readonly ACCENT: "accent";
 };
 export type FeatureIconColor = Value<typeof FEATURE_ICON_COLOR>;
+//# sourceMappingURL=FeatureIcon.consts.d.ts.map

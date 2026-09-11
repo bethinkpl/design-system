@@ -3,3 +3,4 @@ export declare const THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE: {
     readonly LARGE: "large";
 };
 export type ThreeColumnLayoutRightColumnSize = (typeof THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE)[keyof typeof THREE_COLUMN_LAYOUT_RIGHT_COLUMN_SIZE];
+//# sourceMappingURL=ThreeColumnLayout.consts.d.ts.map

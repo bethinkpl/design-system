@@ -40,3 +40,4 @@ export declare const BUTTON_ELEVATIONS: {
     readonly SMALL: "small";
 };
 export type ButtonElevation = Value<typeof BUTTON_ELEVATIONS>;
+//# sourceMappingURL=Button.consts.d.ts.map

@@ -32,3 +32,4 @@ type __VLS_TypePropsToRuntimeProps<T> = {
         required: true;
     };
 };
+//# sourceMappingURL=SelectionTile.vue.d.ts.map

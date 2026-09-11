@@ -22,3 +22,4 @@ export declare const AVATAR_ACCESS_STATUSES: {
     readonly TEAM_MEMBER: "team-member";
 };
 export type AvatarAccessStatus = Value<typeof AVATAR_ACCESS_STATUSES>;
+//# sourceMappingURL=Avatar.consts.d.ts.map

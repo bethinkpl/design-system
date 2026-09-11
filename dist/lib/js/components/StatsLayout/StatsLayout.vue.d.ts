@@ -39,3 +39,4 @@ type __VLS_WithTemplateSlots<T, S> = T & {
         $slots: S;
     };
 };
+//# sourceMappingURL=StatsLayout.vue.d.ts.map

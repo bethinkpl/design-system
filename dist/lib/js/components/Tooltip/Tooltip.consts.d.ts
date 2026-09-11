@@ -5,3 +5,4 @@ export declare const TOOLTIP_PLACEMENTS: {
     readonly RIGHT: "right";
 };
 export type TooltipPlacement = (typeof TOOLTIP_PLACEMENTS)[keyof typeof TOOLTIP_PLACEMENTS];
+//# sourceMappingURL=Tooltip.consts.d.ts.map

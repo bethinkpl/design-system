@@ -9,3 +9,4 @@ export declare const DRAWER_BACKGROUND_COLORS: {
     readonly NEUTRAL: "neutral";
 };
 export type DrawerBackgroundColor = (typeof DRAWER_BACKGROUND_COLORS)[keyof typeof DRAWER_BACKGROUND_COLORS];
+//# sourceMappingURL=Drawer.consts.d.ts.map

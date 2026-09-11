@@ -29,3 +29,4 @@ export declare const TOGGLE_BUTTON_STATES: {
     readonly LOADING: "loading";
 };
 export type ToggleButtonState = Value<typeof TOGGLE_BUTTON_STATES>;
+//# sourceMappingURL=ToggleButton.consts.d.ts.map

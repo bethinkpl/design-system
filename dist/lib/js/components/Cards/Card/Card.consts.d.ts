@@ -56,3 +56,4 @@ export declare const CARD_RIBBON_RADIUS: {
     readonly BOTTOM: "bottom";
 };
 export type CardRibbonRadius = Value<typeof CARD_RIBBON_RADIUS>;
+//# sourceMappingURL=Card.consts.d.ts.map

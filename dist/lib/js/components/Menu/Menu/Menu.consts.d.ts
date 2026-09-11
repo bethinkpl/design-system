@@ -7,3 +7,4 @@ export declare const MENU_LAYOUTS: {
 };
 export type MenuLayout = Value<typeof MENU_LAYOUTS>;
 export declare const MENU_LAYOUT_INJECTION_KEY: InjectionKey<MenuLayout>;
+//# sourceMappingURL=Menu.consts.d.ts.map

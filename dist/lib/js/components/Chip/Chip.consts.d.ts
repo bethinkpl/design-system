@@ -30,3 +30,4 @@ export declare const CHIP_RADIUSES: {
     readonly ROUNDED: "rounded";
 };
 export type ChipRadius = Value<typeof CHIP_RADIUSES>;
+//# sourceMappingURL=Chip.consts.d.ts.map

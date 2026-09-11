@@ -27,3 +27,4 @@ type __VLS_TypePropsToRuntimeProps<T> = {
         required: true;
     };
 };
+//# sourceMappingURL=ProgressBarLegendItem.vue.d.ts.map

@@ -15,3 +15,4 @@ export declare const SELECTION_CONTROL_TYPE: {
     readonly CHECKBOX: "checkbox";
 };
 export type SelectionControlType = (typeof SELECTION_CONTROL_TYPE)[keyof typeof SELECTION_CONTROL_TYPE];
+//# sourceMappingURL=SelectionControl.consts.d.ts.map

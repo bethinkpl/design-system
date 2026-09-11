@@ -22,3 +22,4 @@ type __VLS_TypePropsToRuntimeProps<T> = {
         required: true;
     };
 };
+//# sourceMappingURL=FeatureIcon.vue.d.ts.map

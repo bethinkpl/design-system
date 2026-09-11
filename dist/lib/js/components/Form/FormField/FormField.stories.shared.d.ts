@@ -3,3 +3,4 @@ import { default as FormField } from './FormField.vue';
 
 export declare const argTypes: Meta<typeof FormField>['argTypes'];
 export declare const args: StoryObj<typeof FormField>['args'];
+//# sourceMappingURL=FormField.stories.shared.d.ts.map

@@ -10,3 +10,4 @@ export declare const PROGRESS_BAR_LEGEND_SIZES: {
     readonly MEDIUM: "medium";
 };
 export type ProgressBarLegendSize = Value<typeof PROGRESS_BAR_LEGEND_SIZES>;
+//# sourceMappingURL=ProgressBarLegend.consts.d.ts.map

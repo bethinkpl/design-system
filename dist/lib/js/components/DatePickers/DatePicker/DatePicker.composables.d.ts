@@ -30,3 +30,4 @@ interface InitFlatpickr {
 }
 export declare function initFlatpickr({ props, onChange, onClose, defaultDates, mode, locale, }: InitFlatpickrPrams): InitFlatpickr;
 export {};
+//# sourceMappingURL=DatePicker.composables.d.ts.map

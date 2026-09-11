@@ -52,3 +52,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     borderColorHex: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=GroupRichListItem.vue.d.ts.map

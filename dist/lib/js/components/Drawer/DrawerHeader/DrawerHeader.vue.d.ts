@@ -67,3 +67,4 @@ type __VLS_WithTemplateSlots<T, S> = T & {
         $slots: S;
     };
 };
+//# sourceMappingURL=DrawerHeader.vue.d.ts.map

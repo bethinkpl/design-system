@@ -74,3 +74,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     FontAwesomeIcon: import('vue').DefineComponent<import('@fortawesome/vue-fontawesome').FontAwesomeIconProps>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=Icon.vue.d.ts.map

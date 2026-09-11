@@ -32,3 +32,4 @@ export declare const CONTAINER_RIBBON_RADIUSES: {
     readonly BOTTOM: "bottom";
 };
 export type ContainerRibbonRadius = Value<typeof CONTAINER_RIBBON_RADIUSES>;
+//# sourceMappingURL=ContainerRibbon.consts.d.ts.map

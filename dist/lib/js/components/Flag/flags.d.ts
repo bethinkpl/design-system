@@ -260,3 +260,4 @@ export declare const FLAG_TANZANIA: VueConstructor<Vue>;
 export declare const FLAG_OMAN: VueConstructor<Vue>;
 export declare const FLAG_ETHIOPIA: VueConstructor<Vue>;
 export declare const FLAG_ITALY: VueConstructor<Vue>;
+//# sourceMappingURL=flags.d.ts.map

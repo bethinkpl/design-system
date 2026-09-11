@@ -7,3 +7,4 @@ export declare const COUNTER_TOGGLE_COLORS: {
     readonly PRIMARY: "primary";
 };
 export type CounterToggleColor = Value<typeof COUNTER_TOGGLE_COLORS>;
+//# sourceMappingURL=CounterToggle.consts.d.ts.map

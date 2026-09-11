@@ -69,3 +69,4 @@ export declare const FUNCTIONAL_COLORS: {
     FAIL_SUPPORTING: string;
     FAIL_BACKGROUND: string;
 };
+//# sourceMappingURL=colors.d.ts.map

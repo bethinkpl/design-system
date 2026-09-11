@@ -11,3 +11,4 @@ export declare const BADGE_SCORE_SIZES: {
     readonly SMALL: "small";
     readonly XSMALL: "extra small";
 };
+//# sourceMappingURL=BadgeScore.consts.d.ts.map

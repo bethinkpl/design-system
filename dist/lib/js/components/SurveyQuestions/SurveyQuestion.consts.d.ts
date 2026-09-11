@@ -10,3 +10,4 @@ export declare const SURVEY_QUESTION_SCALE_CONTAINERS: {
     readonly TWO: "two";
 };
 export type SurveyQuestionScaleContainer = Value<typeof SURVEY_QUESTION_SCALE_CONTAINERS>;
+//# sourceMappingURL=SurveyQuestion.consts.d.ts.map

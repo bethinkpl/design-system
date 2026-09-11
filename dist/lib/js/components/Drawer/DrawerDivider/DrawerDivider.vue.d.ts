@@ -69,3 +69,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=DrawerDivider.vue.d.ts.map

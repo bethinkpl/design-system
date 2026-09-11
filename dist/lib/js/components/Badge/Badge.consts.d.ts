@@ -22,3 +22,4 @@ export declare const BADGE_ELEVATIONS: {
     readonly SMALL: "small";
 };
 export type BadgeElevation = Value<typeof BADGE_ELEVATIONS>;
+//# sourceMappingURL=Badge.consts.d.ts.map

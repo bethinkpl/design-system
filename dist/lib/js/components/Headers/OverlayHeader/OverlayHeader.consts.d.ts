@@ -13,3 +13,4 @@ export declare const OVERLAY_HEADER_STATES: {
     readonly LOADING: "loading";
 };
 export type OverlayHeaderState = Value<typeof OVERLAY_HEADER_STATES>;
+//# sourceMappingURL=OverlayHeader.consts.d.ts.map

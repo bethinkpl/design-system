@@ -65,3 +65,4 @@ export declare const props: {
         validator(value: TileCompactLayout): boolean;
     };
 };
+//# sourceMappingURL=Tile.shared.d.ts.map

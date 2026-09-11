@@ -12,3 +12,4 @@ export declare const PIN_INPUT_FIELD_TYPES: {
 };
 export type PinInputFieldType = Value<typeof PIN_INPUT_FIELD_TYPES>;
 export declare const PIN_INPUT_FIELD_DEFAULT_LENGTH = 6;
+//# sourceMappingURL=PinInputField.consts.d.ts.map

@@ -51,3 +51,4 @@ type __VLS_WithTemplateSlots<T, S> = T & {
         $slots: S;
     };
 };
+//# sourceMappingURL=Chip.vue.d.ts.map

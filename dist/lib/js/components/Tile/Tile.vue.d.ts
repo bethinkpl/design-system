@@ -140,3 +140,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     compactLayout: import('./Tile.consts').TileCompactLayout;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=Tile.vue.d.ts.map

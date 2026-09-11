@@ -21,3 +21,4 @@ type __VLS_TypePropsToRuntimeProps<T> = {
         required: true;
     };
 };
+//# sourceMappingURL=ContainerRibbon.vue.d.ts.map

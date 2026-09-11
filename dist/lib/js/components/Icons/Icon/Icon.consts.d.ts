@@ -137,6 +137,7 @@ export declare const ICONS: {
     readonly FA_COMMENT_DOTS: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_COMMENT_PLUS: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_COMMENT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+    readonly FA_COMMENT_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_COMMENT: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_COMMENTS_QUESTION_CHECK: import('@fortawesome/fontawesome-common-types').IconDefinition;
     readonly FA_COMMENTS_QUESTION: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -316,3 +317,4 @@ export declare const ICONS: {
 };
 export type IconKey = keyof typeof ICONS;
 export type IconItem = (typeof ICONS)[IconKey];
+//# sourceMappingURL=Icon.consts.d.ts.map

@@ -7,3 +7,4 @@ interface IUseLegacyI18n {
 }
 export declare const useLegacyI18n: () => IUseLegacyI18n;
 export {};
+//# sourceMappingURL=useLegacyI18n.d.ts.map

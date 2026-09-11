@@ -7,3 +7,4 @@ export declare const NUMBER_IN_CIRCLE_COLORS: {
     readonly INFO: "info";
     readonly ACCENT: "accent";
 };
+//# sourceMappingURL=NumberInCircle.consts.d.ts.map

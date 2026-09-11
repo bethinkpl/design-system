@@ -13,3 +13,4 @@ type __VLS_TypePropsToRuntimeProps<T> = {
         required: true;
     };
 };
+//# sourceMappingURL=SpinnerLoading.vue.d.ts.map

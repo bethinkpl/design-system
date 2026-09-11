@@ -36,3 +36,4 @@ export interface ProgressDonutChartRange {
     start: number;
     length: number;
 }
+//# sourceMappingURL=ProgressDonutChart.consts.d.ts.map

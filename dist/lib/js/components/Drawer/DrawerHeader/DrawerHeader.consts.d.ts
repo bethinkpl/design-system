@@ -8,3 +8,4 @@ export declare const DRAWER_HEADER_BACKGROUND_COLORS: {
     readonly DEFAULT: "default";
 };
 export type DrawerHeaderBackgroundColor = (typeof DRAWER_HEADER_BACKGROUND_COLORS)[keyof typeof DRAWER_HEADER_BACKGROUND_COLORS];
+//# sourceMappingURL=DrawerHeader.consts.d.ts.map

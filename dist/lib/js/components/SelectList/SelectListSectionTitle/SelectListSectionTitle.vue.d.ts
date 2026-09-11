@@ -20,3 +20,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isUppercase: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=SelectListSectionTitle.vue.d.ts.map

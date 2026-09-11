@@ -27,3 +27,4 @@ declare const _default: {
     "ds.globals.loading": string;
 };
 export default _default;
+//# sourceMappingURL=pl.d.ts.map

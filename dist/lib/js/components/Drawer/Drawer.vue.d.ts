@@ -49,3 +49,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     stickyFooter: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=Drawer.vue.d.ts.map

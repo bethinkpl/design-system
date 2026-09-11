@@ -45,3 +45,4 @@ export declare const WELL_RIBBON_POSITIONS: {
     readonly LEFT: "left";
 };
 export type WellRibbonPosition = Value<typeof WELL_RIBBON_POSITIONS>;
+//# sourceMappingURL=Well.consts.d.ts.map

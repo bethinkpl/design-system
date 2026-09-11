@@ -33,3 +33,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     supportingText: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=SectionTitle.vue.d.ts.map

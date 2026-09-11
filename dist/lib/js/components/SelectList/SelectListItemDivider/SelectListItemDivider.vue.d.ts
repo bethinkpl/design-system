@@ -44,3 +44,4 @@ declare const _default: import('vue').DefineComponent<{}, {}, {}, {}, {}, import
     }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=SelectListItemDivider.vue.d.ts.map

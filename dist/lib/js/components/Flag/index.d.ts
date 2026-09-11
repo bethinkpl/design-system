@@ -4,3 +4,4 @@ export * from './Flag.consts';
 export * from './flags';
 export { Flag };
 export default Flag;
+//# sourceMappingURL=index.d.ts.map

@@ -3,3 +3,4 @@ export interface Color {
     label: string;
     value: string;
 }
+//# sourceMappingURL=color.d.ts.map

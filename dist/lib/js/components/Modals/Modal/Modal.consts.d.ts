@@ -10,3 +10,4 @@ export declare const MODAL_HEADER_TITLE_SIZES: {
     readonly MEDIUM: "medium";
 };
 export type ModalHeaderTitleSize = Value<typeof MODAL_HEADER_TITLE_SIZES>;
+//# sourceMappingURL=Modal.consts.d.ts.map

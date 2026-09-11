@@ -9,3 +9,4 @@ export declare const SELECTION_TILE_STATE: {
     readonly LOADING: "loading";
 };
 export type SelectionTileState = (typeof SELECTION_TILE_STATE)[keyof typeof SELECTION_TILE_STATE];
+//# sourceMappingURL=SelectionTile.consts.d.ts.map

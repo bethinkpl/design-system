@@ -17,3 +17,4 @@ export declare const MENU_ITEM_BACKGROUND_COLORS: {
 };
 export type MenuItemBackgroundColor = Value<typeof MENU_ITEM_BACKGROUND_COLORS>;
 export declare const MENU_ITEM_LEVEL_INJECTION_KEY: InjectionKey<number>;
+//# sourceMappingURL=MenuItem.consts.d.ts.map

@@ -44,3 +44,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     PrimeSkeleton: import('@primevue/core').DefineComponent<import('primevue/skeleton').SkeletonProps, import('primevue/skeleton').SkeletonSlots, (e: string, ...args: any[]) => void>;
 }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=Skeleton.vue.d.ts.map

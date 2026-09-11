@@ -5,3 +5,4 @@ export declare const PAGE_HEADER_MOBILE_LAYOUTS: {
     readonly HORIZONTAL: "horizontal";
 };
 export type PageHeaderMobileLayout = Value<typeof PAGE_HEADER_MOBILE_LAYOUTS>;
+//# sourceMappingURL=PageHeader.consts.d.ts.map

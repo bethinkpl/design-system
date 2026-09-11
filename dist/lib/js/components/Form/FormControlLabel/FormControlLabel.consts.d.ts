@@ -11,3 +11,4 @@ export declare const FORM_CONTROL_STATE: {
     DISABLED: string;
 };
 export type FormControlState = Value<typeof FORM_CONTROL_STATE>;
+//# sourceMappingURL=FormControlLabel.consts.d.ts.map

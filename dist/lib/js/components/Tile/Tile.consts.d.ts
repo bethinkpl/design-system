@@ -46,3 +46,4 @@ export declare const TILE_COMPACT_LAYOUTS: {
     readonly ICON_RIGHT_ONLY: "iconRightOnly";
 };
 export type TileCompactLayout = Value<typeof TILE_COMPACT_LAYOUTS>;
+//# sourceMappingURL=Tile.consts.d.ts.map

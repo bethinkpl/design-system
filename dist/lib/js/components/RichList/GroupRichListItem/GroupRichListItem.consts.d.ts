@@ -28,3 +28,4 @@ export declare const GROUP_RICH_LIST_ITEM_BACKGROUND_COLOR: {
     readonly NEUTRAL_WEAK: "neutral-weak";
 };
 export type GroupRichListItemBackgroundColor = RichListItemBackgroundColor;
+//# sourceMappingURL=GroupRichListItem.consts.d.ts.map

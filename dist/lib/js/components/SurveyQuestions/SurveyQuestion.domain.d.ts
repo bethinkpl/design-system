@@ -5,3 +5,4 @@ export interface SurveyQuestionScaleOption {
     meaning?: string | null;
     standalone?: boolean | null;
 }
+//# sourceMappingURL=SurveyQuestion.domain.d.ts.map

@@ -30,3 +30,4 @@ export type DatePickerTriggerTypes = Value<typeof DATE_PICKER_TRIGGER_TYPES>;
 export declare const FLATPICKR_POSITIONS: {
     readonly [x: string]: "below left" | "below right" | "below" | "above left" | "above right" | "above";
 };
+//# sourceMappingURL=DatePicker.consts.d.ts.map

@@ -7,3 +7,4 @@ export interface CheckboxGroupContext {
     elevation: Ref<CheckboxElevation>;
 }
 export declare const CHECKBOX_GROUP_INJECTION_KEY: InjectionKey<CheckboxGroupContext>;
+//# sourceMappingURL=CheckboxGroupField.consts.d.ts.map

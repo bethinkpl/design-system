@@ -33,3 +33,4 @@ export type TextGroupSize = (typeof TEXT_GROUP_SIZES)[keyof typeof TEXT_GROUP_SI
 export type TextGroupState = (typeof TEXT_GROUP_STATES)[keyof typeof TEXT_GROUP_STATES];
 export type TextGroupAlign = (typeof TEXT_GROUP_ALIGNS)[keyof typeof TEXT_GROUP_ALIGNS];
 export type TextGroupMainTextColor = (typeof TEXT_GROUP_MAIN_TEXT_COLORS)[keyof typeof TEXT_GROUP_MAIN_TEXT_COLORS];
+//# sourceMappingURL=TextGroup.consts.d.ts.map

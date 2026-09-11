@@ -4,3 +4,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     modelValue: import('vue').PropType<string>;
 }>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=TextAreaFieldAutosized.vue.d.ts.map

@@ -15,3 +15,4 @@ export declare const LABEL_VALUE_ITEM_VALUE_COLORS: {
 export type LabelValueItemState = Value<typeof LABEL_VALUE_ITEM_STATES>;
 export type LabelValueItemSize = Value<typeof LABEL_VALUE_ITEM_SIZES>;
 export type LabelValueItemValueColor = Value<typeof LABEL_VALUE_ITEM_VALUE_COLORS>;
+//# sourceMappingURL=LabelValueItem.consts.d.ts.map

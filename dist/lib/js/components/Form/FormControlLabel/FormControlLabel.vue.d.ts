@@ -26,3 +26,4 @@ type __VLS_WithTemplateSlots<T, S> = T & {
         $slots: S;
     };
 };
+//# sourceMappingURL=FormControlLabel.vue.d.ts.map

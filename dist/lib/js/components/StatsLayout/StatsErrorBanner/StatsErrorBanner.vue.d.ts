@@ -4,3 +4,4 @@ declare const _default: import('vue').DefineComponent<{}, {}, {}, {}, {}, import
     "onButton-clicked"?: (() => any) | undefined;
 }>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=StatsErrorBanner.vue.d.ts.map

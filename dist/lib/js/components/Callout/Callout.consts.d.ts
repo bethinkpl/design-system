@@ -30,3 +30,4 @@ export declare const CALLOUT_MAIN_TEXT_COLORS: {
     readonly PRIMARY: "primary";
 };
 export type CalloutMainTextColor = TextGroupMainTextColor;
+//# sourceMappingURL=Callout.consts.d.ts.map

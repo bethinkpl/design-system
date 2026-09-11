@@ -42,3 +42,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     prominence: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=Divider.vue.d.ts.map

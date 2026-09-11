@@ -37,3 +37,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     placeholder: string;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=SurveyQuestionTextarea.vue.d.ts.map

@@ -15,3 +15,4 @@ export declare const LOADING_BAR_SIZES: {
     LARGE: string;
 };
 export type LoadingBarSizes = Value<typeof LOADING_BAR_SIZES>;
+//# sourceMappingURL=LoadingBar.consts.d.ts.map

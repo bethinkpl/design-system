@@ -17,6 +17,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     mainTextColor?: CalloutMainTextColor;
     buttonLabel?: string | null;
     buttonIcon?: IconItem | null;
+    buttonState?: string;
     isActionVertical?: boolean;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "button-clicked": (e: Event) => void;
@@ -31,6 +32,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     mainTextColor?: CalloutMainTextColor;
     buttonLabel?: string | null;
     buttonIcon?: IconItem | null;
+    buttonState?: string;
     isActionVertical?: boolean;
 }>>> & Readonly<{
     "onButton-clicked"?: ((e: Event) => any) | undefined;
@@ -51,3 +53,4 @@ type __VLS_WithTemplateSlots<T, S> = T & {
         $slots: S;
     };
 };
+//# sourceMappingURL=Callout.vue.d.ts.map

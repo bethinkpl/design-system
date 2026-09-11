@@ -8,3 +8,4 @@ export declare const DIVIDER_SIZES: {
     M: string;
     L: string;
 };
+//# sourceMappingURL=Divider.consts.d.ts.map

@@ -71,3 +71,4 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     contentWithoutPadding: boolean;
 }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 export default _default;
+//# sourceMappingURL=ThreeColumnLayout.vue.d.ts.map
