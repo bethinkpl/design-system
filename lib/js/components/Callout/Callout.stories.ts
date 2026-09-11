@@ -9,7 +9,7 @@ import {
 	CALLOUT_MAIN_TEXT_COLORS,
 	CALLOUT_SIZES,
 } from './Callout.consts';
-import DsButton from '../Buttons/Button';
+import DsButton, { BUTTON_STATES } from '../Buttons/Button';
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button/Button.consts';
 import { ICONS } from '../Icons/Icon';
 
@@ -76,6 +76,10 @@ const meta: Meta<typeof Callout> = {
 			control: 'select',
 			options: [null, ...Object.keys(ICONS)],
 		},
+		buttonState: {
+			control: 'select',
+			options: [null, ...Object.values(BUTTON_STATES)],
+		},
 		eyebrowText: { control: 'text' },
 		mainText: { control: 'text' },
 		supportingText: { control: 'text' },
@@ -100,6 +104,7 @@ export const Interactive: Story = {
 		buttonLabel: 'Button label',
 		buttonIcon: null,
 		isActionVertical: false,
+		buttonState: null,
 	},
 };
 
