@@ -78,7 +78,7 @@ const meta: Meta<typeof Callout> = {
 		},
 		buttonState: {
 			control: 'select',
-			options: [null, ...Object.values(BUTTON_STATES)],
+			options: Object.values(BUTTON_STATES),
 		},
 		eyebrowText: { control: 'text' },
 		mainText: { control: 'text' },
@@ -104,7 +104,7 @@ export const Interactive: Story = {
 		buttonLabel: 'Button label',
 		buttonIcon: null,
 		isActionVertical: false,
-		buttonState: null,
+		buttonState: BUTTON_STATES.DEFAULT,
 	},
 };
 
