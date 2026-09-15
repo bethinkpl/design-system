@@ -102,7 +102,7 @@ import DsFeatureIcon from '../Icons/FeatureIcon';
 import { FEATURE_ICON_SIZES } from '../Icons/FeatureIcon/FeatureIcon.consts';
 import DsTextGroup from '../TextGroup/TextGroup.vue';
 import { TEXT_GROUP_ALIGNS, TEXT_GROUP_SIZES } from '../TextGroup/TextGroup.consts';
-import DsButton, { BUTTON_RADIUSES, BUTTON_STATES } from '../Buttons/Button';
+import DsButton, { BUTTON_RADIUSES, BUTTON_STATES, ButtonState } from '../Buttons/Button';
 import { BUTTON_COLORS, BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button/Button.consts';
 import { IconItem } from '../Icons/Icon';
 import {
@@ -140,7 +140,7 @@ const {
 	mainTextColor?: CalloutMainTextColor;
 	buttonLabel?: string | null;
 	buttonIcon?: IconItem | null;
-	buttonState?: string;
+	buttonState?: ButtonState;
 	isActionVertical?: boolean;
 }>();
 
