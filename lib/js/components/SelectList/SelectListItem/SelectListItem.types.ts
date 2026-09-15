@@ -1,12 +1,10 @@
 import { IconItem } from '../../Icons/Icon';
+import { RouterLocation } from '../../../types/router.types';
 import {
 	SelectListItemSelectionMode,
 	SelectListItemSize,
 	SelectListItemState,
 } from './SelectListItem.consts';
-
-// DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
-export type RouterLocation = string | Record<string, unknown>;
 
 export interface SelectListItemProps {
 	href?: string;
