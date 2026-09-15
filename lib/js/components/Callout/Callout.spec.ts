@@ -14,7 +14,13 @@ import { FEATURE_ICON_SIZES } from '../Icons/FeatureIcon/FeatureIcon.consts';
 import DsTextGroup from '../TextGroup/TextGroup.vue';
 import { TEXT_GROUP_ALIGNS, TEXT_GROUP_SIZES } from '../TextGroup/TextGroup.consts';
 import DsButton from '../Buttons/Button';
-import { BUTTON_COLORS, BUTTON_RADIUSES, BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
+import {
+	BUTTON_COLORS,
+	BUTTON_RADIUSES,
+	BUTTON_SIZES,
+	BUTTON_STATES,
+	BUTTON_TYPES,
+} from '../Buttons/Button';
 import { ICONS } from '../Icons/Icon';
 
 type MountOptions = Omit<NonNullable<Parameters<typeof mount<typeof Callout>>[1]>, 'props'> & {
@@ -244,6 +250,21 @@ describe('Callout', () => {
 
 			expect(wrapper.find('.ds-callout__actions').exists()).toBe(true);
 		});
+
+		it('is default by default', () => {
+			const wrapper = mountCallout({ props: { buttonLabel: 'Confirm' } });
+
+			expect(wrapper.findComponent(DsButton).props('state')).toBe(BUTTON_STATES.DEFAULT);
+		});
+
+		it.each(Object.values(BUTTON_STATES))(
+			'passes button state "%s" to the button',
+			(buttonState) => {
+				const wrapper = mountCallout({ props: { buttonLabel: 'Confirm', buttonState } });
+
+				expect(wrapper.findComponent(DsButton).props('state')).toBe(buttonState);
+			},
+		);
 
 		it('adds the stacked actions modifier on the root when isActionVertical is set', () => {
 			const wrapper = mountCallout({
