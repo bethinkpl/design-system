@@ -9,6 +9,9 @@ import DsChip from '../../Chip';
 import { CHIP_SIZES } from '../../Chip/Chip.consts';
 import { AVATAR_ACCESS_STATUSES, AVATAR_ACTIVITY_STATUSES } from '../../Avatar/Avatar.consts';
 import { ICONS } from '../../Icons/Icon';
+import SlotPlaceholder, {
+	SLOT_PLACEHOLDER_SIZES,
+} from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
 
 const meta = {
 	title: 'Components/TopNav/UserDropdown',
@@ -88,6 +91,23 @@ export const WithoutItems: Story = {
 		template: `
 			<div style="display: flex; justify-content: flex-end; width: 300px; padding: 40px 0;">
 				<user-dropdown v-bind="args" />
+			</div>`,
+	}),
+};
+
+export const Slots: Story = {
+	args,
+	argTypes,
+	render: (storyArgs: Args) => ({
+		components: { UserDropdown, SlotPlaceholder },
+		setup() {
+			return { args: storyArgs, SLOT_PLACEHOLDER_SIZES };
+		},
+		template: `
+			<div style="display: flex; justify-content: flex-end; width: 300px; padding: 40px 0;">
+				<user-dropdown v-bind="args">
+					<slot-placeholder label="default slot" :size="SLOT_PLACEHOLDER_SIZES.SMALL" />
+				</user-dropdown>
 			</div>`,
 	}),
 };
