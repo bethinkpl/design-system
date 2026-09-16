@@ -1,27 +1,7 @@
-import { AvatarAccessStatus, AvatarActivityStatus, AvatarSize } from './Avatar.consts';
+import { AvatarProps, AvatarSlots } from './Avatar.types';
 
-declare function __VLS_template(): Readonly<{
-    teamMemberImage?: () => any;
-}> & {
-    teamMemberImage?: () => any;
-};
-declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    username: string;
-    avatarUrl?: string;
-    size?: AvatarSize;
-    activityStatus?: AvatarActivityStatus;
-    accessStatus?: AvatarAccessStatus;
-    teamMemberImageUrl?: string;
-    activityStatusTooltip?: string;
-}>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    username: string;
-    avatarUrl?: string;
-    size?: AvatarSize;
-    activityStatus?: AvatarActivityStatus;
-    accessStatus?: AvatarAccessStatus;
-    teamMemberImageUrl?: string;
-    activityStatusTooltip?: string;
-}>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+declare function __VLS_template(): Readonly<AvatarSlots> & AvatarSlots;
+declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<AvatarProps>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<AvatarProps>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;
 type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;

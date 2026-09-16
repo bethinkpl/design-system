@@ -1,6 +1,6 @@
 import { IconItem } from '../../Icons/Icon';
+import { RouterLocation } from '../../../types/router.types';
 
-type RouterLocation = string | Record<string, unknown>;
 declare function __VLS_template(): Readonly<{
     children?: () => any;
     labelSlot?: () => any;

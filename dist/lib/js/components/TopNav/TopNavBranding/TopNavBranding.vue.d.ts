@@ -1,4 +1,5 @@
-type RouterLocation = string | Record<string, unknown>;
+import { RouterLocation } from '../../../types/router.types';
+
 declare function __VLS_template(): Readonly<{
     logo?: () => any;
     accessory?: () => any;
