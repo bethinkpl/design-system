@@ -65,9 +65,7 @@
 
 <script setup lang="ts">
 import { computed } from 'vue';
-
-// DS don't have vue-router installed, so we define a loose type which should match RouteLocationRaw
-type RouterLocation = string | Record<string, unknown>;
+import { RouterLocation } from '../../../types/router.types';
 
 const { href = '', to = '' } = defineProps<{
 	title: string;

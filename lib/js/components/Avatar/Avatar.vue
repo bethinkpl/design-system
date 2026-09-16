@@ -204,10 +204,9 @@ import {
 	AVATAR_ACCESS_STATUSES,
 	AVATAR_ACTIVITY_STATUSES,
 	AVATAR_SIZES,
-	AvatarAccessStatus,
-	AvatarActivityStatus,
 	AvatarSize,
 } from './Avatar.consts';
+import { AvatarProps, AvatarSlots } from './Avatar.types';
 import DsBadge, { BADGE_ELEVATIONS, BADGE_SIZES, BADGE_COLORS } from '../Badge';
 import { computed } from 'vue';
 import { ICONS } from '../Icons/Icon';
@@ -221,19 +220,9 @@ const {
 	accessStatus,
 	teamMemberImageUrl,
 	activityStatusTooltip,
-} = defineProps<{
-	username: string;
-	avatarUrl?: string;
-	size?: AvatarSize;
-	activityStatus?: AvatarActivityStatus;
-	accessStatus?: AvatarAccessStatus;
-	teamMemberImageUrl?: string;
-	activityStatusTooltip?: string;
-}>();
+} = defineProps<AvatarProps>();
 
-defineSlots<{
-	teamMemberImage?: () => any;
-}>();
+defineSlots<AvatarSlots>();
 
 const { initials, initialBackgroundColor } = useInitials();
 const { accessStatusColor, accessStatusIcon, accessStatusSize, accessStatusImage } =

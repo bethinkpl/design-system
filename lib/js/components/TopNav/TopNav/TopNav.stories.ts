@@ -13,8 +13,9 @@ import {
 } from '../../Buttons/IconButton/IconButton.consts';
 import { BUTTON_RADIUSES } from '../../Buttons/Button/Button.consts';
 import { ICONS } from '../../Icons/Icon';
-import Avatar from '../../Avatar/Avatar.vue';
-import { AVATAR_SIZES } from '../../Avatar/Avatar.consts';
+import UserDropdown from '../UserDropdown/UserDropdown.vue';
+import UserDropdownItem from '../UserDropdown/UserDropdownItem/UserDropdownItem.vue';
+import UserDropdownDivider from '../UserDropdown/UserDropdownDivider/UserDropdownDivider.vue';
 import SlotPlaceholder, {
 	SLOT_PLACEHOLDER_SIZES,
 } from '../../../../../.storybook/SlotPlaceholder/SlotPlaceholder.vue';
@@ -26,7 +27,15 @@ export default {
 } as Meta<typeof TopNav>;
 
 const FilledTemplate: StoryFn<typeof TopNav> = () => ({
-	components: { TopNav, TopNavBranding, Flag, IconButton, Avatar },
+	components: {
+		TopNav,
+		TopNavBranding,
+		Flag,
+		IconButton,
+		UserDropdown,
+		UserDropdownItem,
+		UserDropdownDivider,
+	},
 	setup() {
 		return {
 			logo: TOP_NAV_STORY_LOGO,
@@ -37,7 +46,6 @@ const FilledTemplate: StoryFn<typeof TopNav> = () => ({
 			ICON_BUTTON_SIZES,
 			ICON_BUTTON_TYPES,
 			BUTTON_RADIUSES,
-			AVATAR_SIZES,
 		};
 	},
 	template: `
@@ -60,7 +68,17 @@ const FilledTemplate: StoryFn<typeof TopNav> = () => ({
 				</template>
 			</top-nav-branding>
 			<template #trailing>
-				<avatar username="Bethink User" :size="AVATAR_SIZES.X_SMALL" />
+				<user-dropdown username="Bethink User" email="bethink.user@bethink.pl">
+					<template #default="{ close }">
+						<user-dropdown-item :icon-left="ICONS.FA_USER" label="Konto" />
+						<user-dropdown-divider />
+						<user-dropdown-item
+							:icon-left="ICONS.FA_ARROW_RIGHT_FROM_BRACKET"
+							label="Wyloguj się"
+							@click="close"
+						/>
+					</template>
+				</user-dropdown>
 			</template>
 		</top-nav>
 	`,

@@ -53,6 +53,40 @@ describe('SelectListItem', () => {
 		expect(wrapper.find('.ds-selectListItem__iconRight').exists()).toBe(false);
 	});
 
+	describe('element type', () => {
+		it('should render a div by default', () => {
+			expect(setup({ label: 'Label' }).element.tagName).toBe('DIV');
+		});
+
+		it('should render an anchor when href is provided', () => {
+			const wrapper = setup({ label: 'Label', href: '/account' });
+
+			expect(wrapper.element.tagName).toBe('A');
+			expect(wrapper.attributes('href')).toBe('/account');
+		});
+
+		it('should render a router-link when to is provided', () => {
+			expect(setup({ label: 'Label', to: '/account' }).element.tagName).toBe('ROUTER-LINK');
+		});
+
+		it('should prioritise href over to', () => {
+			const wrapper = setup({ label: 'Label', href: '/account', to: '/route' });
+
+			expect(wrapper.element.tagName).toBe('A');
+			expect(wrapper.attributes('href')).toBe('/account');
+		});
+
+		it.each([SELECT_LIST_ITEM_STATES.DISABLED, SELECT_LIST_ITEM_STATES.LOADING])(
+			'should render a div instead of a link in state: %s',
+			(state) => {
+				const wrapper = setup({ label: 'Label', href: '/account', state });
+
+				expect(wrapper.element.tagName).toBe('DIV');
+				expect(wrapper.attributes('href')).toBeUndefined();
+			},
+		);
+	});
+
 	describe('text slot', () => {
 		it('should fall back to the label when the slot is not provided', () => {
 			const wrapper = setup({ label: 'Fallback label' });

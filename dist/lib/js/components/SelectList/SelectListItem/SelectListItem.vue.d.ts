@@ -1,34 +1,7 @@
-import { SelectListItemSelectionMode, SelectListItemSize, SelectListItemState } from './SelectListItem.consts';
-import { IconItem } from '../../Icons/Icon';
+import { SelectListItemProps, SelectListItemSlots } from './SelectListItem.types';
 
-declare function __VLS_template(): Readonly<{
-    accessory?: () => any;
-    metadata?: () => any;
-    text?: () => any;
-}> & {
-    accessory?: () => any;
-    metadata?: () => any;
-    text?: () => any;
-};
-declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    iconLeft?: IconItem | null;
-    isSelected?: boolean;
-    label: string;
-    eyebrowText?: string;
-    isEyebrowTextUppercase?: boolean;
-    selectionMode?: SelectListItemSelectionMode;
-    size?: SelectListItemSize;
-    state?: SelectListItemState;
-}>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
-    iconLeft?: IconItem | null;
-    isSelected?: boolean;
-    label: string;
-    eyebrowText?: string;
-    isEyebrowTextUppercase?: boolean;
-    selectionMode?: SelectListItemSelectionMode;
-    size?: SelectListItemSize;
-    state?: SelectListItemState;
-}>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+declare function __VLS_template(): Readonly<SelectListItemSlots> & SelectListItemSlots;
+declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<SelectListItemProps>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<SelectListItemProps>>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;
 type __VLS_NonUndefinedable<T> = T extends undefined ? never : T;
