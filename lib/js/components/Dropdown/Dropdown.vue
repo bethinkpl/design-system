@@ -14,6 +14,7 @@
 	>
 		<div
 			class="popper ds-dropdown"
+			:inert="!isOpened"
 			:class="{
 				'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
 				'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,

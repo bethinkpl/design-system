@@ -1,5 +1,7 @@
 <template>
-	<div
+	<component
+		:is="as"
+		v-bind="bindings"
 		class="ds-selectListItem"
 		:class="{
 			'-ds-disabled': isDisabled,
@@ -41,7 +43,7 @@
 			:size="ICON_SIZES.XX_SMALL"
 		/>
 		<div v-else-if="!hasMetadata" class="ds-selectListItem__placeholderRight" />
-	</div>
+	</component>
 </template>
 
 <style scoped lang="scss">
@@ -63,6 +65,7 @@
 	gap: $space-3;
 	min-height: $minHeight;
 	padding: $space-6;
+	text-decoration: none;
 
 	&:focus {
 		background-color: $color-neutral-background-ghost-focused;
@@ -170,13 +173,13 @@ import {
 	SELECT_LIST_ITEM_SELECTION_MODE,
 	SELECT_LIST_ITEM_SIZES,
 	SELECT_LIST_ITEM_STATES,
-	SelectListItemSelectionMode,
-	SelectListItemSize,
-	SelectListItemState,
 } from './SelectListItem.consts';
-import DsIcon, { ICON_SIZES, ICONS, IconItem } from '../../Icons/Icon';
+import { SelectListItemProps, SelectListItemSlots } from './SelectListItem.types';
+import DsIcon, { ICON_SIZES, ICONS } from '../../Icons/Icon';
 
 const {
+	href = '',
+	to = '',
 	iconLeft = null,
 	isSelected = false,
 	label,
@@ -185,24 +188,36 @@ const {
 	selectionMode = SELECT_LIST_ITEM_SELECTION_MODE.SELECT_ONLY,
 	size = SELECT_LIST_ITEM_SIZES.SMALL,
 	state = SELECT_LIST_ITEM_STATES.DEFAULT,
-} = defineProps<{
-	iconLeft?: IconItem | null;
-	isSelected?: boolean;
-	label: string;
-	eyebrowText?: string;
-	isEyebrowTextUppercase?: boolean;
-	selectionMode?: SelectListItemSelectionMode;
-	size?: SelectListItemSize;
-	state?: SelectListItemState;
-}>();
+} = defineProps<SelectListItemProps>();
 
-const slots = defineSlots<{
-	accessory?: () => any;
-	metadata?: () => any;
-	text?: () => any;
-}>();
+const slots = defineSlots<SelectListItemSlots>();
 
 const isLoading = computed(() => state === SELECT_LIST_ITEM_STATES.LOADING);
 const isDisabled = computed(() => state === SELECT_LIST_ITEM_STATES.DISABLED);
 const hasMetadata = computed(() => !!slots.metadata);
+
+// A non-interactive item must not be a link: `pointer-events: none` stops the mouse, but an
+// `<a href>` would stay keyboard-focusable and openable through the context menu.
+const as = computed(() => {
+	if (isDisabled.value || isLoading.value) {
+		return 'div';
+	}
+	if (href) {
+		return 'a';
+	}
+	if (to) {
+		return 'router-link';
+	}
+	return 'div';
+});
+
+const bindings = computed(() => {
+	if (as.value === 'a') {
+		return { href };
+	}
+	if (as.value === 'router-link') {
+		return { to };
+	}
+	return {};
+});
 </script>
