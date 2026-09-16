@@ -1,3 +1,4 @@
+import { ButtonState } from '../Buttons/Button';
 import { IconItem } from '../Icons/Icon';
 import { CalloutIconColor, CalloutLayout, CalloutMainTextColor, CalloutSize } from './Callout.consts';
 
@@ -17,6 +18,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     mainTextColor?: CalloutMainTextColor;
     buttonLabel?: string | null;
     buttonIcon?: IconItem | null;
+    buttonState?: ButtonState;
     isActionVertical?: boolean;
 }>>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
     "button-clicked": (e: Event) => void;
@@ -31,6 +33,7 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     mainTextColor?: CalloutMainTextColor;
     buttonLabel?: string | null;
     buttonIcon?: IconItem | null;
+    buttonState?: ButtonState;
     isActionVertical?: boolean;
 }>>> & Readonly<{
     "onButton-clicked"?: ((e: Event) => any) | undefined;
