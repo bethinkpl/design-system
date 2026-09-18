@@ -2,6 +2,7 @@
 	<vue-popper
 		ref="popper"
 		:key="key"
+		:append-to-body="appendToBody"
 		:boundaries-selector="boundariesSelector"
 		:force-show="forceShow"
 		:options="options"
@@ -16,6 +17,7 @@
 			class="popper ds-dropdown"
 			:inert="!isOpened"
 			:class="{
+				'-ds-appendedToBody': appendToBody,
 				'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
 				'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
 				'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
@@ -38,6 +40,7 @@
 
 <style lang="scss" scoped>
 @import '../../../../lib/styles/settings/spacings';
+@import '../../../../lib/styles/settings/z-indexes';
 @import '../../../../lib/styles/mixins/dropdown-surface';
 
 .ds-dropdown {
@@ -50,6 +53,12 @@
 	min-width: 128px;
 	padding: 0;
 	text-align: left;
+
+	// Moved out of its original stacking context to `<body>`, so it needs to clear modal
+	// content. It is appended after the modal, so an equal z-index still paints it on top.
+	&.-ds-appendedToBody {
+		z-index: $z-index-modal;
+	}
 
 	&.-ds-radiusBottom {
 		@include dropdownSurfaceRadiusBottom;
@@ -95,6 +104,10 @@ export default defineComponent({
 		VuePopper,
 	},
 	props: {
+		appendToBody: {
+			type: Boolean,
+			default: false,
+		},
 		boundariesSelector: {
 			type: String,
 			default: null,
@@ -165,6 +178,9 @@ export default defineComponent({
 		},
 	},
 	watch: {
+		appendToBody() {
+			this.updateKey();
+		},
 		triggerAction() {
 			this.updateKey();
 		},

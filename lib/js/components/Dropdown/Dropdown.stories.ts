@@ -22,6 +22,7 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 	template: `
     <div style="position: relative">
       <dropdown :trigger-action="triggerAction"
+                :append-to-body="appendToBody"
                 :force-show="forceShow"
                 :same-width="sameWidth"
                 :radius="radius"
@@ -44,6 +45,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	triggerAction: DROPDOWN_TRIGGER_ACTIONS.CLICK,
 	radius: DROPDOWN_RADIUSES.BOTH,
+	appendToBody: false,
 	forceShow: false,
 	sameWidth: false,
 	maxHeight: '',
