@@ -27,7 +27,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
-}>, {}, {}, {
+}>, {}, {
+    tooltipObserver: MutationObserver | null;
+}, {
     tooltipParams(): {
         position: any;
         event: string;
@@ -52,7 +54,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             arrow: string;
         };
     };
-}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
+}, {
+    observeTooltip(): void;
+    stopObservingTooltip(): void;
+    fitTooltipIntoViewport(tooltipElement: HTMLElement): void;
+}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
     placement: {
         type: PropType<TooltipPlacement>;
         default: "bottom";
