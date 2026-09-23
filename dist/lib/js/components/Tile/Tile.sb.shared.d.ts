@@ -220,6 +220,7 @@ export declare const data: () => {
         readonly FA_PASTE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_PEN_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_TO_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
