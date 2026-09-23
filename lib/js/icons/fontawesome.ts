@@ -144,6 +144,7 @@ import { faPartyHorn } from '@fortawesome/pro-regular-svg-icons/faPartyHorn';
 import { faPencil } from '@fortawesome/pro-regular-svg-icons/faPencil';
 import { faPenCircle } from '@fortawesome/pro-regular-svg-icons/faPenCircle';
 import { faPenField } from '@fortawesome/pro-regular-svg-icons/faPenField';
+import { faPenLine } from '@fortawesome/pro-regular-svg-icons/faPenLine';
 import { faPenToSquare } from '@fortawesome/pro-regular-svg-icons/faPenToSquare';
 import { faPlay } from '@fortawesome/pro-regular-svg-icons/faPlay';
 import { faPlus } from '@fortawesome/pro-regular-svg-icons/faPlus';
@@ -483,6 +484,7 @@ export const FONTAWESOME_ICONS = {
 	FA_PASTE: faPaste,
 	FA_PEN_CIRCLE: faPenCircle,
 	FA_PEN_FIELD: faPenField,
+	FA_PEN_LINE: faPenLine,
 	FA_PEN_TO_SQUARE: faPenToSquare,
 	FA_PENCIL: faPencil,
 	FA_PLAY: faPlay,
