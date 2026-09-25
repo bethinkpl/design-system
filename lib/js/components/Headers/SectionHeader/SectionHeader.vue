@@ -310,6 +310,7 @@
 		align-items: flex-start;
 		display: flex;
 		flex-direction: column;
+		flex-shrink: 0;
 		min-width: 0;
 	}
 
