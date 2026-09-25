@@ -39,10 +39,10 @@ import {
 
 dotenv.config();
 
-export const ImportTypographyVariables = (
+export const ImportTypographyVariables = async (
 	typographyConfigFile: TypographyConfigFile,
 	jsonTypography: Object,
-) => {
+): Promise<void> => {
 	let resultCss: Array<string> = [];
 	let resultScss: Array<string> = [];
 	let resultJsonCss: Dict<Array<IResultJsonObject>> = {};
@@ -132,27 +132,29 @@ export const ImportTypographyVariables = (
 		resultJsonCss[fontStyleKey].push(item);
 	});
 
-	arrayToFile(
-		typographyConfigFile.destinationPath +
-			typographyConfigFile.bin.files.variablesRaw.destinationVariablesCss,
-		resultCss,
-	);
-	arrayToFile(
-		typographyConfigFile.destinationPath +
-			typographyConfigFile.bin.files.variablesRaw.destinationVariables,
-		resultScss,
-	);
-	jsonToFile(
-		typographyConfigFile.destinationPath +
-			typographyConfigFile.bin.files.variablesRaw.destinationVariablesCssJson,
-		resultJsonCss,
-	);
+	await Promise.all([
+		arrayToFile(
+			typographyConfigFile.destinationPath +
+				typographyConfigFile.bin.files.variablesRaw.destinationVariablesCss,
+			resultCss,
+		),
+		arrayToFile(
+			typographyConfigFile.destinationPath +
+				typographyConfigFile.bin.files.variablesRaw.destinationVariables,
+			resultScss,
+		),
+		jsonToFile(
+			typographyConfigFile.destinationPath +
+				typographyConfigFile.bin.files.variablesRaw.destinationVariablesCssJson,
+			resultJsonCss,
+		),
+	]);
 };
 
-export const ImportTypographyTokens = (
+export const ImportTypographyTokens = async (
 	typographyConfigFile: TypographyConfigFile,
 	jsonTypography: any,
-) => {
+): Promise<void> => {
 	let resultScss: Array<ITypographyToken> = recursiveTokensReader(jsonTypography[tokensKey], '');
 	let resultJsonCss: Dict<Array<ITypographyToken>> = {};
 
@@ -164,15 +166,18 @@ export const ImportTypographyTokens = (
 		resultJsonCss[category].push(item);
 	});
 
-	arrayToMixinFile(
-		typographyConfigFile.destinationPath + typographyConfigFile.bin.files.tokens.destination,
-		[importVariables, ...buildTypographyTokensMixins(resultScss.flat())],
-	);
-	jsonToFile(
-		typographyConfigFile.destinationPath +
-			typographyConfigFile.bin.files.tokens.destinationJson,
-		resultJsonCss,
-	);
+	await Promise.all([
+		arrayToMixinFile(
+			typographyConfigFile.destinationPath +
+				typographyConfigFile.bin.files.tokens.destination,
+			[importVariables, ...buildTypographyTokensMixins(resultScss.flat())],
+		),
+		jsonToFile(
+			typographyConfigFile.destinationPath +
+				typographyConfigFile.bin.files.tokens.destinationJson,
+			resultJsonCss,
+		),
+	]);
 };
 
 function buildTypographyTokensMixins(tokens: Array<ITypographyToken>): Array<string> {
@@ -207,12 +212,12 @@ const SynchronizeTypographyTokensBin = async () => {
 		tokensFilesConfig.jsonBinApiUrl,
 	);
 
-	ImportTypographyVariables(
+	await ImportTypographyVariables(
 		tokensFilesConfig,
 		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);
 
-	ImportTypographyTokens(
+	await ImportTypographyTokens(
 		tokensFilesConfig,
 		requestResponse.data.record.values.LMSDesignSystemTypography,
 	);
