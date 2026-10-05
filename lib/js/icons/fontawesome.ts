@@ -240,6 +240,7 @@ import { faSparkles as fasSparkles } from '@fortawesome/pro-solid-svg-icons/faSp
 import { faStar as fasStar } from '@fortawesome/pro-solid-svg-icons/faStar';
 import { faStethoscope } from '@fortawesome/pro-regular-svg-icons/faStethoscope';
 import { faStopwatch as fasStopwach } from '@fortawesome/pro-solid-svg-icons/faStopwatch';
+import { faStopwatch } from '@fortawesome/pro-regular-svg-icons/faStopwatch';
 import { faThumbsUp as fasThumbsUp } from '@fortawesome/pro-solid-svg-icons/faThumbsUp';
 import { faThumbtack as fasThumbtack } from '@fortawesome/pro-solid-svg-icons/faThumbtack';
 import { faThumbtack } from '@fortawesome/pro-regular-svg-icons/faThumbtack';
@@ -521,6 +522,7 @@ export const FONTAWESOME_ICONS = {
 	FA_STAR: faStar,
 	FA_SUN_BRIGHT: faSunBright,
 	FA_STETHOSCOPE: faStethoscope,
+	FA_STOPWATCH: faStopwatch,
 	FA_STOPWATCH_SOLID: fasStopwach,
 	FA_TAG: faTag,
 	FA_TAGS: faTags,
