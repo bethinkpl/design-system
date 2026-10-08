@@ -298,6 +298,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_PASTE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_PEN_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PEN_TO_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -334,6 +335,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_SUN_BRIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STETHOSCOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_STOPWATCH: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_STOPWATCH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_TAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_TAGS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -739,6 +741,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_PASTE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_PEN_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PEN_TO_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -775,6 +778,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_SUN_BRIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STETHOSCOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_STOPWATCH: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_STOPWATCH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_TAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_TAGS: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1284,6 +1288,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_PASTE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PEN_CIRCLE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PEN_FIELD: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_PEN_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PEN_TO_SQUARE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PENCIL: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_PLAY: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1320,6 +1325,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_STAR: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_SUN_BRIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_STETHOSCOPE: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_STOPWATCH: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_STOPWATCH_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_TAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_TAGS: import('@fortawesome/fontawesome-common-types').IconDefinition;
