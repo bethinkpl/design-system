@@ -9,6 +9,8 @@ import { faArrowDownLeftAndArrowUpRightToCenter } from '@fortawesome/pro-regular
 import { faArrowDownToLine } from '@fortawesome/pro-regular-svg-icons/faArrowDownToLine';
 import { faArrowPointer } from '@fortawesome/pro-regular-svg-icons/faArrowPointer';
 import { faArrowRightFromBracket } from '@fortawesome/pro-regular-svg-icons/faArrowRightFromBracket';
+import { faArrowRightFromDottedLine } from '@fortawesome/pro-regular-svg-icons/faArrowRightFromDottedLine';
+import { faArrowRightToDottedLine } from '@fortawesome/pro-regular-svg-icons/faArrowRightToDottedLine';
 import { faArrowRotateLeft } from '@fortawesome/pro-regular-svg-icons/faArrowRotateLeft';
 import { faArrowRotateRight } from '@fortawesome/pro-regular-svg-icons/faArrowRotateRight';
 import { faArrowsFromDottedLine } from '@fortawesome/pro-regular-svg-icons/faArrowsFromDottedLine';
@@ -104,6 +106,7 @@ import { faGraduationCap } from '@fortawesome/pro-regular-svg-icons/faGraduation
 import { faGrid } from '@fortawesome/pro-regular-svg-icons/faGrid';
 import { faHandPointLeft } from '@fortawesome/pro-regular-svg-icons/faHandPointLeft';
 import { faHandPointRight } from '@fortawesome/pro-regular-svg-icons/faHandPointRight';
+import { faHashtag } from '@fortawesome/pro-regular-svg-icons/faHashtag';
 import { faHeadSideBrain } from '@fortawesome/pro-regular-svg-icons/faHeadSideBrain';
 import { faHeartPulse } from '@fortawesome/pro-regular-svg-icons/faHeartPulse';
 import { faHourglass } from '@fortawesome/pro-regular-svg-icons/faHourglass';
@@ -292,7 +295,9 @@ export const FONTAWESOME_ICONS = {
 	FA_ARROW_LEFT_TO_DOTTED_LINE: faArrowLeftToDottedLine,
 	FA_ARROW_POINTER: faArrowPointer,
 	FA_ARROW_RIGHT_FROM_BRACKET: faArrowRightFromBracket,
+	FA_ARROW_RIGHT_FROM_DOTTED_LINE: faArrowRightFromDottedLine,
 	FA_ARROW_RIGHT_SOLID: fasArrowRight,
+	FA_ARROW_RIGHT_TO_DOTTED_LINE: faArrowRightToDottedLine,
 	FA_ARROW_ROTATE_LEFT: faArrowRotateLeft,
 	FA_ARROW_ROTATE_RIGHT: faArrowRotateRight,
 	FA_ARROW_UP_BIG_SMALL: faArrowUpBigSmall,
@@ -432,6 +437,7 @@ export const FONTAWESOME_ICONS = {
 	FA_HAND_POINT_RIGHT: faHandPointRight,
 	FA_HAND_SPOCK_SOLID: fasHandSpock,
 	FA_HANDS_SOLID: fasHands,
+	FA_HASHTAG: faHashtag,
 	FA_HEAD_SIDE_BRAIN: faHeadSideBrain,
 	FA_HEART_PULSE: faHeartPulse,
 	FA_HEART_SOLID: fasHeart,
