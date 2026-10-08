@@ -53,7 +53,11 @@
 							<div
 								v-if="displayFooter"
 								class="ds-modal__footer"
-								:class="{ '-ds-singleColumn': calcSingleColumn }"
+								:class="{
+									'-ds-singleColumn': calcSingleColumn,
+									'-ds-horizontal':
+										footerLayout === MODAL_FOOTER_LAYOUTS.HORIZONTAL,
+								}"
 							>
 								<div
 									v-if="footerTertiaryButtonText || footerCheckboxText"
@@ -310,8 +314,10 @@ $image-height-small: 140px;
 		padding-top: $space-12;
 
 		@media #{breakpoint-s()} {
-			align-items: center;
-			flex-direction: row;
+			&.-ds-horizontal {
+				align-items: center;
+				flex-direction: row;
+			}
 		}
 
 		&.-ds-singleColumn {
@@ -337,8 +343,10 @@ $image-height-small: 140px;
 		gap: $space-8 0;
 
 		@media #{breakpoint-s()} {
-			flex-direction: row;
-			gap: 0 $space-8;
+			#{$self}__footer.-ds-horizontal & {
+				flex-direction: row;
+				gap: 0 $space-8;
+			}
 		}
 
 		&:not(:first-child) {
@@ -346,7 +354,9 @@ $image-height-small: 140px;
 			margin-bottom: $space-6;
 
 			@media #{breakpoint-s()} {
-				margin-bottom: 0;
+				#{$self}__footer.-ds-horizontal & {
+					margin-bottom: 0;
+				}
 			}
 		}
 	}
@@ -358,7 +368,9 @@ $image-height-small: 140px;
 		justify-content: space-between;
 
 		@media #{breakpoint-s()} {
-			justify-content: left;
+			#{$self}__footer.-ds-horizontal & {
+				justify-content: left;
+			}
 		}
 	}
 }
@@ -367,8 +379,10 @@ $image-height-small: 140px;
 <script lang="ts">
 import FeatureIcon from '../../Icons/FeatureIcon/FeatureIcon.vue';
 import {
+	MODAL_FOOTER_LAYOUTS,
 	MODAL_HEADER_TITLE_SIZES,
 	MODAL_SIZES,
+	ModalFooterLayout,
 	ModalHeaderTitleSize,
 	ModalSize,
 } from './Modal.consts';
@@ -496,6 +510,12 @@ export default defineComponent({
 			type: Boolean,
 			default: false,
 		},
+		footerLayout: {
+			type: String,
+			default: MODAL_FOOTER_LAYOUTS.HORIZONTAL,
+			validator: (value: ModalFooterLayout) =>
+				Object.values(MODAL_FOOTER_LAYOUTS).includes(value),
+		},
 		isFullHeight: {
 			type: Boolean,
 			default: false,
@@ -519,6 +539,7 @@ export default defineComponent({
 			ICON_SIZES,
 			MODAL_SIZES,
 			MODAL_HEADER_TITLE_SIZES,
+			MODAL_FOOTER_LAYOUTS,
 			FEATURE_ICON_SIZES,
 		};
 	},

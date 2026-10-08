@@ -13,3 +13,10 @@ export const MODAL_HEADER_TITLE_SIZES = {
 } as const;
 
 export type ModalHeaderTitleSize = Value<typeof MODAL_HEADER_TITLE_SIZES>;
+
+export const MODAL_FOOTER_LAYOUTS = {
+	HORIZONTAL: 'horizontal',
+	VERTICAL: 'vertical',
+} as const;
+
+export type ModalFooterLayout = Value<typeof MODAL_FOOTER_LAYOUTS>;

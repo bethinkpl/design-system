@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils';
 import { h } from 'vue';
 import Modal from './Modal.vue';
 import Button, { BUTTON_RADIUSES } from '../../Buttons/Button';
+import { MODAL_FOOTER_LAYOUTS } from './Modal.consts';
 
 describe('Modal', () => {
 	it('renders with right actions slot', () => {
@@ -41,4 +42,28 @@ describe('Modal', () => {
 			expect(button.props('radius')).toBe(BUTTON_RADIUSES.ROUNDED);
 		});
 	});
+
+	it.each([
+		{ footerLayout: undefined, isHorizontal: true },
+		{ footerLayout: MODAL_FOOTER_LAYOUTS.HORIZONTAL, isHorizontal: true },
+		{ footerLayout: MODAL_FOOTER_LAYOUTS.VERTICAL, isHorizontal: false },
+	])(
+		'applies horizontal footer class: $isHorizontal for footerLayout: $footerLayout',
+		({ footerLayout, isHorizontal }) => {
+			const wrapper = mount(Modal, {
+				props: {
+					footerPrimaryButtonText: 'Primary',
+					footerSecondaryButtonText: 'Secondary',
+					footerLayout,
+				},
+				global: {
+					stubs: {
+						teleport: true,
+					},
+				},
+			});
+
+			expect(wrapper.find('.ds-modal__footer').classes('-ds-horizontal')).toBe(isHorizontal);
+		},
+	);
 });
