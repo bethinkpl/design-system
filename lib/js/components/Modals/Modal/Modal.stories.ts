@@ -3,7 +3,7 @@ import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import Modal from './Modal.vue';
 import { ICONS } from '../../Icons/Icon';
 import { FEATURE_ICON_COLOR } from '../../Icons/FeatureIcon';
-import { MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from './Modal.consts';
+import { MODAL_FOOTER_LAYOUTS, MODAL_HEADER_TITLE_SIZES, MODAL_SIZES } from './Modal.consts';
 import { BUTTON_STATES } from '../../Buttons/Button';
 
 export default {
@@ -22,7 +22,7 @@ const StoryTemplate: StoryFn<typeof Modal> = (args) => ({
 		':footerPrimaryButtonText="footerPrimaryButtonText" :footerPrimaryButtonIcon="ICONS[footerPrimaryButtonIcon]" :footerPrimaryButtonState="footerPrimaryButtonState" ' +
 		':footerSecondaryButtonText="footerSecondaryButtonText" :footerSecondaryButtonIcon="ICONS[footerSecondaryButtonIcon]" :footerSecondaryButtonState="footerSecondaryButtonState" ' +
 		':footerTertiaryButtonText="footerTertiaryButtonText" :footerTertiaryButtonIcon="ICONS[footerTertiaryButtonIcon]" :footerTertiaryButtonState="footerTertiaryButtonState" ' +
-		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage" :is-footer-sticky="isFooterSticky" :is-full-height="isFullHeight">' +
+		':footerCheckboxText="footerCheckboxText" :headerImage="headerImage" :is-footer-sticky="isFooterSticky" :is-full-height="isFullHeight" :footer-layout="footerLayout">' +
 		'<div v-html="defaultSlot" />' +
 		'<template v-if="rightActionsSlot" #rightActions><div style="display: inline-flex;" v-html="rightActionsSlot" /></template>' +
 		'</modal>',
@@ -60,6 +60,7 @@ const args = {
 	footerCheckboxText: '',
 	isFooterSticky: false,
 	isFullHeight: false,
+	footerLayout: MODAL_FOOTER_LAYOUTS.HORIZONTAL,
 } as Args;
 
 const argTypes = {
@@ -114,6 +115,12 @@ const argTypes = {
 	footerCheckboxText: { control: 'text' },
 	isFullHeight: { control: 'boolean' },
 	isFooterSticky: { control: 'boolean' },
+	footerLayout: {
+		control: 'select',
+		options: Object.values(MODAL_FOOTER_LAYOUTS),
+		description:
+			'`horizontal` stacks the footer on mobile and lays it out in a row from the S breakpoint up. `vertical` keeps it stacked at every width.',
+	},
 	onCloseModal: { action: 'close-modal' },
 	onCheckboxChange: { action: 'checkbox-change' },
 	onPrimaryButtonClick: { action: 'primary-button-click' },
