@@ -93,8 +93,7 @@ const tokensFixture = {
 
 describe('ImportColorsFromFigmaTokens', () => {
 	it('ImportRawColors generates correct _raw.scss and _raw.json', async () => {
-		ImportRawColors(testConfig, rawColorsFixture);
-		await new Promise((r) => setTimeout(r, 1));
+		await ImportRawColors(testConfig, rawColorsFixture);
 
 		// --- _raw.scss ---
 		const scssContent = await promises.readFile(
@@ -160,8 +159,7 @@ describe('ImportColorsFromFigmaTokens', () => {
 	});
 
 	it('ImportTokens generates correct _tokens-variables.scss, _tokens.scss, and _tokens.json', async () => {
-		ImportTokens(testConfig, tokensFixture);
-		await new Promise((r) => setTimeout(r, 1));
+		await ImportTokens(testConfig, tokensFixture);
 
 		// --- _tokens-variables.scss ---
 		const variablesContent = await promises.readFile(
@@ -259,8 +257,7 @@ describe('ImportColorsFromFigmaTokens', () => {
 	});
 
 	it('ImportRawColors (theme mode) generates correct _raw-wnl.scss and _raw-wnl.json', async () => {
-		ImportRawColors(themeTestConfig, rawColorsFixture, 'wnl');
-		await new Promise((r) => setTimeout(r, 1));
+		await ImportRawColors(themeTestConfig, rawColorsFixture, 'wnl');
 
 		// --- _raw-wnl.scss ---
 		const scssContent = await promises.readFile(
@@ -296,8 +293,7 @@ describe('ImportColorsFromFigmaTokens', () => {
 	});
 
 	it('ImportTokens (theme mode) generates correct _tokens-wnl-variables.scss, _tokens-wnl.scss, and _tokens-wnl.json', async () => {
-		ImportTokens(themeTestConfig, tokensFixture, 'wnl');
-		await new Promise((r) => setTimeout(r, 1));
+		await ImportTokens(themeTestConfig, tokensFixture, 'wnl');
 
 		// --- _tokens-wnl-variables.scss ---
 		const variablesContent = await promises.readFile(
