@@ -4,17 +4,19 @@ import { CustomLocale } from 'flatpickr/dist/types/locale';
 
 import { DatePickerCalendarPositions, FLATPICKR_POSITIONS } from './index';
 import { SUPPORTED_LOCALE, SupportedLocale } from '../../../i18n';
+import { CalendarDate, parseCalendarDate, parseCalendarDateOrNull } from '../calendarDate';
 
 let flatpickrFunction: FlatpickrFn | null = null;
 const localeCache = new Map<string, CustomLocale>();
 
 export interface DatePickerComposablesProps {
-	disableDates: Array<Date>;
-	date?: Date | null;
-	startDate?: Date | null;
-	endDate?: Date | null;
-	minDate: Date | null;
-	maxDate: Date | null;
+	disableDates: Array<CalendarDate>;
+	date?: CalendarDate | null;
+	startDate?: CalendarDate | null;
+	endDate?: CalendarDate | null;
+	minDate: CalendarDate | null;
+	maxDate: CalendarDate | null;
+	today?: CalendarDate | null;
 	calendarPosition: DatePickerCalendarPositions;
 }
 
@@ -22,6 +24,7 @@ interface InitFlatpickrPrams {
 	props: DatePickerComposablesProps;
 	onChange: (dates: Array<Date>) => void;
 	onClose: () => void;
+	/** Already parsed — the picker owns the `date ?? today ?? browser now` fallback. */
 	defaultDates: Date | Array<Date>;
 	mode: 'single' | 'range';
 	locale?: SupportedLocale;
@@ -97,9 +100,12 @@ export function initFlatpickr({
 			ignoredFocusElements: [datePickerElement],
 			position: FLATPICKR_POSITIONS[props.calendarPosition],
 			defaultDate: defaultDates,
-			disable: props.disableDates,
-			minDate: props.minDate as Date | undefined,
-			maxDate: props.maxDate as Date | undefined,
+			disable: props.disableDates.map((day) => parseCalendarDate(day)),
+			minDate: parseCalendarDateOrNull(props.minDate) ?? undefined,
+			maxDate: parseCalendarDateOrNull(props.maxDate) ?? undefined,
+			// Drives the today ring and the month an empty calendar opens on. Without it flatpickr
+			// falls back to browser now, which can be a different day than the consumer's today.
+			now: parseCalendarDateOrNull(props.today) ?? undefined,
 			onClose: [
 				() => {
 					isOpen.value = false;
@@ -153,15 +159,24 @@ export function initFlatpickr({
 			() => props.minDate,
 			() => props.maxDate,
 			() => props.disableDates,
+			() => props.today,
 			() => defaultDates,
 		],
 		() => {
+			const now = parseCalendarDateOrNull(props.today) ?? undefined;
+
+			if (datePicker && now) {
+				// `set` only updates the config; the today ring reads the instance's own `now`.
+				datePicker.now = now;
+			}
+
 			datePicker?.set({
 				position: FLATPICKR_POSITIONS[props.calendarPosition],
 				defaultDate: defaultDates,
-				disable: props.disableDates,
-				minDate: props.minDate as Date | undefined,
-				maxDate: props.maxDate as Date | undefined,
+				disable: props.disableDates.map((day) => parseCalendarDate(day)),
+				minDate: parseCalendarDateOrNull(props.minDate) ?? undefined,
+				maxDate: parseCalendarDateOrNull(props.maxDate) ?? undefined,
+				now,
 			});
 		},
 		{
@@ -180,13 +195,16 @@ export function initFlatpickr({
 
 	const updateDatePicker = () => {
 		if (props.date) {
-			updateDatePickerDates(props.date);
+			updateDatePickerDates(parseCalendarDate(props.date));
 		} else if (props.startDate && props.endDate) {
-			updateDatePickerDates([props.startDate, props.endDate]);
+			updateDatePickerDates([
+				parseCalendarDate(props.startDate),
+				parseCalendarDate(props.endDate),
+			]);
 		} else if (props.startDate && !props.endDate) {
-			updateDatePickerDates(props.startDate);
+			updateDatePickerDates(parseCalendarDate(props.startDate));
 		} else if (!props.startDate && props.endDate) {
-			updateDatePickerDates(props.endDate);
+			updateDatePickerDates(parseCalendarDate(props.endDate));
 		} else {
 			datePicker?.clear(false);
 		}
