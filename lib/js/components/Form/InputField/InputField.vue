@@ -98,7 +98,7 @@
 	}
 
 	&__input {
-		@include formText-s-default-regular;
+		@include formText-m-default-regular;
 
 		background: transparent;
 		// hacky solution to override default browser styles for autofill
