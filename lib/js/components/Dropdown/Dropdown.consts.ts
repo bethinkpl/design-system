@@ -1,12 +1,5 @@
 import { Value } from '../../utils/type.utils';
 
-export const DROPDOWN_TRIGGER_ACTIONS = {
-	CLICK: 'click',
-	HOVER: 'hover',
-} as const;
-
-export type DropdownTriggerAction = Value<typeof DROPDOWN_TRIGGER_ACTIONS>;
-
 export const DROPDOWN_RADIUSES = {
 	TOP: 'top',
 	BOTTOM: 'bottom',

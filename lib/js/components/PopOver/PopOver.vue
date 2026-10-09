@@ -1,82 +1,113 @@
 <template>
-	<span>
+	<span ref="referenceElement">
 		<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
-		<vue-popper
-			v-else
-			ref="popper"
-			:key="key"
-			:boundaries-selector="boundariesSelector"
-			:force-show="forceShow"
-			:options="{ placement, modifiers }"
-			:trigger="triggerAction"
-			:delay-on-mouse-over="300"
-			:delay-on-mouse-out="300"
-			:append-to-body="appendToBody"
-			:visible-arrow="isPointerVisible"
-			:root-class="rootClass"
-		>
-			<div
-				class="popper ds-popOver"
-				:class="{
-					'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
-					'-ds-small': size === POP_OVER_SIZES.SMALL,
-					'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
-					'-ds-visible-arrow': isPointerVisible,
-				}"
+		<popover-root v-else :open="isOpen" @update:open="setOpen">
+			<!--
+				The slot's own element is the anchor, as it was with vue-popperjs. Hover mode anchors to
+				it instead of toggling on every click of it.
+			-->
+			<component
+				:is="isHoverMode ? PopoverAnchor : PopoverTrigger"
+				as-child
+				v-on="referenceListeners"
 			>
-				<img v-if="headerImageUrl" class="ds-popOver__image" :src="headerImageUrl" alt="" />
-				<div class="ds-popOver__content">
-					<div v-if="titleText" class="ds-popOver__title"> {{ titleText }}</div>
-					<div v-if="subtitleText" class="ds-popOver__subtitle"> {{ subtitleText }}</div>
-					<div class="ds-popOver__contentSlot" :class="{ '-ds-maxHeight': maxHeight }">
-						<slot :close="close" />
-					</div>
-				</div>
-				<ds-button
-					v-if="buttonText"
-					class="ds-popOver__button"
-					:type="BUTTON_TYPES.TEXT"
-					:size="BUTTON_SIZES.LARGE"
-					@click="$emit('button-click')"
-				>
-					{{ buttonText }}
-				</ds-button>
-			</div>
-
-			<template #reference>
 				<slot name="reference" />
-			</template>
-		</vue-popper>
+			</component>
+
+			<popover-portal :disabled="!appendToBody">
+				<popover-content
+					class="ds-popOver"
+					:class="[
+						rootClass,
+						{
+							'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
+							'-ds-small': size === POP_OVER_SIZES.SMALL,
+							'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
+						},
+					]"
+					:side="side"
+					:align="align"
+					:side-offset="SIDE_OFFSET"
+					:side-flip="sideFlip"
+					:collision-boundary="collisionBoundary"
+					position-strategy="absolute"
+					v-on="contentListeners"
+					@pointer-down-outside="onPointerDownOutside"
+					@open-auto-focus="isFocusKeptInPlace && $event.preventDefault()"
+					@close-auto-focus="isFocusKeptInPlace && $event.preventDefault()"
+				>
+					<img
+						v-if="headerImageUrl"
+						class="ds-popOver__image"
+						:src="headerImageUrl"
+						alt=""
+					/>
+					<div class="ds-popOver__content">
+						<div v-if="titleText" class="ds-popOver__title"> {{ titleText }}</div>
+						<div v-if="subtitleText" class="ds-popOver__subtitle">
+							{{ subtitleText }}</div
+						>
+						<div
+							class="ds-popOver__contentSlot"
+							:class="{ '-ds-maxHeight': maxHeight }"
+						>
+							<slot :close="close" />
+						</div>
+					</div>
+					<ds-button
+						v-if="buttonText"
+						class="ds-popOver__button"
+						:type="BUTTON_TYPES.TEXT"
+						:size="BUTTON_SIZES.LARGE"
+						@click="$emit('button-click')"
+					>
+						{{ buttonText }}
+					</ds-button>
+					<popover-arrow
+						v-if="isPointerVisible"
+						class="ds-popOver__arrow"
+						:width="ARROW_WIDTH"
+						:height="ARROW_HEIGHT"
+					/>
+				</popover-content>
+			</popover-portal>
+		</popover-root>
 	</span>
 </template>
 
-<style lang="scss" scoped>
+<!--
+	Styled unscoped on purpose: PopoverContent renders the panel through Presence's slot rather than
+	as its root, so Vue never forwards this component's scope id to it and a scoped rule would not
+	match. Same approach as SelectField.vue.
+-->
+<style lang="scss">
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
+@import '../../../styles/settings/z-indexes';
 
 .ds-popOver {
 	$self: &;
 
 	background-color: $color-default-background;
-	// override popperjs styles
-	border: none;
 	border-radius: $radius-m;
 	box-shadow: $shadow-l;
 	display: flex;
 	flex-direction: column;
-	padding: 0;
+	z-index: $z-index-floating-panel;
 
-	/* stylelint-disable selector-class-pattern */
-	&.-ds-color-neutral :deep(.popper__arrow) {
-		border-color: $color-neutral-background transparent !important;
+	&__arrow {
+		fill: $color-inverted-border;
 	}
-	/* stylelint-enable selector-class-pattern */
 
 	&.-ds-color-neutral {
 		background-color: $color-neutral-background;
+
+		#{$self}__arrow {
+			fill: $color-neutral-background;
+		}
 	}
 
 	&__contentSlot {
@@ -103,78 +134,6 @@
 		}
 	}
 
-	&[x-placement^='bottom'] {
-		margin-top: $space-2;
-
-		&.-ds-visible-arrow {
-			margin-top: $space-8 + $space-2;
-		}
-
-		/* stylelint-disable-next-line selector-class-pattern */
-		:deep(.popper__arrow) {
-			border-color: transparent transparent $color-inverted-border transparent;
-			border-width: 0 $space-6 $space-8 $space-6;
-			left: calc(50% - #{$space-6});
-			margin-bottom: 0;
-			margin-top: 0;
-			top: -$space-8;
-		}
-	}
-
-	&[x-placement^='top'] {
-		margin-bottom: $space-2;
-
-		&.-ds-visible-arrow {
-			margin-bottom: $space-8 + $space-2;
-		}
-
-		/* stylelint-disable-next-line selector-class-pattern */
-		:deep(.popper__arrow) {
-			border-color: $color-inverted-border transparent transparent transparent;
-			border-width: $space-8 $space-6 0 $space-6;
-			bottom: -$space-8;
-			left: calc(50% - #{$space-6});
-			margin-bottom: 0;
-			margin-top: 0;
-		}
-	}
-
-	&[x-placement^='right'] {
-		margin-left: $space-2;
-
-		&.-ds-visible-arrow {
-			margin-left: $space-8 + $space-2;
-		}
-
-		/* stylelint-disable-next-line selector-class-pattern */
-		:deep(.popper__arrow) {
-			border-color: transparent $color-inverted-border transparent transparent;
-			border-width: $space-6 $space-8 $space-6 0;
-			left: -$space-8;
-			margin-left: 0;
-			margin-right: 0;
-			top: calc(50% - #{$space-6});
-		}
-	}
-
-	&[x-placement^='left'] {
-		margin-right: $space-2;
-
-		&.-ds-visible-arrow {
-			margin-right: $space-8 + $space-2;
-		}
-
-		/* stylelint-disable-next-line selector-class-pattern */
-		:deep(.popper__arrow) {
-			border-color: transparent transparent transparent $color-inverted-border;
-			border-width: $space-6 0 $space-6 $space-8;
-			margin-left: 0;
-			margin-right: 0;
-			right: -$space-8;
-			top: calc(50% - #{$space-6});
-		}
-	}
-
 	&__image {
 		border-top-left-radius: $radius-m;
 		border-top-right-radius: $radius-m;
@@ -186,8 +145,6 @@
 
 		color: $color-neutral-text-heavy;
 		padding: $space-8;
-		// Override popperjs styles
-		text-align: left;
 	}
 
 	&__title {
@@ -211,132 +168,119 @@
 }
 </style>
 
-<script>
-import VuePopper from 'vue-popperjs';
-import 'vue-popperjs/dist/vue-popper.css';
+<script setup lang="ts">
+import { computed, useTemplateRef } from 'vue';
+import {
+	PopoverAnchor,
+	PopoverArrow,
+	PopoverContent,
+	PopoverPortal,
+	PopoverRoot,
+	PopoverTrigger,
+} from 'reka-ui';
+
 import {
 	POP_OVER_COLORS,
 	POP_OVER_PLACEMENTS,
 	POP_OVER_SIZES,
 	POP_OVER_TRIGGER_ACTIONS,
+	PopOverColor,
+	PopOverPlacement,
+	PopOverSize,
+	PopOverTriggerAction,
 } from './PopOver.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
+import { useFloatingPanelOpen } from '../../composables/useFloatingPanelOpen';
+import { useHoverOpen } from '../../composables/useHoverOpen';
+import { resolveCollisionBoundary, splitPlacement } from '../../utils/placement';
 
-import { defineComponent } from 'vue';
+// $space-6 * 2 by $space-8: the arrow's base and height.
+const ARROW_WIDTH = 24;
+const ARROW_HEIGHT = 16;
+// Panels use `position-strategy="absolute"` (Reka defaults to fixed), as vue-popperjs did: a
+// panel that runs past the bottom of the page extends it, so the page can scroll to it.
+// $space-2: the gap between the reference and the panel. Reka adds the arrow's height on top.
+const SIDE_OFFSET = 4;
 
-export default defineComponent({
-	name: 'PopOver',
-	components: {
-		VuePopper,
-		DsButton,
-	},
-	props: {
-		boundariesSelector: {
-			type: String,
-			default: null,
-		},
-		triggerAction: {
-			type: String,
-			default: POP_OVER_TRIGGER_ACTIONS.CLICK,
-			validator(triggerAction) {
-				return Object.values(POP_OVER_TRIGGER_ACTIONS).includes(triggerAction);
-			},
-		},
-		placement: {
-			type: String,
-			default: POP_OVER_PLACEMENTS.BOTTOM,
-			validator(placement) {
-				return Object.values(POP_OVER_PLACEMENTS).includes(placement);
-			},
-		},
-		forceShow: {
-			type: Boolean,
-			default: false,
-		},
-		color: {
-			type: String,
-			default: POP_OVER_COLORS.DEFAULT,
-			validator(color) {
-				return Object.values(POP_OVER_COLORS).includes(color);
-			},
-		},
-		titleText: {
-			type: String,
-			default: null,
-		},
-		subtitleText: {
-			type: String,
-			default: null,
-		},
-		buttonText: {
-			type: String,
-			default: null,
-		},
-		headerImageUrl: {
-			type: String,
-			default: null,
-		},
-		appendToBody: {
-			type: Boolean,
-			default: false,
-		},
-		modifiers: {
-			type: Object,
-			default: () => ({}),
-		},
-		size: {
-			type: String,
-			default: POP_OVER_SIZES.SMALL,
-			validator(size) {
-				return Object.values(POP_OVER_SIZES).includes(size);
-			},
-		},
-		maxHeight: {
-			type: Boolean,
-			default: false,
-		},
-		isPointerVisible: {
-			type: Boolean,
-			default: true,
-		},
-		rootClass: {
-			type: String,
-			default: '',
-		},
-	},
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['button-click'],
-	data() {
-		return {
-			POP_OVER_COLORS: Object.freeze(POP_OVER_COLORS),
-			POP_OVER_SIZES: Object.freeze(POP_OVER_SIZES),
-			POP_OVER_TRIGGER_ACTIONS: Object.freeze(POP_OVER_TRIGGER_ACTIONS),
-			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
-			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
-			key: 1,
-		};
-	},
-	watch: {
-		triggerAction() {
-			this.updateKey();
-		},
-		placement() {
-			this.updateKey();
-		},
-		boundariesSelector() {
-			this.updateKey();
-		},
-	},
-	methods: {
-		close() {
-			this.$refs.popper.doClose();
-		},
-		updateKey() {
-			// Force component rerender to apply new vue-popperjs options.
-			// vue-popperjs doesn't support changing props in existing component
-			this.key++;
-		},
-	},
+const {
+	boundariesSelector = null,
+	triggerAction = POP_OVER_TRIGGER_ACTIONS.CLICK,
+	placement = POP_OVER_PLACEMENTS.BOTTOM,
+	forceShow = false,
+	color = POP_OVER_COLORS.DEFAULT,
+	titleText = null,
+	subtitleText = null,
+	buttonText = null,
+	headerImageUrl = null,
+	appendToBody = false,
+	sideFlip = true,
+	size = POP_OVER_SIZES.SMALL,
+	maxHeight = false,
+	isPointerVisible = true,
+	rootClass = '',
+} = defineProps<{
+	boundariesSelector?: string | null;
+	triggerAction?: PopOverTriggerAction;
+	placement?: PopOverPlacement;
+	forceShow?: boolean;
+	color?: PopOverColor;
+	titleText?: string | null;
+	subtitleText?: string | null;
+	buttonText?: string | null;
+	headerImageUrl?: string | null;
+	appendToBody?: boolean;
+	// Whether the panel may move to the opposite side when it doesn't fit. It still shifts along
+	// its side to stay within the boundary either way.
+	sideFlip?: boolean;
+	size?: PopOverSize;
+	maxHeight?: boolean;
+	isPointerVisible?: boolean;
+	rootClass?: string;
+}>();
+
+defineEmits<{
+	'button-click': [];
+}>();
+
+const referenceElement = useTemplateRef<HTMLElement>('referenceElement');
+
+const { isOpen, setOpen, onPointerDownOutside } = useFloatingPanelOpen({
+	forceShow: () => forceShow,
+	referenceElement,
 });
+
+const isHoverMode = computed(() => triggerAction === POP_OVER_TRIGGER_ACTIONS.HOVER);
+// Moving focus into the panel is right when the user opened it on purpose, not when it opened
+// on hover or by itself.
+const isFocusKeptInPlace = computed(() => isHoverMode.value || forceShow);
+
+const { onPointerEnter, onPointerLeave, onReferencePointerDown, onReferenceClick } = useHoverOpen({
+	isOpen: () => isOpen.value,
+	setOpen,
+});
+const referenceListeners = computed(() =>
+	isHoverMode.value
+		? {
+				pointerenter: onPointerEnter,
+				pointerleave: onPointerLeave,
+				pointerdown: onReferencePointerDown,
+				click: onReferenceClick,
+			}
+		: {},
+);
+const contentListeners = computed(() =>
+	isHoverMode.value ? { pointerenter: onPointerEnter, pointerleave: onPointerLeave } : {},
+);
+
+const side = computed(() => splitPlacement(placement).side);
+const align = computed(() => splitPlacement(placement).align);
+const collisionBoundary = computed(() =>
+	isOpen.value ? resolveCollisionBoundary(boundariesSelector) : undefined,
+);
+
+function close() {
+	setOpen(false);
+}
+
+defineExpose({ close });
 </script>
