@@ -1,38 +1,50 @@
-import { DropdownPlacement, DropdownRadius } from './Dropdown.consts';
+import { PopOverColor, PopOverPlacement, PopOverSize, PopOverTriggerAction } from './PopOver.consts';
 
 declare function close(): void;
 declare function __VLS_template(): {
-    reference?(_: {
-        isOpened: boolean;
-    }): any;
+    reference?(_: {}): any;
     default?(_: {
         close: typeof close;
     }): any;
 };
 declare const __VLS_component: import('vue').DefineComponent<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     boundariesSelector?: string | null;
+    triggerAction?: PopOverTriggerAction;
+    placement?: PopOverPlacement;
     forceShow?: boolean;
-    sameWidth?: boolean;
-    radius?: DropdownRadius;
-    placement?: DropdownPlacement;
-    maxHeight?: string | null;
+    color?: PopOverColor;
+    titleText?: string | null;
+    subtitleText?: string | null;
+    buttonText?: string | null;
+    headerImageUrl?: string | null;
+    appendToBody?: boolean;
+    sideFlip?: boolean;
+    size?: PopOverSize;
+    maxHeight?: boolean;
+    isPointerVisible?: boolean;
+    rootClass?: string;
 }>>, {
     close: typeof close;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
-    show: () => void;
-    hide: () => void;
-    "document-click": () => void;
+    "button-click": () => void;
 }, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<__VLS_TypePropsToRuntimeProps<{
     boundariesSelector?: string | null;
+    triggerAction?: PopOverTriggerAction;
+    placement?: PopOverPlacement;
     forceShow?: boolean;
-    sameWidth?: boolean;
-    radius?: DropdownRadius;
-    placement?: DropdownPlacement;
-    maxHeight?: string | null;
+    color?: PopOverColor;
+    titleText?: string | null;
+    subtitleText?: string | null;
+    buttonText?: string | null;
+    headerImageUrl?: string | null;
+    appendToBody?: boolean;
+    sideFlip?: boolean;
+    size?: PopOverSize;
+    maxHeight?: boolean;
+    isPointerVisible?: boolean;
+    rootClass?: string;
 }>>> & Readonly<{
-    onShow?: (() => any) | undefined;
-    onHide?: (() => any) | undefined;
-    "onDocument-click"?: (() => any) | undefined;
+    "onButton-click"?: (() => any) | undefined;
 }>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
 export default _default;

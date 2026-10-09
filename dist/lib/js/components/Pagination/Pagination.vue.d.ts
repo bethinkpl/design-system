@@ -1037,101 +1037,111 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             };
         });
     }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
-    Dropdown: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
+    Dropdown: {
+        new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+            boundariesSelector: {
+                type: import('vue').PropType<string | null>;
+            };
+            forceShow: {
+                type: import('vue').PropType<boolean>;
+            };
+            sameWidth: {
+                type: import('vue').PropType<boolean>;
+            };
+            radius: {
+                type: import('vue').PropType<import('../Dropdown/Dropdown.consts').DropdownRadius>;
+            };
+            placement: {
+                type: import('vue').PropType<import('../Dropdown/Dropdown.consts').DropdownPlacement>;
+            };
+            maxHeight: {
+                type: import('vue').PropType<string | null>;
+            };
+        }>> & Readonly<{
+            onShow?: (() => any) | undefined;
+            onHide?: (() => any) | undefined;
+            "onDocument-click"?: (() => any) | undefined;
+        }>, {
+            close: () => void;
+        }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+            show: () => void;
+            hide: () => void;
+            "document-click": () => void;
+        }, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
+            P: {};
+            B: {};
+            D: {};
+            C: {};
+            M: {};
+            Defaults: {};
+        }, Readonly<import('vue').ExtractPropTypes<{
+            boundariesSelector: {
+                type: import('vue').PropType<string | null>;
+            };
+            forceShow: {
+                type: import('vue').PropType<boolean>;
+            };
+            sameWidth: {
+                type: import('vue').PropType<boolean>;
+            };
+            radius: {
+                type: import('vue').PropType<import('../Dropdown/Dropdown.consts').DropdownRadius>;
+            };
+            placement: {
+                type: import('vue').PropType<import('../Dropdown/Dropdown.consts').DropdownPlacement>;
+            };
+            maxHeight: {
+                type: import('vue').PropType<string | null>;
+            };
+        }>> & Readonly<{
+            onShow?: (() => any) | undefined;
+            onHide?: (() => any) | undefined;
+            "onDocument-click"?: (() => any) | undefined;
+        }>, {
+            close: () => void;
+        }, {}, {}, {}, {}>;
+        __isFragment?: never;
+        __isTeleport?: never;
+        __isSuspense?: never;
+    } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
         boundariesSelector: {
-            type: StringConstructor;
-            default: null;
+            type: import('vue').PropType<string | null>;
         };
         forceShow: {
-            type: BooleanConstructor;
-            default: boolean;
+            type: import('vue').PropType<boolean>;
         };
         sameWidth: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        triggerAction: {
-            type: StringConstructor;
-            default: "click";
-            validator(triggerAction: import('../Dropdown/Dropdown.consts').DropdownTriggerAction): boolean;
+            type: import('vue').PropType<boolean>;
         };
         radius: {
-            type: StringConstructor;
-            default: "both";
-            validate(radius: import('../Dropdown/Dropdown.consts').DropdownRadius): boolean;
+            type: import('vue').PropType<import('../Dropdown/Dropdown.consts').DropdownRadius>;
         };
         placement: {
-            type: StringConstructor;
-            default: "bottom-start";
-            validate(placement: import('../Dropdown/Dropdown.consts').DropdownPlacement): boolean;
+            type: import('vue').PropType<import('../Dropdown/Dropdown.consts').DropdownPlacement>;
         };
         maxHeight: {
-            type: StringConstructor;
-            default: null;
-        };
-    }>, {}, {
-        key: number;
-        isOpened: boolean;
-        DROPDOWN_RADIUSES: Readonly<{
-            readonly TOP: "top";
-            readonly BOTTOM: "bottom";
-            readonly BOTH: "both";
-        }>;
-    }, {
-        scrollableWrapperStyles(): any;
-        options(): any;
-    }, {
-        close(): void;
-        updateKey(): void;
-        onHide(): void;
-        onShow(): void;
-    }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, ("show" | "hide" | "document-click")[], "show" | "hide" | "document-click", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
-        boundariesSelector: {
-            type: StringConstructor;
-            default: null;
-        };
-        forceShow: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        sameWidth: {
-            type: BooleanConstructor;
-            default: boolean;
-        };
-        triggerAction: {
-            type: StringConstructor;
-            default: "click";
-            validator(triggerAction: import('../Dropdown/Dropdown.consts').DropdownTriggerAction): boolean;
-        };
-        radius: {
-            type: StringConstructor;
-            default: "both";
-            validate(radius: import('../Dropdown/Dropdown.consts').DropdownRadius): boolean;
-        };
-        placement: {
-            type: StringConstructor;
-            default: "bottom-start";
-            validate(placement: import('../Dropdown/Dropdown.consts').DropdownPlacement): boolean;
-        };
-        maxHeight: {
-            type: StringConstructor;
-            default: null;
+            type: import('vue').PropType<string | null>;
         };
     }>> & Readonly<{
-        onShow?: ((...args: any[]) => any) | undefined;
-        onHide?: ((...args: any[]) => any) | undefined;
-        "onDocument-click"?: ((...args: any[]) => any) | undefined;
+        onShow?: (() => any) | undefined;
+        onHide?: (() => any) | undefined;
+        "onDocument-click"?: (() => any) | undefined;
     }>, {
-        placement: string;
-        radius: string;
-        boundariesSelector: string;
-        forceShow: boolean;
-        sameWidth: boolean;
-        triggerAction: string;
-        maxHeight: string;
-    }, {}, {
-        VuePopper: any;
-    }, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        close: () => void;
+    }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
+        show: () => void;
+        hide: () => void;
+        "document-click": () => void;
+    }, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
+        $slots: {
+            reference?(_: {
+                isOpened: boolean;
+            }): any;
+            default?(_: {
+                close: () => void;
+            }): any;
+        };
+    });
     SelectListItem: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
             href: {

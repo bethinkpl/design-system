@@ -1,10 +1,5 @@
 import { Value } from '../../utils/type.utils';
 
-export declare const DROPDOWN_TRIGGER_ACTIONS: {
-    readonly CLICK: "click";
-    readonly HOVER: "hover";
-};
-export type DropdownTriggerAction = Value<typeof DROPDOWN_TRIGGER_ACTIONS>;
 export declare const DROPDOWN_RADIUSES: {
     readonly TOP: "top";
     readonly BOTTOM: "bottom";
