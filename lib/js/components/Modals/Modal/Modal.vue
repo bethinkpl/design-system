@@ -310,7 +310,6 @@ $image-height-small: 140px;
 		display: flex;
 		flex-direction: column-reverse;
 		justify-content: space-between;
-		line-break: anywhere;
 		padding-top: $space-12;
 
 		@media #{breakpoint-s()} {
