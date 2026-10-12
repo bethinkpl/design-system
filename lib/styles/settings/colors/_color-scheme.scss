@@ -1,0 +1,5 @@
+// Makes native UI (scrollbars, form controls, date pickers, autofill, default canvas) render dark.
+// :root raises specificity above PrimeVue's runtime `:root { color-scheme: light }`
+:root.-ds-dark {
+	color-scheme: dark;
+}
