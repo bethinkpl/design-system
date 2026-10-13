@@ -1,0 +1,16 @@
+{
+	"browser": {
+		"browserName": "chromium",
+		"isolated": true,
+		"launchOptions": {
+			"headless": false
+		},
+		"contextOptions": {
+			"viewport": { "width": 1440, "height": 900 },
+			"timezoneId": "Europe/Warsaw",
+			"locale": "pl-PL"
+		}
+	},
+	"outputDir": ".claude/skills/browser-testing/artifacts",
+	"imageResponses": "allow"
+}
