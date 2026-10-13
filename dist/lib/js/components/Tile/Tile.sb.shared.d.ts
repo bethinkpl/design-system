@@ -10,6 +10,7 @@ export declare const data: () => {
         readonly HEAD_WITH_QUESTION_MARK: VueConstructor<Vue>;
         readonly HIDE_ANSWERS: VueConstructor<Vue>;
         readonly ONLINE_PAYMENT: VueConstructor<Vue>;
+        readonly REPLY_LOCK: VueConstructor<Vue>;
         readonly RIBBON: VueConstructor<Vue>;
         readonly SIDEBAR_FLIP_SOLID: VueConstructor<Vue>;
         readonly SLIDERS_SEARCH: VueConstructor<Vue>;
