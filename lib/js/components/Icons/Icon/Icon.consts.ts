@@ -11,6 +11,7 @@ import CloudDisconnected from '../../../../images/icons/cloud-disconnected.svg';
 import BallotCheckTime from '../../../../images/icons/ballot-check-time.svg';
 import RectanglesVertical from '../../../../images/icons/rectangles-vertical.svg';
 import OnlinePayment from '../../../../images/icons/online-payment.svg';
+import ReplyLock from '../../../../images/icons/reply-lock.svg';
 
 import { FONTAWESOME_ICONS } from '../../../icons/fontawesome';
 import { Value } from '../../../utils/type.utils';
@@ -54,6 +55,7 @@ const BETHINK_ICONS = {
 	HEAD_WITH_QUESTION_MARK: HeadWithQuestionMark,
 	HIDE_ANSWERS: HideAnswers,
 	ONLINE_PAYMENT: OnlinePayment,
+	REPLY_LOCK: ReplyLock,
 	RIBBON: Ribbon,
 	SIDEBAR_FLIP_SOLID: SidebarFlipSolid,
 	SLIDERS_SEARCH: SlidersSearch,
