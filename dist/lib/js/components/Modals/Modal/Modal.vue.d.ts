@@ -1,4 +1,4 @@
-import { ModalHeaderTitleSize, ModalSize } from './Modal.consts';
+import { ModalFooterLayout, ModalHeaderTitleSize, ModalSize } from './Modal.consts';
 import { FeatureIconColor } from '../../Icons/FeatureIcon';
 import { ButtonState } from '../../Buttons/Button';
 
@@ -92,6 +92,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     isFooterSticky: {
         type: BooleanConstructor;
         default: boolean;
+    };
+    footerLayout: {
+        type: StringConstructor;
+        default: "horizontal";
+        validator: (value: ModalFooterLayout) => boolean;
     };
     isFullHeight: {
         type: BooleanConstructor;
@@ -441,6 +446,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly SMALL: "small";
         readonly MEDIUM: "medium";
     };
+    MODAL_FOOTER_LAYOUTS: {
+        readonly HORIZONTAL: "horizontal";
+        readonly VERTICAL: "vertical";
+    };
     FEATURE_ICON_SIZES: {
         readonly X_SMALL: "xSmall";
         readonly SMALL: "small";
@@ -551,6 +560,11 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: BooleanConstructor;
         default: boolean;
     };
+    footerLayout: {
+        type: StringConstructor;
+        default: "horizontal";
+        validator: (value: ModalFooterLayout) => boolean;
+    };
     isFullHeight: {
         type: BooleanConstructor;
         default: boolean;
@@ -582,6 +596,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     footerTertiaryButtonState: string;
     footerCheckboxText: string;
     isFooterSticky: boolean;
+    footerLayout: string;
     isFullHeight: boolean;
 }, {}, {
     FeatureIcon: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
