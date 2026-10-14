@@ -159,7 +159,6 @@ __metadata:
     vue-component-type-helpers: "npm:2.2.10"
     vue-eslint-parser: "npm:^10.1.1"
     vue-i18n: "npm:^11.1.12"
-    vue-popperjs: "github:bethinkpl/vue-popper#df07fdb562d604fad966f0e8d6db1fc48febad6e"
     vue-tsc: "npm:2.2.10"
     wait-for-expect: "npm:^3.0.2"
     yaml-eslint-parser: "npm:^1.3.0"
@@ -6451,15 +6450,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"opencollective-postinstall@npm:^2.0.2":
-  version: 2.0.3
-  resolution: "opencollective-postinstall@npm:2.0.3"
-  bin:
-    opencollective-postinstall: index.js
-  checksum: 10/69d63778087cd10c9d707d9ed360556780cfdd0cd6241ded0e26632f467f1d5a064f4a9aec19a30c187770c17adba034d988f7684b226f3a73e79f44e73fab0e
-  languageName: node
-  linkType: hard
-
 "optionator@npm:^0.9.3":
   version: 0.9.4
   resolution: "optionator@npm:0.9.4"
@@ -6682,13 +6672,6 @@ __metadata:
   dependencies:
     "@babel/runtime": "npm:^7.17.8"
   checksum: 10/0902fe2eb16aecde1587a00efee7db8081b1331ac7bcfb6e61214d266388723a84858d732ad9395028e0aecd2bb8d0c39cc03d14b4c24c22329a0e40c38141eb
-  languageName: node
-  linkType: hard
-
-"popper.js@npm:^1.15.0":
-  version: 1.16.1
-  resolution: "popper.js@npm:1.16.1"
-  checksum: 10/71338c86faf9b66ce60c3cdd7fb2ed742944e5d2765a188f269239fee2980aa6223b77b41302d1b6eb7d724e611092f9a2576d0048ac2071b605291abc72c0cf
   languageName: node
   linkType: hard
 
@@ -9068,16 +9051,6 @@ __metadata:
   peerDependencies:
     vue: ">=2"
   checksum: 10/8314cb0ad865e51cdfe07e529be7ec1ae7358b704218c503395235fa52758fb49e286a94e3571b7128f5834c009e69e429d6d9742cc6f906847dd8e4a90fb061
-  languageName: node
-  linkType: hard
-
-"vue-popperjs@github:bethinkpl/vue-popper#df07fdb562d604fad966f0e8d6db1fc48febad6e":
-  version: 2.3.0
-  resolution: "vue-popperjs@https://github.com/bethinkpl/vue-popper.git#commit=df07fdb562d604fad966f0e8d6db1fc48febad6e"
-  dependencies:
-    opencollective-postinstall: "npm:^2.0.2"
-    popper.js: "npm:^1.15.0"
-  checksum: 10/c7548862683f9f260f3cda5bc6fb10b6d14bffd9043359b2f2f348a42236999ada91081ee7da9aa2dd20e358b66552f6f28cbaf6a2788ece21db8920579638b4
   languageName: node
   linkType: hard
 

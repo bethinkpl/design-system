@@ -1,55 +1,55 @@
 <template>
-	<vue-popper
-		ref="popper"
-		:key="key"
-		:boundaries-selector="boundariesSelector"
-		:force-show="forceShow"
-		:options="options"
-		:visible-arrow="false"
-		:trigger="triggerAction"
-		:delay-on-mouse-out="300"
-		@document-click="$emit('document-click')"
-		@hide="onHide"
-		@show="onShow"
-	>
-		<div
-			class="popper ds-dropdown"
-			:inert="!isOpened"
-			:class="{
-				'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
-				'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
-				'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
-			}"
-		>
-			<div
-				class="ds-dropdown__scrollableWrapper"
-				:class="{ '-ds-heightLimited': !!maxHeight }"
-				:style="scrollableWrapperStyles"
-			>
-				<slot :close="close" />
-			</div>
-		</div>
+	<span ref="referenceElement">
+		<popover-root :open="isOpen" @update:open="onOpenChange">
+			<!-- The slot's own element is the anchor, as it was with vue-popperjs. -->
+			<popover-trigger as-child>
+				<slot name="reference" :is-opened="isOpen" />
+			</popover-trigger>
 
-		<template #reference>
-			<slot name="reference" :is-opened="isOpened" />
-		</template>
-	</vue-popper>
+			<popover-content
+				class="ds-dropdown"
+				:class="{
+					'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
+					'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
+					'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
+					'-ds-sameWidth': sameWidth,
+				}"
+				:side="side"
+				:align="align"
+				:side-offset="SIDE_OFFSET"
+				:collision-boundary="collisionBoundary"
+				position-strategy="absolute"
+				@pointer-down-outside="onPointerDownOutside"
+				@open-auto-focus="forceShow && $event.preventDefault()"
+				@close-auto-focus="forceShow && $event.preventDefault()"
+			>
+				<div
+					class="ds-dropdown__scrollableWrapper"
+					:class="{ '-ds-heightLimited': !!maxHeight }"
+					:style="scrollableWrapperStyles"
+				>
+					<slot :close="close" />
+				</div>
+			</popover-content>
+		</popover-root>
+	</span>
 </template>
 
-<style lang="scss" scoped>
-@import '../../../../lib/styles/settings/spacings';
+<!--
+	Styled unscoped on purpose: PopoverContent renders the panel through Presence's slot rather than
+	as its root, so Vue never forwards this component's scope id to it and a scoped rule would not
+	match. Same approach as SelectField.vue.
+-->
+<style lang="scss">
+@import '../../../../lib/styles/settings/z-indexes';
 @import '../../../../lib/styles/mixins/dropdown-surface';
 
 .ds-dropdown {
 	@include dropdownSurface;
 
-	// Resets for the styles vue-popperjs ships in vue-popper.css.
-	border: 0;
-	border-radius: 0;
 	max-width: 100%;
 	min-width: 128px;
-	padding: 0;
-	text-align: left;
+	z-index: $z-index-floating-panel;
 
 	&.-ds-radiusBottom {
 		@include dropdownSurfaceRadiusBottom;
@@ -59,12 +59,8 @@
 		@include dropdownSurfaceRadiusTop;
 	}
 
-	&[x-placement^='bottom'] {
-		margin-top: $space-2;
-	}
-
-	&[x-placement^='top'] {
-		margin-bottom: $space-2;
+	&.-ds-sameWidth {
+		width: var(--reka-popover-trigger-width);
 	}
 
 	&__scrollableWrapper {
@@ -75,127 +71,70 @@
 }
 </style>
 
-<script lang="ts">
-import VuePopper from 'vue-popperjs';
-import 'vue-popperjs/dist/vue-popper.css';
+<script setup lang="ts">
+import { computed, useTemplateRef } from 'vue';
+import { PopoverContent, PopoverRoot, PopoverTrigger } from 'reka-ui';
+
 import {
 	DROPDOWN_PLACEMENTS,
 	DROPDOWN_RADIUSES,
-	DROPDOWN_TRIGGER_ACTIONS,
 	DropdownPlacement,
 	DropdownRadius,
-	DropdownTriggerAction,
 } from './Dropdown.consts';
+import { useFloatingPanelOpen } from '../../composables/useFloatingPanelOpen';
+import { resolveCollisionBoundary, splitPlacement } from '../../utils/placement';
 
-import { defineComponent } from 'vue';
+// Panels use `position-strategy="absolute"` (Reka defaults to fixed), as vue-popperjs did: a
+// panel that runs past the bottom of the page extends it, so the page can scroll to it.
+// $space-2: the gap between the reference and the panel.
+const SIDE_OFFSET = 4;
 
-export default defineComponent({
-	name: 'Dropdown',
-	components: {
-		VuePopper,
-	},
-	props: {
-		boundariesSelector: {
-			type: String,
-			default: null,
-		},
-		forceShow: {
-			type: Boolean,
-			default: false,
-		},
-		sameWidth: {
-			type: Boolean,
-			default: false,
-		},
-		triggerAction: {
-			type: String,
-			default: DROPDOWN_TRIGGER_ACTIONS.CLICK,
-			validator(triggerAction: DropdownTriggerAction) {
-				return Object.values(DROPDOWN_TRIGGER_ACTIONS).includes(triggerAction);
-			},
-		},
-		radius: {
-			type: String,
-			default: DROPDOWN_RADIUSES.BOTH,
-			validate(radius: DropdownRadius) {
-				return Object.values(DROPDOWN_RADIUSES).includes(radius);
-			},
-		},
-		placement: {
-			type: String,
-			default: DROPDOWN_PLACEMENTS.BOTTOM_START,
-			validate(placement: DropdownPlacement) {
-				return Object.values(DROPDOWN_PLACEMENTS).includes(placement);
-			},
-		},
-		maxHeight: {
-			type: String,
-			default: null,
-		},
-	},
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['document-click', 'hide', 'show'],
-	data() {
-		return {
-			key: 1,
-			isOpened: false,
-			DROPDOWN_RADIUSES: Object.freeze(DROPDOWN_RADIUSES),
-		};
-	},
-	computed: {
-		scrollableWrapperStyles() {
-			return {
-				...(this.maxHeight && { maxHeight: this.maxHeight }),
-			};
-		},
-		options() {
-			return {
-				modifiers: { preventOverflow: { padding: 0 } },
-				placement: this.placement,
-				...(this.sameWidth && {
-					// See https://github.com/floating-ui/floating-ui/issues/794
-					// We can't use onCreate because vue-popper overrides it.
-					// Width is set just fine without it, though.
-					onUpdate: ({ instance: { reference, popper } }) => {
-						popper.style.width = `${reference.offsetWidth}px`;
-					},
-				}),
-			};
-		},
-	},
-	watch: {
-		triggerAction() {
-			this.updateKey();
-		},
-		sameWidth() {
-			this.updateKey();
-		},
-		boundariesSelector() {
-			this.updateKey();
-		},
-		placement() {
-			this.updateKey();
-		},
-	},
-	methods: {
-		close() {
-			this.isOpened = false;
-			this.$refs.popper.doClose();
-		},
-		updateKey() {
-			// Force component rerender to apply new vue-popperjs options.
-			// vue-popperjs doesn't support changing props in existing component
-			this.key++;
-		},
-		onHide() {
-			this.isOpened = false;
-			this.$emit('hide');
-		},
-		onShow() {
-			this.isOpened = true;
-			this.$emit('show');
-		},
-	},
+const {
+	boundariesSelector = null,
+	forceShow = false,
+	sameWidth = false,
+	radius = DROPDOWN_RADIUSES.BOTH,
+	placement = DROPDOWN_PLACEMENTS.BOTTOM_START,
+	maxHeight = null,
+} = defineProps<{
+	boundariesSelector?: string | null;
+	forceShow?: boolean;
+	sameWidth?: boolean;
+	radius?: DropdownRadius;
+	placement?: DropdownPlacement;
+	maxHeight?: string | null;
+}>();
+
+const emit = defineEmits<{
+	'document-click': [];
+	hide: [];
+	show: [];
+}>();
+
+const referenceElement = useTemplateRef<HTMLElement>('referenceElement');
+
+const { isOpen, setOpen, onPointerDownOutside } = useFloatingPanelOpen({
+	forceShow: () => forceShow,
+	referenceElement,
+	onShow: () => emit('show'),
+	onHide: () => emit('hide'),
+	onDocumentClick: () => emit('document-click'),
 });
+
+const side = computed(() => splitPlacement(placement).side);
+const align = computed(() => splitPlacement(placement).align);
+const collisionBoundary = computed(() =>
+	isOpen.value ? resolveCollisionBoundary(boundariesSelector) : undefined,
+);
+const scrollableWrapperStyles = computed(() => (maxHeight ? { maxHeight } : {}));
+
+function onOpenChange(value: boolean) {
+	setOpen(value);
+}
+
+function close() {
+	setOpen(false);
+}
+
+defineExpose({ close });
 </script>

@@ -1,9 +1,5 @@
 import Dropdown from './Dropdown.vue';
-import {
-	DROPDOWN_PLACEMENTS,
-	DROPDOWN_RADIUSES,
-	DROPDOWN_TRIGGER_ACTIONS,
-} from './Dropdown.consts';
+import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from './Dropdown.consts';
 import SelectList from '../SelectList/SelectList.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -21,8 +17,7 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 	},
 	template: `
     <div style="position: relative">
-      <dropdown :trigger-action="triggerAction"
-                :force-show="forceShow"
+      <dropdown :force-show="forceShow"
                 :same-width="sameWidth"
                 :radius="radius"
                 :placement="placement"
@@ -31,8 +26,8 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
         </template>
         <template #default="{ close }">
           <select-list>
-            <select-list-item label="One" @click.native="close" />
-            <select-list-item label="Two" @click.native="close" />
+            <select-list-item label="One" @click="close" />
+            <select-list-item label="Two" @click="close" />
           </select-list>
         </template>
       </dropdown>
@@ -42,7 +37,6 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	triggerAction: DROPDOWN_TRIGGER_ACTIONS.CLICK,
 	radius: DROPDOWN_RADIUSES.BOTH,
 	forceShow: false,
 	sameWidth: false,
@@ -51,10 +45,6 @@ const args = {
 } as Args;
 
 const argTypes = {
-	triggerAction: {
-		control: 'select',
-		options: Object.values(DROPDOWN_TRIGGER_ACTIONS),
-	},
 	radius: {
 		control: 'select',
 		options: Object.values(DROPDOWN_RADIUSES),

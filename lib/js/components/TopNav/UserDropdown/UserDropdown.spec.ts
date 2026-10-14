@@ -26,34 +26,43 @@ const setup = (props: ComponentProps<typeof UserDropdown> = defaultProps, slots 
 		},
 	});
 
+// The panel is only mounted while the dropdown is open.
+const setupOpened = async (...args: Parameters<typeof setup>) => {
+	const wrapper = setup(...args);
+	await wrapper.find('[aria-haspopup]').trigger('click');
+
+	return wrapper;
+};
+
 describe('UserDropdown', () => {
-	it('should render the user info in the header', () => {
-		const textGroup = setup().findComponent(DsTextGroup);
+	it('should render the user info in the header', async () => {
+		const textGroup = (await setupOpened()).findComponent(DsTextGroup);
 
 		expect(textGroup.props('mainText')).toBe('Roman Kowalski');
 		expect(textGroup.props('supportingText')).toBe('roman.kowalski@gmail.com');
 	});
 
-	it('should not render an empty supporting row when the email is omitted', () => {
-		const textGroup = setup({ username: 'Roman Kowalski' }).findComponent(DsTextGroup);
+	it('should not render an empty supporting row when the email is omitted', async () => {
+		const textGroup = (await setupOpened({ username: 'Roman Kowalski' })).findComponent(
+			DsTextGroup,
+		);
 
 		expect(textGroup.props('supportingText')).toBeNull();
 	});
 
-	it('should render the trigger and header avatars at the sizes it owns', () => {
-		const sizes = setup()
+	it('should render the trigger and header avatars at the sizes it owns', async () => {
+		const sizes = (await setupOpened())
 			.findAllComponents(DsAvatar)
 			.map((avatar) => avatar.props('size'));
 
-		// Order isn't asserted: vue-popperjs renders the panel before the reference wrapper.
-		expect(sizes).toHaveLength(2);
-		expect(sizes).toContain(AVATAR_SIZES.X_SMALL);
-		expect(sizes).toContain(AVATAR_SIZES.XX_SMALL);
+		expect(sizes).toEqual([AVATAR_SIZES.X_SMALL, AVATAR_SIZES.XX_SMALL]);
 	});
 
-	it('should forward avatar props to both avatars', () => {
+	it('should forward avatar props to both avatars', async () => {
 		const avatarUrl = 'https://wiecejnizlek.pl/avatar.jpg';
-		const avatars = setup({ ...defaultProps, avatarUrl }).findAllComponents(DsAvatar);
+		const avatars = (await setupOpened({ ...defaultProps, avatarUrl })).findAllComponents(
+			DsAvatar,
+		);
 
 		expect(avatars).toHaveLength(2);
 		avatars.forEach((avatar) => {
@@ -69,18 +78,18 @@ describe('UserDropdown', () => {
 		expect(dropdown.props('radius')).toBe(DROPDOWN_RADIUSES.BOTTOM);
 	});
 
-	it('should render the default slot inside the panel', () => {
-		const wrapper = setup(defaultProps, {
+	it('should render the default slot inside the panel', async () => {
+		const wrapper = await setupOpened(defaultProps, {
 			default: () => h('div', { class: 'custom-item' }, 'Konto'),
 		});
 
 		expect(wrapper.find('.ds-userDropdown__panel .custom-item').exists()).toBe(true);
 	});
 
-	it('should render the header divider only when the default slot has content', () => {
-		expect(setup().findComponent(DsSelectListItemDivider).exists()).toBe(false);
+	it('should render the header divider only when the default slot has content', async () => {
+		expect((await setupOpened()).findComponent(DsSelectListItemDivider).exists()).toBe(false);
 
-		const withItems = setup(defaultProps, { default: () => h('div', 'Konto') });
+		const withItems = await setupOpened(defaultProps, { default: () => h('div', 'Konto') });
 
 		expect(withItems.findComponent(DsSelectListItemDivider).exists()).toBe(true);
 	});
