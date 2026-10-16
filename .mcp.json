@@ -1,0 +1,13 @@
+{
+	"mcpServers": {
+		"playwright": {
+			"command": "npx",
+			"args": [
+				"-y",
+				"@playwright/mcp@0.0.83",
+				"--config",
+				".claude/skills/browser-testing/mcp-browser.json"
+			]
+		}
+	}
+}

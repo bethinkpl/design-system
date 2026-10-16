@@ -126,7 +126,7 @@
 	}
 
 	&__value {
-		@include formText-s-default-regular;
+		@include formText-m-default-regular;
 
 		color: $color-neutral-text-heavy;
 		flex: 1;

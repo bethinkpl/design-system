@@ -69,7 +69,7 @@ $autoresizing-max-height: 500px;
 	overflow: hidden;
 
 	&__input {
-		@include formText-s-default-regular;
+		@include formText-m-default-regular;
 
 		background: transparent;
 		border: none;
@@ -106,7 +106,7 @@ $autoresizing-max-height: 500px;
 			// otherwise win over `max-height`.
 			min-height: min(
 				#{$autoresizing-max-height},
-				calc(v-bind(rows) * #{$typography-line-height-2xs} + #{$input-padding * 2})
+				calc(v-bind(rows) * #{$typography-line-height-s} + #{$input-padding * 2})
 			);
 			overflow-y: auto;
 			resize: none;
