@@ -10,31 +10,33 @@
 				<slot name="reference" :is-opened="isOpen" />
 			</popover-trigger>
 
-			<popover-content
-				class="ds-dropdown"
-				:class="{
-					'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
-					'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
-					'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
-					'-ds-sameWidth': sameWidth,
-				}"
-				:side="side"
-				:align="align"
-				:side-offset="SIDE_OFFSET"
-				:collision-boundary="collisionBoundary"
-				position-strategy="absolute"
-				@pointer-down-outside="onPointerDownOutside"
-				@open-auto-focus="forceShow && $event.preventDefault()"
-				@close-auto-focus="forceShow && $event.preventDefault()"
-			>
-				<div
-					class="ds-dropdown__scrollableWrapper"
-					:class="{ '-ds-heightLimited': !!maxHeight }"
-					:style="scrollableWrapperStyles"
+			<popover-portal :disabled="!appendToBody">
+				<popover-content
+					class="ds-dropdown"
+					:class="{
+						'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
+						'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
+						'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
+						'-ds-sameWidth': sameWidth,
+					}"
+					:side="side"
+					:align="align"
+					:side-offset="SIDE_OFFSET"
+					:collision-boundary="collisionBoundary"
+					position-strategy="absolute"
+					@pointer-down-outside="onPointerDownOutside"
+					@open-auto-focus="forceShow && $event.preventDefault()"
+					@close-auto-focus="forceShow && $event.preventDefault()"
 				>
-					<slot :close="close" />
-				</div>
-			</popover-content>
+					<div
+						class="ds-dropdown__scrollableWrapper"
+						:class="{ '-ds-heightLimited': !!maxHeight }"
+						:style="scrollableWrapperStyles"
+					>
+						<slot :close="close" />
+					</div>
+				</popover-content>
+			</popover-portal>
 		</popover-root>
 	</span>
 </template>
@@ -77,7 +79,7 @@
 
 <script setup lang="ts">
 import { computed, useTemplateRef } from 'vue';
-import { PopoverContent, PopoverRoot, PopoverTrigger } from 'reka-ui';
+import { PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui';
 
 import {
 	DROPDOWN_PLACEMENTS,
@@ -94,6 +96,7 @@ import { resolveCollisionBoundary, splitPlacement } from '../../utils/placement'
 const SIDE_OFFSET = 4;
 
 const {
+	appendToBody = false,
 	boundariesSelector = null,
 	forceShow = false,
 	sameWidth = false,
@@ -101,6 +104,7 @@ const {
 	placement = DROPDOWN_PLACEMENTS.BOTTOM_START,
 	maxHeight = null,
 } = defineProps<{
+	appendToBody?: boolean;
 	boundariesSelector?: string | null;
 	forceShow?: boolean;
 	sameWidth?: boolean;

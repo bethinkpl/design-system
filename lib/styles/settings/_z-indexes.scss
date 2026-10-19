@@ -3,5 +3,7 @@
 // Keep in sync with zIndex.tooltip in primevue.ts
 $z-index-modal: 16777270; // 16777271 is the highest possible value in Safari, we need to make space for elements that above modal, so -1
 $z-index-overlay: 51;
-// DsDropdown and DsPopOver panels; matches the value vue-popperjs shipped, which consumers rely on.
-$z-index-floating-panel: 200000;
+// DsDropdown and DsPopOver panels: above modals, so a panel opened from a modal (or portalled to
+// <body>) is not hidden under it. Same value as zIndex.tooltip in primevue.ts; a tooltip is appended
+// to <body> after the panel it is opened from, so it still paints on top.
+$z-index-floating-panel: $z-index-modal + 1;

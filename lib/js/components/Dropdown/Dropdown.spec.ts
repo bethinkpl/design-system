@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { defineComponent, h } from 'vue';
 import { mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
-import { PopoverContent, PopoverRoot } from 'reka-ui';
+import { PopoverContent, PopoverPortal, PopoverRoot } from 'reka-ui';
 import Dropdown from './Dropdown.vue';
 import { DROPDOWN_PLACEMENTS } from './Dropdown.consts';
 
@@ -117,6 +117,13 @@ describe('Dropdown', () => {
 		await open(wrapper);
 
 		expect(wrapper.findComponent(PopoverContent).props('positionStrategy')).toBe('absolute');
+	});
+
+	it.each([true, false])('should portal the panel to body: %s', async (appendToBody) => {
+		const wrapper = setup({ appendToBody });
+		await open(wrapper);
+
+		expect(wrapper.findComponent(PopoverPortal).props('disabled')).toBe(!appendToBody);
 	});
 
 	it('should match the reference width when sameWidth is set', async () => {
