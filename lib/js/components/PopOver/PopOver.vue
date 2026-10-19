@@ -4,11 +4,13 @@
 		<popover-root v-else :open="isOpen" @update:open="setOpen">
 			<!--
 				The slot's own element is the anchor, as it was with vue-popperjs. Hover mode anchors to
-				it instead of toggling on every click of it.
+				it instead of toggling on every click of it. `as` must not be "button": Reka then adds
+				`type="button"`, which overrides a `type` prop the reference component leaves at its default.
 			-->
 			<component
 				:is="isHoverMode ? PopoverAnchor : PopoverTrigger"
 				as-child
+				as="span"
 				v-on="referenceListeners"
 			>
 				<slot name="reference" />

@@ -1,8 +1,12 @@
 <template>
 	<span ref="referenceElement">
 		<popover-root :open="isOpen" @update:open="onOpenChange">
-			<!-- The slot's own element is the anchor, as it was with vue-popperjs. -->
-			<popover-trigger as-child>
+			<!--
+				The slot's own element is the anchor, as it was with vue-popperjs. `as` must not be
+				"button": Reka then adds `type="button"`, which overrides a `type` prop the reference
+				component leaves at its default (e.g. DsBasicRichListItem's).
+			-->
+			<popover-trigger as-child as="span">
 				<slot name="reference" :is-opened="isOpen" />
 			</popover-trigger>
 

@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { h } from 'vue';
+import { defineComponent, h } from 'vue';
 import { mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { PopoverContent, PopoverRoot } from 'reka-ui';
@@ -28,6 +28,17 @@ const outsidePointerDown = (target: EventTarget) =>
 	});
 
 describe('Dropdown', () => {
+	it('should not override a type prop of the reference component', () => {
+		const ReferenceWithType = defineComponent({
+			name: 'ReferenceWithType',
+			props: { type: { type: String, default: 'default' } },
+			setup: (props) => () => h('div', { class: 'reference' }, props.type),
+		});
+		const wrapper = mount(Dropdown, { slots: { reference: () => h(ReferenceWithType) } });
+
+		expect(wrapper.find('.reference').text()).toBe('default');
+	});
+
 	it('should not render the panel while closed', () => {
 		const wrapper = setup();
 

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { h } from 'vue';
+import { defineComponent, h } from 'vue';
 import { flushPromises, mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot } from 'reka-ui';
@@ -28,6 +28,17 @@ const open = async (wrapper: ReturnType<typeof setup>) => {
 };
 
 describe('PopOver', () => {
+	it('should not override a type prop of the reference component', () => {
+		const ReferenceWithType = defineComponent({
+			name: 'ReferenceWithType',
+			props: { type: { type: String, default: 'default' } },
+			setup: (props) => () => h('div', { class: 'reference' }, props.type),
+		});
+		const wrapper = mount(PopOver, { slots: { reference: () => h(ReferenceWithType) } });
+
+		expect(wrapper.find('.reference').text()).toBe('default');
+	});
+
 	it('should render only the reference when the trigger action is none', () => {
 		const wrapper = setup({ triggerAction: POP_OVER_TRIGGER_ACTIONS.NONE, forceShow: true });
 
