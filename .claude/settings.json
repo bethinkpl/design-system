@@ -1,0 +1,6 @@
+{
+	"enabledMcpjsonServers": ["playwright"],
+	"permissions": {
+		"allow": ["Bash(.claude/skills/browser-testing/storybook.sh*)"]
+	}
+}

@@ -3114,6 +3114,10 @@ table {
   --color-highlight-ripple: rgba(var(--raw-yellow-500-rgb), 0.18);
 }
 
+:root.-ds-dark {
+  color-scheme: dark;
+}
+
 :root {
   --gradient-magic-color-1: var(--raw-teal-500);
   --gradient-magic-color-2: var(--raw-indigo-500);

@@ -19,3 +19,4 @@ public
 !.yarn/versions
 
 .claude/worktrees
+.claude/skills/browser-testing/artifacts

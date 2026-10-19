@@ -21,6 +21,20 @@ jobs:
       startsWith(github.event.comment.body, '/build')
 
     steps:
+      - name: Check commenter permission
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const username = context.payload.comment.user.login;
+            const { data } = await github.rest.repos.getCollaboratorPermissionLevel({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              username,
+            });
+            if (!['admin', 'write'].includes(data.permission)) {
+              throw new Error(`@${username} needs write access to the repository to trigger this workflow`);
+            }
+
       - name: Get PR branch name
         id: comment-pr-ref
         uses: actions/github-script@v7
@@ -56,6 +70,7 @@ jobs:
           yarn build
 
       - name: Push 🚀
+        id: push
         uses: stefanzweifel/git-auto-commit-action@v7
         with:
           branch: ${{ steps.comment-pr-ref.outputs.result }}-dist
@@ -63,17 +78,27 @@ jobs:
           create_branch: true
           push_options: '--force'
 
+      # When the build leaves dist unchanged, no -dist branch is pushed, so point at the PR commit instead
       - name: Get last commit hash from branch and set to variable
         id: last-commit
+        env:
+          PR_BRANCH: ${{ steps.comment-pr-ref.outputs.result }}
+          CHANGES_DETECTED: ${{ steps.push.outputs.changes_detected }}
         run: |
-          git fetch origin ${{ steps.comment-pr-ref.outputs.result }}-dist
-          echo "commit_hash=$(git log -n 1 origin/${{ steps.comment-pr-ref.outputs.result }}-dist --pretty=format:'%H')" >> $GITHUB_ENV
+          if [ "$CHANGES_DETECTED" = "true" ]; then
+            git fetch origin "$PR_BRANCH-dist"
+            echo "build_branch=$PR_BRANCH-dist" >> $GITHUB_ENV
+            echo "commit_hash=$(git log -n 1 "origin/$PR_BRANCH-dist" --pretty=format:'%H')" >> $GITHUB_ENV
+          else
+            echo "build_branch=$PR_BRANCH" >> $GITHUB_ENV
+            echo "commit_hash=$(git rev-parse HEAD)" >> $GITHUB_ENV
+          fi
 
       - name: Add comment to PR with dist package name and install command
         uses: thollander/actions-comment-pull-request@v3
         with:
           pr-number: ${{ github.event.issue.number }}
           message: |
-            Branch: `${{ steps.comment-pr-ref.outputs.result }}-dist`
+            Branch: `${{ env.build_branch }}`
             Last commit: `${{ env.commit_hash }}`
             Install: `yarn add '@bethinkpl/design-system@https://github.com/bethinkpl/design-system#commit=${{ env.commit_hash }}'`
