@@ -64,7 +64,7 @@ $progress-donut-chart-size: 40px;
 $progress-donut-chart-circle-stroke-width: 4;
 $pi: 3.1416;
 $progress-donut-chart-circle-radius: 18; // (width / 2) - (stroke-width / 2)
-$circle-circumference: 2 * $pi * $progress-donut-chart-circle-radius;
+$circle-circumference: 2 * $pi * $progress-donut-chart-circle-radius * 1px; // px unit is required: Firefox rejects unitless numbers inside calc() for stroke-dashoffset
 $progress-donut-chart-loading-dot-size: 2px;
 
 $progress-donut-chart-range-colors: (
