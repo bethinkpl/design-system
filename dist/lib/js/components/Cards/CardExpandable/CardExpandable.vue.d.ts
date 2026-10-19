@@ -288,6 +288,8 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_TAGS: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_TEXT_SLASH: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_TEXT: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_THUMBS_DOWN_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_THUMBS_DOWN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_THUMBS_UP_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_THUMBS_UP: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_THUMBTACK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
