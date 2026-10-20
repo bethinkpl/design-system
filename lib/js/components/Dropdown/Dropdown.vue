@@ -151,5 +151,6 @@ function close() {
 	setOpen(false);
 }
 
-defineExpose({ close });
+// `isOpened` keeps the name it had as public data in the Options API version.
+defineExpose({ close, isOpened: isOpen });
 </script>

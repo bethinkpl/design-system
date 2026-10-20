@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { defineComponent, h } from 'vue';
-import { mount } from '@vue/test-utils';
+import { flushPromises, mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { PopoverContent, PopoverPortal, PopoverRoot } from 'reka-ui';
 import Dropdown from './Dropdown.vue';
@@ -66,6 +66,19 @@ describe('Dropdown', () => {
 		expect(wrapper.emitted('hide')).toHaveLength(1);
 	});
 
+	it('should expose isOpened and close to the parent', async () => {
+		const wrapper = setup();
+		expect(wrapper.vm.isOpened).toBe(false);
+
+		await open(wrapper);
+		expect(wrapper.vm.isOpened).toBe(true);
+
+		wrapper.vm.close();
+		await flushPromises();
+		expect(wrapper.vm.isOpened).toBe(false);
+		expect(wrapper.find('.ds-dropdown').exists()).toBe(false);
+	});
+
 	it('should toggle through the reference slot toggle function', async () => {
 		const wrapper = mount(Dropdown, {
 			slots: {
@@ -95,7 +108,7 @@ describe('Dropdown', () => {
 		const wrapper = setup({ forceShow: true });
 
 		wrapper.findComponent(PopoverRoot).vm.$emit('update:open', false);
-		await wrapper.vm.$nextTick();
+		await flushPromises();
 
 		expect(wrapper.find('.ds-dropdown').exists()).toBe(true);
 		expect(wrapper.emitted('show')).toHaveLength(1);
