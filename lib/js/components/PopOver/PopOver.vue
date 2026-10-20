@@ -1,7 +1,7 @@
 <template>
 	<span>
 		<slot v-if="disabled" name="reference" />
-		<popover-root v-else v-model:open="open">
+		<popover-root v-else :open="open" @update:open="onOpenChange">
 			<!-- Use the slot root without forwarding a button type to reference components. -->
 			<popover-trigger as="template">
 				<slot name="reference" />
@@ -22,6 +22,8 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="fixed"
 					hide-when-detached
+					@escape-key-down="onDismiss"
+					@interact-outside="onDismiss"
 				>
 					<img
 						v-if="headerImageUrl"
@@ -191,6 +193,7 @@ const SIDE_OFFSET = 4;
 const {
 	collisionBoundary = null,
 	disabled = false,
+	manual = false,
 	side = POP_OVER_SIDES.BOTTOM,
 	align = POP_OVER_ALIGNS.CENTER,
 	color = POP_OVER_COLORS.DEFAULT,
@@ -207,6 +210,8 @@ const {
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
 	disabled?: boolean;
+	// Only model updates and explicit close() calls change the open state.
+	manual?: boolean;
 	side?: PopOverSide;
 	align?: PopOverAlign;
 	color?: PopOverColor;
@@ -228,6 +233,14 @@ defineEmits<{
 }>();
 
 const open = defineModel<boolean>('open', { default: false });
+
+function onOpenChange(value: boolean) {
+	if (!manual) open.value = value;
+}
+
+function onDismiss(event: Event) {
+	if (manual) event.preventDefault();
+}
 
 function close() {
 	open.value = false;

@@ -60,6 +60,40 @@ describe('PopOver', () => {
 		expect((await setupForced()).find('.ds-popOver').exists()).toBe(true);
 	});
 
+	it('should ignore reference clicks in manual mode', async () => {
+		const wrapper = setup({ manual: true });
+		await open(wrapper);
+		expect(wrapper.emitted('update:open')).toBeUndefined();
+		expect(wrapper.find('.ds-popOver').exists()).toBe(false);
+	});
+
+	it('should follow model updates and allow explicit close in manual mode', async () => {
+		const wrapper = setup({ manual: true });
+		await wrapper.setProps({ open: true });
+		await flushPromises();
+		expect(wrapper.find('.ds-popOver').exists()).toBe(true);
+		await open(wrapper);
+		expect(wrapper.emitted('update:open')).toBeUndefined();
+		wrapper.vm.close();
+		expect(wrapper.emitted('update:open')).toEqual([[false]]);
+		await wrapper.setProps({ open: false });
+		await flushPromises();
+		expect(wrapper.find('.ds-popOver').exists()).toBe(false);
+	});
+
+	it.each(['escapeKeyDown', 'interactOutside'])(
+		'should prevent %s only in manual mode',
+		async (eventName) => {
+			for (const manual of [false, true]) {
+				const wrapper = await setupForced({ manual });
+				const event = new Event(eventName, { cancelable: true });
+				wrapper.findComponent(PopoverContent).vm.$emit(eventName, event);
+				expect(event.defaultPrevented).toBe(manual);
+				wrapper.unmount();
+			}
+		},
+	);
+
 	it('should emit button-click', async () => {
 		const wrapper = await setupForced({ buttonText: 'OK' });
 
