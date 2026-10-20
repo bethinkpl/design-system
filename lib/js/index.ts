@@ -144,12 +144,28 @@ export * from './components/SelectionTile';
 export { default as LoadingBar } from './components/LoadingBar';
 export { default as DsLoadingBar } from './components/LoadingBar';
 export * from './components/LoadingBar';
-export { default as PopOver } from './components/PopOver';
-export { default as DsPopOver } from './components/PopOver';
-export * from './components/PopOver/PopOver.consts';
-export { default as Dropdown } from './components/Dropdown';
-export { default as DsDropdown } from './components/Dropdown';
-export * from './components/Dropdown/Dropdown.consts';
+export { default as PopOver } from './components/PopOverLegacy';
+export { default as DsPopOver } from './components/PopOverLegacy';
+export {
+	POP_OVER_LEGACY_COLORS as POP_OVER_COLORS,
+	POP_OVER_LEGACY_TRIGGER_ACTIONS as POP_OVER_TRIGGER_ACTIONS,
+	POP_OVER_LEGACY_PLACEMENTS as POP_OVER_PLACEMENTS,
+	POP_OVER_LEGACY_SIZES as POP_OVER_SIZES,
+} from './components/PopOverLegacy/PopOverLegacy.consts';
+export { default as DsPopOverLegacy } from './components/PopOverLegacy';
+export * from './components/PopOverLegacy/PopOverLegacy.consts';
+export { default as Dropdown } from './components/DropdownLegacy';
+export { default as DsDropdown } from './components/DropdownLegacy';
+export {
+	DROPDOWN_LEGACY_TRIGGER_ACTIONS as DROPDOWN_TRIGGER_ACTIONS,
+	DROPDOWN_LEGACY_RADIUSES as DROPDOWN_RADIUSES,
+	DROPDOWN_LEGACY_PLACEMENTS as DROPDOWN_PLACEMENTS,
+	type DropdownLegacyTriggerAction as DropdownTriggerAction,
+	type DropdownLegacyRadius as DropdownRadius,
+	type DropdownLegacyPlacement as DropdownPlacement,
+} from './components/DropdownLegacy/DropdownLegacy.consts';
+export { default as DsDropdownLegacy } from './components/DropdownLegacy';
+export * from './components/DropdownLegacy/DropdownLegacy.consts';
 export { default as ProgressBar } from './components/ProgressBar';
 export { default as DsProgressBar } from './components/ProgressBar';
 export * from './components/ProgressBar/ProgressBar.consts';

@@ -1,33 +1,33 @@
-import Dropdown from './Dropdown.vue';
+import DropdownLegacy from './DropdownLegacy.vue';
 import {
-	DROPDOWN_PLACEMENTS,
-	DROPDOWN_RADIUSES,
-	DROPDOWN_TRIGGER_ACTIONS,
-} from './Dropdown.consts';
+	DROPDOWN_LEGACY_PLACEMENTS,
+	DROPDOWN_LEGACY_RADIUSES,
+	DROPDOWN_LEGACY_TRIGGER_ACTIONS,
+} from './DropdownLegacy.consts';
 import SelectList from '../SelectList/SelectList.vue';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
 
 export default {
-	title: 'Components/Dropdown',
-	component: Dropdown,
-} as Meta<typeof Dropdown>;
+	title: 'Components/DropdownLegacy',
+	component: DropdownLegacy,
+} as Meta<typeof DropdownLegacy>;
 
-const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
-	components: { Dropdown, SelectList, SelectListItem },
+const StoryTemplate: StoryFn<typeof DropdownLegacy> = (args) => ({
+	components: { DropdownLegacy, SelectList, SelectListItem },
 	setup() {
 		return args;
 	},
 	template: `
     <div style="position: relative">
-      <dropdown :trigger-action="triggerAction"
+      <dropdown-legacy :trigger-action="triggerAction"
                 :force-show="forceShow"
                 :same-width="sameWidth"
                 :radius="radius"
                 :placement="placement"
                 :max-height="maxHeight">
-        <template #reference="{ isOpened }"><span>Dropdown entry point {{ isOpened ? 'opened' : 'closed' }}</span>
+        <template #reference="{ isOpened }"><span>DropdownLegacy entry point {{ isOpened ? 'opened' : 'closed' }}</span>
         </template>
         <template #default="{ close }">
           <select-list>
@@ -35,33 +35,33 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
             <select-list-item label="Two" @click.native="close" />
           </select-list>
         </template>
-      </dropdown>
+      </dropdown-legacy>
     </div>`,
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	triggerAction: DROPDOWN_TRIGGER_ACTIONS.CLICK,
-	radius: DROPDOWN_RADIUSES.BOTH,
+	triggerAction: DROPDOWN_LEGACY_TRIGGER_ACTIONS.CLICK,
+	radius: DROPDOWN_LEGACY_RADIUSES.BOTH,
 	forceShow: false,
 	sameWidth: false,
 	maxHeight: '',
-	placement: DROPDOWN_PLACEMENTS.BOTTOM_START,
+	placement: DROPDOWN_LEGACY_PLACEMENTS.BOTTOM_START,
 } as Args;
 
 const argTypes = {
 	triggerAction: {
 		control: 'select',
-		options: Object.values(DROPDOWN_TRIGGER_ACTIONS),
+		options: Object.values(DROPDOWN_LEGACY_TRIGGER_ACTIONS),
 	},
 	radius: {
 		control: 'select',
-		options: Object.values(DROPDOWN_RADIUSES),
+		options: Object.values(DROPDOWN_LEGACY_RADIUSES),
 	},
 	placement: {
 		control: 'select',
-		options: Object.values(DROPDOWN_PLACEMENTS),
+		options: Object.values(DROPDOWN_LEGACY_PLACEMENTS),
 	},
 	maxHeight: {
 		control: 'text',

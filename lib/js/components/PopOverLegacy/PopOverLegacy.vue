@@ -1,6 +1,6 @@
 <template>
 	<span>
-		<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
+		<slot v-if="triggerAction === POP_OVER_LEGACY_TRIGGER_ACTIONS.NONE" name="reference" />
 		<vue-popper
 			v-else
 			ref="popper"
@@ -16,25 +16,35 @@
 			:root-class="rootClass"
 		>
 			<div
-				class="popper ds-popOver"
+				class="popper ds-popOverLegacy"
 				:class="{
-					'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
-					'-ds-small': size === POP_OVER_SIZES.SMALL,
-					'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
+					'-ds-color-neutral': color === POP_OVER_LEGACY_COLORS.NEUTRAL,
+					'-ds-small': size === POP_OVER_LEGACY_SIZES.SMALL,
+					'-ds-medium': size === POP_OVER_LEGACY_SIZES.MEDIUM,
 					'-ds-visible-arrow': isPointerVisible,
 				}"
 			>
-				<img v-if="headerImageUrl" class="ds-popOver__image" :src="headerImageUrl" alt="" />
-				<div class="ds-popOver__content">
-					<div v-if="titleText" class="ds-popOver__title"> {{ titleText }}</div>
-					<div v-if="subtitleText" class="ds-popOver__subtitle"> {{ subtitleText }}</div>
-					<div class="ds-popOver__contentSlot" :class="{ '-ds-maxHeight': maxHeight }">
+				<img
+					v-if="headerImageUrl"
+					class="ds-popOverLegacy__image"
+					:src="headerImageUrl"
+					alt=""
+				/>
+				<div class="ds-popOverLegacy__content">
+					<div v-if="titleText" class="ds-popOverLegacy__title"> {{ titleText }}</div>
+					<div v-if="subtitleText" class="ds-popOverLegacy__subtitle">
+						{{ subtitleText }}</div
+					>
+					<div
+						class="ds-popOverLegacy__contentSlot"
+						:class="{ '-ds-maxHeight': maxHeight }"
+					>
 						<slot :close="close" />
 					</div>
 				</div>
 				<ds-button
 					v-if="buttonText"
-					class="ds-popOver__button"
+					class="ds-popOverLegacy__button"
 					:type="BUTTON_TYPES.TEXT"
 					:size="BUTTON_SIZES.LARGE"
 					@click="$emit('button-click')"
@@ -57,7 +67,7 @@
 @import '../../../styles/settings/shadows';
 @import '../../../styles/settings/spacings';
 
-.ds-popOver {
+.ds-popOverLegacy {
 	$self: &;
 
 	background-color: $color-default-background;
@@ -215,17 +225,17 @@
 import VuePopper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
 import {
-	POP_OVER_COLORS,
-	POP_OVER_PLACEMENTS,
-	POP_OVER_SIZES,
-	POP_OVER_TRIGGER_ACTIONS,
-} from './PopOver.consts';
+	POP_OVER_LEGACY_COLORS,
+	POP_OVER_LEGACY_PLACEMENTS,
+	POP_OVER_LEGACY_SIZES,
+	POP_OVER_LEGACY_TRIGGER_ACTIONS,
+} from './PopOverLegacy.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-	name: 'PopOver',
+	name: 'PopOverLegacy',
 	components: {
 		VuePopper,
 		DsButton,
@@ -237,16 +247,16 @@ export default defineComponent({
 		},
 		triggerAction: {
 			type: String,
-			default: POP_OVER_TRIGGER_ACTIONS.CLICK,
+			default: POP_OVER_LEGACY_TRIGGER_ACTIONS.CLICK,
 			validator(triggerAction) {
-				return Object.values(POP_OVER_TRIGGER_ACTIONS).includes(triggerAction);
+				return Object.values(POP_OVER_LEGACY_TRIGGER_ACTIONS).includes(triggerAction);
 			},
 		},
 		placement: {
 			type: String,
-			default: POP_OVER_PLACEMENTS.BOTTOM,
+			default: POP_OVER_LEGACY_PLACEMENTS.BOTTOM,
 			validator(placement) {
-				return Object.values(POP_OVER_PLACEMENTS).includes(placement);
+				return Object.values(POP_OVER_LEGACY_PLACEMENTS).includes(placement);
 			},
 		},
 		forceShow: {
@@ -255,9 +265,9 @@ export default defineComponent({
 		},
 		color: {
 			type: String,
-			default: POP_OVER_COLORS.DEFAULT,
+			default: POP_OVER_LEGACY_COLORS.DEFAULT,
 			validator(color) {
-				return Object.values(POP_OVER_COLORS).includes(color);
+				return Object.values(POP_OVER_LEGACY_COLORS).includes(color);
 			},
 		},
 		titleText: {
@@ -286,9 +296,9 @@ export default defineComponent({
 		},
 		size: {
 			type: String,
-			default: POP_OVER_SIZES.SMALL,
+			default: POP_OVER_LEGACY_SIZES.SMALL,
 			validator(size) {
-				return Object.values(POP_OVER_SIZES).includes(size);
+				return Object.values(POP_OVER_LEGACY_SIZES).includes(size);
 			},
 		},
 		maxHeight: {
@@ -309,9 +319,9 @@ export default defineComponent({
 	emits: ['button-click'],
 	data() {
 		return {
-			POP_OVER_COLORS: Object.freeze(POP_OVER_COLORS),
-			POP_OVER_SIZES: Object.freeze(POP_OVER_SIZES),
-			POP_OVER_TRIGGER_ACTIONS: Object.freeze(POP_OVER_TRIGGER_ACTIONS),
+			POP_OVER_LEGACY_COLORS: Object.freeze(POP_OVER_LEGACY_COLORS),
+			POP_OVER_LEGACY_SIZES: Object.freeze(POP_OVER_LEGACY_SIZES),
+			POP_OVER_LEGACY_TRIGGER_ACTIONS: Object.freeze(POP_OVER_LEGACY_TRIGGER_ACTIONS),
 			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
 			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
 			key: 1,

@@ -1,45 +1,45 @@
-import PopOver from './PopOver.vue';
+import PopOverLegacy from './PopOverLegacy.vue';
 import {
-	POP_OVER_COLORS,
-	POP_OVER_PLACEMENTS,
-	POP_OVER_SIZES,
-	POP_OVER_TRIGGER_ACTIONS,
-} from './PopOver.consts';
+	POP_OVER_LEGACY_COLORS,
+	POP_OVER_LEGACY_PLACEMENTS,
+	POP_OVER_LEGACY_SIZES,
+	POP_OVER_LEGACY_TRIGGER_ACTIONS,
+} from './PopOverLegacy.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 
 export default {
-	title: 'Components/PopOver',
-	component: PopOver,
-} as Meta<typeof PopOver>;
+	title: 'Components/PopOverLegacy',
+	component: PopOverLegacy,
+} as Meta<typeof PopOverLegacy>;
 
-const StoryTemplate: StoryFn<typeof PopOver> = (args) => ({
-	components: { PopOver },
+const StoryTemplate: StoryFn<typeof PopOverLegacy> = (args) => ({
+	components: { PopOverLegacy },
 	setup() {
 		return args;
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px; background: var(--raw-gray-50);">' +
-		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
+		'<pop-over-legacy :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
 		'<template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>' +
 		'<div>{{ definitionSlot }}</div>' +
-		'</pop-over>' +
+		'</pop-over-legacy>' +
 		'</div>',
 });
 
 export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
-	size: POP_OVER_SIZES.SMALL,
+	size: POP_OVER_LEGACY_SIZES.SMALL,
 	maxHeight: false,
-	placement: POP_OVER_PLACEMENTS.BOTTOM,
-	color: POP_OVER_COLORS.DEFAULT,
+	placement: POP_OVER_LEGACY_PLACEMENTS.BOTTOM,
+	color: POP_OVER_LEGACY_COLORS.DEFAULT,
 	headerImageUrl:
 		'https://wnl-platform-dev-kuba.s3.eu-central-1.amazonaws.com/public/illustation-StatusLekcji.png',
 	titleText: 'Lorem ipsum',
 	subtitleText: 'Dolor sit amet',
 	buttonText: 'button text',
-	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
+	triggerAction: POP_OVER_LEGACY_TRIGGER_ACTIONS.CLICK,
 	forceShow: false,
 	isPointerVisible: true,
 	definitionSlot: 'Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.',
@@ -48,19 +48,19 @@ Interactive.args = {
 const argTypes = {
 	size: {
 		control: 'select',
-		options: Object.values(POP_OVER_SIZES),
+		options: Object.values(POP_OVER_LEGACY_SIZES),
 	},
 	placement: {
 		control: 'select',
-		options: Object.values(POP_OVER_PLACEMENTS),
+		options: Object.values(POP_OVER_LEGACY_PLACEMENTS),
 	},
 	color: {
 		control: 'select',
-		options: Object.values(POP_OVER_COLORS),
+		options: Object.values(POP_OVER_LEGACY_COLORS),
 	},
 	triggerAction: {
 		control: 'select',
-		options: Object.values(POP_OVER_TRIGGER_ACTIONS),
+		options: Object.values(POP_OVER_LEGACY_TRIGGER_ACTIONS),
 	},
 } as ArgTypes;
 
@@ -73,28 +73,28 @@ Interactive.parameters = {
 	},
 };
 
-const PopoverWithHTMLStoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
-	components: { PopOver },
+const PopoverWithHTMLStoryTemplate: StoryFn<typeof PopOverLegacy> = (argTypes) => ({
+	components: { PopOverLegacy },
 	props: Object.keys(argTypes),
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
-		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :force-show="forceShow" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
+		'<pop-over-legacy :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :force-show="forceShow" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<template #default><b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork. <b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.</template>' +
-		'</pop-over>' +
+		'</pop-over-legacy>' +
 		'</div>',
 });
 
 export const PopOverMMaxHeightNoPointer = PopoverWithHTMLStoryTemplate.bind({});
 
 PopOverMMaxHeightNoPointer.args = {
-	size: POP_OVER_SIZES.MEDIUM,
+	size: POP_OVER_LEGACY_SIZES.MEDIUM,
 	maxHeight: true,
-	placement: POP_OVER_PLACEMENTS.BOTTOM,
-	color: POP_OVER_COLORS.DEFAULT,
+	placement: POP_OVER_LEGACY_PLACEMENTS.BOTTOM,
+	color: POP_OVER_LEGACY_COLORS.DEFAULT,
 	titleText: 'Lorem ipsum',
 	subtitleText: 'Dolor sit amet',
-	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
+	triggerAction: POP_OVER_LEGACY_TRIGGER_ACTIONS.CLICK,
 	forceShow: false,
 	isPointerVisible: false,
 } as Args;

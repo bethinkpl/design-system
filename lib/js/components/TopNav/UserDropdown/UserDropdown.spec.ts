@@ -4,11 +4,14 @@ import { mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import UserDropdown from './UserDropdown.vue';
 import DsAvatar from '../../Avatar';
-import DsDropdown from '../../Dropdown';
+import DsDropdown from '../../DropdownLegacy';
 import DsTextGroup from '../../TextGroup';
 import DsSelectListItemDivider from '../../SelectList/SelectListItemDivider/SelectListItemDivider.vue';
 import { AVATAR_SIZES } from '../../Avatar/Avatar.consts';
-import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../../Dropdown/Dropdown.consts';
+import {
+	DROPDOWN_LEGACY_PLACEMENTS as DROPDOWN_PLACEMENTS,
+	DROPDOWN_LEGACY_RADIUSES as DROPDOWN_RADIUSES,
+} from '../../DropdownLegacy/DropdownLegacy.consts';
 
 const defaultProps = {
 	username: 'Roman Kowalski',

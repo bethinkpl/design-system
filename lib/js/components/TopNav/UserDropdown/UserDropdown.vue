@@ -82,7 +82,10 @@
 
 <script setup lang="ts">
 import DsAvatar, { AVATAR_SIZES, AvatarProps } from '../../Avatar';
-import DsDropdown, { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../../Dropdown';
+import DsDropdown, {
+	DROPDOWN_LEGACY_PLACEMENTS as DROPDOWN_PLACEMENTS,
+	DROPDOWN_LEGACY_RADIUSES as DROPDOWN_RADIUSES,
+} from '../../DropdownLegacy';
 import DsSelectList from '../../SelectList/SelectList.vue';
 import DsSelectListItemContainer from '../../SelectList/SelectListItemContainer/SelectListItemContainer.vue';
 import DsSelectListItemDivider from '../../SelectList/SelectListItemDivider/SelectListItemDivider.vue';

@@ -306,7 +306,9 @@
 <script lang="ts">
 import DsIconButton from '../../Buttons/IconButton/IconButton.vue';
 import DsDivider, { DIVIDER_PROMINENCES } from '../../Divider';
-import DsDropdown, { DROPDOWN_PLACEMENTS } from '../../Dropdown';
+import DsDropdown, {
+	DROPDOWN_LEGACY_PLACEMENTS as DROPDOWN_PLACEMENTS,
+} from '../../DropdownLegacy';
 import DsSkeleton from '../../Skeleton';
 import DsTooltip, { TOOLTIP_PLACEMENTS } from '../../Tooltip';
 import {

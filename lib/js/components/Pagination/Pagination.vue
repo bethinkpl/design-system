@@ -292,8 +292,11 @@ import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Bu
 import DsIcon from '../Icons/Icon/Icon.vue';
 import { ICON_SIZES, ICONS } from '../Icons/Icon';
 
-import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../Dropdown/Dropdown.consts';
-import Dropdown from '../Dropdown/Dropdown.vue';
+import {
+	DROPDOWN_LEGACY_PLACEMENTS as DROPDOWN_PLACEMENTS,
+	DROPDOWN_LEGACY_RADIUSES as DROPDOWN_RADIUSES,
+} from '../DropdownLegacy/DropdownLegacy.consts';
+import Dropdown from '../DropdownLegacy/DropdownLegacy.vue';
 import { useLegacyI18n } from '../../composables/useLegacyI18n';
 
 import SelectList from '../SelectList/SelectList.vue';
