@@ -66,6 +66,31 @@ describe('Dropdown', () => {
 		expect(wrapper.emitted('hide')).toHaveLength(1);
 	});
 
+	it('should toggle through the reference slot toggle function', async () => {
+		const wrapper = mount(Dropdown, {
+			slots: {
+				// The inner button stops its click, as DsRichListItem's actions slot does.
+				reference: ({ toggle }: { toggle: () => void }) =>
+					h('div', { class: 'reference' }, [
+						h('button', {
+							class: 'chevron',
+							onClick: (event: MouseEvent) => {
+								event.stopPropagation();
+								toggle();
+							},
+						}),
+					]),
+				default: () => h('span', { class: 'item' }, 'Item'),
+			},
+		});
+
+		await wrapper.find('.chevron').trigger('click');
+		expect(wrapper.find('.ds-dropdown').exists()).toBe(true);
+
+		await wrapper.find('.chevron').trigger('click');
+		expect(wrapper.find('.ds-dropdown').exists()).toBe(false);
+	});
+
 	it('should stay open when forceShow is set and Reka asks to close', async () => {
 		const wrapper = setup({ forceShow: true });
 

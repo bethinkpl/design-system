@@ -7,7 +7,11 @@
 				component leaves at its default (e.g. DsBasicRichListItem's).
 			-->
 			<popover-trigger as-child as="span">
-				<slot name="reference" :is-opened="isOpen" />
+				<!--
+					`toggle` is for controls inside the reference that stop their click from reaching it,
+					e.g. DsRichListItem's `actions` slot.
+				-->
+				<slot name="reference" :is-opened="isOpen" :toggle="toggle" />
 			</popover-trigger>
 
 			<popover-portal :disabled="!appendToBody">
@@ -137,6 +141,10 @@ const scrollableWrapperStyles = computed(() => (maxHeight ? { maxHeight } : {}))
 
 function onOpenChange(value: boolean) {
 	setOpen(value);
+}
+
+function toggle() {
+	setOpen(!isOpen.value);
 }
 
 function close() {
