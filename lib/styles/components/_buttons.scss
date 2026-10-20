@@ -51,8 +51,8 @@
 		background-color: $background-focus;
 	}
 
-	&:disabled,
-	&.-ds-disabled {
+	&.-ds-disabled,
+	&:disabled:not(.-ds-loading) {
 		background-color: $background-disabled;
 	}
 }
@@ -63,8 +63,8 @@
 	$disabled-background: null,
 	$disabled-border: null
 ) {
-	&:disabled,
-	&.-ds-disabled {
+	&.-ds-disabled,
+	&:disabled:not(.-ds-loading) {
 		background-color: $disabled-background;
 		border-color: $disabled-border;
 		color: $disabled-color;
@@ -279,7 +279,7 @@ $button-disabled-alpha: 0.6;
 
 		// Disabled drops the glow entirely and fades text/icon.
 		&.-ds-disabled,
-		&:disabled {
+		&:disabled:not(.-ds-loading) {
 			// Keep the gradient ring but drop the hover tint; the glow is removed below.
 			@include setMagicOutlinedBackground($border: $gradient-magic-border-angular-disabled);
 
