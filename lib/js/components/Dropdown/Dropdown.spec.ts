@@ -112,7 +112,7 @@ describe('Dropdown', () => {
 		expect(content.props('align')).toBe(align);
 	});
 
-	it('should position the panel absolutely so a long panel extends the page', async () => {
+	it('should position the panel absolutely', async () => {
 		const wrapper = setup();
 		await open(wrapper);
 
@@ -139,7 +139,6 @@ describe('Dropdown', () => {
 
 		const scrollable = wrapper.find('.ds-dropdown__scrollableWrapper');
 
-		expect(scrollable.classes()).toContain('-ds-heightLimited');
 		expect(scrollable.attributes('style')).toContain('max-height: 250px');
 	});
 });

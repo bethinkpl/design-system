@@ -28,11 +28,7 @@
 					@open-auto-focus="forceShow && $event.preventDefault()"
 					@close-auto-focus="forceShow && $event.preventDefault()"
 				>
-					<div
-						class="ds-dropdown__scrollableWrapper"
-						:class="{ '-ds-heightLimited': !!maxHeight }"
-						:style="scrollableWrapperStyles"
-					>
+					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
 						<slot :close="close" />
 					</div>
 				</popover-content>
@@ -53,6 +49,11 @@
 .ds-dropdown {
 	@include dropdownSurface;
 
+	display: flex;
+	flex-direction: column;
+	// Shrinks to the space left on its side of the reference, so a long panel scrolls inside
+	// instead of running off the screen.
+	max-height: var(--reka-popover-content-available-height);
 	max-width: 100%;
 	min-width: 128px;
 	z-index: $z-index-floating-panel;
@@ -70,9 +71,8 @@
 	}
 
 	&__scrollableWrapper {
-		&.-ds-heightLimited {
-			overflow-y: auto;
-		}
+		min-height: 0;
+		overflow-y: auto;
 	}
 }
 </style>
@@ -90,8 +90,8 @@ import {
 import { useFloatingPanelOpen } from '../../composables/useFloatingPanelOpen';
 import { resolveCollisionBoundary, splitPlacement } from '../../utils/placement';
 
-// Panels use `position-strategy="absolute"` (Reka defaults to fixed), as vue-popperjs did: a
-// panel that runs past the bottom of the page extends it, so the page can scroll to it.
+// Panels use `position-strategy="absolute"` (Reka defaults to fixed), as vue-popperjs did. A panel
+// taller than the space left on its side shrinks and scrolls inside (see the styles).
 // $space-2: the gap between the reference and the panel.
 const SIDE_OFFSET = 4;
 

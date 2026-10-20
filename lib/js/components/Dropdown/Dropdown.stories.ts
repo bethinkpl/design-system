@@ -84,7 +84,7 @@ export const InModal: StoryFn<typeof Dropdown> = (args) => ({
         <template #reference="{ isOpened }"><span>Dropdown entry point {{ isOpened ? 'opened' : 'closed' }}</span></template>
         <template #default="{ close }">
           <select-list>
-            <select-list-item v-for="n in 6" :key="n" :label="'Item ' + n" @click="close" />
+            <select-list-item v-for="n in 30" :key="n" :label="'Item ' + n" @click="close" />
           </select-list>
         </template>
       </dropdown>
