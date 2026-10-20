@@ -1,7 +1,7 @@
 <template>
 	<ds-dropdown
 		:align="DROPDOWN_ALIGNS.END"
-		:radius="DROPDOWN_RADIUSES.BOTTOM"
+		:radius="DROPDOWN_RADIUSES.SINGLE"
 		@update:open="$event ? $emit('show') : $emit('hide')"
 	>
 		<template #reference>

@@ -20,9 +20,8 @@
 				<popover-content
 					class="ds-dropdown"
 					:class="{
-						'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
-						'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
-						'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
+						'-ds-radiusSingle': radius === DROPDOWN_RADIUSES.SINGLE,
+						'-ds-radiusBoth': radius === DROPDOWN_RADIUSES.BOTH,
 						'-ds-sameWidth': sameWidth,
 					}"
 					side="bottom"
@@ -53,6 +52,7 @@
 .ds-dropdown {
 	@include dropdownSurface;
 
+	border-radius: 0;
 	display: flex;
 	flex-direction: column;
 	// Shrinks to the space left on its side of the reference, so a long panel scrolls inside
@@ -62,11 +62,13 @@
 	min-width: 128px;
 	z-index: $z-index-top-layer;
 
-	&.-ds-radiusBottom {
+	&.-ds-radiusBoth,
+	&.-ds-radiusSingle[data-side='bottom'] {
 		@include dropdownSurfaceRadiusBottom;
 	}
 
-	&.-ds-radiusTop {
+	&.-ds-radiusBoth,
+	&.-ds-radiusSingle[data-side='top'] {
 		@include dropdownSurfaceRadiusTop;
 	}
 
@@ -107,6 +109,7 @@ const {
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
 	sameWidth?: boolean;
+	// Single rounds the edge away from the trigger, following the actual flipped side.
 	radius?: DropdownRadius;
 	align?: DropdownAlign;
 	maxHeight?: string | null;

@@ -75,7 +75,7 @@ describe('UserDropdown', () => {
 		const dropdown = setup().findComponent(DsDropdown);
 
 		expect(dropdown.props('align')).toBe(DROPDOWN_ALIGNS.END);
-		expect(dropdown.props('radius')).toBe(DROPDOWN_RADIUSES.BOTTOM);
+		expect(dropdown.props('radius')).toBe(DROPDOWN_RADIUSES.SINGLE);
 	});
 
 	it('should render the default slot inside the panel', async () => {
