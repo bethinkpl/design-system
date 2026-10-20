@@ -61,6 +61,19 @@
 			><p>Check wrapping and horizontal overflow at narrow viewport widths.</p>
 			<panel-pair :kind="kind" label="Long text" unbroken :count="0" />
 		</section>
+		<section v-if="kind === 'dropdown'">
+			<h2>ProductDropdown · BasicRichListItem trigger</h2>
+			<p
+				>Pattern from landing-app ProductDropdown.vue. Click the row or the chevron
+				separately, select a product, click outside, and reopen. Both triggers use
+				same-width panels. The chevron lives inside the actions slot that stops click
+				propagation.</p
+			>
+			<div class="ds-testProductGrid">
+				<rich-dropdown-case :legacy="false" />
+				<rich-dropdown-case legacy />
+			</div>
+		</section>
 		<section>
 			<h2>06 · Scrollable ancestor</h2
 			><p
@@ -139,6 +152,11 @@
 </template>
 
 <style>
+.ds-testProductGrid {
+	display: grid;
+	gap: 24px;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+}
 .ds-floatingPlayground {
 	background: #f3f6fb;
 	box-sizing: border-box;
@@ -251,6 +269,7 @@
 <script setup lang="ts">
 import { ref, useTemplateRef } from 'vue';
 import PanelPair from './PanelPair.vue';
+import RichDropdownCase from './RichDropdownCase.vue';
 import Modal from '../../components/Modals/Modal/Modal.vue';
 defineProps<{ kind: 'popover' | 'dropdown' }>();
 const modalOpen = ref(false);

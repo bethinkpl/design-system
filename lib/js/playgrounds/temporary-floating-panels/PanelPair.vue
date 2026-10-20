@@ -6,9 +6,9 @@
 			<small>{{ legacy ? 'Legacy · vue-popperjs' : 'New · Reka' }}</small>
 			<component :is="panel(legacy)" v-bind="panelProps(legacy)">
 				<template #reference>
-					<button class="ds-testTrigger" :style="{ width: wide ? '240px' : undefined }">
+					<ds-button as="button" :style="{ width: wide ? '240px' : undefined }">
 						{{ legacy ? 'Legacy' : 'Reka' }} · {{ label }}
-					</button>
+					</ds-button>
 				</template>
 				<template #default="{ close }">
 					<div
@@ -108,6 +108,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import DsButton from '../../components/Buttons/Button';
 import Dropdown from '../../components/Dropdown/Dropdown.vue';
 import DropdownLegacy from '../../components/DropdownLegacy/DropdownLegacy.vue';
 import PopOver from '../../components/PopOver/PopOver.vue';
