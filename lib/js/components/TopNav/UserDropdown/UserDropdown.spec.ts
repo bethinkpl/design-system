@@ -8,7 +8,7 @@ import DsDropdown from '../../Dropdown';
 import DsTextGroup from '../../TextGroup';
 import DsSelectListItemDivider from '../../SelectList/SelectListItemDivider/SelectListItemDivider.vue';
 import { AVATAR_SIZES } from '../../Avatar/Avatar.consts';
-import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../../Dropdown/Dropdown.consts';
+import { DROPDOWN_ALIGNS, DROPDOWN_RADIUSES } from '../../Dropdown/Dropdown.consts';
 
 const defaultProps = {
 	username: 'Roman Kowalski',
@@ -74,7 +74,7 @@ describe('UserDropdown', () => {
 	it('should configure the dropdown to match the design', () => {
 		const dropdown = setup().findComponent(DsDropdown);
 
-		expect(dropdown.props('placement')).toBe(DROPDOWN_PLACEMENTS.BOTTOM_END);
+		expect(dropdown.props('align')).toBe(DROPDOWN_ALIGNS.END);
 		expect(dropdown.props('radius')).toBe(DROPDOWN_RADIUSES.BOTTOM);
 	});
 
@@ -94,10 +94,13 @@ describe('UserDropdown', () => {
 		expect(withItems.findComponent(DsSelectListItemDivider).exists()).toBe(true);
 	});
 
-	it.each(['show', 'hide'])('should re-emit %s from the dropdown', async (event) => {
+	it.each([
+		{ open: true, event: 'show' },
+		{ open: false, event: 'hide' },
+	])('should emit $event when the dropdown open state changes', async ({ open, event }) => {
 		const wrapper = setup();
 
-		wrapper.findComponent(DsDropdown).vm.$emit(event);
+		wrapper.findComponent(DsDropdown).vm.$emit('update:open', open);
 		await wrapper.vm.$nextTick();
 
 		expect(wrapper.emitted(event)).toHaveLength(1);

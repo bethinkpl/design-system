@@ -1,0 +1,201 @@
+<template>
+	<vue-popper
+		ref="popper"
+		:key="key"
+		:boundaries-selector="boundariesSelector"
+		:force-show="forceShow"
+		:options="options"
+		:visible-arrow="false"
+		:trigger="triggerAction"
+		:delay-on-mouse-out="300"
+		@document-click="$emit('document-click')"
+		@hide="onHide"
+		@show="onShow"
+	>
+		<div
+			class="popper ds-dropdownLegacy"
+			:inert="!isOpened"
+			:class="{
+				'-ds-radiusBottom': radius === DROPDOWN_LEGACY_RADIUSES.BOTTOM,
+				'-ds-radiusTop': radius === DROPDOWN_LEGACY_RADIUSES.TOP,
+				'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_LEGACY_RADIUSES.BOTH,
+			}"
+		>
+			<div
+				class="ds-dropdownLegacy__scrollableWrapper"
+				:class="{ '-ds-heightLimited': !!maxHeight }"
+				:style="scrollableWrapperStyles"
+			>
+				<slot :close="close" />
+			</div>
+		</div>
+
+		<template #reference>
+			<slot name="reference" :is-opened="isOpened" />
+		</template>
+	</vue-popper>
+</template>
+
+<style lang="scss" scoped>
+@import '../../../../lib/styles/settings/spacings';
+@import '../../../../lib/styles/mixins/dropdown-surface';
+
+.ds-dropdownLegacy {
+	@include dropdownSurface;
+
+	// Resets for the styles vue-popperjs ships in vue-popper.css.
+	border: 0;
+	border-radius: 0;
+	max-width: 100%;
+	min-width: 128px;
+	padding: 0;
+	text-align: left;
+
+	&.-ds-radiusBottom {
+		@include dropdownSurfaceRadiusBottom;
+	}
+
+	&.-ds-radiusTop {
+		@include dropdownSurfaceRadiusTop;
+	}
+
+	&[x-placement^='bottom'] {
+		margin-top: $space-2;
+	}
+
+	&[x-placement^='top'] {
+		margin-bottom: $space-2;
+	}
+
+	&__scrollableWrapper {
+		&.-ds-heightLimited {
+			overflow-y: auto;
+		}
+	}
+}
+</style>
+
+<script lang="ts">
+import VuePopper from 'vue-popperjs';
+import 'vue-popperjs/dist/vue-popper.css';
+import {
+	DROPDOWN_LEGACY_PLACEMENTS,
+	DROPDOWN_LEGACY_RADIUSES,
+	DROPDOWN_LEGACY_TRIGGER_ACTIONS,
+	DropdownLegacyPlacement,
+	DropdownLegacyRadius,
+	DropdownLegacyTriggerAction,
+} from './DropdownLegacy.consts';
+
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+	name: 'DropdownLegacy',
+	components: {
+		VuePopper,
+	},
+	props: {
+		boundariesSelector: {
+			type: String,
+			default: null,
+		},
+		forceShow: {
+			type: Boolean,
+			default: false,
+		},
+		sameWidth: {
+			type: Boolean,
+			default: false,
+		},
+		triggerAction: {
+			type: String,
+			default: DROPDOWN_LEGACY_TRIGGER_ACTIONS.CLICK,
+			validator(triggerAction: DropdownLegacyTriggerAction) {
+				return Object.values(DROPDOWN_LEGACY_TRIGGER_ACTIONS).includes(triggerAction);
+			},
+		},
+		radius: {
+			type: String,
+			default: DROPDOWN_LEGACY_RADIUSES.BOTH,
+			validate(radius: DropdownLegacyRadius) {
+				return Object.values(DROPDOWN_LEGACY_RADIUSES).includes(radius);
+			},
+		},
+		placement: {
+			type: String,
+			default: DROPDOWN_LEGACY_PLACEMENTS.BOTTOM_START,
+			validate(placement: DropdownLegacyPlacement) {
+				return Object.values(DROPDOWN_LEGACY_PLACEMENTS).includes(placement);
+			},
+		},
+		maxHeight: {
+			type: String,
+			default: null,
+		},
+	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
+	emits: ['document-click', 'hide', 'show'],
+	data() {
+		return {
+			key: 1,
+			isOpened: false,
+			DROPDOWN_LEGACY_RADIUSES: Object.freeze(DROPDOWN_LEGACY_RADIUSES),
+		};
+	},
+	computed: {
+		scrollableWrapperStyles() {
+			return {
+				...(this.maxHeight && { maxHeight: this.maxHeight }),
+			};
+		},
+		options() {
+			return {
+				modifiers: { preventOverflow: { padding: 0 } },
+				placement: this.placement,
+				...(this.sameWidth && {
+					// See https://github.com/floating-ui/floating-ui/issues/794
+					// We can't use onCreate because vue-popper overrides it.
+					// Width is set just fine without it, though.
+					onUpdate: ({ instance: { reference, popper } }) => {
+						popper.style.width = `${reference.offsetWidth}px`;
+					},
+				}),
+			};
+		},
+	},
+	watch: {
+		triggerAction() {
+			this.updateKey();
+		},
+		sameWidth() {
+			this.updateKey();
+		},
+		boundariesSelector() {
+			this.updateKey();
+		},
+		placement() {
+			this.updateKey();
+		},
+	},
+	methods: {
+		close() {
+			this.isOpened = false;
+			this.$refs.popper.doClose();
+		},
+		updateKey() {
+			// Force component rerender to apply new vue-popperjs options.
+			// vue-popperjs doesn't support changing props in existing component
+			this.key++;
+		},
+		onHide() {
+			this.isOpened = false;
+			this.$emit('hide');
+		},
+		onShow() {
+			this.isOpened = true;
+			this.$emit('show');
+		},
+	},
+});
+</script>

@@ -1,62 +1,41 @@
-import { computed, ComputedRef, ref, Ref, watch } from 'vue';
-
-interface FloatingPanelOpenOptions {
-	// While true the panel stays open: closing it from inside (outside click, Escape, trigger
-	// toggle) is ignored and only `document-click` is reported, so the consumer decides.
-	forceShow: () => boolean;
-	// Element wrapping the panel's reference; pointer-downs inside it aren't outside clicks.
-	referenceElement: Ref<HTMLElement | null>;
-	onShow?: () => void;
-	onHide?: () => void;
-	onDocumentClick?: () => void;
-}
+import { Ref, watch } from 'vue';
 
 interface FloatingPanelOpen {
-	isOpen: ComputedRef<boolean>;
-	setOpen: (isOpen: boolean) => void;
-	onPointerDownOutside: (event: CustomEvent<{ originalEvent: PointerEvent }>) => void;
+	// Changes the open state from inside the panel: its trigger, slot functions, Escape or an
+	// outside click. Pass `takesFocus: false` for openings the user didn't ask for, e.g. on hover.
+	setOpen: (value: boolean, options?: { takesFocus?: boolean }) => void;
+	// Bind to PopoverContent's `open-auto-focus` and `close-auto-focus`.
+	onAutoFocus: (event: Event) => void;
 }
 
-// Open state shared by the floating panels built on Reka's Popover (DsDropdown, DsPopOver).
-// Keeps the event contract they had on vue-popperjs: `show` / `hide` follow the visible state, and
-// `document-click` fires for every pointer-down outside both the reference and the panel.
-export function useFloatingPanelOpen({
-	forceShow,
-	referenceElement,
-	onShow,
-	onHide,
-	onDocumentClick,
-}: FloatingPanelOpenOptions): FloatingPanelOpen {
-	const internalOpen = ref(false);
-	const isOpen = computed(() => forceShow() || internalOpen.value);
+// Focus handling shared by the floating panels built on Reka's Popover (DsDropdown, DsPopOver).
+// Reka moves focus into the panel when it opens and back to the trigger when it closes. That is
+// right when the user opened it from the trigger, but not when the consumer opened it through
+// `v-model:open` or it opened on hover: focus then stays where the user is.
+export function useFloatingPanelOpen(open: Ref<boolean>): FloatingPanelOpen {
+	let isFocusTaken = false;
+	let pendingTakesFocus = false;
 
-	watch(
-		isOpen,
-		(value, oldValue) => {
-			if (value) {
-				onShow?.();
-			} else if (oldValue) {
-				onHide?.();
-			}
-		},
-		{ immediate: true },
-	);
+	watch(open, (value) => {
+		if (value) {
+			isFocusTaken = pendingTakesFocus;
+		}
+		pendingTakesFocus = false;
+	});
 
-	function setOpen(value: boolean) {
-		internalOpen.value = value;
-	}
-
-	function onPointerDownOutside(event: CustomEvent<{ originalEvent: PointerEvent }>) {
-		const target = event.detail.originalEvent.target as Node | null;
-		if (target && referenceElement.value?.contains(target)) {
-			// The reference handles its own toggling; Reka would otherwise close the panel here
-			// when the reference is a plain anchor rather than a PopoverTrigger.
-			event.preventDefault();
+	function setOpen(value: boolean, { takesFocus = true } = {}) {
+		if (value === open.value) {
 			return;
 		}
-
-		onDocumentClick?.();
+		pendingTakesFocus = value && takesFocus;
+		open.value = value;
 	}
 
-	return { isOpen, setOpen, onPointerDownOutside };
+	function onAutoFocus(event: Event) {
+		if (!isFocusTaken) {
+			event.preventDefault();
+		}
+	}
+
+	return { setOpen, onAutoFocus };
 }

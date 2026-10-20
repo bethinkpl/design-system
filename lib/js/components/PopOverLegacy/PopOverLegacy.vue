@@ -1,0 +1,352 @@
+<template>
+	<span>
+		<slot v-if="triggerAction === POP_OVER_LEGACY_TRIGGER_ACTIONS.NONE" name="reference" />
+		<vue-popper
+			v-else
+			ref="popper"
+			:key="key"
+			:boundaries-selector="boundariesSelector"
+			:force-show="forceShow"
+			:options="{ placement, modifiers }"
+			:trigger="triggerAction"
+			:delay-on-mouse-over="300"
+			:delay-on-mouse-out="300"
+			:append-to-body="appendToBody"
+			:visible-arrow="isPointerVisible"
+			:root-class="rootClass"
+		>
+			<div
+				class="popper ds-popOverLegacy"
+				:class="{
+					'-ds-color-neutral': color === POP_OVER_LEGACY_COLORS.NEUTRAL,
+					'-ds-small': size === POP_OVER_LEGACY_SIZES.SMALL,
+					'-ds-medium': size === POP_OVER_LEGACY_SIZES.MEDIUM,
+					'-ds-visible-arrow': isPointerVisible,
+				}"
+			>
+				<img
+					v-if="headerImageUrl"
+					class="ds-popOverLegacy__image"
+					:src="headerImageUrl"
+					alt=""
+				/>
+				<div class="ds-popOverLegacy__content">
+					<div v-if="titleText" class="ds-popOverLegacy__title"> {{ titleText }}</div>
+					<div v-if="subtitleText" class="ds-popOverLegacy__subtitle">
+						{{ subtitleText }}</div
+					>
+					<div
+						class="ds-popOverLegacy__contentSlot"
+						:class="{ '-ds-maxHeight': maxHeight }"
+					>
+						<slot :close="close" />
+					</div>
+				</div>
+				<ds-button
+					v-if="buttonText"
+					class="ds-popOverLegacy__button"
+					:type="BUTTON_TYPES.TEXT"
+					:size="BUTTON_SIZES.LARGE"
+					@click="$emit('button-click')"
+				>
+					{{ buttonText }}
+				</ds-button>
+			</div>
+
+			<template #reference>
+				<slot name="reference" />
+			</template>
+		</vue-popper>
+	</span>
+</template>
+
+<style lang="scss" scoped>
+@import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/typography/tokens';
+@import '../../../styles/settings/radiuses';
+@import '../../../styles/settings/shadows';
+@import '../../../styles/settings/spacings';
+
+.ds-popOverLegacy {
+	$self: &;
+
+	background-color: $color-default-background;
+	// override popperjs styles
+	border: none;
+	border-radius: $radius-m;
+	box-shadow: $shadow-l;
+	display: flex;
+	flex-direction: column;
+	padding: 0;
+
+	/* stylelint-disable selector-class-pattern */
+	&.-ds-color-neutral :deep(.popper__arrow) {
+		border-color: $color-neutral-background transparent !important;
+	}
+	/* stylelint-enable selector-class-pattern */
+
+	&.-ds-color-neutral {
+		background-color: $color-neutral-background;
+	}
+
+	&__contentSlot {
+		word-break: break-word;
+	}
+
+	&__contentSlot.-ds-maxHeight {
+		overflow: hidden scroll;
+	}
+
+	&.-ds-small {
+		width: 320px;
+
+		#{$self}__contentSlot.-ds-maxHeight {
+			max-height: 160px;
+		}
+	}
+
+	&.-ds-medium {
+		width: min(90vw, 460px);
+
+		#{$self}__contentSlot.-ds-maxHeight {
+			max-height: 250px;
+		}
+	}
+
+	&[x-placement^='bottom'] {
+		margin-top: $space-2;
+
+		&.-ds-visible-arrow {
+			margin-top: $space-8 + $space-2;
+		}
+
+		/* stylelint-disable-next-line selector-class-pattern */
+		:deep(.popper__arrow) {
+			border-color: transparent transparent $color-inverted-border transparent;
+			border-width: 0 $space-6 $space-8 $space-6;
+			left: calc(50% - #{$space-6});
+			margin-bottom: 0;
+			margin-top: 0;
+			top: -$space-8;
+		}
+	}
+
+	&[x-placement^='top'] {
+		margin-bottom: $space-2;
+
+		&.-ds-visible-arrow {
+			margin-bottom: $space-8 + $space-2;
+		}
+
+		/* stylelint-disable-next-line selector-class-pattern */
+		:deep(.popper__arrow) {
+			border-color: $color-inverted-border transparent transparent transparent;
+			border-width: $space-8 $space-6 0 $space-6;
+			bottom: -$space-8;
+			left: calc(50% - #{$space-6});
+			margin-bottom: 0;
+			margin-top: 0;
+		}
+	}
+
+	&[x-placement^='right'] {
+		margin-left: $space-2;
+
+		&.-ds-visible-arrow {
+			margin-left: $space-8 + $space-2;
+		}
+
+		/* stylelint-disable-next-line selector-class-pattern */
+		:deep(.popper__arrow) {
+			border-color: transparent $color-inverted-border transparent transparent;
+			border-width: $space-6 $space-8 $space-6 0;
+			left: -$space-8;
+			margin-left: 0;
+			margin-right: 0;
+			top: calc(50% - #{$space-6});
+		}
+	}
+
+	&[x-placement^='left'] {
+		margin-right: $space-2;
+
+		&.-ds-visible-arrow {
+			margin-right: $space-8 + $space-2;
+		}
+
+		/* stylelint-disable-next-line selector-class-pattern */
+		:deep(.popper__arrow) {
+			border-color: transparent transparent transparent $color-inverted-border;
+			border-width: $space-6 0 $space-6 $space-8;
+			margin-left: 0;
+			margin-right: 0;
+			right: -$space-8;
+			top: calc(50% - #{$space-6});
+		}
+	}
+
+	&__image {
+		border-top-left-radius: $radius-m;
+		border-top-right-radius: $radius-m;
+		max-width: 100%;
+	}
+
+	&__content {
+		@include text-m-default-regular;
+
+		color: $color-neutral-text-heavy;
+		padding: $space-8;
+		// Override popperjs styles
+		text-align: left;
+	}
+
+	&__title {
+		@include heading-m-default-bold;
+
+		color: $color-default-text;
+		margin-bottom: $space-4;
+	}
+
+	&__subtitle {
+		@include heading-s-default-regular;
+
+		color: $color-neutral-text;
+		margin-bottom: $space-4;
+	}
+
+	&__button {
+		align-self: flex-end;
+		margin: 0 $space-8 $space-6;
+	}
+}
+</style>
+
+<script>
+import VuePopper from 'vue-popperjs';
+import 'vue-popperjs/dist/vue-popper.css';
+import {
+	POP_OVER_LEGACY_COLORS,
+	POP_OVER_LEGACY_PLACEMENTS,
+	POP_OVER_LEGACY_SIZES,
+	POP_OVER_LEGACY_TRIGGER_ACTIONS,
+} from './PopOverLegacy.consts';
+import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
+
+import { defineComponent } from 'vue';
+
+export default defineComponent({
+	name: 'PopOverLegacy',
+	components: {
+		VuePopper,
+		DsButton,
+	},
+	props: {
+		boundariesSelector: {
+			type: String,
+			default: null,
+		},
+		triggerAction: {
+			type: String,
+			default: POP_OVER_LEGACY_TRIGGER_ACTIONS.CLICK,
+			validator(triggerAction) {
+				return Object.values(POP_OVER_LEGACY_TRIGGER_ACTIONS).includes(triggerAction);
+			},
+		},
+		placement: {
+			type: String,
+			default: POP_OVER_LEGACY_PLACEMENTS.BOTTOM,
+			validator(placement) {
+				return Object.values(POP_OVER_LEGACY_PLACEMENTS).includes(placement);
+			},
+		},
+		forceShow: {
+			type: Boolean,
+			default: false,
+		},
+		color: {
+			type: String,
+			default: POP_OVER_LEGACY_COLORS.DEFAULT,
+			validator(color) {
+				return Object.values(POP_OVER_LEGACY_COLORS).includes(color);
+			},
+		},
+		titleText: {
+			type: String,
+			default: null,
+		},
+		subtitleText: {
+			type: String,
+			default: null,
+		},
+		buttonText: {
+			type: String,
+			default: null,
+		},
+		headerImageUrl: {
+			type: String,
+			default: null,
+		},
+		appendToBody: {
+			type: Boolean,
+			default: false,
+		},
+		modifiers: {
+			type: Object,
+			default: () => ({}),
+		},
+		size: {
+			type: String,
+			default: POP_OVER_LEGACY_SIZES.SMALL,
+			validator(size) {
+				return Object.values(POP_OVER_LEGACY_SIZES).includes(size);
+			},
+		},
+		maxHeight: {
+			type: Boolean,
+			default: false,
+		},
+		isPointerVisible: {
+			type: Boolean,
+			default: true,
+		},
+		rootClass: {
+			type: String,
+			default: '',
+		},
+	},
+	// TODO fix me when touching this file
+	// eslint-disable-next-line vue/require-emit-validator
+	emits: ['button-click'],
+	data() {
+		return {
+			POP_OVER_LEGACY_COLORS: Object.freeze(POP_OVER_LEGACY_COLORS),
+			POP_OVER_LEGACY_SIZES: Object.freeze(POP_OVER_LEGACY_SIZES),
+			POP_OVER_LEGACY_TRIGGER_ACTIONS: Object.freeze(POP_OVER_LEGACY_TRIGGER_ACTIONS),
+			BUTTON_TYPES: Object.freeze(BUTTON_TYPES),
+			BUTTON_SIZES: Object.freeze(BUTTON_SIZES),
+			key: 1,
+		};
+	},
+	watch: {
+		triggerAction() {
+			this.updateKey();
+		},
+		placement() {
+			this.updateKey();
+		},
+		boundariesSelector() {
+			this.updateKey();
+		},
+	},
+	methods: {
+		close() {
+			this.$refs.popper.doClose();
+		},
+		updateKey() {
+			// Force component rerender to apply new vue-popperjs options.
+			// vue-popperjs doesn't support changing props in existing component
+			this.key++;
+		},
+	},
+});
+</script>

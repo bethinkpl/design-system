@@ -2,16 +2,16 @@ import { describe, expect, it } from 'vitest';
 import { defineComponent, h } from 'vue';
 import { flushPromises, mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
-import { PopoverContent, PopoverPortal, PopoverRoot } from 'reka-ui';
+import { PopoverContent, PopoverPortal } from 'reka-ui';
 import Dropdown from './Dropdown.vue';
-import { DROPDOWN_PLACEMENTS } from './Dropdown.consts';
+import { DROPDOWN_ALIGNS } from './Dropdown.consts';
 
 const setup = (props: ComponentProps<typeof Dropdown> = {}) =>
 	mount(Dropdown, {
 		props,
 		slots: {
-			reference: ({ isOpened }: { isOpened: boolean }) =>
-				h('button', { class: 'reference' }, isOpened ? 'opened' : 'closed'),
+			reference: ({ isOpen }: { isOpen: boolean }) =>
+				h('button', { class: 'reference' }, isOpen ? 'opened' : 'closed'),
 			default: ({ close }: { close: () => void }) =>
 				h('button', { class: 'item', onClick: close }, 'Item'),
 		},
@@ -20,12 +20,6 @@ const setup = (props: ComponentProps<typeof Dropdown> = {}) =>
 const open = async (wrapper: ReturnType<typeof setup>) => {
 	await wrapper.find('.reference').trigger('click');
 };
-
-const outsidePointerDown = (target: EventTarget) =>
-	new CustomEvent('pointerDownOutside', {
-		cancelable: true,
-		detail: { originalEvent: { target } },
-	});
 
 describe('Dropdown', () => {
 	it('should not override a type prop of the reference component', () => {
@@ -46,37 +40,62 @@ describe('Dropdown', () => {
 		expect(wrapper.find('.reference').text()).toBe('closed');
 	});
 
-	it('should open on reference click and emit show', async () => {
+	it('should open on reference click and emit update:open', async () => {
 		const wrapper = setup();
 
 		await open(wrapper);
 
 		expect(wrapper.find('.ds-dropdown').exists()).toBe(true);
 		expect(wrapper.find('.reference').text()).toBe('opened');
-		expect(wrapper.emitted('show')).toHaveLength(1);
+		expect(wrapper.emitted('update:open')).toEqual([[true]]);
 	});
 
-	it('should close through the slot close function and emit hide', async () => {
+	it('should close through the slot close function and emit update:open', async () => {
 		const wrapper = setup();
 		await open(wrapper);
 
 		await wrapper.find('.item').trigger('click');
 
 		expect(wrapper.find('.ds-dropdown').exists()).toBe(false);
-		expect(wrapper.emitted('hide')).toHaveLength(1);
+		expect(wrapper.emitted('update:open')).toEqual([[true], [false]]);
 	});
 
-	it('should expose isOpened and close to the parent', async () => {
+	it('should expose close to the parent', async () => {
 		const wrapper = setup();
-		expect(wrapper.vm.isOpened).toBe(false);
-
 		await open(wrapper);
-		expect(wrapper.vm.isOpened).toBe(true);
 
 		wrapper.vm.close();
 		await flushPromises();
-		expect(wrapper.vm.isOpened).toBe(false);
+
 		expect(wrapper.find('.ds-dropdown').exists()).toBe(false);
+	});
+
+	it('should follow the open prop', async () => {
+		const wrapper = setup({ open: true });
+		await flushPromises();
+		expect(wrapper.find('.ds-dropdown').exists()).toBe(true);
+
+		await wrapper.setProps({ open: false });
+		await flushPromises();
+		expect(wrapper.find('.ds-dropdown').exists()).toBe(false);
+	});
+
+	it.each([
+		{ how: 'by the user', open, isFocusTaken: true },
+		{
+			how: 'through the open prop',
+			open: (wrapper: ReturnType<typeof setup>) => wrapper.setProps({ open: true }),
+			isFocusTaken: false,
+		},
+	])('should take focus only when opened $how', async ({ open, isFocusTaken }) => {
+		const wrapper = setup();
+		await open(wrapper);
+		await flushPromises();
+		const event = new Event('openAutoFocus', { cancelable: true });
+
+		wrapper.findComponent(PopoverContent).vm.$emit('openAutoFocus', event);
+
+		expect(event.defaultPrevented).toBe(!isFocusTaken);
 	});
 
 	it('should toggle through the reference slot toggle function', async () => {
@@ -104,44 +123,8 @@ describe('Dropdown', () => {
 		expect(wrapper.find('.ds-dropdown').exists()).toBe(false);
 	});
 
-	it('should stay open when forceShow is set and Reka asks to close', async () => {
-		const wrapper = setup({ forceShow: true });
-
-		wrapper.findComponent(PopoverRoot).vm.$emit('update:open', false);
-		await flushPromises();
-
-		expect(wrapper.find('.ds-dropdown').exists()).toBe(true);
-		expect(wrapper.emitted('show')).toHaveLength(1);
-		expect(wrapper.emitted('hide')).toBeUndefined();
-	});
-
-	it('should emit document-click on a pointer-down outside the reference', async () => {
-		const wrapper = setup();
-		await open(wrapper);
-
-		wrapper
-			.findComponent(PopoverContent)
-			.vm.$emit('pointerDownOutside', outsidePointerDown(document.body));
-
-		expect(wrapper.emitted('document-click')).toHaveLength(1);
-	});
-
-	it('should not emit document-click on a pointer-down on the reference', async () => {
-		const wrapper = setup();
-		await open(wrapper);
-		const event = outsidePointerDown(wrapper.find('.reference').element);
-
-		wrapper.findComponent(PopoverContent).vm.$emit('pointerDownOutside', event);
-
-		expect(wrapper.emitted('document-click')).toBeUndefined();
-		expect(event.defaultPrevented).toBe(true);
-	});
-
-	it.each([
-		{ placement: DROPDOWN_PLACEMENTS.BOTTOM_START, align: 'start' },
-		{ placement: DROPDOWN_PLACEMENTS.BOTTOM_END, align: 'end' },
-	])('should position the panel for $placement', async ({ placement, align }) => {
-		const wrapper = setup({ placement });
+	it.each(Object.values(DROPDOWN_ALIGNS))('should align the panel to %s', async (align) => {
+		const wrapper = setup({ align });
 		await open(wrapper);
 
 		const content = wrapper.findComponent(PopoverContent);

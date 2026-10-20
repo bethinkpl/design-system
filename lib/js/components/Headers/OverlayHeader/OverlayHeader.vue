@@ -75,12 +75,7 @@
 			/>
 		</template>
 		<template v-if="!isLoading && $slots.dropdown">
-			<ds-dropdown
-				boundaries-selector="body"
-				:placement="DROPDOWN_PLACEMENTS.BOTTOM_END"
-				@show="isDropdownOpen = true"
-				@hide="isDropdownOpen = false"
-			>
+			<ds-dropdown v-model:open="isDropdownOpen" :align="DROPDOWN_ALIGNS.END">
 				<template #reference>
 					<ds-icon-button
 						touchable-deprecated
@@ -306,7 +301,7 @@
 <script lang="ts">
 import DsIconButton from '../../Buttons/IconButton/IconButton.vue';
 import DsDivider, { DIVIDER_PROMINENCES } from '../../Divider';
-import DsDropdown, { DROPDOWN_PLACEMENTS } from '../../Dropdown';
+import DsDropdown, { DROPDOWN_ALIGNS } from '../../Dropdown';
 import DsSkeleton from '../../Skeleton';
 import DsTooltip, { TOOLTIP_PLACEMENTS } from '../../Tooltip';
 import {
@@ -390,7 +385,7 @@ export default defineComponent({
 			DIVIDER_PROMINENCES: Object.freeze(DIVIDER_PROMINENCES),
 			OVERLAY_HEADER_BORDER_COLORS: Object.freeze(OVERLAY_HEADER_BORDER_COLORS),
 			OVERLAY_HEADER_STATES: Object.freeze(OVERLAY_HEADER_STATES),
-			DROPDOWN_PLACEMENTS: Object.freeze(DROPDOWN_PLACEMENTS),
+			DROPDOWN_ALIGNS: Object.freeze(DROPDOWN_ALIGNS),
 			isDropdownOpen: false,
 			TOOLTIP_PLACEMENTS: Object.freeze(TOOLTIP_PLACEMENTS),
 		};

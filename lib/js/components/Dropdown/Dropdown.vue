@@ -1,19 +1,19 @@
 <template>
-	<span ref="referenceElement">
-		<popover-root :open="isOpen" @update:open="onOpenChange">
+	<span>
+		<popover-root :open="open" @update:open="setOpen">
 			<!--
-				The slot's own element is the anchor, as it was with vue-popperjs. Reka's Primitive treats
-				`as="template"` like `as-child`: no wrapper, the trigger's attrs and listeners go onto the
-				slot's root. It is used instead of `as-child` because PopoverTrigger adds `type="button"`
-				whenever `as` is "button" (its default, kept under `as-child`), and that attr would land
-				on a `type` prop of the reference component (e.g. DsIconButton's) and override it.
+				The slot's own element is the anchor. Reka's Primitive treats `as="template"` like
+				`as-child`: no wrapper, the trigger's attrs and listeners go onto the slot's root. It is
+				used instead of `as-child` because PopoverTrigger adds `type="button"` whenever `as` is
+				"button" (its default, kept under `as-child`), and that attr would land on a `type` prop
+				of the reference component (e.g. DsIconButton's) and override it.
 			-->
 			<popover-trigger as="template">
 				<!--
 					`toggle` is for controls inside the reference that stop their click from reaching it,
 					e.g. DsRichListItem's `actions` slot.
 				-->
-				<slot name="reference" :is-opened="isOpen" :toggle="toggle" />
+				<slot name="reference" :is-open="open" :toggle="toggle" />
 			</popover-trigger>
 
 			<popover-portal :disabled="!appendToBody">
@@ -25,15 +25,14 @@
 						'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
 						'-ds-sameWidth': sameWidth,
 					}"
-					:side="side"
+					side="bottom"
 					:align="align"
 					:side-offset="SIDE_OFFSET"
-					:collision-boundary="collisionBoundary"
+					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="fixed"
 					hide-when-detached
-					@pointer-down-outside="onPointerDownOutside"
-					@open-auto-focus="forceShow && $event.preventDefault()"
-					@close-auto-focus="forceShow && $event.preventDefault()"
+					@open-auto-focus="onAutoFocus"
+					@close-auto-focus="onAutoFocus"
 				>
 					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
 						<slot :close="close" />
@@ -85,74 +84,50 @@
 </style>
 
 <script setup lang="ts">
-import { computed, useTemplateRef } from 'vue';
+import { computed } from 'vue';
 import { PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui';
 
 import {
-	DROPDOWN_PLACEMENTS,
+	DROPDOWN_ALIGNS,
 	DROPDOWN_RADIUSES,
-	DropdownPlacement,
+	DropdownAlign,
 	DropdownRadius,
 } from './Dropdown.consts';
 import { useFloatingPanelOpen } from '../../composables/useFloatingPanelOpen';
-import { resolveCollisionBoundary, splitPlacement } from '../../utils/placement';
 
 // $space-2: the gap between the reference and the panel.
 const SIDE_OFFSET = 4;
 
 const {
 	appendToBody = false,
-	boundariesSelector = null,
-	forceShow = false,
+	collisionBoundary = null,
 	sameWidth = false,
 	radius = DROPDOWN_RADIUSES.BOTH,
-	placement = DROPDOWN_PLACEMENTS.BOTTOM_START,
+	align = DROPDOWN_ALIGNS.START,
 	maxHeight = null,
 } = defineProps<{
 	appendToBody?: boolean;
-	boundariesSelector?: string | null;
-	forceShow?: boolean;
+	// The element the panel stays within; the viewport when not set.
+	collisionBoundary?: Element | null;
 	sameWidth?: boolean;
 	radius?: DropdownRadius;
-	placement?: DropdownPlacement;
+	align?: DropdownAlign;
 	maxHeight?: string | null;
 }>();
 
-const emit = defineEmits<{
-	'document-click': [];
-	hide: [];
-	show: [];
-}>();
+const open = defineModel<boolean>('open', { default: false });
 
-const referenceElement = useTemplateRef<HTMLElement>('referenceElement');
+const { setOpen, onAutoFocus } = useFloatingPanelOpen(open);
 
-const { isOpen, setOpen, onPointerDownOutside } = useFloatingPanelOpen({
-	forceShow: () => forceShow,
-	referenceElement,
-	onShow: () => emit('show'),
-	onHide: () => emit('hide'),
-	onDocumentClick: () => emit('document-click'),
-});
-
-const side = computed(() => splitPlacement(placement).side);
-const align = computed(() => splitPlacement(placement).align);
-const collisionBoundary = computed(() =>
-	isOpen.value ? resolveCollisionBoundary(boundariesSelector) : undefined,
-);
 const scrollableWrapperStyles = computed(() => (maxHeight ? { maxHeight } : {}));
 
-function onOpenChange(value: boolean) {
-	setOpen(value);
-}
-
 function toggle() {
-	setOpen(!isOpen.value);
+	setOpen(!open.value);
 }
 
 function close() {
 	setOpen(false);
 }
 
-// `isOpened` keeps the name it had as public data in the Options API version.
-defineExpose({ close, isOpened: isOpen });
+defineExpose({ close });
 </script>

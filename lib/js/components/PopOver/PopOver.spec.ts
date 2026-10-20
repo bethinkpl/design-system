@@ -4,7 +4,7 @@ import { flushPromises, mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot } from 'reka-ui';
 import PopOver from './PopOver.vue';
-import { POP_OVER_PLACEMENTS, POP_OVER_TRIGGER_ACTIONS } from './PopOver.consts';
+import { POP_OVER_ALIGNS, POP_OVER_SIDES, POP_OVER_TRIGGER_ACTIONS } from './PopOver.consts';
 
 const setup = (props: ComponentProps<typeof PopOver> = {}) =>
 	mount(PopOver, {
@@ -15,9 +15,9 @@ const setup = (props: ComponentProps<typeof PopOver> = {}) =>
 		},
 	});
 
-// Reka mounts the forced-open panel on the next render.
+// Reka mounts the panel opened through the prop on the next render.
 const setupForced = async (props: ComponentProps<typeof PopOver> = {}) => {
-	const wrapper = setup({ ...props, forceShow: true });
+	const wrapper = setup({ ...props, open: true });
 	await flushPromises();
 
 	return wrapper;
@@ -40,7 +40,7 @@ describe('PopOver', () => {
 	});
 
 	it('should render only the reference when the trigger action is none', () => {
-		const wrapper = setup({ triggerAction: POP_OVER_TRIGGER_ACTIONS.NONE, forceShow: true });
+		const wrapper = setup({ triggerAction: POP_OVER_TRIGGER_ACTIONS.NONE, open: true });
 
 		expect(wrapper.find('.reference').exists()).toBe(true);
 		expect(wrapper.findComponent(PopoverRoot).exists()).toBe(false);
@@ -55,8 +55,17 @@ describe('PopOver', () => {
 		expect(wrapper.find('.ds-popOver .body').exists()).toBe(true);
 	});
 
-	it('should render opened when forceShow is set', async () => {
+	it('should render opened when the open prop is set', async () => {
 		expect((await setupForced()).find('.ds-popOver').exists()).toBe(true);
+	});
+
+	it('should not take focus when opened through the open prop', async () => {
+		const wrapper = await setupForced();
+		const event = new Event('openAutoFocus', { cancelable: true });
+
+		wrapper.findComponent(PopoverContent).vm.$emit('openAutoFocus', event);
+
+		expect(event.defaultPrevented).toBe(true);
 	});
 
 	it('should emit button-click', async () => {
@@ -76,11 +85,11 @@ describe('PopOver', () => {
 	});
 
 	it.each([
-		{ placement: POP_OVER_PLACEMENTS.TOP, side: 'top', align: 'center' },
-		{ placement: POP_OVER_PLACEMENTS.RIGHT, side: 'right', align: 'center' },
-		{ placement: POP_OVER_PLACEMENTS.BOTTOM_END, side: 'bottom', align: 'end' },
-	])('should position the panel for $placement', async ({ placement, side, align }) => {
-		const content = (await setupForced({ placement })).findComponent(PopoverContent);
+		{ side: POP_OVER_SIDES.TOP, align: POP_OVER_ALIGNS.CENTER },
+		{ side: POP_OVER_SIDES.RIGHT, align: POP_OVER_ALIGNS.START },
+		{ side: POP_OVER_SIDES.BOTTOM, align: POP_OVER_ALIGNS.END },
+	])('should position the panel on $side / $align', async ({ side, align }) => {
+		const content = (await setupForced({ side, align })).findComponent(PopoverContent);
 
 		expect(content.props('side')).toBe(side);
 		expect(content.props('align')).toBe(align);

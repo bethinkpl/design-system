@@ -1,7 +1,8 @@
 import PopOver from './PopOver.vue';
 import {
+	POP_OVER_ALIGNS,
 	POP_OVER_COLORS,
-	POP_OVER_PLACEMENTS,
+	POP_OVER_SIDES,
 	POP_OVER_SIZES,
 	POP_OVER_TRIGGER_ACTIONS,
 } from './PopOver.consts';
@@ -20,7 +21,7 @@ const StoryTemplate: StoryFn<typeof PopOver> = (args) => ({
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px; background: var(--raw-gray-50);">' +
-		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :force-show="forceShow" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody">' +
+		'<pop-over :side="side" :align="align" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody">' +
 		'<template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>' +
 		'<div>{{ definitionSlot }}</div>' +
 		'</pop-over>' +
@@ -32,7 +33,8 @@ export const Interactive = StoryTemplate.bind({});
 Interactive.args = {
 	size: POP_OVER_SIZES.SMALL,
 	maxHeight: false,
-	placement: POP_OVER_PLACEMENTS.BOTTOM,
+	side: POP_OVER_SIDES.BOTTOM,
+	align: POP_OVER_ALIGNS.CENTER,
 	color: POP_OVER_COLORS.DEFAULT,
 	headerImageUrl:
 		'https://wnl-platform-dev-kuba.s3.eu-central-1.amazonaws.com/public/illustation-StatusLekcji.png',
@@ -40,7 +42,7 @@ Interactive.args = {
 	subtitleText: 'Dolor sit amet',
 	buttonText: 'button text',
 	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
-	forceShow: false,
+	open: false,
 	isPointerVisible: true,
 	sideFlip: true,
 	appendToBody: false,
@@ -52,9 +54,13 @@ const argTypes = {
 		control: 'select',
 		options: Object.values(POP_OVER_SIZES),
 	},
-	placement: {
+	side: {
 		control: 'select',
-		options: Object.values(POP_OVER_PLACEMENTS),
+		options: Object.values(POP_OVER_SIDES),
+	},
+	align: {
+		control: 'select',
+		options: Object.values(POP_OVER_ALIGNS),
 	},
 	color: {
 		control: 'select',
@@ -80,7 +86,7 @@ const PopoverWithHTMLStoryTemplate: StoryFn<typeof PopOver> = (argTypes) => ({
 	props: Object.keys(argTypes),
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
-		'<pop-over :placement="placement" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :force-show="forceShow" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
+		'<pop-over :side="side" :align="align" :color="color" :trigger-action="triggerAction" :title-text="titleText" :subtitle-text="subtitleText" :open="open" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<template #default><b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork. <b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.</template>' +
 		'</pop-over>' +
@@ -92,12 +98,13 @@ export const PopOverMMaxHeightNoPointer = PopoverWithHTMLStoryTemplate.bind({});
 PopOverMMaxHeightNoPointer.args = {
 	size: POP_OVER_SIZES.MEDIUM,
 	maxHeight: true,
-	placement: POP_OVER_PLACEMENTS.BOTTOM,
+	side: POP_OVER_SIDES.BOTTOM,
+	align: POP_OVER_ALIGNS.CENTER,
 	color: POP_OVER_COLORS.DEFAULT,
 	titleText: 'Lorem ipsum',
 	subtitleText: 'Dolor sit amet',
 	triggerAction: POP_OVER_TRIGGER_ACTIONS.CLICK,
-	forceShow: false,
+	open: false,
 	isPointerVisible: false,
 } as Args;
 

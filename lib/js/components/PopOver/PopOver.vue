@@ -1,9 +1,9 @@
 <template>
 	<span ref="referenceElement">
 		<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
-		<popover-root v-else :open="isOpen" @update:open="setOpen">
+		<popover-root v-else :open="open" @update:open="setOpen">
 			<!--
-				The slot's own element is the anchor, as it was with vue-popperjs. Hover mode anchors to it
+				The slot's own element is the anchor. Hover mode anchors to it
 				instead of toggling on every click of it. Reka's Primitive treats `as="template"` like
 				`as-child`: no wrapper, the trigger's attrs and listeners go onto the slot's root. It is
 				used instead of `as-child` because PopoverTrigger adds `type="button"` whenever `as` is
@@ -33,13 +33,13 @@
 					:align="align"
 					:side-offset="SIDE_OFFSET"
 					:side-flip="sideFlip"
-					:collision-boundary="collisionBoundary"
+					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="fixed"
 					hide-when-detached
 					v-on="contentListeners"
 					@pointer-down-outside="onPointerDownOutside"
-					@open-auto-focus="isFocusKeptInPlace && $event.preventDefault()"
-					@close-auto-focus="isFocusKeptInPlace && $event.preventDefault()"
+					@open-auto-focus="onAutoFocus"
+					@close-auto-focus="onAutoFocus"
 				>
 					<img
 						v-if="headerImageUrl"
@@ -197,19 +197,20 @@ import {
 } from 'reka-ui';
 
 import {
+	POP_OVER_ALIGNS,
 	POP_OVER_COLORS,
-	POP_OVER_PLACEMENTS,
+	POP_OVER_SIDES,
 	POP_OVER_SIZES,
 	POP_OVER_TRIGGER_ACTIONS,
+	PopOverAlign,
 	PopOverColor,
-	PopOverPlacement,
+	PopOverSide,
 	PopOverSize,
 	PopOverTriggerAction,
 } from './PopOver.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 import { useFloatingPanelOpen } from '../../composables/useFloatingPanelOpen';
 import { useHoverOpen } from '../../composables/useHoverOpen';
-import { resolveCollisionBoundary, splitPlacement } from '../../utils/placement';
 
 // $space-6 * 2 by $space-8: the arrow's base and height.
 const ARROW_WIDTH = 24;
@@ -218,10 +219,10 @@ const ARROW_HEIGHT = 16;
 const SIDE_OFFSET = 4;
 
 const {
-	boundariesSelector = null,
+	collisionBoundary = null,
 	triggerAction = POP_OVER_TRIGGER_ACTIONS.CLICK,
-	placement = POP_OVER_PLACEMENTS.BOTTOM,
-	forceShow = false,
+	side = POP_OVER_SIDES.BOTTOM,
+	align = POP_OVER_ALIGNS.CENTER,
 	color = POP_OVER_COLORS.DEFAULT,
 	titleText = null,
 	subtitleText = null,
@@ -234,10 +235,11 @@ const {
 	isPointerVisible = true,
 	rootClass = '',
 } = defineProps<{
-	boundariesSelector?: string | null;
+	// The element the panel stays within; the viewport when not set.
+	collisionBoundary?: Element | null;
 	triggerAction?: PopOverTriggerAction;
-	placement?: PopOverPlacement;
-	forceShow?: boolean;
+	side?: PopOverSide;
+	align?: PopOverAlign;
 	color?: PopOverColor;
 	titleText?: string | null;
 	subtitleText?: string | null;
@@ -257,21 +259,17 @@ defineEmits<{
 	'button-click': [];
 }>();
 
+const open = defineModel<boolean>('open', { default: false });
+
 const referenceElement = useTemplateRef<HTMLElement>('referenceElement');
 
-const { isOpen, setOpen, onPointerDownOutside } = useFloatingPanelOpen({
-	forceShow: () => forceShow,
-	referenceElement,
-});
+const { setOpen, onAutoFocus } = useFloatingPanelOpen(open);
 
 const isHoverMode = computed(() => triggerAction === POP_OVER_TRIGGER_ACTIONS.HOVER);
-// Moving focus into the panel is right when the user opened it on purpose, not when it opened
-// on hover or by itself.
-const isFocusKeptInPlace = computed(() => isHoverMode.value || forceShow);
 
 const { onPointerEnter, onPointerLeave, onReferencePointerDown, onReferenceClick } = useHoverOpen({
-	isOpen: () => isOpen.value,
-	setOpen,
+	isOpen: () => open.value,
+	setOpen: (value) => setOpen(value, { takesFocus: false }),
 });
 const referenceListeners = computed(() =>
 	isHoverMode.value
@@ -287,11 +285,14 @@ const contentListeners = computed(() =>
 	isHoverMode.value ? { pointerenter: onPointerEnter, pointerleave: onPointerLeave } : {},
 );
 
-const side = computed(() => splitPlacement(placement).side);
-const align = computed(() => splitPlacement(placement).align);
-const collisionBoundary = computed(() =>
-	isOpen.value ? resolveCollisionBoundary(boundariesSelector) : undefined,
-);
+function onPointerDownOutside(event: CustomEvent<{ originalEvent: PointerEvent }>) {
+	const target = event.detail.originalEvent.target as Node | null;
+	if (target && referenceElement.value?.contains(target)) {
+		// In hover mode the reference is an anchor, not a PopoverTrigger, so Reka would close the
+		// panel on a tap of it before the tap's own toggle runs.
+		event.preventDefault();
+	}
+}
 
 function close() {
 	setOpen(false);

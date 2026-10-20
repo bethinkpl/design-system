@@ -1,5 +1,5 @@
 import Dropdown from './Dropdown.vue';
-import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from './Dropdown.consts';
+import { DROPDOWN_ALIGNS, DROPDOWN_RADIUSES } from './Dropdown.consts';
 import SelectList from '../SelectList/SelectList.vue';
 import Modal from '../Modals/Modal/Modal.vue';
 
@@ -18,13 +18,13 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 	},
 	template: `
     <div style="position: relative">
-      <dropdown :force-show="forceShow"
+      <dropdown :open="open"
                 :append-to-body="appendToBody"
                 :same-width="sameWidth"
                 :radius="radius"
-                :placement="placement"
+                :align="align"
                 :max-height="maxHeight">
-        <template #reference="{ isOpened }"><span>Dropdown entry point {{ isOpened ? 'opened' : 'closed' }}</span>
+        <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span>
         </template>
         <template #default="{ close }">
           <select-list>
@@ -40,11 +40,11 @@ export const Interactive = StoryTemplate.bind({});
 
 const args = {
 	radius: DROPDOWN_RADIUSES.BOTH,
-	forceShow: false,
+	open: false,
 	appendToBody: false,
 	sameWidth: false,
 	maxHeight: '',
-	placement: DROPDOWN_PLACEMENTS.BOTTOM_START,
+	align: DROPDOWN_ALIGNS.START,
 } as Args;
 
 const argTypes = {
@@ -52,9 +52,9 @@ const argTypes = {
 		control: 'select',
 		options: Object.values(DROPDOWN_RADIUSES),
 	},
-	placement: {
+	align: {
 		control: 'select',
-		options: Object.values(DROPDOWN_PLACEMENTS),
+		options: Object.values(DROPDOWN_ALIGNS),
 	},
 	maxHeight: {
 		control: 'text',
@@ -81,7 +81,7 @@ export const InModal: StoryFn<typeof Dropdown> = (args) => ({
 	template: `
     <modal header-title="Dropdown in a modal">
       <dropdown :append-to-body="appendToBody" same-width>
-        <template #reference="{ isOpened }"><span>Dropdown entry point {{ isOpened ? 'opened' : 'closed' }}</span></template>
+        <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span></template>
         <template #default="{ close }">
           <select-list>
             <select-list-item v-for="n in 30" :key="n" :label="'Item ' + n" @click="close" />
