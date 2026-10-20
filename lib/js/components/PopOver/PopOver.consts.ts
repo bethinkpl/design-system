@@ -7,13 +7,6 @@ export const POP_OVER_COLORS = {
 
 export type PopOverColor = Value<typeof POP_OVER_COLORS>;
 
-export const POP_OVER_TRIGGER_ACTIONS = {
-	CLICK: 'click',
-	NONE: 'none',
-} as const;
-
-export type PopOverTriggerAction = Value<typeof POP_OVER_TRIGGER_ACTIONS>;
-
 export const POP_OVER_SIDES = {
 	TOP: 'top',
 	RIGHT: 'right',

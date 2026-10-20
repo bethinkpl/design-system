@@ -4,7 +4,7 @@ import { flushPromises, mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot } from 'reka-ui';
 import PopOver from './PopOver.vue';
-import { POP_OVER_ALIGNS, POP_OVER_SIDES, POP_OVER_TRIGGER_ACTIONS } from './PopOver.consts';
+import { POP_OVER_ALIGNS, POP_OVER_SIDES } from './PopOver.consts';
 
 const setup = (props: ComponentProps<typeof PopOver> = {}) =>
 	mount(PopOver, {
@@ -40,8 +40,8 @@ describe('PopOver', () => {
 		expect(wrapper.find('.reference').text()).toBe('default');
 	});
 
-	it('should render only the reference when the trigger action is none', () => {
-		const wrapper = setup({ triggerAction: POP_OVER_TRIGGER_ACTIONS.NONE, open: true });
+	it('should render only the reference when disabled', () => {
+		const wrapper = setup({ disabled: true, open: true });
 
 		expect(wrapper.find('.reference').exists()).toBe(true);
 		expect(wrapper.findComponent(PopoverRoot).exists()).toBe(false);
@@ -104,11 +104,5 @@ describe('PopOver', () => {
 		const portal = (await setupForced({ appendToBody })).findComponent(PopoverPortal);
 
 		expect(portal.props('disabled')).toBe(!appendToBody);
-	});
-
-	it('should apply rootClass to the panel', async () => {
-		const wrapper = await setupForced({ rootClass: 'customRoot' });
-
-		expect(wrapper.find('.ds-popOver').classes()).toContain('customRoot');
 	});
 });

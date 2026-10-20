@@ -1,6 +1,6 @@
 <template>
 	<span>
-		<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
+		<slot v-if="disabled" name="reference" />
 		<popover-root v-else v-model:open="open">
 			<!-- Use the slot root without forwarding a button type to reference components. -->
 			<popover-trigger as="template">
@@ -10,14 +10,11 @@
 			<popover-portal :disabled="!appendToBody">
 				<popover-content
 					class="ds-popOver"
-					:class="[
-						rootClass,
-						{
-							'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
-							'-ds-small': size === POP_OVER_SIZES.SMALL,
-							'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
-						},
-					]"
+					:class="{
+						'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
+						'-ds-small': size === POP_OVER_SIZES.SMALL,
+						'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
+					}"
 					:side="side"
 					:align="align"
 					:side-offset="SIDE_OFFSET"
@@ -178,12 +175,10 @@ import {
 	POP_OVER_COLORS,
 	POP_OVER_SIDES,
 	POP_OVER_SIZES,
-	POP_OVER_TRIGGER_ACTIONS,
 	PopOverAlign,
 	PopOverColor,
 	PopOverSide,
 	PopOverSize,
-	PopOverTriggerAction,
 } from './PopOver.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 
@@ -195,7 +190,7 @@ const SIDE_OFFSET = 4;
 
 const {
 	collisionBoundary = null,
-	triggerAction = POP_OVER_TRIGGER_ACTIONS.CLICK,
+	disabled = false,
 	side = POP_OVER_SIDES.BOTTOM,
 	align = POP_OVER_ALIGNS.CENTER,
 	color = POP_OVER_COLORS.DEFAULT,
@@ -208,11 +203,10 @@ const {
 	size = POP_OVER_SIZES.SMALL,
 	maxHeight = false,
 	isPointerVisible = true,
-	rootClass = '',
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
-	triggerAction?: PopOverTriggerAction;
+	disabled?: boolean;
 	side?: PopOverSide;
 	align?: PopOverAlign;
 	color?: PopOverColor;
@@ -227,7 +221,6 @@ const {
 	size?: PopOverSize;
 	maxHeight?: boolean;
 	isPointerVisible?: boolean;
-	rootClass?: string;
 }>();
 
 defineEmits<{
