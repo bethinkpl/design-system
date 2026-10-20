@@ -9,6 +9,7 @@ import { POP_OVER_ALIGNS, POP_OVER_SIDES, POP_OVER_TRIGGER_ACTIONS } from './Pop
 const setup = (props: ComponentProps<typeof PopOver> = {}) =>
 	mount(PopOver, {
 		props,
+		global: { stubs: { PopoverPortal: { props: ['disabled'], template: '<slot />' } } },
 		slots: {
 			reference: () => h('button', { class: 'reference' }, 'Reference'),
 			default: () => h('p', { class: 'body' }, 'Body'),

@@ -45,7 +45,7 @@ Interactive.args = {
 	open: false,
 	isPointerVisible: true,
 	sideFlip: true,
-	appendToBody: false,
+	appendToBody: true,
 	definitionSlot: 'Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.',
 } as Args;
 

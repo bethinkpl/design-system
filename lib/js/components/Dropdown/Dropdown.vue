@@ -98,7 +98,7 @@ import {
 const SIDE_OFFSET = 4;
 
 const {
-	appendToBody = false,
+	appendToBody = true,
 	collisionBoundary = null,
 	sameWidth = false,
 	radius = DROPDOWN_RADIUSES.BOTH,

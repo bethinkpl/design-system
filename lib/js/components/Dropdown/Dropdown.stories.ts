@@ -41,7 +41,7 @@ export const Interactive = StoryTemplate.bind({});
 const args = {
 	radius: DROPDOWN_RADIUSES.BOTH,
 	open: false,
-	appendToBody: false,
+	appendToBody: true,
 	sameWidth: false,
 	maxHeight: '',
 	align: DROPDOWN_ALIGNS.START,

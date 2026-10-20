@@ -203,7 +203,7 @@ const {
 	subtitleText = null,
 	buttonText = null,
 	headerImageUrl = null,
-	appendToBody = false,
+	appendToBody = true,
 	sideFlip = true,
 	size = POP_OVER_SIZES.SMALL,
 	maxHeight = false,

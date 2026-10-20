@@ -9,6 +9,7 @@ import { DROPDOWN_ALIGNS } from './Dropdown.consts';
 const setup = (props: ComponentProps<typeof Dropdown> = {}) =>
 	mount(Dropdown, {
 		props,
+		global: { stubs: { PopoverPortal: { props: ['disabled'], template: '<slot />' } } },
 		slots: {
 			reference: ({ isOpen }: { isOpen: boolean }) =>
 				h('button', { class: 'reference' }, isOpen ? 'opened' : 'closed'),
@@ -82,6 +83,7 @@ describe('Dropdown', () => {
 
 	it('should toggle through the reference slot toggle function', async () => {
 		const wrapper = mount(Dropdown, {
+			global: { stubs: { PopoverPortal: { props: ['disabled'], template: '<slot />' } } },
 			slots: {
 				// The inner button stops its click, as DsRichListItem's actions slot does.
 				reference: ({ toggle }: { toggle: () => void }) =>

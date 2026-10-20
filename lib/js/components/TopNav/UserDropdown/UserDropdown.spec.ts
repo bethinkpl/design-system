@@ -20,6 +20,7 @@ const setup = (props: ComponentProps<typeof UserDropdown> = defaultProps, slots 
 		props,
 		slots,
 		global: {
+			stubs: { PopoverPortal: { template: '<slot />' } },
 			directives: {
 				pvTooltip: () => {},
 			},
