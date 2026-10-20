@@ -1,4 +1,4 @@
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { defineComponent, h } from 'vue';
 import { flushPromises, mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
@@ -59,15 +59,6 @@ describe('PopOver', () => {
 		expect((await setupForced()).find('.ds-popOver').exists()).toBe(true);
 	});
 
-	it('should not take focus when opened through the open prop', async () => {
-		const wrapper = await setupForced();
-		const event = new Event('openAutoFocus', { cancelable: true });
-
-		wrapper.findComponent(PopoverContent).vm.$emit('openAutoFocus', event);
-
-		expect(event.defaultPrevented).toBe(true);
-	});
-
 	it('should emit button-click', async () => {
 		const wrapper = await setupForced({ buttonText: 'OK' });
 
@@ -118,58 +109,5 @@ describe('PopOver', () => {
 		const wrapper = await setupForced({ rootClass: 'customRoot' });
 
 		expect(wrapper.find('.ds-popOver').classes()).toContain('customRoot');
-	});
-
-	describe('hover trigger', () => {
-		beforeEach(() => {
-			vi.useFakeTimers();
-		});
-
-		afterEach(() => {
-			vi.useRealTimers();
-		});
-
-		const setupHover = () => setup({ triggerAction: POP_OVER_TRIGGER_ACTIONS.HOVER });
-		const reference = (wrapper: ReturnType<typeof setup>) => wrapper.find('.reference').element;
-		const pointer = async (element: Element, type: string, pointerType = 'mouse') => {
-			element.dispatchEvent(Object.assign(new Event(type), { pointerType }));
-			await vi.runAllTimersAsync();
-		};
-
-		it('should open on hover and close after leaving', async () => {
-			const wrapper = setupHover();
-
-			await pointer(reference(wrapper), 'pointerenter');
-			expect(wrapper.find('.ds-popOver').exists()).toBe(true);
-
-			await pointer(reference(wrapper), 'pointerleave');
-			expect(wrapper.find('.ds-popOver').exists()).toBe(false);
-		});
-
-		it('should not toggle on a mouse click', async () => {
-			const wrapper = setupHover();
-			await pointer(reference(wrapper), 'pointerdown');
-
-			await wrapper.find('.reference').trigger('click');
-
-			expect(wrapper.find('.ds-popOver').exists()).toBe(false);
-		});
-
-		it('should toggle on a touch tap', async () => {
-			const wrapper = setupHover();
-			await pointer(reference(wrapper), 'pointerdown', 'touch');
-
-			await wrapper.find('.reference').trigger('click');
-
-			expect(wrapper.find('.ds-popOver').exists()).toBe(true);
-		});
-
-		it('should ignore touch pointerenter', async () => {
-			const wrapper = setupHover();
-
-			await pointer(reference(wrapper), 'pointerenter', 'touch');
-
-			expect(wrapper.find('.ds-popOver').exists()).toBe(false);
-		});
 	});
 });

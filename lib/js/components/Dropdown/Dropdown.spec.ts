@@ -80,24 +80,6 @@ describe('Dropdown', () => {
 		expect(wrapper.find('.ds-dropdown').exists()).toBe(false);
 	});
 
-	it.each([
-		{ how: 'by the user', open, isFocusTaken: true },
-		{
-			how: 'through the open prop',
-			open: (wrapper: ReturnType<typeof setup>) => wrapper.setProps({ open: true }),
-			isFocusTaken: false,
-		},
-	])('should take focus only when opened $how', async ({ open, isFocusTaken }) => {
-		const wrapper = setup();
-		await open(wrapper);
-		await flushPromises();
-		const event = new Event('openAutoFocus', { cancelable: true });
-
-		wrapper.findComponent(PopoverContent).vm.$emit('openAutoFocus', event);
-
-		expect(event.defaultPrevented).toBe(!isFocusTaken);
-	});
-
 	it('should toggle through the reference slot toggle function', async () => {
 		const wrapper = mount(Dropdown, {
 			slots: {

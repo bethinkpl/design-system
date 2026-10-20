@@ -1,22 +1,11 @@
 <template>
-	<span ref="referenceElement">
+	<span>
 		<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
-		<popover-root v-else :open="open" @update:open="setOpen">
-			<!--
-				The slot's own element is the anchor. Hover mode anchors to it
-				instead of toggling on every click of it. Reka's Primitive treats `as="template"` like
-				`as-child`: no wrapper, the trigger's attrs and listeners go onto the slot's root. It is
-				used instead of `as-child` because PopoverTrigger adds `type="button"` whenever `as` is
-				"button" (its default, kept under `as-child`), and that attr would land on a `type` prop
-				of the reference component (e.g. DsIconButton's) and override it.
-			-->
-			<component
-				:is="isHoverMode ? PopoverAnchor : PopoverTrigger"
-				as="template"
-				v-on="referenceListeners"
-			>
+		<popover-root v-else v-model:open="open">
+			<!-- Use the slot root without forwarding a button type to reference components. -->
+			<popover-trigger as="template">
 				<slot name="reference" />
-			</component>
+			</popover-trigger>
 
 			<popover-portal :disabled="!appendToBody">
 				<popover-content
@@ -36,10 +25,6 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="fixed"
 					hide-when-detached
-					v-on="contentListeners"
-					@pointer-down-outside="onPointerDownOutside"
-					@open-auto-focus="onAutoFocus"
-					@close-auto-focus="onAutoFocus"
 				>
 					<img
 						v-if="headerImageUrl"
@@ -186,15 +171,7 @@
 </style>
 
 <script setup lang="ts">
-import { computed, useTemplateRef } from 'vue';
-import {
-	PopoverAnchor,
-	PopoverArrow,
-	PopoverContent,
-	PopoverPortal,
-	PopoverRoot,
-	PopoverTrigger,
-} from 'reka-ui';
+import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui';
 
 import {
 	POP_OVER_ALIGNS,
@@ -209,8 +186,6 @@ import {
 	PopOverTriggerAction,
 } from './PopOver.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
-import { useFloatingPanelOpen } from '../../composables/useFloatingPanelOpen';
-import { useHoverOpen } from '../../composables/useHoverOpen';
 
 // $space-6 * 2 by $space-8: the arrow's base and height.
 const ARROW_WIDTH = 24;
@@ -261,41 +236,8 @@ defineEmits<{
 
 const open = defineModel<boolean>('open', { default: false });
 
-const referenceElement = useTemplateRef<HTMLElement>('referenceElement');
-
-const { setOpen, onAutoFocus } = useFloatingPanelOpen(open);
-
-const isHoverMode = computed(() => triggerAction === POP_OVER_TRIGGER_ACTIONS.HOVER);
-
-const { onPointerEnter, onPointerLeave, onReferencePointerDown, onReferenceClick } = useHoverOpen({
-	isOpen: () => open.value,
-	setOpen: (value) => setOpen(value, { takesFocus: false }),
-});
-const referenceListeners = computed(() =>
-	isHoverMode.value
-		? {
-				pointerenter: onPointerEnter,
-				pointerleave: onPointerLeave,
-				pointerdown: onReferencePointerDown,
-				click: onReferenceClick,
-			}
-		: {},
-);
-const contentListeners = computed(() =>
-	isHoverMode.value ? { pointerenter: onPointerEnter, pointerleave: onPointerLeave } : {},
-);
-
-function onPointerDownOutside(event: CustomEvent<{ originalEvent: PointerEvent }>) {
-	const target = event.detail.originalEvent.target as Node | null;
-	if (target && referenceElement.value?.contains(target)) {
-		// In hover mode the reference is an anchor, not a PopoverTrigger, so Reka would close the
-		// panel on a tap of it before the tap's own toggle runs.
-		event.preventDefault();
-	}
-}
-
 function close() {
-	setOpen(false);
+	open.value = false;
 }
 
 defineExpose({ close });

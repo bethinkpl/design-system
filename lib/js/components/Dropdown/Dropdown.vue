@@ -1,6 +1,6 @@
 <template>
 	<span>
-		<popover-root :open="open" @update:open="setOpen">
+		<popover-root v-model:open="open">
 			<!--
 				The slot's own element is the anchor. Reka's Primitive treats `as="template"` like
 				`as-child`: no wrapper, the trigger's attrs and listeners go onto the slot's root. It is
@@ -31,8 +31,6 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="fixed"
 					hide-when-detached
-					@open-auto-focus="onAutoFocus"
-					@close-auto-focus="onAutoFocus"
 				>
 					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
 						<slot :close="close" />
@@ -93,7 +91,6 @@ import {
 	DropdownAlign,
 	DropdownRadius,
 } from './Dropdown.consts';
-import { useFloatingPanelOpen } from '../../composables/useFloatingPanelOpen';
 
 // $space-2: the gap between the reference and the panel.
 const SIDE_OFFSET = 4;
@@ -117,16 +114,14 @@ const {
 
 const open = defineModel<boolean>('open', { default: false });
 
-const { setOpen, onAutoFocus } = useFloatingPanelOpen(open);
-
 const scrollableWrapperStyles = computed(() => (maxHeight ? { maxHeight } : {}));
 
 function toggle() {
-	setOpen(!open.value);
+	open.value = !open.value;
 }
 
 function close() {
-	setOpen(false);
+	open.value = false;
 }
 
 defineExpose({ close });
