@@ -23,7 +23,8 @@
 					:align="align"
 					:side-offset="SIDE_OFFSET"
 					:collision-boundary="collisionBoundary"
-					position-strategy="absolute"
+					position-strategy="fixed"
+					hide-when-detached
 					@pointer-down-outside="onPointerDownOutside"
 					@open-auto-focus="forceShow && $event.preventDefault()"
 					@close-auto-focus="forceShow && $event.preventDefault()"
@@ -90,8 +91,6 @@ import {
 import { useFloatingPanelOpen } from '../../composables/useFloatingPanelOpen';
 import { resolveCollisionBoundary, splitPlacement } from '../../utils/placement';
 
-// Panels use `position-strategy="absolute"` (Reka defaults to fixed), as vue-popperjs did. A panel
-// taller than the space left on its side shrinks and scrolls inside (see the styles).
 // $space-2: the gap between the reference and the panel.
 const SIDE_OFFSET = 4;
 

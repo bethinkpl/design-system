@@ -112,11 +112,13 @@ describe('Dropdown', () => {
 		expect(content.props('align')).toBe(align);
 	});
 
-	it('should position the panel absolutely', async () => {
+	it('should position the panel fixed and hide it when the reference scrolls out of view', async () => {
 		const wrapper = setup();
 		await open(wrapper);
+		const content = wrapper.findComponent(PopoverContent);
 
-		expect(wrapper.findComponent(PopoverContent).props('positionStrategy')).toBe('absolute');
+		expect(content.props('positionStrategy')).toBe('fixed');
+		expect(content.props('hideWhenDetached')).toBe(true);
 	});
 
 	it.each([true, false])('should portal the panel to body: %s', async (appendToBody) => {

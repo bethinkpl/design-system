@@ -32,7 +32,8 @@
 					:side-offset="SIDE_OFFSET"
 					:side-flip="sideFlip"
 					:collision-boundary="collisionBoundary"
-					position-strategy="absolute"
+					position-strategy="fixed"
+					hide-when-detached
 					v-on="contentListeners"
 					@pointer-down-outside="onPointerDownOutside"
 					@open-auto-focus="isFocusKeptInPlace && $event.preventDefault()"
@@ -98,6 +99,9 @@
 	box-shadow: $shadow-l;
 	display: flex;
 	flex-direction: column;
+	// Shrinks to the space left on its side of the reference, so a tall panel scrolls its content
+	// slot instead of running off the screen, where a locked page could never scroll to it.
+	max-height: var(--reka-popover-content-available-height);
 	z-index: $z-index-floating-panel;
 
 	&__arrow {
@@ -113,6 +117,8 @@
 	}
 
 	&__contentSlot {
+		min-height: 0;
+		overflow-y: auto;
 		word-break: break-word;
 	}
 
@@ -139,6 +145,7 @@
 	&__image {
 		border-top-left-radius: $radius-m;
 		border-top-right-radius: $radius-m;
+		flex-shrink: 0;
 		max-width: 100%;
 	}
 
@@ -146,6 +153,9 @@
 		@include text-m-default-regular;
 
 		color: $color-neutral-text-heavy;
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
 		padding: $space-8;
 	}
 
@@ -153,6 +163,7 @@
 		@include heading-m-default-bold;
 
 		color: $color-default-text;
+		flex-shrink: 0;
 		margin-bottom: $space-4;
 	}
 
@@ -160,11 +171,13 @@
 		@include heading-s-default-regular;
 
 		color: $color-neutral-text;
+		flex-shrink: 0;
 		margin-bottom: $space-4;
 	}
 
 	&__button {
 		align-self: flex-end;
+		flex-shrink: 0;
 		margin: 0 $space-8 $space-6;
 	}
 }
@@ -199,8 +212,6 @@ import { resolveCollisionBoundary, splitPlacement } from '../../utils/placement'
 // $space-6 * 2 by $space-8: the arrow's base and height.
 const ARROW_WIDTH = 24;
 const ARROW_HEIGHT = 16;
-// Panels use `position-strategy="absolute"` (Reka defaults to fixed), as vue-popperjs did: a
-// panel that runs past the bottom of the page extends it, so the page can scroll to it.
 // $space-2: the gap between the reference and the panel. Reka adds the arrow's height on top.
 const SIDE_OFFSET = 4;
 

@@ -86,10 +86,11 @@ describe('PopOver', () => {
 		expect(content.props('align')).toBe(align);
 	});
 
-	it('should position the panel absolutely so a long panel extends the page', async () => {
+	it('should position the panel fixed and hide it when the reference scrolls out of view', async () => {
 		const content = (await setupForced()).findComponent(PopoverContent);
 
-		expect(content.props('positionStrategy')).toBe('absolute');
+		expect(content.props('positionStrategy')).toBe('fixed');
+		expect(content.props('hideWhenDetached')).toBe(true);
 	});
 
 	it('should pass sideFlip through', async () => {
