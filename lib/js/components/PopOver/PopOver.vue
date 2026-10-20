@@ -3,14 +3,16 @@
 		<slot v-if="triggerAction === POP_OVER_TRIGGER_ACTIONS.NONE" name="reference" />
 		<popover-root v-else :open="isOpen" @update:open="setOpen">
 			<!--
-				The slot's own element is the anchor, as it was with vue-popperjs. Hover mode anchors to
-				it instead of toggling on every click of it. `as` must not be "button": Reka then adds
-				`type="button"`, which overrides a `type` prop the reference component leaves at its default.
+				The slot's own element is the anchor, as it was with vue-popperjs. Hover mode anchors to it
+				instead of toggling on every click of it. Reka's Primitive treats `as="template"` like
+				`as-child`: no wrapper, the trigger's attrs and listeners go onto the slot's root. It is
+				used instead of `as-child` because PopoverTrigger adds `type="button"` whenever `as` is
+				"button" (its default, kept under `as-child`), and that attr would land on a `type` prop
+				of the reference component (e.g. DsIconButton's) and override it.
 			-->
 			<component
 				:is="isHoverMode ? PopoverAnchor : PopoverTrigger"
-				as-child
-				as="span"
+				as="template"
 				v-on="referenceListeners"
 			>
 				<slot name="reference" />
