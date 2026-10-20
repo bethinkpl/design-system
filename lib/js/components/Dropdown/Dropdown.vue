@@ -63,7 +63,10 @@
 	max-height: var(--reka-popover-content-available-height);
 	max-width: 100%;
 	min-width: 128px;
-	z-index: $z-index-floating-panel;
+	// Sits on the modal layer rather than above it: a panel portalled to <body> from a modal is
+	// appended after the (also teleported) modal, so an equal z-index still paints it on top, while
+	// a modal opened over an already open panel covers it. Tooltips at 16777271 stay above both.
+	z-index: $z-index-modal;
 
 	&.-ds-radiusBottom {
 		@include dropdownSurfaceRadiusBottom;

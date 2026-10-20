@@ -104,7 +104,10 @@
 	// Shrinks to the space left on its side of the reference, so a tall panel scrolls its content
 	// slot instead of running off the screen, where a locked page could never scroll to it.
 	max-height: var(--reka-popover-content-available-height);
-	z-index: $z-index-floating-panel;
+	// Sits on the modal layer rather than above it: a panel portalled to <body> from a modal is
+	// appended after the (also teleported) modal, so an equal z-index still paints it on top, while
+	// a modal opened over an already open panel covers it. Tooltips at 16777271 stay above both.
+	z-index: $z-index-modal;
 
 	&__arrow {
 		fill: $color-inverted-border;
