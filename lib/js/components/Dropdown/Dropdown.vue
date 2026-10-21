@@ -16,12 +16,14 @@
 						'-ds-radiusSingle': radius === DROPDOWN_RADIUSES.SINGLE,
 						'-ds-radiusBoth': radius === DROPDOWN_RADIUSES.BOTH,
 						'-ds-sameWidth': sameWidth,
+						'-ds-fitToViewport': fitToViewport,
 					}"
 					side="bottom"
 					:align="align"
 					:side-offset="SIDE_OFFSET"
+					:side-flip="fitToViewport"
 					:collision-boundary="collisionBoundary ?? undefined"
-					position-strategy="fixed"
+					:position-strategy="fitToViewport ? 'fixed' : 'absolute'"
 					hide-when-detached
 				>
 					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
@@ -48,9 +50,8 @@
 	border-radius: 0;
 	display: flex;
 	flex-direction: column;
-	// Shrinks to the space left beside the reference, so a long or wide panel scrolls inside
-	// instead of running off the screen.
-	max-height: var(--reka-popover-content-available-height);
+	// Shrinks to the space left beside the reference, so a wide panel scrolls inside instead of
+	// running off the screen.
 	max-width: var(--reka-popover-content-available-width);
 	min-width: 128px;
 	z-index: $z-index-top-layer;
@@ -63,6 +64,12 @@
 	&.-ds-radiusBoth,
 	&.-ds-radiusSingle[data-side='top'] {
 		@include dropdownSurfaceRadiusTop;
+	}
+
+	// The same for height, so a long panel scrolls inside. Without it, the panel keeps its full
+	// height and the page scrolls to reveal the rest.
+	&.-ds-fitToViewport {
+		max-height: var(--reka-popover-content-available-height);
 	}
 
 	&.-ds-sameWidth {
@@ -99,6 +106,7 @@ const {
 	radius = DROPDOWN_RADIUSES.BOTH,
 	align = DROPDOWN_ALIGNS.START,
 	maxHeight = null,
+	fitToViewport = true,
 } = defineProps<{
 	appendToBody?: boolean;
 	// The element the panel stays within; the viewport when not set.
@@ -108,6 +116,10 @@ const {
 	radius?: DropdownRadius;
 	align?: DropdownAlign;
 	maxHeight?: string | null;
+	// Off: the panel keeps its full height and becomes part of the page, so scrolling reveals the
+	// rest. It also stops flipping above the reference, so it doesn't jump sides while the page
+	// scrolls. Keep it on wherever the page can't scroll, e.g. inside a modal.
+	fitToViewport?: boolean;
 }>();
 
 const open = defineModel<boolean>('open', { default: false });

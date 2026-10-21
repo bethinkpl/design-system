@@ -31,7 +31,8 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
                 :same-width="sameWidth"
                 :radius="radius"
                 :align="align"
-                :max-height="maxHeight">
+                :max-height="maxHeight"
+                :fit-to-viewport="fitToViewport">
         <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span>
         </template>
         <template #default="{ close }">
@@ -53,6 +54,7 @@ const args = {
 	sameWidth: false,
 	maxHeight: '',
 	align: DROPDOWN_ALIGNS.START,
+	fitToViewport: true,
 } as Args;
 
 const argTypes = {
@@ -202,11 +204,11 @@ export const ScrollableGroupedList: StoryFn<typeof Dropdown> = (args) => ({
 		];
 		const selected = ref('Cardiology');
 
-		return { ...args, BUTTON_TYPES, ICONS, groups, selected };
+		return { args, BUTTON_TYPES, ICONS, groups, selected };
 	},
 	template: `
     <div style="padding: 24px;">
-      <dropdown :max-height="maxHeight">
+      <dropdown :max-height="args.maxHeight" :fit-to-viewport="args.fitToViewport">
         <template #reference="{ isOpen }">
           <ds-button :type="BUTTON_TYPES.OUTLINED" :icon-right="isOpen ? ICONS.FA_ANGLE_UP : ICONS.FA_ANGLE_DOWN">
             {{ selected }}
@@ -230,8 +232,11 @@ export const ScrollableGroupedList: StoryFn<typeof Dropdown> = (args) => ({
     </div>`,
 });
 
-ScrollableGroupedList.args = { maxHeight: '240px' } as Args;
-ScrollableGroupedList.argTypes = { maxHeight: { control: 'text' } } as ArgTypes;
+ScrollableGroupedList.args = { maxHeight: '240px', fitToViewport: true } as Args;
+ScrollableGroupedList.argTypes = {
+	maxHeight: { control: 'text' },
+	fitToViewport: { control: 'boolean' },
+} as ArgTypes;
 
 // A rich trigger whose chevron sits in DsBasicRichListItem's `actions` slot. That slot stops its
 // clicks from reaching the reference, so the chevron calls the slot's `toggle()` itself. The

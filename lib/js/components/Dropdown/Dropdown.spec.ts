@@ -124,6 +124,18 @@ describe('Dropdown', () => {
 
 		expect(content.props('positionStrategy')).toBe('fixed');
 		expect(content.props('hideWhenDetached')).toBe(true);
+		expect(wrapper.find('.ds-dropdown').classes()).toContain('-ds-fitToViewport');
+	});
+
+	it('should let the panel extend the page when fitToViewport is off', async () => {
+		const wrapper = setup({ fitToViewport: false });
+		await open(wrapper);
+
+		const content = wrapper.findComponent(PopoverContent);
+
+		expect(content.props('positionStrategy')).toBe('absolute');
+		expect(content.props('sideFlip')).toBe(false);
+		expect(wrapper.find('.ds-dropdown').classes()).not.toContain('-ds-fitToViewport');
 	});
 
 	it.each([true, false])('should portal the panel to body: %s', async (appendToBody) => {

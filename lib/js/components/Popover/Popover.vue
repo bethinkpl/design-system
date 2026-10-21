@@ -13,13 +13,14 @@
 						'-ds-color-neutral': color === POPOVER_COLORS.NEUTRAL,
 						'-ds-small': size === POPOVER_SIZES.SMALL,
 						'-ds-medium': size === POPOVER_SIZES.MEDIUM,
+						'-ds-fitToViewport': fitToViewport,
 					}"
 					:side="side"
 					:align="align"
 					:side-offset="SIDE_OFFSET"
-					:side-flip="sideFlip"
+					:side-flip="sideFlip && fitToViewport"
 					:collision-boundary="collisionBoundary ?? undefined"
-					position-strategy="fixed"
+					:position-strategy="fitToViewport ? 'fixed' : 'absolute'"
 					hide-when-detached
 					@open-auto-focus="preventInManualMode"
 					@close-auto-focus="preventInManualMode"
@@ -86,10 +87,14 @@
 	box-shadow: $shadow-l;
 	display: flex;
 	flex-direction: column;
+	z-index: $z-index-top-layer;
+
 	// Shrinks to the space left on its side of the reference, so a tall panel scrolls its content
 	// slot instead of running off the screen, where a locked page could never scroll to it.
-	max-height: var(--reka-popover-content-available-height);
-	z-index: $z-index-top-layer;
+	// Without it, the panel keeps its full height and the page scrolls to reveal the rest.
+	&.-ds-fitToViewport {
+		max-height: var(--reka-popover-content-available-height);
+	}
 
 	&__arrow {
 		fill: $color-inverted-border;
@@ -210,6 +215,7 @@ const {
 	size = POPOVER_SIZES.SMALL,
 	maxHeight = false,
 	isPointerVisible = true,
+	fitToViewport = true,
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
@@ -230,6 +236,11 @@ const {
 	size?: PopoverSize;
 	maxHeight?: boolean;
 	isPointerVisible?: boolean;
+	// Off: the panel keeps its full height and becomes part of the page, so scrolling reveals the
+	// rest. It also stops flipping, so it doesn't jump sides while the page scrolls; prefer the
+	// bottom side then, as a panel above the reference can't grow the page upwards. Keep it on
+	// wherever the page can't scroll, e.g. inside a modal.
+	fitToViewport?: boolean;
 }>();
 
 defineEmits<{
