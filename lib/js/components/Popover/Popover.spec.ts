@@ -67,13 +67,23 @@ describe('Popover', () => {
 		expect(wrapper.find('.ds-popover .body').exists()).toBe(true);
 	});
 
-	it.each(['openAutoFocus', 'closeAutoFocus'])('should not move focus on %s', async (event) => {
-		const focusEvent = new Event('focus', { cancelable: true });
+	it.each([
+		{ event: 'openAutoFocus', manual: false },
+		{ event: 'openAutoFocus', manual: true },
+		{ event: 'closeAutoFocus', manual: false },
+		{ event: 'closeAutoFocus', manual: true },
+	])(
+		'should move focus on $event only outside manual mode: manual=$manual',
+		async ({ event, manual }) => {
+			const focusEvent = new Event('focus', { cancelable: true });
 
-		(await setupForced()).findComponent(PopoverContent).vm.$emit(event, focusEvent);
+			(await setupForced({ manual }))
+				.findComponent(PopoverContent)
+				.vm.$emit(event, focusEvent);
 
-		expect(focusEvent.defaultPrevented).toBe(true);
-	});
+			expect(focusEvent.defaultPrevented).toBe(manual);
+		},
+	);
 
 	it('should render opened when the open prop is set', async () => {
 		expect((await setupForced()).find('.ds-popover').exists()).toBe(true);

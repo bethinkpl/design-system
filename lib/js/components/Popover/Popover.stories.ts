@@ -1,5 +1,7 @@
 import Popover from './Popover.vue';
 import DsButton from '../Buttons/Button';
+import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
+import { ICONS } from '../Icons/Icon';
 import { POPOVER_ALIGNS, POPOVER_COLORS, POPOVER_SIDES, POPOVER_SIZES } from './Popover.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
@@ -65,7 +67,8 @@ const argTypes = {
 	},
 	manual: {
 		control: 'boolean',
-		description: 'Only model updates and explicit close() calls change the open state.',
+		description:
+			'Only model updates and explicit close() calls change the open state, and focus stays put.',
 	},
 	disabled: {
 		control: 'boolean',
@@ -129,6 +132,111 @@ export const Manual: StoryFn<typeof Popover> = () => ({
 				The checkbox controls this popover through v-model:open="isOpen".
 				<ds-button @click="isOpen = false">Close popover</ds-button>
 			</popover>
+		</div>
+	`,
+});
+
+// Contextual help: an info icon opens a short explanation next to the label it describes.
+export const InfoHint: StoryFn<typeof Popover> = () => ({
+	components: { Popover, DsIconButton },
+	setup() {
+		return {
+			ICONS,
+			ICON_BUTTON_COLORS,
+			ICON_BUTTON_SIZES,
+			POPOVER_ALIGNS,
+			POPOVER_COLORS,
+			POPOVER_SIDES,
+		};
+	},
+	template: `
+		<div style="display: flex; align-items: center; gap: 4px; padding: 24px 16px;">
+			<span>Average score</span>
+			<popover
+				:side="POPOVER_SIDES.BOTTOM"
+				:align="POPOVER_ALIGNS.START"
+				:color="POPOVER_COLORS.NEUTRAL"
+				title-text="How is it calculated?"
+				subtitle-text="Updated daily"
+			>
+				<template #reference>
+					<ds-icon-button
+						:icon="ICONS.FA_CIRCLE_INFO"
+						:size="ICON_BUTTON_SIZES.XX_SMALL"
+						:color="ICON_BUTTON_COLORS.NEUTRAL"
+						aria-label="About average score"
+					/>
+				</template>
+				The mean of your last 20 quiz attempts. Unfinished attempts are not counted.
+			</popover>
+		</div>
+	`,
+});
+
+// A feature announcement shown on page load. The parent opens it through `v-model:open`, and
+// `manual` keeps it from moving focus or closing on outside clicks, so the user can keep typing
+// in the field. "Got it" closes it.
+export const FeatureAnnouncement: StoryFn<typeof Popover> = () => ({
+	components: { Popover, DsButton },
+	setup() {
+		const isOpen = ref(true);
+
+		return { isOpen, POPOVER_SIDES, POPOVER_SIZES };
+	},
+	template: `
+		<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 24px; padding: 24px 16px; min-height: 600px;">
+			<input placeholder="Focus stays here while the popover is open" style="box-sizing: border-box; width: 100%; max-width: 320px;" autofocus />
+			<popover
+				v-model:open="isOpen"
+				manual
+				:side="POPOVER_SIDES.BOTTOM"
+				:size="POPOVER_SIZES.MEDIUM"
+				header-image-url="https://wnl-platform-dev-kuba.s3.eu-central-1.amazonaws.com/public/illustation-StatusLekcji.png"
+				title-text="New: lesson status"
+				subtitle-text="See where you left off"
+				button-text="Got it"
+				@button-click="isOpen = false"
+			>
+				<template #reference><ds-button>Lessons</ds-button></template>
+				Every lesson now shows whether you have finished, started or not opened it yet.
+			</popover>
+		</div>
+	`,
+});
+
+// Every color and size, open at once for a visual check. The open prop has no listener, so
+// clicking around does not close them. The reference sits in the middle of a cell tall enough
+// for a panel on either side, so a panel that flips near a screen edge stays within its own cell.
+// On narrow screens the cells stack.
+export const Variants: StoryFn<typeof Popover> = () => ({
+	components: { Popover },
+	setup() {
+		const variants = Object.values(POPOVER_COLORS).flatMap((color) =>
+			Object.values(POPOVER_SIZES).map((size) => ({ color, size })),
+		);
+
+		return { variants, POPOVER_SIDES };
+	},
+	template: `
+		<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 500px), 1fr)); padding: 16px;">
+			<div
+				v-for="variant in variants"
+				:key="variant.color + variant.size"
+				style="display: flex; align-items: center; justify-content: center; height: 480px;"
+			>
+				<popover
+					:open="true"
+					:side="POPOVER_SIDES.BOTTOM"
+					:color="variant.color"
+					:size="variant.size"
+					:title-text="variant.color + ' · ' + variant.size"
+					subtitle-text="Subtitle"
+					button-text="Button"
+				>
+					<template #reference><span>{{ variant.color }} / {{ variant.size }}</span></template>
+					Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.
+				</popover>
+			</div>
 		</div>
 	`,
 });

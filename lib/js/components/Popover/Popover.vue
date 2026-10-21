@@ -21,10 +21,10 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="fixed"
 					hide-when-detached
-					@open-auto-focus.prevent
-					@close-auto-focus.prevent
-					@escape-key-down="onDismiss"
-					@interact-outside="onDismiss"
+					@open-auto-focus="preventInManualMode"
+					@close-auto-focus="preventInManualMode"
+					@escape-key-down="preventInManualMode"
+					@interact-outside="preventInManualMode"
 				>
 					<img
 						v-if="headerImageUrl"
@@ -114,7 +114,7 @@
 	}
 
 	&.-ds-small {
-		width: 320px;
+		width: min(90vw, 320px);
 
 		#{$self}__contentSlot.-ds-maxHeight {
 			max-height: 160px;
@@ -214,7 +214,7 @@ const {
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
 	disabled?: boolean;
-	// Only model updates and explicit close() calls change the open state.
+	// Only model updates and explicit close() calls change the open state, and focus stays put.
 	manual?: boolean;
 	side?: PopoverSide;
 	align?: PopoverAlign;
@@ -242,7 +242,8 @@ function onOpenChange(value: boolean) {
 	if (!manual) open.value = value;
 }
 
-function onDismiss(event: Event) {
+// Manual mode keeps both the open state and the focus where the parent left them.
+function preventInManualMode(event: Event) {
 	if (manual) event.preventDefault();
 }
 
