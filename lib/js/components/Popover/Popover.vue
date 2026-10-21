@@ -8,11 +8,11 @@
 
 			<popover-portal :disabled="!appendToBody">
 				<popover-content
-					class="ds-popOver"
+					class="ds-popover"
 					:class="{
-						'-ds-color-neutral': color === POP_OVER_COLORS.NEUTRAL,
-						'-ds-small': size === POP_OVER_SIZES.SMALL,
-						'-ds-medium': size === POP_OVER_SIZES.MEDIUM,
+						'-ds-color-neutral': color === POPOVER_COLORS.NEUTRAL,
+						'-ds-small': size === POPOVER_SIZES.SMALL,
+						'-ds-medium': size === POPOVER_SIZES.MEDIUM,
 					}"
 					:side="side"
 					:align="align"
@@ -21,22 +21,24 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="fixed"
 					hide-when-detached
+					@open-auto-focus.prevent
+					@close-auto-focus.prevent
 					@escape-key-down="onDismiss"
 					@interact-outside="onDismiss"
 				>
 					<img
 						v-if="headerImageUrl"
-						class="ds-popOver__image"
+						class="ds-popover__image"
 						:src="headerImageUrl"
 						alt=""
 					/>
-					<div class="ds-popOver__content">
-						<div v-if="titleText" class="ds-popOver__title"> {{ titleText }}</div>
-						<div v-if="subtitleText" class="ds-popOver__subtitle">
+					<div class="ds-popover__content">
+						<div v-if="titleText" class="ds-popover__title"> {{ titleText }}</div>
+						<div v-if="subtitleText" class="ds-popover__subtitle">
 							{{ subtitleText }}</div
 						>
 						<div
-							class="ds-popOver__contentSlot"
+							class="ds-popover__contentSlot"
 							:class="{ '-ds-maxHeight': maxHeight }"
 						>
 							<slot :close="close" />
@@ -44,7 +46,7 @@
 					</div>
 					<ds-button
 						v-if="buttonText"
-						class="ds-popOver__button"
+						class="ds-popover__button"
 						:type="BUTTON_TYPES.TEXT"
 						:size="BUTTON_SIZES.LARGE"
 						@click="$emit('button-click')"
@@ -53,7 +55,7 @@
 					</ds-button>
 					<popover-arrow
 						v-if="isPointerVisible"
-						class="ds-popOver__arrow"
+						class="ds-popover__arrow"
 						:width="ARROW_WIDTH"
 						:height="ARROW_HEIGHT"
 					/>
@@ -76,7 +78,7 @@
 @import '../../../styles/settings/spacings';
 @import '../../../styles/settings/z-indexes';
 
-.ds-popOver {
+.ds-popover {
 	$self: &;
 
 	background-color: $color-default-background;
@@ -169,20 +171,21 @@
 </style>
 
 <script setup lang="ts">
+import { watch } from 'vue';
 import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui';
 
 import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
 
 import {
-	POP_OVER_ALIGNS,
-	POP_OVER_COLORS,
-	POP_OVER_SIDES,
-	POP_OVER_SIZES,
-	PopOverAlign,
-	PopOverColor,
-	PopOverSide,
-	PopOverSize,
-} from './PopOver.consts';
+	POPOVER_ALIGNS,
+	POPOVER_COLORS,
+	POPOVER_SIDES,
+	POPOVER_SIZES,
+	PopoverAlign,
+	PopoverColor,
+	PopoverSide,
+	PopoverSize,
+} from './Popover.consts';
 import DsButton, { BUTTON_SIZES, BUTTON_TYPES } from '../Buttons/Button';
 
 // $space-6 * 2 by $space-8: the arrow's base and height.
@@ -195,16 +198,16 @@ const {
 	collisionBoundary = null,
 	disabled = false,
 	manual = false,
-	side = POP_OVER_SIDES.BOTTOM,
-	align = POP_OVER_ALIGNS.CENTER,
-	color = POP_OVER_COLORS.DEFAULT,
+	side = POPOVER_SIDES.BOTTOM,
+	align = POPOVER_ALIGNS.CENTER,
+	color = POPOVER_COLORS.DEFAULT,
 	titleText = null,
 	subtitleText = null,
 	buttonText = null,
 	headerImageUrl = null,
 	appendToBody = true,
 	sideFlip = true,
-	size = POP_OVER_SIZES.SMALL,
+	size = POPOVER_SIZES.SMALL,
 	maxHeight = false,
 	isPointerVisible = true,
 } = defineProps<{
@@ -213,9 +216,9 @@ const {
 	disabled?: boolean;
 	// Only model updates and explicit close() calls change the open state.
 	manual?: boolean;
-	side?: PopOverSide;
-	align?: PopOverAlign;
-	color?: PopOverColor;
+	side?: PopoverSide;
+	align?: PopoverAlign;
+	color?: PopoverColor;
 	titleText?: string | null;
 	subtitleText?: string | null;
 	buttonText?: string | null;
@@ -224,7 +227,7 @@ const {
 	// Whether the panel may move to the opposite side when it doesn't fit. It still shifts along
 	// its side to stay within the boundary either way.
 	sideFlip?: boolean;
-	size?: PopOverSize;
+	size?: PopoverSize;
 	maxHeight?: boolean;
 	isPointerVisible?: boolean;
 }>();
@@ -246,6 +249,15 @@ function onDismiss(event: Event) {
 function close() {
 	open.value = false;
 }
+
+// Disabling removes PopoverRoot, so close first or the panel would come back with the next enable.
+watch(
+	() => disabled,
+	(isDisabled) => {
+		if (isDisabled) close();
+	},
+	{ immediate: true },
+);
 
 defineExpose({ close });
 </script>

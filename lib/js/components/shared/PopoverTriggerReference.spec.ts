@@ -2,7 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest';
 import { defineComponent, h, ref } from 'vue';
 import { flushPromises, mount } from '@vue/test-utils';
 import Dropdown from '../Dropdown/Dropdown.vue';
-import PopOver from '../PopOver/PopOver.vue';
+import Popover from '../Popover/Popover.vue';
 import DsButton, { BUTTON_TYPES } from '../Buttons/Button';
 import DsIconButton, { ICON_BUTTON_TYPES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
@@ -13,7 +13,7 @@ afterEach(() => {
 
 describe.each([
 	{ name: 'Dropdown', component: Dropdown, panel: '.ds-dropdown' },
-	{ name: 'PopOver', component: PopOver, panel: '.ds-popOver' },
+	{ name: 'Popover', component: Popover, panel: '.ds-popover' },
 ])('$name reference forwarding', ({ component, panel }) => {
 	it.each([
 		{

@@ -10,7 +10,7 @@ const meta: Meta<typeof FloatingPlayground> = {
 export default meta;
 type Story = StoryObj<typeof FloatingPlayground>;
 export const PopoverComparison: Story = {
-	name: 'PopOver + Legacy PopOver',
+	name: 'Popover + Legacy Popover',
 	args: { kind: 'popover' },
 };
 export const DropdownComparison: Story = {

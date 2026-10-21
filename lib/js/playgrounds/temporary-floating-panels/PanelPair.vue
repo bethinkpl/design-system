@@ -111,7 +111,7 @@ import { ref } from 'vue';
 import DsButton from '../../components/Buttons/Button';
 import Dropdown from '../../components/Dropdown/Dropdown.vue';
 import DropdownLegacy from '../../components/DropdownLegacy/DropdownLegacy.vue';
-import PopOver from '../../components/PopOver/PopOver.vue';
+import Popover from '../../components/Popover/Popover.vue';
 import PopOverLegacy from '../../components/PopOverLegacy/PopOverLegacy.vue';
 
 const {
@@ -146,7 +146,7 @@ function panel(legacy: boolean) {
 			: Dropdown
 		: legacy
 			? PopOverLegacy
-			: PopOver;
+			: Popover;
 }
 function panelProps(legacy: boolean) {
 	const props: Record<string, unknown> = {};

@@ -48,10 +48,10 @@
 	border-radius: 0;
 	display: flex;
 	flex-direction: column;
-	// Shrinks to the space left on its side of the reference, so a long panel scrolls inside
+	// Shrinks to the space left beside the reference, so a long or wide panel scrolls inside
 	// instead of running off the screen.
 	max-height: var(--reka-popover-content-available-height);
-	max-width: 100%;
+	max-width: var(--reka-popover-content-available-width);
 	min-width: 128px;
 	z-index: $z-index-top-layer;
 

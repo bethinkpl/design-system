@@ -4,7 +4,7 @@
 	<main class="ds-floatingPlayground">
 		<header>
 			<p class="ds-testEyebrow">Temporary testing playground</p>
-			<h1>{{ kind === 'popover' ? 'PopOver' : 'Dropdown' }} · Reka vs Legacy</h1>
+			<h1>{{ kind === 'popover' ? 'Popover' : 'Dropdown' }} · Reka vs Legacy</h1>
 			<p
 				>Open one panel at a time. Compare positioning, clipping, scrolling, focus, Escape,
 				outside click, and slot close.</p

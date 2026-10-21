@@ -3,11 +3,11 @@ import { defineComponent, h } from 'vue';
 import { flushPromises, mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot } from 'reka-ui';
-import PopOver from './PopOver.vue';
-import { POP_OVER_ALIGNS, POP_OVER_SIDES } from './PopOver.consts';
+import Popover from './Popover.vue';
+import { POPOVER_ALIGNS, POPOVER_SIDES } from './Popover.consts';
 
-const setup = (props: ComponentProps<typeof PopOver> = {}) =>
-	mount(PopOver, {
+const setup = (props: ComponentProps<typeof Popover> = {}) =>
+	mount(Popover, {
 		props,
 		global: { stubs: { PopoverPortal: { props: ['disabled'], template: '<slot />' } } },
 		slots: {
@@ -17,7 +17,7 @@ const setup = (props: ComponentProps<typeof PopOver> = {}) =>
 	});
 
 // Reka mounts the panel opened through the prop on the next render.
-const setupForced = async (props: ComponentProps<typeof PopOver> = {}) => {
+const setupForced = async (props: ComponentProps<typeof Popover> = {}) => {
 	const wrapper = setup({ ...props, open: true });
 	await flushPromises();
 
@@ -28,14 +28,14 @@ const open = async (wrapper: ReturnType<typeof setup>) => {
 	await wrapper.find('.reference').trigger('click');
 };
 
-describe('PopOver', () => {
+describe('Popover', () => {
 	it('should not override a type prop of the reference component', () => {
 		const ReferenceWithType = defineComponent({
 			name: 'ReferenceWithType',
 			props: { type: { type: String, default: 'default' } },
 			setup: (props) => () => h('div', { class: 'reference' }, props.type),
 		});
-		const wrapper = mount(PopOver, { slots: { reference: () => h(ReferenceWithType) } });
+		const wrapper = mount(Popover, { slots: { reference: () => h(ReferenceWithType) } });
 
 		expect(wrapper.find('.reference').text()).toBe('default');
 	});
@@ -47,38 +47,57 @@ describe('PopOver', () => {
 		expect(wrapper.findComponent(PopoverRoot).exists()).toBe(false);
 	});
 
+	it('should close when disabled while open', async () => {
+		const wrapper = setup();
+		await open(wrapper);
+
+		await wrapper.setProps({ disabled: true });
+		await wrapper.setProps({ disabled: false });
+
+		expect(wrapper.find('.ds-popover').exists()).toBe(false);
+		expect(wrapper.emitted('update:open')).toEqual([[true], [false]]);
+	});
+
 	it('should open on reference click', async () => {
 		const wrapper = setup();
-		expect(wrapper.find('.ds-popOver').exists()).toBe(false);
+		expect(wrapper.find('.ds-popover').exists()).toBe(false);
 
 		await open(wrapper);
 
-		expect(wrapper.find('.ds-popOver .body').exists()).toBe(true);
+		expect(wrapper.find('.ds-popover .body').exists()).toBe(true);
+	});
+
+	it.each(['openAutoFocus', 'closeAutoFocus'])('should not move focus on %s', async (event) => {
+		const focusEvent = new Event('focus', { cancelable: true });
+
+		(await setupForced()).findComponent(PopoverContent).vm.$emit(event, focusEvent);
+
+		expect(focusEvent.defaultPrevented).toBe(true);
 	});
 
 	it('should render opened when the open prop is set', async () => {
-		expect((await setupForced()).find('.ds-popOver').exists()).toBe(true);
+		expect((await setupForced()).find('.ds-popover').exists()).toBe(true);
 	});
 
 	it('should ignore reference clicks in manual mode', async () => {
 		const wrapper = setup({ manual: true });
 		await open(wrapper);
 		expect(wrapper.emitted('update:open')).toBeUndefined();
-		expect(wrapper.find('.ds-popOver').exists()).toBe(false);
+		expect(wrapper.find('.ds-popover').exists()).toBe(false);
 	});
 
 	it('should follow model updates and allow explicit close in manual mode', async () => {
 		const wrapper = setup({ manual: true });
 		await wrapper.setProps({ open: true });
 		await flushPromises();
-		expect(wrapper.find('.ds-popOver').exists()).toBe(true);
+		expect(wrapper.find('.ds-popover').exists()).toBe(true);
 		await open(wrapper);
 		expect(wrapper.emitted('update:open')).toBeUndefined();
 		wrapper.vm.close();
 		expect(wrapper.emitted('update:open')).toEqual([[false]]);
 		await wrapper.setProps({ open: false });
 		await flushPromises();
-		expect(wrapper.find('.ds-popOver').exists()).toBe(false);
+		expect(wrapper.find('.ds-popover').exists()).toBe(false);
 	});
 
 	it.each(['escapeKeyDown', 'interactOutside'])(
@@ -97,7 +116,7 @@ describe('PopOver', () => {
 	it('should emit button-click', async () => {
 		const wrapper = await setupForced({ buttonText: 'OK' });
 
-		await wrapper.find('.ds-popOver__button').trigger('click');
+		await wrapper.find('.ds-popover__button').trigger('click');
 
 		expect(wrapper.emitted('button-click')).toHaveLength(1);
 	});
@@ -111,9 +130,9 @@ describe('PopOver', () => {
 	});
 
 	it.each([
-		{ side: POP_OVER_SIDES.TOP, align: POP_OVER_ALIGNS.CENTER },
-		{ side: POP_OVER_SIDES.RIGHT, align: POP_OVER_ALIGNS.START },
-		{ side: POP_OVER_SIDES.BOTTOM, align: POP_OVER_ALIGNS.END },
+		{ side: POPOVER_SIDES.TOP, align: POPOVER_ALIGNS.CENTER },
+		{ side: POPOVER_SIDES.RIGHT, align: POPOVER_ALIGNS.START },
+		{ side: POPOVER_SIDES.BOTTOM, align: POPOVER_ALIGNS.END },
 	])('should position the panel on $side / $align', async ({ side, align }) => {
 		const content = (await setupForced({ side, align })).findComponent(PopoverContent);
 
