@@ -1,14 +1,7 @@
 <template>
 	<span>
 		<popover-root v-model:open="open">
-			<!--
-				The slot's own element is the anchor. Reka's Primitive treats `as="template"` like
-				`as-child`: no wrapper, the trigger's attrs and listeners go onto the slot's root. It is
-				used instead of `as-child` because PopoverTrigger adds `type="button"` whenever `as` is
-				"button" (its default, kept under `as-child`), and that attr would land on a `type` prop
-				of the reference component (e.g. DsIconButton's) and override it.
-			-->
-			<popover-trigger as="template">
+			<popover-trigger :as="PopoverTriggerReference">
 				<!--
 					`toggle` is for controls inside the reference that stop their click from reaching it,
 					e.g. DsRichListItem's `actions` slot.
@@ -86,6 +79,8 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui';
+
+import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
 
 import {
 	DROPDOWN_ALIGNS,

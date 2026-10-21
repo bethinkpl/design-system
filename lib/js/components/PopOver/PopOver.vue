@@ -2,8 +2,7 @@
 	<span>
 		<slot v-if="disabled" name="reference" />
 		<popover-root v-else :open="open" @update:open="onOpenChange">
-			<!-- Use the slot root without forwarding a button type to reference components. -->
-			<popover-trigger as="template">
+			<popover-trigger :as="PopoverTriggerReference">
 				<slot name="reference" />
 			</popover-trigger>
 
@@ -171,6 +170,8 @@
 
 <script setup lang="ts">
 import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui';
+
+import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
 
 import {
 	POP_OVER_ALIGNS,
