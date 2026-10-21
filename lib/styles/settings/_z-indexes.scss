@@ -1,5 +1,11 @@
 // z-index positioning
 // hardcoded
+// The layer for everything that has to paint over the whole page: modals and the panels
+// (dropdowns, popovers, select listboxes) that may be opened from them. All of them share one
+// value, so DOM order decides: a panel portalled to <body> from a modal is appended after it and
+// paints on top, while a modal opened over an already open panel covers it.
 // Keep in sync with zIndex.tooltip in primevue.ts
-$z-index-modal: 16777270; // 16777271 is the highest possible value in Safari, we need to make space for elements that above modal, so -1
+$z-index-top-layer: 16777270; // 16777271 is the highest possible value in Safari, we need to make space for elements that above it (tooltips), so -1
+// Deprecated: use $z-index-top-layer.
+$z-index-modal: $z-index-top-layer;
 $z-index-overlay: 51;

@@ -1,9 +1,9 @@
 <template>
-	<ds-dropdown :placement="DROPDOWN_PLACEMENTS.BOTTOM_END">
-		<template #reference="{ isOpened }">
+	<ds-dropdown :align="DROPDOWN_ALIGNS.END">
+		<template #reference="{ isOpen }">
 			<ds-button
 				:icon-left="ICONS.FA_CHART_COLUMN"
-				:icon-right="isOpened ? ICONS.FA_ANGLE_UP : ICONS.FA_ANGLE_DOWN"
+				:icon-right="isOpen ? ICONS.FA_ANGLE_UP : ICONS.FA_ANGLE_DOWN"
 				:type="BUTTON_TYPES.TEXT"
 				>{{ t('ds.statsLayout.filtersDropdown.title') }}</ds-button
 			>
@@ -25,11 +25,11 @@
 <script setup lang="ts">
 import DsButton from '../../Buttons/Button';
 import { ICONS } from '../../Icons/Icon/Icon.consts';
-import DsDropdown from '../../DropdownLegacy/DropdownLegacy.vue';
+import DsDropdown from '../../Dropdown/Dropdown.vue';
 import DsSelectList from '../../SelectList/SelectList.vue';
 import DsSelectListItem from '../../SelectList/SelectListItem/SelectListItem.vue';
 import { BUTTON_TYPES } from '../../Buttons/Button/Button.consts';
-import { DROPDOWN_LEGACY_PLACEMENTS as DROPDOWN_PLACEMENTS } from '../../DropdownLegacy/DropdownLegacy.consts';
+import { DROPDOWN_ALIGNS } from '../../Dropdown/Dropdown.consts';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
 interface FilterItem {
