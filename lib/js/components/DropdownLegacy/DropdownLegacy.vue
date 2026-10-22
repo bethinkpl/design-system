@@ -13,16 +13,16 @@
 		@show="onShow"
 	>
 		<div
-			class="popper ds-dropdown"
+			class="popper ds-dropdownLegacy"
 			:inert="!isOpened"
 			:class="{
-				'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
-				'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
-				'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
+				'-ds-radiusBottom': radius === DROPDOWN_LEGACY_RADIUSES.BOTTOM,
+				'-ds-radiusTop': radius === DROPDOWN_LEGACY_RADIUSES.TOP,
+				'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_LEGACY_RADIUSES.BOTH,
 			}"
 		>
 			<div
-				class="ds-dropdown__scrollableWrapper"
+				class="ds-dropdownLegacy__scrollableWrapper"
 				:class="{ '-ds-heightLimited': !!maxHeight }"
 				:style="scrollableWrapperStyles"
 			>
@@ -40,7 +40,7 @@
 @import '../../../../lib/styles/settings/spacings';
 @import '../../../../lib/styles/mixins/dropdown-surface';
 
-.ds-dropdown {
+.ds-dropdownLegacy {
 	@include dropdownSurface;
 
 	// Resets for the styles vue-popperjs ships in vue-popper.css.
@@ -79,18 +79,18 @@
 import VuePopper from 'vue-popperjs';
 import 'vue-popperjs/dist/vue-popper.css';
 import {
-	DROPDOWN_PLACEMENTS,
-	DROPDOWN_RADIUSES,
-	DROPDOWN_TRIGGER_ACTIONS,
-	DropdownPlacement,
-	DropdownRadius,
-	DropdownTriggerAction,
-} from './Dropdown.consts';
+	DROPDOWN_LEGACY_PLACEMENTS,
+	DROPDOWN_LEGACY_RADIUSES,
+	DROPDOWN_LEGACY_TRIGGER_ACTIONS,
+	DropdownLegacyPlacement,
+	DropdownLegacyRadius,
+	DropdownLegacyTriggerAction,
+} from './DropdownLegacy.consts';
 
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-	name: 'Dropdown',
+	name: 'DropdownLegacy',
 	components: {
 		VuePopper,
 	},
@@ -109,23 +109,23 @@ export default defineComponent({
 		},
 		triggerAction: {
 			type: String,
-			default: DROPDOWN_TRIGGER_ACTIONS.CLICK,
-			validator(triggerAction: DropdownTriggerAction) {
-				return Object.values(DROPDOWN_TRIGGER_ACTIONS).includes(triggerAction);
+			default: DROPDOWN_LEGACY_TRIGGER_ACTIONS.CLICK,
+			validator(triggerAction: DropdownLegacyTriggerAction) {
+				return Object.values(DROPDOWN_LEGACY_TRIGGER_ACTIONS).includes(triggerAction);
 			},
 		},
 		radius: {
 			type: String,
-			default: DROPDOWN_RADIUSES.BOTH,
-			validate(radius: DropdownRadius) {
-				return Object.values(DROPDOWN_RADIUSES).includes(radius);
+			default: DROPDOWN_LEGACY_RADIUSES.BOTH,
+			validate(radius: DropdownLegacyRadius) {
+				return Object.values(DROPDOWN_LEGACY_RADIUSES).includes(radius);
 			},
 		},
 		placement: {
 			type: String,
-			default: DROPDOWN_PLACEMENTS.BOTTOM_START,
-			validate(placement: DropdownPlacement) {
-				return Object.values(DROPDOWN_PLACEMENTS).includes(placement);
+			default: DROPDOWN_LEGACY_PLACEMENTS.BOTTOM_START,
+			validate(placement: DropdownLegacyPlacement) {
+				return Object.values(DROPDOWN_LEGACY_PLACEMENTS).includes(placement);
 			},
 		},
 		maxHeight: {
@@ -140,7 +140,7 @@ export default defineComponent({
 		return {
 			key: 1,
 			isOpened: false,
-			DROPDOWN_RADIUSES: Object.freeze(DROPDOWN_RADIUSES),
+			DROPDOWN_LEGACY_RADIUSES: Object.freeze(DROPDOWN_LEGACY_RADIUSES),
 		};
 	},
 	computed: {
