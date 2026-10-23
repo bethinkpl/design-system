@@ -1,10 +1,15 @@
 import { WriteStream, createWriteStream } from 'fs';
 
-export const arrayToFile = (filepath: string, content: Array<string>) => {
-	let file: WriteStream = createWriteStream(filepath);
-	file.on('error', function (err) {
-		console.error(err);
+/** Resolves once the stream has fully flushed to disk; rejects on write error. */
+const finished = (file: WriteStream): Promise<void> =>
+	new Promise((resolve, reject) => {
+		file.on('error', reject);
+		file.on('finish', resolve);
 	});
+
+export const arrayToFile = (filepath: string, content: Array<string>): Promise<void> => {
+	let file: WriteStream = createWriteStream(filepath);
+	const done = finished(file);
 
 	const noIndentationRules: RegExp = /root|}/i;
 	let hasFileIndentation = false;
@@ -18,13 +23,12 @@ export const arrayToFile = (filepath: string, content: Array<string>) => {
 		}
 	});
 	file.end();
+	return done;
 };
 
-export const arrayToMixinFile = (filepath: string, content: Array<string>) => {
+export const arrayToMixinFile = (filepath: string, content: Array<string>): Promise<void> => {
 	let file: WriteStream = createWriteStream(filepath);
-	file.on('error', function (err) {
-		console.error(err);
-	});
+	const done = finished(file);
 
 	const noIndentationRules: RegExp = /@mixin|@import|}/i;
 
@@ -36,13 +40,13 @@ export const arrayToMixinFile = (filepath: string, content: Array<string>) => {
 		file.write(hasLineIndentation ? '\t' + v + '\n' : v + '\n');
 	});
 	file.end();
+	return done;
 };
 
-export const jsonToFile = (filepath: string, content: Object) => {
+export const jsonToFile = (filepath: string, content: Object): Promise<void> => {
 	let file = createWriteStream(filepath);
-	file.on('error', function (err) {
-		console.error(err);
-	});
+	const done = finished(file);
 	file.write(JSON.stringify(content));
 	file.end();
+	return done;
 };
