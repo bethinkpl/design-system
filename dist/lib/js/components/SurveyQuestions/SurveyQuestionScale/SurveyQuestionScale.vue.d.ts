@@ -69,7 +69,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_ARROW_LEFT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_POINTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROW_RIGHT_FROM_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_ARROW_RIGHT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_ROTATE_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_ARROW_UP_BIG_SMALL: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -209,6 +211,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly FA_HAND_POINT_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HAND_SPOCK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HANDS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+        readonly FA_HASHTAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HEAD_SIDE_BRAIN: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HEART_PULSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
         readonly FA_HEART_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -746,7 +749,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_ARROW_LEFT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_POINTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ARROW_RIGHT_FROM_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ARROW_RIGHT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_ROTATE_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_UP_BIG_SMALL: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -886,6 +891,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_HAND_POINT_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HAND_SPOCK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HANDS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_HASHTAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEAD_SIDE_BRAIN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEART_PULSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEART_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1614,7 +1620,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_ARROW_LEFT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_POINTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ARROW_RIGHT_FROM_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_ARROW_RIGHT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_ROTATE_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_ARROW_UP_BIG_SMALL: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -1754,6 +1762,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             readonly FA_HAND_POINT_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HAND_SPOCK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HANDS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+            readonly FA_HASHTAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEAD_SIDE_BRAIN: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEART_PULSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
             readonly FA_HEART_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -2257,7 +2266,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_ARROW_LEFT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_POINTER: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_RIGHT_FROM_BRACKET: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_ARROW_RIGHT_FROM_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_RIGHT_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_ARROW_RIGHT_TO_DOTTED_LINE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_ROTATE_LEFT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_ROTATE_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_ARROW_UP_BIG_SMALL: import('@fortawesome/fontawesome-common-types').IconDefinition;
@@ -2397,6 +2408,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
                 readonly FA_HAND_POINT_RIGHT: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_HAND_SPOCK_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_HANDS_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
+                readonly FA_HASHTAG: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_HEAD_SIDE_BRAIN: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_HEART_PULSE: import('@fortawesome/fontawesome-common-types').IconDefinition;
                 readonly FA_HEART_SOLID: import('@fortawesome/fontawesome-common-types').IconDefinition;
