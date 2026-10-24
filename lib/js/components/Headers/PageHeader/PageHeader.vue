@@ -64,13 +64,12 @@
 	&__textWrapper {
 		align-items: flex-start;
 		display: flex;
-		flex: 1;
 		flex-direction: column;
 		gap: $space-2;
 		justify-content: center;
-		max-width: 100%;
 		min-width: 0;
 		padding: $space-2 0;
+		width: 100%;
 	}
 
 	&__titleWrapper {
@@ -87,7 +86,6 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		width: 100%;
 	}
 
 	&__title {
