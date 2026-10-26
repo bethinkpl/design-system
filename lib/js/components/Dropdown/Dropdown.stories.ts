@@ -84,7 +84,8 @@ Interactive.parameters = {
 };
 
 // A modal clips its content (`overflow: hidden`), so a dropdown opened inside it needs
-// appendToBody to show its panel past the modal's edge.
+// appendToBody to show its panel past the modal's edge. The modal stays put while the page
+// scrolls, so a long list needs maxHeight: scrolling the page can't reveal the rest of the panel.
 export const InModal: StoryFn<typeof Dropdown> = (args) => ({
 	components: { Dropdown, Modal, SelectList, SelectListItem },
 	setup() {
@@ -92,7 +93,7 @@ export const InModal: StoryFn<typeof Dropdown> = (args) => ({
 	},
 	template: `
     <modal header-title="Dropdown in a modal">
-      <dropdown :append-to-body="appendToBody" same-width>
+      <dropdown :append-to-body="appendToBody" same-width max-height="240px">
         <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span></template>
         <template #default="{ close }">
           <select-list>
