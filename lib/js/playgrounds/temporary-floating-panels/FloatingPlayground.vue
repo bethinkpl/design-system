@@ -20,6 +20,35 @@
 				<button class="ds-testTrigger" @click="jumpToBottom">Jump to page bottom</button>
 			</div>
 		</header>
+		<section v-if="kind === 'dropdown'">
+			<h2>00 · Large max height at the top of the page</h2>
+			<p
+				>45 items with maxHeight = 600px, close to the page start. Scroll to the very top
+				and open the Reka panel. Unless the window is much taller than the panel, there is
+				more room above the trigger than below, so the panel flips above it. The trigger is
+				less than 600px below the page start, so the top of the panel runs past it and the
+				first items can't be reached. A max height alone doesn't prevent the 02b problem.</p
+			>
+			<panel-pair
+				:kind="kind"
+				label="Large max height"
+				:count="45"
+				limited
+				max-height="600px"
+			/>
+			<p class="ds-testSpacedNote"
+				>The fix: the same panel with sideFlip = false (Reka only) stays below the trigger
+				and makes the page longer, so every item can be reached.</p
+			>
+			<panel-pair
+				:kind="kind"
+				label="Large max height, no flip"
+				:count="45"
+				limited
+				max-height="600px"
+				:side-flip="false"
+			/>
+		</section>
 		<section>
 			<h2>01 · Short content</h2><p>Default props, three items and slot close.</p>
 			<panel-pair :kind="kind" label="Short" />
@@ -30,15 +59,19 @@
 			<panel-pair :kind="kind" label="Long" :count="45" />
 		</section>
 		<section>
-			<h2>02b · fitToViewport: true vs false</h2>
+			<h2>02b · Repro: tall panel flips above the page start</h2>
 			<p
-				>Two Reka panels, 45 items, no max height. Scroll so the triggers sit near the
-				bottom of the window, then open each. True: the panel is capped to the space on
-				screen, scrolls inside and flips above the trigger when there is more room there.
-				False: it keeps its full height below the trigger and runs past the window, so
-				scroll the page to reach the last item.</p
+				>45 items, no max height, so the panel is taller than the space on either side.
+				Scroll so this trigger sits near the bottom of the window, then open the Reka panel.
+				There is more room above, so it flips above the trigger, and its top runs past the
+				start of the page: scroll up and the first items can't be reached.</p
 			>
-			<panel-pair :kind="kind" label="Long" :count="45" compare-fit-to-viewport />
+			<panel-pair :kind="kind" label="Tall flip" :count="45" />
+			<p class="ds-testSpacedNote"
+				>The fix: the same panel with sideFlip = false (Reka only) stays below the trigger
+				and makes the page longer, so every item can be reached.</p
+			>
+			<panel-pair :kind="kind" label="Tall, no flip" :count="45" :side-flip="false" />
 		</section>
 		<section>
 			<h2>03 · Explicit max height</h2>
