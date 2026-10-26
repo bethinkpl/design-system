@@ -208,8 +208,8 @@ export const FeatureAnnouncement: StoryFn<typeof Popover> = () => ({
 	`,
 });
 
-// Every color and size, open at once for a visual check. The open prop has no listener, so
-// clicking around does not close them. The reference sits in the middle of a cell tall enough
+// Every color and size, open at once for a visual check. Manual mode keeps them open while
+// clicking around. The reference sits in the middle of a cell tall enough
 // for a panel on either side, so a panel that flips near a screen edge stays within its own cell.
 // On narrow screens the cells stack.
 export const Variants: StoryFn<typeof Popover> = () => ({
@@ -230,6 +230,7 @@ export const Variants: StoryFn<typeof Popover> = () => ({
 			>
 				<popover
 					:open="true"
+					manual
 					:side="POPOVER_SIDES.BOTTOM"
 					:color="variant.color"
 					:size="variant.size"

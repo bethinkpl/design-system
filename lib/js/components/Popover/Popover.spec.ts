@@ -58,6 +58,27 @@ describe('Popover', () => {
 		expect(wrapper.emitted('update:open')).toEqual([[true], [false]]);
 	});
 
+	it('should keep the open state from the parent when mounted disabled', async () => {
+		const wrapper = setup({ disabled: true, open: true });
+
+		await wrapper.setProps({ disabled: false });
+		await flushPromises();
+
+		expect(wrapper.emitted('update:open')).toBeUndefined();
+		expect(wrapper.find('.ds-popover').exists()).toBe(true);
+	});
+
+	it('should keep the open state when disabled in manual mode', async () => {
+		const wrapper = await setupForced({ manual: true });
+
+		await wrapper.setProps({ disabled: true });
+		await wrapper.setProps({ disabled: false });
+		await flushPromises();
+
+		expect(wrapper.emitted('update:open')).toBeUndefined();
+		expect(wrapper.find('.ds-popover').exists()).toBe(true);
+	});
+
 	it('should open on reference click', async () => {
 		const wrapper = setup();
 		expect(wrapper.find('.ds-popover').exists()).toBe(false);

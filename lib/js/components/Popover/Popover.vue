@@ -263,12 +263,13 @@ function close() {
 }
 
 // Disabling removes PopoverRoot, so close first or the panel would come back with the next enable.
+// Not on mount, so a popover that starts disabled opens with the parent's state once enabled, and
+// not in manual mode, where only the parent changes the state.
 watch(
 	() => disabled,
 	(isDisabled) => {
-		if (isDisabled) close();
+		if (isDisabled && !manual) close();
 	},
-	{ immediate: true },
 );
 
 defineExpose({ close });
