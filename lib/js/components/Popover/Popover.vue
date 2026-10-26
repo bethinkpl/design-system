@@ -21,7 +21,7 @@
 					:side-flip="sideFlip && fitToViewport"
 					:collision-boundary="collisionBoundary ?? undefined"
 					:position-strategy="fitToViewport ? 'fixed' : 'absolute'"
-					hide-when-detached
+					:hide-when-detached="hideWhenDetached"
 					@open-auto-focus="preventInManualMode"
 					@close-auto-focus="preventInManualMode"
 					@escape-key-down="preventInManualMode"
@@ -216,6 +216,7 @@ const {
 	maxHeight = false,
 	isPointerVisible = true,
 	fitToViewport = true,
+	hideWhenDetached = false,
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
@@ -241,6 +242,10 @@ const {
 	// bottom side then, as a panel above the reference can't grow the page upwards. Keep it on
 	// wherever the page can't scroll, e.g. inside a modal.
 	fitToViewport?: boolean;
+	// On: the panel hides when the reference leaves the boundary (the viewport by default; a
+	// scrolling container counts only when passed as collisionBoundary).
+	// Off: it keeps following the reference, also out of view.
+	hideWhenDetached?: boolean;
 }>();
 
 defineEmits<{

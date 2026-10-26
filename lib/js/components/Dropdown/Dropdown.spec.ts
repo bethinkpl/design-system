@@ -117,14 +117,21 @@ describe('Dropdown', () => {
 		expect(content.props('align')).toBe(align);
 	});
 
-	it('should position the panel fixed and hide it when the reference scrolls out of view', async () => {
+	it('should position the panel fixed and keep it visible when the reference scrolls out of view', async () => {
 		const wrapper = setup();
 		await open(wrapper);
 		const content = wrapper.findComponent(PopoverContent);
 
 		expect(content.props('positionStrategy')).toBe('fixed');
-		expect(content.props('hideWhenDetached')).toBe(true);
+		expect(content.props('hideWhenDetached')).toBe(false);
 		expect(wrapper.find('.ds-dropdown').classes()).toContain('-ds-fitToViewport');
+	});
+
+	it('should hide the panel when the reference scrolls out of view with hideWhenDetached', async () => {
+		const wrapper = setup({ hideWhenDetached: true });
+		await open(wrapper);
+
+		expect(wrapper.findComponent(PopoverContent).props('hideWhenDetached')).toBe(true);
 	});
 
 	it('should let the panel extend the page when fitToViewport is off', async () => {

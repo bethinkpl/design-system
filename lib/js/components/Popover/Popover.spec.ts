@@ -171,12 +171,12 @@ describe('Popover', () => {
 		expect(content.props('align')).toBe(align);
 	});
 
-	it('should position the panel fixed and hide it when the reference scrolls out of view', async () => {
+	it('should position the panel fixed and keep it visible when the reference scrolls out of view', async () => {
 		const wrapper = await setupForced();
 		const content = wrapper.findComponent(PopoverContent);
 
 		expect(content.props('positionStrategy')).toBe('fixed');
-		expect(content.props('hideWhenDetached')).toBe(true);
+		expect(content.props('hideWhenDetached')).toBe(false);
 		expect(wrapper.find('.ds-popover').classes()).toContain('-ds-fitToViewport');
 	});
 
@@ -188,6 +188,14 @@ describe('Popover', () => {
 		expect(content.props('positionStrategy')).toBe('absolute');
 		expect(content.props('sideFlip')).toBe(false);
 		expect(wrapper.find('.ds-popover').classes()).not.toContain('-ds-fitToViewport');
+	});
+
+	it('should hide the panel when the reference scrolls out of view with hideWhenDetached', async () => {
+		const content = (await setupForced({ hideWhenDetached: true })).findComponent(
+			PopoverContent,
+		);
+
+		expect(content.props('hideWhenDetached')).toBe(true);
 	});
 
 	it('should pass sideFlip through', async () => {

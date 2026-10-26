@@ -32,7 +32,8 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
                 :radius="radius"
                 :align="align"
                 :max-height="maxHeight"
-                :fit-to-viewport="fitToViewport">
+                :fit-to-viewport="fitToViewport"
+                :hide-when-detached="hideWhenDetached">
         <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span>
         </template>
         <template #default="{ close }">
@@ -55,6 +56,7 @@ const args = {
 	maxHeight: '',
 	align: DROPDOWN_ALIGNS.START,
 	fitToViewport: true,
+	hideWhenDetached: false,
 } as Args;
 
 const argTypes = {

@@ -78,7 +78,8 @@
 			<h2>06 · Scrollable ancestor</h2
 			><p
 				>Open a panel, then scroll this box. Check anchoring and what happens when its
-				trigger leaves view.</p
+				trigger leaves view. hideWhenDetached = false (default): the Reka panel keeps
+				following its trigger out of view.</p
 			>
 			<div class="ds-testScrollbox"
 				><p>Scroll inside this container ↓</p><div class="ds-testScrollSpacer"></div>
@@ -112,6 +113,17 @@
 				dismisses.</p
 			>
 			<panel-pair :kind="kind" label="Page scroll" :count="20" limited />
+			<p class="ds-testSpacedNote"
+				>hideWhenDetached = true (Reka only): open, then scroll the page until the trigger
+				leaves the window. The Reka panel hides and comes back when the trigger returns.</p
+			>
+			<panel-pair
+				:kind="kind"
+				label="Hide when detached"
+				:count="20"
+				limited
+				hide-when-detached
+			/>
 			<div class="ds-testPageSpacer">Main page scroll area ↓</div>
 			<panel-pair :kind="kind" label="Page bottom" single :count="25" limited />
 			<p ref="pageBottom"
@@ -203,8 +215,11 @@
 	overflow: auto;
 	padding: 16px;
 }
+.ds-floatingPlayground .ds-testSpacedNote {
+	margin-top: 16px;
+}
 .ds-testScrollSpacer {
-	height: 100px;
+	height: 320px;
 }
 .ds-testClipped {
 	border: 2px dashed #aebed4;

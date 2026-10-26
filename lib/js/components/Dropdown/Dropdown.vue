@@ -24,7 +24,7 @@
 					:side-flip="fitToViewport"
 					:collision-boundary="collisionBoundary ?? undefined"
 					:position-strategy="fitToViewport ? 'fixed' : 'absolute'"
-					hide-when-detached
+					:hide-when-detached="hideWhenDetached"
 				>
 					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
 						<slot :close="close" />
@@ -107,6 +107,7 @@ const {
 	align = DROPDOWN_ALIGNS.START,
 	maxHeight = null,
 	fitToViewport = true,
+	hideWhenDetached = false,
 } = defineProps<{
 	appendToBody?: boolean;
 	// The element the panel stays within; the viewport when not set.
@@ -120,6 +121,10 @@ const {
 	// rest. It also stops flipping above the reference, so it doesn't jump sides while the page
 	// scrolls. Keep it on wherever the page can't scroll, e.g. inside a modal.
 	fitToViewport?: boolean;
+	// On: the panel hides when the reference leaves the boundary (the viewport by default; a
+	// scrolling container counts only when passed as collisionBoundary).
+	// Off: it keeps following the reference, also out of view.
+	hideWhenDetached?: boolean;
 }>();
 
 const open = defineModel<boolean>('open', { default: false });

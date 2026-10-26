@@ -125,6 +125,7 @@ const {
 	wide = false,
 	form = false,
 	unbroken = false,
+	hideWhenDetached = false,
 } = defineProps<{
 	kind: 'dropdown' | 'popover';
 	label?: string;
@@ -136,6 +137,8 @@ const {
 	wide?: boolean;
 	form?: boolean;
 	unbroken?: boolean;
+	// Reka only; Legacy has no equivalent.
+	hideWhenDetached?: boolean;
 }>();
 const selected = ref<number | null>(null);
 const expanded = ref(false);
@@ -151,6 +154,7 @@ function panel(legacy: boolean) {
 function panelProps(legacy: boolean) {
 	const props: Record<string, unknown> = {};
 	if (portal !== undefined) props.appendToBody = portal;
+	if (!legacy) props.hideWhenDetached = hideWhenDetached;
 	if (kind === 'dropdown') {
 		props.maxHeight = limited ? '180px' : undefined;
 		props.sameWidth = wide;
