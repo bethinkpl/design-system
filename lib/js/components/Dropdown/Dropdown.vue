@@ -16,14 +16,13 @@
 						'-ds-radiusSingle': radius === DROPDOWN_RADIUSES.SINGLE,
 						'-ds-radiusBoth': radius === DROPDOWN_RADIUSES.BOTH,
 						'-ds-sameWidth': sameWidth,
-						'-ds-fitToViewport': fitToViewport,
 					}"
 					side="bottom"
 					:align="align"
+					:side-flip="sideFlip"
 					:side-offset="SIDE_OFFSET"
-					:side-flip="fitToViewport"
 					:collision-boundary="collisionBoundary ?? undefined"
-					:position-strategy="fitToViewport ? 'fixed' : 'absolute'"
+					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
 				>
 					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
@@ -66,12 +65,6 @@
 		@include dropdownSurfaceRadiusTop;
 	}
 
-	// The same for height, so a long panel scrolls inside. Without it, the panel keeps its full
-	// height and the page scrolls to reveal the rest.
-	&.-ds-fitToViewport {
-		max-height: var(--reka-popover-content-available-height);
-	}
-
 	&.-ds-sameWidth {
 		width: var(--reka-popover-trigger-width);
 	}
@@ -106,7 +99,7 @@ const {
 	radius = DROPDOWN_RADIUSES.BOTH,
 	align = DROPDOWN_ALIGNS.START,
 	maxHeight = null,
-	fitToViewport = true,
+	sideFlip = true,
 	hideWhenDetached = false,
 } = defineProps<{
 	appendToBody?: boolean;
@@ -117,10 +110,12 @@ const {
 	radius?: DropdownRadius;
 	align?: DropdownAlign;
 	maxHeight?: string | null;
-	// Off: the panel keeps its full height and becomes part of the page, so scrolling reveals the
-	// rest. It also stops flipping above the reference, so it doesn't jump sides while the page
-	// scrolls. Keep it on wherever the page can't scroll, e.g. inside a modal.
-	fitToViewport?: boolean;
+	// Whether the panel may move to the opposite side when it doesn't fit. It still shifts along
+	// its side to stay within the boundary either way. Turn it off for a panel that can be taller
+	// than the space on both sides of the reference (a long list, a large max height, or a
+	// reference near the top of the page): flipped above, its top would run past the page start,
+	// where scrolling can't reach it. Unflipped, it stays below and the page scrolls to reveal it.
+	sideFlip?: boolean;
 	// On: the panel hides when the reference leaves the boundary (the viewport by default; a
 	// scrolling container counts only when passed as collisionBoundary).
 	// Off: it keeps following the reference, also out of view.

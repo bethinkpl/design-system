@@ -88,7 +88,7 @@ const {
 Boolean prop names:
 
 - A state or trait gets an `is` / `has` prefix: `isDisabled`, `isOpen`, `hasBorder`, `hasMaxHeight`.
-- A behaviour is a verb phrase without a prefix: `appendToBody`, `fitToViewport`, `hideWhenDetached`. Keep the underlying library's name when the prop passes straight through (e.g. Reka's `sideFlip`).
+- A behaviour is a verb phrase without a prefix: `appendToBody`, `hideWhenDetached`. Keep the underlying library's name when the prop passes straight through (e.g. Reka's `sideFlip`).
 - Don't reuse a name with a different type in another component (e.g. a boolean `maxHeight` next to a string `maxHeight`).
 
 Internal logic is organised into composable-style functions within the same file:

@@ -13,14 +13,13 @@
 						'-ds-color-neutral': color === POPOVER_COLORS.NEUTRAL,
 						'-ds-small': size === POPOVER_SIZES.SMALL,
 						'-ds-medium': size === POPOVER_SIZES.MEDIUM,
-						'-ds-fitToViewport': fitToViewport,
 					}"
 					:side="side"
 					:align="align"
 					:side-offset="SIDE_OFFSET"
-					:side-flip="sideFlip && fitToViewport"
+					:side-flip="sideFlip"
 					:collision-boundary="collisionBoundary ?? undefined"
-					:position-strategy="fitToViewport ? 'fixed' : 'absolute'"
+					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
 					@open-auto-focus="preventInManualMode"
 					@close-auto-focus="preventInManualMode"
@@ -88,13 +87,6 @@
 	display: flex;
 	flex-direction: column;
 	z-index: $z-index-top-layer;
-
-	// Shrinks to the space left on its side of the reference, so a tall panel scrolls its content
-	// slot instead of running off the screen, where a locked page could never scroll to it.
-	// Without it, the panel keeps its full height and the page scrolls to reveal the rest.
-	&.-ds-fitToViewport {
-		max-height: var(--reka-popover-content-available-height);
-	}
 
 	&__arrow {
 		fill: $color-inverted-border;
@@ -215,7 +207,6 @@ const {
 	size = POPOVER_SIZES.SMALL,
 	hasMaxHeight = false,
 	isPointerVisible = true,
-	fitToViewport = true,
 	hideWhenDetached = false,
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
@@ -232,16 +223,14 @@ const {
 	headerImageUrl?: string | null;
 	appendToBody?: boolean;
 	// Whether the panel may move to the opposite side when it doesn't fit. It still shifts along
-	// its side to stay within the boundary either way.
+	// its side to stay within the boundary either way. Turn it off for a panel that can be taller
+	// than the space on both sides of the reference (a long list, a large max height, or a
+	// reference near the top of the page): flipped above, its top would run past the page start,
+	// where scrolling can't reach it. Unflipped, it stays below and the page scrolls to reveal it.
 	sideFlip?: boolean;
 	size?: PopoverSize;
 	hasMaxHeight?: boolean;
 	isPointerVisible?: boolean;
-	// Off: the panel keeps its full height and becomes part of the page, so scrolling reveals the
-	// rest. It also stops flipping, so it doesn't jump sides while the page scrolls; prefer the
-	// bottom side then, as a panel above the reference can't grow the page upwards. Keep it on
-	// wherever the page can't scroll, e.g. inside a modal.
-	fitToViewport?: boolean;
 	// On: the panel hides when the reference leaves the boundary (the viewport by default; a
 	// scrolling container counts only when passed as collisionBoundary).
 	// Off: it keeps following the reference, also out of view.

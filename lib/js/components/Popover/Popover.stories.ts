@@ -19,7 +19,7 @@ const StoryTemplate: StoryFn<typeof Popover> = (args) => ({
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px; background: var(--raw-gray-50);">' +
-		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :has-max-height="hasMaxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :fit-to-viewport="fitToViewport" :hide-when-detached="hideWhenDetached">' +
+		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :has-max-height="hasMaxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :hide-when-detached="hideWhenDetached">' +
 		'<template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>' +
 		'<div>{{ definitionSlot }}</div>' +
 		'</popover>' +
@@ -45,7 +45,6 @@ Interactive.args = {
 	isPointerVisible: true,
 	sideFlip: true,
 	appendToBody: true,
-	fitToViewport: true,
 	hideWhenDetached: false,
 	definitionSlot: 'Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.',
 } as Args;
@@ -93,7 +92,7 @@ const PopoverWithHTMLStoryTemplate: StoryFn<typeof Popover> = (args) => ({
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
-		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :open="open" :size="size" :has-max-height="hasMaxHeight" :is-pointer-visible="isPointerVisible" :fit-to-viewport="fitToViewport">' +
+		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :open="open" :size="size" :has-max-height="hasMaxHeight" :is-pointer-visible="isPointerVisible">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<template #default><b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork. <b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.</template>' +
 		'</popover>' +
@@ -114,7 +113,6 @@ PopoverMMaxHeightNoPointer.args = {
 	isManual: false,
 	open: false,
 	isPointerVisible: false,
-	fitToViewport: true,
 } as Args;
 
 PopoverMMaxHeightNoPointer.argTypes = argTypes;

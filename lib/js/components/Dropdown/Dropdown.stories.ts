@@ -32,7 +32,7 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
                 :radius="radius"
                 :align="align"
                 :max-height="maxHeight"
-                :fit-to-viewport="fitToViewport"
+                :side-flip="sideFlip"
                 :hide-when-detached="hideWhenDetached">
         <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span>
         </template>
@@ -55,7 +55,7 @@ const args = {
 	sameWidth: false,
 	maxHeight: '',
 	align: DROPDOWN_ALIGNS.START,
-	fitToViewport: true,
+	sideFlip: true,
 	hideWhenDetached: false,
 } as Args;
 
@@ -180,7 +180,7 @@ export const SingleSelect: StoryFn<typeof Dropdown> = () => ({
 });
 
 // A long grouped list: `maxHeight` caps the panel and the list scrolls inside. Without it, the
-// panel still shrinks to the space left on screen.
+// panel keeps its full height and the page scrolls to reveal the rest.
 export const ScrollableGroupedList: StoryFn<typeof Dropdown> = (args) => ({
 	components: { Dropdown, DsButton, SelectList, SelectListItem, SelectListSectionTitle },
 	setup() {
@@ -210,7 +210,7 @@ export const ScrollableGroupedList: StoryFn<typeof Dropdown> = (args) => ({
 	},
 	template: `
     <div style="padding: 24px;">
-      <dropdown :max-height="args.maxHeight" :fit-to-viewport="args.fitToViewport">
+      <dropdown :max-height="args.maxHeight">
         <template #reference="{ isOpen }">
           <ds-button :type="BUTTON_TYPES.OUTLINED" :icon-right="isOpen ? ICONS.FA_ANGLE_UP : ICONS.FA_ANGLE_DOWN">
             {{ selected }}
@@ -234,10 +234,9 @@ export const ScrollableGroupedList: StoryFn<typeof Dropdown> = (args) => ({
     </div>`,
 });
 
-ScrollableGroupedList.args = { maxHeight: '240px', fitToViewport: true } as Args;
+ScrollableGroupedList.args = { maxHeight: '240px' } as Args;
 ScrollableGroupedList.argTypes = {
 	maxHeight: { control: 'text' },
-	fitToViewport: { control: 'boolean' },
 } as ArgTypes;
 
 // A rich trigger whose chevron sits in DsBasicRichListItem's `actions` slot. That slot stops its
