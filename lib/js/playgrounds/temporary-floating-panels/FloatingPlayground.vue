@@ -35,7 +35,7 @@
 				>{{
 					kind === 'dropdown'
 						? 'maxHeight = 180px'
-						: 'maxHeight = true · small content area limited to 160px'
+						: 'hasMaxHeight = true · small content area limited to 160px'
 				}}. Scroll within the panel to the last item.</p
 			>
 			<panel-pair :kind="kind" label="Max height" :count="45" limited />

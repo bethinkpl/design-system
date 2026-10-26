@@ -19,7 +19,7 @@ const StoryTemplate: StoryFn<typeof Popover> = (args) => ({
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px; background: var(--raw-gray-50);">' +
-		'<popover :side="side" :align="align" :color="color" :disabled="disabled" :manual="manual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :fit-to-viewport="fitToViewport" :hide-when-detached="hideWhenDetached">' +
+		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :has-max-height="hasMaxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :fit-to-viewport="fitToViewport" :hide-when-detached="hideWhenDetached">' +
 		'<template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>' +
 		'<div>{{ definitionSlot }}</div>' +
 		'</popover>' +
@@ -30,7 +30,7 @@ export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
 	size: POPOVER_SIZES.SMALL,
-	maxHeight: false,
+	hasMaxHeight: false,
 	side: POPOVER_SIDES.BOTTOM,
 	align: POPOVER_ALIGNS.CENTER,
 	color: POPOVER_COLORS.DEFAULT,
@@ -39,8 +39,8 @@ Interactive.args = {
 	titleText: 'Lorem ipsum',
 	subtitleText: 'Dolor sit amet',
 	buttonText: 'button text',
-	disabled: false,
-	manual: false,
+	isDisabled: false,
+	isManual: false,
 	open: false,
 	isPointerVisible: true,
 	sideFlip: true,
@@ -67,12 +67,12 @@ const argTypes = {
 		control: 'select',
 		options: Object.values(POPOVER_COLORS),
 	},
-	manual: {
+	isManual: {
 		control: 'boolean',
 		description:
 			'Only model updates and explicit close() calls change the open state, and focus stays put.',
 	},
-	disabled: {
+	isDisabled: {
 		control: 'boolean',
 	},
 } as ArgTypes;
@@ -93,7 +93,7 @@ const PopoverWithHTMLStoryTemplate: StoryFn<typeof Popover> = (args) => ({
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
-		'<popover :side="side" :align="align" :color="color" :disabled="disabled" :manual="manual" :title-text="titleText" :subtitle-text="subtitleText" :open="open" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible" :fit-to-viewport="fitToViewport">' +
+		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :open="open" :size="size" :has-max-height="hasMaxHeight" :is-pointer-visible="isPointerVisible" :fit-to-viewport="fitToViewport">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<template #default><b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork. <b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.</template>' +
 		'</popover>' +
@@ -104,14 +104,14 @@ export const PopoverMMaxHeightNoPointer = PopoverWithHTMLStoryTemplate.bind({});
 
 PopoverMMaxHeightNoPointer.args = {
 	size: POPOVER_SIZES.MEDIUM,
-	maxHeight: true,
+	hasMaxHeight: true,
 	side: POPOVER_SIDES.BOTTOM,
 	align: POPOVER_ALIGNS.CENTER,
 	color: POPOVER_COLORS.DEFAULT,
 	titleText: 'Lorem ipsum',
 	subtitleText: 'Dolor sit amet',
-	disabled: false,
-	manual: false,
+	isDisabled: false,
+	isManual: false,
 	open: false,
 	isPointerVisible: false,
 	fitToViewport: true,
@@ -132,7 +132,7 @@ export const Manual: StoryFn<typeof Popover> = () => ({
 				isOpen: {{ isOpen }}
 			</label>
 			<p>Use the checkbox to open or close. Escape, outside clicks, and reference clicks keep the current state.</p>
-			<popover v-model:open="isOpen" manual title-text="Manually controlled popover">
+			<popover v-model:open="isOpen" is-manual title-text="Manually controlled popover">
 				<template #reference><ds-button>Popover reference</ds-button></template>
 				The checkbox controls this popover through v-model:open="isOpen".
 				<ds-button @click="isOpen = false">Close popover</ds-button>
@@ -179,7 +179,7 @@ export const InfoHint: StoryFn<typeof Popover> = () => ({
 });
 
 // A feature announcement shown on page load. The parent opens it through `v-model:open`, and
-// `manual` keeps it from moving focus or closing on outside clicks, so the user can keep typing
+// `isManual` keeps it from moving focus or closing on outside clicks, so the user can keep typing
 // in the field. "Got it" closes it.
 export const FeatureAnnouncement: StoryFn<typeof Popover> = () => ({
 	components: { Popover, DsButton },
@@ -193,7 +193,7 @@ export const FeatureAnnouncement: StoryFn<typeof Popover> = () => ({
 			<input placeholder="Focus stays here while the popover is open" style="box-sizing: border-box; width: 100%; max-width: 320px;" autofocus />
 			<popover
 				v-model:open="isOpen"
-				manual
+				is-manual
 				:side="POPOVER_SIDES.BOTTOM"
 				:size="POPOVER_SIZES.MEDIUM"
 				header-image-url="https://wnl-platform-dev-kuba.s3.eu-central-1.amazonaws.com/public/illustation-StatusLekcji.png"
@@ -231,7 +231,7 @@ export const Variants: StoryFn<typeof Popover> = () => ({
 			>
 				<popover
 					:open="true"
-					manual
+					is-manual
 					:side="POPOVER_SIDES.BOTTOM"
 					:color="variant.color"
 					:size="variant.size"

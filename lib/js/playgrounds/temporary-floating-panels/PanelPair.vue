@@ -164,7 +164,7 @@ function panelProps(legacy: boolean) {
 			else props.align = 'end';
 		}
 	} else {
-		props.maxHeight = limited;
+		props[legacy ? 'maxHeight' : 'hasMaxHeight'] = limited;
 		props.titleText = label;
 		props.size = 'small';
 	}

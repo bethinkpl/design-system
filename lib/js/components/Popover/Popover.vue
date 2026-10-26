@@ -1,6 +1,6 @@
 <template>
 	<span>
-		<slot v-if="disabled" name="reference" />
+		<slot v-if="isDisabled" name="reference" />
 		<popover-root v-else :open="open" @update:open="onOpenChange">
 			<popover-trigger :as="PopoverTriggerReference">
 				<slot name="reference" />
@@ -40,7 +40,7 @@
 						>
 						<div
 							class="ds-popover__contentSlot"
-							:class="{ '-ds-maxHeight': maxHeight }"
+							:class="{ '-ds-maxHeight': hasMaxHeight }"
 						>
 							<slot :close="close" />
 						</div>
@@ -201,8 +201,8 @@ const SIDE_OFFSET = 4;
 
 const {
 	collisionBoundary = null,
-	disabled = false,
-	manual = false,
+	isDisabled = false,
+	isManual = false,
 	side = POPOVER_SIDES.BOTTOM,
 	align = POPOVER_ALIGNS.CENTER,
 	color = POPOVER_COLORS.DEFAULT,
@@ -213,16 +213,16 @@ const {
 	appendToBody = true,
 	sideFlip = true,
 	size = POPOVER_SIZES.SMALL,
-	maxHeight = false,
+	hasMaxHeight = false,
 	isPointerVisible = true,
 	fitToViewport = true,
 	hideWhenDetached = false,
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
-	disabled?: boolean;
+	isDisabled?: boolean;
 	// Only model updates and explicit close() calls change the open state, and focus stays put.
-	manual?: boolean;
+	isManual?: boolean;
 	side?: PopoverSide;
 	align?: PopoverAlign;
 	color?: PopoverColor;
@@ -235,7 +235,7 @@ const {
 	// its side to stay within the boundary either way.
 	sideFlip?: boolean;
 	size?: PopoverSize;
-	maxHeight?: boolean;
+	hasMaxHeight?: boolean;
 	isPointerVisible?: boolean;
 	// Off: the panel keeps its full height and becomes part of the page, so scrolling reveals the
 	// rest. It also stops flipping, so it doesn't jump sides while the page scrolls; prefer the
@@ -255,12 +255,12 @@ defineEmits<{
 const open = defineModel<boolean>('open', { default: false });
 
 function onOpenChange(value: boolean) {
-	if (!manual) open.value = value;
+	if (!isManual) open.value = value;
 }
 
 // Manual mode keeps both the open state and the focus where the parent left them.
 function preventInManualMode(event: Event) {
-	if (manual) event.preventDefault();
+	if (isManual) event.preventDefault();
 }
 
 function close() {
@@ -271,9 +271,9 @@ function close() {
 // Not on mount, so a popover that starts disabled opens with the parent's state once enabled, and
 // not in manual mode, where only the parent changes the state.
 watch(
-	() => disabled,
-	(isDisabled) => {
-		if (isDisabled && !manual) close();
+	() => isDisabled,
+	(disabled) => {
+		if (disabled && !isManual) close();
 	},
 );
 

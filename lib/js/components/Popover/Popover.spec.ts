@@ -41,7 +41,7 @@ describe('Popover', () => {
 	});
 
 	it('should render only the reference when disabled', () => {
-		const wrapper = setup({ disabled: true, open: true });
+		const wrapper = setup({ isDisabled: true, open: true });
 
 		expect(wrapper.find('.reference').exists()).toBe(true);
 		expect(wrapper.findComponent(PopoverRoot).exists()).toBe(false);
@@ -51,17 +51,17 @@ describe('Popover', () => {
 		const wrapper = setup();
 		await open(wrapper);
 
-		await wrapper.setProps({ disabled: true });
-		await wrapper.setProps({ disabled: false });
+		await wrapper.setProps({ isDisabled: true });
+		await wrapper.setProps({ isDisabled: false });
 
 		expect(wrapper.find('.ds-popover').exists()).toBe(false);
 		expect(wrapper.emitted('update:open')).toEqual([[true], [false]]);
 	});
 
 	it('should keep the open state from the parent when mounted disabled', async () => {
-		const wrapper = setup({ disabled: true, open: true });
+		const wrapper = setup({ isDisabled: true, open: true });
 
-		await wrapper.setProps({ disabled: false });
+		await wrapper.setProps({ isDisabled: false });
 		await flushPromises();
 
 		expect(wrapper.emitted('update:open')).toBeUndefined();
@@ -69,10 +69,10 @@ describe('Popover', () => {
 	});
 
 	it('should keep the open state when disabled in manual mode', async () => {
-		const wrapper = await setupForced({ manual: true });
+		const wrapper = await setupForced({ isManual: true });
 
-		await wrapper.setProps({ disabled: true });
-		await wrapper.setProps({ disabled: false });
+		await wrapper.setProps({ isDisabled: true });
+		await wrapper.setProps({ isDisabled: false });
 		await flushPromises();
 
 		expect(wrapper.emitted('update:open')).toBeUndefined();
@@ -98,7 +98,7 @@ describe('Popover', () => {
 		async ({ event, manual }) => {
 			const focusEvent = new Event('focus', { cancelable: true });
 
-			(await setupForced({ manual }))
+			(await setupForced({ isManual: manual }))
 				.findComponent(PopoverContent)
 				.vm.$emit(event, focusEvent);
 
@@ -111,14 +111,14 @@ describe('Popover', () => {
 	});
 
 	it('should ignore reference clicks in manual mode', async () => {
-		const wrapper = setup({ manual: true });
+		const wrapper = setup({ isManual: true });
 		await open(wrapper);
 		expect(wrapper.emitted('update:open')).toBeUndefined();
 		expect(wrapper.find('.ds-popover').exists()).toBe(false);
 	});
 
 	it('should follow model updates and allow explicit close in manual mode', async () => {
-		const wrapper = setup({ manual: true });
+		const wrapper = setup({ isManual: true });
 		await wrapper.setProps({ open: true });
 		await flushPromises();
 		expect(wrapper.find('.ds-popover').exists()).toBe(true);
@@ -135,7 +135,7 @@ describe('Popover', () => {
 		'should prevent %s only in manual mode',
 		async (eventName) => {
 			for (const manual of [false, true]) {
-				const wrapper = await setupForced({ manual });
+				const wrapper = await setupForced({ isManual: manual });
 				const event = new Event(eventName, { cancelable: true });
 				wrapper.findComponent(PopoverContent).vm.$emit(eventName, event);
 				expect(event.defaultPrevented).toBe(manual);
