@@ -37,10 +37,7 @@
 						<div v-if="subtitleText" class="ds-popover__subtitle">
 							{{ subtitleText }}</div
 						>
-						<div
-							class="ds-popover__contentSlot"
-							:class="{ '-ds-maxHeight': hasMaxHeight }"
-						>
+						<div class="ds-popover__contentSlot" :style="contentSlotStyles">
 							<slot :close="close" />
 						</div>
 					</div>
@@ -106,24 +103,12 @@
 		word-break: break-word;
 	}
 
-	&__contentSlot.-ds-maxHeight {
-		overflow: hidden scroll;
-	}
-
 	&.-ds-small {
 		width: min(90vw, 320px);
-
-		#{$self}__contentSlot.-ds-maxHeight {
-			max-height: 160px;
-		}
 	}
 
 	&.-ds-medium {
 		width: min(90vw, 460px);
-
-		#{$self}__contentSlot.-ds-maxHeight {
-			max-height: 250px;
-		}
 	}
 
 	&__image {
@@ -168,7 +153,7 @@
 </style>
 
 <script setup lang="ts">
-import { watch } from 'vue';
+import { computed, watch } from 'vue';
 import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui';
 
 import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
@@ -205,7 +190,7 @@ const {
 	appendToBody = true,
 	sideFlip = true,
 	size = POPOVER_SIZES.SMALL,
-	hasMaxHeight = false,
+	maxHeight = null,
 	isPointerVisible = true,
 	hideWhenDetached = false,
 } = defineProps<{
@@ -229,7 +214,8 @@ const {
 	// where scrolling can't reach it. Unflipped, it stays below and the page scrolls to reveal it.
 	sideFlip?: boolean;
 	size?: PopoverSize;
-	hasMaxHeight?: boolean;
+	// Caps the content slot; the title, subtitle and button stay visible above and below it.
+	maxHeight?: string | null;
 	isPointerVisible?: boolean;
 	// On: the panel hides when the reference leaves the boundary (the viewport by default; a
 	// scrolling container counts only when passed as collisionBoundary).
@@ -242,6 +228,8 @@ defineEmits<{
 }>();
 
 const open = defineModel<boolean>('open', { default: false });
+
+const contentSlotStyles = computed(() => (maxHeight ? { maxHeight } : {}));
 
 function onOpenChange(value: boolean) {
 	if (!isManual) open.value = value;

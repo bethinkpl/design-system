@@ -152,6 +152,14 @@ describe('Popover', () => {
 		expect(wrapper.emitted('button-click')).toHaveLength(1);
 	});
 
+	it('should limit the content slot height when maxHeight is set', async () => {
+		const wrapper = await setupForced({ maxHeight: '250px' });
+
+		const contentSlot = wrapper.find('.ds-popover__contentSlot');
+
+		expect(contentSlot.attributes('style')).toContain('max-height: 250px');
+	});
+
 	it.each([true, false])('should render the arrow: %s', async (isPointerVisible) => {
 		const wrapper = await setupForced({ isPointerVisible });
 

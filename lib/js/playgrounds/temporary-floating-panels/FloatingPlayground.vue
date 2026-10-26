@@ -79,7 +79,7 @@
 				>{{
 					kind === 'dropdown'
 						? 'maxHeight = 180px'
-						: 'hasMaxHeight = true · small content area limited to 160px'
+						: 'Reka: maxHeight = 160px · Legacy: maxHeight = true, small content area limited to 160px'
 				}}. Scroll within the panel to the last item.</p
 			>
 			<panel-pair :kind="kind" label="Max height" :count="45" limited />
@@ -274,7 +274,7 @@
 }
 .ds-testPageSpacer {
 	color: #526078;
-	height: 65vh;
+	height: 98vh;
 	padding-top: 80px;
 }
 .ds-testBottomDock {

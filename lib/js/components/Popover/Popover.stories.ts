@@ -19,7 +19,7 @@ const StoryTemplate: StoryFn<typeof Popover> = (args) => ({
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px; background: var(--raw-gray-50);">' +
-		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :has-max-height="hasMaxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :hide-when-detached="hideWhenDetached">' +
+		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :hide-when-detached="hideWhenDetached">' +
 		'<template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>' +
 		'<div>{{ definitionSlot }}</div>' +
 		'</popover>' +
@@ -30,7 +30,6 @@ export const Interactive = StoryTemplate.bind({});
 
 Interactive.args = {
 	size: POPOVER_SIZES.SMALL,
-	hasMaxHeight: false,
 	side: POPOVER_SIDES.BOTTOM,
 	align: POPOVER_ALIGNS.CENTER,
 	color: POPOVER_COLORS.DEFAULT,
@@ -42,6 +41,7 @@ Interactive.args = {
 	isDisabled: false,
 	isManual: false,
 	open: false,
+	maxHeight: '',
 	isPointerVisible: true,
 	sideFlip: true,
 	appendToBody: true,
@@ -74,6 +74,9 @@ const argTypes = {
 	isDisabled: {
 		control: 'boolean',
 	},
+	maxHeight: {
+		control: 'text',
+	},
 } as ArgTypes;
 
 Interactive.argTypes = argTypes;
@@ -92,7 +95,7 @@ const PopoverWithHTMLStoryTemplate: StoryFn<typeof Popover> = (args) => ({
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px">' +
-		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :open="open" :size="size" :has-max-height="hasMaxHeight" :is-pointer-visible="isPointerVisible">' +
+		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :open="open" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible">' +
 		'<template #reference><span>click me!</span></template>' +
 		'<template #default><b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork. <b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.<b>Bacon</b> ipsum dolor <u>amet</u> t-bone meatball ground round turducken buffalo pork.</template>' +
 		'</popover>' +
@@ -103,7 +106,7 @@ export const PopoverMMaxHeightNoPointer = PopoverWithHTMLStoryTemplate.bind({});
 
 PopoverMMaxHeightNoPointer.args = {
 	size: POPOVER_SIZES.MEDIUM,
-	hasMaxHeight: true,
+	maxHeight: '250px',
 	side: POPOVER_SIDES.BOTTOM,
 	align: POPOVER_ALIGNS.CENTER,
 	color: POPOVER_COLORS.DEFAULT,

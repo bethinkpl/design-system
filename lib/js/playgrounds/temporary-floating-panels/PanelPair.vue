@@ -171,7 +171,8 @@ function panelProps(legacy: boolean) {
 			else props.align = 'end';
 		}
 	} else {
-		props[legacy ? 'maxHeight' : 'hasMaxHeight'] = limited;
+		// Legacy takes a boolean with a fixed 160px cap for the small size; Reka matches it.
+		props.maxHeight = legacy ? limited : limited ? '160px' : undefined;
 		props.titleText = label;
 		props.size = 'small';
 	}
