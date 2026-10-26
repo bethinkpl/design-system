@@ -2,7 +2,6 @@ import { Value } from '../../utils/type.utils';
 
 export const DROPDOWN_RADIUSES = {
 	SINGLE: 'single',
-	NONE: 'none',
 	BOTH: 'both',
 } as const;
 
