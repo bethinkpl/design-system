@@ -2,12 +2,12 @@
 <!-- eslint-disable @intlify/vue-i18n/no-raw-text -->
 <template>
 	<div class="ds-testPair" :class="{ 'ds-testPairEnd': edge }">
-		<div v-for="legacy in [false, true]" :key="String(legacy)" class="ds-testExample">
-			<small>{{ legacy ? 'Legacy · vue-popperjs' : 'New · Reka' }}</small>
-			<component :is="panel(legacy)" v-bind="panelProps(legacy)">
+		<div v-for="column in columns" :key="column.name" class="ds-testExample">
+			<small>{{ column.caption }}</small>
+			<component :is="panel(column.legacy)" v-bind="panelProps(column)">
 				<template #reference>
 					<ds-button as="button" :style="{ width: wide ? '240px' : undefined }">
-						{{ legacy ? 'Legacy' : 'Reka' }} · {{ label }}
+						{{ column.name }} · {{ label }}
 					</ds-button>
 				</template>
 				<template #default="{ close }">
@@ -126,6 +126,7 @@ const {
 	form = false,
 	unbroken = false,
 	hideWhenDetached = false,
+	compareFitToViewport = false,
 } = defineProps<{
 	kind: 'dropdown' | 'popover';
 	label?: string;
@@ -139,7 +140,34 @@ const {
 	unbroken?: boolean;
 	// Reka only; Legacy has no equivalent.
 	hideWhenDetached?: boolean;
+	// Two Reka panels, fitToViewport true and false, instead of Reka vs Legacy.
+	compareFitToViewport?: boolean;
 }>();
+interface Column {
+	name: string;
+	caption: string;
+	legacy: boolean;
+	fitToViewport?: boolean;
+}
+const columns: Array<Column> = compareFitToViewport
+	? [
+			{
+				name: 'Fit',
+				caption: 'Reka · fitToViewport = true',
+				legacy: false,
+				fitToViewport: true,
+			},
+			{
+				name: 'No fit',
+				caption: 'Reka · fitToViewport = false',
+				legacy: false,
+				fitToViewport: false,
+			},
+		]
+	: [
+			{ name: 'Reka', caption: 'New · Reka', legacy: false },
+			{ name: 'Legacy', caption: 'Legacy · vue-popperjs', legacy: true },
+		];
 const selected = ref<number | null>(null);
 const expanded = ref(false);
 function panel(legacy: boolean) {
@@ -151,8 +179,9 @@ function panel(legacy: boolean) {
 			? PopOverLegacy
 			: Popover;
 }
-function panelProps(legacy: boolean) {
+function panelProps({ legacy, fitToViewport }: Column) {
 	const props: Record<string, unknown> = {};
+	if (fitToViewport !== undefined) props.fitToViewport = fitToViewport;
 	if (portal !== undefined) props.appendToBody = portal;
 	if (!legacy) props.hideWhenDetached = hideWhenDetached;
 	if (kind === 'dropdown') {

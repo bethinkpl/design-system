@@ -30,6 +30,17 @@
 			<panel-pair :kind="kind" label="Long" :count="45" />
 		</section>
 		<section>
+			<h2>02b · fitToViewport: true vs false</h2>
+			<p
+				>Two Reka panels, 45 items, no max height. Scroll so the triggers sit near the
+				bottom of the window, then open each. True: the panel is capped to the space on
+				screen, scrolls inside and flips above the trigger when there is more room there.
+				False: it keeps its full height below the trigger and runs past the window, so
+				scroll the page to reach the last item.</p
+			>
+			<panel-pair :kind="kind" label="Long" :count="45" compare-fit-to-viewport />
+		</section>
+		<section>
 			<h2>03 · Explicit max height</h2>
 			<p
 				>{{
