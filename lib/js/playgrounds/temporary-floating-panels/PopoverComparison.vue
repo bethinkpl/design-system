@@ -302,13 +302,13 @@
 			why="Popovers inside cards and sidebars. This is why appendToBody is on by default."
 			:steps="[
 				'Open the popover in the dashed overflow: hidden box.',
-				'Scroll the second box until the trigger shows, open it and scroll the box.',
+				'Scroll the second box until the trigger shows, open it and scroll the box until the trigger leaves it.',
 			]"
 			:expected="[
 				'The Reka popover shows in full outside the clipping box.',
-				'In the scrolling box the popover stays attached to its trigger and within the box.',
+				'In the scrolling box the popover stays inside the box: attached to the trigger while it is in view, then at the box edge.',
 			]"
-			legacy-note="Legacy renders inline by default (appendToBody=false), so the box cuts it off. boundaries-selector becomes collision-boundary."
+			legacy-note="Legacy renders inline by default (appendToBody=false), so the box cuts it off. boundaries-selector becomes collision-boundary. Legacy keeps the popover in the box on its own; Reka needs stick-to-boundary for that."
 		>
 			<side-by-side>
 				<template #reka="{ log }">
@@ -328,7 +328,8 @@
 							<div class="ds-testScrollbox__spacer">Scroll down ↓</div>
 							<popover
 								:collision-boundary="rekaScrollbox"
-								title-text="collisionBoundary"
+								stick-to-boundary
+								title-text="collisionBoundary + stickToBoundary"
 								@update:open="log(`scrolling · update:open ${$event}`)"
 							>
 								<template #reference

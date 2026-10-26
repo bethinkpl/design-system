@@ -21,6 +21,8 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
+					:sticky="stickToBoundary ? 'always' : 'partial'"
+					:prioritize-position="stickToBoundary"
 					@open-auto-focus="preventInManualMode"
 					@close-auto-focus="preventInManualMode"
 					@escape-key-down="preventInManualMode"
@@ -193,6 +195,7 @@ const {
 	maxHeight = null,
 	isPointerVisible = true,
 	hideWhenDetached = false,
+	stickToBoundary = false,
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
@@ -221,6 +224,11 @@ const {
 	// scrolling container counts only when passed as collisionBoundary).
 	// Off: it keeps following the reference, also out of view.
 	hideWhenDetached?: boolean;
+	// On: the panel stays within the boundary even after the reference leaves it, detaching from
+	// the reference and sticking to the boundary's edge, like the Legacy components did. Pass a
+	// scrolling container as collisionBoundary to keep the panel inside it. hideWhenDetached wins
+	// when both are on.
+	stickToBoundary?: boolean;
 }>();
 
 defineEmits<{

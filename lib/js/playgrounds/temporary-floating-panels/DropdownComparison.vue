@@ -254,13 +254,13 @@
 			why="Dropdowns in scrolling sidebars and tables. wnl-platform passes boundaries-selector in a few such places."
 			:steps="[
 				'Scroll the dashed box until the trigger shows, and open the panel.',
-				'Scroll the box up and down while the panel is open.',
+				'Scroll the box until the trigger leaves it, in both directions.',
 			]"
 			:expected="[
-				'The panel stays attached to the trigger while the box scrolls.',
-				'The panel stays inside the dashed box (collisionBoundary).',
+				'While the trigger is in the box, the panel stays attached to it and inside the box.',
+				'Once the trigger leaves the box, the panel detaches and stays at the box edge.',
 			]"
-			legacy-note="boundaries-selector (a CSS selector) becomes collision-boundary (an element)."
+			legacy-note="boundaries-selector (a CSS selector) becomes collision-boundary (an element). Legacy keeps the panel in the box on its own; Reka needs stick-to-boundary for that."
 		>
 			<side-by-side>
 				<template #reka="{ log }">
@@ -268,6 +268,7 @@
 						<div class="ds-testScrollbox__spacer">Scroll down ↓</div>
 						<dropdown
 							:collision-boundary="rekaScrollbox"
+							stick-to-boundary
 							max-height="160px"
 							@update:open="log(`update:open ${$event}`)"
 						>

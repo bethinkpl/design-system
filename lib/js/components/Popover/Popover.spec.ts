@@ -195,6 +195,19 @@ describe('Popover', () => {
 		expect(content.props('hideWhenDetached')).toBe(true);
 	});
 
+	it.each([
+		[true, 'always', true],
+		[false, 'partial', false],
+	])(
+		'should keep the panel in the boundary with stickToBoundary: %s',
+		async (stickToBoundary, sticky, prioritizePosition) => {
+			const content = (await setupForced({ stickToBoundary })).findComponent(PopoverContent);
+
+			expect(content.props('sticky')).toBe(sticky);
+			expect(content.props('prioritizePosition')).toBe(prioritizePosition);
+		},
+	);
+
 	it('should pass sideFlip through', async () => {
 		const content = (await setupForced({ sideFlip: false })).findComponent(PopoverContent);
 

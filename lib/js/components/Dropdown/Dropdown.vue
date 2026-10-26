@@ -24,6 +24,8 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
+					:sticky="stickToBoundary ? 'always' : 'partial'"
+					:prioritize-position="stickToBoundary"
 				>
 					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
 						<slot :close="close" />
@@ -101,6 +103,7 @@ const {
 	maxHeight = null,
 	sideFlip = true,
 	hideWhenDetached = false,
+	stickToBoundary = false,
 } = defineProps<{
 	appendToBody?: boolean;
 	// The element the panel stays within; the viewport when not set.
@@ -120,6 +123,11 @@ const {
 	// scrolling container counts only when passed as collisionBoundary).
 	// Off: it keeps following the reference, also out of view.
 	hideWhenDetached?: boolean;
+	// On: the panel stays within the boundary even after the reference leaves it, detaching from
+	// the reference and sticking to the boundary's edge, like the Legacy components did. Pass a
+	// scrolling container as collisionBoundary to keep the panel inside it. hideWhenDetached wins
+	// when both are on.
+	stickToBoundary?: boolean;
 }>();
 
 const open = defineModel<boolean>('open', { default: false });

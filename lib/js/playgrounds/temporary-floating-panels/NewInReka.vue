@@ -91,29 +91,31 @@
 
 		<test-case
 			id="hide-when-detached"
-			title="hideWhenDetached"
-			why="Decide whether we need it: should a panel disappear when its trigger scrolls out of view?"
+			title="hideWhenDetached and stickToBoundary"
+			why="What should a panel do when its trigger scrolls out of its container? Decide whether we need both options."
 			:steps="[
-				'Open both panels inside the dashed box (one at a time).',
+				'Open each panel inside the dashed box (one at a time).',
 				'Scroll the box until the trigger leaves it, then scroll back.',
 			]"
 			:expected="[
-				'false (default): the panel keeps following the trigger out of the box.',
-				'true: the panel hides once the trigger leaves the box and shows again when it comes back.',
+				'Default: the panel keeps following the trigger out of the box.',
+				'hideWhenDetached: the panel hides once the trigger leaves the box and shows again when it comes back.',
+				'stickToBoundary: the panel detaches and stays at the box edge, like Legacy.',
 			]"
 		>
 			<div ref="detachScrollbox" class="ds-testScrollbox">
 				<div class="ds-testScrollbox__spacer">Scroll down ↓</div>
 				<div class="ds-testRow">
 					<dropdown
-						v-for="hide in [false, true]"
-						:key="String(hide)"
+						v-for="variant in detachVariants"
+						:key="variant.label"
 						:collision-boundary="detachScrollbox"
-						:hide-when-detached="hide"
+						:hide-when-detached="variant.hideWhenDetached"
+						:stick-to-boundary="variant.stickToBoundary"
 						max-height="160px"
 					>
 						<template #reference
-							><ds-button>hideWhenDetached = {{ hide }}</ds-button></template
+							><ds-button>{{ variant.label }}</ds-button></template
 						>
 						<template #default="{ close }">
 							<numbered-list :count="12" @pick="close()" />
@@ -177,7 +179,7 @@ import DsButton, { BUTTON_SIZES } from '../../components/Buttons/Button';
 const toc = [
 	{ id: 'side-flip', title: 'sideFlip' },
 	{ id: 'v-model', title: 'v-model:open and close()' },
-	{ id: 'hide-when-detached', title: 'hideWhenDetached' },
+	{ id: 'hide-when-detached', title: 'hideWhenDetached and stickToBoundary' },
 	{ id: 'escape', title: 'Esc' },
 ];
 
@@ -211,4 +213,9 @@ function openFor(name: ControlledName) {
 }
 
 const detachScrollbox = useTemplateRef<HTMLElement>('detachScrollbox');
+const detachVariants = [
+	{ label: 'Default', hideWhenDetached: false, stickToBoundary: false },
+	{ label: 'hideWhenDetached', hideWhenDetached: true, stickToBoundary: false },
+	{ label: 'stickToBoundary', hideWhenDetached: false, stickToBoundary: true },
+];
 </script>

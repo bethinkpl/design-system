@@ -140,6 +140,21 @@ describe('Dropdown', () => {
 		expect(wrapper.findComponent(PopoverContent).props('hideWhenDetached')).toBe(true);
 	});
 
+	it.each([
+		[true, 'always', true],
+		[false, 'partial', false],
+	])(
+		'should keep the panel in the boundary with stickToBoundary: %s',
+		async (stickToBoundary, sticky, prioritizePosition) => {
+			const wrapper = setup({ stickToBoundary });
+			await open(wrapper);
+			const content = wrapper.findComponent(PopoverContent);
+
+			expect(content.props('sticky')).toBe(sticky);
+			expect(content.props('prioritizePosition')).toBe(prioritizePosition);
+		},
+	);
+
 	it.each([true, false])('should portal the panel to body: %s', async (appendToBody) => {
 		const wrapper = setup({ appendToBody });
 		await open(wrapper);

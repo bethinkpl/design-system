@@ -33,7 +33,8 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
                 :align="align"
                 :max-height="maxHeight"
                 :side-flip="sideFlip"
-                :hide-when-detached="hideWhenDetached">
+                :hide-when-detached="hideWhenDetached"
+                :stick-to-boundary="stickToBoundary">
         <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span>
         </template>
         <template #default="{ close }">
@@ -57,6 +58,7 @@ const args = {
 	align: DROPDOWN_ALIGNS.START,
 	sideFlip: true,
 	hideWhenDetached: false,
+	stickToBoundary: false,
 } as Args;
 
 const argTypes = {
