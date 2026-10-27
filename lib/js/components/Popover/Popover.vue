@@ -89,7 +89,7 @@
 	z-index: $z-index-top-layer;
 
 	&__arrow {
-		fill: $color-inverted-border;
+		fill: $color-default-background;
 	}
 
 	&.-ds-color-neutral {
