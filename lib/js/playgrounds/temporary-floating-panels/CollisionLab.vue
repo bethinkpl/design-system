@@ -197,7 +197,7 @@
 							:placement="legacyPlacement"
 							:max-height="maxHeight ?? undefined"
 							:radius="isSingleRadius ? 'bottom' : 'both'"
-							:has-same-width="sameWidth"
+							:same-width="sameWidth"
 							:boundaries-selector="legacyBoundariesSelector"
 						>
 							<template #reference

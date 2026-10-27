@@ -136,7 +136,7 @@
 				</template>
 				<template #legacy="{ log }">
 					<dropdown-legacy
-						has-same-width
+						same-width
 						radius="bottom"
 						@show="log('show')"
 						@hide="log('hide')"
@@ -367,7 +367,7 @@
 					</template>
 					<template #legacy="{ log }">
 						<dropdown-legacy
-							has-same-width
+							same-width
 							max-height="240px"
 							@show="log('show')"
 							@hide="log('hide')"

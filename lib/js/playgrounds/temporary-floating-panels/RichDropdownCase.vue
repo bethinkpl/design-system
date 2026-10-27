@@ -7,6 +7,7 @@
 			:is="legacy ? DropdownLegacy : Dropdown"
 			ref="dropdown"
 			has-same-width
+			same-width
 			append-to-body
 			:open="open"
 			@update:open="open = $event"
