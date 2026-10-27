@@ -17,6 +17,7 @@
 					:side="side"
 					:align="align"
 					:side-offset="SIDE_OFFSET"
+					:arrow-padding="ARROW_PADDING"
 					:side-flip="sideFlip"
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="absolute"
@@ -177,6 +178,10 @@ const ARROW_WIDTH = 24;
 const ARROW_HEIGHT = 16;
 // $space-2: the gap between the reference and the panel. Reka adds the arrow's height on top.
 const SIDE_OFFSET = 4;
+// $space-6: keeps the arrow off the panel's rounded corners ($radius-m) when aligned to start or end.
+// Reka measures the arrow before rotating it, so on the left and right sides the visible gap is 4px
+// smaller. The panel shifts instead when that is needed to keep pointing at the reference's center.
+const ARROW_PADDING = 12;
 
 const {
 	collisionBoundary = null,
