@@ -50,7 +50,7 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
 export const Interactive = StoryTemplate.bind({});
 
 const args = {
-	radius: DROPDOWN_RADIUSES.BOTH,
+	radius: DROPDOWN_RADIUSES.BOTH_EDGES,
 	open: false,
 	appendToBody: true,
 	hasSameWidth: false,
@@ -273,7 +273,7 @@ export const RichListTrigger: StoryFn<typeof Dropdown> = () => ({
 	},
 	template: `
     <div style="padding: 24px; max-width: 400px;">
-      <dropdown has-same-width :radius="DROPDOWN_RADIUSES.SINGLE">
+      <dropdown has-same-width :radius="DROPDOWN_RADIUSES.SINGLE_EDGE">
         <template #reference="{ isOpen, toggle }">
           <ds-basic-rich-list-item
             :size="RICH_LIST_ITEM_SIZE.MEDIUM"

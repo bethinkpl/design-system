@@ -109,7 +109,7 @@
 				<template #reka="{ log }">
 					<dropdown
 						has-same-width
-						radius="single"
+						radius="single-edge"
 						@update:open="log(`update:open ${$event}`)"
 					>
 						<template #reference="{ isOpen }">

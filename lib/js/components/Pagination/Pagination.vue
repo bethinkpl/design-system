@@ -29,7 +29,7 @@
 					</div>
 					<div v-else :key="`ellipsis${index}`">
 						<dropdown
-							:radius="DROPDOWN_RADIUSES.SINGLE"
+							:radius="DROPDOWN_RADIUSES.SINGLE_EDGE"
 							max-height="250px"
 							:align="
 								ellipsisAsSecond(index)

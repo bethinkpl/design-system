@@ -13,8 +13,8 @@
 				<popover-content
 					class="ds-dropdown"
 					:class="{
-						'-ds-radiusSingle': radius === DROPDOWN_RADIUSES.SINGLE,
-						'-ds-radiusBoth': radius === DROPDOWN_RADIUSES.BOTH,
+						'-ds-radiusSingleEdge': radius === DROPDOWN_RADIUSES.SINGLE_EDGE,
+						'-ds-radiusBothEdges': radius === DROPDOWN_RADIUSES.BOTH_EDGES,
 						'-ds-hasSameWidth': hasSameWidth,
 					}"
 					side="bottom"
@@ -57,13 +57,13 @@
 	min-width: 128px;
 	z-index: $z-index-top-layer;
 
-	&.-ds-radiusBoth,
-	&.-ds-radiusSingle[data-side='bottom'] {
+	&.-ds-radiusBothEdges,
+	&.-ds-radiusSingleEdge[data-side='bottom'] {
 		@include dropdownSurfaceRadiusBottom;
 	}
 
-	&.-ds-radiusBoth,
-	&.-ds-radiusSingle[data-side='top'] {
+	&.-ds-radiusBothEdges,
+	&.-ds-radiusSingleEdge[data-side='top'] {
 		@include dropdownSurfaceRadiusTop;
 	}
 
@@ -98,7 +98,7 @@ const {
 	appendToBody = true,
 	collisionBoundary = null,
 	hasSameWidth = false,
-	radius = DROPDOWN_RADIUSES.BOTH,
+	radius = DROPDOWN_RADIUSES.BOTH_EDGES,
 	align = DROPDOWN_ALIGNS.START,
 	maxHeight = null,
 	sideFlip = true,

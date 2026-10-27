@@ -168,7 +168,7 @@
 							:align="align === 'end' ? 'end' : 'start'"
 							:max-height="maxHeight"
 							:side-flip="sideFlip"
-							:radius="isSingleRadius ? 'single' : 'both'"
+							:radius="isSingleRadius ? 'single-edge' : 'both-edges'"
 							:has-same-width="sameWidth"
 							:append-to-body="appendToBody"
 							:collision-boundary="collisionBoundary"
