@@ -127,6 +127,7 @@
 		color: $color-neutral-text-heavy;
 		display: flex;
 		flex-direction: column;
+		gap: $space-4;
 		min-height: 0;
 		padding: $space-8;
 	}
@@ -136,7 +137,6 @@
 
 		color: $color-default-text;
 		flex-shrink: 0;
-		margin-bottom: $space-4;
 	}
 
 	&__subtitle {
@@ -144,7 +144,6 @@
 
 		color: $color-neutral-text;
 		flex-shrink: 0;
-		margin-bottom: $space-4;
 	}
 
 	&__button {
