@@ -75,16 +75,14 @@
 			/>
 		</template>
 		<template v-if="!isLoading && $slots.dropdown">
-			<ds-dropdown v-model:open="isDropdownOpen" :align="DROPDOWN_ALIGNS.END">
-				<template #reference>
+			<ds-dropdown :align="DROPDOWN_ALIGNS.END">
+				<template #reference="{ isOpen }">
 					<ds-icon-button
 						touchable-deprecated
 						:icon="dropdownIcon"
 						:size="ICON_BUTTON_SIZES.MEDIUM"
 						:color="ICON_BUTTON_COLORS.NEUTRAL"
-						:state="
-							isDropdownOpen ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT
-						"
+						:state="isOpen ? ICON_BUTTON_STATES.HOVERED : ICON_BUTTON_STATES.DEFAULT"
 					/>
 				</template>
 				<template #default="{ close }">
@@ -386,7 +384,6 @@ export default defineComponent({
 			OVERLAY_HEADER_BORDER_COLORS: Object.freeze(OVERLAY_HEADER_BORDER_COLORS),
 			OVERLAY_HEADER_STATES: Object.freeze(OVERLAY_HEADER_STATES),
 			DROPDOWN_ALIGNS: Object.freeze(DROPDOWN_ALIGNS),
-			isDropdownOpen: false,
 			TOOLTIP_PLACEMENTS: Object.freeze(TOOLTIP_PLACEMENTS),
 		};
 	},
