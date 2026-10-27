@@ -21,6 +21,8 @@
 			'-ds-elevation-x-small': elevation === BUTTON_ELEVATIONS.X_SMALL,
 			'-ds-elevation-small': elevation === BUTTON_ELEVATIONS.SMALL,
 		}"
+		:disabled="isNativelyDisabled || undefined"
+		:aria-busy="state === BUTTON_STATES.LOADING || undefined"
 		:style="
 			color === BUTTON_COLORS.MAGIC
 				? {
@@ -111,6 +113,11 @@ const iconSize = computed((): IconSize => {
 	}
 	return ICON_SIZES.X_SMALL;
 });
+
+const isNativelyDisabled = computed(
+	(): boolean =>
+		as === 'button' && (state === BUTTON_STATES.LOADING || state === BUTTON_STATES.DISABLED),
+);
 
 const colorClassName = computed((): string => {
 	return `-ds-color-${color}`;

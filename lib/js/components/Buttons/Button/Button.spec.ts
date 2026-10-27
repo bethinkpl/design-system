@@ -1,5 +1,5 @@
-import { describe, expect, it, test } from 'vitest';
-import { shallowMount } from '@vue/test-utils';
+import { describe, expect, it, test, vi } from 'vitest';
+import { mount, shallowMount } from '@vue/test-utils';
 
 import Button from './Button.vue';
 import {
@@ -120,5 +120,60 @@ describe('Button', () => {
 	it('renders as anchor if "as" prop is set to "a"', () => {
 		const component = createComponent({ as: 'a' });
 		expect(component.element.tagName).toBe('A');
+	});
+
+	// Enter in a form field submits the form through its button whatever the CSS says -
+	// only the native `disabled` attribute prevents a loading or disabled button from submitting
+	test.each([BUTTON_STATES.LOADING, BUTTON_STATES.DISABLED])(
+		'sets the native disabled attribute on a button in the %s state',
+		(state) => {
+			const component = createComponent({ as: 'button', state });
+			expect(component.attributes('disabled')).toBeDefined();
+		},
+	);
+
+	test.each([BUTTON_STATES.DEFAULT, BUTTON_STATES.HOVERED, BUTTON_STATES.FOCUSED])(
+		'leaves a button in the %s state enabled',
+		(state) => {
+			const component = createComponent({ as: 'button', state });
+			expect(component.attributes('disabled')).toBeUndefined();
+		},
+	);
+
+	it('does not set the disabled attribute on elements other than a button', () => {
+		const component = createComponent({ as: 'a', state: BUTTON_STATES.LOADING });
+		expect(component.attributes('disabled')).toBeUndefined();
+	});
+
+	it('marks a loading button as busy', () => {
+		expect(
+			createComponent({ as: 'button', state: BUTTON_STATES.LOADING }).attributes('aria-busy'),
+		).toBe('true');
+		expect(createComponent({ as: 'button' }).attributes('aria-busy')).toBeUndefined();
+	});
+
+	it('does not submit its form while loading', async () => {
+		const onSubmit = vi.fn((event: Event) => event.preventDefault());
+		const form = document.createElement('form');
+		form.addEventListener('submit', onSubmit);
+		document.body.appendChild(form);
+
+		const component = mount(Button, {
+			props: { as: 'button', state: BUTTON_STATES.LOADING },
+			attachTo: form,
+		});
+
+		// implicit submission (Enter in a field) activates the form's default button like a click does
+		const button = component.element as HTMLButtonElement;
+
+		button.click();
+		expect(onSubmit).not.toHaveBeenCalled();
+
+		await component.setProps({ state: BUTTON_STATES.DEFAULT });
+		button.click();
+		expect(onSubmit).toHaveBeenCalledTimes(1);
+
+		component.unmount();
+		form.remove();
 	});
 });
