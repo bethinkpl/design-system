@@ -28,7 +28,7 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
     <div style="position: relative">
       <dropdown :open="open"
                 :append-to-body="appendToBody"
-                :same-width="sameWidth"
+                :has-same-width="hasSameWidth"
                 :radius="radius"
                 :align="align"
                 :max-height="maxHeight"
@@ -53,7 +53,7 @@ const args = {
 	radius: DROPDOWN_RADIUSES.BOTH,
 	open: false,
 	appendToBody: true,
-	sameWidth: false,
+	hasSameWidth: false,
 	maxHeight: '',
 	align: DROPDOWN_ALIGNS.START,
 	sideFlip: true,
@@ -95,7 +95,7 @@ export const InModal: StoryFn<typeof Dropdown> = (args) => ({
 	},
 	template: `
     <modal header-title="Dropdown in a modal">
-      <dropdown :append-to-body="appendToBody" same-width max-height="240px">
+      <dropdown :append-to-body="appendToBody" has-same-width max-height="240px">
         <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span></template>
         <template #default="{ close }">
           <select-list>
@@ -273,7 +273,7 @@ export const RichListTrigger: StoryFn<typeof Dropdown> = () => ({
 	},
 	template: `
     <div style="padding: 24px; max-width: 400px;">
-      <dropdown same-width :radius="DROPDOWN_RADIUSES.SINGLE">
+      <dropdown has-same-width :radius="DROPDOWN_RADIUSES.SINGLE">
         <template #reference="{ isOpen, toggle }">
           <ds-basic-rich-list-item
             :size="RICH_LIST_ITEM_SIZE.MEDIUM"

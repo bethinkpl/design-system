@@ -6,7 +6,7 @@
 		<component
 			:is="legacy ? DropdownLegacy : Dropdown"
 			ref="dropdown"
-			same-width
+			has-same-width
 			append-to-body
 			:open="open"
 			@update:open="open = $event"

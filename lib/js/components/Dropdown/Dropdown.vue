@@ -15,7 +15,7 @@
 					:class="{
 						'-ds-radiusSingle': radius === DROPDOWN_RADIUSES.SINGLE,
 						'-ds-radiusBoth': radius === DROPDOWN_RADIUSES.BOTH,
-						'-ds-sameWidth': sameWidth,
+						'-ds-hasSameWidth': hasSameWidth,
 					}"
 					side="bottom"
 					:align="align"
@@ -67,7 +67,7 @@
 		@include dropdownSurfaceRadiusTop;
 	}
 
-	&.-ds-sameWidth {
+	&.-ds-hasSameWidth {
 		width: var(--reka-popover-trigger-width);
 	}
 
@@ -97,7 +97,7 @@ const SIDE_OFFSET = 4;
 const {
 	appendToBody = true,
 	collisionBoundary = null,
-	sameWidth = false,
+	hasSameWidth = false,
 	radius = DROPDOWN_RADIUSES.BOTH,
 	align = DROPDOWN_ALIGNS.START,
 	maxHeight = null,
@@ -108,7 +108,7 @@ const {
 	appendToBody?: boolean;
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
-	sameWidth?: boolean;
+	hasSameWidth?: boolean;
 	// Single rounds the edge away from the trigger, following the actual flipped side.
 	radius?: DropdownRadius;
 	align?: DropdownAlign;

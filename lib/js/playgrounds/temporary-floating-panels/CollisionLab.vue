@@ -169,7 +169,7 @@
 							:max-height="maxHeight"
 							:side-flip="sideFlip"
 							:radius="isSingleRadius ? 'single' : 'both'"
-							:same-width="sameWidth"
+							:has-same-width="sameWidth"
 							:append-to-body="appendToBody"
 							:collision-boundary="collisionBoundary"
 							:hide-when-detached="hideWhenDetached"
@@ -197,7 +197,7 @@
 							:placement="legacyPlacement"
 							:max-height="maxHeight ?? undefined"
 							:radius="isSingleRadius ? 'bottom' : 'both'"
-							:same-width="sameWidth"
+							:has-same-width="sameWidth"
 							:boundaries-selector="legacyBoundariesSelector"
 						>
 							<template #reference

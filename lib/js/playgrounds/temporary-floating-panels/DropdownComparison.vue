@@ -108,7 +108,7 @@
 			<side-by-side>
 				<template #reka="{ log }">
 					<dropdown
-						same-width
+						has-same-width
 						radius="single"
 						@update:open="log(`update:open ${$event}`)"
 					>
@@ -136,7 +136,7 @@
 				</template>
 				<template #legacy="{ log }">
 					<dropdown-legacy
-						same-width
+						has-same-width
 						radius="bottom"
 						@show="log('show')"
 						@hide="log('hide')"
@@ -355,7 +355,7 @@
 				<side-by-side>
 					<template #reka="{ log }">
 						<dropdown
-							same-width
+							has-same-width
 							max-height="240px"
 							@update:open="log(`update:open ${$event}`)"
 						>
@@ -367,7 +367,7 @@
 					</template>
 					<template #legacy="{ log }">
 						<dropdown-legacy
-							same-width
+							has-same-width
 							max-height="240px"
 							@show="log('show')"
 							@hide="log('hide')"

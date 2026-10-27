@@ -162,11 +162,11 @@ describe('Dropdown', () => {
 		expect(wrapper.findComponent(PopoverPortal).props('disabled')).toBe(!appendToBody);
 	});
 
-	it('should match the reference width when sameWidth is set', async () => {
-		const wrapper = setup({ sameWidth: true });
+	it('should match the reference width when hasSameWidth is set', async () => {
+		const wrapper = setup({ hasSameWidth: true });
 		await open(wrapper);
 
-		expect(wrapper.find('.ds-dropdown').classes()).toContain('-ds-sameWidth');
+		expect(wrapper.find('.ds-dropdown').classes()).toContain('-ds-hasSameWidth');
 	});
 
 	it('should limit the scrollable height when maxHeight is set', async () => {
