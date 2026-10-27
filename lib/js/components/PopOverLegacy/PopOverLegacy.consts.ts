@@ -1,15 +1,15 @@
-export const POP_OVER_COLORS = {
+export const POP_OVER_LEGACY_COLORS = {
 	DEFAULT: 'default',
 	NEUTRAL: 'neutral',
 } as const;
 
-export const POP_OVER_TRIGGER_ACTIONS = {
+export const POP_OVER_LEGACY_TRIGGER_ACTIONS = {
 	CLICK: 'click',
 	HOVER: 'hover',
 	NONE: 'none',
 } as const;
 
-export const POP_OVER_PLACEMENTS = {
+export const POP_OVER_LEGACY_PLACEMENTS = {
 	TOP: 'top',
 	BOTTOM: 'bottom',
 	LEFT: 'left',
@@ -18,7 +18,7 @@ export const POP_OVER_PLACEMENTS = {
 	BOTTOM_END: 'bottom-end',
 } as const;
 
-export const POP_OVER_SIZES = {
+export const POP_OVER_LEGACY_SIZES = {
 	SMALL: 'small',
 	MEDIUM: 'medium',
 } as const;

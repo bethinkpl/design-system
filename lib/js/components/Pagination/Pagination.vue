@@ -29,19 +29,19 @@
 					</div>
 					<div v-else :key="`ellipsis${index}`">
 						<dropdown
-							:radius="DROPDOWN_RADIUSES.BOTTOM"
+							:radius="DROPDOWN_RADIUSES.SINGLE_EDGE"
 							max-height="250px"
-							:placement="
+							:align="
 								ellipsisAsSecond(index)
-									? DROPDOWN_PLACEMENTS.BOTTOM_START
-									: DROPDOWN_PLACEMENTS.BOTTOM_END
+									? DROPDOWN_ALIGNS.START
+									: DROPDOWN_ALIGNS.END
 							"
 						>
-							<template #reference="{ isOpened }">
+							<template #reference="{ isOpen }">
 								<div class="ds-pagination__itemWrapper -ds-touchable">
 									<span
 										class="ds-pagination__item"
-										:class="{ '-ds-selected': isOpened }"
+										:class="{ '-ds-selected': isOpen }"
 										>&hellip;</span
 									>
 								</div>
@@ -292,8 +292,7 @@ import { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES, ICON_BUTTON_STATES } from '../Bu
 import DsIcon from '../Icons/Icon/Icon.vue';
 import { ICON_SIZES, ICONS } from '../Icons/Icon';
 
-import { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../Dropdown/Dropdown.consts';
-import Dropdown from '../Dropdown/Dropdown.vue';
+import Dropdown, { DROPDOWN_ALIGNS, DROPDOWN_RADIUSES } from '../Dropdown';
 import { useLegacyI18n } from '../../composables/useLegacyI18n';
 
 import SelectList from '../SelectList/SelectList.vue';
@@ -349,7 +348,7 @@ export default defineComponent({
 	},
 	data() {
 		return {
-			DROPDOWN_PLACEMENTS: Object.freeze(DROPDOWN_PLACEMENTS),
+			DROPDOWN_ALIGNS: Object.freeze(DROPDOWN_ALIGNS),
 			DROPDOWN_RADIUSES: Object.freeze(DROPDOWN_RADIUSES),
 			ICON_BUTTON_SIZES: Object.freeze(ICON_BUTTON_SIZES),
 			ICON_BUTTON_COLORS: Object.freeze(ICON_BUTTON_COLORS),

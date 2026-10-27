@@ -242,10 +242,8 @@
 	// than the space available in the viewport.
 	max-width: var(--reka-select-content-available-width);
 	min-width: var(--reka-select-trigger-width);
-	// Portalled to <body>, so it needs to clear modal content. It sits on the modal layer
-	// rather than above it: the listbox is appended after the (also teleported) modal, so an
-	// equal z-index still paints it on top, and tooltips at 16777271 stay above both.
-	z-index: $z-index-modal;
+	// Portalled to <body>, so it needs to clear modal content.
+	z-index: $z-index-top-layer;
 }
 </style>
 
