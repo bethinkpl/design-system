@@ -258,9 +258,9 @@
 			]"
 			:expected="[
 				'While the trigger is in the box, the panel stays attached to it and inside the box.',
-				'Once the trigger leaves the box, the panel detaches and stays at the box edge.',
+				'Once the trigger leaves the box, the Reka panel keeps following it out of the box; Legacy detaches and stays at the box edge.',
 			]"
-			legacy-note="boundaries-selector (a CSS selector) becomes collision-boundary (an element). Legacy keeps the panel in the box on its own; Reka needs stick-to-boundary for that."
+			legacy-note="boundaries-selector (a CSS selector) becomes collision-boundary (an element). Legacy keeps the panel in the box after the trigger leaves; Reka keeps following the trigger, or hides with hide-when-detached."
 		>
 			<side-by-side>
 				<template #reka="{ log }">
@@ -268,7 +268,6 @@
 						<div class="ds-testScrollbox__spacer">Scroll down ↓</div>
 						<dropdown
 							:collision-boundary="rekaScrollbox"
-							stick-to-boundary
 							max-height="160px"
 							@update:open="log(`update:open ${$event}`)"
 						>

@@ -107,14 +107,6 @@
 							/>
 							hideWhenDetached</label
 						>
-						<label :class="{ '-ds-disabled': version === 'legacy' }"
-							><input
-								v-model="stickToBoundary"
-								type="checkbox"
-								:disabled="version === 'legacy'"
-							/>
-							stickToBoundary</label
-						>
 					</template>
 				</fieldset>
 			</template>
@@ -173,7 +165,6 @@
 							:append-to-body="appendToBody"
 							:collision-boundary="collisionBoundary"
 							:hide-when-detached="hideWhenDetached"
-							:stick-to-boundary="stickToBoundary"
 							@update:open="open = $event"
 						>
 							<template #reference
@@ -226,7 +217,6 @@
 							:append-to-body="appendToBody"
 							:collision-boundary="collisionBoundary"
 							:hide-when-detached="hideWhenDetached"
-							:stick-to-boundary="stickToBoundary"
 							title-text="Popover title"
 							@update:open="open = $event"
 						>
@@ -460,7 +450,6 @@ const isScrollable = ref(false);
 const hasCollisionBoundary = ref(false);
 const appendToBody = ref(true);
 const hideWhenDetached = ref(false);
-const stickToBoundary = ref(false);
 const stage = useTemplateRef<HTMLElement>('stage');
 const collisionBoundary = computed(() =>
 	isScrollable.value && hasCollisionBoundary.value ? stage.value : null,
@@ -475,7 +464,6 @@ watch(isScrollable, (scrollable) => {
 		hasCollisionBoundary.value = false;
 		appendToBody.value = true;
 		hideWhenDetached.value = false;
-		stickToBoundary.value = false;
 	}
 	centerScroll();
 });
@@ -524,7 +512,6 @@ const propsSummary = computed(() => {
 						: 'collisionBoundary'
 					: null,
 				hideWhenDetached.value && version.value === 'reka' ? 'hideWhenDetached' : null,
-				stickToBoundary.value && version.value === 'reka' ? 'stickToBoundary' : null,
 			]
 		: [];
 	if (version.value === 'legacy') {
@@ -563,7 +550,6 @@ watch(
 		hasCollisionBoundary,
 		appendToBody,
 		hideWhenDetached,
-		stickToBoundary,
 	],
 	() => {
 		open.value = false;

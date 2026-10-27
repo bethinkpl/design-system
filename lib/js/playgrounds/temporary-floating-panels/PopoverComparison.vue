@@ -306,9 +306,9 @@
 			]"
 			:expected="[
 				'The Reka popover shows in full outside the clipping box.',
-				'In the scrolling box the popover stays inside the box: attached to the trigger while it is in view, then at the box edge.',
+				'In the scrolling box the popover stays inside the box: attached to the trigger while it is in view, then following it out of the box.',
 			]"
-			legacy-note="Legacy renders inline by default (appendToBody=false), so the box cuts it off. boundaries-selector becomes collision-boundary. Legacy keeps the popover in the box on its own; Reka needs stick-to-boundary for that."
+			legacy-note="Legacy renders inline by default (appendToBody=false), so the box cuts it off. boundaries-selector becomes collision-boundary. Legacy keeps the popover in the box after the trigger leaves; Reka keeps following the trigger, or hides with hide-when-detached."
 		>
 			<side-by-side>
 				<template #reka="{ log }">
@@ -328,14 +328,13 @@
 							<div class="ds-testScrollbox__spacer">Scroll down ↓</div>
 							<popover
 								:collision-boundary="rekaScrollbox"
-								stick-to-boundary
-								title-text="collisionBoundary + stickToBoundary"
+								title-text="collisionBoundary"
 								@update:open="log(`scrolling · update:open ${$event}`)"
 							>
 								<template #reference
 									><ds-button>In a scrolling box</ds-button></template
 								>
-								Stays within the dashed box.
+								Stays within the dashed box while the trigger is in it.
 							</popover>
 							<div class="ds-testScrollbox__spacer"></div>
 						</div>
@@ -360,7 +359,7 @@
 								<template #reference
 									><ds-button>In a scrolling box</ds-button></template
 								>
-								Stays within the dashed box.
+								Stays within the dashed box while the trigger is in it.
 							</pop-over-legacy>
 							<div class="ds-testScrollbox__spacer"></div>
 						</div>

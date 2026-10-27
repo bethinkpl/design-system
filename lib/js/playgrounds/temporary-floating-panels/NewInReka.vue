@@ -91,8 +91,8 @@
 
 		<test-case
 			id="hide-when-detached"
-			title="hideWhenDetached and stickToBoundary"
-			why="What should a panel do when its trigger scrolls out of its container? Decide whether we need both options."
+			title="hideWhenDetached"
+			why="What should a panel do when its trigger scrolls out of its container? Decide whether we need the option."
 			:steps="[
 				'Open each panel inside the dashed box (one at a time).',
 				'Scroll the box until the trigger leaves it, then scroll back.',
@@ -100,7 +100,6 @@
 			:expected="[
 				'Default: the panel keeps following the trigger out of the box.',
 				'hideWhenDetached: the panel hides once the trigger leaves the box and shows again when it comes back.',
-				'stickToBoundary: the panel detaches and stays at the box edge, like Legacy.',
 			]"
 		>
 			<div ref="detachScrollbox" class="ds-testScrollbox">
@@ -111,7 +110,6 @@
 						:key="variant.label"
 						:collision-boundary="detachScrollbox"
 						:hide-when-detached="variant.hideWhenDetached"
-						:stick-to-boundary="variant.stickToBoundary"
 						max-height="160px"
 					>
 						<template #reference
@@ -179,7 +177,7 @@ import DsButton, { BUTTON_SIZES } from '../../components/Buttons/Button';
 const toc = [
 	{ id: 'side-flip', title: 'sideFlip' },
 	{ id: 'v-model', title: 'v-model:open and close()' },
-	{ id: 'hide-when-detached', title: 'hideWhenDetached and stickToBoundary' },
+	{ id: 'hide-when-detached', title: 'hideWhenDetached' },
 	{ id: 'escape', title: 'Esc' },
 ];
 
@@ -214,8 +212,7 @@ function openFor(name: ControlledName) {
 
 const detachScrollbox = useTemplateRef<HTMLElement>('detachScrollbox');
 const detachVariants = [
-	{ label: 'Default', hideWhenDetached: false, stickToBoundary: false },
-	{ label: 'hideWhenDetached', hideWhenDetached: true, stickToBoundary: false },
-	{ label: 'stickToBoundary', hideWhenDetached: false, stickToBoundary: true },
+	{ label: 'Default', hideWhenDetached: false },
+	{ label: 'hideWhenDetached', hideWhenDetached: true },
 ];
 </script>
