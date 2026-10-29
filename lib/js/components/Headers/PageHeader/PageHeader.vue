@@ -9,7 +9,10 @@
 			</div>
 			<div class="ds-pageHeader__contentWrapper">
 				<div class="ds-pageHeader__textWrapper">
-					<div class="ds-pageHeader__title">{{ pageTitle }}</div>
+					<div class="ds-pageHeader__titleWrapper">
+						<div v-if="eyebrow" class="ds-pageHeader__eyebrow">{{ eyebrow }}</div>
+						<div class="ds-pageHeader__title">{{ pageTitle }}</div>
+					</div>
 					<div v-if="supportingInfo" class="ds-pageHeader__supportingText"
 						>{{ supportingInfo }}
 					</div>
@@ -64,7 +67,25 @@
 		flex-direction: column;
 		gap: $space-2;
 		justify-content: center;
+		min-width: 0;
 		padding: $space-2 0;
+		width: 100%;
+	}
+
+	&__titleWrapper {
+		display: flex;
+		flex-direction: column;
+		gap: $space-1;
+		width: 100%;
+	}
+
+	&__eyebrow {
+		@include info-s-extensive-bold-uppercase;
+
+		color: $color-neutral-text-weak;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
 	}
 
 	&__title {
@@ -107,6 +128,10 @@ export default defineComponent({
 		pageTitle: {
 			type: String,
 			required: true,
+		},
+		eyebrow: {
+			type: String,
+			default: null,
 		},
 		supportingInfo: {
 			type: String,

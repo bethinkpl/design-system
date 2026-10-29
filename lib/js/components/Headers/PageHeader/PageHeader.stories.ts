@@ -18,6 +18,7 @@ const StoryTemplate: StoryFn<typeof PageHeader> = (args) => ({
 	template:
 		'<page-header' +
 		' :page-title="pageTitle"' +
+		' :eyebrow="eyebrow"' +
 		' :supporting-info="supportingInfo"' +
 		' :mobile-layout="mobileLayout"' +
 		' :divider="divider"' +
@@ -33,6 +34,7 @@ const args = {
 	breadcrumbs: '',
 	actions: '',
 	pageTitle: 'Page title',
+	eyebrow: 'Eyebrow text',
 	supportingInfo: 'Supporting info write here',
 	divider: true,
 	mobileLayout: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
@@ -46,6 +48,9 @@ const argTypes = {
 		control: 'text',
 	},
 	pageTitle: {
+		control: 'text',
+	},
+	eyebrow: {
 		control: 'text',
 	},
 	supportingInfo: {
@@ -68,6 +73,26 @@ Interactive.parameters = {
 	},
 	design: {
 		type: 'figma',
-		url: 'https://www.figma.com/file/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?type=design&node-id=6984-129711&t=ivzu5dM9vSgW20Re-0',
+		url: 'https://www.figma.com/design/izQdYyiBR1GQgFkaOIfIJI/LMS---DS-Components?node-id=13668-258372&p=f&m=dev',
 	},
 };
+
+export const WithEyebrow = StoryTemplate.bind({});
+WithEyebrow.argTypes = argTypes;
+WithEyebrow.args = {
+	...args,
+	eyebrow: 'Interna',
+	pageTitle: 'Kardiologia 1',
+	supportingInfo: 'Lekcja 26 / Powitanie',
+	actions: '<button>Action</button>',
+} as Args;
+WithEyebrow.parameters = Interactive.parameters;
+
+export const WithLongEyebrow = StoryTemplate.bind({});
+WithLongEyebrow.argTypes = argTypes;
+WithLongEyebrow.args = {
+	...WithEyebrow.args,
+	eyebrow:
+		'Interna – choroby układu sercowo-naczyniowego, oddechowego, pokarmowego i moczowego oraz endokrynologia, hematologia i reumatologia',
+} as Args;
+WithLongEyebrow.parameters = Interactive.parameters;
