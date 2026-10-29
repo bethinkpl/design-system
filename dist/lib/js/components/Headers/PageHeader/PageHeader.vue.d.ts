@@ -5,6 +5,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: StringConstructor;
         required: true;
     };
+    eyebrow: {
+        type: StringConstructor;
+        default: null;
+    };
     supportingInfo: {
         type: StringConstructor;
         default: null;
@@ -28,6 +32,10 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         type: StringConstructor;
         required: true;
     };
+    eyebrow: {
+        type: StringConstructor;
+        default: null;
+    };
     supportingInfo: {
         type: StringConstructor;
         default: null;
@@ -43,6 +51,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     };
 }>> & Readonly<{}>, {
     divider: boolean;
+    eyebrow: string;
     mobileLayout: string;
     supportingInfo: string;
 }, {}, {
