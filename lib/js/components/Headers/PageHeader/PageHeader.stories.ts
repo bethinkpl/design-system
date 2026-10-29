@@ -34,7 +34,7 @@ const args = {
 	breadcrumbs: '',
 	actions: '',
 	pageTitle: 'Page title',
-	eyebrow: '',
+	eyebrow: 'Eyebrow text',
 	supportingInfo: 'Supporting info write here',
 	divider: true,
 	mobileLayout: PAGE_HEADER_MOBILE_LAYOUTS.VERTICAL,
