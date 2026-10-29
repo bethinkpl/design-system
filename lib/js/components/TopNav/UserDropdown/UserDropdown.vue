@@ -1,9 +1,8 @@
 <template>
 	<ds-dropdown
-		:placement="DROPDOWN_PLACEMENTS.BOTTOM_END"
-		:radius="DROPDOWN_RADIUSES.BOTTOM"
-		@show="$emit('show')"
-		@hide="$emit('hide')"
+		:align="DROPDOWN_ALIGNS.END"
+		:radius="DROPDOWN_RADIUSES.SINGLE_EDGE"
+		@update:open="$event ? $emit('show') : $emit('hide')"
 	>
 		<template #reference>
 			<ds-avatar
@@ -82,7 +81,7 @@
 
 <script setup lang="ts">
 import DsAvatar, { AVATAR_SIZES, AvatarProps } from '../../Avatar';
-import DsDropdown, { DROPDOWN_PLACEMENTS, DROPDOWN_RADIUSES } from '../../Dropdown';
+import DsDropdown, { DROPDOWN_ALIGNS, DROPDOWN_RADIUSES } from '../../Dropdown';
 import DsSelectList from '../../SelectList/SelectList.vue';
 import DsSelectListItemContainer from '../../SelectList/SelectListItemContainer/SelectListItemContainer.vue';
 import DsSelectListItemDivider from '../../SelectList/SelectListItemDivider/SelectListItemDivider.vue';

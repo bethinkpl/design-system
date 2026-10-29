@@ -4,7 +4,7 @@
 
 // The visual surface shared by floating panels — DsDropdown and SelectField's listbox.
 // Deliberately covers appearance only: sizing, scrolling and positioning stay with the
-// consumer, because those legitimately differ between popper engines and use cases.
+// consumer, because those legitimately differ between use cases.
 @mixin dropdownSurface {
 	background-color: $color-default-background;
 	box-shadow: $shadow-m;

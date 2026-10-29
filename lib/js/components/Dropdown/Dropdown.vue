@@ -1,201 +1,138 @@
 <template>
-	<vue-popper
-		ref="popper"
-		:key="key"
-		:boundaries-selector="boundariesSelector"
-		:force-show="forceShow"
-		:options="options"
-		:visible-arrow="false"
-		:trigger="triggerAction"
-		:delay-on-mouse-out="300"
-		@document-click="$emit('document-click')"
-		@hide="onHide"
-		@show="onShow"
-	>
-		<div
-			class="popper ds-dropdown"
-			:inert="!isOpened"
-			:class="{
-				'-ds-radiusBottom': radius === DROPDOWN_RADIUSES.BOTTOM,
-				'-ds-radiusTop': radius === DROPDOWN_RADIUSES.TOP,
-				'-ds-radiusBottom -ds-radiusTop': radius === DROPDOWN_RADIUSES.BOTH,
-			}"
-		>
-			<div
-				class="ds-dropdown__scrollableWrapper"
-				:class="{ '-ds-heightLimited': !!maxHeight }"
-				:style="scrollableWrapperStyles"
-			>
-				<slot :close="close" />
-			</div>
-		</div>
+	<span>
+		<popover-root v-model:open="open">
+			<popover-trigger :as="PopoverTriggerReference">
+				<!--
+					`toggle` is for controls inside the reference that stop their click from reaching it,
+					e.g. DsRichListItem's `actions` slot.
+				-->
+				<slot name="reference" :is-open="open" :toggle="toggle" />
+			</popover-trigger>
 
-		<template #reference>
-			<slot name="reference" :is-opened="isOpened" />
-		</template>
-	</vue-popper>
+			<popover-portal :disabled="!appendToBody">
+				<popover-content
+					class="ds-dropdown"
+					:class="{
+						'-ds-radiusSingleEdge': radius === DROPDOWN_RADIUSES.SINGLE_EDGE,
+						'-ds-radiusBothEdges': radius === DROPDOWN_RADIUSES.BOTH_EDGES,
+						'-ds-hasSameWidth': hasSameWidth,
+					}"
+					side="bottom"
+					:align="align"
+					:side-flip="sideFlip"
+					:side-offset="SIDE_OFFSET"
+					:collision-boundary="collisionBoundary ?? undefined"
+					position-strategy="absolute"
+					:hide-when-detached="hideWhenDetached"
+				>
+					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
+						<slot :close="close" />
+					</div>
+				</popover-content>
+			</popover-portal>
+		</popover-root>
+	</span>
 </template>
 
-<style lang="scss" scoped>
-@import '../../../../lib/styles/settings/spacings';
+<!--
+	Styled unscoped on purpose: PopoverContent renders the panel through Presence's slot rather than
+	as its root, so Vue never forwards this component's scope id to it and a scoped rule would not
+	match. Same approach as SelectField.vue.
+-->
+<style lang="scss">
+@import '../../../../lib/styles/settings/z-indexes';
 @import '../../../../lib/styles/mixins/dropdown-surface';
 
 .ds-dropdown {
 	@include dropdownSurface;
 
-	// Resets for the styles vue-popperjs ships in vue-popper.css.
-	border: 0;
 	border-radius: 0;
-	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+	// Shrinks to the space left beside the reference, so a wide panel scrolls inside instead of
+	// running off the screen.
+	max-width: var(--reka-popover-content-available-width);
 	min-width: 128px;
-	padding: 0;
-	text-align: left;
+	z-index: $z-index-top-layer;
 
-	&.-ds-radiusBottom {
+	&.-ds-radiusBothEdges,
+	&.-ds-radiusSingleEdge[data-side='bottom'] {
 		@include dropdownSurfaceRadiusBottom;
 	}
 
-	&.-ds-radiusTop {
+	&.-ds-radiusBothEdges,
+	&.-ds-radiusSingleEdge[data-side='top'] {
 		@include dropdownSurfaceRadiusTop;
 	}
 
-	&[x-placement^='bottom'] {
-		margin-top: $space-2;
-	}
-
-	&[x-placement^='top'] {
-		margin-bottom: $space-2;
+	&.-ds-hasSameWidth {
+		width: var(--reka-popover-trigger-width);
 	}
 
 	&__scrollableWrapper {
-		&.-ds-heightLimited {
-			overflow-y: auto;
-		}
+		min-height: 0;
+		overflow-y: auto;
 	}
 }
 </style>
 
-<script lang="ts">
-import VuePopper from 'vue-popperjs';
-import 'vue-popperjs/dist/vue-popper.css';
+<script setup lang="ts">
+import { computed } from 'vue';
+import { PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui';
+
+import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
+
 import {
-	DROPDOWN_PLACEMENTS,
+	DROPDOWN_ALIGNS,
 	DROPDOWN_RADIUSES,
-	DROPDOWN_TRIGGER_ACTIONS,
-	DropdownPlacement,
+	DropdownAlign,
 	DropdownRadius,
-	DropdownTriggerAction,
 } from './Dropdown.consts';
 
-import { defineComponent } from 'vue';
+// $space-2: the gap between the reference and the panel.
+const SIDE_OFFSET = 4;
 
-export default defineComponent({
-	name: 'Dropdown',
-	components: {
-		VuePopper,
-	},
-	props: {
-		boundariesSelector: {
-			type: String,
-			default: null,
-		},
-		forceShow: {
-			type: Boolean,
-			default: false,
-		},
-		sameWidth: {
-			type: Boolean,
-			default: false,
-		},
-		triggerAction: {
-			type: String,
-			default: DROPDOWN_TRIGGER_ACTIONS.CLICK,
-			validator(triggerAction: DropdownTriggerAction) {
-				return Object.values(DROPDOWN_TRIGGER_ACTIONS).includes(triggerAction);
-			},
-		},
-		radius: {
-			type: String,
-			default: DROPDOWN_RADIUSES.BOTH,
-			validate(radius: DropdownRadius) {
-				return Object.values(DROPDOWN_RADIUSES).includes(radius);
-			},
-		},
-		placement: {
-			type: String,
-			default: DROPDOWN_PLACEMENTS.BOTTOM_START,
-			validate(placement: DropdownPlacement) {
-				return Object.values(DROPDOWN_PLACEMENTS).includes(placement);
-			},
-		},
-		maxHeight: {
-			type: String,
-			default: null,
-		},
-	},
-	// TODO fix me when touching this file
-	// eslint-disable-next-line vue/require-emit-validator
-	emits: ['document-click', 'hide', 'show'],
-	data() {
-		return {
-			key: 1,
-			isOpened: false,
-			DROPDOWN_RADIUSES: Object.freeze(DROPDOWN_RADIUSES),
-		};
-	},
-	computed: {
-		scrollableWrapperStyles() {
-			return {
-				...(this.maxHeight && { maxHeight: this.maxHeight }),
-			};
-		},
-		options() {
-			return {
-				modifiers: { preventOverflow: { padding: 0 } },
-				placement: this.placement,
-				...(this.sameWidth && {
-					// See https://github.com/floating-ui/floating-ui/issues/794
-					// We can't use onCreate because vue-popper overrides it.
-					// Width is set just fine without it, though.
-					onUpdate: ({ instance: { reference, popper } }) => {
-						popper.style.width = `${reference.offsetWidth}px`;
-					},
-				}),
-			};
-		},
-	},
-	watch: {
-		triggerAction() {
-			this.updateKey();
-		},
-		sameWidth() {
-			this.updateKey();
-		},
-		boundariesSelector() {
-			this.updateKey();
-		},
-		placement() {
-			this.updateKey();
-		},
-	},
-	methods: {
-		close() {
-			this.isOpened = false;
-			this.$refs.popper.doClose();
-		},
-		updateKey() {
-			// Force component rerender to apply new vue-popperjs options.
-			// vue-popperjs doesn't support changing props in existing component
-			this.key++;
-		},
-		onHide() {
-			this.isOpened = false;
-			this.$emit('hide');
-		},
-		onShow() {
-			this.isOpened = true;
-			this.$emit('show');
-		},
-	},
-});
+const {
+	appendToBody = true,
+	collisionBoundary = null,
+	hasSameWidth = false,
+	radius = DROPDOWN_RADIUSES.BOTH_EDGES,
+	align = DROPDOWN_ALIGNS.START,
+	maxHeight = null,
+	sideFlip = true,
+	hideWhenDetached = false,
+} = defineProps<{
+	appendToBody?: boolean;
+	// The element the panel stays within; the viewport when not set.
+	collisionBoundary?: Element | null;
+	hasSameWidth?: boolean;
+	// Single rounds the edge away from the trigger, following the actual flipped side.
+	radius?: DropdownRadius;
+	align?: DropdownAlign;
+	maxHeight?: string | null;
+	// Whether the panel may move to the opposite side when it doesn't fit. It still shifts along
+	// its side to stay within the boundary either way. Turn it off for a panel that can be taller
+	// than the space on both sides of the reference (a long list, a large max height, or a
+	// reference near the top of the page): flipped above, its top would run past the page start,
+	// where scrolling can't reach it. Unflipped, it stays below and the page scrolls to reveal it.
+	sideFlip?: boolean;
+	// On: the panel hides when the reference leaves the boundary (the viewport by default; a
+	// scrolling container counts only when passed as collisionBoundary).
+	// Off: it keeps following the reference, also out of view.
+	hideWhenDetached?: boolean;
+}>();
+
+const open = defineModel<boolean>('open', { default: false });
+
+const scrollableWrapperStyles = computed(() => (maxHeight ? { maxHeight } : {}));
+
+function toggle() {
+	open.value = !open.value;
+}
+
+function close() {
+	open.value = false;
+}
+
+defineExpose({ close });
 </script>
