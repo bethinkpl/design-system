@@ -1,10 +1,14 @@
 :root {
-	--raw-black: #0c1726;
-	--raw-black-rgb: 12, 23, 38;
+	--raw-contrast: #0c1726;
+	--raw-contrast-rgb: 12, 23, 38;
 	--raw-pure-black: #000;
 	--raw-pure-black-rgb: 0, 0, 0;
-	--raw-white: #fff;
-	--raw-white-rgb: 255, 255, 255;
+	--raw-base: #fff;
+	--raw-base-rgb: 255, 255, 255;
+	--raw-static-white: #fff;
+	--raw-static-white-rgb: 255, 255, 255;
+	--raw-static-black: #0c1726;
+	--raw-static-black-rgb: 12, 23, 38;
 	--raw-gray-50: #f7f7f9;
 	--raw-gray-50-rgb: 247, 247, 249;
 	--raw-gray-100: #f1f2f6;
