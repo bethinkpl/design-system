@@ -1,6 +1,6 @@
 @import 'colors/tokens';
 
-$color-shadow: rgba(var(--raw-black-rgb), 0.3);
+$color-shadow: rgba(var(--raw-contrast-rgb), 0.3);
 $color-success-shadow: rgba(var(--raw-green-500-rgb), 0.7);
 $color-danger-shadow: rgba(var(--raw-red-500-rgb), 0.7);
 $color-warning-shadow: rgba(var(--raw-gold-500-rgb), 0.7);
@@ -45,9 +45,9 @@ $shadow-inset-m: inset 0 1px 4px $color-default-shadow-heavy;
 $shadow-inset-s: inset 0 1px 3px $color-default-shadow-heavy;
 
 // deprecated
-$default-shadow: 0 4px 12px rgba(var(--raw-black-rgb), 0.3);
-$small-shadow: 0 2px 4px rgba(var(--raw-black-rgb), 0.2);
-$medium-lightest-shadow: 0 4px 8px rgba(var(--raw-black-rgb), 0.12);
-$medium-lightest-shadow-up: 0 -4px 8px rgba(var(--raw-black-rgb), 0.12);
-$medium-lightest-shadow-top: inset 0 4px 8px rgba(var(--raw-black-rgb), 0.12);
-$medium-lightest-shadow-bottom: inset 0 -4px 8px rgba(var(--raw-black-rgb), 0.12);
+$default-shadow: 0 4px 12px rgba(var(--raw-contrast-rgb), 0.3);
+$small-shadow: 0 2px 4px rgba(var(--raw-contrast-rgb), 0.2);
+$medium-lightest-shadow: 0 4px 8px rgba(var(--raw-contrast-rgb), 0.12);
+$medium-lightest-shadow-up: 0 -4px 8px rgba(var(--raw-contrast-rgb), 0.12);
+$medium-lightest-shadow-top: inset 0 4px 8px rgba(var(--raw-contrast-rgb), 0.12);
+$medium-lightest-shadow-bottom: inset 0 -4px 8px rgba(var(--raw-contrast-rgb), 0.12);
