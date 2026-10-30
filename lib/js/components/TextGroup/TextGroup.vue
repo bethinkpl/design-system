@@ -203,7 +203,7 @@ $text-group-colors: (
 			position: relative;
 
 			&:not(.-ds-mask-hidden)::before {
-				@include backgroundMask(white, -90deg);
+				@include backgroundMask($color-default-background, -90deg, $color-default-mask);
 
 				bottom: 0;
 				content: '';
