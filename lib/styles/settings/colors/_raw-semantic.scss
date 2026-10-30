@@ -1,4 +1,4 @@
-// Hand-maintained raw primitives not yet exported from Figma (surfaces, shadow, scrim, alpha).
+// Hand-maintained raw primitives not yet exported from Figma (surfaces, shadow, overlay, alpha).
 // Dark values live in `_raw-dark.scss`; token mappings are shared by both modes.
 :root {
 	--raw-surface-0: #fff;
@@ -8,7 +8,7 @@
 	--raw-surface-2: #fff;
 	--raw-surface-2-rgb: 255, 255, 255;
 	--raw-shadow-rgb: 12, 23, 38;
-	--raw-scrim-rgb: 12, 23, 38;
+	--raw-overlay-rgb: 12, 23, 38;
 	--raw-alpha-shadow-weak: 0.06;
 	--raw-alpha-shadow: 0.08;
 	--raw-alpha-shadow-strong: 0.12;
