@@ -1,4 +1,8 @@
 :root {
+	--color-page-background: var(--raw-surface-0);
+	--color-page-mask: rgba(var(--raw-surface-0-rgb), 0);
+	--color-page-overlay: rgba(var(--raw-surface-0-rgb), 0.7);
+	--color-page-overlay-strong: rgba(var(--raw-surface-0-rgb), 0.9);
 	--color-default-text: var(--raw-contrast);
 	--color-default-icon: var(--raw-contrast);
 	--color-default-background: var(--raw-surface-1);
@@ -8,6 +12,7 @@
 	--color-default-background-ghost-focused: rgba(var(--raw-surface-1-rgb), 0.12);
 	--color-default-background-ghost-pressed: rgba(var(--raw-surface-1-rgb), 0.18);
 	--color-default-background-ghost-disabled: rgba(var(--raw-surface-1-rgb), 0);
+	--color-default-mask: rgba(var(--raw-surface-1-rgb), 0);
 	--color-default-overlay: rgba(var(--raw-scrim-rgb), var(--raw-alpha-overlay));
 	--color-default-border: var(--raw-contrast);
 	--color-default-ripple: rgba(var(--raw-contrast-rgb), 0.06);
@@ -15,17 +20,27 @@
 	--color-default-shadow-strong: rgba(var(--raw-shadow-rgb), var(--raw-alpha-shadow-strong));
 	--color-default-shadow: rgba(var(--raw-shadow-rgb), var(--raw-alpha-shadow));
 	--color-default-shadow-weak: rgba(var(--raw-shadow-rgb), var(--raw-alpha-shadow-weak));
+	--color-elevated-background: var(--raw-surface-2);
+	--color-elevated-background-rgb: var(--raw-surface-2-rgb);
+	--color-elevated-background-ghost: rgba(var(--raw-surface-2-rgb), 0);
+	--color-elevated-mask: rgba(var(--raw-surface-2-rgb), 0);
 	--color-inverted-text: var(--raw-base);
 	--color-inverted-text-disabled: rgba(var(--raw-base-rgb), 0.6);
 	--color-inverted-icon: var(--raw-base);
 	--color-inverted-icon-disabled: rgba(var(--raw-base-rgb), 0.6);
-	--color-inverted-overlay: rgba(var(--raw-base-rgb), 0.95);
 	--color-inverted-border: var(--raw-base);
 	--color-inverted-border-disabled: rgba(var(--raw-base-rgb), 0.7);
 	--color-inverted-ripple: rgba(var(--raw-base-rgb), 0.12);
 	--color-inverted-shadow-strong: rgba(var(--raw-base-rgb), 0.94);
 	--color-inverted-shadow: rgba(var(--raw-base-rgb), 0.92);
 	--color-inverted-shadow-weak: rgba(var(--raw-base-rgb), 0.88);
+	--color-white-text: var(--raw-static-white);
+	--color-white-icon: var(--raw-static-white);
+	--color-white-background: var(--raw-static-white);
+	--color-black-text: var(--raw-static-black);
+	--color-black-icon: var(--raw-static-black);
+	--color-black-background: var(--raw-static-black);
+	--color-black-background-rgb: var(--raw-static-black-rgb);
 	--color-primary-text-strong: var(--theme-700);
 	--color-primary-text-strong-hovered: var(--theme-900);
 	--color-primary-text-strong-focused: var(--theme-900);
