@@ -29,9 +29,20 @@
 </style>
 
 <script lang="ts">
-import { TOOLTIP_PLACEMENTS, TooltipPlacement } from './Tooltip.consts';
-import { defineComponent, PropType } from 'vue';
+import {
+	TOOLTIP_MAX_WIDTH_PX,
+	TOOLTIP_PLACEMENTS,
+	TOOLTIP_VIEWPORT_MARGIN_PX,
+	TooltipPlacement,
+} from './Tooltip.consts';
+import { getTooltipArrowOffset, getTooltipViewportFitShift } from './Tooltip.utils';
+import { defineComponent, markRaw, PropType } from 'vue';
 import { isTouchDevice } from '../../utils/device';
+
+/** Element, na którym PrimeVue trzyma id wyrenderowanego tooltipa. */
+type TooltipHost = HTMLElement & { $_ptooltipId?: string | null };
+
+const CENTERED_POSITIONS = [TOOLTIP_PLACEMENTS.TOP, TOOLTIP_PLACEMENTS.BOTTOM] as Array<string>;
 
 export default defineComponent({
 	name: 'Tooltip',
@@ -64,6 +75,11 @@ export default defineComponent({
 			default: false,
 		},
 	},
+	data() {
+		return {
+			tooltipObserver: null as MutationObserver | null,
+		};
+	},
 	computed: {
 		tooltipParams() {
 			return {
@@ -81,7 +97,9 @@ export default defineComponent({
 					background: 'var(--neutral-background-medium, #E5E7ED)',
 					color: 'var(--neutral-text-heavy, #343C50)',
 					borderRadius: '4px',
-					maxWidth: '900px',
+					maxWidth: `min(${TOOLTIP_MAX_WIDTH_PX}px, calc(100vw - ${
+						TOOLTIP_VIEWPORT_MARGIN_PX * 2
+					}px))`,
 				},
 				class: this.isHiddenOnMobile ? 'ds-tooltip-hide-on-mobile' : null,
 				ptOptions: {
@@ -92,6 +110,71 @@ export default defineComponent({
 					arrow: this.isPointerVisible ? '' : 'ds-tooltip-arrow-hide',
 				},
 			};
+		},
+	},
+	mounted() {
+		const host = this.$el as TooltipHost;
+
+		host.addEventListener('mouseenter', this.observeTooltip);
+		host.addEventListener('focus', this.observeTooltip);
+		host.addEventListener('mouseleave', this.stopObservingTooltip);
+		host.addEventListener('blur', this.stopObservingTooltip);
+	},
+	beforeUnmount() {
+		const host = this.$el as TooltipHost;
+
+		host.removeEventListener('mouseenter', this.observeTooltip);
+		host.removeEventListener('focus', this.observeTooltip);
+		host.removeEventListener('mouseleave', this.stopObservingTooltip);
+		host.removeEventListener('blur', this.stopObservingTooltip);
+		this.stopObservingTooltip();
+	},
+	methods: {
+		observeTooltip() {
+			this.stopObservingTooltip();
+
+			const host = this.$el as TooltipHost;
+			const observer = new MutationObserver(() => {
+				const tooltipElement = host.$_ptooltipId
+					? document.getElementById(host.$_ptooltipId)
+					: null;
+
+				if (!tooltipElement) {
+					return;
+				}
+
+				this.stopObservingTooltip();
+				this.fitTooltipIntoViewport(tooltipElement);
+			});
+
+			observer.observe(document.body, { childList: true });
+			this.tooltipObserver = markRaw(observer);
+		},
+		stopObservingTooltip() {
+			this.tooltipObserver?.disconnect();
+			this.tooltipObserver = null;
+		},
+		fitTooltipIntoViewport(tooltipElement: HTMLElement) {
+			const centeredLeft = tooltipElement.getBoundingClientRect().left;
+			const inlineLeft = parseFloat(tooltipElement.style.left);
+			const scrollOffset = inlineLeft - centeredLeft;
+
+			tooltipElement.style.left = `${TOOLTIP_VIEWPORT_MARGIN_PX + scrollOffset}px`;
+			const width = tooltipElement.getBoundingClientRect().width;
+
+			const shift = getTooltipViewportFitShift(
+				centeredLeft,
+				width,
+				document.documentElement.clientWidth,
+			);
+			tooltipElement.style.left = `${inlineLeft + shift}px`;
+
+			const position = tooltipElement.getAttribute('data-p-position') ?? '';
+			const arrow = tooltipElement.querySelector<HTMLElement>('[data-pc-section="arrow"]');
+
+			if (arrow && CENTERED_POSITIONS.includes(position)) {
+				arrow.style.left = `${getTooltipArrowOffset(width, shift)}px`;
+			}
 		},
 	},
 });
