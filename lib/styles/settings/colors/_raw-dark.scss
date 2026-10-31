@@ -1,29 +1,16 @@
-// Dark mode raw layer — hand-maintained, source: Paulina's raw-tokens-dark.json (2026-10-28).
+// Dark mode raw layer — hand-maintained, source: Paulina's raw-tokens-dark.json (2026-10-30).
 // Only raw values change between modes; `--color-*` token mappings are shared.
 .-ds-dark {
 	--raw-contrast: #eceef3;
 	--raw-contrast-rgb: 236, 238, 243;
+	--raw-pure-black: #000;
+	--raw-pure-black-rgb: 0, 0, 0;
 	--raw-base: #12161c;
 	--raw-base-rgb: 18, 22, 28;
 	--raw-static-white: #fff;
 	--raw-static-white-rgb: 255, 255, 255;
 	--raw-static-black: #12161c;
 	--raw-static-black-rgb: 18, 22, 28;
-	--raw-pure-black: #000;
-	--raw-pure-black-rgb: 0, 0, 0;
-	--raw-surface-0: #0c1015;
-	--raw-surface-0-rgb: 12, 16, 21;
-	--raw-surface-1: #12161c;
-	--raw-surface-1-rgb: 18, 22, 28;
-	--raw-surface-2: #171c23;
-	--raw-surface-2-rgb: 23, 28, 35;
-	--raw-shadow-rgb: 0, 0, 0;
-	--raw-overlay-rgb: 4, 9, 18;
-	--raw-alpha-shadow-weak: 0.2;
-	--raw-alpha-shadow: 0.3;
-	--raw-alpha-shadow-strong: 0.45;
-	--raw-alpha-shadow-heavy: 0.6;
-	--raw-alpha-overlay: 0.8;
 	--raw-gray-50: #20252e;
 	--raw-gray-50-rgb: 32, 37, 46;
 	--raw-gray-100: #282e38;

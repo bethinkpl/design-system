@@ -111,7 +111,7 @@ Theme tokens follow the same variable naming convention — swapping the import 
 Dark mode swaps only the **raw** layer; `--color-*` token mappings are identical in light and dark.
 
 - Toggle: the `.-ds-dark` class on `<html>` (Storybook: "Color scheme" toolbar). It overrides raw values only — never add `--color-*` overrides under `.-ds-dark`.
-- Dark raw values: `settings/colors/_raw-dark.scss` (palettes, base/contrast, surfaces, shadow/overlay, alphas) and `_raw-{wnl,mc,bodywork}-dark.scss` (`--theme-*`). Hand-maintained.
+- Dark raw values mirror the light files: `settings/colors/_raw-dark.scss` (palettes, base/contrast/static) ↔ `_raw.scss`, `_raw-semantic-dark.scss` (surfaces, shadow/overlay, alphas) ↔ `_raw-semantic.scss`, and `_raw-{wnl,mc,bodywork}-dark.scss` (`--theme-*`) ↔ `_raw-{wnl,mc,bodywork}.scss`. Hand-maintained.
 - Light primitives not yet in Figma: `settings/colors/_raw-semantic.scss` (surfaces, shadow/overlay rgb, alphas).
 - `--raw-base` / `--raw-contrast` invert between modes; `--raw-static-white` / `--raw-static-black` do not.
 - Surfaces: `page-background` (surface-0, page) → `default-background` (surface-1, docked panels, modals) → `elevated-background` (surface-2, cards, dropdowns, popovers, elevation). An element is never darker than its parent. Gradient masks fade from a level's `*-background` to its `*-mask`.
