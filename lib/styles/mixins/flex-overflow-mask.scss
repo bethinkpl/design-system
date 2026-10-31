@@ -1,5 +1,6 @@
 @import 'background-mask';
 
+// `$mask-color: null` fades into `--ds-mask-background` (see backgroundMask).
 @mixin flexOverflowMask($mask-color, $mask-width) {
 	display: flex;
 	overflow-x: auto;

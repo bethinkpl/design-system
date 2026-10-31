@@ -1,5 +1,9 @@
-// Pass the matching `$color-*-mask` token (`$color` at alpha 0) as `$mask`: Safari < 15.4 interpolates
-// gradients without premultiplied alpha, so `transparent` (black at alpha 0) fades through gray.
-@mixin backgroundMask($color, $direction: 90deg, $mask: transparent) {
-	background: linear-gradient($direction, $mask 0%, $color 84.26%);
+// Fades content out into the background behind it. Without `$color` the fade target is
+// `--ds-mask-background` (default: `--color-default-background`), so a wrapper can match its own
+// surface, e.g. `.card { --ds-mask-background: var(--color-elevated-background); }`.
+// Pass `$color` only when the mask sits on a background the component owns.
+@mixin backgroundMask($color: null, $direction: 90deg) {
+	$fade-to: if($color, $color, var(--ds-mask-background, var(--color-default-background)));
+
+	background: linear-gradient($direction, transparent 0%, $fade-to 84.26%);
 }
