@@ -105,3 +105,16 @@ The design system supports four themes, each with its own token set:
 - **Primary Medcourses** (`ColorsTokensPrimaryMedcourses`) — Medcourses brand colors
 
 Theme tokens follow the same variable naming convention — swapping the import path changes the theme.
+
+## Dark mode
+
+Dark mode swaps only the **raw** layer; `--color-*` token mappings are identical in light and dark.
+
+- Toggle: the `.-ds-dark` class on `<html>` (Storybook: "Color scheme" toolbar). It overrides raw values only — never add `--color-*` overrides under `.-ds-dark`.
+- Dark raw values mirror the light files: `settings/colors/_raw-dark.scss` (palettes, base/contrast/static) ↔ `_raw.scss`, `_raw-semantic-dark.scss` (surfaces, shadow/overlay, alphas) ↔ `_raw-semantic.scss`, and `_raw-{wnl,mc,bodywork}-dark.scss` (`--theme-*`) ↔ `_raw-{wnl,mc,bodywork}.scss`. Hand-maintained.
+- Light primitives not yet in Figma: `settings/colors/_raw-semantic.scss` (surfaces, shadow/overlay rgb, alphas).
+- `--raw-base` / `--raw-contrast` invert between modes; `--raw-static-white` / `--raw-static-black` do not.
+- Surfaces: `page-background` (surface-0, page) → `default-background` (surface-1, docked panels, modals) → `elevated-background` (surface-2, cards, dropdowns, popovers, elevation). An element is never darker than its parent.
+- Gradient masks (`backgroundMask` / `flexOverflowMask` mixins) fade from `transparent` into `--ds-mask-background`, which falls back to `--color-default-background`. Set it on a wrapper whose surface differs, e.g. `--ds-mask-background: var(--color-elevated-background)`. Pass an explicit `$color` only when the mask sits on a background the component owns (e.g. OverlayHeader's `neutral-background`).
+- Components use tokens, never `--raw-*` (use `white-*` / `black-*` tokens for colors that must not invert, e.g. text on photos or avatar initials).
+- **Do not run `yarn importColors`** until the Figma variables include the new raw names and tokens — the import would revert them.

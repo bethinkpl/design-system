@@ -1,3 +1,9 @@
-@mixin backgroundMask($color, $direction: 90deg) {
-	background: linear-gradient($direction, transparent 0%, $color 84.26%);
+// Fades content out into the background behind it. Without `$color` the fade target is
+// `--ds-mask-background` (default: `--color-default-background`), so a wrapper can match its own
+// surface, e.g. `.card { --ds-mask-background: var(--color-elevated-background); }`.
+// Pass `$color` only when the mask sits on a background the component owns.
+@mixin backgroundMask($color: null, $direction: 90deg) {
+	$fade-to: if($color, $color, var(--ds-mask-background, var(--color-default-background)));
+
+	background: linear-gradient($direction, transparent 0%, $fade-to 84.26%);
 }

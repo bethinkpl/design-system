@@ -6,7 +6,7 @@
 // Deliberately covers appearance only: sizing, scrolling and positioning stay with the
 // consumer, because those legitimately differ between use cases.
 @mixin dropdownSurface {
-	background-color: $color-default-background;
+	background-color: $color-elevated-background;
 	box-shadow: $shadow-m;
 	overflow: hidden;
 }

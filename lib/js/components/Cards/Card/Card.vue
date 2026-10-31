@@ -85,7 +85,7 @@
 	$root: &;
 	$card-border-radius: $radius-m;
 
-	background-color: $color-default-background;
+	background-color: $color-elevated-background;
 	border-radius: $card-border-radius;
 	box-shadow: $shadow-s;
 	display: flex;
