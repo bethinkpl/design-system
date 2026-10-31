@@ -1,4 +1,5 @@
 import { SurveyQuestionScaleContainer, SurveyQuestionState } from '../SurveyQuestion.consts';
+import { FormFieldState } from '../../Form/FormField';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 
 declare const _default: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
@@ -382,6 +383,7 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         readonly TWO: "two";
     }>;
 }, {
+    textAreaFieldState(): FormFieldState;
     resolvedPlaceholder(): string;
     standaloneOptions(): any;
 }, {
@@ -432,44 +434,117 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
     selectedValue: string;
     containers: string;
 }, {}, {
-    SurveyQuestionTextarea: import('vue').DefineComponent<import('vue').ExtractPropTypes<{
-        value: {
-            type: StringConstructor;
-            required: true;
+    DsTextAreaField: {
+        new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
+            modelValue: import('vue').PropType<string>;
+            inputProps: {
+                type: import('vue').PropType<import('vue').TextareaHTMLAttributes>;
+            };
+            isAutoresizing: {
+                type: import('vue').PropType<boolean>;
+            };
+            name: {
+                type: import('vue').PropType<string>;
+            };
+            label: {
+                type: import('vue').PropType<string>;
+            };
+            state: {
+                type: import('vue').PropType<"success" | "default" | "error" | "disabled">;
+            };
+            hasRequiredIndicator: {
+                type: import('vue').PropType<boolean>;
+            };
+            labelInfo: {
+                type: import('vue').PropType<string>;
+            };
+            subLabel: {
+                type: import('vue').PropType<string>;
+            };
+            fieldId: {
+                type: import('vue').PropType<string>;
+            };
+            messageText: {
+                type: import('vue').PropType<string>;
+            };
+        }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
+            P: {};
+            B: {};
+            D: {};
+            C: {};
+            M: {};
+            Defaults: {};
+        }, Readonly<import('vue').ExtractPropTypes<{
+            modelValue: import('vue').PropType<string>;
+            inputProps: {
+                type: import('vue').PropType<import('vue').TextareaHTMLAttributes>;
+            };
+            isAutoresizing: {
+                type: import('vue').PropType<boolean>;
+            };
+            name: {
+                type: import('vue').PropType<string>;
+            };
+            label: {
+                type: import('vue').PropType<string>;
+            };
+            state: {
+                type: import('vue').PropType<"success" | "default" | "error" | "disabled">;
+            };
+            hasRequiredIndicator: {
+                type: import('vue').PropType<boolean>;
+            };
+            labelInfo: {
+                type: import('vue').PropType<string>;
+            };
+            subLabel: {
+                type: import('vue').PropType<string>;
+            };
+            fieldId: {
+                type: import('vue').PropType<string>;
+            };
+            messageText: {
+                type: import('vue').PropType<string>;
+            };
+        }>> & Readonly<{}>, {}, {}, {}, {}, {}>;
+        __isFragment?: never;
+        __isTeleport?: never;
+        __isSuspense?: never;
+    } & import('vue').ComponentOptionsBase<Readonly<import('vue').ExtractPropTypes<{
+        modelValue: import('vue').PropType<string>;
+        inputProps: {
+            type: import('vue').PropType<import('vue').TextareaHTMLAttributes>;
         };
-        placeholder: {
-            type: StringConstructor;
-            default: null;
+        isAutoresizing: {
+            type: import('vue').PropType<boolean>;
         };
-        disabled: {
-            type: BooleanConstructor;
-            default: boolean;
+        name: {
+            type: import('vue').PropType<string>;
         };
-    }>, {
-        t: import('../../../i18n').TranslateFunction;
-    }, {}, {
-        resolvedPlaceholder(): string;
-    }, {
-        onInput(evt: any): void;
-    }, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, "input"[], "input", import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
-        value: {
-            type: StringConstructor;
-            required: true;
+        label: {
+            type: import('vue').PropType<string>;
         };
-        placeholder: {
-            type: StringConstructor;
-            default: null;
+        state: {
+            type: import('vue').PropType<"success" | "default" | "error" | "disabled">;
         };
-        disabled: {
-            type: BooleanConstructor;
-            default: boolean;
+        hasRequiredIndicator: {
+            type: import('vue').PropType<boolean>;
         };
-    }>> & Readonly<{
-        onInput?: ((...args: any[]) => any) | undefined;
-    }>, {
-        disabled: boolean;
-        placeholder: string;
-    }, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
+        labelInfo: {
+            type: import('vue').PropType<string>;
+        };
+        subLabel: {
+            type: import('vue').PropType<string>;
+        };
+        fieldId: {
+            type: import('vue').PropType<string>;
+        };
+        messageText: {
+            type: import('vue').PropType<string>;
+        };
+    }>> & Readonly<{}>, {}, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, {}, {}, string, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, import('vue').ComponentProvideOptions> & import('vue').VNodeProps & import('vue').AllowedComponentProps & import('vue').ComponentCustomProps & (new () => {
+        $slots: Readonly<import('../../Form/TextAreaField').TextAreaFieldSlots> & import('../../Form/TextAreaField').TextAreaFieldSlots;
+    });
     DsCard: {
         new (...args: any[]): import('vue').CreateComponentPublicInstanceWithMixins<Readonly<import('vue').ExtractPropTypes<{
             contentHasPadding: {
