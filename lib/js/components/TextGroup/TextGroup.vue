@@ -26,6 +26,7 @@
 			:class="{
 				'-ds-mask-active': isEyebrowMaskActive,
 				'-ds-mask-hidden': isEyebrowMaskHidden,
+				'-ds-alphaMaskMode': isEyebrowAlphaMask,
 			}"
 		>
 			<div
@@ -35,6 +36,8 @@
 					'-ds-ellipsis': eyebrowTextEllipsis,
 					'-ds-uppercase': isEyebrowTextUppercase,
 					'-ds-mask': hasEyebrowMask,
+					'-ds-alphaMask':
+						isEyebrowAlphaMask && isEyebrowMaskActive && !isEyebrowMaskHidden,
 				}"
 			>
 				<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
@@ -94,6 +97,8 @@
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
 @import '../../../styles/mixins/background-mask';
+
+$eyebrow-mask-width: 20px;
 
 $text-group-colors: (
 	'default': (
@@ -195,6 +200,19 @@ $text-group-colors: (
 				display: none;
 			}
 		}
+
+		// PoC (task-67): fade the text itself with an alpha mask instead of painting a colour over
+		// it, so it works on any background. Same curve as backgroundMask: fully hidden for the
+		// first 15.74% of the 20px band, then linear to opaque. The band slides left near the
+		// start of the text (maskTranslateX), like the painted overlay did.
+		&.-ds-alphaMask {
+			$fade-start: calc(#{$eyebrow-mask-width * 0.1574} + v-bind(maskTranslateX));
+			$fade-end: calc(#{$eyebrow-mask-width} + v-bind(maskTranslateX));
+			$gradient: linear-gradient(90deg, transparent $fade-start, #000 $fade-end);
+
+			-webkit-mask-image: $gradient;
+			mask-image: $gradient;
+		}
 	}
 
 	&__eyebrowWrapper {
@@ -202,7 +220,8 @@ $text-group-colors: (
 			direction: rtl;
 			position: relative;
 
-			&:not(.-ds-mask-hidden)::before {
+			// PoC: the alpha mask (on the eyebrow itself) replaces the painted overlay
+			&:not(.-ds-mask-hidden):not(.-ds-alphaMaskMode)::before {
 				@include backgroundMask($direction: -90deg);
 
 				bottom: 0;
@@ -382,6 +401,7 @@ const {
 	eyebrowTextEllipsis = false,
 	isEyebrowTextUppercase = true,
 	hasEyebrowMask = false,
+	isEyebrowAlphaMask = false,
 	mainText,
 	mainTextEllipsis = false,
 	supportingText,
@@ -402,6 +422,9 @@ const {
 	eyebrowTextEllipsis?: boolean;
 	isEyebrowTextUppercase?: boolean;
 	hasEyebrowMask?: boolean;
+	// PoC (task-67, temporary): alpha mask instead of the background-colour mask. If adopted it
+	// becomes the only implementation and this prop goes away.
+	isEyebrowAlphaMask?: boolean;
 	mainText?: string | null;
 	mainTextEllipsis?: boolean;
 	supportingText?: string | null;
