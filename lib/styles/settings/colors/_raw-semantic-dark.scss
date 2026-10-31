@@ -1,0 +1,17 @@
+// Dark values of the hand-maintained primitives from `_raw-semantic.scss` (surfaces, shadow, overlay, alpha).
+// Source: Paulina's raw-tokens-dark.json; token mappings are shared by both modes.
+.-ds-dark {
+	--raw-surface-0: #0c1015;
+	--raw-surface-0-rgb: 12, 16, 21;
+	--raw-surface-1: #12161c;
+	--raw-surface-1-rgb: 18, 22, 28;
+	--raw-surface-2: #171c23;
+	--raw-surface-2-rgb: 23, 28, 35;
+	--raw-shadow-rgb: 0, 0, 0;
+	--raw-overlay-rgb: 4, 9, 18;
+	--raw-alpha-shadow-weak: 0.2;
+	--raw-alpha-shadow: 0.3;
+	--raw-alpha-shadow-strong: 0.45;
+	--raw-alpha-shadow-heavy: 0.6;
+	--raw-alpha-overlay: 0.8;
+}
