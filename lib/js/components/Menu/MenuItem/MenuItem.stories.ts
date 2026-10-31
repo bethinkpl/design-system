@@ -65,7 +65,7 @@ const args = {
 	additionalText: '',
 	labelSlot: 'Menu Item label in slot',
 	size: MENU_ITEM_SIZES.SMALL,
-	backgroundColor: MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
+	backgroundColor: MENU_ITEM_BACKGROUND_COLORS.NONE,
 	iconLeft: null,
 	iconRight: null,
 	iconRightRotation: null,

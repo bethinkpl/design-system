@@ -148,7 +148,7 @@ describe('MenuItem', () => {
 
 	describe('Background colors', () => {
 		test.each([
-			[MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK, false],
+			[MENU_ITEM_BACKGROUND_COLORS.NONE, false],
 			[MENU_ITEM_BACKGROUND_COLORS.NEUTRAL, true],
 		])('applies correct background class for %s', (backgroundColor, shouldHaveNeutralClass) => {
 			const wrapper = createComponent({ backgroundColor });
