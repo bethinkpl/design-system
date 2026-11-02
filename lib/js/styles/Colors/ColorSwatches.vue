@@ -99,8 +99,9 @@
 </style>
 
 <script setup lang="ts">
-import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { ref } from 'vue';
 import { ColorSwatchGroup } from './ColorSwatches.types';
+import { useOnStorybookThemeChange } from '../useOnStorybookThemeChange';
 
 const { groups } = defineProps<{
 	groups: Array<ColorSwatchGroup>;
@@ -120,14 +121,7 @@ function useComputedValues() {
 		);
 	}
 
-	// the Brand / Color scheme toolbar toggles classes on <html> without re-rendering the story
-	const classObserver = new MutationObserver(readComputedValues);
-
-	onMounted(() => {
-		readComputedValues();
-		classObserver.observe(document.documentElement, { attributeFilter: ['class'] });
-	});
-	onBeforeUnmount(() => classObserver.disconnect());
+	useOnStorybookThemeChange(readComputedValues);
 
 	return { computedValues };
 }
