@@ -1,10 +1,13 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { defineComponent, h } from 'vue';
 import { flushPromises, mount } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { PopoverContent, PopoverPortal } from 'reka-ui';
 import Dropdown from './Dropdown.vue';
-import { DROPDOWN_ALIGNS } from './Dropdown.consts';
+import { DROPDOWN_ALIGNS, DROPDOWN_AUTOFOCUS } from './Dropdown.consts';
+import { isTouchDevice } from '../../utils/device';
+
+vi.mock('../../utils/device', () => ({ isTouchDevice: vi.fn(() => false) }));
 
 const setup = (props: ComponentProps<typeof Dropdown> = {}) =>
 	mount(Dropdown, {
@@ -162,4 +165,28 @@ describe('Dropdown', () => {
 
 		expect(scrollable.attributes('style')).toContain('max-height: 250px');
 	});
+
+	it.each([
+		{ autofocus: undefined, isTouch: false, prevented: false },
+		{ autofocus: undefined, isTouch: true, prevented: false },
+		{ autofocus: DROPDOWN_AUTOFOCUS.ENABLED, isTouch: true, prevented: false },
+		{
+			autofocus: DROPDOWN_AUTOFOCUS.DISABLED_ON_TOUCH_DEVICES,
+			isTouch: false,
+			prevented: false,
+		},
+		{ autofocus: DROPDOWN_AUTOFOCUS.DISABLED_ON_TOUCH_DEVICES, isTouch: true, prevented: true },
+	])(
+		'should prevent focusing the panel on open only when disabled on a touch device: autofocus=$autofocus, touch=$isTouch',
+		async ({ autofocus, isTouch, prevented }) => {
+			vi.mocked(isTouchDevice).mockReturnValue(isTouch);
+			const wrapper = setup({ autofocus });
+			await open(wrapper);
+			const focusEvent = new Event('focus', { cancelable: true });
+
+			wrapper.findComponent(PopoverContent).vm.$emit('openAutoFocus', focusEvent);
+
+			expect(focusEvent.defaultPrevented).toBe(prevented);
+		},
+	);
 });

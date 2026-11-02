@@ -1,5 +1,5 @@
 import Dropdown from './Dropdown.vue';
-import { DROPDOWN_ALIGNS, DROPDOWN_RADIUSES } from './Dropdown.consts';
+import { DROPDOWN_ALIGNS, DROPDOWN_AUTOFOCUS, DROPDOWN_RADIUSES } from './Dropdown.consts';
 import SelectList from '../SelectList/SelectList.vue';
 import Modal from '../Modals/Modal/Modal.vue';
 import DsButton, { BUTTON_TYPES } from '../Buttons/Button';
@@ -33,7 +33,8 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
                 :align="align"
                 :max-height="maxHeight"
                 :side-flip="sideFlip"
-                :hide-when-detached="hideWhenDetached">
+                :hide-when-detached="hideWhenDetached"
+                :autofocus="autofocus">
         <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span>
         </template>
         <template #default="{ close }">
@@ -57,6 +58,7 @@ const args = {
 	align: DROPDOWN_ALIGNS.START,
 	sideFlip: true,
 	hideWhenDetached: false,
+	autofocus: DROPDOWN_AUTOFOCUS.ENABLED,
 } as Args;
 
 const argTypes = {
@@ -70,6 +72,12 @@ const argTypes = {
 	},
 	maxHeight: {
 		control: 'text',
+	},
+	autofocus: {
+		control: 'select',
+		options: Object.values(DROPDOWN_AUTOFOCUS),
+		description:
+			'Whether focus moves into the panel on open. `disabled-on-touch-devices` keeps an input in the panel from opening the on-screen keyboard.',
 	},
 } as ArgTypes;
 

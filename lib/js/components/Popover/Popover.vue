@@ -22,7 +22,7 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
-					@open-auto-focus="preventInManualMode"
+					@open-auto-focus="onOpenAutoFocus"
 					@close-auto-focus="preventInManualMode"
 					@escape-key-down="preventInManualMode"
 					@interact-outside="preventInManualMode"
@@ -158,12 +158,15 @@ import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigge
 
 import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
 
+import { isTouchDevice } from '../../utils/device';
 import {
 	POPOVER_ALIGNS,
+	POPOVER_AUTOFOCUS,
 	POPOVER_COLORS,
 	POPOVER_SIDES,
 	POPOVER_SIZES,
 	PopoverAlign,
+	PopoverAutofocus,
 	PopoverColor,
 	PopoverSide,
 	PopoverSize,
@@ -197,6 +200,7 @@ const {
 	maxHeight = null,
 	isPointerVisible = true,
 	hideWhenDetached = false,
+	autofocus = POPOVER_AUTOFOCUS.ENABLED,
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
@@ -225,6 +229,9 @@ const {
 	// scrolling container counts only when passed as collisionBoundary).
 	// Off: it keeps following the reference, also out of view.
 	hideWhenDetached?: boolean;
+	// Whether focus moves into the panel on open. Off on touch devices keeps an input in the panel
+	// from opening the on-screen keyboard; focus then stays where it was.
+	autofocus?: PopoverAutofocus;
 }>();
 
 defineEmits<{
@@ -242,6 +249,15 @@ function onOpenChange(value: boolean) {
 // Manual mode keeps both the open state and the focus where the parent left them.
 function preventInManualMode(event: Event) {
 	if (isManual) event.preventDefault();
+}
+
+function onOpenAutoFocus(event: Event) {
+	if (
+		isManual ||
+		(autofocus === POPOVER_AUTOFOCUS.DISABLED_ON_TOUCH_DEVICES && isTouchDevice())
+	) {
+		event.preventDefault();
+	}
 }
 
 function close() {
