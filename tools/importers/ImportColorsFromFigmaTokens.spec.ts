@@ -1,360 +1,212 @@
-import { afterAll, describe, expect, it } from 'vitest';
-import { ImportRawColors, ImportTokens, validateRawSections } from './ImportColorsFromFigmaTokens';
-import { promises, existsSync, unlinkSync } from 'fs';
+import { describe, expect, it } from 'vitest';
+import { ColorsConfig, FigmaExport, generateColorFiles } from './ImportColorsFromFigmaTokens';
 
-const TEMP = 'tools/importers/temp/';
-
-const testConfig = {
-	destinationPath: TEMP,
-	files: {
-		variablesRaw: {
-			destination: '_raw-test.scss',
-			destinationJson: '_raw-test.json',
-		},
-		tokens: {
-			destination: '_tokens-test.scss',
-			destinationJson: '_tokens-test.json',
-			destinationVariables: '_tokens-variables-test.scss',
-		},
-	},
+const cfg: ColorsConfig = {
+	modes: { light: 'Light mode', dark: 'Dark mode', tokens: 'Mode 1' },
+	brands: { WNL: 'wnl', BW: 'bodywork' },
+	tokensWithRgbVariant: ['color-default-background'],
 };
 
-const themeTestConfig = {
-	destinationPath: TEMP,
-	files: {
-		variablesRaw: {
-			destination: '_raw-wnl-test.scss',
-			destinationJson: '_raw-wnl-test.json',
-		},
-		tokens: {
-			destination: '_tokens-wnl-test.scss',
-			destinationJson: '_tokens-wnl-test.json',
-			destinationVariables: '_tokens-wnl-variables-test.scss',
-		},
-	},
-};
+const RAW_SET = '3. DS RAWColors';
 
-const ALL_TEMP_FILES = [
-	...Object.values(testConfig.files.variablesRaw),
-	...Object.values(testConfig.files.tokens),
-	...Object.values(themeTestConfig.files.variablesRaw),
-	...Object.values(themeTestConfig.files.tokens),
-].map((f) => TEMP + f);
+const color = (hex: string, alpha = 1) => ({ $type: 'color', $value: { alpha, hex } });
 
-afterAll(() => {
-	for (const file of ALL_TEMP_FILES) {
-		if (existsSync(file)) unlinkSync(file);
-	}
+// `setName: null` = alias into the same collection (token → token), exported without a set name
+const aliasTarget = (targetVariableName: string, setName: string | null) =>
+	setName ? { targetVariableName, targetVariableSetName: setName } : { targetVariableName };
+
+const alias = (targetVariableName: string, setName: string | null = RAW_SET) => ({
+	...color('#000000'),
+	$extensions: { 'com.figma.aliasData': aliasTarget(targetVariableName, setName) },
 });
 
-const rawColorsFixture = {
-	raw: {
-		black: { $type: 'color', $value: '#0c1726' },
-		'black-90%': { $type: 'color', $value: '#0c1726e5' }, // alpha — must be skipped
-		'black-6%': { $type: 'color', $value: '#0c17260f' }, // alpha — must be skipped
-		white: { $type: 'color', $value: '#ffffff' }, // should be shortened to #fff
-		'white_0%': { $type: 'color', $value: '#ffffff00' }, // alpha — must be skipped
-		'white-12%': { $type: 'color', $value: '#ffffff1f' }, // alpha — must be skipped
-		gray: {
-			'gray-50': { $type: 'color', $value: '#f7f7f9' },
-			'gray-700': { $type: 'color', $value: '#636c84' },
-			'gray-700-12%': { $type: 'color', $value: '#636c841f' }, // alpha — must be skipped
-			'gray-700-0%': { $type: 'color', $value: '#636c8400' }, // alpha — must be skipped
-			'gray-900': { $type: 'color', $value: '#343c50' },
+const composed = (
+	targetVariableName: string,
+	opacity: number,
+	setName: string | null = RAW_SET,
+) => ({
+	...color('#000000'),
+	$extensions: {
+		'com.figma.composedColor': {
+			colorArg: { type: 'alias', alias: aliasTarget(targetVariableName, setName) },
+			opacityArg: { type: 'number', value: opacity },
 		},
 	},
-	theme: {
-		'theme-500': { $type: 'color', $value: '#078f96' },
-		'theme-500-12%': { $type: 'color', $value: '#078f961f' }, // alpha — must be skipped
-		'theme-500-0%': { $type: 'color', $value: '#078f9600' }, // alpha — must be skipped
-		'theme-100': { $type: 'color', $value: '#d5eeef' },
-	},
-};
+});
 
-const tokensFixture = {
+const mode = (name: string, content: object): FigmaExport => ({
+	...content,
+	$extensions: { 'com.figma.modeName': name },
+});
+
+const rawMode = (name: string, contrast: string, shadowAlpha: number) =>
+	mode(name, {
+		raw: {
+			contrast: color(contrast),
+			'contrast-6%': color(contrast, 0.06), // alpha variant — skipped
+			shadow: color('#0C1726', shadowAlpha),
+			gray: {
+				'gray-50': color('#F7F7F9'),
+				'gray-700': color('#636C84'),
+				'gray-700-12%': color('#636C84', 0.12),
+			},
+			surface: { 'surface-1': color('#FFFFFF') },
+		},
+		theme: { 'theme-500': color('#078F96') }, // ignored, brands come from brand modes
+	});
+
+const brandMode = (name: string, hex500: string) =>
+	mode(name, {
+		light: { 'brand-500': color(hex500), 'brand-500-12%': color(hex500, 0.12) },
+		dark: { 'brand-500': color('#0998A0'), 'brand-500-12%': color('#0998A0', 0.12) },
+	});
+
+const tokensMode = (tokens: object) => mode('Mode 1', tokens);
+
+const validTokens = {
 	default: {
-		text: { $type: 'color', $value: '{raw.black}' },
-		overlay: { $type: 'color', $value: '{raw.black-90%}' },
-		background: { $type: 'color', $value: '{raw.white}' },
-		'background-ghost': { $type: 'color', $value: '{raw.white_0%}' },
-		'background-ghost-hovered': { $type: 'color', $value: '{raw.white-12%}' },
+		text: alias('raw/contrast'),
+		background: alias('raw/surface/surface-1'),
+		ripple: alias('raw/contrast-6%'),
+		shadow: alias('raw/shadow'),
 	},
 	neutral: {
-		text: { $type: 'color', $value: '{raw.gray.gray-900}' },
-		'background-ghost': { $type: 'color', $value: '{raw.gray.gray-700-0%}' },
-		'background-ghost-hovered': { $type: 'color', $value: '{raw.gray.gray-700-12%}' },
+		background: alias('raw/gray/gray-50'),
+		'background-ghost-hovered': alias('raw/gray/gray-700-12%'),
+		mask: composed('neutral/background', 0, null),
 	},
 	primary: {
-		'background-strong': { $type: 'color', $value: '{theme.theme-500}' },
-		ripple: { $type: 'color', $value: '{theme.theme-500-12%}' },
-		'background-ghost': { $type: 'color', $value: '{theme.theme-500-0%}' },
+		'background-strong': alias('theme/theme-500'),
+		ripple: alias('theme/theme-500-12%'),
 	},
+	page: { overlay: composed('raw/surface/surface-1', 70) },
 };
 
+const exportsWith = (overrides: Partial<Record<string, FigmaExport>> = {}): Array<FigmaExport> =>
+	Object.values({
+		light: rawMode('Light mode', '#0C1726', 0.08),
+		dark: rawMode('Dark mode', '#ECEEF3', 0.3),
+		tokens: tokensMode(validTokens),
+		wnl: brandMode('WNL', '#078F96'),
+		bw: brandMode('BW', '#2664E0'),
+		...overrides,
+	}).filter((json): json is FigmaExport => !!json);
+
 describe('ImportColorsFromFigmaTokens', () => {
-	it('ImportRawColors generates correct _raw.scss and _raw.json', async () => {
-		ImportRawColors(testConfig, rawColorsFixture);
-		await new Promise((r) => setTimeout(r, 1));
+	const files = generateColorFiles(exportsWith(), cfg);
 
-		// --- _raw.scss ---
-		const scssContent = await promises.readFile(
-			testConfig.destinationPath + testConfig.files.variablesRaw.destination,
-			'utf8',
+	it('generates raw light and dark files with -rgb companions and no alpha variants or theme', () => {
+		expect(files['_raw.scss']).toContain(':root {');
+		expect(files['_raw.scss']).toContain(
+			'\t--raw-contrast: #0c1726;\n\t--raw-contrast-rgb: 12, 23, 38;',
 		);
-		const scssLines = scssContent.split(/\r?\n/);
-
-		expect(scssLines[0]).toBe(':root {');
-		expect(scssLines[1]).toBe('\t--raw-black: #0c1726;');
-		expect(scssLines[2]).toBe('\t--raw-black-rgb: 12, 23, 38;');
-		expect(scssContent).toContain('\t--raw-white: #fff;');
-		expect(scssContent).toContain('\t--raw-white-rgb: 255, 255, 255;');
-		expect(scssContent).toContain('\t--raw-gray-50: #f7f7f9;');
-		expect(scssContent).toContain('\t--raw-gray-900: #343c50;');
-
-		// default theme vars (from WNL) are included in the base _raw.scss
-		expect(scssContent).toContain('\t--theme-500: #078f96;');
-		expect(scssContent).toContain('\t--theme-500-rgb: 7, 143, 150;');
-		expect(scssContent).toContain('\t--theme-100: #d5eeef;');
-
-		// alpha variants must not appear
-		expect(scssContent).not.toContain('black-90%');
-		expect(scssContent).not.toContain('black-6%');
-		expect(scssContent).not.toContain('white_0%');
-		expect(scssContent).not.toContain('white-12%');
-		expect(scssContent).not.toContain('gray-700-12%');
-		expect(scssContent).not.toContain('gray-700-0%');
-		expect(scssContent).not.toContain('theme-500-12%');
-		expect(scssContent).not.toContain('theme-500-0%');
-
-		// --- _raw.json ---
-		const jsonContent = await promises.readFile(
-			testConfig.destinationPath + testConfig.files.variablesRaw.destinationJson,
-			'utf8',
+		expect(files['_raw.scss']).toContain(
+			'\t--raw-surface-1: #fff;\n\t--raw-surface-1-rgb: 255, 255, 255;',
 		);
-		const json = JSON.parse(jsonContent);
-
-		expect(json.default.find((c: { label: string }) => c.label === 'black')).toMatchObject({
-			label: 'black',
-			value: '#0C1726',
-		});
-		expect(json.default.find((c: { label: string }) => c.label === 'white')).toMatchObject({
-			label: 'white',
-			value: '#FFF',
-		});
-		expect(json.gray.find((c: { label: string }) => c.label === 'gray-50')).toMatchObject({
-			label: 'gray-50',
-			value: '#F7F7F9',
-		});
-
-		// default theme vars (WNL) are present in base _raw.json
-		expect(json.theme.find((c: { label: string }) => c.label === 'theme-500')).toMatchObject({
-			label: 'theme-500',
-			value: '#078F96',
-		});
-
-		// no alpha variant entries in JSON
-		const allLabels: string[] = [...json.default, ...json.gray, ...json.theme].map(
-			(c: { label: string }) => c.label,
+		expect(files['_raw.scss']).toContain(
+			'\t--raw-shadow: rgba(12, 23, 38, 0.08);\n\t--raw-shadow-rgb: 12, 23, 38;',
 		);
-		expect(allLabels.every((label) => !label.includes('%'))).toBe(true);
+		expect(files['_raw.scss']).not.toContain('%');
+		expect(files['_raw.scss']).not.toContain('--theme');
+
+		expect(files['_raw-dark.scss']).toContain('.-ds-dark {');
+		expect(files['_raw-dark.scss']).toContain('\t--raw-contrast: #eceef3;');
+		expect(files['_raw-dark.scss']).toContain('\t--raw-shadow: rgba(12, 23, 38, 0.3);');
 	});
 
-	it('ImportTokens generates correct _tokens-variables.scss, _tokens.scss, and _tokens.json', async () => {
-		ImportTokens(testConfig, tokensFixture);
-		await new Promise((r) => setTimeout(r, 1));
+	it('generates raw names grouped by Figma group', () => {
+		expect(JSON.parse(files['_raw.json'])).toEqual({
+			default: ['raw-contrast', 'raw-shadow'],
+			gray: ['raw-gray-50', 'raw-gray-700'],
+			surface: ['raw-surface-1'],
+		});
+	});
 
-		// --- _tokens-variables.scss ---
-		const variablesContent = await promises.readFile(
-			testConfig.destinationPath + testConfig.files.tokens.destinationVariables,
-			'utf8',
+	it('generates per-brand theme files mapping brand-N to --theme-N', () => {
+		expect(files['_theme-wnl.scss']).toBe(
+			[
+				'// Generated by `yarn importColors` from tools/importers/figma-export. Do not edit by hand.',
+				'.-ds-theme-wnl {',
+				'\t--theme-500: #078f96;',
+				'\t--theme-500-rgb: 7, 143, 150;',
+				'}',
+				'',
+			].join('\n'),
 		);
-		const variablesLines = variablesContent.split(/\r?\n/);
+		expect(files['_theme-bodywork.scss']).toContain('\t--theme-500: #2664e0;');
+		expect(files['_theme-wnl-dark.scss']).toContain(
+			'.-ds-theme-wnl.-ds-dark {\n\t--theme-500: #0998a0;',
+		);
+		expect(JSON.parse(files['_theme.json'])).toEqual(['theme-500']);
+	});
 
-		expect(variablesLines[0]).toBe(':root {');
-		expect(variablesContent).toContain('\t--color-default-text: var(--raw-black);');
-		expect(variablesContent).toContain(
-			'\t--color-default-overlay: rgba(var(--raw-black-rgb), 0.9);',
+	it('resolves token aliases, alpha variants, composed colors and token-to-token aliases', () => {
+		const variables = files['_tokens-variables.scss'];
+		expect(variables).toContain('\t--color-default-text: var(--raw-contrast);');
+		expect(variables).toContain(
+			'\t--color-default-ripple: rgba(var(--raw-contrast-rgb), 0.06);',
 		);
-		expect(variablesContent).toContain('\t--color-default-background: var(--raw-white);');
-		// color-default-background gets an extra -rgb companion var pointing at the raw rgb value
-		expect(variablesContent).toContain(
-			'\t--color-default-background-rgb: var(--raw-white-rgb);',
-		);
-		// other tokens must not get an -rgb companion
-		expect(variablesContent).not.toContain('--color-default-text-rgb');
-		expect(variablesContent).toContain(
-			'\t--color-default-background-ghost: rgba(var(--raw-white-rgb), 0);',
-		);
-		expect(variablesContent).toContain(
-			'\t--color-default-background-ghost-hovered: rgba(var(--raw-white-rgb), 0.12);',
-		);
-		expect(variablesContent).toContain('\t--color-neutral-text: var(--raw-gray-900);');
-		expect(variablesContent).toContain(
-			'\t--color-neutral-background-ghost: rgba(var(--raw-gray-700-rgb), 0);',
-		);
-		expect(variablesContent).toContain(
+		expect(variables).toContain('\t--color-default-shadow: var(--raw-shadow);');
+		expect(variables).toContain(
 			'\t--color-neutral-background-ghost-hovered: rgba(var(--raw-gray-700-rgb), 0.12);',
 		);
-		expect(variablesContent).toContain(
-			'\t--color-primary-background-strong: var(--theme-500);',
-		);
-		expect(variablesContent).toContain(
-			'\t--color-primary-ripple: rgba(var(--theme-500-rgb), 0.12);',
-		);
-		expect(variablesContent).toContain(
-			'\t--color-primary-background-ghost: rgba(var(--theme-500-rgb), 0);',
-		);
-
-		// --- _tokens.scss ---
-		const scssContent = await promises.readFile(
-			testConfig.destinationPath + testConfig.files.tokens.destination,
-			'utf8',
-		);
-
-		expect(scssContent).toContain('$color-default-text: var(--color-default-text);');
-		expect(scssContent).toContain(
-			'$color-default-background: var(--color-default-background);',
-		);
-		expect(scssContent).toContain(
-			'$color-default-background-rgb: var(--color-default-background-rgb);',
-		);
-		expect(scssContent).toContain('$color-default-overlay: var(--color-default-overlay);');
-		expect(scssContent).toContain(
-			'$color-neutral-background-ghost: var(--color-neutral-background-ghost);',
-		);
-		expect(scssContent).toContain(
-			'$color-primary-background-strong: var(--color-primary-background-strong);',
-		);
-
-		// --- _tokens.json ---
-		const jsonContent = await promises.readFile(
-			testConfig.destinationPath + testConfig.files.tokens.destinationJson,
-			'utf8',
-		);
-		const json = JSON.parse(jsonContent);
-
-		expect(json.text[0].label).toBe('color-default-text');
-		expect(json.text[0].value).toBe('var(--raw-black)');
-		expect(
-			json.overlay.find(
-				(t: { value: string }) => t.value === 'rgba(var(--raw-black-rgb), 0.9)',
-			),
-		).toBeDefined();
-		expect(
-			json.text.find((t: { label: string }) => t.label === 'color-neutral-text'),
-		).toMatchObject({ label: 'color-neutral-text', value: 'var(--raw-gray-900)' });
-		expect(
-			json.background.find(
-				(t: { label: string }) => t.label === 'color-primary-background-strong',
-			),
-		).toMatchObject({ label: 'color-primary-background-strong', value: 'var(--theme-500)' });
-		expect(
-			json.background.find(
-				(t: { label: string }) => t.label === 'color-default-background-rgb',
-			),
-		).toMatchObject({
-			label: 'color-default-background-rgb',
-			value: 'var(--raw-white-rgb)',
-		});
+		expect(variables).toContain('\t--color-neutral-mask: rgba(var(--raw-gray-50-rgb), 0);');
+		expect(variables).toContain('\t--color-primary-background-strong: var(--theme-500);');
+		expect(variables).toContain('\t--color-primary-ripple: rgba(var(--theme-500-rgb), 0.12);');
+		expect(variables).toContain('\t--color-page-overlay: rgba(var(--raw-surface-1-rgb), 0.7);');
 	});
 
-	it('ImportRawColors (theme mode) generates correct _raw-wnl.scss and _raw-wnl.json', async () => {
-		ImportRawColors(themeTestConfig, rawColorsFixture, 'wnl');
-		await new Promise((r) => setTimeout(r, 1));
-
-		// --- _raw-wnl.scss ---
-		const scssContent = await promises.readFile(
-			themeTestConfig.destinationPath + themeTestConfig.files.variablesRaw.destination,
-			'utf8',
+	it('adds -rgb variants for configured tokens', () => {
+		expect(files['_tokens-variables.scss']).toContain(
+			'\t--color-default-background: var(--raw-surface-1);\n\t--color-default-background-rgb: var(--raw-surface-1-rgb);',
 		);
-		const scssLines = scssContent.split(/\r?\n/);
-
-		expect(scssLines[0]).toBe('.-ds-theme-wnl {');
-		expect(scssContent).toContain('\t--theme-500: #078f96;');
-		expect(scssContent).toContain('\t--theme-500-rgb: 7, 143, 150;');
-		expect(scssContent).toContain('\t--theme-100: #d5eeef;');
-
-		// must not contain raw- prefix entries
-		expect(scssContent).not.toContain('--raw-');
-
-		// alpha variants must not appear
-		expect(scssContent).not.toContain('theme-500-12%');
-		expect(scssContent).not.toContain('theme-500-0%');
-
-		// --- _raw-wnl.json ---
-		const jsonContent = await promises.readFile(
-			themeTestConfig.destinationPath + themeTestConfig.files.variablesRaw.destinationJson,
-			'utf8',
+		expect(files['_tokens.scss']).toContain(
+			'$color-default-background: var(--color-default-background);\n$color-default-background-rgb: var(--color-default-background-rgb);',
 		);
-		const json = JSON.parse(jsonContent);
-
-		expect(json.theme.find((c: { label: string }) => c.label === 'theme-500')).toMatchObject({
-			label: 'theme-500',
-			value: '#078F96',
-		});
-		expect(json.theme.every((c: { label: string }) => !c.label.includes('%'))).toBe(true);
 	});
 
-	it('ImportTokens (theme mode) generates correct _tokens-wnl-variables.scss, _tokens-wnl.scss, and _tokens-wnl.json', async () => {
-		ImportTokens(themeTestConfig, tokensFixture, 'wnl');
-		await new Promise((r) => setTimeout(r, 1));
-
-		// --- _tokens-wnl-variables.scss ---
-		const variablesContent = await promises.readFile(
-			themeTestConfig.destinationPath + themeTestConfig.files.tokens.destinationVariables,
-			'utf8',
-		);
-		const variablesLines = variablesContent.split(/\r?\n/);
-
-		expect(variablesLines[0]).toBe('.-ds-theme-wnl {');
-		// only theme-referencing tokens should appear
-		expect(variablesContent).toContain(
-			'\t--color-primary-background-strong: var(--theme-500);',
-		);
-		expect(variablesContent).toContain(
-			'\t--color-primary-ripple: rgba(var(--theme-500-rgb), 0.12);',
-		);
-		// raw-referencing tokens must not appear in theme file
-		expect(variablesContent).not.toContain('--color-default-text');
-		expect(variablesContent).not.toContain('--color-neutral-text');
-
-		// --- _tokens-wnl.scss ---
-		const scssContent = await promises.readFile(
-			themeTestConfig.destinationPath + themeTestConfig.files.tokens.destination,
-			'utf8',
-		);
-
-		expect(scssContent).toContain(
-			'$color-primary-background-strong: var(--color-primary-background-strong);',
-		);
-		expect(scssContent).not.toContain('$color-default-text');
-
-		// --- _tokens-wnl.json ---
-		const jsonContent = await promises.readFile(
-			themeTestConfig.destinationPath + themeTestConfig.files.tokens.destinationJson,
-			'utf8',
-		);
-		const json = JSON.parse(jsonContent);
-
-		expect(
-			json.background.find(
-				(t: { label: string }) => t.label === 'color-primary-background-strong',
-			),
-		).toMatchObject({ label: 'color-primary-background-strong', value: 'var(--theme-500)' });
-		expect(json.text).toBeUndefined();
+	it('generates token names and values grouped by Figma group', () => {
+		const json = JSON.parse(files['_tokens.json']);
+		expect(Object.keys(json)).toEqual(['default', 'neutral', 'primary', 'page']);
+		expect(json.primary).toEqual([
+			{ name: 'color-primary-background-strong', value: 'var(--theme-500)' },
+			{ name: 'color-primary-ripple', value: 'rgba(var(--theme-500-rgb), 0.12)' },
+		]);
 	});
 
-	it('validateRawSections does not throw when raw sections are equal', () => {
-		const wnl = { raw: { black: { $type: 'color', $value: '#0c1726' } } };
-		const bw = { raw: { black: { $type: 'color', $value: '#0c1726' } } };
-		expect(() => validateRawSections(wnl, bw)).not.toThrow();
-	});
-
-	it('validateRawSections throws when raw sections differ', () => {
-		const wnl = { raw: { black: { $type: 'color', $value: '#0c1726' } } };
-		const bw = { raw: { black: { $type: 'color', $value: '#000000' } } };
-		expect(() => validateRawSections(wnl, bw)).toThrow(
-			'Raw color sections in WNL and BW files differ!',
-		);
+	it.each([
+		['a mode is missing', { bw: undefined }, 'Missing Figma export modes: BW'],
+		[
+			'light and dark raw keys differ',
+			{ dark: mode('Dark mode', { raw: { contrast: color('#ECEEF3') } }) },
+			'missing in second set: shadow, gray-50, gray-700, surface-1',
+		],
+		[
+			'brand keys differ',
+			{ bw: mode('BW', { light: {}, dark: {} }) },
+			'theme keys (WNL vs BW): missing in second set: theme-500',
+		],
+		[
+			'brand light and dark keys differ',
+			{ bw: mode('BW', { light: { 'brand-500': color('#2664E0') }, dark: {} }) },
+			'theme keys (BW light vs dark): missing in second set: theme-500',
+		],
+		[
+			'a token aliases an unknown raw variable',
+			{ tokens: tokensMode({ default: { text: alias('raw/gray/gray-950') } }) },
+			'default/text: alias to unknown variable "raw/gray/gray-950"',
+		],
+		[
+			'a token aliases an unknown token',
+			{ tokens: tokensMode({ neutral: { mask: composed('neutral/nope', 0, null) } }) },
+			'neutral/mask: alias to unknown token "neutral/nope"',
+		],
+		[
+			'a token is a literal',
+			{ tokens: tokensMode({ default: { text: color('#0C1726') } }) },
+			'default/text: literal value #0C1726',
+		],
+	])('throws when %s', (_, overrides, message) => {
+		expect(() => generateColorFiles(exportsWith(overrides), cfg)).toThrow(message);
 	});
 });

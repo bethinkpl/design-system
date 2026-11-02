@@ -1,265 +1,329 @@
-import { readFileSync } from 'fs';
-import { makeHexShortcut, hexToRgb } from './helpers/colorsModifiers';
-import { arrayToFile, jsonToFile } from './helpers/fileWriter';
-import { cssFileFirstLine } from './helpers/modifiers';
-import { ColorsBinFiles, ColorToken, Dict } from './helpers/structures';
+import { readdirSync, readFileSync, writeFileSync } from 'fs';
+import { join } from 'path';
+import { hexToRgb, makeHexShortcut } from './helpers/colorsModifiers';
 
-import defaultConfig from './configs/ImportColorsFromFigmaTokensConfig.json';
+import config from './configs/ImportColorsFromFigmaTokensConfig.json';
 
-interface FigmaColorToken {
+interface FigmaColorValue {
+	alpha: number;
+	hex: string;
+}
+
+interface FigmaAlias {
+	targetVariableName: string;
+	// absent when the alias points into the same collection (token → token)
+	targetVariableSetName?: string;
+}
+
+interface FigmaColor {
 	$type: string;
-	$value: string;
-}
-
-type FigmaColorEntry = FigmaColorToken | { [key: string]: FigmaColorEntry };
-
-interface FigmaRawColorsJson {
-	raw?: { [key: string]: FigmaColorEntry };
-	// theme entries are flat (no nested groups); asymmetry with raw is intentional
-	theme?: { [key: string]: FigmaColorToken };
-}
-
-interface FigmaTokensJson {
-	[category: string]: { [tokenName: string]: FigmaColorToken };
-}
-
-/** Token names that additionally need an `-rgb` companion variable emitted (e.g. for use in rgba()). */
-const TOKENS_WITH_RGB_VARIANT = new Set(['color-default-background']);
-
-const isAlphaVariant = (key: string): boolean => /[-_]\d+%$/.test(key);
-
-const isThemeToken = (entry: FigmaColorToken): boolean => entry.$value.startsWith('{theme.');
-
-/** Serialise with sorted keys at every level so insertion-order differences don't cause false mismatches. */
-const sortedStringify = (obj: unknown): string =>
-	JSON.stringify(obj, (_, val) =>
-		val && typeof val === 'object' && !Array.isArray(val)
-			? Object.fromEntries(Object.entries(val as object).sort())
-			: val,
-	);
-
-const parseTokenReference = (reference: string): string => {
-	if (!reference.startsWith('{')) {
-		throw new Error(`Expected a token reference but got a literal value: ${reference}`);
-	}
-	const inner = reference.replace(/[{}]/g, '');
-	const parts = inner.split('.');
-	const group = parts[0];
-	const colorKey = parts[parts.length - 1];
-	const alphaMatch = colorKey.match(/[-_](\d+)%$/);
-
-	if (alphaMatch) {
-		const alpha = parseInt(alphaMatch[1]) / 100;
-		const baseKey = colorKey.replace(/[-_]\d+%$/, '');
-		const rgbVar = group === 'raw' ? `--raw-${baseKey}-rgb` : `--${baseKey}-rgb`;
-		return `rgba(var(${rgbVar}), ${alpha})`;
-	}
-
-	const cssVar = group === 'raw' ? `--raw-${colorKey}` : `--${colorKey}`;
-	return `var(${cssVar})`;
-};
-
-export const validateRawSections = (wnl: FigmaRawColorsJson, bw: FigmaRawColorsJson): void => {
-	if (sortedStringify(wnl.raw) !== sortedStringify(bw.raw)) {
-		throw new Error('Raw color sections in WNL and BW files differ!');
-	}
-};
-
-export const ImportRawColors = (
-	cfg: { destinationPath: string; files: ColorsBinFiles },
-	rawColorsJson: FigmaRawColorsJson,
-	themeName?: string,
-): void => {
-	const isTheme = !!themeName;
-	const tab = isTheme ? '\t' : '';
-	const scssResult: Array<string> = [cssFileFirstLine(isTheme, themeName)];
-	const jsonResult: Dict<Array<ColorToken>> = {};
-
-	const addColor = (key: string, value: string, cssVarName: string, category: string): void => {
-		const hex = makeHexShortcut(value);
-		scssResult.push(`${tab}${cssVarName}: ${hex};`);
-
-		const rgb = hexToRgb(hex);
-		if (rgb === null) throw new Error(`Cannot convert hex to RGB: ${hex}`);
-		scssResult.push(`${tab}${cssVarName}-rgb: ${rgb};`);
-
-		if (!jsonResult[category]) jsonResult[category] = [];
-		jsonResult[category].push({
-			id: cfg.files.variablesRaw.destination + '_' + key,
-			label: key,
-			value: hex,
-		});
-	};
-
-	if (!isTheme) {
-		const processRawGroup = (
-			group: { [key: string]: FigmaColorEntry },
-			category: string,
-		): void => {
-			for (const [key, entry] of Object.entries(group)) {
-				if (isAlphaVariant(key)) continue;
-
-				if ('$type' in entry && entry.$type === 'color') {
-					addColor(key, entry.$value, `--raw-${key}`, category);
-				} else {
-					processRawGroup(entry as { [key: string]: FigmaColorEntry }, key);
-				}
-			}
+	$value: FigmaColorValue;
+	$extensions?: {
+		'com.figma.aliasData'?: FigmaAlias;
+		'com.figma.composedColor'?: {
+			colorArg: { type: string; alias?: FigmaAlias };
+			opacityArg: { type: string; value: number };
 		};
-
-		if (rawColorsJson.raw) {
-			processRawGroup(rawColorsJson.raw, 'default');
-		}
-
-		const themeGroup = rawColorsJson.theme;
-		if (themeGroup) {
-			for (const [key, entry] of Object.entries(themeGroup)) {
-				if (isAlphaVariant(key)) continue;
-				if (entry.$type === 'color') {
-					addColor(key, entry.$value, `--${key}`, 'theme');
-				}
-			}
-		}
-	} else {
-		const themeGroup = rawColorsJson.theme;
-		if (themeGroup) {
-			for (const [key, entry] of Object.entries(themeGroup)) {
-				if (isAlphaVariant(key)) continue;
-				if (entry.$type === 'color') {
-					addColor(key, entry.$value, `--${key}`, 'theme');
-				}
-			}
-		}
-	}
-
-	scssResult.push('}');
-
-	if (scssResult.length <= 2) throw new Error('No colors to save');
-
-	arrayToFile(cfg.destinationPath + cfg.files.variablesRaw.destination, scssResult);
-	jsonToFile(cfg.destinationPath + cfg.files.variablesRaw.destinationJson, jsonResult);
-};
-
-export const ImportTokens = (
-	cfg: { destinationPath: string; files: ColorsBinFiles },
-	tokensJson: FigmaTokensJson,
-	themeName?: string,
-): void => {
-	const isTheme = !!themeName;
-	const tab = isTheme ? '\t' : '';
-	const variablesResult: Array<string> = [cssFileFirstLine(isTheme, themeName)];
-	const scssResult: Array<string> = [];
-	const jsonResult: Dict<Array<ColorToken>> = {};
-
-	for (const [category, tokens] of Object.entries(tokensJson)) {
-		for (const [tokenKey, tokenEntry] of Object.entries(tokens)) {
-			if (tokenEntry.$type !== 'color') continue;
-			if (isTheme && !isThemeToken(tokenEntry)) continue;
-
-			const tokenName = `color-${category}-${tokenKey}`;
-			const tokenType = tokenKey.split('-')[0];
-			const resolvedValue = parseTokenReference(tokenEntry.$value);
-
-			variablesResult.push(`${tab}--${tokenName}: ${resolvedValue};`);
-			scssResult.push(`$${tokenName}: var(--${tokenName});`);
-
-			if (!jsonResult[tokenType]) jsonResult[tokenType] = [];
-			jsonResult[tokenType].push({
-				id: cfg.files.tokens.destination + '_' + tokenName,
-				label: tokenName,
-				value: resolvedValue,
-			});
-
-			if (TOKENS_WITH_RGB_VARIANT.has(tokenName)) {
-				const rgbTokenName = `${tokenName}-rgb`;
-				const rgbValue = parseTokenReference(tokenEntry.$value + '-rgb');
-
-				variablesResult.push(`${tab}--${rgbTokenName}: ${rgbValue};`);
-				scssResult.push(`$${rgbTokenName}: var(--${rgbTokenName});`);
-
-				jsonResult[tokenType].push({
-					id: cfg.files.tokens.destination + '_' + rgbTokenName,
-					label: rgbTokenName,
-					value: rgbValue,
-				});
-			}
-		}
-	}
-
-	variablesResult.push('}');
-
-	if (scssResult.length === 0) throw new Error('No tokens to save');
-
-	arrayToFile(cfg.destinationPath + cfg.files.tokens.destinationVariables, variablesResult);
-	arrayToFile(cfg.destinationPath + cfg.files.tokens.destination, scssResult);
-	jsonToFile(cfg.destinationPath + cfg.files.tokens.destinationJson, jsonResult);
-};
-
-const run = async () => {
-	const wnlColorsPath = process.argv[2];
-	if (!wnlColorsPath) {
-		console.error(
-			'Usage: importColors <wnl-raw.json> <bw-raw.json> [mc-raw.json] <tokens.json>',
-		);
-		return;
-	}
-
-	const bwColorsPath = process.argv[3];
-	const mcColorsPath = process.argv[4];
-	const tokensPath = process.argv[5];
-
-	console.log('Importing colors...');
-
-	const wnlColorsJson: FigmaRawColorsJson = JSON.parse(readFileSync(wnlColorsPath, 'utf8'));
-	const bwColorsJson: FigmaRawColorsJson | null = bwColorsPath
-		? JSON.parse(readFileSync(bwColorsPath, 'utf8'))
-		: null;
-	const mcColorsJson: FigmaRawColorsJson | null = mcColorsPath
-		? JSON.parse(readFileSync(mcColorsPath, 'utf8'))
-		: null;
-
-	if (bwColorsJson) {
-		validateRawSections(wnlColorsJson, bwColorsJson);
-	}
-
-	const baseCfg = {
-		destinationPath: defaultConfig.destinationPath,
-		files: defaultConfig.base.files,
 	};
-	ImportRawColors(baseCfg, wnlColorsJson);
-	console.log('Base raw colors imported successfully.');
+}
 
-	const tokensJson: FigmaTokensJson | null = tokensPath
-		? JSON.parse(readFileSync(tokensPath, 'utf8'))
-		: null;
+interface FigmaGroup {
+	[key: string]: FigmaColor | FigmaGroup;
+}
 
-	if (tokensJson) {
-		ImportTokens(baseCfg, tokensJson);
-		console.log('Base tokens imported successfully.');
-	}
+export interface FigmaExport {
+	$extensions?: { 'com.figma.modeName'?: string };
+	[key: string]: unknown;
+}
 
-	// Each theme maps to its source file by position: themes[0] → wnlColorsJson, themes[1] → bwColorsJson, themes[2] → mcColorsJson, etc.
-	const themeColorsJsons: Array<FigmaRawColorsJson | null> = [
-		wnlColorsJson,
-		bwColorsJson,
-		mcColorsJson,
-	];
+export interface ColorsConfig {
+	modes: { light: string; dark: string; tokens: string };
+	brands: Record<string, string>;
+	tokensWithRgbVariant: Array<string>;
+}
 
-	for (let i = 0; i < defaultConfig.themes.length; i++) {
-		const theme = defaultConfig.themes[i];
-		const themeColorsJson = themeColorsJsons[i] ?? null;
-		if (!themeColorsJson) continue;
+interface ColorEntry {
+	group: string;
+	name: string;
+	value: FigmaColorValue;
+}
 
-		const themeCfg = { destinationPath: defaultConfig.destinationPath, files: theme.files };
+/** Reference to a CSS variable, optionally with an opacity applied via its `-rgb` companion. */
+interface ColorRef {
+	cssVar: string;
+	opacity?: number;
+}
 
-		ImportRawColors(themeCfg, themeColorsJson, theme.name);
-		console.log(`Theme raw colors imported successfully for: ${theme.name}`);
-
-		if (tokensJson) {
-			ImportTokens(themeCfg, tokensJson, theme.name);
-			console.log(`Theme tokens imported successfully for: ${theme.name}`);
-		}
-	}
+export const FILES = {
+	raw: '_raw.scss',
+	rawDark: '_raw-dark.scss',
+	rawJson: '_raw.json',
+	theme: (brand: string) => `_theme-${brand}.scss`,
+	themeDark: (brand: string) => `_theme-${brand}-dark.scss`,
+	themeJson: '_theme.json',
+	tokens: '_tokens.scss',
+	tokensVariables: '_tokens-variables.scss',
+	tokensJson: '_tokens.json',
 };
 
-run().catch(console.error);
+const GENERATED_HEADER =
+	'// Generated by `yarn importColors` from tools/importers/figma-export. Do not edit by hand.';
+
+const ALPHA_VARIANT = /-(\d+)%$/;
+
+const isColor = (entry: FigmaColor | FigmaGroup): entry is FigmaColor => '$type' in entry;
+
+const round = (value: number): number => Number(value.toFixed(3));
+
+const modeName = (json: FigmaExport): string | undefined =>
+	json.$extensions?.['com.figma.modeName'];
+
+const children = (json: FigmaExport | FigmaGroup): Array<[string, FigmaColor | FigmaGroup]> =>
+	Object.entries(json).filter(([key]) => !key.startsWith('$')) as Array<
+		[string, FigmaColor | FigmaGroup]
+	>;
+
+/** Flattens a raw group into leaf colors; alpha variants (`name-12%`) are skipped, tokens build them from `-rgb`. */
+const flattenColors = (group: FigmaGroup, groupName: string): Array<ColorEntry> =>
+	children(group).flatMap(([key, entry]) => {
+		if (!isColor(entry)) return flattenColors(entry, key);
+		if (ALPHA_VARIANT.test(key)) return [];
+		return [{ group: groupName, name: key, value: entry.$value }];
+	});
+
+const colorDeclarations = (prefix: string, entry: ColorEntry): Array<string> => {
+	const hex = makeHexShortcut(entry.value.hex).toLowerCase();
+	const rgb = hexToRgb(hex);
+	if (rgb === null)
+		throw new Error(`Cannot convert hex to RGB: ${entry.value.hex} (${entry.name})`);
+
+	const value = entry.value.alpha < 1 ? `rgba(${rgb}, ${round(entry.value.alpha)})` : hex;
+	return [`\t--${prefix}${entry.name}: ${value};`, `\t--${prefix}${entry.name}-rgb: ${rgb};`];
+};
+
+const scssBlock = (selector: string, declarations: Array<string>): string =>
+	[GENERATED_HEADER, `${selector} {`, ...declarations, '}', ''].join('\n');
+
+const keyDiff = (label: string, a: Array<string>, b: Array<string>): Array<string> => {
+	const missingInB = a.filter((key) => !b.includes(key));
+	const missingInA = b.filter((key) => !a.includes(key));
+	return [
+		...(missingInB.length ? [`${label}: missing in second set: ${missingInB.join(', ')}`] : []),
+		...(missingInA.length ? [`${label}: missing in first set: ${missingInA.join(', ')}`] : []),
+	];
+};
+
+const brandToTheme = (key: string): string => key.replace(/^brand-/, 'theme-');
+
+const refToCss = (ref: ColorRef): string =>
+	ref.opacity === undefined
+		? `var(${ref.cssVar})`
+		: `rgba(var(${ref.cssVar}-rgb), ${round(ref.opacity)})`;
+
+/**
+ * Generates the content of every color file. Throws (listing all problems) before anything is written
+ * when a mode is missing, key sets differ between modes/brands, or a token alias can't be resolved.
+ */
+export const generateColorFiles = (
+	exports: Array<FigmaExport>,
+	cfg: ColorsConfig,
+): Record<string, string> => {
+	const errors: Array<string> = [];
+	const byMode = new Map(exports.map((json) => [modeName(json), json]));
+
+	const requiredModes = [
+		cfg.modes.light,
+		cfg.modes.dark,
+		cfg.modes.tokens,
+		...Object.keys(cfg.brands),
+	];
+	const missingModes = requiredModes.filter((mode) => !byMode.has(mode));
+	if (missingModes.length) {
+		throw new Error(`Missing Figma export modes: ${missingModes.join(', ')}`);
+	}
+
+	const light = flattenColors(byMode.get(cfg.modes.light)!.raw as FigmaGroup, 'default');
+	const dark = flattenColors(byMode.get(cfg.modes.dark)!.raw as FigmaGroup, 'default');
+	const rawNames = light.map(({ name }) => name);
+	errors.push(
+		...keyDiff(
+			`raw keys (${cfg.modes.light} vs ${cfg.modes.dark})`,
+			rawNames,
+			dark.map(({ name }) => name),
+		),
+	);
+	const duplicates = rawNames.filter((name, index) => rawNames.indexOf(name) !== index);
+	if (duplicates.length) errors.push(`Duplicate raw color names: ${duplicates.join(', ')}`);
+
+	const brandEntries = Object.entries(cfg.brands).map(([mode, brand]) => {
+		const json = byMode.get(mode)!;
+		const toTheme = (entries: Array<ColorEntry>) =>
+			entries.map((entry) => ({ ...entry, name: brandToTheme(entry.name) }));
+		return {
+			mode,
+			brand,
+			light: toTheme(flattenColors(json.light as FigmaGroup, 'theme')),
+			dark: toTheme(flattenColors(json.dark as FigmaGroup, 'theme')),
+		};
+	});
+	const themeNames = brandEntries[0].light.map(({ name }) => name);
+	for (const { mode, light: brandLight, dark: brandDark } of brandEntries) {
+		const lightNames = brandLight.map(({ name }) => name);
+		errors.push(
+			...keyDiff(`theme keys (${brandEntries[0].mode} vs ${mode})`, themeNames, lightNames),
+		);
+		errors.push(
+			...keyDiff(
+				`theme keys (${mode} light vs dark)`,
+				lightNames,
+				brandDark.map(({ name }) => name),
+			),
+		);
+	}
+
+	const tokensJson = byMode.get(cfg.modes.tokens)!;
+	const tokens = new Map<string, FigmaColor>();
+	for (const [group, groupTokens] of children(tokensJson)) {
+		for (const [key, token] of children(groupTokens as FigmaGroup)) {
+			tokens.set(`${group}/${key}`, token as FigmaColor);
+		}
+	}
+
+	const resolveAlias = (
+		alias: FigmaAlias,
+		path: string,
+		seen: Array<string>,
+	): ColorRef | null => {
+		const name = alias.targetVariableName;
+		if (!alias.targetVariableSetName) return resolveToken(name, [...seen, path]);
+
+		const [collection, ...rest] = name.split('/');
+		const leaf = rest[rest.length - 1];
+		const alphaMatch = leaf.match(ALPHA_VARIANT);
+		const base = leaf.replace(ALPHA_VARIANT, '');
+		const opacity = alphaMatch ? parseInt(alphaMatch[1]) / 100 : undefined;
+
+		if (collection === 'raw' && rawNames.includes(base))
+			return { cssVar: `--raw-${base}`, opacity };
+		if (collection === 'theme' && themeNames.includes(base))
+			return { cssVar: `--${base}`, opacity };
+		errors.push(`${path}: alias to unknown variable "${name}"`);
+		return null;
+	};
+
+	const resolveToken = (path: string, seen: Array<string> = []): ColorRef | null => {
+		const token = tokens.get(path);
+		if (!token) {
+			errors.push(`${seen[seen.length - 1]}: alias to unknown token "${path}"`);
+			return null;
+		}
+		if (seen.includes(path)) {
+			errors.push(`${path}: circular alias (${[...seen, path].join(' → ')})`);
+			return null;
+		}
+		if (token.$type !== 'color') {
+			errors.push(`${path}: unsupported type "${token.$type}"`);
+			return null;
+		}
+
+		const aliasData = token.$extensions?.['com.figma.aliasData'];
+		if (aliasData) return resolveAlias(aliasData, path, seen);
+
+		const composed = token.$extensions?.['com.figma.composedColor'];
+		if (composed?.colorArg.alias) {
+			const ref = resolveAlias(composed.colorArg.alias, path, seen);
+			if (!ref) return null;
+			if (ref.opacity !== undefined) {
+				errors.push(`${path}: opacity applied to a color that already has opacity`);
+				return null;
+			}
+			return { cssVar: ref.cssVar, opacity: composed.opacityArg.value / 100 };
+		}
+
+		errors.push(
+			`${path}: literal value ${token.$value.hex}, tokens must alias a raw/theme variable`,
+		);
+		return null;
+	};
+
+	const tokenVariables: Array<string> = [];
+	const tokenScss: Array<string> = [];
+	const tokenJson: Record<string, Array<{ name: string; value: string }>> = {};
+
+	for (const path of tokens.keys()) {
+		const ref = resolveToken(path);
+		if (!ref) continue;
+
+		const [group, key] = path.split('/');
+		const name = `color-${group}-${key}`;
+		const value = refToCss(ref);
+		tokenVariables.push(`\t--${name}: ${value};`);
+		tokenScss.push(`$${name}: var(--${name});`);
+		(tokenJson[group] ??= []).push({ name, value });
+
+		if (cfg.tokensWithRgbVariant.includes(name)) {
+			if (ref.opacity !== undefined) {
+				errors.push(`${path}: an -rgb variant needs an opaque color`);
+				continue;
+			}
+			tokenVariables.push(`\t--${name}-rgb: var(${ref.cssVar}-rgb);`);
+			tokenScss.push(`$${name}-rgb: var(--${name}-rgb);`);
+		}
+	}
+
+	if (errors.length) {
+		throw new Error(`Cannot import colors:\n- ${errors.join('\n- ')}`);
+	}
+
+	const rawJson: Record<string, Array<string>> = {};
+	for (const { group, name } of light) (rawJson[group] ??= []).push(`raw-${name}`);
+
+	const files: Record<string, string> = {
+		[FILES.raw]: scssBlock(
+			':root',
+			light.flatMap((entry) => colorDeclarations('raw-', entry)),
+		),
+		[FILES.rawDark]: scssBlock(
+			'.-ds-dark',
+			dark.flatMap((entry) => colorDeclarations('raw-', entry)),
+		),
+		[FILES.rawJson]: JSON.stringify(rawJson),
+		[FILES.themeJson]: JSON.stringify(themeNames),
+		[FILES.tokensVariables]: scssBlock(':root', tokenVariables),
+		[FILES.tokens]: [GENERATED_HEADER, ...tokenScss, ''].join('\n'),
+		[FILES.tokensJson]: JSON.stringify(tokenJson),
+	};
+	for (const { brand, light: brandLight, dark: brandDark } of brandEntries) {
+		files[FILES.theme(brand)] = scssBlock(
+			`.-ds-theme-${brand}`,
+			brandLight.flatMap((entry) => colorDeclarations('', entry)),
+		);
+		files[FILES.themeDark(brand)] = scssBlock(
+			`.-ds-theme-${brand}.-ds-dark`,
+			brandDark.flatMap((entry) => colorDeclarations('', entry)),
+		);
+	}
+	return files;
+};
+
+const run = () => {
+	const inputPath = process.argv[2] ?? config.inputPath;
+	const exports: Array<FigmaExport> = readdirSync(inputPath)
+		.filter((file) => file.endsWith('.json'))
+		.map((file) => JSON.parse(readFileSync(join(inputPath, file), 'utf8')));
+
+	const files = generateColorFiles(exports, config);
+	for (const [file, content] of Object.entries(files)) {
+		writeFileSync(join(config.destinationPath, file), content);
+	}
+	console.log(`Colors imported from ${inputPath}: ${Object.keys(files).join(', ')}`);
+};
+
+if (process.argv[1]?.endsWith('ImportColorsFromFigmaTokens.ts')) {
+	try {
+		run();
+	} catch (error) {
+		console.error((error as Error).message);
+		process.exit(1);
+	}
+}
