@@ -8,9 +8,9 @@ export default {
 	component: ColorSwatches,
 } as Meta<typeof ColorSwatches>;
 
-const groups = Object.entries(rawColors).map(([title, names]) => ({
+const groups = Object.entries(rawColors).map(([title, colors]) => ({
 	title,
-	items: names.map((name) => ({ name })),
+	items: colors.map(({ name }) => ({ name })),
 }));
 
 const StoryTemplate: StoryFn<typeof ColorSwatches> = () => ({

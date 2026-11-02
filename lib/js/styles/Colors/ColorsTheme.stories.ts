@@ -9,7 +9,8 @@ export default {
 } as Meta<typeof ColorSwatches>;
 
 // Values come from the `.-ds-theme-<brand>` class set by the Brand toolbar switch.
-const groups = [{ title: 'theme', items: themeColors.map((name) => ({ name })) }];
+// Names are the same for every brand.
+const groups = [{ title: 'theme', items: themeColors.wnl.map(({ name }) => ({ name })) }];
 
 const StoryTemplate: StoryFn<typeof ColorSwatches> = () => ({
 	components: { ColorSwatches },

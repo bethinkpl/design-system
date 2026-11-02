@@ -91,15 +91,30 @@ const flattenColors = (group: FigmaGroup, groupName: string): Array<ColorEntry> 
 		return [{ group: groupName, name: key, value: entry.$value }];
 	});
 
-const colorDeclarations = (prefix: string, entry: ColorEntry): Array<string> => {
+const cssColor = (entry: ColorEntry): { value: string; rgb: string } => {
 	const hex = makeHexShortcut(entry.value.hex).toLowerCase();
 	const rgb = hexToRgb(hex);
 	if (rgb === null)
 		throw new Error(`Cannot convert hex to RGB: ${entry.value.hex} (${entry.name})`);
 
-	const value = entry.value.alpha < 1 ? `rgba(${rgb}, ${round(entry.value.alpha)})` : hex;
+	return {
+		value: entry.value.alpha < 1 ? `rgba(${rgb}, ${round(entry.value.alpha)})` : hex,
+		rgb,
+	};
+};
+
+const colorDeclarations = (prefix: string, entry: ColorEntry): Array<string> => {
+	const { value, rgb } = cssColor(entry);
 	return [`\t--${prefix}${entry.name}: ${value};`, `\t--${prefix}${entry.name}-rgb: ${rgb};`];
 };
+
+/** `{ name, light, dark }` per color; light and dark lists have the same keys (validated earlier). */
+const modeValues = (prefix: string, light: Array<ColorEntry>, dark: Array<ColorEntry>) =>
+	light.map((entry) => ({
+		name: `${prefix}${entry.name}`,
+		light: cssColor(entry).value,
+		dark: cssColor(dark.find(({ name }) => name === entry.name)!).value,
+	}));
 
 const scssBlock = (selector: string, declarations: Array<string>): string =>
 	[GENERATED_HEADER, `${selector} {`, ...declarations, '}', ''].join('\n');
@@ -275,8 +290,17 @@ export const generateColorFiles = (
 		throw new Error(`Cannot import colors:\n- ${errors.join('\n- ')}`);
 	}
 
-	const rawJson: Record<string, Array<string>> = {};
-	for (const { group, name } of light) (rawJson[group] ??= []).push(`raw-${name}`);
+	const rawJson: Record<string, ReturnType<typeof modeValues>> = {};
+	for (const value of modeValues('raw-', light, dark)) {
+		const { group } = light.find(({ name }) => `raw-${name}` === value.name)!;
+		(rawJson[group] ??= []).push(value);
+	}
+	const themeJson = Object.fromEntries(
+		brandEntries.map(({ brand, light: brandLight, dark: brandDark }) => [
+			brand,
+			modeValues('', brandLight, brandDark),
+		]),
+	);
 
 	const files: Record<string, string> = {
 		[FILES.raw]: scssBlock(
@@ -288,7 +312,7 @@ export const generateColorFiles = (
 			dark.flatMap((entry) => colorDeclarations('raw-', entry)),
 		),
 		[FILES.rawJson]: JSON.stringify(rawJson),
-		[FILES.themeJson]: JSON.stringify(themeNames),
+		[FILES.themeJson]: JSON.stringify(themeJson),
 		[FILES.tokensVariables]: scssBlock(':root', tokenVariables),
 		[FILES.tokens]: [GENERATED_HEADER, ...tokenScss, ''].join('\n'),
 		[FILES.tokensJson]: JSON.stringify(tokenJson),

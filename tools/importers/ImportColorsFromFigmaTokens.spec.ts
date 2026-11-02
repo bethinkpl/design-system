@@ -114,11 +114,21 @@ describe('ImportColorsFromFigmaTokens', () => {
 		expect(files['_raw-dark.scss']).toContain('\t--raw-shadow: rgba(12, 23, 38, 0.3);');
 	});
 
-	it('generates raw names grouped by Figma group', () => {
+	it('generates raw names with light and dark values grouped by Figma group', () => {
 		expect(JSON.parse(files['_raw.json'])).toEqual({
-			default: ['raw-contrast', 'raw-shadow'],
-			gray: ['raw-gray-50', 'raw-gray-700'],
-			surface: ['raw-surface-1'],
+			default: [
+				{ name: 'raw-contrast', light: '#0c1726', dark: '#eceef3' },
+				{
+					name: 'raw-shadow',
+					light: 'rgba(12, 23, 38, 0.08)',
+					dark: 'rgba(12, 23, 38, 0.3)',
+				},
+			],
+			gray: [
+				{ name: 'raw-gray-50', light: '#f7f7f9', dark: '#f7f7f9' },
+				{ name: 'raw-gray-700', light: '#636c84', dark: '#636c84' },
+			],
+			surface: [{ name: 'raw-surface-1', light: '#fff', dark: '#fff' }],
 		});
 	});
 
@@ -137,7 +147,10 @@ describe('ImportColorsFromFigmaTokens', () => {
 		expect(files['_theme-wnl-dark.scss']).toContain(
 			'.-ds-theme-wnl.-ds-dark {\n\t--theme-500: #0998a0;',
 		);
-		expect(JSON.parse(files['_theme.json'])).toEqual(['theme-500']);
+		expect(JSON.parse(files['_theme.json'])).toEqual({
+			wnl: [{ name: 'theme-500', light: '#078f96', dark: '#0998a0' }],
+			bodywork: [{ name: 'theme-500', light: '#2664e0', dark: '#0998a0' }],
+		});
 	});
 
 	it('resolves token aliases, alpha variants, composed colors and token-to-token aliases', () => {
