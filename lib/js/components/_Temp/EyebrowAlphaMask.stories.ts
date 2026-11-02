@@ -1,6 +1,6 @@
 // TEMPORARY — PoC (task-67 dark mode, TextGroup eyebrow mask). Delete before merging.
-// Old mask paints `transparent → --ds-mask-background` over the text; the new one fades the text
-// itself with `mask-image`, so it doesn't need to know the background.
+// The eyebrow fades its own text with `mask-image` (fadeMask), so it works on any surface. The old
+// colour mask (transparent → --ds-mask-background) is gone; see the Gotchas stories for trade-offs.
 import { Meta, StoryObj } from '@storybook/vue3';
 import { ref } from 'vue';
 
@@ -21,15 +21,9 @@ const LABEL =
 const CELL_LABEL = 'font: 600 11px/14px sans-serif; opacity: .7; margin-bottom: 4px;';
 
 const pair = (labelColor = 'var(--color-neutral-text)') => `
-	<div style="display: flex; gap: 24px;">
-		<div style="width: 180px;">
-			<div style="${CELL_LABEL} color: ${labelColor};">OLD — colour mask</div>
-			<ds-text-group :eyebrow-text="eyebrow" main-text="Main text" has-eyebrow-mask />
-		</div>
-		<div style="width: 180px;">
-			<div style="${CELL_LABEL} color: ${labelColor};">NEW — alpha mask</div>
-			<ds-text-group :eyebrow-text="eyebrow" main-text="Main text" has-eyebrow-mask is-eyebrow-alpha-mask />
-		</div>
+	<div style="width: 180px;">
+		<div style="${CELL_LABEL} color: ${labelColor};">TextGroup — eyebrow alpha mask</div>
+		<ds-text-group :eyebrow-text="eyebrow" main-text="Main text" has-eyebrow-mask />
 	</div>`;
 
 const SURFACES = `

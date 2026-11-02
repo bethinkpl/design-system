@@ -25,8 +25,6 @@
 			class="ds-textGroup__eyebrowWrapper"
 			:class="{
 				'-ds-mask-active': isEyebrowMaskActive,
-				'-ds-mask-hidden': isEyebrowMaskHidden,
-				'-ds-alphaMaskMode': isEyebrowAlphaMask,
 			}"
 		>
 			<div
@@ -36,8 +34,7 @@
 					'-ds-ellipsis': eyebrowTextEllipsis,
 					'-ds-uppercase': isEyebrowTextUppercase,
 					'-ds-mask': hasEyebrowMask,
-					'-ds-alphaMask':
-						isEyebrowAlphaMask && isEyebrowMaskActive && !isEyebrowMaskHidden,
+					'-ds-mask-visible': isEyebrowMaskActive && !isEyebrowMaskHidden,
 				}"
 			>
 				<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
@@ -96,9 +93,7 @@
 @import '../../../styles/settings/typography/tokens';
 @import '../../../styles/settings/colors/tokens';
 @import '../../../styles/settings/spacings';
-@import '../../../styles/mixins/background-mask';
-
-$eyebrow-mask-width: 20px;
+@import '../../../styles/mixins/fade-mask';
 
 $text-group-colors: (
 	'default': (
@@ -201,39 +196,15 @@ $text-group-colors: (
 			}
 		}
 
-		// PoC (task-67): fade the text itself with an alpha mask instead of painting a colour over
-		// it, so it works on any background. Same curve as backgroundMask: fully hidden for the
-		// first 15.74% of the 20px band, then linear to opaque. The band slides left near the
-		// start of the text (maskTranslateX), like the painted overlay did.
-		&.-ds-alphaMask {
-			$fade-start: calc(#{$eyebrow-mask-width * 0.1574} + v-bind(maskTranslateX));
-			$fade-end: calc(#{$eyebrow-mask-width} + v-bind(maskTranslateX));
-			$gradient: linear-gradient(90deg, transparent $fade-start, #000 $fade-end);
-
-			-webkit-mask-image: $gradient;
-			mask-image: $gradient;
+		// The start of the text overflows to the left (the wrapper is rtl); the band shrinks near it
+		&.-ds-mask-visible {
+			@include fadeMask(left, 20px, v-bind(maskOffset));
 		}
 	}
 
 	&__eyebrowWrapper {
 		&.-ds-mask-active {
 			direction: rtl;
-			position: relative;
-
-			// PoC: the alpha mask (on the eyebrow itself) replaces the painted overlay
-			&:not(.-ds-mask-hidden):not(.-ds-alphaMaskMode)::before {
-				@include backgroundMask($direction: -90deg);
-
-				bottom: 0;
-				content: '';
-				display: block;
-				left: 0;
-				position: absolute;
-				top: 0;
-				transform: translateX(v-bind(maskTranslateX));
-				transition: transform 0.1s linear;
-				width: v-bind(maskWidthPx);
-			}
 		}
 	}
 
@@ -401,7 +372,6 @@ const {
 	eyebrowTextEllipsis = false,
 	isEyebrowTextUppercase = true,
 	hasEyebrowMask = false,
-	isEyebrowAlphaMask = false,
 	mainText,
 	mainTextEllipsis = false,
 	supportingText,
@@ -422,9 +392,6 @@ const {
 	eyebrowTextEllipsis?: boolean;
 	isEyebrowTextUppercase?: boolean;
 	hasEyebrowMask?: boolean;
-	// PoC (task-67, temporary): alpha mask instead of the background-colour mask. If adopted it
-	// becomes the only implementation and this prop goes away.
-	isEyebrowAlphaMask?: boolean;
 	mainText?: string | null;
 	mainTextEllipsis?: boolean;
 	supportingText?: string | null;
@@ -445,10 +412,9 @@ const loadingSizeClassName = computed(() => `-ds-loading-${skeletonLoadingSize}`
 const eyebrowRef = useTemplateRef('eyebrowRef');
 const isEyebrowMaskActive = ref(false);
 const isEyebrowMaskHidden = ref(false);
-const maskTranslateX = ref('0px');
+const maskOffset = ref('0px');
 
 const maskWidth = 20;
-const maskWidthPx = `${maskWidth}px`;
 
 const { width: eyebrowWidth } = useElementSize(eyebrowRef);
 
@@ -461,8 +427,8 @@ const throttledCheckEyebrowMask = throttle(() => {
 		// Hide the mask when scrolled to the start (1px tolerance for sub-pixel rendering)
 		isEyebrowMaskHidden.value = pixelsToBeginning < 1;
 
-		// Move the mask when close to the beginning
-		maskTranslateX.value = `${pixelsToBeginning > maskWidth ? 0 : -Math.floor(maskWidth - pixelsToBeginning)}px`;
+		// Push the fade band out past the edge when close to the beginning
+		maskOffset.value = `${pixelsToBeginning > maskWidth ? 0 : Math.floor(maskWidth - pixelsToBeginning)}px`;
 	}
 }, 50);
 
