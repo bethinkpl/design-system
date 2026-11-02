@@ -98,51 +98,37 @@
 }
 </style>
 
-<script lang="ts">
-import { defineComponent, PropType } from 'vue';
+<script setup lang="ts">
+import { onBeforeUnmount, onMounted, ref } from 'vue';
+import { ColorSwatchGroup } from './ColorSwatches.types';
 
-export interface ColorSwatchItem {
-	name: string;
-	value?: string;
+const { groups } = defineProps<{
+	groups: Array<ColorSwatchGroup>;
+}>();
+
+const { computedValues } = useComputedValues();
+
+function useComputedValues() {
+	const computedValues = ref<Record<string, string>>({});
+
+	function readComputedValues(): void {
+		const style = getComputedStyle(document.documentElement);
+		computedValues.value = Object.fromEntries(
+			groups
+				.flatMap((group) => group.items)
+				.map(({ name }) => [name, style.getPropertyValue(`--${name}`).trim()]),
+		);
+	}
+
+	// the Brand / Color scheme toolbar toggles classes on <html> without re-rendering the story
+	const classObserver = new MutationObserver(readComputedValues);
+
+	onMounted(() => {
+		readComputedValues();
+		classObserver.observe(document.documentElement, { attributeFilter: ['class'] });
+	});
+	onBeforeUnmount(() => classObserver.disconnect());
+
+	return { computedValues };
 }
-
-export interface ColorSwatchGroup {
-	title: string;
-	items: Array<ColorSwatchItem>;
-}
-
-export default defineComponent({
-	name: 'ColorSwatches',
-	props: {
-		groups: {
-			type: Array as PropType<Array<ColorSwatchGroup>>,
-			required: true,
-		},
-	},
-	data() {
-		return {
-			computedValues: {} as Record<string, string>,
-			classObserver: null as MutationObserver | null,
-		};
-	},
-	mounted() {
-		this.readComputedValues();
-		// the Brand / Color scheme toolbar toggles classes on <html> without re-rendering the story
-		this.classObserver = new MutationObserver(this.readComputedValues);
-		this.classObserver.observe(document.documentElement, { attributeFilter: ['class'] });
-	},
-	beforeUnmount() {
-		this.classObserver?.disconnect();
-	},
-	methods: {
-		readComputedValues(): void {
-			const style = getComputedStyle(document.documentElement);
-			this.computedValues = Object.fromEntries(
-				this.groups
-					.flatMap((group) => group.items)
-					.map(({ name }) => [name, style.getPropertyValue(`--${name}`).trim()]),
-			);
-		},
-	},
-});
 </script>
