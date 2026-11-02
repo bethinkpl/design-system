@@ -10,12 +10,12 @@ export default {
 
 const groups = Object.entries(tokens).map(([title, items]) => ({ title, items }));
 
-const StoryTemplate: StoryFn<typeof ColorSwatches> = (_, { globals }) => ({
+const StoryTemplate: StoryFn<typeof ColorSwatches> = () => ({
 	components: { ColorSwatches },
 	setup() {
-		return { groups, refreshKey: `${globals.brand}-${globals.colorScheme}` };
+		return { groups };
 	},
-	template: `<color-swatches :groups="groups" :refresh-key="refreshKey" />`,
+	template: `<color-swatches :groups="groups" />`,
 });
 
 export const Tokens = StoryTemplate.bind({});

@@ -11,12 +11,12 @@ export default {
 // Values come from the `.-ds-theme-<brand>` class set by the Brand toolbar switch.
 const groups = [{ title: 'theme', items: themeColors.map((name) => ({ name })) }];
 
-const StoryTemplate: StoryFn<typeof ColorSwatches> = (_, { globals }) => ({
+const StoryTemplate: StoryFn<typeof ColorSwatches> = () => ({
 	components: { ColorSwatches },
 	setup() {
-		return { groups, refreshKey: `${globals.brand}-${globals.colorScheme}` };
+		return { groups };
 	},
-	template: `<color-swatches :groups="groups" :refresh-key="refreshKey" />`,
+	template: `<color-swatches :groups="groups" />`,
 });
 
 export const Theme = StoryTemplate.bind({});

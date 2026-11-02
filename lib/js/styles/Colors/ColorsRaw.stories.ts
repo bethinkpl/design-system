@@ -13,12 +13,12 @@ const groups = Object.entries(rawColors).map(([title, names]) => ({
 	items: names.map((name) => ({ name })),
 }));
 
-const StoryTemplate: StoryFn<typeof ColorSwatches> = (_, { globals }) => ({
+const StoryTemplate: StoryFn<typeof ColorSwatches> = () => ({
 	components: { ColorSwatches },
 	setup() {
-		return { groups, refreshKey: `${globals.brand}-${globals.colorScheme}` };
+		return { groups };
 	},
-	template: `<color-swatches :groups="groups" :refresh-key="refreshKey" />`,
+	template: `<color-swatches :groups="groups" />`,
 });
 
 export const Raw = StoryTemplate.bind({});

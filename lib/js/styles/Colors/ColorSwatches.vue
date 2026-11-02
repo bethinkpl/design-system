@@ -19,6 +19,7 @@
 
 <style lang="scss" scoped>
 @import '../../../styles/settings/colors/tokens';
+@import '../../../styles/settings/media-queries';
 @import '../../../styles/settings/radiuses';
 @import '../../../styles/settings/spacings';
 
@@ -36,22 +37,44 @@
 		text-transform: capitalize;
 	}
 
+	// mobile: tile on the left, name / value / computed stacked next to it
 	&__item {
 		align-items: center;
+		column-gap: $space-2;
 		display: grid;
-		gap: $space-2;
-		grid-template-columns: 48px minmax(0, 2fr) minmax(0, 2fr) minmax(0, 1fr);
-		padding: $space-1 0;
+		font-size: 12px;
+		grid-template-columns: 48px minmax(0, 1fr);
+		padding: $space-2 0;
+
+		@media #{breakpoint-l()} {
+			font-size: inherit;
+			gap: $space-2;
+			grid-template-columns: 48px minmax(0, 3fr) minmax(0, 3fr) minmax(0, 2fr);
+			padding: $space-1 0;
+		}
 	}
 
 	&__tile {
+		align-self: start;
 		// checkerboard reveals transparency of alpha colors
 		background: repeating-conic-gradient(#ccc 0% 25%, #fff 0% 50%) 50% / 12px 12px;
 		border: 1px solid $color-neutral-border;
 		border-radius: $radius-xs;
+		grid-row: 1 / span 3;
 		height: 32px;
 		overflow: hidden;
 		width: 48px;
+
+		@media #{breakpoint-l()} {
+			align-self: auto;
+			grid-row: auto;
+		}
+	}
+
+	&__name,
+	&__value,
+	&__computed {
+		overflow-wrap: anywhere;
 	}
 
 	&__fill {
@@ -63,6 +86,14 @@
 	&__value,
 	&__computed {
 		color: $color-neutral-text-weak;
+	}
+
+	&__value:empty {
+		display: none;
+
+		@media #{breakpoint-l()} {
+			display: block;
+		}
 	}
 }
 </style>
@@ -87,24 +118,21 @@ export default defineComponent({
 			type: Array as PropType<Array<ColorSwatchGroup>>,
 			required: true,
 		},
-		// changes whenever the toolbar brand / color scheme changes, so computed values are re-read
-		refreshKey: {
-			type: String,
-			default: '',
-		},
 	},
 	data() {
 		return {
 			computedValues: {} as Record<string, string>,
+			classObserver: null as MutationObserver | null,
 		};
 	},
-	watch: {
-		refreshKey: {
-			handler() {
-				this.$nextTick(this.readComputedValues);
-			},
-			immediate: true,
-		},
+	mounted() {
+		this.readComputedValues();
+		// the Brand / Color scheme toolbar toggles classes on <html> without re-rendering the story
+		this.classObserver = new MutationObserver(this.readComputedValues);
+		this.classObserver.observe(document.documentElement, { attributeFilter: ['class'] });
+	},
+	beforeUnmount() {
+		this.classObserver?.disconnect();
 	},
 	methods: {
 		readComputedValues(): void {
