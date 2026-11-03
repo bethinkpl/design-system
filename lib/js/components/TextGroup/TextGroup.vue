@@ -198,7 +198,7 @@ $text-group-colors: (
 
 		// The start of the text overflows to the left (the wrapper is rtl); the band shrinks near it
 		&.-ds-mask-visible {
-			@include fadeMask(left, 20px, v-bind(maskOffset));
+			@include fadeMask(left, v-bind(maskWidthPx), v-bind(maskOffset));
 		}
 	}
 
@@ -415,6 +415,7 @@ const isEyebrowMaskHidden = ref(false);
 const maskOffset = ref('0px');
 
 const maskWidth = 20;
+const maskWidthPx = `${maskWidth}px`;
 
 const { width: eyebrowWidth } = useElementSize(eyebrowRef);
 
