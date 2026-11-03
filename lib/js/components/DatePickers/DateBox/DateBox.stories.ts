@@ -21,17 +21,13 @@ const meta: Meta<DateBoxProps> = {
 				};
 			},
 			computed: {
-				formattedStartDate() {
-					if (!this.startDate) {
-						return null;
-					}
-					return new Date(this.startDate);
+				// The text controls hand back an empty string once cleared — the box only accepts
+				// a 'YYYY-MM-DD' day or null.
+				resolvedStartDate() {
+					return this.startDate || null;
 				},
-				formattedEndDate() {
-					if (!this.endDate) {
-						return null;
-					}
-					return new Date(this.endDate);
+				resolvedEndDate() {
+					return this.endDate || null;
 				},
 			},
 			template: `
@@ -39,8 +35,8 @@ const meta: Meta<DateBoxProps> = {
 					<date-box
 						:is-interactive="isInteractive"
 						:placeholder="placeholder"
-						:start-date="formattedStartDate"
-						:end-date="formattedEndDate"
+						:start-date="resolvedStartDate"
+						:end-date="resolvedEndDate"
 						:start-icon="startIcon ? ICONS[startIcon] : null"
 						:end-icon="endIcon ? ICONS[endIcon] : null"
 						:are-icons-hidden-on-mobile="areIconsHiddenOnMobile"
@@ -53,8 +49,8 @@ const meta: Meta<DateBoxProps> = {
 		};
 	},
 	argTypes: {
-		startDate: { control: 'date' },
-		endDate: { control: 'date' },
+		startDate: { control: 'text' },
+		endDate: { control: 'text' },
 		startIcon: { control: 'select', options: [null, ...Object.keys(ICONS)] },
 		endIcon: { control: 'select', options: [null, ...Object.keys(ICONS)] },
 		state: {
