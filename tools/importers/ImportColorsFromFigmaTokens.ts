@@ -65,11 +65,11 @@ export const validateRawSections = (wnl: FigmaRawColorsJson, bw: FigmaRawColorsJ
 	}
 };
 
-export const ImportRawColors = (
+export const ImportRawColors = async (
 	cfg: { destinationPath: string; files: ColorsBinFiles },
 	rawColorsJson: FigmaRawColorsJson,
 	themeName?: string,
-): void => {
+): Promise<void> => {
 	const isTheme = !!themeName;
 	const tab = isTheme ? '\t' : '';
 	const scssResult: Array<string> = [cssFileFirstLine(isTheme, themeName)];
@@ -136,15 +136,17 @@ export const ImportRawColors = (
 
 	if (scssResult.length <= 2) throw new Error('No colors to save');
 
-	arrayToFile(cfg.destinationPath + cfg.files.variablesRaw.destination, scssResult);
-	jsonToFile(cfg.destinationPath + cfg.files.variablesRaw.destinationJson, jsonResult);
+	await Promise.all([
+		arrayToFile(cfg.destinationPath + cfg.files.variablesRaw.destination, scssResult),
+		jsonToFile(cfg.destinationPath + cfg.files.variablesRaw.destinationJson, jsonResult),
+	]);
 };
 
-export const ImportTokens = (
+export const ImportTokens = async (
 	cfg: { destinationPath: string; files: ColorsBinFiles },
 	tokensJson: FigmaTokensJson,
 	themeName?: string,
-): void => {
+): Promise<void> => {
 	const isTheme = !!themeName;
 	const tab = isTheme ? '\t' : '';
 	const variablesResult: Array<string> = [cssFileFirstLine(isTheme, themeName)];
@@ -190,9 +192,11 @@ export const ImportTokens = (
 
 	if (scssResult.length === 0) throw new Error('No tokens to save');
 
-	arrayToFile(cfg.destinationPath + cfg.files.tokens.destinationVariables, variablesResult);
-	arrayToFile(cfg.destinationPath + cfg.files.tokens.destination, scssResult);
-	jsonToFile(cfg.destinationPath + cfg.files.tokens.destinationJson, jsonResult);
+	await Promise.all([
+		arrayToFile(cfg.destinationPath + cfg.files.tokens.destinationVariables, variablesResult),
+		arrayToFile(cfg.destinationPath + cfg.files.tokens.destination, scssResult),
+		jsonToFile(cfg.destinationPath + cfg.files.tokens.destinationJson, jsonResult),
+	]);
 };
 
 const run = async () => {
@@ -226,7 +230,7 @@ const run = async () => {
 		destinationPath: defaultConfig.destinationPath,
 		files: defaultConfig.base.files,
 	};
-	ImportRawColors(baseCfg, wnlColorsJson);
+	await ImportRawColors(baseCfg, wnlColorsJson);
 	console.log('Base raw colors imported successfully.');
 
 	const tokensJson: FigmaTokensJson | null = tokensPath
@@ -234,7 +238,7 @@ const run = async () => {
 		: null;
 
 	if (tokensJson) {
-		ImportTokens(baseCfg, tokensJson);
+		await ImportTokens(baseCfg, tokensJson);
 		console.log('Base tokens imported successfully.');
 	}
 
@@ -252,11 +256,11 @@ const run = async () => {
 
 		const themeCfg = { destinationPath: defaultConfig.destinationPath, files: theme.files };
 
-		ImportRawColors(themeCfg, themeColorsJson, theme.name);
+		await ImportRawColors(themeCfg, themeColorsJson, theme.name);
 		console.log(`Theme raw colors imported successfully for: ${theme.name}`);
 
 		if (tokensJson) {
-			ImportTokens(themeCfg, tokensJson, theme.name);
+			await ImportTokens(themeCfg, tokensJson, theme.name);
 			console.log(`Theme tokens imported successfully for: ${theme.name}`);
 		}
 	}
