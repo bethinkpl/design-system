@@ -23,3 +23,8 @@ export declare const POPOVER_SIZES: {
     readonly MEDIUM: "medium";
 };
 export type PopoverSize = Value<typeof POPOVER_SIZES>;
+export declare const POPOVER_AUTOFOCUS: {
+    readonly ENABLED: "enabled";
+    readonly DISABLED_ON_TOUCH_DEVICES: "disabled-on-touch-devices";
+};
+export type PopoverAutofocus = Value<typeof POPOVER_AUTOFOCUS>;

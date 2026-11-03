@@ -1073,6 +1073,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             hideWhenDetached: {
                 type: import('vue').PropType<boolean>;
             };
+            autofocus: {
+                type: import('vue').PropType<import('../Dropdown').DropdownAutofocus>;
+            };
         }>> & Readonly<{}>, {
             close: () => void;
         }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, import('vue').PublicProps, {}, true, {}, {}, import('vue').GlobalComponents, import('vue').GlobalDirectives, string, {}, any, import('vue').ComponentProvideOptions, {
@@ -1108,6 +1111,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             hideWhenDetached: {
                 type: import('vue').PropType<boolean>;
             };
+            autofocus: {
+                type: import('vue').PropType<import('../Dropdown').DropdownAutofocus>;
+            };
         }>> & Readonly<{}>, {
             close: () => void;
         }, {}, {}, {}, {}>;
@@ -1139,6 +1145,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         };
         hideWhenDetached: {
             type: import('vue').PropType<boolean>;
+        };
+        autofocus: {
+            type: import('vue').PropType<import('../Dropdown').DropdownAutofocus>;
         };
     }>> & Readonly<{}>, {
         close: () => void;
