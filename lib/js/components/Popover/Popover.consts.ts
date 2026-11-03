@@ -30,3 +30,10 @@ export const POPOVER_SIZES = {
 } as const;
 
 export type PopoverSize = Value<typeof POPOVER_SIZES>;
+
+export const POPOVER_AUTOFOCUS = {
+	ENABLED: 'enabled',
+	DISABLED_ON_TOUCH_DEVICES: 'disabled-on-touch-devices',
+} as const;
+
+export type PopoverAutofocus = Value<typeof POPOVER_AUTOFOCUS>;

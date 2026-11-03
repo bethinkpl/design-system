@@ -1,4 +1,4 @@
-import { DropdownAlign, DropdownRadius } from './Dropdown.consts';
+import { DropdownAlign, DropdownAutofocus, DropdownRadius } from './Dropdown.consts';
 
 declare function toggle(): void;
 declare function close(): void;
@@ -37,6 +37,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     hideWhenDetached: {
         type: import('vue').PropType<boolean>;
     };
+    autofocus: {
+        type: import('vue').PropType<DropdownAutofocus>;
+    };
 }>, {
     close: typeof close;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
@@ -64,6 +67,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
     hideWhenDetached: {
         type: import('vue').PropType<boolean>;
+    };
+    autofocus: {
+        type: import('vue').PropType<DropdownAutofocus>;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;

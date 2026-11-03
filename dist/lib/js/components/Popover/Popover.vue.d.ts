@@ -1,4 +1,4 @@
-import { PopoverAlign, PopoverColor, PopoverSide, PopoverSize } from './Popover.consts';
+import { PopoverAlign, PopoverAutofocus, PopoverColor, PopoverSide, PopoverSize } from './Popover.consts';
 
 declare function close(): void;
 declare function __VLS_template(): {
@@ -57,6 +57,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     hideWhenDetached: {
         type: import('vue').PropType<boolean>;
     };
+    autofocus: {
+        type: import('vue').PropType<PopoverAutofocus>;
+    };
 }>, {
     close: typeof close;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
@@ -110,6 +113,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
     hideWhenDetached: {
         type: import('vue').PropType<boolean>;
+    };
+    autofocus: {
+        type: import('vue').PropType<PopoverAutofocus>;
     };
 }>> & Readonly<{
     "onButton-click"?: (() => any) | undefined;

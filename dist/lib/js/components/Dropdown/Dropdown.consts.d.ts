@@ -10,3 +10,8 @@ export declare const DROPDOWN_ALIGNS: {
     readonly END: "end";
 };
 export type DropdownAlign = Value<typeof DROPDOWN_ALIGNS>;
+export declare const DROPDOWN_AUTOFOCUS: {
+    readonly ENABLED: "enabled";
+    readonly DISABLED_ON_TOUCH_DEVICES: "disabled-on-touch-devices";
+};
+export type DropdownAutofocus = Value<typeof DROPDOWN_AUTOFOCUS>;

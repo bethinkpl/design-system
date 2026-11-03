@@ -24,6 +24,7 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
+					@open-auto-focus="onOpenAutoFocus"
 				>
 					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
 						<slot :close="close" />
@@ -82,10 +83,13 @@ import { PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka
 
 import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
 
+import { isTouchDevice } from '../../utils/device';
 import {
 	DROPDOWN_ALIGNS,
+	DROPDOWN_AUTOFOCUS,
 	DROPDOWN_RADIUSES,
 	DropdownAlign,
+	DropdownAutofocus,
 	DropdownRadius,
 } from './Dropdown.consts';
 
@@ -101,6 +105,7 @@ const {
 	maxHeight = null,
 	sideFlip = true,
 	hideWhenDetached = false,
+	autofocus = DROPDOWN_AUTOFOCUS.ENABLED,
 } = defineProps<{
 	appendToBody?: boolean;
 	// The element the panel stays within; the viewport when not set.
@@ -120,6 +125,9 @@ const {
 	// scrolling container counts only when passed as collisionBoundary).
 	// Off: it keeps following the reference, also out of view.
 	hideWhenDetached?: boolean;
+	// Whether focus moves into the panel on open. Off on touch devices keeps an input in the panel
+	// from opening the on-screen keyboard; focus then stays where it was.
+	autofocus?: DropdownAutofocus;
 }>();
 
 const open = defineModel<boolean>('open', { default: false });
@@ -128,6 +136,12 @@ const scrollableWrapperStyles = computed(() => (maxHeight ? { maxHeight } : {}))
 
 function toggle() {
 	open.value = !open.value;
+}
+
+function onOpenAutoFocus(event: Event) {
+	if (autofocus === DROPDOWN_AUTOFOCUS.DISABLED_ON_TOUCH_DEVICES && isTouchDevice()) {
+		event.preventDefault();
+	}
 }
 
 function close() {
