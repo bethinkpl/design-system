@@ -34,7 +34,7 @@
 					'-ds-ellipsis': eyebrowTextEllipsis,
 					'-ds-uppercase': isEyebrowTextUppercase,
 					'-ds-mask': hasEyebrowMask,
-					'-ds-mask-visible': isEyebrowMaskActive && !isEyebrowMaskHidden,
+					'-ds-mask-visible': isEyebrowMaskActive,
 				}"
 			>
 				<div v-if="isLoading" class="ds-textGroup__skeletonWrapper">
@@ -411,7 +411,6 @@ const loadingSizeClassName = computed(() => `-ds-loading-${skeletonLoadingSize}`
 
 const eyebrowRef = useTemplateRef('eyebrowRef');
 const isEyebrowMaskActive = ref(false);
-const isEyebrowMaskHidden = ref(false);
 const maskOffset = ref('0px');
 
 const maskWidth = 20;
@@ -425,10 +424,7 @@ const throttledCheckEyebrowMask = throttle(() => {
 			eyebrowRef.value.scrollLeft -
 			(eyebrowRef.value.clientWidth - eyebrowRef.value.scrollWidth);
 
-		// Hide the mask when scrolled to the start (1px tolerance for sub-pixel rendering)
-		isEyebrowMaskHidden.value = pixelsToBeginning < 1;
-
-		// Push the fade band out past the edge when close to the beginning
+		// Push the fade band out past the edge when close to the beginning (fully out at the start)
 		maskOffset.value = `${pixelsToBeginning > maskWidth ? 0 : Math.floor(maskWidth - pixelsToBeginning)}px`;
 	}
 }, 50);
