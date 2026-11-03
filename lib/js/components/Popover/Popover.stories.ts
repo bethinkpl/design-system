@@ -2,7 +2,13 @@ import Popover from './Popover.vue';
 import DsButton from '../Buttons/Button';
 import DsIconButton, { ICON_BUTTON_COLORS, ICON_BUTTON_SIZES } from '../Buttons/IconButton';
 import { ICONS } from '../Icons/Icon';
-import { POPOVER_ALIGNS, POPOVER_COLORS, POPOVER_SIDES, POPOVER_SIZES } from './Popover.consts';
+import {
+	POPOVER_ALIGNS,
+	POPOVER_AUTOFOCUS,
+	POPOVER_COLORS,
+	POPOVER_SIDES,
+	POPOVER_SIZES,
+} from './Popover.consts';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
@@ -19,7 +25,7 @@ const StoryTemplate: StoryFn<typeof Popover> = (args) => ({
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px; background: var(--raw-gray-50);">' +
-		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :hide-when-detached="hideWhenDetached">' +
+		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :hide-when-detached="hideWhenDetached" :autofocus="autofocus">' +
 		'<template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>' +
 		'<div>{{ definitionSlot }}</div>' +
 		'</popover>' +
@@ -46,6 +52,7 @@ Interactive.args = {
 	sideFlip: true,
 	appendToBody: true,
 	hideWhenDetached: false,
+	autofocus: POPOVER_AUTOFOCUS.ENABLED,
 	definitionSlot: 'Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.',
 } as Args;
 
@@ -76,6 +83,12 @@ const argTypes = {
 	},
 	maxHeight: {
 		control: 'text',
+	},
+	autofocus: {
+		control: 'select',
+		options: Object.values(POPOVER_AUTOFOCUS),
+		description:
+			'Whether focus moves into the panel on open. `disabled-on-touch-devices` keeps an input in the panel from opening the on-screen keyboard.',
 	},
 } as ArgTypes;
 

@@ -13,3 +13,10 @@ export const DROPDOWN_ALIGNS = {
 } as const;
 
 export type DropdownAlign = Value<typeof DROPDOWN_ALIGNS>;
+
+export const DROPDOWN_AUTOFOCUS = {
+	ENABLED: 'enabled',
+	DISABLED_ON_TOUCH_DEVICES: 'disabled-on-touch-devices',
+} as const;
+
+export type DropdownAutofocus = Value<typeof DROPDOWN_AUTOFOCUS>;
