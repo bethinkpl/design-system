@@ -98,13 +98,14 @@
 						<label class="ds-surveyQuestionScale__elaborationLabel" :for="inputId">
 							{{ elaborationLabel }}
 						</label>
-						<survey-question-textarea
-							:id="inputId"
-							:value="elaborationValue"
+						<ds-text-area-field
 							class="ds-surveyQuestionScale__elaborationInput"
-							:placeholder="resolvedPlaceholder"
-							:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
-							@input="$emit('elaboration-change', $event)"
+							:field-id="inputId"
+							:state="textAreaFieldState"
+							:model-value="elaborationValue"
+							:input-props="{ placeholder: resolvedPlaceholder }"
+							is-autoresizing
+							@update:model-value="$emit('elaboration-change', $event)"
 						/>
 					</div>
 				</template>
@@ -244,7 +245,8 @@ import {
 	SurveyQuestionScaleContainer,
 	SurveyQuestionState,
 } from '../SurveyQuestion.consts';
-import SurveyQuestionTextarea from '../';
+import DsTextAreaField from '../../Form/TextAreaField';
+import { FORM_FIELD_STATES, FormFieldState } from '../../Form/FormField';
 import { SurveyQuestionScaleOption } from '../SurveyQuestion.domain';
 import { randomString } from '../../../utils/string';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
@@ -253,7 +255,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
 	name: 'SurveyQuestionScale',
 	components: {
-		SurveyQuestionTextarea,
+		DsTextAreaField,
 		DsCard,
 		IconButton,
 		SurveyToggle,
@@ -325,6 +327,11 @@ export default defineComponent({
 		};
 	},
 	computed: {
+		textAreaFieldState(): FormFieldState {
+			return this.state === SURVEY_QUESTION_STATES.DISABLED
+				? FORM_FIELD_STATES.DISABLED
+				: FORM_FIELD_STATES.DEFAULT;
+		},
 		resolvedPlaceholder(): string {
 			return this.placeholder ?? this.t('ds.survey.placeholder');
 		},

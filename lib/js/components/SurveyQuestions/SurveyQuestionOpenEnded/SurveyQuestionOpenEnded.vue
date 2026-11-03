@@ -27,13 +27,14 @@
 					/>
 				</div>
 				<div class="ds-surveyQuestionOpenEnded__content">
-					<survey-question-textarea
-						:id="inputId"
+					<ds-text-area-field
 						class="ds-surveyQuestionOpenEnded__input"
-						:disabled="state === SURVEY_QUESTION_STATES.DISABLED"
-						:value="value"
-						:placeholder="resolvedPlaceholder"
-						@input="$emit('input', $event)"
+						:field-id="inputId"
+						:state="textAreaFieldState"
+						:model-value="value"
+						:input-props="{ placeholder: resolvedPlaceholder }"
+						is-autoresizing
+						@update:model-value="$emit('input', $event)"
 					/>
 				</div>
 			</template>
@@ -84,7 +85,8 @@ import DsModal from '../../Modals/Modal';
 import IconButton, { ICON_BUTTON_COLORS } from '../../Buttons/IconButton';
 import { ICON_SIZES, ICONS } from '../../Icons/Icon';
 import { SURVEY_QUESTION_STATES, SurveyQuestionState } from '../SurveyQuestion.consts';
-import SurveyQuestionTextarea from '../SurveyQuestionTextarea.vue';
+import DsTextAreaField from '../../Form/TextAreaField';
+import { FORM_FIELD_STATES, FormFieldState } from '../../Form/FormField';
 import { randomString } from '../../../utils/string';
 import { useLegacyI18n } from '../../../composables/useLegacyI18n';
 
@@ -93,7 +95,7 @@ import { defineComponent } from 'vue';
 export default defineComponent({
 	name: 'SurveyQuestionOpenEnded',
 	components: {
-		SurveyQuestionTextarea,
+		DsTextAreaField,
 		DsCard,
 		IconButton,
 		DsModal,
@@ -138,6 +140,11 @@ export default defineComponent({
 		};
 	},
 	computed: {
+		textAreaFieldState(): FormFieldState {
+			return this.state === SURVEY_QUESTION_STATES.DISABLED
+				? FORM_FIELD_STATES.DISABLED
+				: FORM_FIELD_STATES.DEFAULT;
+		},
 		resolvedPlaceholder(): string {
 			return this.placeholder ?? this.t('ds.survey.placeholder');
 		},

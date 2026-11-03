@@ -35,9 +35,9 @@ export default defineComponent({
 		return {
 			designTokens: {
 				animation: {
-					background: 'rgba(var(--raw-white-rgb), 0.4)',
+					background: 'var(--color-skeleton-shimmer)',
 				},
-				background: 'var(--raw-gray-200)',
+				background: 'var(--color-neutral-background-medium)',
 			},
 		};
 	},

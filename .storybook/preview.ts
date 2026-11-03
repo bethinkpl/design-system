@@ -96,11 +96,7 @@ export const parameters = {
 		storySort: {
 			order: [
 				'foundations',
-				[
-					'Colors',
-					'Design Tokens',
-					['Color Tokens', ['LMS', 'Primary WNL', 'Primary Bodywork']],
-				],
+				['Colors', ['Raw', 'Theme', 'Tokens'], 'Design Tokens'],
 				'components',
 			],
 		},

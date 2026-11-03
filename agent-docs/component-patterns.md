@@ -71,6 +71,8 @@ Name constants `COMPONENT_NAME_VARIANTS`, `COMPONENT_NAME_SIZES`, `COMPONENT_NAM
 
 `<template>` first, then `<style scoped lang="scss">`, then `<script setup lang="ts">`.
 
+**New components use the Composition API (`<script setup>`) only.** No Options API (`defineComponent({ data, computed, methods, watch, … })`), including helper components for Storybook (e.g. `lib/js/styles/`). When you substantially change an existing Options API component, migrate it.
+
 Props use `defineProps<{}>()` with destructuring for defaults:
 
 ```ts
