@@ -35,7 +35,7 @@ export default defineComponent({
 		return {
 			designTokens: {
 				animation: {
-					background: 'var(--color-skeleton-shimmer)',
+					background: 'var(--color-neutral-shimmer)',
 				},
 				background: 'var(--color-neutral-background-medium)',
 			},

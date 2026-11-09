@@ -4566,6 +4566,31 @@
           }
         }
       }
+    },
+    "shimmer": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          1,
+          1,
+          1
+        ],
+        "alpha": 0.4000000059604645,
+        "hex": "#FFFFFF"
+      },
+      "$extensions": {
+        "com.figma.variableId": "VariableID:4321:19761",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ],
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:bb6c68b5825cdbaa4c04152685014db2f4eb060c/-1:-1",
+          "targetVariableName": "raw/white-shimmer",
+          "targetVariableSetId": "VariableCollectionId:f1b4dbdaf4d0545b71a320d1151bdcc0661c319a/-1:-1",
+          "targetVariableSetName": "3. DS RAWColors"
+        }
+      }
     }
   },
   "danger": {
@@ -13454,27 +13479,102 @@
       }
     }
   },
-  "skeleton": {
-    "shimmer": {
+  "magic": {
+    "gradient-1": {
       "$type": "color",
       "$value": {
         "colorSpace": "srgb",
         "components": [
-          1,
-          1,
-          1
+          0.027450980618596077,
+          0.5607843399047852,
+          0.5882353186607361
         ],
-        "alpha": 0.4000000059604645,
-        "hex": "#FFFFFF"
+        "alpha": 1,
+        "hex": "#078F96"
       },
       "$extensions": {
-        "com.figma.variableId": "VariableID:4321:19761",
+        "com.figma.variableId": "VariableID:4343:19774",
         "com.figma.scopes": [
           "ALL_SCOPES"
         ],
         "com.figma.aliasData": {
-          "targetVariableId": "VariableID:bb6c68b5825cdbaa4c04152685014db2f4eb060c/-1:-1",
-          "targetVariableName": "raw/skeleton-shimmer",
+          "targetVariableId": "VariableID:72ddc2b85b448e06077b78f190cf404217efc586/-1:-1",
+          "targetVariableName": "raw/teal/teal-500",
+          "targetVariableSetId": "VariableCollectionId:f1b4dbdaf4d0545b71a320d1151bdcc0661c319a/-1:-1",
+          "targetVariableSetName": "3. DS RAWColors"
+        }
+      }
+    },
+    "gradient-2": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.3803921639919281,
+          0.4117647111415863,
+          0.8117647171020508
+        ],
+        "alpha": 1,
+        "hex": "#6169CF"
+      },
+      "$extensions": {
+        "com.figma.variableId": "VariableID:4343:19775",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ],
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:5fb9afb8a222fecec2c14d91f072d3960a7a743b/-1:-1",
+          "targetVariableName": "raw/indigo/indigo-500",
+          "targetVariableSetId": "VariableCollectionId:f1b4dbdaf4d0545b71a320d1151bdcc0661c319a/-1:-1",
+          "targetVariableSetName": "3. DS RAWColors"
+        }
+      }
+    },
+    "gradient-3": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.4941176474094391,
+          0.34117648005485535,
+          0.6549019813537598
+        ],
+        "alpha": 1,
+        "hex": "#7E57A7"
+      },
+      "$extensions": {
+        "com.figma.variableId": "VariableID:4343:19776",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ],
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:f71dcb2084e8501ab065d3a0e123a17435bcf578/-1:-1",
+          "targetVariableName": "raw/violet/violet-500",
+          "targetVariableSetId": "VariableCollectionId:f1b4dbdaf4d0545b71a320d1151bdcc0661c319a/-1:-1",
+          "targetVariableSetName": "3. DS RAWColors"
+        }
+      }
+    },
+    "gradient-4": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0.9215686321258545,
+          0.5882353186607361,
+          0.054901961237192154
+        ],
+        "alpha": 1,
+        "hex": "#EB960E"
+      },
+      "$extensions": {
+        "com.figma.variableId": "VariableID:4343:19777",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ],
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:3f871a1182e9e92526b83a21a271159868b65b1d/-1:-1",
+          "targetVariableName": "raw/gold/gold-500",
           "targetVariableSetId": "VariableCollectionId:f1b4dbdaf4d0545b71a320d1151bdcc0661c319a/-1:-1",
           "targetVariableSetName": "3. DS RAWColors"
         }

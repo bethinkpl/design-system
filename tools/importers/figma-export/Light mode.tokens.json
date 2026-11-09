@@ -152,7 +152,7 @@
         ]
       }
     },
-    "skeleton-shimmer": {
+    "white-shimmer": {
       "$type": "color",
       "$value": {
         "colorSpace": "srgb",

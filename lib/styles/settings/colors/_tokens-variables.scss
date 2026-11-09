@@ -178,6 +178,7 @@
 	--color-neutral-divider-weak: var(--raw-gray-100);
 	--color-neutral-ripple: rgba(var(--raw-gray-700-rgb), 0.12);
 	--color-neutral-mask: rgba(var(--raw-gray-50-rgb), 0);
+	--color-neutral-shimmer: var(--raw-white-shimmer);
 	--color-danger-text-strong: var(--raw-red-700);
 	--color-danger-text-strong-hovered: var(--raw-red-900);
 	--color-danger-text-strong-focused: var(--raw-red-900);
@@ -533,5 +534,8 @@
 	--color-black-icon: var(--raw-static-black);
 	--color-black-background: var(--raw-static-black);
 	--color-black-background-rgb: var(--raw-static-black-rgb);
-	--color-skeleton-shimmer: var(--raw-skeleton-shimmer);
+	--color-magic-gradient-1: var(--raw-teal-500);
+	--color-magic-gradient-2: var(--raw-indigo-500);
+	--color-magic-gradient-3: var(--raw-violet-500);
+	--color-magic-gradient-4: var(--raw-gold-500);
 }
