@@ -145,7 +145,7 @@
 
 	&__content {
 		align-items: center;
-		color: $color-inverted-text;
+		color: $color-white-text;
 		display: flex;
 		flex: 1;
 		justify-content: center;

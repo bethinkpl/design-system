@@ -76,10 +76,10 @@ export default defineComponent({
 				value: this.text,
 				disabled: this.isDisabled,
 				dt: {
-					shadow: '0px 0px 4px 0px rgba(12, 23, 38, 0.08), 0px 6px 12px 0px rgba(12, 23, 38, 0.12), 0px 2px 4px 0px rgba(12, 23, 38, 0.06)',
+					shadow: '0px 0px 4px 0px var(--color-default-shadow), 0px 6px 12px 0px var(--color-default-shadow-strong), 0px 2px 4px 0px var(--color-default-shadow-weak)',
 					padding: 'var(--spacing-space-3xs, 6px) var(--spacing-space-2xs, 8px)',
-					background: 'var(--neutral-background-medium, #E5E7ED)',
-					color: 'var(--neutral-text-heavy, #343C50)',
+					background: 'var(--color-neutral-background-medium)',
+					color: 'var(--color-neutral-text-heavy)',
 					borderRadius: '4px',
 					maxWidth: '900px',
 				},

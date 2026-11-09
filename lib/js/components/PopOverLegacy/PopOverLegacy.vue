@@ -70,7 +70,7 @@
 .ds-popOverLegacy {
 	$self: &;
 
-	background-color: $color-default-background;
+	background-color: $color-elevated-background;
 	// override popperjs styles
 	border: none;
 	border-radius: $radius-m;
@@ -122,7 +122,7 @@
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
-			border-color: transparent transparent $color-inverted-border transparent;
+			border-color: transparent transparent $color-elevated-background transparent;
 			border-width: 0 $space-6 $space-8 $space-6;
 			left: calc(50% - #{$space-6});
 			margin-bottom: 0;
@@ -140,7 +140,7 @@
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
-			border-color: $color-inverted-border transparent transparent transparent;
+			border-color: $color-elevated-background transparent transparent transparent;
 			border-width: $space-8 $space-6 0 $space-6;
 			bottom: -$space-8;
 			left: calc(50% - #{$space-6});
@@ -158,7 +158,7 @@
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
-			border-color: transparent $color-inverted-border transparent transparent;
+			border-color: transparent $color-elevated-background transparent transparent;
 			border-width: $space-6 $space-8 $space-6 0;
 			left: -$space-8;
 			margin-left: 0;
@@ -176,7 +176,7 @@
 
 		/* stylelint-disable-next-line selector-class-pattern */
 		:deep(.popper__arrow) {
-			border-color: transparent transparent transparent $color-inverted-border;
+			border-color: transparent transparent transparent $color-elevated-background;
 			border-width: $space-6 0 $space-6 $space-8;
 			margin-left: 0;
 			margin-right: 0;

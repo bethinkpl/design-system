@@ -181,7 +181,7 @@
 		&.-ds-default {
 			--ds-banner-title-color: #{$color-neutral-text-strong};
 
-			background-color: $color-default-background;
+			background-color: $color-elevated-background;
 			border-color: $color-neutral-border-weak;
 		}
 
