@@ -14,6 +14,10 @@
 	"tokensWithRgbVariant": [
 		"color-default-background",
 		"color-elevated-background",
-		"color-black-background"
+		"color-black-background",
+		"color-magic-gradient-1",
+		"color-magic-gradient-2",
+		"color-magic-gradient-3",
+		"color-magic-gradient-4"
 	]
 }
