@@ -9,7 +9,7 @@
 				<slot name="reference" :is-open="open" :toggle="toggle" />
 			</popover-trigger>
 
-			<popover-portal :disabled="!appendToBody">
+			<popover-portal :to="to" :disabled="!appendToBody">
 				<popover-content
 					class="ds-dropdown"
 					:class="{
@@ -21,7 +21,7 @@
 					:align="align"
 					:side-flip="sideFlip"
 					:side-offset="SIDE_OFFSET"
-					:collision-boundary="collisionBoundary ?? undefined"
+					:collision-boundary="collisionBoundary ?? getCollisionBoundary() ?? undefined"
 					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
 					@open-auto-focus="onOpenAutoFocus"
@@ -83,6 +83,8 @@ import { PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka
 
 import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
 
+import { FloatingPanelTarget, useFloatingPanelTarget } from '../../composables/floatingPanelTarget';
+
 import { isTouchDevice } from '../../utils/device';
 import {
 	DROPDOWN_ALIGNS,
@@ -98,6 +100,7 @@ const SIDE_OFFSET = 4;
 
 const {
 	appendToBody = true,
+	teleportTo = null,
 	collisionBoundary = null,
 	hasSameWidth = false,
 	radius = DROPDOWN_RADIUSES.BOTH_EDGES,
@@ -107,8 +110,12 @@ const {
 	hideWhenDetached = false,
 	autofocus = DROPDOWN_AUTOFOCUS.ENABLED,
 } = defineProps<{
+	// Off renders the panel in place, ignoring teleportTo and provideFloatingPanelTarget.
 	appendToBody?: boolean;
-	// The element the panel stays within; the viewport when not set.
+	// Where the panel renders; wins over provideFloatingPanelTarget. <body> when neither is set.
+	teleportTo?: FloatingPanelTarget;
+	// The element the panel stays within; the teleport target when it isn't <body>, the viewport
+	// otherwise.
 	collisionBoundary?: Element | null;
 	hasSameWidth?: boolean;
 	// Single rounds the edge away from the trigger, following the actual flipped side.
@@ -131,6 +138,11 @@ const {
 }>();
 
 const open = defineModel<boolean>('open', { default: false });
+
+const { to, getCollisionBoundary } = useFloatingPanelTarget(
+	() => teleportTo,
+	() => appendToBody,
+);
 
 const scrollableWrapperStyles = computed(() => (maxHeight ? { maxHeight } : {}));
 

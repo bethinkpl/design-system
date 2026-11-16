@@ -1,3 +1,4 @@
+import type { FloatingPanelTarget } from '../../../composables/floatingPanelTarget';
 import { FormFieldProps, FormFieldSlots } from '../FormField';
 import { IconItem } from '../../Icons/Icon';
 
@@ -60,6 +61,13 @@ export interface SelectFieldProps extends FormFieldProps {
 	 * @default true
 	 */
 	isGroupLabelUppercase?: boolean;
+	/**
+	 * Where the dropdown renders; wins over `provideFloatingPanelTarget`. A target other than
+	 * `<body>` is also its collision boundary.
+	 *
+	 * @default null (`<body>`)
+	 */
+	teleportTo?: FloatingPanelTarget;
 }
 
 export type SelectFieldSlots = Omit<FormFieldSlots, 'field'>;

@@ -1,11 +1,15 @@
-import { describe, expect, it, vi } from 'vitest';
-import { defineComponent, h } from 'vue';
-import { flushPromises, mount } from '@vue/test-utils';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { defineComponent, h, nextTick, ref } from 'vue';
+import { flushPromises, mount, VueWrapper } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { PopoverContent, PopoverPortal } from 'reka-ui';
 import Dropdown from './Dropdown.vue';
 import { DROPDOWN_ALIGNS, DROPDOWN_AUTOFOCUS } from './Dropdown.consts';
 import { isTouchDevice } from '../../utils/device';
+import {
+	FLOATING_PANEL_TARGET_INJECTION_KEY,
+	FloatingPanelTarget,
+} from '../../composables/floatingPanelTarget';
 
 vi.mock('../../utils/device', () => ({ isTouchDevice: vi.fn(() => false) }));
 
@@ -21,8 +25,29 @@ const setup = (props: ComponentProps<typeof Dropdown> = {}) =>
 		},
 	});
 
-const open = async (wrapper: ReturnType<typeof setup>) => {
+const open = async (wrapper: Pick<VueWrapper, 'find'>) => {
 	await wrapper.find('.reference').trigger('click');
+};
+
+// Mounts with the real portal, below a provided `target`.
+const setupWithProvidedTarget = (
+	target: () => FloatingPanelTarget,
+	props: ComponentProps<typeof Dropdown> = {},
+) =>
+	mount(Dropdown, {
+		props,
+		attachTo: document.body,
+		global: { provide: { [FLOATING_PANEL_TARGET_INJECTION_KEY]: target } },
+		slots: {
+			reference: () => h('button', { class: 'reference' }, 'Reference'),
+			default: () => h('p', 'Item'),
+		},
+	});
+
+const createContainer = () => {
+	const container = document.createElement('div');
+	document.body.appendChild(container);
+	return container;
 };
 
 describe('Dropdown', () => {
@@ -148,6 +173,66 @@ describe('Dropdown', () => {
 		await open(wrapper);
 
 		expect(wrapper.findComponent(PopoverPortal).props('disabled')).toBe(!appendToBody);
+	});
+
+	describe('teleport target', () => {
+		afterEach(() => {
+			document.body.innerHTML = '';
+		});
+
+		it('should render the panel into the provided target and stay within it', async () => {
+			const container = createContainer();
+			const wrapper = setupWithProvidedTarget(() => container);
+
+			await open(wrapper);
+
+			expect(container.querySelector('.ds-dropdown')).not.toBeNull();
+			expect(wrapper.findComponent(PopoverContent).props('collisionBoundary')).toBe(
+				container,
+			);
+		});
+
+		it('should prefer teleportTo and an explicit collisionBoundary over the provided target', async () => {
+			const provided = createContainer();
+			const own = createContainer();
+			const boundary = createContainer();
+			const wrapper = setupWithProvidedTarget(() => provided, {
+				teleportTo: own,
+				collisionBoundary: boundary,
+			});
+
+			await open(wrapper);
+
+			expect(own.querySelector('.ds-dropdown')).not.toBeNull();
+			expect(provided.querySelector('.ds-dropdown')).toBeNull();
+			expect(wrapper.findComponent(PopoverContent).props('collisionBoundary')).toBe(boundary);
+		});
+
+		it('should move an open panel to body when the provided target goes away', async () => {
+			const container = createContainer();
+			const target = ref<HTMLElement | null>(container);
+			const wrapper = setupWithProvidedTarget(() => target.value);
+			await open(wrapper);
+
+			target.value = null;
+			await nextTick();
+
+			expect(container.querySelector('.ds-dropdown')).toBeNull();
+			expect(document.body.querySelector('.ds-dropdown')).not.toBeNull();
+		});
+
+		it('should render the panel in place without appendToBody', async () => {
+			const container = createContainer();
+			const wrapper = setupWithProvidedTarget(() => container, { appendToBody: false });
+
+			await open(wrapper);
+
+			expect(container.querySelector('.ds-dropdown')).toBeNull();
+			expect(wrapper.find('.ds-dropdown').exists()).toBe(true);
+			expect(
+				wrapper.findComponent(PopoverContent).props('collisionBoundary'),
+			).toBeUndefined();
+		});
 	});
 
 	it('should match the reference width when hasSameWidth is set', async () => {

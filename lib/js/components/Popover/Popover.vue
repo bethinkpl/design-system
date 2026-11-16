@@ -6,7 +6,7 @@
 				<slot name="reference" />
 			</popover-trigger>
 
-			<popover-portal :disabled="!appendToBody">
+			<popover-portal :to="to" :disabled="!appendToBody">
 				<popover-content
 					class="ds-popover"
 					:class="{
@@ -19,7 +19,7 @@
 					:side-offset="SIDE_OFFSET"
 					:arrow-padding="ARROW_PADDING"
 					:side-flip="sideFlip"
-					:collision-boundary="collisionBoundary ?? undefined"
+					:collision-boundary="collisionBoundary ?? getCollisionBoundary() ?? undefined"
 					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
 					@open-auto-focus="onOpenAutoFocus"
@@ -158,6 +158,8 @@ import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigge
 
 import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
 
+import { FloatingPanelTarget, useFloatingPanelTarget } from '../../composables/floatingPanelTarget';
+
 import { isTouchDevice } from '../../utils/device';
 import {
 	POPOVER_ALIGNS,
@@ -195,6 +197,7 @@ const {
 	buttonText = null,
 	headerImageUrl = null,
 	appendToBody = true,
+	teleportTo = null,
 	sideFlip = true,
 	size = POPOVER_SIZES.SMALL,
 	maxHeight = null,
@@ -202,7 +205,8 @@ const {
 	hideWhenDetached = false,
 	autofocus = POPOVER_AUTOFOCUS.ENABLED,
 } = defineProps<{
-	// The element the panel stays within; the viewport when not set.
+	// The element the panel stays within; the teleport target when it isn't <body>, the viewport
+	// otherwise.
 	collisionBoundary?: Element | null;
 	isDisabled?: boolean;
 	// Only model updates and explicit close() calls change the open state, and focus stays put.
@@ -214,7 +218,10 @@ const {
 	subtitleText?: string | null;
 	buttonText?: string | null;
 	headerImageUrl?: string | null;
+	// Off renders the panel in place, ignoring teleportTo and provideFloatingPanelTarget.
 	appendToBody?: boolean;
+	// Where the panel renders; wins over provideFloatingPanelTarget. <body> when neither is set.
+	teleportTo?: FloatingPanelTarget;
 	// Whether the panel may move to the opposite side when it doesn't fit. It still shifts along
 	// its side to stay within the boundary either way. Turn it off for a panel that can be taller
 	// than the space on both sides of the reference (a long list, a large max height, or a
@@ -239,6 +246,11 @@ defineEmits<{
 }>();
 
 const open = defineModel<boolean>('open', { default: false });
+
+const { to, getCollisionBoundary } = useFloatingPanelTarget(
+	() => teleportTo,
+	() => appendToBody,
+);
 
 const contentSlotStyles = computed(() => (maxHeight ? { maxHeight } : {}));
 

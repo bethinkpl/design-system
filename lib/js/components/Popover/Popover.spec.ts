@@ -1,11 +1,12 @@
-import { describe, expect, it, vi } from 'vitest';
+import { afterEach, describe, expect, it, vi } from 'vitest';
 import { defineComponent, h } from 'vue';
-import { flushPromises, mount } from '@vue/test-utils';
+import { flushPromises, mount, VueWrapper } from '@vue/test-utils';
 import { ComponentProps } from 'vue-component-type-helpers';
 import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot } from 'reka-ui';
 import Popover from './Popover.vue';
 import { POPOVER_ALIGNS, POPOVER_AUTOFOCUS, POPOVER_SIDES } from './Popover.consts';
 import { isTouchDevice } from '../../utils/device';
+import { FLOATING_PANEL_TARGET_INJECTION_KEY } from '../../composables/floatingPanelTarget';
 
 vi.mock('../../utils/device', () => ({ isTouchDevice: vi.fn(() => false) }));
 
@@ -27,7 +28,7 @@ const setupForced = async (props: ComponentProps<typeof Popover> = {}) => {
 	return wrapper;
 };
 
-const open = async (wrapper: ReturnType<typeof setup>) => {
+const open = async (wrapper: Pick<VueWrapper, 'find'>) => {
 	await wrapper.find('.reference').trigger('click');
 };
 
@@ -233,4 +234,54 @@ describe('Popover', () => {
 			expect(focusEvent.defaultPrevented).toBe(prevented);
 		},
 	);
+
+	describe('teleport target', () => {
+		afterEach(() => {
+			document.body.innerHTML = '';
+		});
+
+		const createContainer = () => {
+			const container = document.createElement('div');
+			document.body.appendChild(container);
+			return container;
+		};
+
+		// Real portal, below a provided `target`.
+		const setupWithProvidedTarget = (
+			target: HTMLElement,
+			props: ComponentProps<typeof Popover> = {},
+		) =>
+			mount(Popover, {
+				props,
+				attachTo: document.body,
+				global: { provide: { [FLOATING_PANEL_TARGET_INJECTION_KEY]: () => target } },
+				slots: {
+					reference: () => h('button', { class: 'reference' }, 'Reference'),
+					default: () => h('p', 'Body'),
+				},
+			});
+
+		it('should render the panel into the provided target and stay within it', async () => {
+			const container = createContainer();
+			const wrapper = setupWithProvidedTarget(container);
+
+			await open(wrapper);
+
+			expect(container.querySelector('.ds-popover')).not.toBeNull();
+			expect(wrapper.findComponent(PopoverContent).props('collisionBoundary')).toBe(
+				container,
+			);
+		});
+
+		it('should prefer teleportTo over the provided target', async () => {
+			const provided = createContainer();
+			const own = createContainer();
+			const wrapper = setupWithProvidedTarget(provided, { teleportTo: own });
+
+			await open(wrapper);
+
+			expect(own.querySelector('.ds-popover')).not.toBeNull();
+			expect(provided.querySelector('.ds-popover')).toBeNull();
+		});
+	});
 });

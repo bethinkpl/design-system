@@ -36,10 +36,11 @@
 					</select-icon>
 				</select-trigger>
 
-				<select-portal>
+				<select-portal :to="to">
 					<select-content
 						class="ds-selectField__content"
 						position="popper"
+						:collision-boundary="getCollisionBoundary() ?? undefined"
 						align="start"
 						:side-offset="4"
 						:style="contentStyle"
@@ -242,7 +243,7 @@
 	// than the space available in the viewport.
 	max-width: var(--reka-select-content-available-width);
 	min-width: var(--reka-select-trigger-width);
-	// Portalled to <body>, so it needs to clear modal content.
+	// Portalled to <body> by default, so it needs to clear modal content.
 	z-index: $z-index-top-layer;
 }
 </style>
@@ -271,6 +272,7 @@ import SelectFieldOption from './SelectFieldOption.vue';
 import { SelectFieldProps, SelectFieldSlots, SelectFieldValue } from './SelectField.types';
 import { assertOptionValues, normalizeOptions, toCssLength } from './SelectField.utils';
 import { useSelectFieldWithinForm } from './useSelectFieldWithinForm';
+import { useFloatingPanelTarget } from '../../../composables/floatingPanelTarget';
 
 const {
 	options,
@@ -281,6 +283,7 @@ const {
 	name,
 	autocomplete,
 	isGroupLabelUppercase = true,
+	teleportTo = null,
 	...rest
 } = defineProps<SelectFieldProps>();
 
@@ -296,6 +299,7 @@ const { value, errors, onClose } = useSelectFieldWithinForm(() => name, modelVal
 
 const { formFieldProps, isDisabled, hasMessage } = useFormFieldState();
 const { normalizedOptions } = useOptions();
+const { to, getCollisionBoundary } = useFloatingPanelTarget(() => teleportTo);
 
 const contentStyle = computed<CSSProperties | undefined>(() => {
 	const resolvedMaxHeight = toCssLength(maxHeight);

@@ -148,6 +148,11 @@ export { default as DsPopover } from './components/Popover';
 export * from './components/Popover/Popover.consts';
 export { default as DsDropdown } from './components/Dropdown';
 export * from './components/Dropdown/Dropdown.consts';
+export {
+	FLOATING_PANEL_TARGET_INJECTION_KEY,
+	provideFloatingPanelTarget,
+} from './composables/floatingPanelTarget';
+export type { FloatingPanelTarget } from './composables/floatingPanelTarget';
 export { default as DsPopOverLegacy } from './components/PopOverLegacy';
 export * from './components/PopOverLegacy/PopOverLegacy.consts';
 export { default as DsDropdownLegacy } from './components/DropdownLegacy';

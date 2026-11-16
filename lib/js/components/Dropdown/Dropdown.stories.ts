@@ -10,6 +10,7 @@ import { ICONS } from '../Icons/Icon';
 
 import { Args, ArgTypes, Meta, StoryFn } from '@storybook/vue3';
 import { ref } from 'vue';
+import { provideFloatingPanelTarget } from '../../composables/floatingPanelTarget';
 import SelectListItem from '../SelectList/SelectListItem/SelectListItem.vue';
 import SelectListItemDivider from '../SelectList/SelectListItemDivider/SelectListItemDivider.vue';
 import SelectListSectionTitle from '../SelectList/SelectListSectionTitle/SelectListSectionTitle.vue';
@@ -316,3 +317,37 @@ export const RichListTrigger: StoryFn<typeof Dropdown> = () => ({
       </dropdown>
     </div>`,
 });
+
+// provideFloatingPanelTarget renders the panels below it into a scrollable container instead of
+// <body>: they scroll with the content and stay within the container's edges. The container
+// needs a positioning context (position: relative). Turn provideTarget off to compare with <body>.
+export const ScrollableContainerTarget: StoryFn<typeof Dropdown> = (args) => ({
+	components: { Dropdown, SelectList, SelectListItem },
+	setup() {
+		const container = ref<HTMLElement | null>(null);
+		provideFloatingPanelTarget(() => ((args as Args).provideTarget ? container.value : null));
+
+		return { container };
+	},
+	template: `
+    <div
+      ref="container"
+      style="position: relative; height: 320px; overflow: auto; border: 1px dashed #999; padding: 16px;"
+    >
+      <p v-for="n in 4" :key="'before' + n">Scroll the container with a dropdown open.</p>
+      <dropdown v-for="n in 3" :key="n" has-same-width style="display: block; margin-bottom: 120px;">
+        <template #reference="{ isOpen }"><span>Dropdown {{ n }} {{ isOpen ? 'opened' : 'closed' }}</span></template>
+        <template #default="{ close }">
+          <select-list>
+            <select-list-item v-for="item in 6" :key="item" :label="'Item ' + item" @click="close" />
+          </select-list>
+        </template>
+      </dropdown>
+      <p v-for="n in 8" :key="'after' + n">More content below.</p>
+    </div>`,
+});
+
+ScrollableContainerTarget.args = { provideTarget: true } as Args;
+ScrollableContainerTarget.argTypes = {
+	provideTarget: { control: 'boolean' },
+} as ArgTypes;

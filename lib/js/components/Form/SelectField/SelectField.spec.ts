@@ -8,6 +8,7 @@ import Icon, { ICONS } from '../../Icons/Icon';
 import { FORM_FIELD_STATES } from '../FormField';
 import { SelectFieldOption, SelectFieldOptionGroup } from './SelectField.types';
 import { waitForExpectShort } from '../../../tests/helpers';
+import { FLOATING_PANEL_TARGET_INJECTION_KEY } from '../../../composables/floatingPanelTarget';
 
 const OPTIONS: Array<SelectFieldOption> = [
 	{ value: 'pl', label: 'Poland' },
@@ -396,6 +397,33 @@ describe('SelectField', () => {
 			separators.forEach((separator) => {
 				expect(separator.attributes('aria-hidden')).toBe('true');
 			});
+		});
+	});
+
+	describe('teleport target', () => {
+		afterEach(() => {
+			document.body.innerHTML = '';
+		});
+
+		it.each([
+			{ case: 'provided target', viaProp: false },
+			{ case: 'teleportTo prop', viaProp: true },
+		])('should render the dropdown into the $case', async ({ viaProp }) => {
+			const container = document.createElement('div');
+			document.body.appendChild(container);
+			const wrapper = mount(SelectField, {
+				props: { options: OPTIONS, label: 'Label', teleportTo: viaProp ? container : null },
+				attachTo: document.body,
+				global: {
+					provide: viaProp
+						? {}
+						: { [FLOATING_PANEL_TARGET_INJECTION_KEY]: () => container },
+				},
+			});
+
+			await open(wrapper);
+
+			expect(container.querySelector('.ds-selectField__content')).not.toBeNull();
 		});
 	});
 
