@@ -1,3 +1,4 @@
+import { FloatingPanelTarget } from '../../composables/floatingPanelTarget';
 import { PopoverAlign, PopoverAutofocus, PopoverColor, PopoverSide, PopoverSize } from './Popover.consts';
 
 declare function close(): void;
@@ -41,6 +42,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
     appendToBody: {
         type: import('vue').PropType<boolean>;
+    };
+    teleportTo: {
+        type: import('vue').PropType<FloatingPanelTarget>;
     };
     sideFlip: {
         type: import('vue').PropType<boolean>;
@@ -98,6 +102,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
     appendToBody: {
         type: import('vue').PropType<boolean>;
+    };
+    teleportTo: {
+        type: import('vue').PropType<FloatingPanelTarget>;
     };
     sideFlip: {
         type: import('vue').PropType<boolean>;

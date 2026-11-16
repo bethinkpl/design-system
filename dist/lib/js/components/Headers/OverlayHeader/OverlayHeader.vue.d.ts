@@ -1122,6 +1122,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             appendToBody: {
                 type: import('vue').PropType<boolean>;
             };
+            teleportTo: {
+                type: import('vue').PropType<import('../../..').FloatingPanelTarget>;
+            };
             collisionBoundary: {
                 type: import('vue').PropType<Element | null>;
             };
@@ -1160,6 +1163,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
             appendToBody: {
                 type: import('vue').PropType<boolean>;
             };
+            teleportTo: {
+                type: import('vue').PropType<import('../../..').FloatingPanelTarget>;
+            };
             collisionBoundary: {
                 type: import('vue').PropType<Element | null>;
             };
@@ -1194,6 +1200,9 @@ declare const _default: import('vue').DefineComponent<import('vue').ExtractPropT
         open: import('vue').PropType<boolean>;
         appendToBody: {
             type: import('vue').PropType<boolean>;
+        };
+        teleportTo: {
+            type: import('vue').PropType<import('../../..').FloatingPanelTarget>;
         };
         collisionBoundary: {
             type: import('vue').PropType<Element | null>;

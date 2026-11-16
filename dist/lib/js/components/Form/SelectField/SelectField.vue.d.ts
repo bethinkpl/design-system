@@ -26,6 +26,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     isGroupLabelUppercase: {
         type: import('vue').PropType<boolean>;
     };
+    teleportTo: {
+        type: import('vue').PropType<import('../../../composables/floatingPanelTarget').FloatingPanelTarget>;
+    };
     label: {
         type: import('vue').PropType<string>;
     };
@@ -73,6 +76,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
     isGroupLabelUppercase: {
         type: import('vue').PropType<boolean>;
+    };
+    teleportTo: {
+        type: import('vue').PropType<import('../../../composables/floatingPanelTarget').FloatingPanelTarget>;
     };
     label: {
         type: import('vue').PropType<string>;

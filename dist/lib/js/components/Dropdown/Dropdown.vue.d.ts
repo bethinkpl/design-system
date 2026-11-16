@@ -1,3 +1,4 @@
+import { FloatingPanelTarget } from '../../composables/floatingPanelTarget';
 import { DropdownAlign, DropdownAutofocus, DropdownRadius } from './Dropdown.consts';
 
 declare function toggle(): void;
@@ -15,6 +16,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     open: import('vue').PropType<boolean>;
     appendToBody: {
         type: import('vue').PropType<boolean>;
+    };
+    teleportTo: {
+        type: import('vue').PropType<FloatingPanelTarget>;
     };
     collisionBoundary: {
         type: import('vue').PropType<Element | null>;
@@ -46,6 +50,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     open: import('vue').PropType<boolean>;
     appendToBody: {
         type: import('vue').PropType<boolean>;
+    };
+    teleportTo: {
+        type: import('vue').PropType<FloatingPanelTarget>;
     };
     collisionBoundary: {
         type: import('vue').PropType<Element | null>;

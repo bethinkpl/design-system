@@ -1,3 +1,4 @@
+import { FloatingPanelTarget } from '../../../composables/floatingPanelTarget';
 import { FormFieldProps, FormFieldSlots } from '../FormField';
 import { IconItem } from '../../Icons/Icon';
 
@@ -22,5 +23,6 @@ export interface SelectFieldProps extends FormFieldProps {
     name?: string;
     autocomplete?: string;
     isGroupLabelUppercase?: boolean;
+    teleportTo?: FloatingPanelTarget;
 }
 export type SelectFieldSlots = Omit<FormFieldSlots, 'field'>;
