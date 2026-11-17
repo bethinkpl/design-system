@@ -12,7 +12,7 @@ export declare const MENU_ITEM_STATES: {
 };
 export type MenuItemState = Value<typeof MENU_ITEM_STATES>;
 export declare const MENU_ITEM_BACKGROUND_COLORS: {
-    NEUTRAL_WEAK: string;
+    NONE: string;
     NEUTRAL: string;
 };
 export type MenuItemBackgroundColor = Value<typeof MENU_ITEM_BACKGROUND_COLORS>;
