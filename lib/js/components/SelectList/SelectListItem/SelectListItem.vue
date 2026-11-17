@@ -126,6 +126,7 @@
 		flex-direction: column;
 		flex-grow: 1;
 		gap: $space-1;
+		justify-content: center;
 		overflow: hidden;
 		white-space: nowrap;
 	}
