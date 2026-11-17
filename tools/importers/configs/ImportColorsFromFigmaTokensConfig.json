@@ -12,6 +12,7 @@
 		"MC": "mc"
 	},
 	"tokensWithRgbVariant": [
+		"color-page-background",
 		"color-default-background",
 		"color-elevated-background",
 		"color-black-background",
