@@ -89,7 +89,7 @@ yarn importColors              # Figma variables export → color SCSS/JSON
 yarn synchronizeTypography     # pull typography tokens from Figma → SCSS
 ```
 
-**Colors** — every file in `lib/styles/settings/colors/` except `_color-scheme.scss` and `_magic*.scss` is generated; never edit them by hand.
+**Colors** — every file in `lib/styles/settings/colors/` except `_color-scheme.scss` is generated; never edit them by hand.
 1. In Figma, export the `RAWColors`, `BrandColors` and `ColorTokens` variable collections: right-click each collection → "Export modes". Put the JSON files in `tools/importers/figma-export/`, overwriting the old ones. The script finds them by mode name, not file name: `Light mode` / `Dark mode` (RAWColors), `WNL` / `BW` / `MC` (BrandColors), `Mode 1` (ColorTokens). The brand mapping is in `tools/importers/configs/ImportColorsFromFigmaTokensConfig.json`.
 2. Run `yarn importColors`. It fails without writing anything when a mode is missing, key sets differ between modes or brands, or a token aliases an unknown variable or a literal.
 3. Commit the export and the generated files together.
