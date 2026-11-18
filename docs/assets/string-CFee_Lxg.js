@@ -1,0 +1,1 @@
+const e={DEFAULT:"default",DISABLED:"disabled"},n={ONE:"one",TWO:"two"},s=o=>{for(var a="",r="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789",S=r.length,t=0;t<o;t++)a+=r.charAt(Math.floor(Math.random()*S));return a};export{e as S,n as a,s as r};
