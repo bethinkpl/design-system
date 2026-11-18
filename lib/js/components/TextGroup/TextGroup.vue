@@ -344,8 +344,7 @@ $text-group-colors: (
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
-import { throttle } from 'lodash';
-import { useElementSize } from '@vueuse/core';
+import { useElementSize, useThrottleFn } from '@vueuse/core';
 import DsSkeleton from '../Skeleton/Skeleton.vue';
 import {
 	TEXT_GROUP_ALIGNS,
@@ -418,16 +417,21 @@ const maskWidthPx = `${maskWidth}px`;
 
 const { width: eyebrowWidth } = useElementSize(eyebrowRef);
 
-const throttledCheckEyebrowMask = throttle(() => {
-	if (eyebrowRef.value) {
-		const pixelsToBeginning =
-			eyebrowRef.value.scrollLeft -
-			(eyebrowRef.value.clientWidth - eyebrowRef.value.scrollWidth);
+// trailing = true (lodash-like): the last scroll event still updates the mask after scrolling stops
+const throttledCheckEyebrowMask = useThrottleFn(
+	() => {
+		if (eyebrowRef.value) {
+			const pixelsToBeginning =
+				eyebrowRef.value.scrollLeft -
+				(eyebrowRef.value.clientWidth - eyebrowRef.value.scrollWidth);
 
-		// Push the fade band out past the edge when close to the beginning (fully out at the start)
-		maskOffset.value = `${pixelsToBeginning > maskWidth ? 0 : Math.floor(maskWidth - pixelsToBeginning)}px`;
-	}
-}, 50);
+			// Push the fade band out past the edge when close to the beginning (fully out at the start)
+			maskOffset.value = `${pixelsToBeginning > maskWidth ? 0 : Math.floor(maskWidth - pixelsToBeginning)}px`;
+		}
+	},
+	50,
+	true,
+);
 
 onMounted(() => {
 	eyebrowRef.value?.addEventListener('scroll', throttledCheckEyebrowMask);
