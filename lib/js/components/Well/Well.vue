@@ -94,7 +94,7 @@
 	&.-ds-inverted {
 		--ds-well-border-color: #{$color-neutral-border-weak};
 
-		background-color: $color-default-background;
+		background-color: $color-elevated-background;
 	}
 	&.-ds-neutral {
 		--ds-well-border-color: #{$color-neutral-border-weak};

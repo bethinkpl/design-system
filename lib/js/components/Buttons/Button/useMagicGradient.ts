@@ -20,16 +20,16 @@ function ensureMagicGradientDef(): void {
 		`<svg aria-hidden="true" width="0" height="0" style="position:absolute">
 			<defs>
 				<linearGradient id="${GRADIENT_MAGIC_ICON_ID}" x1="0" y1="0" x2="1" y2="0.17">
-					<stop offset="7%" style="stop-color:var(--gradient-magic-color-1)"/>
-					<stop offset="36%" style="stop-color:var(--gradient-magic-color-2)"/>
-					<stop offset="65%" style="stop-color:var(--gradient-magic-color-3)"/>
-					<stop offset="95%" style="stop-color:var(--gradient-magic-color-4)"/>
+					<stop offset="7%" style="stop-color:var(--color-magic-gradient-1)"/>
+					<stop offset="36%" style="stop-color:var(--color-magic-gradient-2)"/>
+					<stop offset="65%" style="stop-color:var(--color-magic-gradient-3)"/>
+					<stop offset="95%" style="stop-color:var(--color-magic-gradient-4)"/>
 				</linearGradient>
 				<linearGradient id="${GRADIENT_MAGIC_ICON_DISABLED_ID}" x1="0" y1="0" x2="1" y2="0.17">
-					<stop offset="7.16%" style="stop-color:rgba(var(--gradient-magic-color-1-rgb), 0.3)"/>
-					<stop offset="36.18%" style="stop-color:rgba(var(--gradient-magic-color-2-rgb), 0.3)"/>
-					<stop offset="65.19%" style="stop-color:rgba(var(--gradient-magic-color-3-rgb), 0.3)"/>
-					<stop offset="95.08%" style="stop-color:rgba(var(--gradient-magic-color-4-rgb), 0.3)"/>
+					<stop offset="7.16%" style="stop-color:rgba(var(--color-magic-gradient-1-rgb), 0.3)"/>
+					<stop offset="36.18%" style="stop-color:rgba(var(--color-magic-gradient-2-rgb), 0.3)"/>
+					<stop offset="65.19%" style="stop-color:rgba(var(--color-magic-gradient-3-rgb), 0.3)"/>
+					<stop offset="95.08%" style="stop-color:rgba(var(--color-magic-gradient-4-rgb), 0.3)"/>
 				</linearGradient>
 			</defs>
 		</svg>`,

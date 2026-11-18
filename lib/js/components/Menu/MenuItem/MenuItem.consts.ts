@@ -16,7 +16,7 @@ export const MENU_ITEM_STATES = {
 export type MenuItemState = Value<typeof MENU_ITEM_STATES>;
 
 export const MENU_ITEM_BACKGROUND_COLORS = {
-	NEUTRAL_WEAK: 'neutralWeak',
+	NONE: 'none',
 	NEUTRAL: 'neutral',
 };
 

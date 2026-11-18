@@ -133,7 +133,6 @@
 	}
 
 	align-items: center;
-	background-color: $color-neutral-background-weak;
 	border-radius: $radius-s;
 	column-gap: $space-4;
 	display: flex;
@@ -343,7 +342,7 @@ const {
 	href = '',
 	to = '',
 	size = MENU_ITEM_SIZES.SMALL,
-	backgroundColor = MENU_ITEM_BACKGROUND_COLORS.NEUTRAL_WEAK,
+	backgroundColor = MENU_ITEM_BACKGROUND_COLORS.NONE,
 	iconLeft = null,
 	iconRight = null,
 	iconRightRotation = null,

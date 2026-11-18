@@ -1,0 +1,46 @@
+// Fades an element's own content out towards `$side` with an alpha mask (`mask-image`), so the
+// fade works on any background — no need to know the surface colour behind it.
+// `$width` is the fade band (any length, also `var()`/`v-bind()`); the outer 15.74% of it is fully transparent.
+// `$offset` (optional length) pushes the band out past the edge, e.g. to shrink it near the start.
+
+// `fadeMaskBoth($axis, $start-width, $end-width)` fades two opposite edges in one mask (one `mask-image`, so two
+// `fadeMask` calls on the same element would override each other): `vertical` = top + bottom, `horizontal` =
+// left + right. Same curve per band; `$end-width` defaults to `$start-width`. No `$offset` — it's a single-edge
+// tweak (TextGroup); add it per edge if a real case needs it.
+
+// Gotchas:
+// - Put it on the element that holds the content, not on a box with its own background/border —
+//   the mask fades those too.
+// - Everything outside the element's border box is clipped (focus rings with offset, shadows,
+//   non-teleported popups), so it suits elements that already clip (`overflow: hidden/auto`).
+// - Faded children stay interactive.
+// - On a scroll container the mask stays put while the content scrolls under it (what you want for
+//   "content fades at the viewport edges"); masking an inner wrapper instead makes the fade scroll away.
+@mixin fadeMask($side: right, $width: 20px, $offset: null) {
+	$shift: if($offset, ' + #{$offset}', '');
+	$gradient: linear-gradient(
+		to #{$side},
+		#000 calc(100% - #{$width}#{$shift}),
+		transparent calc(100% - #{$width} * 0.1574#{$shift})
+	);
+
+	-webkit-mask-image: $gradient;
+	mask-image: $gradient;
+}
+
+@mixin fadeMaskBoth($axis: vertical, $start-width: 20px, $end-width: $start-width) {
+	$gradient: linear-gradient(
+		to #{if($axis == vertical, bottom, right)},
+		transparent calc(#{$start-width} * 0.1574),
+		#000 $start-width,
+		#000 calc(100% - #{$end-width}),
+		transparent calc(100% - #{$end-width} * 0.1574)
+	);
+
+	@if $axis != vertical and $axis != horizontal {
+		@error 'fadeMaskBoth: $axis must be vertical or horizontal, got #{$axis}.';
+	}
+
+	-webkit-mask-image: $gradient;
+	mask-image: $gradient;
+}

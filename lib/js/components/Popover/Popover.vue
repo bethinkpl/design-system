@@ -79,7 +79,7 @@
 .ds-popover {
 	$self: &;
 
-	background-color: $color-default-background;
+	background-color: $color-elevated-background;
 	border-radius: $radius-m;
 	box-shadow: $shadow-l;
 	display: flex;
@@ -87,7 +87,7 @@
 	z-index: $z-index-top-layer;
 
 	&__arrow {
-		fill: $color-default-background;
+		fill: $color-elevated-background;
 	}
 
 	&.-ds-color-neutral {

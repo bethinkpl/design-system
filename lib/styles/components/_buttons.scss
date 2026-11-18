@@ -367,7 +367,7 @@ $button-disabled-alpha: 0.6;
 	&.-ds-elevation-small {
 		&.-ds-outlined {
 			&::before {
-				background: $color-default-background;
+				background: $color-elevated-background;
 				border-radius: 100px;
 				bottom: 0;
 				content: '';

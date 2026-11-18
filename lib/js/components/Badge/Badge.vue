@@ -77,7 +77,7 @@ $elevation-gap-xs: math.div($badge-elevation-size-xs - $badge-content-size-xs, 2
 
 	&__elevation {
 		align-items: center;
-		background-color: $color-default-background;
+		background-color: $color-elevated-background;
 		border-radius: $radius-xl;
 		display: flex;
 		justify-content: center;

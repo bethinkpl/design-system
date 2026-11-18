@@ -251,7 +251,7 @@
 	}
 
 	&__titleTrailingWrapper {
-		@include flexOverflowMask($color-neutral-background, 20px);
+		@include flexOverflowMask(20px);
 
 		display: flex;
 		// flex-shrink: 100000 is big enough, so the title will not shrink

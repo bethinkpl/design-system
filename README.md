@@ -16,6 +16,12 @@ Login credentials: https://bethink.passwd.team/secrets/5ZldBeJcdG5L4YdrovDE
 2. Add key `JSON_BIN_X_ACCESS_KEY`
 3. Value for the key take from https://bethink.passwd.team/secrets/dhpIPB7AappD0jOoU0WW
 
+## Importing colors from Figma
+1. In Figma, right-click each of the `RAWColors`, `BrandColors` and `ColorTokens` variable collections → "Export modes".
+2. Put the exported JSON files in `tools/importers/figma-export/`, overwriting the old ones.
+3. Run `yarn importColors`. It regenerates the color files in `lib/styles/settings/colors/`.
+4. Commit the export and the generated files together.
+
 ## Developing together with wnl-platform
 https://bethink.atlassian.net/wiki/spaces/IT/pages/1095073793/Jak+prowadzi+r+wnoleg+prac+z+platform+i+Design+System
 

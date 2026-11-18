@@ -1,0 +1,117 @@
+@import '../../../styles/settings/radiuses';
+@import '../../../styles/settings/spacings';
+@import '../../../styles/mixins/fade-mask';
+@import '../../../styles/mixins/flex-overflow-mask';
+
+$fade-mask-demo-width: 40px;
+
+.ds-fadeMaskDemo {
+	display: flex;
+	flex-direction: column;
+	gap: $space-20;
+	padding: $space-12;
+
+	&__example {
+		display: flex;
+		flex-direction: column;
+		gap: $space-4;
+	}
+
+	&__description {
+		color: var(--color-neutral-text-weak);
+		margin: 0;
+		max-width: 576px;
+	}
+
+	&__surfaces {
+		display: flex;
+		flex-wrap: wrap;
+		gap: $space-8;
+	}
+
+	&__surface {
+		background-color: var(--color-default-background);
+		border: 1px solid var(--color-neutral-border);
+		border-radius: $radius-m;
+		padding: $space-8;
+		width: 280px;
+
+		&.-ds-primary {
+			background-color: var(--color-primary-background-strong);
+		}
+	}
+
+	&__box {
+		display: flex;
+		gap: $space-4;
+		scrollbar-width: none;
+
+		&::-webkit-scrollbar {
+			display: none;
+		}
+
+		&.-ds-row {
+			overflow-x: auto;
+		}
+
+		&.-ds-column {
+			flex-direction: column;
+			height: 180px;
+			overflow-y: auto;
+		}
+
+		&.-ds-right {
+			@include fadeMask(right, $fade-mask-demo-width);
+
+			padding-right: $fade-mask-demo-width;
+		}
+
+		&.-ds-bottom {
+			@include fadeMask(bottom, $fade-mask-demo-width);
+
+			padding-bottom: $fade-mask-demo-width;
+		}
+
+		&.-ds-leftOffset {
+			// Like TextGroup's eyebrow: the rtl box starts scrolled to the end, the ltr track inside keeps the
+			// item order; the offset (set from JS) grows as the start gets closer than the band, so the fade
+			// slides out instead of covering the first item.
+			// The variable is always set from JS on mount (no fallback: a unitless 0 is invalid in calc).
+			@include fadeMask(left, $fade-mask-demo-width, var(--ds-fade-mask-demo-offset));
+
+			direction: rtl;
+			display: block;
+		}
+
+		&.-ds-flexOverflow {
+			@include flexOverflowMask($fade-mask-demo-width);
+		}
+
+		&.-ds-bothVertical {
+			@include fadeMaskBoth(vertical, 24px, $fade-mask-demo-width);
+
+			padding: 24px 0 $fade-mask-demo-width;
+		}
+
+		&.-ds-bothHorizontal {
+			@include fadeMaskBoth(horizontal, $fade-mask-demo-width);
+
+			padding: 0 $fade-mask-demo-width;
+		}
+	}
+
+	&__track {
+		direction: ltr;
+		display: inline-flex;
+		gap: $space-4;
+	}
+
+	&__item {
+		background-color: var(--color-neutral-background-medium);
+		border-radius: $radius-s;
+		color: var(--color-neutral-text);
+		flex-shrink: 0;
+		padding: $space-4 $space-6;
+		white-space: nowrap;
+	}
+}
