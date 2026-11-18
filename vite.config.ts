@@ -56,6 +56,7 @@ export default defineConfig({
 			// into design-system.css. Only FontAwesome is bundled: PRO packages need a private registry token.
 			external: (id) =>
 				!id.endsWith('.css') &&
+				!id.startsWith('@fortawesome/') && // always bundle, even if FA ever moves to dependencies
 				EXTERNAL_PACKAGES.some((name) => id === name || id.startsWith(`${name}/`)),
 			output: {
 				// One output file per source module, so consumers' bundlers can drop whole unused modules
