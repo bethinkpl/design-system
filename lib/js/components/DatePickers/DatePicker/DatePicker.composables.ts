@@ -78,9 +78,11 @@ export function initFlatpickr({
 		if (locale === SUPPORTED_LOCALE.pl) {
 			if (!localeCache.has(SUPPORTED_LOCALE.pl)) {
 				try {
+					// ESM build on purpose: dist/l10n/pl is UMD, and Vite dev (esbuild pre-bundling) exposes
+					// it only as a default export, so `.Polish` would be undefined there.
 					localeCache.set(
 						SUPPORTED_LOCALE.pl,
-						(await import('flatpickr/dist/l10n/pl')).Polish,
+						(await import('flatpickr/dist/esm/l10n/pl.js')).Polish,
 					);
 				} catch (e) {
 					console.error('Failed to load flatpickr Polish locale', e);
