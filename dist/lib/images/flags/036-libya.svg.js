@@ -1,0 +1,17 @@
+import { createElementBlock as l, openBlock as a, createStaticVNode as h } from "vue";
+const p = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function e(i, t) {
+  return a(), l("svg", p, t[0] || (t[0] = [
+    h('<g clip-path="url(#a)"><path fill="#000" d="M46-.333H0v30.666h46z"></path><path fill="#D80027" d="M46-.333H0V9.89h46z"></path><path fill="#496E2D" d="M46 20.111H0v10.222h46z"></path><path fill="#F0F0F0" d="m25.284 13.205.805 1.11 1.304-.423-.806 1.109.805 1.11-1.304-.425-.806 1.108v-1.37l-1.303-.425 1.304-.423z"></path><path fill="#F0F0F0" d="M23.087 17.773a2.773 2.773 0 1 1 1.319-5.213 3.413 3.413 0 1 0 0 4.88 2.76 2.76 0 0 1-1.32.333"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const d = { render: e };
+export {
+  d as default,
+  e as render
+};
+//# sourceMappingURL=036-libya.svg.js.map

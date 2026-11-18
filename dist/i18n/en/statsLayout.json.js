@@ -1,0 +1,15 @@
+const t = {
+  "ds.statsLayout.default.leftColumnLabel": "Scope",
+  "ds.statsLayout.default.rightColumnLabel": "Results",
+  "ds.statsLayout.filtersDropdown.title": "Filter",
+  "ds.statsLayout.sectionHeader.title": "Your statistics",
+  "ds.statsLayout.statsErrorBanner.buttonText": "Try again",
+  "ds.statsLayout.statsErrorBanner.message": "Refresh the page to try again",
+  "ds.statsLayout.statsErrorBanner.title": "Failed to load statistics",
+  "ds.statsLayout.statsResetBanner.buttonText": "RESET STATISTICS",
+  "ds.statsLayout.statsResetBanner.title": "Reset statistics"
+};
+export {
+  t as default
+};
+//# sourceMappingURL=statsLayout.json.js.map

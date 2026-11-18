@@ -1,0 +1,17 @@
+import { createElementBlock as e, openBlock as l, createStaticVNode as a } from "vue";
+const p = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function h(i, t) {
+  return l(), e("svg", p, t[0] || (t[0] = [
+    a('<g clip-path="url(#a)"><path fill="#D80027" d="M46-.333H0v30.666h46z"></path><path fill="#F0F0F0" d="m22.21 11.477 1.581 2.178 2.56-.83-1.583 2.177 1.58 2.178-2.559-.833-1.583 2.176.002-2.691-2.56-.833 2.56-.83z"></path><path fill="#F0F0F0" d="M17.897 20.445a5.445 5.445 0 1 1 2.59-10.235 6.701 6.701 0 1 0 0 9.58 5.4 5.4 0 0 1-2.59.655"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const r = { render: h };
+export {
+  r as default,
+  h as render
+};
+//# sourceMappingURL=153-turkey.svg.js.map

@@ -1,0 +1,17 @@
+import { createElementBlock as l, openBlock as t, createStaticVNode as a } from "vue";
+const p = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function e(i, h) {
+  return t(), l("svg", p, h[0] || (h[0] = [
+    a('<g clip-path="url(#a)"><path fill="#D80027" d="M46-.333H0v30.666h46z"></path><path fill="#6DA544" d="M19.394 15 0 27.93V2.07zM46 2.07v25.86L26.606 15z"></path><path fill="#0052B4" d="M46 2.07 26.606 15 46 27.93v2.404h-3.605L23 17.404 3.605 30.334H0V27.93L19.394 15 0 2.07V-.332h3.605L23 12.597 42.395-.333H46z"></path><path fill="#F0F0F0" d="M46 2.07 26.606 15 46 27.93v2.404h-3.605L23 17.404 3.605 30.334H0V27.93L19.394 15 0 2.07V-.332h3.605L23 12.597 42.395-.333H46z"></path><path fill="#F0F0F0" d="M23 21.667a6.667 6.667 0 1 0 0-13.334 6.667 6.667 0 0 0 0 13.334"></path><path fill="#D80027" d="m23 10.333.578 1h1.154l-.577 1 .577 1h-1.154l-.578 1-.577-1h-1.155l.578-1-.578-1h1.155zM20.066 15l.577 1h1.155l-.578 1 .578 1h-1.155l-.577 1-.578-1h-1.154l.577-1-.578-1h1.155zm5.869 0 .577 1h1.155l-.578 1 .578 1h-1.155l-.577 1-.577-1h-1.155l.577-1-.577-1h1.155z"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const f = { render: e };
+export {
+  f as default,
+  e as render
+};
+//# sourceMappingURL=158-burundi.svg.js.map

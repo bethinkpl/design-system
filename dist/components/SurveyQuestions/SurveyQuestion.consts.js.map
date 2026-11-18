@@ -1,0 +1,1 @@
+{"version":3,"file":"SurveyQuestion.consts.js","sources":["../../../lib/js/components/SurveyQuestions/SurveyQuestion.consts.ts"],"sourcesContent":null,"names":["SURVEY_QUESTION_STATES","SURVEY_QUESTION_SCALE_CONTAINERS"],"mappings":"AAEO,MAAMA,IAAyB;AAAA,EACrC,SAAS;AAAA,EACT,UAAU;AACX,GAIaC,IAAmC;AAAA,EAC/C,KAAK;AAAA,EACL,KAAK;AACN;"}

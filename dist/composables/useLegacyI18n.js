@@ -1,0 +1,18 @@
+import { getCurrentInstance as r, computed as c } from "vue";
+const s = () => {
+  const o = r();
+  if (!o || !o.root.proxy)
+    throw new Error("useLegacyI18n must be called within a Vue component");
+  const e = o.root.proxy.$t, n = c(() => {
+    var t;
+    return (t = o.root.proxy) == null ? void 0 : t.$i18n.locale;
+  });
+  return {
+    t: e,
+    locale: n
+  };
+};
+export {
+  s as useLegacyI18n
+};
+//# sourceMappingURL=useLegacyI18n.js.map

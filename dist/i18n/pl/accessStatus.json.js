@@ -1,0 +1,11 @@
+const s = {
+  "ds.accessStatus.status.active": "Aktywny",
+  "ds.accessStatus.status.awaiting": "Oczekujący",
+  "ds.accessStatus.status.deactivated": "Dezaktywowany",
+  "ds.accessStatus.status.ended": "Zakończony",
+  "ds.accessStatus.status.suspended": "Zawieszony"
+};
+export {
+  s as default
+};
+//# sourceMappingURL=accessStatus.json.js.map

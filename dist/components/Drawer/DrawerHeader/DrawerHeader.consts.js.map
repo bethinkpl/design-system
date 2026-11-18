@@ -1,0 +1,1 @@
+{"version":3,"file":"DrawerHeader.consts.js","sources":["../../../../lib/js/components/Drawer/DrawerHeader/DrawerHeader.consts.ts"],"sourcesContent":null,"names":["DRAWER_HEADER_TITLE_COLORS","DRAWER_HEADER_BACKGROUND_COLORS"],"mappings":"AAAO,MAAMA,IAA6B;AAAA,EACzC,gBAAgB;AAAA,EAChB,cAAc;AACf,GAKaC,IAAkC;AAAA,EAC9C,MAAM;AAAA,EACN,SAAS;AACV;"}

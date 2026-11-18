@@ -1,0 +1,23 @@
+import { __exports as e } from "../../../_virtual/faLightbulb4.js";
+var f;
+function b() {
+  return f ? e : (f = 1, (function(i) {
+    Object.defineProperty(i, "__esModule", { value: !0 });
+    var u = "fas", n = "lightbulb", r = 384, c = 512, a = [128161], l = "f0eb", t = "M292.9 384c7.3-22.3 21.9-42.5 38.4-59.9 32.7-34.4 52.7-80.9 52.7-132.1 0-106-86-192-192-192S0 86 0 192c0 51.2 20 97.7 52.7 132.1 16.5 17.4 31.2 37.6 38.4 59.9l201.7 0zM288 432l-192 0 0 16c0 44.2 35.8 80 80 80l32 0c44.2 0 80-35.8 80-80l0-16zM184 112c-39.8 0-72 32.2-72 72 0 13.3-10.7 24-24 24s-24-10.7-24-24c0-66.3 53.7-120 120-120 13.3 0 24 10.7 24 24s-10.7 24-24 24z";
+    i.definition = {
+      prefix: u,
+      iconName: n,
+      icon: [
+        r,
+        c,
+        a,
+        l,
+        t
+      ]
+    }, i.faLightbulb = i.definition, i.prefix = u, i.iconName = n, i.width = r, i.height = c, i.ligatures = a, i.unicode = l, i.svgPathData = t, i.aliases = a;
+  })(e), e);
+}
+export {
+  b as __require
+};
+//# sourceMappingURL=faLightbulb.js.map

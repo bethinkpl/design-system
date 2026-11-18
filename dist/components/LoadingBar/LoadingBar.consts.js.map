@@ -1,0 +1,1 @@
+{"version":3,"file":"LoadingBar.consts.js","sources":["../../../lib/js/components/LoadingBar/LoadingBar.consts.ts"],"sourcesContent":null,"names":["LOADING_BAR_COLORS","LOADING_BAR_SIZES"],"mappings":"AAEO,MAAMA,IAAqB;AAAA,EACjC,eAAe;AAAA,EACf,gBAAgB;AAAA,EAChB,SAAS;AAAA,EACT,SAAS;AAAA,EACT,QAAQ;AAAA,EACR,MAAM;AACP,GAIaC,IAAoB;AAAA,EAChC,OAAO;AAAA,EACP,QAAQ;AAAA,EACR,OAAO;AACR;"}

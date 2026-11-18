@@ -1,0 +1,17 @@
+import { createElementBlock as a, openBlock as l, createStaticVNode as e } from "vue";
+const p = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function h(i, t) {
+  return l(), a("svg", p, t[0] || (t[0] = [
+    e('<g clip-path="url(#a)"><path fill="#F0F0F0" d="M46-.334H0v30.667h46z"></path><path fill="#338AF3" d="M15.333-.334H0v30.667h15.333zM46-.333H30.667v30.667H46z"></path><path fill="#ACABB1" d="m27.32 17.761-2.795-2.795 2.66-2.66-.12-1.406-.762-.762L23 13.441l-3.303-3.303-.762.762-.12 1.405 2.66 2.661-2.795 2.795 1.525 1.525L23 16.491l2.795 2.795z"></path><path fill="#6DA544" d="m27.066 10.9-1.525 1.525a3.594 3.594 0 1 1-5.082 0L18.934 10.9a5.75 5.75 0 1 0 8.132 0"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const o = { render: h };
+export {
+  o as default,
+  h as render
+};
+//# sourceMappingURL=222-guatemala.svg.js.map

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sources":["../../lib/js/i18n/index.ts"],"sourcesContent":null,"names":["messages","pl","en","SUPPORTED_LOCALE","key"],"mappings":";;AAMO,MAAMA,IAAW;AAAA,EACvB,IAAAC;AAAA,EACA,IAAAC;AACD,GAIaC,IAAmB,OAAO;AAAA,EACtC,OAAO,KAAKH,CAAQ,EAAE,IAAI,CAACI,MAAQ,CAACA,GAAKA,CAAG,CAAC;AAC9C;"}

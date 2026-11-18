@@ -1,0 +1,17 @@
+import { createElementBlock as v, openBlock as t, createStaticVNode as e } from "vue";
+const l = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function a(p, h) {
+  return t(), v("svg", l, h[0] || (h[0] = [
+    e('<g clip-path="url(#a)"><path fill="#F0F0F0" d="M46-.333H0v30.667h46z"></path><path fill="#D80027" d="M25.875-.334h-5.75v12.459H0v5.75h20.125v12.458h5.75V17.875H46v-5.75H25.875z"></path><path fill="#D80027" d="M11.062 4.896v-2h-2v2h-2v2h2v2h2v-2h2v-2zm25.875 0v-2h-2v2h-2v2h2v2h2v-2h2v-2zM11.062 23.104v-2h-2v2h-2v2h2v2h2v-2h2v-2zm25.875 0v-2h-2v2h-2v2h2v2h2v-2h2v-2z"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const o = { render: a };
+export {
+  o as default,
+  a as render
+};
+//# sourceMappingURL=005-georgia.svg.js.map

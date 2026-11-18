@@ -1,0 +1,1 @@
+{"version":3,"file":"BadgeScore.consts.js","sources":["../../../lib/js/components/BadgeScore/BadgeScore.consts.ts"],"sourcesContent":null,"names":["BADGE_SCORE_COLORS","BADGE_SCORE_SIZES"],"mappings":"AAAO,MAAMA,IAAqB;AAAA,EACjC,SAAS;AAAA,EACT,SAAS;AAAA,EACT,MAAM;AAAA,EACN,UAAU;AAAA,EACV,SAAS;AAAA,EACT,cAAc;AACf,GAEaC,IAAoB;AAAA,EAChC,QAAQ;AAAA,EACR,OAAO;AAAA,EACP,QAAQ;AACT;"}

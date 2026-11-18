@@ -1,0 +1,17 @@
+import { createElementBlock as l, openBlock as a, createStaticVNode as h } from "vue";
+const p = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function e(i, t) {
+  return a(), l("svg", p, t[0] || (t[0] = [
+    h('<g clip-path="url(#a)"><path fill="#F0F0F0" d="M46-.333H0v30.666h46z"></path><path fill="#000" d="M46-.333H0V9.89h46z"></path><path fill="#6DA544" d="M46 20.111H0v10.222h46z"></path><path fill="#D80027" d="M23 15 0 30.335V-.334z"></path><path fill="#F0F0F0" d="m7 12.197.707 1.48 1.598-.37-.716 1.476 1.286 1.02-1.6.36.004 1.64-1.28-1.026-1.279 1.026.005-1.64-1.6-.36 1.285-1.02-.716-1.476 1.598.37z"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const f = { render: e };
+export {
+  f as default,
+  e as render
+};
+//# sourceMappingURL=220-jordan.svg.js.map
