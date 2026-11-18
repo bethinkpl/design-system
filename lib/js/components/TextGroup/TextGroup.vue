@@ -344,7 +344,7 @@ $text-group-colors: (
 
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue';
-import { throttle } from 'lodash';
+import { throttle } from 'lodash-es';
 import { useElementSize } from '@vueuse/core';
 import DsSkeleton from '../Skeleton/Skeleton.vue';
 import {
