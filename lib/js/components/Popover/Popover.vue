@@ -22,6 +22,8 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
+					:sticky="stickToBoundary ? 'always' : 'partial'"
+					:prioritize-position="stickToBoundary"
 					@open-auto-focus="onOpenAutoFocus"
 					@close-auto-focus="preventInManualMode"
 					@escape-key-down="preventInManualMode"
@@ -201,6 +203,7 @@ const {
 	isPointerVisible = true,
 	hideWhenDetached = false,
 	autofocus = POPOVER_AUTOFOCUS.ENABLED,
+	stickToBoundary = false,
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
@@ -232,6 +235,11 @@ const {
 	// Whether focus moves into the panel on open. Off on touch devices keeps an input in the panel
 	// from opening the on-screen keyboard; focus then stays where it was.
 	autofocus?: PopoverAutofocus;
+	// On: the panel stays within the boundary even after the reference leaves it, detaching from
+	// the reference and sticking to the boundary's edge, like the Legacy components did. Pass a
+	// scrolling container as collisionBoundary to keep the panel inside it. hideWhenDetached wins
+	// when both are on.
+	stickToBoundary?: boolean;
 }>();
 
 defineEmits<{

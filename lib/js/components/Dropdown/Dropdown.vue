@@ -24,6 +24,8 @@
 					:collision-boundary="collisionBoundary ?? undefined"
 					position-strategy="absolute"
 					:hide-when-detached="hideWhenDetached"
+					:sticky="stickToBoundary ? 'always' : 'partial'"
+					:prioritize-position="stickToBoundary"
 					@open-auto-focus="onOpenAutoFocus"
 				>
 					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
@@ -106,6 +108,7 @@ const {
 	sideFlip = true,
 	hideWhenDetached = false,
 	autofocus = DROPDOWN_AUTOFOCUS.ENABLED,
+	stickToBoundary = false,
 } = defineProps<{
 	appendToBody?: boolean;
 	// The element the panel stays within; the viewport when not set.
@@ -128,6 +131,11 @@ const {
 	// Whether focus moves into the panel on open. Off on touch devices keeps an input in the panel
 	// from opening the on-screen keyboard; focus then stays where it was.
 	autofocus?: DropdownAutofocus;
+	// On: the panel stays within the boundary even after the reference leaves it, detaching from
+	// the reference and sticking to the boundary's edge, like the Legacy components did. Pass a
+	// scrolling container as collisionBoundary to keep the panel inside it. hideWhenDetached wins
+	// when both are on.
+	stickToBoundary?: boolean;
 }>();
 
 const open = defineModel<boolean>('open', { default: false });
