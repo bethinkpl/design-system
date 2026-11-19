@@ -27375,7 +27375,8 @@ const pte = /* @__PURE__ */ ae(hte, [["render", vte]]), gte = { class: "ds-selec
     maxHeight: { default: null },
     isPointerVisible: { type: Boolean, default: !0 },
     hideWhenDetached: { type: Boolean, default: !1 },
-    autofocus: { default: () => o_.ENABLED }
+    autofocus: { default: () => o_.ENABLED },
+    stickToBoundary: { type: Boolean, default: !1 }
   }, {
     open: { type: Boolean, default: !1 },
     openModifiers: {}
@@ -27433,6 +27434,8 @@ const pte = /* @__PURE__ */ ae(hte, [["render", vte]]), gte = { class: "ds-selec
                   "collision-boundary": (h = u.collisionBoundary) != null ? h : void 0,
                   "position-strategy": "absolute",
                   "hide-when-detached": u.hideWhenDetached,
+                  sticky: u.stickToBoundary ? "always" : "partial",
+                  "prioritize-position": u.stickToBoundary,
                   onOpenAutoFocus: l,
                   onCloseAutoFocus: n,
                   onEscapeKeyDown: n,
@@ -27475,7 +27478,7 @@ const pte = /* @__PURE__ */ ae(hte, [["render", vte]]), gte = { class: "ds-selec
                     })) : D("", !0)
                   ]),
                   _: 3
-                }, 8, ["class", "side", "align", "side-flip", "collision-boundary", "hide-when-detached"])
+                }, 8, ["class", "side", "align", "side-flip", "collision-boundary", "hide-when-detached", "sticky", "prioritize-position"])
               ];
             }),
             _: 3
@@ -27505,7 +27508,8 @@ const pte = /* @__PURE__ */ ae(hte, [["render", vte]]), gte = { class: "ds-selec
     maxHeight: { default: null },
     sideFlip: { type: Boolean, default: !0 },
     hideWhenDetached: { type: Boolean, default: !1 },
-    autofocus: { default: () => l_.ENABLED }
+    autofocus: { default: () => l_.ENABLED },
+    stickToBoundary: { type: Boolean, default: !1 }
   }, {
     open: { type: Boolean, default: !1 },
     openModifiers: {}
@@ -27556,6 +27560,8 @@ const pte = /* @__PURE__ */ ae(hte, [["render", vte]]), gte = { class: "ds-selec
                   "collision-boundary": (p = s.collisionBoundary) != null ? p : void 0,
                   "position-strategy": "absolute",
                   "hide-when-detached": s.hideWhenDetached,
+                  sticky: s.stickToBoundary ? "always" : "partial",
+                  "prioritize-position": s.stickToBoundary,
                   onOpenAutoFocus: n
                 }, {
                   default: H(() => [
@@ -27567,7 +27573,7 @@ const pte = /* @__PURE__ */ ae(hte, [["render", vte]]), gte = { class: "ds-selec
                     ], 4)
                   ]),
                   _: 3
-                }, 8, ["class", "align", "side-flip", "collision-boundary", "hide-when-detached"])
+                }, 8, ["class", "align", "side-flip", "collision-boundary", "hide-when-detached", "sticky", "prioritize-position"])
               ];
             }),
             _: 3

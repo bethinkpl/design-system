@@ -60,6 +60,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     autofocus: {
         type: import('vue').PropType<PopoverAutofocus>;
     };
+    stickToBoundary: {
+        type: import('vue').PropType<boolean>;
+    };
 }>, {
     close: typeof close;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {
@@ -116,6 +119,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
     autofocus: {
         type: import('vue').PropType<PopoverAutofocus>;
+    };
+    stickToBoundary: {
+        type: import('vue').PropType<boolean>;
     };
 }>> & Readonly<{
     "onButton-click"?: (() => any) | undefined;

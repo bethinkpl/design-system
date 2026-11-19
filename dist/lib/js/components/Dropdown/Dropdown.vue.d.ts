@@ -40,6 +40,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     autofocus: {
         type: import('vue').PropType<DropdownAutofocus>;
     };
+    stickToBoundary: {
+        type: import('vue').PropType<boolean>;
+    };
 }>, {
     close: typeof close;
 }, {}, {}, {}, import('vue').ComponentOptionsMixin, import('vue').ComponentOptionsMixin, {}, string, import('vue').PublicProps, Readonly<import('vue').ExtractPropTypes<{
@@ -70,6 +73,9 @@ declare const __VLS_component: import('vue').DefineComponent<import('vue').Extra
     };
     autofocus: {
         type: import('vue').PropType<DropdownAutofocus>;
+    };
+    stickToBoundary: {
+        type: import('vue').PropType<boolean>;
     };
 }>> & Readonly<{}>, {}, {}, {}, {}, string, import('vue').ComponentProvideOptions, true, {}, any>;
 declare const _default: __VLS_WithTemplateSlots<typeof __VLS_component, ReturnType<typeof __VLS_template>>;
