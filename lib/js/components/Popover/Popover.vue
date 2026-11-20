@@ -13,6 +13,7 @@
 						'-ds-color-neutral': color === POPOVER_COLORS.NEUTRAL,
 						'-ds-small': size === POPOVER_SIZES.SMALL,
 						'-ds-medium': size === POPOVER_SIZES.MEDIUM,
+						'-ds-scrollLocked': lockScroll,
 					}"
 					:side="side"
 					:align="align"
@@ -24,6 +25,7 @@
 					:hide-when-detached="hideWhenDetached"
 					:sticky="stickToBoundary ? 'always' : 'partial'"
 					:prioritize-position="stickToBoundary"
+					:collision-padding="lockScroll ? PANEL_COLLISION_PADDING : 0"
 					@open-auto-focus="onOpenAutoFocus"
 					@close-auto-focus="preventInManualMode"
 					@escape-key-down="preventInManualMode"
@@ -87,6 +89,14 @@
 	display: flex;
 	flex-direction: column;
 	z-index: $z-index-top-layer;
+
+	&.-ds-scrollLocked {
+		// Fits the space left on the panel's side, minus the collision padding; the content slot
+		// scrolls inside. Locked, the page can't scroll to reveal a taller panel.
+		max-height: var(--reka-popover-content-available-height);
+		// Reka's scroll lock turns pointer events off on the body.
+		pointer-events: auto;
+	}
 
 	&__arrow {
 		fill: $color-elevated-background;
@@ -160,6 +170,8 @@ import { PopoverArrow, PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigge
 
 import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
 
+import { PANEL_COLLISION_PADDING, usePanelScrollLock } from '../../composables/usePanelScrollLock';
+
 import { isTouchDevice } from '../../utils/device';
 import {
 	POPOVER_ALIGNS,
@@ -204,6 +216,7 @@ const {
 	hideWhenDetached = false,
 	autofocus = POPOVER_AUTOFOCUS.ENABLED,
 	stickToBoundary = false,
+	lockScroll = false,
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
 	collisionBoundary?: Element | null;
@@ -240,6 +253,11 @@ const {
 	// scrolling container as collisionBoundary to keep the panel inside it. hideWhenDetached wins
 	// when both are on.
 	stickToBoundary?: boolean;
+	// On: the page can't scroll while the panel is open, and clicks outside only close the panel
+	// (they don't reach the page). The panel fits the space left in the viewport on its side and
+	// scrolls inside, so keep sideFlip on to let it take the larger side. Off: the page scrolls,
+	// which also reveals a panel taller than the viewport.
+	lockScroll?: boolean;
 }>();
 
 defineEmits<{
@@ -247,6 +265,8 @@ defineEmits<{
 }>();
 
 const open = defineModel<boolean>('open', { default: false });
+
+usePanelScrollLock(() => lockScroll && open.value && !isDisabled);
 
 const contentSlotStyles = computed(() => (maxHeight ? { maxHeight } : {}));
 

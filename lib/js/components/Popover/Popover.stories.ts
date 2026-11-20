@@ -25,7 +25,7 @@ const StoryTemplate: StoryFn<typeof Popover> = (args) => ({
 	},
 	template:
 		'<div style="display: flex; align-items: center; justify-content: center; height: 800px; background: var(--raw-gray-50);">' +
-		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :hide-when-detached="hideWhenDetached" :autofocus="autofocus">' +
+		'<popover :side="side" :align="align" :color="color" :is-disabled="isDisabled" :is-manual="isManual" :title-text="titleText" :subtitle-text="subtitleText" :button-text="buttonText" :open="open" :header-image-url="headerImageUrl" :size="size" :max-height="maxHeight" :is-pointer-visible="isPointerVisible" :side-flip="sideFlip" :append-to-body="appendToBody" :hide-when-detached="hideWhenDetached" :stick-to-boundary="stickToBoundary" :lock-scroll="lockScroll" :autofocus="autofocus">' +
 		'<template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>' +
 		'<div>{{ definitionSlot }}</div>' +
 		'</popover>' +
@@ -52,6 +52,8 @@ Interactive.args = {
 	sideFlip: true,
 	appendToBody: true,
 	hideWhenDetached: false,
+	stickToBoundary: false,
+	lockScroll: false,
 	autofocus: POPOVER_AUTOFOCUS.ENABLED,
 	definitionSlot: 'Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.',
 } as Args;
@@ -83,6 +85,11 @@ const argTypes = {
 	},
 	maxHeight: {
 		control: 'text',
+	},
+	lockScroll: {
+		control: 'boolean',
+		description:
+			'Experiment. Locks page scrolling while open; the panel fits the viewport and its content scrolls inside.',
 	},
 	autofocus: {
 		control: 'select',
@@ -260,3 +267,40 @@ export const Variants: StoryFn<typeof Popover> = () => ({
 		</div>
 	`,
 });
+
+// Experiment: a popover taller than the viewport, opened low on a scrollable page. With lockScroll
+// the page stays put, the panel fits the viewport and its content scrolls inside.
+export const LongContentLowOnPage: StoryFn<typeof Popover> = (args) => ({
+	components: { Popover },
+	setup() {
+		return { args };
+	},
+	template: `
+    <div style="height: 200vh; padding: 24px; background: var(--raw-gray-50);">
+      <p>Scroll down to the reference near the bottom of the viewport.</p>
+      <div style="margin-top: 85vh;">
+        <popover
+          title-text="Long content"
+          button-text="Got it"
+          :size="args.size"
+          :side-flip="args.sideFlip"
+          :stick-to-boundary="args.stickToBoundary"
+          :lock-scroll="args.lockScroll"
+        >
+          <template #reference><span style="background: var(--theme-100); border-radius: 4px; padding: 4px 8px;">click me!</span></template>
+          <p v-for="n in 30" :key="n">Paragraph {{ n }}: bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.</p>
+        </popover>
+      </div>
+    </div>`,
+});
+
+LongContentLowOnPage.args = {
+	size: POPOVER_SIZES.SMALL,
+	sideFlip: true,
+	stickToBoundary: false,
+	lockScroll: true,
+} as Args;
+LongContentLowOnPage.argTypes = {
+	size: argTypes.size,
+	lockScroll: argTypes.lockScroll,
+} as ArgTypes;

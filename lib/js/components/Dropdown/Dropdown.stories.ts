@@ -34,6 +34,8 @@ const StoryTemplate: StoryFn<typeof Dropdown> = (args) => ({
                 :max-height="maxHeight"
                 :side-flip="sideFlip"
                 :hide-when-detached="hideWhenDetached"
+                :stick-to-boundary="stickToBoundary"
+                :lock-scroll="lockScroll"
                 :autofocus="autofocus">
         <template #reference="{ isOpen }"><span>Dropdown entry point {{ isOpen ? 'opened' : 'closed' }}</span>
         </template>
@@ -58,6 +60,8 @@ const args = {
 	align: DROPDOWN_ALIGNS.START,
 	sideFlip: true,
 	hideWhenDetached: false,
+	stickToBoundary: false,
+	lockScroll: false,
 	autofocus: DROPDOWN_AUTOFOCUS.ENABLED,
 } as Args;
 
@@ -72,6 +76,11 @@ const argTypes = {
 	},
 	maxHeight: {
 		control: 'text',
+	},
+	lockScroll: {
+		control: 'boolean',
+		description:
+			'Experiment. Locks page scrolling while open; the panel fits the viewport and its list scrolls inside.',
 	},
 	autofocus: {
 		control: 'select',
@@ -316,3 +325,45 @@ export const RichListTrigger: StoryFn<typeof Dropdown> = () => ({
       </dropdown>
     </div>`,
 });
+
+// Experiment: a list longer than the viewport, opened low on a scrollable page. With lockScroll
+// the page stays put, the panel takes the larger side, fits the viewport and the list scrolls inside.
+export const LongListLowOnPage: StoryFn<typeof Dropdown> = (args) => ({
+	components: { Dropdown, DsButton, SelectList, SelectListItem },
+	setup() {
+		const selected = ref('Item 1');
+
+		return { args, BUTTON_TYPES, ICONS, selected };
+	},
+	template: `
+    <div style="height: 200vh; padding: 24px;">
+      <p>Scroll down to the reference near the bottom of the viewport.</p>
+      <div style="margin-top: 85vh;">
+        <dropdown
+          :side-flip="args.sideFlip"
+          :stick-to-boundary="args.stickToBoundary"
+          :lock-scroll="args.lockScroll"
+        >
+          <template #reference="{ isOpen }">
+            <ds-button :type="BUTTON_TYPES.OUTLINED" :icon-right="isOpen ? ICONS.FA_ANGLE_UP : ICONS.FA_ANGLE_DOWN">
+              {{ selected }}
+            </ds-button>
+          </template>
+          <template #default="{ close }">
+            <select-list>
+              <select-list-item
+                v-for="n in 60"
+                :key="n"
+                :label="'Item ' + n"
+                :is-selected="'Item ' + n === selected"
+                @click="selected = 'Item ' + n; close()"
+              />
+            </select-list>
+          </template>
+        </dropdown>
+      </div>
+    </div>`,
+});
+
+LongListLowOnPage.args = { sideFlip: true, stickToBoundary: false, lockScroll: true } as Args;
+LongListLowOnPage.argTypes = { lockScroll: argTypes.lockScroll } as ArgTypes;

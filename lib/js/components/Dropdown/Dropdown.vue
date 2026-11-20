@@ -16,6 +16,7 @@
 						'-ds-radiusSingleEdge': radius === DROPDOWN_RADIUSES.SINGLE_EDGE,
 						'-ds-radiusBothEdges': radius === DROPDOWN_RADIUSES.BOTH_EDGES,
 						'-ds-hasSameWidth': hasSameWidth,
+						'-ds-scrollLocked': lockScroll,
 					}"
 					side="bottom"
 					:align="align"
@@ -26,6 +27,7 @@
 					:hide-when-detached="hideWhenDetached"
 					:sticky="stickToBoundary ? 'always' : 'partial'"
 					:prioritize-position="stickToBoundary"
+					:collision-padding="lockScroll ? PANEL_COLLISION_PADDING : 0"
 					@open-auto-focus="onOpenAutoFocus"
 				>
 					<div class="ds-dropdown__scrollableWrapper" :style="scrollableWrapperStyles">
@@ -68,6 +70,14 @@
 		@include dropdownSurfaceRadiusTop;
 	}
 
+	&.-ds-scrollLocked {
+		// Fits the space left on the panel's side, minus the collision padding; the list scrolls
+		// inside. Locked, the page can't scroll to reveal a taller panel.
+		max-height: var(--reka-popover-content-available-height);
+		// Reka's scroll lock turns pointer events off on the body.
+		pointer-events: auto;
+	}
+
 	&.-ds-hasSameWidth {
 		width: var(--reka-popover-trigger-width);
 	}
@@ -84,6 +94,8 @@ import { computed } from 'vue';
 import { PopoverContent, PopoverPortal, PopoverRoot, PopoverTrigger } from 'reka-ui';
 
 import PopoverTriggerReference from '../shared/PopoverTriggerReference.vue';
+
+import { PANEL_COLLISION_PADDING, usePanelScrollLock } from '../../composables/usePanelScrollLock';
 
 import { isTouchDevice } from '../../utils/device';
 import {
@@ -109,6 +121,7 @@ const {
 	hideWhenDetached = false,
 	autofocus = DROPDOWN_AUTOFOCUS.ENABLED,
 	stickToBoundary = false,
+	lockScroll = false,
 } = defineProps<{
 	appendToBody?: boolean;
 	// The element the panel stays within; the viewport when not set.
@@ -136,9 +149,16 @@ const {
 	// scrolling container as collisionBoundary to keep the panel inside it. hideWhenDetached wins
 	// when both are on.
 	stickToBoundary?: boolean;
+	// On: the page can't scroll while the panel is open, and clicks outside only close the panel
+	// (they don't reach the page). The panel fits the space left in the viewport on its side and
+	// scrolls inside, so keep sideFlip on to let it take the larger side. Off: the page scrolls,
+	// which also reveals a panel taller than the viewport.
+	lockScroll?: boolean;
 }>();
 
 const open = defineModel<boolean>('open', { default: false });
+
+usePanelScrollLock(() => lockScroll && open.value);
 
 const scrollableWrapperStyles = computed(() => (maxHeight ? { maxHeight } : {}));
 
