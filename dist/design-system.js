@@ -27374,7 +27374,7 @@ const pte = /* @__PURE__ */ ae(hte, [["render", vte]]), gte = { class: "ds-selec
     size: { default: () => B4.SMALL },
     maxHeight: { default: null },
     isPointerVisible: { type: Boolean, default: !0 },
-    hideWhenDetached: { type: Boolean, default: !1 },
+    hideWhenDetached: { type: Boolean, default: !0 },
     autofocus: { default: () => o_.ENABLED }
   }, {
     open: { type: Boolean, default: !1 },
@@ -27504,7 +27504,7 @@ const pte = /* @__PURE__ */ ae(hte, [["render", vte]]), gte = { class: "ds-selec
     align: { default: () => _l.START },
     maxHeight: { default: null },
     sideFlip: { type: Boolean, default: !0 },
-    hideWhenDetached: { type: Boolean, default: !1 },
+    hideWhenDetached: { type: Boolean, default: !0 },
     autofocus: { default: () => l_.ENABLED }
   }, {
     open: { type: Boolean, default: !1 },
