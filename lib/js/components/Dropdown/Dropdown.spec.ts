@@ -120,13 +120,13 @@ describe('Dropdown', () => {
 		expect(content.props('align')).toBe(align);
 	});
 
-	it('should position the panel absolute and keep it visible when the reference scrolls out of view', async () => {
+	it('should position the panel absolute and hide it when the reference scrolls out of view', async () => {
 		const wrapper = setup();
 		await open(wrapper);
 		const content = wrapper.findComponent(PopoverContent);
 
 		expect(content.props('positionStrategy')).toBe('absolute');
-		expect(content.props('hideWhenDetached')).toBe(false);
+		expect(content.props('hideWhenDetached')).toBe(true);
 	});
 
 	it.each([true, false])('should pass sideFlip through: %s', async (sideFlip) => {
@@ -136,11 +136,11 @@ describe('Dropdown', () => {
 		expect(wrapper.findComponent(PopoverContent).props('sideFlip')).toBe(sideFlip);
 	});
 
-	it('should hide the panel when the reference scrolls out of view with hideWhenDetached', async () => {
-		const wrapper = setup({ hideWhenDetached: true });
+	it('should keep the panel following the reference out of view with hideWhenDetached off', async () => {
+		const wrapper = setup({ hideWhenDetached: false });
 		await open(wrapper);
 
-		expect(wrapper.findComponent(PopoverContent).props('hideWhenDetached')).toBe(true);
+		expect(wrapper.findComponent(PopoverContent).props('hideWhenDetached')).toBe(false);
 	});
 
 	it.each([true, false])('should portal the panel to body: %s', async (appendToBody) => {

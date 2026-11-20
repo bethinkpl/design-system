@@ -199,7 +199,7 @@ const {
 	size = POPOVER_SIZES.SMALL,
 	maxHeight = null,
 	isPointerVisible = true,
-	hideWhenDetached = false,
+	hideWhenDetached = true,
 	autofocus = POPOVER_AUTOFOCUS.ENABLED,
 } = defineProps<{
 	// The element the panel stays within; the viewport when not set.
@@ -225,8 +225,9 @@ const {
 	// Caps the content slot; the title, subtitle and button stay visible above and below it.
 	maxHeight?: string | null;
 	isPointerVisible?: boolean;
-	// On: the panel hides when the reference leaves the boundary (the viewport by default; a
-	// scrolling container counts only when passed as collisionBoundary).
+	// On (default): the panel hides when the reference leaves the boundary (the viewport by
+	// default; a scrolling container counts only when passed as collisionBoundary) and shows again
+	// when it's back. It stays open meanwhile, and hidden it can't be clicked or focused.
 	// Off: it keeps following the reference, also out of view.
 	hideWhenDetached?: boolean;
 	// Whether focus moves into the panel on open. Off on touch devices keeps an input in the panel
