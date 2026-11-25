@@ -63,9 +63,6 @@ export default defineConfig({
 				// (together with `sideEffects` in package.json). A single pre-bundled file can't be tree-shaken.
 				preserveModules: true,
 				preserveModulesRoot: resolve(__dirname, 'lib/js'),
-				// Vendored FontAwesome packs are tree-shaken to the used icons, but their source maps would
-				// embed the complete PRO icon sets (~16 MB) via `sourcesContent`.
-				sourcemapExcludeSources: true,
 				// Bundled FontAwesome would land in dist/node_modules/, which npm drops on publish.
 				entryFileNames: (chunk) =>
 					`${chunk.name.replace('node_modules/@fortawesome/', 'vendor/@fortawesome/')}.js`,
