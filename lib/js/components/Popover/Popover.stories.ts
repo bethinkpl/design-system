@@ -51,7 +51,7 @@ Interactive.args = {
 	isPointerVisible: true,
 	sideFlip: true,
 	appendToBody: true,
-	hideWhenDetached: false,
+	hideWhenDetached: true,
 	autofocus: POPOVER_AUTOFOCUS.ENABLED,
 	definitionSlot: 'Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.',
 } as Args;
@@ -83,6 +83,11 @@ const argTypes = {
 	},
 	maxHeight: {
 		control: 'text',
+	},
+	hideWhenDetached: {
+		control: 'boolean',
+		description:
+			'On by default: the panel hides while its reference is out of view and shows again when it is back. Off: the panel keeps following the reference, also out of view.',
 	},
 	autofocus: {
 		control: 'select',
@@ -260,3 +265,29 @@ export const Variants: StoryFn<typeof Popover> = () => ({
 		</div>
 	`,
 });
+
+// The panel hides while its reference is scrolled out of view and shows again when it's back.
+// Open the popover, then scroll the page. Turn hideWhenDetached off to see the panel keep
+// following the reference past the viewport's edge instead.
+export const ReferenceScrolledOutOfView: StoryFn<typeof Popover> = (args) => ({
+	components: { Popover, DsButton },
+	setup() {
+		return { args };
+	},
+	template: `
+		<div style="height: 300vh; padding: 24px; background: var(--raw-gray-50);">
+			<p>Open the popover, then scroll the page down and back up.</p>
+			<div style="margin-top: 40vh;">
+				<popover :hide-when-detached="args.hideWhenDetached" title-text="Popover title">
+					<template #reference><ds-button>Popover reference</ds-button></template>
+					Bacon ipsum dolor amet t-bone meatball ground round turducken buffalo pork.
+				</popover>
+			</div>
+		</div>
+	`,
+});
+
+ReferenceScrolledOutOfView.args = { hideWhenDetached: true } as Args;
+ReferenceScrolledOutOfView.argTypes = {
+	hideWhenDetached: argTypes.hideWhenDetached,
+} as ArgTypes;

@@ -57,7 +57,7 @@ const args = {
 	maxHeight: '',
 	align: DROPDOWN_ALIGNS.START,
 	sideFlip: true,
-	hideWhenDetached: false,
+	hideWhenDetached: true,
 	autofocus: DROPDOWN_AUTOFOCUS.ENABLED,
 } as Args;
 
@@ -72,6 +72,11 @@ const argTypes = {
 	},
 	maxHeight: {
 		control: 'text',
+	},
+	hideWhenDetached: {
+		control: 'boolean',
+		description:
+			'On by default: the panel hides while its reference is out of view and shows again when it is back. Off: the panel keeps following the reference, also out of view.',
 	},
 	autofocus: {
 		control: 'select',
@@ -316,3 +321,36 @@ export const RichListTrigger: StoryFn<typeof Dropdown> = () => ({
       </dropdown>
     </div>`,
 });
+
+// The panel hides while its reference is scrolled out of view and shows again when it's back.
+// Open the dropdown, then scroll the page. Turn hideWhenDetached off to see the panel keep
+// following the reference past the viewport's edge instead.
+export const ReferenceScrolledOutOfView: StoryFn<typeof Dropdown> = (args) => ({
+	components: { Dropdown, DsButton, SelectList, SelectListItem },
+	setup() {
+		return { args, BUTTON_TYPES, ICONS };
+	},
+	template: `
+    <div style="height: 300vh; padding: 24px;">
+      <p>Open the dropdown, then scroll the page down and back up.</p>
+      <div style="margin-top: 40vh;">
+        <dropdown :hide-when-detached="args.hideWhenDetached">
+          <template #reference="{ isOpen }">
+            <ds-button :type="BUTTON_TYPES.OUTLINED" :icon-right="isOpen ? ICONS.FA_ANGLE_UP : ICONS.FA_ANGLE_DOWN">
+              Dropdown reference
+            </ds-button>
+          </template>
+          <template #default="{ close }">
+            <select-list>
+              <select-list-item v-for="n in 8" :key="n" :label="'Item ' + n" @click="close" />
+            </select-list>
+          </template>
+        </dropdown>
+      </div>
+    </div>`,
+});
+
+ReferenceScrolledOutOfView.args = { hideWhenDetached: true } as Args;
+ReferenceScrolledOutOfView.argTypes = {
+	hideWhenDetached: argTypes.hideWhenDetached,
+} as ArgTypes;

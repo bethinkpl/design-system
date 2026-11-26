@@ -182,20 +182,20 @@ describe('Popover', () => {
 		expect(content.props('align')).toBe(align);
 	});
 
-	it('should position the panel absolute, flip it and keep it visible when the reference scrolls out of view', async () => {
+	it('should position the panel absolute, flip it and hide it when the reference scrolls out of view', async () => {
 		const content = (await setupForced()).findComponent(PopoverContent);
 
 		expect(content.props('positionStrategy')).toBe('absolute');
 		expect(content.props('sideFlip')).toBe(true);
-		expect(content.props('hideWhenDetached')).toBe(false);
+		expect(content.props('hideWhenDetached')).toBe(true);
 	});
 
-	it('should hide the panel when the reference scrolls out of view with hideWhenDetached', async () => {
-		const content = (await setupForced({ hideWhenDetached: true })).findComponent(
+	it('should keep the panel following the reference out of view with hideWhenDetached off', async () => {
+		const content = (await setupForced({ hideWhenDetached: false })).findComponent(
 			PopoverContent,
 		);
 
-		expect(content.props('hideWhenDetached')).toBe(true);
+		expect(content.props('hideWhenDetached')).toBe(false);
 	});
 
 	it('should pass sideFlip through', async () => {

@@ -104,7 +104,7 @@ const {
 	align = DROPDOWN_ALIGNS.START,
 	maxHeight = null,
 	sideFlip = true,
-	hideWhenDetached = false,
+	hideWhenDetached = true,
 	autofocus = DROPDOWN_AUTOFOCUS.ENABLED,
 } = defineProps<{
 	appendToBody?: boolean;
@@ -121,8 +121,9 @@ const {
 	// reference near the top of the page): flipped above, its top would run past the page start,
 	// where scrolling can't reach it. Unflipped, it stays below and the page scrolls to reveal it.
 	sideFlip?: boolean;
-	// On: the panel hides when the reference leaves the boundary (the viewport by default; a
-	// scrolling container counts only when passed as collisionBoundary).
+	// On (default): the panel hides when the reference leaves the boundary (the viewport by
+	// default; a scrolling container counts only when passed as collisionBoundary) and shows again
+	// when it's back. It stays open meanwhile, and hidden it can't be clicked or focused.
 	// Off: it keeps following the reference, also out of view.
 	hideWhenDetached?: boolean;
 	// Whether focus moves into the panel on open. Off on touch devices keeps an input in the panel
