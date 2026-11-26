@@ -1,0 +1,23 @@
+import { __exports as e } from "../../../_virtual/faFacebook2.js";
+var v;
+function d() {
+  return v ? e : (v = 1, (function(a) {
+    Object.defineProperty(a, "__esModule", { value: !0 });
+    var n = "fab", r = "facebook", c = 512, f = 512, i = [62e3], o = "f09a", u = "M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5l0-170.3-52.8 0 0-78.2 52.8 0 0-33.7c0-87.1 39.4-127.5 125-127.5 16.2 0 44.2 3.2 55.7 6.4l0 70.8c-6-.6-16.5-1-29.6-1-42 0-58.2 15.9-58.2 57.2l0 27.8 83.6 0-14.4 78.2-69.3 0 0 175.9C413.8 494.8 512 386.9 512 256z";
+    a.definition = {
+      prefix: n,
+      iconName: r,
+      icon: [
+        c,
+        f,
+        i,
+        o,
+        u
+      ]
+    }, a.faFacebook = a.definition, a.prefix = n, a.iconName = r, a.width = c, a.height = f, a.ligatures = i, a.unicode = o, a.svgPathData = u, a.aliases = i;
+  })(e), e);
+}
+export {
+  d as __require
+};
+//# sourceMappingURL=faFacebook.js.map

@@ -1,0 +1,17 @@
+import { createElementBlock as l, openBlock as a, createStaticVNode as h } from "vue";
+const p = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function e(i, t) {
+  return a(), l("svg", p, t[0] || (t[0] = [
+    h('<g clip-path="url(#a)"><path fill="#0052B4" d="M46-.334H0v30.667h46z"></path><path fill="#D80027" d="M46-.334H0V9.888h46z"></path><path fill="#F0F0F0" d="M46 20.11H0v10.222h46z"></path><path fill="#D80027" d="M11.632 8.333v7.649c0 4.35 5.684 5.684 5.684 5.684S23 20.333 23 15.982v-7.65z"></path><path fill="#FFDA44" d="M13.983 9.666h6.667V7l-1.334.666-2-2-2 2L13.983 7zm7.684 7.381-4.333-4.333L13 17.047l1.414 1.414 2.919-2.919 2.919 2.919z"></path><path fill="#F0F0F0" d="M21.667 13h-2.022a1.333 1.333 0 1 0-2.329-1.296 1.333 1.333 0 1 0-2.329 1.295H13c0 .737.642 1.334 1.378 1.334h-.044c0 .736.597 1.333 1.333 1.333 0 .652.468 1.194 1.086 1.31l-1.05 2.372a4.32 4.32 0 0 0 3.261 0l-1.05-2.372A1.33 1.33 0 0 0 19 15.666c.736 0 1.333-.597 1.333-1.333h-.044c.736 0 1.378-.597 1.378-1.334"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const c = { render: e };
+export {
+  c as default,
+  e as render
+};
+//# sourceMappingURL=227-serbia.svg.js.map

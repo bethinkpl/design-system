@@ -1,0 +1,15 @@
+const t = {
+  "ds.statsLayout.default.leftColumnLabel": "Zakres",
+  "ds.statsLayout.default.rightColumnLabel": "Wyniki",
+  "ds.statsLayout.filtersDropdown.title": "Filtruj",
+  "ds.statsLayout.sectionHeader.title": "Twoje statystyki",
+  "ds.statsLayout.statsErrorBanner.buttonText": "Spróbuj ponownie",
+  "ds.statsLayout.statsErrorBanner.message": "Odśwież stronę, aby spróbować ponownie",
+  "ds.statsLayout.statsErrorBanner.title": "Nie udało się załadować statystyk",
+  "ds.statsLayout.statsResetBanner.buttonText": "Resetuj statystyki",
+  "ds.statsLayout.statsResetBanner.title": "Reset statystyk"
+};
+export {
+  t as default
+};
+//# sourceMappingURL=statsLayout.json.js.map

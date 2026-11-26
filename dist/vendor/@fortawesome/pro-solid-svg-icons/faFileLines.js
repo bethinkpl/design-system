@@ -1,0 +1,23 @@
+import { __exports as a } from "../../../_virtual/faFileLines4.js";
+var u;
+function v() {
+  return u ? a : (u = 1, (function(i) {
+    Object.defineProperty(i, "__esModule", { value: !0 });
+    var n = "fas", c = "file-lines", l = 384, f = 512, e = [128441, 128462, 61686, "file-alt", "file-text"], r = "f15c", t = "M0 64C0 28.7 28.7 0 64 0L213.5 0c17 0 33.3 6.7 45.3 18.7L365.3 125.3c12 12 18.7 28.3 18.7 45.3L384 448c0 35.3-28.7 64-64 64L64 512c-35.3 0-64-28.7-64-64L0 64zm208-5.5l0 93.5c0 13.3 10.7 24 24 24L325.5 176 208 58.5zM120 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z";
+    i.definition = {
+      prefix: n,
+      iconName: c,
+      icon: [
+        l,
+        f,
+        e,
+        r,
+        t
+      ]
+    }, i.faFileLines = i.definition, i.prefix = n, i.iconName = c, i.width = l, i.height = f, i.ligatures = e, i.unicode = r, i.svgPathData = t, i.aliases = e;
+  })(a), a);
+}
+export {
+  v as __require
+};
+//# sourceMappingURL=faFileLines.js.map

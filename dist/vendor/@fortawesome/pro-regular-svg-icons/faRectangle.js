@@ -1,0 +1,23 @@
+import { __exports as i } from "../../../_virtual/faRectangle2.js";
+var u;
+function v() {
+  return u ? i : (u = 1, (function(a) {
+    Object.defineProperty(a, "__esModule", { value: !0 });
+    var n = "far", c = "rectangle", r = 512, l = 512, e = [9644, "rectangle-landscape"], t = "f2fa", f = "M448 112c8.8 0 16 7.2 16 16l0 256c0 8.8-7.2 16-16 16L64 400c-8.8 0-16-7.2-16-16l0-256c0-8.8 7.2-16 16-16l384 0zM64 64C28.7 64 0 92.7 0 128L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-256c0-35.3-28.7-64-64-64L64 64z";
+    a.definition = {
+      prefix: n,
+      iconName: c,
+      icon: [
+        r,
+        l,
+        e,
+        t,
+        f
+      ]
+    }, a.faRectangle = a.definition, a.prefix = n, a.iconName = c, a.width = r, a.height = l, a.ligatures = e, a.unicode = t, a.svgPathData = f, a.aliases = e;
+  })(i), i);
+}
+export {
+  v as __require
+};
+//# sourceMappingURL=faRectangle.js.map

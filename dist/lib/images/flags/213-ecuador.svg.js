@@ -1,0 +1,17 @@
+import { createElementBlock as a, openBlock as h, createStaticVNode as l } from "vue";
+const p = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function e(i, t) {
+  return h(), a("svg", p, t[0] || (t[0] = [
+    l('<g clip-path="url(#a)"><path fill="#FFDA44" d="M46-.333H0v30.666h46z"></path><path fill="#0052B4" d="M46 15H0v7.667h46z"></path><path fill="#D80027" d="M46 22.667H0v7.666h46z"></path><path fill="#FFDA44" d="M23 20.333a5.333 5.333 0 1 0 0-10.666 5.333 5.333 0 0 0 0 10.666"></path><path fill="#338AF3" d="M23 18.531a3.44 3.44 0 0 1-3.438-3.437V13.03A3.44 3.44 0 0 1 23 9.594a3.44 3.44 0 0 1 3.437 3.437v2.063A3.44 3.44 0 0 1 23 18.53"></path><path fill="#000" d="M28.5 6.844h-4.125a1.375 1.375 0 0 0-2.75 0H17.5c0 .759.661 1.375 1.42 1.375h-.045c0 .759.615 1.375 1.375 1.375 0 .759.615 1.375 1.375 1.375h2.75c.759 0 1.375-.616 1.375-1.375.759 0 1.375-.616 1.375-1.375h-.046c.76 0 1.42-.616 1.42-1.375"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const f = { render: e };
+export {
+  f as default,
+  e as render
+};
+//# sourceMappingURL=213-ecuador.svg.js.map

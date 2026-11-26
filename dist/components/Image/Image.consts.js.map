@@ -1,0 +1,1 @@
+{"version":3,"file":"Image.consts.js","sources":["../../../lib/js/components/Image/Image.consts.ts"],"sourcesContent":["export const IMAGE_FITS = {\n\tCONTAIN: 'contain',\n\tCOVER: 'cover',\n};\n\nexport type ImageFit = (typeof IMAGE_FITS)[keyof typeof IMAGE_FITS];\n"],"names":["IMAGE_FITS"],"mappings":"AAAO,MAAMA,IAAa;AAAA,EACzB,SAAS;AAAA,EACT,OAAO;AACR;"}

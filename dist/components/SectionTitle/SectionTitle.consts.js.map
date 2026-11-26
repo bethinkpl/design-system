@@ -1,0 +1,1 @@
+{"version":3,"file":"SectionTitle.consts.js","sources":["../../../lib/js/components/SectionTitle/SectionTitle.consts.ts"],"sourcesContent":["export const SECTION_TITLE_SIZES = {\n\tXS: 'xs',\n};\n\nexport type SectionTitleSize = (typeof SECTION_TITLE_SIZES)[keyof typeof SECTION_TITLE_SIZES];\n"],"names":["SECTION_TITLE_SIZES"],"mappings":"AAAO,MAAMA,IAAsB;AAAA,EAClC,IAAI;AACL;"}

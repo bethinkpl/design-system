@@ -1,0 +1,17 @@
+import { createElementBlock as h, openBlock as l, createStaticVNode as a } from "vue";
+const p = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function e(i, t) {
+  return l(), h("svg", p, t[0] || (t[0] = [
+    a('<g clip-path="url(#a)"><path fill="#0052B4" d="M46-.333H0v30.666h46z"></path><path fill="#FFDA44" d="M46-.333H0v7.667h46z"></path><path fill="#F0F0F0" d="M46 7.333H0V15h46z"></path><path fill="#D80027" d="M46 15H0v7.667h46z"></path><path fill="#6DA544" d="M23 15 0 30.335V-.333z"></path><path fill="#F0F0F0" d="M6.167 15c0-2.234 1.57-4.1 3.666-4.558a4.667 4.667 0 1 0 0 9.116A4.67 4.67 0 0 1 6.167 15"></path><path fill="#F0F0F0" d="m9.782 11 .248.764h.803l-.65.472.248.764-.65-.472-.65.472.249-.764-.65-.472h.803zm0 2 .248.764h.803l-.65.472.248.764-.65-.472-.65.472.249-.764-.65-.472h.803zm0 2 .248.764h.803l-.65.472.248.764-.65-.472-.65.472.249-.764-.65-.472h.803zm0 2 .248.764h.803l-.65.472.248.764-.65-.472-.65.472.249-.764-.65-.472h.803z"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const o = { render: e };
+export {
+  o as default,
+  e as render
+};
+//# sourceMappingURL=171-comoros.svg.js.map

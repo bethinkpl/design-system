@@ -1,0 +1,1 @@
+{"version":3,"file":"TabItem.consts.js","sources":["../../../lib/js/components/TabItem/TabItem.consts.ts"],"sourcesContent":["export const TAB_ITEM_SIZES = {\n\tSMALL: 'S',\n\tMEDIUM: 'M',\n} as const;\n"],"names":["TAB_ITEM_SIZES"],"mappings":"AAAO,MAAMA,IAAiB;AAAA,EAC7B,OAAO;AAAA,EACP,QAAQ;AACT;"}

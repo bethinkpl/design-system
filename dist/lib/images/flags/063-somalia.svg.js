@@ -1,0 +1,17 @@
+import { createElementBlock as l, openBlock as e, createStaticVNode as a } from "vue";
+const o = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function h(i, t) {
+  return e(), l("svg", o, t[0] || (t[0] = [
+    a('<g clip-path="url(#a)"><path fill="#338AF3" d="M46-.333H0v30.667h46z"></path><path fill="#F0F0F0" d="m23 6.13 2.036 6.266h6.589l-5.33 3.873 2.035 6.267L23 18.663l-5.33 3.873 2.035-6.267-5.33-3.873h6.589z"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const r = { render: h };
+export {
+  r as default,
+  h as render
+};
+//# sourceMappingURL=063-somalia.svg.js.map

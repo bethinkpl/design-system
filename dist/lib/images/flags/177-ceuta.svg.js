@@ -1,0 +1,17 @@
+import { createElementBlock as t, openBlock as h, createStaticVNode as l } from "vue";
+const v = {
+  xmlns: "http://www.w3.org/2000/svg",
+  fill: "none",
+  viewBox: "0 0 46 30"
+};
+function p(e, a) {
+  return h(), t("svg", v, a[0] || (a[0] = [
+    l('<g clip-path="url(#a)"><path fill="#F0F0F0" d="M46-.333H0v30.667h46z"></path><path fill="#000" d="M7.667-.333 23 15V-.333zM0 30.333h7.667L23 15H0zm38.334 0L23 15v15.333zm0-30.666L23 15h23V-.333z"></path><path fill="#FFDA44" d="M17.667 10.333 23 11l5.334-.667v-3.2L26.2 8.2 23 5l-3.2 3.2-2.133-1.067z"></path><path fill="#D80027" d="M23 23a5.34 5.34 0 0 1-5.333-5.334v-5.333l2-2h6.667l2 2v5.333A5.34 5.34 0 0 1 23 23"></path><path fill="#F0F0F0" d="M23 21a3.337 3.337 0 0 1-3.333-3.334v-5.333h6.667v5.333A3.337 3.337 0 0 1 23 21"></path><path fill="#FFDA44" d="M19.667 10.333h-2v2h2zm8.666 0h-2v2h2zm0 4.334h-2v2h2zm-8.666 0h-2v2h2zM23 21a3.3 3.3 0 0 1-1-.154v2.058a5.3 5.3 0 0 0 2 0v-2.058A3.3 3.3 0 0 1 23 21m-3.289-2.792-1.596 1.596a5.4 5.4 0 0 0 1.157 1.671l1.414-1.413a3.33 3.33 0 0 1-.975-1.855m8.174 1.597-1.596-1.596a3.33 3.33 0 0 1-.974 1.854l1.413 1.413a5.4 5.4 0 0 0 1.157-1.671"></path><path fill="#0052B4" d="M22.334 13.444v1.111a.667.667 0 0 0 1.333 0v-1.11zm0 4.445v1.11a.667.667 0 0 0 1.333 0v-1.11zm2-2.222v1.11a.667.667 0 0 0 1.333 0v-1.11zm-2 0v1.11a.667.667 0 0 0 1.333 0v-1.11zm-2 0v1.11a.667.667 0 0 0 1.333 0v-1.11z"></path></g><defs><clipPath id="a"><path fill="#fff" d="M0 0h46v30H0z"></path></clipPath></defs>', 2)
+  ]));
+}
+const f = { render: p };
+export {
+  f as default,
+  p as render
+};
+//# sourceMappingURL=177-ceuta.svg.js.map
